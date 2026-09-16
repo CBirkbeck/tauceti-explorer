@@ -204,9 +204,23 @@
          "file": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
          "line": 930,
          "fit": "related"
+        },
+        {
+         "name": "Cubic.discr",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/CubicDiscriminant.lean",
+         "line": 461,
+         "fit": "related"
+        },
+        {
+         "name": "QuadraticForm.discr_comp",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+         "line": 1287,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib has polynomial discriminants and resultants but no binary forms with a GL2 action and no invariants I, J."
+       "note": "Mathlib has discriminants of polynomials and of one-variable cubics, and the degree-two invariance law (the discriminant of a quadratic form scales by det^2 under substitution); there are no binary forms of higher degree with a GL2 action and no invariants I, J."
       },
       {
        "target": "Orbit parametrization of number rings: GL2(Z)-classes of binary cubic forms and cubic rings (Delone-Faddeev), pairs of ternary quadratic forms and quartic rings with cubic resolvents (Bhargava)",
@@ -218,9 +232,16 @@
          "file": "TauCeti/NumberTheory/NumberField/Monogenic.lean",
          "line": 68,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumberField.IntegralPrimitiveElement.discr_minpoly_eq_index_sq_mul_discr",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Index/Discriminant.lean",
+         "line": 56,
+         "fit": "related"
         }
        ],
-       "note": "No cubic or quartic rings, resolvent rings or their parametrizations; Tau Ceti only has monogenicity of rings of integers."
+       "note": "No cubic or quartic rings, resolvent rings or their parametrizations; Tau Ceti only has monogenicity and the index formula disc(minpoly theta) = [O_K : Z[theta]]^2 d_K for monogenic orders."
       },
       {
        "target": "Parametrization of E(K)/2E(K) and of 2-Selmer elements by PGL2-orbits of (locally) soluble binary quartic forms with invariants I, J (Birch-Swinnerton-Dyer/Cremona), including integrality of representatives",
@@ -302,9 +323,16 @@
          "file": "TauCeti/NumberTheory/Modular.lean",
          "line": 230,
          "fit": "related"
+        },
+        {
+         "name": "ModularGroup.volume_fd_lt_top",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Modular.lean",
+         "line": 112,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib counts lattice points in dilates of a bounded measurable region with null frontier (main term only), and Tau Ceti proves the standard domain is a fundamental domain for PSL2(Z) on the upper half-plane; nothing averages over a fundamental domain of GL2(Z) acting on forms."
+       "note": "Mathlib counts lattice points in dilates of a bounded measurable region with null frontier (main term only), and Tau Ceti proves the standard domain is a fundamental domain for PSL2(Z) on the upper half-plane with finite invariant volume (the value pi/3 is not computed); nothing averages over a fundamental domain of GL2(Z) acting on forms."
       },
       {
        "target": "Davenport's lemma: lattice points in a bounded semialgebraic region equal its volume plus O(largest projection volume)",
@@ -546,8 +574,16 @@
       {
        "target": "Bhargava-Shankar: the average size of Sel_2 over any large family ordered by height is 3 (Tamagawa number of PGL2)",
        "library": "absent",
-       "declarations": [],
-       "note": "No averages over families of elliptic curves and no Tamagawa-number computation."
+       "declarations": [
+        {
+         "name": "ModularGroup.volume_fd_lt_top",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Modular.lean",
+         "line": 112,
+         "fit": "related"
+        }
+       ],
+       "note": "No averages over families of elliptic curves and no Tamagawa numbers; only finiteness of the volume of the modular fundamental domain is known, not its value."
       },
       {
        "target": "Average rank of elliptic curves over Q ordered by height is at most 1.5",
@@ -787,9 +823,16 @@
          "file": "Mathlib/NumberTheory/DiophantineApproximation/Basic.lean",
          "line": 277,
          "fit": "exact"
+        },
+        {
+         "name": "AddCircle.exists_norm_nsmul_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/WellApproximable.lean",
+         "line": 357,
+         "fit": "exact"
         }
        ],
-       "note": "Pigeonhole form with 0 < k <= n and |k x - j| <= 1/(n+1)."
+       "note": "Pigeonhole form with 0 < k <= n and |k x - j| <= 1/(n+1); a circle-group form is also given."
       },
       {
        "target": "Geometry-of-numbers route: Minkowski's convex body theorem and simultaneous Dirichlet approximation",
@@ -801,9 +844,16 @@
          "file": "Mathlib/MeasureTheory/Group/GeometryOfNumbers.lean",
          "line": 65,
          "fit": "exact"
+        },
+        {
+         "name": "NormedAddCommGroup.exists_norm_nsmul_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/WellApproximable.lean",
+         "line": 322,
+         "fit": "related"
         }
        ],
-       "note": "Minkowski's theorem is in Mathlib (strict volume inequality; a compact variant with <= is next to it), but neither the derivation of Dirichlet from it nor simultaneous approximation of several reals is stated."
+       "note": "Minkowski's theorem is in Mathlib (strict volume inequality; a compact variant with <= is next to it), as is a pigeonhole Dirichlet theorem in any compact connected normed group with Haar measure. Applied to a torus with ball volumes computed this would give simultaneous approximation, but neither that nor the derivation of Dirichlet from Minkowski is stated."
       }
      ],
      "duplicates": [
@@ -873,9 +923,16 @@
          "file": "Mathlib/Analysis/Polynomial/MahlerMeasure.lean",
          "line": 359,
          "fit": "related"
+        },
+        {
+         "name": "Liouville.exists_one_le_pow_mul_dist",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Transcendental/Liouville/Basic.lean",
+         "line": 96,
+         "fit": "related"
         }
        ],
-       "note": "Mahler measure and its coefficient bounds are in Mathlib, but Mathlib's Liouville constant is not made explicit."
+       "note": "Mahler measure and its coefficient bounds are in Mathlib; the abstract Liouville lemma has a constant given by a Lipschitz bound near alpha, but nothing expresses it through Mahler measure."
       },
       {
        "target": "Siegel's lemma (small integer solutions of underdetermined linear systems) for auxiliary polynomials",
@@ -957,9 +1014,16 @@
          "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
          "line": 506,
          "fit": "related"
+        },
+        {
+         "name": "Polynomial.abc",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/FLT/MasonStothers.lean",
+         "line": 55,
+         "fit": "related"
         }
        ],
-       "note": "The S-unit group (Mathlib), its finite generation (Tau Ceti) and Dirichlet's unit theorem (NumberField.Units.exist_unique_eq_mul_prod) are present; no finiteness theorem for unit equations."
+       "note": "The S-unit group (Mathlib), its finite generation (Tau Ceti), Dirichlet's unit theorem (NumberField.Units.exist_unique_eq_mul_prod) and the Mason-Stothers theorem (the polynomial analogue of the unit equation) are present; no finiteness theorem for unit equations over number fields."
       },
       {
        "target": "Decomposable form (norm form) equations under linear-independence and nondegeneracy hypotheses",
@@ -1206,7 +1270,7 @@
    }
   },
   "ExponentialSumsAndCircleMethod": {
-   "summary": "Mathlib supplies the harmonic-analysis base: torus and finite-group character orthogonality, Fourier series and Poisson summation, the discrete Fourier transform on ZMod, Gauss and Jacobi sums with |g|^2 = q, Dirichlet's approximation theorem, one-variable Hensel, Chevalley-Warning, Euler products, Lagrange's four squares and Dirichlet's theorem on primes in progressions. Tau Ceti adds nothing specific to exponential sums. Genuinely missing is the whole circle method: Weyl differencing, van der Corput and stationary phase, completion of sums, the counting identity and arcs, Vinogradov's mean value theorem and decoupling, singular series and integrals with local densities, Waring, three primes (with Vaughan identities and Siegel-Walfisz), Birch's theorem and the determinant method.",
+   "summary": "Mathlib supplies the harmonic-analysis base: torus and finite-group character orthogonality, Fourier series and Poisson summation, the discrete Fourier transform on ZMod, Gauss and Jacobi sums with |g|^2 = q, Dirichlet's approximation theorem, one-variable Hensel, Chevalley-Warning, Euler products, Lagrange's four squares and Dirichlet's theorem on primes in progressions. Tau Ceti adds only first steps towards the Hasse bound for elliptic curves over finite fields. Genuinely missing is the whole circle method: Weyl differencing, van der Corput and stationary phase, completion of sums, the counting identity and arcs, Vinogradov's mean value theorem and decoupling, singular series and integrals with local densities, Waring, three primes (with Vaughan identities and Siegel-Walfisz), Birch's theorem and the determinant method.",
    "layers": {
     "ExponentialSumsAndCircleMethod:ES.0": {
      "verdict": "not built",
@@ -1254,9 +1318,16 @@
          "file": "Mathlib/Algebra/Group/AddChar.lean",
          "line": 329,
          "fit": "related"
+        },
+        {
+         "name": "DirichletCharacter.IsPrimitive.fourierTransform_eq_inv_mul_gaussSum",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/ZMod.lean",
+         "line": 220,
+         "fit": "related"
         }
        ],
-       "note": "The discrete Fourier transform on ZMod q and additive-character orthogonality exist; the completion inequality is not stated."
+       "note": "The discrete Fourier transform on ZMod q, additive-character orthogonality and the Gauss-sum expansion of a primitive character (the first step of Polya-Vinogradov) exist; the completion inequality, Polya-Vinogradov and any bound for incomplete sums are not stated."
       },
       {
        "target": "Interface to finite-field character sums: Gauss and Jacobi sums, and Weil-type square-root bounds",
@@ -1275,9 +1346,23 @@
          "file": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
          "line": 193,
          "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.degree_oneSubFrobeniusIsogeny_eq_pointCount",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Degree.lean",
+         "line": 96,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Matrix.sq_le_four_mul_of_exists_nonneg_pencil_det",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/PencilDiscriminant.lean",
+         "line": 100,
+         "fit": "related"
         }
        ],
-       "note": "|g(chi,psi)|^2 = q for nontrivial characters and the Gauss-Jacobi relation are proved; Weil's bound for polynomial or Kloosterman sums is absent (Tau Ceti defines the Frobenius trace of an elliptic curve but has no Hasse bound)."
+       "note": "|g(chi,psi)|^2 = q for nontrivial characters and the Gauss-Jacobi relation are proved. Weil's bound for polynomial or Kloosterman sums is absent; Tau Ceti has only first steps towards the Hasse bound (deg(1 - Frobenius) = #E(F_q), and t^2 <= 4q conditional on Frobenius pencil data that nothing supplies)."
       }
      ],
      "duplicates": [
@@ -1419,9 +1504,16 @@
          "file": "Mathlib/NumberTheory/Divisors.lean",
          "line": 220,
          "fit": "related"
+        },
+        {
+         "name": "Nat.card_divisors",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+         "line": 222,
+         "fit": "related"
         }
        ],
-       "note": "Not even the divisor bound d(n) << n^eps is stated."
+       "note": "Only d(n) <= n and the product formula for d(n) are present; not even the divisor bound d(n) << n^eps is stated."
       }
      ],
      "duplicates": []
@@ -1453,7 +1545,7 @@
        "target": "p-adic local densities as limits of solution counts modulo p^k, with Haar normalization matching the asymptotic constant",
        "library": "absent",
        "declarations": [],
-       "note": "Not present."
+       "note": "Not present; neither library even puts a measurable-space or Haar-measure instance on Z_p or Q_p."
       },
       {
        "target": "Positivity of local densities from nonsingular local solutions (Hensel lifting; real density)",
@@ -1472,9 +1564,16 @@
          "file": "Mathlib/FieldTheory/ChevalleyWarning.lean",
          "line": 109,
          "fit": "related"
+        },
+        {
+         "name": "Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Smooth/AdicCompletion.lean",
+         "line": 94,
+         "fit": "related"
         }
        ],
-       "note": "One-variable Hensel over Z_p and Chevalley-Warning over finite fields exist; the multivariable Hensel lift of a nonsingular zero and density positivity are not stated."
+       "note": "One-variable Hensel over Z_p, Chevalley-Warning over finite fields and an abstract lifting property (maps from a formally smooth algebra lift along an adically complete ring; declared public lemma, so absent from the declaration index) exist; the multivariable Hensel lift of a nonsingular zero in usable form and density positivity are not stated."
       },
       {
        "target": "Major-arc approximation of exponential sums by S(q,a) v(beta)",
@@ -1568,7 +1667,7 @@
       },
       {
        "layer": "AdditiveCombinatorics:AC.5",
-       "note": "AC.5 proves counts of linear equations in primes with local factors, which contain the three-primes theorem."
+       "note": "AC.5 proves counts of finite-complexity linear equations in primes with local factors, a framework whose complexity-one case includes the three-primes count."
       },
       {
        "layer": "ClassicalArithmeticCompletion:CA.4",
@@ -1627,7 +1726,7 @@
    }
   },
   "ProbabilisticAndMetricNumberTheory": {
-   "summary": "Mathlib has the probabilistic base: uniform measures, moments, characteristic functions, convergence in distribution with Levy's continuity theorem, the i.i.d. central limit theorem, the strong law, both Borel-Cantelli lemmas, Gallagher's zero-one law, the fact that almost no real is LiouvilleWith p for p > 2, Hausdorff measure, ergodicity of rotations and of x -> nx, and the mean ergodic theorem; Tau Ceti adds L1 convergence of Birkhoff averages to conditional expectations. Genuinely missing: Turan-Kubilius, Hardy-Ramanujan and Erdos-Kac (with Mertens' estimate), Weyl's criterion and every equidistribution or discrepancy theorem, normal numbers, Khintchine and Duffin-Schaeffer, Jarnik-Besicovitch, the Gauss map with its invariant measure and ergodicity, Birkhoff's pointwise theorem, continued-fraction statistics, homogeneous dynamics and all of PM.5.",
+   "summary": "Mathlib has the probabilistic base: uniform measures, moments, characteristic functions, convergence in distribution with Levy's continuity theorem, the i.i.d. central limit theorem, the strong law, both Borel-Cantelli lemmas, Gallagher's zero-one law, the fact that almost no real is LiouvilleWith p for p > 2, Hausdorff measure, Abel summation for primes, ergodicity of rotations and of x -> nx, Koopman operators and the mean ergodic theorem; Tau Ceti adds moment determinacy, a Koopman Markov operator and L1 convergence of Birkhoff averages to conditional expectations. Genuinely missing: Turan-Kubilius, Hardy-Ramanujan and Erdos-Kac (with Mertens' estimate), Weyl's criterion and every equidistribution or discrepancy theorem, normal numbers, Khintchine and Duffin-Schaeffer, Jarnik-Besicovitch, the Gauss map with its invariant measure and ergodicity, Birkhoff's pointwise theorem, continued-fraction statistics, homogeneous dynamics and all of PM.5.",
    "layers": {
     "ProbabilisticAndMetricNumberTheory:PM.0": {
      "verdict": "partly built",
@@ -1719,9 +1818,16 @@
          "file": "Mathlib/MeasureTheory/Measure/LevyConvergence.lean",
          "line": 216,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Measure.ext_of_forall_integral_pow_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Moments/Determinacy.lean",
+         "line": 145,
+         "fit": "related"
         }
        ],
-       "note": "Convergence in distribution and Levy's continuity theorem are in Mathlib; nothing states limiting distributions of arithmetic functions or the dictionary with densities."
+       "note": "Convergence in distribution and Levy's continuity theorem are in Mathlib, and Tau Ceti proves moment determinacy for measures with exponential moments (the uniqueness half of the method of moments); nothing states limiting distributions of arithmetic functions or the dictionary with densities."
       },
       {
        "target": "Independence of divisibility events, or an explicit comparison with an independent (Kubilius) model",
@@ -1765,9 +1871,16 @@
          "file": "Mathlib/Probability/CentralLimitTheorem.lean",
          "line": 79,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Measure.ext_of_forall_integral_pow_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Moments/Determinacy.lean",
+         "line": 145,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib's central limit theorem is for i.i.d. sequences with finite variance; there is no triangular-array or arithmetic version."
+       "note": "Mathlib's central limit theorem is for i.i.d. sequences with finite variance, with no triangular-array or arithmetic version; Tau Ceti has moment determinacy but not the implication from converging moments to convergence in distribution."
       },
       {
        "target": "Centering and variance: Mertens' estimate sum_{p <= x} 1/p = log log x + M + o(1), with control of large primes",
@@ -1779,9 +1892,23 @@
          "file": "Mathlib/NumberTheory/SumPrimeReciprocals.lean",
          "line": 98,
          "fit": "related"
+        },
+        {
+         "name": "sum_mul_eq_sub_sub_integral_mul",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/AbelSummation.lean",
+         "line": 129,
+         "fit": "related"
+        },
+        {
+         "name": "Chebyshev.primeCounting_eq_theta_div_log_add_integral",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Chebyshev.lean",
+         "line": 635,
+         "fit": "related"
         }
        ],
-       "note": "Only the divergence of the sum of prime reciprocals is proved; no Mertens asymptotic."
+       "note": "Only the divergence of the sum of prime reciprocals, Abel summation and its prime-counting instances are proved; no Mertens asymptotic."
       }
      ],
      "duplicates": [
@@ -1810,9 +1937,16 @@
          "file": "Mathlib/Dynamics/Ergodic/AddCircleAdd.lean",
          "line": 28,
          "fit": "related"
+        },
+        {
+         "name": "AddCircle.denseRange_zsmul_coe_iff",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Instances/AddCircle/DenseSubgroup.lean",
+         "line": 55,
+         "fit": "related"
         }
        ],
-       "note": "Only ergodicity of an irrational rotation (an almost-everywhere statement) is present; no equidistribution of every orbit and nothing for polynomials."
+       "note": "Only density of the orbit (Kronecker in one dimension) and ergodicity of an irrational rotation are present; no equidistribution of every orbit and nothing for polynomials."
       },
       {
        "target": "Discrepancy inequalities (Erdos-Turan, Koksma)",
@@ -1837,9 +1971,23 @@
          "file": "Mathlib/Probability/StrongLaw.lean",
          "line": 597,
          "fit": "related"
+        },
+        {
+         "name": "Real.digits",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Real/OfDigits.lean",
+         "line": 112,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.ergodic_shift_infinitePi_const",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Law/Extreme.lean",
+         "line": 90,
+         "fit": "related"
         }
        ],
-       "note": "Ergodicity of x -> n x on the circle and the strong law of large numbers are available; Borel's normal number theorem is not stated."
+       "note": "Base-b digit expansions, ergodicity of x -> n x on the circle, ergodicity of the Bernoulli shift (Tau Ceti) and the strong law of large numbers are available, but nothing links digits to these; Borel's normal number theorem is not stated."
       }
      ],
      "duplicates": [
@@ -1887,6 +2035,13 @@
          "file": "Mathlib/NumberTheory/Transcendental/Liouville/Measure.lean",
          "line": 115,
          "fit": "special case"
+        },
+        {
+         "name": "blimsup_cthickening_mul_ae_eq",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Covering/LiminfLimsup.lean",
+         "line": 190,
+         "fit": "related"
         }
        ],
        "note": "Only the convergence half for psi(q) = C q^{1-p} with p > 2 (almost no real number is LiouvilleWith p); the general convergence half and the divergence half are absent."
@@ -1976,7 +2131,7 @@
          "fit": "related"
         }
        ],
-       "note": "Only the general notion of ergodicity; no mixing notion is used for it."
+       "note": "Only the general notion of ergodicity; there is no dynamical mixing notion and nothing about the Gauss map."
       },
       {
        "target": "Ergodic theorems to apply: Birkhoff's pointwise theorem, and the mean ergodic theorem",
@@ -1995,9 +2150,23 @@
          "file": "TauCeti/Probability/Ergodic/CondExpProjection.lean",
          "line": 169,
          "fit": "related"
+        },
+        {
+         "name": "MeasureTheory.Lp.compMeasurePreservingₗᵢ",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Function/LpSpace/Basic.lean",
+         "line": 636,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.koopmanMarkov",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Ergodic/KoopmanMarkov.lean",
+         "line": 40,
+         "fit": "related"
         }
        ],
-       "note": "Von Neumann's mean ergodic theorem (Mathlib) and L1 convergence of Birkhoff averages to the conditional expectation on the invariant sigma-algebra (Tau Ceti) are present; the pointwise theorem is absent, so almost-everywhere digit statistics cannot yet be derived."
+       "note": "Koopman operators (Mathlib's Lp isometry, Tau Ceti's Markov operator), von Neumann's mean ergodic theorem (Mathlib) and L1 convergence of Birkhoff averages to the conditional expectation on the invariant sigma-algebra (Tau Ceti) are present; the pointwise theorem is absent, so almost-everywhere digit statistics cannot yet be derived."
       },
       {
        "target": "Metric continued-fraction statistics (Gauss-Kuzmin, Khinchin's and Levy's constants)",
@@ -2073,7 +2242,7 @@
    }
   },
   "SieveMethodsAndPrimePatterns": {
-   "summary": "Mathlib already has the sieve carrier SV.1 asks to reuse: BoundingSieve and SelbergSieve with local densities, remainders and sifted sums, the upper bound from any upper-Mobius sequence, Lambda^2 weights as upper-bound sieves and the diagonalized main term; also Dirichlet-character orthogonality, conductors and primitive characters, Chebyshev's bound for pi(x), Dirichlet's theorem on primes in progressions, and a definition of almost primes. Tau Ceti has nothing specific to sieves. Genuinely missing: sieve dimension and level-of-distribution hypotheses, lower-bound sieves, the optimized Selberg bound, Brun's sieve, the fundamental lemma and its applications (Brun-Titchmarsh, Brun's theorem), both large sieves and Vaughan's identity, Siegel-Walfisz and Bombieri-Vinogradov, admissible tuples and all of Maynard's bounded-gaps proof, and the beta sieve, Chen's theorem and the affine sieve.",
+   "summary": "Mathlib already has the sieve carrier SV.1 asks to reuse: BoundingSieve and SelbergSieve with local densities, remainders and sifted sums, the upper bound from any upper-Mobius sequence, Lambda^2 weights as upper-bound sieves and the diagonalized main term; also Dirichlet-character orthogonality, conductors and primitive characters, Chebyshev's bound for pi(x), Dirichlet's theorem on primes in progressions with nonvanishing of L(chi, s) on Re s >= 1, and a definition of almost primes. Tau Ceti has nothing specific to sieves beyond a conditional theta-to-pi transfer for prime counts. Genuinely missing: sieve dimension and level-of-distribution hypotheses, lower-bound sieves, the optimized Selberg bound, Brun's sieve, the fundamental lemma and its applications (Brun-Titchmarsh, Brun's theorem), both large sieves and Vaughan's identity, Siegel-Walfisz and Bombieri-Vinogradov, admissible tuples and all of Maynard's bounded-gaps proof, and the beta sieve, Chen's theorem and the affine sieve.",
    "layers": {
     "SieveMethodsAndPrimePatterns:SV.0": {
      "verdict": "partly built",
@@ -2171,9 +2340,16 @@
          "file": "Mathlib/NumberTheory/SelbergSieve.lean",
          "line": 216,
          "fit": "exact"
+        },
+        {
+         "name": "Nat.roughNumbersUpTo_card_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SmoothNumbers.lean",
+         "line": 478,
+         "fit": "related"
         }
        ],
-       "note": "Any upper-Mobius coefficient sequence gives sifted sum <= X * mainSum + errSum; there is no lower-bound counterpart."
+       "note": "Any upper-Mobius coefficient sequence gives sifted sum <= X * mainSum + errSum, and there is a union bound for integers with a large prime factor; there is no lower-bound counterpart."
       }
      ],
      "duplicates": [
@@ -2254,9 +2430,16 @@
          "file": "Mathlib/NumberTheory/Chebyshev.lean",
          "line": 799,
          "fit": "related"
+        },
+        {
+         "name": "Nat.primeCounting_add_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/PrimeCounting.lean",
+         "line": 282,
+         "fit": "related"
         }
        ],
-       "note": "Only Chebyshev's upper bound for pi(x) exists; no sieve application is stated."
+       "note": "Only Chebyshev's upper bound for pi(x) and the crude interval bound pi(k+n) <= pi(k) + phi(a)(n/a + 1) exist; no sieve application with a logarithmic saving is stated."
       },
       {
        "target": "Parity limitation (Selberg's parity example)",
@@ -2285,8 +2468,16 @@
       {
        "target": "Duality principle for bilinear forms",
        "library": "absent",
-       "declarations": [],
-       "note": "Not stated in the sieve setting."
+       "declarations": [
+        {
+         "name": "Matrix.l2_opNorm_conjTranspose",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/CStarAlgebra/Matrix.lean",
+         "line": 204,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the abstract fact that a matrix and its conjugate transpose have the same l2 operator norm; no duality statement for large-sieve inequalities."
       },
       {
        "target": "Primitive-character reduction and conductor",
@@ -2382,9 +2573,30 @@
          "file": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
          "line": 442,
          "fit": "related"
+        },
+        {
+         "name": "DirichletCharacter.LFunction_ne_zero_of_one_le_re",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+         "line": 400,
+         "fit": "related"
+        },
+        {
+         "name": "ArithmeticFunction.vonMangoldt.continuousOn_LFunctionResidueClassAux",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+         "line": 288,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.primeCount_asymptotic_of_primeTheta",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Transfer.lean",
+         "line": 140,
+         "fit": "related"
         }
        ],
-       "note": "Only Dirichlet's theorem (infinitely many primes in a fixed coprime class) is proved; no asymptotic or uniform count."
+       "note": "Dirichlet's theorem, nonvanishing of L(chi, s) on Re s >= 1 and continuity of the residue-class L-series minus its pole (Mathlib), and the conditional transfer theta ~ delta x => pi ~ delta Li(x) (Tau Ceti) are present; not even the prime number theorem in a fixed progression is proved, and nothing is uniform in the modulus."
       },
       {
        "target": "Stronger distribution hypotheses (Elliott-Halberstam) as explicit conditions",
@@ -2461,8 +2673,16 @@
       {
        "target": "Affine sieve with expansion (spectral gap) inputs and orbit hypotheses",
        "library": "absent",
-       "declarations": [],
-       "note": "Not present."
+       "declarations": [
+        {
+         "name": "SimpleGraph.mulCayley",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/SimpleGraph/Cayley.lean",
+         "line": 36,
+         "fit": "related"
+        }
+       ],
+       "note": "Only Cayley graphs as definitions; no expansion or spectral-gap results."
       },
       {
        "target": "Almost primes with the number of prime factors counted with multiplicity",
