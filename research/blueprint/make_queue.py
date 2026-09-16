@@ -1,0 +1,491 @@
+#!/usr/bin/env python3
+"""Build (or extend) the blueprint swarm queue and write every job prompt.
+
+Usage:
+  python3 research/blueprint/make_queue.py --library <reference library> --baseline <baseline dir> \
+      --workers <worker dir> [--max-stages 6] [--dry-run]
+
+Existing jobs keep their state; new jobs are appended. Prompts are written to
+research/blueprint/prompts/ (not committed: they contain local paths).
+"""
+from __future__ import annotations
+
+import argparse
+import json
+from collections import defaultdict
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parents[2]
+BP = REPO / "research" / "blueprint"
+
+COMMON_INPUTS = """INPUTS
+- The roadmap text and stages: data/atlas.json (roadmaps[] entry with the roadmap id: readme, summary; stages[] with that owner: id, key, title, description, requires, consumers, parentStageId). Extract them with python3 into your scratch directory and read them in full. New roadmaps are defined in research/blueprint/roadmaps/*.json.
+- An integrated, reviewed decomposition, if present: data/decompositions/{FILE}.json. Build on it: keep its node ids for nodes you keep, refine them to declaration granularity and reuse its verified locators. Its node ids may be reused in your packet, which will replace it.
+- Unreviewed drafts, as leads only (re-verify everything): research/expansion/external/*/{FILE}.json and research/expansion/drafts/{FILE}.json.
+- Other blueprints: research/blueprint/packets/*.json. Use their node ids for cross-roadmap prerequisites when they supply exactly what you need. Ids promised by concurrent jobs are listed in research/blueprint/reserved-ids.json.
+- Library baseline (what exists today): {BASELINE}/BASELINE.json (pinned commits), {BASELINE}/TauCeti/ (Tau Ceti source), {BASELINE}/mathlib/Mathlib/ (Mathlib source), {BASELINE}/declarations.tsv (index: library, full name, kind, file, line, signature start). Search the index (grep -i -P), then open the Lean file at that line and read the actual statement before citing it. Tau Ceti is a large library (about 70,000 declarations): search it thoroughly before declaring something missing.
+- Links between roadmaps: research/blueprint/links/*.json (evidence-backed stage links and overlaps; read every entry that mentions your roadmap's stages) and the stage links already in data/atlas.json (stageEdges).
+- Style and density: research/blueprint/UPSTREAM_GUIDE.md (upstream's checklist, binding) and the upstream roadmap documents under content/tau-ceti/ (read at least two in or near your area, for example ModularForms/README.md, EllipticCurves/README.md, AdicSpaces/README.md, ModularCurves/README.md).
+- Reference library: {LIBRARY}/ (CATALOGUE.json and the additional_*.json catalogues, papers/, extracted/, text/; text files are page-ordered: use grep -n and sed -n). Public sources that are not in the library may be fetched into your scratch directory with provenance (URL, SHA-256, date); never into the repository."""
+
+METHOD = """METHOD
+1. Targets. List every target the stages in scope state: definitions, constructions, theorems, comparisons, examples. Each becomes a node whose `realises` names its stage.
+2. Backward chaining to the baseline. For each node write the exact statement with all hypotheses, then the construction or proof as steps, and list every fact a step uses in `prerequisites`. For each prerequisite:
+   (a) find it in the baseline and confirm its statement in the Lean source (record it in baseline.declarations); or
+   (b) find it as a node of another blueprint or integrated decomposition and confirm that node's statement suffices; or
+   (c) if it belongs to another roadmap with no suitable node yet, add a `requests` entry and list that roadmap's stage; or
+   (d) add a new node to this packet.
+   Recurse on every new node until every chain ends in (a), (b) or (c). Keep an explicit worklist in your scratch directory and work through it methodically; do not stop at the first level.
+3. Granularity. One node per library declaration. Split multi-part results. Every non-routine step becomes its own lemma node.
+4. API. Every definition and construction node gets an `api` outline (PROTOCOL.md section 4). Think as a library designer: what does a user of this object need in order to use it without unfolding its definition? Include compatibility with the closest Mathlib or Tau Ceti notion, stated precisely.
+5. Sources. Every node cites the passage that states or proves it. Keep excerpts short.
+6. Check. Run `python3 scripts/check_blueprint.py {OUTPUT}` and fix every error. Record anything you could not establish as a gap; never paper over a missing step.
+7. Document. Write {README} in the style and density of the upstream Tau Ceti roadmap documents. For each layer in scope, give:
+   - the objects, with exact definitions and pinned conventions;
+   - the theorems, with their hypotheses;
+   - the named declarations and their API;
+   - the dependencies inside this roadmap and on other roadmaps (by stage id);
+   - the acceptance tests.
+   The document and the packet must agree. Do not write "optional", "deferred" or "later".
+8. Structure. If this roadmap overlaps another, or is too broad or too thin, record a `restructure` proposal in the packet (PROTOCOL.md section 9) and keep working with the current structure.
+9. Handoff. Write research/blueprint/handoff/{JOB}.md: what is closed, what remains (precisely), requests you made to other roadmaps, sources read and sources missing.
+
+RULES
+- No Lean code, no `sorry`, no tickets, no implementation claims: implementationStatus stays "unchecked".
+- Edit only {EDITABLE}, the document {README}, the handoff note and files in your scratch directory. Do not run git. Do not edit application code, data/, content/, tests/, README.md, HANDOVER.md, the queue, reserved ids or other packets.
+- No private absolute paths, PDFs or extracted book text in the repository.
+- Save the packet after every few nodes (write to a temporary file in your scratch directory, validate it with python3 -c 'import json;json.load(open(...))', then move it into place) so an interrupted run loses little.
+- Depth before breadth: a closed treatment of fewer stages is worth more than a shallow treatment of all. If you cannot finish, leave status "partial" with precise `remaining` lists so a continuation job can resume exactly where you stopped.
+
+Finish by printing a summary under 250 words: nodes by kind, API items, baseline declarations cited, gaps, requests, and what a continuation must do."""
+
+HEADER = """You are a research mathematician and library architect for the Tau Ceti Atlas blueprint programme. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it).
+
+READ FIRST (binding): research/blueprint/PROTOCOL.md, then research/expansion/PROTOCOL.md for the source-faithfulness discipline it inherits.
+"""
+
+BP_TEMPLATE = HEADER + """
+JOB: write the blueprint for roadmap {ROADMAP} ("{TITLE}"){PARTNOTE}.
+Stages in scope (write exactly these ids into the packet's `scope`, and one coverage record for each):
+{STAGES}
+Output packet: {OUTPUT} (set "part": {PART}).
+If {OUTPUT} already exists from an earlier attempt, read it and continue: keep what is right, extend what is missing, and do not start over.
+{EXTRA}
+""" + COMMON_INPUTS + "\n\n" + METHOD
+
+DESIGN_TEMPLATE = HEADER + """
+JOB: design a new roadmap and write its complete blueprint.
+Roadmap id: {ROADMAP}. Area (group): {GROUP}.
+{BRIEF}
+
+Step 1. Write the roadmap definition research/blueprint/roadmaps/{ROADMAP}.json (schema in PROTOCOL.md section 7). The layers must lead from the library baseline to the final theorem, in the order a formaliser would build them, with each layer's targets stated precisely in its description. Put in this roadmap everything that is specific to this proof, and take inputs that belong to existing roadmaps from those roadmaps (list them in `prerequisites`, and use their stage ids in `requires`). Search data/atlas.json for suppliers; read a supplier stage's description before relying on it.
+Step 2. Write the blueprint packet {OUTPUT} covering every stage of the new roadmap ("part": null), following the method below. The roadmap definition may be revised while you write the packet; keep both consistent.
+If either file already exists from an earlier attempt, continue from it.
+""" + COMMON_INPUTS + "\n\n" + METHOD
+
+REVIEW_TEMPLATE = """You are an independent reviewer for the Tau Ceti Atlas blueprint programme. You did not write the files you review. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it). Save as you go.
+
+READ FIRST (binding): research/blueprint/PROTOCOL.md and research/expansion/PROTOCOL.md.
+
+REVIEW: {TARGETS}
+Library baseline: {BASELINE} (BASELINE.json, TauCeti/, mathlib/Mathlib/, declarations.tsv). Reference library: {LIBRARY}/. Public sources may be fetched into your scratch directory with provenance, never into the repository.
+
+Check each item below, and correct it in place wherever the fix is clear. Record every change you make.
+1. Sources. Check every node's locator and excerpt against the source text. Statements keep the source's hypotheses exactly.
+2. Baseline. For every `baseline.declarations` entry, open the Lean file at the cited module and confirm two things: that the declaration exists under that name at the pinned commit, and that its statement provides what the citing nodes need, with the same or weaker hypotheses and the same conventions. Remove or replace a wrong citation. A near miss becomes a node.
+3. Closure. For every node, ask whether its proofSteps really follow from its prerequisites plus routine steps.
+   - Where they do not, add the missing prerequisites or lemma nodes, marking each added node with "addedBy": "{JOB}", or record a gap.
+   - Check that every stage target in scope is realised.
+   - Check that cross-roadmap prerequisites are justified, by reading the supplier's statement.
+   - Check that each request is precise.
+4. Granularity. Split any node that bundles several declarations or hides a non-routine argument.
+5. API. For every definition and construction, check that the outline would let a user work with the object without unfolding its definition. It should cover constructors, extensionality, simp lemmas, structure, functoriality, the universal property, compatibility with Mathlib or Tau Ceti, relations and examples. Add any missing items.
+6. For a new roadmap, also check that its layers are correctly ordered, that its suppliers are right, and that its scope is honest.
+7. Run `python3 scripts/check_blueprint.py` on each packet and fix every error.
+
+Then add a top-level "review" object to each packet:
+{{"status": "accepted" | "needs_changes", "reviewer": "independent-review-{JOB}", "date": "<today>", "notes": "<what was checked and corrected>", "checked": [{{"nodeId": "...", "verdict": "verified|corrected|added|unverifiable", "note": "..."}}]}}
+Use "accepted" only when all of the following hold:
+- every node is verified, corrected, or added and justified;
+- every baseline citation is confirmed;
+- no unresolved contradiction remains.
+A packet may still be accepted while it is partial and while it lists open gaps, as long as they are recorded honestly.
+Write research/blueprint/reviews/{JOB}.md with the counts, corrections, baseline citations removed or fixed, nodes added, and questions for the orchestrator.
+
+RULES: edit only the files under review, your report and scratch files. Do not run git. No Lean code. No private paths in the repository. Do not promote anything.
+Finish with a summary under 250 words."""
+
+LINK_TEMPLATE = """You are a mathematician mapping dependencies between roadmaps for the Tau Ceti Atlas. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it). Save as you go.
+
+READ FIRST (binding): research/blueprint/PROTOCOL.md, especially section 10 (links) and section 9 (restructuring).
+
+JOB: find every prerequisite relationship and every overlap between the stages of roadmap {ROADMAP} ("{TITLE}") and the stages of all other roadmaps in the atlas, and write them to {OUTPUT}.
+
+SOURCES
+- data/atlas.json: roadmaps[] (id, title, summary, readme, group), stages[] (id, owner, key, title, description, requires, consumers), edges[] (roadmap links) and stageEdges[] (stage links already recorded). Extract what you need with python3.
+- New roadmaps: research/blueprint/roadmaps/*.json.
+- Other link packets: research/blueprint/links/*.json. Do not duplicate a link that is already recorded there or in stageEdges.
+- To check what a stage relies on in the library, you may search {BASELINE}/declarations.tsv.
+
+METHOD
+1. Read {ROADMAP}'s document and every one of its stage descriptions in full. For each stage, write down in your scratch directory its inputs (what it assumes or imports) and its outputs (what it constructs or proves), in precise mathematical terms.
+2. Candidate search. For each input and output, search the stage titles, stage descriptions and documents of every other roadmap for the objects, their synonyms and their notation (grep -i over an extracted text dump). Read the summaries of all roadmaps in the same and neighbouring areas. Examine at least the following:
+   - every roadmap in the same area;
+   - every roadmap whose document mentions this roadmap's objects;
+   - every other upstream Tau Ceti roadmap (ids starting with "tauceti:").
+3. Decide each candidate pair by reading both stage descriptions in full.
+   - Prerequisite: the source stage supplies a result or construction that the target stage uses. Record the direction (prerequisite → consumer), the reason, and two verbatim quotes: one showing the output, one showing the use. Mark the link "explicit" when a text names the other roadmap or stage, and "inferred" when the match is exact but unnamed.
+   - Overlap: both stages develop the same mathematics. Record what overlaps and recommend merge, rescope or keep, with a concrete proposal.
+   - Otherwise, record nothing for the pair.
+   Shared vocabulary is not a dependency. If the texts do not settle the direction, record an overlap rather than guess. Prefer the most specific stage on each side, such as a milestone rather than its whole layer.
+4. List every roadmap you read in "examined", with its result.
+5. Run `python3 scripts/check_links.py {OUTPUT}` and fix every error.
+
+RULES: edit only {OUTPUT}, research/blueprint/handoff/{JOB}.md and your scratch files. Do not run git. No private paths in the repository.
+Finish with a summary under 250 words: links in each direction (with the main partner roadmaps), overlaps with recommendations, and roadmaps that should be merged or rescoped."""
+
+LINK_REVIEW_TEMPLATE = """You are an independent reviewer for the Tau Ceti Atlas. You did not write the file you review. You run unattended as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB}.
+
+READ FIRST: research/blueprint/PROTOCOL.md sections 9 and 10.
+
+REVIEW: the link packet {TARGET} for roadmap {ROADMAP}.
+- For every link, read both stage descriptions in full and confirm three things: that the source really supplies what the target uses, that the direction is right, and that both quotes are verbatim and relevant. Fix what is wrong, and remove any link that rests on shared vocabulary only.
+- For every overlap, confirm it and judge the recommendation.
+- Spot-check completeness. Take at least five stages of {ROADMAP} and search the atlas for suppliers and consumers the packet missed. Add any you find, with evidence, marked "addedBy": "{JOB}".
+- Run `python3 scripts/check_links.py {TARGET}` and fix every error.
+Then add a top-level "review" object to the packet:
+{{"status": "accepted" | "needs_changes", "reviewer": "independent-review-{JOB}", "date": "<today>", "notes": "...", "removed": [...], "added": [...]}}
+Write research/blueprint/reviews/{JOB}.md.
+
+RULES: edit only {TARGET}, your report and scratch files. Do not run git. No private paths in the repository.
+Finish with a summary under 200 words."""
+
+ASSEMBLY_TEMPLATE = HEADER + """
+JOB: assemble the blueprint of roadmap {ROADMAP} ("{TITLE}") from its reviewed parts.
+Part packets: {PARTS}
+Part documents: {PARTDOCS}
+Tasks:
+1. Write the full roadmap document {README}. It opens with purpose, scope and boundaries (against the neighbouring roadmaps named in research/blueprint/links/), conventions, sources and a layer overview, followed by the parts in order. Reconcile notation across parts. The result should read as one document in the upstream style.
+2. Check cross-part prerequisites. A node that needs a result from another part must reference that part's node id. Fix references in the part packets where the fix is clear; otherwise record a gap in the consuming part.
+3. Run `python3 scripts/check_blueprint.py` on all part packets and fix every error.
+4. Collect the parts' `restructure` proposals and requests in research/blueprint/handoff/{JOB}.md.
+RULES: edit only the listed part packets, {README}, the handoff note and scratch files. Do not run git. No Lean code. No private paths in the repository. Do not change a review verdict. If you change a reviewed node's mathematics, say so in the handoff note, so that the orchestrator can schedule a re-review.
+Finish with a summary under 200 words."""
+
+LINK_PRIORITY = ["tauceti:TauCetiRoadmap/ModularCurves", "tauceti:TauCetiRoadmap/ModularForms", "tauceti:TauCetiRoadmap/EllipticCurves",
+                 "tauceti:TauCetiRoadmap/AdicSpaces", "tauceti:TauCetiRoadmap/AlgebraicCurves", "tauceti:TauCetiRoadmap/GlobalNumberFields",
+                 "tauceti:TauCetiRoadmap/NumberFieldArithmetic", "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+                 "tauceti:TauCetiRoadmap/ClassFieldTheory", "tauceti:TauCetiRoadmap/Chebotarev", "tauceti:TauCetiRoadmap/JacobianChallenge",
+                 "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries", "tauceti:TauCetiRoadmap/HodgeStructures",
+                 "tauceti:TauCetiRoadmap/ProfiniteCohomology", "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+                 "tauceti:TauCetiRoadmap/GlobalQuadraticForms", "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+                 "tauceti:TauCetiRoadmap/StableReduction", "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+                 "tauceti:TauCetiRoadmap/ReductiveGroups", "tauceti:TauCetiRoadmap/BelyiMaps", "tauceti:TauCetiRoadmap/FuchsianOrbifolds"]
+
+LV_BRIEF = """Topic: the Mordell conjecture (Faltings's theorem) as proved by Brian Lawrence and Akshay Venkatesh, "Diophantine problems and p-adic period mappings", Invent. Math. 221 (2020), 893–999, arXiv:1807.02721 (fetch the arXiv version; record provenance). The final target: a smooth projective geometrically connected curve of genus at least 2 over a number field has finitely many rational points. Follow the paper's own route and its intermediate results: the S-unit equation as the first worked instance of the method; the Kodaira–Parshin family attached to the curve; Gauss–Manin connections, the complex and p-adic period maps on residue disks and their analytic properties; crystalline comparison and the Frobenius-semilinear structure on de Rham cohomology of the fibres; semisimplicity of the relevant Galois representations and Faltings's finiteness lemma for representations of bounded dimension, restricted ramification and fixed weights; the monodromy / Zariski-density input for the period map and the dimension estimate on Frobenius-centralizer orbits that makes the counting work; and the final assembly. Identify every place where the paper cites an outside result, and decide for each whether an existing roadmap supplies it (candidates include PadicHodgeTheory, CrystallineCohomology, CohomologyComparisons, DeligneWeightsAndPurity, FaltingsFinitenessAndIsogenyTheorems, HeightsRationalPointsAndObstructions, tauceti:TauCetiRoadmap/HodgeStructures, tauceti:TauCetiRoadmap/Chebotarev, tauceti:TauCetiRoadmap/AlgebraicCurves, AlgebraicModuliForArithmeticGeometry, LefschetzPencilsAndVanishingCycles, PadicDifferentialEquationsAndRigidCohomology) or must be a layer of this roadmap. Lawrence–Venkatesh is an alternative to Faltings's height-based proof; do not route through FaltingsFinitenessAndIsogenyTheorems' Mordell corollary."""
+
+ZAGIER_BRIEF = """Topic: Zagier's conjecture on special values of Dedekind zeta functions via polylogarithms, with the proved cases carried out in full. Layers should include:
+(1) the Bloch–Wigner dilogarithm and the dilogarithm's functional equations;
+(2) the pre-Bloch group P(F) and Bloch group B(F) of a field, the map to the exterior square of F^× and their functoriality;
+(3) Suslin's theorem relating K_3^ind(F) to B(F) and the Dupont–Sah / Bloch results used;
+(4) Borel's theorem on K_{{2n-1}} of rings of integers and the Borel regulator;
+(5) Zagier's theorem for n = 2: ζ_F(2) as a rational multiple of π^{{2(r_1+r_2)}}|d_F|^{{1/2}} times a determinant of Bloch–Wigner values, via hyperbolic 3-manifolds or via Borel and Suslin, as the sources do it;
+(6) Zagier's higher Bloch groups B_n(F) and the single-valued polylogarithms, and Goncharov's polylogarithmic complexes Γ(F, n);
+(7) Goncharov's proof for n = 3;
+(8) Goncharov–Rudenko's proof for n = 4;
+(9) the precise general conjecture, its known cases and what remains open (recorded as a frontier layer, not as a theorem).
+Sources:
+- Zagier, "Polylogarithms, Dedekind zeta functions and the algebraic K-theory of fields" (Arithmetic Algebraic Geometry, 1991);
+- Zagier, "Hyperbolic manifolds and special values of Dedekind zeta-functions", Invent. Math. 83 (1986);
+- Zagier, "The dilogarithm function" (Frontiers in Number Theory, Physics and Geometry II, 2007);
+- Suslin, "K_3 of a field, and the Bloch group", Proc. Steklov Inst. 183 (1991);
+- Bloch, "Higher regulators, algebraic K-theory, and zeta functions of elliptic curves" (CRM Monograph Series 11, 2000);
+- Dupont–Sah, "Scissors congruences II", J. Pure Appl. Algebra 25 (1982);
+- Goncharov, "Geometry of configurations, polylogarithms, and motivic cohomology", Adv. Math. 114 (1995);
+- Goncharov, "Polylogarithms and motivic Galois groups" (1994);
+- Goncharov–Rudenko, "Motivic correlators, cluster varieties and Zagier's conjecture on ζ_F(4)", arXiv:1803.08585;
+- Borel, "Cohomologie de SL_n et valeurs de fonctions zêta aux points entiers" (1977).
+Fetch public versions where possible.
+Ownership, so that concurrent jobs do not duplicate work:
+- the pre-Bloch group, the Bloch group, the Bloch–Wigner dilogarithm, the five-term relation and Suslin's exact sequence belong to roadmap K3BlochGroups (job BP-K3BlochGroups);
+- the classical and single-valued polylogarithms, higher Bloch groups and polylogarithmic complexes belong to roadmap Polylogarithms (job BP-Polylogarithms);
+- the Borel regulator and Borel's rank theorem belong to roadmap BorelRegulators (jobs BP-BorelRegulators--*).
+Use the reserved ids in research/blueprint/reserved-ids.json as prerequisites for those objects. Your roadmap owns the proofs of the Zagier statements and everything specific to them (for example, the determinant formula, the comparison of the Borel regulator with polylogarithm values, and the Grassmannian polylogarithm constructions if the sources need them)."""
+
+RESERVED = {
+    "K3BlochGroups:V.3/pre-bloch-group": ("BP-K3BlochGroups", "The pre-Bloch group P(F) of a field F: the free abelian group on F \\ {0,1} modulo the five-term relations, with the convention for the degenerate symbols recorded."),
+    "K3BlochGroups:V.3/bloch-group": ("BP-K3BlochGroups", "The Bloch group B(F): the kernel of P(F) → ∧²(F^×) (with the source's convention on 2-torsion or tensoring), [x] ↦ x ∧ (1 − x)."),
+    "K3BlochGroups:V.3/five-term-relation": ("BP-K3BlochGroups", "The five-term relation in P(F), in the source's normalisation."),
+    "K3BlochGroups:V.3/bloch-wigner-dilogarithm": ("BP-K3BlochGroups", "The Bloch–Wigner function D: P¹(C) → R, D(z) = Im Li₂(z) + arg(1 − z) log|z|, real-analytic off {0, 1, ∞} and continuous on P¹(C)."),
+    "K3BlochGroups:V.3/bloch-wigner-five-term": ("BP-K3BlochGroups", "D satisfies the five-term relation, hence induces a homomorphism P(C) → R."),
+    "K3BlochGroups:V.4/suslin-exact-sequence": ("BP-K3BlochGroups", "Suslin's exact sequence 0 → Tor(F^×, F^×)~ → K_3^ind(F) → B(F) → 0 for infinite fields, in the source's precise form."),
+    "Polylogarithms:P.1/classical-polylogarithm": ("BP-Polylogarithms", "The classical polylogarithm Li_n(z) = Σ z^k / k^n for |z| < 1 and its analytic continuation."),
+    "Polylogarithms:P.1/single-valued-polylogarithm": ("BP-Polylogarithms", "Zagier's single-valued polylogarithm P_n (or L_n), real-analytic on P¹(C) minus {0, 1, ∞}."),
+    "Polylogarithms:P.4/higher-bloch-group": ("BP-Polylogarithms", "Zagier's higher Bloch groups B_n(F) defined via functional equations of polylogarithms, with the convention recorded."),
+    "Polylogarithms:P.3/polylogarithmic-complex": ("BP-Polylogarithms", "Goncharov's polylogarithmic complexes Γ(F, n) for n ≤ 3 and the groups B_n(F) they use."),
+    "BorelRegulators:R.4/borel-regulator": ("BP-BorelRegulators--R.3", "The Borel regulator K_{2n−1}(O_F) → R^{d_n}, with its normalisation."),
+    "BorelRegulators:R.3/borel-rank-theorem": ("BP-BorelRegulators--R.1", "Borel's theorem: the rank of K_{2n−1}(O_F) is r₁ + r₂ (n odd, n > 1) or r₂ (n even)."),
+}
+
+
+def file_id(rid):
+    return rid.replace(":", "_").replace("/", "_")
+
+
+def tarjan_levels(nodes, edges):
+    """Topological levels of the condensation (prerequisite -> consumer)."""
+    graph = defaultdict(list)
+    for a, b in edges:
+        graph[a].append(b)
+    index, low, on, stack, comp = {}, {}, set(), [], {}
+    counter = [0]
+    def strong(v):
+        work = [(v, iter(graph[v]))]
+        index[v] = low[v] = counter[0]; counter[0] += 1; stack.append(v); on.add(v)
+        while work:
+            node, children = work[-1]
+            advanced = False
+            for w in children:
+                if w not in index:
+                    index[w] = low[w] = counter[0]; counter[0] += 1; stack.append(w); on.add(w)
+                    work.append((w, iter(graph[w]))); advanced = True; break
+                elif w in on:
+                    low[node] = min(low[node], index[w])
+            if advanced:
+                continue
+            work.pop()
+            if work:
+                low[work[-1][0]] = min(low[work[-1][0]], low[node])
+            if low[node] == index[node]:
+                while True:
+                    w = stack.pop(); on.discard(w); comp[w] = node
+                    if w == node:
+                        break
+    for v in nodes:
+        if v not in index:
+            strong(v)
+    cedges = defaultdict(set)
+    indeg = defaultdict(int)
+    for a, b in edges:
+        ca, cb = comp[a], comp[b]
+        if ca != cb and cb not in cedges[ca]:
+            cedges[ca].add(cb); indeg[cb] += 1
+    level = {}
+    frontier = [c for c in set(comp.values()) if indeg[c] == 0]
+    for c in frontier:
+        level[c] = 0
+    while frontier:
+        nxt = []
+        for c in frontier:
+            for d in cedges[c]:
+                level[d] = max(level.get(d, 0), level[c] + 1)
+                indeg[d] -= 1
+                if indeg[d] == 0:
+                    nxt.append(d)
+        frontier = nxt
+    return {v: level[comp[v]] for v in nodes}, comp
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--library", required=True)
+    ap.add_argument("--baseline", required=True)
+    ap.add_argument("--workers", required=True)
+    ap.add_argument("--max-stages", type=int, default=4)
+    ap.add_argument("--dry-run", action="store_true")
+    args = ap.parse_args()
+    atlas = json.loads((REPO / "data" / "atlas.json").read_text())
+    presentation = json.loads((REPO / "data" / "stage-presentation.json").read_text())
+    hidden = {k for k, v in presentation.items() if isinstance(v, dict) and v.get("hidden")}
+    roadmaps = {r["id"]: r for r in atlas["roadmaps"]}
+    stages_by_owner = defaultdict(list)
+    for s in atlas["stages"]:
+        if s["id"] not in hidden:
+            stages_by_owner[s["owner"]].append(s)
+    edges = [(e["source"], e["target"]) for e in atlas["edges"] if e["source"] in roadmaps and e["target"] in roadmaps]
+    levels, comp = tarjan_levels(list(roadmaps), edges)
+    suppliers = defaultdict(set)
+    for a, b in edges:
+        if comp[a] != comp[b]:
+            suppliers[b].add(a)
+    fill = dict(REPO=str(REPO), BASELINE=args.baseline, LIBRARY=args.library, WORKERS=args.workers)
+    jobs = []
+    prompts = {}
+
+    def add(job, prompt_text=None):
+        if prompt_text is not None:
+            path = f"research/blueprint/prompts/{job['id']}.md"
+            prompts[path] = prompt_text
+            job["prompt"] = path
+        job.setdefault("state", "pending")
+        jobs.append(job)
+
+    def parts_for(rid):
+        stages = stages_by_owner.get(rid, [])
+        top = [s for s in stages if not s.get("parentStageId") or s["parentStageId"] not in {x["id"] for x in stages}]
+        children = defaultdict(list)
+        ids = {s["id"] for s in stages}
+        for s in stages:
+            p = s.get("parentStageId")
+            while p and p in ids and p not in {t["id"] for t in top}:
+                p = next((x.get("parentStageId") for x in stages if x["id"] == p), None)
+            if s not in top and p:
+                children[p].append(s)
+        groups, current, size = [], [], 0
+        for t in top:
+            block = [t] + children.get(t["id"], [])
+            if current and size + len(block) > args.max_stages:
+                groups.append(current); current, size = [], 0
+            current += block; size += len(block)
+        if current:
+            groups.append(current)
+        return groups
+
+    def stage_lines(group):
+        return "\n".join(f"- {s['id']} — {s['title']}" for s in group)
+
+    bp_jobs_of = defaultdict(list)
+    parts_of = defaultdict(list)
+
+    def add_blueprint(rid, priority, order, extra="", after=()):
+        groups = parts_for(rid)
+        title = roadmaps[rid]["title"]
+        for i, group in enumerate(groups):
+            multi = len(groups) > 1
+            key = (group[0].get("key") or group[0]["id"].split("#")[-1])[:40].replace("/", "-").replace(":", "-")
+            part = key if multi else None
+            job_id = f"BP-{file_id(rid)}" + (f"--{key}" if multi else "")
+            output = f"research/blueprint/packets/{file_id(rid)}" + (f"--{key}" if multi else "") + ".json"
+            readme = f"research/blueprint/readmes/{file_id(rid)}" + (f"--{key}" if multi else "") + ".md"
+            text = BP_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, TITLE=title, README=readme,
+                                      PARTNOTE=f", part {i + 1} of {len(groups)}" if multi else "",
+                                      STAGES=stage_lines(group), OUTPUT=output, PART=json.dumps(part),
+                                      EXTRA=extra, FILE=file_id(rid), EDITABLE=output)
+            add({"id": job_id, "kind": "blueprint", "priority": priority, "order": order * 100 + i,
+                 "roadmapIds": [rid], "scope": [s["id"] for s in group], "outputs": [output, readme],
+                 "after": list(after)}, text)
+            bp_jobs_of[rid].append(job_id)
+            parts_of[rid].append((job_id, output, readme))
+            review_id = "REV-" + job_id[3:]
+            rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_id, TARGETS=f"the blueprint packet {output} (roadmap {rid}, stages: {', '.join(s['id'] for s in group)})")
+            add({"id": review_id, "kind": "review", "priority": 2, "order": order * 100 + i,
+                 "roadmapIds": [rid], "outputs": [f"research/blueprint/reviews/{review_id}.md"],
+                 "after": [job_id], "avoidAccountOf": job_id}, rtext)
+
+    # Priority 0: status mapping, already specified.
+    for n in (1, 2, 3):
+        add({"id": f"STATUS-0{n}", "kind": "status", "priority": 0, "order": n,
+             "prompt": f"research/expansion/prompts/STATUS-0{n}.md",
+             "outputs": [f"research/expansion/status/STATUS-0{n}.result.json"], "after": []})
+    # Priority 1: the two new roadmaps and the Zagier suppliers.
+    for job_id, rid, group, brief in (("DESIGN-LV", "MordellLawrenceVenkatesh", "diophantine", LV_BRIEF),
+                                      ("DESIGN-ZAGIER", "ZagierConjecturePolylogarithms", "motivic", ZAGIER_BRIEF)):
+        output = f"research/blueprint/packets/{rid}.json"
+        text = DESIGN_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, GROUP=group, BRIEF=brief, OUTPUT=output,
+                                      README=f"research/blueprint/readmes/{rid}.md",
+                                      FILE=rid, EDITABLE=f"research/blueprint/roadmaps/{rid}.json and {output}")
+        add({"id": job_id, "kind": "design", "priority": 1, "order": 1 if rid.startswith("Mordell") else 2,
+             "roadmapIds": [rid], "outputs": [f"research/blueprint/roadmaps/{rid}.json", output, f"research/blueprint/readmes/{rid}.md"],
+             "after": [], "timeout": 8 * 3600}, text)
+        review_id = "REV-" + job_id
+        rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_id, TARGETS=f"the new roadmap definition research/blueprint/roadmaps/{rid}.json and its blueprint packet {output}")
+        add({"id": review_id, "kind": "review", "priority": 2, "order": 1, "roadmapIds": [rid],
+             "outputs": [f"research/blueprint/reviews/{review_id}.md"], "after": [job_id], "avoidAccountOf": job_id,
+             "timeout": 8 * 3600}, rtext)
+    upstream = [rid for rid in roadmaps if rid.startswith("tauceti:")]
+    upstream.sort(key=lambda r: (LINK_PRIORITY.index(r) if r in LINK_PRIORITY else 100, r))
+    link_jobs = []
+    for position, rid in enumerate(upstream):
+        job_id = f"LINK-{file_id(rid)}"
+        output = f"research/blueprint/links/{file_id(rid)}.json"
+        text = LINK_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, TITLE=roadmaps[rid]["title"], OUTPUT=output)
+        add({"id": job_id, "kind": "link", "priority": 1, "order": 10 + position, "roadmapIds": [rid],
+             "outputs": [output], "after": []}, text)
+        link_jobs.append(job_id)
+        review_id = f"REV-LINK-{file_id(rid)}"
+        rtext = LINK_REVIEW_TEMPLATE.format(**fill, JOB=review_id, ROADMAP=rid, TARGET=output)
+        add({"id": review_id, "kind": "review", "priority": 2, "order": 10 + position, "roadmapIds": [rid],
+             "outputs": [f"research/blueprint/reviews/{review_id}.md"], "after": [job_id], "avoidAccountOf": job_id}, rtext)
+    owned = defaultdict(list)
+    for rid_node, (job, statement) in RESERVED.items():
+        owned[rid_node.split(":")[0]].append((rid_node, statement))
+    for order, rid in enumerate(("K3BlochGroups", "Polylogarithms", "BorelRegulators"), 3):
+        extra = "\nThis roadmap supplies the Zagier-conjecture programme. Your packet MUST contain nodes with exactly these ids (they are reserved for you; put each under the stated stage and make it complete, with a full API outline):\n" + \
+                "\n".join(f"- {nid}: {st}" for nid, st in owned[rid]) + \
+                "\nIf one of these ids falls in a stage outside your part's scope, leave it to the job for that part.\n"
+        add_blueprint(rid, 1, order, extra)
+    # Priority 2: reviews of the legacy research packets still being written.
+    add({"id": "REVIEW-EXT-12", "kind": "review", "priority": 2, "order": 0,
+         "prompt": "research/expansion/prompts/REVIEW-EXT-12.md",
+         "outputs": ["research/expansion/reviews/REVIEW-EXT-12-review.md"], "after": [],
+         "waitForLogs": ["{WORKERS}/EXT-12/run.log"]})
+    add({"id": "REVIEW-EXT-13-EXT-07B", "kind": "review", "priority": 2, "order": 0,
+         "prompt": "research/expansion/prompts/REVIEW-EXT-13-EXT-07B.md",
+         "outputs": ["research/expansion/reviews/REVIEW-EXT-13-EXT-07B-review.md"], "after": [],
+         "waitForLogs": ["{WORKERS}/EXT-07-continued/run.log"]})
+    # Priority 3: every other roadmap, suppliers before consumers.
+    ordered = sorted((rid for rid in roadmaps if rid not in ("K3BlochGroups", "Polylogarithms", "BorelRegulators")
+                      and stages_by_owner.get(rid)), key=lambda r: (levels[r], r))
+    for position, rid in enumerate(ordered):
+        after = sorted({j for s in suppliers[rid] for j in bp_jobs_of.get(s, [])})
+        add_blueprint(rid, 3, 10 + levels[rid] * 1000 + position, after=after)
+    # Supplier jobs are only known once all blueprints are listed: fix dependencies.
+    ids = {j["id"] for j in jobs}
+    for job in jobs:
+        if job["kind"] == "blueprint" and job["priority"] == 3:
+            rid = job["roadmapIds"][0]
+            hard = {j for s in suppliers[rid] if not s.startswith("tauceti:") for j in bp_jobs_of.get(s, []) if j in ids}
+            job["after"] = sorted(hard | set(link_jobs))
+    # Assembly of multi-part roadmaps, after every part is reviewed.
+    for rid, parts in parts_of.items():
+        if len(parts) < 2:
+            continue
+        job_id = f"ASM-{file_id(rid)}"
+        readme = f"research/blueprint/readmes/{file_id(rid)}.md"
+        text = ASSEMBLY_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, TITLE=roadmaps.get(rid, {}).get("title", rid),
+                                        PARTS=", ".join(p[1] for p in parts), PARTDOCS=", ".join(p[2] for p in parts),
+                                        README=readme)
+        add({"id": job_id, "kind": "assembly", "priority": 2, "order": 5000, "roadmapIds": [rid], "outputs": [readme],
+             "after": ["REV-" + p[0][3:] for p in parts]}, text)
+    # Priority 4: planet naming.
+    for n in range(1, 15):
+        add({"id": f"NAME-{n:02d}", "kind": "naming", "priority": 4, "order": n,
+             "prompt": f"research/expansion/prompts/NAME-{n:02d}.md",
+             "outputs": [f"research/expansion/naming/NAME-{n:02d}.result.json"], "after": []})
+
+    queue_path = BP / "queue.json"
+    old = json.loads(queue_path.read_text())["jobs"] if queue_path.exists() else []
+    previous = {j["id"]: j for j in old}
+    merged = []
+    for job in jobs:
+        if job["id"] in previous:
+            kept = previous[job["id"]]
+            for key in ("state", "account", "lane", "attempts", "startedAt", "finishedAt", "seconds", "result", "note"):
+                if key in kept:
+                    job[key] = kept[key]
+        merged.append(job)
+    extra_old = [j for j in old if j["id"] not in {x["id"] for x in merged}]
+    merged += extra_old
+    stats = defaultdict(int)
+    for j in merged:
+        stats[j["kind"]] += 1
+    level_counts = defaultdict(int)
+    for j in merged:
+        if j["kind"] == "blueprint" and j["priority"] == 3:
+            level_counts[(j["order"] - 10) // 100000 if False else (j["order"] // 100 - 10) // 1000] += 1
+    print("jobs by kind", dict(stats))
+    print("blueprint jobs by supplier level", dict(sorted(level_counts.items())))
+    print("blueprint jobs with no pending supplier", sum(1 for j in merged if j["kind"] == "blueprint" and not j["after"]))
+    if args.dry_run:
+        return
+    for path, text in prompts.items():
+        (REPO / path).write_text(text, encoding="utf-8")
+    reserved = {k: {"job": v[0], "statement": v[1]} for k, v in RESERVED.items()}
+    (BP / "reserved-ids.json").write_text(json.dumps(reserved, indent=1, ensure_ascii=False) + "\n")
+    queue_path.write_text(json.dumps({"purpose": "Blueprint swarm queue; see research/blueprint/PROTOCOL.md. Lanes (research/blueprint/lane.py) claim jobs under a file lock.",
+                                      "jobs": merged}, indent=1, ensure_ascii=False) + "\n")
+    print("queue written:", len(merged), "jobs;", len(prompts), "prompts")
+
+
+if __name__ == "__main__":
+    main()

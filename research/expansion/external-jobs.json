@@ -58,9 +58,9 @@
         "ExcursionOperatorsAndSpectralAction",
         "FarguesFontaineDiamonds"
       ],
-      "state": "assigned_internal",
+      "state": "superseded",
       "assignedOn": "2026-09-15",
-      "note": "Claimed on 15 September 2026; scheduled to run unattended in tmux under the local account \"claude4\" from 16 Sep 16:10 BST (weekly limit reset). Do not hand this job to another agent; packets land in research/expansion/external/EXT-04/."
+      "note": "Superseded on 16 September 2026 by the blueprint programme (research/blueprint/PROTOCOL.md): every roadmap is now scheduled for a granular, gap-free blueprint with API outlines through research/blueprint/queue.json. Do not start this job."
     },
     {
       "id": "EXT-05",
@@ -138,9 +138,9 @@
         "tauceti:Completed/EffectiveBounds",
         "tauceti:TauCetiRoadmap/Multiquadratic"
       ],
-      "state": "assigned_internal",
+      "state": "superseded",
       "assignedOn": "2026-09-15",
-      "note": "Claimed on 15 September 2026; scheduled to run unattended in tmux under the local account \"claude4\" from 16 Sep 16:10 BST (weekly limit reset). Do not hand this job to another agent; packets land in research/expansion/external/EXT-09/."
+      "note": "Superseded on 16 September 2026 by the blueprint programme (research/blueprint/PROTOCOL.md): every roadmap is now scheduled for a granular, gap-free blueprint with API outlines through research/blueprint/queue.json. Do not start this job."
     },
     {
       "id": "EXT-10",
@@ -174,9 +174,9 @@
         "IntegralHeckeAndGaloisDeterminants",
         "LocalGaloisDeformationRings"
       ],
-      "state": "assigned_internal",
+      "state": "superseded",
       "assignedOn": "2026-09-16",
-      "note": "Claimed on 16 September 2026; queued to run unattended in tmux under the local account \"claude\" after its review job. Do not hand this job to another agent; packets land in research/expansion/external/EXT-11/."
+      "note": "Superseded on 16 September 2026 by the blueprint programme (research/blueprint/PROTOCOL.md): every roadmap is now scheduled for a granular, gap-free blueprint with API outlines through research/blueprint/queue.json. Do not start this job."
     },
     {
       "id": "EXT-12",
@@ -208,9 +208,9 @@
         "TorsionCohomologyInfrastructure",
         "tauceti:TauCetiRoadmap/ModularForms"
       ],
-      "state": "assigned_internal",
+      "state": "superseded",
       "assignedOn": "2026-09-16",
-      "note": "Claimed on 16 September 2026; queued unattended in tmux under the local account \"claude2\" after a review job and the EXT-07 continuation. Do not hand this job to another agent; packets land in research/expansion/external/EXT-13/."
+      "note": "Superseded on 16 September 2026 by the blueprint programme (research/blueprint/PROTOCOL.md): every roadmap is now scheduled for a granular, gap-free blueprint with API outlines through research/blueprint/queue.json. Do not start this job."
     },
     {
       "id": "EXT-14",
@@ -224,7 +224,8 @@
         "DirichletPadicLFunctions",
         "EulerSystemsAndKolyvaginSystems"
       ],
-      "state": "available"
+      "state": "superseded",
+      "note": "Superseded on 16 September 2026 by the blueprint programme (research/blueprint/PROTOCOL.md): every roadmap is now scheduled for a granular, gap-free blueprint with API outlines through research/blueprint/queue.json. Do not start this job."
     },
     {
       "id": "EXT-15",
@@ -270,7 +271,8 @@
         "HabiroCyclotomicCompletions",
         "HabiroNahmSeries"
       ],
-      "state": "available"
+      "state": "superseded",
+      "note": "Superseded on 16 September 2026 by the blueprint programme (research/blueprint/PROTOCOL.md): every roadmap is now scheduled for a granular, gap-free blueprint with API outlines through research/blueprint/queue.json. Do not start this job."
     },
     {
       "id": "EXT-18",
@@ -285,7 +287,8 @@
         "MotivesAndAlgebraicCycles",
         "MotivicEtaleKTheory"
       ],
-      "state": "available"
+      "state": "superseded",
+      "note": "Superseded on 16 September 2026 by the blueprint programme (research/blueprint/PROTOCOL.md): every roadmap is now scheduled for a granular, gap-free blueprint with API outlines through research/blueprint/queue.json. Do not start this job."
     },
     {
       "id": "EXT-19",
@@ -298,7 +301,8 @@
         "SchemeKTheoryOperations",
         "SpecialValuesBirchTate"
       ],
-      "state": "available"
+      "state": "superseded",
+      "note": "Superseded on 16 September 2026 by the blueprint programme (research/blueprint/PROTOCOL.md): every roadmap is now scheduled for a granular, gap-free blueprint with API outlines through research/blueprint/queue.json. Do not start this job."
     },
     {
       "id": "EXT-20",
@@ -309,7 +313,8 @@
         "GlobalShtukasAndFunctionFieldLanglands",
         "HigherLocalFieldsAndHigherClassFieldTheory"
       ],
-      "state": "available"
+      "state": "superseded",
+      "note": "Superseded on 16 September 2026 by the blueprint programme (research/blueprint/PROTOCOL.md): every roadmap is now scheduled for a granular, gap-free blueprint with API outlines through research/blueprint/queue.json. Do not start this job."
     },
     {
       "id": "EXT-21",
@@ -323,7 +328,8 @@
         "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
         "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
       ],
-      "state": "available"
+      "state": "superseded",
+      "note": "Superseded on 16 September 2026 by the blueprint programme (research/blueprint/PROTOCOL.md): every roadmap is now scheduled for a granular, gap-free blueprint with API outlines through research/blueprint/queue.json. Do not start this job."
     },
     {
       "id": "EXT-22",
@@ -336,7 +342,8 @@
         "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
         "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
       ],
-      "state": "available"
+      "state": "superseded",
+      "note": "Superseded on 16 September 2026 by the blueprint programme (research/blueprint/PROTOCOL.md): every roadmap is now scheduled for a granular, gap-free blueprint with API outlines through research/blueprint/queue.json. Do not start this job."
     },
     {
       "id": "EXT-23",
@@ -350,7 +357,8 @@
         "tauceti:TauCetiRoadmap/OrthogonalL2Bases",
         "tauceti:TauCetiRoadmap/PDE"
       ],
-      "state": "available"
+      "state": "superseded",
+      "note": "Superseded on 16 September 2026 by the blueprint programme (research/blueprint/PROTOCOL.md): every roadmap is now scheduled for a granular, gap-free blueprint with API outlines through research/blueprint/queue.json. Do not start this job."
     },
     {
       "id": "EXT-24",
@@ -361,7 +369,8 @@
         "tauceti:TauCetiRoadmap/HeegaardFloer",
         "tauceti:TauCetiRoadmap/UniversalCovers"
       ],
-      "state": "available"
+      "state": "superseded",
+      "note": "Superseded on 16 September 2026 by the blueprint programme (research/blueprint/PROTOCOL.md): every roadmap is now scheduled for a granular, gap-free blueprint with API outlines through research/blueprint/queue.json. Do not start this job."
     },
     {
       "id": "EXT-25",
@@ -376,7 +385,8 @@
         "ReductiveGroupsPartII",
         "SmoothRepresentationsOfLocalGroups"
       ],
-      "state": "available"
+      "state": "superseded",
+      "note": "Superseded on 16 September 2026 by the blueprint programme (research/blueprint/PROTOCOL.md): every roadmap is now scheduled for a granular, gap-free blueprint with API outlines through research/blueprint/queue.json. Do not start this job."
     }
   ],
   "internalRoadmaps": [
