@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-07",
+ "round": 1,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:Completed/ContourIntegration",
+   "title": "Contour integration and the Hungerbühler–Wasem generalized residue theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_Completed_ContourIntegration.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+   "title": "One-parameter semigroups, completely monotone and positive-definite functions, and Bochner-type representations",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_OneParameterSemigroups.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+   "title": "Clifford algebras, the Pin and Spin groups, and spin representations",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json"
+  },
+  {
+   "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+   "title": "Automorphic L-functions and local factors",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicLFunctionsAndLocalFactors.json"
+  },
+  {
+   "roadmapId": "SieveMethodsAndPrimePatterns",
+   "title": "Sieve methods, prime gaps and prime patterns",
+   "extract": "research/blueprint/atlas/roadmaps/SieveMethodsAndPrimePatterns.json"
+  },
+  {
+   "roadmapId": "MetaplecticAutomorphicForms",
+   "title": "Metaplectic groups, Weil representations and automorphic theta kernels",
+   "extract": "research/blueprint/atlas/roadmaps/MetaplecticAutomorphicForms.json"
+  },
+  {
+   "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+   "title": "Faltings finiteness, semisimplicity and isogeny theorems",
+   "extract": "research/blueprint/atlas/roadmaps/FaltingsFinitenessAndIsogenyTheorems.json"
+  },
+  {
+   "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+   "title": "Global shtukas and Langlands over function fields",
+   "extract": "research/blueprint/atlas/roadmaps/GlobalShtukasAndFunctionFieldLanglands.json"
+  },
+  {
+   "roadmapId": "HeegnerPointEulerSystems",
+   "title": "Heegner-point Euler systems and arithmetic descent",
+   "extract": "research/blueprint/atlas/roadmaps/HeegnerPointEulerSystems.json"
+  },
+  {
+   "roadmapId": "SerreWeightAndLevelOptimisation",
+   "title": "Weight and level optimisation of residual modular representations",
+   "extract": "research/blueprint/atlas/roadmaps/SerreWeightAndLevelOptimisation.json"
+  },
+  {
+   "roadmapId": "ExcursionOperatorsAndSpectralAction",
+   "title": "Excursion operators and the spectral action",
+   "extract": "research/blueprint/atlas/roadmaps/ExcursionOperatorsAndSpectralAction.json"
+  },
+  {
+   "roadmapId": "OverconvergentAutomorphicForms",
+   "title": "Overconvergent Hilbert modular forms and p-adic automorphic coefficients",
+   "extract": "research/blueprint/atlas/roadmaps/OverconvergentAutomorphicForms.json"
+  },
+  {
+   "roadmapId": "PadicHodgeRegulators",
+   "title": "P-adic regulators and the local K₃ calculation",
+   "extract": "research/blueprint/atlas/roadmaps/PadicHodgeRegulators.json"
+  },
+  {
+   "roadmapId": "VStackSheavesAndLisseCategories",
+   "title": "Artin v-stacks, solid and lisse coefficient categories",
+   "extract": "research/blueprint/atlas/roadmaps/VStackSheavesAndLisseCategories.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+   "b": "tauceti:Completed/ContourIntegration"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+   "b": "tauceti:TauCetiRoadmap/OneParameterSemigroups"
+  },
+  {
+   "a": "AutomorphicLFunctionsAndLocalFactors",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+  },
+  {
+   "a": "SieveMethodsAndPrimePatterns",
+   "b": "AutomorphicLFunctionsAndLocalFactors"
+  },
+  {
+   "a": "MetaplecticAutomorphicForms",
+   "b": "SieveMethodsAndPrimePatterns"
+  },
+  {
+   "a": "MetaplecticAutomorphicForms",
+   "b": "FaltingsFinitenessAndIsogenyTheorems"
+  },
+  {
+   "a": "FaltingsFinitenessAndIsogenyTheorems",
+   "b": "GlobalShtukasAndFunctionFieldLanglands"
+  },
+  {
+   "a": "HeegnerPointEulerSystems",
+   "b": "GlobalShtukasAndFunctionFieldLanglands"
+  },
+  {
+   "a": "SerreWeightAndLevelOptimisation",
+   "b": "HeegnerPointEulerSystems"
+  },
+  {
+   "a": "ExcursionOperatorsAndSpectralAction",
+   "b": "SerreWeightAndLevelOptimisation"
+  },
+  {
+   "a": "ExcursionOperatorsAndSpectralAction",
+   "b": "OverconvergentAutomorphicForms"
+  },
+  {
+   "a": "OverconvergentAutomorphicForms",
+   "b": "PadicHodgeRegulators"
+  },
+  {
+   "a": "PadicHodgeRegulators",
+   "b": "VStackSheavesAndLisseCategories"
+  },
+  {
+   "a": "VStackSheavesAndLisseCategories",
+   "b": "ExcursionOperatorsAndSpectralAction"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+   "b": "tauceti:Completed/ContourIntegration"
+  },
+  {
+   "a": "GlobalShtukasAndFunctionFieldLanglands",
+   "b": "MetaplecticAutomorphicForms"
+  },
+  {
+   "a": "PadicHodgeRegulators",
+   "b": "HeegnerPointEulerSystems"
+  },
+  {
+   "a": "OverconvergentAutomorphicForms",
+   "b": "FaltingsFinitenessAndIsogenyTheorems"
+  },
+  {
+   "a": "SerreWeightAndLevelOptimisation",
+   "b": "VStackSheavesAndLisseCategories"
+  },
+  {
+   "a": "SieveMethodsAndPrimePatterns",
+   "b": "HeegnerPointEulerSystems"
+  },
+  {
+   "a": "AutomorphicLFunctionsAndLocalFactors",
+   "b": "MetaplecticAutomorphicForms"
+  },
+  {
+   "a": "GlobalShtukasAndFunctionFieldLanglands",
+   "b": "VStackSheavesAndLisseCategories"
+  },
+  {
+   "a": "FaltingsFinitenessAndIsogenyTheorems",
+   "b": "AutomorphicLFunctionsAndLocalFactors"
+  },
+  {
+   "a": "OverconvergentAutomorphicForms",
+   "b": "SerreWeightAndLevelOptimisation"
+  }
+ ]
+}

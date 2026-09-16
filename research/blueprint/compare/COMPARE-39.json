@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-39",
+ "round": 3,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+   "title": "Universal covers",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_UniversalCovers.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+   "title": "Representations of compact groups and the Peter-Weyl theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_CompactGroups.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+   "title": "Induction, restriction, and Mackey theory for finite groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_InductionRestriction.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+   "title": "Modular forms — Hecke theory, newforms, and L-functions",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ModularForms.json"
+  },
+  {
+   "roadmapId": "DiamondsAndVStacks",
+   "title": "Pro-étale descent, diamonds and small v-stacks",
+   "extract": "research/blueprint/atlas/roadmaps/DiamondsAndVStacks.json"
+  },
+  {
+   "roadmapId": "ModularCurvesPartII",
+   "title": "Modular Curves PartII",
+   "extract": "research/blueprint/atlas/roadmaps/ModularCurvesPartII.json"
+  },
+  {
+   "roadmapId": "DeligneWeightsAndPurity",
+   "title": "Deligne weights, purity and the Weil bounds",
+   "extract": "research/blueprint/atlas/roadmaps/DeligneWeightsAndPurity.json"
+  },
+  {
+   "roadmapId": "DiamondSixOperations",
+   "title": "Six operations, cohomological smoothness and biduality",
+   "extract": "research/blueprint/atlas/roadmaps/DiamondSixOperations.json"
+  },
+  {
+   "roadmapId": "EllipticRegulators",
+   "title": "Elliptic regulators, explicit K₂ classes and L-values",
+   "extract": "research/blueprint/atlas/roadmaps/EllipticRegulators.json"
+  },
+  {
+   "roadmapId": "LanglandsParameterStacks",
+   "title": "Parameter stacks, invariant theory and spectral coefficients",
+   "extract": "research/blueprint/atlas/roadmaps/LanglandsParameterStacks.json"
+  },
+  {
+   "roadmapId": "Polylogarithms",
+   "title": "Polylogarithms, explicit regulators and Zagier statements",
+   "extract": "research/blueprint/atlas/roadmaps/Polylogarithms.json"
+  },
+  {
+   "roadmapId": "ShimuraVarieties",
+   "title": "Complex Shimura varieties and canonical models",
+   "extract": "research/blueprint/atlas/roadmaps/ShimuraVarieties.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+   "title": "Heegaard Floer homology, analytically",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_HeegaardFloer.json"
+  },
+  {
+   "roadmapId": "ClassicalSerreModularity",
+   "title": "Classical Serre Modularity",
+   "extract": "research/blueprint/atlas/roadmaps/ClassicalSerreModularity.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/UniversalCovers",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+   "b": "tauceti:TauCetiRoadmap/ModularForms"
+  },
+  {
+   "a": "DiamondsAndVStacks",
+   "b": "tauceti:TauCetiRoadmap/ModularForms"
+  },
+  {
+   "a": "DiamondsAndVStacks",
+   "b": "ModularCurvesPartII"
+  },
+  {
+   "a": "ModularCurvesPartII",
+   "b": "DeligneWeightsAndPurity"
+  },
+  {
+   "a": "DiamondSixOperations",
+   "b": "DeligneWeightsAndPurity"
+  },
+  {
+   "a": "EllipticRegulators",
+   "b": "DiamondSixOperations"
+  },
+  {
+   "a": "LanglandsParameterStacks",
+   "b": "EllipticRegulators"
+  },
+  {
+   "a": "LanglandsParameterStacks",
+   "b": "Polylogarithms"
+  },
+  {
+   "a": "ShimuraVarieties",
+   "b": "Polylogarithms"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HeegaardFloer",
+   "b": "ShimuraVarieties"
+  },
+  {
+   "a": "ClassicalSerreModularity",
+   "b": "tauceti:TauCetiRoadmap/HeegaardFloer"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/UniversalCovers",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction"
+  },
+  {
+   "a": "DiamondSixOperations",
+   "b": "ClassicalSerreModularity"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+   "b": "tauceti:TauCetiRoadmap/ModularForms"
+  },
+  {
+   "a": "DeligneWeightsAndPurity",
+   "b": "ClassicalSerreModularity"
+  },
+  {
+   "a": "LanglandsParameterStacks",
+   "b": "tauceti:TauCetiRoadmap/HeegaardFloer"
+  },
+  {
+   "a": "ModularCurvesPartII",
+   "b": "ShimuraVarieties"
+  },
+  {
+   "a": "Polylogarithms",
+   "b": "EllipticRegulators"
+  },
+  {
+   "a": "ClassicalSerreModularity",
+   "b": "DiamondsAndVStacks"
+  },
+  {
+   "a": "Polylogarithms",
+   "b": "DiamondSixOperations"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HeegaardFloer",
+   "b": "DeligneWeightsAndPurity"
+  },
+  {
+   "a": "ModularCurvesPartII",
+   "b": "LanglandsParameterStacks"
+  }
+ ]
+}

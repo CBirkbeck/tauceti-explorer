@@ -263,6 +263,10 @@ def deliverables_complete(job):
                     and not any(entry.get("assessmentStatus") == "partial" for entry in result))
         if job["kind"] == "link":
             return json.loads(paths[0].read_text()).get("status") == "complete"
+        if job["kind"] == "compare":
+            listed = json.loads((BP / "compare" / f"{job['id']}.json").read_text())["pairs"]
+            answered = {(item.get("a"), item.get("b")) for item in json.loads(paths[0].read_text()).get("judgements", [])}
+            return all((pair["a"], pair["b"]) in answered for pair in listed)
         if job["kind"] == "naming":
             wanted = {entry["id"] for entry in json.loads((REPO / "research" / "expansion" / "naming" / f"{job['id']}.json").read_text())}
             return wanted <= {entry.get("id") for entry in json.loads(paths[0].read_text())}

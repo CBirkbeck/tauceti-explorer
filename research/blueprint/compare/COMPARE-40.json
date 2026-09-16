@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-40",
+ "round": 3,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+   "title": "Exchangeability and de Finetti",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_Exchangeability.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+   "title": "Galois groups of polynomials",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_PolynomialGaloisGroups.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+   "title": "Foundations of adic spaces",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AdicSpaces.json"
+  },
+  {
+   "roadmapId": "ArithmeticStatistics",
+   "title": "Arithmetic statistics, counting fields and Selmer distributions",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticStatistics.json"
+  },
+  {
+   "roadmapId": "AdditiveCombinatorics",
+   "title": "Additive combinatorics, higher Fourier analysis and primes",
+   "extract": "research/blueprint/atlas/roadmaps/AdditiveCombinatorics.json"
+  },
+  {
+   "roadmapId": "AdicSpacesPartII",
+   "title": "Adic Spaces PartII",
+   "extract": "research/blueprint/atlas/roadmaps/AdicSpacesPartII.json"
+  },
+  {
+   "roadmapId": "TropicalAndBerkovichArithmetic",
+   "title": "Berkovich spaces, tropical curves and nonarchimedean arithmetic",
+   "extract": "research/blueprint/atlas/roadmaps/TropicalAndBerkovichArithmetic.json"
+  },
+  {
+   "roadmapId": "EnhancedDerivedSheaves",
+   "title": "Enhanced derived categories of sheaves",
+   "extract": "research/blueprint/atlas/roadmaps/EnhancedDerivedSheaves.json"
+  },
+  {
+   "roadmapId": "SmoothRepresentationsOfLocalGroups",
+   "title": "Smooth representations of local groups",
+   "extract": "research/blueprint/atlas/roadmaps/SmoothRepresentationsOfLocalGroups.json"
+  },
+  {
+   "roadmapId": "FarguesFontaineDiamonds",
+   "title": "The existing Fargues–Fontaine curve as a diamond",
+   "extract": "research/blueprint/atlas/roadmaps/FarguesFontaineDiamonds.json"
+  },
+  {
+   "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+   "title": "Global shtukas and Langlands over function fields",
+   "extract": "research/blueprint/atlas/roadmaps/GlobalShtukasAndFunctionFieldLanglands.json"
+  },
+  {
+   "roadmapId": "KatoEulerSystems",
+   "title": "Kato classes and explicit reciprocity for modular forms",
+   "extract": "research/blueprint/atlas/roadmaps/KatoEulerSystems.json"
+  },
+  {
+   "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+   "title": "Noncommutative and equivariant Iwasawa theory",
+   "extract": "research/blueprint/atlas/roadmaps/NoncommutativeAndEquivariantIwasawa.json"
+  },
+  {
+   "roadmapId": "TorsionCohomologyInfrastructure",
+   "title": "Reusable infrastructure for torsion in arithmetic cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/TorsionCohomologyInfrastructure.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/Exchangeability",
+   "b": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+   "b": "tauceti:TauCetiRoadmap/AdicSpaces"
+  },
+  {
+   "a": "ArithmeticStatistics",
+   "b": "tauceti:TauCetiRoadmap/AdicSpaces"
+  },
+  {
+   "a": "AdditiveCombinatorics",
+   "b": "ArithmeticStatistics"
+  },
+  {
+   "a": "AdditiveCombinatorics",
+   "b": "AdicSpacesPartII"
+  },
+  {
+   "a": "TropicalAndBerkovichArithmetic",
+   "b": "AdicSpacesPartII"
+  },
+  {
+   "a": "TropicalAndBerkovichArithmetic",
+   "b": "EnhancedDerivedSheaves"
+  },
+  {
+   "a": "SmoothRepresentationsOfLocalGroups",
+   "b": "EnhancedDerivedSheaves"
+  },
+  {
+   "a": "FarguesFontaineDiamonds",
+   "b": "SmoothRepresentationsOfLocalGroups"
+  },
+  {
+   "a": "GlobalShtukasAndFunctionFieldLanglands",
+   "b": "FarguesFontaineDiamonds"
+  },
+  {
+   "a": "KatoEulerSystems",
+   "b": "GlobalShtukasAndFunctionFieldLanglands"
+  },
+  {
+   "a": "KatoEulerSystems",
+   "b": "NoncommutativeAndEquivariantIwasawa"
+  },
+  {
+   "a": "NoncommutativeAndEquivariantIwasawa",
+   "b": "TorsionCohomologyInfrastructure"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AdicSpaces",
+   "b": "tauceti:TauCetiRoadmap/Exchangeability"
+  },
+  {
+   "a": "EnhancedDerivedSheaves",
+   "b": "TorsionCohomologyInfrastructure"
+  },
+  {
+   "a": "TorsionCohomologyInfrastructure",
+   "b": "TropicalAndBerkovichArithmetic"
+  },
+  {
+   "a": "AdicSpacesPartII",
+   "b": "GlobalShtukasAndFunctionFieldLanglands"
+  },
+  {
+   "a": "SmoothRepresentationsOfLocalGroups",
+   "b": "KatoEulerSystems"
+  },
+  {
+   "a": "FarguesFontaineDiamonds",
+   "b": "ArithmeticStatistics"
+  },
+  {
+   "a": "AdditiveCombinatorics",
+   "b": "NoncommutativeAndEquivariantIwasawa"
+  },
+  {
+   "a": "AdicSpacesPartII",
+   "b": "tauceti:TauCetiRoadmap/AdicSpaces"
+  },
+  {
+   "a": "AdditiveCombinatorics",
+   "b": "TorsionCohomologyInfrastructure"
+  },
+  {
+   "a": "ArithmeticStatistics",
+   "b": "GlobalShtukasAndFunctionFieldLanglands"
+  },
+  {
+   "a": "FarguesFontaineDiamonds",
+   "b": "NoncommutativeAndEquivariantIwasawa"
+  }
+ ]
+}

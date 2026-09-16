@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-14",
+ "round": 1,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+   "title": "Global number fields, ray classes, adeles, and Hecke characters",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_GlobalNumberFields.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+   "title": "Partial differential equations",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_PDE.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+   "title": "Combinatorial Heegaard Floer and grid homology",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_CombinatorialHeegaardFloer.json"
+  },
+  {
+   "roadmapId": "AdditiveCombinatorics",
+   "title": "Additive combinatorics, higher Fourier analysis and primes",
+   "extract": "research/blueprint/atlas/roadmaps/AdditiveCombinatorics.json"
+  },
+  {
+   "roadmapId": "AutomorphicFormsOnReductiveGroups",
+   "title": "Automorphic forms on reductive groups",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicFormsOnReductiveGroups.json"
+  },
+  {
+   "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "title": "Finite flat group schemes and integral p-adic Hodge theory",
+   "extract": "research/blueprint/atlas/roadmaps/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json"
+  },
+  {
+   "roadmapId": "TropicalAndBerkovichArithmetic",
+   "title": "Berkovich spaces, tropical curves and nonarchimedean arithmetic",
+   "extract": "research/blueprint/atlas/roadmaps/TropicalAndBerkovichArithmetic.json"
+  },
+  {
+   "roadmapId": "DerivedDeRhamCohomology",
+   "title": "Derived de Rham cohomology and its algebraic foundations",
+   "extract": "research/blueprint/atlas/roadmaps/DerivedDeRhamCohomology.json"
+  },
+  {
+   "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+   "title": "Euler systems and the unconditional cyclotomic main conjecture",
+   "extract": "research/blueprint/atlas/roadmaps/EulerSystemsCyclotomicMainConjecture.json"
+  },
+  {
+   "roadmapId": "SchemeKTheoryOperations",
+   "title": "K-theory of schemes, localisation and operations",
+   "extract": "research/blueprint/atlas/roadmaps/SchemeKTheoryOperations.json"
+  },
+  {
+   "roadmapId": "KTheoryFiniteLocalFields",
+   "title": "K-theory of finite and local fields",
+   "extract": "research/blueprint/atlas/roadmaps/KTheoryFiniteLocalFields.json"
+  },
+  {
+   "roadmapId": "KatoEulerSystems",
+   "title": "Kato classes and explicit reciprocity for modular forms",
+   "extract": "research/blueprint/atlas/roadmaps/KatoEulerSystems.json"
+  },
+  {
+   "roadmapId": "MotivicEtaleKTheory",
+   "title": "Motivic and étale methods for arithmetic K-theory",
+   "extract": "research/blueprint/atlas/roadmaps/MotivicEtaleKTheory.json"
+  },
+  {
+   "roadmapId": "HeckeStacksAndLocalShtukas",
+   "title": "Hecke correspondences and local shtuka cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/HeckeStacksAndLocalShtukas.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+   "b": "tauceti:TauCetiRoadmap/PDE"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+   "b": "tauceti:TauCetiRoadmap/PDE"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+   "b": "AdditiveCombinatorics"
+  },
+  {
+   "a": "AdditiveCombinatorics",
+   "b": "AutomorphicFormsOnReductiveGroups"
+  },
+  {
+   "a": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "b": "AutomorphicFormsOnReductiveGroups"
+  },
+  {
+   "a": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "b": "TropicalAndBerkovichArithmetic"
+  },
+  {
+   "a": "TropicalAndBerkovichArithmetic",
+   "b": "DerivedDeRhamCohomology"
+  },
+  {
+   "a": "EulerSystemsCyclotomicMainConjecture",
+   "b": "DerivedDeRhamCohomology"
+  },
+  {
+   "a": "SchemeKTheoryOperations",
+   "b": "EulerSystemsCyclotomicMainConjecture"
+  },
+  {
+   "a": "SchemeKTheoryOperations",
+   "b": "KTheoryFiniteLocalFields"
+  },
+  {
+   "a": "KTheoryFiniteLocalFields",
+   "b": "KatoEulerSystems"
+  },
+  {
+   "a": "MotivicEtaleKTheory",
+   "b": "KatoEulerSystems"
+  },
+  {
+   "a": "HeckeStacksAndLocalShtukas",
+   "b": "MotivicEtaleKTheory"
+  },
+  {
+   "a": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "b": "tauceti:TauCetiRoadmap/GlobalNumberFields"
+  },
+  {
+   "a": "DerivedDeRhamCohomology",
+   "b": "HeckeStacksAndLocalShtukas"
+  },
+  {
+   "a": "SchemeKTheoryOperations",
+   "b": "TropicalAndBerkovichArithmetic"
+  },
+  {
+   "a": "KTheoryFiniteLocalFields",
+   "b": "EulerSystemsCyclotomicMainConjecture"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/PDE",
+   "b": "AutomorphicFormsOnReductiveGroups"
+  },
+  {
+   "a": "AdditiveCombinatorics",
+   "b": "HeckeStacksAndLocalShtukas"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+   "b": "tauceti:TauCetiRoadmap/GlobalNumberFields"
+  },
+  {
+   "a": "MotivicEtaleKTheory",
+   "b": "KTheoryFiniteLocalFields"
+  },
+  {
+   "a": "TropicalAndBerkovichArithmetic",
+   "b": "KatoEulerSystems"
+  },
+  {
+   "a": "DerivedDeRhamCohomology",
+   "b": "AdditiveCombinatorics"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+   "b": "EulerSystemsCyclotomicMainConjecture"
+  }
+ ]
+}

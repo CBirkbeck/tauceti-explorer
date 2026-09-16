@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-22",
+ "round": 2,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+   "title": "Multiquadratic fields and genus theory",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_Multiquadratic.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+   "title": "Exchangeability and de Finetti",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_Exchangeability.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+   "title": "Root systems, Weyl groups, and the Cartan-Killing classification",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "title": "Algebraic codes and code-lattice constructions",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AlgebraicCodingTheory.json"
+  },
+  {
+   "roadmapId": "AdelicAlgebraicGroups",
+   "title": "Adelic algebraic groups and arithmetic quotients",
+   "extract": "research/blueprint/atlas/roadmaps/AdelicAlgebraicGroups.json"
+  },
+  {
+   "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+   "title": "Geometry of numbers, quadratic forms and homogeneous arithmetic",
+   "extract": "research/blueprint/atlas/roadmaps/GeometryOfNumbersAndQuadraticArithmetic.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+   "title": "Geometric topology and the solved Kirby-list problems",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_GeometricTopology.json"
+  },
+  {
+   "roadmapId": "ArithmeticLocallySymmetricSpaces",
+   "title": "Arithmetic locally symmetric spaces and their cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticLocallySymmetricSpaces.json"
+  },
+  {
+   "roadmapId": "EffectiveDiophantineMethods",
+   "title": "Effective Diophantine methods and certified rational points",
+   "extract": "research/blueprint/atlas/roadmaps/EffectiveDiophantineMethods.json"
+  },
+  {
+   "roadmapId": "EulerSystemsAndKolyvaginSystems",
+   "title": "Euler systems, Kolyvagin systems and higher-rank descent",
+   "extract": "research/blueprint/atlas/roadmaps/EulerSystemsAndKolyvaginSystems.json"
+  },
+  {
+   "roadmapId": "ArakelovGeometryAndAbelianHeights",
+   "title": "Arakelov geometry and heights of abelian varieties",
+   "extract": "research/blueprint/atlas/roadmaps/ArakelovGeometryAndAbelianHeights.json"
+  },
+  {
+   "roadmapId": "AutomorphicBundles",
+   "title": "Automorphic bundles and classical automorphic forms",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicBundles.json"
+  },
+  {
+   "roadmapId": "AutomorphicCongruences",
+   "title": "Automorphic congruences and reverse main-conjecture divisibilities",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicCongruences.json"
+  },
+  {
+   "roadmapId": "IgusaVarietiesAndTorsionConcentration",
+   "title": "Igusa varieties, compactified period fibers and torsion concentration",
+   "extract": "research/blueprint/atlas/roadmaps/IgusaVarietiesAndTorsionConcentration.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/Multiquadratic",
+   "b": "tauceti:TauCetiRoadmap/Exchangeability"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/Exchangeability",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "b": "AdelicAlgebraicGroups"
+  },
+  {
+   "a": "GeometryOfNumbersAndQuadraticArithmetic",
+   "b": "AdelicAlgebraicGroups"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GeometricTopology",
+   "b": "GeometryOfNumbersAndQuadraticArithmetic"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GeometricTopology",
+   "b": "ArithmeticLocallySymmetricSpaces"
+  },
+  {
+   "a": "EffectiveDiophantineMethods",
+   "b": "ArithmeticLocallySymmetricSpaces"
+  },
+  {
+   "a": "EulerSystemsAndKolyvaginSystems",
+   "b": "EffectiveDiophantineMethods"
+  },
+  {
+   "a": "ArakelovGeometryAndAbelianHeights",
+   "b": "EulerSystemsAndKolyvaginSystems"
+  },
+  {
+   "a": "ArakelovGeometryAndAbelianHeights",
+   "b": "AutomorphicBundles"
+  },
+  {
+   "a": "AutomorphicCongruences",
+   "b": "AutomorphicBundles"
+  },
+  {
+   "a": "AutomorphicCongruences",
+   "b": "IgusaVarietiesAndTorsionConcentration"
+  },
+  {
+   "a": "IgusaVarietiesAndTorsionConcentration",
+   "b": "AutomorphicBundles"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/Multiquadratic",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory"
+  },
+  {
+   "a": "IgusaVarietiesAndTorsionConcentration",
+   "b": "EulerSystemsAndKolyvaginSystems"
+  },
+  {
+   "a": "GeometryOfNumbersAndQuadraticArithmetic",
+   "b": "ArithmeticLocallySymmetricSpaces"
+  },
+  {
+   "a": "AdelicAlgebraicGroups",
+   "b": "ArakelovGeometryAndAbelianHeights"
+  },
+  {
+   "a": "AutomorphicCongruences",
+   "b": "EffectiveDiophantineMethods"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "b": "tauceti:TauCetiRoadmap/Exchangeability"
+  },
+  {
+   "a": "AutomorphicBundles",
+   "b": "tauceti:TauCetiRoadmap/GeometricTopology"
+  },
+  {
+   "a": "EulerSystemsAndKolyvaginSystems",
+   "b": "AdelicAlgebraicGroups"
+  },
+  {
+   "a": "IgusaVarietiesAndTorsionConcentration",
+   "b": "ArithmeticLocallySymmetricSpaces"
+  },
+  {
+   "a": "EffectiveDiophantineMethods",
+   "b": "GeometryOfNumbersAndQuadraticArithmetic"
+  }
+ ]
+}

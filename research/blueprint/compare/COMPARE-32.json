@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-32",
+ "round": 3,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+   "title": "Multiquadratic fields and genus theory",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_Multiquadratic.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+   "title": "Conformal mapping and the geometric theory of holomorphic functions",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ConformalMapping.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "title": "Algebraic codes and code-lattice constructions",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AlgebraicCodingTheory.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+   "title": "The Chebotarev density theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_Chebotarev.json"
+  },
+  {
+   "roadmapId": "PadicMeasuresIwasawaAlgebras",
+   "title": "P-adic measures, completed group algebras, and characteristic ideals",
+   "extract": "research/blueprint/atlas/roadmaps/PadicMeasuresIwasawaAlgebras.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+   "title": "Global number fields, ray classes, adeles, and Hecke characters",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_GlobalNumberFields.json"
+  },
+  {
+   "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+   "title": "Geometry of numbers, quadratic forms and homogeneous arithmetic",
+   "extract": "research/blueprint/atlas/roadmaps/GeometryOfNumbersAndQuadraticArithmetic.json"
+  },
+  {
+   "roadmapId": "ShimuraData",
+   "title": "Shimura data, Hermitian domains, and adelic level structures",
+   "extract": "research/blueprint/atlas/roadmaps/ShimuraData.json"
+  },
+  {
+   "roadmapId": "LogicAndDefinabilityInNumberTheory",
+   "title": "Logic, definability, valued fields and motivic integration",
+   "extract": "research/blueprint/atlas/roadmaps/LogicAndDefinabilityInNumberTheory.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+   "title": "Belyi maps, dessins d'enfants, and three-point covers",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_BelyiMaps.json"
+  },
+  {
+   "roadmapId": "AutomorphicPadicLFunctions",
+   "title": "Ray-class distributions and general automorphic constructions",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicPadicLFunctions.json"
+  },
+  {
+   "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+   "title": "P-adic differential equations, rigid cohomology and p-adic weights",
+   "extract": "research/blueprint/atlas/roadmaps/PadicDifferentialEquationsAndRigidCohomology.json"
+  },
+  {
+   "roadmapId": "CohomologyComparisons",
+   "title": "Cohomology comparisons: integral diagrams and rational period realizations",
+   "extract": "research/blueprint/atlas/roadmaps/CohomologyComparisons.json"
+  },
+  {
+   "roadmapId": "ExcursionOperatorsAndSpectralAction",
+   "title": "Excursion operators and the spectral action",
+   "extract": "research/blueprint/atlas/roadmaps/ExcursionOperatorsAndSpectralAction.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/Multiquadratic",
+   "b": "tauceti:TauCetiRoadmap/ConformalMapping"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "b": "tauceti:TauCetiRoadmap/ConformalMapping"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "b": "tauceti:TauCetiRoadmap/Chebotarev"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/Chebotarev",
+   "b": "PadicMeasuresIwasawaAlgebras"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+   "b": "PadicMeasuresIwasawaAlgebras"
+  },
+  {
+   "a": "GeometryOfNumbersAndQuadraticArithmetic",
+   "b": "tauceti:TauCetiRoadmap/GlobalNumberFields"
+  },
+  {
+   "a": "ShimuraData",
+   "b": "GeometryOfNumbersAndQuadraticArithmetic"
+  },
+  {
+   "a": "LogicAndDefinabilityInNumberTheory",
+   "b": "ShimuraData"
+  },
+  {
+   "a": "LogicAndDefinabilityInNumberTheory",
+   "b": "tauceti:TauCetiRoadmap/BelyiMaps"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/BelyiMaps",
+   "b": "AutomorphicPadicLFunctions"
+  },
+  {
+   "a": "AutomorphicPadicLFunctions",
+   "b": "PadicDifferentialEquationsAndRigidCohomology"
+  },
+  {
+   "a": "PadicDifferentialEquationsAndRigidCohomology",
+   "b": "CohomologyComparisons"
+  },
+  {
+   "a": "ExcursionOperatorsAndSpectralAction",
+   "b": "CohomologyComparisons"
+  },
+  {
+   "a": "AutomorphicPadicLFunctions",
+   "b": "ExcursionOperatorsAndSpectralAction"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/Multiquadratic",
+   "b": "tauceti:TauCetiRoadmap/Chebotarev"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ConformalMapping",
+   "b": "tauceti:TauCetiRoadmap/GlobalNumberFields"
+  },
+  {
+   "a": "ExcursionOperatorsAndSpectralAction",
+   "b": "PadicDifferentialEquationsAndRigidCohomology"
+  },
+  {
+   "a": "LogicAndDefinabilityInNumberTheory",
+   "b": "GeometryOfNumbersAndQuadraticArithmetic"
+  },
+  {
+   "a": "ShimuraData",
+   "b": "PadicMeasuresIwasawaAlgebras"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "b": "tauceti:TauCetiRoadmap/BelyiMaps"
+  },
+  {
+   "a": "CohomologyComparisons",
+   "b": "AutomorphicPadicLFunctions"
+  },
+  {
+   "a": "PadicMeasuresIwasawaAlgebras",
+   "b": "tauceti:TauCetiRoadmap/ConformalMapping"
+  },
+  {
+   "a": "LogicAndDefinabilityInNumberTheory",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/BelyiMaps",
+   "b": "tauceti:TauCetiRoadmap/GlobalNumberFields"
+  }
+ ]
+}

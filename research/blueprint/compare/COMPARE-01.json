@@ -1,0 +1,183 @@
+{
+ "job": "COMPARE-01",
+ "round": 1,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:Completed/IntegralLattices",
+   "title": "Integral lattices, discriminant forms, and overlattices",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_Completed_IntegralLattices.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "title": "Analytic toric geometry",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AnalyticToricGeometry.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "title": "Dense graph limits and graphons",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_DenseGraphLimits.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+   "title": "Finite-dimensional representations of the classical groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+   "title": "Modular forms — Hecke theory, newforms, and L-functions",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ModularForms.json"
+  },
+  {
+   "roadmapId": "ShimuraData",
+   "title": "Shimura data, Hermitian domains, and adelic level structures",
+   "extract": "research/blueprint/atlas/roadmaps/ShimuraData.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+   "title": "The Jacobian challenge (Christian Merten's AG version)",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_JacobianChallenge.json"
+  },
+  {
+   "roadmapId": "AutomorphicBundles",
+   "title": "Automorphic bundles and classical automorphic forms",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicBundles.json"
+  },
+  {
+   "roadmapId": "ClassicalAdicEtaleCohomology",
+   "title": "The classical analytic cohomology inputs to diamonds",
+   "extract": "research/blueprint/atlas/roadmaps/ClassicalAdicEtaleCohomology.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+   "title": "Stable reduction of curves and stable maps",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_StableReduction.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+   "title": "Heegaard Floer homology, analytically",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_HeegaardFloer.json"
+  },
+  {
+   "roadmapId": "AutomorphicCongruences",
+   "title": "Automorphic congruences and reverse main-conjecture divisibilities",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicCongruences.json"
+  },
+  {
+   "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+   "title": "Automorphic Galois Representations PartII",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicGaloisRepresentationsPartII.json"
+  },
+  {
+   "roadmapId": "PotentialAutomorphyInfrastructure",
+   "title": "Reusable infrastructure for potential automorphy over CM fields",
+   "extract": "research/blueprint/atlas/roadmaps/PotentialAutomorphyInfrastructure.json"
+  },
+  {
+   "roadmapId": "PrismaticCohomology",
+   "title": "Prismatic cohomology: relative, absolute, Nygaard and log variants",
+   "extract": "research/blueprint/atlas/roadmaps/PrismaticCohomology.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "b": "tauceti:Completed/IntegralLattices"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "b": "tauceti:TauCetiRoadmap/AnalyticToricGeometry"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+   "b": "tauceti:TauCetiRoadmap/DenseGraphLimits"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+   "b": "tauceti:TauCetiRoadmap/ModularForms"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ModularForms",
+   "b": "ShimuraData"
+  },
+  {
+   "a": "ShimuraData",
+   "b": "tauceti:TauCetiRoadmap/JacobianChallenge"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/JacobianChallenge",
+   "b": "AutomorphicBundles"
+  },
+  {
+   "a": "ClassicalAdicEtaleCohomology",
+   "b": "AutomorphicBundles"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/StableReduction",
+   "b": "ClassicalAdicEtaleCohomology"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HeegaardFloer",
+   "b": "tauceti:TauCetiRoadmap/StableReduction"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HeegaardFloer",
+   "b": "AutomorphicCongruences"
+  },
+  {
+   "a": "AutomorphicCongruences",
+   "b": "AutomorphicGaloisRepresentationsPartII"
+  },
+  {
+   "a": "AutomorphicGaloisRepresentationsPartII",
+   "b": "PotentialAutomorphyInfrastructure"
+  },
+  {
+   "a": "PotentialAutomorphyInfrastructure",
+   "b": "PrismaticCohomology"
+  },
+  {
+   "a": "tauceti:Completed/IntegralLattices",
+   "b": "tauceti:TauCetiRoadmap/DenseGraphLimits"
+  },
+  {
+   "a": "AutomorphicGaloisRepresentationsPartII",
+   "b": "PrismaticCohomology"
+  },
+  {
+   "a": "ClassicalAdicEtaleCohomology",
+   "b": "tauceti:TauCetiRoadmap/JacobianChallenge"
+  },
+  {
+   "a": "PotentialAutomorphyInfrastructure",
+   "b": "AutomorphicCongruences"
+  },
+  {
+   "a": "PrismaticCohomology",
+   "b": "tauceti:TauCetiRoadmap/HeegaardFloer"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "b": "ShimuraData"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/StableReduction",
+   "b": "AutomorphicBundles"
+  },
+  {
+   "a": "tauceti:Completed/IntegralLattices",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "b": "tauceti:TauCetiRoadmap/ModularForms"
+  },
+  {
+   "a": "AutomorphicCongruences",
+   "b": "tauceti:TauCetiRoadmap/StableReduction"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HeegaardFloer",
+   "b": "tauceti:TauCetiRoadmap/JacobianChallenge"
+  }
+ ]
+}

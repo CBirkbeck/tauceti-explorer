@@ -1,6 +1,6 @@
 {
  "version": 2,
- "purpose": "Subject galaxies of the atlas. Each classification cluster is its own galaxy; a galaxy with primaryMsc takes only the roadmaps of its cluster whose primary subject class starts with one of those prefixes, and the galaxy without primaryMsc takes the rest of that cluster. family groups galaxies on the map: number theory and geometry branch out from Mathlib together, and the other families sit on the far side of the centre. direction is the preferred bearing from Mathlib, in degrees clockwise from the right; distance from the centre comes from the classification. msc lists the subject-class prefixes whose secondary classes tag a roadmap with this galaxy; the longest matching prefix wins.",
+ "purpose": "Subject galaxies of the atlas. Each classification cluster is its own galaxy; a galaxy with primaryMsc takes only the roadmaps of its cluster whose primary subject class starts with one of those prefixes, and the galaxy without primaryMsc takes the rest of that cluster. Where a galaxy lies on the map is measured, not set here: its distance from Mathlib and its direction come from scripts/measure_distances.py (data/roadmap-distances.json and data/galaxy-layout.json). msc lists the subject-class prefixes whose secondary classes tag a roadmap with this galaxy; the longest matching prefix wins.",
  "galaxies": [
   {
    "id": "elementary",
@@ -10,9 +10,7 @@
     "Elementary",
     "number theory"
    ],
-   "family": "number theory",
    "color": "#dbeafe",
-   "direction": 44,
    "clusters": [
     "elementary-and-computational-number-theory"
    ],
@@ -36,9 +34,7 @@
     "Computational",
     "number theory"
    ],
-   "family": "number theory",
    "color": "#dbeafe",
-   "direction": 66,
    "clusters": [
     "elementary-and-computational-number-theory"
    ],
@@ -63,9 +59,7 @@
    "caption": [
     "Finite fields"
    ],
-   "family": "number theory",
    "color": "#dbeafe",
-   "direction": 58,
    "clusters": [
     "elementary-and-computational-number-theory"
    ],
@@ -90,9 +84,7 @@
     "Analytic",
     "number theory"
    ],
-   "family": "number theory",
    "color": "#dbeafe",
-   "direction": 38,
    "clusters": [
     "analytic-number-theory"
    ],
@@ -122,9 +114,7 @@
     "Algebraic",
     "number theory"
    ],
-   "family": "number theory",
    "color": "#cfe3fb",
-   "direction": 16,
    "clusters": [
     "algebraic-number-theory"
    ],
@@ -153,9 +143,7 @@
     "Arithmetic",
     "geometry"
    ],
-   "family": "number theory",
    "color": "#dcfce7",
-   "direction": -2,
    "clusters": [
     "arithmetic-geometry"
    ],
@@ -181,9 +169,7 @@
    "caption": [
     "Function fields"
    ],
-   "family": "number theory",
    "color": "#ecfccb",
-   "direction": -54,
    "clusters": [
     "function-fields"
    ],
@@ -203,9 +189,7 @@
     "Modular &",
     "automorphic forms"
    ],
-   "family": "number theory",
    "color": "#ffedd5",
-   "direction": 26,
    "clusters": [
     "modular-and-automorphic-forms"
    ],
@@ -229,9 +213,7 @@
     "Iwasawa theory &",
     "special values"
    ],
-   "family": "number theory",
    "color": "#fee2e2",
-   "direction": 42,
    "clusters": [
     "iwasawa-theory-and-special-values"
    ],
@@ -253,9 +235,7 @@
     "Arithmetic",
     "Langlands programme"
    ],
-   "family": "number theory",
    "color": "#fef3c7",
-   "direction": 14,
    "clusters": [
     "galois-representations-and-langlands"
    ],
@@ -276,9 +256,7 @@
    "caption": [
     "Model theory"
    ],
-   "family": "number theory",
    "color": "#e2e8f0",
-   "direction": 82,
    "clusters": [
     "logic-and-model-theory"
    ],
@@ -301,9 +279,7 @@
     "Algebraic",
     "geometry"
    ],
-   "family": "geometry",
    "color": "#e0f2e9",
-   "direction": -30,
    "clusters": [
     "algebraic-geometry"
    ],
@@ -326,9 +302,7 @@
     "p-adic",
     "geometry"
    ],
-   "family": "geometry",
    "color": "#cffafe",
-   "direction": -16,
    "clusters": [
     "p-adic-geometry"
    ],
@@ -352,9 +326,7 @@
     "Étale",
     "cohomology"
    ],
-   "family": "geometry",
    "color": "#d5f5f0",
-   "direction": -36,
    "clusters": [
     "etale-and-motivic-cohomology"
    ],
@@ -376,9 +348,7 @@
    "caption": [
     "Motives"
    ],
-   "family": "geometry",
    "color": "#fce7f3",
-   "direction": 70,
    "clusters": [
     "k-theory-and-motives"
    ],
@@ -403,9 +373,7 @@
     "Algebraic",
     "K-theory"
    ],
-   "family": "geometry",
    "color": "#fce7f3",
-   "direction": 58,
    "clusters": [
     "k-theory-and-motives"
    ],
@@ -428,9 +396,7 @@
     "Geometric",
     "Langlands"
    ],
-   "family": "geometry",
    "color": "#f3e8ff",
-   "direction": 0,
    "clusters": [
     "geometric-langlands"
    ],
@@ -451,9 +417,7 @@
     "Commutative",
     "algebra"
    ],
-   "family": "algebra",
    "color": "#dcd4f5",
-   "direction": -76,
    "clusters": [
     "commutative-algebra"
    ],
@@ -474,9 +438,7 @@
    "caption": [
     "Group theory"
    ],
-   "family": "algebra",
    "color": "#dcd4f5",
-   "direction": -97,
    "clusters": [
     "group-theory"
    ],
@@ -497,9 +459,7 @@
     "Representation",
     "theory"
    ],
-   "family": "algebra",
    "color": "#e7dcfa",
-   "direction": -12,
    "clusters": [
     "lie-theory-and-representations"
    ],
@@ -530,9 +490,7 @@
     "Homological",
     "algebra"
    ],
-   "family": "algebra",
    "color": "#e2e8f0",
-   "direction": -56,
    "clusters": [
     "homological-algebra-and-categories"
    ],
@@ -557,9 +515,7 @@
     "Library",
     "foundations"
    ],
-   "family": "algebra",
    "color": "#e2e8f0",
-   "direction": -122,
    "clusters": [
     "foundations"
    ],
@@ -581,9 +537,7 @@
    "caption": [
     "Analysis"
    ],
-   "family": "other",
    "color": "#d8eafe",
-   "direction": 180,
    "clusters": [
     "analysis"
    ],
@@ -624,9 +578,7 @@
     "Partial differential",
     "equations"
    ],
-   "family": "other",
    "color": "#d8eafe",
-   "direction": 204,
    "clusters": [
     "pde"
    ],
@@ -647,9 +599,7 @@
    "caption": [
     "Probability"
    ],
-   "family": "other",
    "color": "#e6f0ff",
-   "direction": 150,
    "clusters": [
     "probability"
    ],
@@ -670,9 +620,7 @@
    "caption": [
     "Combinatorics"
    ],
-   "family": "other",
    "color": "#e6f0ff",
-   "direction": 118,
    "clusters": [
     "combinatorics"
    ],
@@ -695,9 +643,7 @@
    "caption": [
     "Topology"
    ],
-   "family": "other",
    "color": "#d2f1e7",
-   "direction": 226,
    "clusters": [
     "topology"
    ],
@@ -722,9 +668,7 @@
     "Differential",
     "geometry"
    ],
-   "family": "other",
    "color": "#d2f1e7",
-   "direction": 252,
    "clusters": [
     "differential-geometry"
    ],

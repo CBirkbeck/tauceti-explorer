@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-15",
+ "round": 1,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+   "title": "Standard probability distributions and their elementary theory",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_StandardDistributions.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+   "title": "Representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_LieHighestWeight.json"
+  },
+  {
+   "roadmapId": "AnalyticNumberTheory",
+   "title": "Analytic number theory, zeta functions and prime distribution",
+   "extract": "research/blueprint/atlas/roadmaps/AnalyticNumberTheory.json"
+  },
+  {
+   "roadmapId": "ArithmeticGaloisDuality",
+   "title": "Global Galois duality and compact coefficients",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticGaloisDuality.json"
+  },
+  {
+   "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+   "title": "Geometry of numbers, quadratic forms and homogeneous arithmetic",
+   "extract": "research/blueprint/atlas/roadmaps/GeometryOfNumbersAndQuadraticArithmetic.json"
+  },
+  {
+   "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+   "title": "Integral Hecke actions, determinants and interpolation",
+   "extract": "research/blueprint/atlas/roadmaps/IntegralHeckeAndGaloisDeterminants.json"
+  },
+  {
+   "roadmapId": "ProbabilisticAndMetricNumberTheory",
+   "title": "Probabilistic, metric and ergodic number theory",
+   "extract": "research/blueprint/atlas/roadmaps/ProbabilisticAndMetricNumberTheory.json"
+  },
+  {
+   "roadmapId": "ArithmeticDynamics",
+   "title": "Arithmetic dynamics",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticDynamics.json"
+  },
+  {
+   "roadmapId": "ComplexMultiplicationAndExplicitReciprocity",
+   "title": "Complex multiplication and explicit reciprocity",
+   "extract": "research/blueprint/atlas/roadmaps/ComplexMultiplicationAndExplicitReciprocity.json"
+  },
+  {
+   "roadmapId": "EulerSystemsAndKolyvaginSystems",
+   "title": "Euler systems, Kolyvagin systems and higher-rank descent",
+   "extract": "research/blueprint/atlas/roadmaps/EulerSystemsAndKolyvaginSystems.json"
+  },
+  {
+   "roadmapId": "MotivesAndAlgebraicCycles",
+   "title": "Algebraic cycles, pure and mixed motives",
+   "extract": "research/blueprint/atlas/roadmaps/MotivesAndAlgebraicCycles.json"
+  },
+  {
+   "roadmapId": "HabiroRings",
+   "title": "Habiro rings: relative arithmetic constructions and cohomological coefficients",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroRings.json"
+  },
+  {
+   "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+   "title": "Endoscopic transfer and unitary trace comparison",
+   "extract": "research/blueprint/atlas/roadmaps/EndoscopicTransferAndUnitaryTraceComparison.json"
+  },
+  {
+   "roadmapId": "SpecialValuesBirchTate",
+   "title": "Birch–Tate and arithmetic special-value formulas",
+   "extract": "research/blueprint/atlas/roadmaps/SpecialValuesBirchTate.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/StandardDistributions",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+   "b": "AnalyticNumberTheory"
+  },
+  {
+   "a": "ArithmeticGaloisDuality",
+   "b": "AnalyticNumberTheory"
+  },
+  {
+   "a": "ArithmeticGaloisDuality",
+   "b": "GeometryOfNumbersAndQuadraticArithmetic"
+  },
+  {
+   "a": "IntegralHeckeAndGaloisDeterminants",
+   "b": "GeometryOfNumbersAndQuadraticArithmetic"
+  },
+  {
+   "a": "ProbabilisticAndMetricNumberTheory",
+   "b": "IntegralHeckeAndGaloisDeterminants"
+  },
+  {
+   "a": "ProbabilisticAndMetricNumberTheory",
+   "b": "ArithmeticDynamics"
+  },
+  {
+   "a": "ComplexMultiplicationAndExplicitReciprocity",
+   "b": "ArithmeticDynamics"
+  },
+  {
+   "a": "ComplexMultiplicationAndExplicitReciprocity",
+   "b": "EulerSystemsAndKolyvaginSystems"
+  },
+  {
+   "a": "EulerSystemsAndKolyvaginSystems",
+   "b": "MotivesAndAlgebraicCycles"
+  },
+  {
+   "a": "MotivesAndAlgebraicCycles",
+   "b": "HabiroRings"
+  },
+  {
+   "a": "EndoscopicTransferAndUnitaryTraceComparison",
+   "b": "HabiroRings"
+  },
+  {
+   "a": "SpecialValuesBirchTate",
+   "b": "EndoscopicTransferAndUnitaryTraceComparison"
+  },
+  {
+   "a": "AnalyticNumberTheory",
+   "b": "tauceti:TauCetiRoadmap/StandardDistributions"
+  },
+  {
+   "a": "MotivesAndAlgebraicCycles",
+   "b": "SpecialValuesBirchTate"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+   "b": "ArithmeticGaloisDuality"
+  },
+  {
+   "a": "EulerSystemsAndKolyvaginSystems",
+   "b": "EndoscopicTransferAndUnitaryTraceComparison"
+  },
+  {
+   "a": "ArithmeticDynamics",
+   "b": "GeometryOfNumbersAndQuadraticArithmetic"
+  },
+  {
+   "a": "HabiroRings",
+   "b": "ComplexMultiplicationAndExplicitReciprocity"
+  },
+  {
+   "a": "ProbabilisticAndMetricNumberTheory",
+   "b": "ArithmeticGaloisDuality"
+  },
+  {
+   "a": "AnalyticNumberTheory",
+   "b": "IntegralHeckeAndGaloisDeterminants"
+  },
+  {
+   "a": "SpecialValuesBirchTate",
+   "b": "ComplexMultiplicationAndExplicitReciprocity"
+  },
+  {
+   "a": "ArithmeticDynamics",
+   "b": "MotivesAndAlgebraicCycles"
+  },
+  {
+   "a": "HabiroRings",
+   "b": "EulerSystemsAndKolyvaginSystems"
+  }
+ ]
+}

@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-13",
+ "round": 1,
+ "roadmaps": [
+  {
+   "roadmapId": "FoundationsAndLibraryIntegration",
+   "title": "Foundations, existing libraries, and proof integrity",
+   "extract": "research/blueprint/atlas/roadmaps/FoundationsAndLibraryIntegration.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+   "title": "Local fields and ramification",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_LocalFieldsRamification.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+   "title": "Elliptic curves",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_EllipticCurves.json"
+  },
+  {
+   "roadmapId": "ArithmeticGaloisRepresentations",
+   "title": "Arithmetic Galois representations and conductors",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticGaloisRepresentations.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+   "title": "Reductive algebraic groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ReductiveGroups.json"
+  },
+  {
+   "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+   "title": "Algebraic moduli and representability for arithmetic geometry",
+   "extract": "research/blueprint/atlas/roadmaps/AlgebraicModuliForArithmeticGeometry.json"
+  },
+  {
+   "roadmapId": "ExponentialSumsAndCircleMethod",
+   "title": "Exponential sums, decoupling and the circle method",
+   "extract": "research/blueprint/atlas/roadmaps/ExponentialSumsAndCircleMethod.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+   "title": "Belyi maps, dessins d'enfants, and three-point covers",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_BelyiMaps.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+   "title": "Geometric topology and the solved Kirby-list problems",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_GeometricTopology.json"
+  },
+  {
+   "roadmapId": "AdicSpacesPartII",
+   "title": "Adic Spaces PartII",
+   "extract": "research/blueprint/atlas/roadmaps/AdicSpacesPartII.json"
+  },
+  {
+   "roadmapId": "EnhancedDerivedSheaves",
+   "title": "Enhanced derived categories of sheaves",
+   "extract": "research/blueprint/atlas/roadmaps/EnhancedDerivedSheaves.json"
+  },
+  {
+   "roadmapId": "LefschetzPencilsAndVanishingCycles",
+   "title": "Lefschetz pencils, nearby cycles and vanishing cycles",
+   "extract": "research/blueprint/atlas/roadmaps/LefschetzPencilsAndVanishingCycles.json"
+  },
+  {
+   "roadmapId": "SmoothRepresentationsOfLocalGroups",
+   "title": "Smooth representations of local groups",
+   "extract": "research/blueprint/atlas/roadmaps/SmoothRepresentationsOfLocalGroups.json"
+  },
+  {
+   "roadmapId": "ModularIwasawaMainConjectures",
+   "title": "Main conjectures for modular forms and their families",
+   "extract": "research/blueprint/atlas/roadmaps/ModularIwasawaMainConjectures.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "FoundationsAndLibraryIntegration",
+   "b": "tauceti:TauCetiRoadmap/LocalFieldsRamification"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/EllipticCurves",
+   "b": "tauceti:TauCetiRoadmap/LocalFieldsRamification"
+  },
+  {
+   "a": "ArithmeticGaloisRepresentations",
+   "b": "tauceti:TauCetiRoadmap/EllipticCurves"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ReductiveGroups",
+   "b": "ArithmeticGaloisRepresentations"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ReductiveGroups",
+   "b": "AlgebraicModuliForArithmeticGeometry"
+  },
+  {
+   "a": "AlgebraicModuliForArithmeticGeometry",
+   "b": "ExponentialSumsAndCircleMethod"
+  },
+  {
+   "a": "ExponentialSumsAndCircleMethod",
+   "b": "tauceti:TauCetiRoadmap/BelyiMaps"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/BelyiMaps",
+   "b": "tauceti:TauCetiRoadmap/GeometricTopology"
+  },
+  {
+   "a": "AdicSpacesPartII",
+   "b": "tauceti:TauCetiRoadmap/GeometricTopology"
+  },
+  {
+   "a": "EnhancedDerivedSheaves",
+   "b": "AdicSpacesPartII"
+  },
+  {
+   "a": "EnhancedDerivedSheaves",
+   "b": "LefschetzPencilsAndVanishingCycles"
+  },
+  {
+   "a": "LefschetzPencilsAndVanishingCycles",
+   "b": "SmoothRepresentationsOfLocalGroups"
+  },
+  {
+   "a": "ModularIwasawaMainConjectures",
+   "b": "SmoothRepresentationsOfLocalGroups"
+  },
+  {
+   "a": "FoundationsAndLibraryIntegration",
+   "b": "tauceti:TauCetiRoadmap/GeometricTopology"
+  },
+  {
+   "a": "ModularIwasawaMainConjectures",
+   "b": "EnhancedDerivedSheaves"
+  },
+  {
+   "a": "AlgebraicModuliForArithmeticGeometry",
+   "b": "SmoothRepresentationsOfLocalGroups"
+  },
+  {
+   "a": "ExponentialSumsAndCircleMethod",
+   "b": "tauceti:TauCetiRoadmap/ReductiveGroups"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/BelyiMaps",
+   "b": "ArithmeticGaloisRepresentations"
+  },
+  {
+   "a": "LefschetzPencilsAndVanishingCycles",
+   "b": "AdicSpacesPartII"
+  },
+  {
+   "a": "FoundationsAndLibraryIntegration",
+   "b": "tauceti:TauCetiRoadmap/EllipticCurves"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+   "b": "tauceti:TauCetiRoadmap/GeometricTopology"
+  },
+  {
+   "a": "AdicSpacesPartII",
+   "b": "ModularIwasawaMainConjectures"
+  },
+  {
+   "a": "AlgebraicModuliForArithmeticGeometry",
+   "b": "ArithmeticGaloisRepresentations"
+  },
+  {
+   "a": "SmoothRepresentationsOfLocalGroups",
+   "b": "tauceti:TauCetiRoadmap/ReductiveGroups"
+  }
+ ]
+}

@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-24",
+ "round": 2,
+ "roadmaps": [
+  {
+   "roadmapId": "DiophantineApproximationAndTranscendence",
+   "title": "Diophantine approximation and transcendence",
+   "extract": "research/blueprint/atlas/roadmaps/DiophantineApproximationAndTranscendence.json"
+  },
+  {
+   "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+   "title": "Integral Hecke actions, determinants and interpolation",
+   "extract": "research/blueprint/atlas/roadmaps/IntegralHeckeAndGaloisDeterminants.json"
+  },
+  {
+   "roadmapId": "AbelianSchemesAndArithmeticModuli",
+   "title": "Abelian Schemes And Arithmetic Moduli",
+   "extract": "research/blueprint/atlas/roadmaps/AbelianSchemesAndArithmeticModuli.json"
+  },
+  {
+   "roadmapId": "DiamondsAndVStacks",
+   "title": "Pro-étale descent, diamonds and small v-stacks",
+   "extract": "research/blueprint/atlas/roadmaps/DiamondsAndVStacks.json"
+  },
+  {
+   "roadmapId": "PerfectoidSpaces",
+   "title": "Perfectoid rings and spaces",
+   "extract": "research/blueprint/atlas/roadmaps/PerfectoidSpaces.json"
+  },
+  {
+   "roadmapId": "AdicCoefficientsAndComparisons",
+   "title": "Adic coefficients and comparison with schemes",
+   "extract": "research/blueprint/atlas/roadmaps/AdicCoefficientsAndComparisons.json"
+  },
+  {
+   "roadmapId": "ArithmeticQuantumTopology",
+   "title": "Arithmetic quantum topology, Habiro invariants and regulators",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticQuantumTopology.json"
+  },
+  {
+   "roadmapId": "DeligneWeightsAndPurity",
+   "title": "Deligne weights, purity and the Weil bounds",
+   "extract": "research/blueprint/atlas/roadmaps/DeligneWeightsAndPurity.json"
+  },
+  {
+   "roadmapId": "DiamondSixOperations",
+   "title": "Six operations, cohomological smoothness and biduality",
+   "extract": "research/blueprint/atlas/roadmaps/DiamondSixOperations.json"
+  },
+  {
+   "roadmapId": "HabiroNumberFields",
+   "title": "Number-field Habiro rings, finite regulators and K₃-graded modules",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroNumberFields.json"
+  },
+  {
+   "roadmapId": "VectorBundlesAndIsocrystals",
+   "title": "Isocrystals, vector bundles and Banach–Colmez spaces",
+   "extract": "research/blueprint/atlas/roadmaps/VectorBundlesAndIsocrystals.json"
+  },
+  {
+   "roadmapId": "PotentialAutomorphyInfrastructure",
+   "title": "Reusable infrastructure for potential automorphy over CM fields",
+   "extract": "research/blueprint/atlas/roadmaps/PotentialAutomorphyInfrastructure.json"
+  },
+  {
+   "roadmapId": "RefinedTraceMethods",
+   "title": "Hochschild, cyclotomic and refined trace methods",
+   "extract": "research/blueprint/atlas/roadmaps/RefinedTraceMethods.json"
+  },
+  {
+   "roadmapId": "SpecialValuesBirchTate",
+   "title": "Birch–Tate and arithmetic special-value formulas",
+   "extract": "research/blueprint/atlas/roadmaps/SpecialValuesBirchTate.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "DiophantineApproximationAndTranscendence",
+   "b": "IntegralHeckeAndGaloisDeterminants"
+  },
+  {
+   "a": "AbelianSchemesAndArithmeticModuli",
+   "b": "IntegralHeckeAndGaloisDeterminants"
+  },
+  {
+   "a": "AbelianSchemesAndArithmeticModuli",
+   "b": "DiamondsAndVStacks"
+  },
+  {
+   "a": "PerfectoidSpaces",
+   "b": "DiamondsAndVStacks"
+  },
+  {
+   "a": "AdicCoefficientsAndComparisons",
+   "b": "PerfectoidSpaces"
+  },
+  {
+   "a": "AdicCoefficientsAndComparisons",
+   "b": "ArithmeticQuantumTopology"
+  },
+  {
+   "a": "ArithmeticQuantumTopology",
+   "b": "DeligneWeightsAndPurity"
+  },
+  {
+   "a": "DiamondSixOperations",
+   "b": "DeligneWeightsAndPurity"
+  },
+  {
+   "a": "DiamondSixOperations",
+   "b": "HabiroNumberFields"
+  },
+  {
+   "a": "VectorBundlesAndIsocrystals",
+   "b": "HabiroNumberFields"
+  },
+  {
+   "a": "VectorBundlesAndIsocrystals",
+   "b": "PotentialAutomorphyInfrastructure"
+  },
+  {
+   "a": "PotentialAutomorphyInfrastructure",
+   "b": "RefinedTraceMethods"
+  },
+  {
+   "a": "RefinedTraceMethods",
+   "b": "SpecialValuesBirchTate"
+  },
+  {
+   "a": "SpecialValuesBirchTate",
+   "b": "AdicCoefficientsAndComparisons"
+  },
+  {
+   "a": "DiamondsAndVStacks",
+   "b": "DiophantineApproximationAndTranscendence"
+  },
+  {
+   "a": "SpecialValuesBirchTate",
+   "b": "PotentialAutomorphyInfrastructure"
+  },
+  {
+   "a": "IntegralHeckeAndGaloisDeterminants",
+   "b": "PerfectoidSpaces"
+  },
+  {
+   "a": "DeligneWeightsAndPurity",
+   "b": "AbelianSchemesAndArithmeticModuli"
+  },
+  {
+   "a": "RefinedTraceMethods",
+   "b": "VectorBundlesAndIsocrystals"
+  },
+  {
+   "a": "DiamondSixOperations",
+   "b": "ArithmeticQuantumTopology"
+  },
+  {
+   "a": "AdicCoefficientsAndComparisons",
+   "b": "HabiroNumberFields"
+  },
+  {
+   "a": "DiophantineApproximationAndTranscendence",
+   "b": "AbelianSchemesAndArithmeticModuli"
+  },
+  {
+   "a": "VectorBundlesAndIsocrystals",
+   "b": "SpecialValuesBirchTate"
+  },
+  {
+   "a": "DiamondsAndVStacks",
+   "b": "PotentialAutomorphyInfrastructure"
+  }
+ ]
+}

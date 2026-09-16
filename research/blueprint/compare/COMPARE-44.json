@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-44",
+ "round": 3,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+   "title": "Standard probability distributions and their elementary theory",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_StandardDistributions.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+   "title": "Fuchsian groups and orbifold Riemann surfaces",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_FuchsianOrbifolds.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+   "title": "Reductive algebraic groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ReductiveGroups.json"
+  },
+  {
+   "roadmapId": "GlobalGaloisDeformations",
+   "title": "Global Galois deformation rings",
+   "extract": "research/blueprint/atlas/roadmaps/GlobalGaloisDeformations.json"
+  },
+  {
+   "roadmapId": "SelmerIwasawaCohomology",
+   "title": "Selmer groups, continuous integral cohomology, and Iwasawa cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/SelmerIwasawaCohomology.json"
+  },
+  {
+   "roadmapId": "ArakelovGeometryAndAbelianHeights",
+   "title": "Arakelov geometry and heights of abelian varieties",
+   "extract": "research/blueprint/atlas/roadmaps/ArakelovGeometryAndAbelianHeights.json"
+  },
+  {
+   "roadmapId": "ClassicalAdicEtaleCohomology",
+   "title": "The classical analytic cohomology inputs to diamonds",
+   "extract": "research/blueprint/atlas/roadmaps/ClassicalAdicEtaleCohomology.json"
+  },
+  {
+   "roadmapId": "HeightsRationalPointsAndObstructions",
+   "title": "Heights, rational points and obstructions",
+   "extract": "research/blueprint/atlas/roadmaps/HeightsRationalPointsAndObstructions.json"
+  },
+  {
+   "roadmapId": "MotivesAndAlgebraicCycles",
+   "title": "Algebraic cycles, pure and mixed motives",
+   "extract": "research/blueprint/atlas/roadmaps/MotivesAndAlgebraicCycles.json"
+  },
+  {
+   "roadmapId": "EtaleDualityAndPerverseSheaves",
+   "title": "Étale duality, cycle classes and perverse sheaves",
+   "extract": "research/blueprint/atlas/roadmaps/EtaleDualityAndPerverseSheaves.json"
+  },
+  {
+   "roadmapId": "PotentialModularityAndCompatibleSystems",
+   "title": "Potential Modularity And Compatible Systems",
+   "extract": "research/blueprint/atlas/roadmaps/PotentialModularityAndCompatibleSystems.json"
+  },
+  {
+   "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+   "title": "Completed cohomology and p-adic local–global compatibility over Q",
+   "extract": "research/blueprint/atlas/roadmaps/CompletedCohomologyAndLocalGlobalCompatibility.json"
+  },
+  {
+   "roadmapId": "GL2ModularityLifting",
+   "title": "GL₂ Modularity Lifting",
+   "extract": "research/blueprint/atlas/roadmaps/GL2ModularityLifting.json"
+  },
+  {
+   "roadmapId": "PerfectoidShimuraVarieties",
+   "title": "Shimura towers and perfectoid representability",
+   "extract": "research/blueprint/atlas/roadmaps/PerfectoidShimuraVarieties.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/StandardDistributions",
+   "b": "tauceti:TauCetiRoadmap/FuchsianOrbifolds"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ReductiveGroups",
+   "b": "tauceti:TauCetiRoadmap/FuchsianOrbifolds"
+  },
+  {
+   "a": "GlobalGaloisDeformations",
+   "b": "tauceti:TauCetiRoadmap/ReductiveGroups"
+  },
+  {
+   "a": "GlobalGaloisDeformations",
+   "b": "SelmerIwasawaCohomology"
+  },
+  {
+   "a": "ArakelovGeometryAndAbelianHeights",
+   "b": "SelmerIwasawaCohomology"
+  },
+  {
+   "a": "ArakelovGeometryAndAbelianHeights",
+   "b": "ClassicalAdicEtaleCohomology"
+  },
+  {
+   "a": "ClassicalAdicEtaleCohomology",
+   "b": "HeightsRationalPointsAndObstructions"
+  },
+  {
+   "a": "HeightsRationalPointsAndObstructions",
+   "b": "MotivesAndAlgebraicCycles"
+  },
+  {
+   "a": "EtaleDualityAndPerverseSheaves",
+   "b": "MotivesAndAlgebraicCycles"
+  },
+  {
+   "a": "PotentialModularityAndCompatibleSystems",
+   "b": "EtaleDualityAndPerverseSheaves"
+  },
+  {
+   "a": "PotentialModularityAndCompatibleSystems",
+   "b": "CompletedCohomologyAndLocalGlobalCompatibility"
+  },
+  {
+   "a": "CompletedCohomologyAndLocalGlobalCompatibility",
+   "b": "GL2ModularityLifting"
+  },
+  {
+   "a": "GL2ModularityLifting",
+   "b": "PerfectoidShimuraVarieties"
+  },
+  {
+   "a": "HeightsRationalPointsAndObstructions",
+   "b": "PerfectoidShimuraVarieties"
+  },
+  {
+   "a": "PotentialModularityAndCompatibleSystems",
+   "b": "ArakelovGeometryAndAbelianHeights"
+  },
+  {
+   "a": "ClassicalAdicEtaleCohomology",
+   "b": "PerfectoidShimuraVarieties"
+  },
+  {
+   "a": "GL2ModularityLifting",
+   "b": "MotivesAndAlgebraicCycles"
+  },
+  {
+   "a": "EtaleDualityAndPerverseSheaves",
+   "b": "CompletedCohomologyAndLocalGlobalCompatibility"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+   "b": "GlobalGaloisDeformations"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ReductiveGroups",
+   "b": "SelmerIwasawaCohomology"
+  },
+  {
+   "a": "MotivesAndAlgebraicCycles",
+   "b": "PotentialModularityAndCompatibleSystems"
+  },
+  {
+   "a": "HeightsRationalPointsAndObstructions",
+   "b": "GL2ModularityLifting"
+  },
+  {
+   "a": "ArakelovGeometryAndAbelianHeights",
+   "b": "EtaleDualityAndPerverseSheaves"
+  },
+  {
+   "a": "CompletedCohomologyAndLocalGlobalCompatibility",
+   "b": "ClassicalAdicEtaleCohomology"
+  }
+ ]
+}

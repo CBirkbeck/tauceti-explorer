@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-17",
+ "round": 2,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+   "title": "Conformal mapping and the geometric theory of holomorphic functions",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ConformalMapping.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+   "title": "Quiver representations, path algebras, and Gabriel's theorem",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json"
+  },
+  {
+   "roadmapId": "FoundationsAndLibraryIntegration",
+   "title": "Foundations, existing libraries, and proof integrity",
+   "extract": "research/blueprint/atlas/roadmaps/FoundationsAndLibraryIntegration.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+   "title": "Continuous cohomology of profinite groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ProfiniteCohomology.json"
+  },
+  {
+   "roadmapId": "LogicAndDefinabilityInNumberTheory",
+   "title": "Logic, definability, valued fields and motivic integration",
+   "extract": "research/blueprint/atlas/roadmaps/LogicAndDefinabilityInNumberTheory.json"
+  },
+  {
+   "roadmapId": "SieveMethodsAndPrimePatterns",
+   "title": "Sieve methods, prime gaps and prime patterns",
+   "extract": "research/blueprint/atlas/roadmaps/SieveMethodsAndPrimePatterns.json"
+  },
+  {
+   "roadmapId": "AutomorphicFormsOnReductiveGroups",
+   "title": "Automorphic forms on reductive groups",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicFormsOnReductiveGroups.json"
+  },
+  {
+   "roadmapId": "GeneralAlgebraicKTheory",
+   "title": "General algebraic K-theory",
+   "extract": "research/blueprint/atlas/roadmaps/GeneralAlgebraicKTheory.json"
+  },
+  {
+   "roadmapId": "ReductiveGroupsPartII",
+   "title": "Reductive groups, Part II: local structure and arithmetic models",
+   "extract": "research/blueprint/atlas/roadmaps/ReductiveGroupsPartII.json"
+  },
+  {
+   "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+   "title": "Néron models and semistable abelian varieties",
+   "extract": "research/blueprint/atlas/roadmaps/NeronModelsAndSemistableAbelianVarieties.json"
+  },
+  {
+   "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+   "title": "Small ramification and the base cases for Serre modularity",
+   "extract": "research/blueprint/atlas/roadmaps/SmallRamificationAndAbelianVarietyBaseCases.json"
+  },
+  {
+   "roadmapId": "DiamondEtaleCohomology",
+   "title": "Étale cohomology of diamonds and its four operations",
+   "extract": "research/blueprint/atlas/roadmaps/DiamondEtaleCohomology.json"
+  },
+  {
+   "roadmapId": "GeometricSatakeAndFusion",
+   "title": "Geometric Satake over the Fargues–Fontaine curve",
+   "extract": "research/blueprint/atlas/roadmaps/GeometricSatakeAndFusion.json"
+  },
+  {
+   "roadmapId": "PadicLocalLanglandsForGL2Qp",
+   "title": "P-adic local Langlands for GL₂(Q_p)",
+   "extract": "research/blueprint/atlas/roadmaps/PadicLocalLanglandsForGL2Qp.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/ConformalMapping",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations"
+  },
+  {
+   "a": "FoundationsAndLibraryIntegration",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations"
+  },
+  {
+   "a": "FoundationsAndLibraryIntegration",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteCohomology"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+   "b": "LogicAndDefinabilityInNumberTheory"
+  },
+  {
+   "a": "SieveMethodsAndPrimePatterns",
+   "b": "LogicAndDefinabilityInNumberTheory"
+  },
+  {
+   "a": "SieveMethodsAndPrimePatterns",
+   "b": "AutomorphicFormsOnReductiveGroups"
+  },
+  {
+   "a": "AutomorphicFormsOnReductiveGroups",
+   "b": "GeneralAlgebraicKTheory"
+  },
+  {
+   "a": "GeneralAlgebraicKTheory",
+   "b": "ReductiveGroupsPartII"
+  },
+  {
+   "a": "ReductiveGroupsPartII",
+   "b": "NeronModelsAndSemistableAbelianVarieties"
+  },
+  {
+   "a": "SmallRamificationAndAbelianVarietyBaseCases",
+   "b": "NeronModelsAndSemistableAbelianVarieties"
+  },
+  {
+   "a": "SmallRamificationAndAbelianVarietyBaseCases",
+   "b": "DiamondEtaleCohomology"
+  },
+  {
+   "a": "DiamondEtaleCohomology",
+   "b": "GeometricSatakeAndFusion"
+  },
+  {
+   "a": "GeometricSatakeAndFusion",
+   "b": "PadicLocalLanglandsForGL2Qp"
+  },
+  {
+   "a": "FoundationsAndLibraryIntegration",
+   "b": "tauceti:TauCetiRoadmap/ConformalMapping"
+  },
+  {
+   "a": "PadicLocalLanglandsForGL2Qp",
+   "b": "AutomorphicFormsOnReductiveGroups"
+  },
+  {
+   "a": "LogicAndDefinabilityInNumberTheory",
+   "b": "DiamondEtaleCohomology"
+  },
+  {
+   "a": "GeometricSatakeAndFusion",
+   "b": "GeneralAlgebraicKTheory"
+  },
+  {
+   "a": "PadicLocalLanglandsForGL2Qp",
+   "b": "ReductiveGroupsPartII"
+  },
+  {
+   "a": "SieveMethodsAndPrimePatterns",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteCohomology"
+  },
+  {
+   "a": "NeronModelsAndSemistableAbelianVarieties",
+   "b": "AutomorphicFormsOnReductiveGroups"
+  },
+  {
+   "a": "SmallRamificationAndAbelianVarietyBaseCases",
+   "b": "GeometricSatakeAndFusion"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ConformalMapping",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteCohomology"
+  },
+  {
+   "a": "LogicAndDefinabilityInNumberTheory",
+   "b": "FoundationsAndLibraryIntegration"
+  },
+  {
+   "a": "DiamondEtaleCohomology",
+   "b": "PadicLocalLanglandsForGL2Qp"
+  }
+ ]
+}

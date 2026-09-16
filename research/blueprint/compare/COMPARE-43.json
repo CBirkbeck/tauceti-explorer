@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-43",
+ "round": 3,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+   "title": "Representations of the symmetric group, Specht modules, and Schur-Weyl duality",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json"
+  },
+  {
+   "roadmapId": "ComputationalNumberTheory",
+   "title": "Certified computational number theory and arithmetic data",
+   "extract": "research/blueprint/atlas/roadmaps/ComputationalNumberTheory.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+   "title": "Profinite and pro-p groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+   "title": "Lie groups and the Lie algebra correspondence",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.json"
+  },
+  {
+   "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+   "title": "Automorphic L-functions and local factors",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicLFunctionsAndLocalFactors.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "title": "DG and A-infinity algebras, categories, and modules",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_DGAInfinity.json"
+  },
+  {
+   "roadmapId": "EllipticKTheory",
+   "title": "K-theory of curves and elliptic curves",
+   "extract": "research/blueprint/atlas/roadmaps/EllipticKTheory.json"
+  },
+  {
+   "roadmapId": "ArithmeticKTheory",
+   "title": "K-theory of number fields and S-integers",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticKTheory.json"
+  },
+  {
+   "roadmapId": "DiamondEtaleCohomology",
+   "title": "Étale cohomology of diamonds and its four operations",
+   "extract": "research/blueprint/atlas/roadmaps/DiamondEtaleCohomology.json"
+  },
+  {
+   "roadmapId": "IntegralIwasawaTheory",
+   "title": "Arithmetic Iwasawa theory and the main conjecture",
+   "extract": "research/blueprint/atlas/roadmaps/IntegralIwasawaTheory.json"
+  },
+  {
+   "roadmapId": "VectorBundlesAndIsocrystals",
+   "title": "Isocrystals, vector bundles and Banach–Colmez spaces",
+   "extract": "research/blueprint/atlas/roadmaps/VectorBundlesAndIsocrystals.json"
+  },
+  {
+   "roadmapId": "WeightsInEtaleCohomology",
+   "title": "Weights and purity in étale cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/WeightsInEtaleCohomology.json"
+  },
+  {
+   "roadmapId": "AutomorphicCongruences",
+   "title": "Automorphic congruences and reverse main-conjecture divisibilities",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicCongruences.json"
+  },
+  {
+   "roadmapId": "HabiroCohomologyFoundations",
+   "title": "Q-Hodge filtrations and Habiro cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroCohomologyFoundations.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+   "b": "ComputationalNumberTheory"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+   "b": "ComputationalNumberTheory"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteProPGroups"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+   "b": "AutomorphicLFunctionsAndLocalFactors"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "b": "AutomorphicLFunctionsAndLocalFactors"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "b": "EllipticKTheory"
+  },
+  {
+   "a": "EllipticKTheory",
+   "b": "ArithmeticKTheory"
+  },
+  {
+   "a": "ArithmeticKTheory",
+   "b": "DiamondEtaleCohomology"
+  },
+  {
+   "a": "DiamondEtaleCohomology",
+   "b": "IntegralIwasawaTheory"
+  },
+  {
+   "a": "VectorBundlesAndIsocrystals",
+   "b": "IntegralIwasawaTheory"
+  },
+  {
+   "a": "VectorBundlesAndIsocrystals",
+   "b": "WeightsInEtaleCohomology"
+  },
+  {
+   "a": "AutomorphicCongruences",
+   "b": "WeightsInEtaleCohomology"
+  },
+  {
+   "a": "HabiroCohomologyFoundations",
+   "b": "AutomorphicCongruences"
+  },
+  {
+   "a": "HabiroCohomologyFoundations",
+   "b": "IntegralIwasawaTheory"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "b": "ArithmeticKTheory"
+  },
+  {
+   "a": "EllipticKTheory",
+   "b": "AutomorphicCongruences"
+  },
+  {
+   "a": "WeightsInEtaleCohomology",
+   "b": "HabiroCohomologyFoundations"
+  },
+  {
+   "a": "AutomorphicLFunctionsAndLocalFactors",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteProPGroups"
+  },
+  {
+   "a": "VectorBundlesAndIsocrystals",
+   "b": "DiamondEtaleCohomology"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+   "b": "ComputationalNumberTheory"
+  },
+  {
+   "a": "IntegralIwasawaTheory",
+   "b": "AutomorphicCongruences"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "b": "ComputationalNumberTheory"
+  },
+  {
+   "a": "HabiroCohomologyFoundations",
+   "b": "ArithmeticKTheory"
+  }
+ ]
+}

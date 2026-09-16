@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-10",
+ "round": 1,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+   "title": "Semisimple algebras, Artin-Wedderburn, and the structure of their modules",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+   "title": "Global quadratic forms over number fields",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_GlobalQuadraticForms.json"
+  },
+  {
+   "roadmapId": "ColemanIntegration",
+   "title": "Coleman integration and noncritical Dirichlet L-values",
+   "extract": "research/blueprint/atlas/roadmaps/ColemanIntegration.json"
+  },
+  {
+   "roadmapId": "FunctionFieldArithmetic",
+   "title": "Global function fields, reciprocity and automorphic foundations",
+   "extract": "research/blueprint/atlas/roadmaps/FunctionFieldArithmetic.json"
+  },
+  {
+   "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "title": "Higher local fields and higher class field theory",
+   "extract": "research/blueprint/atlas/roadmaps/HigherLocalFieldsAndHigherClassFieldTheory.json"
+  },
+  {
+   "roadmapId": "ArakelovGeometryAndAbelianHeights",
+   "title": "Arakelov geometry and heights of abelian varieties",
+   "extract": "research/blueprint/atlas/roadmaps/ArakelovGeometryAndAbelianHeights.json"
+  },
+  {
+   "roadmapId": "BorelRegulators",
+   "title": "Stable arithmetic cohomology and Borel regulators",
+   "extract": "research/blueprint/atlas/roadmaps/BorelRegulators.json"
+  },
+  {
+   "roadmapId": "LocalGaloisDeformationRings",
+   "title": "Local Galois deformation rings and their components",
+   "extract": "research/blueprint/atlas/roadmaps/LocalGaloisDeformationRings.json"
+  },
+  {
+   "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+   "title": "Anabelian geometry and nonabelian Chabauty",
+   "extract": "research/blueprint/atlas/roadmaps/AnabelianGeometryAndNonabelianChabauty.json"
+  },
+  {
+   "roadmapId": "EllipticRegulators",
+   "title": "Elliptic regulators, explicit K₂ classes and L-values",
+   "extract": "research/blueprint/atlas/roadmaps/EllipticRegulators.json"
+  },
+  {
+   "roadmapId": "FarguesFontaineDiamonds",
+   "title": "The existing Fargues–Fontaine curve as a diamond",
+   "extract": "research/blueprint/atlas/roadmaps/FarguesFontaineDiamonds.json"
+  },
+  {
+   "roadmapId": "HodgeTateAndCanonicalSubgroups",
+   "title": "Hodge–Tate theory, canonical subgroups, and automorphic period maps",
+   "extract": "research/blueprint/atlas/roadmaps/HodgeTateAndCanonicalSubgroups.json"
+  },
+  {
+   "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+   "title": "Completed cohomology and p-adic local–global compatibility over Q",
+   "extract": "research/blueprint/atlas/roadmaps/CompletedCohomologyAndLocalGlobalCompatibility.json"
+  },
+  {
+   "roadmapId": "PerfectoidShimuraVarieties",
+   "title": "Shimura towers and perfectoid representability",
+   "extract": "research/blueprint/atlas/roadmaps/PerfectoidShimuraVarieties.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
+  },
+  {
+   "a": "ColemanIntegration",
+   "b": "tauceti:TauCetiRoadmap/GlobalQuadraticForms"
+  },
+  {
+   "a": "ColemanIntegration",
+   "b": "FunctionFieldArithmetic"
+  },
+  {
+   "a": "FunctionFieldArithmetic",
+   "b": "HigherLocalFieldsAndHigherClassFieldTheory"
+  },
+  {
+   "a": "ArakelovGeometryAndAbelianHeights",
+   "b": "HigherLocalFieldsAndHigherClassFieldTheory"
+  },
+  {
+   "a": "BorelRegulators",
+   "b": "ArakelovGeometryAndAbelianHeights"
+  },
+  {
+   "a": "LocalGaloisDeformationRings",
+   "b": "BorelRegulators"
+  },
+  {
+   "a": "AnabelianGeometryAndNonabelianChabauty",
+   "b": "LocalGaloisDeformationRings"
+  },
+  {
+   "a": "AnabelianGeometryAndNonabelianChabauty",
+   "b": "EllipticRegulators"
+  },
+  {
+   "a": "FarguesFontaineDiamonds",
+   "b": "EllipticRegulators"
+  },
+  {
+   "a": "HodgeTateAndCanonicalSubgroups",
+   "b": "FarguesFontaineDiamonds"
+  },
+  {
+   "a": "HodgeTateAndCanonicalSubgroups",
+   "b": "CompletedCohomologyAndLocalGlobalCompatibility"
+  },
+  {
+   "a": "PerfectoidShimuraVarieties",
+   "b": "CompletedCohomologyAndLocalGlobalCompatibility"
+  },
+  {
+   "a": "HodgeTateAndCanonicalSubgroups",
+   "b": "PerfectoidShimuraVarieties"
+  },
+  {
+   "a": "FarguesFontaineDiamonds",
+   "b": "CompletedCohomologyAndLocalGlobalCompatibility"
+  },
+  {
+   "a": "EllipticRegulators",
+   "b": "HigherLocalFieldsAndHigherClassFieldTheory"
+  },
+  {
+   "a": "PerfectoidShimuraVarieties",
+   "b": "ArakelovGeometryAndAbelianHeights"
+  },
+  {
+   "a": "AnabelianGeometryAndNonabelianChabauty",
+   "b": "ColemanIntegration"
+  },
+  {
+   "a": "FunctionFieldArithmetic",
+   "b": "LocalGaloisDeformationRings"
+  },
+  {
+   "a": "BorelRegulators",
+   "b": "tauceti:TauCetiRoadmap/GlobalQuadraticForms"
+  },
+  {
+   "a": "ColemanIntegration",
+   "b": "HodgeTateAndCanonicalSubgroups"
+  },
+  {
+   "a": "LocalGaloisDeformationRings",
+   "b": "HigherLocalFieldsAndHigherClassFieldTheory"
+  },
+  {
+   "a": "FunctionFieldArithmetic",
+   "b": "EllipticRegulators"
+  },
+  {
+   "a": "ArakelovGeometryAndAbelianHeights",
+   "b": "tauceti:TauCetiRoadmap/GlobalQuadraticForms"
+  }
+ ]
+}

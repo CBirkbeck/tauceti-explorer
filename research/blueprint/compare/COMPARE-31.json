@@ -1,0 +1,183 @@
+{
+ "job": "COMPARE-31",
+ "round": 3,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+   "title": "Weighted orthogonal L² bases — completeness, Hilbert-basis structure, and product bases of orthogonal systems",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_Completed_OrthogonalL2Bases.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+   "title": "Representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_LieHighestWeight.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+   "title": "Elliptic curves",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_EllipticCurves.json"
+  },
+  {
+   "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+   "title": "Commutative algebra for deformation theory and patching",
+   "extract": "research/blueprint/atlas/roadmaps/DeformationAndDerivedPatchingAlgebra.json"
+  },
+  {
+   "roadmapId": "ProbabilisticAndMetricNumberTheory",
+   "title": "Probabilistic, metric and ergodic number theory",
+   "extract": "research/blueprint/atlas/roadmaps/ProbabilisticAndMetricNumberTheory.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+   "title": "Zigzag, preprojective, and Ginzburg algebras",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
+  },
+  {
+   "roadmapId": "K3BlochGroups",
+   "title": "Explicit K₃ and Bloch groups",
+   "extract": "research/blueprint/atlas/roadmaps/K3BlochGroups.json"
+  },
+  {
+   "roadmapId": "MetaplecticAutomorphicForms",
+   "title": "Metaplectic groups, Weil representations and automorphic theta kernels",
+   "extract": "research/blueprint/atlas/roadmaps/MetaplecticAutomorphicForms.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+   "title": "Optimal transport and Wasserstein geometry",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_OptimalTransport.json"
+  },
+  {
+   "roadmapId": "AutomorphicBundles",
+   "title": "Automorphic bundles and classical automorphic forms",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicBundles.json"
+  },
+  {
+   "roadmapId": "LefschetzPencilsAndVanishingCycles",
+   "title": "Lefschetz pencils, nearby cycles and vanishing cycles",
+   "extract": "research/blueprint/atlas/roadmaps/LefschetzPencilsAndVanishingCycles.json"
+  },
+  {
+   "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+   "title": "GL₂ Automorphic Representations And Transfer",
+   "extract": "research/blueprint/atlas/roadmaps/GL2AutomorphicRepresentationsAndTransfer.json"
+  },
+  {
+   "roadmapId": "HabiroNumberFields",
+   "title": "Number-field Habiro rings, finite regulators and K₃-graded modules",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroNumberFields.json"
+  },
+  {
+   "roadmapId": "ModularityAndLanglandsExtensions",
+   "title": "Modularity, automorphy and Langlands endpoint extensions",
+   "extract": "research/blueprint/atlas/roadmaps/ModularityAndLanglandsExtensions.json"
+  },
+  {
+   "roadmapId": "PadicHodgeRegulators",
+   "title": "P-adic regulators and the local K₃ calculation",
+   "extract": "research/blueprint/atlas/roadmaps/PadicHodgeRegulators.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+   "b": "tauceti:Completed/OrthogonalL2Bases"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/EllipticCurves",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/EllipticCurves",
+   "b": "DeformationAndDerivedPatchingAlgebra"
+  },
+  {
+   "a": "ProbabilisticAndMetricNumberTheory",
+   "b": "DeformationAndDerivedPatchingAlgebra"
+  },
+  {
+   "a": "ProbabilisticAndMetricNumberTheory",
+   "b": "tauceti:TauCetiRoadmap/ZigzagPreprojective"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+   "b": "K3BlochGroups"
+  },
+  {
+   "a": "K3BlochGroups",
+   "b": "MetaplecticAutomorphicForms"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/OptimalTransport",
+   "b": "MetaplecticAutomorphicForms"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/OptimalTransport",
+   "b": "AutomorphicBundles"
+  },
+  {
+   "a": "AutomorphicBundles",
+   "b": "LefschetzPencilsAndVanishingCycles"
+  },
+  {
+   "a": "LefschetzPencilsAndVanishingCycles",
+   "b": "GL2AutomorphicRepresentationsAndTransfer"
+  },
+  {
+   "a": "HabiroNumberFields",
+   "b": "GL2AutomorphicRepresentationsAndTransfer"
+  },
+  {
+   "a": "HabiroNumberFields",
+   "b": "ModularityAndLanglandsExtensions"
+  },
+  {
+   "a": "ModularityAndLanglandsExtensions",
+   "b": "PadicHodgeRegulators"
+  },
+  {
+   "a": "HabiroNumberFields",
+   "b": "PadicHodgeRegulators"
+  },
+  {
+   "a": "K3BlochGroups",
+   "b": "tauceti:TauCetiRoadmap/EllipticCurves"
+  },
+  {
+   "a": "AutomorphicBundles",
+   "b": "PadicHodgeRegulators"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/OptimalTransport",
+   "b": "ModularityAndLanglandsExtensions"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+   "b": "ProbabilisticAndMetricNumberTheory"
+  },
+  {
+   "a": "GL2AutomorphicRepresentationsAndTransfer",
+   "b": "MetaplecticAutomorphicForms"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+   "b": "LefschetzPencilsAndVanishingCycles"
+  },
+  {
+   "a": "DeformationAndDerivedPatchingAlgebra",
+   "b": "AutomorphicBundles"
+  },
+  {
+   "a": "LefschetzPencilsAndVanishingCycles",
+   "b": "PadicHodgeRegulators"
+  },
+  {
+   "a": "ProbabilisticAndMetricNumberTheory",
+   "b": "tauceti:TauCetiRoadmap/EllipticCurves"
+  },
+  {
+   "a": "ModularityAndLanglandsExtensions",
+   "b": "K3BlochGroups"
+  }
+ ]
+}

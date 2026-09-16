@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-25",
+ "round": 2,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+   "title": "Universal covers",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_UniversalCovers.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+   "title": "Arithmetic Dirichlet series and Tauberian methods",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+   "title": "Clifford algebras, the Pin and Spin groups, and spin representations",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json"
+  },
+  {
+   "roadmapId": "PadicMeasuresIwasawaAlgebras",
+   "title": "P-adic measures, completed group algebras, and characteristic ideals",
+   "extract": "research/blueprint/atlas/roadmaps/PadicMeasuresIwasawaAlgebras.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+   "title": "Stating the classification of finite simple groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_CFSGStatement.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+   "title": "Partial differential equations",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_PDE.json"
+  },
+  {
+   "roadmapId": "ShimuraData",
+   "title": "Shimura data, Hermitian domains, and adelic level structures",
+   "extract": "research/blueprint/atlas/roadmaps/ShimuraData.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+   "title": "Profinite and pro-p groups",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+   "title": "Quadratic forms and cohomological invariants",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_QuadraticFormInvariants.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "title": "DG and A-infinity algebras, categories, and modules",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_DGAInfinity.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+   "title": "The Jacobian challenge (Christian Merten's AG version)",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_JacobianChallenge.json"
+  },
+  {
+   "roadmapId": "AutomorphicSpectralTheory",
+   "title": "Automorphic spectral theory and trace distributions",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicSpectralTheory.json"
+  },
+  {
+   "roadmapId": "GrossZagierAndArithmeticHeights",
+   "title": "Gross–Zagier formulas and arithmetic heights",
+   "extract": "research/blueprint/atlas/roadmaps/GrossZagierAndArithmeticHeights.json"
+  },
+  {
+   "roadmapId": "KTheoryFiniteLocalFields",
+   "title": "K-theory of finite and local fields",
+   "extract": "research/blueprint/atlas/roadmaps/KTheoryFiniteLocalFields.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+   "b": "tauceti:TauCetiRoadmap/UniversalCovers"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+  },
+  {
+   "a": "PadicMeasuresIwasawaAlgebras",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/CFSGStatement",
+   "b": "PadicMeasuresIwasawaAlgebras"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/CFSGStatement",
+   "b": "tauceti:TauCetiRoadmap/PDE"
+  },
+  {
+   "a": "ShimuraData",
+   "b": "tauceti:TauCetiRoadmap/PDE"
+  },
+  {
+   "a": "ShimuraData",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteProPGroups"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+   "b": "tauceti:TauCetiRoadmap/QuadraticFormInvariants"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+   "b": "tauceti:TauCetiRoadmap/DGAInfinity"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "b": "tauceti:TauCetiRoadmap/JacobianChallenge"
+  },
+  {
+   "a": "AutomorphicSpectralTheory",
+   "b": "tauceti:TauCetiRoadmap/JacobianChallenge"
+  },
+  {
+   "a": "AutomorphicSpectralTheory",
+   "b": "GrossZagierAndArithmeticHeights"
+  },
+  {
+   "a": "GrossZagierAndArithmeticHeights",
+   "b": "KTheoryFiniteLocalFields"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/UniversalCovers",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+  },
+  {
+   "a": "KTheoryFiniteLocalFields",
+   "b": "tauceti:TauCetiRoadmap/DGAInfinity"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+   "b": "ShimuraData"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+   "b": "tauceti:TauCetiRoadmap/CFSGStatement"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/PDE",
+   "b": "PadicMeasuresIwasawaAlgebras"
+  },
+  {
+   "a": "KTheoryFiniteLocalFields",
+   "b": "tauceti:TauCetiRoadmap/JacobianChallenge"
+  },
+  {
+   "a": "AutomorphicSpectralTheory",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteProPGroups"
+  },
+  {
+   "a": "GrossZagierAndArithmeticHeights",
+   "b": "tauceti:TauCetiRoadmap/DGAInfinity"
+  },
+  {
+   "a": "PadicMeasuresIwasawaAlgebras",
+   "b": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/PDE",
+   "b": "tauceti:TauCetiRoadmap/QuadraticFormInvariants"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+   "b": "ShimuraData"
+  }
+ ]
+}

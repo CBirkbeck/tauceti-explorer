@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-19",
+ "round": 2,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+   "title": "Character theory of finite groups, and computing character tables",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_CharacterTheory.json"
+  },
+  {
+   "roadmapId": "HabiroCyclotomicCompletions",
+   "title": "Cyclotomic completions and classical Habiro rings",
+   "extract": "research/blueprint/atlas/roadmaps/HabiroCyclotomicCompletions.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+   "title": "The Ado–Iwasawa theorem and faithful finite-dimensional Lie representations",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_AdoIwasawa.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+   "title": "Modular forms — Hecke theory, newforms, and L-functions",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ModularForms.json"
+  },
+  {
+   "roadmapId": "ArithmeticGaloisDuality",
+   "title": "Global Galois duality and compact coefficients",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticGaloisDuality.json"
+  },
+  {
+   "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+   "title": "Algebraic moduli and representability for arithmetic geometry",
+   "extract": "research/blueprint/atlas/roadmaps/AlgebraicModuliForArithmeticGeometry.json"
+  },
+  {
+   "roadmapId": "FiniteFieldsAndCharacterSums",
+   "title": "Finite fields, character sums, finite rings and coding interfaces",
+   "extract": "research/blueprint/atlas/roadmaps/FiniteFieldsAndCharacterSums.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+   "title": "Zigzag, preprojective, and Ginzburg algebras",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
+  },
+  {
+   "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+   "title": "Inverse Galois theory and arithmetic fundamental groups",
+   "extract": "research/blueprint/atlas/roadmaps/InverseGaloisAndArithmeticFundamentalGroups.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+   "title": "Optimal transport and Wasserstein geometry",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_OptimalTransport.json"
+  },
+  {
+   "roadmapId": "MotivesAndAlgebraicCycles",
+   "title": "Algebraic cycles, pure and mixed motives",
+   "extract": "research/blueprint/atlas/roadmaps/MotivesAndAlgebraicCycles.json"
+  },
+  {
+   "roadmapId": "SchemeKTheoryOperations",
+   "title": "K-theory of schemes, localisation and operations",
+   "extract": "research/blueprint/atlas/roadmaps/SchemeKTheoryOperations.json"
+  },
+  {
+   "roadmapId": "FarguesFontaineDiamonds",
+   "title": "The existing Fargues–Fontaine curve as a diamond",
+   "extract": "research/blueprint/atlas/roadmaps/FarguesFontaineDiamonds.json"
+  },
+  {
+   "roadmapId": "PadicHodgeRegulators",
+   "title": "P-adic regulators and the local K₃ calculation",
+   "extract": "research/blueprint/atlas/roadmaps/PadicHodgeRegulators.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+   "b": "HabiroCyclotomicCompletions"
+  },
+  {
+   "a": "HabiroCyclotomicCompletions",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+   "b": "tauceti:TauCetiRoadmap/ModularForms"
+  },
+  {
+   "a": "ArithmeticGaloisDuality",
+   "b": "tauceti:TauCetiRoadmap/ModularForms"
+  },
+  {
+   "a": "ArithmeticGaloisDuality",
+   "b": "AlgebraicModuliForArithmeticGeometry"
+  },
+  {
+   "a": "AlgebraicModuliForArithmeticGeometry",
+   "b": "FiniteFieldsAndCharacterSums"
+  },
+  {
+   "a": "FiniteFieldsAndCharacterSums",
+   "b": "tauceti:TauCetiRoadmap/ZigzagPreprojective"
+  },
+  {
+   "a": "InverseGaloisAndArithmeticFundamentalGroups",
+   "b": "tauceti:TauCetiRoadmap/ZigzagPreprojective"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/OptimalTransport",
+   "b": "InverseGaloisAndArithmeticFundamentalGroups"
+  },
+  {
+   "a": "MotivesAndAlgebraicCycles",
+   "b": "tauceti:TauCetiRoadmap/OptimalTransport"
+  },
+  {
+   "a": "MotivesAndAlgebraicCycles",
+   "b": "SchemeKTheoryOperations"
+  },
+  {
+   "a": "SchemeKTheoryOperations",
+   "b": "FarguesFontaineDiamonds"
+  },
+  {
+   "a": "FarguesFontaineDiamonds",
+   "b": "PadicHodgeRegulators"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ModularForms",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory"
+  },
+  {
+   "a": "SchemeKTheoryOperations",
+   "b": "PadicHodgeRegulators"
+  },
+  {
+   "a": "FiniteFieldsAndCharacterSums",
+   "b": "FarguesFontaineDiamonds"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa"
+  },
+  {
+   "a": "PadicHodgeRegulators",
+   "b": "InverseGaloisAndArithmeticFundamentalGroups"
+  },
+  {
+   "a": "HabiroCyclotomicCompletions",
+   "b": "ArithmeticGaloisDuality"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/OptimalTransport",
+   "b": "tauceti:TauCetiRoadmap/ZigzagPreprojective"
+  },
+  {
+   "a": "MotivesAndAlgebraicCycles",
+   "b": "AlgebraicModuliForArithmeticGeometry"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ModularForms",
+   "b": "HabiroCyclotomicCompletions"
+  },
+  {
+   "a": "FiniteFieldsAndCharacterSums",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa"
+  },
+  {
+   "a": "FarguesFontaineDiamonds",
+   "b": "tauceti:TauCetiRoadmap/ZigzagPreprojective"
+  }
+ ]
+}

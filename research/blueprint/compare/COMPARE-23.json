@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-23",
+ "round": 2,
+ "roadmaps": [
+  {
+   "roadmapId": "AnalyticNumberTheory",
+   "title": "Analytic number theory, zeta functions and prime distribution",
+   "extract": "research/blueprint/atlas/roadmaps/AnalyticNumberTheory.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+   "title": "Foundations of adic spaces",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AdicSpaces.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+   "title": "Lie groups and the Lie algebra correspondence",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.json"
+  },
+  {
+   "roadmapId": "ArithmeticDynamics",
+   "title": "Arithmetic dynamics",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticDynamics.json"
+  },
+  {
+   "roadmapId": "ComplexMultiplicationAndExplicitReciprocity",
+   "title": "Complex multiplication and explicit reciprocity",
+   "extract": "research/blueprint/atlas/roadmaps/ComplexMultiplicationAndExplicitReciprocity.json"
+  },
+  {
+   "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "title": "Higher local fields and higher class field theory",
+   "extract": "research/blueprint/atlas/roadmaps/HigherLocalFieldsAndHigherClassFieldTheory.json"
+  },
+  {
+   "roadmapId": "MetaplecticAutomorphicForms",
+   "title": "Metaplectic groups, Weil representations and automorphic theta kernels",
+   "extract": "research/blueprint/atlas/roadmaps/MetaplecticAutomorphicForms.json"
+  },
+  {
+   "roadmapId": "LefschetzPencilsAndVanishingCycles",
+   "title": "Lefschetz pencils, nearby cycles and vanishing cycles",
+   "extract": "research/blueprint/atlas/roadmaps/LefschetzPencilsAndVanishingCycles.json"
+  },
+  {
+   "roadmapId": "EllipticCurveModularity",
+   "title": "Modularity and modular parametrisations of elliptic curves over Q",
+   "extract": "research/blueprint/atlas/roadmaps/EllipticCurveModularity.json"
+  },
+  {
+   "roadmapId": "PELModuli",
+   "title": "Siegel and PEL moduli problems",
+   "extract": "research/blueprint/atlas/roadmaps/PELModuli.json"
+  },
+  {
+   "roadmapId": "PadicFamilies",
+   "title": "Hida and Coleman families, period modules, and family L-functions",
+   "extract": "research/blueprint/atlas/roadmaps/PadicFamilies.json"
+  },
+  {
+   "roadmapId": "SerreWeightAndLevelOptimisation",
+   "title": "Weight and level optimisation of residual modular representations",
+   "extract": "research/blueprint/atlas/roadmaps/SerreWeightAndLevelOptimisation.json"
+  },
+  {
+   "roadmapId": "PerfectoidShimuraVarieties",
+   "title": "Shimura towers and perfectoid representability",
+   "extract": "research/blueprint/atlas/roadmaps/PerfectoidShimuraVarieties.json"
+  },
+  {
+   "roadmapId": "PeriodsAndSpecialValues",
+   "title": "Periods, motivic L-values and special-value conjectures",
+   "extract": "research/blueprint/atlas/roadmaps/PeriodsAndSpecialValues.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/AdicSpaces",
+   "b": "AnalyticNumberTheory"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AdicSpaces",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups"
+  },
+  {
+   "a": "ArithmeticDynamics",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups"
+  },
+  {
+   "a": "ComplexMultiplicationAndExplicitReciprocity",
+   "b": "ArithmeticDynamics"
+  },
+  {
+   "a": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "b": "ComplexMultiplicationAndExplicitReciprocity"
+  },
+  {
+   "a": "MetaplecticAutomorphicForms",
+   "b": "HigherLocalFieldsAndHigherClassFieldTheory"
+  },
+  {
+   "a": "MetaplecticAutomorphicForms",
+   "b": "LefschetzPencilsAndVanishingCycles"
+  },
+  {
+   "a": "EllipticCurveModularity",
+   "b": "LefschetzPencilsAndVanishingCycles"
+  },
+  {
+   "a": "PELModuli",
+   "b": "EllipticCurveModularity"
+  },
+  {
+   "a": "PadicFamilies",
+   "b": "PELModuli"
+  },
+  {
+   "a": "PadicFamilies",
+   "b": "SerreWeightAndLevelOptimisation"
+  },
+  {
+   "a": "PerfectoidShimuraVarieties",
+   "b": "SerreWeightAndLevelOptimisation"
+  },
+  {
+   "a": "PerfectoidShimuraVarieties",
+   "b": "PeriodsAndSpecialValues"
+  },
+  {
+   "a": "AnalyticNumberTheory",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups"
+  },
+  {
+   "a": "PELModuli",
+   "b": "PeriodsAndSpecialValues"
+  },
+  {
+   "a": "PerfectoidShimuraVarieties",
+   "b": "LefschetzPencilsAndVanishingCycles"
+  },
+  {
+   "a": "ComplexMultiplicationAndExplicitReciprocity",
+   "b": "tauceti:TauCetiRoadmap/AdicSpaces"
+  },
+  {
+   "a": "MetaplecticAutomorphicForms",
+   "b": "SerreWeightAndLevelOptimisation"
+  },
+  {
+   "a": "PadicFamilies",
+   "b": "PeriodsAndSpecialValues"
+  },
+  {
+   "a": "ArithmeticDynamics",
+   "b": "AnalyticNumberTheory"
+  },
+  {
+   "a": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "b": "EllipticCurveModularity"
+  },
+  {
+   "a": "LefschetzPencilsAndVanishingCycles",
+   "b": "PELModuli"
+  },
+  {
+   "a": "MetaplecticAutomorphicForms",
+   "b": "PerfectoidShimuraVarieties"
+  },
+  {
+   "a": "ComplexMultiplicationAndExplicitReciprocity",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups"
+  }
+ ]
+}

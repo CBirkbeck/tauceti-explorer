@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-02",
+ "round": 1,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+   "title": "Arithmetic Dirichlet series and Tauberian methods",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+   "title": "Galois groups of polynomials",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_PolynomialGaloisGroups.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+   "title": "Stable, periodic, and curved homological algebra",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_StablePeriodicCurved.json"
+  },
+  {
+   "roadmapId": "AlgebraicModularFormsAndSerreWeights",
+   "title": "Algebraic modular forms, reduction and Serre weights",
+   "extract": "research/blueprint/atlas/roadmaps/AlgebraicModularFormsAndSerreWeights.json"
+  },
+  {
+   "roadmapId": "ComplexComparisonPartII",
+   "title": "Complex Comparison PartII",
+   "extract": "research/blueprint/atlas/roadmaps/ComplexComparisonPartII.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+   "title": "Modular curves, following Katz–Mazur",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ModularCurves.json"
+  },
+  {
+   "roadmapId": "AInfCohomology",
+   "title": "Integral A_inf cohomology and Breuil–Kisin–Fargues structures",
+   "extract": "research/blueprint/atlas/roadmaps/AInfCohomology.json"
+  },
+  {
+   "roadmapId": "ArithmeticQuantumTopology",
+   "title": "Arithmetic quantum topology, Habiro invariants and regulators",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticQuantumTopology.json"
+  },
+  {
+   "roadmapId": "DeligneWeightsAndPurity",
+   "title": "Deligne weights, purity and the Weil bounds",
+   "extract": "research/blueprint/atlas/roadmaps/DeligneWeightsAndPurity.json"
+  },
+  {
+   "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+   "title": "P-adic differential equations, rigid cohomology and p-adic weights",
+   "extract": "research/blueprint/atlas/roadmaps/PadicDifferentialEquationsAndRigidCohomology.json"
+  },
+  {
+   "roadmapId": "BunGAndNewtonStrata",
+   "title": "Reductive bundles, B(G) and Newton strata",
+   "extract": "research/blueprint/atlas/roadmaps/BunGAndNewtonStrata.json"
+  },
+  {
+   "roadmapId": "ClassicalSerreModularity",
+   "title": "Classical Serre Modularity",
+   "extract": "research/blueprint/atlas/roadmaps/ClassicalSerreModularity.json"
+  },
+  {
+   "roadmapId": "ModularityAndLanglandsExtensions",
+   "title": "Modularity, automorphy and Langlands endpoint extensions",
+   "extract": "research/blueprint/atlas/roadmaps/ModularityAndLanglandsExtensions.json"
+  },
+  {
+   "roadmapId": "TorsionCohomologyInfrastructure",
+   "title": "Reusable infrastructure for torsion in arithmetic cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/TorsionCohomologyInfrastructure.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+   "b": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+   "b": "tauceti:TauCetiRoadmap/StablePeriodicCurved"
+  },
+  {
+   "a": "AlgebraicModularFormsAndSerreWeights",
+   "b": "tauceti:TauCetiRoadmap/StablePeriodicCurved"
+  },
+  {
+   "a": "AlgebraicModularFormsAndSerreWeights",
+   "b": "ComplexComparisonPartII"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ModularCurves",
+   "b": "ComplexComparisonPartII"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ModularCurves",
+   "b": "AInfCohomology"
+  },
+  {
+   "a": "AInfCohomology",
+   "b": "ArithmeticQuantumTopology"
+  },
+  {
+   "a": "ArithmeticQuantumTopology",
+   "b": "DeligneWeightsAndPurity"
+  },
+  {
+   "a": "PadicDifferentialEquationsAndRigidCohomology",
+   "b": "DeligneWeightsAndPurity"
+  },
+  {
+   "a": "PadicDifferentialEquationsAndRigidCohomology",
+   "b": "BunGAndNewtonStrata"
+  },
+  {
+   "a": "BunGAndNewtonStrata",
+   "b": "ClassicalSerreModularity"
+  },
+  {
+   "a": "ClassicalSerreModularity",
+   "b": "ModularityAndLanglandsExtensions"
+  },
+  {
+   "a": "TorsionCohomologyInfrastructure",
+   "b": "ModularityAndLanglandsExtensions"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+   "b": "tauceti:TauCetiRoadmap/StablePeriodicCurved"
+  },
+  {
+   "a": "TorsionCohomologyInfrastructure",
+   "b": "ArithmeticQuantumTopology"
+  },
+  {
+   "a": "AInfCohomology",
+   "b": "ClassicalSerreModularity"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ModularCurves",
+   "b": "PadicDifferentialEquationsAndRigidCohomology"
+  },
+  {
+   "a": "DeligneWeightsAndPurity",
+   "b": "ComplexComparisonPartII"
+  },
+  {
+   "a": "ModularityAndLanglandsExtensions",
+   "b": "BunGAndNewtonStrata"
+  },
+  {
+   "a": "AlgebraicModularFormsAndSerreWeights",
+   "b": "ArithmeticQuantumTopology"
+  },
+  {
+   "a": "PadicDifferentialEquationsAndRigidCohomology",
+   "b": "TorsionCohomologyInfrastructure"
+  },
+  {
+   "a": "DeligneWeightsAndPurity",
+   "b": "tauceti:TauCetiRoadmap/ModularCurves"
+  },
+  {
+   "a": "BunGAndNewtonStrata",
+   "b": "AInfCohomology"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+   "b": "ComplexComparisonPartII"
+  }
+ ]
+}

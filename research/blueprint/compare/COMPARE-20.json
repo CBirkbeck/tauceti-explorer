@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-20",
+ "round": 2,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:Completed/IntegralLattices",
+   "title": "Integral lattices, discriminant forms, and overlattices",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_Completed_IntegralLattices.json"
+  },
+  {
+   "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+   "title": "Weighted orthogonal L² bases — completeness, Hilbert-basis structure, and product bases of orthogonal systems",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_Completed_OrthogonalL2Bases.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+   "title": "Stable, periodic, and curved homological algebra",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_StablePeriodicCurved.json"
+  },
+  {
+   "roadmapId": "AlgebraicModularFormsAndSerreWeights",
+   "title": "Algebraic modular forms, reduction and Serre weights",
+   "extract": "research/blueprint/atlas/roadmaps/AlgebraicModularFormsAndSerreWeights.json"
+  },
+  {
+   "roadmapId": "ArithmeticStatistics",
+   "title": "Arithmetic statistics, counting fields and Selmer distributions",
+   "extract": "research/blueprint/atlas/roadmaps/ArithmeticStatistics.json"
+  },
+  {
+   "roadmapId": "TropicalAndBerkovichArithmetic",
+   "title": "Berkovich spaces, tropical curves and nonarchimedean arithmetic",
+   "extract": "research/blueprint/atlas/roadmaps/TropicalAndBerkovichArithmetic.json"
+  },
+  {
+   "roadmapId": "AdicEtaleGeometry",
+   "title": "Analytic adic geometry required for diamonds",
+   "extract": "research/blueprint/atlas/roadmaps/AdicEtaleGeometry.json"
+  },
+  {
+   "roadmapId": "BorelRegulators",
+   "title": "Stable arithmetic cohomology and Borel regulators",
+   "extract": "research/blueprint/atlas/roadmaps/BorelRegulators.json"
+  },
+  {
+   "roadmapId": "EllipticKTheory",
+   "title": "K-theory of curves and elliptic curves",
+   "extract": "research/blueprint/atlas/roadmaps/EllipticKTheory.json"
+  },
+  {
+   "roadmapId": "PadicHodgeTheory",
+   "title": "P-adic Hodge theory and geometric comparison",
+   "extract": "research/blueprint/atlas/roadmaps/PadicHodgeTheory.json"
+  },
+  {
+   "roadmapId": "WeightsInEtaleCohomology",
+   "title": "Weights and purity in étale cohomology",
+   "extract": "research/blueprint/atlas/roadmaps/WeightsInEtaleCohomology.json"
+  },
+  {
+   "roadmapId": "CohomologyComparisons",
+   "title": "Cohomology comparisons: integral diagrams and rational period realizations",
+   "extract": "research/blueprint/atlas/roadmaps/CohomologyComparisons.json"
+  },
+  {
+   "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+   "title": "Noncommutative and equivariant Iwasawa theory",
+   "extract": "research/blueprint/atlas/roadmaps/NoncommutativeAndEquivariantIwasawa.json"
+  },
+  {
+   "roadmapId": "OverconvergentAutomorphicForms",
+   "title": "Overconvergent Hilbert modular forms and p-adic automorphic coefficients",
+   "extract": "research/blueprint/atlas/roadmaps/OverconvergentAutomorphicForms.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:Completed/IntegralLattices",
+   "b": "tauceti:Completed/OrthogonalL2Bases"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+   "b": "tauceti:Completed/OrthogonalL2Bases"
+  },
+  {
+   "a": "AlgebraicModularFormsAndSerreWeights",
+   "b": "tauceti:TauCetiRoadmap/StablePeriodicCurved"
+  },
+  {
+   "a": "AlgebraicModularFormsAndSerreWeights",
+   "b": "ArithmeticStatistics"
+  },
+  {
+   "a": "TropicalAndBerkovichArithmetic",
+   "b": "ArithmeticStatistics"
+  },
+  {
+   "a": "TropicalAndBerkovichArithmetic",
+   "b": "AdicEtaleGeometry"
+  },
+  {
+   "a": "BorelRegulators",
+   "b": "AdicEtaleGeometry"
+  },
+  {
+   "a": "BorelRegulators",
+   "b": "EllipticKTheory"
+  },
+  {
+   "a": "EllipticKTheory",
+   "b": "PadicHodgeTheory"
+  },
+  {
+   "a": "PadicHodgeTheory",
+   "b": "WeightsInEtaleCohomology"
+  },
+  {
+   "a": "CohomologyComparisons",
+   "b": "WeightsInEtaleCohomology"
+  },
+  {
+   "a": "NoncommutativeAndEquivariantIwasawa",
+   "b": "CohomologyComparisons"
+  },
+  {
+   "a": "OverconvergentAutomorphicForms",
+   "b": "NoncommutativeAndEquivariantIwasawa"
+  },
+  {
+   "a": "OverconvergentAutomorphicForms",
+   "b": "CohomologyComparisons"
+  },
+  {
+   "a": "NoncommutativeAndEquivariantIwasawa",
+   "b": "BorelRegulators"
+  },
+  {
+   "a": "TropicalAndBerkovichArithmetic",
+   "b": "AlgebraicModularFormsAndSerreWeights"
+  },
+  {
+   "a": "AdicEtaleGeometry",
+   "b": "PadicHodgeTheory"
+  },
+  {
+   "a": "OverconvergentAutomorphicForms",
+   "b": "EllipticKTheory"
+  },
+  {
+   "a": "ArithmeticStatistics",
+   "b": "tauceti:TauCetiRoadmap/StablePeriodicCurved"
+  },
+  {
+   "a": "NoncommutativeAndEquivariantIwasawa",
+   "b": "WeightsInEtaleCohomology"
+  },
+  {
+   "a": "CohomologyComparisons",
+   "b": "BorelRegulators"
+  },
+  {
+   "a": "WeightsInEtaleCohomology",
+   "b": "AlgebraicModularFormsAndSerreWeights"
+  },
+  {
+   "a": "EllipticKTheory",
+   "b": "tauceti:TauCetiRoadmap/StablePeriodicCurved"
+  },
+  {
+   "a": "AdicEtaleGeometry",
+   "b": "OverconvergentAutomorphicForms"
+  }
+ ]
+}

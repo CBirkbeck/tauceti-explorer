@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-26",
+ "round": 2,
+ "roadmaps": [
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+   "title": "Representations of the symmetric group, Specht modules, and Schur-Weyl duality",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "title": "Dense graph limits and graphons",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_DenseGraphLimits.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+   "title": "Elliptic curves",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_EllipticCurves.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+   "title": "Fuchsian groups and orbifold Riemann surfaces",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_FuchsianOrbifolds.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+   "title": "Combinatorial Heegaard Floer and grid homology",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_CombinatorialHeegaardFloer.json"
+  },
+  {
+   "roadmapId": "ClassicalAdicEtaleCohomology",
+   "title": "The classical analytic cohomology inputs to diamonds",
+   "extract": "research/blueprint/atlas/roadmaps/ClassicalAdicEtaleCohomology.json"
+  },
+  {
+   "roadmapId": "EtaleDualityAndPerverseSheaves",
+   "title": "Étale duality, cycle classes and perverse sheaves",
+   "extract": "research/blueprint/atlas/roadmaps/EtaleDualityAndPerverseSheaves.json"
+  },
+  {
+   "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+   "title": "Global shtukas and Langlands over function fields",
+   "extract": "research/blueprint/atlas/roadmaps/GlobalShtukasAndFunctionFieldLanglands.json"
+  },
+  {
+   "roadmapId": "HeegnerPointEulerSystems",
+   "title": "Heegner-point Euler systems and arithmetic descent",
+   "extract": "research/blueprint/atlas/roadmaps/HeegnerPointEulerSystems.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+   "title": "Heegaard Floer homology, analytically",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_HeegaardFloer.json"
+  },
+  {
+   "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+   "title": "Automorphic Galois Representations PartII",
+   "extract": "research/blueprint/atlas/roadmaps/AutomorphicGaloisRepresentationsPartII.json"
+  },
+  {
+   "roadmapId": "ClassicalSerreModularity",
+   "title": "Classical Serre Modularity",
+   "extract": "research/blueprint/atlas/roadmaps/ClassicalSerreModularity.json"
+  },
+  {
+   "roadmapId": "GL2ModularityLifting",
+   "title": "GL₂ Modularity Lifting",
+   "extract": "research/blueprint/atlas/roadmaps/GL2ModularityLifting.json"
+  },
+  {
+   "roadmapId": "RelativeFarguesFontaine",
+   "title": "Relative Fargues–Fontaine curves and period geometry",
+   "extract": "research/blueprint/atlas/roadmaps/RelativeFarguesFontaine.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "b": "tauceti:TauCetiRoadmap/EllipticCurves"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+   "b": "tauceti:TauCetiRoadmap/EllipticCurves"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+   "b": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+   "b": "ClassicalAdicEtaleCohomology"
+  },
+  {
+   "a": "EtaleDualityAndPerverseSheaves",
+   "b": "ClassicalAdicEtaleCohomology"
+  },
+  {
+   "a": "GlobalShtukasAndFunctionFieldLanglands",
+   "b": "EtaleDualityAndPerverseSheaves"
+  },
+  {
+   "a": "HeegnerPointEulerSystems",
+   "b": "GlobalShtukasAndFunctionFieldLanglands"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HeegaardFloer",
+   "b": "HeegnerPointEulerSystems"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HeegaardFloer",
+   "b": "AutomorphicGaloisRepresentationsPartII"
+  },
+  {
+   "a": "ClassicalSerreModularity",
+   "b": "AutomorphicGaloisRepresentationsPartII"
+  },
+  {
+   "a": "ClassicalSerreModularity",
+   "b": "GL2ModularityLifting"
+  },
+  {
+   "a": "GL2ModularityLifting",
+   "b": "RelativeFarguesFontaine"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/EllipticCurves",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl"
+  },
+  {
+   "a": "EtaleDualityAndPerverseSheaves",
+   "b": "RelativeFarguesFontaine"
+  },
+  {
+   "a": "ClassicalSerreModularity",
+   "b": "ClassicalAdicEtaleCohomology"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "b": "tauceti:TauCetiRoadmap/FuchsianOrbifolds"
+  },
+  {
+   "a": "RelativeFarguesFontaine",
+   "b": "AutomorphicGaloisRepresentationsPartII"
+  },
+  {
+   "a": "HeegnerPointEulerSystems",
+   "b": "GL2ModularityLifting"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/HeegaardFloer",
+   "b": "GlobalShtukasAndFunctionFieldLanglands"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+   "b": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer"
+  },
+  {
+   "a": "AutomorphicGaloisRepresentationsPartII",
+   "b": "EtaleDualityAndPerverseSheaves"
+  },
+  {
+   "a": "ClassicalAdicEtaleCohomology",
+   "b": "HeegnerPointEulerSystems"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+   "b": "tauceti:TauCetiRoadmap/FuchsianOrbifolds"
+  }
+ ]
+}

@@ -1,0 +1,174 @@
+{
+ "job": "COMPARE-12",
+ "round": 1,
+ "roadmaps": [
+  {
+   "roadmapId": "ComputationalNumberTheory",
+   "title": "Certified computational number theory and arithmetic data",
+   "extract": "research/blueprint/atlas/roadmaps/ComputationalNumberTheory.json"
+  },
+  {
+   "roadmapId": "PadicMeasuresIwasawaAlgebras",
+   "title": "P-adic measures, completed group algebras, and characteristic ideals",
+   "extract": "research/blueprint/atlas/roadmaps/PadicMeasuresIwasawaAlgebras.json"
+  },
+  {
+   "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+   "title": "Foundations of adic spaces",
+   "extract": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_AdicSpaces.json"
+  },
+  {
+   "roadmapId": "SchemeAndStackFoundations",
+   "title": "Scheme, stack, cohomology and intersection foundations",
+   "extract": "research/blueprint/atlas/roadmaps/SchemeAndStackFoundations.json"
+  },
+  {
+   "roadmapId": "GeneralAlgebraicKTheory",
+   "title": "General algebraic K-theory",
+   "extract": "research/blueprint/atlas/roadmaps/GeneralAlgebraicKTheory.json"
+  },
+  {
+   "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+   "title": "Inverse Galois theory and arithmetic fundamental groups",
+   "extract": "research/blueprint/atlas/roadmaps/InverseGaloisAndArithmeticFundamentalGroups.json"
+  },
+  {
+   "roadmapId": "CrystallineCohomology",
+   "title": "Crystalline cohomology, de Rham–Witt and logarithmic foundations",
+   "extract": "research/blueprint/atlas/roadmaps/CrystallineCohomology.json"
+  },
+  {
+   "roadmapId": "EllipticKTheory",
+   "title": "K-theory of curves and elliptic curves",
+   "extract": "research/blueprint/atlas/roadmaps/EllipticKTheory.json"
+  },
+  {
+   "roadmapId": "HeightsRationalPointsAndObstructions",
+   "title": "Heights, rational points and obstructions",
+   "extract": "research/blueprint/atlas/roadmaps/HeightsRationalPointsAndObstructions.json"
+  },
+  {
+   "roadmapId": "DiamondSixOperations",
+   "title": "Six operations, cohomological smoothness and biduality",
+   "extract": "research/blueprint/atlas/roadmaps/DiamondSixOperations.json"
+  },
+  {
+   "roadmapId": "PerfectoidQuotients",
+   "title": "Perfectoid quotients and their prismatic prerequisites",
+   "extract": "research/blueprint/atlas/roadmaps/PerfectoidQuotients.json"
+  },
+  {
+   "roadmapId": "CohomologyComparisons",
+   "title": "Cohomology comparisons: integral diagrams and rational period realizations",
+   "extract": "research/blueprint/atlas/roadmaps/CohomologyComparisons.json"
+  },
+  {
+   "roadmapId": "GeometricSatakeAndFusion",
+   "title": "Geometric Satake over the Fargues–Fontaine curve",
+   "extract": "research/blueprint/atlas/roadmaps/GeometricSatakeAndFusion.json"
+  },
+  {
+   "roadmapId": "RankZeroOneBSD",
+   "title": "Rank-zero and rank-one Birch–Swinnerton-Dyer theory",
+   "extract": "research/blueprint/atlas/roadmaps/RankZeroOneBSD.json"
+  }
+ ],
+ "pairs": [
+  {
+   "a": "PadicMeasuresIwasawaAlgebras",
+   "b": "ComputationalNumberTheory"
+  },
+  {
+   "a": "PadicMeasuresIwasawaAlgebras",
+   "b": "tauceti:TauCetiRoadmap/AdicSpaces"
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AdicSpaces",
+   "b": "SchemeAndStackFoundations"
+  },
+  {
+   "a": "SchemeAndStackFoundations",
+   "b": "GeneralAlgebraicKTheory"
+  },
+  {
+   "a": "GeneralAlgebraicKTheory",
+   "b": "InverseGaloisAndArithmeticFundamentalGroups"
+  },
+  {
+   "a": "InverseGaloisAndArithmeticFundamentalGroups",
+   "b": "CrystallineCohomology"
+  },
+  {
+   "a": "CrystallineCohomology",
+   "b": "EllipticKTheory"
+  },
+  {
+   "a": "EllipticKTheory",
+   "b": "HeightsRationalPointsAndObstructions"
+  },
+  {
+   "a": "DiamondSixOperations",
+   "b": "HeightsRationalPointsAndObstructions"
+  },
+  {
+   "a": "PerfectoidQuotients",
+   "b": "DiamondSixOperations"
+  },
+  {
+   "a": "PerfectoidQuotients",
+   "b": "CohomologyComparisons"
+  },
+  {
+   "a": "GeometricSatakeAndFusion",
+   "b": "CohomologyComparisons"
+  },
+  {
+   "a": "RankZeroOneBSD",
+   "b": "GeometricSatakeAndFusion"
+  },
+  {
+   "a": "CohomologyComparisons",
+   "b": "RankZeroOneBSD"
+  },
+  {
+   "a": "ComputationalNumberTheory",
+   "b": "tauceti:TauCetiRoadmap/AdicSpaces"
+  },
+  {
+   "a": "SchemeAndStackFoundations",
+   "b": "HeightsRationalPointsAndObstructions"
+  },
+  {
+   "a": "RankZeroOneBSD",
+   "b": "GeneralAlgebraicKTheory"
+  },
+  {
+   "a": "DiamondSixOperations",
+   "b": "GeometricSatakeAndFusion"
+  },
+  {
+   "a": "PadicMeasuresIwasawaAlgebras",
+   "b": "InverseGaloisAndArithmeticFundamentalGroups"
+  },
+  {
+   "a": "PerfectoidQuotients",
+   "b": "EllipticKTheory"
+  },
+  {
+   "a": "CrystallineCohomology",
+   "b": "SchemeAndStackFoundations"
+  },
+  {
+   "a": "ComputationalNumberTheory",
+   "b": "InverseGaloisAndArithmeticFundamentalGroups"
+  },
+  {
+   "a": "GeneralAlgebraicKTheory",
+   "b": "EllipticKTheory"
+  },
+  {
+   "a": "RankZeroOneBSD",
+   "b": "DiamondSixOperations"
+  }
+ ]
+}
