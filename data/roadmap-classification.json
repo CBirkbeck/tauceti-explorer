@@ -5,10 +5,10 @@
   "classification": "research/blueprint/classify: subject classes of each roadmap's principal references (zbMATH Open API) and a distance judged against the pinned Mathlib and Tau Ceti baseline.",
   "estimate": "data/classification-estimates.json: provisional values for roadmaps whose classification has not finished."
  },
- "provisional": true,
+ "provisional": false,
  "counts": {
-  "classified": 195,
-  "estimated": 17
+  "classified": 212,
+  "estimated": 0
  },
  "roadmaps": {
   "AInfCohomology": {
@@ -3487,153 +3487,254 @@
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory": {
    "cluster": "lie-theory-and-representations",
-   "distance": 3,
+   "distance": 2,
    "primaryMsc": "20C",
-   "secondaryMsc": [],
-   "basis": "estimate",
-   "rationale": "Collection of representation-theory roadmaps.",
+   "secondaryMsc": [
+    "17B",
+    "22E",
+    "16G"
+   ],
+   "basis": "classification",
+   "job": "CLASSIFY-06",
+   "rationale": "This index page has no targets of its own, so its distance is the median over its twelve sub-roadmaps as classified in this batch: SemisimpleAlgebras 0; CharacterTheory, CompactGroups, RootSystems 1; InductionRestriction, LieHighestWeight, QuiverRepresentations, SchurWeyl, SpinRepresentations 2; AdoIwasawa, ClassicalGroups 3; LieGroups 5. Tau Ceti already covers most of the finite-group, compact-group (Peter–Weyl), symmetric-group, root-system and semisimple-Lie-algebra cores. The farthest lanes are the smooth Lie-group correspondence, the group-level classical-group classification and Ado–Iwasawa.",
    "galaxy": "representations",
    "tags": []
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa": {
    "cluster": "lie-theory-and-representations",
    "distance": 3,
-   "primaryMsc": "17B10",
-   "secondaryMsc": [],
-   "basis": "estimate",
-   "rationale": "Faithful finite-dimensional representations of Lie algebras.",
+   "primaryMsc": "17B",
+   "secondaryMsc": [
+    "16S",
+    "16W"
+   ],
+   "basis": "classification",
+   "job": "CLASSIFY-06",
+   "rationale": "Mathlib has the Lie-algebra substrate: enveloping algebras, nilpotent and solvable ideals, Engel and Lie's theorems, semidirect sums, and the generalized Krull intersection theorem. Tau Ceti adds the PBW filtration with ordered-monomial spanning, the associated-graded comparison map, and Weyl complete reducibility for Killing algebras. Still missing is one layer of textbook theory (Jacobson, Ch. VI): PBW injectivity for non-abelian L, the nilradical, derivations lifted to U(L), Levi decomposition, and central p-polynomials, followed by the Ado–Iwasawa–Hochschild theorems themselves.",
    "galaxy": "representations",
    "tags": []
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory": {
    "cluster": "lie-theory-and-representations",
    "distance": 1,
-   "primaryMsc": "20C15",
-   "secondaryMsc": [],
-   "basis": "estimate",
-   "rationale": "Characters of finite groups over Mathlib's representation theory.",
+   "primaryMsc": "20C",
+   "secondaryMsc": [
+    "68W",
+    "20D",
+    "20G"
+   ],
+   "basis": "classification",
+   "job": "CLASSIFY-06",
+   "rationale": "Deliverables A–C are essentially built in Tau Ceti on top of Mathlib's characters and row orthogonality. That covers class functions, completeness, #irreducibles = #classes, Σ nᵢ² = |G| and nᵢ ∣ |G|, the Galois action, the Dixon–Schneider specification with uniqueness, good-prime existence, and a certified rational/cyclotomic solver. Most of D is also done: the Frobenius–Schur trichotomy, Burnside's pᵃqᵇ theorem, Frobenius kernels, and the GL₂(𝔽_q) principal series, Steinberg and linear rows. What remains is the cuspidal series of GL₂(𝔽_q) with its irreducibility and the assembled full table.",
    "galaxy": "representations",
-   "tags": []
+   "tags": [
+    "computational",
+    "grouptheory"
+   ]
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups": {
    "cluster": "lie-theory-and-representations",
    "distance": 3,
-   "primaryMsc": "20G05",
-   "secondaryMsc": [],
-   "basis": "estimate",
-   "rationale": "Finite-dimensional representations of the classical groups.",
+   "primaryMsc": "20G",
+   "secondaryMsc": [
+    "22E",
+    "05E",
+    "17B"
+   ],
+   "basis": "classification",
+   "job": "CLASSIFY-06",
+   "rationale": "Tau Ceti has built most of the scaffolding. That includes the standard representations of GLₙ, SLₙ, Oₙ and Spₙ, polynomial tensor, symmetric and exterior powers, and Young-symmetrizer Weyl modules. It also has the GLₙ/Sₘ double-centralizer theorem, torus weight decompositions, Schur polynomials, the Weyl and hook-content dimension numbers with Gelfand–Tsetlin pattern counts, and the 𝔤𝔩ₙ Lie-algebra highest-weight existence theorems. Still missing is the representation-theoretic layer of Fulton–Harris and Goodman–Wallach: the highest-weight classification of rational GLₙ, SOₙ and Spₙ irreducibles, characters as Schur polynomials, the dimension theorem for Vλ, and the branching isomorphisms with the Gelfand–Tsetlin basis and generators.",
    "galaxy": "representations",
-   "tags": []
+   "tags": [
+    "combinatorics"
+   ]
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups": {
    "cluster": "lie-theory-and-representations",
-   "distance": 3,
-   "primaryMsc": "22E46",
-   "secondaryMsc": [],
-   "basis": "estimate",
-   "rationale": "Peter–Weyl over Mathlib's Haar measure and compact operators.",
+   "distance": 1,
+   "primaryMsc": "22C",
+   "secondaryMsc": [
+    "43A",
+    "22E"
+   ],
+   "basis": "classification",
+   "job": "CLASSIFY-06",
+   "rationale": "Tau Ceti has built the roadmap through its summit on top of Mathlib's Haar measure and Hilbert-basis API. That covers Haar averaging and unitarizability, complete reducibility, matrix coefficients with Schur orthogonality, the Peter–Weyl theorem as peterWeylBasis with Parseval, and the character Hilbert basis with isotypic projectors. The SU(2) engine case is there too: torus conjugacy, the Sym^d classification, and Weyl-character closed forms with torus-side orthonormality. What remains is the measure-theoretic Weyl integration formula on SU(2), which the source file explicitly leaves out, and the packaged G×G decomposition L²(G) ≅ ⨁ End(V_π).",
    "galaxy": "representations",
-   "tags": []
+   "tags": [
+    "analysis"
+   ]
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction": {
    "cluster": "lie-theory-and-representations",
-   "distance": 1,
-   "primaryMsc": "20C15",
-   "secondaryMsc": [],
-   "basis": "estimate",
-   "rationale": "Induction, restriction and Mackey theory for finite groups.",
+   "distance": 2,
+   "primaryMsc": "20C",
+   "secondaryMsc": [
+    "19A",
+    "20J"
+   ],
+   "basis": "classification",
+   "job": "CLASSIFY-06",
+   "rationale": "Mathlib provides the Ind/Res/Coind adjunctions. Tau Ceti has built Layers 0–5 on top of them: transitivity, the projection formula, the induced-character formula and Frobenius reciprocity for characters, the Mackey decomposition as a natural isomorphism, Mackey's irreducibility criterion, and Clifford theory. It also has most of Layers 6–7: the representation ring, Artin's induction theorem and Artin's corollary, and projective representations classified by H² with twisted group algebras. What remains is a textbook chunk: Brauer's integral induction theorem over (hyper)elementary subgroups, Brauer's characterization of characters, the ℚ(ζ_e) splitting-field corollary, and Schur representation groups (covers).",
    "galaxy": "representations",
-   "tags": []
+   "tags": [
+    "ktheory",
+    "homological"
+   ]
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups": {
    "cluster": "lie-theory-and-representations",
-   "distance": 3,
-   "primaryMsc": "22E15",
-   "secondaryMsc": [],
-   "basis": "estimate",
-   "rationale": "Lie groups and the Lie-algebra correspondence.",
+   "distance": 5,
+   "primaryMsc": "22E",
+   "secondaryMsc": [
+    "17B",
+    "53C",
+    "22C"
+   ],
+   "basis": "classification",
+   "job": "CLASSIFY-06",
+   "rationale": "Mathlib has only the LieGroup class and left-invariant derivations. Tau Ceti adds Deliverable A's first half: the Lie exponential as a local diffeomorphism at 0, classification of one-parameter subgroups, Ad/ad with Ad∘exp = exp∘ad, the Lie functor with faithfulness, the Lie subalgebra of a closed subgroup with its limit criterion, and a Banach-algebra local BCH. Still missing are several layers of standard graduate Lie theory: the embedded closed-subgroup theorem and group-level BCH, Frobenius integrability and Lie's third theorem, simply connected covers, compact maximal-torus conjugacy with general Weyl integration, complexification, Borel–Weil and Bruhat, and the Cartan/Iwasawa/KAK decompositions.",
    "galaxy": "representations",
-   "tags": []
+   "tags": [
+    "diffgeom"
+   ]
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight": {
    "cluster": "lie-theory-and-representations",
-   "distance": 3,
-   "primaryMsc": "17B10",
-   "secondaryMsc": [],
-   "basis": "estimate",
-   "rationale": "Highest-weight theory for semisimple Lie algebras.",
+   "distance": 2,
+   "primaryMsc": "17B",
+   "secondaryMsc": [
+    "16S",
+    "20G",
+    "17C"
+   ],
+   "basis": "classification",
+   "job": "CLASSIFY-06",
+   "rationale": "Mathlib reaches the Killing root system and sl₂ triples. Tau Ceti has built the representation theory on that base: Verma modules and L(λ), the dominant-integral classification of finite-dimensional irreducibles, Weyl complete reducibility, Weyl invariance of characters with the Weyl denominator and numerator identities, central characters, Freudenthal's formula, the full 𝔤𝔩ₙ layer, and carriers for the octonions, the Albert algebra and E₆/E₇ minuscule modules. Still missing, all standard (Humphreys §§17–24, Jacobson): PBW injectivity, the last step of the Weyl character formula with the dimension and Kostant formulas, the minuscule Pieri rule, the Harish-Chandra isomorphism, the Serre-presentation isomorphism, and identifying the exceptional models with LieAlgebra.g₂…e₈.",
    "galaxy": "representations",
    "tags": []
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations": {
    "cluster": "lie-theory-and-representations",
    "distance": 2,
-   "primaryMsc": "16G20",
-   "secondaryMsc": [],
-   "basis": "estimate",
-   "rationale": "Path algebras and Gabriel's theorem.",
+   "primaryMsc": "16G",
+   "secondaryMsc": [
+    "16D",
+    "16E",
+    "17B"
+   ],
+   "basis": "classification",
+   "job": "CLASSIFY-06",
+   "rationale": "Mathlib gives quivers, paths and Morita equivalence. Tau Ceti has built most of Layers 0–5: path algebras with admissible ideals and basic algebras, quiver representations as modules, Krull–Schmidt, projective covers and injective envelopes, Euler/Tits forms and BGP reflection and Coxeter functors, and uniqueness of indecomposables by dimension vector. It also proves 'positive-definite Tits form ⇒ finite type with #indecomposables ≤ #positive roots' and has Kronecker/one-loop counterexamples, the AR translate and a Kronecker almost-split sequence. Still missing is textbook material: the converse (finite type ⇒ ADE) with the indecomposable ↔ positive-root bijection in general, Gabriel's presentation theorem, and general existence of AR sequences with the AR quiver.",
    "galaxy": "representations",
-   "tags": []
+   "tags": [
+    "homological"
+   ]
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems": {
    "cluster": "lie-theory-and-representations",
-   "distance": 2,
-   "primaryMsc": "17B22",
-   "secondaryMsc": [],
-   "basis": "estimate",
-   "rationale": "Weyl groups and the Cartan–Killing classification over Mathlib's root systems.",
+   "distance": 1,
+   "primaryMsc": "17B",
+   "secondaryMsc": [
+    "20F",
+    "51F",
+    "05E"
+   ],
+   "basis": "classification",
+   "job": "CLASSIFY-06",
+   "rationale": "Mathlib has RootPairing, bases, Cartan matrices, Weyl groups and CoxeterSystem. Tau Ceti has built nearly all of Layers 1–6 on top: positive roots and inversions, the Coxeter matrix of a base with the surjection from the presented Coxeter group, strong exchange and Bruhat order, dominant chambers as a fundamental domain, the longest element, the finite-type Cartan-matrix classification into valid Dynkin types with rigidity, and simply connected root data. What remains is small: Tits' injectivity (the full weylCoxeterSystem), coordinate realizations proving each Dynkin type exists, base-independence of the type, and the Aₙ ↦ Sₙ₊₁ and G₂ ↦ Dih₆ identifications.",
    "galaxy": "representations",
-   "tags": []
+   "tags": [
+    "grouptheory",
+    "diffgeom",
+    "combinatorics"
+   ]
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl": {
    "cluster": "lie-theory-and-representations",
    "distance": 2,
-   "primaryMsc": "20C30",
-   "secondaryMsc": [],
-   "basis": "estimate",
-   "rationale": "Specht modules and Schur–Weyl duality.",
+   "primaryMsc": "20C",
+   "secondaryMsc": [
+    "05E",
+    "20G",
+    "13A"
+   ],
+   "basis": "classification",
+   "job": "CLASSIFY-06",
+   "rationale": "Mathlib contributes Young diagrams, partitions and cycle types. Tau Ceti has built Layers 0–5 in full: dominance, Young subgroups and permutation modules, symmetrizers, Specht modules via the submodule theorem, the classification partitionEquivSimpleFDRepClasses, the standard polytabloid basis, and the hook-length formula. It also has the Sₙ character table with column orthogonality, Kostka numbers with Schur = Σ K·m, rim hooks, the GL/Sₙ double-centralizer theorem, and Brauer diagram composition with O/Sp-commuting cup/cap operators. Still missing are standard results: the Murnaghan–Nakayama rule, the Frobenius characteristic and Jacobi–Trudi, RSK, the explicit (ℂᵈ)^{⊗n} ≅ ⊕ S^λ ⊗ 𝕊^λ decomposition, and orthogonal/symplectic Schur–Weyl duality via the Brauer algebra.",
    "galaxy": "representations",
-   "tags": []
+   "tags": [
+    "combinatorics",
+    "commutative"
+   ]
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras": {
    "cluster": "lie-theory-and-representations",
-   "distance": 1,
-   "primaryMsc": "16K20",
-   "secondaryMsc": [],
-   "basis": "estimate",
-   "rationale": "Artin–Wedderburn over Mathlib's semisimple rings.",
+   "distance": 0,
+   "primaryMsc": "16K",
+   "secondaryMsc": [
+    "16D",
+    "16N",
+    "12G"
+   ],
+   "basis": "classification",
+   "job": "CLASSIFY-06",
+   "rationale": "Mathlib proves Artin–Wedderburn existence, Schur's lemma and isotypic decomposition. Tau Ceti has built every remaining layer. That covers invariance of the block count, simple-module classes of the regular module, the double-centralizer theorem, and tensor products of central simple algebras staying simple. It also covers A ⊗ Aᵒᵖ ≅ M_{dim A}(K), the square-dimension theorem, Skolem–Noether, the centralizer theorem, the Brauer group as a commutative group, and finite separable splitting fields, maximal subfields and the index. The roadmap is essentially complete.",
    "galaxy": "representations",
-   "tags": []
+   "tags": [
+    "algebraicnt"
+   ]
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations": {
    "cluster": "lie-theory-and-representations",
-   "distance": 3,
-   "primaryMsc": "15A66",
-   "secondaryMsc": [],
-   "basis": "estimate",
-   "rationale": "Pin and Spin groups over Mathlib's Clifford algebras.",
+   "distance": 2,
+   "primaryMsc": "15A",
+   "secondaryMsc": [
+    "22E",
+    "17B",
+    "11E"
+   ],
+   "basis": "classification",
+   "job": "CLASSIFY-06",
+   "rationale": "Mathlib defines CliffordAlgebra, pinGroup and spinGroup. Tau Ceti has built Layers 0–4 and much of 5, 7 and 9 on top: the filtration with gr Cliff ≅ ⋀V, the structure theorem via polarizations, and Pin/Spin double covers with ℤ/2 kernels and the spinor-norm sequence. It also has the spin and half-spin modules with irreducibility and weight-space decomposition, type-B/D integral forms, Spin₃ ≅ SL₂, real Clifford algebras with the Bott isomorphism, the quadratic realization with Kostant's left-regular module, and the 𝔤𝔩_N CAR isotypy instance. Still missing: Spin₄ ≅ SL₂×SL₂, Spin₅ ≅ Sp₄ and Spin₆ ≅ SL₄, triality as an outer automorphism of Spin₈, and the general Kostant isotypy corollary with its multiplicities.",
    "galaxy": "representations",
-   "tags": []
+   "tags": [
+    "algebraicnt"
+   ]
   },
   "tauceti:TauCetiRoadmap/StablePeriodicCurved": {
    "cluster": "homological-algebra-and-categories",
    "distance": 5,
-   "primaryMsc": "18G80",
-   "secondaryMsc": [],
-   "basis": "estimate",
-   "rationale": "Stable categories, periodic complexes and matrix factorizations.",
+   "primaryMsc": "18G",
+   "secondaryMsc": [
+    "16E",
+    "13D",
+    "18E"
+   ],
+   "basis": "classification",
+   "job": "CLASSIFY-06",
+   "rationale": "Mathlib supplies the triangulated homotopy and derived categories and localization. Tau Ceti adds part of Layer 0: Quillen exact structures with a Frobenius predicate, the morphism-ideal quotient, and DG right modules. Nothing beyond that exists. Missing are Happel's triangulated stable category, self-injective and Gorenstein-projective stable categories with Buchweitz's singularity-category equivalence, differential modules and periodic derived categories with Stai's hull, and curved DG modules with Positselski's derived categories of the second kind. Matrix factorizations with HMF and Orlov's comparison are missing too. That is several layers, the later ones research-level.",
    "galaxy": "homological",
-   "tags": []
+   "tags": [
+    "commutative"
+   ]
   },
   "tauceti:TauCetiRoadmap/StableReduction": {
    "cluster": "algebraic-geometry",
-   "distance": 7,
-   "primaryMsc": "14H10",
-   "secondaryMsc": [],
-   "basis": "estimate",
-   "rationale": "Stable reduction of curves and moduli of stable maps.",
+   "distance": 8,
+   "primaryMsc": "14H",
+   "secondaryMsc": [
+    "14D",
+    "14G",
+    "14N"
+   ],
+   "basis": "classification",
+   "job": "CLASSIFY-06",
+   "rationale": "Mathlib has schemes, fibres, the valuative criteria and DVRs. Tau Ceti has only the first scaffolding under Curves/StableReduction: finite DVR extensions, a Model structure with isomorphisms, and the combinatorics of Stacks-style numerical types with weighted Picard groups and torsion bounds. The theorem needs the whole Jacobian lane (coherent cohomology and base change, duality, Picard schemes, ℓ-torsion of Pic⁰) plus nodal families, relative dualizing sheaves, blowups, intersection theory and Lipman resolution on arithmetic surfaces, minimal models, and Artin–Winters semistable reduction. Canonical contraction and descent, and stable maps, also remain: many layers of research-level algebraic geometry.",
    "galaxy": "algebraicgeometry",
-   "tags": []
+   "tags": [
+    "arithmeticgeometry"
+   ]
   },
   "tauceti:TauCetiRoadmap/StandardDistributions": {
    "cluster": "probability",
@@ -3654,23 +3755,35 @@
   },
   "tauceti:TauCetiRoadmap/UniversalCovers": {
    "cluster": "topology",
-   "distance": 2,
-   "primaryMsc": "57M10",
-   "secondaryMsc": [],
-   "basis": "estimate",
-   "rationale": "Universal covers over Mathlib's covering maps.",
+   "distance": 0,
+   "primaryMsc": "57M",
+   "secondaryMsc": [
+    "55Q",
+    "55P",
+    "54D"
+   ],
+   "basis": "classification",
+   "job": "CLASSIFY-06",
+   "rationale": "Mathlib contributes covering maps, homotopy lifting, the lifting criterion and the fundamental groupoid. Tau Ceti has built every stage on top. That covers the based-path universal cover as a simply connected covering, the deck group with Deck(proj) ≃* π₁, and the pointed/unpointed Galois correspondence with regular covers and N(H)/H. It also covers π_n of a cover ≅ π_n of the base for n ≥ 2, π₁(S¹) ≅ ℤ, the higher homotopy of circles and tori, π₁(ℝPⁿ), and recognition of K(G,1) spaces. The roadmap is essentially complete.",
    "galaxy": "topology",
    "tags": []
   },
   "tauceti:TauCetiRoadmap/ZigzagPreprojective": {
    "cluster": "lie-theory-and-representations",
-   "distance": 5,
-   "primaryMsc": "16G20",
-   "secondaryMsc": [],
-   "basis": "estimate",
-   "rationale": "Zigzag, preprojective and Ginzburg algebras.",
+   "distance": 6,
+   "primaryMsc": "16G",
+   "secondaryMsc": [
+    "16E",
+    "16S",
+    "18G"
+   ],
+   "basis": "classification",
+   "job": "CLASSIFY-06",
+   "rationale": "Tau Ceti has built the strict-algebra half on its path-algebra API: doubled quivers, zigzag algebras with bases, dimensions, centers, nondegenerate trace pairings and self-injectivity, and graded Cartan matrices for D₄, E₈ and affine E₈. It also has additive preprojective algebras with gauge, opposite and orientation independence, plus A∞ algebras only at the level of Stasheff identities. The derived half is absent: quadratic/Koszul duality and Etingof–Eu Koszulity, 2- and 3-dimensional Ginzburg DG algebras and Calabi–Yau completions, Hochschild cohomology with minimal A∞ deformations and Liu–Wang intrinsic formality, and Khovanov–Seidel braid actions. Those are several research-level layers resting on a largely unbuilt DG/A∞ sibling roadmap.",
    "galaxy": "representations",
-   "tags": []
+   "tags": [
+    "homological"
+   ]
   }
  }
 }
