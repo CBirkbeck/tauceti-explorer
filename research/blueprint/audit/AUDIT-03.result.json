@@ -2,6 +2,582 @@
  "job": "AUDIT-03",
  "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
  "roadmaps": {
+  "HigherLocalFieldsAndHigherClassFieldTheory": {
+   "summary": "Almost nothing of this proposed roadmap is in the libraries. Mathlib supplies the one-step ingredients: Laurent series over any field as complete X-adically valued fields with power-series integers and residue field, n = 1 local fields, restricted products and finite adeles of Dedekind domains, continuous cohomology and Witt vectors. Tau Ceti adds low-degree continuous cohomology with the Kummer map, unit filtrations of local fields, function-field repartitions and lower ramification groups for function-field places. Genuinely missing is every target proper: n-local fields and their higher topology, Milnor K-groups with residues, norms and topological quotients, higher duality with de Rham-Witt coefficients, higher reciprocity and existence, explicit higher symbols, Parshin chains and higher adeles, and higher global reciprocity with Kato complexes. Its prerequisites are also unbuilt: K2SymbolsBrauer's symbols and local class field theory (the n = 1 case).",
+   "layers": {
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "n-local field: a tower of complete discrete valuation fields whose last residue field is finite",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsNonarchimedeanLocalField",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LocalField/Basic.lean",
+         "line": 45,
+         "fit": "special case"
+        },
+        {
+         "name": "Valuation.IsRankOneDiscrete",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/Discrete/Basic.lean",
+         "line": 76,
+         "fit": "related"
+        },
+        {
+         "name": "IsDiscreteValuationRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
+         "line": 58,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the n = 1 notion (nonarchimedean local field) and one-step discrete valuation API exist; no residue-tower structure or n-local predicate."
+      },
+      {
+       "target": "Equal-characteristic iterated Laurent example F_q((u))((t)) with its two valuation/residue steps and uniformizers",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "LaurentSeries",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/LaurentSeries.lean",
+         "line": 102,
+         "fit": "more general"
+        },
+        {
+         "name": "LaurentSeries.valued",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/LaurentSeries.lean",
+         "line": 504,
+         "fit": "related"
+        },
+        {
+         "name": "LaurentSeries.instLaurentSeriesComplete",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/LaurentSeries.lean",
+         "line": 824,
+         "fit": "related"
+        },
+        {
+         "name": "LaurentSeries.powerSeriesRingEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/LaurentSeries.lean",
+         "line": 1200,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries.residueFieldOfPowerSeries",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+         "line": 356,
+         "fit": "related"
+        }
+       ],
+       "note": "For any field K, Mathlib makes K((X)) a complete X-adically valued field with integers K[[X]] and residue field K, so each step exists (take K = F_q((u))). The two-step tower, its uniformizers and the packaged example are not stated."
+      },
+      {
+       "target": "Mixed-characteristic examples (Q_p((t)) and fields with explicit coefficient/residue data such as Q_p{{t}})",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "LaurentSeries",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/LaurentSeries.lean",
+         "line": 102,
+         "fit": "more general"
+        },
+        {
+         "name": "Padic",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+         "line": 531,
+         "fit": "related"
+        },
+        {
+         "name": "LaurentSeries.LaurentSeriesRingEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/LaurentSeries.lean",
+         "line": 1049,
+         "fit": "related"
+        }
+       ],
+       "note": "Q_p((t)) is LaurentSeries over Q_p with the same one-step API. Fields whose second residue step has characteristic p (for example the completion Q_p{{t}}) are not constructed."
+      },
+      {
+       "target": "The valuation topology of the top complete discrete valuation",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "LaurentSeries.valued",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/LaurentSeries.lean",
+         "line": 504,
+         "fit": "exact"
+        },
+        {
+         "name": "LaurentSeries.instLaurentSeriesComplete",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/LaurentSeries.lean",
+         "line": 824,
+         "fit": "exact"
+        }
+       ],
+       "note": "The X-adic valuation topology and completeness are in Mathlib."
+      },
+      {
+       "target": "Higher topology and sequential/pro-ind formulations, with only the continuity properties valid in the chosen framework",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.LaurentSeries.isTateRing",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/LaurentSeries.lean",
+         "line": 224,
+         "fit": "related"
+        }
+       ],
+       "note": "No higher (Parshin) topology exists. Tau Ceti's Huber/Tate-ring structure on Laurent series is the t-adic topology, not the higher one."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+       "note": "Owns the n = 1 case (local fields, normalized valuation, Q_p as a local field), which is the last step of every residue tower here."
+      }
+     ]
+    },
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Milnor K-groups in all degrees: tensor algebra of F^x modulo the Steinberg ideal",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TensorAlgebra",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/TensorAlgebra/Basic.lean",
+         "line": 66,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.QuaternionAlgebra.steinbergEquivMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Quaternion/Steinberg.lean",
+         "line": 117,
+         "fit": "related"
+        }
+       ],
+       "note": "No Milnor K-theory in either library. Tau Ceti has only the Steinberg relation for quaternion algebras (the symbol (a, 1-a) splits)."
+      },
+      {
+       "target": "Discrete-valuation boundary (tame residue) maps and iterated residues with signs",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsDiscreteValuationRing.addVal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
+         "line": 404,
+         "fit": "related"
+        },
+        {
+         "name": "Valued.ResidueField",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Valued/ValuedField.lean",
+         "line": 621,
+         "fit": "related"
+        }
+       ],
+       "note": "Only valuations and residue fields exist."
+      },
+      {
+       "target": "Projection formulas and norm-residue compatibility for finite extensions (Milnor norms), with ramification index and residue degree explicit",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Algebra.norm",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Norm/Defs.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the field norm (the degree-1 case) exists."
+      },
+      {
+       "target": "Topological Milnor K-groups (quotient by the closure/divisible subgroup), and the acceptance computation of an iterated residue with parameter-order signs",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.2",
+       "note": "Already defines Milnor K-theory as the tensor algebra of F^x modulo the homogeneous Steinberg ideal in all degrees, which is this layer's first target."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.3",
+       "note": "Plans tame residues with signs, higher Milnor residues, transfers and the norm/residue formula with ramification and residue degree, which are this layer's boundary maps and projection formulas."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.4",
+       "note": "Constructs Milnor transfers (norm maps) via the Bass-Tate sequence, overlapping with this layer's norm maps."
+      }
+     ]
+    },
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Continuous Galois cohomology with invariant maps, higher-field cohomological dimension and Tate twists",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "continuousCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+         "line": 131,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.KummerCoeff",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Coefficients.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitCup11",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Cup/Product.lean",
+         "line": 577,
+         "fit": "related"
+        }
+       ],
+       "note": "The continuous cohomology carrier, the mu_n coefficient module and low-degree cup products exist. Twists mu_n^(tensor r), cohomological dimension and invariant maps H^(n+1)(F, Z/m(n)) -> Z/m do not."
+      },
+      {
+       "target": "Finite-coefficient duality for primes invertible in the fields, recovering ordinary local duality at n = 1",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present; even n = 1 local Tate duality is absent (Class Field Theory Layer 5)."
+      },
+      {
+       "target": "Logarithmic de Rham-Witt / Artin-Schreier-Witt coefficients for the wild case",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Defs.lean",
+         "line": 52,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Witt vectors; no de Rham-Witt complexes or logarithmic parts."
+      },
+      {
+       "target": "Symbol cup products identified through the norm-residue theorem; equal-characteristic two-dimensional residue pairing",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.kummerMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 187,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the degree-1 Kummer map exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+       "note": "Its local invariant and local Tate duality are the n = 1 case this layer must recover."
+      },
+      {
+       "layer": "CrystallineCohomology:CR.4",
+       "note": "Owns the de Rham-Witt complexes from which this layer's logarithmic de Rham-Witt coefficients would be built."
+      },
+      {
+       "layer": "KTheoryFiniteLocalFields:L.5",
+       "note": "Owns the logarithmic/DVR de Rham-Witt comparison for complete discrete valuation rings, overlapping with this layer's wild coefficients."
+      }
+     ]
+    },
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Reciprocity homomorphism from the degree-n (topological) Milnor K-group to the abelianized Galois group via the duality pairing",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Field.absoluteGaloisGroupAbelianization",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
+         "line": 102,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the target carrier exists."
+      },
+      {
+       "target": "Compatibility with norms of finite extensions and the existence correspondence between finite abelian extensions and open norm subgroups",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present; the n = 1 case (local existence) is also absent."
+      },
+      {
+       "target": "Kernel/completion theorem of the chosen source; acceptance: n = 1 Frobenius convention and the unramified two-dimensional case (constant-field Frobenius, norm index)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+       "note": "Local reciprocity with the arithmetic Frobenius normalization is this layer's n = 1 case."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
+       "note": "Local existence and the local class-field correspondence are this layer's n = 1 existence theorem."
+      }
+     ]
+    },
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Higher tame symbols, Witt/residue pairings and the mixed-characteristic explicit reciprocity formula (Kato or other, by characteristic profile)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Defs.lean",
+         "line": 52,
+         "fit": "related"
+        }
+       ],
+       "note": "Not present."
+      },
+      {
+       "target": "Ramification filtrations in a fixed indexing convention and their relation to filtrations on Milnor K-groups",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.ramificationGroup",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/RamificationGroup.lean",
+         "line": 109,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.unitFiltration",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean",
+         "line": 88,
+         "fit": "related"
+        },
+        {
+         "name": "ValuationSubring.inertiaSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/RamificationGroup.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has lower-numbering ramification groups for function-field places and the unit filtration of a local field (the K_1 filtration at n = 1); no upper numbering and no Milnor K filtrations."
+      },
+      {
+       "target": "Acceptance computations: a tame K_2 symbol and an Artin-Schreier-Witt example over F_q((u))((t)), compared with the abstract reciprocity map",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.3",
+       "note": "Its tame symbol for a discrete valuation is the building block of this layer's higher tame symbols."
+      },
+      {
+       "layer": "KTheoryFiniteLocalFields:L.3",
+       "note": "Local symbols on K_2 of a local field with Hilbert-symbol components are the n = 1 explicit symbols."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+       "note": "Owns ramification filtrations and upper numbering for ordinary local fields, the n = 1 case of this layer's filtrations."
+      }
+     ]
+    },
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Flags of points on a regular arithmetic scheme with successive henselization/completion (Parshin chains)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsDedekindDomain.HeightOneSpectrum.adicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+         "line": 602,
+         "fit": "related"
+        }
+       ],
+       "note": "Only one-step completions at height-one primes of Dedekind domains exist."
+      },
+      {
+       "target": "Restricted products of the resulting local objects (higher adeles), functoriality and local residue compatibility",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "RestrictedProduct",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.FiniteAdeleRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+         "line": 94,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.repartitionSpace",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Repartition/Basic.lean",
+         "line": 122,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib has general restricted products and the finite adeles of a Dedekind domain (dimension one); Tau Ceti has the repartition space (adeles) of a function field. No iterated or higher-dimensional adeles."
+      },
+      {
+       "target": "Higher idelic or cycle-complex input for global reciprocity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Acceptance: recover ordinary ideles for a curve; list flags and residue maps for a regular surface",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.IdeleGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 93,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.FiniteAdeleRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+         "line": 94,
+         "fit": "related"
+        }
+       ],
+       "note": "Dimension-one adeles and ideles exist in pieces (finite adeles of a Dedekind domain, number-field ideles, function-field repartitions), but nothing for surfaces."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FunctionFieldArithmetic:FA.2",
+       "note": "Builds adeles and ideles of a curve over a finite field from local completions, which this layer's acceptance asks it to recover."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+       "note": "Owns number-field ideles, the dimension-one arithmetic case of the higher idele construction."
+      }
+     ]
+    },
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Reciprocity maps for arithmetic schemes, reciprocity relations, and comparison with the abelian etale fundamental group (tame/wild, proper/open variants)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.PreGaloisCategory",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Galois/Basic.lean",
+         "line": 66,
+         "fit": "related"
+        }
+       ],
+       "note": "Only abstract Galois categories exist; no etale fundamental group of arithmetic schemes and no higher reciprocity."
+      },
+      {
+       "target": "Kato complexes with boundary square zero and sourced cohomological Hasse principles",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Reduction of the curve case to global class field theory",
+       "library": "absent",
+       "declarations": [],
+       "note": "Global class field theory itself is not built (Class Field Theory Layers 10-12)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FunctionFieldArithmetic:FA.4",
+       "note": "Global class field theory for curves over finite fields is this layer's curve case."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+       "note": "Global Artin reciprocity for number fields is the dimension-one case that this layer must reduce to."
+      }
+     ]
+    },
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.7": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Export explicit residue/reciprocity maps to Brauer obstructions, arithmetic duality and motivic cohomology with commutative comparison diagrams",
+       "library": "absent",
+       "declarations": [],
+       "note": "Integration with other roadmaps' objects (Brauer-Manin pairings, Poitou-Tate duality, motivic cohomology); none of the maps to be exported exists."
+      },
+      {
+       "target": "Complete small examples of a two-dimensional field and a regular arithmetic surface",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LaurentSeries",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/LaurentSeries.lean",
+         "line": 102,
+         "fit": "related"
+        }
+       ],
+       "note": "These repeat the acceptance examples of HL.0 (F_q((u))((t)), Q_p((t))) and HL.5 (flags on a regular surface)."
+      },
+      {
+       "target": "Separate formal statements for currently unproved extensions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Bookkeeping."
+      }
+     ],
+     "duplicates": []
+    }
+   }
+  },
   "tauceti:Completed/EffectiveBounds": {
    "summary": "Nearly everything this completed roadmap asks for is in the libraries. Tau Ceti has, sorry-free, the measure-free packing and doubling bounds (Layer 0), all four explicit bounds of Layer 1 (|d_F| <= |disc b|, the ideal count X^2 2^n, h_F <= |d_F| 4^n, and [O^x : O^x2] <= 2^n, which it even sharpens to the exact value 2^(rank+1)), and the effective Hermite-Minkowski count of Layer 2, built on Mathlib's qualitative theorems. For Layer 3, Mathlib already has the regulator, the volume of the norm-at-most-one part of the fundamental cone, the ideal-counting asymptotic and the analytic class number formula, although the roadmap lists these volume computations as missing. What is genuinely missing is explicit lower bounds on the regulator in positive unit rank, a bridge from the box engine to IsZLattice, and the Brauer-Siegel horizon.",
    "layers": {
@@ -67,26 +643,12 @@
          "file": "TauCeti/NumberTheory/GeometryOfNumbers/RankTwoDoubling.lean",
          "line": 131,
          "fit": "special case"
-        }
-       ],
-       "note": "Stated with C = 49^#iota for any additive subgroup of iota -> C, taking finiteness of Lambda cap box r 2 as a hypothesis (automatic for a discrete lattice but not derived). The rank-two Gaussian-lattice worked example is included."
-      },
-      {
-       "target": "Reconciliation of the engine with Mathlib's ZLattice/covolume API",
-       "library": "partial",
-       "declarations": [
+        },
         {
          "name": "IsZLattice",
          "library": "mathlib",
          "file": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
          "line": 432,
-         "fit": "related"
-        },
-        {
-         "name": "ZLattice.covolume",
-         "library": "mathlib",
-         "file": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
-         "line": 72,
          "fit": "related"
         },
         {
@@ -97,7 +659,7 @@
          "fit": "related"
         }
        ],
-       "note": "This is a process instruction rather than a theorem. The Tau Ceti engine is stated for AddSubgroup (iota -> C), not for IsZLattice, and no bridge lemma deriving the finiteness hypothesis from IsZLattice/DiscreteTopology exists. Mathlib's ZLattice counting results are asymptotic and measure-based, not the measure-free bounds asked for."
+       "note": "Stated with C = 49^#iota for any additive subgroup of iota -> C, with finiteness of Lambda cap box r 2 as a hypothesis (automatic for a discrete lattice, but not derived). The rank-two Gaussian-lattice example is included. The README's process instruction to reconcile with ZLattice first is not visible: the engine is not stated for IsZLattice, and Mathlib's ZLattice counts are asymptotic and measure-based."
       }
      ],
      "duplicates": [
@@ -1789,7 +2351,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Uses the coordinate model D_n = {x in Z^n : sum x_i even} with Tau Ceti's type-D simple roots; for even n the three nonzero classes are distinguished by their pairings, not only by order."
+       "note": "Uses the coordinate model D_n = {x in Z^n : sum x_i even} with Tau Ceti's type-D simple roots; for even n the three nonzero classes are distinguished by their pairings, not only by order. Types A, E6 and E7 are built directly from Cartan matrices on Fin n -> Q. The layer allows direct construction, and no general bridge from root data to IntegralLattice exists."
       },
       {
        "target": "E6, E7, E8 rows: Z/3 with q = 2/3, Z/2 with q = 3/4, and E8 self-dual with trivial form; determinants from the Gram matrix",
@@ -1874,20 +2436,6 @@
         }
        ],
        "note": "The isometry is an actual lattice isometry sending Bourbaki's simple roots to explicit glue roots, not an appeal to uniqueness of determinant-one lattices."
-      },
-      {
-       "target": "Bridge converting Tau Ceti's pinned root data into integral lattices with the Cartan matrix as Gram matrix",
-       "library": "partial",
-       "declarations": [
-        {
-         "name": "TauCeti.DynkinType.span_range_root_eq_top_iff",
-         "library": "tauceti",
-         "file": "TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/RootLattice.lean",
-         "line": 140,
-         "fit": "related"
-        }
-       ],
-       "note": "Layer 5 allows the ADE lattices to be constructed directly, and they are (types A, E6, E7 from Cartan matrices on Fin n -> Q; D and E8 consuming root-system coordinates). No general root-datum-to-IntegralLattice bridge exists; the preamble presents that bridge as this roadmap's contribution, but it is not an acceptance target."
       }
      ],
      "duplicates": [
@@ -2154,8 +2702,8 @@
      "verdict": "not built",
      "targets": [
       {
-       "target": "Prime zeta sum over a set of primes and the ratio-normalized Dirichlet density predicate (consumed carriers)",
-       "library": "mathlib",
+       "target": "Specialize primeIdealZetaSum and the ratio-normalized HasDirichletDensity to frobeniusPrimeSet",
+       "library": "partial",
        "declarations": [
         {
          "name": "NumberField.Set.primeIdealZetaSum",
@@ -2179,7 +2727,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib/NumberTheory/NumberField/DirichletDensity.lean has only the carriers and nonneg/le_one/empty lemmas. The specialization to frobeniusPrimeSet is not stated."
+       "note": "The consumed carriers are in Mathlib (DirichletDensity.lean, with only nonneg/le_one/empty lemmas); no statement specializes them to frobeniusPrimeSet."
       },
       {
        "target": "Dictionary: ratio to the all-prime sum vs normalization by log((s-1)^-1), via the Euler product and convergence of the prime-power (j >= 2) contribution",
@@ -3273,6 +3821,1606 @@
       {
        "layer": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
        "note": "Its 10.4 prime ideal theorem is the all-prime denominator this layer needs."
+      }
+     ]
+    }
+   }
+  },
+  "tauceti:TauCetiRoadmap/ClassFieldTheory": {
+   "summary": "Tau Ceti has started this roadmap at both ends of its supplier layer, sorry-free. It has Tate cohomology in low degrees (H^-2 = G^ab, H^0 = M^G/NM, cyclic periodicity, Herbrand quotients of finite and trivial modules), continuous cohomology in degrees 0-2 with res/cor/inflation, cor o res = index, cup products with associativity and the projection formula, Shapiro and the Kummer map, and most of Layer 1 (formations, normal layers, the finite quotient system, norm subgroups, abelian and maximal abelian layers). Mathlib contributes Tate cohomology itself, continuous cohomology, finite-level Hilbert 90, the infinite Galois correspondence, local-field and idele carriers, and quadratic reciprocity over Q. Special cases in Tau Ceti include Kronecker-Weber for multiquadratic fields, genus theory for quadratic fields, and Br(R) = Z/2 for central simple algebras. Genuinely missing is everything from class formations onward: Tate cup products and Tate's theorem, fundamental classes, the Artin map, the cohomological Brauer group and local invariant, local duality, local and global reciprocity and existence, the Weil group, the Brauer sequence, the Hasse norm theorem, class fields, and Hilbert reciprocity.",
+   "layers": {
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-0-audit-and-complete-the-cohomology-suppliers": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Inventory of Mathlib's Tate complex, tateCohomology, functoriality, connecting map, long exact sequence and comparisons with group cohomology and homology (process)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "tateCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/TateCohomology/Basic.lean",
+         "line": 145,
+         "fit": "exact"
+        },
+        {
+         "name": "TateCohomology.δ",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/TateCohomology/Basic.lean",
+         "line": 199,
+         "fit": "exact"
+        },
+        {
+         "name": "TateCohomology.exact₃",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/TateCohomology/Basic.lean",
+         "line": 213,
+         "fit": "exact"
+        },
+        {
+         "name": "TateCohomology.isoGroupCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/TateCohomology/Basic.lean",
+         "line": 232,
+         "fit": "exact"
+        },
+        {
+         "name": "TateCohomology.isoGroupHomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/TateCohomology/Basic.lean",
+         "line": 240,
+         "fit": "exact"
+        }
+       ],
+       "note": "The audit itself is bookkeeping; every object it names exists in Mathlib/RepresentationTheory/Homological/TateCohomology/Basic.lean."
+      },
+      {
+       "target": "Audit of kbuzzard/ClassFieldTheory cohomology, Hill-Xie continuous cohomology and cup products, and its HerbrandQuotient files (process)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.TateCohomology.herbrandQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/HerbrandQuotient.lean",
+         "line": 59,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitCup11",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Cup/Product.lean",
+         "line": 577,
+         "fit": "related"
+        }
+       ],
+       "note": "Process item on external repositories. Tau Ceti has already ported the kbuzzard Herbrand-quotient calculations (the file cites the source commit) and built the continuous low-degree cohomology the Hill-Xie route supplies."
+      },
+      {
+       "target": "Coefficient functoriality in every Tate degree",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "tateCohomologyFunctor",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/TateCohomology/Basic.lean",
+         "line": 140,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TateCohomology.map",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/Functoriality.lean",
+         "line": 192,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.TateCohomology.resIso",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/Functoriality.lean",
+         "line": 309,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib gives the functor in every integer degree; Tau Ceti adds functoriality along compatible (group isomorphism, module map) pairs."
+      },
+      {
+       "target": "Restriction and corestriction in every Tate degree with cor o res = [G:H]",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.TateCohomology.H0Cor_comp_H0Res_apply",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/Restriction.lean",
+         "line": 134,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.TateCohomology.HNegOneCor_comp_HNegOneRes_apply",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/Restriction.lean",
+         "line": 210,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.TateCohomology.negSuccCor",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/NegativeCorestriction.lean",
+         "line": 81,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitCor2_comp_res2",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Corestriction.lean",
+         "line": 893,
+         "fit": "special case"
+        },
+        {
+         "name": "groupHomology.coresNatTrans",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+         "line": 851,
+         "fit": "related"
+        }
+       ],
+       "note": "Tate res/cor with cor o res = index exist only in degrees 0 and -1, plus negative-degree corestriction via homology. Continuous cohomology has cor o res = index in degrees 0-2 (for open subgroups, covering finite groups). There is no uniform all-degree Tate restriction/corestriction."
+      },
+      {
+       "target": "Inflation in positive degrees and its comparison with ordinary inflation",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.TateCohomology.infl",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/Inflation.lean",
+         "line": 68,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TateCohomology.infl_comp_isoGroupCohomology_hom",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/Inflation.lean",
+         "line": 92,
+         "fit": "exact"
+        }
+       ],
+       "note": "As specified."
+      },
+      {
+       "target": "Tate cup product in all integer bidegrees: associative, graded-commutative, natural, compatible with restriction, projection formula",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ContCohomology.explicitCup11",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Cup/Product.lean",
+         "line": 577,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitCup_assoc011",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Cup/Product.lean",
+         "line": 1011,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitCup11_eq_neg_flip",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Cup/Product.lean",
+         "line": 760,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitRes2_explicitCup11",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Cup/Restriction.lean",
+         "line": 140,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitCup_projection11",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/ProjectionFormula.lean",
+         "line": 401,
+         "fit": "special case"
+        }
+       ],
+       "note": "Tau Ceti has the continuous cup product only in bidegrees with p + q <= 2, with associativity, graded commutativity, restriction/inflation compatibility and the projection formula. No cup product involving negative Tate degrees exists in either library."
+      },
+      {
+       "target": "Low-degree Tate identifications: H^-2(G,Z) = G^ab and H^0(G,M) = M^G / N_G M",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.TateCohomology.HNegTwoAddEquivAbelianization",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/LowDegree.lean",
+         "line": 302,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TateCohomology.H0IsoNormQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/LowDegree.lean",
+         "line": 88,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TateCohomology.HNegOneIsoNormKernelQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/LowDegree.lean",
+         "line": 181,
+         "fit": "related"
+        }
+       ],
+       "note": "Both are proved on Mathlib's Tate carrier."
+      },
+      {
+       "target": "Two-periodicity for cyclic groups; Herbrand quotient, multiplicative in short exact sequences, invariant under maps with finite kernel and cokernel, with its values on finite and trivial modules",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Rep.FiniteCyclicGroup.periodicIso",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.lean",
+         "line": 341,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TateCohomology.herbrandQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/HerbrandQuotient.lean",
+         "line": 59,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TateCohomology.herbrandQuotient_eq_one_of_finite",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/HerbrandQuotient.lean",
+         "line": 80,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TateCohomology.herbrandQuotient_trivial_int_eq_card",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/HerbrandQuotient.lean",
+         "line": 166,
+         "fit": "exact"
+        }
+       ],
+       "note": "Periodicity and the Herbrand quotient with its finite and trivial-module values are in Tau Ceti; multiplicativity in short exact sequences and invariance under finite kernel/cokernel are absent."
+      },
+      {
+       "target": "Generic cup-product criterion of Tate's theorem (Artin-Tate Theorem A) and its Tate-Nakayama generalization; Suggested.lean exit criterion",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Tate's theorem in any form exists in either library."
+      },
+      {
+       "target": "Comparisons with ordinary cohomology in positive degrees and with the explicit cyclic Tate theory",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "TateCohomology.isoGroupCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/TateCohomology/Basic.lean",
+         "line": 232,
+         "fit": "exact"
+        },
+        {
+         "name": "Rep.FiniteCyclicGroup.tateCohomologyIsoEven",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.lean",
+         "line": 149,
+         "fit": "exact"
+        },
+        {
+         "name": "Rep.FiniteCyclicGroup.tateCohomologyIsoOdd",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.lean",
+         "line": 182,
+         "fit": "exact"
+        }
+       ],
+       "note": "Present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+       "note": "Owns continuous cup products, restriction/inflation compatibility and the projection formula in low degrees (built in Tau Ceti's ContCohomology), which this layer asks the generic supplier to provide."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+       "note": "Plans the graded cup product in all nonnegative degrees; this layer's all-integer-degree Tate cup product overlaps with it in nonnegative degrees."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-1-formations-and-finite-normal-layers": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Topological Formation and NormalLayer; level U = A^U; Gal = U/V finite; representation of U/V on A^V; (A^V)^(U/V) = A^U",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFieldTheory.Formation",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 123,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.Formation.level",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 153,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.Gal",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 204,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.rep",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 310,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.invariants_rep",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 322,
+         "fit": "exact"
+        }
+       ],
+       "note": "Formation is a smooth discrete integral TopRep of a profinite group; the finiteness instance NormalLayer.instFiniteGal comes from openness."
+      },
+      {
+       "target": "Finite quotient system: subgroupLayer, subgroupGalEquiv, degree_subgroupLayer, subgroupRestriction, relativeDegree_subgroupRestriction, identification of the restricted representation",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.subgroupLayer",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Restriction.lean",
+         "line": 427,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.subgroupGalEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Restriction.lean",
+         "line": 470,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.degree_subgroupLayer",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Restriction.lean",
+         "line": 484,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.relativeDegree_subgroupRestriction",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Restriction.lean",
+         "line": 495,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.LayerRestriction.repIso",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Restriction.lean",
+         "line": 221,
+         "fit": "exact"
+        }
+       ],
+       "note": "All named targets are present, including NormalLayer.subgroupRestriction."
+      },
+      {
+       "target": "Layers of open normal subgroups (finite Galois extensions of the ground field)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.ofOpenNormal",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 229,
+         "fit": "exact"
+        },
+        {
+         "name": "InfiniteGalois.isOpen_and_normal_iff_finite_and_isGalois",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Galois/Infinite.lean",
+         "line": 288,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's infinite Galois theory supplies the field-side dictionary."
+      },
+      {
+       "target": "Abelian layers relative to the closed commutator subgroup, the finite-quotient and layer forms, and abelianizationGalEquiv",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "OpenNormalSubgroup.IsAbelianClassFieldLayer",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/AbelianLayer.lean",
+         "line": 74,
+         "fit": "exact"
+        },
+        {
+         "name": "OpenNormalSubgroup.isAbelianClassFieldLayer_iff_isMulCommutative",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/AbelianLayer.lean",
+         "line": 98,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.isMulCommutative_gal_ofOpenNormal",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/AbelianLayer.lean",
+         "line": 180,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.abelianizationGalEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/AbelianLayer.lean",
+         "line": 192,
+         "fit": "exact"
+        },
+        {
+         "name": "TopologicalAbelianization",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Group/TopologicalAbelianization.lean",
+         "line": 42,
+         "fit": "related"
+        }
+       ],
+       "note": "Uses the topological closure of the commutator subgroup, as required."
+      },
+      {
+       "target": "Canonical maximal abelian sublayer V . [G,G]-closure with le_maximalAbelianLayer, abelianity and universal property",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "OpenNormalSubgroup.maximalAbelianLayer",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/AbelianLayer.lean",
+         "line": 111,
+         "fit": "exact"
+        },
+        {
+         "name": "OpenNormalSubgroup.le_maximalAbelianLayer",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/AbelianLayer.lean",
+         "line": 129,
+         "fit": "exact"
+        },
+        {
+         "name": "OpenNormalSubgroup.isAbelianClassFieldLayer_maximalAbelianLayer",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/AbelianLayer.lean",
+         "line": 138,
+         "fit": "exact"
+        },
+        {
+         "name": "OpenNormalSubgroup.maximalAbelianLayer_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/AbelianLayer.lean",
+         "line": 148,
+         "fit": "exact"
+        }
+       ],
+       "note": "Defined as a join of two named subgroups (data), as required."
+      },
+      {
+       "target": "Norm A^V -> A^U, norm subgroup and norm quotient; named Tate groups H^r(U/V,Z), H^r(U/V,A^V) (exit criterion)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.norm",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 383,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.normSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 414,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.NormQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 426,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.TateH",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 366,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.tateHZeroEquivNormQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 459,
+         "fit": "exact"
+        }
+       ],
+       "note": "NormalLayer.TrivialTateH names H^r(U/V, Z); (U/V)^ab is Mathlib's Abelianization. So the four expressions of the exit criterion are named."
+      },
+      {
+       "target": "Restriction, refinement and conjugation adapters; ground inclusion, transfer, inclusion, quotient and conjugation maps on abelianized Galois groups",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFieldTheory.LayerRestriction.groundInclusion",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Restriction.lean",
+         "line": 346,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.LayerRestriction.transferHom",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/GaloisMaps.lean",
+         "line": 113,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.LayerRestriction.inclusionHom",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/GaloisMaps.lean",
+         "line": 81,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.LayerRefinement.quotientHom",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/GaloisMaps.lean",
+         "line": 137,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitConj1",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Conjugation.lean",
+         "line": 137,
+         "fit": "related"
+        }
+       ],
+       "note": "LayerRestriction and LayerRefinement with their Galois maps exist; conjugation adapters between layers (and conjugation on abelianized Galois groups) are absent at the formation level. Only continuous H^1 conjugation exists."
+      },
+      {
+       "target": "Restriction and corestriction as separate named maps in every degree (cohomologyRes, cohomologyCor, tateRes, tateCor, trivialTateRes, trivialTateCor) with cor o res = [E:F]",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFieldTheory.LayerRestriction.cohomologyRes",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Restriction.lean",
+         "line": 320,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.LayerRefinement.cohomologyInfl",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Refinement.lean",
+         "line": 296,
+         "fit": "exact"
+        }
+       ],
+       "note": "Only ordinary-cohomology restriction and inflation are defined for layers; cohomologyCor, tateRes, tateCor, the trivial-coefficient variants and both normalization theorems are absent."
+      },
+      {
+       "target": "Tower compatibility: trans, relativeDegree_trans, and functoriality of res, cor, tate res/cor and inflation along composites",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFieldTheory.LayerRestriction.trans",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Restriction.lean",
+         "line": 285,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.LayerRefinement.trans",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Refinement.lean",
+         "line": 260,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.LayerRestriction.relativeDegree_trans",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Restriction.lean",
+         "line": 289,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.LayerRestriction.cohomologyRes_trans",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Restriction.lean",
+         "line": 336,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.LayerRefinement.cohomologyInfl_trans",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Refinement.lean",
+         "line": 315,
+         "fit": "exact"
+        }
+       ],
+       "note": "LayerRefinement.relativeDegree_trans also exists; cohomologyCor_trans, tateRes_trans and tateCor_trans are absent because their maps are."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-2-class-formations-and-fundamental-classes": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "ClassFormation with the Artin-Tate axioms (H^1 = 0, invariant maps on H^2 as data, normalization and compatibility)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.H",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 362,
+         "fit": "related"
+        }
+       ],
+       "note": "No ClassFormation structure exists; only the layer cohomology carriers of Layer 1."
+      },
+      {
+       "target": "H^2(U/V, A^V) cyclic of order [U:V]; unique class of invariant 1/[U:V]; fundamentalClass generates H^2",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Restriction, corestriction (inv_cor, fundamentalClass_cor), scaled inflation and conjugation formulae for fundamental classes",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present; the corestriction maps themselves are missing (Layer 1)."
+      },
+      {
+       "target": "The three Tate hypotheses on every subgroup layer: h1_subgroupLayer, card_H2_subgroupLayer, fundamentalClass_restrict_generates",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ContCohomology.subsingleton_H1_of_forall_openNormalSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Colimit.lean",
+         "line": 513,
+         "fit": "related"
+        }
+       ],
+       "note": "Only a generic continuous H^1-vanishing-from-finite-levels lemma exists."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-3-tates-theorem-for-a-class-formation": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Generic tateTheorem with its three hypotheses explicit, underlying map cupClass",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Tate's theorem and no Tate cup product (Layer 0)."
+      },
+      {
+       "target": "tateIso r : H^r(U/V, Z) = H^{r+2}(U/V, A^V) for all integers r from the fundamental class",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.TateCohomology.HNegTwoAddEquivAbelianization",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/LowDegree.lean",
+         "line": 302,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.TateCohomology.H0IsoNormQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/LowDegree.lean",
+         "line": 88,
+         "fit": "related"
+        }
+       ],
+       "note": "The low-degree identifications that tateIso connects exist; the isomorphism does not."
+      },
+      {
+       "target": "Compatibility with restriction, corestriction, towers, conjugation and the scaled inflation formula",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-4-the-abstract-artin-map": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "nakayamaNegTwo : (U/V)^ab = A^U / N(A^V), artinEquiv and artinMap : A^U -> (U/V)^ab",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFieldTheory.abelianizationGalEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/AbelianLayer.lean",
+         "line": 192,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.NormQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 426,
+         "fit": "related"
+        }
+       ],
+       "note": "The source and target carriers exist (Layer 1); the equivalence does not."
+      },
+      {
+       "target": "Kernel is the norm group, surjectivity, and the four Artin-Tate functoriality diagrams (ground inclusion/transfer, norm/inclusion, conjugation, quotient)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFieldTheory.LayerRestriction.transferHom",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/GaloisMaps.lean",
+         "line": 113,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.LayerRefinement.quotientHom",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/GaloisMaps.lean",
+         "line": 137,
+         "fit": "related"
+        }
+       ],
+       "note": "The Galois-side transfer and quotient maps exist; no Artin map to compare them with."
+      },
+      {
+       "target": "Character formula chi(artinMap a) = inv(class(a) cup delta(chi)) and uniqueness eq_artinMap_of_character",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Norm limitation normSubgroup_maximalAbelianLayer",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "OpenNormalSubgroup.maximalAbelianLayer",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/AbelianLayer.lean",
+         "line": 111,
+         "fit": "related"
+        }
+       ],
+       "note": "The maximal abelian sublayer is defined; the norm-limitation theorem is not proved."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Continuous cohomology carrier GalRep / H n F i A on the imported TopRep carrier",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "continuousCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+         "line": 131,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitH2IsoGroupCohomology",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/GroupCohomologyIso.lean",
+         "line": 334,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.UnitsCoeff",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Coefficients.lean",
+         "line": 90,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has continuousCohomology; Tau Ceti adds explicit low-degree models and the Galois coefficient modules."
+      },
+      {
+       "target": "Galois dictionary classField F V (fixed field of an open normal subgroup) and order reversal classField_le_classField_iff",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "InfiniteGalois.IntermediateFieldEquivClosedSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Galois/Infinite.lean",
+         "line": 196,
+         "fit": "more general"
+        },
+        {
+         "name": "InfiniteGalois.isOpen_and_normal_iff_finite_and_isGalois",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Galois/Infinite.lean",
+         "line": 288,
+         "fit": "more general"
+        },
+        {
+         "name": "InfiniteGalois.fixedField_fixingSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Galois/Infinite.lean",
+         "line": 85,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's infinite Galois correspondence is an order-reversing isomorphism between intermediate fields and closed subgroups (with open normal subgroups corresponding to finite Galois subextensions), so classField and its order statement are specializations. No named classField wrapper exists."
+      },
+      {
+       "target": "muNRep (roots of unity as coefficient object) and the Kummer class, with kummerEquiv_mixed for every n != 0",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.KummerCoeff",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Coefficients.lean",
+         "line": 107,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.kummerMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 187,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.kummerClassMap_injective",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 298,
+         "fit": "related"
+        },
+        {
+         "name": "groupCohomology.H1ofAutOnUnitsUnique",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Hilbert90.lean",
+         "line": 107,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the Kummer coefficient module, the Kummer short exact sequence and an injective Kummer class map K^x/K^xn -> H^1(G_K, mu_n). No Kummer isomorphism kummerEquiv_mixed is stated, and absoluteGaloisGroupComparison and muNRepCoeffDictionary are not present by those names."
+      },
+      {
+       "target": "Br F = H^2(G_F, (F^s)^x) with invMap normalized by arithmetic Frobenius, brRes/brCor squares, invariant first on unramified layers, degree-n piece",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "BrauerGroup",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/BrauerGroup/Defs.lean",
+         "line": 99,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.BrauerGroup.instCommGroup",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/BrauerGroup/Group.lean",
+         "line": 174,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the central-simple-algebra Brauer group exists (Mathlib's definition, Tau Ceti's group structure); no cohomological Brauer group of a local field and no invariant map."
+      },
+      {
+       "target": "h2MuEquivZMod_mixed : H^2(F, mu_n) = ZMod n, h2FpEquivZMod_of_mu",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "kummerCupPairing and localSymbol with bilinearity and the Steinberg relation (cohomological local Hilbert pairing)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ContCohomology.explicitCup11",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Cup/Product.lean",
+         "line": 577,
+         "fit": "related"
+        }
+       ],
+       "note": "The (1,1) continuous cup product exists; the local symbol does not."
+      },
+      {
+       "target": "Local Tate duality tateDualityPairing_perfect_mixed, finite_H, cardinality Euler characteristic and eulerCharacteristic_finrank_fp",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ContCohomology.explicitShapiro1",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Shapiro.lean",
+         "line": 372,
+         "fit": "related"
+        }
+       ],
+       "note": "Shapiro's lemma in degree 1 exists as a tool; duality, finiteness and Euler characteristic do not."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+       "note": "Owns UnitsCoeff/KummerCoeff, Hilbert 90, the Kummer isomorphism and the finite-level Galois dictionary, which overlap with this layer's muNRep, kummerClass and classField."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-7-the-brauer-group-in-galois-cohomology",
+       "note": "Owns the comparison of the algebraic Brauer group with H^2 and Br(K)[2] = H^2(G_K, mu_2), which overlaps with this layer's cohomological Brauer carrier and h2MuEquivZMod at n = 2."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.7",
+       "note": "Compares the Kummer cup-product symbol with the Hilbert norm-residue symbol and the local invariant, overlapping with localSymbol."
+      },
+      {
+       "layer": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+       "note": "Its n = 1 case (recover ordinary local duality) is this layer's local Tate duality."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "localClassFormation for a nonarchimedean local field from Hilbert 90, invMap (localClassFormation_inv), restriction/degree compatibility, finite-layer Brauer description and cyclic Herbrand calculation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "groupCohomology.H1ofAutOnUnitsUnique",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Hilbert90.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.TateCohomology.herbrandQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/HerbrandQuotient.lean",
+         "line": 59,
+         "fit": "related"
+        },
+        {
+         "name": "IsNonarchimedeanLocalField",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LocalField/Basic.lean",
+         "line": 45,
+         "fit": "related"
+        }
+       ],
+       "note": "Finite-level Hilbert 90 (Mathlib), the Herbrand quotient and the local-field class exist; no local class formation."
+      },
+      {
+       "target": "Local units: scaled normal-basis lattice, unit filtration, solvability of finite local Galois groups from the ramification filtration",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.unitFiltration",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean",
+         "line": 88,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.unitFiltrationGradedSuccEquivResidueField",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/UnitFiltration/Graded.lean",
+         "line": 253,
+         "fit": "related"
+        },
+        {
+         "name": "ValuationSubring.inertiaSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/RamificationGroup.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "Unit filtration and its graded pieces are in Tau Ceti; the lattice argument and solvability of local Galois groups are absent."
+      },
+      {
+       "target": "localArtinEquiv : K^x / N(L^x) = Gal(L/K)^ab independent of the embedding, normResidue, and localArtinMap(pi) = arithmetic Frobenius for unramified L/K, quadratic tests",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FunctionFieldArithmetic:FA.4",
+       "note": "Proves local reciprocity for F_{q^d}((t)), a special case of the local reciprocity this layer constructs for every nonarchimedean local field."
+      },
+      {
+       "layer": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+       "note": "Its n = 1 case (recover the Frobenius convention) is this layer's local reciprocity."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Absolute artinMap : K^x -> G_K^ab (topological abelianization) with dense image, kernel the intersection of norm groups, finite restrictions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Field.absoluteGaloisGroupAbelianization",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
+         "line": 102,
+         "fit": "related"
+        },
+        {
+         "name": "TopologicalAbelianization",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Group/TopologicalAbelianization.lean",
+         "line": 42,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the target carrier exists."
+      },
+      {
+       "target": "unramifiedCoordinate_artinMap (normalized valuation) and cyclotomicCharacter_artinMap (chi_cyc(Art(u)) = N(u)^-1), with the Q_p specialization; geometricArtinMap",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.normalizedValuation",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/NormalizedValuation.lean",
+         "line": 101,
+         "fit": "related"
+        }
+       ],
+       "note": "Not present."
+      },
+      {
+       "target": "Conductors conductorExponent, conductorIdeal, characterConductorExp with minimality and the unramified criterion",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.unitFiltration",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean",
+         "line": 88,
+         "fit": "related"
+        }
+       ],
+       "note": "The unit filtration exists; no conductors."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Topology of local norm subgroups: open, finite index, monotone, composita/intersections, localNormSubgroup_top, concrete norm limitation",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.isOpen_of_isUnit_index",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/PowerSubgroup.lean",
+         "line": 112,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.isOpen_range_powMonoidHom_of_isUnit",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/PowerSubgroup.lean",
+         "line": 92,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves that subgroups of K^x of index prime to the residue characteristic are open (via power subgroups); no norm subgroups are defined."
+      },
+      {
+       "target": "localAbelianExistence (K/Q_p finite) and localAbelianExistence_primeToResidueCharacteristic, with forgetful corollaries",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Uniqueness localClassField_unique, the class field localClassField, the correspondences at both scopes with order statements, localAbelianGaloisEquiv and index = degree",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "injective_artinMap for K/Q_p, comparison with the profinite completion, ker_artinMap_eq_iInf, and conductor compatibility with existence",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+       "note": "States existence (open norm subgroups <-> finite abelian extensions) for higher local fields; its n = 1 case is this layer's local existence."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "localWeilGroup K <= G_K (preimage of Z under G_K -> Z-hat), containing inertia, normal, dense, proper",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ValuationSubring.inertiaSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/RamificationGroup.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "No Weil group, maximal unramified extension or G_K -> Z-hat surjection exists."
+      },
+      {
+       "target": "WeilGroup with the Weil topology (unique group topology making I_K -> W_K an open embedding), locally compact, totally disconnected, not compact, dense continuous injection into G_K",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Functoriality weilTransfer/weilRestrict with index [L:K] and degree formula; inertia sequence 1 -> I_K -> W_K -> Z -> 1 with unramifiedCoordinate_weilDegree",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "localWeilArtinEquiv : K^x = W_K^ab (topological abelianization) for K/Q_p, with compatibility and mem_range_artinMap_iff",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TopologicalAbelianization",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Group/TopologicalAbelianization.lean",
+         "line": 42,
+         "fit": "related"
+        }
+       ],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "LanglandsParameterStacks:LP0",
+       "note": "Plans Weil groups with inertia and their topologies as its carrier, overlapping with this layer's carrier and Weil topology."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Idele and idele-class formations for a fixed separable closure",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.IdeleGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 93,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.IdeleClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 119,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the idele and idele-class groups of a number field; no formation built on them."
+      },
+      {
+       "target": "Archimedean local package: complex Brauer group trivial, real Brauer group of order two with invariant 1/2 (infiniteInvMap)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Quaternion.card_brauerGroup_eq_two",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/BrauerGroup/Real.lean",
+         "line": 90,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Quaternion.brauerGroupMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/BrauerGroup/Real.lean",
+         "line": 102,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.subsingleton_brauerGroup_of_isAlgClosed",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/BrauerGroup/Trivial.lean",
+         "line": 238,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves Br(R) = Z/2 and Br(C) = 0 for the central-simple-algebra Brauer group; the cohomological H^2 versions and infiniteInvMap are absent."
+      },
+      {
+       "target": "Continuous cohomology of G_K as the finite-quotient colimit",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ContCohomology.explicitFiniteQuotientColimit1",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Colimit.lean",
+         "line": 493,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ContCohomology.exists_explicitInfl2_eq",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/DegreeTwoDescent.lean",
+         "line": 108,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the colimit description in degrees 0 and 1 and descent to finite quotients in degree 2."
+      },
+      {
+       "target": "Exact sequence 0 -> Br(K) -> sum_v Br(K_v) -> Q/Z -> 0 in invariant coordinates (Albert-Brauer-Hasse-Noether, sum of invariants zero, surjectivity)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Herbrand quotients of S-ideles and S-units, first and second fundamental inequalities, H^1 of idele classes vanishing",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.TateCohomology.herbrandQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/HerbrandQuotient.lean",
+         "line": 59,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the abstract Herbrand quotient exists."
+      },
+      {
+       "target": "globalInv on every layer: idele sum of local invariants, descent, obstruction in H^3, refinement, independence, globalInv_injective and globalInv_range",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFieldTheory.LayerRefinement.exists_commonRefinement",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Refinement.lean",
+         "line": 343,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the common-refinement lemma for layers exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.2",
+       "note": "Constructs local invariant maps and uses that the sum of local invariants of a global class is zero for Brauer-Manin pairings; this overlaps with the Brauer sequence built here."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
+       "note": "Owns the central-simple-algebra Brauer group, whose real and complex computations (built in Tau Ceti) overlap with this layer's archimedean package."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "globalClassFormation with globalClassFormation_inv, and ideleSumLocalInv_fundamentalClass",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "globalArtinMap : C_K / N(C_L) = Gal(L/K)^ab with local compatibility (localArtinAt), triviality on principal ideles, tower compatibility, arithmetic Frobenius normalization",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.IdeleClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 119,
+         "fit": "related"
+        }
+       ],
+       "note": "Not present."
+      },
+      {
+       "target": "Comparison with the ideal-theoretic Artin map at unramified primes (globalArtinMap_ideal) through algEquiv_commute_of_isAbelianGalois",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.NumberFieldArithmetic.artinHomAway",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Ideal/ArtinMap.lean",
+         "line": 175,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumberFieldArithmetic.artinHomAway_eq_of_apply_prime",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Ideal/ArtinMap.lean",
+         "line": 224,
+         "fit": "related"
+        }
+       ],
+       "note": "The ideal-theoretic Artin map and its uniqueness-by-prime-values theorem exist in Tau Ceti; the global map to compare it with does not."
+      },
+      {
+       "target": "Archimedean Artin package: Art_C trivial, Art_R with kernel R_{>0} sending negatives to conjugation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FunctionFieldArithmetic:FA.4",
+       "note": "Constructs global reciprocity from ideles for function fields; it is the function-field analogue that this roadmap excludes, not the same target."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Topology of idele-class norm subgroups (open, finite index, monotone, norm limitation, globalNormSubgroup_top)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.IdeleClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 119,
+         "fit": "related"
+        }
+       ],
+       "note": "Not present."
+      },
+      {
+       "target": "globalAbelianExistence via upward closure, descent along finite extensions and the Kummer case (S-unit Kummer layers, index computation)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.kummerMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 187,
+         "fit": "related"
+        }
+       ],
+       "note": "Not present."
+      },
+      {
+       "target": "Uniqueness, globalClassField, globalClassFieldCorrespondence with order statements, globalAbelianGaloisEquiv, index = degree, norm-index theorem card_ideleClassNormQuotient",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Admissible moduli, abelianConductor, rayClassArtinMap with splitting law and surjectivity, not_isAdmissibleModulus_one_Qi; composita and intersections of norm subgroups",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.GlobalNumberFields.Modulus",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Modulus.lean",
+         "line": 88,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.RayClassGroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Basic.lean",
+         "line": 180,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.classMap",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Basic.lean",
+         "line": 266,
+         "fit": "related"
+        }
+       ],
+       "note": "Moduli and ray class groups exist in Tau Ceti; admissibility, conductors and the ray-class Artin map do not."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FunctionFieldArithmetic:FA.4",
+       "note": "Identifies finite abelian quotients by norm subgroups for function fields; the analogue of this correspondence in the setting this roadmap excludes."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "cyclicHasseNorm, local norm predicates IsFiniteLocalNorm/IsInfiniteLocalNorm, principalIdele_mem_range_ideleNormMap_iff, isGlobalNorm_iff_isLocalNormEverywhere, biquadratic counterexample",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "rayNormSubgroup open of finite index; rayClassField, hilbertClassField, narrowHilbertClassField; isAdmissibleModulus_iff_le_rayClassField; Galois/class group isomorphisms; maximal unramified property, splitting criteria, principal ideal theorem",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Multiquadratic.autCandidateGenusFieldEquivNarrowElementaryTwoQuotient_artinHomAway",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Multiquadratic/CandidateGenusField/Relative/Artin.lean",
+         "line": 345,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Multiquadratic.artinHomAway_candidateGenusField_eq_one_iff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Multiquadratic/CandidateGenusField/Relative/Artin.lean",
+         "line": 400,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.NarrowClassGroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "Only genus theory for quadratic fields exists: the genus field's Galois group is identified with Cl+(K)/Cl+(K)^2 through the ideal Artin map, the 2-elementary part of the narrow Hilbert class field isomorphism. No Hilbert or ray class field is defined."
+      },
+      {
+       "target": "kroneckerWeber from global existence, least cyclotomic level equals the conductor's finite part, conductor-discriminant formula, IsAdmissibleModulus.mem_support_of_ramified",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Multiquadratic.exists_isCyclotomicExtension_and_nonempty_algHom",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Multiquadratic/Cyclotomic/Embedding.lean",
+         "line": 254,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Multiquadratic.exists_isCyclotomicExtension_and_adjoin_range_le",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Multiquadratic/Cyclotomic/Embedding.lean",
+         "line": 216,
+         "fit": "special case"
+        }
+       ],
+       "note": "Tau Ceti proves Kronecker-Weber for Galois extensions of Q of exponent two (multiquadratic fields) by explicit Gauss sums. The general theorem and the conductor statements are absent."
+      },
+      {
+       "target": "Ring class fields of quadratic orders: ringClassIdeleQuotient, ringClassNormSubgroup, ringClassField, ringClassArtinMap, Gal(H_O/K) = Pic O, maximal-order comparison",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CommRing.Pic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 429,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the Picard group of a commutative ring; nothing about ring class fields exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeegnerPointEulerSystems:HE.0",
+       "note": "Derives ring class fields, Pic(O_c) and their Artin maps from class field theory, overlapping with this layer's ring class field targets."
+      },
+      {
+       "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.3",
+       "note": "Identifies the ring class field of an imaginary quadratic order through class polynomials, a second construction of the same field."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
+       "note": "Its 4.3 specializes isGlobalNorm_iff_isLocalNormEverywhere to quadratic extensions; this is a consumer overlap with the Hasse norm theorem."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Finite local Hilbert invariants via localSymbol at completions and real invariants via the archimedean package; finite support",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present (localSymbol and infiniteInvMap are absent)."
+      },
+      {
+       "target": "hilbertProductFormula: the sum of local ZMod 2 invariants is zero (equivalently prod_v (a,b)_v = 1), from sumLocalInv_eq_zero",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Hilbert symbol or product formula exists in either library."
+      },
+      {
+       "target": "Quadratic reciprocity for Q, including real and dyadic factors, derived from hilbertProductFormula",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "legendreSym.quadratic_reciprocity",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean",
+         "line": 107,
+         "fit": "exact"
+        },
+        {
+         "name": "jacobiSym.quadratic_reciprocity",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LegendreSymbol/JacobiSymbol.lean",
+         "line": 425,
+         "fit": "more general"
+        },
+        {
+         "name": "legendreSym.quadratic_reciprocity_one_mod_four",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean",
+         "line": 133,
+         "fit": "related"
+        }
+       ],
+       "note": "Quadratic reciprocity and its supplementary laws are already proved in Mathlib (Gauss-lemma route). The layer's contribution is only the derivation from the product formula, not the theorem."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
+       "note": "Its 4.4 localized product formula prod_v (a_v,b_v)_v = 1, including the archimedean symbol computations, restates this layer's product formula for the norm-equation symbol."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
+       "note": "Its item 14, hilbertSymbol_productFormula, translates this layer's product formula into multiplicative signs."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.7",
+       "note": "Plans the comparison of Hilbert symbols with the local invariant and global reciprocity for them, overlapping with this layer."
       }
      ]
     }

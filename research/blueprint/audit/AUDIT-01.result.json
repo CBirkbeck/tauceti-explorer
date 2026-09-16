@@ -239,6 +239,10 @@
       {
        "layer": "AdicCoefficientsAndComparisons:L5",
        "note": "Also lists normalization under the applicable excellence hypotheses as an internal proof task."
+      },
+      {
+       "layer": "ComplexComparisonPartII:C3",
+       "note": "Also descends the analytic comparison through étale presentations of algebraic spaces with their analytification."
       }
      ]
     },
@@ -665,6 +669,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
        "note": "Constructs representable Hom functors (the finite locally free Weil-restriction case) and their base change, overlapping the relative Hom schemes of this layer."
+      },
+      {
+       "layer": "ComplexComparisonPartII:C3",
+       "note": "Restates the Chow-lemma and coherent dévissage/descent route to proper GAGA that this layer is to supply."
       }
      ]
     },
@@ -1724,6 +1732,1169 @@
       {
        "layer": "ComplexComparisonPartII:C4",
        "note": "Also constructs smooth projective completions of smooth affine complex curves by projective closure and normalization (the dimension-one case)."
+      }
+     ]
+    }
+   }
+  },
+  "ComplexComparisonPartII": {
+   "summary": "Neither library contains complex-analytic spaces, an analytification functor or coherent analytic sheaves, so every comparison here (coherent analytification, projective and proper GAGA, Chow's theorem, algebraic de Rham-Betti comparison) is genuinely missing, as are the carriers the document assumes from ComplexComparison PR196 (the analytic structure sheaf of X^an and the sheaf/singular comparison). The algebraic side is also thin: there are no twisting sheaves O(n), projective morphisms, higher direct images, Chow lemma, algebraic spaces, hypercohomology or de Rham complex of a scheme. What the libraries do supply are generic tools: locally finitely presented sheaves of modules on any ringed site, sheaf cohomology on sites and of O_X-modules with long exact and Mayer-Vietoris sequences, formal Weierstrass preparation and division, affine faithfully flat descent of modules, relative normalization, Kähler differentials and exterior powers, the Poincaré lemma for closed 1-forms on convex sets, and connectedness of complements of countable sets in the plane. For the C6 tests Tau Ceti already has the invariant differential of an elliptic curve over any field, isogenies with pullback of differentials, the multiplicative group scheme and abstract polarized weight-one Hodge structures, and Mathlib has the Weierstrass ℘-function with ℘'² = 4℘³ - g₂℘ - g₃.",
+   "layers": {
+    "ComplexComparisonPartII:C0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Analytic structure sheaf on analytifications of finite-type complex schemes (carrier assumed from ComplexComparison PR196)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ChartedSpace.locallyRingedSpace",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Manifold/Sheaf/LocallyRingedSpace.lean",
+         "line": 137,
+         "fit": "related"
+        },
+        {
+         "name": "smoothSheafCommRing",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Manifold/Sheaf/Smooth.lean",
+         "line": 298,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.holomorphicSheaf",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/HolomorphicSheaf.lean",
+         "line": 179,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Toric.AffineSemigroupComplexPoint",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Analytic/AffinePoint.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has complex analytic spaces (singular or nonreduced), an analytification functor on schemes or the morphism X^an -> X; the PR196 carrier this layer 'uses' is not in the libraries. Closest: Mathlib turns a manifold over 𝕜 = ℂ into a locally ringed space with its sheaf of 𝕜-smooth (holomorphic) functions (smooth, reduced case only, not linked to schemes); Tau Ceti has holomorphic functions on ℂ as a sheaf of types and the Euclidean topology on complex points of affine toric schemes (no structure sheaf)."
+      },
+      {
+       "target": "Convergent power-series algebras ℂ{z1,...,zn} as local rings",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AnalyticAt",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Analytic/Basic.lean",
+         "line": 110,
+         "fit": "related"
+        },
+        {
+         "name": "HasFPowerSeriesAt",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Analytic/Basic.lean",
+         "line": 95,
+         "fit": "related"
+        },
+        {
+         "name": "MvPowerSeries.isNoetherianRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPowerSeries/Equiv.lean",
+         "line": 225,
+         "fit": "related"
+        }
+       ],
+       "note": "No ring of convergent power series or of germs of analytic functions is defined. Mathlib has analyticity predicates via formal multilinear series in any number of variables, and formal power series rings (Noetherian over a Noetherian base), but nothing convergent as a ring."
+      },
+      {
+       "target": "Weierstrass preparation and division for convergent power series",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "PowerSeries.exists_isWeierstrassFactorization",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean",
+         "line": 813,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries.exists_isWeierstrassDivision",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean",
+         "line": 504,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries.IsWeierstrassFactorization.unique",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean",
+         "line": 855,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves Weierstrass division and preparation, with uniqueness, for one-variable formal power series A⟦X⟧ over an adically complete local ring A (hypothesis: image in the residue field nonzero). This covers formal series ℂ[[z1..zn]] but not convergent ones, since ℂ{z'} is not adically complete; the convergence estimates on polydiscs are missing."
+      },
+      {
+       "target": "Noetherianity of ℂ{z} and Oka coherence of the holomorphic structure sheaf",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MvPowerSeries.isNoetherianRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPowerSeries/Equiv.lean",
+         "line": 225,
+         "fit": "related"
+        }
+       ],
+       "note": "No coherence notion for sheaves of rings or modules exists in either library (the only 'coherent' declarations concern coherent topologies/sites and topological coherence), and no Oka theorem; only Noetherianity of formal power series."
+      },
+      {
+       "target": "Coherent analytic modules via local finite presentations: independence of presentation, kernels/cokernels, tensor/Hom, restriction and gluing",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "SheafOfModules.IsFinitePresentation",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/ModuleCat/Sheaf/Quasicoherent.lean",
+         "line": 269,
+         "fit": "more general"
+        },
+        {
+         "name": "SheafOfModules.Presentation",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/ModuleCat/Sheaf/Quasicoherent.lean",
+         "line": 45,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.FinitelyPresentedSheaf",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/FinitelyPresentedSheaf/Basic.lean",
+         "line": 48,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.SheafOfModules.tensorProduct",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/Sheaf/TensorProduct/Basic.lean",
+         "line": 99,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.sheafHom",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafHom.lean",
+         "line": 242,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines locally finitely presented sheaves of modules over any sheaf of rings on a site (where SheafOfModules is abelian); Tau Ceti adds the sheafified tensor product and packages finitely presented modules on schemes. Missing: an analytic structure sheaf to apply this to, the coherence property and its closure under kernels, cokernels, tensor and internal Hom, independence of presentation, and an internal Hom sheaf of modules (Mathlib's sheafHom is a sheaf of types)."
+      },
+      {
+       "target": "Nonreduced closed analytic subspaces with their coherent ideal sheaves",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.IdealSheafData",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
+         "line": 65,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.IdealSheafData.subscheme",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
+         "line": 454,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the algebraic analogue exists: quasi-coherent ideal sheaf data on schemes and the (possibly nonreduced) closed subschemes they cut out. No analytic subspaces."
+      },
+      {
+       "target": "Locally free coherent analytic sheaves versus holomorphic vector bundles on smooth spaces",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ContMDiffVectorBundle",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Manifold/VectorBundle/Basic.lean",
+         "line": 305,
+         "fit": "related"
+        },
+        {
+         "name": "SheafOfModules.IsLocallyFree",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/ModuleCat/Sheaf/LocallyFree.lean",
+         "line": 61,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.InvertibleSheaf",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
+         "line": 78,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's C^n vector bundles are defined over any nontrivially normed field, so ContMDiffVectorBundle over ℂ models holomorphic vector bundles, and locally free sheaves of modules exist on any site (Tau Ceti: invertible sheaves on schemes). The sheaf of holomorphic sections and the bundle/locally-free-sheaf dictionary are absent."
+      },
+      {
+       "target": "Polynomial-to-holomorphic local ring comparison O_{X,x} -> O_{X^an,x} and its faithful flatness",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.FaithfullyFlat.of_flat_of_isLocalHom",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Flat/FaithfullyFlat/Algebra.lean",
+         "line": 60,
+         "fit": "related"
+        },
+        {
+         "name": "AdicCompletion.flat_of_isNoetherian",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
+         "line": 379,
+         "fit": "related"
+        }
+       ],
+       "note": "No analytic local rings and no comparison map. Only general commutative algebra the proof would use: a flat local homomorphism of local rings is faithfully flat, and the adic completion of a Noetherian ring is flat."
+      },
+      {
+       "target": "Analytification functor on coherent algebraic sheaves by pullback along X^an -> X, and its exactness",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "SheafOfModules.pullback",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/ModuleCat/Sheaf/PullbackContinuous.lean",
+         "line": 53,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Modules.pullback",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+         "line": 182,
+         "fit": "related"
+        }
+       ],
+       "note": "The generic pullback of sheaves of modules along a morphism of ringed sites (left adjoint of pushforward) exists and is specialised to morphisms of schemes, but there is no morphism X^an -> X to pull back along and no exactness theorem."
+      },
+      {
+       "target": "Compatibility of analytification with tensor products, internal Hom for finite presentation, duals of locally free sheaves, determinants and short exact sequences",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.SheafOfModules.tensorProduct",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/Sheaf/TensorProduct/Basic.lean",
+         "line": 99,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.SheafOfModules.shortExact_map_toSheaf",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/Sheaf/Exactness.lean",
+         "line": 86,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has sheafified tensor products and exactness of forgetting module structure; internal Hom, duals and determinants of sheaves of modules are absent in both libraries, as are all compatibility isomorphisms with analytification."
+      }
+     ],
+     "duplicates": []
+    },
+    "ComplexComparisonPartII:C1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Local acyclicity and Stein-type vanishing of coherent cohomology on polydiscs and projective affine charts via analytic Cousin/∂̄ problems",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Sheaf.H",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+         "line": 59,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Topology.subsingleton_H_succ_of_isFlasque",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Sheaves/Flasque.lean",
+         "line": 156,
+         "fit": "related"
+        },
+        {
+         "name": "torusIntegral",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Integral/TorusIntegral.lean",
+         "line": 141,
+         "fit": "related"
+        }
+       ],
+       "note": "No ∂̄-operator on forms, Cousin problems, Dolbeault–Grothendieck lemma, Stein spaces or Cartan Theorem B. The sheaf-cohomology carrier the layer says to reuse exists (Mathlib Sheaf.H, defined as Ext from the constant sheaf), Tau Ceti proves flasque abelian sheaves on a space are acyclic, and Mathlib has torus integrals (the polydisc Cauchy-formula ingredient)."
+      },
+      {
+       "target": "Leray/Čech comparison for acyclic covers",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.cechComplexFunctor",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/Cech.lean",
+         "line": 65,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.GrothendieckTopology.MayerVietorisSquare.sequence_exact",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/MayerVietoris.lean",
+         "line": 141,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.Scheme.Modules.mayerVietorisSequence_exact",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Cohomology/MayerVietoris.lean",
+         "line": 109,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines the Čech complex functor of a family of objects, but there is no comparison map to Sheaf.H and no Leray theorem (Tau Ceti's scheme-cohomology docstring lists the Čech comparison as missing). Only the two-open Mayer–Vietoris long exact sequence exists (sites in Mathlib, modules on schemes in Tau Ceti)."
+      },
+      {
+       "target": "Analytic twisting sheaves O(n) on complex projective space",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "OnePoint.equivProjectivization",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean",
+         "line": 84,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Proj.toSpecZero",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Basic.lean",
+         "line": 151,
+         "fit": "related"
+        }
+       ],
+       "note": "ℂP^n carries no topology or complex-manifold structure in the libraries (Mathlib only has the set-level equivalence OnePoint K ≃ ℙ(K²)). There is no O(n), analytic or algebraic: Mathlib has Proj of a graded ring (proper over Spec A₀ when A is of finite type over A₀) but no twisting sheaves."
+      },
+      {
+       "target": "Cohomology of O(n) on ℙ^n in all degrees, with multiplication and connecting maps compared to the algebraic calculation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.dim_zsmul_ofPoint_infty",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/RatFunc.lean",
+         "line": 174,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Cohomology/Basic.lean",
+         "line": 61,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CategoryTheory.Sheaf.H.δ",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Sites/SheafCohomology/LongExactSequence.lean",
+         "line": 75,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CategoryTheory.Sheaf.H.exact_map_δ",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Sites/SheafCohomology/LongExactSequence.lean",
+         "line": 89,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither the analytic nor the algebraic (Serre) computation of H^i(ℙ^n, O(n)) exists, so the algebraic side of the comparison is also missing from the libraries. Related: Tau Ceti proves ℓ(n·P∞) = max(n+1, 0) on the rational function field (function-field shadow of h⁰(ℙ¹, O(n))), defines cohomology of O_X-modules on schemes, and has connecting maps and long exact sequences for Sheaf.H on any site."
+      },
+      {
+       "target": "Finite-dimensionality of coherent cohomology on projective analytic spaces (Cartan–Serre)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MDifferentiable.exists_eq_const_of_compactSpace",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Manifold/Complex.lean",
+         "line": 171,
+         "fit": "related"
+        }
+       ],
+       "note": "No finiteness theorem for sheaf cohomology, analytic or algebraic (Tau Ceti lists finite-dimensionality for proper schemes as later work). Mathlib only shows a holomorphic function on a compact preconnected complex manifold is constant (degree zero, structure sheaf)."
+      },
+      {
+       "target": "Generation by global sections after sufficiently high twists and finite-presentation resolutions/dévissage on projective analytic spaces",
+       "library": "absent",
+       "declarations": [],
+       "note": "No global generation, ampleness or Serre-twist theory in either library, analytic or algebraic (searched ample, globally generated, twisting sheaf, Serre twist)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology",
+       "note": "Also plans Čech H¹ of analytic sheaves by a Leray theorem for acyclic covers, acyclicity of discs from the local ∂̄-lemma and finite-dimensionality of H¹ (for compact Riemann surfaces)."
+      },
+      {
+       "layer": "DiamondsAndVStacks:D0",
+       "note": "Also plans the Leray and Čech-to-sheaf spectral sequences and the acyclic-basis comparison on general sites, which contain the Leray/Čech comparison for acyclic covers asked for here."
+      }
+     ]
+    },
+    "ComplexComparisonPartII:C2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Equivalence of coherent O_X-modules and coherent O_(X^an)-modules for a projective complex scheme (exact, fully faithful, essentially surjective), including nonreduced schemes, closed immersions and products",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.FinitelyPresentedSheaf",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/FinitelyPresentedSheaf/Basic.lean",
+         "line": 48,
+         "fit": "related"
+        },
+        {
+         "name": "SheafOfModules.IsFinitePresentation",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/ModuleCat/Sheaf/Quasicoherent.lean",
+         "line": 269,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.«Proj»",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Scheme.lean",
+         "line": 854,
+         "fit": "related"
+        }
+       ],
+       "note": "Nothing analytic exists (no analytic spaces, analytification or coherent analytic sheaves; see C0), and there is no notion of projective scheme or projective morphism beyond Proj of a graded ring. The algebraic side has only the full subcategory of finitely presented O_X-modules (Tau Ceti, on Mathlib's finite-presentation condition), with no abelian-category or coherence theorems."
+      },
+      {
+       "target": "Cohomology comparison H^i(X, F) ≅ H^i(X^an, F^an) in every degree, natural in F, by reduction to twists of O(n) on projective space and finite presentations",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Cohomology/Basic.lean",
+         "line": 61,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.Scheme.Modules.cohomologyFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Cohomology/Basic.lean",
+         "line": 66,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Sheaf.H",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+         "line": 59,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the carriers exist: sheaf cohomology Sheaf.H on a site (Mathlib) and H^i(X, M) of O_X-modules on a scheme, functorial in M (Tau Ceti). There are no twisting sheaves O(n), no computation of H^i(P^n, O(n)), no finiteness theorem and no comparison map."
+      },
+      {
+       "target": "Comparison of higher direct images along projective morphisms, with naturality, projection formula and base-change hypotheses",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.Modules.pushforward",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+         "line": 165,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the underived pushforward of O_X-modules along a morphism of schemes. Higher direct images, projective morphisms, the projection formula and cohomology and base change are absent from both libraries, algebraically as well as analytically."
+      },
+      {
+       "target": "Identification of line bundles, morphisms of vector bundles, sections, coherent ideals and algebraic closed subschemes with their analytic counterparts",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.InvertibleSheaf",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
+         "line": 78,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.IdealSheafData",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
+         "line": 65,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.IdealSheafData.subscheme",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
+         "line": 454,
+         "fit": "related"
+        },
+        {
+         "name": "ContMDiffVectorBundle",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Manifold/VectorBundle/Basic.lean",
+         "line": 305,
+         "fit": "related"
+        }
+       ],
+       "note": "The algebraic objects exist (invertible sheaves on schemes in Tau Ceti; quasi-coherent ideal sheaf data and the possibly nonreduced closed subschemes they cut out in Mathlib), and Mathlib's C^n vector bundles over ℂ model holomorphic bundles on manifolds, but there are no analytic ideal sheaves, closed analytic subspaces or comparison maps."
+      }
+     ],
+     "duplicates": []
+    },
+    "ComplexComparisonPartII:C3": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Proper coherent GAGA for proper finite-type complex schemes (categorical equivalence and cohomology comparison) by Chow's lemma and coherent dévissage, without assuming projectivity",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.IsProper",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
+         "line": 42,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Birational",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Birational/Birational.lean",
+         "line": 181,
+         "fit": "related"
+        }
+       ],
+       "note": "Proper morphisms and birational equivalence of schemes exist in Mathlib, but neither the projective theorem of C2 nor the inputs of this route: there is no Chow lemma (owned by AlgebraicModuliForArithmeticGeometry R09.2), no dévissage of coherent sheaves by integral closed subschemes and no analytic side."
+      },
+      {
+       "target": "Proper algebraic spaces of finite presentation over ℂ, and descent of the comparison through étale presentations and their analytifications",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.etaleTopology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
+         "line": 40,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Functor.relativelyRepresentable",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/MorphismProperty/Representable.lean",
+         "line": 103,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library defines algebraic spaces or analytic spaces. Mathlib has only the generic tools of an étale presentation: the big étale topology on schemes and relatively representable morphisms of presheaves."
+      },
+      {
+       "target": "Effective descent of coherent modules along étale presentations, algebraically and analytically, with the full-faithfulness square",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "comonadicExtendScalars",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/ModuleCat/Descent.lean",
+         "line": 59,
+         "fit": "special case"
+        },
+        {
+         "name": "CategoryTheory.Pseudofunctor.IsStack",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/Descent/IsStack.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Modules.pseudofunctor",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+         "line": 319,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves effective descent of modules along a faithfully flat ring map (extension of scalars is comonadic), which covers affine étale covers, and supplies the abstract descent-data/stack formalism and the pseudofunctor of O_X-modules on schemes. Missing: the stack property of quasi-coherent or coherent sheaves on schemes and algebraic spaces for étale covers, descent of coherent analytic sheaves, and the full-faithfulness square comparing the two."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AlgebraicModuliForArithmeticGeometry:R09.2",
+       "note": "Owns the Noetherian Chow lemma and the coherent dévissage/descent statements of the proper-GAGA proof, the route this layer restates."
+      },
+      {
+       "layer": "AlgebraicModuliForArithmeticGeometry:A0-extension",
+       "note": "Also plans extending analytification to étale presentations and descending local comparisons, the algebraic-space step of this layer."
+      },
+      {
+       "layer": "PELModuli:M3",
+       "note": "Also restates extending analytification to the étale presentations of an algebraic space."
+      }
+     ]
+    },
+    "ComplexComparisonPartII:C4": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Chow's theorem: closed analytic subspaces of complex projective space are algebraic, retaining the coherent ideal and the nonreduced structure",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.IdealSheafData.subscheme",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
+         "line": 454,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.«Proj»",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Scheme.lean",
+         "line": 854,
+         "fit": "related"
+        }
+       ],
+       "note": "There are no closed analytic subspaces, no complex-analytic projective space and no algebraization theorem; only algebraic closed subschemes cut out by quasi-coherent ideal sheaves and Proj of a graded ring (Mathlib)."
+      },
+      {
+       "target": "Algebraicity of holomorphic maps from proper algebraic schemes to separated finite-type targets, via an algebraic graph and the proper projection",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.IsProper",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
+         "line": 42,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.IsSeparated",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Separated.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "Hom.image",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
+         "line": 661,
+         "fit": "related"
+        }
+       ],
+       "note": "Proper and separated morphisms and scheme-theoretic images (the algebraic tools of the graph argument) exist in Mathlib, but there are no holomorphic maps between analytifications to algebraize."
+      },
+      {
+       "target": "Full faithfulness applied to morphisms of abelian schemes, polarizations, level structures and coherent correspondences; the projective realization-to-Chow step of Baily-Borel and the GAGA step of the PEL complex comparison",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 94,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has abelian varieties over a field with their homomorphism groups, but there are no abelian schemes over a base, polarizations, level structures or algebraic correspondences, and nothing analytic to compare them with."
+      },
+      {
+       "target": "Smooth projective completion of each component of a finite-type smooth affine complex curve, by projective closure and normalization",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.normalization",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Normalization.lean",
+         "line": 123,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.homogenize",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Homogenize.lean",
+         "line": 40,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib constructs the relative normalization of a quasi-compact quasi-separated morphism with its universal property, and the homogenization of polynomials. Missing: the projective closure of an affine curve in projective space, finiteness of the normalization, and the proof that the result is a smooth proper curve containing the affine curve as a dense open with finite complement (the regular projective model of AlgebraicCurves Layer 12 is likewise absent)."
+      },
+      {
+       "target": "Removing finitely many points from a connected Riemann surface preserves connectedness",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Set.Countable.isConnected_compl_of_one_lt_rank",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Normed/Module/Connected.lean",
+         "line": 115,
+         "fit": "special case"
+        },
+        {
+         "name": "isConnected_compl_singleton_of_one_lt_rank",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Normed/Module/Connected.lean",
+         "line": 125,
+         "fit": "special case"
+        },
+        {
+         "name": "ChartedSpace.locallyConnectedSpace",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Manifold/ChartedSpace.lean",
+         "line": 257,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.isPathConnected_sphere_sdiff_singleton",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/JordanCurve/Separation.lean",
+         "line": 219,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves that the complement of a countable set in a real vector space of dimension greater than one is connected, which is the statement on a chart ℂ ≅ ℝ², and that a charted space over a locally connected model is locally connected; Tau Ceti shows a circle minus a point is path-connected. Missing: the statement for a connected manifold modelled on ℂ, i.e. the local-to-global argument."
+      },
+      {
+       "target": "Algebraic versus analytic connectedness for finite-type smooth affine complex curves, through the clopen algebraic-component decomposition and idempotents on the completed curve",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PrimeSpectrum.isIdempotentElemEquivClopens",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Spectrum/Prime/Topology.lean",
+         "line": 1403,
+         "fit": "related"
+        },
+        {
+         "name": "MDifferentiable.exists_eq_const_of_compactSpace",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Manifold/Complex.lean",
+         "line": 171,
+         "fit": "related"
+        }
+       ],
+       "note": "Two ingredients are in Mathlib: clopen subsets of Spec R correspond to idempotents of R, and a holomorphic function on a compact connected complex manifold is constant. The comparison itself needs analytification and projective GAGA, which are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraVarieties:V2",
+       "note": "Lists projective realization and Chow algebraization as steps of its own Baily–Borel proof, the same step this layer says it provides."
+      },
+      {
+       "layer": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+       "note": "Also constructs smooth projective compactifications of smooth quasi-projective varieties, which covers the smooth projective completion of affine curves used here."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+       "note": "Constructs the regular projective model of a function field by normalizing the projective line, which is the smooth projective completion of a complex affine curve used here."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+       "note": "Plans the algebraization of analytic Belyi pairs over ℂ (compactification, meromorphic function field, comparison), a special case of algebraizing compact Riemann surfaces and their maps."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#5c-the-twisted-curve-yρ",
+       "note": "States the same algebraic-versus-analytic connectedness comparison for a smooth affine complex curve, as an external supplier contract."
+      }
+     ]
+    },
+    "ComplexComparisonPartII:C5": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Algebraic de Rham complex of a smooth complex variety, built from Kähler differentials and exterior powers",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "KaehlerDifferential",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Kaehler/Basic.lean",
+         "line": 153,
+         "fit": "related"
+        },
+        {
+         "name": "KaehlerDifferential.D",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Kaehler/Basic.lean",
+         "line": 198,
+         "fit": "related"
+        },
+        {
+         "name": "ExteriorAlgebra.exteriorPower",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "PresheafOfModulesOfCommRing.DifferentialsConstruction.relativeDifferentials'",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/ModuleCat/Differentials/Presheaf.lean",
+         "line": 188,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the Kähler differentials Ω[S⁄R] with their universal derivation, exterior powers of modules, and the presheaf of relative differentials of a morphism of presheaves of commutative rings (the general morphism-of-schemes case is a TODO in that file). Missing: the exterior derivative on the exterior powers of Ω and the de Rham complex of an algebra, its sheaf version on schemes, and its functoriality."
+      },
+      {
+       "target": "Analytification of the de Rham complex and the integration/Poincaré map to the analytic resolution of the constant sheaf ℂ",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "extDeriv",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Calculus/DifferentialForm/Basic.lean",
+         "line": 73,
+         "fit": "related"
+        },
+        {
+         "name": "extDeriv_extDeriv",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Calculus/DifferentialForm/Basic.lean",
+         "line": 235,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines the exterior derivative of differential forms on a normed space, with d ∘ d = 0 for C² forms, but there are no sheaves of holomorphic forms on analytic spaces, no holomorphic de Rham complex of sheaves and no comparison map to the constant sheaf."
+      },
+      {
+       "target": "Local analytic Poincaré lemma, with naturality",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Convex.exists_forall_hasFDerivAt_of_fderiv_symmetric",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Integral/CurveIntegral/Poincare.lean",
+         "line": 379,
+         "fit": "special case"
+        },
+        {
+         "name": "Convex.exists_forall_hasDerivWithinAt",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Integral/CurveIntegral/Poincare.lean",
+         "line": 396,
+         "fit": "special case"
+        },
+        {
+         "name": "extDeriv_extDeriv",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Calculus/DifferentialForm/Basic.lean",
+         "line": 235,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves the Poincaré lemma in degree one: a closed 1-form (with values in 𝕜-linear maps, 𝕜 = ℝ or ℂ) on an open convex subset of a normed space has a primitive, and a complex-differentiable function on a convex subset of ℂ has a primitive. Missing: forms of degree at least two, exactness of the holomorphic de Rham complex of sheaves on polydiscs, and naturality."
+      },
+      {
+       "target": "Grothendieck's comparison of algebraic de Rham cohomology with singular cohomology with complex coefficients for proper smooth varieties, via hypercohomology, C2-C3 and the sheaf/singular comparison",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Sheaf.H",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+         "line": 59,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicTopology.singularHomologyFunctor",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicTopology/SingularHomology/Basic.lean",
+         "line": 52,
+         "fit": "related"
+        },
+        {
+         "name": "TopPair.singularHomology",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/Singular/Relative.lean",
+         "line": 165,
+         "fit": "related"
+        }
+       ],
+       "note": "Sheaf cohomology of a single sheaf on a site (Mathlib) and singular homology, absolute (Mathlib) and relative (Tau Ceti), exist. Hypercohomology of complexes of sheaves, singular cohomology, the sheaf-versus-singular comparison assumed from ComplexComparison and the de Rham comparison itself do not."
+      },
+      {
+       "target": "Compatibility with cup products, pullback, trace and the relative Gauss-Manin connection for proper smooth families",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has cup products on sheaf or singular cohomology of spaces, trace maps, relative de Rham cohomology or a Gauss-Manin connection (Tau Ceti's cup products are for continuous group cohomology)."
+      },
+      {
+       "target": "Smooth projective compactification and logarithmic de Rham complex of nonproper smooth curves, with the residue/localization sequence",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "circleIntegral.integral_sub_inv_of_mem_ball",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Integral/CircleIntegral.lean",
+         "line": 738,
+         "fit": "related"
+        }
+       ],
+       "note": "There are no logarithmic differentials, residue maps on schemes or compactifications of curves (see C4 for the completion). Analytically, Mathlib computes the integral of dz/(z - w) over a circle around w as 2πi, the period behind the residue of a logarithmic form."
+      },
+      {
+       "target": "Regular-singular logarithmic comparison theorem and independence of the compactification",
+       "library": "absent",
+       "declarations": [],
+       "note": "No algebraic connections, regular singularities or logarithmic comparison theorems exist in either library."
+      },
+      {
+       "target": "Compactly supported, ordinary and parabolic cohomology of open curves and their pairings",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has compactly supported or parabolic cohomology of curves or the associated duality pairings."
+      },
+      {
+       "target": "Integral Betti lattices and rational coefficient structures retained before complexification",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.rationalToComplexLinearEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/BaseChange.lean",
+         "line": 125,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.isBaseChange_rationalToComplexMap",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/BaseChange.lean",
+         "line": 186,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's Hodge-structure library supplies the abstract ℤ → ℚ → ℂ base-change tower (IsBaseChange models) that these lattices would use, but there is no integral Betti cohomology of varieties to carry it."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EllipticRegulators:ER.1",
+       "note": "Also compares algebraic de Rham cohomology, holomorphic differentials and singular cohomology, for complex elliptic curves."
+      },
+      {
+       "layer": "AbelianSchemesAndArithmeticModuli:A4",
+       "note": "Also constructs relative H¹_dR with Gauss–Manin connection and cup product and the degree-one de Rham–Betti comparison for abelian schemes."
+      },
+      {
+       "layer": "ModularCurvesPartII:R14.3",
+       "note": "Also distinguishes ordinary, compactly supported and parabolic cohomology of open modular curves and proves their pairings."
+      },
+      {
+       "layer": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+       "note": "Also constructs smooth projective compactifications with normal-crossings boundary, of which the curve compactification here is the one-dimensional case."
+      },
+      {
+       "layer": "MotivesAndAlgebraicCycles:MC.2",
+       "note": "Also compares Betti and de Rham realizations over embeddings into ℂ with cup-product, pushforward and trace compatibilities."
+      },
+      {
+       "layer": "ModularSymbolsPadicLFunctions:L0",
+       "note": "Also constructs compactly supported and parabolic cohomology with boundary maps for modular curves."
+      },
+      {
+       "layer": "SchemeAndStackFoundations:SF.6",
+       "note": "Also asks for constructed comparison maps from scheme cohomology to analytic (complex Betti) cohomology, which for de Rham cohomology is the comparison this layer builds."
+      }
+     ]
+    },
+    "ComplexComparisonPartII:C6": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "O(n) on projective space: analytic and algebraic cohomology and their comparison",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.dim_zsmul_ofPoint_infty",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/RatFunc.lean",
+         "line": 174,
+         "fit": "related"
+        }
+       ],
+       "note": "No twisting sheaves on Proj and no cohomology computation for projective space exist. The closest result is Tau Ceti's ℓ(n·P∞) = max(n + 1, 0) on the rational function field, the function-field shadow of h⁰(P¹, O(n))."
+      },
+      {
+       "target": "Infinitesimal thickening of a projective point as a nonreduced test case",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.IdealSheafData.subscheme",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
+         "line": 454,
+         "fit": "related"
+        }
+       ],
+       "note": "Nonreduced closed subschemes can be formed from ideal sheaf data (Mathlib), but there is no analytic counterpart or comparison to test."
+      },
+      {
+       "target": "Hodge line and invariant differential of a complex elliptic curve",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.invariantDifferential",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/InvariantDifferential.lean",
+         "line": 105,
+         "fit": "more general"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.invariantDifferentialBasis",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/InvariantDifferential.lean",
+         "line": 137,
+         "fit": "more general"
+        },
+        {
+         "name": "PeriodPair.weierstrassP",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 268,
+         "fit": "related"
+        },
+        {
+         "name": "PeriodPair.derivWeierstrassP_sq",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 1075,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti constructs the invariant differential dx/(2y + a₁x + a₃) of an elliptic curve over any field as a basis of the Kähler differentials of its function field (its regularity, div ω = 0, is explicitly not proved), and Mathlib has the Weierstrass ℘-function of a lattice with ℘'² = 4℘³ - g₂℘ - g₃. Missing: the Hodge line H⁰(E, Ω¹) as coherent cohomology, the uniformization ℂ/Λ ≅ E(ℂ) and the identification of ω with dz."
+      },
+      {
+       "target": "Polarized first cohomology of a complex elliptic curve",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.StandardWeightOne.hodgeStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeightOne/Standard.lean",
+         "line": 219,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.StandardWeightOne.polarization",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeightOne/Standard.lean",
+         "line": 410,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.isPolarization_of_weilOperator_invariant_on_realPoints_of_pos",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeightOne/Polarization.lean",
+         "line": 122,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has polarized pure Hodge structures, the Riemann bilinear relations in weight one and a standard polarized weight-one structure on ℤ × ℤ, the linear algebra of H¹ of a complex torus. Missing: H¹ of an actual elliptic curve, singular or de Rham, and its identification with such a structure."
+      },
+      {
+       "target": "G_m with its logarithmic residue",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.DiagonalizableGroup.multiplicativeGroupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/DiagonalizableGroup/Scheme/Points.lean",
+         "line": 371,
+         "fit": "exact"
+        },
+        {
+         "name": "circleIntegral.integral_sub_inv_of_mem_ball",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Integral/CircleIntegral.lean",
+         "line": 738,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti constructs the multiplicative group scheme over any commutative ring as a group object over Spec R, and Mathlib computes the circle integral of dz/(z - w) as 2πi. Missing: the logarithmic de Rham cohomology of G_m generated by du/u, the residue map and its comparison with H¹(ℂ^×, ℂ)."
+      },
+      {
+       "target": "Coherent graph of an isogeny",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Basic.lean",
+         "line": 139,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.pullbackDifferential_invariantDifferential",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Differential.lean",
+         "line": 140,
+         "fit": "related"
+        },
+        {
+         "name": "Hom.image",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
+         "line": 661,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has isogenies of Weierstrass curves as coordinate-ring pullbacks, with the pullback of the invariant differential, and Mathlib has scheme-theoretic images; the graph of an isogeny as a closed subscheme of E₁ × E₂ with its coherent ideal, and its analytic comparison, are absent."
+      },
+      {
+       "target": "Comparison of f(q)dq/q with the weight-two Hodge section, keeping the relative Tate differential du/u distinct",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "UpperHalfPlane.qExpansion",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/QExpansion.lean",
+         "line": 162,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines q-expansions of functions on the upper half-plane (used by Tau Ceti for Hecke operators), but there is no Hodge bundle on modular curves, no Tate curve and no algebraic differential on a modular curve to compare with."
+      },
+      {
+       "target": "Consumers receive the proved natural transformations rather than dimension equalities",
+       "library": "absent",
+       "declarations": [],
+       "note": "Interface requirement on the exports of C2-C5 for AbelianSchemesAndArithmeticModuli, PELModuli, ShimuraVarieties and AutomorphicBundles; there is nothing to check until those comparisons exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ModularCurvesPartII:R12.5",
+       "note": "Also checks the q-expansion of f(q)dq/q against the Hodge bundle and automorphy factor, the same weight-two acceptance test."
+      },
+      {
+       "layer": "ModularCurvesPartII:R12.1",
+       "note": "Also compares the algebraic invariant differential, periods and Weil pairing of a complex elliptic curve with the analytic formulas."
+      },
+      {
+       "layer": "EllipticRegulators:ER.1",
+       "note": "Also identifies invariant differentials, periods and the de Rham/singular comparison of a complex elliptic curve."
       }
      ]
     }
@@ -3617,6 +4788,10 @@
       {
        "layer": "EtaleDualityAndPerverseSheaves:EDC.3",
        "note": "Also constructs étale cycle classes and their compatibility with Gysin and intersection."
+      },
+      {
+       "layer": "ComplexComparisonPartII:C5",
+       "note": "Constructs the algebraic de Rham to complex Betti comparison map, one of the analytic comparison handoffs this layer asks for."
       }
      ]
     }
@@ -10245,6 +11420,10 @@
       {
        "layer": "EllipticKTheory:E.1",
        "note": "Also constructs the smooth projective elliptic scheme and identifies its function field (an elliptic special case of the dictionary)."
+      },
+      {
+       "layer": "ComplexComparisonPartII:C4",
+       "note": "Also constructs the smooth projective completion of a smooth affine complex curve by projective closure and normalization, the complex case of the regular projective model."
       }
      ]
     }
