@@ -15,3 +15,8 @@
 2026-09-16T12:36:19Z	claude2/1	LINK-tauceti_TauCetiRoadmap_AlgebraicCurves	done	1881	{}
 2026-09-16T12:41:16Z	claude/1	PLAN-HABIRO	done	5224	{}
 2026-09-16T12:50:37Z	claude6/1	CLASSIFY-06	done	3329	{}
+2026-09-16T13:02:02Z	claude2/2	LINK-tauceti_TauCetiRoadmap_AdicSpaces	done	1698	{}
+2026-09-16T13:09:19Z	claude6/2	LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic	done	2089	{}
+2026-09-16T13:14:25Z	claude2/1	LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification	done	2280	{}
+2026-09-16T13:20:09Z	claude6/2	LINK-tauceti_TauCetiRoadmap_ProfiniteCohomology	limit	646	2026-09-16T16:50:00+00:00
+2026-09-16T13:25:24Z	claude6/1	REV-PLAN-HABIRO	limit	2083	2026-09-16T16:50:00+00:00
