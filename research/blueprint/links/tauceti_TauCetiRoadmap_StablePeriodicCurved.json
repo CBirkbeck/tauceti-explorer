@@ -559,7 +559,6 @@
  {"roadmapId":"tauceti:TauCetiRoadmap/EllipticCurves","result":"none","readScope":"screen","note":"No exact contract found."},
  {"roadmapId":"tauceti:TauCetiRoadmap/Exchangeability","result":"none","readScope":"screen","note":"No exact contract found."},
  {"roadmapId":"tauceti:TauCetiRoadmap/FuchsianOrbifolds","result":"none","readScope":"screen","note":"No exact contract found."},
- {"roadmapId":"tauceti:TauCetiRoadmap/FuchsianOrbifolds","result":"none","readScope":"screen","note":"No exact contract found."},
  {"roadmapId":"tauceti:TauCetiRoadmap/GeometricTopology","result":"none","readScope":"candidate","note":"Layers 1/3/9/11: manifold homotopy and PL triangulation, not triangulated stable categories."},
  {"roadmapId":"tauceti:TauCetiRoadmap/GlobalNumberFields","result":"none","readScope":"candidate","note":"Layer 11: arithmetic orders and proper ideals, not self-injective stable module categories."},
  {"roadmapId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms","result":"none","readScope":"candidate","note":"Layers 6/9 use folding in prose about cases, not folding of complexes."},
