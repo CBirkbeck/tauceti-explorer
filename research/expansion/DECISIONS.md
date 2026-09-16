@@ -2,6 +2,36 @@
 
 Generated 2026-09-16 by `research/expansion/collect_decisions.py` from `research/expansion/reviews/*.md`. Every item below is quoted from a review report and is still open: the atlas snapshot (`data/atlas.json`) is immutable, so reversed or missing stage edges, stage texts that contradict their sources, and missing suppliers can only be recorded here or fixed upstream. Reports whose reviewer is still running are marked as such and will be regenerated.
 
+## REVIEW-COHCMP-review.md (reviewer still running; partial) — last written 2026-09-16 09:54
+
+### Supplier questions and decisions for the orchestrator — 1. CohomologyComparisons.json (scope CP.0, CP.2, CP.3, CP.5)
+
+1. **Re-homing supplier material.** Seven CP.5 nodes are tagged as AI.5/AI.2 material
+   (Lemmas 4.9, 4.14, 4.16, 4.19 with Corollary 4.20, Proposition 4.13, Corollaries 4.15, 4.17).
+   The Lemma 4.18 node is untagged because it also carries Remarks 14.4/14.7. The CP.0 coherence
+   node and the §4.2 part of the dictionary node are also generic A_inf algebra.
+   Decide whether to promote them under CP.5 now or to move them into an AInfCohomology AI.2/AI.5
+   packet first; node ids must change on a move.
+2. **Proposition 13.21 ownership.** It is used by AI.5's Theorem 14.3 and by CP.2, and AI.5 →
+   CP.2 is an atlas edge. Keeping it under CP.2 blocks any node-level AI.5 dependency. Candidate
+   owners are CR.3 or AI.4. CR.3 would also need its Frobenius-isogeny scope extended to smooth
+   affine k-schemes.
+3. **Kisin supplier.** Theorem 4.4 and Proposition 4.34 have no atlas owner; R07.4 covers only
+   finite-flat and p-divisible groups. Extend R07.4 or create an owner. Kisin [48] and [49] are
+   not in the library.
+4. **Scholze's Theorem 5.1.** No atlas stage upstream of CP.2/CP.3 owns the global finiteness
+   and comparison theorem of [58]. BMS1 proves the agreement of Theorem 13.1 with Theorem 5.1
+   using Theorem 5.1's own construction (p.115). Decide whether CP.3 absorbs [58, §8] or a new
+   upstream owner is created.
+5. **Six new stage edges** on integration (listed above), all acyclic. Accept them, or route the
+   node links through the existing transitive paths.
+6. **Atlas text qualifications** (outside this review's editing scope), recorded in the packet:
+   * CP.2's "claimed independence" of the residue-field section holds only for the canonical
+     DVR section; for arbitrary k the source proves uniqueness only when k = F̄_p.
+   * CP.5 should state n ≥ 0 over O_C, rank equality, the two-tier (degree i / degree i+1)
+     lattice statement and Remark 14.7's de Rham substitute.
+   * AI.0 (or R06.1) should state that μ is a unit in W(C♭).
+
 ## REVIEW-EXT-01-EXT-15-review.md — last written 2026-09-16 03:24
 
 ### Questions and decisions for the orchestrator — 1. GeneralAlgebraicKTheory.json (EXT-01)
@@ -250,7 +280,7 @@ a claim of ownership; when the DWP packets are written they should become links.
 7. **Catalogue.** Kedlaya math/0110124v4 and both Baker–Payne–Rabinoff papers are not in
    `CATALOGUE.json`; the hashes above are confirmed and ready for registration.
 
-## REVIEW-EXT-05-EXT-02-review.md (reviewer still running; partial) — last written 2026-09-16 09:42
+## REVIEW-EXT-05-EXT-02-review.md (reviewer still running; partial) — last written 2026-09-16 09:52
 
 ### Supplier questions for the orchestrator — 1. EXT-05 / GeometricSatakeAndFusion.json
 
@@ -328,7 +358,38 @@ Theorem 5.8) are correctly held as gaps rather than as inputs.
    available from the author's site; consider adding it to `CATALOGUE.json` so future
    workers do not have to re-fetch it.
 
-## REVIEW-EXT-10-EXT-07-review.md (reviewer still running; partial) — last written 2026-09-16 09:37
+---
+
+### Supplier questions for the orchestrator — 8. EXT-02 / ClassicalAdicEtaleCohomology.json
+
+1. **Duplicate edge.** `AdicSpacesPartII:R2/generic-fibre-functor-d` appears both as a
+   stage-level edge into `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison` (in the
+   `AdicSpacesPartII` packet) and as a node-level edge into
+   `…/specialization-morphism-of-sites-lambda` (here). Keep one.
+2. **Huber 6.1.1 still has no node** in H5 — see §5's question 2; it is a named input to
+   ECD 27.2 in the `AdicCoefficientsAndComparisons` packet.
+
+---
+
+### Unverifiable items / supplier questions — 9. EXT-05 / HeckeStacksAndLocalShtukas.json *(additional packet found in the job directory)*
+
+None.
+
+---
+
+### Unverifiable items / supplier questions — 10. EXT-05 / LanglandsParameterStacks.json *(additional packet found in the job directory)*
+
+None.
+
+---
+
+### Unverifiable items / supplier questions — 11. EXT-02 / DeligneWeightsAndPurity.json *(additional packet found in the job directory)*
+
+None. The four gaps (Weyl's invariant theory for the `Sp`-coinvariants; the SGA 5 trace
+formula and SGA 4 XVIII duality imports; Weil II 3.2.3 and 1.8.4; the OCR losses, now
+resolved) are accurate boundaries.
+
+## REVIEW-EXT-10-EXT-07-review.md (reviewer still running; partial) — last written 2026-09-16 09:49
 
 ### Questions for the orchestrator — 1. AlgebraicModularFormsAndSerreWeights.json (R15.1–R15.6)
 
@@ -357,6 +418,30 @@ Theorem 5.8) are correctly held as gaps rather than as inputs.
 3. **R01.4 and oddness.** R01.4 asks for "odd, irreducible ⇒ absolutely irreducible" over a finite
    field in general. The only source read proves the decomposable case for ρ valued in GL₂(F_p)
    with det ρ = χ.
+
+---
+
+### Questions for the orchestrator — 3. AutomorphicGaloisRepresentations.json (R19.1–R19.6)
+
+1. **Weil–Deligne sign convention.** Fix one convention project-wide, for example Deligne's, as
+   recorded in the ArithmeticGaloisRepresentations packet. Have `AutomorphicGaloisRepresentations:R19.5`
+   and its consumers check Saito's printed convention against it.
+2. **Compatible systems in R19.3 / R24.** Specify which definition of "strictly compatible" is meant:
+   Serre/Carayol, or KW/Dieulefait–Pacetti. The atlas text asks that the weak, almost-strict and strict
+   distinction survive into R24.
+3. **Supplier of Thm 6.1.** Decide which stage supplies a complete proof of Deligne–Serre Thm 6.1 in
+   general level and character: R19.1 itself, or ModularCurvesPartII R14.3 with WeightsInEtaleCohomology
+   R34.5.
+
+---
+
+### Questions for the orchestrator — 4. AutomorphicGaloisRepresentationsPartII.json (AG2.0–AG2.7)
+
+1. **Re-home two nodes.** Move the AG2.0 normalization node and the AG2.1a polarized-construction node
+   to AG2.5 and AG2.2, or amend their parentStageIds.
+2. **G7 → AG2.7 edge.** Keep or drop it (restatement only).
+3. **Dominance-order source.** Obtain Chenevier, *Une application des variétés de Hecke des groupes
+   unitaires*, §3.1. AG2.5 requires implementing that partial order.
 
 ## cohomology-comparisons-handoff.md — last written 2026-09-15 22:14
 
