@@ -83,3 +83,13 @@ The existing `.github/workflows/swarm-check.yml` was inspected (blob `d638775ee3
 Complete the catalogue screen before changing `status` to `complete`: all classical-area roadmaps, neighboring-area summaries, every other upstream Tau Ceti roadmap, and all relevant object/synonym hits. The eight `examined` entries deliberately record unequal reading depths. Search terms should include Hasse–Minkowski, rational equivalence, local/global quadratic forms, global square theorem, cyclic norm, Witt localization, prescribed invariants, SO torsors, genus, and spinor genus. Do not add an edge for the unrelated Hermite–Minkowski finiteness theorem or for shared use of the word Hasse.
 
 Resolve the six requests above through the appropriate owners, check the complete graph and concurrent submissions, and obtain independent review. The intended structural recommendation is to keep the existing roadmaps, making GN.2 reuse explicit; no merge is requested. Submitted work remains unintegrated and unapproved. Do not release this submitted claim merely to take another task.
+
+## Observed full-validator result
+
+PR [#778](https://github.com/CBirkbeck/tauceti-explorer/pull/778) is the durable draft submission. The actual CI job log was read after the checkpoint above. The repository command `python3 scripts/check_links.py research/blueprint/links/tauceti_TauCetiRoadmap_GlobalQuadraticForms.json` reported **37 links, 1 overlap, 8 examined entries; 0 errors and 0 warnings**.
+
+[Workflow run 35100737838](https://github.com/CBirkbeck/tauceti-explorer/actions/runs/35100737838), [job 104809217919](https://github.com/CBirkbeck/tauceti-explorer/actions/runs/35100737838/job/104809217919), completed on 2026-09-16 at 13:15:51 UTC. The tested head was `7e20ea4070472bc97cc027b05777438a0099913d`, the base was `be09b0fb85faab7fc6a8646e9f524140cfa0df2e`, and the synthetic PR merge was `3156d23bd52f0ce457e5e28760f5b59a64045c43`. This receipt changes only the handoff; the validated link packet is unchanged.
+
+The full-world structural check therefore succeeded using the complete atlas and other packets in that tested merge. The runner's separate Node.js deprecation warning is not a link-validator warning. The local non-execution statement above remains accurate; remote CI removed that validation limitation.
+
+The [issue submission comment](https://github.com/CBirkbeck/tauceti-explorer/issues/27#issuecomment-5698076147) and [validation receipt](https://github.com/CBirkbeck/tauceti-explorer/issues/27#issuecomment-5698096334) document the handoff. Catalogue-wide screening, the recorded mathematical/interface requests, and independent review remain outstanding. No content roadmap, review verdict, merge, approval, issue closure or claim release was performed.
