@@ -223,7 +223,65 @@ def main():
             time.sleep(args.pace)
         return
     if args.command == "sync":
-        print("sync: not yet enabled; issues are mirrored only after the maintainer confirms the setup")
+        sync(mapping)
+
+
+STATE_LABELS = ("state:available", "state:claimed", "state:running", "state:submitted", "state:done")
+CLOSE_WHEN_DONE = {"review", "classify", "naming", "status", "assembly", "plan"}
+
+
+def set_state(number, wanted, current):
+    remove = [label for label in current if label in STATE_LABELS and label != wanted]
+    command = ["gh", "issue", "edit", str(number), "--add-label", wanted]
+    for label in remove:
+        command += ["--remove-label", label]
+    return subprocess.run(command, capture_output=True, text=True, cwd=REPO).returncode == 0
+
+
+def sync(mapping):
+    """Claims flow from GitHub into the queue; local progress flows back as labels."""
+    import fcntl
+    listing = subprocess.run(["gh", "issue", "list", "--label", "swarm", "--state", "all", "--limit", "2000",
+                              "--json", "number,labels,state"], capture_output=True, text=True, cwd=REPO)
+    if listing.returncode != 0:
+        raise SystemExit("gh issue list failed: " + listing.stderr[:200])
+    issues = {item["number"]: item for item in json.loads(listing.stdout)}
+    lock = open(BP / ".queue.lock", "a+")
+    fcntl.flock(lock, fcntl.LOCK_EX)
+    changed_queue, edits, closed = 0, 0, 0
+    try:
+        queue = json.loads((BP / "queue.json").read_text())
+        for job in queue["jobs"]:
+            number = mapping.get(job["id"])
+            item = issues.get(number)
+            if not item:
+                continue
+            labels = [label["name"] for label in item["labels"]]
+            state = job.get("state")
+            if "state:claimed" in labels and state == "pending":
+                job["state"] = "external"; job["note"] = f"claimed on GitHub issue #{number}"; changed_queue += 1
+                continue
+            if state == "external" and "state:available" in labels:
+                job["state"] = "pending"; job["note"] = f"released on GitHub issue #{number}"; changed_queue += 1
+                state = "pending"
+            wanted = {"pending": "state:available", "running": "state:running", "external": "state:claimed"}.get(state)
+            if state == "done":
+                wanted = "state:done" if (job["kind"] in CLOSE_WHEN_DONE or job.get("integrated")) else "state:submitted"
+            if state in ("failed", "superseded"):
+                wanted = None
+            if wanted and wanted not in labels:
+                edits += set_state(number, wanted, labels)
+            if wanted == "state:done" and item["state"] == "OPEN":
+                note = "Finished by the local swarm." if job.get("account") else "Finished."
+                subprocess.run(["gh", "issue", "close", str(number), "--comment", note], capture_output=True, cwd=REPO)
+                closed += 1
+        if changed_queue:
+            tmp = BP / "queue.json.tmp"
+            tmp.write_text(json.dumps(queue, indent=1, ensure_ascii=False) + "\n")
+            tmp.replace(BP / "queue.json")
+    finally:
+        fcntl.flock(lock, fcntl.LOCK_UN)
+    print(f"sync: {changed_queue} queue change(s), {edits} label edit(s), {closed} issue(s) closed")
 
 
 if __name__ == "__main__":
