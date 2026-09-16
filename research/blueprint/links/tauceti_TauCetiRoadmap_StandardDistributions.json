@@ -1,0 +1,147 @@
+{
+  "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+  "protocol": "links-v1",
+  "summary": "Partial, reviewable checkpoint by ChatGPT Pro — cgp-2500d08c972d for issue #69. All seven target layers and all 60 upstream roadmaps were surveyed (most other upstream roadmaps at overview level). Five proposed links: one incoming explicit moment-determinacy reuse and four outgoing inferred, route-specific links to OptimalTransport, DenseGraphLimits and ProbabilisticAndMetricNumberTheory. One Gaussian-affine-map overlap recommends rescoping, not merging roadmaps. Exhaustive campaign keyword/stage closure and full repository validation remain pending; see the handoff. A result of none means no edge established within the recorded read scope, not proof of absence.",
+  "links": [
+    {
+      "source": "tauceti:Completed/OrthogonalL2Bases#b1--completeness-toolkit-moment-determinacy",
+      "target": "tauceti:TauCetiRoadmap/StandardDistributions#layer-1-complete-the-elementary-theory-of-existing-distributions",
+      "reason": "The StandardDistributions ownership paragraph explicitly delegates uniqueness from moments to OrthogonalL2Bases. Attach that directive to the scalar-moment stage, not to every calculation in the roadmap. B1 applies to an L1 density difference h with integral exp(a*abs(x))*abs(h(x)) finite for some a>0 and vanishing polynomial moments; it gives h=0 almost everywhere and hence equality of the two absolutely continuous laws. The consumer must supply this integrability and the density-to-measure equality bridge. This is not determinacy from polynomial moments alone, and does not automatically cover discrete laws or the nondegenerate log-normal family.",
+      "confidence": "explicit",
+      "evidence": [
+        {"stageId": "tauceti:Completed/OrthogonalL2Bases#b1--completeness-toolkit-moment-determinacy", "quote": "all of whose polynomial moments vanish is a.e. `0`"},
+        {"stageId": "tauceti:TauCetiRoadmap/StandardDistributions#layer-1-complete-the-elementary-theory-of-existing-distributions", "quote": "The determinacy theorem belongs to the orthogonal-L²-bases roadmap; use it for uniqueness from moments."}
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StandardDistributions#layer-0-connect-existing-densities-and-add-the-uniform-distribution",
+      "target": "tauceti:TauCetiRoadmap/OptimalTransport#layer-3-wasserstein-distances-and-topology",
+      "reason": "Layer 0 supplies the normalized interval law used as the source of the quantile pushforward in OptimalTransport Layer 3 item 7. Use a=0<b=1 and identify the real Ioc law with the open-unit-interval or unit-interval-subtype presentation by removing null endpoints. OptimalTransport still owns the measurable generalized inverse, its law identity, optimality of the quantile coupling and every Wasserstein formula. This inferred reuse route must not be read as saying that those results follow from the uniform cdf alone.",
+      "confidence": "inferred",
+      "evidence": [
+        {"stageId": "tauceti:TauCetiRoadmap/StandardDistributions#layer-0-connect-existing-densities-and-add-the-uniform-distribution", "quote": "A random variable with law `uniformMeasure 0 1` is `pdf.IsUniform`-uniform on `Ioc 0 1`."},
+        {"stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-3-wasserstein-distances-and-topology", "quote": "Borel probability law, its measurability and pushforward of uniform measure, and the"}
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StandardDistributions#layer-1-complete-the-elementary-theory-of-existing-distributions",
+      "target": "tauceti:TauCetiRoadmap/OptimalTransport#layer-3-wasserstein-distances-and-topology",
+      "reason": "The nonzero-scale Cauchy non-integrability theorem supplies the concrete guardrail in OptimalTransport Layer 3 item 2. For the probability law mu=cauchyMeasure x0 gamma with gamma nonzero, finite second moment would imply integrability of id by the probability-space L2-to-L1 inclusion, a contradiction. A constant-shift inequality handles moments about any basepoint. The separate assertion W2(mu,mu)=0 uses the diagonal coupling in OptimalTransport and does not require a finite moment. Exclude gamma=0: its Dirac law is in P2. Do not infer non-integrability from the totalized value of a Lean integral.",
+      "confidence": "inferred",
+      "evidence": [
+        {"stageId": "tauceti:TauCetiRoadmap/StandardDistributions#layer-1-complete-the-elementary-theory-of-existing-distributions", "quote": "non-integrability of `id`, and non-integrability of the mgf integrand for every `t ≠ 0`."},
+        {"stageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-3-wasserstein-distances-and-topology", "quote": "Cauchy law lies in its own finite-`W₂` component but not in `P₂(ℝ)`."}
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StandardDistributions#layer-0-connect-existing-densities-and-add-the-uniform-distribution",
+      "target": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9a--finite-and-joint-graphon-sampling",
+      "reason": "The joint graphon sampler uses one uniform random variable per unordered pair. Layer 0 supplies a real-valued uniformMeasure 0 1 with the law/IsUniform and cdf API, which can supply this marginal law. Compare it explicitly with the graphon sampler's chosen interval carrier; thresholding at p in [0,1] gives a coin of parameter p, with endpoint changes null. DenseGraphLimits continues to own independent countable products, dependence on sampled positions, the single infinite graph law and its finite restrictions. No edge is asserted from scalar Bernoulli moment formulas to graphon concentration. This is an inferred uniform-law reuse route, subject to the carrier-adapter request in the handoff.",
+      "confidence": "inferred",
+      "evidence": [
+        {"stageId": "tauceti:TauCetiRoadmap/StandardDistributions#layer-0-connect-existing-densities-and-add-the-uniform-distribution", "quote": "A random variable with law `uniformMeasure 0 1` is `pdf.IsUniform`-uniform on `Ioc 0 1`."},
+        {"stageId": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9a--finite-and-joint-graphon-sampling", "quote": "probability space (i.i.d. `μ`-positions, one uniform per unordered pair) — with the finite-marginal"}
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StandardDistributions#layer-1-complete-the-elementary-theory-of-existing-distributions",
+      "target": "ProbabilisticAndMetricNumberTheory:PM.1",
+      "reason": "For the moment-method route explicitly allowed in PM.1, specialize the scalar Gaussian central and absolute moments to mean 0 and variance 1 to identify the limiting moment sequence in the Erdos-Kac theorem. PM.1 still owns arithmetic moment estimates, centering, variance, large-prime errors, a determinacy or moment-convergence argument, and weak-convergence assembly. This link is route-specific: it does not assert that a characteristic-function proof requires new scalar-moment work, or that the starting Gaussian law and characteristic function are absent from the pinned library.",
+      "confidence": "inferred",
+      "evidence": [
+        {"stageId": "tauceti:TauCetiRoadmap/StandardDistributions#layer-1-complete-the-elementary-theory-of-existing-distributions", "quote": "Prove `centralMoment id (2*n) = v^n * (2*n - 1)‼`, the vanishing of odd central moments,"},
+        {"stageId": "ProbabilisticAndMetricNumberTheory:PM.1", "quote": "Prove Turan-Kubilius and source-scoped Hardy-Ramanujan/Erdos-Kac theorems through moment or characteristic-function estimates."}
+      ]
+    }
+  ],
+  "overlaps": [
+    {
+      "stages": ["tauceti:TauCetiRoadmap/StandardDistributions#layer-5-multivariate-distributions", "tauceti:TauCetiRoadmap/OptimalTransport#layer-5-convex-analysis-brenier-and-polar-factorization"],
+      "detail": "StandardDistributions Layer 5 item 3 constructs Gaussian affine pushforwards with covariance L*S*transpose(L), whereas OptimalTransport Layer 5 item 3 also asks to build Gaussian covariance-pushforward lemmas for Brenier and Wasserstein calculations. This is a concrete duplicated elementary law identity, not an overlap of the complete statistical and transport theories. The former allows rectangular L and positive-semidefinite covariance; the latter also needs separate positive-definite matrix square-root and geometric-mean theory.",
+      "recommendation": "rescope",
+      "proposal": "Keep the elementary affine-law and covariance-pushforward theorem in StandardDistributions Layer 5, with finite real Euclidean carriers, rectangular L and S.PosSemidef. Replace the duplicate Gaussian-law portion of OptimalTransport Layer 5 item 3 by an explicit import/adapter to that theorem. Keep positive-definite square roots, inverse and geometric-mean identities, the Brenier matrix, W2 formula, interpolation and barycenters in OptimalTransport. Do not move Cholesky, Wishart densities or conditional-Gaussian formulas to OptimalTransport. No prerequisite edge is emitted for this pair until the duplicate ownership is reconciled; thereafter add the narrow elementary-law dependency, without a reverse whole-roadmap edge."
+    }
+  ],
+  "examined": [
+    {"roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions", "result": "links", "note": "Full README, all seven layer specifications and the target atlas records read; input/output inventory in handoff. Links below are partial coverage, not a certificate that every other atlas stage has been exhausted."},
+    {"roadmapId": "tauceti:Completed/OrthogonalL2Bases", "result": "links", "note": "Full README including B1 read. Explicit ownership of moment determinacy; retain exponential integrability and the density/measure bridge. Hermite-basis completeness is not an automatic supplier of multivariate Gaussian densities."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport", "result": "links", "note": "Overview and full Layers 3 and 5 read. Two Layer-3 links and one Layer-5 rescope overlap recorded. Gaussian hits in Layers 11, 12, 13 and 16 were inspected as excerpts only; finish those candidate stages before adding further edges."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits", "result": "links", "note": "Overview and full Layer 9a read. Joint sampling specifies one uniform per unordered pair. Native binomialRandom compatibility and Bernoulli-rounding excerpts do not establish a dependency on the scalar moment API."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/Exchangeability", "result": "none", "note": "Overview and conditional-iid coin example read. That example explicitly uses a two-point kernel to stay independent of a mature Bernoulli API. Shared Measure.bind or conditioning vocabulary does not imply a named-distribution dependency."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups", "result": "none", "note": "Overview and positive-definite-function/Gaussian example excerpts read, together with StandardDistributions explicit no-shared-targets-or-dependencies boundary. Named characteristic-function calculations do not require the general Bochner representation theorem."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/PDE", "result": "none", "note": "Overview and stage-title inventory surveyed. Weak derivatives, Sobolev estimates and parabolic PDE theory are not supplied by elementary probability laws. This negative is at overview level; heat-kernel candidate closure is not certified."},
+    {"roadmapId": "tauceti:Completed/ContourIntegration", "result": "none", "note": "Overview surveyed: contour integrals and analytic estimates, not a specified construction of the incomplete Gamma/Beta or named probability cdfs. A familiar integration technique is not enough to add an edge."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry", "result": "none", "note": "Overview surveyed: toric and analytic geometry has no identified consumer of the scalar or matrix-valued probability laws."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping", "result": "none", "note": "Overview surveyed: conformal maps and the Riemann mapping theory do not identify an input from elementary distribution cdfs or random-variable changes of law."},
+    {"roadmapId": "tauceti:Completed/EffectiveBounds", "result": "none", "note": "Overview and Gaussian-integer keyword hit inspected. Gaussian integers in Diophantine estimates are not Gaussian probability measures."},
+    {"roadmapId": "tauceti:Completed/IntegralLattices", "result": "none", "note": "Overview surveyed. Integral Gram matrices and lattice invariants are not the Gaussian-Gram random-matrix laws or normalized symmetric-matrix Lebesgue measures in StandardDistributions."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Huber rings, rational localizations and sheaf conditions are not probability kernels or real-density constructions."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Finite-field codes and weight enumerators do not supply or consume the specified probability generating functions of natural-valued random variables."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Function fields, divisors and curve geometry do not identify an elementary probability-law consumer."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Singular and cellular homology, duality and homotopy calculations are not distribution-theory targets."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Arithmetic Dirichlet series and their analytic continuation are not Dirichlet probability measures on a simplex."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Branched covers and dessins do not identify a consumer of the named scalar distributions."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Finite-simple-group classification statements do not identify an elementary probability-distribution input."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/Chebotarev", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Frobenius density in arithmetic is not a probability cdf or an asserted Gaussian limit law in the surveyed scope."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Reciprocity and Galois/cohomological constructions do not identify a named real probability-law input."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Combinatorial Floer and knot invariants are not scalar or matrix probability distributions."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Differential graded and A-infinity algebra constructions do not identify a probability-law consumer."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Isogenies, reduction and Mordell-Weil arithmetic do not identify a consumer of the scalar distribution APIs."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Hyperbolic/orbifold structures are not elementary distribution laws; no stage pair established."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Manifolds, surgery and knots do not identify a probability-law input in the surveyed scope."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Places, ideles and ray classes do not identify an elementary real-distribution input."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Quadratic-form invariants and local-global classification are not random Gaussian Gram matrices."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Grothendieck groups and Ext/Euler pairings do not identify a probability-law consumer."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Analytic Floer compactness and gluing are not elementary probability-law constructions."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Hodge and polarization bilinear forms are not Gaussian covariance measures or Wishart distributions."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/HopfRinow", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Geodesic completeness and Riemannian distance do not identify a named probability-law input."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Jacobian varieties and Picard functors are not Jacobian determinants for probability-density changes of variables."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Ramification and unit filtrations do not identify a real-distribution input."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ModularCurves", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Elliptic-curve moduli and level structures do not identify a scalar probability-law consumer."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ModularForms", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Bernoulli numbers in Eisenstein expansions are not Bernoulli random variables; no probability-law edge established."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Multiquadratic extensions and genus theory do not identify a probability-law consumer."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Prime splitting and arithmetic invariants do not identify an elementary real-distribution input."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Galois permutation representations and resolvents do not identify a probability-law input."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Continuous cochains, restriction and corestriction are not conditional probability kernels."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Profinite presentations and Demushkin classification do not identify a named probability-law input."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Witt, Clifford and cohomological invariants are distinct from the Gaussian covariance and Wishart APIs."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Algebraic group structure and classification do not identify an elementary probability-law input."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. The representation-theory family index identifies no elementary-distribution supplier; analytic basis dependencies have separate owners."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Faithful Lie representations and finite enveloping quotients are not elementary probability laws."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Gaussian elimination in a finite-field character algorithm is not a Gaussian probability-law construction."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Highest weights and tensor representations are not random Gaussian matrix laws."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Normalized Haar measure and Peter-Weyl use their own compact-group measure/basis API, not the real interval-uniform or Wishart laws."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Induction, Mackey and character formulas do not identify an elementary distribution-law input."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Lie integration and group decompositions do not identify a named probability-law consumer."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Highest weights and Weyl formulas are not scalar probability generating functions."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Path algebras, dimension vectors and Gabriel/Auslander-Reiten theory are not probability distributions."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Root systems and Coxeter groups are not Gaussian covariance-law constructions."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Young symmetrizers, symmetric functions and Schur-Weyl duality do not identify a named probability-law input."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Artin-Wedderburn, centralizers and Brauer groups are not the elementary distribution APIs."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Clifford modules and spin weights are not Gaussian probability measures."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Stable/periodic/curved homological categories are not stable probability distributions."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/StableReduction", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Stable curves and stable maps are not stable probability laws."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Topological covering maps and lifting do not identify an elementary probability-law input."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective", "result": "none", "note": "Overview/summary surveyed, not a full stage audit. Preprojective algebras and derived braid actions do not identify an elementary probability-law input."},
+    {"roadmapId": "ProbabilisticAndMetricNumberTheory", "result": "links", "note": "Full six-stage README read. PM.1 explicitly permits a moment-method route to Erdos-Kac; Gaussian moments supply its target sequence. PM.0 uniform integers are not the continuous interval law; PM.4 Gauss-map invariant measure is not a Gaussian law."},
+    {"roadmapId": "PerfectoidSpaces", "result": "none", "note": "Overview/summary inspected only. Perfectoid analytic geometry is distinct from real probability measures."},
+    {"roadmapId": "PeriodsAndSpecialValues", "result": "none", "note": "Overview/summary inspected only. Period comparisons and arithmetic special values do not identify a named probability-law input."},
+    {"roadmapId": "PhiGammaModulesAndIwasawaCohomology", "result": "none", "note": "Overview/summary inspected only. Phi-Gamma modules and arithmetic cohomology are not conditional-distribution kernels."},
+    {"roadmapId": "Polylogarithms", "result": "none", "note": "Overview/summary inspected only. Bernoulli-coefficient polylogarithm identities are not Bernoulli probability laws."},
+    {"roadmapId": "PotentialAutomorphyInfrastructure", "result": "none", "note": "Overview/summary inspected only. Automorphy infrastructure does not identify a named real probability-law input."},
+    {"roadmapId": "PotentialModularityAndCompatibleSystems", "result": "none", "note": "Overview/summary inspected only. Compatible Galois systems are distinct from probabilistic joint distributions."},
+    {"roadmapId": "PrismaticCohomology", "result": "none", "note": "Overview/summary inspected only. Prisms and prismatic cohomology do not identify a named probability-law input."},
+    {"roadmapId": "QSeriesPartitionsAndMockModularForms", "result": "none", "note": "Overview/summary inspected only. Formal q-series and partition identities are not the natural-valued probability generating-function API without a separate probability/convergence bridge."},
+    {"roadmapId": "RankZeroOneBSD", "result": "none", "note": "Overview/summary inspected only. Arithmetic rank-zero/one BSD arguments do not identify a named probability-law consumer."},
+    {"roadmapId": "VectorBundlesAndIsocrystals", "result": "none", "note": "Overview/summary inspected only. Slope and bundle classifications are not probability-distribution laws."},
+    {"roadmapId": "WeightsInEtaleCohomology", "result": "none", "note": "Overview/summary inspected only. Etale weights and purity do not identify an elementary probability-law input."},
+    {"roadmapId": "WeilConjectures", "result": "none", "note": "Overview/summary inspected only. Etale/cohomological zeta theory is not an elementary probability-distribution construction."},
+    {"roadmapId": "HabiroNahmSeries", "result": "none", "note": "Keyword excerpt only; not a full stage audit. Formal Gaussian/Hessian expansion keyword hits were inspected, not complete HB.4/HB.8/HB.9. Do not infer a positive real probability measure from a formal Wick/Gaussian expression; candidate remains to be closed."},
+    {"roadmapId": "ArithmeticKTheory", "result": "none", "note": "Keyword excerpt only; not a full stage audit. Bernoulli-number regular-prime excerpt is arithmetic, not a Bernoulli probability-law construction."},
+    {"roadmapId": "ClassicalArithmeticCompletion", "result": "none", "note": "Keyword excerpt only; not a full stage audit. CA.2 Bernoulli/Euler numbers and formal generating series are not random-variable laws."},
+    {"roadmapId": "DirichletPadicLFunctions", "result": "none", "note": "Keyword excerpt only; not a full stage audit. Bernoulli/Mellin and p-adic distribution excerpts do not give real probability measures."},
+    {"roadmapId": "EllipticRegulators", "result": "none", "note": "Keyword excerpt only; not a full stage audit. Bernoulli polynomials in the elliptic dilogarithm correction are not Bernoulli probability laws."},
+    {"roadmapId": "IntegralIwasawaTheory", "result": "none", "note": "Keyword excerpt only; not a full stage audit. Bernoulli-distribution/Iwasawa-normalization excerpt is p-adic arithmetic rather than a real probability-law construction."},
+    {"roadmapId": "SpecialValuesBirchTate", "result": "none", "note": "Keyword excerpt only; not a full stage audit. The Bernoulli/zeta test in the Birch-Tate excerpt is not an elementary probability distribution."}
+  ]
+}
