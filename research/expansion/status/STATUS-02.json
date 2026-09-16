@@ -1,0 +1,736 @@
+[
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+  "title": "Optimal transport and Wasserstein geometry",
+  "statusPath": "content/tau-ceti/OptimalTransport/STATUS.md",
+  "readmePath": "content/tau-ceti/OptimalTransport/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-0-transport-plans-maps-kernels-and-gluing",
+    "key": "Layer 0",
+    "title": "Layer 0: transport plans, maps, kernels, and gluing",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-1-transport-cost-compactness-existence-and-stability",
+    "key": "Layer 1",
+    "title": "Layer 1: transport cost, compactness, existence, and stability",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-2-kantorovich-duality-transforms-and-optimality-certificates",
+    "key": "Layer 2",
+    "title": "Layer 2: Kantorovich duality, transforms, and optimality certificates",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-3-wasserstein-distances-and-topology",
+    "key": "Layer 3",
+    "title": "Layer 3: Wasserstein distances and topology",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-4-the-monge-problem-and-abstract-transport-maps",
+    "key": "Layer 4",
+    "title": "Layer 4: the Monge problem and abstract transport maps",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-5-convex-analysis-brenier-and-polar-factorization",
+    "key": "Layer 5",
+    "title": "Layer 5: convex analysis, Brenier, and polar factorization",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-6-monge--ampère-measures-equations-and-regularity",
+    "key": "Layer 6",
+    "title": "Layer 6: Monge--Ampère measures, equations, and regularity",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#6a-aleksandrov-weak-theory",
+    "key": "6A",
+    "title": "6A. Aleksandrov weak theory",
+    "parentStageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-6-monge--ampère-measures-equations-and-regularity"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#6b-the-transport-equation",
+    "key": "6B",
+    "title": "6B. The transport equation",
+    "parentStageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-6-monge--ampère-measures-equations-and-regularity"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#6c-quadratic-caffarelli-theory",
+    "key": "6C",
+    "title": "6C. Quadratic Caffarelli theory",
+    "parentStageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-6-monge--ampère-measures-equations-and-regularity"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#6d-general-costs-ma--trudinger--wang-mtw-and-partial-regularity",
+    "key": "6D",
+    "title": "6D. General costs, Ma--Trudinger--Wang (MTW), and partial regularity",
+    "parentStageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-6-monge--ampère-measures-equations-and-regularity"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-7-riemannian-brenier--mccann-transport",
+    "key": "Layer 7",
+    "title": "Layer 7: Riemannian Brenier--McCann transport",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-8-metric-curves-dynamic-plans-and-benamou--brenier",
+    "key": "Layer 8",
+    "title": "Layer 8: metric curves, dynamic plans, and Benamou--Brenier",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-9-displacement-geometry-and-convexity",
+    "key": "Layer 9",
+    "title": "Layer 9: displacement geometry and convexity",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-10-abstract-metric-gradient-flows",
+    "key": "Layer 10",
+    "title": "Layer 10: abstract metric gradient flows",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-11-entropy-wasserstein-differential-calculus-jko-and-pde-flows",
+    "key": "Layer 11",
+    "title": "Layer 11: entropy, Wasserstein differential calculus, JKO, and PDE flows",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-12-fréchet-and-wasserstein-barycenters",
+    "key": "Layer 12",
+    "title": "Layer 12: Fréchet and Wasserstein barycenters",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-13-entropic-transport-sinkhorn-and-schrödinger-bridges",
+    "key": "Layer 13",
+    "title": "Layer 13: entropic transport, Sinkhorn, and Schrödinger bridges",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#13a-static-entropic-transport",
+    "key": "13A",
+    "title": "13A. Static entropic transport",
+    "parentStageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-13-entropic-transport-sinkhorn-and-schrödinger-bridges"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#13b-iterative-proportional-fitting-and-finite-sinkhorn",
+    "key": "13B",
+    "title": "13B. Iterative proportional fitting and finite Sinkhorn",
+    "parentStageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-13-entropic-transport-sinkhorn-and-schrödinger-bridges"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#13c-dynamic-schrödinger-theory",
+    "key": "13C",
+    "title": "13C. Dynamic Schrödinger theory",
+    "parentStageId": "tauceti:TauCetiRoadmap/OptimalTransport#layer-13-entropic-transport-sinkhorn-and-schrödinger-bridges"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-14-synthetic-curvature-nonsmooth-heat-flow-and-optimal-maps",
+    "key": "Layer 14",
+    "title": "Layer 14: synthetic curvature, nonsmooth heat flow, and optimal maps",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-15-measured-kernels-and-gromov--wasserstein",
+    "key": "Layer 15",
+    "title": "Layer 15: measured kernels and Gromov--Wasserstein",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/OptimalTransport#layer-16-public-api-extraction-and-end-to-end-examples",
+    "key": "Layer 16",
+    "title": "Layer 16: public API, extraction, and end-to-end examples",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+  "title": "Modular forms — Hecke theory, newforms, and L-functions",
+  "statusPath": "content/tau-ceti/ModularForms/STATUS.md",
+  "readmePath": "content/tau-ceti/ModularForms/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+    "key": "Layer 0",
+    "title": "Layer 0: diamond operators and modular forms with character (nebentypus)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ModularForms#layer-1-the-valence-formula-general-level",
+    "key": "Layer 1",
+    "title": "Layer 1: the valence formula (general level)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+    "key": "Layer 2",
+    "title": "Layer 2: Hecke operators and the Hecke algebra",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms",
+    "key": "Layer 3",
+    "title": "Layer 3: the Petersson inner product, adjoints, oldforms and newforms",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+    "key": "Layer 4",
+    "title": "Layer 4: eigenforms, newforms, primitive forms; the conductor",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+    "key": "Layer 5",
+    "title": "Layer 5: strong multiplicity one and the eigenform characterization",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ModularForms#layer-6-atkinlehner-and-fricke-operators",
+    "key": "Layer 6",
+    "title": "Layer 6: Atkin–Lehner and Fricke operators",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+    "key": "Layer 7",
+    "title": "Layer 7: L-functions",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+    "key": "Layer 8",
+    "title": "Layer 8: modular symbols, the integral Hecke algebra, and coefficient fields",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+    "key": "Layer 8G",
+    "title": "Layer 8G: Galois stability, the character field, and rationality",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ModularForms#layer-9-the-lmfdb-invariant-layer",
+    "key": "Layer 9",
+    "title": "Layer 9: the LMFDB invariant layer",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas",
+    "key": "Layer 10",
+    "title": "Layer 10: the modular curve Γ\\ℍ and the dimension formulas",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve",
+    "key": "10A",
+    "title": "10A — the analytic modular curve",
+    "parentStageId": "tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology",
+    "key": "10B",
+    "title": "10B — compact-Riemann-surface cohomology",
+    "parentStageId": "tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas",
+    "key": "10C",
+    "title": "10C — modular forms as section spaces, and the dimension formulas",
+    "parentStageId": "tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas"
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one",
+    "key": "Layer 11",
+    "title": "Layer 11: the Eichler–Selberg trace formula (level one)",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "title": "Algebraic curves — function fields, divisors, and Riemann–Roch",
+  "statusPath": "content/tau-ceti/AlgebraicCurves/STATUS.md",
+  "readmePath": "content/tau-ceti/AlgebraicCurves/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+    "key": "Layer 0",
+    "title": "Layer 0: function fields, constant fields, and places",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-1-the-rational-function-field",
+    "key": "Layer 1",
+    "title": "Layer 1: the rational function field",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
+    "key": "Layer 2",
+    "title": "Layer 2: affine models — the Dedekind bridge",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+    "key": "Layer 3",
+    "title": "Layer 3: divisors, L(D), Riemann's theorem, and the genus",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
+    "key": "Layer 4",
+    "title": "Layer 4: repartitions, Weil differentials, and Riemann–Roch",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+    "key": "Layer 5",
+    "title": "Layer 5: consequences of Riemann–Roch, and local components",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+    "key": "Layer 6",
+    "title": "Layer 6: extensions of function fields",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+    "key": "Layer 7",
+    "title": "Layer 7: the different and the Hurwitz genus formula",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+    "key": "Layer 8",
+    "title": "Layer 8: constant-field extensions, Galois ramification, and inseparability ⚠",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+    "key": "Layer 9",
+    "title": "Layer 9: Kähler differentials, residues, and the comparison",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
+    "key": "Layer 10",
+    "title": "Layer 10: model classes — elliptic, hyperelliptic, plane curves",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-11-automorphisms-and-the-hurwitz-bound",
+    "key": "Layer 11",
+    "title": "Layer 11: automorphisms and the Hurwitz bound",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+    "key": "Layer 12",
+    "title": "Layer 12: the dictionary — function fields ↔ curves, and the comparison contracts",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+  "title": "Global number fields, ray classes, adeles, and Hecke characters",
+  "statusPath": "content/tau-ceti/GlobalNumberFields/STATUS.md",
+  "readmePath": "content/tau-ceti/GlobalNumberFields/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula",
+    "key": "Layer 0",
+    "title": "Layer 0: places, completions, and the product formula",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences",
+    "key": "Layer 1",
+    "title": "Layer 1: weak approximation and multiplicative congruences",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+    "key": "Layer 2",
+    "title": "Layer 2: moduli and ray class carriers",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting",
+    "key": "Layer 3",
+    "title": "Layer 3: geometry of numbers and ray-class ideal counting",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles",
+    "key": "Layer 4",
+    "title": "Layer 4: finite adeles",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-5-full-adeles-and-the-additive-quotient",
+    "key": "Layer 5",
+    "title": "Layer 5: full adeles and the additive quotient",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+    "key": "Layer 6",
+    "title": "Layer 6: additive strong approximation and ideles",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-7-congruence-subgroups-and-the-ray-class-dictionary",
+    "key": "Layer 7",
+    "title": "Layer 7: congruence subgroups and the ray-class dictionary",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles",
+    "key": "Layer 8",
+    "title": "Layer 8: finite extensions of adeles and ideles",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+    "key": "Layer 9",
+    "title": "Layer 9: Hecke and ray class characters",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+    "key": "Layer 10",
+    "title": "Layer 10: archimedean characters, infinity types, and cyclotomic arithmetic",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups",
+    "key": "Layer 11",
+    "title": "Layer 11: orders and Picard groups",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+  "title": "Geometric topology and the solved Kirby-list problems",
+  "statusPath": "content/tau-ceti/GeometricTopology/STATUS.md",
+  "readmePath": "content/tau-ceti/GeometricTopology/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group",
+    "key": "Layer 1",
+    "title": "Layer 1: manifold-library buildout (general dimension, general structure group)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-2-locally-flat-embeddings-in-general-dimension",
+    "key": "Layer 2",
+    "title": "Layer 2: locally flat embeddings in general dimension",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-3-diffeomorphism-groups-with-the-c-topology",
+    "key": "Layer 3",
+    "title": "Layer 3: diffeomorphism groups with the C^∞ topology",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-4-knot-theory-done-properly-owned-here",
+    "key": "Layer 4",
+    "title": "Layer 4: knot theory, done properly (owned here)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-5-dehn-surgery",
+    "key": "Layer 5",
+    "title": "Layer 5: Dehn surgery",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-6-knot-concordance-and-4d-cobordism-owned-here",
+    "key": "Layer 6",
+    "title": "Layer 6: knot concordance and 4D cobordism (owned here)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume",
+    "key": "Layer 7",
+    "title": "Layer 7: Riemannian geometric structures and volume",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-8-thurston-geometries-and-the-jsj--geometric-decomposition",
+    "key": "Layer 8",
+    "title": "Layer 8: Thurston geometries and the JSJ / geometric decomposition",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-9-heegaard-splittings-and-heegaard-genus",
+    "key": "Layer 9",
+    "title": "Layer 9: Heegaard splittings and Heegaard genus",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-10-foliations-and-their-euler-class",
+    "key": "Layer 10",
+    "title": "Layer 10: foliations and their Euler class",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GeometricTopology#layer-11-triangulations-pl-structures-and-collapse",
+    "key": "Layer 11",
+    "title": "Layer 11: triangulations, PL structures, and collapse",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+  "title": "Exchangeability and de Finetti",
+  "statusPath": "content/tau-ceti/Exchangeability/STATUS.md",
+  "readmePath": "content/tau-ceti/Exchangeability/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-0-sequence-laws-finite-marginals-and-symmetry-notions",
+    "key": "Layer 0",
+    "title": "Layer 0: sequence laws, finite marginals, and symmetry notions",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-1-product-kernels-and-mixtures",
+    "key": "Layer 1",
+    "title": "Layer 1: product kernels and mixtures",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-2-process-tails-and-path-space-dynamics",
+    "key": "Layer 2",
+    "title": "Layer 2: process tails and path-space dynamics",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-3-l²-averaging-library-and-the-standard-borel-de-finetti-route",
+    "key": "Layer 3",
+    "title": "Layer 3: L² averaging library and the standard-Borel de Finetti route",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-4-reverse-martingales-and-conditional-expectation-limits",
+    "key": "Layer 4",
+    "title": "Layer 4: reverse martingales and conditional-expectation limits",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-5-koopman-operators-and-invariant-σ-algebras",
+    "key": "Layer 5",
+    "title": "Layer 5: Koopman operators and invariant σ-algebras",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-6-directing-measures-and-de-finetti-representation",
+    "key": "Layer 6",
+    "title": "Layer 6: directing measures and de Finetti representation",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-7-public-api-and-examples",
+    "key": "Layer 7",
+    "title": "Layer 7: public API and examples",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Exchangeability#layer-8-generalized-exchangeability-and-representation-theorems",
+    "key": "Layer 8",
+    "title": "Layer 8: generalized exchangeability and representation theorems",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+  "title": "Grothendieck groups, Cartan maps, and Euler forms",
+  "statusPath": "content/tau-ceti/GrothendieckEulerForms/STATUS.md",
+  "readmePath": "content/tau-ceti/GrothendieckEulerForms/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+    "key": "Layer 0",
+    "title": "Layer 0: intrinsic exact structures and conflation-exact functors",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-1-the-small-presentation-and-universal-additive-invariants",
+    "key": "Layer 1",
+    "title": "Layer 1: the small presentation and universal additive invariants",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+    "key": "Layer 2",
+    "title": "Layer 2: split, exact, abelian, and triangulated Grothendieck groups",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
+    "key": "Layer 3",
+    "title": "Layer 3: finite resolutions and the resolution theorem",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+    "key": "Layer 4",
+    "title": "Layer 4: finite-dimensional algebras and the Cartan map",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+    "key": "Layer 5",
+    "title": "Layer 5: finite-support Euler characteristics and Ext-Euler descent",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-6-laurent-coefficients-q-euler-forms-and-specialization",
+    "key": "Layer 6",
+    "title": "Layer 6: Laurent coefficients, q-Euler forms, and specialization",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-7-left-and-right-numerical-grothendieck-groups",
+    "key": "Layer 7",
+    "title": "Layer 7: left and right numerical Grothendieck groups",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+  "title": "Conformal mapping and the geometric theory of holomorphic functions",
+  "statusPath": "content/tau-ceti/ConformalMapping/STATUS.md",
+  "readmePath": "content/tau-ceti/ConformalMapping/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l0--the-local-mapping-engine",
+    "key": "L0",
+    "title": "L0 — the local-mapping engine",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l1--normal-families--montel-the-analytic-theorem-not-montelspace",
+    "key": "L1",
+    "title": "L1 — normal families / Montel (the analytic theorem, not MontelSpace)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l2--schwarz-lemma-extensions",
+    "key": "L2",
+    "title": "L2 — Schwarz lemma extensions",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l3--the-riemann-mapping-theorem-summit",
+    "key": "L3",
+    "title": "L3 — the Riemann mapping theorem (summit)",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l4--analytic-continuation--the-reflection-principle",
+    "key": "L4",
+    "title": "L4 — analytic continuation & the reflection principle",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l5--carathéodory-boundary-correspondence",
+    "key": "L5",
+    "title": "L5 — Carathéodory boundary correspondence",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l6--schwarzchristoffel",
+    "key": "L6",
+    "title": "L6 — Schwarz–Christoffel",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+  "title": "Geodesics, the exponential map, and the Hopf–Rinow theorem",
+  "statusPath": "content/tau-ceti/HopfRinow/STATUS.md",
+  "readmePath": "content/tau-ceti/HopfRinow/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-0-the-reconciled-riemannian-distance",
+    "key": "Layer 0",
+    "title": "Layer 0: the reconciled Riemannian distance",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-1-the-geodesic-equation-the-flow-and-the-exponential-map",
+    "key": "Layer 1",
+    "title": "Layer 1: the geodesic equation, the flow, and the exponential map",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-2-normal-neighbourhoods-the-gauss-lemma-and-minimizing-geodesics",
+    "key": "Layer 2",
+    "title": "Layer 2: normal neighbourhoods, the Gauss lemma, and minimizing geodesics",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-3-the-hopfrinow-equivalence",
+    "key": "Layer 3",
+    "title": "Layer 3: the Hopf–Rinow equivalence",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-4-corollaries-and-downstream-theory",
+    "key": "Layer 4",
+    "title": "Layer 4: corollaries and downstream theory",
+    "parentStageId": null
+   }
+  ]
+ },
+ {
+  "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+  "title": "Multiquadratic fields and genus theory",
+  "statusPath": "content/tau-ceti/Multiquadratic/STATUS.md",
+  "readmePath": "content/tau-ceti/Multiquadratic/README.md",
+  "stages": [
+   {
+    "id": "tauceti:TauCetiRoadmap/Multiquadratic#layer-0-the-multiquadratic-field",
+    "key": "Layer 0",
+    "title": "Layer 0: the multiquadratic field",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Multiquadratic#layer-1-the-prime-splitting-law",
+    "key": "Layer 1",
+    "title": "Layer 1: the prime-splitting law",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group",
+    "key": "Layer 2",
+    "title": "Layer 2: the 2-elementary quotient of the class group",
+    "parentStageId": null
+   },
+   {
+    "id": "tauceti:TauCetiRoadmap/Multiquadratic#layer-3-the-genus-field-and-the-2-rank-theorem-the-summit",
+    "key": "Layer 3",
+    "title": "Layer 3: the genus field and the 2-rank theorem (the summit)",
+    "parentStageId": null
+   }
+  ]
+ }
+]
