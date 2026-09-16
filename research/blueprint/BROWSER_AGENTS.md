@@ -6,13 +6,27 @@ follow the same protocol with local copies of the same resources.
 
 ## 1. Pick a job
 
-Every job is a GitHub issue labelled `swarm`:
+Every job is a GitHub issue labelled `swarm`. The issue names the roadmap, the
+stages in scope, the files to produce and the jobs that must finish first. It
+also carries the full instructions the local workers receive, with local paths
+replaced by public resources.
 
-- A job labelled `state:available` is free to take.
-- Comment `/claim` on the issue before you start. The maintainer then adds
-  `state:claimed`, and no other worker, local or remote, starts the job.
-- The issue names the roadmap, the stages in scope, the files to produce and
-  the jobs that must finish first.
+The `state:` label says where the job stands:
+
+| Label | Meaning |
+| --- | --- |
+| `state:available` | Free to take, once the jobs it depends on are done. |
+| `state:claimed` | Claimed through a `/claim` comment; nobody else starts it. |
+| `state:running` | A local swarm worker is on it. |
+| `state:submitted` | Work is in and awaiting review or integration. |
+| `state:done` | Reviewed and integrated. |
+
+- To take a job, comment `/claim` on the issue, optionally followed by the
+  agent's name, for example `/claim ChatGPT Pro`. A workflow then moves the
+  issue to `state:claimed`, and local workers skip it.
+- `/unclaim` releases a job you cannot finish.
+- Jobs labelled `local-only` need files that only the maintainer's workers
+  have.
 
 ## 2. Read the rules
 
@@ -88,3 +102,44 @@ Whichever you choose, say in the comment which model or agent wrote the work.
 The maintainer runs `python3 scripts/check_blueprint.py` (or
 `scripts/check_links.py`) on every submission. An independent review on a
 different agent follows. Only an accepted packet is integrated into the atlas.
+
+## 6. Other kinds of job
+
+- **Review** (`kind:review`). Check another agent's work, named in the issue.
+  You must not review your own work. Check:
+  - every source locator and excerpt against the text;
+  - every baseline declaration, in its Lean file at the pinned commit;
+  - that every proof step follows from the node's prerequisites;
+  - granularity;
+  - that every definition's API outline is complete.
+
+  Correct what is clearly wrong, and mark nodes you add with `addedBy`. Put a
+  `review` object in the packet with the status `accepted` or `needs_changes`,
+  and write your report to `research/blueprint/reviews/<JOB>.md`.
+- **Links** (`kind:link`). Map one upstream roadmap against every other
+  roadmap (PROTOCOL.md section 10):
+  - record each prerequisite link with two verbatim quotes, one showing the
+    output and one showing the use;
+  - record each overlap with a recommendation to merge, rescope or keep;
+  - list every roadmap you read.
+
+  Write the result to `research/blueprint/links/<file>.json`.
+- **New roadmap** (`kind:design`). Write the roadmap definition (PROTOCOL.md
+  section 7), then its complete blueprint and document. The issue gives the
+  topic and the sources.
+- **Assembly** (`kind:assembly`). Join the reviewed parts of one roadmap into a
+  single document. It needs an introduction covering purpose, scope,
+  boundaries, conventions and sources. Reconcile references between parts.
+- **Plan** (`kind:plan`). Structural planning from primary sources. The Habiro
+  plan relies on course notes that only the maintainer's workers have, so it is
+  marked `local-only`.
+- **Classification** (`kind:classify`). For each roadmap listed:
+  - find its principal references and their MSC 2020 codes on zbMATH Open;
+  - assign a cluster;
+  - estimate its distance from Mathlib on a scale of 0 to 10, with evidence.
+
+  The output format is in the issue.
+- **Planet names** (`kind:naming`). For each extracted planet in
+  `research/expansion/naming/<JOB>.json`, decide `keep`, `name` or `drop`,
+  following the rules in the issue.
+
