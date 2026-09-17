@@ -132,3 +132,6 @@
 2026-09-17T09:28:58Z	claude6/2	AUDIT-24	done	2296	{"layers": 33, "audited": 33}
 2026-09-17T09:43:00Z	claude6/1	AUDIT-25	done	1843	{"layers": 47, "audited": 47}
 2026-09-17T09:55:57Z	claude6/2	COMPARE-26	done	1619	{"judged": 24, "pairs": 24}
+2026-09-17T10:09:40Z	claude6/1	AUDIT-26	done	1600	{"layers": 38, "audited": 38}
+2026-09-17T10:12:43Z	claude6/2	COMPARE-27	limit	1005	2026-09-17T12:50:00+00:00
+2026-09-17T10:14:32Z	claude6/1	AUDIT-27	limit	291	2026-09-17T12:50:00+00:00
