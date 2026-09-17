@@ -3,10 +3,10 @@
  "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
  "roadmaps": {
   "tauceti:TauCetiRoadmap/ProfiniteCohomology": {
-   "summary": "Mathlib supplies the canonical carrier with compatible-pair functoriality, and Tau Ceti has built most of the low-degree theory on the explicit model: discrete coefficients, continuous sections and the smooth-discrete dictionary (Layers 0-1), the complex with res/infl/coeff and conjugation (Layer 2), the finite-group comparison and the degree-0 canonical comparison (Layer 3), the finite-quotient colimit in degrees 0 and 1 (Layer 4), the long exact sequence through H² with naturality and inflation-restriction (Layer 5), corestriction in degrees 0-2 with cor∘res (Layer 6), coinduction with Shapiro in degrees 0-1 (Layer 7), all six cup shapes with associativity, commutativity and the projection formula (Layer 8), and the Kummer sequence, cocycle and injective class map (Layer 9). Missing are the degree-1/2 comparison with continuousCohomology, the degree-2 colimit, the transgression and five-term sequence, transitivity and Mackey, Shapiro in degree 2 with its naturality, cup/connecting-map identities and the Bockstein, profinite Hilbert 90 (hence the Kummer isomorphism and the galois* bridge), and essentially all of Layers 10-13: no all-degree long exact sequence, corestriction, Shapiro or torsion theorem, no cohomological dimension, no all-degree cup product and no Evens norm, although TauCeti.WreathProduct already gives the permutation wreath product the norm needs.",
+   "summary": "Mathlib supplies the canonical carrier with compatible-pair functoriality, and Tau Ceti has built most of the low-degree theory on the explicit model. Built:\n- discrete coefficients, continuous sections and the smooth-discrete dictionary (Layers 0-1), apart from the induced actions on G-stable subgroups and quotients and the closure properties of smooth discrete objects;\n- the complex with res/infl/coeff and degree-1 conjugation (Layer 2), apart from the ℤ_p worked examples;\n- the finite-group comparison and the degree-0 canonical comparison (Layer 3);\n- the finite-quotient system in all degrees with its naturality, and the colimit theorem in degrees 0 and 1 (Layer 4);\n- the long exact sequence through H² with naturality, and inflation-restriction (Layer 5);\n- corestriction in degrees 0-2 with cor∘res (Layer 6);\n- coinduction with Shapiro in degrees 0-1 (Layer 7);\n- all six cup shapes with associativity, commutativity, restriction, inflation and the projection formula (Layer 8);\n- the Kummer sequence, cocycle and injective class map (Layer 9).\nMissing:\n- the degree-1/2 comparison with continuousCohomology and the degree-2 colimit;\n- the transgression and five-term sequence, transitivity and Mackey, and Shapiro in degree 2 with its naturality;\n- cup/connecting-map identities and the Bockstein;\n- profinite Hilbert 90, hence the Kummer isomorphism;\n- the embedding-indexed field-extension bridge (Mathlib has only the intermediate-field fixing-subgroup facts);\n- most of Layers 10-13: no canonical all-degree colimit, long exact sequence, corestriction, Shapiro or torsion theorem, no cohomological dimension, no all-degree cup product and no Evens norm. The nearest inputs are Mathlib's discrete group cohomology and Tau Ceti's finite-group Tate corestrictions. TauCeti.WreathProduct already gives the permutation wreath product the norm needs.",
    "layers": {
     "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections": {
-     "verdict": "built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "Point stabilizers of a discrete module are open; continuity of the action is equivalent to openness of stabilizers",
@@ -62,7 +62,7 @@
          "fit": "exact"
         }
        ],
-       "note": "`openActionKernel` is an `OpenNormalSubgroup G` acting trivially on a finite discrete M over profinite G; `finite_quotient_toPermHom_ker` gives the finite quotient. Hypotheses are [CompactSpace G] [TotallyDisconnectedSpace G] [Finite M]. No sorry in the file."
+       "note": "`openActionKernel` is an `OpenNormalSubgroup G` acting trivially on a finite discrete M, and `finite_quotient_toPermHom_ker` gives the finite quotient G ⧸ ker. The kernel results need only [TopologicalSpace G], a finite discrete M and [ContinuousSMul G M]; finiteness of the quotient is pure algebra, and no compactness or total disconnectedness is used. No sorry in the file."
       },
       {
        "target": "For arbitrary discrete M over profinite G, every element is fixed by an open normal subgroup and M = ⋃_U M^U",
@@ -129,7 +129,7 @@
       },
       {
        "target": "Finite products of discrete modules, and subgroups and quotients with induced/quotient topologies, are again discrete G-modules",
-       "library": "both",
+       "library": "partial",
        "declarations": [
         {
          "name": "Pi.discreteTopology",
@@ -146,21 +146,28 @@
          "fit": "exact"
         },
         {
+         "name": "SMulMemClass.continuousSMul",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/MulAction.lean",
+         "line": 197,
+         "fit": "related"
+        },
+        {
          "name": "QuotientGroup.discreteTopology",
          "library": "mathlib",
          "file": "Mathlib/Topology/Algebra/Group/Quotient.lean",
          "line": 115,
-         "fit": "special case"
+         "fit": "related"
         },
         {
          "name": "Submodule.Quotient.discreteTopology",
          "library": "tauceti",
          "file": "TauCeti/Topology/Algebra/Module/Quotient.lean",
          "line": 32,
-         "fit": "exact"
+         "fit": "related"
         }
        ],
-       "note": "These are instance-level closure facts rather than named theorems: `Pi.discreteTopology` carries [Finite ι], the subtype instance is Mathlib/Topology/Constructions.lean:200, and TauCeti supplies discreteness of a quotient by a submodule. The roadmap explicitly excludes infinite products and direct sums."
+       "note": "Finite products are Mathlib instances: `Pi.discreteTopology` with [Finite ι], and `Pi.continuousSMul` and `Prod.continuousSMul`. For subgroups and quotients only the topological half exists. The subspace topology of a discrete space is discrete (Mathlib/Topology/Constructions.lean:200). A quotient of a discrete group is discrete (`QuotientAddGroup.discreteTopology`; Tau Ceti's `Submodule.Quotient.discreteTopology`). `SMulMemClass.continuousSMul` makes the action continuous on any set-like subobject closed under it. Missing: neither library packages a G-stable additive subgroup of a discrete G-module, or the quotient by one, with its induced `DistribMulAction` and continuous action in the unbundled classes. Mathlib's `Submodule.Quotient.distribMulAction'` needs a scalar tower through a ring. Continuity on the quotient would be a short consequence of `continuousSMul_iff_stabilizer_isOpen`, but it is not stated. Neither Tau Ceti's `DiscreteRep` nor Mathlib's `DiscreteContAction` has subobjects or cokernels. The roadmap excludes infinite products and direct sums."
       },
       {
        "target": "For finite M and discrete N the internal hom M →+ N with conjugation action (g•φ)m = g•φ(g⁻¹•m) is a discrete G-module",
@@ -400,9 +407,30 @@
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
          "line": 268,
          "fit": "related"
+        },
+        {
+         "name": "TopRep.TopRepEquivActionTop",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Continuous/TopRep.lean",
+         "line": 213,
+         "fit": "related"
+        },
+        {
+         "name": "Action.hasLimitsOfShape",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Action/Limits.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "Action.hasColimitsOfShape",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Action/Limits.lean",
+         "line": 66,
+         "fit": "related"
         }
        ],
-       "note": "Only closure under restriction is proved. The file's own Roadmap section (SmoothDiscrete.lean:85-90) records that product/subobject/quotient closure 'is not yet statable, because Mathlib's TopRep carries no limit, subobject or quotient API to state it against'. The unbundled Layer-0 analogue is available from Mathlib instances, but the bundled statement is missing."
+       "note": "Only closure under restriction is proved. SmoothDiscrete.lean:85-90 says the closure under products, subobjects and quotients 'is not yet statable, because Mathlib's TopRep carries no limit, subobject or quotient API'. That overstates the gap. No such API is declared on TopRep itself, but `TopRep.TopRepEquivActionTop` identifies TopRep k G with Action (TopModuleCat k) G. TopModuleCat has all limits and colimits, with the induced and quotient topologies (Mathlib/Algebra/Category/ModuleCat/Topology/Basic.lean:325, 262), and Action inherits them (`Action.hasLimitsOfShape`, `Action.hasColimitsOfShape`). So the closure statement can be written; it has not been. The unbundled analogue is also only partly available: Mathlib instances give finite products, but neither library builds the induced action on a G-stable subgroup or quotient of a discrete module (see Layer 0)."
       },
       {
        "target": "The coefficient dictionary ofDiscreteModule, its morphism version, and the equivalence with the discrete G-modules",
@@ -616,7 +644,7 @@
       },
       {
        "target": "The M^U API: inclusions M^U ↪ M^V for V ≤ U, functoriality in M and in U, and comparison with Rep.quotientToInvariants",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.invariantsInclusion",
@@ -654,7 +682,7 @@
          "fit": "exact"
         }
        ],
-       "note": "`quotientToInvariants` is the TopRep analogue of Mathlib's `Rep.quotientToInvariants`, with the comparison to the invariants of the restriction proved as an isomorphism; the edge cases U = ⊥, U = ⊤ are `ContRepresentation.invariants_restrict_bot/top`."
+       "note": "The inclusions M^U ↪ M^V (`invariantsInclusion`) and their composition law are present. So are functoriality in M (`TopRep.quotientToInvariantsFunctor`, and for the unbundled `FixedPoints.addSubgroup` the coefficient-map functoriality of TauCeti/GroupTheory/GroupAction/FixedPoints.lean) and the edge cases U = ⊥, U = ⊤ (`ContRepresentation.invariants_restrict_bot/top`). `TopRep.quotientToInvariants` is the TopRep counterpart of Mathlib's `Rep.quotientToInvariants`; `isIso_invariantsResMap_quotientToInvariantsι` is the isomorphism (X^S)^{G/S} ≅ X^G. Missing: the layer's comparison. No statement relates the unbundled M^U, through `ofDiscreteModule`, to `Rep.quotientToInvariants` or to its TopRep counterpart; the dictionary is compared with invariants only for H⁰ of the whole group (`mem_invariants_ofDiscreteModule_iff_mem_H0`)."
       }
      ],
      "duplicates": [
@@ -665,7 +693,7 @@
      ]
     },
     "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality": {
-     "verdict": "built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "C1, C2, Z1, Z2, B1, B2, H0, H1, H2 with d ∘ d = 0, B1_le_Z1, B2_le_Z2 and the class maps H1pi, H2pi",
@@ -875,7 +903,7 @@
          "fit": "exact"
         }
        ],
-       "note": "`explicitInfl0` and its equivalence `explicitInfl0Equiv` are also present (Inflation.lean:135,173); `explicitRes2_comp_explicitInfl2` is the degree-2 res ∘ inf law; coefficient naturality is `explicitCoeff1/2_id/_comp`."
+       "note": "`explicitInfl0` and its equivalence `explicitInfl0Equiv` are also present (Inflation.lean:135,173), and `explicitRes2_comp_explicitInfl2` is the degree-2 res ∘ inf law. Restriction, inflation and coefficient maps are instances of the compatible-pair pullbacks (`explicitInfl1_eq_explicitMap1`, `explicitInfl2_eq_explicitMap2`). Their coefficient naturality therefore follows from the general composition laws `explicitMap0_comp`, `explicitMap1_comp` and `explicitMap2_comp`. `explicitCoeff1/2_id/_comp` are the composition laws of coefficient maps among themselves."
       },
       {
        "target": "Conjugation: the compatible pair induces a G-action on Hⁱ(N,M) for closed normal N, and inner automorphisms act trivially, by an explicit chain homotopy in degrees ≤ 2",
@@ -918,6 +946,27 @@
         }
        ],
        "note": "The named deliverables explicitConj1 (the G-action on H¹(N, M), with explicitConj1_one/_mul) and explicitConj1_eq_id_of_mem are present. The degree-2 homotopy is written once for the compatible-pair form and specialized to cocycles as inverseConjugationHomotopy2_spec, and the degree-1 case is derived from it, as the layer's warning asks. No sorry."
+      },
+      {
+       "target": "Worked examples named by the layer (§6 acceptance criteria): H¹(ℤ_p, ℤ/pᵏ) ≅ ℤ/pᵏ and H¹(ℤ_p, ℤ) = 0",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ContCohomology.H1EquivOfSmulEqSelf",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+         "line": 840,
+         "fit": "more general"
+        },
+        {
+         "name": "PadicInt.toZModPow",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/RingHoms.lean",
+         "line": 447,
+         "fit": "related"
+        }
+       ],
+       "note": "The trivial-action characterization `H1EquivOfSmulEqSelf` reduces both examples to continuous homomorphisms out of ℤ_p, and Mathlib has the reductions ℤ_p → ℤ/pᵏ. Neither computation is in either library. Nothing identifies the continuous additive homomorphisms ℤ_p → ℤ/pᵏ with ℤ/pᵏ by evaluation at 1, or shows that every continuous homomorphism ℤ_p → ℤ vanishes. No file combines ℤ_p with the continuous-cohomology API. The roadmap's STATUS file also lists 'the ℤ_p examples' as what remains of Layer 2."
       }
      ],
      "duplicates": []
@@ -976,14 +1025,21 @@
          "library": "tauceti",
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/ContinuousCohomologyIso.lean",
          "line": 141,
-         "fit": "exact"
+         "fit": "special case"
         },
         {
          "name": "TauCeti.ContCohomology.H0ContinuousLinearEquivInvariants",
          "library": "tauceti",
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/ContinuousCohomologyIso.lean",
          "line": 104,
-         "fit": "exact"
+         "fit": "special case"
+        },
+        {
+         "name": "CategoryTheory.ShortComplex.homologyIsoCoker",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/Topology/Homology.lean",
+         "line": 43,
+         "fit": "more general"
         },
         {
          "name": "ContinuousCohomology.zeroIso",
@@ -993,7 +1049,7 @@
          "fit": "related"
         }
        ],
-       "note": "Only degree 0 exists, and its own docstring says so ('the degree-zero part of the comparison-isomorphisms milestone'). The degree-1 and degree-2 comparisons H¹/H²_explicit ≅ continuousCohomology 1/2 (ofDiscreteModule M) — the chain-level correspondence f(g₀,g₁) = g₀ • c(g₀⁻¹g₁) and its degree-2 analogue — are absent from both libraries."
+       "note": "Only degree 0 exists, and its docstring says so ('the degree-zero part of the comparison-isomorphisms milestone'). The milestone's quotient presentation of the canonical side, ker d modulo im d in TopModuleCat R, exists in general form: Tau Ceti's `ShortComplex.homologyIsoCoker` identifies the homology of any short complex of topological modules with the cokernel of `toCycles`, carrying the quotient topology. The degree-1 and degree-2 comparisons H¹/H²_explicit ≅ continuousCohomology 1/2 (ofDiscreteModule M) are absent from both libraries. That includes the chain-level correspondence f(g₀,g₁) = g₀ • c(g₀⁻¹g₁) and its degree-2 analogue; Mathlib's ContCohomology/Basic.lean:38-40 lists the n-ary description as a TODO."
       },
       {
        "target": "The compact-open exponential law as an explicit prerequisite of the degree-2 comparison",
@@ -1025,7 +1081,7 @@
       },
       {
        "target": "The category of the comparison: C(G,M) discrete for compact G and discrete M, hence every term and subquotient of the homogeneous cochain complex is discrete",
-       "library": "both",
+       "library": "tauceti",
        "declarations": [
         {
          "name": "ContinuousMap.discreteTopology",
@@ -1063,7 +1119,7 @@
          "fit": "exact"
         }
        ],
-       "note": "CompactDiscrete.lean is written for [CompactSpace G] and [DiscreteTopology X.V] and states exactly the four instances the layer asks for, so the comparison can be an isomorphism in TopModuleCat between discrete objects."
+       "note": "CompactDiscrete.lean is written for [CompactSpace G] and [DiscreteTopology X.V] and states exactly the instances the layer asks for, so the comparison can be an isomorphism in TopModuleCat between discrete objects. The subquotient steps use Tau Ceti's `HomologicalComplex.discreteTopology_cycles` and `discreteTopology_homology` (TauCeti/Algebra/Category/ModuleCat/Topology/Homology.lean:85,93). Mathlib itself has no discreteness instance for C(X, Y)."
       },
       {
        "target": "DiscreteH1 and DiscreteH2, the explicit sides given the discrete topology, with additive equivalences to the quotients",
@@ -1133,7 +1189,7 @@
          "fit": "related"
         }
        ],
-       "note": "Three of the four transports exist, but only in degree 0 (the names carry the degree because the unsuffixed names are reserved for degree 1). The inflation transport is absent in every degree, and no transport exists in degrees 1 and 2 because the comparison itself is missing there."
+       "note": "Three of the four named transports exist, and only in degree 0: `explicitH0Iso_map`, `explicitH0Iso_res` and `explicitH0Iso_coeffMap`. The names carry the degree because the unsuffixed names are reserved for degree 1. No inflation transport is named. In degree 0, `explicitInfl0` is defined as `explicitMap0` along the quotient pair, so `explicitH0Iso_map` covers it once `TopRep.quotientToInvariants (ofDiscreteModule ℤ G M) N` is identified with `ofDiscreteModule ℤ (G ⧸ N) (M^N)`, and that identification is not stated. No transport exists in degrees 1 and 2, because the comparison itself is missing there."
       }
      ],
      "duplicates": []
@@ -1185,31 +1241,38 @@
       },
       {
        "target": "Functoriality of the whole finite-quotient system in M",
-       "library": "partial",
+       "library": "tauceti",
        "declarations": [
         {
-         "name": "TauCeti.transitionPair_naturality",
+         "name": "TauCeti.finiteQuotientSystemFunctor",
          "library": "tauceti",
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Basic.lean",
-         "line": 265,
-         "fit": "related"
+         "line": 341,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.finiteQuotientSystem",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Basic.lean",
+         "line": 319,
+         "fit": "exact"
         },
         {
          "name": "TauCeti.finiteLevelTransition_naturality",
          "library": "tauceti",
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Basic.lean",
          "line": 280,
-         "fit": "related"
+         "fit": "exact"
         },
         {
-         "name": "TauCeti.finiteQuotientSystemFunctor",
+         "name": "TauCeti.transitionPair_naturality",
          "library": "tauceti",
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Basic.lean",
-         "line": 341,
-         "fit": "related"
+         "line": 265,
+         "fit": "exact"
         }
        ],
-       "note": "Naturality in the coefficients is proved for the *canonical* finite-level system (finiteQuotientSystemFunctor, a functor TopRep R G ⥤ ((OpenNormalSubgroup G)ᵒᵖ ⥤ TopModuleCat R)). No corresponding naturality in M is stated for the explicit systems explicitFiniteQuotientSystem0/1/2, which is what the layer's 'functoriality of the whole system in M' asks for on the explicit model."
+       "note": "`finiteQuotientSystemFunctor : Rep k G ⥤ ((OpenNormalSubgroup G)ᵒᵖ ⥤ ModuleCat k)` packages the system U ↦ Hⁿ(G ⧸ U, A^U), built from Mathlib's discrete `groupCohomology` with the transitions `finiteLevelTransition`, as a functor of the coefficient representation in every degree n. Its naturality is `finiteLevelTransition_naturality` and `transitionPair_naturality`. The §2 export table and §3 of the roadmap define 'the finite-quotient system' as exactly this `transitionPair`/`finiteLevelTransition` system. It needs k and G in one universe, since it is built on Mathlib's Rep. Not stated: naturality in M of the universe-polymorphic explicit systems `explicitFiniteQuotientSystem0/1/2` and of their comparison cocones, which the layer's API lists separately."
       },
       {
        "target": "The colimit theorem Hⁱ(G,M) ≅ colim_U Hⁱ(G ⧸ U, M^U) as universality of the named cocone, i = 0,1,2",
@@ -1304,8 +1367,30 @@
       {
        "target": "The cohomology of a discrete module as the filtered colimit over its finitely generated ℤ[G ⧸ U]-submodules",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent; depends on the previous target. The Layer-0 union M = ⋃_U M^U (`TauCeti.iSup_fixedPoints_openNormal_eq_top`) is the only ingredient present."
+       "declarations": [
+        {
+         "name": "TauCeti.iSup_fixedPoints_openNormal_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Discrete.lean",
+         "line": 180,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.exists_orbitMap_quotient",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Discrete.lean",
+         "line": 82,
+         "fit": "related"
+        },
+        {
+         "name": "Module.fgSystem.equiv",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Colimit/Finiteness.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; it depends on the previous target. The ingredients present are the Layer 0 union M = ⋃_U M^U (`iSup_fixedPoints_openNormal_eq_top`) and the factorization of each orbit map through a finite quotient (`exists_orbitMap_quotient`). Mathlib's `Module.fgSystem.equiv` presents any module as the direct limit of its finitely generated submodules. No cohomological statement exists."
       },
       {
        "target": "First consequences: H⁰(G,M) = M^G; for finite M the tower stabilizes levelwise; Hⁱ for i ≥ 1 as a colimit of cohomology of finite groups",
@@ -1588,10 +1673,6 @@
       {
        "layer": "ArithmeticGaloisDuality:R02.2",
        "note": "Builds the Hochschild–Serre spectral sequence for a closed normal subgroup and identifies its low-degree sequence with inflation–restriction; that low-degree exact sequence is this layer's five-term sequence with transgression."
-      },
-      {
-       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
-       "note": "Asks for 'inflation–restriction in that continuous setting' for profinite Galois groups on discrete modules, the three-term sequence proved here as explicitInfl1_injective and explicitInfRes_exact."
       }
      ]
     },
@@ -1853,13 +1934,35 @@
       {
        "target": "Transitivity cor_V^G = cor_U^G ∘ cor_V^U for open V ≤ U ≤ G",
        "library": "absent",
-       "declarations": [],
-       "note": "No declaration composes two explicit corestrictions; grep over declarations.tsv for explicitCor*_comp_explicitCor* and for 'cor' with 'trans' returns nothing in the continuous-cohomology files."
+       "declarations": [
+        {
+         "name": "Representation.relNorm_comp_norm",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/RelativeNorm.lean",
+         "line": 116,
+         "fit": "related"
+        }
+       ],
+       "note": "No lemma composes two explicit corestrictions, in any degree, and no transitivity lemma exists for the Tate or group-homology maps either. Related only: Tau Ceti's `Representation.relNorm_comp_norm` (N_{G/H} ∘ N_H = N_G for a finite group, the degree-0 norm identity) and Mathlib's `groupHomology.map_comp`. The latter is covariant functoriality of homology, the 'corestriction' naming collision the roadmap warns about."
       },
       {
        "target": "The Mackey double-coset formula res^G_V ∘ cor^G_U = Σ_{VgU} cor ∘ (g)_* ∘ res",
        "library": "absent",
        "declarations": [
+        {
+         "name": "Rep.mackeyDecomposition",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Induction/Mackey/Decomposition.lean",
+         "line": 390,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.mackeyQuotientEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Induction/Mackey/Basic.lean",
+         "line": 136,
+         "fit": "related"
+        },
         {
          "name": "TauCeti.finite_doubleCosetQuotient",
          "library": "tauceti",
@@ -1875,7 +1978,7 @@
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti has a developed double-coset library (TauCeti/GroupTheory/DoubleCoset/, including finiteness of the double-coset quotient for finite-index K) but no Mackey formula for cohomology; a case-insensitive grep for 'mackey' over both trees finds no cohomological statement."
+       "note": "No Mackey formula for cohomology exists in either library; a case-insensitive grep for 'mackey' finds only group and representation theory. The closest material is algebraic. Tau Ceti has the Mackey decomposition Res_K Ind_H^G A ≅ ⨁_{KsH} Ind_{K⊓sHs⁻¹}^K Res(ˢA) for representations of arbitrary groups (`Rep.mackeyDecomposition`, natural in A), the double-coset indexing (`mackeyQuotientEquiv`) and finiteness of the double-coset quotient for finite-index subgroups."
       },
       {
        "target": "The interaction of conjugation with restriction and corestriction",
@@ -2096,21 +2199,35 @@
          "fit": "related"
         },
         {
-         "name": "TauCeti.coindEvalTopEquiv",
-         "library": "tauceti",
-         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Coinduced.lean",
-         "line": 490,
-         "fit": "related"
-        },
-        {
          "name": "TauCeti.ContCohomology.explicitShapiro1",
          "library": "tauceti",
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Shapiro.lean",
          "line": 372,
          "fit": "related"
+        },
+        {
+         "name": "TopRep.coind₁ι",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Continuous/TopRep.lean",
+         "line": 258,
+         "fit": "related"
+        },
+        {
+         "name": "groupCohomology.isIso_δ_of_isZero",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/LongExactSequence.lean",
+         "line": 106,
+         "fit": "related"
+        },
+        {
+         "name": "isZero_groupCohomology_succ_of_subsingleton",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean",
+         "line": 218,
+         "fit": "related"
         }
        ],
-       "note": "`mem_coind_bot_iff` identifies Coind_1^G A as the locally constant maps G → A, and degree-1 acyclicity follows from explicitShapiro1 at H = ⊥, but no acyclicity statement is recorded, the embedding M ↪ Coind_1^G M is not constructed, and there is no dimension-shifting isomorphism in either library."
+       "note": "`mem_coind_bot_iff` identifies Coind_1^G A with the locally constant maps G → A. Degree-1 acyclicity would follow from `explicitShapiro1` at H = ⊥ together with H¹(⊥, A) = 0 on the explicit model, which is not stated. No acyclicity statement is recorded. The embedding M ↪ Coind_1^G M is not built for the explicit `TauCeti.coind G ⊥`, but Mathlib has its canonical counterpart: the constant-function map `ContRepresentation.coind₁ι`/`TopRep.coind₁ι` into C(G, V), which is d⁰ of the homogeneous resolution. Mathlib's discrete theory has the dimension-shifting criterion `groupCohomology.isIso_δ_of_isZero`: δ is an isomorphism when the middle term has vanishing Hⁿ and Hⁿ⁺¹. With `groupCohomology.coindIso` at the trivial subgroup and `isZero_groupCohomology_succ_of_subsingleton`, it gives dimension shifting for abstract groups, though not as one lemma. No continuous or explicit dimension-shifting isomorphism exists."
       }
      ],
      "duplicates": []
@@ -2513,14 +2630,21 @@
          "fit": "exact"
         },
         {
-         "name": "InfiniteGalois.continuousMulEquivToLimit",
+         "name": "InfiniteGalois.krullTopology_mem_nhds_one_iff_of_isGalois",
          "library": "mathlib",
          "file": "Mathlib/FieldTheory/Galois/Profinite.lean",
-         "line": 323,
+         "line": 292,
+         "fit": "exact"
+        },
+        {
+         "name": "Field.absoluteGaloisGroup.exists_finiteDimensional_normal_fixingSubgroup_le",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/GaloisLattice/FiniteQuotient.lean",
+         "line": 99,
          "fit": "related"
         }
        ],
-       "note": "Mathlib supplies the correspondence between open normal subgroups and finite Galois subextensions, the group isomorphism G ⧸ U ≅ Gal(L/K) (`normalAutEquivQuotient`, a MulEquiv) and the topological isomorphism of Gal(K/k) with the limit of its finite quotients (`continuousMulEquivToLimit`). The layer's added content, the quotient isomorphism as a topological one for G_K = AbsoluteGaloisGroup K and cofinality of these subgroups in the Layer-4 system, is not stated in either library."
+       "note": "Mathlib supplies the correspondence between open normal subgroups and finite Galois subextensions and the group isomorphism G ⧸ U ≅ Gal(L/K) (`normalAutEquivQuotient`, a MulEquiv). It also supplies the topological isomorphism of Gal(K/k) with the limit of its finite quotients (`continuousMulEquivToLimit`). Cofinality is there in substance: every neighbourhood of 1 in a Galois group contains the fixing subgroup of a finite Galois subextension (`krullTopology_mem_nhds_one_iff_of_isGalois`), and Tau Ceti states the open-subgroup form for normal extensions. Missing: the quotient isomorphism as a topological one for G_K = AbsoluteGaloisGroup K (both sides are discrete, but this is not stated), and cofinality in the form Layer 4's system consumes."
       },
       {
        "target": "Hilbert 90: H¹(Gal(L/K), Lˣ) = 0 for profinite Gal(L/K), and the exported hilbert90 at UnitsCoeff K",
@@ -2539,9 +2663,16 @@
          "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Hilbert90.lean",
          "line": 84,
          "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ContCohomology.subsingleton_H1_of_forall_openNormalSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Colimit.lean",
+         "line": 513,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib has the finite-level Hilbert 90 the layer names as the input, but the profinite statement obtained from it by Layer 4's colimit does not exist in either library; there is no `hilbert90` declaration and the only Tau Ceti file with 'Hilbert90' in its name is about quadratic number fields."
+       "note": "Mathlib has finite-level Hilbert 90 for a finite Galois extension (`H1ofAutOnUnitsUnique`), which the layer names as the input. Tau Ceti has the prescribed reduction step: `subsingleton_H1_of_forall_openNormalSubgroup` shows that the explicit H¹(G, M) vanishes once every finite level does. The profinite statement does not exist in either library. Also missing: the identification of the finite layers' coefficients (UnitsCoeff K)^U with Lˣ as Gal(L/K)-modules, and any `hilbert90` declaration. Mathlib's Hilbert90.lean lists the extension to infinite Galois extensions as a TODO, and the only Tau Ceti file named Hilbert90 is about quadratic number fields."
       },
       {
        "target": "The Kummer short exact sequence 1 → μₙ → (Kˢ)ˣ → (Kˢ)ˣ → 1 as a DiscreteShortExact, with surjectivity of the n-th power map",
@@ -2660,7 +2791,7 @@
          "fit": "exact"
         }
        ],
-       "note": "The explicit cocycle, its Z¹-membership, independence of the chosen n-th root (`kummerCocycleClass_congr`), multiplicativity (kummerMapAdd is an AddMonoidHom) and the kernel are all present. No sorry."
+       "note": "The explicit cocycle, its Z¹-membership, independence of the chosen n-th root (`kummerCocycleClass_congr`), multiplicativity and the kernel are all present. Multiplicativity holds because `kummerMap` is a monoid homomorphism Kˣ →* Multiplicative H¹(G_K, μₙ). No sorry."
       },
       {
        "target": "The Kummer isomorphism kummerIso : Kˣ ⧸ (Kˣ)ⁿ ≅ H¹(G_K, μₙ), with kummerIsoTransport",
@@ -2712,15 +2843,51 @@
          "file": "TauCeti/Algebra/Group/PowerClassGroup.lean",
          "line": 42,
          "fit": "related"
+        },
+        {
+         "name": "RingHom.multiplicativeSquareClassMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/SquareClassGroup/Multiplicative.lean",
+         "line": 118,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.normM",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+         "line": 1021,
+         "fit": "related"
         }
        ],
-       "note": "Neither commuting square exists, and neither `powerClassMap` nor `powerClassNorm` is defined."
+       "note": "Neither commuting square exists. `powerClassMap` and `powerClassNorm` are not defined under those names. The n = 2 restriction map on square classes does exist, as `RingHom.multiplicativeSquareClassMap` along any field homomorphism, with identity and composition laws (additive form `RingHom.squareClassMap`). A norm on square classes exists for one algebra only, the cubic étale algebra of a Weierstrass curve (`WeierstrassCurve.Affine.normM`). No norm on general power classes exists."
       },
       {
        "target": "The field-extension bridge: galoisSubgroup, galoisSubgroup_index, galoisSubgroupEquiv, galoisF2Iso, galoisRes, galoisCor, galoisEvens, galoisConj and their laws",
-       "library": "absent",
-       "declarations": [],
-       "note": "A grep for each of these names over declarations.tsv and over both Lean trees returns nothing; this is the adapter package two other roadmaps list as a prerequisite."
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IntermediateField.fixingSubgroup_isOpen",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/KrullTopology.lean",
+         "line": 169,
+         "fit": "special case"
+        },
+        {
+         "name": "IntermediateField.finrank_eq_fixingSubgroup_index",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Galois/Basic.lean",
+         "line": 678,
+         "fit": "special case"
+        },
+        {
+         "name": "IntermediateField.fixingSubgroupEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Galois/Basic.lean",
+         "line": 268,
+         "fit": "related"
+        }
+       ],
+       "note": "The named bridge is absent: `galoisSubgroup`, `galoisSubgroupEquiv`, `galoisF2Iso`, `galoisRes`, `galoisCor`, `galoisEvens`, `galoisConj` and their laws are not declared in either library. Mathlib has the first pieces in intermediate-field form, for L an intermediate field of Kˢ/K. `IntermediateField.fixingSubgroup_isOpen` says its fixing subgroup is open when L is finite-dimensional. `IntermediateField.finrank_eq_fixingSubgroup_index` says [L : K] is the index, for Galois Kˢ/K. `IntermediateField.fixingSubgroupEquiv` gives fixingSubgroup L ≃* Gal(Kˢ/L), a group isomorphism only. Applied to the image of an embedding σ these give the content of galoisSubgroup, galoisSubgroup_index and the group half of galoisSubgroupEquiv. Missing: the σ-indexed interface, the topological isomorphism, the 𝔽₂ transport, and the four adapters with their laws (the cup compatibilities, towers, independence of the embedding)."
       },
       {
        "target": "The mod-2 specialization: the Kummer class [a] ∈ H¹(G_K, 𝔽₂), Kˣ ⧸ (Kˣ)² ≃ H¹(G_K, 𝔽₂), and the 𝔽₂-valued pairing [a] ⌣ [b]",
@@ -2751,7 +2918,12 @@
        "note": "The square-class group and its API exist independently, and the general Kummer class map specializes at n = 2, but no declaration states the square-class isomorphism with H¹(G_K, 𝔽₂), the explicit square-root cocycle at 𝔽₂ coefficients, or the 𝔽₂ pairing; the trivial 𝔽₂ carrier `trivialF2` that Layer 13 fixes also does not exist."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7a-the-mod-2-operations-consumed-and-the-μ₂-adapters",
+       "note": "Owns, as its own milestones, the mod-2 Kummer class (a) ∈ H¹(G_K, 𝔽₂), the square-class isomorphism Kˣ/(Kˣ)² ≃ H¹(G_K, 𝔽₂) (transported through μ₂ ≃ ℤ/2) and the mod-2 injection h2MuToUnits into the cohomological Brauer group. These are this layer's mod-2 specialization and h2KummerToUnits."
+      }
+     ]
     },
     "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees": {
      "verdict": "partly built",
@@ -2828,7 +3000,7 @@
       },
       {
        "target": "The all-degree finite-quotient colimit: continuousFiniteQuotientSystem n, cocone, universality and naturality in coefficients",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.finiteQuotientSystem",
@@ -2850,9 +3022,16 @@
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Basic.lean",
          "line": 206,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitFiniteQuotientColimit1",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Colimit.lean",
+         "line": 493,
+         "fit": "special case"
         }
        ],
-       "note": "The canonical finite-level *system* of coefficient objects and its functoriality in M are built (finiteQuotientSystem / finiteQuotientSystemFunctor on (OpenNormalSubgroup G)ᵒᵖ), but no cohomology-level system, comparison cocone or universality proof exists in any degree; there is no `continuousFiniteQuotientSystem`, `continuousFiniteQuotientCocone` or `continuousFiniteQuotientColimit`."
+       "note": "The all-degree finite-level system exists: `TauCeti.finiteQuotientSystem A n` is U ↦ Hⁿ(G ⧸ U, A^U) in every degree n, built from Mathlib's discrete group cohomology in ModuleCat k (k and G in one universe). `finiteQuotientSystemFunctor` makes it natural in the coefficients. On the explicit model, comparison cocones exist in degrees 0-2 and universality in degrees 0-1 (Layer 4). Missing: the canonical system in TopModuleCat, any cocone into `continuousCohomology n`, and its universality; there is no `continuousFiniteQuotientSystem`, `continuousFiniteQuotientCocone` or `continuousFiniteQuotientColimit`."
       },
       {
        "target": "Filtered coefficient colimits: continuousCohomologyFunctor n on smooth discrete coefficients and continuousCohomology_preservesFilteredColimits",
@@ -2920,9 +3099,16 @@
          "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Shapiro.lean",
          "line": 59,
          "fit": "special case"
+        },
+        {
+         "name": "groupCohomology.isIso_δ_of_isZero",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/LongExactSequence.lean",
+         "line": 106,
+         "fit": "related"
         }
        ],
-       "note": "Exactness of coinduction is available in the unbundled form, and Mathlib's discrete coindIso is the model, but no chain isomorphism between the two homogeneous-cochain complexes, no acyclicity statement in positive degrees and no dimension-shifting isomorphism exists."
+       "note": "Exactness of coinduction is available in the unbundled form. Mathlib's discrete theory has Shapiro (`groupCohomology.coindIso`), vanishing for the trivial group and the dimension-shifting criterion `groupCohomology.isIso_δ_of_isZero`. None of these is continuous. There is no chain isomorphism between the two homogeneous-cochain complexes, no continuous acyclicity statement in positive degrees and no continuous dimension-shifting isomorphism."
       },
       {
        "target": "Corestriction in every degree through coinduction: trace morphism, the composite, naturality, transitivity, cor ∘ res, δ-compatibility, Mackey, and the degree 0/1/2 agreements",
@@ -2941,9 +3127,30 @@
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Corestriction.lean",
          "line": 893,
          "fit": "special case"
+        },
+        {
+         "name": "Rep.coindResAdjunction",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/FiniteIndex.lean",
+         "line": 239,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.TateCohomology.H0Cor",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/Restriction.lean",
+         "line": 106,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.TateCohomology.negSuccCor",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/NegativeCorestriction.lean",
+         "line": 81,
+         "fit": "related"
         }
        ],
-       "note": "None of the five milestones exists. The only transfer in the libraries is Layer 6's explicit degree-0/1/2 transversal construction; no trace morphism Coind_U^G (res M) → M, no all-degree corestriction, no `corestrictionLe`, no `corestriction_mackey`."
+       "note": "None of the five milestones exists for continuous cohomology. In positive degrees the only corestriction on cohomology in either library is Layer 6's explicit degree-0/1/2 transversal construction. Other transfers do exist. Tau Ceti has Tate corestriction for finite groups in degrees 0 and −1 (`H0Cor`, `HNegOneCor`, with cor ∘ res = index) and in every degree ≤ −2 (`negSuccCor`, from Mathlib's `groupHomology.coresNatTrans`), and `Representation.relTransfer`; Mathlib has `MonoidHom.transfer`. For discrete groups the trace morphism of milestone 1 is the counit of Mathlib's `Rep.coindResAdjunction` (finite index), but no all-degree corestriction is assembled from it. There is no `corestrictionLe` and no `corestriction_mackey`."
       },
       {
        "target": "Annihilation and torsion: a class killed by restriction to open U is killed by (G:U); every class in Hⁱ, i ≥ 1, is torsion; Hⁱ(G,M) = 0 for a ℚ-vector space M",
@@ -2964,6 +3171,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
        "note": "Its first milestone is Hⁱ in every degree of a group acting with open stabilizers on a bare abelian group, by locally constant cochains or equivalently continuous cohomology of the forced-discrete module, which is this layer's all-degree carrier continuousCohomology n (ofDiscreteModule M)."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-0-audit-and-complete-the-cohomology-suppliers",
+       "note": "Asks for restriction and corestriction in every Tate degree with cor ∘ res = [G : H], and inflation in positive degrees, for finite groups. In positive degrees these are this layer's all-degree corestriction and cor ∘ res = (G : U) for a finite discrete group."
       }
      ]
     },
@@ -2974,6 +3185,13 @@
        "target": "IsPPrimaryTorsion, CohomologicalDimensionLE, StrictCohomologicalDimensionLE and leastENatBound",
        "library": "absent",
        "declarations": [
+        {
+         "name": "IsPGroup",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/PGroup.lean",
+         "line": 26,
+         "fit": "related"
+        },
         {
          "name": "CommGroup.primaryComponent",
          "library": "mathlib",
@@ -2989,7 +3207,7 @@
          "fit": "related"
         }
        ],
-       "note": "None of the four names exists in either library. Mathlib supplies the p-primary component as the subgroup CommGroup.primaryComponent (its to_additive form is AddCommGroup.primaryComponent, the name the layer uses) over the submonoid CommMonoid.primaryComponent, and ℕ∞; nothing defines the torsion or dimension predicates."
+       "note": "None of the four names exists in either library, and there is no cohomological-dimension predicate. The torsion predicate exists in substance: `IsPGroup p (Multiplicative M)` unfolds to ∀ m, ∃ k, p^k • m = 0, which is the layer's `IsPPrimaryTorsion p M`. Mathlib also has the p-primary component, as the subgroup `CommGroup.primaryComponent` (additive form `AddCommGroup.primaryComponent`, the name the layer uses) over `CommMonoid.primaryComponent`, and ℕ∞. Nothing defines the two dimension predicates or leastENatBound."
       },
       {
        "target": "cd_p, scd_p and cd = ⨆_p cd_p, with cd_p_le_iff and scd_p_le_iff",
@@ -3028,14 +3246,21 @@
        "library": "absent",
        "declarations": [
         {
-         "name": "groupCohomology.H1ofAutOnUnitsUnique",
+         "name": "Rep.FiniteCyclicGroup.groupCohomologyIsoEven",
          "library": "mathlib",
-         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Hilbert90.lean",
-         "line": 107,
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/FiniteCyclic.lean",
+         "line": 80,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.TateCohomology.herbrandQuotient_eq_one_of_finite",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/HerbrandQuotient.lean",
+         "line": 80,
          "fit": "related"
         }
        ],
-       "note": "No computation of the cohomology of Ẑ in any degree appears in either library; grep finds no H²(Ẑ, -) statement."
+       "note": "No computation of the cohomology of Ẑ or of a procyclic group appears in either library, and neither gives Ẑ a cohomology API. The finite-level inputs exist: Mathlib's periodic computation of the cohomology of a finite cyclic group (`Rep.FiniteCyclicGroup.groupCohomologyIsoEven` and `groupCohomologyIsoOdd`) and Tau Ceti's Herbrand quotient of a finite module (`herbrandQuotient_eq_one_of_finite`)."
       }
      ],
      "duplicates": []
@@ -3092,9 +3317,16 @@
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Cup/Product.lean",
          "line": 577,
          "fit": "special case"
+        },
+        {
+         "name": "CategoryTheory.Abelian.Ext.comp",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/DerivedCategory/Ext/Basic.lean",
+         "line": 128,
+         "fit": "related"
         }
        ],
-       "note": "Only the six low-degree explicit shapes of Layer 8 exist; there is no all-degree product against the canonical carrier, and `cup`, `cup_add_left`, `cup_add_right` do not exist."
+       "note": "Only the six low-degree explicit shapes of Layer 8 exist. There is no all-degree product against the canonical carrier, and `cup`, `cup_add_left` and `cup_add_right` do not exist. The only all-degree product in either library is Mathlib's Yoneda composition on Ext, which gives a product on discrete group cohomology through `groupCohomologyIsoExt`. It is not a pairing-based cup and is not stated for cohomology."
       },
       {
        "target": "The unit class of 1 in H⁰ with cup_one_left, cup_one_right",
@@ -3149,7 +3381,7 @@
          "fit": "special case"
         }
        ],
-       "note": "Present only in the six low-degree shapes."
+       "note": "Restriction and inflation compatibilities exist only for the six low-degree shapes. No shape, of any degree, has a coefficient-map compatibility."
       },
       {
        "target": "cup_projection in all bidegrees with the all-degree corestriction",
@@ -3174,11 +3406,24 @@
       {
        "target": "The graded 𝔽₂-algebra H^•(G, 𝔽₂) = ⨁ₙ Hⁿ(G, 𝔽₂) with its notation and API, so that the degree multiplication q ↦ l * q is typeable",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent; no graded object on continuous cohomology exists, and the trivial 𝔽₂ carrier `trivialF2` and `f2Pairing` are not defined."
+       "declarations": [
+        {
+         "name": "TauCeti.IsDGAlgebra.instGradedAlgebraCohomologyGrading",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Homology/DG/Algebra/Cohomology.lean",
+         "line": 229,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. No graded object on continuous cohomology exists, and the trivial 𝔽₂ carrier `trivialF2` and `f2Pairing` are not defined. The generic tool exists: Tau Ceti shows that the cohomology of a ℤ-graded DG algebra is a graded algebra. No cochain DG algebra of group cohomology is built."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-0-audit-and-complete-the-cohomology-suppliers",
+       "note": "Asks for the Tate cup product in all integer bidegrees: associative, graded-commutative, natural, compatible with restriction and satisfying the projection formula. In positive degrees for a finite group, these are this layer's cup-product milestones."
+      }
+     ]
     },
     "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-13-the-evens-norm": {
      "verdict": "not built",
@@ -3219,8 +3464,16 @@
       {
        "target": "evensConj as res ∘ cor - id, and evensConj_eq_conjMapOf against the all-degree conjugation",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent; `conjMapOf` (Layer 10's all-degree conjugation) does not exist either."
+       "declarations": [
+        {
+         "name": "TauCeti.ContCohomology.explicitConj1",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Conjugation.lean",
+         "line": 137,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. The degree-1 conjugation action on the explicit H¹(N, M) exists (`explicitConj1`, with elements of N acting trivially), but `evensConj` is not defined. Layer 10's all-degree `conjMapOf` does not exist either."
       },
       {
        "target": "The permutation wreath product (X → D) ⋊ Q generalizing Mathlib's RegularWreathProduct",
@@ -3255,7 +3508,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib has only the regular wreath product, as the layer says; but Tau Ceti already defines `TauCeti.WreathProduct` in TauCeti/GroupTheory/Perm/WreathProduct.lean together with its cardinality and the empty-index equivalence, which covers milestone 1's permutation wreath product. Whether it is stated in the (X → D) ⋊ Q form with RegularWreathProduct as a special case has to be checked before reuse; the generalization theorem relating the two is not present."
+       "note": "Mathlib has only the regular wreath product, as the layer says. Tau Ceti defines the permutation wreath product `TauCeti.WreathProduct D ι := (ι → D) ⋊ Equiv.Perm ι` and `PermSubgroupWreathProduct` for a subgroup Q ≤ Equiv.Perm ι. It comes with multiplication in coordinates, cardinality, functoriality in D (`map`), relabelling of ι (`congr`), small-index equivalences, and the imprimitive and product actions with their faithfulness. The convention agrees with `RegularWreathProduct`, so Uˡ ⋊ 𝔖_l, the group the norm needs, is `WreathProduct U (Fin l)`. Missing: a named version for an arbitrary, not necessarily faithful, Q-set X. Mathlib's `mulAutArrow` makes it a one-line semidirect product, but nothing names it, and nothing relates either form to `RegularWreathProduct`."
       },
       {
        "target": "The transversal-dependent continuous monomial homomorphism Φ : G → Uˡ ⋊ 𝔖_l for open U",
@@ -3274,8 +3527,16 @@
       {
        "target": "The tensor-power object with its 𝔖_l-action in characteristic 2, and the tensor induction functor",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent."
+       "declarations": [
+        {
+         "name": "PiTensorProduct.reindexRepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Symmetric/TensorAction/Basic.lean",
+         "line": 48,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent at the level the norm needs. There is no tensor-power object on cochain complexes or resolutions, no action of the wreath product Uˡ ⋊ 𝔖_l, and no tensor induction functor. Tau Ceti does have the module-level tensor power with its unsigned symmetric-group action (`PiTensorProduct.reindexRepresentation`, specialized as `TauCeti.permTensorAction`)."
       },
       {
        "target": "The norm at cochain/resolution level with degree formula q ↦ l q, cocycle preservation, class well-definedness and transversal independence",
@@ -3312,7 +3573,7 @@
    }
   },
   "tauceti:TauCetiRoadmap/StablePeriodicCurved": {
-   "summary": "The libraries have the foundations but little of the content. Tau Ceti has the ideal-quotient construction, relative projectives and injectives in exact structures, the Frobenius exact predicate and finite-dimensional Frobenius algebras (Nakayama automorphism, two-sided self-injectivity); Mathlib supplies the quotient universal properties, complexes of any shape (so differential modules and ZMod n-periodic complexes exist as HomologicalComplex of shape refl Unit or up' 1) with homotopy categories, cones, quasi-isomorphism localization, bounded derived categories, projective and injective dimension, K-projective complexes, regular local rings and the Verdier-localization and envelope machinery. Missing: the factoring ideal and Stable E, Happel's triangulation, stable module categories, Gorenstein-projectives, singularity categories and Buchweitz, shifts and triangulations on periodic homotopy and derived categories, compression and orbit categories, curved DG algebras and modules (Tau Ceti's DG/A∞ theory is uncurved), derived categories of the second kind, and matrix factorizations with the Eisenbud and Orlov theorems.",
+   "summary": "The libraries have the foundations but little of the content. Tau Ceti has:\n- the ideal-quotient construction;\n- relative projectives and injectives in exact structures, with exact functors;\n- the Frobenius exact predicate;\n- finite-dimensional Frobenius algebras: Nakayama automorphism, two-sided self-injectivity, and injectivity of principal projectives over a self-injective ring.\nMathlib supplies:\n- the quotient universal properties, including the first isomorphism theorem for quotient categories;\n- complexes of any shape, so differential modules and ZMod n-periodic complexes exist as HomologicalComplex of shape refl Unit or up' 1, with homotopy categories and cones;\n- localization at quasi-isomorphisms, of complexes and of homotopy categories, and bounded derived categories;\n- projective and injective dimension, K-projective complexes, regular local rings and Rees's theorem;\n- the Verdier-localization, envelope and colimit-closure machinery.\nMissing:\n- the factoring ideal and Stable E, Happel's triangulation and stable module categories;\n- Gorenstein-projectives, singularity categories and Buchweitz;\n- shifts and triangulations on periodic homotopy and derived categories, compression and orbit categories;\n- curved DG algebras and modules (Tau Ceti's DG/A∞ theory is uncurved) and derived categories of the second kind;\n- matrix factorizations, with depth, Cohen–Macaulay modules and the Eisenbud and Orlov theorems.",
    "layers": {
     "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories": {
      "verdict": "partly built",
@@ -3497,7 +3758,7 @@
          "fit": "special case"
         }
        ],
-       "note": "Mathlib has exactly this package only for the homotopy congruence on complexes (induced functors, natural transformations, identity and composition isomorphisms). For a general MorphismIdeal the induced functor is only the unnamed composite `lift (F ⋙ J.quotientFunctor)`, with no coherence lemmas."
+       "note": "Mathlib has the full package of induced functors, natural transformations, identities and composites only for the homotopy congruence on complexes. For a general `MorphismIdeal` the induced functor is only the unnamed composite `lift (F ⋙ J.quotientFunctor)`. Descent of natural transformations and the identity and composition coherences are available for any congruence through Mathlib's `Quotient.natTransLift`, `comp_natTransLift`, `natTransLift_id` and `lift_unique'`, but nothing packages them for ideal-preserving functors. Mathlib's own TODO (HomotopyCategory.lean:254) asks for this general lifting."
       },
       {
        "target": "Equivalences carrying I onto J induce equivalences of quotient categories",
@@ -3511,7 +3772,7 @@
          "fit": "related"
         }
        ],
-       "note": "Absent; Tau Ceti only identifies the kernel ideal's congruence with F.homRel, and Mathlib has no transport of quotients along equivalences."
+       "note": "Absent: no statement transports a quotient category along an equivalence carrying I onto J. The ingredients exist. Mathlib has the first isomorphism theorem for quotient categories, as anonymous instances in Mathlib/CategoryTheory/Quotient.lean:355-370: `Quotient.lift L.homRel L` is faithful, is full or essentially surjective when L is, and is an equivalence when L is full and essentially surjective. Tau Ceti identifies the kernel ideal's congruence with F.homRel. Applied to F ⋙ J.quotientFunctor these give the target, but that argument is not written down."
       },
       {
        "target": "Opposite categories and scalar-linear enrichments supported",
@@ -3795,8 +4056,15 @@
       },
       {
        "target": "The module-category Frobenius theorem for a finite-dimensional k-algebra self-injective on both sides",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
+        {
+         "name": "Module.Baer.of_isIdempotentElem",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Module/Injective/SelfInjective.lean",
+         "line": 79,
+         "fit": "special case"
+        },
         {
          "name": "TauCeti.ExactStructure.abelian_enoughProjectives",
          "library": "tauceti",
@@ -3812,7 +4080,7 @@
          "fit": "special case"
         }
        ],
-       "note": "Absent: no theorem that finitely generated projectives and injectives coincide over a self-injective algebra, and no IsFrobenius instance for the abelian exact structure; Mathlib has only the semisimple case, where every module is injective and projective."
+       "note": "Tau Ceti proves that over a self-injective ring the principal projective modules Ae are injective (`Module.Baer.of_isIdempotentElem`, through closure of Baer modules under retracts). This is one direction of the theorem for the modules from which finitely generated projectives over a finite-dimensional algebra are built. Tau Ceti also shows that the vertex projectives of zigzag algebras are injective. Mathlib has the semisimple case, where every module is injective and projective. Missing: the statement that finitely generated projective and injective modules coincide over an algebra self-injective on both sides, the injective ⇒ projective direction, and the IsFrobenius instance for the abelian exact structure on finitely generated modules."
       }
      ],
      "duplicates": []
@@ -3928,6 +4196,13 @@
        "library": "partial",
        "declarations": [
         {
+         "name": "TauCeti.ExactStructure.IsConflationExact",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Functor.lean",
+         "line": 70,
+         "fit": "related"
+        },
+        {
          "name": "TauCeti.ExactStructure.fullSubcategory",
          "library": "tauceti",
          "file": "TauCeti/CategoryTheory/Exact/ExtensionClosed.lean",
@@ -3949,7 +4224,7 @@
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti has the induced exact structure on an extension-closed full subcategory with its conflation-exact inclusion; nothing descends an exact functor to a stable category or constructs a suspension comparison."
+       "note": "Tau Ceti has exact (conflation-exact) functors between exact structures, with identity, composition and transport along equivalences. It also has the induced exact structure on an extension-closed full subcategory, with its conflation-exact inclusion. Nothing shows that an exact functor preserves relative projectives or injectives, and nothing descends an exact functor to a stable category or constructs a suspension comparison."
       }
      ],
      "duplicates": []
@@ -3959,7 +4234,7 @@
      "targets": [
       {
        "target": "For a finite-dimensional algebra self-injective on both sides, the abelian exact structure on finite-dimensional right modules is Frobenius with projective-injectives exactly the projectives",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "LinearMap.IsFrobeniusFunctional.moduleInjective_self",
@@ -3974,9 +4249,16 @@
          "file": "TauCeti/CategoryTheory/Exact/Abelian.lean",
          "line": 123,
          "fit": "related"
+        },
+        {
+         "name": "Module.Baer.of_isIdempotentElem",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Module/Injective/SelfInjective.lean",
+         "line": 79,
+         "fit": "special case"
         }
        ],
-       "note": "Self-injectivity of a Frobenius algebra and the abelian exact structure exist, but the Frobenius instance on finite-dimensional modules is not stated."
+       "note": "Self-injectivity of a Frobenius algebra, the abelian exact structure, and Mathlib's abelian category of finitely generated modules over a noetherian ring all exist. Over a self-injective ring the principal projective modules are injective (`Module.Baer.of_isIdempotentElem`). Missing: the Frobenius instance on finite-dimensional modules, and the identification of its projective-injectives with the projectives."
       },
       {
        "target": "stmod-A and its triangulation, kept distinct from StMod-A",
@@ -3996,7 +4278,7 @@
          "fit": "related"
         }
        ],
-       "note": "Absent; grep for totally acyclic and complete resolution finds no notion (Mathlib's Tate complex of a finite group is the only complete-resolution-shaped object)."
+       "note": "Absent; grep for 'totally acyclic' and 'complete resolution' finds no such notion. Mathlib's `tateComplex` of a finite group is not a complete resolution: it splices module-valued chains and cochains along the norm and computes Tate cohomology."
       },
       {
        "target": "Finitely generated Gorenstein-projective modules as degree-zero cycles, independent of the complete resolution",
@@ -4033,9 +4315,16 @@
          "file": "Mathlib/CategoryTheory/Abelian/Projective/Dimension.lean",
          "line": 265,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.IsExtBoundedOn",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Homology/EulerCharacteristic/ExtEuler/Basic.lean",
+         "line": 157,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib defines projective and injective dimension of objects of an abelian category (in WithBot ℕ∞, via Ext vanishing), so self-injective dimension can be expressed for R and Rᵐᵒᵖ; no Iwanaga–Gorenstein predicate, global dimension or self-injective dimension of a ring is defined."
+       "note": "Mathlib defines projective and injective dimension of objects of an abelian category, in WithBot ℕ∞ via Ext vanishing, so the self-injective dimension of R and Rᵐᵒᵖ can be expressed. Tau Ceti's `IsExtBoundedOn` expresses a uniform Ext-vanishing bound, a global-dimension bound when both classes are everything. No Iwanaga–Gorenstein predicate is defined, and no global or self-injective dimension of a ring."
       },
       {
        "target": "D_sg(R) = D^b(mod-R)/K^b(proj-R) as a Verdier quotient",
@@ -4243,7 +4532,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib's HomotopyCategory V c exists for every complex shape with preadditive and linear structure, so K_n(A) exists as a preadditive category; the shift, pretriangulated and triangulated structures exist only for up ℤ, and the stable-category identification is absent."
+       "note": "Mathlib's HomotopyCategory V c exists for every complex shape, with preadditive and linear structure and a zero object, so K_n(A) exists as a preadditive category with zero. The shift, pretriangulated and triangulated structures exist only for up ℤ, and the stable-category identification is absent."
       },
       {
        "target": "Parity/cyclic homology objects, exact-acyclic periodic complexes, quasi-isomorphisms, and D_n(A) both as a localization and as a Verdier quotient of K_n(A), with the comparison equivalence and the triangulated package",
@@ -4276,9 +4565,16 @@
          "file": "Mathlib/Algebra/Homology/Localization.lean",
          "line": 274,
          "fit": "more general"
+        },
+        {
+         "name": "HomologicalComplexUpToQuasiIso.Qh",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/Localization.lean",
+         "line": 176,
+         "fit": "more general"
         }
        ],
-       "note": "Homology objects, quasi-isomorphisms and the localization at quasi-isomorphisms exist for any complex shape, and the quasi-isomorphism localization factors through the homotopy category whenever every index has a predecessor (true for ZMod n). Missing: acyclicity for an exact structure, the Verdier-quotient description, the comparison, and all triangulated structure on D_n (DerivedCategory exists only for up ℤ)."
+       "note": "Homology objects, quasi-isomorphisms and the localization at quasi-isomorphisms exist for any complex shape. The quasi-isomorphism localization factors through the homotopy category whenever every index has a predecessor, which holds for ZMod n. Mathlib proves that the induced functor `HomologicalComplexUpToQuasiIso.Qh` is itself a localization of the homotopy category at quasi-isomorphisms, so D_n(A) as a localization of K_n(A) is present. Missing: acyclicity for an exact structure, the Verdier-quotient description and its comparison with the localization, and all triangulated structure on D_n (DerivedCategory exists only for up ℤ)."
       }
      ],
      "duplicates": []
@@ -4305,14 +4601,14 @@
        "library": "absent",
        "declarations": [
         {
-         "name": "CochainComplex.shiftFunctorAdd'",
+         "name": "CategoryTheory.ShiftedHom.comp",
          "library": "mathlib",
-         "file": "Mathlib/Algebra/Homology/HomotopyCategory/Shift.lean",
-         "line": 83,
+         "file": "Mathlib/CategoryTheory/Shift/ShiftedHom.lean",
+         "line": 40,
          "fit": "related"
         }
        ],
-       "note": "Absent; grep for orbit categor finds nothing."
+       "note": "Absent; grep for 'orbit categor' finds nothing. The composition of homogeneous pieces the layer prescribes (f, then g shifted, then the shiftFunctorAdd' isomorphism) is Mathlib's `ShiftedHom.comp`, with associativity and bilinearity. No category with hom groups ⨁_j Hom(X, Y[nj]) exists."
       },
       {
        "target": "The orbit functor D^b(mod-Λ)/[n] → D_n(mod-Λ) as the descent of compression, fully faithful (Stai Lemma 3.12), with essential image the gradable objects",
@@ -4406,9 +4702,16 @@
          "file": "TauCeti/Algebra/Homology/Ext/DualNumbers.lean",
          "line": 230,
          "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.ProjectiveResolution.exact_succ",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Preadditive/Projective/Resolution.lean",
+         "line": 82,
+         "fit": "related"
         }
        ],
-       "note": "Over the dual numbers Tau Ceti has ε· with (ε·)² = 0 and the ε-periodic projective resolution of the residue field, whose exactness contains ker(ε·) = im(ε·) (stated only in private lemmas); the conclusions about K₁ and D₁ cannot be stated because those categories are not built."
+       "note": "Over the dual numbers Tau Ceti has ε· with (ε·)² = 0 and the ε-periodic projective resolution of the residue field. Its exactness, which contains ker(ε·) = im(ε·), is stated directly only in private lemmas, but it follows publicly from Mathlib's `ProjectiveResolution.exact_succ` applied to the public resolution. The conclusions about K₁ and D₁ cannot be stated, because those categories are not built."
       },
       {
        "target": "Periodic projective resolutions as periodic tails with finite preperiod, their compression and unfolding, minimality over artinian/local rings, and chain-homotopy invariance",
@@ -4523,8 +4826,16 @@
       {
        "target": "Right curved DG modules with d(m*a) = d(m)*a + (-1)^{|m|} m*d(a) and d²(m) = m*w, and left modules through the opposite with d²(m) = −w*m",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent."
+       "declarations": [
+        {
+         "name": "TauCeti.IsDGRightModule",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Homology/DG/Module/Right/Defs.lean",
+         "line": 66,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Tau Ceti's DG right modules (`IsDGRightModule`) have exactly this Leibniz rule with d² = 0, the uncurved case w = 0. Its DG-module file notes that passing between left and right modules needs the sign-twisted graded opposite, which is not built."
       },
       {
        "target": "The DG category of curved modules of fixed curvature, its closed degree-zero category, shift, cone and triangulated homotopy category",
@@ -4607,9 +4918,23 @@
          "file": "Mathlib/Algebra/Homology/HomotopyCategory/Acyclic.lean",
          "line": 37,
          "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.ObjectProperty.colimitsClosure",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/ObjectProperty/ColimitsClosure.lean",
+         "line": 37,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.ObjectProperty.limitsClosure",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/ObjectProperty/LimitsClosure.lean",
+         "line": 36,
+         "fit": "related"
         }
        ],
-       "note": "Absent; grep for coacyclic, contraacyclic, coderived and Positselski finds nothing. The thick envelope exists, but no coproduct- or product-closed closures."
+       "note": "Absent; grep for coacyclic, contraacyclic, coderived and Positselski finds nothing. The thick triangulated envelope exists. Mathlib also has closures of an object property under colimits or limits of given shapes (`colimitsClosure`, `limitsClosure`), hence under small coproducts or products. There is no triangulated subcategory generated under coproducts or products."
       },
       {
        "target": "D_abs, D_co and D_ctr as Verdier quotients with universal properties, the inclusions Ac_abs ⊆ Ac_co and Ac_abs ⊆ Ac_ctr, and the comparison triangle functors commuting up to Localization.fac",
@@ -4628,9 +4953,30 @@
          "file": "Mathlib/CategoryTheory/Triangulated/Subcategory.lean",
          "line": 460,
          "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.ObjectProperty.trW_monotone",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/Subcategory.lean",
+         "line": 497,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.LocalizerMorphism.localizedFunctor",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Localization/LocalizerMorphism.lean",
+         "line": 95,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Functor.isTriangulated_of_precomp_iso",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/Functor.lean",
+         "line": 300,
+         "fit": "related"
         }
        ],
-       "note": "Absent; the named localization infrastructure exists but nothing is instantiated."
+       "note": "Absent, and nothing is instantiated. The generic comparison exists in pieces. An inclusion of subcategories gives `trW_monotone`, a localizer morphism whose `localizedFunctor` is the comparison functor. That functor commutes with shifts and is triangulated by `Functor.isTriangulated_of_precomp_iso`, and trW-localizations of triangulated subcategories are pretriangulated. Missing: the fact that a triangulated subcategory closed under countable coproducts or products is thick."
       },
       {
        "target": "The generic closure, quotient and comparison machinery for a triangulated category with a generating class, stated once and instantiated",
@@ -4658,7 +5004,7 @@
          "fit": "related"
         }
        ],
-       "note": "The thick triangulated envelope of a class of objects and Verdier localization at a triangulated subcategory are in Mathlib; coproduct- and product-closed closures and the comparison functors between the three quotients are not."
+       "note": "Mathlib has the thick triangulated envelope of a class of objects, Verdier localization at a triangulated subcategory, and plain closures under colimits and limits of given shapes (`colimitsClosure`, `limitsClosure`). Missing: triangulated closures under coproducts or products, and the comparison functors between the three quotients as named constructions. The generic localizer-morphism route exists; see T5."
       },
       {
        "target": "Positselski's comparisons with their hypotheses: Theorem 7.8(a) in finite graded global dimension, the uncurved 7.8(b) alternatives, and the graded-injective and graded-projective models of Theorem 7.9(a),(b)",
@@ -4675,8 +5021,23 @@
       {
        "target": "Matrix factorizations of w ∈ S: finitely generated projective P₀, P₁ with d₁d₀ = w·id and d₀d₁ = w·id",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent; grep for matrix factori, potential and Knörrer over both trees finds nothing."
+       "declarations": [
+        {
+         "name": "Polynomial.sylveserMap_comp_adjSylvester",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+         "line": 857,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.mul_adjugate",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+         "line": 264,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent: grep for 'matrix factori' and Knörrer over both trees finds nothing, and 'potential' occurs only in unrelated senses. Identities of matrix-factorization shape exist, with no such notion around them: the Sylvester map and its adjugate compose to the resultant times the identity in both orders (`Polynomial.sylveserMap_comp_adjSylvester` and its companion), and A · adj A = adj A · A = det A."
       },
       {
        "target": "The additive category, even morphisms, ℤ/2-graded Hom complex, null-homotopies, parity shift, direct sums, tensor products with summed potentials, mapping cones and the triangulated HMF(S, w)",
@@ -4736,9 +5097,23 @@
          "file": "Mathlib/RingTheory/Regular/RegularSequence.lean",
          "line": 146,
          "fit": "related"
+        },
+        {
+         "name": "ModuleCat.exists_isRegular_tfae",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Depth/Rees.lean",
+         "line": 158,
+         "fit": "related"
+        },
+        {
+         "name": "ringKrullDim_quotient_span_singleton_succ_eq_ringKrullDim_of_mem_nonZeroDivisors",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/KrullDimension/Regular.lean",
+         "line": 174,
+         "fit": "related"
         }
        ],
-       "note": "Absent: regular local rings and regular sequences exist, but there is no depth, Cohen–Macaulay or maximal Cohen–Macaulay notion and no hypersurface theory."
+       "note": "Absent: regular local rings and regular sequences exist, but there is no depth, Cohen–Macaulay or maximal Cohen–Macaulay notion and no hypersurface theory (depth is a TODO in Mathlib's RegularSequence.lean). The nearest ingredients are Rees's theorem, which characterizes the length of regular sequences in an ideal by Ext vanishing, and the dimension of R/(x) for a non-zero-divisor x in a noetherian local ring."
       },
       {
        "target": "Orlov's theorem HMF(S, w) ≃ D_sg(X₀) under the (ELF) conditions with W flat",
@@ -4766,9 +5141,17 @@
      "targets": [
       {
        "target": "The eight named comparison functors: compression, Verdier localization, stalk/complete resolution, forgetting finite projectivity, base change to S/(w), cokernel to stable MCM, uncurved DG at w = 0, and the left/right opposite dictionary",
-       "library": "absent",
-       "declarations": [],
-       "note": "None of the source or target categories beyond Mathlib's general complexes exists, so none of the eight functors is defined; this layer is downstream of Layers 1-7."
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HomologicalComplexUpToQuasiIso.Qh",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/Localization.lean",
+         "line": 176,
+         "fit": "related"
+        }
+       ],
+       "note": "Only functor 2 exists, and in weaker form. Mathlib's `HomologicalComplexUpToQuasiIso.Qh` is, for every complex shape, the functor from the homotopy category to the localization at quasi-isomorphisms, proved to be a localization, with the needed instances for ZMod n-indexed shapes. It is not a Verdier quotient or a triangle functor. The other seven are absent because their source or target categories do not exist: compression, the stalk/complete-resolution functor, forgetting finite projectivity, base change to S/(w), the cokernel to stable MCM modules, the uncurved-to-curved functor, and the left/right dictionary."
       },
       {
        "target": "For each functor: object and morphism formulas, exact/additive/DG/triangle structure, kernel or weak-equivalence behaviour, full faithfulness, essential image and the hypotheses of each claimed equivalence, with reconciliation only by explicit functors",
@@ -4788,7 +5171,7 @@
    }
   },
   "AutomorphicCongruences": {
-   "summary": "Essentially nothing specific to this roadmap is in the libraries. What exists is general commutative algebra (module length, heights and Krull's theorem, orders of vanishing, Weierstrass preparation, the PID structure theorem, regular local rings, the height-one intersection theorem for Dedekind domains), low-degree continuous group cohomology with inflation–restriction, corestriction and Shapiro, Kummer and 2-descent Selmer groups without Galois-cohomological local conditions, and GL₂ Hecke rings, U_p and Eisenstein series over ℂ. Missing are the congruence-module, pseudorepresentation and extension-class machinery, characteristic and Fitting ideals, unitary Shimura varieties and their Eisenstein families, Beilinson–Flach classes and Yager modules, Galois deformation rings with R = T and patching, zeta morphisms and determinant lines, Hilbert Hida families, Heegner points and every p-adic L-function and main-conjecture statement.",
+   "summary": "Essentially nothing specific to this roadmap is in the libraries. What exists:\n- general commutative algebra: module length, heights and Krull's theorem, orders of vanishing, Weierstrass preparation, the PID structure theorem, regular local rings and regular sequences, and the height-one intersection theorem for Dedekind domains;\n- low-degree continuous group cohomology with inflation–restriction, corestriction and Shapiro;\n- Tau Ceti's Galois-cohomological Kummer map Kˣ/(Kˣ)ⁿ → H¹(G_K, μₙ), proved injective only;\n- Kummer and 2-descent Selmer groups, defined by valuations and local points rather than by Galois-cohomological local conditions;\n- GL₂ Hecke rings, U_p, Eisenstein series and the q-expansion principle over ℂ.\nMissing:\n- congruence modules, pseudorepresentations and Galois (Ribet-style) extension classes; only generic Ext¹ classes and H² classes of group extensions exist;\n- characteristic and Fitting ideals;\n- unitary Shimura varieties and their Eisenstein families;\n- Beilinson–Flach classes and Yager modules;\n- Galois deformation rings with R = T and patching;\n- zeta morphisms and determinant lines;\n- Hilbert Hida families and Heegner points;\n- every p-adic L-function and main-conjecture statement.",
    "layers": {
     "AutomorphicCongruences:L0": {
      "verdict": "not built",
@@ -4824,9 +5207,16 @@
          "file": "Mathlib/Algebra/Homology/DerivedCategory/Ext/ExtClass.lean",
          "line": 78,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.GroupExtension.nonempty_equiv_iff_cohomologyClass_factorSet_eq",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
+         "line": 304,
+         "fit": "related"
         }
        ],
-       "note": "Absent (grep for congruence ideal/module, generalized matrix algebra, pseudorepresentation, determinant law, reducibility ideal, Ribet, Chenevier finds nothing). Only ingredients exist: Roby polynomial laws without determinant laws, complete orthogonal idempotents with the module decomposition M = ⊕ eᵢM, and the Ext¹ class of a short exact sequence."
+       "note": "Absent: grep finds no congruence ideal or module, generalized matrix algebra, pseudorepresentation, determinant law, reducibility ideal, Ribet or Chenevier. Only generic ingredients exist: Roby polynomial laws without determinant laws, complete orthogonal idempotents with the module decomposition M = ⊕ eᵢM, the Ext¹ class of a short exact sequence, and Tau Ceti's classification of group extensions by their class in H². None is a Galois extension class built from a generalized matrix algebra."
       },
       {
        "target": "The source-specific relation of the congruence modules to the chosen integral periods, the identification of the automorphic extension classes, and the residual irreducibility/distinctness hypotheses of each construction",
@@ -4836,27 +5226,34 @@
       },
       {
        "target": "The resulting classes satisfy the unramified, ramified Steinberg and ordinary-at-p local conditions of a Selmer group",
-       "library": "partial",
+       "library": "absent",
        "declarations": [
         {
          "name": "IsDedekindDomain.selmerGroup",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/DedekindDomain/SelmerGroup.lean",
          "line": 163,
-         "fit": "special case"
+         "fit": "related"
         },
         {
          "name": "WeierstrassCurve.Affine.selmerGroup₂",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
          "line": 104,
-         "fit": "special case"
+         "fit": "related"
         },
         {
-         "name": "WeierstrassCurve.Affine.localCondition",
+         "name": "TauCeti.kummerClassMap",
          "library": "tauceti",
-         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/LocalCondition.lean",
-         "line": 257,
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 279,
+         "fit": "related"
+        },
+        {
+         "name": "ValuationSubring.decompositionSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/RamificationGroup.lean",
+         "line": 30,
          "fit": "related"
         },
         {
@@ -4865,16 +5262,9 @@
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean",
          "line": 336,
          "fit": "related"
-        },
-        {
-         "name": "groupCohomology.H1InfRes_exact",
-         "library": "mathlib",
-         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Functoriality.lean",
-         "line": 393,
-         "fit": "related"
         }
        ],
-       "note": "Selmer groups with local conditions exist only in non-cohomological Kummer form: Mathlib's K(S, n) ⊆ Kˣ/(Kˣ)ⁿ and Tau Ceti's explicit 2-descent Selmer group of an elliptic curve with its local conditions; inflation–restriction, the input for unramified classes, is proved for continuous and discrete H¹. Missing: Galois representations over O, decomposition and inertia subgroups of G_K at places, unramified, Steinberg and ordinary local conditions, and Selmer groups defined inside H¹ by local conditions."
+       "note": "Nothing of the target exists. There are no Galois representations attached to automorphic forms, no unramified, Steinberg or ordinary local conditions, and no Selmer groups defined inside H¹ by local conditions. The Selmer groups in the libraries are defined by valuations or local points: Mathlib's K(S, n) ⊆ Kˣ/(Kˣ)ⁿ, and Tau Ceti's 2-descent Selmer group of an elliptic curve with its local conditions. Nearby ingredients: inflation–restriction for continuous and discrete H¹; Tau Ceti's Galois-cohomological Kummer map Kˣ/(Kˣ)ⁿ → H¹(G_K, μₙ), proved injective; and Mathlib's decomposition and inertia subgroups (`ValuationSubring.decompositionSubgroup`, `inertiaSubgroup`). The subgroups are defined for any field extension, hence for G_K at any place of K̄, but nothing relates them to local Galois groups."
       },
       {
        "target": "Control of extension modules and their lengths by congruence ideals at height-one primes",
@@ -4951,7 +5341,7 @@
          "fit": "related"
         }
        ],
-       "note": "Absent: no characteristic ideal, Iwasawa-module structure theorem, pseudo-isomorphism or Fitting ideal exists (the only 'Fitting' declarations are Lie-module Fitting components). Present ingredients: Weierstrass preparation over complete local rings, the structure theorem over a PID, noetherianity of power-series rings, and 'contains implies divides' for invertible ideals."
+       "note": "Absent: there is no characteristic ideal, Iwasawa-module structure theorem, pseudo-isomorphism or Fitting ideal. The declarations named after Fitting are the Lie-module Fitting components, Mathlib's Fitting decomposition of an endomorphism and Tau Ceti's Fitting lemma. Present ingredients: Weierstrass preparation over complete local rings, the structure theorem over a PID, noetherianity of power-series rings, 'contains implies divides' for invertible ideals, and unique factorization in R⟦X⟧ for a PID R (Mathlib/RingTheory/PowerSeries/Ideal.lean:202), so ℤ_p⟦X⟧ is a UFD."
       },
       {
        "target": "Comparison of primitive and imprimitive Selmer groups through the local cohomology exact sequence, matching every removed Euler factor analytically",
@@ -5037,9 +5427,30 @@
          "file": "TauCeti/NumberTheory/ModularForms/SturmBound.lean",
          "line": 79,
          "fit": "related"
+        },
+        {
+         "name": "ModularForm.qExpansion_eq_zero_iff",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/QExpansion.lean",
+         "line": 617,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.qExpansion_coeff_eq_zero_of_forall_prime_heckeRingHomCusp_of_one_eq_zero_of_coprime",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Nebentypus/Eigenvector.lean",
+         "line": 212,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.mem_cuspFormsOld_of_forall_coprime_qExpansion_coeff_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/MainLemma.lean",
+         "line": 178,
+         "fit": "related"
         }
        ],
-       "note": "Absent; no p-adic families or Rankin–Selberg L-functions exist. The Sturm bound (a form vanishing to high order at ∞ is zero) is the only nonvanishing-by-coefficients result, for GL₂."
+       "note": "Absent; no p-adic families or Rankin–Selberg L-functions exist. The results that detect a form through its coefficients are all for GL₂ over ℂ: the q-expansion principle (`ModularForm.qExpansion_eq_zero_iff`), the Sturm bound, Tau Ceti's lemma that a Hecke eigenform with a₁ = 0 has aₙ = 0 for all n prime to the level, and the Atkin–Lehner main lemma."
       },
       {
        "target": "The congruence with cusp forms and the associated Galois representation/extension, giving the Selmer lower bound through L0",
@@ -5113,14 +5524,28 @@
          "fit": "related"
         },
         {
+         "name": "TauCeti.ContCohomology.explicitCor2",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Corestriction.lean",
+         "line": 850,
+         "fit": "related"
+        },
+        {
          "name": "TauCeti.ContCohomology.explicitShapiro1",
          "library": "tauceti",
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Shapiro.lean",
          "line": 372,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitCup_projection11",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/ProjectionFormula.lean",
+         "line": 401,
+         "fit": "related"
         }
        ],
-       "note": "Absent (grep for Beilinson, Flach, Euler system, norm relation, Eisenstein class, reciprocity law); degree-1 corestriction and Shapiro's lemma in continuous cohomology are the only norm-relation ingredients."
+       "note": "Absent (grep for Beilinson, Flach, Euler system, norm relation, Eisenstein class, reciprocity law). The nearby ingredients are in low-degree continuous cohomology: corestriction in degrees 0, 1 and 2 (compatible with the connecting maps), Shapiro's lemma in degrees 0 and 1, and the cup-product projection formulas. Mathlib also has corestriction for group homology."
       },
       {
        "target": "Unramified local Iwasawa theory and the Yager modules of FW §4.2, with their exponential-map comparison",
@@ -5245,9 +5670,23 @@
          "file": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
          "line": 51,
          "fit": "related"
+        },
+        {
+         "name": "RingTheory.Sequence.IsRegular",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Regular/RegularSequence.lean",
+         "line": 146,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.Extension.H1Cotangent",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Extension/Cotangent/Basic.lean",
+         "line": 339,
+         "fit": "related"
         }
        ],
-       "note": "Absent: no Galois deformation functors, Schlessinger criterion, R = T, patching or complete-intersection rings (grep for deformation functor, Schlessinger, Taylor-Wiles, Kisin, complete intersection). Only tangent-space ingredients exist: the cotangent space of a local ring and derivations as dual-number lifts."
+       "note": "Absent: no Galois deformation functors, Schlessinger criterion, R = T, patching or complete-intersection rings (grep for deformation functor, Schlessinger, Taylor-Wiles, Kisin, complete intersection). The related commutative algebra goes beyond tangent spaces. Mathlib and Tau Ceti have the cotangent space of a local ring, derivations as dual-number lifts, regular sequences with the Rees theorem (length versus Ext vanishing), formal smoothness and the first cotangent homology `Algebra.Extension.H1Cotangent`."
       },
       {
        "target": "Nakamura's universal zeta morphism from the modular/Hecke-level classes with completed cohomology and local co-Whittaker input, and its fundamental determinant line over the coefficient ring",
@@ -5341,7 +5780,7 @@
          "fit": "related"
         }
        ],
-       "note": "Present in dimension one: a Dedekind domain is the intersection of its height-one localizations, and Tau Ceti proves algebraic Hartogs on integral schemes whose points have coheight ≤ 1. Missing: the height-one intersection theorem for normal noetherian (Krull) domains of higher dimension, divisorial ideals and reflexive hulls, and derived specialization."
+       "note": "Present in dimension one: a Dedekind domain is the intersection of its height-one localizations, and Tau Ceti proves algebraic Hartogs on integral schemes whose points have coheight ≤ 1. Related: Krull's theorem that an integrally closed subring is the intersection of the valuation rings containing it (`Subring.eq_iInf_of_isIntegrallyClosedIn`), and the criterion that a noetherian domain is a UFD exactly when every height-one prime is principal. Missing: the height-one intersection theorem for normal noetherian (Krull) domains of higher dimension, divisorial ideals and reflexive hulls, and derived specialization."
       },
       {
        "target": "FW's universal-family theorem (Theorem 1.8, determinant over the regular power-series subring) and the pointwise theorem at nonordinary and bad-reduction points, with Tor, local Euler and lattice corrections",
@@ -5353,9 +5792,16 @@
          "file": "Mathlib/CategoryTheory/Monoidal/Tor.lean",
          "line": 44,
          "fit": "related"
+        },
+        {
+         "name": "Rep.Tor",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+         "line": 99,
+         "fit": "related"
         }
        ],
-       "note": "Absent; Tor exists only as the derived functor of ⊗ in a monoidal abelian category."
+       "note": "Absent. Tor exists in two forms, neither with the needed API. `CategoryTheory.Tor` is the left-derived functor of ⊗ in a monoidal abelian category and has almost no API. `Rep.Tor` computes group homology (`groupHomologyIsoTor`). There is no derived specialization, universal-family theorem or FW Theorem 1.8."
       }
      ],
      "duplicates": [
@@ -5409,8 +5855,30 @@
       {
        "target": "The imported Heegner-point, Gross–Zagier and local-condition-complex constructions (HeegnerPointEulerSystems, GrossZagierAndArithmeticHeights, SelmerIwasawaCohomology)",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent: no Heegner points, Gross–Zagier formula, anticyclotomic Iwasawa theory or Selmer complexes (grep for Heegner, Gross-Zagier, Kolyvagin, anticyclotomic)."
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 124,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.neronTatePairing",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 374,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.regulator",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+         "line": 91,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent: no Heegner points, Gross–Zagier formula, anticyclotomic Iwasawa theory or Selmer complexes (grep for Heegner, Gross-Zagier, Kolyvagin, anticyclotomic). Related: Tau Ceti's Néron–Tate canonical height, height pairing and regulator for elliptic curves."
       }
      ],
      "duplicates": [
@@ -5445,9 +5913,16 @@
          "file": "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean",
          "line": 813,
          "fit": "related"
+        },
+        {
+         "name": "AbstractMeasure.amiceTransformEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 156,
+         "fit": "related"
         }
        ],
-       "note": "Absent; Weierstrass preparation, where μ-invariants live, is the only nearby input."
+       "note": "Absent. The nearby inputs are Weierstrass preparation, where μ-invariants live, distinguished polynomials, and the Amice transform identifying measures on ℤ_p with ℤ_p⟦X⟧."
       },
       {
        "target": "Local-control maps and derived base-change comparisons constructed before a specialized divisibility is asserted",
@@ -5471,9 +5946,16 @@
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
          "line": 451,
          "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.quadraticTwistPointEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 809,
+         "fit": "related"
         }
        ],
-       "note": "Absent; only quadratic twists of Weierstrass curves exist."
+       "note": "Absent. Tau Ceti has quadratic twists of Weierstrass curves, and the isomorphism of point groups between a curve and its twist over the quadratic extension, Galois-equivariant up to the quadratic character. Nothing factorizes Mordell–Weil groups, Selmer groups or L-functions under the twist."
       },
       {
        "target": "Tracking the class, period, Euler factors, Selmer structure and coefficient extension through the descent",
@@ -5548,14 +6030,14 @@
      "duplicates": [
       {
        "layer": "PadicFamilies:L5",
-       "note": "Establishes ordinary Hida theory and control over totally real fields, the Hilbert Hida family this layer also says to construct."
+       "note": "Establishes ordinary Hida theory and control over totally real fields, the Hilbert Hida family this layer also says to construct. L5w lists PadicFamilies L5 among its prerequisites, so the overlap is L5w restating a supplier's construction for its source."
       }
      ]
     }
    }
   },
   "AutomorphicPadicLFunctions": {
-   "summary": "None of the four constructions is in the libraries, and the gap is structural. What exists is finite-level arithmetic and one-variable input: Tau Ceti's ray class groups for any modulus with surjective transition maps and the ideal-theoretic Artin map; Mathlib's idele class group, abstract measures on any topological space with the ℤ_p Amice transform (linear only), values of ζ and Hurwitz ζ at negative integers, the Dedekind zeta series, CM fields, Eisenstein series and L-functions of modular forms over ℚ, and Tau Ceti's U_p at bad primes. Missing are the p-power-conductor limit and its character space, Hecke characters with infinity types, distributions on ray-class quotients, all cohomology of arithmetic groups over number fields, overconvergent coefficients, Hilbert and Bianchi forms, Deligne–Ribet, Katz, Hsieh, and the unitary Shimura-variety, doubling and Klingen machinery of EHLS and Eischen–Wan; there is no p-adic L-function of any kind at this pin.",
+   "summary": "None of the four constructions is in the libraries, and the gap is structural. What exists is finite-level arithmetic and one-variable input:\n- Tau Ceti's ray class groups for any modulus, with surjective transition maps, and the ideal-theoretic Artin map;\n- Mathlib's idele class group, and Dirichlet characters with conductors and Euler factors, which are the finite-order Hecke characters of ℚ;\n- abstract measures on any topological space, with the ℤ_p Amice transform (linear only: ℤ_p⟦X⟧ is a ring, but there is no convolution or completed group ring);\n- values of ζ and Hurwitz ζ at negative integers, the Dedekind zeta series, and CM fields;\n- Eisenstein series and L-functions of modular forms over ℚ;\n- Tau Ceti's U_p at bad primes and sheaf cohomology of 𝒪_X-modules on schemes.\nMissing:\n- the p-power-conductor limit and its character space;\n- Hecke characters over general number fields with infinity types, and distributions on ray-class quotients;\n- all cohomology of arithmetic groups over number fields, and overconvergent coefficients;\n- Hilbert and Bianchi forms, Deligne–Ribet, Katz and Hsieh;\n- the unitary Shimura-variety, doubling and Klingen machinery of EHLS and Eischen–Wan.\nThere is no p-adic L-function of any kind at this pin.",
    "layers": {
     "AutomorphicPadicLFunctions:L0": {
      "verdict": "not built",
@@ -5600,7 +6082,7 @@
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti has ray class groups for every modulus with surjective transition maps classMap for 𝔪 ∣ 𝔫 (an inverse system, by classMap_comp_classMap) and the ideal-theoretic Artin map, and Mathlib identifies continuous characters of ℤ_p with topologically nilpotent elements. Missing: the limit over p-power conductors and its profinite topology, the reciprocity identification with the Galois group of the maximal abelian extension unramified outside p𝔫, and its character space."
+       "note": "Tau Ceti has ray class groups for every modulus, with surjective transition maps `classMap` for 𝔪 ∣ 𝔫, forming an inverse system by `classMap_comp_classMap`. It also has the ideal-theoretic Artin map, whose docstring says that nothing about a factorization through ray class groups is proved. Mathlib identifies continuous characters of ℤ_p with topologically nilpotent elements. Generic tools exist but are not instantiated: Mathlib's `ProfiniteGrp.limit` of any diagram of profinite groups, the abelianization of G_K (`Field.absoluteGaloisGroupAbelianization`), and for F = ℚ the cyclotomic reciprocity Gal(ℚ(ζ_n)/ℚ) ≃ (ℤ/n)ˣ (`galCyclotomicEquivUnitsZMod`) with the p-adic cyclotomic character. Missing: the limit over p-power conductors with its profinite topology, the reciprocity identification with the Galois group of the maximal abelian extension unramified outside p𝔫, and its character space."
       },
       {
        "target": "The image and closure of the global units in the local units with all torsion factors kept, and the dimension formula with the Leopoldt defect",
@@ -5621,6 +6103,13 @@
          "fit": "related"
         },
         {
+         "name": "TauCeti.GlobalNumberFields.unitsResidueSignHom",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Exact.lean",
+         "line": 225,
+         "fit": "related"
+        },
+        {
          "name": "NumberField.Units.regulator",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
@@ -5628,12 +6117,33 @@
          "fit": "related"
         }
        ],
-       "note": "The reduction maps (𝓞_K/𝔫)ˣ → (𝓞_K/𝔪)ˣ exist, but no limit (local units at p), no closure of the global units and no Leopoldt defect; the only regulator in either library is the archimedean one, and grep for 'Leopoldt' finds nothing."
+       "note": "The reduction maps (𝓞_K/𝔫)ˣ → (𝓞_K/𝔪)ˣ exist, and so does the finite-level image of the global units with signs (`unitsResidueSignHom`, whose kernel has finite index). There is no limit (local units at p), no closure of the global units and no Leopoldt defect; 'Leopoldt' has no hits. The regulators in either library are real-valued: the regulator of number-field units and Tau Ceti's Néron–Tate regulator of an elliptic curve. There is no p-adic regulator."
       },
       {
        "target": "Locally algebraic Hecke characters with algebraic and p-adic avatars through chosen embeddings, conductors, infinity types and local factors",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
+        {
+         "name": "DirichletCharacter.conductor",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 246,
+         "fit": "special case"
+        },
+        {
+         "name": "MulChar.ringHomComp",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/MulChar/Basic.lean",
+         "line": 453,
+         "fit": "related"
+        },
+        {
+         "name": "DirichletCharacter.LSeries_eulerProduct_hasProd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/EulerProduct/DirichletLSeries.lean",
+         "line": 114,
+         "fit": "special case"
+        },
         {
          "name": "NumberField.IdeleClassGroup",
          "library": "mathlib",
@@ -5647,16 +6157,9 @@
          "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Weight.lean",
          "line": 608,
          "fit": "related"
-        },
-        {
-         "name": "DirichletCharacter.LFunction",
-         "library": "mathlib",
-         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
-         "line": 61,
-         "fit": "related"
         }
        ],
-       "note": "No Hecke character, Grössencharakter or infinity type exists (grep for HeckeChar, Grossen, infinityType and characters of IdeleGroup/IdeleClassGroup finds only the defining quotient). Mathlib's idele class group is only the quotient with maps from the completions; Tau Ceti's UnitaryIdealWeight is a multiplicative function on ideals, with no conductor or infinity type."
+       "note": "Present for F = ℚ and finite order only. Mathlib's Dirichlet characters come with a conductor (`DirichletCharacter.conductor`), the sign at infinity (`Even`/`Odd`, the whole archimedean type of a finite-order character), values in any commutative ring with change of coefficients (`MulChar.ringHomComp`), which gives algebraic and p-adic avatars through chosen maps, and Euler products with local factors. Over a general number field there is no Hecke character, Grössencharakter or infinity type (grep for HeckeChar, Grossen, infinityType). Mathlib's idele class group is only the defining quotient, used nowhere else. Tau Ceti's `UnitaryIdealWeight` is a multiplicative function on ideals that takes finite-order characters, with Euler factors but no conductor or infinity type."
       },
       {
        "target": "Distributions on the actual ray-class quotient, with descent, finite-level evaluation, norm relations, character twists and change of tame modulus",
@@ -5696,8 +6199,23 @@
       {
        "target": "The conditional construction principle: a period-normalized classical class with a distribution-valued lift, Hecke norm relations and growth estimates yields an interpolating distribution, unique in the range of the growth theorem",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent; grep for interpolation, p-adic L-function and Kubota over both trees finds no p-adic interpolation statement of any kind."
+       "declarations": [
+        {
+         "name": "PadicInt.mahlerSeries_apply_nat",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+         "line": 301,
+         "fit": "related"
+        },
+        {
+         "name": "PadicInt.addChar_of_value_at_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/AddChar.lean",
+         "line": 60,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent: no construction principle, interpolating distribution or p-adic L-function exists (grep for p-adic L-function and Kubota finds nothing). The only p-adic interpolation results interpolate functions, not L-values: Mahler's theorem (`PadicInt.mahlerSeries`, continuous functions on ℤ_p with prescribed values on ℕ) and the continuous character interpolating n ↦ (1 + r)^n (`PadicInt.addChar_of_value_at_one`)."
       }
      ],
      "duplicates": [
@@ -5712,6 +6230,10 @@
       {
        "layer": "LocallyAnalyticDistributions:L3",
        "note": "Constructs the character space of a compact commutative p-adic analytic group, with evaluation, twisting and functoriality for homomorphisms of ray-class groups, the character-space target of this layer."
+      },
+      {
+       "layer": "PadicMeasuresIwasawaAlgebras:L0a",
+       "note": "Constructs the rigid analytic space representing continuous characters of a compact abelian p-adic analytic group, with the universal character and polydisc charts. That is this layer's character space of the ray-class limit, in general form."
       }
      ]
     },
@@ -5815,9 +6337,16 @@
          "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
          "line": 40,
          "fit": "related"
+        },
+        {
+         "name": "AnalyticAt",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Analytic/Basic.lean",
+         "line": 110,
+         "fit": "related"
         }
        ],
-       "note": "Only abstract continuous-linear-functional measures exist; no locally analytic functions or distributions (grep for 'locally analytic', overconvergent) and no weight action."
+       "note": "Only abstract continuous-linear-functional measures exist. There are no spaces of locally analytic functions, no locally analytic distributions and no weight action. Mathlib's analyticity predicates (`AnalyticAt`, `AnalyticOnNhd`) make sense over ℚ_p, but no function space with its topology is built from them."
       },
       {
        "target": "Normalization of each U_q and its slope, and BSW Theorem 8.7 in the small-slope range h_q < (min k_σ + v_q(λ) + 1)/e_q",
@@ -5984,7 +6513,7 @@
          "fit": "related"
         }
        ],
-       "note": "Absent. Tau Ceti's abelian varieties have no complex multiplication, and the only differential operator on modular forms is Mathlib's holomorphic Serre derivative over ℚ; there are no Maass–Shimura or p-adic operators, Igusa towers, CM periods or Eisenstein measures."
+       "note": "Absent. Tau Ceti's abelian varieties have endomorphism rings but no complex multiplication structure. The differential operators on modular forms are Mathlib's Serre derivative, over ℚ, and the normalized derivative (2πi)⁻¹ d/dz on functions. There are no Maass–Shimura or p-adic operators, Igusa towers, CM periods or Eisenstein measures."
       }
      ],
      "duplicates": [
@@ -6082,9 +6611,31 @@
       },
       {
        "target": "Coherent cohomology and integral q/Fourier–Jacobi expansion principles",
-       "library": "absent",
-       "declarations": [],
-       "note": "Absent; grep for Fourier-Jacobi, Jacobi form and Siegel modular finds nothing in either library."
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Cohomology/Basic.lean",
+         "line": 61,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.Scheme.Modules.cohomologyδ",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Cohomology/LongExactSequence.lean",
+         "line": 108,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Sheaf.H",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+         "line": 59,
+         "fit": "related"
+        }
+       ],
+       "note": "General coherent cohomology exists but has nothing to be applied to. Tau Ceti defines Hⁱ(X, M) for any scheme X and sheaf of 𝒪_X-modules M, on Mathlib's sheaf cohomology `CategoryTheory.Sheaf.H`. It comes with H⁰ = global sections, the long exact sequence, Mayer–Vietoris and Euler characteristics; finiteness for proper schemes is still to come. There are no Shimura varieties or automorphic bundles to apply it to. The integral q- and Fourier–Jacobi expansion principles are absent: grep for Fourier-Jacobi, Jacobi form and Siegel modular finds nothing."
       },
       {
        "target": "Ordinary Hecke modules, pairings, differential operators and Eisenstein measures",
@@ -6124,7 +6675,7 @@
          "fit": "related"
         }
        ],
-       "note": "Absent; there is no Iwasawa algebra as a ring (the Amice transform is only a linear equivalence over ℤ_p) and no completed tensor products."
+       "note": "Absent. There is no completed group ring ℤ_p[[G]], no convolution on measures and no completed tensor product. The ring ℤ_p⟦X⟧, the Iwasawa algebra of ℤ_p in its Amice model, exists with Weierstrass preparation, but it is identified with measures on ℤ_p only ℤ_p-linearly (`AbstractMeasure.amiceTransformEquiv`)."
       }
      ],
      "duplicates": [
@@ -6138,7 +6689,7 @@
       },
       {
        "layer": "AutomorphicBundles:B3",
-       "note": "Constructs automorphic vector bundles with their canonical and subcanonical extensions to toroidal compactifications, which this layer also lists."
+       "note": "Constructs the canonical and subcanonical extensions of automorphic vector bundles to toroidal compactifications. The automorphic vector bundles, toroidal compactifications and coherent cohomology that this layer builds in the EHLS setting need these extensions."
       },
       {
        "layer": "AutomorphicBundles:B5",
@@ -6147,6 +6698,10 @@
       {
        "layer": "IgusaVarietiesAndTorsionConcentration:IG.1",
        "note": "Constructs Igusa towers over the leaves of a fixed PEL datum with their finite-level models, overlapping the ordinary Igusa towers this layer says to construct."
+      },
+      {
+       "layer": "AutomorphicBundles:B2",
+       "note": "Defines the automorphic vector bundle attached to a representation of the parabolic or Levi, with its canonical-model descent. These are the automorphic vector bundles this layer says to construct in the EHLS setting."
       }
      ]
     },
@@ -6213,9 +6768,16 @@
          "file": "TauCeti/Geometry/Hodge/Structure.lean",
          "line": 75,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Basic.lean",
+         "line": 72,
+         "fit": "related"
         }
        ],
-       "note": "Absent: no motives, realizations, Deligne periods or critical sets exist (grep for Coates, Perrin-Riou, Panchishkin, critical value); only abstract Hodge structures are present."
+       "note": "Absent: no motives, realizations, Deligne periods or critical sets exist (grep for Coates, Perrin-Riou, Panchishkin, critical value). The Hodge-theoretic linear algebra that exists is Tau Ceti's pure and mixed Hodge structures, polarizations, Tate structures and period-domain points, none of it attached to a motive."
       }
      ],
      "duplicates": [
@@ -6232,7 +6794,7 @@
    }
   },
   "ColemanIntegration": {
-   "summary": "The libraries supply the analytic scaffolding but none of the p-adic theory. Mathlib has power series with radius of convergence over any nontrivially normed field, restricted series and Tate algebras, ℂ_p, termwise differentiation, Kähler differentials, the complex values of polylogarithms at roots of unity as expZeta together with the Fourier-transform and Gauss-sum identities for Dirichlet L-functions, and p-adic measures with the Mahler and Amice transforms; Tau Ceti adds Huber pairs, adic spectra, restricted and two-sided restricted series, and residues for function-field differentials. Genuinely missing are the p-adic logarithm and its branches, annuli with Laurent series and residues, primitives on discs, Frobenius lifts, overconvergent and rigid/de Rham cohomology, Coleman functions and integration, p-adic polylogarithms, p-adic L-functions and RJW Theorem 6.7, and all regulators beyond the archimedean ones.",
+   "summary": "The libraries supply the analytic scaffolding but none of the p-adic theory. Mathlib has:\n- power series with radius of convergence over any nontrivially normed field, restricted series and Tate algebras, and ℂ_p;\n- termwise differentiation, Kähler differentials and the analytic exterior derivative;\n- the Frobenius-lift predicate IsArithFrobAt;\n- the complex values of polylogarithms at roots of unity (as expZeta), with the Fourier-transform and Gauss-sum identities for Dirichlet L-functions;\n- p-adic measures with the Mahler and Amice transforms.\nTau Ceti adds Huber pairs, adic spectra, restricted and two-sided restricted series, the formal-group description of the residue disc of the origin on an elliptic curve, and the residue theorem for Weil differentials of function fields. Genuinely missing:\n- the p-adic logarithm and its branches;\n- annuli with Laurent series and residues, and primitives on non-archimedean discs;\n- Frobenius lifts on curves, and overconvergent and rigid/de Rham cohomology;\n- Coleman functions and integration, and p-adic polylogarithms;\n- p-adic L-functions and RJW Theorem 6.7;\n- all regulators beyond the real-valued ones.",
    "layers": {
     "ColemanIntegration:L0": {
      "verdict": "partly built",
@@ -6277,7 +6839,7 @@
          "fit": "more general"
         }
        ],
-       "note": "Mathlib's radius of convergence and HasFPowerSeriesOnBall work over any nontrivially normed field (so ℚ_p, finite extensions and ℂ_p), and restricted power series and the Tate algebra are defined over normed rings (ultrametric for the subring); Tau Ceti has restricted series over non-archimedean topological rings with the multiplicative Gauss norm."
+       "note": "Mathlib's radius of convergence and HasFPowerSeriesOnBall work over any nontrivially normed field, so over ℚ_p, its finite extensions and ℂ_p. Restricted power series are defined over normed rings, and the Tate algebra is their c = 1 subring for ultrametric rings. Tau Ceti has restricted series over non-archimedean topological rings, and multiplicativity of the Gauss norm of restricted series over ultrametric normed rings."
       },
       {
        "target": "Overconvergent power series, converging on a strictly larger disc",
@@ -6340,7 +6902,7 @@
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti has two-sided coefficient families tending to 0 (the functions on the circle |X| = 1, with a bilinear convolution but no ring structure) and residues only for complex meromorphic functions and Weil differentials of function fields; Mathlib's Laurent series are formal. Annuli r ≤ |z| ≤ s over a non-archimedean field, their Laurent-series rings and residues of such differentials are absent."
+       "note": "Tau Ceti has two-sided coefficient families tending to 0: the functions on the circle |X| = 1, with a bilinear convolution but no ring structure. Residues exist only for complex meromorphic functions, as Mathlib's formal residue pairing on Laurent polynomials, and as the abstract residue theorem for Weil differentials of function fields, where no residue map is constructed. Mathlib's Laurent series are formal. Tau Ceti's Laurent-domain rational localizations give annulus coordinate rings only abstractly. Absent: annuli r ≤ |z| ≤ s over a non-archimedean field, their Laurent-series rings, and residues of such differentials."
       },
       {
        "target": "Exact differentials and termwise differentiation and integration of power series with the convergence domain of the result",
@@ -6373,9 +6935,16 @@
          "file": "Mathlib/Analysis/Calculus/FDeriv/Analytic.lean",
          "line": 211,
          "fit": "more general"
+        },
+        {
+         "name": "Complex.IsExactOn",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/HasPrimitives.lean",
+         "line": 116,
+         "fit": "related"
         }
        ],
-       "note": "Formal and analytic termwise differentiation are present, with the radius not shrinking and the derivative given by the termwise series on the same ball (any nontrivially normed field). There is no formal antiderivative of a power series, no statement about the radius of the integrated series, and no exact differentials."
+       "note": "Formal and analytic termwise differentiation are present over any nontrivially normed field: the radius does not shrink, and the derivative is the termwise series on the same ball. There is no formal antiderivative of a power series and no statement about the radius of an integrated series. Exact differentials exist only over ℂ and ℝ: Mathlib's `Complex.IsExactOn`, exactness of holomorphic functions on discs, and the real/complex Poincaré lemma. None applies to a non-archimedean field."
       },
       {
        "target": "The unique primitive with chosen base value on a disc",
@@ -6394,13 +6963,20 @@
          "file": "Mathlib/Analysis/Analytic/Uniqueness.lean",
          "line": 113,
          "fit": "related"
+        },
+        {
+         "name": "DifferentiableOn.isExactOn_ball",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/HasPrimitives.lean",
+         "line": 291,
+         "fit": "related"
         }
        ],
-       "note": "Only the formal uniqueness is present: two power series over a torsion-free ring with equal derivative and constant term are equal, and one-variable expansions are unique. Existence of the primitive on the disc is missing, and the mean-value 'zero derivative implies constant' results are for ℝ/ℂ on preconnected sets, which do not apply to totally disconnected ultrametric discs."
+       "note": "In the non-archimedean setting only the formal uniqueness is present: two power series over a torsion-free ring with equal derivative and constant term are equal, and one-variable expansions are unique. Over ℂ the target exists in pieces. A holomorphic function on a disc has a primitive (`DifferentiableOn.isExactOn_ball`), which `Complex.IsExactOn.with_val_at` normalizes to any base value, and the mean-value results give uniqueness on connected sets. These are for ℝ and ℂ only and do not apply to totally disconnected ultrametric discs, where existence of the primitive is missing."
       },
       {
        "target": "The p-adic logarithm normalized by log_p(p) = 0 on the necessary annuli, and how another branch changes it",
-       "library": "partial",
+       "library": "absent",
        "declarations": [
         {
          "name": "PadicComplex",
@@ -6435,6 +7011,10 @@
       {
        "layer": "PadicDifferentialEquationsAndRigidCohomology:RD.0",
        "note": "Constructs overconvergent power-series algebras as unions over strict radii, with differential forms and restriction to annuli of varying radius, the overconvergent-series and annulus targets of this layer."
+      },
+      {
+       "layer": "PadicHodgeTheory:P7:annulus-foundations",
+       "note": "Constructs the bounded, overconvergent and Robba coefficient rings from convergent Laurent series on annuli, with their norms, topologies and restriction maps. These are this layer's annulus and Laurent-series target."
       }
      ]
     },
@@ -6450,13 +7030,6 @@
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
          "line": 97,
-         "fit": "related"
-        },
-        {
-         "name": "TauCeti.Huber.Pair",
-         "library": "tauceti",
-         "file": "TauCeti/RingTheory/Huber/Pair.lean",
-         "line": 107,
          "fit": "related"
         },
         {
@@ -6479,9 +7052,16 @@
          "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
          "line": 325,
          "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.range_formalPointHomAdicCompletion",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Range.lean",
+         "line": 158,
+         "fit": "special case"
         }
        ],
-       "note": "Tau Ceti has adic spectra Spa(A, A⁺) as sets of valuations, Huber pairs, closed polydiscs, rational subsets and models over a DVR; Mathlib has good reduction only for elliptic curves. Missing: rigid or adic spaces with a structure sheaf (Tau Ceti's presheaf is not yet identified with 𝒪_X), wide opens, dagger/Monsky–Washnitzer algebras, tubes and residue discs, and smooth proper curves with good reduction as a package."
+       "note": "Tau Ceti has adic spectra Spa(A, A⁺) as sets of valuations, Huber pairs, closed polydiscs, rational subsets and models over a DVR. For an elliptic curve over the completion at a height-one prime, it identifies the residue disc of the origin (the kernel of reduction) with the formal-group points on the maximal ideal. Mathlib has good reduction only for elliptic curves. Missing: rigid or adic spaces with a structure sheaf (Tau Ceti's presheaf is not yet identified with 𝒪_X), wide opens, dagger/Monsky–Washnitzer algebras, tubes, residue discs in general, and smooth proper curves with good reduction as a package."
       },
       {
        "target": "Frobenius lifts on a cover of the curve",
@@ -6507,9 +7087,16 @@
          "file": "TauCeti/RingTheory/Kaehler/MapSemilinear.lean",
          "line": 72,
          "fit": "related"
+        },
+        {
+         "name": "AlgHom.IsArithFrobAt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Frobenius.lean",
+         "line": 54,
+         "fit": "related"
         }
        ],
-       "note": "Absent: no lift of Frobenius to a p-adically complete or overconvergent algebra (grep for Frobenius lift, δ-ring). Only the Witt-vector Frobenius, the characteristic-p identity f(X^p) = f^p on power series and semilinear pullback of Kähler differentials exist."
+       "note": "Absent: no lift of Frobenius is constructed on any p-adically complete or overconvergent algebra (grep for Frobenius lift, δ-ring). What exists: the Witt-vector Frobenius, the characteristic-p identity f(X^p) = f^p on power series, semilinear pullback of Kähler differentials, and Mathlib's predicate `AlgHom.IsArithFrobAt` (φ(x) ≡ x^q mod Q). With Q = pS that predicate says φ lifts Frobenius, and it has a uniqueness theorem in the unramified case."
       },
       {
        "target": "Finite-dimensional rigid/de Rham cohomology in the degree used for integration, independence of the Frobenius lift, and the comparison of cohomological and local analytic pullback",
@@ -6542,9 +7129,16 @@
          "file": "TauCeti/AlgebraicGeometry/Cohomology/Basic.lean",
          "line": 61,
          "fit": "related"
+        },
+        {
+         "name": "extDeriv",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Calculus/DifferentialForm/Basic.lean",
+         "line": 73,
+         "fit": "related"
         }
        ],
-       "note": "Kähler differentials, the one-dimensionality of Ω[F/k] for a function field, the genus-dimensional space of regular Weil differentials and sheaf cohomology of 𝒪_X-modules exist. The algebraic de Rham complex and H¹_dR, Monsky–Washnitzer or rigid cohomology, their finiteness and any Frobenius action are absent (grep for de Rham finds only the B_dR period ring)."
+       "note": "Present: Kähler differentials, the one-dimensionality of Ω[F/k] for a function field, the genus-dimensional space of regular Weil differentials, sheaf cohomology of 𝒪_X-modules, and Mathlib's analytic exterior derivative `extDeriv`. That derivative works over any nontrivially normed field, with d ∘ d = 0 for analytic forms and compatibility with pullback. Absent: the algebraic de Rham complex and H¹_dR, Monsky–Washnitzer or rigid cohomology, their finiteness, and any Frobenius action. Apart from an unrelated docstring, grep for de Rham finds only the B_dR period ring."
       },
       {
        "target": "The Frobenius polynomial argument giving analytic continuation of primitives (Dwork), and the Coleman uniqueness principle",
@@ -6562,7 +7156,7 @@
        "target": "A direct construction on P¹ ∖ {0, 1, ∞} by successive (unipotent) extensions",
        "library": "absent",
        "declarations": [],
-       "note": "Absent; grep for unipotent connection, iterated integral, thrice-punctured and successive extension finds nothing."
+       "note": "Absent. Grep for unipotent connection, iterated integral, thrice-punctured and successive extension finds nothing relevant: the literal hits are Fubini-type iterated integrals, permutation triples for covers of the thrice-punctured sphere, and extension of scalars."
       }
      ],
      "duplicates": [
@@ -6602,7 +7196,7 @@
          "fit": "related"
         }
        ],
-       "note": "No p-adic polylogarithm exists, and the p-adic logarithm is only the unconverged series definition noted in L0. Mathlib has only complex analogues: Σ z^n/n = −log(1 − z) for |z| < 1, and Σ e^{2πian}/n^s = expZeta a s on the unit circle for Re s > 1; grep for polylog, dilog and Li_k finds no definition."
+       "note": "No p-adic polylogarithm exists, and the p-adic logarithm is only the series definition without convergence noted in L0. Mathlib has only real, complex and formal analogues: Σ zⁿ/n = −log(1 − z) for |z| < 1 over ℂ and ℝ, the formal power series log(1 + X), and Σ e^{2πian}/nˢ = expZeta a s on the unit circle for Re s > 1. Grep for polylog, dilog and Li_k finds no definition."
       },
       {
        "target": "Existence and uniqueness of Li_k in the Coleman category, the differential recursion, and the tangential base-point normalization at zero",
@@ -6688,7 +7282,12 @@
        "note": "The complex values Li_s(e^{2πia}) exist as Mathlib's expZeta (its Dirichlet series for Re s > 1, with meromorphic continuation), and L-functions of additive characters on ZMod N are identified with it; a named complex Li_k on |z| < 1 and any comparison with a p-adic polylogarithm through coefficient embeddings are absent."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "Polylogarithms:P.1",
+       "note": "Defines the complex Li_n by its power series on the unit disc, with analytic continuation, branch changes and distribution relations. This is the complex polylogarithm this layer compares with in its complex-formula target."
+      }
+     ]
     },
     "ColemanIntegration:L3": {
      "verdict": "not built",
@@ -6764,9 +7363,16 @@
          "file": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
          "line": 357,
          "fit": "related"
+        },
+        {
+         "name": "PadicInt.continuousAddCharEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/AddChar.lean",
+         "line": 103,
+         "fit": "related"
         }
        ],
-       "note": "Absent. Mathlib's abstract measures on ℤ_p with the Mahler and Amice transforms are the only distribution-theoretic input; nothing restricts to ℤ_p^× or treats locally analytic distributions."
+       "note": "Absent. Mathlib's abstract measures, defined on any topological space, with the Mahler and Amice transforms on ℤ_p and the classification of continuous additive characters of ℤ_p, are the only distribution-theoretic input. Nothing restricts measures to ℤ_p^× or treats locally analytic distributions."
       },
       {
        "target": "The de Rham/finite-polynomial regulator interpretation, and the motivic Beilinson conjecture as a proposition about defined realizations",
@@ -6780,12 +7386,700 @@
          "fit": "related"
         }
        ],
-       "note": "Absent; only the archimedean regulators of number fields and elliptic curves exist (grep for syntomic, Besser, Beilinson and finite polynomial cohomology finds nothing)."
+       "note": "Absent. The regulators in either library are real-valued: the archimedean regulator of number-field units, and Tau Ceti's Néron–Tate height regulator of an elliptic curve. Grep for syntomic, Besser and finite polynomial cohomology finds nothing relevant, and 'Beilinson' occurs only in citations of Faisceaux pervers."
       }
      ],
      "duplicates": []
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-23",
+  "date": "2026-09-17",
+  "checked": 303,
+  "corrections": [
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
+    "target": "For finite M the kernel of the action is open, so the action factors through a finite quotient",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note gave the hypotheses as [CompactSpace G] [TotallyDisconnectedSpace G] [Finite M]; the Kernel section of Discrete.lean assumes no compactness or total disconnectedness, so the results are more general than stated."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
+    "target": "Finite products of discrete modules, and subgroups and quotients with induced/quotient topologies, are again discrete G-modules",
+    "was": "both",
+    "now": "partial",
+    "why": "Only finite products and the topological half are in the libraries. Neither library equips a G-stable subgroup of a discrete G-module, or the quotient by one, with its induced G-action in the unbundled classes. The layer asks for these closure properties, so the target is not built."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
+    "target": "(layer verdict)",
+    "was": "built",
+    "now": "partly built",
+    "why": "With the subgroup and quotient half of the closure target missing, not every target of Layer 0 is present."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+    "target": "Closure of the smooth discrete objects under finite products, subobjects and quotients",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note relayed the file's claim that the statement cannot be stated, although it can be stated through the equivalence with Action (TopModuleCat k) G. It also said the unbundled Layer 0 analogue is available from Mathlib instances, but only the finite-product half is."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+    "target": "The M^U API: inclusions M^U ↪ M^V for V ≤ U, functoriality in M and in U, and comparison with Rep.quotientToInvariants",
+    "was": "tauceti",
+    "now": "partial",
+    "why": "The layer's comparison of M^U with Mathlib's Rep.quotientToInvariants under the dictionary is not stated. The cited isIso lemma is a different statement, (X^S)^{G/S} ≅ X^G."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality",
+    "target": "The three instances in all three degrees: explicitRes0/1/2, explicitInfl1/2, explicitCoeff0/1/2, with the mixed composition laws",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note gave explicitCoeff1/2_id/_comp as the coefficient naturality of res and inf. They are the composition laws of coefficient maps; the naturality comes from the general compatible-pair composition laws."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality",
+    "target": "Worked examples named by the layer (§6 acceptance criteria): H¹(ℤ_p, ℤ/pᵏ) ≅ ℤ/pᵏ and H¹(ℤ_p, ℤ) = 0",
+    "was": "not listed",
+    "now": "partial (target added)",
+    "why": "Layer 2's API paragraph states both computations as its worked examples, and README §6 assigns them to Layer 2 as acceptance criteria. They are absent, so the layer's 'built' verdict could not be confirmed from its description."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality",
+    "target": "(layer verdict)",
+    "was": "built",
+    "now": "partly built",
+    "why": "Every construction and theorem of the four bullets is present, but the two worked examples the layer states are not."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+    "target": "The category of the comparison: C(G,M) discrete for compact G and discrete M, hence every term and subquotient of the homogeneous cochain complex is discrete",
+    "was": "both",
+    "now": "tauceti",
+    "why": "Every cited declaration is Tau Ceti's, including `ContinuousMap.discreteTopology` (TauCeti/Topology/CompactOpen.lean) and the subquotient lemmas it uses. Mathlib has no DiscreteTopology instance for C(X, Y)."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+    "target": "The connecting map δ⁰ : Kˣ → H¹(G_K, μₙ) with the explicit cocycle g ↦ g α / α, independence of the root, multiplicativity, and kernel (Kˣ)ⁿ",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note gave multiplicativity as 'kummerMapAdd is an AddMonoidHom'; kummerMapAdd is private. The public form is kummerMap, a MonoidHom."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-13-the-evens-norm",
+    "target": "The permutation wreath product (X → D) ⋊ Q generalizing Mathlib's RegularWreathProduct",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note left open whether the Tau Ceti object has the (X → D) ⋊ Q form, and it undercounted the file's API. Reading the file settles both: the group is defined for the symmetric group and for permutation subgroups only, and there is no comparison with RegularWreathProduct."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+    "target": "duplicate tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+    "was": "listed",
+    "now": "removed",
+    "why": "EllipticCurves Layer 7 lists continuous inflation–restriction only among the missing upstream 'Galois-specific packaging', which 'the layer is stated against ... once it exists'. That makes it a dependency, not a target of that layer."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+    "target": "duplicate tauceti:TauCetiRoadmap/QuadraticFormInvariants#7a-the-mod-2-operations-consumed-and-the-μ₂-adapters",
+    "was": "not listed",
+    "now": "added",
+    "why": "Sub-layer 7A of QuadraticFormInvariants restates this layer's mod-2 target and its H² injection as milestones it owns."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+    "target": "duplicate tauceti:TauCetiRoadmap/ClassFieldTheory#layer-0-audit-and-complete-the-cohomology-suppliers",
+    "was": "not listed",
+    "now": "added",
+    "why": "ClassFieldTheory Layer 0 states the finite-group case of this layer's corestriction targets as work to port or prove."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+    "target": "duplicate tauceti:TauCetiRoadmap/ClassFieldTheory#layer-0-audit-and-complete-the-cohomology-suppliers",
+    "was": "not listed",
+    "now": "added",
+    "why": "ClassFieldTheory Layer 0 states the finite-group case of this layer's graded cup product as work to port or prove."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+    "target": "Inhomogeneous against canonical for profinite G in degrees 0, 1, 2 (explicitHⁱIsoContinuousCohomology)",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not record that the quotient presentation of the canonical side, part of this milestone, exists in general form."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+    "target": "Transport of the operations: explicitIso_map, explicitIso_res, explicitIso_infl, explicitIso_coeffMap",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said the inflation transport is absent in every degree; in degree 0 it reduces to the existing compatible-pair transport up to one missing identification."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+    "target": "Functoriality of the whole finite-quotient system in M",
+    "was": "partial",
+    "now": "tauceti",
+    "why": "The cited functor is not on TopRep, as the note said, but on Mathlib's Rep k G. It is the finite-quotient system the roadmap's §2 table and §3 define, and it is packaged with its naturality in the coefficients."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+    "target": "The cohomology of a discrete module as the filtered colimit over its finitely generated ℤ[G ⧸ U]-submodules",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said the Layer 0 union is the only ingredient present; Mathlib's direct-limit presentation by finitely generated submodules and Tau Ceti's finite-quotient factorization of orbit maps also exist."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+    "target": "Transitivity cor_V^G = cor_U^G ∘ cor_V^U for open V ≤ U ≤ G",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note's 'grep for cor with trans returns nothing' is literally false (it matches explicitCor0Transversal and similar names); the correct statement is that no transitivity lemma exists."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+    "target": "The Mackey double-coset formula res^G_V ∘ cor^G_U = Σ_{VgU} cor ∘ (g)_* ∘ res",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note's related citations missed Tau Ceti's representation-level Mackey decomposition and double-coset splitting, the algebraic inputs of the cohomological formula."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+    "target": "Acyclicity of Coind_1^G A in degrees 1 and 2, the embedding M ↪ Coind_1^G M, and dimension shifting Hⁱ⁺¹(G,M) ≅ Hⁱ(G, Coind_1^G M ⧸ M)",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said the embedding is not constructed and that no dimension-shifting isomorphism exists in either library. The canonical embedding and the discrete dimension-shifting criterion both exist. The note also treated degree-1 acyclicity as immediate, but it needs an unstated vanishing for the trivial group."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+    "target": "The finite-level Galois dictionary: open normal subgroups ↔ finite Galois subextensions, G_K ⧸ U ≅ Gal(L/K) topologically, (Kˢ)^U = L, cofinality",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said cofinality is not stated in either library; its mathematical content is in Mathlib and in Tau Ceti."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+    "target": "Hilbert 90: H¹(Gal(L/K), Lˣ) = 0 for profinite Gal(L/K), and the exported hilbert90 at UnitsCoeff K",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not record that the reduction step the layer prescribes already exists in Tau Ceti."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+    "target": "Functoriality in the field: kummerIso_res against powerClassMap and kummerIso_norm against powerClassNorm",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note's 'neither powerClassMap nor powerClassNorm is defined' is true by name only; the square-class restriction map and a special-case norm exist."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+    "target": "The field-extension bridge: galoisSubgroup, galoisSubgroup_index, galoisSubgroupEquiv, galoisF2Iso, galoisRes, galoisCor, galoisEvens, galoisConj and their laws",
+    "was": "absent",
+    "now": "partial",
+    "why": "The subgroup cut out by an extension, its index formula and the group isomorphism with its Galois group are in Mathlib for intermediate fields. The note's claim that nothing exists held only for the names."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+    "target": "The all-degree finite-quotient colimit: continuousFiniteQuotientSystem n, cocone, universality and naturality in coefficients",
+    "was": "absent",
+    "now": "partial",
+    "why": "The all-degree system of finite-level cohomology groups and its naturality in the coefficients exist; the note misdescribed them as a system of coefficient objects and denied any cohomology-level system."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+    "target": "All-degree Shapiro (shapiroCochainIso, shapiroIso), coindFunctor_map_shortExact, coindAcyclic and dimensionShiftIso",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not mention Mathlib's discrete acyclicity and dimension-shifting tools."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+    "target": "Corestriction in every degree through coinduction: trace morphism, the composite, naturality, transitivity, cor ∘ res, δ-compatibility, Mackey, and the degree 0/1/2 agreements",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said there is no trace morphism and that Layer 6's construction is the only transfer; Mathlib has the discrete trace morphism and Tau Ceti has Tate corestrictions in degrees 0, −1 and ≤ −2."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+    "target": "IsPPrimaryTorsion, CohomologicalDimensionLE, StrictCohomologicalDimensionLE and leastENatBound",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said nothing defines the torsion predicate; IsPGroup on Multiplicative M is that predicate."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+    "target": "First values: cd_p G = 0 criterion, cd_p Ẑ = 1 for every p, and H²(Ẑ, M) = 0 for finite M",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note's related citation, finite Hilbert 90, has nothing to do with Ẑ; the finite cyclic computations are the relevant inputs."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+    "target": "Descent to cup : Hᵐ × Hⁿ → H^{m+n} with cup_add_left and cup_add_right",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not mention the Yoneda product, the only all-degree product available."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+    "target": "cup_res, cup_infl, cup_coeffMap in all bidegrees",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said all three compatibilities are present in the six low-degree shapes; the coefficient-map one is not (see Layer 8's naturality target)."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+    "target": "The graded 𝔽₂-algebra H^•(G, 𝔽₂) = ⨁ₙ Hⁿ(G, 𝔽₂) with its notation and API, so that the degree multiplication q ↦ l * q is typeable",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not mention the generic graded-algebra structure on DG-algebra cohomology."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-13-the-evens-norm",
+    "target": "evensConj as res ∘ cor - id, and evensConj_eq_conjMapOf against the all-degree conjugation",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not mention the existing degree-1 conjugation action."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-13-the-evens-norm",
+    "target": "The tensor-power object with its 𝔖_l-action in characteristic 2, and the tensor induction functor",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not mention the module-level symmetric-group action on tensor powers."
+   },
+   {
+    "layer": "AutomorphicCongruences:L0",
+    "target": "The resulting classes satisfy the unramified, ramified Steinberg and ordinary-at-p local conditions of a Selmer group",
+    "was": "partial",
+    "now": "absent",
+    "why": "The two citations labelled 'special case' are other Selmer groups, defined by valuations or local points; they are not special cases of automorphic classes satisfying Galois-cohomological local conditions, and nothing of the target itself exists."
+   },
+   {
+    "layer": "AutomorphicCongruences:L0",
+    "target": "Congruence ideals and modules, generalized matrix algebras, pseudorepresentations, reducibility ideals and the general extension-class construction (imported from IntegralHeckeAndGaloisDeterminants)",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note omitted Tau Ceti's H² classification of group extensions, the other generic extension-class construction."
+   },
+   {
+    "layer": "AutomorphicCongruences:L0",
+    "target": "An explicitly oriented divisibility of characteristic ideals",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note's 'the only Fitting declarations are Lie-module Fitting components' is true only of Lie-module names; it also omitted the UFD property of the one-variable Iwasawa algebra."
+   },
+   {
+    "layer": "AutomorphicCongruences:L1",
+    "target": "The p-adic Eisenstein family whose congruence is measured by the Rankin/cyclotomic L-function, with nonvanishing and primitivity of nonconstant coefficients, local test vectors and auxiliary-prime hypotheses",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said the Sturm bound is the only such result; the q-expansion principle and Tau Ceti's eigenform and newform coefficient lemmas are others."
+   },
+   {
+    "layer": "AutomorphicCongruences:L2",
+    "target": "Rankin–Eisenstein/Beilinson–Flach classes from products of modular curves by diagonal pushforward of Eisenstein classes, with tame and p-power norm relations, weight moments and explicit reciprocity with Rankin–Selberg L-values",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said degree-1 corestriction and Shapiro are the only norm-relation ingredients; corestriction exists in degrees 0-2 with its δ-compatibility and projection formulas."
+   },
+   {
+    "layer": "AutomorphicCongruences:L3",
+    "target": "Verification that FW's local conditions, residual hypotheses and coefficient rings fit the imported deformation, patching and R = T interfaces, with the reduced complete-intersection and Hecke comparison properties",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said only tangent-space ingredients exist; regular sequences, the Rees theorem, formal smoothness and cotangent homology exist too."
+   },
+   {
+    "layer": "AutomorphicCongruences:L4",
+    "target": "The commutative-algebra descent from specializations to the universal fundamental line: an element integral at every height-one prime of a normal noetherian domain is integral, without cancelling vanishing specializations",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note omitted Krull's valuation-ring intersection theorem and the height-one UFD criterion, the nearest general statements."
+   },
+   {
+    "layer": "AutomorphicCongruences:L4",
+    "target": "FW's universal-family theorem (Theorem 1.8, determinant over the regular power-series subring) and the pointwise theorem at nonordinary and bad-reduction points, with Tor, local Euler and lattice corrections",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said Tor exists only in the monoidal form; Mathlib also has Rep.Tor for group homology."
+   },
+   {
+    "layer": "AutomorphicCongruences:L5",
+    "target": "The imported Heegner-point, Gross–Zagier and local-condition-complex constructions (HeegnerPointEulerSystems, GrossZagierAndArithmeticHeights, SelmerIwasawaCohomology)",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note omitted Tau Ceti's Néron–Tate height and regulator, the height-side ingredients of the Gross–Zagier import."
+   },
+   {
+    "layer": "AutomorphicCongruences:L5a",
+    "target": "The CM-evaluation/μ calculation via AutomorphicPadicLFunctions L3h and its BCS specialization",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note called Weierstrass preparation the only nearby input; the Amice transform is as close."
+   },
+   {
+    "layer": "AutomorphicCongruences:L5b",
+    "target": "The local-control and quadratic-twist factorization arguments that descend and separate the cyclotomic factors in BCS Theorem 1.1.2",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said only quadratic twists exist; the twisted point isomorphism and its Galois behaviour also exist."
+   },
+   {
+    "layer": "AutomorphicPadicLFunctions:L0",
+    "target": "The inverse limit of ray class groups of p-power conductor and fixed tame modulus, its reciprocity interpretation, and its character space",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not record the generic profinite-limit and abelianization tools or the ℚ case of reciprocity, and it left the cited Artin map's limits unstated."
+   },
+   {
+    "layer": "AutomorphicPadicLFunctions:L0",
+    "target": "The image and closure of the global units in the local units with all torsion factors kept, and the dimension formula with the Leopoldt defect",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said the only regulator is the archimedean one; Tau Ceti also has the Néron–Tate regulator. It also omitted the finite-level image of the global units."
+   },
+   {
+    "layer": "AutomorphicPadicLFunctions:L0",
+    "target": "Locally algebraic Hecke characters with algebraic and p-adic avatars through chosen embeddings, conductors, infinity types and local factors",
+    "was": "absent",
+    "now": "partial",
+    "why": "Finite-order Hecke characters of ℚ are Dirichlet characters. Mathlib has them with conductor, sign at infinity, change of coefficient ring and Euler factors, a special case of the target. The audit labels other layers' F = ℚ special cases partial (L1 T0, L3 T0, L3 T1)."
+   },
+   {
+    "layer": "AutomorphicPadicLFunctions:L0",
+    "target": "The conditional construction principle: a period-normalized classical class with a distribution-valued lift, Hecke norm relations and growth estimates yields an interpolating distribution, unique in the range of the growth theorem",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said there is no p-adic interpolation statement of any kind; Mahler interpolation exists."
+   },
+   {
+    "layer": "AutomorphicPadicLFunctions:L2",
+    "target": "Locally analytic/distribution coefficient modules at every q | p for admissible weight λ = (k, v) with k + 2v parallel, and specialization to the algebraic module",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said there are no locally analytic functions; the predicate exists over ℚ_p, only the function and distribution spaces are missing."
+   },
+   {
+    "layer": "AutomorphicPadicLFunctions:L3",
+    "target": "Katz's p-adic L-function on the Hecke-character space, with CM abelian varieties and their integral ordinary deformation/Igusa theory, algebraic and p-adic differential operators, CM periods, the Eisenstein measure and the comparison with critical Hecke L-values",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said the Serre derivative is the only differential operator; Mathlib also has the normalized derivative on functions."
+   },
+   {
+    "layer": "AutomorphicPadicLFunctions:L4",
+    "target": "Coherent cohomology and integral q/Fourier–Jacobi expansion principles",
+    "was": "absent",
+    "now": "partial",
+    "why": "The note ignored the coherent-cohomology half of the target. Tau Ceti has sheaf cohomology of 𝒪_X-modules on any scheme, a more general tool; this is the ground on which the audit labels L0 T3 partial."
+   },
+   {
+    "layer": "AutomorphicPadicLFunctions:L4",
+    "target": "The output in the completed tensor product of the character Iwasawa algebra with the ordinary Hecke algebra/period module, specializing with the congruence and local zeta factors",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said there is no Iwasawa algebra as a ring; ℤ_p⟦X⟧ is a ring, only the group-ring and convolution structures are missing."
+   },
+   {
+    "layer": "AutomorphicPadicLFunctions:L5",
+    "target": "The Coates–Perrin-Riou/Panchishkin existence problem stated for a specified realization, critical set, periods, refinement/Panchishkin subspace and interpolation formula, without a constructor asserting it",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said only abstract Hodge structures are present; mixed Hodge structures, polarizations and Tate structures also exist."
+   },
+   {
+    "layer": "AutomorphicPadicLFunctions:L4",
+    "target": "duplicate AutomorphicBundles:B3",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said this layer lists the canonical and subcanonical extensions; it lists the bundles, the compactifications and coherent cohomology, which need them."
+   },
+   {
+    "layer": "AutomorphicPadicLFunctions:L4",
+    "target": "duplicate AutomorphicBundles:B2",
+    "was": "not listed",
+    "now": "added",
+    "why": "AutomorphicBundles B2, not only B3, owns the construction of automorphic vector bundles that this layer lists."
+   },
+   {
+    "layer": "AutomorphicPadicLFunctions:L0",
+    "target": "duplicate PadicMeasuresIwasawaAlgebras:L0a",
+    "was": "not listed",
+    "now": "added",
+    "why": "PadicMeasuresIwasawaAlgebras L0a states the character-space target, alongside the LocallyAnalyticDistributions L3 entry the audit lists."
+   },
+   {
+    "layer": "AutomorphicCongruences:L5w",
+    "target": "duplicate PadicFamilies:L5",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not say that PadicFamilies L5 is a declared prerequisite of L5w, which is what the overlap consists of."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+    "target": "Additive functors carrying one ideal into another induce quotient functors, natural transformations descend, and identities and composition are coherent",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said there are no coherence lemmas; Mathlib's generic natural-transformation descent for any congruence supplies them, only the named package is missing."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+    "target": "Equivalences carrying I onto J induce equivalences of quotient categories",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not mention Mathlib's first isomorphism theorem for quotient categories, from which the target follows."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories",
+    "target": "The module-category Frobenius theorem for a finite-dimensional k-algebra self-injective on both sides",
+    "was": "absent",
+    "now": "partial",
+    "why": "Tau Ceti proves that over a self-injective ring the principal projective modules are injective, a special case of one direction of the theorem; the note said only Mathlib's semisimple case exists."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities",
+    "target": "For a finite-dimensional algebra self-injective on both sides, the abelian exact structure on finite-dimensional right modules is Frobenius with projective-injectives exactly the projectives",
+    "was": "absent",
+    "now": "partial",
+    "why": "This is the Layer 0 module Frobenius theorem in exact-category form. Tau Ceti's result that principal projectives over a self-injective ring are injective is a special case of one direction, as for Layer 0 T15."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-1-the-triangulated-stable-category",
+    "target": "An exact functor sending projective-injectives to projective-injectives descends to a triangle functor, with natural-transformation and equivalence APIs and restriction to extension-closed Frobenius exact subcategories",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not cite Tau Ceti's exact-functor API, the source side of this target."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities",
+    "target": "Totally acyclic complexes of finitely generated projectives over a left and right noetherian ring",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note called Mathlib's Tate complex complete-resolution-shaped; it is the complex computing Tate cohomology, not a complex of projectives."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities",
+    "target": "Iwanaga–Gorenstein rings: left and right noetherian with both self-injective dimensions finite",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not mention the uniform Ext-bound predicate that expresses finite global dimension."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-3-differential-modules-and-periodic-complexes",
+    "target": "Identification of the stable categories with K₁(A) and K_n(A), and the structure package on K_n(A): preadditive, zero object, ℤ-shift generated by the cyclic shift, Pretriangulated, IsTriangulated, cone triangles distinguished, both triangulations agreeing",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note omitted the zero object, which Mathlib provides for the homotopy category of every shape."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-3-differential-modules-and-periodic-complexes",
+    "target": "Parity/cyclic homology objects, exact-acyclic periodic complexes, quasi-isomorphisms, and D_n(A) both as a localization and as a Verdier quotient of K_n(A), with the comparison equivalence and the triangulated package",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not record that the localization of the homotopy category at quasi-isomorphisms is proved for every shape."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-4-compression-periodic-resolutions-and-relative-projectives",
+    "target": "The orbit category D/[n] with hom groups ⨁_j Hom(X, Y[nj]), its category and preadditive laws, the projection functor, the periodicity isomorphism, and Keller's universal property",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note cited the auxiliary shift isomorphism of cochain complexes; the prescribed composition is exactly ShiftedHom.comp."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-4-compression-periodic-resolutions-and-relative-projectives",
+    "target": "The k[t]/(t²) acceptance test: (Λ, d = t·) is acyclic with projective underlying module but not contractible, nonzero in K₁ and zero in D₁",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said the exactness is only in private lemmas; a public derivation through ProjectiveResolution.exact_succ is available."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-5-curved-dg-algebras-modules-and-duplexes",
+    "target": "Right curved DG modules with d(m*a) = d(m)*a + (-1)^{|m|} m*d(a) and d²(m) = m*w, and left modules through the opposite with d²(m) = −w*m",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not cite the uncurved special case."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-6-curved-acyclicity-and-derived-categories-of-the-second-kind",
+    "target": "Absolutely acyclic, coacyclic and contraacyclic objects as the three closures generated by totalizations",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said there are no coproduct- or product-closed closures; Mathlib has them, only not as triangulated subcategories."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-6-curved-acyclicity-and-derived-categories-of-the-second-kind",
+    "target": "D_abs, D_co and D_ctr as Verdier quotients with universal properties, the inclusions Ac_abs ⊆ Ac_co and Ac_abs ⊆ Ac_ctr, and the comparison triangle functors commuting up to Localization.fac",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said only named localization infrastructure exists; the generic comparison functor between trW-localizations and its triangulatedness are available."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-6-curved-acyclicity-and-derived-categories-of-the-second-kind",
+    "target": "The generic closure, quotient and comparison machinery for a triangulated category with a generating class, stated once and instantiated",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said coproduct- and product-closed closures are not in Mathlib; plain closures are, only the triangulated ones are missing."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-7-matrix-factorizations",
+    "target": "Matrix factorizations of w ∈ S: finitely generated projective P₀, P₁ with d₁d₀ = w·id and d₀d₁ = w·id",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note's 'grep for potential finds nothing' is literally false, and it missed the factorization-shaped Sylvester and adjugate identities."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-7-matrix-factorizations",
+    "target": "Eisenbud's local theorem: over a regular local S with w a nonzero nonunit non-zero-divisor, finite free matrix factorizations, maximal Cohen–Macaulay modules, eventual two-periodicity and the cokernel comparison with stable MCM modules",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not cite Rees's theorem or the hypersurface dimension formula, the existing depth-theoretic ingredients."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-8-comparison-functors-and-reconciliation",
+    "target": "The eight named comparison functors: compression, Verdier localization, stalk/complete resolution, forgetting finite projectivity, base change to S/(w), cokernel to stable MCM, uncurved DG at w = 0, and the left/right opposite dictionary",
+    "was": "absent",
+    "now": "partial",
+    "why": "One of the eight, periodic homotopy to periodic derived, exists in weaker form as Mathlib's localization functor for every complex shape; the note said none is defined."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+    "target": "(roadmap summary)",
+    "was": "summary",
+    "now": "summary updated",
+    "why": "Updated for the corrected Layer 0, 2, 4, 9 and 10 entries."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+    "target": "(roadmap summary)",
+    "was": "summary",
+    "now": "summary updated",
+    "why": "Updated for the corrected Layer 0, 2, 3, 6, 7 and 8 entries."
+   },
+   {
+    "layer": "AutomorphicCongruences",
+    "target": "(roadmap summary)",
+    "was": "summary",
+    "now": "summary updated",
+    "why": "Updated for the corrected L0-L5b entries."
+   },
+   {
+    "layer": "AutomorphicPadicLFunctions",
+    "target": "(roadmap summary)",
+    "was": "summary",
+    "now": "summary updated",
+    "why": "Updated for the corrected L0 and L4 entries."
+   },
+   {
+    "layer": "ColemanIntegration:L0",
+    "target": "Convergent power series over a complete non-archimedean field: radius of convergence, analytic functions on discs, restricted (Tate) series",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note placed Tau Ceti's multiplicative Gauss norm over non-archimedean topological rings; it is stated over ultrametric normed rings."
+   },
+   {
+    "layer": "ColemanIntegration:L0",
+    "target": "Annuli and convergent Laurent series on them, and residues of differentials",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note omitted Mathlib's formal residue pairing and overstated the Weil-differential residues, which exist only through an abstract residue theorem without a residue map."
+   },
+   {
+    "layer": "ColemanIntegration:L0",
+    "target": "Exact differentials and termwise differentiation and integration of power series with the convergence domain of the result",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said there are no exact differentials; they exist over ℝ and ℂ."
+   },
+   {
+    "layer": "ColemanIntegration:L0",
+    "target": "The unique primitive with chosen base value on a disc",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said existence of the primitive on a disc is missing without qualification; it exists over ℂ."
+   },
+   {
+    "layer": "ColemanIntegration:L0",
+    "target": "The p-adic logarithm normalized by log_p(p) = 0 on the necessary annuli, and how another branch changes it",
+    "was": "partial",
+    "now": "absent",
+    "why": "Nothing of the target exists. All three citations are related: ℂ_p, the formal series log(1 + X), and Tau Ceti's logOneAdd, a series definition whose convergence is proved only under [ContinuousSMul ℚ≥0 𝕂], which no p-adic field satisfies. None is a partial p-adic logarithm."
+   },
+   {
+    "layer": "ColemanIntegration:L1",
+    "target": "Wide-open and overconvergent neighbourhoods of a smooth curve with good reduction (rigid/adic analytic domains and residue discs)",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said residue discs are missing; the residue disc of the origin on an elliptic curve is characterized in Tau Ceti."
+   },
+   {
+    "layer": "ColemanIntegration:L1",
+    "target": "Frobenius lifts on a cover of the curve",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note's list of what exists omitted Mathlib's general Frobenius-lift predicate."
+   },
+   {
+    "layer": "ColemanIntegration:L1",
+    "target": "Finite-dimensional rigid/de Rham cohomology in the degree used for integration, independence of the Frobenius lift, and the comparison of cohomological and local analytic pullback",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note omitted the analytic exterior derivative over non-archimedean fields, and its grep sentence was literally false."
+   },
+   {
+    "layer": "ColemanIntegration:L1",
+    "target": "A direct construction on P¹ ∖ {0, 1, ∞} by successive (unipotent) extensions",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said the grep finds nothing; three of the phrases have literal, irrelevant hits."
+   },
+   {
+    "layer": "ColemanIntegration:L2",
+    "target": "Li_1(z) = −log_p(1 − z) and Li_k by dLi_k = Li_{k−1}(z) dz/z with the power series Σ_{n≥1} z^n/n^k on |z| < 1",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said Mathlib has only complex analogues; the real series and the formal logarithm also exist."
+   },
+   {
+    "layer": "ColemanIntegration:L3",
+    "target": "Comparison with the locally analytic distribution argument where both apply",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note described the abstract measures as living on ℤ_p only and omitted the continuous-character classification."
+   },
+   {
+    "layer": "ColemanIntegration:L3",
+    "target": "The de Rham/finite-polynomial regulator interpretation, and the motivic Beilinson conjecture as a proposition about defined realizations",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note called the elliptic-curve regulator archimedean (it is the Néron–Tate height regulator), and its grep sentence was literally false."
+   },
+   {
+    "layer": "ColemanIntegration:L0",
+    "target": "duplicate PadicHodgeTheory:P7:annulus-foundations",
+    "was": "not listed",
+    "now": "added",
+    "why": "The early annulus stage of PadicHodgeTheory owns convergent Laurent series on annuli, which this layer also states."
+   },
+   {
+    "layer": "ColemanIntegration:L2",
+    "target": "duplicate Polylogarithms:P.1",
+    "was": "not listed",
+    "now": "added",
+    "why": "Polylogarithms P.1 owns the complex polylogarithm and its distribution relations, the complex side of this layer's comparison."
+   },
+   {
+    "layer": "ColemanIntegration",
+    "target": "(roadmap summary)",
+    "was": "summary",
+    "now": "summary updated",
+    "why": "Updated for the corrected L0-L3 entries."
+   }
+  ],
+  "notes": "Checked all 303 targets of the 45 batch layers. The reviewer read the 66 present targets at source, with their variable lines and hypotheses. The 48 partial and 189 absent targets were re-searched by concept, name and synonym in six independent sweeps (one per roadmap, two for ProfiniteCohomology) over declarations.tsv and both source trees. The reviewer re-opened every hit used in a correction. Mechanically, all 45 batch layers are present. Every citation (522 distinct before, 588 after) resolves at its file and line, with its namespace checked against the source; ModularForm.L is missing from the index but is correct at LFunction.lean:134. None is private or deprecated, and no cited file contains sorry. The audit's picture holds. Tau Ceti has built most of ProfiniteCohomology's low-degree explicit theory. The stable-category, periodic, curved, automorphic-congruence, automorphic p-adic L-function and Coleman-integration mathematics is absent from both libraries. Corrections: (1) Both 'built' verdicts fall to 'partly built'. In ProfiniteCohomology Layer 0, neither library equips G-stable subgroups and quotients of discrete modules with their induced actions (target both → partial). In Layer 2, the worked examples H¹(ℤ_p, ℤ/pᵏ) ≅ ℤ/pᵏ and H¹(ℤ_p, ℤ) = 0, which its API paragraph and README §6 assign to it, are absent (target added as partial). (2) 13 target labels. Seven absent → partial: PC L9 field-extension bridge, PC L10 finite-quotient system, APL L0 Hecke characters, APL L4 coherent cohomology, SPC L0 T15 and L2 T0 module Frobenius theorem, SPC L8 comparison functors. Two partial → absent: AC L0 local conditions, CI L0 p-adic logarithm. Also PC L0 T4 both → partial, PC L1 T8 tauceti → partial, PC L3 T3 both → tauceti, PC L4 T1 partial → tauceti. (3) 66 notes. Most replace false 'nothing exists' sentences: Mathlib's discrete dimension-shifting criterion and trace morphism, Tau Ceti's Tate corestrictions, the first isomorphism theorem for quotient categories, colimit and limit closures, localization of homotopy categories of any shape at quasi-isomorphisms, injectivity of principal projectives over self-injective rings, exact differentials and primitives over ℂ, the Frobenius-lift predicate, the q-expansion principle, Rep.Tor, Dirichlet characters, Mahler interpolation. The rest fix misdescriptions: the finite-quotient system is on Rep k G, not TopRep; a note cited a private declaration; the Néron–Tate regulator was called archimedean. (4) 5 roadmap summaries. (5) 10 duplicate changes: 1 removed (PC L5 → EllipticCurves L7, a dependency); 7 added (PC L9 → QuadraticFormInvariants 7A, PC L10 and L12 → ClassFieldTheory L0, APL L0 → PadicMeasuresIwasawaAlgebras L0a, APL L4 → AutomorphicBundles B2, CI L0 → PadicHodgeTheory P7:annulus-foundations, CI L2 → Polylogarithms P.1); 2 notes corrected. After correction: 0 built, 14 partly built, 31 not built, 0 process; 304 targets (7 mathlib, 53 tauceti, 5 both, 55 partial, 184 absent); 39 duplicates."
  }
 }
