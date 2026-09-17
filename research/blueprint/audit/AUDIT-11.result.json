@@ -3,7 +3,7 @@
  "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
  "roadmaps": {
   "ShimuraVarieties": {
-   "summary": "The libraries contain only GL₂-specific substrate: Mathlib's arithmetic subgroups of GL(2,ℝ) acting properly discontinuously on ℍ, cusps, congruence subgroups, ideles and finite étale algebras. Tau Ceti adds SL₂ strong approximation modulo N, abstract Hecke rings with associativity, the level-one ring ℂ[E₄,E₆], linear-algebraic Hodge structures, abelian varieties and the class-formation framework. Everything the roadmap actually constructs is missing: adelic Shimura varieties and their complex structure, neat levels, Baily–Borel, Borel extension, reflex norms and canonical models, CM theory, the Hodge/abelian-type and Milne descent arguments, and the scheme-level modular-curve comparison.",
+   "summary": "The libraries contain only GL₂-specific substrate: Mathlib's arithmetic subgroups of GL(2,ℝ) acting properly discontinuously on ℍ, cusps, congruence subgroups, ideles and finite étale algebras. Tau Ceti adds SL₂ strong approximation modulo N, abstract Hecke rings with associativity, the level-one ring ℂ[E₄,E₆], linear-algebraic Hodge structures, abelian varieties, algebraic tori over a field with their character and cocharacter lattices, perfect pairing and Galois action, the ideal-theoretic Artin map of a finite abelian extension, and the class-formation framework. Everything the roadmap actually constructs is missing: adelic Shimura varieties and their complex structure, neat levels, Baily–Borel, Borel extension, reflex norms and canonical models, CM theory, the Hodge/abelian-type and Milne descent arguments, and the scheme-level modular-curve comparison.",
    "layers": {
     "ShimuraVarieties:V0": {
      "verdict": "not built",
@@ -87,8 +87,23 @@
       {
        "target": "Existence of neat congruence subgroups",
        "library": "absent",
-       "declarations": [],
-       "note": "Neatness is not defined anywhere; no torsion-freeness theorem for Γ(N), N ≥ 3, was found either."
+       "declarations": [
+        {
+         "name": "Subgroup.isCyclic_stabilizer",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/UpperHalfPlane/Stabilizer.lean",
+         "line": 157,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ModularGroup.card_stabilizer_psl_eq_one_of_orbit_ne_I_of_orbit_ne_ρ",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Modular/Stabilizer.lean",
+         "line": 220,
+         "fit": "related"
+        }
+       ],
+       "note": "Neatness is not defined anywhere, and no torsion-freeness theorem for Γ(N), N ≥ 3, exists. The GL₂ ingredient a proof would start from is in Tau Ceti: point stabilizers in a subgroup of PSL(2,ℝ) are finite cyclic, and PSL(2,ℤ) acts freely away from the orbits of i and ρ. Nothing passes from there to a congruence subgroup, and nothing is stated for a general Hermitian domain."
       },
       {
        "target": "Properly discontinuous action of the effective arithmetic groups on X⁺",
@@ -428,13 +443,41 @@
          "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
          "line": 119,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.TorusCommHopfAlgCat",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Torus/Basic.lean",
+         "line": 153,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.TorusCommHopfAlgCat.instCharacterCocharacterPairingIsPerfPair",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Torus/Cocharacter/Basic.lean",
+         "line": 52,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.TorusCommHopfAlgCat.cocharacterLatticeRepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Torus/Cocharacter/Functoriality.lean",
+         "line": 132,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.MultiplicativeTypeCommHopfAlgCat.characterCocharacterPairing",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/MultiplicativeType/Cocharacter.lean",
+         "line": 381,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib has the idele group and idele class group of a number field. There are no algebraic tori over ℚ with cocharacters, special pairs or reflex norms."
+       "note": "Mathlib has the idele group and idele class group of a number field. Tau Ceti has algebraic tori over an arbitrary field, in coordinate-Hopf-algebra form: TorusCommHopfAlgCat k (objects split after base change to an algebraic closure), the cocharacter lattice X_*(T), free of finite rank, its perfect pairing with X*(T), and the contragredient absolute-Galois representation on it. What is missing is the arithmetic layer on top: special pairs (T, h), the reflex field and the reflex norm on ideles."
       },
       {
        "target": "Comparison of the supplier's Artin normalization with Milne's, with a named conversion",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.ClassFieldTheory.Formation",
@@ -442,9 +485,30 @@
          "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
          "line": 123,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumberFieldArithmetic.artinHomAway",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Ideal/ArtinMap.lean",
+         "line": 175,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumberFieldArithmetic.artinHomAway_apply_prime",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Ideal/ArtinMap.lean",
+         "line": 212,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumberFieldArithmetic.isArithFrobAt_artinElement",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Ideal/ArtinMap.lean",
+         "line": 101,
+         "fit": "related"
         }
        ],
-       "note": "There is no global Artin reciprocity map for number fields. Tau Ceti has only the abstract class-formation framework of Artin–Tate."
+       "note": "Tau Ceti has a global Artin map in ideal-theoretic form: for a finite abelian extension L/K of number fields unramified outside a finite set S, artinHomAway : idealsAway S →* Gal(L/K), with artinHomAway_apply_prime giving the Frobenius at each prime outside S and isArithFrobAt_artinElement pinning the normalization to the *arithmetic* Frobenius. That fixes one of the two conventions the target has to compare. Missing: the idelic Artin map, reciprocity itself (the file states that nothing about the kernel, the image or a factorization through ray class groups is proved), and any comparison with Milne's convention. Tau Ceti also has the abstract class-formation framework of Artin–Tate."
       },
       {
        "target": "Definition of a canonical model over E(G,X), by the reciprocity law at special points and their fields of definition",
@@ -1850,9 +1914,30 @@
          "file": "Mathlib/GroupTheory/PresentedGroup.lean",
          "line": 135,
          "fit": "related"
+        },
+        {
+         "name": "CoxeterMatrix",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/Coxeter/Matrix.lean",
+         "line": 69,
+         "fit": "related"
+        },
+        {
+         "name": "CoxeterMatrix.Group",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/Coxeter/Basic.lean",
+         "line": 111,
+         "fit": "related"
+        },
+        {
+         "name": "CoxeterMatrix.reindexGroupEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/Coxeter/Basic.lean",
+         "line": 130,
+         "fit": "related"
         }
        ],
-       "note": ""
+       "note": "The oriented (von Dyck) group ⟨x, y, z | x^a, y^b, z^c, z·y·x⟩ is not in either library. Its index-two overgroup is: for a 3×3 Coxeter matrix, Mathlib's CoxeterMatrix.Group is the full triangle group ⟨s₀, s₁, s₂ | sᵢ², (sᵢsⱼ)^{mᵢⱼ}⟩ as a PresentedGroup, with PresentedGroup.toGroup as its universal property, reindexGroupEquiv for permutations of the three parameters (the target's rotation isomorphisms), and mᵢⱼ = 0 meaning no relation (the target's parameter 0). Nothing relates it to the rotation subgroup, and no elimination of z exists."
       },
       {
        "target": "4.2 Triples with orders dividing (a,b,c) as permutation representations; classification of connected triples by transitive finite actions",
@@ -1943,9 +2028,23 @@
          "file": "TauCeti/AlgebraicTopology/SemilocallySimplyConnected/Basic.lean",
          "line": 74,
          "fit": "related"
+        },
+        {
+         "name": "IsOpen.stronglyLocallyContractibleSpace",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Homotopy/LocallyContractible.lean",
+         "line": 142,
+         "fit": "related"
+        },
+        {
+         "name": "Metric.contractibleSpace_ball",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Normed/Module/Connected.lean",
+         "line": 139,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti has the semilocal simple connectivity class and derives it from strong local contractibility, but no instance covers open subsets of ℂ. The space U and its structure are absent."
+       "note": "The space U and its structure are absent. The route to its semilocal simple connectivity is assembled but not instantiated: Tau Ceti derives SemilocallySimplyConnectedSpace from StronglyLocallyContractibleSpace as an instance (SemilocallySimplyConnected/Basic.lean:146), Mathlib passes strong local contractibility to open subsets (IsOpen.stronglyLocallyContractibleSpace) and proves balls contractible; what is missing is the one instance StronglyLocallyContractibleSpace on a normed space, so nothing fires for an open subset of ℂ."
       },
       {
        "target": "5.2 Peripheral loops γ0, γ1 and periph0/1/Inf, with the mob01 pointwise identities",
@@ -3035,7 +3134,7 @@
    }
   },
   "tauceti:TauCetiRoadmap/EllipticCurves": {
-   "summary": "Tau Ceti has built a large part of Layers 0, 1, 5 and 6: the point–place and class-group dictionaries, the function-field isogeny with degree, Frobenius, relative Frobenius, [n] of degree n², Hom as an additive group, factorisation, the invariant differential with [n]*ω = n • ω, the formal group and its points, quadratic twists with the general-M point isomorphism, Mordell–Weil with naïve and canonical heights and the regulator, and Nagell–Lutz. Several items the roadmap documents treat as missing are present: deg (1 − π_q) = #E(𝔽_q), [n]*ω = n • ω, a function with divisor n(T) − n(O), finiteness of Mathlib's K(S, n) Selmer group, and, in Mathlib, the Dedekind finite-approximation lemma planned for Layer 4.5b. Tau Ceti's canonical height uses half the normalisation the roadmap pins. Missing: the quadratic degree form and End ring, the dual, Vélu and Verschiebung, E[N], the Weil pairing and Tate module, the Hasse bound, supersingularity and zeta, point reduction, Tate's algorithm and the Tate curve, global minimal models and Kraus, general twists, Selmer/Sha/BSD, and all of Layer 8.",
+   "summary": "Tau Ceti has built a large part of Layers 0, 1, 5 and 6: the point–place and class-group dictionaries, the function-field isogeny with degree, Frobenius, relative Frobenius, [n] of degree n², Hom as an additive group, factorisation, the invariant differential with [n]*ω = n • ω, the formal group and its points, quadratic twists with the general-M point isomorphism, Mordell–Weil with naïve and canonical heights and the regulator, and Nagell–Lutz. Several items the roadmap documents treat as missing are present: deg (1 − π_q) = #E(𝔽_q), [n]*ω = n • ω, a function with divisor n(T) − n(O), finiteness of Mathlib's K(S, n) Selmer group, ClassGroup.extendedRelNormHom, and, in Mathlib, the Dedekind finite-approximation lemma planned for Layer 4.5b. Tau Ceti's canonical height uses half the normalisation the roadmap pins. Missing: the quadratic degree form and End ring, the dual, Vélu and Verschiebung, E[N], the Weil pairing and Tate module, the Hasse bound, supersingularity and zeta, point reduction, Tate's algorithm and the Tate curve, global minimal models and Kraus, general twists, Selmer/Sha/BSD, and all of Layer 8.",
    "layers": {
     "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors": {
      "verdict": "partly built",
@@ -3563,7 +3662,7 @@
       },
       {
        "target": "pushClass on class groups via extended relative norm (ClassGroup.extendedRelNormHom), and toPointHom : W₁.Point →+ W₂.Point",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "Ideal.dvd_relNorm_iff_exists_liesOver_dvd",
@@ -3571,9 +3670,30 @@
          "file": "TauCeti/NumberTheory/DedekindDomain/RelNorm.lean",
          "line": 64,
          "fit": "related"
+        },
+        {
+         "name": "ClassGroup.extendedRelNormHom",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/ClassGroup/ExtendedRelNorm.lean",
+         "line": 98,
+         "fit": "exact"
+        },
+        {
+         "name": "ClassGroup.extendedRelNormHom_mk0",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/ClassGroup/ExtendedRelNorm.lean",
+         "line": 129,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Isogeny.isDedekindDomain_intermediateRing",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Dedekind.lean",
+         "line": 100,
+         "fit": "related"
         }
        ],
-       "note": "No pushClass, toPointHom or extendedRelNormHom was found. Only relative-norm lemmas (TauCeti/NumberTheory/DedekindDomain/RelNorm.lean) exist."
+       "note": "ClassGroup.extendedRelNormHom is present under exactly that name: extending an ideal class from A into a common overring M and norming it down to R, with its computation rule on an integral representative. Its module docstring names the isogeny application — A and R the coordinate rings of source and target, M the intermediate ring — and Isogeny.isDedekindDomain_intermediateRing supplies the Dedekind hypothesis the norm needs, without separability. Still absent: pushClass itself and toPointHom."
       },
       {
        "target": "[n] for every n: both pullbacks, [m] ∘ [n] = [mn], additivity, compatibility with the point-group scalar multiplication, deg [n] = n²",
@@ -4662,9 +4782,23 @@
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/IntegralModel.lean",
          "line": 172,
          "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.IsIntegral",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 59,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.integralModel",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 63,
+         "fit": "related"
         }
        ],
-       "note": "Only integrality descent for a change of variables between two integral models with unit scaling exists (IntegralModel.lean)."
+       "note": "No Kraus witness or condition exists. The vocabulary the headline krausLocalCondition_iff_exists_integralModel is stated in does: Mathlib's WeierstrassCurve.IsIntegral and its chosen integralModel over a subring of K, and Tau Ceti's integrality descent for a change of variables between two integral models with unit scaling (IntegralModel.lean)."
       },
       {
        "target": "Finite approximation: 𝓞K → ∏_{v ∈ T} 𝓞K / v^{n_v} is surjective for distinct primes, with the comparison to localisation quotients",
@@ -5582,5 +5716,63 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-11",
+  "date": "2026-09-17",
+  "checked": 290,
+  "corrections": [
+   {
+    "layer": "ShimuraVarieties:V4",
+    "target": "Reflex norm on ideles for a special pair (T,h)",
+    "was": "note: “There are no algebraic tori over ℚ with cocharacters, special pairs or reflex norms”; two citations",
+    "now": "note corrected, four Tau Ceti torus citations added (status still partial)",
+    "why": "False. Tau Ceti has tori over any field with cocharacter lattices, a perfect character–cocharacter pairing and the Galois action on X_*(T)."
+   },
+   {
+    "layer": "ShimuraVarieties:V4",
+    "target": "Comparison of the supplier's Artin normalization with Milne's, with a named conversion",
+    "was": "absent — “There is no global Artin reciprocity map for number fields”",
+    "now": "partial — TauCeti.NumberFieldArithmetic.artinHomAway and its arithmetic-Frobenius normalization",
+    "why": "The ideal-theoretic Artin map exists in Tau Ceti, with an explicitly pinned normalization; only reciprocity and the idelic form are missing."
+   },
+   {
+    "layer": "ShimuraVarieties:V0",
+    "target": "Existence of neat congruence subgroups",
+    "was": "absent, no citations",
+    "now": "absent, two Tau Ceti stabilizer citations added",
+    "why": "The note gave no pointer; Tau Ceti's elliptic-point stabilizer analysis is the GL₂ ingredient of any torsion-freeness proof."
+   },
+   {
+    "layer": "BelyiMaps Layer 4",
+    "target": "4.1 TriangleGroup a b c as a presented group",
+    "was": "absent, cited only PresentedGroup and PresentedGroup.toGroup, note empty",
+    "now": "absent, Mathlib's rank-3 Coxeter group (the full triangle group) cited with a note",
+    "why": "Mathlib has the reflection triangle group with the universal property, parameter permutations and the 0 = ∞ convention; the audit recorded only bare PresentedGroup."
+   },
+   {
+    "layer": "BelyiMaps Layer 5",
+    "target": "5.1 U = ℂ∖{0,1} with its two-set cover and instances",
+    "was": "absent — “no instance covers open subsets of ℂ”, one citation",
+    "now": "absent, note names the missing link and two Mathlib citations added",
+    "why": "The route exists in both libraries bar one instance (StronglyLocallyContractibleSpace on a normed space); the note as written suggested nothing was available."
+   },
+   {
+    "layer": "EllipticCurves Layer 1",
+    "target": "pushClass on class groups via extended relative norm (ClassGroup.extendedRelNormHom), and toPointHom",
+    "was": "absent — “No pushClass, toPointHom or extendedRelNormHom was found”",
+    "now": "partial — ClassGroup.extendedRelNormHom and its mk0 rule exist, with the Dedekind intermediate ring",
+    "why": "The target names extendedRelNormHom and it is in Tau Ceti at TauCeti/RingTheory/ClassGroup/ExtendedRelNorm.lean:98, written for this very application."
+   },
+   {
+    "layer": "EllipticCurves Layer 4.5b",
+    "target": "Kraus local criterion",
+    "was": "absent, one citation",
+    "now": "absent, Mathlib's WeierstrassCurve.IsIntegral / integralModel added",
+    "why": "The target's headline theorem is stated against an integral model; Mathlib already has that notion and its chosen model."
+   }
+  ],
+  "notes": "All 290 targets were re-read against the roadmap extracts; all 442 declaration citations (404 distinct, in 217 files) were resolved against declarations.tsv and then at the cited source line, and every cited file was scanned for sorry. Nothing cited is private, an axiom or unproved: the only three `sorry` tokens in cited files are in prose. All 43 layer verdicts agree with their targets' statuses, and the one process verdict (BelyiMaps Layer 14) is confirmed by that layer's own header, which retains it as a dependency specification owned by a successor roadmap. All 48 presence claims were read at source with their hypotheses and variable lines. All 70 duplicate claims were checked against the named layers' descriptions in the atlas; each is a live stage, none retired or self-referential, and all hold. Every absent or partial target was searched again independently, by concept and by Mathlib naming convention, over both trees and the index. Four notes overstated an absence and are corrected; three more entries gained citations. The verdicts are unchanged."
  }
 }
