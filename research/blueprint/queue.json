@@ -37922,12 +37922,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-21.md",
    "timeout": 14400,
-   "state": "pending",
-   "account": null,
-   "lane": 2,
-   "startedAt": "2026-09-17T05:00:35Z",
-   "attempts": 0,
-   "note": "released after a usage limit on claude6/2 at 2026-09-17T05:06:02Z"
+   "state": "done",
+   "account": "claude4",
+   "lane": 1,
+   "startedAt": "2026-09-17T06:38:26Z",
+   "attempts": 1,
+   "note": "",
+   "finishedAt": "2026-09-17T06:56:38Z",
+   "seconds": 1092,
+   "result": {
+    "judged": 24,
+    "pairs": 24
+   }
   },
   {
    "id": "COMPARE-22",
@@ -37956,7 +37962,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-22.md",
    "timeout": 14400,
-   "state": "pending"
+   "state": "running",
+   "account": "claude4",
+   "lane": 1,
+   "startedAt": "2026-09-17T06:56:38Z",
+   "attempts": 1
   },
   {
    "id": "COMPARE-23",
@@ -39870,12 +39880,20 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-19.md",
    "timeout": 21600,
-   "state": "running",
+   "state": "done",
    "avoidAccountOf": "AUDIT-19",
    "account": "claude4",
    "lane": 1,
    "startedAt": "2026-09-17T06:21:37Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-17T06:38:26Z",
+   "seconds": 1008,
+   "result": {
+    "layers": 41,
+    "audited": 41,
+    "review": "accepted"
+   },
+   "note": ""
   },
   {
    "id": "AUDIT-20",
@@ -39895,12 +39913,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-20.md",
    "timeout": 21600,
-   "state": "running",
+   "state": "done",
    "account": "claude4",
    "lane": 2,
    "startedAt": "2026-09-17T06:23:35Z",
    "attempts": 1,
-   "note": "released after a usage limit on claude6/1 at 2026-09-17T05:06:20Z"
+   "note": "",
+   "finishedAt": "2026-09-17T06:49:00Z",
+   "seconds": 1524,
+   "result": {
+    "layers": 49,
+    "audited": 49
+   }
   },
   {
    "id": "REV-AUDIT-20",
@@ -39944,7 +39968,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-21.md",
    "timeout": 21600,
-   "state": "pending"
+   "state": "running",
+   "account": "claude4",
+   "lane": 2,
+   "startedAt": "2026-09-17T06:49:00Z",
+   "attempts": 1
   },
   {
    "id": "REV-AUDIT-21",

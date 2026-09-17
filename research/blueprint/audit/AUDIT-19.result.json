@@ -1048,9 +1048,30 @@
          "file": "Mathlib/RingTheory/Nilpotent/Exp.lean",
          "line": 81,
          "fit": "related"
+        },
+        {
+         "name": "LinearMap.GeneralLinearGroup.IsUnipotent",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/GeneralLinearGroup/Unipotent.lean",
+         "line": 74,
+         "fit": "related"
+        },
+        {
+         "name": "LinearMap.GeneralLinearGroup.isUnipotent_iff_charpoly",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/GeneralLinearGroup/Unipotent.lean",
+         "line": 102,
+         "fit": "related"
+        },
+        {
+         "name": "LinearMap.GeneralLinearGroup.IsUnipotent.maxGenEigenspace_one_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Eigenspace/Unipotent.lean",
+         "line": 48,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib has the finite exponential of a nilpotent element in a ℚ-algebra, with exp(a+b) = exp a · exp b for commuting nilpotents. Missing: the logarithm of a unipotent operator, the log–exp inverse identities, and the Galois-representation statements."
+       "note": "Mathlib has the finite exponential of a nilpotent element of a ℚ-algebra, with exp(a+b) = exp a · exp b for commuting nilpotents. Tau Ceti has the unipotent side of the hypothesis: `IsUnipotent g` is nilpotence of g − 1 on a linear automorphism, characterised by charpoly = (X − 1)^n over a domain, closed under products of commuting elements, powers, inverses and conjugation, with the generalised 1-eigenspace the whole space. Still missing: the logarithm of a unipotent operator, the log–exp inverse identities, N as a map V → V(−1) with independence of the tame generator, and the Galois-representation statements."
       },
       {
        "target": "Grothendieck's quasi-unipotence theorem in the geometric coefficient setting, with finite-extension reduction, wild inertia and continuity",
@@ -1363,10 +1384,17 @@
          "fit": "special case"
         },
         {
-         "name": "LinearMap.BilinForm.toLin_restrict_ker_eq_inf_orthogonal",
+         "name": "LinearMap.BilinForm.inf_orthogonal_self_le_ker_restrict",
          "library": "mathlib",
          "file": "Mathlib/LinearAlgebra/BilinearForm/Orthogonal.lean",
-         "line": 223,
+         "line": 251,
+         "fit": "special case"
+        },
+        {
+         "name": "LinearMap.BilinForm.nondegenerate_restrict_of_disjoint_orthogonal",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/BilinearForm/Orthogonal.lean",
+         "line": 193,
          "fit": "special case"
         },
         {
@@ -1377,7 +1405,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib descends a reflexive form to the quotient by any submodule of its kernel (`LinearMap.IsRefl.liftQ₂`) and identifies the kernel of the restriction to W with W ∩ W^⊥. Missing: a stated lemma that the descended form on W/(W ∩ W^⊥) is nondegenerate, and its application to the cohomological E."
+       "note": "Mathlib descends a reflexive form to the quotient by any submodule of its kernel (`LinearMap.IsRefl.liftQ₂`), proves W ⊓ W^⊥ ≤ ker(B.restrict W), and proves B|_W nondegenerate when W ⊓ W^⊥ = ⊥. (`toLin_restrict_ker_eq_inf_orthogonal` is not this statement: it is about `B.domRestrict W` and gives W ⊓ B.orthogonal ⊤, the intersection with the radical of B on the whole space.) Missing: the descended form on W/(W ∩ W^⊥) with its nondegeneracy as a stated lemma, and the cohomological E it is to be applied to."
       },
       {
        "target": "Leray and restriction/Gysin comparisons through the blow-up and projective-bundle maps for the dimension induction, without assuming Leray degeneration, hard Lefschetz or condition (A)/(LV)",
@@ -1644,6 +1672,10 @@
       {
        "layer": "ModularCurvesPartII:R13.6",
        "note": "R13.6 exports the dual graphs and nearby-cycle/character-group inputs for modular curves that LPV.7's semistable-curve export is to be compatible with."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+       "note": "TauCetiRoadmap StableReduction Layer 1 owns nodes, the local normal form κ̄[[x,y]]/(xy), normalisation with its conductor sequence, and the dual graph of a proper nodal curve (with p_a = Σ g_v + b₁(Γ)) — the normalisation/node and dual-graph half of what this substage recomputes before applying nearby cycles."
       }
      ]
     },
@@ -1733,6 +1765,10 @@
       {
        "layer": "ModularCurvesPartII:R13.6",
        "note": "R13.6 exports the dual graphs and inputs to nearby-cycle and character-group computations for modular curves."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+       "note": "TauCetiRoadmap StableReduction Layer 1 owns nodes, the local normal form κ̄[[x,y]]/(xy), normalisation with its conductor sequence, and the dual graph of a proper nodal curve (with p_a = Σ g_v + b₁(Γ)) — the normalisation/node and dual-graph half of what this substage recomputes before applying nearby cycles."
       }
      ]
     }
@@ -2103,10 +2139,10 @@
    }
   },
   "WeilConjectures": {
-   "summary": "Neither library has the zeta function of a variety over a finite field, étale cohomology with Frobenius, the trace formula, Poincaré duality, purity, Betti comparison, surface intersection theory or crystalline cohomology, so the cohomological spine of WC.1–WC.6 is unbuilt; WC.0 (auditing a private repository) and WC.7 (worked examples and assembly) are process. What exists is the elementary shell. Mathlib has degree-n extensions of finite fields unique up to isomorphism with a cyclic Galois group generated by Frobenius, Möbius inversion, and irreducible polynomials dividing X^{q^n} − X exactly when their degree divides n. It also has Gauss's lemma, formal exp/log, the reversed characteristic polynomial det(1 − TM) with charpoly(A⁻¹) expressed through it, Newton's identities, and the point count |ℙ(k^{n+1})| = ∑ q^i. Tau Ceti adds finitely many places of bounded degree in a function field over a finite field, finiteness of the class group, genus and Riemann–Roch for curves, even dimension of real symplectic spaces, and for elliptic curves deg(1 − π_q) = #E(F_q) with a Hasse endgame still conditional on the Weil pairing. Genuinely missing even at the elementary level: finiteness of X(F_{q^r}) for schemes, the relation N_r = ∑ m·a_m, Fatou's lemma, the q^d-similitude reciprocity, the power-sum converse lemma, and the unconditional Hasse bound. WC.5:surface-alternative restates SF.5, WC.2's determinant step restates EDC.8, and WC.5 restates DWP.1/R34.2.",
+   "summary": "Neither library has the zeta function of a variety over a finite field, étale cohomology with Frobenius, the trace formula, Poincaré duality, purity, Betti comparison, surface intersection theory or crystalline cohomology, so the cohomological spine of WC.1–WC.6 is unbuilt; WC.7 (worked examples and assembly) is process, and WC.0 is half bookkeeping (mapping a private repository onto owners) and half mathematics that neither library has (finiteness of X(F_{q^r}) for a separated finite-type scheme, and the canonical translations between point sets over isomorphic fields). What exists is the elementary shell. Mathlib has degree-n extensions of finite fields unique up to isomorphism with a cyclic Galois group generated by Frobenius, Möbius inversion, and irreducible polynomials dividing X^{q^n} − X exactly when their degree divides n. It also has Gauss's lemma, formal exp/log, the reversed characteristic polynomial det(1 − TM) with charpoly(A⁻¹) expressed through it, Newton's identities, and the point count |ℙ(k^{n+1})| = ∑ q^i. Tau Ceti adds finitely many places of bounded degree in a function field over a finite field, finiteness of the class group, genus and Riemann–Roch for curves, even dimension of real symplectic spaces, and for elliptic curves deg(1 − π_q) = #E(F_q) with a Hasse endgame still conditional on the Weil pairing. Genuinely missing even at the elementary level: finiteness of X(F_{q^r}) for schemes, the relation N_r = ∑ m·a_m, Fatou's lemma, the q^d-similitude reciprocity, the power-sum converse lemma, and the unconditional Hasse bound. WC.5:surface-alternative restates SF.5, WC.2's determinant step restates EDC.8, and WC.5 restates DWP.1/R34.2.",
    "layers": {
     "WeilConjectures:WC.0": {
-     "verdict": "process",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Map the private repository's F008/F009/F010 and B000–B015 packets and its PointCounting/ZetaFunction/Abstract/Statement declarations onto the PR196 owners, separating portable lemmas from realisation debts",
@@ -2803,7 +2839,7 @@
    }
   },
   "FiniteFieldsAndCharacterSums": {
-   "summary": "Mathlib already contains most of FF.0 and FF.1, which the roadmap describes as things to build. For FF.0 it has classification and cardinality of finite fields, Frobenius generating the cyclic Galois group, subfields by divisibility (with Tau Ceti's uniqueness of the subfield of each order), explicit trace and norm formulas with surjectivity, and the normal basis theorem. For FF.1 it has additive and multiplicative characters with zero extension and the primitive trace character, orthogonality, and Gauss and Jacobi sums with g(χ)g(χ⁻¹) = q, J = gg/g, J·J(χ⁻¹,φ⁻¹) = q and g^n = χ(−1)q∏J. Genuinely missing there: tensor decompositions, certified computable presentations and the Hasse–Davenport relations. FF.2 is unbuilt (no Weil or Deligne bounds, Kloosterman sums or trace functions). FF.3 has only ingredients: unique factorisation, the X^{q^n} − X irreducibility criterion, Tau Ceti's factor-degree certificates, and Hensel for simple roots over ℤ_p; there are no factoring or point-counting algorithms. FF.4 has only truncated Witt vectors (implicit Galois rings), linear codes with generator matrices, and finite abelian Fourier analysis; linearised and permutation polynomials, recurring-sequence correlation, evaluation/BCH/AG codes and finite upper half-planes are absent. FF.5 is a handoff. FF.1's Gauss/Jacobi sums restate CA.1, FF.3's certified factorisation restates CN.1, and FF.4's additive polynomials restate DM.0.",
+   "summary": "Mathlib already contains most of FF.0 and FF.1, which the roadmap describes as things to build. For FF.0 it has classification and cardinality of finite fields, Frobenius generating the cyclic Galois group, subfields by divisibility (with Tau Ceti's uniqueness of the subfield of each order), explicit trace and norm formulas with surjectivity, and the normal basis theorem. For FF.1 it has additive and multiplicative characters with zero extension and the primitive trace character, the row orthogonality relations (with Tau Ceti supplying the column relation for every finite commutative group valued in a domain with enough roots of unity, hence for F_q^×), and Gauss and Jacobi sums with g(χ)g(χ⁻¹) = q, J = gg/g, J·J(χ⁻¹,φ⁻¹) = q and g^n = χ(−1)q∏J. Genuinely missing there: tensor decompositions, certified computable presentations and the Hasse–Davenport relations. FF.2 is unbuilt (no Weil or Deligne bounds, Kloosterman sums or trace functions). FF.3 has only ingredients: unique factorisation, the X^{q^n} − X irreducibility criterion, Tau Ceti's factor-degree certificates, and Hensel for simple roots over ℤ_p; there are no factoring or point-counting algorithms. FF.4 has only truncated Witt vectors (implicit Galois rings), linear codes with generator matrices, and finite abelian Fourier analysis; linearised and permutation polynomials, recurring-sequence correlation, evaluation/BCH/AG codes and finite upper half-planes are absent. FF.5 is a handoff. FF.1's Gauss/Jacobi sums restate CA.1, FF.3's certified factorisation restates CN.1, and FF.4's additive polynomials restate DM.0.",
    "layers": {
     "FiniteFieldsAndCharacterSums:FF.0": {
      "verdict": "partly built",
@@ -3096,7 +3132,7 @@
       },
       {
        "target": "Orthogonality relations for additive and multiplicative characters",
-       "library": "mathlib",
+       "library": "both",
        "declarations": [
         {
          "name": "AddChar.sum_eq_ite",
@@ -3113,21 +3149,28 @@
          "fit": "exact"
         },
         {
-         "name": "AddChar.sum_apply_eq_zero_iff_ne_zero",
-         "library": "mathlib",
-         "file": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
-         "line": 196,
-         "fit": "exact"
-        },
-        {
          "name": "DirichletCharacter.sum_characters_eq_zero",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/DirichletCharacter/Orthogonality.lean",
          "line": 58,
          "fit": "special case"
+        },
+        {
+         "name": "CommGroup.sum_monoidHom_apply_eq_ite",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/FiniteAbelian/CharacterOrthogonality.lean",
+         "line": 104,
+         "fit": "exact"
+        },
+        {
+         "name": "CommGroup.sum_monoidHom_apply_eq_zero_of_ne_one",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/FiniteAbelian/CharacterOrthogonality.lean",
+         "line": 91,
+         "fit": "exact"
         }
        ],
-       "note": "∑ψ = #A·[ψ = 0] (with the ≠ 0 criterion in characteristic zero), ∑χ = 0 for χ ≠ 1, and the dual relation summing over all characters of a finite abelian group. The dual relation for multiplicative characters is stated for Dirichlet characters modulo n, not separately for F_q^× with q not prime."
+       "note": "Mathlib has the row relations: ∑_x ψ(x) = #A·[ψ = 0] for an additive character and ∑_x χ(x) = 0 for a nontrivial multiplicative character (the general form being `sum_hom_units_eq_zero` in Mathlib/RingTheory/IntegralDomain.lean:186), and the column relation only in specialisations (Dirichlet characters modulo n; complex-valued additive characters of a finite abelian group). Tau Ceti proves the column relation in the generality this layer needs: for any finite commutative group G and any domain M with enough roots of unity, ∑_{χ : G →* Mˣ} χ(g) is Nat.card G at g = 1 and 0 otherwise, which covers F_q^× for an arbitrary prime power q."
       },
       {
        "target": "Gauss sums with the norm identity g(χ,ψ)·g(χ⁻¹,ψ⁻¹) = q and g(χ,ψ)² = χ(−1)·q for quadratic χ",
@@ -3196,7 +3239,7 @@
        "target": "The Hasse–Davenport lifting relation (Gauss sums of χ∘N_{F_{q^n}/F_q}) and the Hasse–Davenport product formula, if 'norm/product identities' includes them",
        "library": "absent",
        "declarations": [],
-       "note": "Neither library has the Hasse–Davenport relations or Stickelberger's theorem (a grep for Davenport and Stickelberger found nothing)."
+       "note": "Neither library has the Hasse–Davenport lifting relation or product formula (no occurrence of Hasse–Davenport in either tree), nor Stickelberger's theorem on the p-adic valuation of Gauss sums. The names do occur elsewhere and are unrelated: Tau Ceti's TauCeti/NumberTheory/NumberField/Discriminant/Stickelberger.lean proves Stickelberger's congruence disc ≡ 0 or 1 mod 4 for a number field, and Mathlib's Davenport is Cauchy–Davenport in additive combinatorics."
       }
      ],
      "duplicates": [
@@ -3582,6 +3625,10 @@
       {
        "layer": "DrinfeldModulesAndTModules:DM.0",
        "note": "DM.0 again constructs additive polynomials as the Ore ring L{τ} of F_q-linear endomorphisms of G_a, FF.4's additive-polynomial target."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-1-finite-codes-matrices-and-elementary-constructions",
+       "note": "Layer 1 owns generator and parity-check matrices, encoding maps, rank/dimension formulae and puncturing/shortening bounds, and Layer 2 owns minimum distance and duality; FF.4's acceptance ('encoding maps, dimension and distance bounds are proved') restates that API, leaving FF.4 only the evaluation/residue codes built on it."
       }
      ]
     },
@@ -3605,5 +3652,63 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-19",
+  "date": "2026-09-17",
+  "checked": 192,
+  "corrections": [
+   {
+    "layer": "FiniteFieldsAndCharacterSums:FF.1",
+    "target": "Orthogonality relations for additive and multiplicative characters",
+    "was": "library \"mathlib\"; note said the dual relation for multiplicative characters is stated only for Dirichlet characters modulo n, not for F_q^× with q not prime",
+    "now": "library \"both\", citing TauCeti CommGroup.sum_monoidHom_apply_eq_ite and sum_monoidHom_apply_eq_zero_of_ne_one",
+    "why": "Tau Ceti proves column orthogonality for every finite commutative group valued in a domain with enough roots of unity (TauCeti/GroupTheory/FiniteAbelian/CharacterOrthogonality.lean:91,104), which is exactly the F_q^× case the audit recorded as missing; that file's own docstring records that Mathlib has it only in the ZMod n and complex cases."
+   },
+   {
+    "layer": "FiniteFieldsAndCharacterSums:FF.1",
+    "target": "The Hasse–Davenport lifting relation and product formula",
+    "was": "note: \"a grep for Davenport and Stickelberger found nothing\"",
+    "now": "note records that both names do occur — Tau Ceti's Stickelberger congruence on field discriminants and Mathlib's Cauchy–Davenport — and that neither is the Gauss-sum theorem",
+    "why": "The parenthetical was false as stated (TauCeti/NumberTheory/NumberField/Discriminant/Stickelberger.lean exists); the verdict \"absent\" for the Hasse–Davenport relations is unchanged and correct."
+   },
+   {
+    "layer": "LefschetzPencilsAndVanishingCycles:LPV.4",
+    "target": "Nondegenerate descent of the cup-product pairing to E/(E ∩ E^⊥)",
+    "was": "cited LinearMap.BilinForm.toLin_restrict_ker_eq_inf_orthogonal as identifying the kernel of the restriction to W with W ∩ W^⊥",
+    "now": "cites inf_orthogonal_self_le_ker_restrict and nondegenerate_restrict_of_disjoint_orthogonal, with the misreading of toLin_restrict_ker_eq_inf_orthogonal flagged",
+    "why": "toLin_restrict_ker_eq_inf_orthogonal is about B.domRestrict W and gives W ⊓ B.orthogonal ⊤ (the intersection with the radical of B), not W ∩ W^⊥; the lemmas that do say what the note claimed are at Orthogonal.lean:193 and 251. Library stays \"partial\"."
+   },
+   {
+    "layer": "LefschetzPencilsAndVanishingCycles:LPV.1",
+    "target": "For a unipotent action: the monodromy operator N = log ρ(σ)",
+    "was": "only Mathlib's IsNilpotent.exp and exp_add_of_commute cited",
+    "now": "also cites Tau Ceti's LinearMap.GeneralLinearGroup.IsUnipotent API (definition, charpoly characterisation, generalised 1-eigenspace)",
+    "why": "Tau Ceti has a developed unipotent-automorphism theory (56 files, ~120 declarations) that supplies the hypothesis of this target; the logarithm is still absent, so the entry stays \"partial\"."
+   },
+   {
+    "layer": "WeilConjectures:WC.0",
+    "target": "(layer verdict)",
+    "was": "process",
+    "now": "not built",
+    "why": "Only the first half of WC.0 is bookkeeping. It also requires finiteness of X(F_{q^r}) for a separated finite-type k-scheme as a proved theorem and the canonical translations between point sets over isomorphic fields with tower compatibility; the audit itself records both as \"partial\", and neither library proves them, so the layer states mathematics that is not built."
+   },
+   {
+    "layer": "LefschetzPencilsAndVanishingCycles:LPV.7 and LPV.7:semistable-curves",
+    "target": "(duplicates)",
+    "was": "R34.3, R11.4, R13.6 only",
+    "now": "added tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+    "why": "That layer owns nodes, the κ̄[[x,y]]/(xy) local normal form, normalisation with the conductor sequence, and the dual graph with p_a = Σ g_v + b₁(Γ) — the normalisation/node and dual-graph half of this substage."
+   },
+   {
+    "layer": "FiniteFieldsAndCharacterSums:FF.4",
+    "target": "(duplicates)",
+    "was": "DrinfeldModulesAndTModules:DM.0 only",
+    "now": "added tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-1-finite-codes-matrices-and-elementary-constructions",
+    "why": "Layers 1–2 of that roadmap own generator/parity-check matrices, encoding maps, dimension formulae and minimum distance, which is FF.4's stated acceptance criterion; FF.4 keeps only the evaluation/residue codes."
+   }
+  ],
+  "notes": "All 133 cited declarations were re-looked-up in the pinned index and re-read in the Lean sources: every one exists at the cited library, file and line (only Mathlib's abbrev LinearMap.IsRefl.liftQ₂ is absent from the index, and it is present in the file), and none of the 141 cited files contains a sorry (the two grep hits are prose in docstrings). Statements, hypotheses and generality were checked against the targets; one citation was misread (LPV.4) and has been corrected. Every absent or partial claim was re-searched independently by concept across declarations.tsv and both source trees — q-de Rham/prisms/Λ-rings/animated rings/décalage/de Rham–Witt/truncation sets/syntomic/spectra; nearby and vanishing cycles, lisse and constructible sheaves, Verdier duality, perverse t-structures, blow-ups, Veronese, Bertini, dual varieties, tame and wild inertia, Abhyankar, quasi-unipotence, monodromy filtrations, p-adic Lie groups; Weil numbers, Rosati, Tate modules, Kuga–Sato, Eichler–Shimura, compatible systems; zeta functions of varieties and function fields, Euler products by closed-point degree, Fatou, Künneth, trace formulas, Hodge index and surface intersection theory, Pfaffians; Kloosterman, Artin–Schreier, Hasse–Davenport, Berlekamp/Cantor–Zassenhaus/Rabin, Galois rings, linearised and permutation polynomials, linear recurring sequences, Reed–Solomon/BCH/AG codes, finite upper half-planes. Two genuine misses were found (Tau Ceti's column orthogonality, Tau Ceti's unipotent API); everything else held. Verdicts are consistent with the target labels throughout; the remaining five \"process\" verdicts (HQ.7, R34.3, R34.4, WC.7, FF.5) were confirmed against the layer descriptions as import, acceptance-test or handoff layers that state no theorem of their own. All 66 duplicate layer ids exist in the atlas; the sampled overlap claims are accurate, and an atlas-wide keyword sweep of all 1962 layer descriptions found three further overlaps, now added."
  }
 }
