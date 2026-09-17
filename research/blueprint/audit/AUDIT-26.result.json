@@ -155,8 +155,23 @@
       {
        "target": "Analytic p-adic L-function of E via its modular form, with the comparison of canonical periods and lattices and modularity as an explicit dependency",
        "library": "absent",
-       "declarations": [],
-       "note": "Not present."
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.LFunction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.localEulerFactor",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 57,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines the complex L-series of a Weierstrass curve over a number field as the Euler product of the local factors of its good, split multiplicative, nonsplit multiplicative and additive reduction, but proves no continuation; the p-adic L-function, the modular form attached to E and the canonical-period/lattice comparison are all absent."
       }
      ],
      "duplicates": [
@@ -862,7 +877,12 @@
        "note": "Not present."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "KTheoryLowDegrees:U.3",
+       "note": "Defines SK₁ as the kernel of the stable determinant, proves its vanishing for fields and commutative semilocal rings and uses the Dieudonné determinant for division rings, overlapping this layer's SK₁ target; NE.3 adds the reduced norm on the semisimple total quotient algebra and the Artin evaluation."
+      }
+     ]
     },
     "NoncommutativeAndEquivariantIwasawa:NE.4": {
      "verdict": "not built",
@@ -1236,9 +1256,16 @@
          "file": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
          "line": 602,
          "fit": "related"
+        },
+        {
+         "name": "AdicCompletion.ofTensorProductEquivOfFiniteNoetherian",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
+         "line": 328,
+         "fit": "related"
         }
        ],
-       "note": "Completions at finite places exist (and L_w is finite over K_v), but the decomposition of the base change into a product of completions is not proved."
+       "note": "Completions at finite places exist, and Mathlib proves AdicCompletion I R ⊗_R M ≅ AdicCompletion I M for a finite module over a Noetherian ring, which gives ℤ_p ⊗_ℤ 𝒪_F as the p-adic completion of 𝒪_F; the remaining content — the decomposition of that completion as the product over the places v | p and the field-level form F ⊗ ℚ_p ≅ ∏_{v|p} F_v — is not proved."
       },
       {
        "target": "Localisation map from global K₃, compatibility with all local embeddings, and application of D.3",
@@ -1792,7 +1819,7 @@
          "fit": "special case"
         }
        ],
-       "note": "For G = ℤ_p Mathlib identifies continuous characters valued in a complete ultrametric normed ℤ_p-algebra with its topologically nilpotent elements (the open unit disc on points); there is no rigid space, representability or general G."
+       "note": "For G = ℤ_p Mathlib identifies continuous characters valued in a complete normed ℤ_p-algebra R with bounded ℤ_p-action (no ultrametric hypothesis) with the topologically nilpotent elements of R, and with {r : ‖r‖ < 1} only when the norm is strictly multiplicative (NormMulClass); there is no rigid space, representability or general G."
       },
       {
        "target": "Generic-fibre construction from the completed group ring, finite-character components, polydisc charts, pullback in G and affinoid base change, with the separate p = 2 chart",
@@ -2643,5 +2670,42 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-26",
+  "date": "2026-09-17",
+  "checked": 178,
+  "corrections": [
+   {
+    "layer": "PadicMeasuresIwasawaAlgebras:L0a",
+    "target": "Rigid analytic space representing continuous characters G → A^× on affinoid algebras, for compact abelian p-adic analytic G, with its universal character",
+    "was": "note: characters valued in a complete ultrametric normed ℤ_p-algebra, identified with its topologically nilpotent elements (the open unit disc on points)",
+    "now": "note: characters valued in a complete normed ℤ_p-algebra with bounded ℤ_p-action (no ultrametric hypothesis), identified with its topologically nilpotent elements; the ‖r‖ < 1 / open-disc form needs NormMulClass",
+    "why": "Mathlib/NumberTheory/Padics/AddChar.lean declares only [NormedRing R] [Algebra ℤ_[p] R] [IsBoundedSMul ℤ_[p] R] [CompleteSpace R]; IsUltrametricDist is never assumed, and the unit-disc description is the separate continuousAddCharEquiv_of_norm_mul. Verdict 'not built' is unchanged."
+   },
+   {
+    "layer": "PadicHodgeRegulators:D.4",
+    "target": "F ⊗ ℚ_p ≅ ∏_{v|p} F_v for p unramified in the number field F",
+    "was": "absent; only adicCompletion cited, note 'the decomposition of the base change into a product of completions is not proved'",
+    "now": "absent, with AdicCompletion.ofTensorProductEquivOfFiniteNoetherian added as a related declaration and the note saying which half of the statement Mathlib has",
+    "why": "Mathlib does prove AdicCompletion I R ⊗_R M ≅ AdicCompletion I M for finite modules over a Noetherian ring, which supplies ℤ_p ⊗_ℤ 𝒪_F; only the splitting over the places above p is missing. The 'absent' label still holds because that splitting is the content of the target."
+   },
+   {
+    "layer": "ModularIwasawaMainConjectures:L3",
+    "target": "Analytic p-adic L-function of E via its modular form, with the comparison of canonical periods and lattices and modularity as an explicit dependency",
+    "was": "absent, no declarations, note 'Not present.'",
+    "now": "absent, citing WeierstrassCurve.LFunction and WeierstrassCurve.localEulerFactor, with a note distinguishing the complex L-series Mathlib defines from the p-adic L-function the layer needs",
+    "why": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean defines the Euler product of an elliptic curve over a number field (sorry-free) with its reduction-type local factors; the audit's bare 'Not present.' hid this. The target is still absent: no continuation, no p-adic L-function, no modularity."
+   },
+   {
+    "layer": "NoncommutativeAndEquivariantIwasawa:NE.3",
+    "target": "Reduced norms on the semisimple total quotient algebra and SK₁ as their kernel",
+    "was": "no duplicates recorded for NE.3",
+    "now": "duplicate KTheoryLowDegrees:U.3 added",
+    "why": "KTheoryLowDegrees U.3 ('Determinant, units and SK₁') defines SK₁ as the kernel of the stable determinant, proves the semilocal and field vanishing, and handles division rings by the Dieudonné determinant — the same SK₁ target, stated by a roadmap NE.3 does not list as an input."
+   }
+  ],
+  "notes": "Checked all 178 targets of the 38 layers. Machine-verified every one of the 150 cited declarations against the pinned declarations.tsv (146 matched name, library, file and line exactly; the four misses are two anonymous PowerSeries instances and ModularForm.L, all confirmed by hand at the cited lines), and grepped each of the 83 cited files for sorry — none has any. Opened every cited declaration in context and compared hypotheses with the target: the notes on generality (Weierstrass division over any IsAdicComplete local ring; R⟦X⟧ Noetherian for Noetherian R and a UFD only for a principal ideal domain; IsRegularLocalRing available only for local PIDs so dim O[[T]] = 2 and regularity really are missing; amiceTransformEquiv bundled only over ℤ_p; Banach–Alaoglu via ProperSpace; Mahler's theorem for complete ultrametric normed ℤ_p-modules; Shapiro only in degrees 0 and 1; primitive central idempotents only over algebraically closed fields with |G| invertible; TauCeti self-injectivity only for algebras over a field) are accurate. Re-searched the absent and partial claims independently, by Mathlib naming convention and by concept, in both declarations.tsv and the two Lean trees: Fitting ideals of modules, perfect complexes, K₁/relative K₀/SK₁/reduced norms, determinant functors, pseudo-isomorphisms and characteristic ideals, completed group rings (no completedGroupAlgebra anywhere in Tau Ceti, only pro-p group theory), pseudo-measures, convolution of measures, modular symbols, Manin symbols, Eichler–Shimura, p-stabilisation, Tate modules, Greenberg or signed Selmer groups, Iwasawa cohomology, Coleman maps and Coleman integration, polylogarithms and dilogarithms, Bloch groups, higher K-theory and Chern classes, syntomic cohomology, B_cris and B_st, (φ,Γ)-modules, Robba rings, Wach modules, Bloch–Kato exponentials, Poitou–Tate and local Tate duality, Kubota–Leopoldt and p-adic L-functions, rigid weight and character spaces, locally analytic distributions, topological Nakayama, Matlis duality, Gorenstein orders, supersingular and ordinary reduction, and the unit-group product decompositions. Every one is genuinely absent. Confirmed all 43 duplicate claims: each cited layer exists in the atlas, none belongs to the one retired roadmap, and each description really does state the overlapping target. Swept ~1960 layer descriptions for the batch's characteristic phrases and found one duplicate the audit had missed (NE.3 / KTheoryLowDegrees U.3); the layers with no duplicates recorded (PadicHodgeRegulators D.4, L1–L4 in particular) really are unique owners — PadicHodgeTheory P7 and PhiGamma PG.5/PG.6 explicitly hand the Bloch–Kato exponential, Perrin-Riou regulators and signed Coleman maps back to PadicHodgeRegulators. Verdicts: no layer is 'built'; the two 'process' layers are right (PadicHodgeRegulators L0 only imports period rings and checks conventions; ModularIwasawaMainConjectures L6 re-exports branch theorems owned by HE.8b, BSD.6a and BSD.7a and records a replacement-source concordance, though its map-level identifications are the closest any 'process' layer here comes to mathematics). The layers marked 'partly built' each have at least one fully present target, and layers whose targets are only partial or absent are marked 'not built', which matches the convention of the 25 already-accepted audit results."
  }
 }

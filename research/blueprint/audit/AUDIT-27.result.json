@@ -1,0 +1,3163 @@
+{
+ "job": "AUDIT-27",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "PeriodsAndSpecialValues": {
+   "summary": "The libraries have none of the motivic infrastructure this roadmap is built on: there is no motive, no Betti or algebraic de Rham realization, no period torsor, no algebraic K-theory, no determinant-line/fundamental-line formalism, no Tamagawa number, no Sha and no multiple zeta values in either Mathlib or Tau Ceti (searched by name, by Mathlib naming convention and by docstring keyword across both trees). What does exist is genuine but sits one level below the roadmap: Tau Ceti has a complete sorry-free theory of pure and mixed Hodge structures (bounded opposed filtration, Hodge pieces, conjugation, Tate twists, polarizations, Deligne splitting, period domains) in TauCeti/Geometry/Hodge, and Mathlib has the analytic special-value theory the roadmap wants to specialise to: Dirichlet L-functions with analytic continuation, Gamma factor, completed L-function, root number and functional equation, riemannZeta at negative and even positive integers via Bernoulli numbers, the Dedekind zeta function with the Dirichlet class number formula, the Dirichlet unit regulator, and the completed L-function of a modular form with its functional equation and (for cusp forms) entire continuation. Genuinely missing is everything from PS.0's realization comparison onwards: periods as objects, formal periods, motivic cohomology and Beilinson regulators, integral fundamental lines, ETNC, BSD/Bloch-Kato assembly, certified enclosures, Picard-Fuchs/mirror symmetry and MZVs. The roadmap should be told that the Hodge-structure layer of PS.0 and the Dirichlet/modular analytic inputs of PS.1 are already library-complete.",
+   "layers": {
+    "PeriodsAndSpecialValues:PS.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Betti/de Rham realization comparison matrices for a motive with a chosen complex embedding",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has motives, algebraic de Rham cohomology of a variety, or a Betti realization. Mathlib has Kaehler differentials (KaehlerDifferential, 127 declarations) but no de Rham complex of a scheme; the only 'DeRham' names in Mathlib are the perfectoid period rings BDeRham/BDeRhamPlus in Mathlib/RingTheory/Perfectoid/BDeRham.lean, which are Fontaine's rings, not a realization functor. Tau Ceti has singular homology (TopPair.singularHomology) and quasi-coherent scheme cohomology, but no comparison between them."
+      },
+      {
+       "target": "Basis-independent determinant lines and the effect of changing bases",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.Basis.det",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Determinant.lean",
+         "line": 597,
+         "fit": "related"
+        },
+        {
+         "name": "exteriorPower.ιMulti",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+         "line": 56,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has determinants of endomorphisms and matrices, alternating maps and exterior powers, so the raw linear algebra for a top exterior power is present; what is missing is any determinant line / determinant functor formalism (no declaration whose name contains detLine, determinantLine or determinantFunctor in either library) and any statement that a period class is well defined modulo a change of basis."
+      },
+      {
+       "target": "Complex conjugation eigenspaces, Hodge filtration and Tate twists",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Structure.lean",
+         "line": 62,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.piece",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Structure.lean",
+         "line": 156,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.Conjugation",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Conjugation.lean",
+         "line": 74,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.tateTwist",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Tate/Twist.lean",
+         "line": 57,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.conj_piece",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Structure.lean",
+         "line": 182,
+         "fit": "exact"
+        }
+       ],
+       "note": "Tau Ceti carries a bounded decreasing filtration opposed to its conjugate in weight n, with the Hodge pieces, conjugation exchanging H^{p,q} and H^{q,p}, Tate twists with their effect on F, the conjugate filtration, Hodge numbers and effectivity, plus mixed Hodge structures and the Deligne splitting. The conjugation is a parameter, so the same definition covers integral and rational structures; nothing in the directory uses sorry. The generality is greater than PS.0 asks, but it is abstract: no Hodge structure is produced from a variety."
+      },
+      {
+       "target": "Period classes modulo coefficient-field units; effect of changing embeddings",
+       "library": "absent",
+       "declarations": [],
+       "note": "No declaration in either library names a period of a motive or of a variety; grep for 'period' in the name column returns only periodic functions, period lattices of elliptic curves and Tau Ceti's Hodge period domain (TauCeti.Hodge.PeriodDomain.Point), which is the classifying space, not a period matrix."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "MotivesAndAlgebraicCycles:MC.2",
+       "note": "MC.2 constructs the realization functors themselves and compares Betti/de Rham realizations over embeddings into C; PS.0 consumes them and is declared to have MC.2 as an input, so the realization-comparison target is stated twice."
+      },
+      {
+       "layer": "ComplexComparisonPartII:C5",
+       "note": "C5 owns the algebraic de Rham-Betti comparison for smooth complex varieties, including integral Betti lattices and rational structures retained before complexification; PS.0's comparison matrices are the matrix form of exactly that comparison."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne",
+       "note": "The Tau Ceti Hodge structures roadmap owns the filtration, conjugation, Tate twist and mixed-structure machinery that PS.0 lists as its own construction; that milestone is the one already delivered in TauCeti/Geometry/Hodge."
+      }
+     ]
+    },
+    "PeriodsAndSpecialValues:PS.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Completed motivic L-function from local Weil-Deligne data",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Weil-Deligne representation and no motivic L-function in either library; grep for weilDeligne/WeilDeligne in names returns nothing, and grep -rn -i 'Weil-Deligne' over both trees returns no definition. The only Euler-product-from-local-data constructions are Tau Ceti's EulerProductData (abstract multiplicative ideal weights) and Mathlib's WeierstrassCurve.LFunction."
+      },
+      {
+       "target": "Critical integers derived from archimedean Gamma factors",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "DirichletCharacter.gammaFactor",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 207,
+         "fit": "special case"
+        },
+        {
+         "name": "Complex.Gamma",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
+         "line": 287,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the archimedean Gamma factor of a Dirichlet character (even and odd cases) and the poles of Gamma, which is what a criticality condition is read off from, but there is no definition of a critical integer and no statement that criticality is a simultaneous regularity condition for two infinity factors."
+      },
+      {
+       "target": "Deligne-type normalized-value statement (sign, powers of 2 pi i, coefficient field, Galois equivariance)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing in either library states an algebraicity-up-to-a-period result. There is no period to divide by, and no Galois equivariance statement for L-values."
+      },
+      {
+       "target": "The Dirichlet/Tate case: special values of Dirichlet L-functions with their functional equation and rationality",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "DirichletCharacter.IsPrimitive.completedLFunction_one_sub",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 284,
+         "fit": "exact"
+        },
+        {
+         "name": "DirichletCharacter.rootNumber",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 272,
+         "fit": "exact"
+        },
+        {
+         "name": "riemannZeta_neg_nat_eq_bernoulli",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+         "line": 251,
+         "fit": "special case"
+        },
+        {
+         "name": "riemannZeta_two_mul_nat",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+         "line": 206,
+         "fit": "special case"
+        },
+        {
+         "name": "ZMod.LFunction_one_sub",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/ZMod.lean",
+         "line": 224,
+         "fit": "more general"
+        }
+       ],
+       "note": "For the Tate motive over Q the whole analytic package is in Mathlib and sorry-free: analytic continuation of the L-function of any function on ZMod N, the completed L-function, the functional equation for primitive characters with an explicit root number, and the special values zeta(-n) = -B_{n+1}/(n+1) and zeta(2k) = (rational)*pi^{2k}. What is absent is the statement that these are the critical values of a motive normalized by a period; the rationality is proved as an explicit Bernoulli formula, not as a Deligne-type quotient. Mathlib has no L(chi, 1-k) = -B_{k,chi}/k, since generalized Bernoulli numbers are not defined (grep -rn -i 'generalized bernoulli' over both trees returns nothing)."
+      },
+      {
+       "target": "The modular-form case with ramified and imprimitive corrections",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ModularForm.Λ",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/LFunction.lean",
+         "line": 91,
+         "fit": "related"
+        },
+        {
+         "name": "CuspForm.differentiable_L",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/LFunction.lean",
+         "line": 190,
+         "fit": "related"
+        },
+        {
+         "name": "CuspForm.hasEntireExtension_qExpansion_coeff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/LFunction.lean",
+         "line": 131,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines the completed L-function Lambda and the L-function L of a modular form for an arithmetic level, proves the Dirichlet-series identity on the convergence half-plane and, for cusp forms, entire continuation and the functional equation via the WeakFEPair machinery of LSeries/AbstractFuncEq.lean; Tau Ceti adds Hecke's abscissa bounds and identifies LSeries of the q-expansion coefficients with Mathlib's L. There is no period of a modular form, no algebraicity of L(f,j)/period, and no treatment of imprimitive or ramified corrections."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+       "note": "AL.1 owns local Weil-Deligne data and local factors; PS.1 restates 'define completed motivic L-functions from local Weil-Deligne data' as its own construction."
+      },
+      {
+       "layer": "AnalyticNumberTheory:AN.1",
+       "note": "AN.1 owns the Dirichlet-series/continuation apparatus PS.1 needs for the Dirichlet/Tate case."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.8",
+       "note": "M.8 also exports Galois realisations with their Frobenius Euler polynomials, overlapping PS.1's local-factor bookkeeping."
+      }
+     ]
+    },
+    "PeriodsAndSpecialValues:PS.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Algebra of formal periods with linearity, change-of-variables and Stokes relations",
+       "library": "absent",
+       "declarations": [],
+       "note": "No formal period algebra in either library. Mathlib has the divergence theorem and integration by parts for interval integrals, but nothing that presents an algebra by generators (X, D, omega, gamma) modulo the period relations."
+      },
+      {
+       "target": "Comparison with the coordinate ring of the Nori period torsor",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Nori motives, no Tannakian period torsor, no fiber-functor torsor in either library; a name-column search for 'Nori' matches only Tau Ceti knot-theory names containing 'unoriented'."
+      },
+      {
+       "target": "Evaluation map into C and the separation of forced identities from injectivity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent for the same reason; there is no period object to evaluate."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "MotivesAndAlgebraicCycles:MC.6",
+       "note": "MC.6 constructs tensor-isomorphism torsors between fiber functors and explicitly says it exports period torsors to PeriodsAndSpecialValues; the torsor half of PS.2 is MC.6's target restated."
+      }
+     ]
+    },
+    "PeriodsAndSpecialValues:PS.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Rational motivic cohomology",
+       "library": "absent",
+       "declarations": [],
+       "note": "No motivic cohomology, no higher Chow groups and no algebraic K-theory in either library; there is no directory or file whose path matches KTheory in either tree, and no Grothendieck group of a scheme or ring."
+      },
+      {
+       "target": "Real/Deligne regulators and leading-term lines",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Borel regulator, no Deligne regulator, no Beilinson regulator: the only declarations whose names contain 'regulator' are the Dirichlet unit regulator (Mathlib) and the Neron-Tate regulator of a Weierstrass curve (Tau Ceti)."
+      },
+      {
+       "target": "The zero-rank and nonzero-rank Borel cases for a number field, with embedding multiplicities and covolume normalization",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.Units.regulator",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+         "line": 266,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.Units.regulator_eq_det",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+         "line": 303,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 77,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.Units.regulator_eq_one_of_rank_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/Regulator.lean",
+         "line": 51,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.Units.regOfFamily_div_regulator",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+         "line": 361,
+         "fit": "related"
+        }
+       ],
+       "note": "The weight-one Borel case is the Dirichlet regulator, and that is complete and sorry-free: Mathlib defines the regulator as the determinant of the logarithmic embedding of a fundamental system, proves it positive, independent of the family up to index (regOfFamily_div_regulator), and proves the Dirichlet class number formula as the residue of the Dedekind zeta function at s = 1, with the explicit 2^{r1}(2 pi)^{r2} R h / (w sqrt|d|) constant. Tau Ceti adds the rank-zero degeneration regulator = 1. Higher-weight Borel regulators (K_{2n-1} of a number field to R) are absent, and Mathlib's residue statement is a one-sided real limit, not an analytic continuation of zeta_K."
+      },
+      {
+       "target": "Comparison of higher K-theory and motivic regulators via the actual comparison maps; torsion kept separate from lattices",
+       "library": "absent",
+       "declarations": [],
+       "note": "No higher K-theory in either library, so no comparison map exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "BorelRegulators:R.7",
+       "note": "R.7 owns the Borel/Beilinson comparison, the factor-of-2 normalization and the zero-rank and rank-one recoveries; PS.3's acceptance test restates R.7's."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.8",
+       "note": "M.8 constructs the rational regulator from motivic cohomology, the Chern-character compatibility and the separation of integral lattices from rational 'integral parts' - the same three targets as PS.3."
+      },
+      {
+       "layer": "EllipticRegulators:ER.5",
+       "note": "ER.5 owns the elliptic-curve regulator/leading-term example PS.3 lists as an input and re-exports."
+      }
+     ]
+    },
+    "PeriodsAndSpecialValues:PS.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Integral determinant lines of perfect global/local cohomology complexes",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has perfect complexes over a ring or a determinant functor on them; 'IsPerfect' in both trees means a perfect matching or a perfect group, and there is no detLine/determinantFunctor anywhere."
+      },
+      {
+       "target": "Finite/singular local conditions and archimedean corrections, with the real comparison trivialization",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Selmer-style local conditions attached to a determinant line; Tau Ceti's continuous cohomology (TauCeti/RepresentationTheory/Homological/ContCohomology) provides the cohomology but no finite/singular decomposition."
+      },
+      {
+       "target": "Invariance under quasi-isomorphism and change of lattice",
+       "library": "absent",
+       "declarations": [],
+       "note": "Meaningless without the determinant line; no such invariance statement exists."
+      },
+      {
+       "target": "Contribution of finite kernels and cokernels; Fitting ideals versus determinant generators",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "LieModule.posFittingComp",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Weights/Basic.lean",
+         "line": 448,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has no Fitting ideal of a finitely presented module: the only 'Fitting' declarations are the Fitting decomposition of a Lie module, an unrelated notion. Tau Ceti has none either. Mathlib does have cardinalities of finite modules and long exact sequences, so the bookkeeping inputs exist, but the Fitting-versus-determinant distinction the layer insists on cannot even be stated."
+      },
+      {
+       "target": "Bad-prime Euler and Tamagawa factors",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.localEulerFactor",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 57,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib defines the local Euler factor of a Weierstrass curve over a nonarchimedean local field, split by good/split multiplicative/nonsplit multiplicative/additive reduction, so the bad-prime Euler factors exist for elliptic curves. No Tamagawa number exists in either library (name search for 'tamagawa' returns nothing)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticGaloisDuality:R02.4",
+       "note": "R02.4 is PS.4's declared input and owns the global/local duality complexes and their perfectness."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.8",
+       "note": "M.8 also builds Selmer complexes from explicit local conditions and their determinants for the Tate and elliptic representations."
+      },
+      {
+       "layer": "SelmerIwasawaCohomology:L2",
+       "note": "L2 owns Selmer structures with finite/singular local conditions and their duals, which PS.4 restates as 'finite/singular conditions'."
+      }
+     ]
+    },
+    "PeriodsAndSpecialValues:PS.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Zeta elements and the equivariant Tamagawa-number conjecture in a relative K-group",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no algebraic K-theory, no relative K-group and no zeta element in either library."
+      },
+      {
+       "target": "Reduced norms and noncommutative K1 (not replaced by scalar units)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No reducedNorm and no K1 in either library. Mathlib has central simple algebras and the Brauer group, but not the reduced norm map."
+      },
+      {
+       "target": "Adapters for the proven Tate/Artin and abelian cases",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Artin L-function in either library either (the only L-functions are Dirichlet, modular and Weierstrass)."
+      },
+      {
+       "target": "Recovering the commutative determinant formula on specialization",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent for the same reason."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "NoncommutativeAndEquivariantIwasawa:NE.3",
+       "note": "NE.3 owns reduced norms, SK1 and Artin evaluation, exactly the K1 targets PS.5 restates."
+      },
+      {
+       "layer": "IntegralIwasawaTheory:I.7",
+       "note": "I.7 states the equivariant Tamagawa-number formulation for the integral Brumer-Stark setting, overlapping PS.5's equivariant statements."
+      }
+     ]
+    },
+    "PeriodsAndSpecialValues:PS.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Adapters identifying fundamental-line terms with Mordell-Weil regulator, torsion, local Tamagawa numbers, periods and Sha",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.regulator",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+         "line": 91,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.regulator_eq_abs_det_neronTateGramMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+         "line": 95,
+         "fit": "special case"
+        }
+       ],
+       "note": "Of the five terms only the Mordell-Weil regulator exists: Tau Ceti defines it as the absolute determinant of the Neron-Tate height Gram matrix, proves basis-independence and nonnegativity. Torsion of E(K) is available through Mathlib's group theory but is not packaged; Tamagawa numbers, the real period and Sha do not exist in either library."
+      },
+      {
+       "target": "Connection to the rank-zero/one BSD owner and scoped Euler-system deductions",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Euler system and no BSD statement in either library."
+      },
+      {
+       "target": "Separation of rational rank/finiteness results, p-primary valuation equalities and all-prime leading-coefficient equalities",
+       "library": "absent",
+       "declarations": [],
+       "note": "This is a statement-hygiene target about objects that do not exist in the libraries."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "RankZeroOneBSD:BSD.8",
+       "note": "BSD.8 is PS.6's declared input and owns the assembly of prime-part certificates into an exact leading term; PS.6 restates the same adapters from the motivic side."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.8",
+       "note": "M.8 builds the Selmer complexes and determinants for the elliptic representation that PS.6's adapters consume."
+      }
+     ]
+    },
+    "PeriodsAndSpecialValues:PS.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Certified interval/ball enclosures for period integrals and L-value expressions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has interval or ball arithmetic: there is no IntervalArith, BallArith or enclosure namespace, and Mathlib's Interval names are order intervals, not numerical enclosures."
+      },
+      {
+       "target": "Proved error bounds for the implemented families",
+       "library": "absent",
+       "declarations": [],
+       "note": "Mathlib has Taylor's theorem with remainder and general estimates for series, but nothing that certifies an L-value or period computation."
+      },
+      {
+       "target": "Exact algebraic factors and normalization-map comparison before numerical testing",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the period objects of PS.0-PS.2, which are absent."
+      },
+      {
+       "target": "Conjecture statements for period, Beilinson and higher-rank special values with dependency gates",
+       "library": "absent",
+       "declarations": [],
+       "note": "No conjecture is stated in either library; this part of the layer is bookkeeping rather than mathematics, but it is inseparable from the absent objects."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ComputationalNumberTheory:CN.4",
+       "note": "CN.4 is PS.7's declared input and owns certified numerical evaluation with error bounds; PS.7 restates it for periods."
+      }
+     ]
+    },
+    "PeriodsAndSpecialValues:PS.8": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Relative de Rham cohomology and the Gauss-Manin connection of an algebraic family",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'gauss-manin' over both trees returns nothing. Mathlib has connections only in the differential-geometry sense; Tau Ceti has covariant derivatives and Levi-Civita connections on vector bundles, not an algebraic Gauss-Manin connection."
+      },
+      {
+       "target": "Picard-Fuchs equation by proved reduction of differential forms",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'picard-fuchs' over both trees returns nothing."
+      },
+      {
+       "target": "Analytic period solutions, integral monodromy and the normalized mirror coordinate",
+       "library": "absent",
+       "declarations": [],
+       "note": "No mirror map and no monodromy of a family of varieties; Mathlib's monodromy is the analytic continuation of a germ along a path, unrelated to a period lattice of a family."
+      },
+      {
+       "target": "Good-prime integral/crystalline model and Frobenius compatibility for a quintic family",
+       "library": "absent",
+       "declarations": [],
+       "note": "No crystalline cohomology in either library and no Frobenius matrix on cohomology."
+      },
+      {
+       "target": "K3 hypergeometric family with singular parameters, solution basis and denominator primes",
+       "library": "absent",
+       "declarations": [],
+       "note": "The only 'hypergeometric' declarations in either library are Tau Ceti's hypergeometric probability distribution, which is unrelated."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "CrystallineCohomology:CR.7",
+       "note": "CR.7 is PS.8's declared input and owns the crystalline coefficient interfaces and Frobenius structures PS.8 restates."
+      },
+      {
+       "layer": "ComplexComparisonPartII:C5",
+       "note": "C5 proves relative Gauss-Manin compatibility for proper smooth families, which PS.8 lists as its own construction."
+      }
+     ]
+    },
+    "PeriodsAndSpecialValues:PS.9": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Convergent multiple zeta sums with an admissibility/ordering convention",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'multiple zeta' and a name search for multipleZeta/MZV over both trees return nothing. Mathlib has riemannZeta and hurwitzZeta only."
+      },
+      {
+       "target": "Iterated-integral representation on P1 minus {0,1,infinity}",
+       "library": "absent",
+       "declarations": [],
+       "note": "The phrase 'iterated integral' in Mathlib refers to Fubini/Tonelli for product measures and to Sobolev inequalities, not to Chen iterated integrals along a path."
+      },
+      {
+       "target": "Word algebras with shuffle and stuffle products, and the regularization comparison map",
+       "library": "absent",
+       "declarations": [],
+       "note": "No shuffle product on words (one unrelated 'shuffle' name in each library), no quasi-shuffle/stuffle, no tangential base point regularization."
+      },
+      {
+       "target": "Mixed-Tate category, motivic fundamental group and coaction, and the motivic period map",
+       "library": "absent",
+       "declarations": [],
+       "note": "No motives at all, hence no mixed-Tate subcategory, no motivic fundamental group and no coaction."
+      },
+      {
+       "target": "Low-weight shuffle/stuffle identities and Hoffman-type spanning results",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; the underlying objects do not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "Polylogarithms:P.1",
+       "note": "P.1 owns classical and single-valued polylogarithms, the Bloch-Wigner dilogarithm and the five-term relation, which are the weight-one and weight-two cases of PS.9's iterated integrals."
+      },
+      {
+       "layer": "MotivesAndAlgebraicCycles:MC.4",
+       "note": "MC.4 and MC.6 own the mixed-Tate category and the motivic Galois/fundamental-group machinery PS.9 restates as its own construction."
+      }
+     ]
+    }
+   }
+  },
+  "RankZeroOneBSD": {
+   "summary": "The arithmetic side of BSD.1 is in much better shape than the roadmap assumes: Tau Ceti has a sorry-free Mordell-Weil theorem over a number field (fg_point_of_numberField), finiteness of torsion, the weak Mordell-Weil theorem by explicit 2-descent, the 2-Selmer group with the rank bound it gives, the Neron-Tate canonical height with the exact parallelogram law and the Neron-Tate pairing, the regulator as a basis-independent absolute determinant (including the rank-zero convention Reg = 1 the roadmap asks BSD.9 to verify), and the quadratic twist of a Weierstrass curve by a separable quadratic extension with all its invariants and the Galois cocycle that makes it a form. Mathlib supplies the reduction dichotomy (good/multiplicative/split multiplicative/additive over a DVR), minimal models and the local Euler factors, and assembles them into the L-function of a Weierstrass curve over a number field as a formal Dirichlet series (WeierstrassCurve.LFunction, WeierstrassCurve.LSeries) - the Euler-product half of BSD.0. Everything analytic beyond that is missing: no modularity, no analytic continuation or functional equation of L(E,s), no root number, no conductor, no Tamagawa numbers or Kodaira types, no real period, no Sha, no Heegner points, no Gross-Zagier, no Euler systems or Kolyvagin, no Iwasawa main conjectures, no p-adic L-functions or modular symbols, and no metaplectic/half-integral-weight forms for the twist-nonvanishing theorem. So BSD.0-BSD.1 are genuinely partly built and BSD.2-BSD.9 are not built at all.",
+   "layers": {
+    "RankZeroOneBSD:BSD.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Euler product / Dirichlet series of E over a number field",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.LFunction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 79,
+         "fit": "more general"
+        },
+        {
+         "name": "WeierstrassCurve.LSeries",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 84,
+         "fit": "more general"
+        },
+        {
+         "name": "WeierstrassCurve.localEulerFactor",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 57,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.localPolynomial",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 43,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib defines the L-function of a Weierstrass curve over any number field as the Euler product over the height-one spectrum of the ring of integers of the local Euler factors, with the four reduction cases (1 - a_p T + |p| T^2, 1 - T, 1 + T, 1) written out, and the associated LSeries. This is more general than the roadmap's E/Q. The file is sorry-free. No convergence, meromorphic continuation or uniqueness-from-a-connected-domain statement is proved about it."
+      },
+      {
+       "target": "Modular entire continuation and completed functional equation of L(E,s)",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no modularity theorem in either library (a name search for modularity/taniyama over both trees returns only an unrelated combinatorics lemma), so the continuation cannot be transported from the modular side, and nothing proves continuation directly. Mathlib does have the completed L-function of a modular form and its functional equation, and entire continuation for cusp forms, so the target of the transport exists but the bridge does not."
+      },
+      {
+       "target": "Analytic rank as the order of vanishing at s = 1, proved finite",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "analyticOrderAt",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Analytic/Order.lean",
+         "line": 47,
+         "fit": "more general"
+        },
+        {
+         "name": "AnalyticAt.analyticOrderAt_ne_top",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Analytic/Order.lean",
+         "line": 113,
+         "fit": "more general"
+        },
+        {
+         "name": "analyticOrderAt_eq_zero",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Analytic/Order.lean",
+         "line": 120,
+         "fit": "more general"
+        }
+       ],
+       "note": "The general notion the layer wants - the order of vanishing of an analytic function at a point, with order 0 equivalent to a nonzero value and finiteness from non-vanishing nearby - is complete in Mathlib in full generality (also meromorphicOrderAt). What is missing is an analytic function L(E,-) to apply it to; the layer's own warning that 'an arbitrary analytic germ is not a witness' is the obstruction."
+      },
+      {
+       "target": "Root-number parity relation for the analytic order",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no root number of an elliptic curve and no conductor of an elliptic curve in either library (name searches for conductor return only conductors of Dirichlet characters and of ring extensions). Mathlib has DirichletCharacter.rootNumber, which is the Dirichlet analogue, not the elliptic one."
+      },
+      {
+       "target": "Quadratic twist with every local Euler-factor comparison and the factorization L(E/K,s) = L(E,s) L(E^K,s)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.quadraticTwist",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 451,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.j_quadraticTwist",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 478,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.isElliptic_quadraticTwist",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 470,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.quadraticTwistOfTraceNormVariableChange",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+         "line": 504,
+         "fit": "related"
+        }
+       ],
+       "note": "The twist itself is built and sorry-free in Tau Ceti, over an arbitrary commutative ring for quadraticTwistOf and by a separable quadratic extension for quadraticTwist, with the scaling of b2, b4, b6, c4, c6 and Delta, equality of j, the double-twist isomorphism, and the explicit Galois cocycle exhibiting it as an L-form. No local Euler-factor comparison and no L-function factorization is proved; both would need the L-function's continuation, which is absent."
+      },
+      {
+       "target": "Coefficient-field/rationality bridge from weight-two newforms with rational coefficients",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ModularForm.Λ",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/LFunction.lean",
+         "line": 91,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has an extensive newform theory (TauCeti/NumberTheory/ModularForms/Newforms: multiplicity one, strong multiplicity one, Atkin-Lehner, eigenvalue fields, nebentypus descent) and Mathlib has the modular L-function, so the modular side of the bridge is substantially built; the bridge to an elliptic curve is not, because modularity is absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EllipticCurveModularity:R29.6",
+       "note": "R29.6 explicitly owns transferring the analytic continuation and functional equation to E after proving equality of every local factor; BSD.0 restates the same interface as its own construction."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+       "note": "Layer 4 owns the reduction predicates and minimal models on which BSD.0's local Euler-factor comparison rests."
+      }
+     ]
+    },
+    "RankZeroOneBSD:BSD.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Mordell-Weil lattice modulo torsion, with finite generation and finite torsion",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.fg_point_of_numberField",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean",
+         "line": 129,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.finite_torsion",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean",
+         "line": 74,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.fg_point",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean",
+         "line": 90,
+         "fit": "more general"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.finiteIndex_range_nsmulAddMonoidHom_two",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/WeakMordellWeil.lean",
+         "line": 94,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.torsion_le_ker_neronTatePairing",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/PointModTorsion.lean",
+         "line": 59,
+         "fit": "exact"
+        }
+       ],
+       "note": "The Mordell-Weil theorem is proved in Tau Ceti for an elliptic curve over a number field and, more generally, over the fraction field of a Dedekind domain with per-factor class-group and unit-group finiteness; the weak Mordell-Weil theorem is proved by explicit 2-descent into square classes. The quotient by torsion (PointModTorsion) and the fact that torsion lies in the kernel of the Neron-Tate pairing are both proved. All the files are sorry-free."
+      },
+      {
+       "target": "Regulator and canonical height",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 124,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.neronTatePairing",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 374,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.regulator",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+         "line": 91,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.abs_det_neronTateGramMatrix_basis_change",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+         "line": 78,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.isOfFinAddOrder_of_canonicalHeight_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 323,
+         "fit": "exact"
+        }
+       ],
+       "note": "The canonical height is constructed by Tate's averaging with the standard 1/2 normalization (the docstring notes that the naive x-height belongs to the divisor 2(O)), the exact parallelogram law is proved, height zero is equivalent to finite order, and the regulator is the absolute determinant of the Neron-Tate Gram matrix, proved independent of the basis even across different index types. Sorry-free."
+      },
+      {
+       "target": "Finite-level Selmer groups",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.selmerGroup₂",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+         "line": 104,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.pow_rank_le_card_of_range_μ_le",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+         "line": 142,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.finite_selmerGroupA",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroupA.lean",
+         "line": 149,
+         "fit": "special case"
+        },
+        {
+         "name": "IsDedekindDomain.selmerGroupAbove",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/PrimesAbove.lean",
+         "line": 111,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the 2-Selmer group exists, defined by square classes with trivial norm class satisfying the local condition at every finite place and at an auxiliary family of fields, together with the rank bound 2^rank * #E(K)[2] <= #S for any finite S containing the image of the descent map. Its own file records that it does not prove the Selmer group finite; the auxiliary group selmerGroupA is proved finite. There is no Selmer group at general m, no Selmer structure on a general Galois module, and no Sha at all."
+      },
+      {
+       "target": "Rank identity rank E(K) = rank E(Q) + rank E^K(Q) and its lattice-index correction",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present; nothing in either library relates the Mordell-Weil group of a curve over a quadratic field to those of the curve and its twist."
+      },
+      {
+       "target": "p-primary Selmer/Sha comparison at odd p and restriction/corestriction at p = 2",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "groupCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean",
+         "line": 186,
+         "fit": "related"
+        },
+        {
+         "name": "groupCohomology.resNatTrans",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Functoriality.lean",
+         "line": 543,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitCor0",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Corestriction.lean",
+         "line": 204,
+         "fit": "related"
+        }
+       ],
+       "note": "The finite-group cohomology machinery the layer needs exists: Mathlib has group cohomology with restriction and Shapiro's lemma, and Tau Ceti adds corestriction, Tate cohomology with the Herbrand quotient and continuous (profinite) cohomology with restriction/corestriction/inflation and cup products. But no Selmer or Sha group is built from it, so the comparison itself is absent."
+      },
+      {
+       "target": "Component groups, minimal differentials, periods, Tamagawa factors under base change and twist; Cassels' isogeny invariance",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.HasGoodReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 325,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.hasGoodReduction_or_hasMultiplicativeReduction_or_hasAdditiveReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 374,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.invariantDifferentialDenom",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/InvariantDifferential.lean",
+         "line": 73,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has integral and minimal models over a DVR and the good/multiplicative/split-multiplicative/additive trichotomy; Tau Ceti has the invariant differential and minimal-model transfer of split multiplicative reduction. Neron models, component groups, Kodaira types, Tate's algorithm, Tamagawa numbers, the real period and Cassels' isogeny-invariance theorem are all absent from both libraries."
+      },
+      {
+       "target": "Descent of Sha finiteness along a finite extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Sha does not exist in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+       "note": "Layer 6 owns the Mordell-Weil theorem and names the very declaration (fg_point_of_numberField) that is now in Tau Ceti; BSD.1 says it reuses it, so the overlap is intended but the target is already delivered."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+       "note": "Layer 7 owns Selmer structures, the Selmer group and Sha for a general Galois module; BSD.1's finite-level Selmer comparison depends on it and partly restates it."
+      },
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.1",
+       "note": "RP.1 owns weak Mordell-Weil and descent in general, which BSD.1 uses for the twist comparison."
+      },
+      {
+       "layer": "ArithmeticStatistics:ST.4",
+       "note": "ST.4 also states Selmer groups and rank bounds, with the same warning that Selmer rank is not Mordell-Weil rank without controlling Sha."
+      }
+     ]
+    },
+    "RankZeroOneBSD:BSD.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Quadratic-twist nonvanishing theorem with prescribed local conditions (BFH / Friedberg-Hoffstein)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Mathlib's only nonvanishing results for L-functions are non-vanishing of Dirichlet L-functions on the line Re s = 1 (Mathlib/NumberTheory/LSeries/Nonvanishing.lean), used for primes in arithmetic progressions; nothing concerns central values of a family of twists."
+      },
+      {
+       "target": "Twists with nonzero central value in the sign + branch and nonzero first derivative in the sign - branch",
+       "library": "absent",
+       "declarations": [],
+       "note": "Requires the central value of L(E^K, s), which needs a continuation that does not exist."
+      },
+      {
+       "target": "Metaplectic/Weil representation, Jacobi forms and genus-two half-integral-weight Eisenstein series",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has half-integral weight forms, the metaplectic double cover, the Weil representation or Jacobi forms. Mathlib has the Jacobi theta function (one and two variable) but no Jacobi form; Tau Ceti's Fourier/theta content is classical analysis."
+      },
+      {
+       "target": "Unfolding, twist-series comparison, residue/positivity and local test-function selection",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Rankin-Selberg or unfolding machinery in either library."
+      },
+      {
+       "target": "Export of K with all local properties and simultaneous satisfiability for BSD.3-4",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends entirely on the absent nonvanishing theorem."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "MetaplecticAutomorphicForms:MP.7",
+       "note": "MP.7 owns half-integral weight and metaplectic Fourier coefficients and twists, which BSD.2 imports and partly re-proves."
+      },
+      {
+       "layer": "MetaplecticAutomorphicForms:MP.8",
+       "note": "MP.8 owns genus-two similitudes, Jacobi forms and cover-specific Eisenstein analysis, the other half of BSD.2's imported input."
+      }
+     ]
+    },
+    "RankZeroOneBSD:BSD.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Simple central zero of L(E/K,s) from analytic rank one over Q plus the twist condition",
+       "library": "absent",
+       "declarations": [],
+       "note": "No analytic L-function of E, so no order of vanishing statement about it."
+      },
+      {
+       "target": "Gross-Zagier: a non-torsion Heegner point from a nonzero central derivative",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Heegner points, no modular parametrization, no Gross-Zagier formula in either library (name searches for heegner and for modular parametrization over both trees return nothing)."
+      },
+      {
+       "target": "Kolyvagin/Euler-system descent giving rank E(K) = 1 and finite Sha(E/K)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Euler system, no Kolyvagin derivative classes and no Sha in either library."
+      },
+      {
+       "target": "Eigenspace/trace selection of the rank-one part and descent to E by BSD.1",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the above."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GrossZagierAndArithmeticHeights:GZ.8",
+       "note": "GZ.8 owns the general Gross-Zagier pairing and its explicit specializations, which BSD.3 applies."
+      },
+      {
+       "layer": "HeegnerPointEulerSystems:HE.7",
+       "note": "HE.7 owns exactly the conclusion BSD.3 states - a non-torsion Heegner point yields rank one and finite entire Sha - so the two layers state the same theorem from different sides."
+      }
+     ]
+    },
+    "RankZeroOneBSD:BSD.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "From L(E,1) != 0 to rank E(Q) = 0 via a negative quadratic twist and the base-change Heegner point",
+       "library": "absent",
+       "declarations": [],
+       "note": "Every ingredient (central value, twist selection, Heegner point, conjugation sign) is absent; only the quadratic twist construction itself exists, in Tau Ceti."
+      },
+      {
+       "target": "Complex-conjugation sign calculation locating the rank-one part",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Beilinson-Kato Euler system route with its reciprocity law and Selmer bound",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Kato classes, no explicit reciprocity law, no p-adic L-function in either library."
+      },
+      {
+       "target": "Combined theorem for analytic rank at most one, with separate rank and finiteness conclusions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeegnerPointEulerSystems:HE.7",
+       "note": "HE.7 supplies the same descent conclusion BSD.4 applies after the sign argument."
+      },
+      {
+       "layer": "EulerSystemsAndKolyvaginSystems:ES.4",
+       "note": "ES.4 owns the core-vertex descent and error-tolerant bounds that BSD.4's Kato route restates."
+      }
+     ]
+    },
+    "RankZeroOneBSD:BSD.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Rationality and positivity of L*(E,1)/(Omega_E Reg_E) in ranks 0 and 1",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.regulator",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+         "line": 91,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.regulator_nonneg",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+         "line": 112,
+         "fit": "related"
+        }
+       ],
+       "note": "Only Reg_E exists, and it is proved nonnegative and basis-independent. The leading term L*(E,1) and the real period Omega_E do not exist, so the quotient cannot be formed."
+      },
+      {
+       "target": "Modular-symbol rationality at rank zero",
+       "library": "absent",
+       "declarations": [],
+       "note": "No modular symbols in either library (name search for modularSymbol returns nothing, and grep over both trees finds no such construction)."
+      },
+      {
+       "target": "Heegner index formula relating the height of a Heegner point to the squared index",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Heegner points; the canonical height that would appear on one side does exist in Tau Ceti."
+      },
+      {
+       "target": "Modular/quaternionic parametrization degree and the Ribet-Takahashi character-group calculation",
+       "library": "absent",
+       "declarations": [],
+       "note": "No modular parametrization, no character groups of Neron models, no quaternionic Shimura curves in either library."
+      },
+      {
+       "target": "The rational BSD defect, its isogeny invariance and its p-adic valuation formula",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "padicValRat",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+         "line": 128,
+         "fit": "related"
+        }
+       ],
+       "note": "The rational-valuation bookkeeping (padicValRat and its arithmetic) is complete in Mathlib, but the defect itself needs the leading term and the arithmetic invariants, which are absent. Tau Ceti has isogenies of Weierstrass curves with degrees and kernels, so the isogeny side of the invariance statement has its objects but not the invariants to compare."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GrossZagierAndArithmeticHeights:GZ.0",
+       "note": "GZ.0 owns the normalization and change-of-convention interfaces for heights and periods that BSD.5 restates."
+      },
+      {
+       "layer": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+       "note": "R11.4 owns the Picard schemes of semistable curves and, with R11.2's component groups, the character-group calculation BSD.5 uses for Ribet-Takahashi."
+      }
+     ]
+    },
+    "RankZeroOneBSD:BSD.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Jetchev-Skinner-Wan p-part formula in analytic rank one (E semistable, p >= 5 good, E[p] irreducible)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Iwasawa main conjecture, no p-adic L-function, no Selmer group at p, and no Sha in either library."
+      },
+      {
+       "target": "Skinner-Urban/Skinner rank-zero branch (p odd good ordinary or multiplicative, ramified auxiliary prime q)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent for the same reasons."
+      },
+      {
+       "target": "Castella's corrected Theorem A' for multiplicative p > 3",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Integral lower bound from a main conjecture plus exact control; upper bound from the Euler-system argument; matching them",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither control theory nor Euler systems exist in either library."
+      },
+      {
+       "target": "BSD.6a: two-variable zeta elements (BSTW), signed Kobayashi/Pollack-Rubin ingredients, Castella's anticyclotomic Theorem 1.1",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Iwasawa algebra module theory, no signed local condition and no anticyclotomic tower in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "RankZeroOneBSD:BSD.6a",
+       "note": "BSD.6a carries a verbatim copy of BSD.6's description in the atlas extract; the two ids are the same layer text split at the BSD.6a milestone marker, so every target is stated twice."
+      },
+      {
+       "layer": "ModularIwasawaMainConjectures:L6",
+       "note": "L6 owns the reusable branch interfaces and the separately owned proof suppliers that BSD.6 consumes."
+      },
+      {
+       "layer": "AutomorphicCongruences:L2",
+       "note": "L2 owns the Fouquet-Wan automorphic input that BSD.6a's reverse divisibility imports."
+      }
+     ]
+    },
+    "RankZeroOneBSD:BSD.6a": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The three named prime-part leading-term theorems of BSD.6 (JSW, Skinner-Urban, Castella A')",
+       "library": "absent",
+       "declarations": [],
+       "note": "The atlas extract gives BSD.6a the same description as BSD.6, so the targets coincide; none of the Iwasawa-theoretic inputs exists in either library."
+      },
+      {
+       "target": "Wan two-variable divisibility and the signed Kobayashi/Pollack-Rubin ingredients",
+       "library": "absent",
+       "declarations": [],
+       "note": "No signed Selmer groups, no plus/minus local conditions, no Iwasawa main conjecture in either library."
+      },
+      {
+       "target": "BSTW two-variable zeta-element construction and both explicit reciprocity laws",
+       "library": "absent",
+       "declarations": [],
+       "note": "No zeta elements, no Beilinson-Kato classes, no reciprocity law for them."
+      },
+      {
+       "target": "Castella's corrected anticyclotomic Theorem 1.1 and its congruence/control proof",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no anticyclotomic Iwasawa theory in either library."
+      },
+      {
+       "target": "Cyclotomic descent and the semi-ordinary congruence divisibility",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "RankZeroOneBSD:BSD.6",
+       "note": "Identical description in the atlas extract; BSD.6 and BSD.6a are the same text and state the same targets."
+      },
+      {
+       "layer": "GeneralizedHeegnerCycles:GH.8",
+       "note": "GH.8 owns the weight-two and main-conjecture consumer comparisons that the corrected multiplicative proof consumes."
+      }
+     ]
+    },
+    "RankZeroOneBSD:BSD.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Castella-Grossi-Skinner Theorem D branch (rational p-isogeny, residual character condition, analytic rank 0 or 1)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Tau Ceti has isogenies of Weierstrass curves with kernels and degrees, so a rational p-isogeny can be stated; nothing else in the branch exists - no residual representation of an elliptic curve, no Eisenstein main conjecture, no Sha."
+      },
+      {
+       "target": "Keller-Yin Theorem C / 4.2.1 branch for every odd good Eisenstein prime, including rational p-torsion",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "BSD.7a: residual-character comparison with character Iwasawa modules and p-adic L-functions, both divisibilities, local Euler-factor and mu corrections",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Iwasawa modules, no mu-invariant, no p-adic L-function in either library."
+      },
+      {
+       "target": "Finite-submodule and lattice arguments in the residual extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "RankZeroOneBSD:BSD.7a",
+       "note": "BSD.7a carries a verbatim copy of BSD.7's description in the atlas extract; the two ids state the same targets."
+      },
+      {
+       "layer": "HeegnerPointEulerSystems:HE.8",
+       "note": "HE.8 owns the anticyclotomic classes BSD.7a imports."
+      }
+     ]
+    },
+    "RankZeroOneBSD:BSD.7a": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The CGS and Keller-Yin Eisenstein-prime leading-term branches",
+       "library": "absent",
+       "declarations": [],
+       "note": "The atlas extract gives BSD.7a the same description as BSD.7; none of the objects (Eisenstein primes of an elliptic curve, residual characters, main conjectures) exists in either library."
+      },
+      {
+       "target": "Character Iwasawa modules and their p-adic L-functions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; Mathlib has no Iwasawa algebra and no p-adic L-function. Mathlib's Padics/Measure/AmiceTransform.lean gives measures on Z_p and the Amice transform, which is the analytic substrate, not an Iwasawa module."
+      },
+      {
+       "target": "Both divisibilities with exact local Euler-factor and mu corrections",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Congruence, integral control and finite-submodule/lattice lifting",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "RankZeroOneBSD:BSD.7",
+       "note": "Identical description in the atlas extract; the same targets are stated twice."
+      },
+      {
+       "layer": "ModularIwasawaMainConjectures:L0",
+       "note": "L0 owns the generic main-conjecture formulations BSD.7a imports."
+      }
+     ]
+    },
+    "RankZeroOneBSD:BSD.8": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Equivalence of 'every prime valuation of the BSD defect is zero' with 'defect = 1'",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "padicValRat",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+         "line": 128,
+         "fit": "related"
+        }
+       ],
+       "note": "The purely rational statement - a positive rational all of whose p-adic valuations vanish is 1 - is elementary and within reach of Mathlib's padicValRat and unique factorization, but no packaged lemma with that statement was found in either library, and the BSD defect itself does not exist, so the layer's theorem cannot be stated at all."
+      },
+      {
+       "target": "Finite-support certificate: a finite set S, a proof of the p-part on S and a theorem excluding p outside S",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; needs the prime-part formulas of BSD.6-BSD.7."
+      },
+      {
+       "target": "Interfaces for certified finite descent/Sha computation, isogeny comparison and local calculations",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.selmerGroup₂",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+         "line": 104,
+         "fit": "related"
+        }
+       ],
+       "note": "The 2-descent interface exists in Tau Ceti and gives a rank bound, but it is not effective (nothing computes the Selmer group) and there is no Sha to compute."
+      },
+      {
+       "target": "Exact full-formula corollaries gated on a complete certificate",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PeriodsAndSpecialValues:PS.6",
+       "note": "PS.6 consumes BSD.8 and restates the same separation of p-primary valuation equalities from all-prime leading-coefficient equalities."
+      }
+     ]
+    },
+    "RankZeroOneBSD:BSD.9": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Public signatures for analytic-rank equality, finite Sha, fixed-prime and full leading-term formulas",
+       "library": "absent",
+       "declarations": [],
+       "note": "This part of the layer is interface work, but none of the four statements can be written down because analytic rank, Sha and the leading term are absent."
+      },
+      {
+       "target": "Worked tests: rank-zero and rank-one curves, a CM curve, a nonsemistable curve, a curve with a rational p-isogeny",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+         "line": 104,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.finite_torsion",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean",
+         "line": 74,
+         "fit": "related"
+        }
+       ],
+       "note": "One of the conventions the layer asks to verify is already a theorem: Tau Ceti proves the empty-determinant convention regulator = 1 when the rank is zero. Torsion factors are available through finite_torsion. No worked example of a named curve with its invariants exists in either library."
+      },
+      {
+       "target": "Mellin-integral or modular-symbol expression for the central value/derivative with rigorous tail bounds and a certified nonzero enclosure",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "mellin",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/MellinTransform.lean",
+         "line": 91,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the Mellin transform with its inversion and convergence theory, and uses it to build the completed L-function of a modular form, so the analytic tool exists; there is no certified numerical enclosure machinery (no interval or ball arithmetic in either library) and no L(E,s) to enclose."
+      },
+      {
+       "target": "Negative test: an unproved 2-part blocks the full formula while leaving rank equality and finite Sha",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+       "note": "That layer owns the worked Q-specific curve examples and database adapters BSD.9 wants to test against."
+      },
+      {
+       "layer": "RankZeroOneBSD:BSD.8",
+       "note": "BSD.8 already owns the certificate notion; BSD.9's 'full leading-term formula under a complete certificate' signature restates it."
+      }
+     ]
+    }
+   }
+  },
+  "SelmerIwasawaCohomology": {
+   "summary": "The general continuous-cohomology substrate this roadmap imports is substantially built in Tau Ceti, but only in degrees 0, 1 and 2: an explicit complex of continuous cochains with H0, H1, H2, the comparison with Mathlib's canonical group cohomology, the colimit description over finite quotients, cup products in all bidegrees up to total degree 2 with their associativity and projection formulas, restriction, corestriction, inflation with the inflation-restriction exact sequence, Shapiro in degrees 0 and 1, the long exact sequence of a discrete short exact sequence, Tate cohomology with the Herbrand quotient, and the Kummer map with its kernel, all sorry-free. Mathlib supplies the all-degree functor continuousCohomology, but with essentially no API. Everything specific to this roadmap is absent from both libraries: there is no derived limit or lim^1 sequence, no Hochschild-Serre spectral sequence, no local or global duality (no invariant map, no Tate local duality, no Euler-characteristic formula, no Poitou-Tate), no Selmer structure on a Galois module, no Selmer complex, no Iwasawa cohomology, no completed group ring, no control theorem, no characteristic ideal and no Bloch-Kato local condition. The roadmap's L0 should be told that continuous cup products, corestriction, Shapiro, the discrete comparison and the Kummer injection already exist; what L0 genuinely still needs is the p-adic limit H^1(F, Z_p(1)) = lim_m F^x/(F^x)^{p^m}, Hilbert 90 for the separable closure (the one missing input for Kummer surjectivity), and the derived-limit apparatus.",
+   "layers": {
+    "SelmerIwasawaCohomology:L0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Compact continuous cochains and continuous cohomology",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "continuousCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+         "line": 131,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.ContCohomology.H1",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+         "line": 674,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitH1IsoGroupCohomology",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/GroupCohomologyIso.lean",
+         "line": 268,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitFiniteQuotientColimit1",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Colimit.lean",
+         "line": 493,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib defines continuousCohomology in every degree as the homology of homogeneous cochains, for a topological group acting continuously on a topological module, but its file lists long exact sequences and the comparison with groupCohomology as TODOs. Tau Ceti builds the explicit inhomogeneous complex in degrees <= 2, proves H1 and H2 agree with Mathlib's group cohomology for the underlying abstract group, and proves the colimit description of H1 over the finite quotients of a profinite group. All Tau Ceti files here are sorry-free. Nothing treats compact (inverse-limit) coefficients."
+      },
+      {
+       "target": "Derived-limit comparison and the lim^1 exact sequence",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has lim^1 of an inverse system of abelian groups or the Milnor sequence; a name search for lim1/limOne/Rlim/derivedLimit over both trees finds only category-theoretic 'closed under limits' lemmas. Mathlib has AddCommGrp inverse limits but no derived functor of lim."
+      },
+      {
+       "target": "Full Hochschild-Serre spectral sequence with edge maps",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ContCohomology.explicitInfRes_exact",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean",
+         "line": 336,
+         "fit": "special case"
+        },
+        {
+         "name": "groupCohomology.H1InfRes_exact",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Functoriality.lean",
+         "line": 393,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only the five-term inflation-restriction sequence in degree 1 exists, in both libraries (Tau Ceti's continuous version, Mathlib's discrete one). There is no Hochschild-Serre spectral sequence and no edge map in higher degree; Mathlib has a general spectral-sequence API (Algebra/Homology/SpectralSequence) but it is not applied to group cohomology."
+      },
+      {
+       "target": "Continuous cup products, twists, duals, corestriction, Shapiro, projection formulas",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ContCohomology.explicitCup01",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Cup/Product.lean",
+         "line": 271,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitCor0",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Corestriction.lean",
+         "line": 204,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitShapiro1",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Shapiro.lean",
+         "line": 372,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitCup_projection11",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/ProjectionFormula.lean",
+         "line": 401,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitH0IsoGroupCohomology",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/GroupCohomologyIso.lean",
+         "line": 212,
+         "fit": "exact"
+        }
+       ],
+       "note": "Cup products exist for every bidegree of total degree at most two (00, 01, 10, 02, 20, 11) with associativity, the projection formula in each of those bidegrees, corestriction in degrees 0, 1 and 2 with transversal-independence and cor o res = index, and Shapiro in degrees 0 and 1. Internal Hom of continuous representations is built (ContCohomology/InternalHom.lean). What is not there is a Tate twist of a Galois module, a dual in the sense the roadmap means (Pontryagin dual of a discrete module with contragredient action) or anything in degree >= 3."
+      },
+      {
+       "target": "Integral Kummer comparison H^1(F, Z_p(1)) = lim_m F^x/(F^x)^{p^m}",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.kummerClassMap_injective",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 298,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ker_kummerMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 260,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.kummerShortExact",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Coefficients.lean",
+         "line": 195,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.selmerGroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/SelmerGroup.lean",
+         "line": 163,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti builds the Kummer map K^x -> H^1(G_K, mu_n) for n invertible in K, computes it on cocycles, proves its kernel is (K^x)^n and hence that K^x/(K^x)^n injects into H^1(G_K, mu_n); its own docstring says surjectivity (Hilbert 90 for K^sep/K through the finite-quotient colimit) is the single missing input for the isomorphism at finite level. The p-adic limit over m, the Z_p(1) coefficient module and the comparison with a tensor-product expression for units and S-units are all absent. Mathlib's IsDedekindDomain.selmerGroup is the group K(S,n) of S-units mod n-th powers, the target of the S-restricted Kummer map."
+      },
+      {
+       "target": "Which inverse-limit hypotheses hold for each tower (Mittag-Leffler bookkeeping)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Mittag-Leffler condition for inverse systems of abelian groups in either library, and no tower of Galois cohomology groups to apply it to."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+       "note": "The Tau Ceti ProfiniteCohomology roadmap owns the continuous-cochain theory, the long exact sequence, cup products, restriction/corestriction and Shapiro that L0 imports; that is the roadmap whose output is now in TauCeti/RepresentationTheory/Homological/ContCohomology."
+      },
+      {
+       "layer": "ArithmeticGaloisDuality:R02.1",
+       "note": "L0's own text says these general theorems are imported from ArithmeticGaloisDuality R02 and must not be reimplemented; the overlap is by design but the targets are stated in both places."
+      }
+     ]
+    },
+    "SelmerIwasawaCohomology:L1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Local invariant map and Tate local duality",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has the invariant map of a local field, local Tate duality or a perfect cup-product pairing H^i(K,M) x H^{2-i}(K,M') -> Q/Z. Tau Ceti has an abstract class-formation scaffolding (TauCeti.ClassFieldTheory.Formation with levels, normal layers, norms and Tate cohomology carriers) but no invariant map and no reciprocity axiom discharged."
+      },
+      {
+       "target": "Local Euler-characteristic formula",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; the only eulerChar declarations in either library are Euler characteristics of homological complexes and of coherent sheaves."
+      },
+      {
+       "target": "Cohomology with compact support and the modified real-place terms at p = 2",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no cohomology with compact support of a global Galois module and no real-place modification in either library."
+      },
+      {
+       "target": "Poitou-Tate nine-term exact sequence",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent from both libraries."
+      },
+      {
+       "target": "Finiteness and cohomological-dimension theorems",
+       "library": "absent",
+       "declarations": [],
+       "note": "No cohomological dimension of a profinite group in either library, and no finiteness theorem for Galois cohomology of a number field. Tau Ceti proves finiteness of class groups, ray class groups and narrow class groups, which are the classical shadows of these statements, not the statements themselves."
+      },
+      {
+       "target": "Annihilators and saturation of the chosen Selmer local conditions and their unramified/bad-prime comparison terms",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the Selmer local conditions of L2, which do not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticGaloisDuality:R02.3",
+       "note": "R02 owns local and global duality; L1 explicitly says it is not a second proof owner, so the duality targets are stated in both layers."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+       "note": "That roadmap owns the general profinite cohomology exact sequences on which the duality statements are formulated."
+      }
+     ]
+    },
+    "SelmerIwasawaCohomology:L2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Local conditions as submodules or maps of complexes; unramified, strict, relaxed and Greenberg conditions",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Selmer structure on a Galois module exists in either library. The only 'local condition' in either tree is Tau Ceti's elliptic-curve 2-descent local condition (TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/LocalCondition.lean), which is the square-class condition of explicit 2-descent, not a submodule of H^1(K_v, T)."
+      },
+      {
+       "target": "Selmer group as the kernel of the global-to-local map, with semilocal direct sums",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.selmerGroup₂",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+         "line": 104,
+         "fit": "special case"
+        },
+        {
+         "name": "IsDedekindDomain.selmerGroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/SelmerGroup.lean",
+         "line": 163,
+         "fit": "special case"
+        }
+       ],
+       "note": "Two concrete instances of the pattern exist - the 2-Selmer group of an elliptic curve cut out by local conditions at every finite place, and the S-unit Selmer group K(S,n) - but neither is an instance of a general Selmer structure, and neither is defined as the kernel of a global-to-local map on Galois cohomology."
+      },
+      {
+       "target": "Compact Pontryagin dual with contragredient action and the involution convention",
+       "library": "absent",
+       "declarations": [],
+       "note": "Mathlib has Pontryagin duality for locally compact abelian groups only in the Fourier-analytic sense; there is no Pontryagin dual of a discrete torsion Galois module with a contragredient action in either library."
+      },
+      {
+       "target": "Selmer complex as an actual mapping fibre, with its H^1 recovering the classical Selmer group",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Mathlib has mapping cones and fibres of morphisms of complexes in general homological algebra, so the categorical tool exists, but there is no Galois cochain complex over a number field to apply it to."
+      },
+      {
+       "target": "Changes of local conditions, primitive/imprimitive exact sequences, lattice-change formulas",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+       "note": "That layer sets up Selmer structures for a general Galois module first (local-condition subgroups unramified almost everywhere, with the Selmer group inside H^1(K,M)), which is exactly L2's first target."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.8",
+       "note": "M.8 also constructs Selmer complexes from explicit local conditions for the Tate and elliptic representations."
+      },
+      {
+       "layer": "PeriodsAndSpecialValues:PS.4",
+       "note": "PS.4 restates the finite/singular local conditions and their determinant lines."
+      }
+     ]
+    },
+    "SelmerIwasawaCohomology:L3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Iwasawa cohomology H^i_Iw(F,T) via corestriction, identified with cohomology of the induced completed-group-ring representation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ContCohomology.explicitCor0",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Corestriction.lean",
+         "line": 204,
+         "fit": "related"
+        },
+        {
+         "name": "AbstractMeasure.amiceTransformEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 156,
+         "fit": "related"
+        }
+       ],
+       "note": "Corestriction in degrees 0, 1 and 2 exists in Tau Ceti and would be the transition map of the inverse system. Mathlib has the closest thing to the coefficient ring: abstract measures on Z_p with values in Q_p and the Amice transform identifying them with power series, which its own docstring calls the definition of the Iwasawa algebra - but as an analytic object, not as a completed group ring Z_p[[Gamma]], and with no module theory (no characteristic ideal, no structure theorem). There is no Z_p^d-extension, no inverse limit of cohomology groups along corestriction, and hence no Iwasawa cohomology."
+      },
+      {
+       "target": "Finite generation, base change, duality and specialization spectral sequences for Iwasawa cohomology",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; none of the objects exists."
+      },
+      {
+       "target": "Control theorems with explicit kernels and cokernels",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent from both libraries."
+      },
+      {
+       "target": "Determinant-line formulation for perfect Iwasawa complexes and its relation to characteristic ideals",
+       "library": "absent",
+       "declarations": [],
+       "note": "No perfect complexes, no determinant functor and no characteristic ideal of a finitely generated torsion Iwasawa module in either library."
+      },
+      {
+       "target": "Infinite-level local conditions defined by limits",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PhiGammaModulesAndIwasawaCohomology:PG.5",
+       "note": "PG.5 owns the psi-complex and the derived Iwasawa comparison, the same Iwasawa cohomology object from the (phi,Gamma)-module side."
+      },
+      {
+       "layer": "PeriodsAndSpecialValues:PS.4",
+       "note": "PS.4 also asks for determinant lines of perfect complexes and their invariance, which L3 states for Iwasawa complexes."
+      }
+     ]
+    },
+    "SelmerIwasawaCohomology:L4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Recovering class-group and p-ramified modules from Selmer groups of Tate twists",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.classNumber",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+         "line": 64,
+         "fit": "related"
+        },
+        {
+         "name": "modularCyclotomicCharacter.toFun",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 123,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.finite_classGroup_integralClosure",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/IntegralClosure.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "The class group, its finiteness (NumberField.RingOfIntegers.instFintypeClassGroup) and the class number are complete in Mathlib and Tau Ceti, and Mathlib has the mod-n cyclotomic character, which is the Tate twist's coefficient. But there is no Selmer group of a Tate twist and no comparison exact sequence, so the recovery statement cannot be formed."
+      },
+      {
+       "target": "Plus/minus, Tate-dual and involution comparisons",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Finite Bloch-Kato and ordinary local conditions with their exceptional factors",
+       "library": "absent",
+       "declarations": [],
+       "note": "No period rings of p-adic Hodge theory beyond the perfectoid B_dR constructions in Mathlib/RingTheory/Perfectoid/BDeRham.lean, and no crystalline or de Rham local condition in either library."
+      },
+      {
+       "target": "Hodge/gamma-factor notion of criticality on explicit realization data",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Structure.lean",
+         "line": 62,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.hodgeNumber",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Dimension.lean",
+         "line": 68,
+         "fit": "related"
+        },
+        {
+         "name": "DirichletCharacter.gammaFactor",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 207,
+         "fit": "related"
+        }
+       ],
+       "note": "The layer's own instruction is to use the HodgeStructures carrier for the archimedean linear algebra, and that carrier exists and is sorry-free in Tau Ceti, with Hodge numbers, Tate twists and conjugation. The gamma factor exists for Dirichlet characters. No definition of criticality is stated anywhere in either library."
+      },
+      {
+       "target": "Statement of RJW Conjecture 13.21 with its criticality, ordinary-filtration, corank and analytic hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "No conjecture of this kind is stated in either library, and there is no p-adic L-function to state it about."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "MotivicEtaleKTheory:M.8",
+       "note": "M.8 also constructs the crystalline/semistable local conditions at p for the Tate and elliptic representations and their Selmer complexes."
+      },
+      {
+       "layer": "PadicHodgeRegulators:L1",
+       "note": "L1 of PadicHodgeRegulators owns the Bloch-Kato maps and the finite local condition that L4 defines once R09 supplies the period rings."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne",
+       "note": "The Hodge carrier L4 wants for the archimedean linear algebra is owned and already delivered there."
+      }
+     ]
+    }
+   }
+  },
+  "SpecialValuesBirchTate": {
+   "summary": "Everything K-theoretic in this roadmap is absent: neither library has algebraic K-theory of any kind, so K_2(O_F), the tame kernel, Steinberg symbols, the localisation sequence and the whole right-hand side of Birch-Tate do not exist, and neither does the cyclotomic Galois module W_2(F) = H^0(F, Q/Z(2)) or its order w_2. On the analytic side the situation is better than the roadmap assumes only for Q: Mathlib proves zeta(-k) = (-1)^k B_{k+1}/(k+1) for every k, so zeta_Q(-1) = -1/12 is immediate, and it has the Gamma-factor apparatus (Gammaℝ, Gammaℂ, the residue at zero and the reflection identities) that B.2 wants for the gamma-pole limit, plus a general abstract functional-equation framework. For a general number field the Dedekind zeta function exists in Mathlib only as an L-series with the Dirichlet class number formula for its residue at s = 1, and Tau Ceti adds its Euler product and nonvanishing on Re s > 1; there is no analytic continuation of zeta_F, hence no value at -1 and no functional equation, in either library. Missing outright: K_2 and the tame kernel, W_2 and w_2, the continuation and functional equation of zeta_F, every Iwasawa main conjecture, Kolster's implication, S-integer localisation, and all higher Lichtenbaum statements.",
+   "layers": {
+    "SpecialValuesBirchTate:B.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "W_2(F) = H^0(F, Q/Z(2)) as a cyclotomic Galois module, and w_2(F) = #W_2(F)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "modularCyclotomicCharacter.toFun",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 123,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Units.torsionOrder",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
+         "line": 175,
+         "fit": "related"
+        }
+       ],
+       "note": "The coefficient of the twist exists - Mathlib's mod-n cyclotomic character - and w_1(F), the order of the group of roots of unity in F, is NumberField.Units.torsionOrder with its positivity. But Q/Z(2) as a Galois module is not defined in either library, there is no H^0 of a Galois module over a number field, and the layer explicitly warns that w_2 is not the ordinary root-of-unity count, so torsionOrder is not a substitute."
+      },
+      {
+       "target": "K_2(O_F), its Steinberg/tame-kernel comparison, and its finiteness",
+       "library": "absent",
+       "declarations": [],
+       "note": "No algebraic K-theory in either library: no path in either tree matches KTheory, there is no K_0 of a ring, no K_2, no Steinberg symbol (searching the name column for steinberg returns only Lie-theoretic Steinberg elements in Tau Ceti) and no tame symbol or tame kernel."
+      },
+      {
+       "target": "The analytically continued Dedekind zeta function",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.dedekindZeta",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.dedekindZeta_eulerProduct_hasProd",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 386,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines zeta_F as the LSeries of the ideal-counting function and proves the Dirichlet class number formula for the residue at s = 1 as a one-sided real limit; Tau Ceti proves its Euler product and its nonvanishing on Re s > 1 and computes the exact abscissa of convergence. Neither library continues zeta_F past Re s = 1, so zeta_F(-1) is not defined (Mathlib's LSeries is 0 by convention outside the region of convergence). The file's own TODO asks only to generalize the construction."
+      },
+      {
+       "target": "The proposition BirchTate(F): zeta_F(-1) = (-1)^[F:Q] #K_2(O_F)/w_2(F)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Cannot be stated: both sides are missing. Mathlib does have Module.finrank Q F for the degree and NumberField.IsTotallyReal for the hypothesis."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticKTheory:N.1",
+       "note": "N.1 owns K_0 and K_1 of the arithmetic carriers and N.3 their finite generation; B.1's 'use the general K-theory group K_2(O_F) and its finiteness theorem' is a consumption of that roadmap."
+      },
+      {
+       "layer": "ArithmeticKTheory:N.4",
+       "note": "N.4 owns the roots-of-unity-with-twists module, which is exactly B.1's W_2(F) = H^0(F, Q/Z(2))."
+      }
+     ]
+    },
+    "SpecialValuesBirchTate:B.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "zeta_F(-1) is nonzero and rational for totally real F",
+       "library": "absent",
+       "declarations": [],
+       "note": "zeta_F is not continued to s = -1 in either library, so neither rationality nor nonvanishing there can be stated. The analogous statement for Q is available (see B.3)."
+      },
+      {
+       "target": "Sign from the functional equation and positivity in the convergent half-plane",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeakFEPair",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean",
+         "line": 82,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.dedekindZeta_ne_zero_of_one_lt_re",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 408,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has a general abstract framework (WeakFEPair / IsStrongFEPair) for deriving a functional equation from a self-duality of a Mellin pair, and uses it for Dirichlet characters and modular forms; Tau Ceti proves zeta_F is nonzero for Re s > 1, which is the positivity input. There is no functional equation for zeta_F, so no sign."
+      },
+      {
+       "target": "The gamma-factor limit rather than evaluation of a product containing a gamma pole",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Complex.Gammaℝ",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+         "line": 45,
+         "fit": "related"
+        },
+        {
+         "name": "Complex.Gammaℝ_residue_zero",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+         "line": 104,
+         "fit": "related"
+        },
+        {
+         "name": "Complex.Gammaℝ_div_Gammaℝ_one_sub",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+         "line": 157,
+         "fit": "related"
+        },
+        {
+         "name": "Complex.inv_Gammaℝ_two_sub",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+         "line": 187,
+         "fit": "related"
+        }
+       ],
+       "note": "The archimedean factors Gammaℝ and Gammaℂ that the Dedekind zeta function's completion needs are defined in Mathlib, with the residue of Gammaℝ at 0, the reflection quotient Gammaℝ(s)/Gammaℝ(1-s) and the reciprocal at 2 - s, all sorry-free; the file's own docstring says these are the factors needed for the Dedekind zeta function. Only the limit statement for zeta_F itself is missing, because zeta_F has no completion here."
+      },
+      {
+       "target": "Equality of prime valuations v_l(#K_2) = v_l(w_2) + v_l(|zeta_F(-1)|)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Every quantity is absent."
+      },
+      {
+       "target": "A general lemma reconstructing a positive rational from all its prime valuations",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Nat.eq_iff_prime_padicValNat_eq",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/Factorization/Basic.lean",
+         "line": 458,
+         "fit": "special case"
+        },
+        {
+         "name": "padicValRat",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+         "line": 128,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves that two nonzero naturals are equal iff all their p-adic valuations agree; the rational version the layer asks for is not stated but follows from it via numerator and denominator, and padicValRat with its arithmetic is available. This is the one target of the layer that is nearly library-complete."
+      },
+      {
+       "target": "Denominator integrality only after the identity or an independent Deligne-Ribet result",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Deligne-Ribet integrality and no p-adic L-function in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SpecialValuesBirchTate:B.4",
+       "note": "B.4 proves the valuation identity of B.2 at odd primes, so the identity is stated in both layers with B.2 owning the reduction and B.4 the proof."
+      },
+      {
+       "layer": "PeriodsAndSpecialValues:PS.1",
+       "note": "PS.1 also asks for normalized-value statements with sign and coefficient field, of which B.2's sign theorem is the Dedekind-zeta instance."
+      }
+     ]
+    },
+    "SpecialValuesBirchTate:B.3": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "zeta_Q(-1) = -1/12 from the existing Bernoulli/zeta theory",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "riemannZeta_neg_nat_eq_bernoulli",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+         "line": 251,
+         "fit": "more general"
+        },
+        {
+         "name": "riemannZeta_neg_nat_eq_bernoulli'",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+         "line": 240,
+         "fit": "more general"
+        },
+        {
+         "name": "bernoulli_two",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Bernoulli.lean",
+         "line": 208,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves zeta(-k) = (-1)^k * bernoulli(k+1)/(k+1) for every natural k, from the Hurwitz-zeta special values, with the full analytic continuation of riemannZeta behind it; with bernoulli_two : bernoulli 2 = 1/6 this gives zeta(-1) = -1/12 in one rewrite. The general theorem covers the layer's target in more than the stated generality, sorry-free."
+      },
+      {
+       "target": "K_2(Z) = Z/2, proved independently of Birch-Tate",
+       "library": "absent",
+       "declarations": [],
+       "note": "No K-theory in either library."
+      },
+      {
+       "target": "w_2(Q) = 24 by explicit cyclotomic computation",
+       "library": "absent",
+       "declarations": [],
+       "note": "W_2 is not defined; Mathlib's cyclotomic theory (primitive roots, cyclotomic fields, their Galois groups) would supply the computation but the object is missing."
+      },
+      {
+       "target": "A real quadratic example: certified tame kernel, explicit w_2 and the factorization into Riemann and Dirichlet L-functions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "DirichletCharacter.LFunction",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 61,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.minpoly_rat_quadratic",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Quadratic/Basic.lean",
+         "line": 60,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Dirichlet L-functions with continuation, and Tau Ceti has a detailed quadratic-field library (minimal polynomial and degree, rings of integers, splitting and inertness, class groups, genus theory, narrow class groups), so both factors of the would-be factorization exist as objects; the factorization zeta_F = zeta * L(chi_D) itself is not proved in either library, and the tame kernel does not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticKTheory:N.8",
+       "note": "N.8 owns the certified K-theory examples, including K_2(Z), that B.3 wants to import."
+      },
+      {
+       "layer": "SpecialValuesBirchTate:B.1",
+       "note": "B.1 owns the definitions of w_2 and K_2(O_F) that B.3 computes in the base case."
+      }
+     ]
+    },
+    "SpecialValuesBirchTate:B.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Tate's comparison of K_2 with Galois cohomology",
+       "library": "absent",
+       "declarations": [],
+       "note": "Needs K_2, which is absent, and Galois cohomology of a number field with Z/l(2) coefficients, which is also absent; Tau Ceti's continuous cohomology exists only in degrees <= 2 for a general topological group, with no arithmetic input."
+      },
+      {
+       "target": "Localisation sequence from O_F to O_F[1/l]",
+       "library": "absent",
+       "declarations": [],
+       "note": "No K-theory localisation sequence. Mathlib does have the S-integers of a Dedekind domain and their unit and class groups, which is the degree-<=1 shadow of the sequence."
+      },
+      {
+       "target": "Identification of the finite Euler characteristic with the interpolated zeta-value",
+       "library": "absent",
+       "declarations": [],
+       "note": "No p-adic zeta function and no Iwasawa-theoretic Euler characteristic in either library."
+      },
+      {
+       "target": "N(v) - 1 is an l-adic unit at a prime above l",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Ideal.absNorm",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean",
+         "line": 258,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.torsionOrder_dvd_absNorm_sub_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Ideal/Basic.lean",
+         "line": 176,
+         "fit": "related"
+        }
+       ],
+       "note": "The elementary ingredient - the absolute norm of a prime and the fact that the residue field has order a power of the residue characteristic, so N(v) - 1 is prime to it - is entirely within Mathlib's ramification theory, and Mathlib even proves torsionOrder divides N(v) - 1. The statement in the K-theoretic diagram the layer wants is absent because the diagram is."
+      },
+      {
+       "target": "Identification of the denominator group with the l-primary part of W_2(F)",
+       "library": "absent",
+       "declarations": [],
+       "note": "W_2 is absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticKTheory:N.6",
+       "note": "N.6 owns the even K-groups and their arithmetic cohomology comparison - Tate's K_2-to-Galois-cohomology map is its degree-two case."
+      },
+      {
+       "layer": "ArithmeticKTheory:N.2",
+       "note": "N.2 owns the localisation sequence and finite support that B.4 uses to pass from O_F to O_F[1/l]."
+      }
+     ]
+    },
+    "SpecialValuesBirchTate:B.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Birch-Tate for totally real abelian F/Q including the 2-primary part",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither side of the formula exists."
+      },
+      {
+       "target": "The classical abelian main conjecture (Mazur-Wiles) route",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Iwasawa main conjecture of any kind in either library; there is no Iwasawa algebra, no characteristic ideal and no p-adic L-function."
+      },
+      {
+       "target": "The 2-adic comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The hypothesis that F/Q is abelian and totally real, applied to F rather than to layers of its cyclotomic Z_2-extension",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.IsTotallyReal",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
+         "line": 47,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.IsTotallyReal.nrComplexPlaces_eq_zero",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
+         "line": 91,
+         "fit": "related"
+        }
+       ],
+       "note": "The hypothesis itself is a Mathlib class with its basic API (real embeddings, no complex places, transfer along ring equivalences and to subfields), and abelian Galois extensions are standard Mathlib. Only the theorem the hypothesis would feed is missing. Mathlib also has the full Kronecker-Weber-adjacent cyclotomic machinery but not Kronecker-Weber itself."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IntegralIwasawaTheory:KU-oddmain",
+       "note": "That checkpoint owns the classical odd-primary main conjectures B.5 routes through."
+      },
+      {
+       "layer": "SpecialValuesBirchTate:B.6",
+       "note": "B.6 proves the same 2-primary conclusion for arbitrary totally real fields; B.5 is the abelian special case retained as a second proof."
+      }
+     ]
+    },
+    "SpecialValuesBirchTate:B.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The main-conjecture formulation needed for Kolster's implication (from I.9/I.10)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no Iwasawa main conjecture over a totally real field exists in either library."
+      },
+      {
+       "target": "Formalisation of Kolster's implication to the 2-primary Birch-Tate identity, with finite descent and real-place correction",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The explicit comparison table (Iwasawa module, dual/twist, compact-support convention, specialisation character, finite cohomology groups, archimedean contribution, S-Euler factors, W_2)",
+       "library": "absent",
+       "declarations": [],
+       "note": "None of the eight entries exists as a library object; this is a bookkeeping table over absent mathematics rather than a separable process task."
+      },
+      {
+       "target": "Absence of finite submodules in the relevant Iwasawa module",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Iwasawa module."
+      },
+      {
+       "target": "Combination of B.4 and B.6 through B.2 to the full totally real theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IntegralIwasawaTheory:KU-maincomparison",
+       "note": "That checkpoint owns the modern/classical main-conjecture formulation comparison at 2 that B.6 needs."
+      },
+      {
+       "layer": "IntegralIwasawaTheory:KU-allmain",
+       "note": "The all-prime determinant main conjecture is the input B.6 specialises."
+      }
+     ]
+    },
+    "SpecialValuesBirchTate:B.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "#K_2(O_{F,S}) = #K_2(O_F) * prod_{v in S} (Nv - 1) from localisation",
+       "library": "absent",
+       "declarations": [],
+       "note": "No K_2 and no localisation sequence in either library."
+      },
+      {
+       "target": "zeta_{F,S}(s) = zeta_F(s) prod_{v in S} (1 - Nv^{-s}) through an Euler-factor API",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.EulerProductData.eulerFactor",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 75,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.dedekindZeta_eulerProduct_hasProd",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 386,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.dedekindZeta",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 49,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has exactly the Euler-factor API the layer asks for - the local factor at a height-one prime of the ring of integers, the analytic Euler product of the Dedekind zeta function on Re s > 1, and the closed geometric form (1 - chi(P) N(P)^{-s})^{-1} for a completely multiplicative weight - so the finite product over S can be formed. What is missing is zeta_{F,S} as a named function and any statement about it at s = -1, since zeta_F is not continued."
+      },
+      {
+       "target": "The compatible S-formula zeta_{F,S}(-1) = (-1)^{[F:Q]+|S|} #K_2(O_{F,S})/w_2(F)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent for the same reasons as B.1."
+      },
+      {
+       "target": "Commutation of changing S with the regulator/cohomology comparisons",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticKTheory:N.2",
+       "note": "N.2 owns the localisation sequence and the finite-support statement from which B.7's K_2 product formula is read off."
+      },
+      {
+       "layer": "ArithmeticKTheory:N.1",
+       "note": "N.1 owns the S-integer carriers on which both sides of B.7 are defined."
+      }
+     ]
+    },
+    "SpecialValuesBirchTate:B.8": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Statement infrastructure for Lichtenbaum formulas at all negative integers",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; requires K-groups, regulators and determinant lines, none of which exists in either library."
+      },
+      {
+       "target": "Odd-primary totally real even-weight consequences from the appropriate Iwasawa theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Real-place and 2-primary corrections from the etale/motivic comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no etale or motivic cohomology in either library."
+      },
+      {
+       "target": "Higher regulator formula for fields with complex places, with order of vanishing and normalised covolume",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.Units.regulator",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+         "line": 266,
+         "fit": "special case"
+        },
+        {
+         "name": "analyticOrderAt",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Analytic/Order.lean",
+         "line": 47,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 77,
+         "fit": "special case"
+        }
+       ],
+       "note": "The weight-one instance of the statement is complete: Mathlib defines the covolume regulator of the unit lattice and proves the class number formula, and the general notion of order of vanishing of an analytic function is available. Higher Borel regulators and the leading terms at negative integers are absent."
+      },
+      {
+       "target": "Separate statement of the integral/equivariant refinement and of Borel's rational-proportionality theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Borel's theorem on the ranks of K-groups of a number field and its regulator proportionality is absent, as is any equivariant refinement."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PeriodsAndSpecialValues:PS.3",
+       "note": "PS.3 states the same Beilinson-type leading-term and regulator-determinant targets from the motivic side."
+      },
+      {
+       "layer": "BorelRegulators:R.7",
+       "note": "R.7 owns Borel's theorem and the Beilinson comparison that B.8 is to state separately."
+      },
+      {
+       "layer": "ArithmeticKTheory:N.5",
+       "note": "N.5 owns the odd K-groups whose orders and ranks appear in the Lichtenbaum formulas."
+      }
+     ]
+    }
+   }
+  },
+  "ArithmeticKTheory": {
+   "summary": "Neither library has algebraic K-theory of a ring, so K_n(O_{F,S}) does not exist and almost nothing in N.1 to N.8 can be stated: there is no Quillen Q-construction or plus construction, no localisation sequence, no tame or wild kernel, and no W_j(F) = H^0(F, Q/Z(j)). What the libraries do have is the classical low-degree shadow of the roadmap, and it is substantial and sorry-free - Tau Ceti has categorical K_0 for split, exact, abelian, graded and triangulated categories with universal properties, functoriality and the resolution theorem, and for S-integers it has Cl(O_S) as the quotient of Cl(R) by the classes of the primes in S with its finiteness, the S-unit valuation sequence 1 -> R^x -> (O_S)^x -> Z^S, and finite generation of the S-units, while Mathlib has the S-integers and S-units themselves, the class group and class number with finiteness, Dirichlet's unit theorem with rank r1+r2-1, a fundamental system and the regulator, the cyclotomic character, and Bernoulli numbers in both conventions with the conversion N.7 asks for. So the degree-0 and degree-1 content of N.1, the class-group and S-unit rows of N.2 and N.3, and N.7's Bernoulli-convention task are already library results in classical form - they are simply not labelled K_0 and K_1. Everything of degree at least two is missing.",
+   "layers": {
+    "ArithmeticKTheory:N.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Arithmetic carriers: number field, ring of integers, primes, O_{F,S} as a localisation, independence of presentation and compatibility with enlarging S",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "Set.integer",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
+         "line": 65,
+         "fit": "more general"
+        },
+        {
+         "name": "Set.unit",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
+         "line": 108,
+         "fit": "more general"
+        },
+        {
+         "name": "IsDedekindDomain.integer_map_comap_eq",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/Basic.lean",
+         "line": 194,
+         "fit": "exact"
+        },
+        {
+         "name": "Set.unit_mono",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
+         "line": 123,
+         "fit": "exact"
+        },
+        {
+         "name": "IsDedekindDomain.integer_empty",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
+         "line": 94,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib defines the S-integers of the fraction field of any Dedekind domain by the valuation condition (not as a localisation, which sidesteps the presentation-independence question) and identifies the empty set with the ring of integers; Tau Ceti proves every ideal of O_S is extended from R, monotonicity of the S-units in S, and the factorisation comparisons off S. This is more general than the number-field setting the layer asks for, and sorry-free."
+      },
+      {
+       "target": "K_0(O_{F,S}) is Z + Cl(O_{F,S})",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.AbelianK0",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Abelian.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ExactK0",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+         "line": 162,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.integerClassGroupEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+         "line": 136,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.finite_integer_classGroup",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+         "line": 94,
+         "fit": "related"
+        },
+        {
+         "name": "ClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/ClassGroup/Basic.lean",
+         "line": 90,
+         "fit": "related"
+        }
+       ],
+       "note": "The right-hand side is entirely built: the class group in Mathlib, and in Tau Ceti the isomorphism Cl(O_S) = Cl(R) modulo the classes of the primes of S together with its finiteness. The left-hand side is not: Tau Ceti's K_0 is the Grothendieck group of a split/exact/abelian/triangulated category, with the universal property, functoriality and the resolution theorem, but there is no K_0 of a ring built from finitely generated projective modules and no such isomorphism."
+      },
+      {
+       "target": "K_1(O_{F,S}) is O_{F,S}^x by the determinant, kept distinct from K_1(F) = F^x",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Set.unitEquivUnitsInteger",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
+         "line": 124,
+         "fit": "related"
+        },
+        {
+         "name": "Set.unit_fg",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
+         "line": 149,
+         "fit": "related"
+        }
+       ],
+       "note": "Again only the right-hand side: Mathlib identifies the S-units of K with the units of the ring of S-integers, and Tau Ceti proves that group finitely generated (Dirichlet's S-unit theorem in the finite-generation form). There is no K_1 of a ring and no determinant map out of it in either library, and no Whitehead group."
+      },
+      {
+       "target": "Comparison of norms and extension of ideals with K-theory transfer and pullback",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ClassGroup.relNorm",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/ClassGroup/RelNorm.lean",
+         "line": 143,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.integer_extendedHom_surjective",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+         "line": 86,
+         "fit": "related"
+        }
+       ],
+       "note": "Extension of ideals to O_S and the relative norm on class groups exist in Tau Ceti, which is the degree-zero shadow of pullback and transfer; the K-theoretic maps themselves do not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeneralAlgebraicKTheory:K.2:plus",
+       "note": "K.2 constructs K(A) for a ring from the exact category of finitely generated projectives and identifies pi_0 with K_0(A); N.1's 'import Z and U to obtain K_0(O_{F,S})' consumes it."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+       "note": "That Tau Ceti roadmap owns the split/exact/abelian/triangulated K_0 theory that is already in TauCeti/CategoryTheory/GrothendieckGroup, the categorical half of N.1's degree-zero target."
+      }
+     ]
+    },
+    "ArithmeticKTheory:N.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The localisation long exact sequence for K_n of O_{F,S}, F and the residue fields",
+       "library": "absent",
+       "declarations": [],
+       "note": "No K-theory, hence no localisation sequence. Mathlib and Tau Ceti have long exact sequences in homological algebra and in group cohomology, but nothing K-theoretic."
+      },
+      {
+       "target": "Finite support of the maps to the direct sum, and compatibility with field extensions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsDedekindDomain.HeightOneSpectrum.finite_setOfPred_valuation_ne_one",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SelmerGroup.lean",
+         "line": 85,
+         "fit": "related"
+        }
+       ],
+       "note": "The finite-support statement at the level of valuations - a nonzero element has nontrivial valuation at only finitely many primes - is proved in Tau Ceti; the K-theoretic statement is absent."
+      },
+      {
+       "target": "Interpretation in degrees 0-2: tame-kernel sequence, S-unit valuation sequence, ideal-class-group sequence",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Set.unitValuation_ker",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
+         "line": 130,
+         "fit": "special case"
+        },
+        {
+         "name": "IsDedekindDomain.ker_integer_extendedHom",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+         "line": 129,
+         "fit": "special case"
+        },
+        {
+         "name": "IsDedekindDomain.integerClassGroupEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+         "line": 136,
+         "fit": "special case"
+        }
+       ],
+       "note": "Two of the three named consequences are proved in classical form in Tau Ceti and are the layer's degree-0 and degree-1 rows: the S-unit valuation sequence 1 -> R^x -> (O_S)^x -> Z^S is Set.unitValuation_ker, and the ideal-class-group sequence Cl(R) -> Cl(O_S) -> 1 with kernel generated by the classes of the primes of S is ker_integer_extendedHom plus integerClassGroupEquiv. They are not derived from a K-theoretic localisation sequence, and the tame-kernel row (degree 2) is absent because K_2 is."
+      },
+      {
+       "target": "The odd-degree isomorphism K_n(O_{F,S}) = K_n(F) for n >= 3 as a separate theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeneralAlgebraicKTheory:KU-fundamental",
+       "note": "That checkpoint owns resolution, devissage, relative theory and localisation - the general localisation sequence N.2 specialises."
+      },
+      {
+       "layer": "SpecialValuesBirchTate:B.7",
+       "note": "B.7 restates the S-integer localisation consequence #K_2(O_{F,S}) = #K_2(O_F) prod (Nv - 1)."
+      }
+     ]
+    },
+    "ArithmeticKTheory:N.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Finite generation of K_n(O_{F,S}) for every n >= 1 (Quillen)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Set.unit_fg",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
+         "line": 149,
+         "fit": "special case"
+        },
+        {
+         "name": "IsDedekindDomain.finite_integer_classGroup",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+         "line": 94,
+         "fit": "special case"
+        }
+       ],
+       "note": "The n = 1 case in classical form - finite generation of the S-units - is proved in Tau Ceti for an arbitrary Dedekind domain with finitely generated units, and Cl(O_S) is finite, which is the n = 0 case. Quillen's arithmetic-group finiteness, the finite-type homotopy input and stable general linear groups are absent from both libraries."
+      },
+      {
+       "target": "Rank formula for K_n(O_{F,S}), n >= 2: r1+r2 for n = 1 mod 4, r2 for n = 3 mod 4, 0 for n even",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; Borel's stable cohomology theorem is not in either library."
+      },
+      {
+       "target": "rank K_1 is the S-unit rank, distinct from the n = 1 mod 4 formula",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.Units.rank",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+         "line": 359,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.Units.rank_modTorsion",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+         "line": 460,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.Units.unitLattice_rank",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+         "line": 385,
+         "fit": "special case"
+        }
+       ],
+       "note": "For S empty this is Dirichlet's unit theorem, complete in Mathlib: rank = #InfinitePlace - 1 = r1 + r2 - 1, with the unit lattice, its rank, a fundamental system and the regulator. The refinement to rank + |S| for general S is explicitly noted as absent in Tau Ceti's own S-unit file."
+      },
+      {
+       "target": "Positive even groups of S-integers are finite; positive even groups of F are infinite torsion",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticKTheory:N.3:finite-generation",
+       "note": "The atlas extract gives N.3:finite-generation the whole N.3 description, so its targets are a subset of this layer's, stated verbatim."
+      },
+      {
+       "layer": "ArithmeticKTheory:N.3:ranks",
+       "note": "Likewise N.3:ranks carries the whole N.3 description; the rank formula is stated in both ids."
+      },
+      {
+       "layer": "BorelRegulators:R.1",
+       "note": "R.1 owns arithmetic groups and the finiteness infrastructure that Quillen's finite-generation proof needs, and Borel's stable cohomology theorem supplies the rank formula."
+      }
+     ]
+    },
+    "ArithmeticKTheory:N.3:finite-generation": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Finite generation of K_n(O_{F,S}) for every n >= 1",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Set.unit_fg",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
+         "line": 149,
+         "fit": "special case"
+        },
+        {
+         "name": "Set.unit_fg_of_units",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
+         "line": 207,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only the classical n = 1 statement exists: the S-units are finitely generated whenever S is finite and the base units are, proved in Tau Ceti by the valuation map to Z^S and an extension argument, sorry-free. The K-theoretic statement for n >= 2 is absent."
+      },
+      {
+       "target": "Arithmetic-group finiteness and the finite-type homotopy input in Quillen's proof, with stable general linear groups",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no stable general linear group, no BGL^+ and no arithmetic-group finiteness property in either library."
+      },
+      {
+       "target": "Finite generation for S-integers from localisation plus the finite-field calculation (Quillen's K_n of a finite field)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Quillen's computation of the K-theory of a finite field is absent; Mathlib has the structure of finite fields and their multiplicative groups, which is its degree-1 shadow."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticKTheory:N.3",
+       "note": "Same description in the atlas extract; N.3 states this target together with the rank comparison."
+      },
+      {
+       "layer": "ArithmeticKTheory:KU-finitegeneration",
+       "note": "The preserved checkpoint aggregates N.1, N.2 and this layer without adding a construction."
+      }
+     ]
+    },
+    "ArithmeticKTheory:N.3:ranks": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "rank K_n(O_{F,S}) = r1+r2, r2 or 0 according to n mod 4, for n >= 2",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; needs Borel's stable cohomology theorem, which is in neither library, and K_n, which is in neither library."
+      },
+      {
+       "target": "Finiteness of the positive even K-groups of S-integers",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The K_1 rank is the S-unit rank",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.Units.rank",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+         "line": 359,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.Units.finrank_eq_rank",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+         "line": 378,
+         "fit": "special case"
+        }
+       ],
+       "note": "Dirichlet's unit theorem gives the S = empty case with the lattice rank identified; the |S| correction is absent, as Tau Ceti's S-unit file states."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticKTheory:N.3",
+       "note": "Same description in the atlas extract."
+      },
+      {
+       "layer": "BorelRegulators:R.1",
+       "note": "R.1 owns the arithmetic-group and stable-cohomology input from which the rank formula is deduced."
+      }
+     ]
+    },
+    "ArithmeticKTheory:N.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "W_j(F) = H^0(F, Q/Z(j)) with finiteness for positive j and its prime-primary decomposition",
+       "library": "absent",
+       "declarations": [],
+       "note": "Q/Z(j) as a Galois module is not defined in either library, and there is no H^0 of a Galois module over a number field; Tau Ceti's continuous cohomology has H^0 for a topological group but no arithmetic coefficient module of this kind."
+      },
+      {
+       "target": "Computation of W_j from the cyclotomic character, with restriction/transfer formulas",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "modularCyclotomicCharacter.toFun",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 123,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitCor0",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Corestriction.lean",
+         "line": 204,
+         "fit": "related"
+        }
+       ],
+       "note": "The cyclotomic character mod n and its defining property are in Mathlib, and restriction/corestriction in degrees 0-2 are in Tau Ceti's continuous cohomology, so the two ingredients of the computation exist separately; the module W_j and the computation do not."
+      },
+      {
+       "target": "w_2(Q) = 24 and the cyclotomic-subfield divisibility tests",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; Mathlib has the cyclotomic fields, their Galois groups and primitive roots that the test would use."
+      },
+      {
+       "target": "Distinguishing W_j(F) from the group of roots of unity mu(F), with the dyadic and real-embedding exceptions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.Units.torsion",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
+         "line": 146,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Units.even_torsionOrder",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
+         "line": 229,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Units.rootsOfUnity_eq_torsion",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
+         "line": 208,
+         "fit": "related"
+        }
+       ],
+       "note": "mu(F) itself is complete in Mathlib - the torsion subgroup of the units, its order, the identification with the roots of unity, evenness of the order and the r1 > 0 consequences - which is the object the layer insists must not be confused with W_j; W_j is absent, so the distinction cannot be drawn in the libraries."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SpecialValuesBirchTate:B.1",
+       "note": "B.1 defines W_2(F) and w_2(F) with the same warning that it is not the ordinary root-of-unity group."
+      },
+      {
+       "layer": "SpecialValuesBirchTate:B.3",
+       "note": "B.3 also asks for w_2(Q) = 24 by explicit cyclotomic computation."
+      }
+     ]
+    },
+    "ArithmeticKTheory:N.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "K_{2j-1}(O_{F,S}) = K_{2j-1}(F) for j >= 2",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no K-theory."
+      },
+      {
+       "target": "Integral group structure of the odd K-groups for a totally imaginary field: Z^{r2} + Z/w_j(F)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Mathlib has NumberField.IsTotallyComplex and the counts r1, r2 (nrRealPlaces, nrComplexPlaces), so the shape of the statement is expressible but no group is there to compute."
+      },
+      {
+       "target": "The four rows for r1 > 0 according to n mod 8, including the divisibility needed in the n = 5 row",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Naturality of the e-invariant/Chern maps, their kernels and the extension classes",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no topological K-theory, no e-invariant and no Chern character in either library."
+      },
+      {
+       "target": "The real 2-primary calculation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SpecialValuesBirchTate:B.8",
+       "note": "B.8 consumes N.5's odd-group structure for the Lichtenbaum formulas."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.8",
+       "note": "M.8 owns the regulators and integral structures on the same K-groups."
+      }
+     ]
+    },
+    "ArithmeticKTheory:N.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Finite cohomological descriptions of the even K-groups, with inverse-limit, real-place and exceptional-field corrections",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; requires etale cohomology of arithmetic schemes and the motivic-to-etale comparison, neither of which exists in either library."
+      },
+      {
+       "target": "Orders computed from arithmetic cohomology, units, local norm groups and class-group data",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsDedekindDomain.finite_integer_classGroup",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+         "line": 94,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.classNumber",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+         "line": 64,
+         "fit": "related"
+        }
+       ],
+       "note": "The class-group and unit inputs exist and are finite/finitely generated; local norm groups exist in Tau Ceti's local field unit filtration; the cohomological descriptions they would feed do not."
+      },
+      {
+       "target": "Tame and wild kernels as distinct objects, and their comparison with divisible subgroups and Selmer kernels",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither tame nor wild kernel exists; there is no K_2 to take a kernel of, and no tame symbol."
+      },
+      {
+       "target": "Certificate-driven computations: finite presentation, verification of relations and surjectivity, certified kernel/order",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Tau Ceti has a general presentation API for K_0 of an exact category (GrothendieckGroup/Presentation.lean), which is the categorical analogue of the first half, but no arithmetic certificate."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "MotivicEtaleKTheory:M.5",
+       "note": "M.5 owns the norm-residue theorem K^M_j(F)/l = H^j(F, mu_l^{tensor j}) that N.6's cohomological descriptions rest on."
+      },
+      {
+       "layer": "SpecialValuesBirchTate:B.4",
+       "note": "B.4 uses Tate's K_2-to-Galois-cohomology comparison, the degree-two case of N.6."
+      }
+     ]
+    },
+    "ArithmeticKTheory:N.7": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The arithmetic Bernoulli convention B_1 = -1/2 and conversion from the topologists' numbering",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "bernoulli_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Bernoulli.lean",
+         "line": 205,
+         "fit": "exact"
+        },
+        {
+         "name": "bernoulli_eq_bernoulli'_of_ne_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Bernoulli.lean",
+         "line": 215,
+         "fit": "exact"
+        },
+        {
+         "name": "bernoulli'_eq_bernoulli",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Bernoulli.lean",
+         "line": 198,
+         "fit": "exact"
+        },
+        {
+         "name": "bernoulli_eq_zero_of_odd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Bernoulli.lean",
+         "line": 212,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib carries both conventions side by side - bernoulli with bernoulli_one = -1/2 and bernoulli' with bernoulli'_one = 1/2 - and proves the conversion in both directions, together with the generating-function identities, the von Staudt-Clausen-style parity vanishing and the Bernoulli polynomials. This target is library-complete in the stated generality and sorry-free."
+      },
+      {
+       "target": "Finite cyclotomic character eigenspaces related to class groups, Bernoulli numerators and the Kummer regular-prime criterion",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no definition of a regular prime in either library (grep -rn -i 'regular prime' over both trees returns nothing) and no Herbrand-Ribet or Kummer criterion; Mathlib's cyclotomic-field theory (Galois group, discriminant, PID cases, the Q(zeta_3) and FLT-three material) is the raw material but the eigenspace projectors are absent."
+      },
+      {
+       "target": "For an odd regular prime l, vanishing of the l-primary part of the tame kernel of Q(zeta_l)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: no tame kernel, no regular primes."
+      },
+      {
+       "target": "Why inverting the unique prime above l introduces no l-primary residue-field-unit term",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsCyclotomicExtension.Rat.torsionOrder_eq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+         "line": 912,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.integerClassGroupEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+         "line": 136,
+         "fit": "related"
+        }
+       ],
+       "note": "The total ramification of l in Q(zeta_l) and the effect on class groups of inverting a prime are available in Mathlib and Tau Ceti respectively; the K-theoretic conclusion is not."
+      },
+      {
+       "target": "Higher cyclotomic/regular-prime torsion consequences, kept separate from Vandiver-conditional results",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; grep for Vandiver over both trees returns nothing."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SpecialValuesBirchTate:B.3",
+       "note": "B.3 also uses the Bernoulli/zeta theory for the base case; the Bernoulli-convention work is shared."
+      },
+      {
+       "layer": "IntegralIwasawaTheory:KU-oddmain",
+       "note": "The classical odd-primary main conjectures own the class-group-to-Bernoulli comparison N.7 uses for the regular-prime criterion."
+      }
+     ]
+    },
+    "ArithmeticKTheory:N.8": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The first four K-groups of Z",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no K-theory of a ring exists in either library."
+      },
+      {
+       "target": "K_2(Z[i]) = 0 and K_3(Q(i)) = Z + Z/24",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Mathlib has Z[i] as GaussianInt with its Euclidean structure, so the carrier exists."
+      },
+      {
+       "target": "The S-integer exact sequence for Z[1/p]",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Set.unitValuation_ker",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
+         "line": 130,
+         "fit": "special case"
+        },
+        {
+         "name": "IsDedekindDomain.integerClassGroupEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+         "line": 136,
+         "fit": "special case"
+        }
+       ],
+       "note": "The degree-0 and degree-1 rows of the sequence for an arbitrary Dedekind domain and finite S, hence for Z[1/p], are proved in Tau Ceti; the K-theoretic rows are absent."
+      },
+      {
+       "target": "For Q: K_2(Q) infinite while the tame kernel K_2(Z) has order 2",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "A certificate for the arithmetic data and tame-kernel presentation of a quadratic field",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.classNumber",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+         "line": 64,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.minpoly_rat_quadratic",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Quadratic/Basic.lean",
+         "line": 60,
+         "fit": "related"
+        }
+       ],
+       "note": "The arithmetic data half of the certificate is well supported: Mathlib has class numbers and the Minkowski bound machinery, and Tau Ceti has an extensive quadratic-field library including rings of integers, ramification, genus theory and worked class-number examples. The tame-kernel presentation is absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SpecialValuesBirchTate:B.3",
+       "note": "B.3 asks for the same base examples (K_2(Z) = Z/2 for Q and a real quadratic certificate) as the independent test of Birch-Tate."
+      },
+      {
+       "layer": "ArithmeticKTheory:KU-arithmeticstructure",
+       "note": "The preserved checkpoint aggregates N.4-N.8 without adding a construction."
+      }
+     ]
+    }
+   }
+  }
+ }
+}
