@@ -1,0 +1,775 @@
+{
+ "job": "AUDIT-13",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "AdelicAlgebraicGroups": {
+   "summary": "Mathlib's Mathlib/Topology/Algebra/RestrictedProduct/ gives the whole topological half of AA.0 in full generality: the topological-group and topological-ring instances, local compactness for restricted products of locally compact groups over compact open subgroups, the open-embedding/cylinder lemmas, and continuity criteria for maps in and out. Mathlib and Tau Ceti also have the number-field adele ring, idele group and idele class group, the product formula, and (in Tau Ceti) discreteness and closedness of K inside its adele ring, so the G_a and G_m cases of AA.1 are done. Everything that makes these layers about algebraic groups is missing: there is no functor-of-points G(A) for an affine group scheme over the adeles, no Haar or Tamagawa measure on a restricted product or on the adeles at all, no a_G/H_G, no minimal rational parabolic, Siegel set, finite-volume or reduction theorem, and no weak or strong approximation for algebraic groups (only the field-level weak approximation of Tau Ceti's GlobalNumberFields). Mathlib's IsFundamentalDomain/QuotientMeasureEqMeasurePreimage API supplies the Weil unfolding formula only for a discrete subgroup, not the general closed-subgroup quotient integration with modulus characters that AA.2 asks for.",
+   "layers": {
+    "AdelicAlgebraicGroups:AA.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Restricted product of topological groups: continuity of multiplication and inversion",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "RestrictedProduct.isTopologicalGroup",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 606,
+         "fit": "exact"
+        },
+        {
+         "name": "RestrictedProduct.isTopologicalRing",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 610,
+         "fit": "more general"
+        },
+        {
+         "name": "RestrictedProduct.continuousSMul",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 598,
+         "fit": "related"
+        }
+       ],
+       "note": "Proved for Πʳ i, [R i, B i] with each R i a topological group and each B i an *open* subgroup (hypothesis `Fact (∀ i, IsOpen (B i))`, spelled `hBopen`); the anonymous `ContinuousMul` instance just above line 606 supplies continuity of multiplication. No sorry in the file."
+      },
+      {
+       "target": "Local compactness of the restricted product",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "RestrictedProduct.locallyCompactSpace_of_group",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 621,
+         "fit": "exact"
+        },
+        {
+         "name": "RestrictedProduct.weaklyLocallyCompactSpace_of_cofinite",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 405,
+         "fit": "more general"
+        },
+        {
+         "name": "RestrictedProduct.weaklyLocallyCompactSpace_of_principal",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 253,
+         "fit": "more general"
+        }
+       ],
+       "note": "Exactly the layer's hypotheses: each R i locally compact, B i an open subgroup, and B i compact for all but finitely many i. The weakly-locally-compact versions do not even need the group structure."
+      },
+      {
+       "target": "Compact-open cylinders: the level subgroups are open and carry the subspace topology",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "RestrictedProduct.isOpenEmbedding_structureMap",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 383,
+         "fit": "exact"
+        },
+        {
+         "name": "RestrictedProduct.isOpen_forall_mem",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 368,
+         "fit": "exact"
+        },
+        {
+         "name": "RestrictedProduct.isOpenEmbedding_inclusion_principal",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 374,
+         "fit": "exact"
+        },
+        {
+         "name": "RestrictedProduct.nhds_eq_map_structureMap",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 397,
+         "fit": "exact"
+        },
+        {
+         "name": "RestrictedProduct.topologicalSpace_eq_iSup",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 293,
+         "fit": "more general"
+        }
+       ],
+       "note": "`isOpen_forall_mem` says {x | ∀ i, x i ∈ C i} is open for opens C i with C i = A i cofinitely; with `isOpenEmbedding_structureMap` this is the compact-open cylinder basis. The topology is the colimit over finite exceptional sets (`topologicalSpace_eq_iSup`)."
+      },
+      {
+       "target": "Continuity criteria for homomorphisms into and out of a restricted product",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "RestrictedProduct.continuous_dom",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 303,
+         "fit": "exact"
+        },
+        {
+         "name": "RestrictedProduct.continuous_rng_of_principal_iff_forall",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 228,
+         "fit": "exact"
+        },
+        {
+         "name": "RestrictedProduct.continuous_dom_prod",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 472,
+         "fit": "exact"
+        },
+        {
+         "name": "RestrictedProduct.mapAlong_continuous",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 655,
+         "fit": "exact"
+        },
+        {
+         "name": "RestrictedProduct.continuous_eval",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 158,
+         "fit": "exact"
+        }
+       ],
+       "note": "`continuous_dom` reduces continuity on the source to continuity on each level piece; `mapAlong_continuous` gives continuity of index-changing maps, which is the functoriality criterion the layer wants."
+      },
+      {
+       "target": "Restricted product of Haar measures normalized so that the chosen compact opens have volume one at almost all places",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Measure.haarMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Haar/Basic.lean",
+         "line": 521,
+         "fit": "related"
+        },
+        {
+         "name": "MeasureTheory.Measure.infinitePi",
+         "library": "mathlib",
+         "file": "Mathlib/Probability/ProductMeasure.lean",
+         "line": 355,
+         "fit": "related"
+        }
+       ],
+       "note": "grep for `measur` in Mathlib/Topology/Algebra/RestrictedProduct/*.lean, Mathlib/NumberTheory/NumberField/AdeleRing.lean and the Tau Ceti adele files returns nothing: no MeasurableSpace or Measure is put on a restricted product or on the adeles. `infinitePi` builds an infinite product only of *probability* measures on the full product, which is the nearest technical input."
+      },
+      {
+       "target": "Change-of-finite-set and Fubini statements for the product measure",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Measure.infinitePi_cylinder",
+         "library": "mathlib",
+         "file": "Mathlib/Probability/ProductMeasure.lean",
+         "line": 512,
+         "fit": "related"
+        },
+        {
+         "name": "MeasureTheory.Measure.infinitePi_map_restrict",
+         "library": "mathlib",
+         "file": "Mathlib/Probability/ProductMeasure.lean",
+         "line": 374,
+         "fit": "related"
+        },
+        {
+         "name": "MeasureTheory.Measure.prod_prod",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Constructions/Prod/Basic.lean",
+         "line": 274,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has full Fubini for finite products and for infinite products of probability measures, and `infinitePi_map_restrict` is the change-of-finite-set statement in that setting; what is missing is any of this for a restricted product of Haar measures, since the measure itself does not exist."
+      },
+      {
+       "target": "Tamagawa measures with convergence factors, distinguished from normalized product measures",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i tamagawa` over both trees returns nothing, and there is no convergence-factor construction anywhere."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FunctionFieldArithmetic:FA.2",
+       "note": "Also builds the restricted product from local completions and valuation rings and proves local compactness, in the function-field case; the elementary restricted-product lemmas are the same statements."
+      },
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic",
+       "note": "Defines restricted products from curve places with integral orders and compatible Haar measures, i.e. the function-field version of AA.0's normalized product Haar measure."
+      },
+      {
+       "layer": "MetaplecticAutomorphicForms:MP.4",
+       "note": "Constructs the restricted product of local metaplectic covers with splittings over almost all maximal compacts, reusing the same restricted-product-of-locally-compact-groups machinery."
+      }
+     ]
+    },
+    "AdelicAlgebraicGroups:AA.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Independence of the spreading-out model and of the finite exceptional set for G(A)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "RestrictedProduct.inclusion",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+         "line": 139,
+         "fit": "related"
+        },
+        {
+         "name": "RestrictedProduct.topologicalSpace_eq_iSup",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 293,
+         "fit": "related"
+        }
+       ],
+       "note": "Changing the finite exceptional set is available abstractly for restricted products, but there is no smooth affine model of an algebraic group over O_S and hence no statement that G(A) is independent of the model."
+      },
+      {
+       "target": "The adelic points functor G ↦ G(A) with the diagonal G(F) → G(A) and local projections",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.AdeleRing.algebraMap_injective",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 72,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.IdeleGroup.unitEmbedding",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 99,
+         "fit": "special case"
+        },
+        {
+         "name": "RestrictedProduct.evalRingHom",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+         "line": 346,
+         "fit": "related"
+        },
+        {
+         "name": "RestrictedProduct.unitsEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/Units.lean",
+         "line": 84,
+         "fit": "related"
+        }
+       ],
+       "note": "Only G = G_a (the adele ring with its diagonal K-algebra map) and G = G_m (IdeleGroup = 𝔸ˣ, with `unitsEquiv` identifying it with the restricted product of the local unit groups) exist; there is no evaluation of a general affine group scheme on 𝔸[K]."
+      },
+      {
+       "target": "Base change and restriction-of-scalars equivalences on adelic points",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no Weil restriction anywhere in either tree (`grep -rn -i 'weil restriction'` finds nothing), so Res_{E/F} G (A_F) ≅ G(A_E) cannot be stated."
+      },
+      {
+       "target": "Compatibility of adelic points with closed subgroups, centres and products",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.CommHopfAlgCat.centerDefiningIdeal",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Center/Basic.lean",
+         "line": 305,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has centres, closed subgroups and products of affine algebraic groups as Hopf-algebra constructions, but nothing about their adelic points."
+      },
+      {
+       "target": "G(F) is a discrete subgroup of G(A) (and not of the finite adeles alone)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.GlobalNumberFields.discreteTopology_principalSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/Adeles/Discrete.lean",
+         "line": 64,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.isClosed_principalSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/Adeles/Discrete.lean",
+         "line": 89,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.InfiniteAdeleRing.denseRange_algebraMap",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfiniteAdeleRing.lean",
+         "line": 106,
+         "fit": "related"
+        }
+       ],
+       "note": "Proved without sorry for the additive group: K is discrete and closed in 𝔸[K] and 𝔸[K]/K is T3. The caveat the layer makes is also visible in the library: K is dense in the finite adele ring. Nothing for a general G."
+      },
+      {
+       "target": "G(A) is unimodular for reductive G",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Measure.modularCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Group/ModularCharacter.lean",
+         "line": 130,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines the modular character of a locally compact group, so unimodularity is expressible (∆ ≡ 1), but there is no Haar measure on any adelic group and no such theorem."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraData:D0",
+       "note": "Its own text says it consumes AA.0–AA.1 for adelic topological points and restriction-of-scalars point comparisons, so the two layers state overlapping functoriality targets."
+      },
+      {
+       "layer": "ReductiveGroupsPartII:RG2.0a",
+       "note": "Owns Weil restriction for affine finite-type schemes; AA.1's restriction-of-scalars equivalence on adelic points is the adelic shadow of that construction."
+      }
+     ]
+    },
+    "AdelicAlgebraicGroups:AA.2": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The real character space a_G = Hom(X*_F(G), R) and the logarithmic map H_G",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.CommHopfAlgCat.geometricCharacterGroup",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/CommHopfAlgCat/CharacterLattice/Basic.lean",
+         "line": 67,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.additiveCharacterGroup",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/CommHopfAlgCat/CharacterLattice/Basic.lean",
+         "line": 98,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the geometric character lattice X*(G_Fbar) with its Galois action (so F-rational characters are the Galois invariants), but not the real vector space a_G, not H_G, and not G(A)^1."
+      },
+      {
+       "target": "Vanishing of H_G on G(F) (product formula)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.GlobalNumberFields.finprod_normalizedAbsValue_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/Places/Basic.lean",
+         "line": 209,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.prod_abs_eq_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ProductFormula.lean",
+         "line": 98,
+         "fit": "special case"
+        }
+       ],
+       "note": "The GL_1 case, the product formula for a number field over all places with the normalized absolute values, is proved in both libraries; the statement for a general F-rational character of G is not."
+      },
+      {
+       "target": "Invariant quotient measures and Weil's integral formula, independent of the fundamental domain",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MeasureTheory.IsFundamentalDomain.measure_eq",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Group/FundamentalDomain.lean",
+         "line": 317,
+         "fit": "special case"
+        },
+        {
+         "name": "MeasureTheory.IsFundamentalDomain.integral_eq_tsum",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Group/FundamentalDomain.lean",
+         "line": 369,
+         "fit": "special case"
+        },
+        {
+         "name": "MeasureTheory.QuotientMeasureEqMeasurePreimage.unique",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Group/FundamentalDomain.lean",
+         "line": 771,
+         "fit": "special case"
+        },
+        {
+         "name": "MeasureTheory.QuotientMeasureEqMeasurePreimage.haarMeasure_quotient",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Haar/Quotient.lean",
+         "line": 222,
+         "fit": "special case"
+        },
+        {
+         "name": "QuotientGroup.integral_eq_integral_automorphize",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Haar/Quotient.lean",
+         "line": 378,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib's theory covers a *discrete* (countable) subgroup Γ of a group G acting on a space: existence, uniqueness and independence of the fundamental domain are all there. The layer additionally needs the quotient integration formula for a general closed subgroup H ≤ G with the modulus factor ∆_G/∆_H, first for compactly supported and then for integrable functions, and that is absent."
+      },
+      {
+       "target": "Modulus character of a parabolic from the adjoint action on Lie(N), with its product formula on rational points",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Measure.modularCharacterFun",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Group/ModularCharacter.lean",
+         "line": 45,
+         "fit": "related"
+        },
+        {
+         "name": "MeasureTheory.Measure.map_right_mul_eq_modularCharacterFun_smul",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Group/ModularCharacter.lean",
+         "line": 93,
+         "fit": "related"
+        },
+        {
+         "name": "MeasureTheory.distribHaarChar",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Haar/DistribChar.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Cocharacter.leviDecompositionMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Dynamic/LeviDecomposition/Basic.lean",
+         "line": 207,
+         "fit": "related"
+        }
+       ],
+       "note": "The abstract modular character ∆_G of a locally compact group and the distributive Haar character of a group acting by automorphisms are both in Mathlib, and Tau Ceti has the Levi decomposition P = L ⋉ N of a dynamic parabolic; but ∆_P computed as |det Ad|_{Lie N}| and its product formula over the places are not stated."
+      },
+      {
+       "target": "Central-character sections and L² spaces with a fixed unitary central character, with change of central quotient",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Lp",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Function/LpSpace/Basic.lean",
+         "line": 89,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the general Lp theory exists; there is no L²(Z(A)G(F)\\G(A), ω) and no measurable section of a central quotient."
+      },
+      {
+       "target": "Tamagawa measures from invariant differential forms and convergence factors, independent of rescaling by F^×",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Tamagawa measure, no invariant differential form on an algebraic group and no convergence factors anywhere in either tree."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "BorelRegulators:R.6",
+       "note": "Bloch's Tamagawa reformulation asks for the same adelic/Tamagawa measure description: local measures, their product, and the finite-volume integrals."
+      },
+      {
+       "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+       "note": "Constructs quotient measures on centralizer quotients and the comparison of Haar normalizations, which is AA.2's quotient-measure and normalization target in the orbital-integral setting."
+      },
+      {
+       "layer": "FunctionFieldArithmetic:FA.2",
+       "note": "Self-dual Haar measures from a rational differential and the rescaling identity are the function-field analogue of AA.2's differential-form Tamagawa measure and its F^×-rescaling independence."
+      }
+     ]
+    },
+    "AdelicAlgebraicGroups:AA.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Minimal rational parabolic subgroups and relative positive chambers",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Cocharacter.parabolicFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Dynamic/Functor.lean",
+         "line": 93,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Cocharacter.leviToParabolic",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Dynamic/LeviDecomposition/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the dynamic parabolic P(λ) of a cocharacter with its Levi decomposition, and root-system chambers in LinearAlgebra/RootSystem, but no relative (F-rational) root system, no minimality theorem and no relative positive chamber."
+      },
+      {
+       "target": "Siegel sets and their height estimates",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -i siegel` in the declaration index finds only Siegel's lemma on small integer solutions (Mathlib/NumberTheory/SiegelsLemma.lean) and `NumberField.house.asiegel`; nothing about Siegel sets in a reductive group."
+      },
+      {
+       "target": "Finitely many Siegel sets cover the arithmetic quotient; finite intersection property",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, as is the Siegel set itself."
+      },
+      {
+       "target": "Finite volume of G(F)\\G(A)^1",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MeasureTheory.QuotientMeasureEqMeasurePreimage.covolume_ne_top",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Group/FundamentalDomain.lean",
+         "line": 874,
+         "fit": "related"
+        },
+        {
+         "name": "MeasureTheory.covolume",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Group/FundamentalDomain.lean",
+         "line": 679,
+         "fit": "related"
+        }
+       ],
+       "note": "Covolume of a discrete subgroup is defined in Mathlib and finiteness is available once a finite-measure fundamental domain is exhibited, but G(A)^1 does not exist and there is no Haar measure on an adelic group."
+      },
+      {
+       "target": "Compactness of the quotient for F-anisotropic groups modulo centre, and the converse",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; not even the additive statement (compactness of 𝔸[K]/K) is in the libraries, although the Tau Ceti Discrete.lean docstring refers to it."
+      },
+      {
+       "target": "Moderate-growth estimates under change of faithful representation and of maximal compact subgroup",
+       "library": "absent",
+       "declarations": [],
+       "note": "No height/growth function on an adelic group is defined."
+      },
+      {
+       "target": "Finiteness of G(F)\\G(A_f)/K modulo the archimedean connected component (class-number finiteness)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.RingOfIntegers.instFintypeClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+         "line": 58,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the GL_1 shadow exists: finiteness of the ideal class group of a number field. The general adelic double-coset finiteness is absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraVarieties:V0",
+       "note": "Explicitly consumes rational parabolics, Siegel sets, finite arithmetic coverings and adelic component finiteness, and restates the component-decomposition consequence."
+      },
+      {
+       "layer": "BorelRegulators:KU-arithmeticgroups",
+       "note": "A readiness checkpoint titled 'Reduction theory and arithmetic-group finiteness' covering the same reduction and finiteness package."
+      },
+      {
+       "layer": "AutomorphicFormsOnReductiveGroups:AF.3",
+       "note": "States rapid decay on Siegel sets, which presupposes and partly restates the Siegel-set construction and height estimates of AA.3."
+      }
+     ]
+    },
+    "AdelicAlgebraicGroups:AA.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Weak approximation for algebraic groups, in the justified cases, with visible failure for tori",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.GlobalNumberFields.weakApproximation_denseRange",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/Approximation/Weak.lean",
+         "line": 202,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.exists_mixed_approximation",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/Approximation/Weak.lean",
+         "line": 143,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.InfiniteAdeleRing.denseRange_algebraMap",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfiniteAdeleRing.lean",
+         "line": 106,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only the field-level (G = G_a, and by scaling G_m) weak approximation is proved: K is dense in a finite product of completions. Nothing for a general algebraic group, and no discussion of the failure for tori."
+      },
+      {
+       "target": "Strong approximation for simply connected almost-simple G outside S with a noncompact local factor",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.exists_forall_mem_valuation_sub_le_and_forall_mem_integers",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Consequences/StrongApproximation.lean",
+         "line": 88,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves strong approximation for the *field* of a function field (approximate at places of a proper subset while staying integral elsewhere); the number-field additive version is not there either, and the algebraic-group theorem is entirely absent. Tau Ceti does have `SimplyConnected` for algebraic groups in Algebra/AlgebraicGroup/SimplyConnected, but no approximation theorem uses it."
+      },
+      {
+       "target": "Finite covering maps for nested compact opens at neat levels, and degrees via stabilizer indices",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -i neat` over the declaration index returns nothing; neither neatness nor the covering-degree calculation exists."
+      },
+      {
+       "target": "Cartesian diagrams for Hecke correspondences on adelic quotients",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeCoset.toSet",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/Basic.lean",
+         "line": 106,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has a classical Hecke ring for GL_2 and GL_n double cosets (TauCeti/NumberTheory/HeckeRing/), but no adelic double-coset correspondence with Cartesian squares of level covers."
+      },
+      {
+       "target": "Quotient groupoids and stabilizers in the non-neat case",
+       "library": "absent",
+       "declarations": [],
+       "note": "No algebraic-stack quotient of an adelic double-coset space exists in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraVarieties:V0",
+       "note": "Proves existence of neat congruence subgroups and uses strong approximation in the same restricted form, so the neatness and approximation targets overlap."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+       "note": "Owns additive strong approximation and the idele group; AA.4's approximation targets are the algebraic-group generalization of that layer."
+      }
+     ]
+    },
+    "AdelicAlgebraicGroups:AA.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Identification of the GL_1 adelic quotient with the idele class group, and the split-centre normalization with the norm-one subgroup",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.IdeleClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 119,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.IdeleGroup.principalSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 113,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.finprod_normalizedAbsValue_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/Places/Basic.lean",
+         "line": 209,
+         "fit": "related"
+        }
+       ],
+       "note": "The idele class group 𝔸ˣ/Kˣ is defined in Mathlib (as an abbrev, with no structure theory), and the product formula shows the principal ideles have norm one; but the norm-one idele subgroup 𝔸^1, its compactness modulo Kˣ, and the comparison with the GL_1 case of a general adelic quotient are all missing."
+      },
+      {
+       "target": "Identification of the GL_2/Q component with the upper half-plane",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "UpperHalfPlane",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/UpperHalfPlane/Basic.lean",
+         "line": 25,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib and Tau Ceti have the upper half-plane with its SL(2,R) action and modular curves at level Γ(N), but no adelic GL_2(A) description and hence no comparison."
+      },
+      {
+       "target": "Compactness of the quotient for a definite quaternion inner form",
+       "library": "absent",
+       "declarations": [],
+       "note": "Quaternion algebras exist in Mathlib (Mathlib/Algebra/Quaternion.lean) but there is no adelic group of a quaternion algebra and no compactness statement."
+      },
+      {
+       "target": "Comparison of volumes under finite-index level changes",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ZLattice.covolume_div_covolume_eq_relIndex",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+         "line": 148,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves the covolume/index relation for Z-lattices in a real vector space, which is the shape of the wanted statement, but there is no adelic volume to compare."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ModularCurvesPartII:R12.2",
+       "note": "Owns level structures and the quotient identification that AA.5 imports for the GL_2/Q comparison."
+      },
+      {
+       "layer": "ShimuraVarieties:V0",
+       "note": "Its connected-component decomposition is the same identification of an adelic double-coset quotient with a classical arithmetic quotient."
+      }
+     ]
+    }
+   }
+  }
+ }
+}

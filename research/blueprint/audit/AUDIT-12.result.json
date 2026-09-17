@@ -1338,6 +1338,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
        "note": "Owns cohomology and base change and Grauert's theorem (1C's inputs)."
+      },
+      {
+       "layer": "ModularCurvesPartII:R13.1",
+       "note": "Constructs generalised elliptic curves and is required to prove compatibility with this roadmap's elliptic-scheme object on the smooth locus, so it shares Layer 1's carrier from the degenerate side."
       }
      ]
     },
@@ -1444,6 +1448,10 @@
       {
        "layer": "AbelianSchemesAndArithmeticModuli:A1",
        "note": "Identifies one-dimensional abelian schemes with this roadmap's elliptic curves via the Weierstrass-presentation theorem, so it shares the EllipticCurveGeom S carrier."
+      },
+      {
+       "layer": "ModularCurvesPartII:R13.1",
+       "note": "Its proper flat families with smooth elliptic or polygonal fibres restrict on the smooth locus to 1A's EllipticCurveGeom S, and it names that compatibility as a milestone."
       }
      ]
     },
@@ -3200,7 +3208,7 @@
       },
       {
        "target": "5C: connectedness of Y(ρ) ⊗ ℚ̄ is insensitive to ℚ̄ ↪ ℂ (contract (i))",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.connectedSpace_primeSpectrum_tensorProduct_of_isAlgClosed",
@@ -3210,7 +3218,7 @@
          "fit": "more general"
         }
        ],
-       "note": "Present for affine schemes, although the roadmap treats it as an unowned external contract. Details under 5C."
+       "note": "Only the direction connected over ℚ̄ ⇒ connected over ℂ is present, for affine schemes; the direction the roadmap uses is not stated. Details under 5C."
       },
       {
        "target": "5A: Tate normal form and the fine curve Y₁(N) for N ≥ 4 over ℤ[1/N]",
@@ -3367,6 +3375,14 @@
       {
        "layer": "PELModuli:M5",
        "note": "Constructs Siegel moduli in every dimension together with the genus-one comparison with this roadmap, including its determinant/Weil-pairing convention; in genus one with full level N this is 5B's Y_full(N) and det_N."
+      },
+      {
+       "layer": "ShimuraVarieties:V8",
+       "note": "Proves Sh_{K(N)}(GL₂,ℌ±) ≃ Y_full(N)_ℚ for N ≥ 3, identifies the determinant morphism with the Weil-pairing morphism, identifies its fibre over a primitive ζ with Y(N,ζ) and reconciles this roadmap's row-basis convention with the adelic one: 5B's objects reached from the Shimura side."
+      },
+      {
+       "layer": "ModularCurvesPartII:R12.2",
+       "note": "Classifies full, Γ₁ and Γ₀ level structures under uniformisation and identifies the ordered-basis determinant with the chosen root of unity: the characteristic-zero counterpart of 5B's det_N and its fixed-pairing fibres."
       }
      ]
     },
@@ -3422,7 +3438,7 @@
       },
       {
        "target": "Contract (i): connectedness of Y(ρ) ⊗ ℚ̄ is insensitive to the algebraically closed extension ℚ̄ ↪ ℂ",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.connectedSpace_primeSpectrum_tensorProduct_of_isAlgClosed",
@@ -3439,7 +3455,7 @@
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti proves that a connected algebra over an algebraically closed field stays connected after any field extension, with no finite-type hypothesis; since Y(ρ) is affine this is the nontrivial direction (connected over ℚ̄ ⇒ connected over ℂ). The direction the roadmap uses (connected over ℂ ⇒ connected over ℚ̄) is not stated but is immediate: Spec(A ⊗ ℂ) ⟶ Spec A is surjective by Mathlib's faithfully flat comap lemma, and a continuous image of a connected space is connected. The roadmap treats this as an external supplier contract that no roadmap owns."
+       "note": "Tau Ceti proves that a connected algebra over an algebraically closed field stays connected after any field extension, with no finite-type hypothesis. That is the direction connected over ℚ̄ ⇒ connected over ℂ. Missing: the direction the roadmap actually uses (connected over ℂ ⇒ connected over ℚ̄), and hence the insensitivity statement itself; neither library states it, although it follows in two steps from Mathlib's PrimeSpectrum.comap_surjective_of_faithfullyFlat (Spec(A ⊗_ℚ̄ ℂ) ⟶ Spec A is surjective) and connectedness of a continuous image. The roadmap treats this as an external supplier contract that no roadmap owns; ModularCurvesPartII R12.4 now owns it."
       },
       {
        "target": "Contract (ii): the uniformisation (Y(ρ) ⊗ ℂ)^an ≅ ℍ/Γ̃ as Riemann surfaces",
@@ -3989,7 +4005,7 @@
          "fit": "more general"
         }
        ],
-       "note": "Details under 8A."
+       "note": "Mathlib proves proper plus locally quasi-finite implies finite; it has no projective-morphism property at the pin. Details under 8A."
       },
       {
        "target": "8C: Weierstrass preparation, Nakayama's lemma and the snake lemma as general tools",
@@ -4089,7 +4105,7 @@
          "fit": "more general"
         }
        ],
-       "note": "Mathlib proves that a proper, locally quasi-finite morphism of schemes is finite; projective morphisms are proper."
+       "note": "Mathlib proves that a proper, locally quasi-finite morphism of schemes is finite, which is the substance of the step and is more general. Note that Mathlib has no projective-morphism property at the pin (there is no IsProjective in AlgebraicGeometry/Morphisms), so \"projective ⇒ proper\" is not available as a general lemma; the only properness of a projective object is the instance for Proj 𝒜 ⟶ Spec 𝒜₀ with 𝒜 of finite type. The projectivity carrier comes from 0G and Layer 6, which are absent."
       },
       {
        "target": "KM 6.5.1: the projective relatively representing scheme of [N-Isog] is finite over Ell, by checking that every geometric fibre is finite",
@@ -4979,10 +4995,72 @@
       {
        "layer": "tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve",
        "note": "Computes the cusp count and the elliptic-point counts ε₂, ε₃ of congruence subgroups analytically: the characteristic-zero counterpart of item 2's cusp count and item 3's inertia over j = 1728 and 0."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+       "note": "Owns the Tate curve as an equation with its coefficients defined as explicit q-series over ℤ⟦q⟧, together with the point-level Galois-equivariant uniformisation L^× / q^ℤ ≅ E_q(L), and defers the scheme packaging to a scheme-facing roadmap: the equation-level half of item 2's Tate curve over ℤ[1/N]((q))."
       }
      ]
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-12",
+  "date": "2026-09-17",
+  "checked": 290,
+  "corrections": [
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularCurves#5c-the-twisted-curve-yρ",
+    "target": "Contract (i): connectedness of Y(ρ) ⊗ ℚ̄ is insensitive to the algebraically closed extension ℚ̄ ↪ ℂ",
+    "was": "tauceti",
+    "now": "partial",
+    "why": "TauCeti.connectedSpace_primeSpectrum_tensorProduct_of_isAlgClosed gives only connected over ℚ̄ ⇒ connected over ℂ. The contract is an insensitivity statement and the roadmap uses the converse direction, which neither library states; the audit's own note says so. Under this audit's vocabulary that is \"partial\", not present."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularCurves#layer-5-affine-fine-modular-curves-after-inverting-n",
+    "target": "5C: connectedness of Y(ρ) ⊗ ℚ̄ is insensitive to ℚ̄ ↪ ℂ (contract (i))",
+    "was": "tauceti",
+    "now": "partial",
+    "why": "Same correction as the 5C entry: only one direction of the insensitivity contract is in Tau Ceti."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularCurves#8a-finiteness-of-n-isog",
+    "target": "Projective (hence proper) plus quasi-finite implies finite",
+    "was": "note asserted \"projective morphisms are proper\" as if Mathlib supplied it",
+    "now": "note records that Mathlib has no projective-morphism property at the pin; only proper + locally quasi-finite ⇒ finite, plus the Proj.toSpecZero properness instance",
+    "why": "Mathlib/AlgebraicGeometry/Morphisms has no IsProjective; the library value stays \"mathlib\" because the general theorem it names is present and more general, but the note overstated the library."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularCurves#layer-8-km-chapter-6-cyclicity-and-γ₀n",
+    "target": "8A: projective plus quasi-finite implies finite",
+    "was": "note implied Mathlib supplies projective ⇒ proper",
+    "now": "note records that only proper + locally quasi-finite ⇒ finite is in Mathlib",
+    "why": "Same as the 8A entry."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularCurves#layer-1-elliptic-curves-over-a-base-scheme",
+    "target": "(duplicates)",
+    "was": "ModularCurvesPartII:R13.1 not listed",
+    "now": "added to Layer 1 and to 1A",
+    "why": "R13.1 'Generalised elliptic curves' states 'Prove descent and compatibility with the elliptic-scheme object of #81 on the smooth locus', so it shares this layer's carrier."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+    "target": "(duplicates)",
+    "was": "only PELModuli:M5 listed",
+    "now": "added ShimuraVarieties:V8 and ModularCurvesPartII:R12.2",
+    "why": "V8 owns Y_full(N)_ℚ, det = Weil pairing and Y(N,ζ) explicitly against this roadmap; R12.2 owns the analytic classification with the same determinant normalisation."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+    "target": "(duplicates)",
+    "was": "Tate-curve ownership credited only to ModularCurvesPartII:R13.3",
+    "now": "added tauceti:TauCetiRoadmap/EllipticCurves layer 4",
+    "why": "That layer builds the Tate curve over ℤ⟦q⟧ with its uniformisation and explicitly leaves the scheme packaging to this roadmap, so it is the equation-level owner of the formal-cusp package's input."
+   }
+  ],
+  "notes": "Checked all 290 targets of the 58 layers. Every one of the 213 distinct declaration citations was opened at its file and line in the pinned baseline and compared with the target: all exist, none is private, none is a structure field or axiom, and no cited file contains sorry (grep -c sorry is 0 in all of them). Nine citations name anonymous instances whose generated names are not in declarations.tsv (the four in Sites/Fpqc.lean, LocalFlatDescent, FlatDescent, Normalization, ProjectiveSpectrum/Proper); the source lines are exactly the declarations described, so the citations are sound. All 33 claims that a target is in the libraries were re-derived from the source, including the variable lines and instance hypotheses (IsSepClosed for exists_variableChange_of_j_eq, Flat+IsFinite+LocallyOfFinitePresentation for isLocallyConstant_finrank, IsReduced for ext_of_isDominant_of_isSeparated, IsAdicComplete+IsLocalRing for Weierstrass preparation and division); one was downgraded to partial. All 176 absent claims were re-searched independently by concept and by Mathlib naming convention over declarations.tsv and both Lean trees: effective Cartier divisors, relative ampleness, Weil restriction and Hom/Isom schemes, norms of line bundles, the Picard functor, Poincaré bundles, biextensions and seesaw, the Weil pairing, dual isogenies, Drinfeld and naive level structures, moduli problems over Ell, coarse moduli spaces, Tate normal and Legendre form, Tate curves, p-divisible groups, Serre-Tate theory, Verschiebung, formal-group height and Lazard, supersingular and ordinary, strict henselisation, excellent rings, Cohen-Macaulay and miracle flatness, regular schemes, Fitting ideals and flattening strata, Hopf-Galois extensions and torsors, scheme quotients by finite groups, Hurwitz's genus formula and Hilbert's different formula, GAGA and analytification, and prorepresentable deformation functors. Not one of them turned up; every 'absent' and 'partial' note I re-tested held. Three notes deserve highlighting as correct and load-bearing: deg [N] = N² over a field is present at the pin although the roadmap believes its supplier has not exported it (TauCeti.Isogeny.degree_mulByIntIsogenyOfNeZero); ker_baseChange_of_noZeroSMulDivisors_coker, which the 9E text names as if it existed, is in neither library; and the 5C claim that no roadmap owns the connectedness contract is out of date, since ModularCurvesPartII R12.4 and ComplexComparisonPartII C4 name it verbatim. All 104 duplicate references resolve to real atlas layers, none of them retired, and the load-bearing ones were read and confirmed; five were added. Layer verdicts are consistent with the targets after the corrections: every 'partly built' layer still has at least one present and one missing target, every 'not built' layer has none present, and no layer is bookkeeping rather than mathematics, so no 'built' or 'process' verdict is in question."
  }
 }

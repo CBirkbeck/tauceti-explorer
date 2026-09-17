@@ -39273,13 +39273,20 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-11.md",
    "timeout": 21600,
-   "state": "pending",
+   "state": "done",
    "avoidAccountOf": "AUDIT-11",
-   "account": null,
+   "account": "claude4",
    "lane": 1,
-   "startedAt": "2026-09-16T22:57:58Z",
-   "attempts": 0,
-   "note": "released after a usage limit on claude6/1 at 2026-09-16T23:18:34Z"
+   "startedAt": "2026-09-17T01:05:00Z",
+   "attempts": 1,
+   "note": "",
+   "finishedAt": "2026-09-17T01:23:15Z",
+   "seconds": 1095,
+   "result": {
+    "layers": 43,
+    "audited": 43,
+    "review": "accepted"
+   }
   },
   {
    "id": "AUDIT-12",
@@ -39325,8 +39332,20 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-12.md",
    "timeout": 21600,
-   "state": "pending",
-   "avoidAccountOf": "AUDIT-12"
+   "state": "done",
+   "avoidAccountOf": "AUDIT-12",
+   "account": "claude4",
+   "lane": 2,
+   "startedAt": "2026-09-17T01:05:00Z",
+   "attempts": 1,
+   "finishedAt": "2026-09-17T01:19:34Z",
+   "seconds": 874,
+   "result": {
+    "layers": 58,
+    "audited": 58,
+    "review": "accepted"
+   },
+   "note": ""
   },
   {
    "id": "AUDIT-13",
@@ -39346,11 +39365,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-13.md",
    "timeout": 21600,
-   "state": "pending",
-   "account": null,
+   "state": "running",
+   "account": "claude4",
    "lane": 2,
-   "startedAt": "2026-09-16T23:27:02Z",
-   "attempts": 0,
+   "startedAt": "2026-09-17T01:19:34Z",
+   "attempts": 1,
    "note": "released after a usage limit on claude/2 at 2026-09-16T23:36:13Z"
   },
   {
@@ -39429,12 +39448,12 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-14.md",
    "timeout": 21600,
-   "state": "pending",
+   "state": "running",
    "avoidAccountOf": "AUDIT-14",
-   "account": null,
+   "account": "claude4",
    "lane": 1,
-   "startedAt": "2026-09-16T23:34:50Z",
-   "attempts": 0,
+   "startedAt": "2026-09-17T01:23:15Z",
+   "attempts": 1,
    "note": "released after a usage limit on claude/1 at 2026-09-16T23:36:01Z"
   },
   {
