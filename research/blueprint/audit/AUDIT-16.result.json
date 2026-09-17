@@ -230,6 +230,10 @@
       {
        "layer": "DirichletPadicLFunctions:L4",
        "note": "Also constructs generalized Eisenstein series with tame nebentypus and their q-expansions (as input to Eisenstein measures)."
+      },
+      {
+       "layer": "DirichletPadicLFunctions:L0",
+       "note": "Constructs generalized Bernoulli numbers and primitive-character Gauss sums with their inversion and conductor-change formulas, the inputs to the q-expansions of Eisenstein series with character and to the Gauss-sum translation to Mathlib's eisensteinSeries."
       }
      ]
     },
@@ -729,6 +733,10 @@
       {
        "layer": "AutomorphicBundles:B5",
        "note": "Hecke correspondences on automorphic bundles with scalar normalizations and composition against the abstract Hecke algebra, which covers the modular-curve case."
+      },
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.1",
+       "note": "Constructs Hecke algebras of locally profinite groups over rings, their bi-invariant corners and integral double-coset operators: the p-adic double-coset ring of the hand-off in (a')."
       }
      ]
     },
@@ -1061,7 +1069,12 @@
        "note": "All newform statements are at one fixed level; there is no existence or uniqueness of a primitive associate and no conductor of an eigenform (searches: 4.6.20, 5.8.3, conductor with Newform/EigenformAwayFromLevel)."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+       "note": "Proves the local GL2 conductor/newvector theorem with the principal-series/special/supercuspidal classification and twist calculations: the local form of this layer's conductor and bad-prime eigenvalue classification."
+      }
+     ]
     },
     "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization": {
      "verdict": "partly built",
@@ -1518,7 +1531,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Mathlib's Lambda comes from a WeakFEPair pairing f(it) with (f|[k]S)(it) and epsilon = i^k, so an abstract functional equation against f|S holds, and Lambda and L are entire for cusp forms (Tau Ceti adds the entire extension of the coefficient L-series). Missing: the level-N completed Lambda_N and the stated equation with the normalized Fricke companion; non-cusp forms get no continuation of L."
+       "note": "Mathlib's Lambda comes from a WeakFEPair pairing f(it) with (f|[k]S)(it) and epsilon = i^k, so an abstract functional equation against f|S holds, and Lambda and L are entire for cusp forms (Tau Ceti adds the entire extension of the coefficient L-series). For a non-cusp form Mathlib's L = Lambda * 2/Gamma_C is still defined on all of C and, by WeakFEPair.differentiableAt_Λ, is differentiable away from s = 0 and s = k, although no modular-form lemma records this. Missing: the level-N completed Lambda_N and the stated equation with the normalized Fricke companion."
       },
       {
        "target": "One-form functional equation with sign i^k eps for Fricke eigenforms (D-S Thm 5.10.2)",
@@ -1553,7 +1566,7 @@
      ]
     },
     "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Modular-symbol module M N k = Gamma1(N)-coinvariants of Div^0(P^1(Q)) tensor Sym^{k-2}(Z^2), a finite Z-module",
@@ -1627,9 +1640,16 @@
          "file": "Mathlib/NumberTheory/ModularForms/QExpansion.lean",
          "line": 440,
          "fit": "related"
+        },
+        {
+         "name": "CuspForm.Λ_eq_mellin",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/LFunction.lean",
+         "line": 178,
+         "fit": "related"
         }
        ],
-       "note": "Only the cusp-decay estimate used for convergence exists; no period integrals, period polynomials or cocycles."
+       "note": "Only the cusp-decay estimate used for convergence and one family of period-type integrals exist: Mathlib's CuspForm.Λ_eq_mellin writes Lambda(f, s) as the Mellin transform of f(it), which at s = j + 1 is, up to a power of i, the period of f against z^j on the path from 0 to i*infinity. There is no pairing on Div^0 tensor Sym^{k-2}, no Gamma1(N)-invariance or descent, no period polynomials or cocycles, and no Hecke or diamond equivariance."
       },
       {
        "target": "Injectivity of the period map via the Eichler integral and Bol's identity, including 'bounded invariant function of weight <= 0 is constant'",
@@ -1703,9 +1723,16 @@
          "file": "TauCeti/NumberTheory/ModularForms/FiniteDimensional.lean",
          "line": 49,
          "fit": "exact"
+        },
+        {
+         "name": "CuspForm.rank_eq_zero_of_weight_lt_twelve",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/LevelOne/DimensionFormula.lean",
+         "line": 155,
+         "fit": "special case"
         }
        ],
-       "note": "Negative weight is proved on arithmetic groups; weight-zero forms are constant, but the vanishing of weight-zero cusp forms is not stated."
+       "note": "Negative weight is proved on arithmetic groups and weight-zero forms are constant. At level one Mathlib's CuspForm.rank_eq_zero_of_weight_lt_twelve gives S_k(SL2(Z)) = 0 for every k < 12, weight zero included, but the vanishing of weight-zero cusp forms on Gamma1(N) or a general arithmetic group is not stated."
       }
      ],
      "duplicates": [
@@ -1794,7 +1821,7 @@
      ]
     },
     "tauceti:TauCetiRoadmap/ModularForms#layer-9-the-lmfdb-invariant-layer": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Hecke characteristic polynomials charpoly(T_n | S_k(N,chi)^new), coefficients from traces of powers via Newton's identities, factorization into orbit norms",
@@ -1838,7 +1865,7 @@
       },
       {
        "target": "Twists f tensor psi by Dirichlet characters (modularity, level bound, nebentypus chi psi^2, a_p(f tensor psi) = psi(p)a_p(f)), primitive associates, inner twists and CM self-twists",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "DirichletCharacter.LSeriesSummable_mul",
@@ -1846,9 +1873,16 @@
          "file": "Mathlib/NumberTheory/LSeries/Dirichlet.lean",
          "line": 207,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.exists_mem_cuspFormCharSpace_qExpansion_coeff_eq_ite_coprime",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/CoprimeFilter/Basic.lean",
+         "line": 248,
+         "fit": "special case"
         }
        ],
-       "note": "Every 'twist' in the modular-forms trees is the slash action or a nebentypus-weighted Hecke sum; no twisted modular form."
+       "note": "Only the twist by a trivial character exists: Tau Ceti's coprime filter (Miyake Lemma 4.6.5) takes f in S_k(Gamma1(N), chi) and L != 0 whose primes all divide N to a cusp form of level rad(L)*N with nebentypus chi whose q-expansion is a_n(f) for (n, L) = 1 and 0 otherwise, which is f twisted by the trivial character mod L. Missing are twists by nontrivial Dirichlet characters (level bound, nebentypus chi psi^2, a_p(f tensor psi) = psi(p)a_p(f)), primitive associates, inner twists and CM self-twists; every other 'twist' in the modular-forms trees is the slash action or a nebentypus-weighted Hecke sum."
       },
       {
        "target": "Galois-group certification: Galois closure, Dedekind/Frobenius cycle-type certificates, the discriminant square test, the S5 certificate for small degree",
@@ -1902,9 +1936,16 @@
          "file": "Mathlib/NumberTheory/MulChar/Lemmas.lean",
          "line": 73,
          "fit": "related"
+        },
+        {
+         "name": "ModularForm.translate",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+         "line": 657,
+         "fit": "related"
         }
        ],
-       "note": "No conjugate newform and no self-duality predicate."
+       "note": "No conjugate newform and no self-duality predicate. Mathlib's ModularForm.translate f J, with J = diag(-1, 1), is a modular form for the conjugated group with values tau -> conj(f(-conj tau)), the underlying conjugate form, but nothing computes its q-expansion as conj(a_n) or its nebentypus, or relates it to newforms."
       },
       {
        "target": "LMFDB labels N.k.a.x, Conrey labels and Galois orbits of Dirichlet characters",
@@ -2059,7 +2100,7 @@
      ]
     },
     "tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Arithmetic specialization of the Fuchsian compact curve X(Gamma) to congruence subgroups, including cofiniteness",
@@ -2175,11 +2216,19 @@
       {
        "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces",
        "note": "Proves the fibre-cardinality and degree formulas and cusp ramification e = w'/w for every finite-index inclusion, which contains the degree identification of this sublayer."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
+       "note": "Builds the elliptic quotient charts and the Riemann-surface structure on the coarse quotient, with the local order formula at elliptic points: the elliptic charts this sublayer consumes and whose counts it computes."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
+       "note": "Defines covolume and cofiniteness and extracts elliptic cycles, cusp orbits and genus from a fundamental polygon: the generic cofiniteness and elliptic/cusp-cycle data specialized here to congruence subgroups."
       }
      ]
     },
     "tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Structure sheaf and divisor sheaves O_D on a compact Riemann surface, Cech H^0/H^1 with Leray's theorem and the local dbar-lemma, H^0(X,O) = C",
@@ -2205,9 +2254,16 @@
          "file": "TauCeti/Analysis/Complex/HolomorphicSheaf.lean",
          "line": 179,
          "fit": "related"
+        },
+        {
+         "name": "smoothSheafCommRing",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Manifold/Sheaf/Smooth.lean",
+         "line": 298,
+         "fit": "more general"
         }
        ],
-       "note": "Holomorphic functions on a compact preconnected complex manifold are constant (H^0(X,O) = C), and Mathlib has a Cech complex functor and Ext-based sheaf cohomology; there is no structure sheaf on Riemann surfaces (Tau Ceti's holomorphicSheaf lives on C), no O_D, no Leray theorem and no dbar-lemma."
+       "note": "Holomorphic functions on a compact preconnected complex manifold are constant (H^0(X,O) = C); Mathlib's smoothSheafCommRing, taken over C, is the sheaf of holomorphic functions of any complex manifold (its docstring calls it the structure sheaf, and ChartedSpace.locallyRingedSpace makes the manifold a locally ringed space); and Mathlib has a Cech complex functor and Ext-based sheaf cohomology. There are no divisor sheaves O_D, no Leray theorem and no dbar-lemma (Tau Ceti's holomorphicSheaf lives on C)."
       },
       {
        "target": "Finiteness dim H^1(X, O_D) < infinity (Forster section 14)",
@@ -2331,7 +2387,7 @@
      ]
     },
     "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "The weight-k automorphy line bundle on X(Gamma) by local descent at elliptic points and cusps, with the floor-corrected divisor",
@@ -2407,7 +2463,7 @@
      ]
     },
     "tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Hurwitz class numbers H(D) by weighted counts of reduced positive-definite binary quadratic forms, with H 0 = -1/12 and the values H 3 = 1/3, H 4 = 1/2, H 7 = 1, H 8 = 1",
@@ -2446,9 +2502,16 @@
          "file": "TauCeti/Algebra/LinearRecurrence/OrderTwo.lean",
          "line": 113,
          "fit": "related"
+        },
+        {
+         "name": "Polynomial.Chebyshev.S_two_mul_complex_cos",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Basic.lean",
+         "line": 96,
+         "fit": "special case"
         }
        ],
-       "note": "The Dickson polynomials of the second kind satisfy exactly the P_k recurrence (dickson 2 n (k-2) evaluated at t is P_k(t,n)) and are related to Chebyshev U in Mathlib; the generating function, the root-quotient formula and the boundary value at t^2 = 4n are not stated."
+       "note": "The Dickson polynomials of the second kind satisfy exactly the P_k recurrence (dickson 2 n (k-2) evaluated at t is P_k(t,n)) and are related to Chebyshev U in Mathlib. For n = 1, where dickson 2 1 is Chebyshev S, Mathlib also has the root-quotient formula in trigonometric form, S_m(2 cos theta) sin theta = sin((m+1) theta) for complex theta, and the boundary values S_m(2) = m + 1 and S_m(-2) = (-1)^m (m + 1). Missing are the generating function, and the root-quotient formula and boundary value for general n."
       },
       {
        "target": "Eichler-Selberg trace formula for tr(T_n | S_k(SL2(Z))), even k >= 4",
@@ -2509,7 +2572,7 @@
    }
   },
   "AdditiveCombinatorics": {
-   "summary": "Mathlib already covers the elementary layer and more: sumsets, additive energy with the Cauchy-Schwarz bound, Plunnecke-Ruzsa, Ruzsa's triangle and covering lemmas, very small doubling, Freiman homomorphisms and approximate groups, characters of finite abelian groups, Roth's theorem (via corners and triangle removal, tower bound), Behrend's construction, van der Waerden via Hales-Jewett, Dirichlet's theorem and Chebyshev bounds. Tau Ceti adds only side results (graphon weak regularity, nilpotent unitriangular groups, a smoothed Wiener-Ikehara theorem). Genuinely missing are Fourier analysis on general finite abelian groups with Parseval, Balog-Szemeredi-Gowers, Freiman/PFR, Bohr sets and arithmetic regularity, Szemeredi's theorem for k >= 4 and the finite/infinite correspondence, Gowers norms and all nilsequence theory, the prime number theorem, the transference machinery and the Green-Tao theorem, and linear equations in primes with Mobius-nilsequence orthogonality.",
+   "summary": "Mathlib already covers the elementary layer and more: sumsets, additive energy with the Cauchy-Schwarz bound, Plunnecke-Ruzsa, Ruzsa's triangle and covering lemmas, very small doubling, Freiman homomorphisms and approximate groups, characters of finite abelian groups, Roth's theorem (via corners and triangle removal, tower bound), Behrend's construction, van der Waerden via Hales-Jewett, Dirichlet's theorem and Chebyshev bounds. Tau Ceti adds only side results (Parseval for compact groups through the Peter-Weyl basis, which covers finite groups with normalized counting measure, graphon weak regularity, nilpotent unitriangular groups, a smoothed Wiener-Ikehara theorem). Genuinely missing are a character-indexed Fourier transform on general finite abelian groups with its convolution identity, Balog-Szemeredi-Gowers, Freiman/PFR, Bohr sets and arithmetic regularity, Szemeredi's theorem for k >= 4 and the finite/infinite correspondence, Gowers norms and all nilsequence theory, the prime number theorem, the transference machinery and the Green-Tao theorem, and linear equations in primes with Mobius-nilsequence orthogonality.",
    "layers": {
     "AdditiveCombinatorics:AC.0": {
      "verdict": "partly built",
@@ -2594,9 +2657,16 @@
          "file": "Mathlib/Combinatorics/Additive/Convolution.lean",
          "line": 33,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.hasSum_norm_sq_peterWeylCoeff",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/PeterWeyl.lean",
+         "line": 599,
+         "fit": "more general"
         }
        ],
-       "note": "Characters of a finite abelian group form a basis with orthogonality, the discrete Fourier transform with inversion exists on ZMod N, Finset.expect gives normalized averages, and the representation-count convolution of finsets exists (additive name addConvolution); missing are a Fourier transform on general finite abelian groups, Parseval/Plancherel, and convolution of functions with its Fourier identity."
+       "note": "Characters of a finite abelian group form a basis with orthogonality, the discrete Fourier transform with inversion exists on ZMod N, Finset.expect gives normalized averages, and the representation-count convolution of finsets exists (additive name addConvolution). Parseval and the expansion formula exist for every compact group through Tau Ceti's Peter-Weyl basis of L^2(haarProb G) (hasSum_norm_sq_peterWeylCoeff, hasSum_peterWeyl_expansion), and on a finite discrete group haarProb is the normalized counting measure (haarProb_eq_smul_count); convolution of functions is Mathlib's DiscreteConvolution.convolution (additive addConvolution) or MeasureTheory.convolution. Missing are a character-indexed Fourier transform on general finite abelian groups with Parseval stated for characters, and the identity taking convolution to the product of transforms."
       },
       {
        "target": "Plunnecke-Ruzsa inequality, Ruzsa triangle inequality and Ruzsa covering",
@@ -2645,11 +2715,15 @@
       {
        "layer": "FiniteFieldsAndCharacterSums:FF.1",
        "note": "Constructs additive characters and their orthogonality, overlapping the character side of the finite Fourier analysis asked for here."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem",
+       "note": "Builds convolution operators on L^2(haarProb G), the Peter-Weyl Hilbert basis and Parseval for compact groups (already proved in Tau Ceti), of which Fourier analysis with normalized counting measure on a finite abelian group is the finite special case."
       }
      ]
     },
     "AdditiveCombinatorics:AC.1": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Balog-Szemeredi-Gowers theorem",
@@ -2906,7 +2980,7 @@
      "duplicates": []
     },
     "AdditiveCombinatorics:AC.4": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Pseudorandom majorants satisfying the linear forms and correlation conditions (W-trick, Goldston-Yildirim truncated divisor sum)",
@@ -2967,6 +3041,10 @@
       {
        "layer": "SieveMethodsAndPrimePatterns:SV.1",
        "note": "Selberg sieve weights, of which the Goldston-Yildirim truncated divisor sum used for the majorant is a variant."
+      },
+      {
+       "layer": "AnalyticNumberTheory:AN.2",
+       "note": "Proves the zero-free line and region and the prime number theorem, including its fixed-modulus arithmetic-progression form: the prime-distribution inputs AC.4's transference proof names."
       }
      ]
     },
@@ -3083,7 +3161,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Tau Ceti has checkedBy and IsParityCheckMatrix (lines 50, 68), membership criteria, finrank = rank and card - rank, existence of a full-rank generator matrix, both row counts, and generatedBy <= checkedBy iff H * G^T = 0. Missing: invariance of the generated code under invertible row operations, deletion of dependent rows, existence of parity-check matrices, and the generator/dual-code check-matrix statement (no dual code is defined)."
+       "note": "Tau Ceti has checkedBy and IsParityCheckMatrix (lines 50, 68), membership criteria, finrank = rank and card - rank, existence of a full-rank generator matrix, both row counts, and generatedBy <= checkedBy iff H * G^T = 0. Deleting dependent rows is available only generically (Mathlib's exists_linearIndependent' for the family of rows, with generatedBy_eq_span_rows), and Tau Ceti's span_rowReduce covers only Gauss-Jordan elimination. Missing: invariance of the generated code under an arbitrary invertible row operation, existence of parity-check matrices, and the generator/dual-code check-matrix statement (no dual code is defined)."
       },
       {
        "target": "Systematic form relative to an information set: [I | A] and [-A^T | I] generate and check orthogonal codes",
@@ -3190,9 +3268,16 @@
          "file": "Mathlib/InformationTheory/Hamming.lean",
          "line": 210,
          "fit": "related"
+        },
+        {
+         "name": "Function.mulSupport_mul",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Group/Support.lean",
+         "line": 29,
+         "fit": "more general"
         }
        ],
-       "note": "Mathlib has weight, distance, dist = wt(-x + y), the length bound and smul/triangle lemmas; the link to Function.support and the support formulae for sums are not stated."
+       "note": "Mathlib has weight, distance, dist = wt(-x + y), the length bound and smul/triangle lemmas, and the support formulae hold for arbitrary functions: support (f + g) lies in support f union support g (Function.support_add, the additive form of mulSupport_mul) and support (c * g) = support g for c != 0 over a domain (Function.support_const_smul_of_ne_zero). Missing is any lemma linking hammingNorm or hammingDist to Function.support or its finite version."
       },
       {
        "target": "Minimum distance of linear and additive codes (zero-code convention), attainment, equality with least pairwise distance, invariance under isometries, puncturing, shortening and direct-sum bounds",
@@ -3325,11 +3410,15 @@
       {
        "layer": "FiniteFieldsAndCharacterSums:FF.4",
        "note": "Its code layer needs dimension and distance statements for linear codes (BCH/Reed-Solomon), overlapping minimum distance and duality here."
+      },
+      {
+       "layer": "tauceti:Completed/IntegralLattices#layer-3-finite-bilinear-and-quadratic-modules",
+       "note": "Develops finite bilinear and quadratic modules with orthogonal complements, |H| |H^perp| = |A| and H^perp perp = H under nondegeneracy, and orthogonal sums: the general theory the coordinate-power alphabet and its orthogonal additive codes specialize."
       }
      ]
     },
     "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-3-weight-enumerators-and-macwilliams": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Weight distribution A_w(C) and the one-variable and homogeneous weight enumerators with coefficient formulae, evaluation at (1,1), direct-sum product and recovery of minimum distance",
@@ -3474,7 +3563,7 @@
          "library": "tauceti",
          "file": "TauCeti/LinearAlgebra/IntegralLattice/RootLattice/TypeD/Basic.lean",
          "line": 229,
-         "fit": "special case"
+         "fit": "related"
         },
         {
          "name": "TauCeti.IntegralLattice.dual_intermediateCarrierOfDiscriminantSubgroup",
@@ -3491,7 +3580,7 @@
          "fit": "related"
         }
        ],
-       "note": "D_n = {x in Z^n : sum x_i even} is the unscaled Construction A of the even-weight binary code but is defined by coordinates; the general overlattice duality dual(L_H) = L_{H^perp} exists, but no Construction A lattice from a code."
+       "note": "D_n = {x in Z^n : sum x_i even} has the carrier of the Construction A lattice of the even-weight binary code, but it is defined by coordinates with the standard dot product, which is twice the form B_2 = dot/2 of the roadmap's convention (under B_2 that code's lattice is not even integral for n > 2); the general overlattice duality dual(L_H) = L_{H^perp} exists, but no Construction A lattice from a code."
       },
       {
        "target": "disc(P_m(C)) = m^{#iota}/(#C)^2 for self-orthogonal C, and p^{n-2k} for linear [n,k] codes over ZMod p",
@@ -3560,7 +3649,7 @@
      "duplicates": []
     },
     "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "L0(m,iota) = m Z^iota with form B_m: L0^dual = Z^iota and an isometry of its discriminant module with (ZMod m)^iota carrying the pairing to sum lift(x_i)lift(y_i)/m, and q_m for even m",
@@ -4246,7 +4335,7 @@
      "duplicates": []
     },
     "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-4--completeness-and-compactness": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Lovasz-Szegedy compactness: CompactSpace GraphonSpaceI and CompleteSpace GraphonSpaceI",
@@ -4880,9 +4969,16 @@
          "file": "TauCeti/Probability/Exchangeability/Arrays/AldousHoover/Basic.lean",
          "line": 379,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.SeparatelyExchangeable.exists_arrayLaw_eq_map_unitIntervalCoding",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Arrays/Coding.lean",
+         "line": 172,
+         "fit": "related"
         }
        ],
-       "note": "The carrier-level contract exists; the law-level equivalence graphLawArrayLawEquiv is absent, and Tau Ceti's Aldous-Hoover development has only the easy (coding implies exchangeable) direction."
+       "note": "The carrier-level contract exists; the law-level equivalence graphLawArrayLawEquiv is absent. Tau Ceti's Aldous-Hoover files give only the easy direction (a coding yields a jointly exchangeable array); its array library also proves a row-level coding representation of separately exchangeable arrays (SeparatelyExchangeable.exists_arrayLaw_eq_map_unitIntervalCoding), which is neither the jointly exchangeable Aldous-Hoover theorem nor connected to graph laws."
       }
      ],
      "duplicates": [
@@ -4998,5 +5094,238 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-16",
+  "date": "2026-09-17",
+  "checked": 203,
+  "corrections": [
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-9-the-lmfdb-invariant-layer",
+    "target": "Twists f tensor psi by Dirichlet characters (modularity, level bound, nebentypus chi psi^2, a_p(f tensor psi) = psi(p)a_p(f)), primitive associates, inner twists and CM self-twists",
+    "was": "absent; note: no twisted modular form",
+    "now": "partial; TauCeti.exists_mem_cuspFormCharSpace_qExpansion_coeff_eq_ite_coprime cited (special case)",
+    "why": "TauCeti/NumberTheory/ModularForms/Newforms/CoprimeFilter/Basic.lean:248 proves, for f in S_k(Gamma1(N), chi) and L != 0 with L.primeFactors contained in N.primeFactors, a cusp form g of level (prod of the primes of L)*N, in the chi-space at that level, with a_n(g) = a_n(f) if (n, L) = 1 and 0 otherwise: modularity, cuspidality, a level bound and the nebentypus of the twist by the principal character mod L, sorry-free. That is a special case of the target, so it is partial, not absent."
+   },
+   {
+    "layer": "AdditiveCombinatorics:AC.0",
+    "target": "Convolution and Fourier analysis on finite abelian groups (characters, inversion, Parseval/Plancherel, convolution to product), with normalized counting measure",
+    "was": "partial; note said Parseval/Plancherel and convolution of functions are missing",
+    "now": "partial; TauCeti.hasSum_norm_sq_peterWeylCoeff added (more general) and note corrected",
+    "why": "TauCeti/RepresentationTheory/Compact/PeterWeyl.lean:599 proves Parseval (and :559 the expansion) for the Peter-Weyl Hilbert basis of L^2(haarProb G) for any compact topological group G, over an algebraically closed RCLike field; Compact/Finite.lean:212 identifies haarProb on a finite discrete group with |G|^-1 times counting measure. Mathlib's DiscreteConvolution.convolution (Topology/Algebra/InfiniteSum/DiscreteConvolution.lean:114, additive addConvolution) and MeasureTheory.convolution (Analysis/Convolution.lean:403) are convolutions of functions. What remains missing is the character-indexed transform and the convolution identity."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+    "target": "Completed L-function via the Mellin transform of f(iy), Hecke's functional equation with the Fricke companion Lambda_N(k - s, f) = i^k Lambda_N(s, g), entireness and analytic continuation of L(s,f)",
+    "was": "partial; note said non-cusp forms get no continuation of L",
+    "now": "partial; note records the meromorphic continuation Mathlib gives every modular form",
+    "why": "Mathlib/NumberTheory/ModularForms/LFunction.lean defines ModularForm.weakFEPair (line 61), Lambda (line 91) and L = Lambda * (2 / Gammaℂ s) (line 134) for every ModularFormClass on an arithmetic group with 0 < k, cusp forms or not; Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean:394 (WeakFEPair.differentiableAt_Λ) makes Lambda differentiable off s = 0 and s = k, and :433 gives its residue at k. So L(s, f) of a non-cusp form does have a continuation; only the level-N Fricke form of the equation is missing."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology",
+    "target": "Structure sheaf and divisor sheaves O_D on a compact Riemann surface, Cech H^0/H^1 with Leray's theorem and the local dbar-lemma, H^0(X,O) = C",
+    "was": "partial; note said there is no structure sheaf on Riemann surfaces",
+    "now": "partial; smoothSheafCommRing added (more general) and note corrected",
+    "why": "Mathlib/Geometry/Manifold/Sheaf/Smooth.lean:298 defines smoothSheafCommRing IM I M R, the sheaf of commutative rings of smooth maps M -> R, which the file's docstring calls the structure sheaf of M and discusses for complex manifolds; over the field C, smooth maps into C are the holomorphic functions, so this is O_X for a Riemann surface, and Sheaf/LocallyRingedSpace.lean:137 packages the manifold as a locally ringed space. Tau Ceti's own HolomorphicSheaf.lean docstring points to it. O_D, Leray and the dbar-lemma remain absent."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-2-hamming-data-and-dual-codes",
+    "target": "Hamming support, weight and distance: relation with Function.support, support formulae for sums and scalars, weight <= length, dist(x,y) = wt(y - x)",
+    "was": "partial; note said the support formulae for sums are not stated",
+    "now": "partial; Function.mulSupport_mul added (more general) and note corrected",
+    "why": "Mathlib/Algebra/Group/Support.lean:29 (mulSupport_mul, @[to_additive] support_add) and Mathlib/Algebra/Module/Basic.lean:105 (support_const_smul_of_ne_zero) are the support formulae for sums and scalar multiples of functions iota -> F. What is missing is only the bridge from hammingNorm, which Hamming.lean never relates to support."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+    "target": "Vanishing S_k = 0 for k <= 0",
+    "was": "partial; note said the vanishing of weight-zero cusp forms is not stated",
+    "now": "partial; CuspForm.rank_eq_zero_of_weight_lt_twelve added (special case) and note corrected",
+    "why": "Mathlib/NumberTheory/ModularForms/LevelOne/DimensionFormula.lean:155 proves rank S_k(SL2(Z)) = 0 for all k < 12, so weight-zero cusp forms vanish at level one. The statement at level Gamma1(N), which Layer 8 needs, is still missing."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one",
+    "target": "Weight polynomials P_k(t,n) with generating function 1/(1 - tx + nx^2), the root-quotient formula and the relation with Chebyshev U",
+    "was": "partial; note said the root-quotient formula and the boundary value are not stated",
+    "now": "partial; Polynomial.Chebyshev.S_two_mul_complex_cos added (special case) and note restricted to general n",
+    "why": "Mathlib/RingTheory/Polynomial/Dickson.lean:161 identifies dickson 2 1 with Chebyshev.S; Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Basic.lean:96 gives S_m(2 cos theta) sin theta = sin((m+1) theta) for complex theta, which with rho = e^(i theta) is the root-quotient formula at determinant 1; Mathlib/RingTheory/Polynomial/Chebyshev.lean:692 and :707 give the values at t = 2 and t = -2. The general-n statements and the generating function are still absent."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-1-finite-codes-matrices-and-elementary-constructions",
+    "target": "Codes generated and checked by a matrix, generator/parity-check predicates, existence from bases, row-span and syndrome criteria, rank/dimension formulas, row counts k and n-k, invariance under invertible row operations, generator of C = check matrix of C^perp",
+    "was": "partial; note listed deletion of dependent rows as missing",
+    "now": "partial; note records the generic dependent-row and row-reduction lemmas",
+    "why": "Mathlib/LinearAlgebra/LinearIndependent/Lemmas.lean:799 (exists_linearIndependent') extracts from any family a linearly independent subfamily with the same span, which with Matrix.generatedBy_eq_span_rows (TauCeti/InformationTheory/Coding/Matrix.lean:82) deletes dependent rows; TauCeti/LinearAlgebra/Matrix/Echelon/RowReduce.lean:501 (span_rowReduce) shows Gauss-Jordan preserves the row span. Neither is stated for codes, and the other missing items stand."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9b--exchangeable-graph-laws-and-graphon-mixtures",
+    "target": "Graph/array law-level interface: EdgeIndex, graphCoordEquiv with measurability, graphCoordEquiv_comap, and graphLawArrayLawEquiv",
+    "was": "partial; note said Tau Ceti's Aldous-Hoover development has only the easy direction",
+    "now": "partial; separately exchangeable coding theorem added (related) and note made precise",
+    "why": "TauCeti/Probability/Exchangeability/Arrays/Coding.lean:172 and :206 prove that a separately exchangeable array over a standard Borel space has the law of an array coded by a permutation-invariant mixing law and one uniform variable per row, and conversely: a genuine representation theorem, though for separate rather than joint exchangeability and without per-cell resolution. The note's 'only the easy direction' understated the library."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+    "target": "Period map S_k(Gamma1(N)) -> Hom_Z(M N k, C): raw geodesic pairing, absolute convergence between cusps, Gamma1(N)-invariance, descent, Hecke and diamond equivariance",
+    "was": "absent; note said there are no period integrals",
+    "now": "absent; CuspForm.Λ_eq_mellin added (related) and note corrected",
+    "why": "Mathlib/NumberTheory/ModularForms/LFunction.lean:178 gives Lambda(f, s) = integral over t > 0 of f(it) t^(s-1) for cusp forms on arithmetic groups, convergent for every s; at s = j + 1 this is the period of f on the single symbol {0, i*infinity} with weight z^j. The general pairing, its invariance and descent remain absent, so the status stands."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-9-the-lmfdb-invariant-layer",
+    "target": "Dual form f-bar and IsSelfDual f iff all a_n are real",
+    "was": "absent; note said there is no conjugate newform",
+    "now": "absent; ModularForm.translate added (related) and note records the conjugate-form construction",
+    "why": "Mathlib/NumberTheory/ModularForms/Basic.lean:657 defines ModularForm.translate for every g in GL(2, R), negative determinant included, and the private slash_J (line 46) with UpperHalfPlane.J (Analysis/Complex/UpperHalfPlane/MoebiusAction.lean:381) shows f|[k]J = conj(f(-conj tau)). This is the analytic construction behind f-bar, worth consuming; the q-expansion, character and IsSelfDual statements are still absent."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+    "target": "Construction A lattice P_m(C) with form B_m on Q^iota: full lattice for every C, integral exactly when C <= C^perp, and the carrier identity P_m(C)^dual = P_m(C^perp)",
+    "was": "absent, citing TauCeti.IntegralLattice.checkerboardLattice as a special case",
+    "now": "absent, the same citation marked related and the note says why",
+    "why": "The roadmap's standing convention puts P_m(C) = rho_m^-1(C) in Q^iota with form B_m(x,y) = (sum x_i y_i)/m. D_n (TypeD/Basic.lean:229) carries the standard dot product, 2 B_2 on the carrier P_2(C_even), so it is not an instance of P_m(C) with B_m; and C_even is not self-orthogonal for n > 2, so P_2(C_even) is not integral under B_2. A 'special case' fit inside an absent target was inconsistent; 'related' is accurate and the status stands."
+   },
+   {
+    "layer": "AdditiveCombinatorics",
+    "target": "(summary)",
+    "was": "summary: Tau Ceti adds only graphon regularity, unitriangular groups and Wiener-Ikehara; Parseval on finite abelian groups missing",
+    "now": "summary: adds Tau Ceti's compact-group Parseval; missing item narrowed to a character-indexed transform and its convolution identity",
+    "why": "Follows the AC.0 correction: TauCeti.hasSum_norm_sq_peterWeylCoeff gives Parseval for every compact group, finite groups with normalized counting measure included."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+    "target": "(layer verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is in the libraries in its stated generality: 3 partial and 5 absent. The audit instructions define 'partly built' as at least one target present and one missing, and the earlier reviews (REV-AUDIT-03, -09, -13) read 'present' as mathlib, tauceti or both, so a layer of partial and absent targets is 'not built'; its partial material stays recorded in the target notes."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-9-the-lmfdb-invariant-layer",
+    "target": "(layer verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is in the libraries in its stated generality: 3 partial and 5 absent. The audit instructions define 'partly built' as at least one target present and one missing, and the earlier reviews (REV-AUDIT-03, -09, -13) read 'present' as mathlib, tauceti or both, so a layer of partial and absent targets is 'not built'; its partial material stays recorded in the target notes."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve",
+    "target": "(layer verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is in the libraries in its stated generality: 3 partial and 0 absent. The audit instructions define 'partly built' as at least one target present and one missing, and the earlier reviews (REV-AUDIT-03, -09, -13) read 'present' as mathlib, tauceti or both, so a layer of partial and absent targets is 'not built'; its partial material stays recorded in the target notes."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology",
+    "target": "(layer verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is in the libraries in its stated generality: 1 partial and 6 absent. The audit instructions define 'partly built' as at least one target present and one missing, and the earlier reviews (REV-AUDIT-03, -09, -13) read 'present' as mathlib, tauceti or both, so a layer of partial and absent targets is 'not built'; its partial material stays recorded in the target notes."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas",
+    "target": "(layer verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is in the libraries in its stated generality: 1 partial and 3 absent. The audit instructions define 'partly built' as at least one target present and one missing, and the earlier reviews (REV-AUDIT-03, -09, -13) read 'present' as mathlib, tauceti or both, so a layer of partial and absent targets is 'not built'; its partial material stays recorded in the target notes."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one",
+    "target": "(layer verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is in the libraries in its stated generality: 1 partial and 6 absent. The audit instructions define 'partly built' as at least one target present and one missing, and the earlier reviews (REV-AUDIT-03, -09, -13) read 'present' as mathlib, tauceti or both, so a layer of partial and absent targets is 'not built'; its partial material stays recorded in the target notes."
+   },
+   {
+    "layer": "AdditiveCombinatorics:AC.1",
+    "target": "(layer verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is in the libraries in its stated generality: 2 partial and 2 absent. The audit instructions define 'partly built' as at least one target present and one missing, and the earlier reviews (REV-AUDIT-03, -09, -13) read 'present' as mathlib, tauceti or both, so a layer of partial and absent targets is 'not built'; its partial material stays recorded in the target notes."
+   },
+   {
+    "layer": "AdditiveCombinatorics:AC.4",
+    "target": "(layer verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is in the libraries in its stated generality: 1 partial and 3 absent. The audit instructions define 'partly built' as at least one target present and one missing, and the earlier reviews (REV-AUDIT-03, -09, -13) read 'present' as mathlib, tauceti or both, so a layer of partial and absent targets is 'not built'; its partial material stays recorded in the target notes."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-3-weight-enumerators-and-macwilliams",
+    "target": "(layer verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is in the libraries in its stated generality: 1 partial and 2 absent. The audit instructions define 'partly built' as at least one target present and one missing, and the earlier reviews (REV-AUDIT-03, -09, -13) read 'present' as mathlib, tauceti or both, so a layer of partial and absent targets is 'not built'; its partial material stays recorded in the target notes."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+    "target": "(layer verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is in the libraries in its stated generality: 3 partial and 2 absent. The audit instructions define 'partly built' as at least one target present and one missing, and the earlier reviews (REV-AUDIT-03, -09, -13) read 'present' as mathlib, tauceti or both, so a layer of partial and absent targets is 'not built'; its partial material stays recorded in the target notes."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-4--completeness-and-compactness",
+    "target": "(layer verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "No target of this layer is in the libraries in its stated generality: 1 partial and 1 absent. The audit instructions define 'partly built' as at least one target present and one missing, and the earlier reviews (REV-AUDIT-03, -09, -13) read 'present' as mathlib, tauceti or both, so a layer of partial and absent targets is 'not built'; its partial material stays recorded in the target notes."
+   },
+   {
+    "layer": "AdditiveCombinatorics:AC.4",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "AnalyticNumberTheory:AN.2 added",
+    "why": "Proves the zero-free line and region and the prime number theorem, including its fixed-modulus arithmetic-progression form: the prime-distribution inputs AC.4's transference proof names."
+   },
+   {
+    "layer": "AdditiveCombinatorics:AC.0",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem added",
+    "why": "Builds convolution operators on L^2(haarProb G), the Peter-Weyl Hilbert basis and Parseval for compact groups (already proved in Tau Ceti), of which Fourier analysis with normalized counting measure on a finite abelian group is the finite special case."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "DirichletPadicLFunctions:L0 added",
+    "why": "Constructs generalized Bernoulli numbers and primitive-character Gauss sums with their inversion and conductor-change formulas, the inputs to the q-expansions of Eisenstein series with character and to the Gauss-sum translation to Mathlib's eisensteinSeries."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "SmoothRepresentationsOfLocalGroups:SR.1 added",
+    "why": "Constructs Hecke algebras of locally profinite groups over rings, their bi-invariant corners and integral double-coset operators: the p-adic double-coset ring of the hand-off in (a')."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "GL2AutomorphicRepresentationsAndTransfer:R16.2 added",
+    "why": "Proves the local GL2 conductor/newvector theorem with the principal-series/special/supercuspidal classification and twist calculations: the local form of this layer's conductor and bad-prime eigenvalue classification."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts added",
+    "why": "Builds the elliptic quotient charts and the Riemann-surface structure on the coarse quotient, with the local order formula at elliptic points: the elliptic charts this sublayer consumes and whose counts it computes."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups added",
+    "why": "Defines covolume and cofiniteness and extracts elliptic cycles, cusp orbits and genus from a fundamental polygon: the generic cofiniteness and elliptic/cusp-cycle data specialized here to congruence subgroups."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-2-hamming-data-and-dual-codes",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "tauceti:Completed/IntegralLattices#layer-3-finite-bilinear-and-quadratic-modules added",
+    "why": "Develops finite bilinear and quadratic modules with orthogonal complements, |H| |H^perp| = |A| and H^perp perp = H under nondegeneracy, and orthogonal sums: the general theory the coordinate-power alphabet and its orthogonal additive codes specialize."
+   }
+  ],
+  "notes": "Checked all 203 targets of the 42 layers in the four roadmaps (451 citations naming 421 distinct declarations, and 41 duplicate claims) against the pinned baseline (tauceti f790474, mathlib 082e2d3). Mechanically: every citation resolves at its stated library, file and line; three are missing from declarations.tsv but present in the source as cited (ModularForm.L, ModularForm.hasSum_L, ModularForm.Λ, all in the @[expose] public section of Mathlib's ModularForms/LFunction.lean); none is private, an axiom or a bare structure field, and no cited file contains sorry. Presence claims: the statement, namespace and variable lines of every citation were read against its target, covering the 58 present targets (4 mathlib, 50 tauceti, 4 both) and the present halves of the 53 partial ones; all hold, and the four built layers (ModularForms 1; DenseGraphLimits 1, 3, 9a) are built as their layer texts ask. Absent and partial claims: all 145 were searched again independently, by concept and by naming convention, over declarations.tsv and both whole source trees, and every candidate found was re-read at source. One status changed: ModularForms 9's twist target is partial, not absent, because Tau Ceti's coprime filter (Miyake 4.6.5) is the twist by a trivial character with level and nebentypus. Ten notes that called something missing which exists were corrected, and one fit label was fixed (codes Layer 6's checkerboard lattice is related, not a special case of Construction A under the form B_m): compact-group Parseval and generic convolution for AC.0 (with the roadmap summary), Mathlib's holomorphic structure sheaf for 10B, the continuation of L for non-cusp forms (Layer 7), generic support formulae (codes Layer 2), level-one vanishing of weight-zero cusp forms (Layer 8), the determinant-one Chebyshev root-quotient formula (Layer 11), generic deletion of dependent rows (codes Layer 1), the separately exchangeable array coding theorem (graph limits 9b), the Mellin period on {0, i*infinity} (Layer 8) and the conjugate form ModularForm.translate f J (Layer 9); none of these changes a status. Verdicts: 11 layers were marked partly built although every target is partial or absent (ModularForms 8, 9, 10A, 10B, 10C, 11; AC.1, AC.4; AlgebraicCodingTheory 3, 7; DenseGraphLimits 4); they are now not built, as the audit instructions and REV-AUDIT-03, -09 and -13 require. Duplicates: all 41 resolve to live, non-retired layers of other roadmaps and state overlapping targets; 8 were added. The audit is accurate on what the libraries contain; its errors were the verdict convention and notes that understated generic or neighbouring material."
  }
 }
