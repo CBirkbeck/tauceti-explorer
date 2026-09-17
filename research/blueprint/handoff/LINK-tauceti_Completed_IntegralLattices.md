@@ -34,9 +34,9 @@ For Construction A, use P_m(C) inside Q^i with B_m=dot/m, m≥2. The preimage is
 
 For A2/D4, use actual finite quadratic forms and named generators. Coding theory still proves the coordinate isometries, the trace-Hermitian comparison, code isotropy and identification of the glued lattice. Orders of abstract groups alone do not establish these statements.
 
-IntegralLattices assigns root/weight lattices arising from a root datum to LieHighestWeight, whereas the current LieHighestWeight coordination paragraph assigns them to RootSystems; RootSystems Layer 5 explicitly constructs Q, P and P/Q. Reconcile that mismatch and state the simply-laced Q/P-to-L-dual/L comparison before adding a new input edge. Do not make ADE computations depend on all highest-weight representation theory.
+IntegralLattices assigns root/weight lattices arising from a root datum to LieHighestWeight, whereas the current LieHighestWeight coordination paragraph assigns them to RootSystems; RootSystems Layer 5 explicitly constructs Q, P and P/Q. Reconcile that mismatch and state the simply-laced P/Q-to-L-dual/L comparison before adding a new input edge. Do not make ADE computations depend on all highest-weight representation theory.
 
-The current GeometryOfNumbers README and extracted GN.4/GN.5 stage titles have an ordering discrepancy. The overlap here uses the stable GN.2 ID, present in both. This job does not rename those other stages or repair their atlas records.
+The earlier GN.4/GN.5 ordering-discrepancy warning was mistaken and is withdrawn. Re-reading the README at the input revision confirms GN.4 is lattice points and homogeneous dynamics, and GN.5 is certified reductions and applications, as in the atlas. The GN.2 overlap is unaffected.
 
 ## Source read depth
 
@@ -64,6 +64,24 @@ Refresh every other link packet, source revision and stage graph before continua
 
 ## Validation and submission
 
-Local checks run: `python3 -m json.tool research/blueprint/links/tauceti_Completed_IntegralLattices.json` (exit 0) and `python3 scratch/check_checkpoint.py` (exit 0; seven unique cross-roadmap pairs, two-sided evidence and schema/status checks). These checks did not resolve endpoints or quotes against the entire atlas, or test cross-packet cycles. The repository validator has not yet run for this version; its actual PR check output must be recorded separately. Local parsing cannot substitute for `python3 scripts/check_links.py research/blueprint/links/tauceti_Completed_IntegralLattices.json` against the full atlas and all other packets. Inspect the existing PR workflow's actual validator output rather than only its overall badge.
+Actual submission: draft PR #798 on `browser/cgp-aae89b9faddc/link-integral-lattices`. The tested packet at commit `fb2c93def746c242eac91bdb25408d57276f2a51` had blob `cc1e9fbf077973eb91f7eab94999362685113b0b`, verified byte-for-byte against its checked local file. The following metadata-only revision withdraws the GN.4/GN.5 warning and clarifies P/Q notation without changing any link or evidence. It contains seven links, one overlap and 185 unique examination records. Nine records state deeper read scopes, some themselves partial; the other records are summary-only orientation, not full reviews.
 
-No integration, approval, merge, issue closure, state:done change or claim release is requested. The accepted claim belongs to this session; reassignment of the unfinished screen should be coordinated by the maintainer.
+Local checks run again after the final packet edit: `python3 -m json.tool research/blueprint/links/tauceti_Completed_IntegralLattices.json` (exit 0) and `python3 scratch/check_checkpoint.py` (exit 0; seven unique cross-roadmap pairs, two-sided evidence, unique examination records and schema/status checks). These local checks did not resolve endpoints or quotes against the entire atlas, or test cross-packet cycles.
+
+The full repository validator was run by the existing PR workflow. Its actual logs were read, not just its badge:
+
+- Run `35219756942`, job `105196711167`, head `4581fa2ed387a35863d9e55a4319ac69942ea0f1`: **four quote-matching errors, zero warnings**. The four ADE evidence strings were corrected from fresh reads of the two READMEs at the mathematical input revision; the earlier strings were paraphrases, not verbatim quotations.
+- Run `35220346212`, job `105198642419`, head `3fbbee51a3db1afbb904cb0b76d7876349e68633`: **zero errors, zero warnings**. This version had an accidentally duplicated summary-only examination record, removed in the next commit without changing any link.
+- Final packet run `35221052062`, job `105201003130`, head `fb2c93def746c242eac91bdb25408d57276f2a51`, temporary merge `cca70eba94b68b8eda565270b3539098d5e5e9ea`: **zero errors, zero warnings**, seven links, one overlap, 185 examination records. The command was `python3 scripts/check_links.py research/blueprint/links/tauceti_Completed_IntegralLattices.json` against the full repository inputs.
+
+The final metadata-only revision also records that last successful count-check. Its own rerun, when available, is recorded in the PR conversation; the tested link and evidence arrays are identical. A structural validator is not independent mathematical review or a certificate of exhaustive coverage.
+
+### Workflow failure propagation requiring maintainer action
+
+The first failing validator run nevertheless received a success badge. The workflow executes `python3 ... | tee ... || status=1` under `/usr/bin/bash -e`, without `pipefail`, so the successful `tee` can mask the validator's nonzero exit. Enable `pipefail` or explicitly check `PIPESTATUS` in both validator pipelines. This was reported in PR comment `5714324307`. The workflow is outside #36's authorized files and was not edited.
+
+### Final input and claim handoff
+
+The PR base at submission was `a427e4f19e3c789c29cd7fb9b7650ae6870a00f2`. Comparing it with the mathematical input `66e35f2051d4e49644701ad398112de45095d315` showed only audit, comparison, ledger, queue and review files changed, not source READMEs, atlas inputs, link packets or baseline pins. The validation runs above used that PR base.
+
+The catalogue-wide screen remains unfinished at the precise points listed above. This run ends with a durable partial submission, rather than reserving another job while this unfinished claim needs a coordinated continuation. No integration, approval, merge, issue closure, state:done change or claim release is requested. The accepted claim belongs to this session; the maintainer/orchestrator should coordinate continuation or reassignment of the same packet. Do not infer work will continue after the run ends.
