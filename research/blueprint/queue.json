@@ -1726,7 +1726,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_DGAInfinity.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #44"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_DGAInfinity",
@@ -2582,8 +2583,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_StandardDistributions.md",
-   "state": "pending",
-   "note": "released on GitHub issue #69"
+   "state": "external",
+   "note": "claimed on GitHub issue #69"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_StandardDistributions",
@@ -38304,11 +38305,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-30.md",
    "timeout": 14400,
-   "state": "pending",
-   "account": null,
-   "lane": 2,
-   "startedAt": "2026-09-17T12:25:31Z",
-   "attempts": 0,
+   "state": "running",
+   "account": "claude6",
+   "lane": 1,
+   "startedAt": "2026-09-17T12:55:00Z",
+   "attempts": 1,
    "note": "released after a usage limit on claude4/2 at 2026-09-17T12:28:11Z"
   },
   {
@@ -40525,12 +40526,20 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-27.md",
    "timeout": 21600,
-   "state": "running",
+   "state": "done",
    "avoidAccountOf": "AUDIT-27",
    "account": "claude2",
    "lane": 2,
    "startedAt": "2026-09-17T12:05:00Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-17T12:39:51Z",
+   "seconds": 2091,
+   "result": {
+    "layers": 45,
+    "audited": 45,
+    "review": "accepted"
+   },
+   "note": ""
   },
   {
    "id": "AUDIT-28",
@@ -40608,11 +40617,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-29.md",
    "timeout": 21600,
-   "state": "pending",
-   "account": null,
-   "lane": 1,
-   "startedAt": "2026-09-17T12:10:14Z",
-   "attempts": 0,
+   "state": "running",
+   "account": "claude2",
+   "lane": 2,
+   "startedAt": "2026-09-17T12:39:51Z",
+   "attempts": 1,
    "note": "released after a usage limit on claude4/1 at 2026-09-17T12:29:51Z"
   },
   {
@@ -40656,7 +40665,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-30.md",
    "timeout": 21600,
-   "state": "pending"
+   "state": "running",
+   "account": "claude6",
+   "lane": 2,
+   "startedAt": "2026-09-17T12:55:00Z",
+   "attempts": 1
   },
   {
    "id": "REV-AUDIT-30",
