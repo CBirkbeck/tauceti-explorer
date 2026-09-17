@@ -1,0 +1,701 @@
+{
+ "job": "AUDIT-33",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369; mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "IntegralHeckeAndGaloisDeterminants": {
+   "summary": "Mathlib supplies the two raw ingredients this roadmap builds on — Roby polynomial laws (`Mathlib/RingTheory/PolynomialLaw/Basic.lean`, definition, module structure and universe-polymorphic `toFun`/`isCompat` only) and the universal divided power algebra Γ_R(M) (`Mathlib/RingTheory/DividedPowerAlgebra/Init.lean`, with `dp`, `lift`, `map`) — plus Cayley–Hamilton for a single endomorphism (`LinearMap.aeval_self_charpoly`), lifting of complete orthogonal idempotents along nilpotent kernels, t-structures and derived categories. Tau Ceti has a genuinely large Hecke-ring development (`TauCeti/NumberTheory/HeckeRing/`, ~1100 declarations: abstract double-coset Hecke rings on top of Mathlib's `IsHeckeTriple`, associativity, commutativity, degree, GL_n coset decomposition, prime decomposition and Shimura's polynomial-ring presentation for n = 1, 2) and continuous group cohomology (`TauCeti/RepresentationTheory/Homological/ContCohomology/`). What is genuinely missing is the entire determinant theory: no homogeneous degree-n polynomial laws, no multiplicative laws, no Chenevier determinants or pseudo-representations, no characteristic-polynomial ideal or Cayley–Hamilton quotient, no reconstruction theorem, and no Fitting ideals of modules at all (`Fitt₀` is absent from both libraries, so IHG.6's central bound cannot even be stated). The Hecke-on-complexes package (IHG.2), the spherical normalization and Hecke polynomial P_v(X) (IHG.3 — no Satake transform exists anywhere in either library), the interpolation (IHG.4) and the nilpotent descent schemas (IHG.5) are likewise absent; Tau Ceti's Hecke rings are classical GL_n(ℚ)/SL_n(ℤ) double-coset rings, not local spherical algebras with vol(K)=1.",
+   "layers": {
+    "IntegralHeckeAndGaloisDeterminants:IHG.0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Polynomial laws natural in commutative coefficient algebras (Roby laws)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "PolynomialLaw",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PolynomialLaw/Basic.lean",
+         "line": 77,
+         "fit": "exact"
+        },
+        {
+         "name": "PolynomialLaw.toFun",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PolynomialLaw/Basic.lean",
+         "line": 332,
+         "fit": "exact"
+        },
+        {
+         "name": "PolynomialLaw.isCompat",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PolynomialLaw/Basic.lean",
+         "line": 521,
+         "fit": "exact"
+        },
+        {
+         "name": "PolynomialLaw.comp",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PolynomialLaw/Basic.lean",
+         "line": 271,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib defines a polynomial law `M →ₚₗ[R] N` as a functorial family `S ⊗[R] M → S ⊗[R] N` for all R-algebras S (Roby 1963), with the universe-polymorphic extension `toFun`/`isCompat` and composition. Only `R` a CommSemiring is assumed, so this is at least as general as the layer's commutative coefficient algebras."
+      },
+      {
+       "target": "Homogeneous polynomial laws of degree n and their degree decomposition",
+       "library": "absent",
+       "declarations": [],
+       "note": "`Mathlib/RingTheory/PolynomialLaw/` contains only `Basic.lean`; grepping it for `homogene`/`degree` finds nothing but the scalar-multiplication docstring, and no `IsHomogeneous`, coefficient or degree-n API for polynomial laws exists in either library. The file's own header says the coefficients of a polynomial law are left to 'further works'."
+      },
+      {
+       "target": "Divided powers representing degree-n laws, with tensor and base-change maps",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "DividedPowerAlgebra",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowerAlgebra/Init.lean",
+         "line": 100,
+         "fit": "related"
+        },
+        {
+         "name": "DividedPowerAlgebra.lift",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowerAlgebra/Init.lean",
+         "line": 347,
+         "fit": "related"
+        },
+        {
+         "name": "DividedPowerAlgebra.map",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowerAlgebra/Init.lean",
+         "line": 419,
+         "fit": "related"
+        },
+        {
+         "name": "DividedPowers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+         "line": 78,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the universal divided power algebra Γ_R(M) with `dp`, the weak universal property `lift`, functoriality `map`/`mapEquiv`, and divided power structures on ideals. Missing: the grading Γ^n, the representability theorem (degree-n homogeneous laws M → N ≅ Hom(Γ^n M, N)) and the base-change isomorphism S ⊗_R Γ_R(M) ≅ Γ_S(S ⊗ M) that the layer needs."
+      },
+      {
+       "target": "Determinant: a multiplicative degree-n law D : A[G] → A with D(1)=1 (Chenevier determinant / pseudo-representation)",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'pseudorepresentation|pseudo-representation|pseudocharacter|pseudo-character|Chenevier'` over both Lean trees returns nothing, and no multiplicative-polynomial-law structure exists. Mathlib's `Matrix.det`/`LinearMap.det` are multiplicative maps on actual matrices/endomorphisms, not degree-n laws on a group algebra."
+      },
+      {
+       "target": "Characteristic-polynomial identities for a determinant law",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Matrix.charpoly",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "LinearMap.charpoly",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Charpoly/Basic.lean",
+         "line": 44,
+         "fit": "related"
+        }
+       ],
+       "note": "Characteristic polynomials of matrices and of endomorphisms of finite free modules are in Mathlib, but the characteristic polynomial attached to a determinant law (D(X − g) expanded in the Λ^i coefficients) presupposes the determinant, which is absent."
+      },
+      {
+       "target": "Direct sum/product, duality, scalar extension, restriction to subgroups and continuity criteria for determinants",
+       "library": "absent",
+       "declarations": [],
+       "note": "All of these are operations on determinant laws, which do not exist in either library; nothing analogous appears under `PolynomialLaw`."
+      },
+      {
+       "target": "Agreement with the matrix determinant for a rank-n finite projective representation",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "LinearMap.det",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Determinant.lean",
+         "line": 179,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.det",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+         "line": 60,
+         "fit": "related"
+        }
+       ],
+       "note": "`LinearMap.det` is defined for endomorphisms of an arbitrary module (via a basis when one exists, 1 otherwise) and is multiplicative; but the comparison statement 'the determinant law of a rank-n finite projective representation is g ↦ det(ρ g)' cannot be stated without the determinant law."
+      },
+      {
+       "target": "Trace comparison in the valid coefficient range (n! invertible)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No trace/determinant reconstruction statement (Taylor's theorem that pseudo-characters and determinants agree when n! is invertible) exists in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticGaloisRepresentations:R01.5",
+       "note": "R01.5 ('Recognition by Frobenius polynomials') explicitly consumes 'the arbitrary-degree multiplicative polynomial laws, Cayley–Hamilton algebras and representation theorem of IntegralHeckeAndGaloisDeterminants', so it is a declared consumer rather than a competing owner; the overlap is only in the rank-two trace/determinant specialisation."
+      }
+     ]
+    },
+    "IntegralHeckeAndGaloisDeterminants:IHG.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Characteristic-polynomial ideal and Cayley–Hamilton quotient of an algebra with a determinant",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LinearMap.aeval_self_charpoly",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Charpoly/Basic.lean",
+         "line": 89,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.aeval_self_charpoly_lmul",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Charpoly/Basic.lean",
+         "line": 140,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves Cayley–Hamilton for a single endomorphism of a finite free module (`aeval_self_charpoly`), which is the classical statement; Chenevier's CH(A,D) ideal generated by the values of the characteristic polynomial law, and the quotient algebra, are absent — grep for `CharpolyIdeal`, `CayleyHamilton` as an algebra structure returns nothing."
+      },
+      {
+       "target": "Faithful determinant descent (a determinant descends to the CH quotient faithfully)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on determinants, which do not exist in either library."
+      },
+      {
+       "target": "Generalized matrix algebra decomposition under residual multiplicity-freeness",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -i 'GeneralizedMatrixAlgebra|generalized_matrix'` over declarations.tsv and both Lean trees finds nothing; Mathlib's `Matrix.fromBlocks` machinery is only the block-matrix calculus, not the GMA structure with its idempotents and bimodule entries."
+      },
+      {
+       "target": "Reconstruction of a representation from a determinant over an algebraically closed field, up to semisimplification",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing in either library reconstructs a representation from a determinant/pseudo-character; Mathlib's character theory (`Mathlib/RepresentationTheory/Character.lean`) proves linear independence and equality-of-characters results over fields of characteristic zero only, not the degree-n determinant statement."
+      },
+      {
+       "target": "Reconstruction over a complete local ring under residual absolute irreducibility",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, for the same reason; there is no theory of residually absolutely irreducible lifts in either tree."
+      },
+      {
+       "target": "Residual reducibility and lifting obstructions",
+       "library": "absent",
+       "declarations": [],
+       "note": "No reducibility-obstruction API exists."
+      },
+      {
+       "target": "Reducibility ideals, extension modules and lattice constructions for congruences",
+       "library": "absent",
+       "declarations": [],
+       "note": "Reducibility ideals are absent. Mathlib has `Ext` in abelian categories, `groupCohomology`, and (new) continuous cohomology of a topological group in `Mathlib/RepresentationTheory/Homological/ContCohomology/`, which Tau Ceti extends with restriction/inflation/corestriction, Shapiro and long exact sequences; so H¹ classifying extensions is available in general form. The arithmetic lattice and reducibility-ideal package is not."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticGaloisRepresentations:R01.5",
+       "note": "Declared consumer of exactly this layer's Cayley–Hamilton algebras and representation theorem; it adds Chebotarev density and coefficient descent rather than restating them."
+      },
+      {
+       "layer": "AutomorphicGaloisRepresentationsPartII:AG2.3",
+       "note": "AG2.3 lists IHG.1 among its dependencies and applies the reconstruction step; the overlap is in the use, not the construction."
+      },
+      {
+       "layer": "AutomorphicGaloisRepresentations:R19.6",
+       "note": "R19.6 'Representations over Hecke algebras' constructs the determinant law from Hecke operators and proves representability under residual absolute irreducibility — the same reconstruction theorem, instantiated at a localised completed Hecke algebra."
+      }
+     ]
+    },
+    "IntegralHeckeAndGaloisDeterminants:IHG.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Hecke action on a bounded perfect complex and its finite image algebras",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsHeckeTriple",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
+         "line": 75,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeCosetModule.instRingHeckeRing",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/Associativity.lean",
+         "line": 485,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GLn.IntegralHeckeRing",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/GLn/Basic.lean",
+         "line": 597,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines abstract Hecke rings of a Hecke pair/triple and Tau Ceti builds the ring structure, GL_n instance and coset calculus on top; but no action of a Hecke ring on a complex, and no notion of 'image algebra in End of a complex', appears in either library. The `line` for `IntegralHeckeRing` could not be pinned in declarations.tsv; the definition is in the cited file's final section."
+      },
+      {
+       "target": "Perfect complexes over a commutative ring, bounded amplitude",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -i 'PerfectComplex'` finds nothing in either tree. Mathlib has `HomologicalComplex`, `CochainComplex`, `DerivedCategory` and `CategoryTheory.Triangulated`, but no perfect-complex predicate."
+      },
+      {
+       "target": "Comparison of chain, homotopy/derived and cohomology actions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DerivedCategory",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+         "line": 87,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the derived category, the homotopy category and the homology functors, so the three targets of the comparison exist as categories; the statement comparing the three images of a fixed Hecke algebra is absent."
+      },
+      {
+       "target": "Localization decompositions over complete coefficient rings; support and annihilator lemmas; finite generation",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CompleteOrthogonalIdempotents.lift_of_isNilpotent_ker",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Idempotents.lean",
+         "line": 325,
+         "fit": "related"
+        },
+        {
+         "name": "OrthogonalIdempotents.lift_of_isNilpotent_ker",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Idempotents.lean",
+         "line": 274,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib lifts complete orthogonal idempotents along a nilpotent-kernel surjection, which is the key ingredient for decomposing a finite algebra over a complete local ring into local factors; the decomposition statement for a semilocal complete algebra, and the associated support/annihilator lemmas for a Hecke action, are not formulated."
+      },
+      {
+       "target": "Nilpotence bound for the ideal of degree-zero derived endomorphisms acting trivially on all cohomology of a bounded-amplitude object, via the t-structure filtration",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Triangulated.TStructure",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean",
+         "line": 55,
+         "fit": "related"
+        },
+        {
+         "name": "DerivedCategory.TStructure.t",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/DerivedCategory/TStructure.lean",
+         "line": 34,
+         "fit": "related"
+        }
+       ],
+       "note": "The t-structure machinery the proof needs (truncations, the standard t-structure on the derived category, its heart) is in Mathlib, but the nilpotence statement itself — that an endomorphism inducing zero on every cohomology object of an amplitude-[a,b] object has (b−a+1)-st power zero — is absent from both trees."
+      },
+      {
+       "target": "Transport of the nilpotence bound to Hecke images, preserving the amplitude dependence",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the previous two targets; absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "TorsionCohomologyInfrastructure:TC.2",
+       "note": "TC.2 is the declared consumer of this layer's nilpotence bound for actual arithmetic complexes; it supplies the geometric comparison rather than reproving the abstract bound."
+      },
+      {
+       "layer": "AutomorphicGaloisRepresentations:R19.6",
+       "note": "R19.6 asks for 'nilpotent structure and the distinction between reduced characteristic-zero specialisations and the whole integral Hecke algebra' — the same nilpotent-ideal phenomenon, but for the completed Hecke algebra of a fixed automorphic setting."
+      }
+     ]
+    },
+    "IntegralHeckeAndGaloisDeterminants:IHG.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The unramified local Hecke algebra of GL_n at v with T_{v,i} = char. function of K diag(ϖ^i,1^{n−i}) K and vol(K)=1",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HeckeRing.GLn.natDiagGL",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/GLn/DiagonalCosets.lean",
+         "line": 71,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GLn.heckeGen",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/GLn/PolynomialRing/Basic.lean",
+         "line": 140,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GLn.primePowDiag",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/GLn/PrimeDecomposition.lean",
+         "line": 66,
+         "fit": "related"
+        },
+        {
+         "name": "IsHeckeTriple",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's `HeckeRing.GLn` builds exactly the classical global-integral analogues: the diagonal double cosets T(p,…,p,1,…,1) as `heckeGen k`, the p-local subring and Shimura's presentation. But this is the Hecke ring of the pair (SL_n(ℤ), integral matrices of positive determinant) inside GL_n(ℚ), built from finite double-coset counting; there is no local field, no hyperspecial K with a Haar measure normalised by vol(K)=1, and no p-adic group in either library."
+      },
+      {
+       "target": "The Hecke polynomial P_v(X) = Σ (−1)^i q_v^{i(i−1)/2} T_{v,i} X^{n−i} with T_{v,0}=1",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'hecke polynomial'` over both Lean trees returns nothing, and the q^{i(i−1)/2} coefficient pattern does not occur. Tau Ceti's `GLn/PolynomialRing` is a presentation of the Hecke ring as ℤ[X₁,…,X_n], a different object from this generating polynomial in X with Hecke coefficients."
+      },
+      {
+       "target": "Normalized Satake transform and the isomorphism with the Weyl-invariant algebra",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'satake'` over `mathlib/Mathlib/` and `TauCeti/TauCeti/` returns zero hits; the layer's SR.4 prerequisite is itself unbuilt."
+      },
+      {
+       "target": "Relation of P_v to the determinant character and Tate twist",
+       "library": "absent",
+       "declarations": [],
+       "note": "Requires both the Satake transform and the determinant of IHG.0; neither exists."
+      },
+      {
+       "target": "Explicit conversion theorems between conventions (arithmetic/geometric Frobenius, inverse roots)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Tau Ceti has arithmetic Frobenius at a prime of a number field (`NumberField.Chebotarev.isArithFrobAt` and the Artin symbol API under `TauCeti/NumberTheory/Chebotarev/`), but no dictionary relating Frobenius conventions to a Hecke polynomial."
+      },
+      {
+       "target": "Verification at n=1 against class field theory and at n=2 against the classical modular-form Hecke polynomial",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HeckeRing.GLn.evalHomLocal_two_surjective",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/GLn/PolynomialRing/Basic.lean",
+         "line": 374,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.heckeT_prime_pow_recurrence",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/GL2/Recurrence.lean",
+         "line": 210,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves the n = 1 and n = 2 cases of Shimura's Theorem 3.20 (surjectivity of ℤ[X₁,X₂] ↠ R_p) and has the GL₂ Hecke recurrence T(p^{k+1}) = T(p)T(p^k) − p·T(p^{k−1})·⟨p⟩-type relations, which is the classical n = 2 content the layer wants checked; the check itself, against a Hecke polynomial that does not exist, cannot be stated. Tau Ceti's own file header records that general n needs two further unformalised steps."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.4",
+       "note": "SR.4 owns the Satake transform and states it will 'provide the normalization dictionary consumed by IntegralHeckeAndGaloisDeterminants'; the two layers share the normalisation conventions, with SR.4 the declared owner of Satake itself."
+      },
+      {
+       "layer": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+       "note": "AG2.0 constructs 'the normalization dictionary among algebraic weights, geometric/arithmetic Frobenius, cyclotomic twists, normalized Satake and the integral Hecke polynomial of IntegralHeckeAndGaloisDeterminants IHG.3' — the same dictionary, cited to this layer."
+      },
+      {
+       "layer": "TorsionCohomologyInfrastructure:TC.3",
+       "note": "TC.3 works with the same ambient Hecke polynomial and Levi Satake map for boundary induction, and factors it; it consumes rather than restates the normalisation."
+      }
+     ]
+    },
+    "IntegralHeckeAndGaloisDeterminants:IHG.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Compatible determinants over finite coefficient quotients from a dense family of classical Hecke systems",
+       "library": "absent",
+       "declarations": [],
+       "note": "Determinants do not exist in either library (see IHG.0), so no interpolation statement can be formulated."
+      },
+      {
+       "target": "Uniqueness from Frobenius density via Chebotarev and continuity",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.frobeniusPrimeSet",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
+         "line": 93,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Chebotarev.existsUnique_mem_frobeniusPrimeSet",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
+         "line": 251,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.exists_auxiliaryPrime",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/AuxiliaryPrime.lean",
+         "line": 45,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has a substantial Chebotarev tree (Frobenius prime sets, the Artin symbol, tagged fixed fields, Galois-character orthogonality, von Mangoldt prime counting) but the density theorem is still under construction there, and in any case the uniqueness statement it would feed — that two continuous determinants agreeing on Frobenius elements coincide — presupposes determinants."
+      },
+      {
+       "target": "Existence by polynomial-law identities on the completed group algebra",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -i 'completedGroup|CompletedGroupAlgebra|iwasawaAlgebra|ProfiniteGroupAlgebra'` over declarations.tsv returns nothing; the completed group algebra ℤ_p[[G]] of a profinite group is not in either library, let alone polynomial-law identities on it."
+      },
+      {
+       "target": "Change-of-level, change-of-coefficients and passage to inverse limits for determinants",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent for the same reason. Mathlib's `Module.topologicalClosure`/inverse-limit machinery exists generically but is not applied here."
+      },
+      {
+       "target": "Retention of the finite ramification set and continuity hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "No API for Galois representations/determinants unramified outside a finite set S exists in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticGaloisRepresentations:R01.5",
+       "note": "R01.5 owns the Chebotarev recognition side of the same uniqueness statement (semisimple representations determined by characteristic polynomials at Frobenius), while IHG.4 owns the determinant-valued interpolation; they overlap on the density argument."
+      },
+      {
+       "layer": "AutomorphicGaloisRepresentations:R19.6",
+       "note": "Constructs a determinant law from Hecke operators and Frobenius polynomials over a completed Hecke algebra — the concrete instance of this layer's abstract interpolation."
+      },
+      {
+       "layer": "IgusaVarietiesAndTorsionConcentration:IG.6",
+       "note": "Declared consumer: it feeds an equivariant Igusa boundary Hecke polynomial into this interpolation."
+      }
+     ]
+    },
+    "IntegralHeckeAndGaloisDeterminants:IHG.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Theorem schemas taking a geometric Hecke comparison with a quantified nilpotent error ideal to a determinant in the appropriate quotient",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither the determinants (IHG.0) nor the nilpotent-ideal bounds (IHG.2) exist, so the schema has no components to combine."
+      },
+      {
+       "target": "Functoriality and nilpotence bounds under products and extensions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsNilpotent",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/GroupWithZero/Basic.lean",
+         "line": 154,
+         "fit": "related"
+        },
+        {
+         "name": "Commute.isNilpotent_mul_left",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Nilpotent/Defs.lean",
+         "line": 178,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has a complete general theory of nilpotent elements and nilpotent ideals with the usual closure properties, which is the ambient algebra; the specific nilpotence-index bookkeeping for Hecke error ideals under products and extensions is not present."
+      },
+      {
+       "target": "Specialization to residual semisimple representations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Semisimplification of a representation over a field is not in either library in the form needed (Mathlib has `Module.IsSemisimple` and Jordan–Hölder via `CompositionSeries`, but no residual semisimplification functor for Galois representations), and the determinant-valued statement is absent."
+      },
+      {
+       "target": "Local conditions on extension classes and comparison of lattice choices for congruence applications",
+       "library": "absent",
+       "declarations": [],
+       "note": "Continuous group cohomology exists (Mathlib's `ContinuousCohomology`, extended in `TauCeti/RepresentationTheory/Homological/ContCohomology/` with restriction, inflation, corestriction, Shapiro and the long exact sequence), so the extension classes have a home; but no local conditions on Galois extension classes and no lattice-comparison results exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "TorsionCohomologyInfrastructure:TC.2",
+       "note": "TC.2 builds the geometric Hecke comparison with its nilpotent error that this layer consumes as a hypothesis; the nilpotence bookkeeping is shared."
+      },
+      {
+       "layer": "AutomorphicCongruences:L0",
+       "note": "AutomorphicCongruences owns the congruence-module/Selmer-class side and the automorphic lower bounds; this layer's 'local conditions of extension classes and lattice choices' is the same material seen from the abstract side."
+      }
+     ]
+    },
+    "IntegralHeckeAndGaloisDeterminants:IHG.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Fitting ideals Fitt₀_T(M) of a finitely generated module and their functoriality",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has Fitting ideals: `grep -rn -i 'fitting ideal|fittingIdeal|Fitt_'` over both Lean trees returns nothing, and every `Fitting` hit in declarations.tsv is the Lie-theoretic Fitting decomposition (`LieModule.posFittingComp`). Since the central conclusion of both DKSW theorems is a Fitting-ideal containment, the layer cannot even be stated today."
+      },
+      {
+       "target": "Rank-two continuous representation over the total quotient ring K of a complete reduced Noetherian local T, with characteristic polynomials in T[X]",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsLocalization",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Localization/Defs.lean",
+         "line": 104,
+         "fit": "related"
+        },
+        {
+         "name": "IsAdicComplete",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 56,
+         "fit": "related"
+        },
+        {
+         "name": "ContinuousCohomology.cochainsMap",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Functoriality.lean",
+         "line": 103,
+         "fit": "related"
+        }
+       ],
+       "note": "The ambient commutative algebra is present (total quotient rings via `IsLocalization` at non-zero-divisors, `IsLocalRing`, `IsNoetherianRing`, `IsAdicComplete`), and continuous cohomology of a topological group with topological coefficients is now in Mathlib and extended by Tau Ceti. What is missing is the representation-theoretic setup: continuous rank-two representations into GL₂ of a total quotient ring, their field-factor projections, and the characteristic-polynomial integrality hypothesis."
+      },
+      {
+       "target": "Construction of the finite T-module M and the class in H¹(G, M(χ/ψ)) every cocycle of which generates M, with Fitt₀_T(M) ⊆ I",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ContinuousCohomology.cocycles",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+         "line": 142,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's `ContinuousCohomology` (with Tau Ceti's restriction/inflation/Shapiro/long-exact-sequence layer on top) provides the H¹ in which the class would live — the roadmap assigns that API to ArithmeticGaloisDuality. The theorem itself, the generalised Ribet lemma of Dasgupta–Kakde–Silliman–Wang Theorem 1.1 with residual indistinguishability allowed, is absent."
+      },
+      {
+       "target": "The local-condition version for T ⊂ T̃ with the product bound (∏_{v∈P}(ξ_v(σ_v) − χ(σ_v)))·Fitt₀_T(N) ⊆ Ĩ",
+       "library": "absent",
+       "declarations": [],
+       "note": "DKSW Theorem 2.1; absent, and again not statable without Fitting ideals."
+      },
+      {
+       "target": "Formal matrix ring with trace/determinant invariants and the integral matrix-invariant theorem",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Matrix.trace",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+         "line": 45,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.det",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+         "line": 60,
+         "fit": "related"
+        }
+       ],
+       "note": "Traces and determinants of matrices over a commutative ring are in Mathlib, but the invariant theory of the formal 2×2 matrix ring over ℤ (generation of the invariants of GL₂ acting on matrix tuples by traces and determinants, integrally) is not; `grep -i 'invariant theory|first fundamental theorem'` finds nothing relevant in either tree."
+      },
+      {
+       "target": "Rational (algebraic-group) cohomology restriction and acyclicity statements",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has cohomology of representations of an affine algebraic group scheme (Hochschild/rational cohomology); Mathlib's `groupCohomology` is for abstract groups and Tau Ceti's `ContCohomology` for topological groups. Tau Ceti does have affine algebraic group schemes (`TauCeti/Algebra/AlgebraicGroup/`) and comodules, but not their cohomology."
+      },
+      {
+       "target": "Koszul and Buchsbaum–Rim complexes with grade/regularity hypotheses and exactness",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "RingTheory.Sequence.IsWeaklyRegular",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Regular/RegularSequence.lean",
+         "line": 135,
+         "fit": "related"
+        },
+        {
+         "name": "RingTheory.Sequence.IsRegular",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Regular/RegularSequence.lean",
+         "line": 146,
+         "fit": "related"
+        },
+        {
+         "name": "ModuleCat.exists_isRegular_tfae",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Depth/Rees.lean",
+         "line": 158,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has regular sequences, their behaviour under flat base change and localisation, and a Rees-style depth characterisation via vanishing Ext. It has no Koszul complex (`grep -i 'koszul complex|KoszulComplex'` returns nothing; every `koszul` hit in Tau Ceti is the Koszul sign rule in graded/monoidal homological algebra) and no Buchsbaum–Rim complex."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IntegralIwasawaTheory:I.7",
+       "note": "I.7 states it will 'import the general representation/lattice/extension-class/annihilator theorem from IntegralHeckeAndGaloisDeterminants IHG.6, including this residual coincidence case', and verifies the Hilbert/Eisenstein hypotheses; the generalised Ribet lemma is stated in both but owned here."
+      },
+      {
+       "layer": "IntegralIwasawaTheory:I.6",
+       "note": "I.6 builds the Ritter–Weiss modules and 'their Fitting-ideal functoriality' — the same missing Fitting-ideal API that this layer needs for Fitt₀_T(M) ⊆ I."
+      },
+      {
+       "layer": "IntegralIwasawaTheory:KU-brumerstark",
+       "note": "A readiness checkpoint aggregating I.6 and I.7, explicitly including 'the residually indistinguishable representation-theoretic proof'; it is bookkeeping over the same theorem."
+      },
+      {
+       "layer": "EulerSystemsAndKolyvaginSystems:ES.7",
+       "note": "ES.7 'Higher-rank derivatives and Fitting-ideal control' needs the same absent Fitting-ideal API, though for Kolyvagin systems rather than Ribet classes."
+      }
+     ]
+    }
+   }
+  }
+ }
+}

@@ -159,3 +159,6 @@
 2026-09-17T14:21:46Z	claude6/2	AUDIT-32	limit	2	2026-09-22T09:00:00+00:00
 2026-09-17T16:22:35Z	claude4/2	REV-AUDIT-29	done	1055	{"layers": 38, "audited": 38, "review": "accepted"}
 2026-09-17T16:26:39Z	claude4/1	REV-AUDIT-30	done	1299	{"layers": 45, "audited": 45, "review": "accepted"}
+2026-09-17T16:37:49Z	claude4/2	REV-AUDIT-31	done	913	{"layers": 47, "audited": 47, "review": "accepted"}
+2026-09-17T16:52:08Z	claude4/1	AUDIT-32	done	1528	{"layers": 49, "audited": 49}
+2026-09-17T16:57:50Z	claude4/2	COMPARE-33	done	1200	{"judged": 24, "pairs": 24}

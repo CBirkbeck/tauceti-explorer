@@ -38426,7 +38426,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-33.md",
    "timeout": 14400,
-   "state": "pending"
+   "state": "done",
+   "account": "claude4",
+   "lane": 2,
+   "startedAt": "2026-09-17T16:37:49Z",
+   "attempts": 1,
+   "finishedAt": "2026-09-17T16:57:50Z",
+   "seconds": 1200,
+   "result": {
+    "judged": 24,
+    "pairs": 24
+   },
+   "note": ""
   },
   {
    "id": "COMPARE-34",
@@ -38455,7 +38466,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-34.md",
    "timeout": 14400,
-   "state": "pending"
+   "state": "running",
+   "account": "claude4",
+   "lane": 2,
+   "startedAt": "2026-09-17T16:57:50Z",
+   "attempts": 1
   },
   {
    "id": "COMPARE-35",
@@ -40820,12 +40835,20 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-31.md",
    "timeout": 21600,
-   "state": "running",
+   "state": "done",
    "avoidAccountOf": "AUDIT-31",
    "account": "claude4",
    "lane": 2,
    "startedAt": "2026-09-17T16:22:35Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-17T16:37:49Z",
+   "seconds": 913,
+   "result": {
+    "layers": 47,
+    "audited": 47,
+    "review": "accepted"
+   },
+   "note": ""
   },
   {
    "id": "AUDIT-32",
@@ -40845,12 +40868,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-32.md",
    "timeout": 21600,
-   "state": "running",
+   "state": "done",
    "account": "claude4",
    "lane": 1,
    "startedAt": "2026-09-17T16:26:39Z",
    "attempts": 1,
-   "note": "released after a usage limit on claude6/2 at 2026-09-17T14:21:45Z"
+   "note": "",
+   "finishedAt": "2026-09-17T16:52:08Z",
+   "seconds": 1528,
+   "result": {
+    "layers": 49,
+    "audited": 49
+   }
   },
   {
    "id": "REV-AUDIT-32",
@@ -40894,7 +40923,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-33.md",
    "timeout": 21600,
-   "state": "pending"
+   "state": "running",
+   "account": "claude4",
+   "lane": 1,
+   "startedAt": "2026-09-17T16:52:08Z",
+   "attempts": 1
   },
   {
    "id": "REV-AUDIT-33",
