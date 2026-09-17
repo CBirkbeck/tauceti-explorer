@@ -3585,6 +3585,10 @@
       {
        "layer": "FiniteFieldsAndCharacterSums:FF.3",
        "note": "Finite-field polynomial factorisation with checked factor products, irreducibility witnesses and separately stated bit-operation and randomness models, the polynomial half of CN.1."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-5-frobenius-specialization",
+       "note": "Owns `factorDegrees f p`, the multiset of degrees of the monic irreducible factors of f mod p, with the criterion `factorDegrees f p = {n}` iff `f mod p` is irreducible of degree n, the multiplicity-one lemma at good primes and worked mod-p examples: the mod-p irreducibility-certificate half of CN.1's polynomial targets, and the owner of the Tau Ceti declarations cited for them."
       }
      ]
     },
@@ -3979,6 +3983,14 @@
       {
        "layer": "EffectiveDiophantineMethods:ED.3",
        "note": "Turns isogeny and Selmer constructions into finite descent algorithms with certified rank bounds and saturation."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas",
+       "note": "Owns the Sturm bound at general level (`sturm_bound_finiteIndex`, consuming Mathlib's level-one bound) together with finite-dimensionality, which is exactly CN.3's Sturm-style truncation target and the source of the Tau Ceti declarations cited for it."
+      },
+      {
+       "layer": "FiniteFieldsAndCharacterSums:FF.3",
+       "note": "Also asks for certified point-counting algorithms with the trace convention and a provable error bound, the point-count half of CN.3; the batch already records FF.3 as CN.1's polynomial-factorisation duplicate."
       }
      ]
     },
@@ -4967,5 +4979,35 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-17",
+  "date": "2026-09-17",
+  "checked": 194,
+  "corrections": [
+   {
+    "layer": "ComputationalNumberTheory:CN.1",
+    "target": "(duplicates)",
+    "was": "one duplicate: FiniteFieldsAndCharacterSums:FF.3",
+    "now": "added tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-5-frobenius-specialization",
+    "why": "That layer owns `factorDegrees f p` (the multiset of degrees of the monic irreducible factors of f mod p), the criterion `factorDegrees f p = {n}` iff `f mod p` is irreducible of degree n, the multiplicity-one lemma at good primes and the examples `factorDegrees (X^5 - X - 1) 2 = {3,2}`, `... 5 = {5}`. It is the owner of `Polynomial.factorDegrees` (TauCeti/RingTheory/Polynomial/FactorDegrees.lean:53), `Polynomial.Monic.factorDegrees_eq_singleton_iff_irreducible` (:159) and `Polynomial.irreducible_X_pow_five_sub_X_sub_one_zmod_five` (TauCeti/FieldTheory/GaloisGroups/FactorDegrees.lean:104), the three Tau Ceti declarations the audit cites under CN.1's polynomial-factorisation and irreducibility-certificate targets."
+   },
+   {
+    "layer": "ComputationalNumberTheory:CN.3",
+    "target": "(duplicates)",
+    "was": "five duplicates, none of them the Sturm-bound owner",
+    "now": "added tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas",
+    "why": "That layer states 'The Sturm bound and finite-dimensionality - consume level one, build the general case', names `sturm_bound_finiteIndex`, and is where ModularForms Layer 1 points for the bound. CN.3's own Sturm target is marked `both` and cites `TauCeti.ModularForm.sturm_bound_finiteIndex` and `eq_of_sturm_bound`, so the owning layer belongs in the duplicate list."
+   },
+   {
+    "layer": "ComputationalNumberTheory:CN.3",
+    "target": "(duplicates)",
+    "was": "five duplicates, none covering certified point counting",
+    "now": "added FiniteFieldsAndCharacterSums:FF.3",
+    "why": "FF.3 ('Factorization and point counting') asks for 'certified point-counting algorithms, with bit-operation and randomness models stated separately' and accepts them only when 'a point count agrees with the trace convention and a provable error bound'. That is CN.3's point-count target, including the Hasse-type bound the audit records as absent. The batch already lists FF.3 as CN.1's duplicate for the polynomial half."
+   }
+  ],
+  "notes": "Checked all 194 targets of the 33 layers, 375 distinct declaration citations and 89 duplicate claims. Every citation resolves at the stated library, file and line (four are absent from declarations.tsv but present in the source exactly as cited: `PMF` at Mathlib/Probability/ProbabilityMassFunction/Basic.lean:46, whose universe annotation `PMF.{u}` the index misses, and the instances `proper_of_compact` and `complete_of_proper` at Mathlib/Topology/MetricSpace/ProperSpace.lean:93 and :104 - the audit already flags the last one). No citation is private, an axiom or a bare structure field, and no cited file contains a `sorry` in a proof; the nine Tau Ceti and 44 Mathlib files whose text contains the word are all docstrings, and none of them is cited. Every verdict agrees with its targets under the rule that `built` means no absent or partial target, `not built` means none present, and `partly built` means at least one of each; no layer needed a verdict change. The one `built` layer (HopfRinow Layer 0) was confirmed target by target against the Lean sources, and the three `process` layers (HC.6, HR.7, CN.5) are export, acceptance-test and reproducibility bookkeeping as their descriptions say. I re-searched independently, by concept and by Mathlib naming convention, in declarations.tsv and in both whole source trees, every absent or partial claim whose concept has a standard name, and about two thirds of the rest: no Riemannian exponential map, Gauss lemma, normal neighbourhood, first variation of energy, Hopf-Rinow statement, Riemannian isometry, geodesic flow or chosen maximal geodesic; no Cohen-Macaulay, Auslander-Buchsbaum, complete-intersection, catenary or excellent-ring predicate, no depth invariant (only Rees' theorem in Mathlib/RingTheory/Depth/Rees.lean), no perfect complex, Tor-amplitude, derived completion, derived Nakayama, lim-1, completed tensor product, Schlessinger criterion, deformation functor, hull or ultraproduct of varying rings; no Habiro ring, cyclotomic completion, Lambda-ring, Adams operation, delta-ring, q-Witt or big Witt ring, and q-Pochhammer symbols are still a Mathlib TODO; no Hermite normal form, LLL, Miller-Rabin, AKS, Pollard rho, Cantor-Zassenhaus, Berlekamp, Velu, Schoof, modular symbol, Newton polygon, Sturm sequence, ball arithmetic or Hasse bound. Two files the audit does not cite, TauCeti/Geometry/Manifold/Riemannian/MetricVariation.lean and MetricBridge.lean, are further Layer-0 support (metric variation equals path length on an open submanifold, and the chart-displacement estimate), not the first variation of energy, so Layer 2 stays absent. All 89 duplicate claims point at live atlas layers - none retired - and reading the target descriptions confirms each overlap; the low-scoring ones are same-roadmap cross-references and are correct, including that the atlas gives HR.5-number-field-comparison the whole of HR.5's description. Candidates I checked and rejected as duplicates because they are declared consumers of the batch's own roadmaps: OptimalTransport Layers 7 and 8 and GeometricTopology Layer 7 (they consume HopfRinow's connection, exponential map and length-space API), GlobalGaloisDeformations R04.1 and AutomorphicCongruences L3 (both list DeformationAndDerivedPatchingAlgebra as a dependency), LanglandsParameterStacks LP4 and EffectiveDiophantineMethods ED.1. The audit's own factual asides hold: CN.2 does still list the retired FoundationsAndLibraryIntegration:LI.4 as an input, Mathlib's `Polynomial.normalizedFactors_cyclotomic_card` does give Phi_5 four factors over F_11, and `CommRingCat.equalizerForkIsLimit` does supply HR.7's Suggested.lean universal property."
  }
 }
