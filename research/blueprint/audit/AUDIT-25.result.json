@@ -332,7 +332,7 @@
          "fit": "related"
         }
        ],
-       "note": "Elliptic curves only. The torsion characterisation takes Northcott for the naïve height as an instance hypothesis, and Mathlib proves Northcott for elements of a number field."
+       "note": "Elliptic curves only. The torsion characterisation's instance hypothesis is Northcott for the canonical height itself; an instance in the same file derives it from Northcott for the naïve height, and TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/NaiveHeight.lean derives that from Northcott for Mathlib's logHeight₁, which Mathlib proves for a number field."
       },
       {
        "target": "Bilinear height A(F̄)×A∨(F̄)→ℝ from the Poincaré biextension, with adjunction under homomorphisms",
@@ -547,6 +547,13 @@
        "library": "absent",
        "declarations": [
         {
+         "name": "TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.weightedDegreeZeroQuotientEquivPicZero",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/PicZeroQuotient.lean",
+         "line": 125,
+         "fit": "related"
+        },
+        {
          "name": "WeierstrassCurve.Affine.neronTatePairing",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
@@ -554,7 +561,7 @@
          "fit": "related"
         }
        ],
-       "note": "Neither library has a Jacobian variety of a curve or a Néron–Tate pairing on it. The only such pairing is the elliptic one."
+       "note": "Tau Ceti has the degree-zero divisor class group at the formal divisor-class level: weighted-degree-zero divisors modulo principal divisors are identified with the abstract Pic⁰ of an order system. Neither library has a Jacobian variety of a curve, and neither has any pairing on degree-zero classes; the only Néron–Tate pairing is the elliptic one on E(F)."
       },
       {
        "target": "Regularised self-intersection of degree-one Hodge classes, and the local height decomposition, base-change and correspondence-adjunction APIs",
@@ -887,7 +894,12 @@
        "note": "Absent."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+       "note": "Constructs local representation densities, mass formulas and theta-series interfaces; GZ.7's finite-place identities are stated against derivatives of those densities."
+      }
+     ]
     },
     "GrossZagierAndArithmeticHeights:GZ.8": {
      "verdict": "not built",
@@ -1209,6 +1221,10 @@
       {
        "layer": "GeneralizedHeegnerCycles:GH.1",
        "note": "Builds generalised Heegner cycles from graphs of CM isogenies and proves rationality over the ring class field; the higher-weight analogue of the CM-point construction."
+      },
+      {
+       "layer": "ShimuraVarieties:V5",
+       "note": "Proves the main theorem of complex multiplication with CM types, reflex norms and the full reciprocity law, and applies it to the Siegel canonical model — HE.1's descent target. CM.2 imports it."
       }
      ]
     },
@@ -1670,6 +1686,10 @@
       {
        "layer": "AutomorphicCongruences:L5a",
        "note": "Owns BCS v2 Theorem 4.2.1's two-variable Iwasawa–Greenberg comparison, which HE.8b also pins as part of its proof."
+      },
+      {
+       "layer": "ModularIwasawaMainConjectures:L6",
+       "note": "Exposes the same BCS v2 Theorems 1.2.2/1.2.4 and BCGS Theorem 1.2.13(ii)/(iii) through its branch interfaces, naming HE.8b as their proof owner; the overlap is the formulation and normalisation comparison."
       }
      ]
     },
@@ -2093,7 +2113,12 @@
        "note": "Absent."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "NoncommutativeAndEquivariantIwasawa:NE.6",
+       "note": "Decomposes the Kakde and Ritter–Weiss routes with their integral congruences and abelian pseudo-measures; its Ritter–Weiss machinery overlaps I.6's Ritter–Weiss modules and presentations."
+      }
+     ]
     },
     "IntegralIwasawaTheory:I.7": {
      "verdict": "not built",
@@ -2717,6 +2742,18 @@
       {
        "layer": "EllipticRegulators:ER.7",
        "note": "Constructs modular-curve K₂ classes from modular units and evaluates their (archimedean) regulator; this overlaps the symbol construction."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.2",
+       "note": "Constructs Steinberg symbols in K₂, Milnor K-theory and Matsumoto's theorem — the symbol half of L1's first target, which L1's text imports from this roadmap."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.3",
+       "note": "Constructs the tame symbol at a discrete valuation and its identification with the K-theory localisation boundary map, which is L1's localisation/tame-residue target."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.8",
+       "note": "Constructs étale Chern classes, the regulator from motivic cohomology and the syntomic comparison, and norm-compatible families with Euler-factor relations; L1's second target imports exactly these."
       }
      ]
     },
@@ -3190,6 +3227,20 @@
        "library": "absent",
        "declarations": [
         {
+         "name": "ContinuousLinearMap.IsFredholm",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Normed/Operator/Fredholm/Basic.lean",
+         "line": 123,
+         "fit": "related"
+        },
+        {
+         "name": "ContinuousLinearMap.index",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Fredholm/Index.lean",
+         "line": 52,
+         "fit": "related"
+        },
+        {
          "name": "IsCompactOperator.finiteDimensional_ker_one_sub",
          "library": "tauceti",
          "file": "TauCeti/Analysis/Normed/Operator/Compact/RieszTheory.lean",
@@ -3197,7 +3248,7 @@
          "fit": "related"
         }
        ],
-       "note": "Neither library has p-adic Fredholm determinants. In Tau Ceti's Riesz theory, finite dimensionality of ker(1−K) holds over any complete nontrivially normed field, including p-adic ones. Closed range and finite cokernel need IsRCLikeNormedField, so they are not available over ℚ_p."
+       "note": "Neither library has p-adic Fredholm determinants. Mathlib's Fredholm predicate (strict map, closed range, finite-dimensional kernel, cofinitely generated range, complemented kernel) and Tau Ceti's Fredholm index are stated over any nontrivially normed field, so they apply over ℚ_p. In Tau Ceti's Riesz theory, finite dimensionality of ker(1−K) holds over any complete nontrivially normed field, including p-adic ones; closed range and finite cokernel need IsRCLikeNormedField, so they are not available over ℚ_p."
       },
       {
        "target": "Slope decompositions and their compatibility with specialisation on slope-adapted affinoids",
@@ -3221,5 +3272,84 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-25",
+  "date": "2026-09-17",
+  "checked": 234,
+  "corrections": [
+   {
+    "layer": "GrossZagierAndArithmeticHeights:GZ.1",
+    "target": "Positivity for ample symmetric bundles, and zero locus equal to torsion over a number field (via Northcott and finite generation)",
+    "was": "note: \"The torsion characterisation takes Northcott for the naïve height as an instance hypothesis\"",
+    "now": "note: the instance hypothesis is Northcott for the canonical height, supplied by instances from the naïve height and from Mathlib's Northcott for logHeight₁",
+    "why": "WeierstrassCurve.Affine.Point.canonicalHeight_eq_zero_iff_isOfFinAddOrder (CanonicalHeight.lean:338) asks for [Northcott (Point.canonicalHeight (W := W))]; the naïve-height hypothesis enters through the instance at line 308."
+   },
+   {
+    "layer": "GrossZagierAndArithmeticHeights:GZ.2",
+    "target": "Faltings–Hriljac comparison with the canonical Jacobian pairing for degree-zero divisors",
+    "was": "no Tau Ceti citation; note said only that neither library has a Jacobian variety or a Néron–Tate pairing on it",
+    "now": "cites TauCeti.…WeilDivisor.OrderSystem.weightedDegreeZeroQuotientEquivPicZero (related) and says the degree-zero divisor class group exists at the divisor-class level",
+    "why": "TauCeti/AlgebraicGeometry/WeilDivisor/PicZeroQuotient.lean:125 proves (degree-zero divisors)/(principal) ≃+ Pic⁰; the group the Faltings–Hriljac pairing lives on is there, though no variety and no pairing are."
+   },
+   {
+    "layer": "LocallyAnalyticDistributions:L4",
+    "target": "Nuclear/Fredholm determinants for compact operators on orthonormalizable Banach modules over affinoid algebras",
+    "was": "only IsCompactOperator.finiteDimensional_ker_one_sub cited; the Fredholm predicate and index were not mentioned",
+    "now": "also cites ContinuousLinearMap.IsFredholm (mathlib) and ContinuousLinearMap.index (tauceti), both over any nontrivially normed field",
+    "why": "Mathlib/Analysis/Normed/Operator/Fredholm/Basic.lean:123 and TauCeti/Analysis/Fredholm/Index.lean:52 are stated with [NontriviallyNormedField 𝕜], hence available over ℚ_p; only the determinant is missing."
+   },
+   {
+    "layer": "GrossZagierAndArithmeticHeights:GZ.7",
+    "target": "duplicates",
+    "was": "GeometryOfNumbersAndQuadraticArithmetic:GN.3 not listed",
+    "now": "added GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+    "why": "Constructs local representation densities, mass formulas and theta-series interfaces; GZ.7's finite-place identities are stated against derivatives of those densities."
+   },
+   {
+    "layer": "HeegnerPointEulerSystems:HE.1",
+    "target": "duplicates",
+    "was": "ShimuraVarieties:V5 not listed",
+    "now": "added ShimuraVarieties:V5",
+    "why": "Proves the main theorem of complex multiplication with CM types, reflex norms and the full reciprocity law, and applies it to the Siegel canonical model — HE.1's descent target. CM.2 imports it."
+   },
+   {
+    "layer": "HeegnerPointEulerSystems:HE.8b",
+    "target": "duplicates",
+    "was": "ModularIwasawaMainConjectures:L6 not listed",
+    "now": "added ModularIwasawaMainConjectures:L6",
+    "why": "Exposes the same BCS v2 Theorems 1.2.2/1.2.4 and BCGS Theorem 1.2.13(ii)/(iii) through its branch interfaces, naming HE.8b as their proof owner; the overlap is the formulation and normalisation comparison."
+   },
+   {
+    "layer": "KatoEulerSystems:L1",
+    "target": "duplicates",
+    "was": "K2SymbolsBrauer:T.2 not listed",
+    "now": "added K2SymbolsBrauer:T.2",
+    "why": "Constructs Steinberg symbols in K₂, Milnor K-theory and Matsumoto's theorem — the symbol half of L1's first target, which L1's text imports from this roadmap."
+   },
+   {
+    "layer": "KatoEulerSystems:L1",
+    "target": "duplicates",
+    "was": "K2SymbolsBrauer:T.3 not listed",
+    "now": "added K2SymbolsBrauer:T.3",
+    "why": "Constructs the tame symbol at a discrete valuation and its identification with the K-theory localisation boundary map, which is L1's localisation/tame-residue target."
+   },
+   {
+    "layer": "KatoEulerSystems:L1",
+    "target": "duplicates",
+    "was": "MotivicEtaleKTheory:M.8 not listed",
+    "now": "added MotivicEtaleKTheory:M.8",
+    "why": "Constructs étale Chern classes, the regulator from motivic cohomology and the syntomic comparison, and norm-compatible families with Euler-factor relations; L1's second target imports exactly these."
+   },
+   {
+    "layer": "IntegralIwasawaTheory:I.6",
+    "target": "duplicates",
+    "was": "NoncommutativeAndEquivariantIwasawa:NE.6 not listed",
+    "now": "added NoncommutativeAndEquivariantIwasawa:NE.6",
+    "why": "Decomposes the Kakde and Ritter–Weiss routes with their integral congruences and abelian pseudo-measures; its Ritter–Weiss machinery overlaps I.6's Ritter–Weiss modules and presentations."
+   }
+  ],
+  "notes": "Checked every one of the 234 targets. All 154 declaration citations (123 distinct) were opened at the cited line: every one names the declaration claimed, none is private or a structure field of an unproved theory, and every cited file is free of sorry. Two citations (ModularForm.L, ModularForm.Λ) are absent from declarations.tsv but are real declarations in Mathlib/NumberTheory/ModularForms/LFunction.lean at the cited lines; the index is incomplete, not the audit. The 192 'absent' and 34 'partial' claims were re-searched independently by concept across both trees (about a hundred grep -rn -i sweeps: Heegner points, CM points, Weil pairing, Tate module, Sha, Néron models, Tamagawa numbers, modular curves, Siegel/modular units, Milnor K₂ and tame symbols, étale Chern classes, Arakelov/Green functions, Shimura curves, theta kernels and Weil representations, representation densities, Fitting and characteristic ideals, ℤ_p-extensions, completed group algebras, Kubota–Leopoldt and Deligne–Ribet, Stickelberger, Brumer–Stark, Vandiver, Ferrero–Washington, Baker–Brumer, locally analytic functions, admissible distributions, character/weight spaces, Fredholm determinants, orthonormalizable Banach modules, and more). Every one held. Apparent hits were false friends and were checked in context: Mathlib's 'Iwasawa' is the group-theoretic Iwasawa criterion plus a docstring aside on AbstractMeasure; 'Fitting' is the Lie-theoretic Fitting decomposition; IsDedekindDomain.selmerGroup is the S-unit group K(S,n), not an elliptic Selmer group; Tau Ceti's 'Shimura' hits are citations of Shimura's book in the Hecke files, its 'test vector' and 'matrix coefficient' hits are linear algebra, its 'real period' hits are periodic functions, its Weil-pairing hits are the divisor infrastructure for a pairing that is not built, and its Stickelberger file is the discriminant congruence, not Stickelberger elements. Mathlib's Height/EllipticCurve.lean contains only the add-sub-map height estimate, with the naïve height and the parallelogram law still TODO, so the audit is right to attribute the canonical height to Tau Ceti. The two 'process' verdicts (HE.7s, HE.8c) match their layer descriptions, which are source-acquisition and source-hypothesis bookkeeping; no layer is marked 'built'. All 75 duplicates resolve to existing atlas or Tau Ceti roadmap layers and each genuinely states overlapping targets; a keyword sweep of all 1962 atlas layer descriptions added the seven above and turned up nothing else that was missed (the high-scoring RankZeroOneBSD and SpecialValuesBirchTate matches are consumers of these layers, not co-owners of their targets, and the audit is right to leave them out). The audit's sharpest finding is independently confirmed: Tau Ceti's Néron–Tate pairing is QuadraticMap.associated', so neronTatePairing_self gives ⟨P,P⟩ = ĥ(P) with ĥ = lim h_x(2ⁿP)/(2·4ⁿ), half the x-height limit, and naiveHeight is Mathlib's logHeight of the x-coordinate, relative to the base field. GZ.0's premise about the existing convention is wrong, and over ℚ the regulator is 2^(−r) times the one built from the pairing with ⟨P,P⟩ = lim h_x(2ⁿP)/4ⁿ."
  }
 }

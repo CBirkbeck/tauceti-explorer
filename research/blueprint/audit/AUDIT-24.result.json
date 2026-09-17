@@ -885,6 +885,10 @@
       {
        "layer": "AutomorphicPadicLFunctions:L3",
        "note": "L3 constructs the Deligne–Ribet p-adic zeta pseudo-measure with smoothing factors, Euler factors and congruences for totally real F and requires its F = Q specialization to agree with this construction."
+      },
+      {
+       "layer": "PadicMeasuresIwasawaAlgebras:L3",
+       "note": "L3 owns pseudo-measures for commutative O[[G]]: the condition ([g]−1)λ ∈ O[[G]], the localization at non-zero-divisors, evaluation by clearing a factor [g]−1, independence of g, and the procyclic existence/uniqueness statements used by RJW §§3–4 — the same construction this layer performs for ζ_p when it divides x^{-1}Res(μ_a) by [a]−1 and proves independence of the smoothing parameter."
       }
      ]
     },
@@ -1842,6 +1846,10 @@
       {
        "layer": "IntegralIwasawaTheory:L3",
        "note": "Derives the same ideal equality char(X_∞^+) = I(G^+)ζ_p under Vandiver and its standard isotypic formulations."
+      },
+      {
+       "layer": "IntegralIwasawaTheory:L1",
+       "note": "L1 derives and proves the four-term exact sequence 0 → E_∞^+/C_∞^+ → U_∞^+/C_∞^+ → X_∞^+ → Y_∞^+ → 0 from ray-class reciprocity and inverse limits, the sequence this layer's second target uses; ownership of that sequence is stated in both layers."
       }
      ]
     },
@@ -2203,5 +2211,28 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-24",
+  "date": "2026-09-17",
+  "checked": 142,
+  "corrections": [
+   {
+    "layer": "DirichletPadicLFunctions:L1",
+    "target": "(duplicates)",
+    "was": "only AutomorphicPadicLFunctions:L3",
+    "now": "added PadicMeasuresIwasawaAlgebras:L3",
+    "why": "That layer owns pseudo-measures over O[[G]] — the ([g]−1)λ ∈ O[[G]] condition, the localization at non-zero-divisors, evaluation, independence of g and the procyclic existence/uniqueness statements for RJW §§3–4 — which is exactly the machinery this layer restates when it divides by [a]−1 in the total quotient ring and proves independence of the smoothing parameter."
+   },
+   {
+    "layer": "EulerSystemsCyclotomicMainConjecture:L3",
+    "target": "(duplicates)",
+    "was": "IntegralIwasawaTheory:I.5 and IntegralIwasawaTheory:L3",
+    "now": "added IntegralIwasawaTheory:L1",
+    "why": "This layer uses the exact sequence 0 → E^+/C^+ → U^+/C^+ → X^+ → Y^+ → 0 without naming an owner; IntegralIwasawaTheory:L1 states and proves that very sequence from ray-class reciprocity and inverse limits."
+   }
+  ],
+  "notes": "Every target entry was read and every claim re-checked. All 125 declaration citations (111 distinct declarations) resolve to the cited name on the cited line of the cited file in the pinned baseline, no cited file contains a sorry, and each statement matches its note, including the hypotheses the notes flag (Algebra.norm_norm needs Module.Free S A and Module.Free R S, which finite field extensions satisfy; IsCyclotomicExtension.finrank and IsPrimitiveRoot.sub_one_norm_isPrimePow need Irreducible (cyclotomic n K); gaussSum_ne_zero_of_nontrivial needs a finite field, so it is only the prime-modulus case; exteriorPower.bijective_pairingDual needs Module.Free; PowerSeries.exists_isWeierstrassFactorization holds over any adically complete local ring; EisensteinSeries.q_expansion_bernoulli needs 3 ≤ k and Even k; DirichletCharacter.LFunction_changeLevel needs χ ≠ 1 ∨ s ≠ 1). riemannZeta_neg_nat_eq_bernoulli' does cover k = 0, giving ζ(0) = −1/2. Two notes that quote the libraries were checked verbatim and are right: the ℤ_p-module structure on principal units is the stated TODO of Mathlib/RingTheory/PowerSeries/Binomial.lean, and L(χ,1−n) is the stated TODO ('Extend to cover Dirichlet L-functions') of Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean. All 95 absent and 40 partial targets were re-searched independently, by Mathlib naming conventions and by concept, in declarations.tsv and in both Lean trees; nothing was found that the audit missed. In particular neither library has: a p-adic logarithm (PowerSeries.log needs an Algebra ℚ A), ℤ_p^× ≅ μ_{p−1} × (1+pℤ_p), an inverse limit of μ_{p^n} or a Tate module, completed group rings, Iwasawa algebras, pseudo-measures, characteristic ideals, pseudo-null modules, Fitting ideals (only the Lie-theoretic Fitting decomposition), Gorenstein orders, exterior biduals, Selmer structures for p-adic representations, core rank, Poitou–Tate, Kolyvagin or Stark systems, the Chebotarev density theorem (Tau Ceti has infrastructure and an auxiliary-prime existence theorem, not the density theorem), ray class fields, Hecke/idele class characters, generalized Bernoulli numbers, a Kubota–Leopoldt p-adic L-function, modular curves as schemes, CM or Kuga–Sato varieties, cycle class and étale Abel–Jacobi maps, ring class fields, Gross–Zagier, or Hida families. The only 'Coleman' in either tree is Chabauty–Coleman. Irreducibility of the cyclotomic polynomial is proved over ℚ and ℤ (Mathlib) and over number fields unramified at p (Tau Ceti), not over ℚ_[p], so the degree formula for ℚ_p(μ_{p^n}) is genuinely out of reach: the 'partial' verdict on that target is right. Verdicts are consistent with the targets under the job's rule: exactly the four layers with a fully present target (ColemanPowerSeries:L0, ColemanPowerSeries:L2, DirichletPadicLFunctions:L0, DirichletPadicLFunctions:L4) are 'partly built' and the other 29 are 'not built'; no layer in this batch is built or process. All 41 duplicates were confirmed against the cited layer's own description in the atlas, and all cited layer ids are atlas stage ids. A keyword sweep of the 1962 atlas layer descriptions for this batch's concepts turned up two overlaps the audit had missed, added above. Two further candidates were considered and rejected because the other layer explicitly names this batch as the owner and only requires a comparison: IntegralIwasawaTheory:I.3 ('import the Kubota–Leopoldt pseudomeasure from DirichletPadicLFunctions L1–L2 … No second p-adic zeta carrier is constructed') and PadicHodgeRegulators:L3 ('Identify the rank-one Tate case with R04's Coleman map')."
  }
 }

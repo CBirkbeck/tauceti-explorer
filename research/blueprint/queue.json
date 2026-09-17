@@ -1149,8 +1149,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_GlobalQuadraticForms.md",
-   "state": "pending",
-   "note": "released on GitHub issue #27"
+   "state": "external",
+   "note": "claimed on GitHub issue #27"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_GlobalQuadraticForms",
@@ -1183,7 +1183,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_QuadraticFormInvariants.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #28"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_QuadraticFormInvariants",
@@ -1249,7 +1250,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_PolynomialGaloisGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #30"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_PolynomialGaloisGroups",
@@ -1414,7 +1416,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_Completed_EffectiveBounds.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #35"
   },
   {
    "id": "REV-LINK-tauceti_Completed_EffectiveBounds",
@@ -1447,7 +1450,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_Completed_IntegralLattices.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #36"
   },
   {
    "id": "REV-LINK-tauceti_Completed_IntegralLattices",
@@ -1480,8 +1484,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_Completed_OrthogonalL2Bases.md",
-   "state": "pending",
-   "note": "released on GitHub issue #37"
+   "state": "external",
+   "note": "claimed on GitHub issue #37"
   },
   {
    "id": "REV-LINK-tauceti_Completed_OrthogonalL2Bases",
@@ -1514,7 +1518,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #38"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
@@ -1981,7 +1986,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #52"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
@@ -2113,7 +2119,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_AdoIwasawa.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #56"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_AdoIwasawa",
@@ -2146,7 +2153,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_CharacterTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #57"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_CharacterTheory",
@@ -38162,11 +38170,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-27.md",
    "timeout": 14400,
-   "state": "pending",
-   "account": null,
-   "lane": 2,
-   "startedAt": "2026-09-17T09:55:57Z",
-   "attempts": 0,
+   "state": "running",
+   "account": "claude4",
+   "lane": 1,
+   "startedAt": "2026-09-17T11:23:40Z",
+   "attempts": 1,
    "note": "released after a usage limit on claude6/2 at 2026-09-17T10:12:43Z"
   },
   {
@@ -40269,8 +40277,20 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-24.md",
    "timeout": 21600,
-   "state": "pending",
-   "avoidAccountOf": "AUDIT-24"
+   "state": "done",
+   "avoidAccountOf": "AUDIT-24",
+   "account": "claude4",
+   "lane": 2,
+   "startedAt": "2026-09-17T11:05:00Z",
+   "attempts": 1,
+   "finishedAt": "2026-09-17T11:20:03Z",
+   "seconds": 903,
+   "result": {
+    "layers": 33,
+    "audited": 33,
+    "review": "accepted"
+   },
+   "note": ""
   },
   {
    "id": "AUDIT-25",
@@ -40324,8 +40344,20 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-25.md",
    "timeout": 21600,
-   "state": "pending",
-   "avoidAccountOf": "AUDIT-25"
+   "state": "done",
+   "avoidAccountOf": "AUDIT-25",
+   "account": "claude4",
+   "lane": 1,
+   "startedAt": "2026-09-17T11:05:00Z",
+   "attempts": 1,
+   "finishedAt": "2026-09-17T11:23:40Z",
+   "seconds": 1120,
+   "result": {
+    "layers": 47,
+    "audited": 47,
+    "review": "accepted"
+   },
+   "note": ""
   },
   {
    "id": "AUDIT-26",
@@ -40379,8 +40411,12 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-26.md",
    "timeout": 21600,
-   "state": "pending",
-   "avoidAccountOf": "AUDIT-26"
+   "state": "running",
+   "avoidAccountOf": "AUDIT-26",
+   "account": "claude4",
+   "lane": 2,
+   "startedAt": "2026-09-17T11:20:03Z",
+   "attempts": 1
   },
   {
    "id": "AUDIT-27",
