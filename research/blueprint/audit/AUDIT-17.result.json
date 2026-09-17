@@ -1,0 +1,1117 @@
+{
+ "job": "AUDIT-17",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369; mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "DeformationAndDerivedPatchingAlgebra": {
+   "summary": "Mathlib supplies the commutative-algebra background this roadmap consumes and a little more than the document credits: adic completion with `IsAdicComplete`/`IsHausdorff`, complete-local-ring basics (`AdicCompletion.isLocalRing_of_fg`, `residueField_map_bijective`, `spanFinrank_maximalIdeal_eq`), the fact that an Artinian local ring is adically complete, a full continuous universal property for (Mv)PowerSeries into complete separated linearly-topologised algebras (`MvPowerSeries.eval₂Hom`, `aeval`, `eval₂_unique`, `comp_eval₂`), Krull dimension and the Krull height theorem, `Module.support`/`Module.supportDim`, associated primes, regular sequences (`RingTheory.Sequence.IsWeaklyRegular`/`IsRegular`), the Rees theorem for depth (`ModuleCat.exists_isRegular_tfae`), projective dimension of a quotient by a regular sequence, `IsRegularLocalRing`, `Module.length`, and the whole HomologicalComplex/Homotopy/DerivedCategory/Ext/SpectralSequence machinery. What is genuinely missing is everything specific to this roadmap: there is no depth invariant, no Cohen–Macaulay or complete-intersection predicate, no Auslander–Buchsbaum formula, no catenary/excellent hypotheses, no completed tensor product of complete local rings, no Noetherianness of a completion, no perfect complexes, Tor-amplitude, minimal resolutions, derived completion or derived Nakayama, no Schlessinger criterion or deformation functors, hulls and obstruction spaces, and nothing at all about patching, ultrapatching or component support. Tau Ceti adds only peripheral pieces (Auslander–Reiten theory, an Ext Euler characteristic, `TauCeti.RingTheory.Length`) and no local-ring deformation theory. Every layer is therefore not built, and the roadmap's own statement of what it must construct is accurate.",
+   "layers": {
+    "DeformationAndDerivedPatchingAlgebra:P7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Homotopy-equivalence and quasi-isomorphism API for bounded complexes of finite projective modules",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "HomologicalComplex",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+         "line": 59,
+         "fit": "more general"
+        },
+        {
+         "name": "Homotopy",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/Homotopy.lean",
+         "line": 126,
+         "fit": "more general"
+        },
+        {
+         "name": "DerivedCategory",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+         "line": 87,
+         "fit": "more general"
+        },
+        {
+         "name": "DerivedCategory.isIso_Q_map_iff_quasiIso",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+         "line": 283,
+         "fit": "more general"
+        },
+        {
+         "name": "DerivedCategory.Q_map_eq_of_homotopy",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+         "line": 287,
+         "fit": "more general"
+        }
+       ],
+       "note": "Mathlib's homological algebra covers this for an arbitrary abelian category, so the generic API the layer wants to 'build using Mathlib HomologicalComplex, homotopy and derived categories' is already there; only the specialisation to complete Noetherian local O-algebras is new. Note that `DerivedCategory C` needs `HasDerivedCategory` universe data, which is available for `ModuleCat R` via the small-shifted-hom construction."
+      },
+      {
+       "target": "Definition of perfect complex by local finite-projective resolutions",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'perfect complex'` over both trees returns only `Group.IsPerfect` and prose; neither library defines perfect complexes of modules or the `IsPerfect`/`Perf` subcategory of a derived category."
+      },
+      {
+       "target": "Minimal representatives over local rings and uniqueness up to homotopy (minimal free/projective resolutions)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No `minimalFreeResolution` or 'minimal resolution' anywhere in Mathlib or Tau Ceti; Mathlib has `ProjectiveResolution` and its uniqueness up to homotopy, but no minimality over a local ring. Tau Ceti has `TauCeti.IsMinimalProjectivePresentation` (TauCeti/Algebra/Module/AuslanderReiten/Transpose.lean) for Artin algebras only, which is a presentation, not a resolution."
+      },
+      {
+       "target": "Tor-amplitude of a complex",
+       "library": "absent",
+       "declarations": [],
+       "note": "No occurrence of 'amplitude' or 'TorAmplitude' in either tree."
+      },
+      {
+       "target": "Duals of perfect complexes and derived tensor products",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HomologicalComplex.monoidalCategory",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/Monoidal.lean",
+         "line": 333,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Tor",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Tor.lean",
+         "line": 44,
+         "fit": "related"
+        }
+       ],
+       "note": "There is a monoidal structure on `HomologicalComplex` and a `Tor` bifunctor obtained by left-deriving the tensor product in an abelian monoidal category, but no derived tensor product as a functor on the derived category, and no duals/`Dualizable` structure for complexes of modules. Missing: the whole −⊗ᴸ− formalism the layer states."
+      },
+      {
+       "target": "Derived completion, derived Nakayama, specialization/extension under derived completeness",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'derivedcomplet\\|derived Nakayama'` returns nothing in either tree. Mathlib's `Mathlib/RingTheory/Nakayama.lean` is the ordinary module-theoretic Nakayama lemma only."
+      },
+      {
+       "target": "Base-change spectral sequence Tor_i^A(H^j(C),B) ⇒ H^(j−i)(C⊗ᴸ_A B) and its convergence",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.SpectralSequence",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/SpectralSequence/Basic.lean",
+         "line": 37,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the abstract notion of a spectral sequence with pages and convergence bookkeeping, but constructs no Grothendieck, hyper-Tor or base-change spectral sequence; `grep -i 'grothendieck spectral\\|hypercohomology'` finds nothing. The stated spectral sequence is absent."
+      },
+      {
+       "target": "Derived Mittag–Leffler comparisons and lim¹ for the inverse system of finite coefficient quotients",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Functor.IsMittagLeffler",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/CofilteredSystem.lean",
+         "line": 137,
+         "fit": "related"
+        },
+        {
+         "name": "AdicCompletion.map_exact",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Exactness.lean",
+         "line": 184,
+         "fit": "related"
+        }
+       ],
+       "note": "`Functor.IsMittagLeffler` is stated for functors into `Type`, about eventual ranges of a cofiltered system, not about derived inverse limits of modules; Mathlib's `AdicCompletion/Exactness.lean` proves exactness of adic completion for Noetherian rings and finite modules 'directly without using Mittag-Leffler systems'. There is no lim¹ functor (`grep -i 'lim\\^1\\|lim1\\|firstDerivedLim'` is empty), so the retention of a nonvanishing lim¹ has no carrier."
+      },
+      {
+       "target": "Compatible chain-level Hecke actions surviving the inverse system",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing in either library about Hecke actions on inverse systems of complexes; this is roadmap-specific."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IntegralHeckeAndGaloisDeterminants:IHG.2",
+       "note": "Also treats Hecke actions on bounded perfect complexes, comparing chain, homotopy/derived and cohomology actions, and localization over complete coefficient rings — the same chain-versus-cohomology distinction P7's last paragraph insists on, stated there for Hecke algebras."
+      },
+      {
+       "layer": "DerivedDeRhamCohomology:DD.1",
+       "note": "Owns generic derived completion and complete filtered algebra; P7's derived completion and derived Nakayama for complete local O-algebras are the affine special case, and DD.1 is the atlas's declared owner of the generic construction."
+      },
+      {
+       "layer": "DiamondEtaleCohomology:C7",
+       "note": "Defines perfect complexes and locally bounded Tor-amplitude conditions (in the v-topos setting), overlapping P7's perfectness/Tor-amplitude targets."
+      },
+      {
+       "layer": "SchemeKTheoryOperations:S.1",
+       "note": "Constructs perfect complexes and their enhancements, and derived pullback on perfect complexes, which is the scheme-level form of P7's perfectness and derived coefficient change."
+      }
+     ]
+    },
+    "DeformationAndDerivedPatchingAlgebra:P8": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Patching data (R_N,S_N,C_N) with S_N a finite quotient of O[Δ_N], bounded generator rank, uniformly bounded finite-projective presentation",
+       "library": "absent",
+       "declarations": [],
+       "note": "No patching construction of any kind in either tree; `grep -rn -i 'patching'` over Mathlib and Tau Ceti returns only prose about gluing charts and Moebius maps."
+      },
+      {
+       "target": "Ultrapatching with a fixed non-principal ultrafilter; independence of representatives",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Ultrafilter",
+         "library": "mathlib",
+         "file": "Mathlib/Order/Filter/Ultrafilter/Defs.lean",
+         "line": 41,
+         "fit": "related"
+        },
+        {
+         "name": "Filter.Germ",
+         "library": "mathlib",
+         "file": "Mathlib/Order/Filter/Germ/Basic.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "FirstOrder.Language.Ultraproduct.sentence_realize",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Ultraproducts.lean",
+         "line": 154,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has ultrafilters, filter products/germs and model-theoretic ultraproducts (Łoś's theorem), which is the ambient tool, but no ultraproduct of a system of modules or complexes over a tower of rings and no ultrapatching construction."
+      },
+      {
+       "target": "Uniform bounds, compactness of finite-presentation data, cofinality before the limit",
+       "library": "absent",
+       "declarations": [],
+       "note": "The compactness/diagonal-subsequence argument for presentation data over a tower has no analogue in either library."
+      },
+      {
+       "target": "S_∞ = O[[z₁,…,z_q]] and the patched base R_∞ with its continuous action on C_∞",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MvPowerSeries",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+         "line": 86,
+         "fit": "related"
+        },
+        {
+         "name": "MvPowerSeries.isNoetherianRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPowerSeries/Equiv.lean",
+         "line": 225,
+         "fit": "related"
+        },
+        {
+         "name": "MvPowerSeries.eval₂Hom",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPowerSeries/Evaluation.lean",
+         "line": 228,
+         "fit": "related"
+        }
+       ],
+       "note": "The ring O[[z₁,…,z_q]] exists in Mathlib as `MvPowerSeries (Fin q) O`, is known Noetherian for finitely many variables and has the continuous universal property; the patched objects R_∞, C_∞ and their compatible actions do not exist."
+      },
+      {
+       "target": "Augmentation isomorphism C_∞⊗ᴸ_{S_∞}O ≅ C_original and comparison of finite-level Hecke actions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the patched objects and on derived tensor products, neither of which is present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PotentialAutomorphyInfrastructure:PA.4",
+       "note": "States the same ultrapatching interface — fixing a non-principal ultrafilter as in ACC+ §6.4.1, boundedness and compatibility hypotheses, identification of the specialization with the original complex, and the Remark 6.4.13 independence caveat — but explicitly assigns the abstract construction to this owner and keeps only the arithmetic verification."
+      },
+      {
+       "layer": "GL2ModularityLifting:R22.3",
+       "note": "'Apply the abstract patching construction to the actual rings and modules' — the GL₂ instance of P8/R03.5, restating the presentation, depth, framing-variable and support bookkeeping."
+      },
+      {
+       "layer": "GL2ModularityLifting:R22.2",
+       "note": "Constructs the auxiliary Hecke modules and finite group actions and the required freeness over O[Δ_N], which is the arithmetic input P8 declines to infer from cardinality of a covering."
+      }
+     ]
+    },
+    "DeformationAndDerivedPatchingAlgebra:P9": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Inequalities relating codimension of support, projective dimension and Tor-amplitude over a regular local base",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.supportDim",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/KrullDimension/Module.lean",
+         "line": 32,
+         "fit": "related"
+        },
+        {
+         "name": "Module.supportDim_add_length_eq_supportDim_of_isRegular",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/KrullDimension/Regular.lean",
+         "line": 182,
+         "fit": "related"
+        },
+        {
+         "name": "ModuleCat.projectiveDimension_quotient_eq_add_length_of_isWeaklyRegular",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Regular/ProjectiveDimension.lean",
+         "line": 144,
+         "fit": "related"
+        },
+        {
+         "name": "IsRegularLocalRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
+         "line": 51,
+         "fit": "related"
+        },
+        {
+         "name": "ringKrullDim_le_ringKrullDim_quotient_add_spanFinrank",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/KrullsHeightTheorem.lean",
+         "line": 368,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has support dimension, projective dimension and their behaviour under regular sequences over a Noetherian local ring, plus Krull's height theorem, but not the codim(Supp) ≤ pd inequality (New Intersection / Auslander–Buchsbaum route) and no Tor-amplitude at all. Note `projectiveDimension` is stated for `ModuleCat.{v} R` with `[Small.{v} R]` and needs `IsNoetherianRing R`, `Module.Finite R M`."
+      },
+      {
+       "target": "Balanced-dimension conclusions of Calegari–Geraghty, including non-Cohen–Macaulay and torsion cases",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Cohen–Macaulay predicate exists in either tree (`grep -rn -i 'cohenmacaulay\\|Cohen–Macaulay'` is empty over both), so the statement cannot even be phrased at the baseline."
+      },
+      {
+       "target": "One-degree module theorem as a specialization; integral support versus support after inverting p",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.support",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Support.lean",
+         "line": 49,
+         "fit": "related"
+        }
+       ],
+       "note": "`Module.support` and `Module.stableUnderSpecialization_support` exist for modules, but there is no support of a complex, no comparison of integral support with support after inverting an element, and no concentration theorem."
+      },
+      {
+       "target": "Component-support transport under finite flat coefficient change, removal of framing variables, specialization of local conditions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing about framing variables or component support in either library; `grep -i 'nearly faithful'` is empty."
+      },
+      {
+       "target": "Nearly faithful / radical-annihilator / union-of-components conclusions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Mathlib has `Module.annihilator` and `Ideal.radical` but no 'nearly faithful' notion and no theorem of this shape."
+      },
+      {
+       "target": "Algebraic derived Ihara-avoidance lemmas comparing support under a change of auxiliary local type",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; depends on all of the above."
+      },
+      {
+       "target": "Derived length identity of ACC+ §6.3.4: idempotent localization of a derived T-action on a perfect S-complex, dimension-zero vanishing and dimension-one generic-length Euler characteristic after reduction mod f",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.length",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Length.lean",
+         "line": 32,
+         "fit": "related"
+        },
+        {
+         "name": "IsFiniteLength",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/FiniteLength.lean",
+         "line": 30,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.extEuler",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Homology/EulerCharacteristic/ExtEuler/Basic.lean",
+         "line": 232,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.isFiniteLength_quotient_of_nonZeroDivisor_mem",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Length.lean",
+         "line": 212,
+         "fit": "related"
+        }
+       ],
+       "note": "`Module.length` and finite-length theory exist, and Tau Ceti has an Ext Euler characteristic and finite length of a quotient by a nonzerodivisor; the derived action, idempotent localization, excellence hypothesis and the dimension-zero/dimension-one length formula are all absent, and there is no `IsExcellentRing` predicate (`grep -i excellent` is empty in both trees)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PotentialAutomorphyInfrastructure:PA.3",
+       "note": "States the same comparison of patched complexes for two systems of local conditions, component support, characteristic-zero localization, near faithfulness and the derived Ihara-avoidance support implication, as the arithmetic verification of P9's algebraic theorems."
+      },
+      {
+       "layer": "GL2ModularityLifting:R22.4",
+       "note": "Local component matching and the patched-support argument, with the same warning that a patched Cohen–Macaulay module on one component proves nothing on another — the GL₂ instance of P9's component-support conclusions."
+      },
+      {
+       "layer": "DeformationAndDerivedPatchingAlgebra:R03.6",
+       "note": "Same roadmap: R03.6 states support transport along flat maps, coefficient changes and removal of framing variables, and faithful/nearly-faithful/union-of-components conclusions, at module level; P9 restates them at complex level."
+      }
+     ]
+    },
+    "DeformationAndDerivedPatchingAlgebra:R03.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The coefficient categories: Artinian local O-algebras with fixed residue field, and complete Noetherian local O-algebras with local continuous morphisms",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsLocalRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/LocalRing/Defs.lean",
+         "line": 30,
+         "fit": "related"
+        },
+        {
+         "name": "IsLocalHom",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Group/Units/Hom.lean",
+         "line": 270,
+         "fit": "related"
+        },
+        {
+         "name": "IsArtinianRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Artinian/Defs.lean",
+         "line": 66,
+         "fit": "related"
+        }
+       ],
+       "note": "All the ingredient predicates exist separately, but neither library bundles them into the category CNL_O / Art_O with a specified residue-field identification; there is no such category object anywhere (`grep -i 'coefficient categor'` over both trees is empty)."
+      },
+      {
+       "target": "Presentation of a complete local ring as the inverse limit of its Artinian quotients",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsAdicComplete",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 56,
+         "fit": "more general"
+        },
+        {
+         "name": "AdicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 171,
+         "fit": "more general"
+        },
+        {
+         "name": "AdicCompletion.of_bijective_iff",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 659,
+         "fit": "more general"
+        },
+        {
+         "name": "AdicCompletion.isAdicComplete_of_fg",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean",
+         "line": 120,
+         "fit": "related"
+        },
+        {
+         "name": "AdicCompletion.isLocalRing_of_fg",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean",
+         "line": 78,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib identifies a complete local ring with lim R/mⁿ (that *is* `AdicCompletion (maximalIdeal R) R`, with `IsAdicComplete` saying the canonical map is bijective) and proves that a local Artinian ring is adically complete, so each R/mⁿ is an Artinian local quotient once R is Noetherian. What is missing is the statement packaged as 'inverse limit over the cofiltered system of Artinian quotients' with its universal property, and the anonymous instance at AdicCompletion/Noetherian.lean:38 has no name of its own."
+      },
+      {
+       "target": "Continuous maps from power-series rings into complete local rings",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "MvPowerSeries.eval₂Hom",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPowerSeries/Evaluation.lean",
+         "line": 228,
+         "fit": "more general"
+        },
+        {
+         "name": "MvPowerSeries.aeval",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPowerSeries/Evaluation.lean",
+         "line": 304,
+         "fit": "more general"
+        },
+        {
+         "name": "MvPowerSeries.eval₂_unique",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPowerSeries/Evaluation.lean",
+         "line": 281,
+         "fit": "more general"
+        },
+        {
+         "name": "MvPowerSeries.continuous_eval₂",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPowerSeries/Evaluation.lean",
+         "line": 262,
+         "fit": "more general"
+        },
+        {
+         "name": "MvPowerSeries.substAlgHom",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+         "line": 210,
+         "fit": "more general"
+        }
+       ],
+       "note": "This target is already in the library, more generally than asked: for `S` a complete separated topological R-algebra with `IsLinearTopology S S`, a continuous φ : R →+* S and a family `a : σ → S` satisfying `HasEval a` (each a s topologically nilpotent, a s → 0 cofinitely), `eval₂Hom` is the continuous ring map out of `MvPowerSeries σ R` and `eval₂_unique` gives its uniqueness among continuous maps agreeing on polynomials. A complete Noetherian local O-algebra with its m-adic topology satisfies these hypotheses. Tau Ceti adds `MvPowerSeries.eval₂_mem_pow` and substitution lemmas in TauCeti/RingTheory/MvPowerSeries/."
+      },
+      {
+       "target": "Completed tensor product over O; when it stays Noetherian and local",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AdicCompletion.ofTensorProductEquivOfFiniteNoetherian",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
+         "line": 328,
+         "fit": "related"
+        },
+        {
+         "name": "AdicCompletion.flat_of_isNoetherian",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
+         "line": 379,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves the completion of a finite module over a Noetherian ring is the base change along the completed ring, and flatness of the completion, but defines no completed tensor product A ⊗̂_O B of complete local rings and does not even prove that the adic completion of a Noetherian ring is Noetherian (no such instance in Mathlib/RingTheory/AdicCompletion/). So the Noetherian-and-local criterion the layer wants to state has no carrier."
+      },
+      {
+       "target": "Residue-field extension of the coefficient ring",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AdicCompletion.residueField_map_bijective",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean",
+         "line": 151,
+         "fit": "related"
+        },
+        {
+         "name": "IsLocalRing.ResidueField.map",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/LocalRing/ResidueField/Basic.lean",
+         "line": 96,
+         "fit": "related"
+        }
+       ],
+       "note": "Residue fields and functoriality exist, and completion is known not to change the residue field, but the base-change construction O ⤳ O' realising a finite residue-field extension of a complete DVR (unramified base change / Witt-vector functoriality) is not set up as such."
+      },
+      {
+       "target": "Descent and ascent of finite generation along these maps",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.Finite",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Finiteness/Defs.lean",
+         "line": 117,
+         "fit": "related"
+        },
+        {
+         "name": "Module.Finite.trans",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Finiteness/Basic.lean",
+         "line": 366,
+         "fit": "related"
+        },
+        {
+         "name": "Module.Finite.of_restrictScalars_finite",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Finiteness/Basic.lean",
+         "line": 298,
+         "fit": "related"
+        }
+       ],
+       "note": "Generic transitivity/descent of module finiteness is in Mathlib; the continuous/complete-local versions (finite generation detected on the residue field, i.e. topological Nakayama for complete local rings) are not stated, though `IsAdicComplete.le_jacobson_bot` plus `Module.Finite` Nakayama gets close."
+      },
+      {
+       "target": "Explicit API for nilpotent ideals, small extensions and square-zero extensions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsNilpotent",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/GroupWithZero/Basic.lean",
+         "line": 154,
+         "fit": "related"
+        },
+        {
+         "name": "IsNilpotent",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/GroupWithZero/Basic.lean",
+         "line": 154,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.Extension",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Extension/Basic.lean",
+         "line": 47,
+         "fit": "related"
+        },
+        {
+         "name": "TrivSqZeroExt",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/TrivSqZeroExt/Basic.lean",
+         "line": 69,
+         "fit": "related"
+        }
+       ],
+       "note": "Nilpotency of ideals and the trivial square-zero extension R ⊕ M exist, but there is no notion of a *small extension* of Artinian local rings (surjection with principal kernel killed by the maximal ideal), which is exactly what Schlessinger's criterion in R03.2 needs."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GlobalGaloisDeformations:R04.1",
+       "note": "Defines deformations over Artinian coefficient rings and change of coefficients, and lists DeformationAndDerivedPatchingAlgebra R03.1 as a dependency; it uses rather than duplicates the coefficient category, but restates the Artinian-coefficient setup."
+      },
+      {
+       "layer": "AdicEtaleGeometry:A0",
+       "note": "'Completed tensor products and the fibre products actually used' — owns completed tensor products in the adic/Huber setting, overlapping R03.1's completed tensor product over O."
+      },
+      {
+       "layer": "AdicSpacesPartII:R0",
+       "note": "Constructs completed tensor products with their topology and universal property for Huber pairs; DeformationAndDerivedPatchingAlgebra is listed as one of its consumers, so the two must agree on which construction is the owner."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
+       "note": "Works in the same base category of Artinian local W(k)-algebras with residue field k (KM 7D), so it also needs the coefficient category R03.1 constructs."
+      }
+     ]
+    },
+    "DeformationAndDerivedPatchingAlgebra:R03.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Schlessinger's criterion (H1–H4) for a functor on Artinian local O-algebras",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'schlessinger'` over Mathlib and Tau Ceti returns nothing; neither library has any representability criterion for functors on Artinian algebras."
+      },
+      {
+       "target": "Framed representability construction (existence of a universal framed deformation ring)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no deformation functors exist (`grep -rn -i 'deformation'` finds only unrelated uses: deformation retracts in Tau Ceti's homology files and a docstring in Mathlib's FontaineTheta)."
+      },
+      {
+       "target": "Tangent-space finiteness of a deformation functor",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsLocalRing.CotangentSpace",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/Cotangent.lean",
+         "line": 305,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the cotangent space m/m² of a local ring as a residue-field vector space and its finite-dimensionality for Noetherian local rings, which is the ring-side counterpart; the functor-side tangent space F(k[ε]) and its finiteness are absent."
+      },
+      {
+       "target": "Fibre products of Artinian local rings and the exactness conditions on F(A×_C B) → F(A)×_{F(C)}F(B)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "RingHom.eqLocus",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Ring/Subring/Basic.lean",
+         "line": 869,
+         "fit": "related"
+        },
+        {
+         "name": "CommRingCat.pullbackConeIsLimit",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/Ring/Constructions.lean",
+         "line": 460,
+         "fit": "related"
+        }
+       ],
+       "note": "Fibre products of commutative rings exist as limits in `CommRingCat`, but nothing says a fibre product of Artinian local O-algebras is again one, and the Schlessinger surjectivity/bijectivity conditions on the induced map of functors are not stated."
+      },
+      {
+       "target": "Hulls versus prorepresenting objects, and uniqueness of the hull",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -i 'prorepresent\\|versal\\|\\bhull\\b'` returns no relevant hit in either tree (only 'universal', 'reversal', 'transversal')."
+      },
+      {
+       "target": "Relating presentation relations to obstruction spaces",
+       "library": "absent",
+       "declarations": [],
+       "note": "No obstruction theory in either library; the only occurrences of 'obstruction' are in prose."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GlobalGaloisDeformations:R04.2",
+       "note": "Proves existence of universal framed rings and of unframed rings under absolute residual irreducibility, and compares framed with unframed by formally smooth power-series maps — the arithmetic instance of R03.2's framed/unframed representability, depending on it explicitly."
+      },
+      {
+       "layer": "GlobalGaloisDeformations:R04.3",
+       "note": "Establishes the lower bound on global dimension and the bound on the number of relations over a completed tensor product (KW II Prop. 4.5, Cor. 4.7), i.e. the presentation-relations-to-obstruction-space link of R03.2 in the Galois setting."
+      },
+      {
+       "layer": "LocalGaloisDeformationRings:R08.1",
+       "note": "Constructs unrestricted local deformation rings, which requires the same representability machinery R03.2 owns."
+      }
+     ]
+    },
+    "DeformationAndDerivedPatchingAlgebra:R03.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Regular sequences",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "RingTheory.Sequence.IsWeaklyRegular",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Regular/RegularSequence.lean",
+         "line": 135,
+         "fit": "exact"
+        },
+        {
+         "name": "RingTheory.Sequence.IsRegular",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Regular/RegularSequence.lean",
+         "line": 146,
+         "fit": "exact"
+        },
+        {
+         "name": "IsSMulRegular",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Regular/SMul.lean",
+         "line": 39,
+         "fit": "exact"
+        }
+       ],
+       "note": "Fully developed in Mathlib for a module over a commutative ring, with permutation, localisation and quotient lemmas; the file is sorry-free."
+      },
+      {
+       "target": "Depth of a module along an ideal, as an invariant",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ModuleCat.exists_isRegular_tfae",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Depth/Rees.lean",
+         "line": 158,
+         "fit": "related"
+        },
+        {
+         "name": "ModuleCat.exists_isRegular_of_exists_subsingleton_ext",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Depth/Rees.lean",
+         "line": 63,
+         "fit": "related"
+        },
+        {
+         "name": "ModuleCat.subsingleton_ext_of_exists_isRegular",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Depth/Rees.lean",
+         "line": 101,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves the Rees theorem — for Noetherian R, I an ideal, M finite nontrivial with IM ≠ M, the existence of an M-regular sequence of length n in I is equivalent to vanishing of Ext^i(R/I,M) for i<n — sorry-free. But there is no `Module.depth` invariant: `grep -rn -i depth` over Mathlib/RingTheory finds only Rees.lean and the TODO in RegularSequence.lean ('TODO: … depth'). Missing: depth as a number and all its formulas."
+      },
+      {
+       "target": "Cohen–Macaulay rings and modules",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'cohenmacaulay\\|Cohen-Macaulay\\|Cohen–Macaulay'` over Mathlib and Tau Ceti returns zero hits. Nothing to build on beyond the depth and dimension pieces separately."
+      },
+      {
+       "target": "Projective dimension of a finite module",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "CategoryTheory.projectiveDimension",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Abelian/Projective/Dimension.lean",
+         "line": 265,
+         "fit": "more general"
+        },
+        {
+         "name": "ModuleCat.projectiveDimension_quotSMulTop_eq_succ_of_isSMulRegular",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Regular/ProjectiveDimension.lean",
+         "line": 87,
+         "fit": "related"
+        },
+        {
+         "name": "ModuleCat.projectiveDimension_quotient_eq_length",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Regular/ProjectiveDimension.lean",
+         "line": 167,
+         "fit": "related"
+        }
+       ],
+       "note": "Projective dimension exists in the categorical form with `HasProjectiveDimensionLT/LE`, and pd(M/xM)=pd(M)+1 for an M-regular x in the maximal ideal of a Noetherian local ring is proved (sorry-free). Stated for `ModuleCat.{v} R` with `[Small.{v} R]`."
+      },
+      {
+       "target": "Auslander–Buchsbaum formula pd(M)+depth(M)=depth(R)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: `grep -i auslander` finds only Tau Ceti's Auslander–Reiten translate/transpose for Artin algebras (TauCeti/Algebra/Module/AuslanderReiten/), which is unrelated. Without a depth invariant the formula cannot be stated."
+      },
+      {
+       "target": "Complete intersection criteria used in patching",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -i completeintersection` over declarations.tsv and both trees is empty; there is no `IsCompleteIntersection` predicate."
+      },
+      {
+       "target": "Depth and dimension formulas under the local maps actually used",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.supportDim_add_length_eq_supportDim_of_isRegular",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/KrullDimension/Regular.lean",
+         "line": 182,
+         "fit": "related"
+        },
+        {
+         "name": "ringKrullDim_add_length_eq_ringKrullDim_of_isRegular",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/KrullDimension/Regular.lean",
+         "line": 195,
+         "fit": "related"
+        },
+        {
+         "name": "ringKrullDim_le_spanFinrank_maximalIdeal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/KrullsHeightTheorem.lean",
+         "line": 490,
+         "fit": "related"
+        },
+        {
+         "name": "IsLocalRing.maximalIdeal_height_eq_ringKrullDim",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/Height.lean",
+         "line": 307,
+         "fit": "related"
+        }
+       ],
+       "note": "Dimension drops by the length of a regular sequence, and Krull's height theorem with dim R ≤ µ(m) are proved. The dimension formula for a flat local homomorphism (dim B = dim A + dim B/m_A B) is not in Mathlib, and neither is any depth formula."
+      },
+      {
+       "target": "Equidimensionality, associated primes and support lemmas for finite modules",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "associatedPrimes",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/AssociatedPrime/Basic.lean",
+         "line": 103,
+         "fit": "exact"
+        },
+        {
+         "name": "exists_le_isAssociatedPrime_of_isNoetherianRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/AssociatedPrime/Basic.lean",
+         "line": 136,
+         "fit": "exact"
+        },
+        {
+         "name": "Module.support",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Support.lean",
+         "line": 49,
+         "fit": "exact"
+        },
+        {
+         "name": "Module.stableUnderSpecialization_support",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Spectrum/Prime/Module.lean",
+         "line": 43,
+         "fit": "exact"
+        },
+        {
+         "name": "Module.supportDim_eq_ringKrullDim_quotient_annihilator",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/KrullDimension/Module.lean",
+         "line": 49,
+         "fit": "exact"
+        }
+       ],
+       "note": "Associated primes and support of a module are complete in Mathlib; there is no `IsEquidimensional` predicate (`grep -i equidimensional` finds only prose about vector spaces)."
+      },
+      {
+       "target": "Catenarity and excellence as explicit hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither `IsCatenary` nor `IsExcellentRing` exists; `grep -i 'catenar'` and `grep -i 'excellent'` return nothing in either tree. The layer's own instruction to 'state hypotheses on catenarity and excellence' therefore has no predicate to cite."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-7-matrix-factorizations",
+       "note": "Needs maximal Cohen–Macaulay modules over a hypersurface R=S/(w); it would consume the same Cohen–Macaulay API R03.3 must build, and is the only other atlas layer that states MCM modules as a target."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+       "note": "Uses relative Cohen–Macaulay curves and Gorenstein fibres, so it too depends on a Cohen–Macaulay predicate that neither library has."
+      }
+     ]
+    },
+    "DeformationAndDerivedPatchingAlgebra:R03.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Extracting a characteristic-zero point from a finite O-algebra together with a dimension or non-torsion statement",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Finite",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Finiteness/Defs.lean",
+         "line": 117,
+         "fit": "related"
+        },
+        {
+         "name": "IsDiscreteValuationRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
+         "line": 58,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has complete DVRs and module finiteness but no lemma producing a Q̄_p-point of a finite O-algebra from non-torsion-ness; the specific statement (a finite O-algebra that is not π-power torsion admits an O-algebra map to the integral closure of O in a finite extension of Frac O) is absent. The layer's warning that nonzeroness is insufficient is correct and unaddressed by anything in the libraries."
+      },
+      {
+       "target": "Finite-over-a-subring criteria of KW II §10 and their completed versions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Algebra.IsIntegral",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/IntegralClosure/Algebra/Defs.lean",
+         "line": 33,
+         "fit": "related"
+        },
+        {
+         "name": "Module.Finite.of_restrictScalars_finite",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Finiteness/Basic.lean",
+         "line": 298,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.IsIntegral.finite",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/IntegralClosure/IsIntegralClosure/Basic.lean",
+         "line": 96,
+         "fit": "related"
+        }
+       ],
+       "note": "Generic finiteness/integrality transfer is available, but the specific criteria (a complete local O-algebra topologically generated by finitely many elements is finite over a power-series subring, in the completed setting) are not present."
+      },
+      {
+       "target": "Separating a finite unframed global deformation ring from its framed power-series enlargement",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on deformation rings, which do not exist in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GlobalGaloisDeformations:R04.6",
+       "note": "'Arithmetic exports for patching and global lifts' — consumes exactly the characteristic-zero-point and finiteness statements R03.4 owns, in the Galois setting."
+      },
+      {
+       "layer": "GL2ModularityLifting:R32.5",
+       "note": "Small-prime ordinary completion arguments use the same 'finite over a subring / characteristic-zero point' step of KW II §10."
+      }
+     ]
+    },
+    "DeformationAndDerivedPatchingAlgebra:R03.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Inverse-limit patching of finite-level rings, modules, presentations and transition data, with the compactness/diagonal-subsequence argument",
+       "library": "absent",
+       "declarations": [],
+       "note": "No patching of any kind in either tree. Mathlib has cofiltered inverse limits (`CategoryTheory.CofilteredSystem`, `Functor.IsMittagLeffler`) and compactness of profinite spaces, which are the ambient ingredients, but nothing that patches a system of modules over a tower of rings."
+      },
+      {
+       "target": "Existence and finite generation of the patched module and its power-series action",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Specialisation of the patched module and the depth comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, and the depth comparison additionally needs a depth invariant that Mathlib does not define (only the Rees theorem in `Mathlib/RingTheory/Depth/Rees.lean`)."
+      },
+      {
+       "target": "Separating integral assertions from those after inverting π",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsLocalization.Away",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "Localization away from an element is standard Mathlib; the distinction the layer insists on is a discipline about statements, not a missing construction, but the statements themselves do not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DeformationAndDerivedPatchingAlgebra:P8",
+       "note": "Same roadmap: P8 is the complex-level version of exactly this inverse-limit patching (uniform bounds, cofinality, existence of the limit, specialisation), with the derived augmentation replacing the module specialisation."
+      },
+      {
+       "layer": "GL2ModularityLifting:R22.3",
+       "note": "Applies 'the abstract patching construction' to the actual rings and modules, proving each presentation and depth hypothesis — the arithmetic verification of R03.5."
+      },
+      {
+       "layer": "PotentialAutomorphyInfrastructure:PA.4",
+       "note": "States the boundedness/compatibility hypotheses the abstract patching theorem consumes, for the arithmetic tower."
+      }
+     ]
+    },
+    "DeformationAndDerivedPatchingAlgebra:R03.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Support transport along flat maps, coefficient changes, quotient maps and removal of framing variables",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.support",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Support.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "Module.supportDim_le_of_surjective",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/KrullDimension/Module.lean",
+         "line": 74,
+         "fit": "related"
+        },
+        {
+         "name": "Module.supportDim_eq_of_equiv",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/KrullDimension/Module.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the support of a module and its behaviour under surjections and isomorphisms, but no base-change formula Supp_B(M⊗_A B) = (Spec B → Spec A)⁻¹ Supp_A(M) for flat or finite maps, and nothing about framing variables."
+      },
+      {
+       "target": "Criteria for a patched module to be faithful, nearly faithful, or supported on a specified union of components",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.annihilator",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/Maps.lean",
+         "line": 860,
+         "fit": "related"
+        },
+        {
+         "name": "minimalPrimes",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/MinimalPrime/Basic.lean",
+         "line": 63,
+         "fit": "related"
+        }
+       ],
+       "note": "Annihilators and minimal primes (the components) exist; 'nearly faithful' is nowhere in either tree, and no theorem of the stated shape exists. The layer's caution that Cohen–Macaulayness does not imply full support is moot at this baseline since Cohen–Macaulayness is undefined."
+      },
+      {
+       "target": "An explicit algebraic theorem for the torsion-free/reduced quotient at which an R=T argument concludes, plus the stronger variant",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Ideal.radical",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/Operations.lean",
+         "line": 798,
+         "fit": "related"
+        },
+        {
+         "name": "IsReduced",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/GroupWithZero/Basic.lean",
+         "line": 192,
+         "fit": "related"
+        }
+       ],
+       "note": "Reducedness and radicals are available as ingredients; the R=T conclusion statements are entirely roadmap-specific and absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DeformationAndDerivedPatchingAlgebra:P9",
+       "note": "Same roadmap: P9 states the complex-level component-support transport, near faithfulness and union-of-components conclusions that R03.6 states for modules."
+      },
+      {
+       "layer": "PotentialAutomorphyInfrastructure:PA.3",
+       "note": "Compares component support, characteristic-zero localization and near faithfulness for two systems of local conditions, keeping reduced-support equality, equality after inverting p, near faithfulness and integral R=T distinct — the same distinctions R03.6 demands."
+      },
+      {
+       "layer": "GL2ModularityLifting:R22.4",
+       "note": "States when the generic-fibre or integral R=T statement strengthens, which is the arithmetic form of R03.6's final target."
+      }
+     ]
+    }
+   }
+  }
+ }
+}

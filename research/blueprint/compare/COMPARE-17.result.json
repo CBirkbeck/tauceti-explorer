@@ -1,0 +1,349 @@
+{
+ "job": "COMPARE-17",
+ "notes": {
+  "tauceti:TauCetiRoadmap/ConformalMapping": {
+   "targets": "The Riemann mapping theorem as the summit, with the local-mapping engine (Rouche, Hurwitz, Morera, the open-mapping degree), Montel/Vitali normal families, Schwarz-Pick with the Poincare metric and Aut(D), Schwarz reflection / Painleve removability / monodromy, the Caratheodory boundary correspondence for Jordan domains, and Schwarz-Christoffel.",
+   "baselineHas": [
+    "TauCeti.riemannMapping (TauCeti/Analysis/Complex/Conformal/RiemannMapping/Existence.lean:69) with riemannMapping_normalized and riemannMapping_homeomorph",
+    "TauCeti.montel (Conformal/Montel/Basic.lean:81), TauCeti.rouche (Conformal/Rouche.lean:303), TauCeti.hurwitz, TauCeti.morera, TauCeti.monodromy_theorem - the whole TauCeti/Analysis/Complex/Conformal/ tree, sorry-free",
+    "TauCeti/Analysis/Contour/ (~1150 declarations: residues, winding numbers, the homological Cauchy theorem) supplying L0's consumed inputs",
+    "Mathlib's open mapping theorem, AbsMax, the Schwarz lemma and BranchLogRoot (exists_continuousOn_pow_eq) used by the square-root step"
+   ],
+   "missing": [
+    "L5: injectivity of the boundary extension on the circle, upgrading TauCeti.injOn_closure_of_injOn_frontier and TauCeti.closureHomeomorph (Conformal/BoundaryCorrespondence.lean:237) to the Caratheodory homeomorphism of closures (prime ends are explicitly out of scope)",
+    "L6: that the Schwarz-Christoffel map is a conformal bijection of the half-plane onto the polygon's interior, and the classical converse that every polygon so arises",
+    "Nothing else: L0-L4 are complete named theorems, and no other roadmap is imported beyond the already-built ContourIntegration"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations": {
+   "targets": "The path algebra kQ with its vertex idempotents and path basis, quiver representations as kQ-modules, Krull-Schmidt, the structure theory of a finite-dimensional algebra (projective covers, Cartan matrix, basic algebras, Gabriel's presentation theorem), the Euler and Tits forms with BGP reflection and Coxeter functors, Gabriel's ADE theorem, and Auslander-Reiten theory up to the AR quiver.",
+   "baselineHas": [
+    "TauCeti/RepresentationTheory/Quiver/ (~2230 declarations): TauCeti.titsForm and TauCeti.eulerForm (Quiver/EulerForm.lean), TauCeti.IsFiniteRepType, TauCeti.isFiniteRepType_of_titsForm_posDef and TauCeti.card_skeleton_indecomposable_le_card_positiveRoots (Quiver/FiniteRepType/PosDef.lean), TauCeti.IsAdmissibleIdeal, Quiver/Reflection/{Coxeter,PositiveRoot,Admissible,Indecomposable}.lean",
+    "TauCeti/RingTheory/KrullSchmidt/{DirectSum,Exchange}.lean - existence and uniqueness of indecomposable decompositions, with TauCeti.indecomposable_iff_isLocalRing_end",
+    "TauCeti.IsProjectiveCover, TauCeti.IsInjectiveEnvelope, TauCeti.IsMinimalProjectivePresentation, TauCeti.AuslanderReitenTranspose and TauCeti.AuslanderReitenTranslate, TauCeti.IsRightAlmostSplit",
+    "Mathlib CategoryTheory.Paths, Quiver.Path, Ring.jacobson, CompositionSeries.jordan_holder, MoritaEquivalence"
+   ],
+   "missing": [
+    "Layer 5: the converse half of Gabriel's dichotomy (finite representation type implies ADE) and the full bijection between indecomposables and positive roots - only the positive-definite direction and an injection are present",
+    "Layer 3: the Ext-quiver and Gabriel's presentation theorem (every basic finite-dimensional algebra is kQ/I), the Cartan matrix of an algebra by Jordan-Holder multiplicities, and the Morita reduction to a basic algebra",
+    "Layer 6E-6F: existence and uniqueness of almost-split sequences, and the AR quiver itself (no arQuiver declaration in either library)"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/ProfiniteCohomology": {
+   "targets": "A computational theory of continuous cochain cohomology of a profinite group on discrete modules: explicit H0, H1, H2 with their cocycle identities, comparison with Mathlib's canonical carrier, the finite-quotient colimit description, long exact sequences, corestriction, Shapiro for closed subgroups, cup products, cohomological dimension, Hilbert 90 and Kummer theory, all-degree cohomology and the Evens norm.",
+   "baselineHas": [
+    "Mathlib continuousCohomology with ContinuousCohomology.{cochainsMap,cocyclesMap,map,zeroIso} (Mathlib/RepresentationTheory/Homological/ContCohomology/)",
+    "TauCeti/RepresentationTheory/Homological/ContCohomology/ (~700 declarations): explicitShapiro1, explicitCor2_comp_res2, the six explicitCup shapes with associativity and the projection formula, explicitH1IsoGroupCohomology, explicitFiniteQuotientColimit0",
+    "TauCeti/FieldTheory/GaloisCohomology/{Coefficients,Kummer}.lean: AbsoluteGaloisGroup, KummerCoeff and kummerSequence_exact",
+    "Mathlib groupCohomology.{d01,cocycles1,cocycles2,H1InfRes} and ProfiniteGrp / OpenNormalSubgroup"
+   ],
+   "missing": [
+    "Layer 3/4 remainder: the canonical comparison in degrees 1 and 2 and the finite-quotient colimit theorem above degree 0, plus the five-term/transgression sequence",
+    "Layer 9: Hilbert 90 in profinite form and the Kummer isomorphism (the coefficient modules exist, the theorems do not)",
+    "Layer 10: continuous cohomology in all degrees with restriction/inflation/conjugation, the all-degree colimit and filtered-colimit preservation",
+    "Layer 11: cohomological dimension cd_p, scd_p and the devissage/dimension theorems (no such declaration in either library)",
+    "Layer 12: the graded cup product in all bidegrees via Alexander-Whitney on the coinduction resolution (eleven milestones), and Layer 13 the Evens multiplicative transfer"
+   ]
+  },
+  "LogicAndDefinabilityInNumberTheory": {
+   "targets": "First-order languages, structures and definable sets for arithmetic and valued fields with ultraproducts and Los; henselianity, residue/value sorts and Ax-Kochen-Ershov / Denef-Pas elimination; p-adic definable integration and rationality of Igusa/Poincare series; motivic integration with specialization and transfer; MRDP and the undecidability of Hilbert's tenth problem; o-minimality, Pila-Wilkie counting and Pila-Zannier / Andre-Oort cases.",
+   "baselineHas": [
+    "Mathlib/ModelTheory/ (~1240 FirstOrder.Language declarations) including FirstOrder.Language.Ultraproduct (Los), Theory.field and Theory.ACF",
+    "Mathlib/NumberTheory/Dioph.lean: Dioph.pell_dioph, Dioph.pow_dioph, the closure properties of Diophantine sets",
+    "Mathlib's valuation theory with Valued, HenselianLocalRing and the DVR API; TauCeti/NumberTheory/LocalField/ (normalized valuations, henselianLocalRing_integer)",
+    "Mathlib geometry of numbers (Minkowski) for the GN.0/GN.1 inputs"
+   ],
+   "missing": [
+    "LD.1: valued-field languages with residue and value sorts and angular components, and the Ax-Kochen-Ershov / Denef-Pas relative quantifier-elimination theorems",
+    "LD.2: definable cells and measures, constructible functions, rationality of local Igusa/Poincare series",
+    "LD.3: Grothendieck-ring targets, motivic measures, specialization and the transfer principle - importing MotivesAndAlgebraicCycles MC.4 and through it the whole absent higher-K-theory column (GeneralAlgebraicKTheory K.1-K.7, StableHomotopyKTheory spectra, SchemeKTheoryOperations S.1-S.6, MotivicEtaleKTheory M.4) plus SchemeAndStackFoundations SF.0-SF.5",
+    "LD.4: recursively enumerable sets as Diophantine sets and the negative solution of Hilbert's tenth problem (Mathlib stops at the Pell/exponentiation step)",
+    "LD.6: o-minimal structures, cell decomposition, Pila-Wilkie and the Ax-Lindemann/Ax-Schanuel inputs - no oMinimal or CellDecomposition declaration exists in either library"
+   ]
+  },
+  "SieveMethodsAndPrimePatterns": {
+   "targets": "Sieve data with local densities, dimension and level of distribution; Brun and Selberg sieves with the fundamental lemma; the additive and multiplicative large sieves with duality and Vaughan's identity; Bombieri-Vinogradov; Maynard's multidimensional sieve and a finite bound on prime gaps; beta/Chen/affine sieves.",
+   "baselineHas": [
+    "Mathlib/NumberTheory/SelbergSieve.lean: BoundingSieve and SelbergSieve with local densities, remainders, sifted sums and the Lambda^2 upper bound",
+    "Mathlib Dirichlet characters with orthogonality, conductors and primitive characters; Dirichlet's theorem on primes in progressions and nonvanishing of L(chi,s) on Re s >= 1",
+    "TauCeti/NumberTheory/ArithmeticDirichletSeries/ (Euler products, von Mangoldt transforms, L-series summability)",
+    "Mathlib/NumberTheory/PrimeCounting.lean and Chebyshev.lean (Nat.primeCounting with Chebyshev-type bounds) and AlmostPrime.lean"
+   ],
+   "missing": [
+    "SV.0/SV.1: sieve dimension and level of distribution as hypotheses, the optimized Selberg bound, Brun's combinatorial sieve and the fundamental lemma with its applications (Brun-Titchmarsh, Brun's theorem)",
+    "SV.2: both large-sieve inequalities, the duality principle and Vaughan's identity (no largeSieve declaration in either library)",
+    "SV.3: Siegel-Walfisz and Bombieri-Vinogradov with their quantifiers",
+    "SV.4/SV.5: admissible k-tuples, Maynard's multidimensional weights and bounded gaps, then the beta, Chen and affine sieves",
+    "The imported AnalyticNumberTheory AN.1-AN.3 (zero-free regions, explicit formula, character sum inputs) that SV.2/SV.3 are stated against"
+   ]
+  },
+  "AutomorphicFormsOnReductiveGroups": {
+   "targets": "The general language and basic theory of automorphic forms for connected reductive groups over number fields: adelic test functions and moderate growth, (g,K)-modules with smooth Frechet globalizations, continuous cohomology and van Est, automorphic representations with restricted tensor factorization, constant terms and cusp forms with Siegel-set decay, algebraic weights and rational structures, and the GL1/GL2 dictionaries.",
+   "baselineHas": [
+    "NumberField.AdeleRing (Mathlib) with TauCeti/NumberTheory/NumberField/Global/Adeles/ and the finite adele ring API",
+    "TauCeti/NumberTheory/ModularForms/ (~1890 declarations) and TauCeti/NumberTheory/HeckeRing/ (~1150) for the GL2/Q side of AF.5",
+    "TauCeti/Algebra/Lie/UniversalEnveloping/ (~1080 declarations) and TauCeti/Algebra/Lie/ for the U(g) and infinitesimal-character machinery",
+    "TauCeti/Algebra/AlgebraicGroup/ (~4900 declarations: reductive group schemes, tori, root data, parabolic subgroups)"
+   ],
+   "missing": [
+    "AF.0-AF.5 in full: no automorphicForm, Siegel-set, moderate-growth, constant-term or (g,K)-module declaration exists in either library; the Frechet globalization, van Est isomorphism and restricted tensor-product factorization are all to be built",
+    "SmoothRepresentationsOfLocalGroups SR.0-SR.3a: smooth and admissible representations of locally profinite groups, absent from both libraries",
+    "ReductiveGroupsPartII RG2.0 and RG2.0a: the topology on G(E) and Weil restriction / the Deligne torus, both absent",
+    "AdelicAlgebraicGroups AA.0-AA.3 (adelic points, reduction theory) and ModularCurvesPartII R12/R13 (modular curves as schemes - no ModularCurve declaration)",
+    "AlgebraicModuliForArithmeticGeometry R09.1-R09.5 (Hilbert/Quot schemes, algebraic spaces, stacks) and ComplexComparisonPartII C0-C5"
+   ]
+  },
+  "GeneralAlgebraicKTheory": {
+   "targets": "Higher algebraic K-theory: the Q-construction with K_n(C), the ring/plus model K(A) = K0(A) x BGL(A)+, additivity, devissage, resolution and Quillen localisation, Waldhausen's S-construction with delooping, fibration and approximation, relative and nonunital theories, nonconnective K-theory with Bass's negative groups, and Morita invariance and products.",
+   "baselineHas": [
+    "TauCeti exact-category infrastructure: finiteProjectiveModulesExactStructure and finiteModulesExactStructure (TauCeti/Algebra/Category/ModuleCat/CartanMap.lean)",
+    "TauCeti/CategoryTheory/GrothendieckGroup/ with ExactK0 and AbelianK0 - the degree-zero comparison target of K.1",
+    "Mathlib/AlgebraicTopology/ (SimplicialSet, SimplicialNerve, Quasicategory, ModelCategory, DoldKan, SingularHomology) - the simplicial half of the foundation, with no Mathlib/KTheory directory above it",
+    "Mathlib MoritaEquivalence and the module-theoretic projectivity/finiteness predicates Proj_fg(A) is built from"
+   ],
+   "missing": [
+    "The entire stable-homotopy foundation it is stated on (StableHomotopyKTheory H.1-H.6): spectra, infinite loop spaces, deloopings and higher homotopy groups of a nerve - none of this exists in either library",
+    "The plus construction and BGL(A)+, and with it K.2's group-completion comparison",
+    "K.1's Q-construction, K.3's additivity/devissage/resolution/localisation, K.4's S-construction with the fibration and approximation theorems, K.5 relative/nonunital theories, K.6 nonconnective K-theory and Bass's negative groups, K.7 products and Morita invariance",
+    "The imported low-degree layers: KTheoryLowDegrees U.1-U.6/Z.1-Z.4, K2SymbolsBrauer T.1-T.6 (Steinberg group, K2, Matsumoto - no Steinberg or K2 declaration) and K3BlochGroups V.1-V.4, plus EnhancedDerivedSheaves E0/E5"
+   ]
+  },
+  "ReductiveGroupsPartII": {
+   "targets": "The local structure of connected reductive groups over nonarchimedean local fields: topologies on X(E) and the topological group G(E), Weil restriction and the Deligne torus, relative and valued root data with affine root systems, Bruhat-Tits buildings with the G(E)-action, parahoric and congruence group schemes, Iwasawa/Cartan/Iwahori-Bruhat decompositions, and the pinned integral dual group with the L-group.",
+   "baselineHas": [
+    "TauCeti/Algebra/AlgebraicGroup/ (~4900 declarations): reductive group schemes, split tori and their cocharacters, root data with diagonalRootDatum and hasCartanType, parabolic and Borel subgroups",
+    "TauCeti/LinearAlgebra/RootSystem/ (~3220 declarations) with reflections, bases, chambers and positive roots",
+    "TauCeti/NumberTheory/LocalField/ (normalizedValuation, henselianLocalRing_integer) and TauCeti/RingTheory/Huber/ for the valued base",
+    "Mathlib affine group schemes over a base and the Hopf-algebra/functor-of-points API"
+   ],
+   "missing": [
+    "RG2.0: the topology on X(E) from affine charts with local compactness, the topological-group axioms for G(E) and compactness of integral points",
+    "RG2.0a: Weil restriction of affine schemes and the Deligne torus S = Res(C/R) G_m (no WeilRestriction declaration in either library)",
+    "RG2.1-RG2.2: relative roots with valuation filtrations, affine root systems and apartments, and the Bruhat-Tits building with facets, fixers and the fixed-point theorem (no Building or BruhatTits declaration)",
+    "RG2.3-RG2.4: parahoric and congruence group schemes with their integral characterization, and the Iwasawa, Cartan and Iwahori-Bruhat decompositions (no such declaration)",
+    "RG2.5: the pinned split dual group over Z and the semidirect L-group; only AlgebraicModuli R09.1 is imported, so the stack is self-contained but wholly unbuilt"
+   ]
+  },
+  "NeronModelsAndSemistableAbelianVarieties": {
+   "targets": "Neron models of abelian varieties over DVRs and Dedekind bases with uniqueness and the mapping property, special fibres with component groups and the Chevalley decomposition, semistable reduction with Grothendieck's monodromy criterion and the Raynaud extension, Picard schemes of semistable curves with the monodromy pairing, and Tate modules with Neron-Ogg-Shafarevich, conductors and local Euler factors.",
+   "baselineHas": [
+    "Mathlib's integral and minimal Weierstrass models over a DVR with good/multiplicative/additive reduction and the local L-polynomial of an elliptic curve",
+    "TauCeti/AlgebraicGeometry/AbelianVariety/ (~230 declarations: abelian varieties over a field, isogenies, tangent space) and the formal-group description of the kernel of reduction",
+    "TauCeti/AlgebraicGeometry/Curves/StableReduction/Picard/ with TauCeti.NumericalType.Pic - the weighted intersection matrix and its cokernel, the combinatorial half of the component-group description",
+    "Mathlib/TauCeti group schemes over affine bases with closed subgroup schemes, isogenies and special fibres over a local ring"
+   ],
+   "missing": [
+    "Every layer R11.1-R11.6: no NeronModel, AbelianScheme, TateModule or PicardScheme declaration exists in either library",
+    "Smoothening and the local existence theorem, the Dedekind gluing and the Neron mapping property, the invariant-differential lattice",
+    "Identity components, toric/abelian parts, character groups and component groups with isogeny functoriality",
+    "Semistable reduction for abelian varieties, Grothendieck's monodromy criterion, the Raynaud extension and uniformisation; the monodromy pairing on character groups",
+    "Neron-Ogg-Shafarevich and conductors, which import PadicHodgeTheory R06.6 and with it the crystalline/prismatic/perfectoid comparison tower, plus AbelianSchemesAndArithmeticModuli A1/A3 and AdicSpacesPartII F0 (formal and rigid geometry) - about 130 upstream stages across 24 roadmaps"
+   ]
+  },
+  "SmallRamificationAndAbelianVarietyBaseCases": {
+   "targets": "The arithmetic nonexistence and small-characteristic theorems initialising Serre's conjecture: explicit local and global discriminant bounds, the Tate and Serre mod-2/mod-3 nonexistence theorems, Fontaine's theorem that no positive-dimensional abelian variety over Q has everywhere good reduction, Schoof's semistable one-bad-prime theorem for p in {2,3,5,7,13}, the GL2-type and ordinary terminal cases, and a complete base-case table.",
+   "baselineHas": [
+    "Mathlib's Minkowski discriminant bound, Hermite-Minkowski and Hermite finiteness with root discriminants",
+    "Mathlib's different ideal with its tame ramification exponent",
+    "TauCeti's effective Hermite count for number fields of bounded discriminant",
+    "Mathlib's Weierstrass reduction types, the only reduction theory available anywhere near R25.3-R25.4"
+   ],
+   "missing": [
+    "R25.1 remainder: wild local different bounds and Odlyzko-type analytic discriminant bounds with certified numerics",
+    "R25.2-R25.6 entirely: the Tate/Serre mod-2 and mod-3 nonexistence theorems, Fontaine's everywhere-good-reduction theorem, Schoof's theorem with the finite-flat group-scheme classification over Z[1/p], the terminal GL2-type/ordinary cases and the base-case table",
+    "Global Galois representations with ramification conditions, finite flat group schemes and their ramification theory, and reduction theory of abelian varieties - none of these exists in either library",
+    "The largest imported stack in the block, about 450 upstream stages across 68 roadmaps at depth 27: NeronModels R11.6, FiniteFlatGroupsAndIntegralPadicHodgeTheory R07, FaltingsFinitenessAndIsogenyTheorems R28.5, OrdinaryAutomorphicFormsAndModularityLifting R21.6 and PotentialModularityAndCompatibleSystems R24.6, which themselves reach the automorphic, Shimura-variety and diamond etale-cohomology towers"
+   ]
+  },
+  "DiamondEtaleCohomology": {
+   "targets": "Etale cohomology of diamonds: the etale, quasi-pro-etale and v-sites of locally spatial diamonds and small v-stacks with the bounded comparisons (ECD 14), general base change (16), the left-completed etale category and enhanced hyperdescent (14.12-17.3), the four operations, properness and canonical compactification (18), extension by zero and proper base change (19), algebraically closed base-field invariance, constructible and perfect-constructible coefficients (20), dimension and cohomological bounds (21), and compact generation.",
+   "baselineHas": [
+    "TauCeti/AlgebraicGeometry/AdicSpace/ (~380 declarations: Spa, continuous valuations, rational subsets, the structure presheaf, spectrality) and TauCeti/RingTheory/Huber/ (~1000 declarations)",
+    "Mathlib/RingTheory/Perfectoid/ (FontaineTheta, BDeRham) - the only perfectoid material in either library",
+    "Mathlib's etale and pro-etale sites of schemes (AlgebraicGeometry.Scheme.etaleTopology, proetaleTopology) with enough points",
+    "Mathlib/TauCeti derived-category and homological-algebra infrastructure (~310 DerivedCategory declarations)"
+   ],
+   "missing": [
+    "Diamonds and small v-stacks themselves, and the v-topology: no Diamond or v-sheaf declaration exists in either library (DiamondsAndVStacks D0-D6)",
+    "Perfectoid spaces, tilting and the almost-mathematics package beyond the two Mathlib files (PerfectoidSpaces, PerfectoidQuotients)",
+    "The enhanced, left-complete derived sheaf theory E0-E3 and classical adic etale cohomology H0-H5 (Huber's finiteness, geometric connectedness, ball/annulus computations)",
+    "Etale duality and perverse sheaves - no Perverse declaration exists in either library - and ArithmeticGaloisDuality R02.1-R02.2 (continuous Hochschild-Serre)",
+    "Its own ten stages C0-C9, including proper base change through Zariski-Riemann spaces, Scheiderer's spectral-space dimension bound and compact generation; about 100 upstream stages across 20 roadmaps"
+   ]
+  },
+  "GeometricSatakeAndFusion": {
+   "targets": "The relative Beilinson-Drinfeld and Witt-vector affine Grassmannians over the Fargues-Fontaine curve with loop groups and Schubert geometry, cohomological smoothness of Schubert cells, semi-infinite geometry with the relative perverse t-structure, Satake objects with convolution, fusion with finite-set functoriality, and Tannakian reconstruction of the pinned integral dual group with its Weil action.",
+   "baselineHas": [
+    "TauCeti/Algebra/AlgebraicGroup/ and TauCeti/LinearAlgebra/RootSystem/ for root data, dual root data and the pinning the Tannakian group is matched against",
+    "Mathlib/RingTheory/WittVector/ (~420 WittVector declarations) for the ramified Witt-vector coefficient ring of GS0:Witt-geometry",
+    "TauCeti/AlgebraicGeometry/AdicSpace/ and TauCeti/RingTheory/Huber/ as the bottom of the adic-space stack",
+    "Mathlib/TauCeti derived categories and Mathlib's h/fpqc descent machinery for schemes"
+   ],
+   "missing": [
+    "The affine Grassmannian and loop groups in any form - no affineGrassmannian or LoopGroup declaration exists in either library",
+    "The relative Fargues-Fontaine curve with integral divisors and G-torsors, BunG and Newton strata, and v-stack sheaf theory with ULA and hyperbolic localization",
+    "The whole of DiamondEtaleCohomology and DiamondSixOperations (verified inputs of GS0:Schubert-smoothness), hence also diamonds, v-stacks, perfectoid spaces and the enhanced derived sheaf theory beneath them",
+    "Perverse sheaves with the decomposition theorem and its hard-Lefschetz input (EtaleDualityAndPerverseSheaves EDC.4-EDC.7), needed for GS4:rational-reductivity",
+    "The Bhatt-Scholze projectivity theorem for the Witt Grassmannian with the Keel semiampleness criterion, fusion with coherent collision, and the integral Tannakian reconstruction; plus ReductiveGroupsPartII RG2.2-RG2.5 (buildings, parahorics, dual group). About 190 upstream stages across 30 roadmaps"
+   ]
+  },
+  "PadicLocalLanglandsForGL2Qp": {
+   "targets": "p-adic local Langlands for GL2(Q_p): Robba rings and (phi,Gamma)-modules with a fixed normalization, the smooth mod-p, admissible unitary Banach and locally analytic representation categories, Colmez's functor from two-dimensional (phi,Gamma)-modules, locally algebraic vectors and compatibility with classical local Langlands, blocks and projective envelopes with their deformation-ring endomorphism comparison, and the Paskunas / Hu-Tan / Tung statements including p = 2 and p = 3.",
+   "baselineHas": [
+    "Mathlib's Padic and PadicInt with the complete local-field API, and TauCeti/NumberTheory/LocalField/ (normalized valuations, henselian integers)",
+    "Mathlib/RingTheory/Perfectoid/FontaineTheta and BDeRham - the only Fontaine-period material present",
+    "TauCeti/RingTheory/Huber/ and TauCeti/AlgebraicGeometry/AdicSpace/ for the annulus/adic foundations P7 would be built on",
+    "Mathlib's Banach space and topological-module theory, which the roadmap says must be checked and extended"
+   ],
+   "missing": [
+    "Robba rings and (phi,Gamma)-modules in any form - no Robba or PhiGamma declaration exists in either library - together with overconvergence, the etale equivalence and the Herr comparison (PhiGammaModulesAndIwasawaCohomology PG.0-PG.3)",
+    "p-adic Hodge theory: crystalline, de Rham and semistable representations with their period rings (no IsCrystalline declaration in either library)",
+    "Smooth and admissible representations of p-adic groups and the characteristic-zero smooth local Langlands for GL2 against which R30.1 normalizes, imported through GL2AutomorphicRepresentationsAndTransfer R16.3 - whose own closure reaches AutomorphicFormsOnReductiveGroups, ReductiveGroupsPartII, the endoscopic-transfer machinery and DiamondEtaleCohomology",
+    "Admissible unitary Banach and locally analytic categories with completed group algebras, projective envelopes and the mod-p classification in every residual characteristic",
+    "Colmez's functor, the locally algebraic vectors comparison, and the block/deformation-ring results of Paskunas, Hu-Tan and Tung including the dyadic case. About 250 upstream stages across 43 roadmaps at depth 21"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "tauceti:TauCetiRoadmap/ConformalMapping",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Conformal mapping's L0-L4 summits already exist as sorry-free named theorems in TauCeti (riemannMapping, montel, rouche, hurwitz, monodromy_theorem), leaving only the Caratheodory closure homeomorphism and the Schwarz-Christoffel bijection; quiver representations still needs the converse of Gabriel's dichotomy with the indecomposable-to-positive-root bijection, Gabriel's presentation theorem with the Ext-quiver and Morita reduction, and the existence of almost-split sequences with the AR quiver."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+   "b": "LogicAndDefinabilityInNumberTheory",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Profinite cohomology imports no other roadmap and already has ~700 declarations, so what is left is four self-contained layers (all-degree cohomology, cd_p, the all-degree cup product, the Evens norm) plus Hilbert 90 and Kummer; logic and definability must build valued-field quantifier elimination, p-adic and motivic integration, MRDP and o-minimality with Pila-Wilkie, and its LD.3 imports Grothendieck rings through MotivesAndAlgebraicCycles MC.4, dragging in the entirely absent spectra-and-higher-K-theory column."
+  },
+  {
+   "a": "SieveMethodsAndPrimePatterns",
+   "b": "LogicAndDefinabilityInNumberTheory",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Sieve methods is one deep analytic column (Brun's sieve and the fundamental lemma, both large sieves, Bombieri-Vinogradov, Maynard) built on Mathlib's SelbergSieve carrier and Dirichlet-character machinery; logic must build a valued-field model theory that does not exist, definable and motivic integration, MRDP, and o-minimal cell decomposition with Pila-Wilkie, on top of the imported motives and higher K-theory."
+  },
+  {
+   "a": "SieveMethodsAndPrimePatterns",
+   "b": "AutomorphicFormsOnReductiveGroups",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Sieve methods starts from Mathlib's SelbergSieve/BoundingSieve and Dirichlet L-theory and imports only AnalyticNumberTheory's four stages; automorphic forms has no automorphicForm, (g,K)-module, moderate-growth or Siegel-set declaration at all and additionally needs smooth representations of p-adic groups, the topology on G(E) and Weil restriction, adelic algebraic groups, modular curves as schemes and the Hilbert/Quot-scheme moduli layer."
+  },
+  {
+   "a": "AutomorphicFormsOnReductiveGroups",
+   "b": "GeneralAlgebraicKTheory",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Both must build roughly forty stages of absent theory, but automorphic forms stacks more distinct missing areas: (g,K)-modules with Frechet globalizations, van Est, Siegel-set decay and tensor factorization sit on top of smooth p-adic representation theory, Weil restriction, modular curves as schemes and the moduli/stack layer, whereas K-theory's gap is a single (equally absent) stable-homotopy foundation plus the Q- and S-constructions over TauCeti's existing ExactK0 and exact-category API."
+  },
+  {
+   "a": "GeneralAlgebraicKTheory",
+   "b": "ReductiveGroupsPartII",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "General algebraic K-theory rests on a stable-homotopy foundation neither library has - no spectra, no plus construction, no Steinberg group or K2 - and imports KTheoryLowDegrees, K2SymbolsBrauer and K3BlochGroups before its own Q- and S-constructions, about forty stages in all; reductive groups Part II imports a single upstream stage and builds buildings, parahorics and the decompositions directly on TauCeti's ~4900 algebraic-group and ~3200 root-system declarations."
+  },
+  {
+   "a": "ReductiveGroupsPartII",
+   "b": "NeronModelsAndSemistableAbelianVarieties",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Reductive groups Part II is seven unbuilt layers over an existing root-datum and local-field base with one imported stage; Neron models has nothing at all (no NeronModel, AbelianScheme or TateModule declaration) and its R11.3 and R11.5 import abelian schemes, formal and rigid geometry and PadicHodgeTheory R06.6, bringing the crystalline/prismatic/perfectoid comparison tower with them - about 130 imported stages against one."
+  },
+  {
+   "a": "SmallRamificationAndAbelianVarietyBaseCases",
+   "b": "NeronModelsAndSemistableAbelianVarieties",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Small ramification consumes Neron models R11.6 outright as an input and then adds Tate/Serre mod-2 and mod-3 nonexistence, Fontaine's everywhere-good-reduction theorem, Schoof's theorem with the classification of finite flat group schemes over Z[1/p], and the ordinary-lifting and potential-modularity inputs R21.6 and R24.6."
+  },
+  {
+   "a": "SmallRamificationAndAbelianVarietyBaseCases",
+   "b": "DiamondEtaleCohomology",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Diamond etale cohomology lies inside small ramification's own import closure (through potential modularity and the etale-duality chain into AdicCoefficientsAndComparisons and C2), and small ramification then adds Neron models, finite flat group schemes with their ramification theory, Faltings finiteness, the modularity-lifting tower and its own five nonexistence theorems."
+  },
+  {
+   "a": "DiamondEtaleCohomology",
+   "b": "GeometricSatakeAndFusion",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Geometric Satake consumes DiamondEtaleCohomology and the diamond six operations as verified inputs (GS0:Schubert-smoothness requires DiamondSixOperations S4, which requires C9), and then needs the relative Fargues-Fontaine curve, BunG, the affine Grassmannian and its Witt-vector form with Bhatt-Scholze projectivity, fusion, the decomposition theorem and the integral Tannakian reconstruction, plus buildings and parahorics from RG2."
+  },
+  {
+   "a": "GeometricSatakeAndFusion",
+   "b": "PadicLocalLanglandsForGL2Qp",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Both stand on the same absent perfectoid/diamond tower, but p-adic local Langlands additionally needs Robba rings and (phi,Gamma)-modules (no such declaration in either library), p-adic Hodge theory, admissible Banach and locally analytic representation theory, Colmez's functor and Paskunas' block theory, and its normalization against classical local Langlands pulls in the automorphic and endoscopic machinery - about 250 imported stages at depth 21 against Satake's 190 at depth 15."
+  },
+  {
+   "a": "PadicLocalLanglandsForGL2Qp",
+   "b": "AutomorphicFormsOnReductiveGroups",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "AutomorphicFormsOnReductiveGroups sits inside p-adic local Langlands' import closure (R30.1 needs GL2 local Langlands R16.3, which reaches AF.1 through the L-function stages), and p-adic local Langlands then adds Robba rings and (phi,Gamma)-modules, p-adic Hodge theory, Colmez's functor and the block/deformation-ring comparisons on top."
+  },
+  {
+   "a": "LogicAndDefinabilityInNumberTheory",
+   "b": "DiamondEtaleCohomology",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Logic can start from Mathlib's ModelTheory (languages, ultraproducts with Los, ACF) and Dioph, and its heaviest import is the motives/K-theory column, about forty upstream stages; diamond etale cohomology has almost no base - no diamond, v-stack, perfectoid space or perverse sheaf exists - and must build adic/perfectoid foundations, v-stacks, the enhanced left-complete derived sheaf theory and classical adic etale cohomology before its own ten ECD stages, about a hundred imported stages."
+  },
+  {
+   "a": "GeometricSatakeAndFusion",
+   "b": "GeneralAlgebraicKTheory",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "K-theory's missing tower is spectra plus the Q- and S-constructions over an existing exact-category and ExactK0 base, about forty stages; geometric Satake needs the whole perfectoid/diamond/Fargues-Fontaine column with the diamond six operations, perverse sheaves and the decomposition theorem, Bhatt-Scholze projectivity of the Witt Grassmannian and Bruhat-Tits parahorics before its own fusion and Tannakian layers, about two hundred stages."
+  },
+  {
+   "a": "PadicLocalLanglandsForGL2Qp",
+   "b": "ReductiveGroupsPartII",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Reductive groups Part II imports a single upstream stage and builds on TauCeti's existing root data, tori and local fields; p-adic local Langlands imports RG2 itself (through smooth representations of local groups) plus roughly 250 further stages including p-adic Hodge theory, (phi,Gamma)-modules over the Robba ring and GL2 local Langlands, before its own six layers."
+  },
+  {
+   "a": "SieveMethodsAndPrimePatterns",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Profinite cohomology imports no roadmap and has ~700 declarations already built, leaving four layers of homological bookkeeping (all-degree cohomology, cd_p, the graded cup product, the Evens norm) plus Hilbert 90 and Kummer; sieve methods must build Brun's sieve and the fundamental lemma, both large sieves with Vaughan's identity, Bombieri-Vinogradov and Maynard's bounded gaps, on top of the zero-free-region and explicit-formula stages of AnalyticNumberTheory that are themselves absent."
+  },
+  {
+   "a": "NeronModelsAndSemistableAbelianVarieties",
+   "b": "AutomorphicFormsOnReductiveGroups",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Every Neron-model layer is unbuilt and R11.3/R11.5 import abelian schemes, formal-rigid geometry and PadicHodgeTheory R06.6 with its crystalline, prismatic and perfectoid tower - about 130 imported stages at depth 16; automorphic forms builds on real adelic, modular-form, Hecke and Lie infrastructure and imports about a third as much (36 stages at depth 7)."
+  },
+  {
+   "a": "SmallRamificationAndAbelianVarietyBaseCases",
+   "b": "GeometricSatakeAndFusion",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Geometric Satake's stack is the perfectoid/diamond/Fargues-Fontaine column of about 190 imported stages; small ramification's is roughly two and a half times larger (about 450 stages at depth 27) and contains the diamond etale-cohomology and six-operations machinery inside it, plus Neron models, finite flat group schemes, Faltings finiteness and the whole modularity-lifting chain, before its own Fontaine and Schoof nonexistence theorems."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ConformalMapping",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Conformal mapping's summits are already sorry-free in TauCeti (riemannMapping, montel, rouche, monodromy_theorem) and only the boundary homeomorphism and the Schwarz-Christoffel bijection remain; profinite cohomology still needs Hilbert 90 and the Kummer isomorphism plus four stacked layers - all-degree continuous cohomology, cohomological dimension, the all-degree graded cup product on the coinduction resolution, and the Evens norm."
+  },
+  {
+   "a": "DiamondEtaleCohomology",
+   "b": "PadicLocalLanglandsForGL2Qp",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "DiamondEtaleCohomology is itself an import of p-adic local Langlands (reached from R30.1 through GL2 local Langlands and the etale-duality chain), which then adds Robba rings and (phi,Gamma)-modules, p-adic Hodge theory, admissible Banach and locally analytic categories, Colmez's functor and the Paskunas/Hu-Tan/Tung block results."
+  }
+ ]
+}

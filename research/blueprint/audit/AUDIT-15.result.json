@@ -153,8 +153,16 @@
       {
        "target": "The dual abelian scheme and the module of symmetric O_F-linear homomorphisms A -> A^dual, with its positive cone",
        "library": "absent",
-       "declarations": [],
-       "note": "No dual abelian variety, Picard scheme or Hom(A,A^dual) module exists: grep for DualAbelian/PicardScheme in declarations.tsv and for 'dual abelian' in the sources returns nothing."
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.weightedDegreeZeroClassHom",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/PicZeroQuotient.lean",
+         "line": 67,
+         "fit": "related"
+        }
+       ],
+       "note": "No dual abelian variety and no Picard scheme exist: grep for DualAbelian/PicardScheme in declarations.tsv and for 'dual abelian' in the sources returns nothing. TauCeti has the degree-zero Picard group of a curve as an abstract group with its Abel-Jacobi map, which is the closest object, but it is not a scheme and carries no Hom(A, A^dual) module or positive cone."
       },
       {
        "target": "c-polarization through an ordered invertible O_F-module c",
@@ -1584,13 +1592,13 @@
        "declarations": [
         {
          "name": "SheafOfModules.LocalGeneratorsData.IsLocallyFreeData",
-         "library": "tauceti",
-         "file": "TauCeti/Algebra/Category/ModuleCat/Sheaf/FinitePresentation.lean",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/ModuleCat/Sheaf/LocallyFree.lean",
          "line": 47,
          "fit": "related"
         }
        ],
-       "note": "TauCeti has locally free data for sheaves of modules on a ringed site (with invertible sheaves and local trivializations) and Mathlib has quasi-coherent sheaves on schemes, so the target notion exists abstractly; but there is no sheaf here to prove locally free, and no descent statement in the rigid-analytic setting."
+       "note": "Mathlib has locally free data for a sheaf of modules on a site (SheafOfModules.LocalGeneratorsData.IsLocallyFreeData) and quasi-coherent sheaves on schemes, and TauCeti extends it with finite presentation and invertible-sheaf local triviality, so the target notion exists abstractly; but there is no sheaf here to prove locally free, and no descent statement in the rigid-analytic setting."
       },
       {
        "target": "A nontrivial coefficient representation, not only characters; the cocycle law recorded in a fixed left/right convention",
@@ -1978,6 +1986,1019 @@
       {
        "layer": "PerfectoidShimuraVarieties:S6",
        "note": "S6 owns the general toroidal-diamond period map that O8 routes its general coefficients through."
+      }
+     ]
+    }
+   }
+  },
+  "PadicFamilies": {
+   "summary": "Almost none of this roadmap is built, but one layer is a genuine exception. L0a's first paragraph — the Fitting decomposition of a finite module under an endomorphism U into its eventually invertible image and eventually killed kernel — is proved in Mathlib in greater generality, for any endomorphism of a module that is both Artinian and Noetherian (LinearMap.eventually_isCompl_ker_pow_range_pow and LinearMap.isCompl_iSup_ker_pow_iInf_range_pow, sorry-free), together with the bijectivity statements IsArtinian.surjective_of_injective_endomorphism and IsNoetherian.injective_of_surjective_endomorphism and a full IsIdempotentElem API; what is still missing there is the projector e itself as the stable value of U^(n!), its equivariance and naturality, and the whole profinite inverse-limit and exactness package. Everything else is absent: grep over both trees finds no p-adic modular form, ordinary tower, Igusa tower, Hida theory, ordinary projector, modular symbol, eigenvariety, eigencurve, Fredholm hypersurface, orthonormalizable Banach module, p-adic L-function, pseudorepresentation or Selmer complex. The classical substrate is strong — Mathlib's modular forms with the q-expansion map and its injectivity, Eisenstein series, the abstract Hecke ring, and TauCeti's very large classical Hecke-operator, diamond-operator, newform, multiplicity-one and degeneracy-map development, plus Mathlib's Iwasawa-algebra ingredients (abstract measures, Mahler basis, Amice transform) and compact-operator theory — but nothing p-adic-analytic is built on it.",
+   "layers": {
+    "PadicFamilies:L0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "p-adic modular forms from the ordinary tower and their spaces of q-expansions",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'igusa|ordinary locus|overconvergent|hida' over both trees returns nothing; no p-adic modular form of any flavour exists in either library."
+      },
+      {
+       "target": "The q-expansion principle, integral level structures and diamond actions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ModularForm.qExpansion_injective",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/QExpansion.lean",
+         "line": 661,
+         "fit": "related"
+        },
+        {
+         "name": "diamondOp",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/DiamondOperators.lean",
+         "line": 148,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves that a complex modular form for a congruence subgroup is determined by its q-expansion at infinity (hypotheses: 0 < h and h a strict period of the group), and TauCeti builds diamond operators on Gamma_1(N)-forms with their multiplicativity; this is the analytic q-expansion injectivity, not the geometric q-expansion principle over a base ring, and there are no integral level structures because there are no modular curves."
+      },
+      {
+       "target": "Finite generation, finite flatness and control for ordinary cuspidal modules and Hecke algebras over weight Iwasawa algebras",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AbstractMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 40,
+         "fit": "related"
+        },
+        {
+         "name": "IsHeckeTriple",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
+         "line": 75,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.heckeTNat",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Operators.lean",
+         "line": 82,
+         "fit": "related"
+        }
+       ],
+       "note": "The Iwasawa algebra as a space of abstract measures and the classical Hecke algebra of a Hecke triple both exist, and TauCeti has an extensive classical T_n/diamond development; there is no ordinary Hecke algebra, no ordinary projector applied to it, and no control theorem."
+      },
+      {
+       "target": "The ordinary Eisenstein family and the identification of its q-expansion",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ModularForm.eisensteinSeriesMF",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/EisensteinSeries/Basic.lean",
+         "line": 35,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has classical Eisenstein series as modular forms (with E_4, E_6 and their q-expansions); there is no p-stabilization, no measure-valued family and no Iwasawa-algebra coefficient."
+      },
+      {
+       "target": "Specialization at arithmetic characters to the correct classical ordinary space with nebentypus, p-stabilization and multiplicity",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.Newform",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
+         "line": 102,
+         "fit": "related"
+        }
+       ],
+       "note": "TauCeti has newforms with multiplicity one and strong multiplicity one classically, but there is no family to specialize and no p-stabilization operator."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DirichletPadicLFunctions:L4",
+       "note": "L4 there constructs the Eisenstein measure family and its q-expansion (RJW Theorem 8.2) and explicitly defers the overconvergent/Hida realization to this roadmap; the Eisenstein family is stated in both."
+      },
+      {
+       "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+       "note": "R21.2 imports ordinary families, the ordinary Hecke algebra and Hida control from L0 and adds only the nearly ordinary/Eisenstein statements."
+      }
+     ]
+    },
+    "PadicFamilies:L0a": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Fitting decomposition of a finite module under an endomorphism U into eventually invertible image and eventually killed kernel",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "LinearMap.eventually_isCompl_ker_pow_range_pow",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Artinian/Module.lean",
+         "line": 317,
+         "fit": "more general"
+        },
+        {
+         "name": "LinearMap.isCompl_iSup_ker_pow_iInf_range_pow",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Artinian/Module.lean",
+         "line": 326,
+         "fit": "more general"
+        },
+        {
+         "name": "LinearMap.eventually_codisjoint_ker_pow_range_pow",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Artinian/Module.lean",
+         "line": 300,
+         "fit": "more general"
+        },
+        {
+         "name": "IsArtinian.surjective_of_injective_endomorphism",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Artinian/Module.lean",
+         "line": 163,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves the Fitting decomposition M = ker(f^n) ⊕ range(f^n) for large n, and M = (sup_n ker f^n) ⊕ (inf_n range f^n), for an endomorphism of a module that is [IsArtinian R M] and [IsNoetherian R M] — strictly more general than L0a's 'finite underlying module', which is both. The file has no sorry. IsArtinian.surjective_of_injective_endomorphism and IsNoetherian.injective_of_surjective_endomorphism give the invertibility of U on the stable image."
+      },
+      {
+       "target": "U^(n!) eventually constant with value the projector e; e² = e, U-equivariance and naturality",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsIdempotentElem",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Group/Idempotent.lean",
+         "line": 38,
+         "fit": "related"
+        },
+        {
+         "name": "LinearMap.eventually_isCompl_ker_pow_range_pow",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Artinian/Module.lean",
+         "line": 317,
+         "fit": "related"
+        }
+       ],
+       "note": "The decomposition that determines e is there and Mathlib has a full idempotent-element API, but the specific element e = lim U^(n!) is not constructed: grep -n 'factorial' in Mathlib/RingTheory/Artinian/Module.lean and Mathlib/LinearAlgebra/Eigenspace/Zero.lean returns nothing, and no naturality statement for maps commuting with U exists."
+      },
+      {
+       "target": "The profinite projector: e as the inverse limit of finite projectors over M = lim M/J, with pointwise convergence of U^(n!), continuity, image/kernel decomposition, invertibility on eM and topological nilpotence on (1-e)M",
+       "library": "absent",
+       "declarations": [],
+       "note": "No such inverse-limit construction exists in either library; grep -rn -i 'ordinary projector' over both trees returns nothing."
+      },
+      {
+       "target": "Exactness of e for U-equivariant exact sequences of finite modules, then for inverse-limit sequences under Mittag-Leffler/compact-surjectivity hypotheses",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Functor.IsMittagLeffler",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/CofilteredSystem.lean",
+         "line": 137,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the Mittag-Leffler condition for cofiltered systems and exactness of filtered/cofiltered limits in the usual settings, but nothing about exactness of an ordinary projector."
+      },
+      {
+       "target": "Degreewise application to finite perfect/cohomological complexes with commuting U, and compatibility with cohomology under the chosen limits",
+       "library": "absent",
+       "declarations": [],
+       "note": "Mathlib has homological algebra with complexes and cohomology, but no ordinary-part functor on them."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PotentialAutomorphyInfrastructure:PA.2",
+       "note": "PA.2 consumes exactly this projector and restates the finite-quotient/continuity hypotheses and the failure test for an arbitrary complete Noetherian ring; the construction is owned here."
+      },
+      {
+       "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+       "note": "R21.1 consumes L0a's ordinary projectors and their finite-level comparison and applies them to Hecke complexes."
+      }
+     ]
+    },
+    "PadicFamilies:L1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The ordinary modular-symbol module with integral structure, sign action and Hecke action",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'modular symbol' over both whole trees returns nothing: neither library has modular symbols in any form, let alone their ordinary part."
+      },
+      {
+       "target": "Its control theorem and comparison with classical symbols at classical points",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'control theorem' returns nothing in either tree."
+      },
+      {
+       "target": "Period modules and congruence modules, with the line-bundle versus scalar-function distinction",
+       "library": "absent",
+       "declarations": [],
+       "note": "No period or congruence modules of a Hecke algebra exist in either library."
+      },
+      {
+       "target": "Integration of universal characters against the universal ordinary symbol to give a cyclotomic measure with Hecke/period coefficients",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AbstractMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 40,
+         "fit": "related"
+        },
+        {
+         "name": "mahler",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+         "line": 103,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has p-adic measures as continuous functionals on C(X, R) with the Mahler basis and Amice transform, so the target of the integration map exists; the symbol being integrated does not."
+      },
+      {
+       "target": "Arithmetic specialization and the relation between family periods and canonical single-form periods, stated integrally",
+       "library": "absent",
+       "declarations": [],
+       "note": "Conditional on unbuilt objects."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ModularSymbolsPadicLFunctions:L0",
+       "note": "L0 there owns modular symbols, Manin symbols, boundary maps, Hecke actions, the involution at infinity and the Eichler-Shimura period maps with their rational structures — the objects L1 takes the ordinary part of."
+      },
+      {
+       "layer": "ModularSymbolsPadicLFunctions:L2",
+       "note": "L2 there owns the integral lattice/period theorem that decides when the p-adic L-function is a measure, which L1 restates as the integral period statement."
+      }
+     ]
+    },
+    "PadicFamilies:L2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The compact U_p action on affinoid distribution-valued modular cohomology",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsCompactOperator",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Normed/Operator/Compact/Basic.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines compact operators for topological vector spaces over a normed field, and TauCeti has Fredholm theory with compact perturbations for Hilbert spaces, but there are no locally analytic distributions and no modular cohomology in either library."
+      },
+      {
+       "target": "The eigencurve, eigenvalue/weight maps and coherent eigensymbol sheaf",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'eigenvariety|eigencurve' over both trees returns nothing."
+      },
+      {
+       "target": "Modular base-change statements including Tor terms and generalized eigenspaces at non-reduced or ramified points",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.End.genEigenspace",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+         "line": 73,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Tor",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Tor.lean",
+         "line": 44,
+         "fit": "related"
+        }
+       ],
+       "note": "Generalized eigenspaces of an endomorphism and Tor functors exist in Mathlib as general algebra, but there is no eigenvariety for them to sit over."
+      },
+      {
+       "target": "The classicality/control theorem in the small-slope range, with a noncritical eigensymbol as an actual lift",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'classicality' returns nothing in either tree."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "LocallyAnalyticDistributions:L4",
+       "note": "L4 there owns affinoid-valued distributions, compactness of the semigroup operators, Fredholm determinants and slope decompositions, and states that these are supplied to this roadmap rather than hidden inside an eigenvariety structure."
+      },
+      {
+       "layer": "ModularSymbolsPadicLFunctions:L2",
+       "note": "L2 there proves the small-slope control theorem and the unique eigenlift for modular symbols, which is L2's classicality statement in the single-form case."
+      }
+     ]
+    },
+    "PadicFamilies:L2a": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "A reduced rigid weight space with compatible orthonormalizable Banach modules (or property (Pr)) over its affinoids",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'orthonormaliz' over both trees finds only Gram-Schmidt in an inner-product space; there are no Banach modules over an affinoid algebra and no rigid weight space."
+      },
+      {
+       "target": "The Fredholm hypersurface of a distinguished compact operator",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.isFredholm_one_sub",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Fredholm/CompactPerturbation.lean",
+         "line": 65,
+         "fit": "related"
+        }
+       ],
+       "note": "TauCeti proves that 1 - K is Fredholm for a compact operator K on a Banach space, which is the archimedean analogue; there is no Fredholm determinant (grep -rn -i 'fredholm determinant' returns nothing) and hence no Fredholm hypersurface."
+      },
+      {
+       "target": "Finite-projective slope summands on adapted affinoids and finite Hecke-algebra spectral pieces",
+       "library": "absent",
+       "declarations": [],
+       "note": "No slope decomposition theory exists in either library."
+      },
+      {
+       "target": "Gluing to an eigenvariety with eigenvalue/weight maps, coherent eigenmodule sheaf, independence of admissible coverings and compatibility with linked Banach modules",
+       "library": "absent",
+       "declarations": [],
+       "note": "No rigid-analytic spaces with admissible coverings exist; TauCeti's adic spaces are the closest object and carry no coherent-sheaf gluing theory of this kind."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicMeasuresIwasawaAlgebras:L0a",
+       "note": "L0a there constructs the rigid weight space that L2a fixes as its base, and says L2a consumes it for general spectral gluing."
+      },
+      {
+       "layer": "LocallyAnalyticDistributions:L4",
+       "note": "L4 there supplies the compact operators and Fredholm determinants L2a's construction runs on."
+      },
+      {
+       "layer": "AutomorphicGaloisRepresentationsPartII:AG2.3",
+       "note": "AG2.3 supplies definite-unitary coefficients, compactness and classical points to this same abstract machine."
+      }
+     ]
+    },
+    "PadicFamilies:L3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The evaluation map from the coherent eigensymbol module to distributions in the cyclotomic variable, with analytic variation and specialization",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither the eigensymbol module nor locally analytic distributions exist in either library."
+      },
+      {
+       "target": "Compatibility with the single-form p-adic L-function construction",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'p-adic L|kubota|leopoldt' over both trees returns nothing: no p-adic L-function of any kind is built, not even Kubota-Leopoldt."
+      },
+      {
+       "target": "The Pollack-Stevens non-theta-critical theorem and the Bellaiche critical-point results with their local eigenvariety and multiplicity hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'pollack' finds only an unrelated author name in a Morse-theory file."
+      },
+      {
+       "target": "The theta-critical vanishing and secondary/derivative construction, and the distinction between critical slope and failure of the specialization map",
+       "library": "absent",
+       "declarations": [],
+       "note": "Conditional on unbuilt objects."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ModularSymbolsPadicLFunctions:L3",
+       "note": "L3 there states the same Pollack-Stevens/Bellaiche critical-slope results, the theta exact sequence and the secondary L-functions, using the finite-slope eigenvariety layer of this roadmap; the two layers state the same theorems from the two sides of the interface."
+      }
+     ]
+    },
+    "PadicFamilies:L4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The ordinary big Galois representation on a Hecke component, first as a pseudorepresentation then as a representation",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'pseudorepresentation|pseudo.?character' over both trees returns nothing, and there are no Galois representations attached to modular forms in either library."
+      },
+      {
+       "target": "The local ordinary filtration, saturation and arithmetic specialization",
+       "library": "absent",
+       "declarations": [],
+       "note": "No ordinary filtration and no local Galois theory of this kind exists."
+      },
+      {
+       "target": "The family Selmer complex",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.selmerGroup₂",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+         "line": 104,
+         "fit": "related"
+        }
+       ],
+       "note": "TauCeti has the classical 2-Selmer group used in its proof of Mordell-Weil, and Mathlib has a Selmer group of a Dedekind domain; neither is a Selmer complex of a Galois representation and neither varies in a family."
+      },
+      {
+       "target": "Family regulators and big Kato classes with their specialization, and the family reciprocity law derived rather than assumed",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Euler systems, no Kato classes and no p-adic regulators exist in either library."
+      },
+      {
+       "target": "The precise local triangulation/de Rham hypotheses for nonordinary families",
+       "library": "absent",
+       "declarations": [],
+       "note": "No (phi, Gamma)-modules or triangulations exist; Mathlib's perfectoid files stop well short of this."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+       "note": "R21.3 owns ordinary Galois and deformation families, overlapping L4's big Galois representation and its local ordinary filtration."
+      },
+      {
+       "layer": "GlobalGaloisDeformations:R04.1",
+       "note": "R04.1 owns deformation functors and pseudorepresentations, which L4 uses to build the family representation."
+      }
+     ]
+    },
+    "PadicFamilies:L5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Instantiation of the ordinary projector on integral Hilbert automorphic/cohomology modules, with the finite-quotient hypotheses proved",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LinearMap.eventually_isCompl_ker_pow_range_pow",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Artinian/Module.lean",
+         "line": 317,
+         "fit": "related"
+        }
+       ],
+       "note": "The abstract Fitting decomposition is available in Mathlib (see L0a), but there are no Hilbert automorphic or cohomology modules in either library to apply it to — the Hilbert varieties of H1-H4 and their cohomology (R18.4) are themselves unbuilt."
+      },
+      {
+       "target": "Compatibility with coefficient extension, residual localization and trace in p-power level",
+       "library": "absent",
+       "declarations": [],
+       "note": "Conditional on unbuilt modules."
+      },
+      {
+       "target": "Hida control on the ordinary loci and integral weight algebras, with central-character and torsion-unit restrictions",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'hida' over both trees returns one unrelated hit; no control theorem exists."
+      },
+      {
+       "target": "Nearly ordinary filtrations at each place above p as distinct data",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Galois or automorphic filtration theory in either library."
+      },
+      {
+       "target": "Period modules as invertible modules under proved freeness/multiplicity-one hypotheses, with comparison to the rational modular-curve case",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.finrank_cuspFormsNewEigenspace_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/MultiplicityOne.lean",
+         "line": 188,
+         "fit": "related"
+        }
+       ],
+       "note": "TauCeti proves classical multiplicity one for newforms over Q — the new-eigenspace of the Hecke algebra is one-dimensional — which is the modular-curve-case input; the period modules and their invertibility are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+       "note": "R21.2 imports L5 as 'the totally real family interface' and adds the nearly ordinary/Eisenstein control statements; the Hida control statement is stated on both sides."
+      },
+      {
+       "layer": "OverconvergentAutomorphicForms:O7",
+       "note": "O7 constructs ordinary Hilbert forms on the Igusa tower and their Hida comparison from the geometric side, the same ordinary theory L5 states cohomologically."
+      },
+      {
+       "layer": "PadicFamilies:L0a",
+       "note": "L5's first sentence is an instantiation of L0a's projector; the projector construction is owned by L0a."
+      }
+     ]
+    }
+   }
+  },
+  "QSeriesPartitionsAndMockModularForms": {
+   "summary": "This is the one roadmap in the batch with substantial library coverage, and it is concentrated in the first two layers. Mathlib has partitions (Nat.Partition with odds, distincts and restricted families), the partition generating function as a formal power series together with its infinite-product form and the coefficientwise finiteness that makes the product converge (Nat.Partition.genFun, hasProd_genFun, multipliable_genFun, genFun_eq_tprod), and Glaisher's theorem with Euler's odd = distinct corollary; it also has the Dedekind eta function with nonvanishing, differentiability, logDeriv eta = E2, the S-transformation eta(-1/z) = (sqrt I)^{-1} sqrt z eta(z), the modular discriminant Delta = eta^24 as a genuine level-one cusp form with its T- and S-invariance, and the one- and two-variable Jacobi theta functions with their functional equations (including the half-integral-weight law theta(S.tau) = (-I tau)^{1/2} theta(tau)). All of these files are sorry-free. What is missing is everything analytic and everything beyond level one: no q-binomial/q-Pochhammer identities, no partition congruences, no Jacobi forms with index, no Kloosterman sums, no Bessel functions, no Hardy-Ramanujan/Rademacher asymptotics or exact formula, no Maass forms or weight-k hyperbolic Laplacian, no xi operator, no mock modular forms or Zwegers completions, no quantum modular forms or radial limits, and no moonshine — Mathlib has vertex operators as Hahn-series-valued maps but no vertex algebra, and TauCeti has only a transcribed Y_443 presentation of the Monster, with no j-function anywhere in either library.",
+   "layers": {
+    "QSeriesPartitionsAndMockModularForms:QM.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Partition functions and restricted partition families",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Nat.Partition",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/Partition/Basic.lean",
+         "line": 57,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.Partition.odds",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/Partition/Basic.lean",
+         "line": 218,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.Partition.distincts",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/Partition/Basic.lean",
+         "line": 221,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.Partition.restricted",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/Partition/Basic.lean",
+         "line": 210,
+         "fit": "exact"
+        }
+       ],
+       "note": "Partitions of a natural number are a finite type in Mathlib with the odd, distinct and part-restricted subfamilies; the file is sorry-free."
+      },
+      {
+       "target": "Generating products for partition counts, as formal power series",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Nat.Partition.genFun",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/Partition/GenFun.lean",
+         "line": 56,
+         "fit": "more general"
+        },
+        {
+         "name": "Nat.Partition.hasProd_genFun",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/Partition/GenFun.lean",
+         "line": 170,
+         "fit": "more general"
+        },
+        {
+         "name": "Nat.Partition.genFun_eq_tprod",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/Partition/GenFun.lean",
+         "line": 193,
+         "fit": "more general"
+        },
+        {
+         "name": "Nat.Partition.hasProd_powerSeriesMk_card_restricted",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/Partition/Glaisher.lean",
+         "line": 49,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib builds the generating function attached to an arbitrary character f(i, c) of a part and its multiplicity and proves it equals the infinite product prod_i (1 + sum_j f(i,j) X^{ij}) in the X-adic topology; the specializations to restricted and count-restricted partitions are proved in Glaisher.lean. The module docstring records that the specialization giving the unrestricted partition function p(n) itself is still a TODO, so the classical product formula for sum p(n) q^n is not yet a named theorem."
+      },
+      {
+       "target": "Coefficientwise finiteness of infinite products and specialization maps",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Nat.Partition.multipliable_genFun",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/Partition/GenFun.lean",
+         "line": 189,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.Partition.summable_genFun_term",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/Partition/GenFun.lean",
+         "line": 80,
+         "fit": "exact"
+        },
+        {
+         "name": "PowerSeries.subst",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+         "line": 158,
+         "fit": "related"
+        }
+       ],
+       "note": "Multipliability of the product in the X-adic (pi) topology on R[[X]] is proved, which is exactly the coefficientwise finiteness the layer asks for; PowerSeries.subst and PowerSeries.rescale give the formal specialization maps."
+      },
+      {
+       "target": "q-binomial identities",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -i for qBinomial, gaussianBinomial, qChoose and qPochhammer over declarations.tsv returns nothing in either library; Mathlib's Pochhammer is the ordinary ascending factorial, not its q-analogue."
+      },
+      {
+       "target": "Partition congruences in formal power-series rings",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Nat.Partition.card_odds_eq_card_distincts",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/Partition/Glaisher.lean",
+         "line": 158,
+         "fit": "related"
+        }
+       ],
+       "note": "Euler's identity and Glaisher's generalization are proved, but there are no congruences in the Ramanujan sense: grep -rn -i 'partition congru|p(5n' over both trees returns nothing."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ClassicalArithmeticCompletion:CA.2",
+       "note": "CA.2 owns recurrences, binomial identities and rational/formal generating functions with the same 'prove coefficient identities formally first' acceptance clause; QM.0 restates the formal-generating-function discipline for partitions."
+      }
+     ]
+    },
+    "QSeriesPartitionsAndMockModularForms:QM.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Theta functions with their transformation law and branch choice",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "jacobiTheta",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/JacobiTheta/OneVariable.lean",
+         "line": 29,
+         "fit": "special case"
+        },
+        {
+         "name": "jacobiTheta_S_smul",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/JacobiTheta/OneVariable.lean",
+         "line": 43,
+         "fit": "exact"
+        },
+        {
+         "name": "jacobiTheta_T_sq_smul",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/JacobiTheta/OneVariable.lean",
+         "line": 37,
+         "fit": "exact"
+        },
+        {
+         "name": "jacobiTheta₂_functional_equation",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean",
+         "line": 465,
+         "fit": "more general"
+        }
+       ],
+       "note": "Mathlib proves theta(S.tau) = (-I tau)^(1/2) theta(tau) with the principal branch and theta(T^2.tau) = theta(tau), i.e. the half-integral-weight law at the generators of Gamma_theta, plus the two-variable functional equation; what is missing is the multiplier system on a whole congruence subgroup and the behaviour at every cusp."
+      },
+      {
+       "target": "The Dedekind eta function with its multiplier system",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ModularForm.eta",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/DedekindEta.lean",
+         "line": 60,
+         "fit": "exact"
+        },
+        {
+         "name": "ModularForm.eta_comp_eq_csqrt_I_inv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Discriminant.lean",
+         "line": 138,
+         "fit": "exact"
+        },
+        {
+         "name": "ModularForm.eta_ne_zero",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/DedekindEta.lean",
+         "line": 117,
+         "fit": "exact"
+        },
+        {
+         "name": "ModularForm.logDeriv_eta_eq_E2",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/DedekindEta.lean",
+         "line": 169,
+         "fit": "exact"
+        },
+        {
+         "name": "ModularForm.discriminant_S_invariant",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Discriminant.lean",
+         "line": 147,
+         "fit": "exact"
+        }
+       ],
+       "note": "eta is defined as q^(1/24) prod (1 - q^(n+1)), proved nonvanishing and differentiable on the upper half-plane, with logDeriv eta = E2 up to the standard constant and the S-transformation eta(-1/z) = (sqrt I)^(-1) sqrt z eta(z); Delta = eta^24 is a level-one cusp form of weight 12 with S- and T-invariance and first q-coefficient 1. Missing is the multiplier system of eta on all of SL_2(Z) (no Dedekind sums exist in either library: grep -rn -i 'dedekind sum' returns nothing) and any eta quotient of higher level."
+      },
+      {
+       "target": "Jacobi forms with multiplier systems, weights and indices",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "jacobiTheta₂",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean",
+         "line": 251,
+         "fit": "related"
+        }
+       ],
+       "note": "The two-variable theta function exists as an analytic function, but there is no definition of a Jacobi form, no index and no elliptic transformation law; grep -rn -i 'jacobi form' over both trees returns nothing."
+      },
+      {
+       "target": "Cusp behaviour verified at every cusp",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ModularForm.discriminant_isZeroAtImInfty",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Discriminant.lean",
+         "line": 179,
+         "fit": "special case"
+        },
+        {
+         "name": "CuspForm",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+         "line": 82,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has cusps of a congruence subgroup and the vanishing condition at all of them in the definition of CuspForm, and Delta is shown to vanish at infinity; but for theta and eta only the behaviour at infinity and under the named generators is proved."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "MetaplecticAutomorphicForms:MP.7",
+       "note": "MP.7 owns the half-integral-weight forms and multiplier systems that QM.1 is required to match; the layer names MP.7 as an input and restates the multiplier convention."
+      },
+      {
+       "layer": "MetaplecticAutomorphicForms:MP.8",
+       "note": "MP.8 also defines Jacobi modular forms, theta decomposition and half-integral-weight automorphy factors; the Jacobi-form definition is stated in both layers."
+      }
+     ]
+    },
+    "QSeriesPartitionsAndMockModularForms:QM.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The Hardy-Ramanujan asymptotic for p(n)",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'hardy.?ramanujan' over both trees returns nothing; there is no asymptotic for the partition function in either library."
+      },
+      {
+       "target": "Kloosterman sums",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "gaussSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/GaussSum.lean",
+         "line": 72,
+         "fit": "related"
+        }
+       ],
+       "note": "grep -rn -i 'kloosterman' over both trees returns nothing. Mathlib has Gauss sums over finite fields, which are a different exponential sum, and no Weil bound for Kloosterman sums."
+      },
+      {
+       "target": "Bessel functions and the convergence of the Rademacher exact series",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'besselI|besselJ|Bessel function' over both trees returns nothing: the only 'Bessel' occurrences are Bessel's inequality in inner-product spaces and Bessel potentials in the Sobolev files."
+      },
+      {
+       "target": "Effective error terms and the distinction between truncated approximations and the infinite identity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing to make effective."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExponentialSumsAndCircleMethod:ES.3",
+       "note": "ES.3 owns the circle-method major-arc machinery (singular integrals, local densities, convergence) that QM.2 names as its input; the Hardy-Ramanujan route is the partition instance of it."
+      }
+     ]
+    },
+    "QSeriesPartitionsAndMockModularForms:QM.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The weight-k hyperbolic Laplacian Delta_k",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HarmonicAt",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/InnerProductSpace/Harmonic/Basic.lean",
+         "line": 41,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has harmonic functions on a complex/inner-product domain (the flat Laplacian) with the mean-value property, Liouville and the real-part-of-holomorphic characterization; there is no weight-k hyperbolic Laplacian on the upper half-plane and no Maass form (grep -rn -i 'maass' over both trees returns nothing)."
+      },
+      {
+       "target": "Growth conditions and the holomorphic/nonholomorphic Fourier parts of a harmonic weak Maass form",
+       "library": "absent",
+       "declarations": [],
+       "note": "No non-holomorphic modular objects exist in either library; Mathlib's ModularForm requires holomorphy."
+      },
+      {
+       "target": "The xi operator and its kernel/image, with shadow weights",
+       "library": "absent",
+       "declarations": [],
+       "note": "No such operator is defined anywhere in either tree."
+      },
+      {
+       "target": "Poincare series and the pairing/exact-sequence interface of Bruinier-Funke",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ModularForm.eisensteinSeriesMF",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/EisensteinSeries/Basic.lean",
+         "line": 35,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has holomorphic Eisenstein series at level one and for congruence subgroups, which are the weight-zero Poincare series; general Poincare series and the Bruinier-Funke duality are absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "QSeriesPartitionsAndMockModularForms:QM.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Indefinite theta functions in the sense of Zwegers",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "jacobiTheta₂",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean",
+         "line": 251,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the definite (positive-definite, rank-one) theta functions exist in Mathlib; there is no indefinite theta series and no error-function correction."
+      },
+      {
+       "target": "Appell-Lerch sums",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'appell|lerch' over both trees returns nothing mathematical for this construction."
+      },
+      {
+       "target": "Correction terms, transformation laws and shadows of mock modular forms",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'mock modular' over both trees returns nothing; no completion of a mock form exists."
+      }
+     ],
+     "duplicates": []
+    },
+    "QSeriesPartitionsAndMockModularForms:QM.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Source-scoped partition congruences",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Nat.Partition.card_odds_eq_card_distincts",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/Partition/Glaisher.lean",
+         "line": 158,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's only partition identity of this shape is Euler/Glaisher (an equality of counts, not a congruence); no Ramanujan-type congruence is proved in either library."
+      },
+      {
+       "target": "Traces of singular moduli and special values",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no modular j-function in either library (grep -rn -i 'j-invariant|hauptmodul' over Mathlib/NumberTheory returns nothing), so singular moduli cannot be defined."
+      },
+      {
+       "target": "Quantum modular forms and radial limits at roots of unity, compared with the unified WRT invariant",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'quantum modular|habiro|reshetikhin|colored jones' over both trees returns nothing; TauCeti has a knot-theory development but no quantum invariants of this kind."
+      },
+      {
+       "target": "Eichler integrals, kept distinct from formal evaluations until an explicit comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Eichler integrals in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticQuantumTopology:QT.7",
+       "note": "QT.7 owns the quantum-modularity statements and the example ledger linking cyclotomic coefficients, WRT values and Bloch regulators, which QM.5 imports and compares by radial limits."
+      },
+      {
+       "layer": "HabiroNahmSeries:HB.10",
+       "note": "HB.10 owns the explicit q-series/Nahm examples and boundaries that QM.5's radial-limit comparison draws on."
+      }
+     ]
+    },
+    "QSeriesPartitionsAndMockModularForms:QM.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Vertex-operator-algebra inputs and the moonshine module",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "VertexOperator",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Vertex/VertexOperator.lean",
+         "line": 40,
+         "fit": "related"
+        },
+        {
+         "name": "HVertexOperator",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Vertex/HVertexOperator.lean",
+         "line": 47,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines a vertex operator as a Hahn-series-valued linear map with its coefficient API, but there is no vertex algebra or vertex operator algebra class (grep -rn 'VertexAlgebra' over Mathlib returns nothing), no no-ghost theorem and no moonshine module."
+      },
+      {
+       "target": "The Monster group and its graded traces",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Sporadic.Monster.coxeterMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Sporadic/Monster.lean",
+         "line": 120,
+         "fit": "related"
+        }
+       ],
+       "note": "TauCeti records the Y_443 (Coxeter-plus-spider) presentation of M x 2 as a GroupPresentation with decidable transcription checks — a transcribed presentation, not a construction of the Monster and not a character table; there are no graded traces of any module."
+      },
+      {
+       "target": "Modular transformation laws of the McKay-Thompson series and the genus-zero property",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'moonshine' over both trees returns nothing; there is no modular j-function, no hauptmodul and no genus-zero statement in either library."
+      },
+      {
+       "target": "The Monster Lie algebra and the Borcherds denominator identity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Mathlib has generalized Kac-Moody theory only through root systems and Lie algebra basics; no Borcherds-Kac-Moody algebra and no denominator identity exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ModularCurvesPartII:R12.3",
+       "note": "R12.3 owns the cusps and compactification comparison that QM.6's genus-zero statements would be phrased against; QM.6 names it as an input."
       }
      ]
     }

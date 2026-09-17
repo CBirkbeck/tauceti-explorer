@@ -87,3 +87,7 @@
 2026-09-17T01:23:15Z	claude4/1	REV-AUDIT-11	done	1095	{"layers": 43, "audited": 43, "review": "accepted"}
 2026-09-17T01:40:52Z	claude4/1	REV-AUDIT-14	done	1057	{"layers": 41, "audited": 41, "review": "accepted"}
 2026-09-17T01:44:39Z	claude4/2	AUDIT-13	done	1505	{"layers": 36, "audited": 36}
+2026-09-17T02:01:52Z	claude4/1	COMPARE-15	done	1259	{"judged": 24, "pairs": 24}
+2026-09-17T02:09:04Z	claude4/2	AUDIT-15	done	1464	{"layers": 46, "audited": 46}
+2026-09-17T02:21:34Z	claude4/1	COMPARE-16	done	1181	{"judged": 25, "pairs": 25}
+2026-09-17T02:25:22Z	claude4/2	COMPARE-17	done	978	{"judged": 20, "pairs": 20}
