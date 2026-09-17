@@ -381,9 +381,31 @@
       },
       {
        "target": "Homology of algebraic pairs, boundary morphisms and the long exact sequence of a triple",
-       "library": "absent",
-       "declarations": [],
-       "note": "Tau Ceti has singular homology of topological pairs in `AlgebraicTopology/Singular`, but relative singular cohomology of an algebraic pair (X,Y) as a functor on Nori's diagram is not constructed."
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TopPair.singularChainComplex",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/Singular/Relative.lean",
+         "line": 81,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.TopTriple.singularHomologyδ",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/Singular/Triple.lean",
+         "line": 134,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.TopTriple.singularHomology_exact_total",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/Singular/Triple.lean",
+         "line": 161,
+         "fit": "related"
+        }
+       ],
+       "note": "The topological half is there: Tau Ceti builds relative singular chains of a topological pair and proves the long exact sequence of a triple B ⊆ A ⊆ X with its connecting morphism and naturality, sorry-free. What is missing is the passage to algebraic pairs — there is no analytification or Betti functor from varieties, and no diagram on which to define Nori's homology."
       },
       {
        "target": "Tensor and duality structure on the Nori category; Betti and de Rham fibre functors",
@@ -559,6 +581,3207 @@
       {
        "layer": "DrinfeldModulesAndTModules:DM.5",
        "note": "DM.5 proves the Tate theorem for Drinfeld modules — a function-field analogue of the Tate conjecture case MC.7 registers."
+      }
+     ]
+    }
+   }
+  },
+  "AInfCohomology": {
+   "summary": "Mathlib supplies more of the AI.0 period-ring prefix than the roadmap document assumes: the tilt of any p-adically complete ring (`PreTilt`, perfect and of characteristic p), hence A_inf = W(O^♭) with `WittVector.frobeniusEquiv`; Fontaine's θ (`WittVector.fontaineTheta`) with surjectivity and the Teichmüller formula; the untilt map; and B_dR^+ and B_dR defined exactly as the ker-θ-adic completion of A_inf[1/p] and its localization. It also has ℂ_p and its ring of integers, F-isocrystals with the one-dimensional Dieudonné–Manin classification, divided-power structures, continuous group cohomology, derived categories and abstract sheaf cohomology. Everything else this roadmap needs is missing from both libraries: μ, ξ and ξ̃ (ker θ principal is still an explicit Mathlib TODO), θ̃, the residue map to W(k), Breuil–Kisin twists, PD envelopes and A_cris, the décalage operator Lη and derived completeness, BKF modules and Fargues' equivalence, adic spaces and their pro-étale sites, AΩ, de Rham–Witt, crystalline and étale cohomology, log structures, Hyodo–Kato and prismatic cohomology. AI.1–AI.7 are therefore not built; AI.0 and its integral substage are partly built, and the layers overlap heavily with PadicHodgeTheory R06.1, CrystallineCohomology CR.0/CR.4/CR.5/CR.6, PrismaticCohomology PR.0/PR.6/PR.7 and CohomologyComparisons CP.1/CP.4/CP.5.",
+   "layers": {
+    "AInfCohomology:AI.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "A_inf = W(O_C^flat) as a ring, with its Frobenius",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "PreTilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 634,
+         "fit": "exact"
+        },
+        {
+         "name": "WittVector",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Defs.lean",
+         "line": 52,
+         "fit": "exact"
+        },
+        {
+         "name": "WittVector.frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 221,
+         "fit": "more general"
+        },
+        {
+         "name": "WittVector.frobeniusEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 286,
+         "fit": "more general"
+        },
+        {
+         "name": "Perfection",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 40,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's `PreTilt O p` is the tilt O^flat of any p-adically complete ring (`Fact ¬IsUnit (p:O)`, `IsAdicComplete (span {p}) O`), built from Mathlib's `Perfection`, so that it carries the anonymous `CharP` and `PerfectRing` instances at `Perfection.lean:644,647` and `WittVector p (PreTilt O p)` is A_inf and `WittVector.frobeniusEquiv` is its Frobenius automorphism. The ring is never named A_inf and there is no `IsPerfectoid` hypothesis class; `PadicComplexInt` is not registered as p-adically complete, so even the C = ℂ_p instance is not available off the shelf."
+      },
+      {
+       "target": "theta : A_inf → O_C, its surjectivity and its Teichmüller formula",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "WittVector.fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 165,
+         "fit": "more general"
+        },
+        {
+         "name": "surjective_fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 195,
+         "fit": "more general"
+        },
+        {
+         "name": "WittVector.fontaineTheta_teichmuller",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 182,
+         "fit": "more general"
+        },
+        {
+         "name": "PreTilt.untilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/Untilt.lean",
+         "line": 49,
+         "fit": "more general"
+        }
+       ],
+       "note": "`WittVector.fontaineTheta : 𝕎 R♭ →+* R` is constructed for every p-adically complete R (not only perfectoid ones) as the limit of explicit maps mod p^n; `surjective_fontaineTheta` proves surjectivity when Frobenius on R/p is surjective, and `fontaineTheta_teichmuller` identifies θ([x]) with the untilt. Sorry-free."
+      },
+      {
+       "target": "Residue map A_inf → W(k) to the Witt vectors of the residue field",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.map",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Basic.lean",
+         "line": 253,
+         "fit": "more general"
+        },
+        {
+         "name": "WittVector.isAdicCompleteIdealSpanP",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Complete.lean",
+         "line": 116,
+         "fit": "special case"
+        }
+       ],
+       "note": "`WittVector.map` gives functoriality of W(–) in ring maps and `isAdicCompleteIdealSpanP` gives p-adic completeness of W(k) for perfect k, but the ring map O_C^flat → k (reduction of the tilt to the residue field) is not constructed anywhere, so the residue map itself is missing."
+      },
+      {
+       "target": "A compatible system epsilon of primitive p-power roots of unity; mu = [epsilon]−1, xi = mu/phi^{-1}(mu), tilde-xi = phi(xi), with existence of the quotient",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.teichmuller",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
+         "line": 93,
+         "fit": "more general"
+        },
+        {
+         "name": "cyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 307,
+         "fit": "related"
+        }
+       ],
+       "note": "`WittVector.teichmuller` supplies [–] and Mathlib has primitive roots of unity and the p-adic cyclotomic character, but μ, ξ and ξ̃ are never formed and no divisibility statement φ^{-1}(μ) ∣ μ is proved."
+      },
+      {
+       "target": "ker theta = (xi) and ker tilde-theta = (tilde-xi); xi a nonzerodivisor",
+       "library": "absent",
+       "declarations": [],
+       "note": "Explicitly still open in Mathlib: the TODO list of `Mathlib/RingTheory/Perfectoid/BDeRham.lean` reads 'Show that ker θ is principal when the base ring is integral perfectoid'. `BDeRham` is therefore defined by inverting the set of all generators of ker θ, a workaround for the missing principality."
+      },
+      {
+       "target": "tilde-theta = theta ∘ phi^{-1} and the exact Frobenius twisting of scalar extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Only θ is constructed; θ̃ and the Frobenius-twisted base change A_inf → A_inf are absent."
+      },
+      {
+       "target": "A_cris as the p-completed PD envelope of ker theta",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DividedPowers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+         "line": 78,
+         "fit": "related"
+        },
+        {
+         "name": "DividedPowers.DPMorphism",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/DPMorphism.lean",
+         "line": 101,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has divided power structures on an ideal, sub-PD-ideals and PD morphisms, but no PD envelope (`grep -rn -i envelope` over `Mathlib/RingTheory/DividedPowers*` returns nothing), hence no A_cris, B_cris or B_st in either library."
+      },
+      {
+       "target": "B_dR^+ as the ker-theta-adic completion of A_inf[1/p], and B_dR",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "exact"
+        },
+        {
+         "name": "BDeRham",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 90,
+         "fit": "exact"
+        },
+        {
+         "name": "fontaineThetaInvertP",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 64,
+         "fit": "exact"
+        }
+       ],
+       "note": "`BDeRhamPlus R p := AdicCompletion (ker (fontaineThetaInvertP R p)) (Localization.Away (p : 𝕎 R♭))` is exactly the stated construction, and `BDeRham` inverts the generators of ker θ. Only the `CommRing` structure is derived: the extension of θ to B_dR^+, the filtration, the discrete-valuation-ring property and the Galois action are listed as TODOs and are not proved."
+      },
+      {
+       "target": "Breuil–Kisin twists A_inf{1}, their tensor powers, the étale Z_p(1) realization and the reduction twist I/I²",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "cyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 307,
+         "fit": "related"
+        }
+       ],
+       "note": "No Breuil–Kisin twist exists in either library (`grep -rn -i 'breuil'` returns nothing). Mathlib's p-adic `cyclotomicCharacter` is the only carrier of a Z_p(1) and is a Galois character, not an A_inf-module twist."
+      },
+      {
+       "target": "Change-of-epsilon comparison for the twists",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the previous two targets; absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicHodgeTheory:R06.1",
+       "note": "R06.1 'Period rings' constructs B_dR^+, its filtration, B_dR, B_cris^± and B_st from the same A_inf/θ; it declares AI.0:integral as a dependency, so the split must be enforced — Mathlib already supplies the B_dR^+/B_dR carriers that both layers name."
+      },
+      {
+       "layer": "CrystallineCohomology:CR.0",
+       "note": "CR.0 'Export the common envelope of ker(theta:A_inf→O_C), its p-completion A_cris, and the maps induced by Witt reduction and theta' — the same A_cris and the same θ/Witt-reduction maps AI.0 lists."
+      },
+      {
+       "layer": "PerfectoidQuotients:Q0:integral-algebra",
+       "note": "Q0:integral-algebra constructs integral perfectoid rings and 'the necessary A_inf/θ descriptions', overlapping AI.0's A_inf/θ prefix."
+      },
+      {
+       "layer": "PrismaticCohomology:PR.0",
+       "note": "PR.0 builds δ-rings, distinguished elements and perfect prisms; (A_inf, ker θ) is the perfect prism, so the principality and nonzerodivisor statements of AI.0 are the same facts in prismatic language."
+      },
+      {
+       "layer": "RelativeFarguesFontaine:RF2:untilts",
+       "note": "RF2:untilts constructs marked untilts, 'the primitive kernel of theta' and the de Rham completions B_D^+ — the relative version of AI.0's ξ and B_dR^+."
+      }
+     ]
+    },
+    "AInfCohomology:AI.0:integral": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "A_inf = W(O_C^flat) as a ring, with its Frobenius",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "PreTilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 634,
+         "fit": "exact"
+        },
+        {
+         "name": "WittVector",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Defs.lean",
+         "line": 52,
+         "fit": "exact"
+        },
+        {
+         "name": "WittVector.frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 221,
+         "fit": "more general"
+        },
+        {
+         "name": "WittVector.frobeniusEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 286,
+         "fit": "more general"
+        },
+        {
+         "name": "Perfection",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 40,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's `PreTilt O p` is the tilt O^flat of any p-adically complete ring (`Fact ¬IsUnit (p:O)`, `IsAdicComplete (span {p}) O`), built from Mathlib's `Perfection`, so that it carries the anonymous `CharP` and `PerfectRing` instances at `Perfection.lean:644,647` and `WittVector p (PreTilt O p)` is A_inf and `WittVector.frobeniusEquiv` is its Frobenius automorphism. The ring is never named A_inf and there is no `IsPerfectoid` hypothesis class; `PadicComplexInt` is not registered as p-adically complete, so even the C = ℂ_p instance is not available off the shelf."
+      },
+      {
+       "target": "theta : A_inf → O_C, its surjectivity and its Teichmüller formula",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "WittVector.fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 165,
+         "fit": "more general"
+        },
+        {
+         "name": "surjective_fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 195,
+         "fit": "more general"
+        },
+        {
+         "name": "WittVector.fontaineTheta_teichmuller",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 182,
+         "fit": "more general"
+        },
+        {
+         "name": "PreTilt.untilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/Untilt.lean",
+         "line": 49,
+         "fit": "more general"
+        }
+       ],
+       "note": "`WittVector.fontaineTheta : 𝕎 R♭ →+* R` is constructed for every p-adically complete R (not only perfectoid ones) as the limit of explicit maps mod p^n; `surjective_fontaineTheta` proves surjectivity when Frobenius on R/p is surjective, and `fontaineTheta_teichmuller` identifies θ([x]) with the untilt. Sorry-free."
+      },
+      {
+       "target": "Residue map A_inf → W(k) to the Witt vectors of the residue field",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.map",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Basic.lean",
+         "line": 253,
+         "fit": "more general"
+        },
+        {
+         "name": "WittVector.isAdicCompleteIdealSpanP",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Complete.lean",
+         "line": 116,
+         "fit": "special case"
+        }
+       ],
+       "note": "`WittVector.map` gives functoriality of W(–) in ring maps and `isAdicCompleteIdealSpanP` gives p-adic completeness of W(k) for perfect k, but the ring map O_C^flat → k (reduction of the tilt to the residue field) is not constructed anywhere, so the residue map itself is missing."
+      },
+      {
+       "target": "A compatible system epsilon of primitive p-power roots of unity; mu = [epsilon]−1, xi = mu/phi^{-1}(mu), tilde-xi = phi(xi), with existence of the quotient",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.teichmuller",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
+         "line": 93,
+         "fit": "more general"
+        },
+        {
+         "name": "cyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 307,
+         "fit": "related"
+        }
+       ],
+       "note": "`WittVector.teichmuller` supplies [–] and Mathlib has primitive roots of unity and the p-adic cyclotomic character, but μ, ξ and ξ̃ are never formed and no divisibility statement φ^{-1}(μ) ∣ μ is proved."
+      },
+      {
+       "target": "ker theta = (xi) and ker tilde-theta = (tilde-xi); xi a nonzerodivisor",
+       "library": "absent",
+       "declarations": [],
+       "note": "Explicitly still open in Mathlib: the TODO list of `Mathlib/RingTheory/Perfectoid/BDeRham.lean` reads 'Show that ker θ is principal when the base ring is integral perfectoid'. `BDeRham` is therefore defined by inverting the set of all generators of ker θ, a workaround for the missing principality."
+      },
+      {
+       "target": "tilde-theta = theta ∘ phi^{-1} and the exact Frobenius twisting of scalar extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Only θ is constructed; θ̃ and the Frobenius-twisted base change A_inf → A_inf are absent."
+      },
+      {
+       "target": "A_cris as the p-completed PD envelope of ker theta",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DividedPowers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+         "line": 78,
+         "fit": "related"
+        },
+        {
+         "name": "DividedPowers.DPMorphism",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/DPMorphism.lean",
+         "line": 101,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has divided power structures on an ideal, sub-PD-ideals and PD morphisms, but no PD envelope (`grep -rn -i envelope` over `Mathlib/RingTheory/DividedPowers*` returns nothing), hence no A_cris, B_cris or B_st in either library."
+      },
+      {
+       "target": "Breuil–Kisin twists A_inf{1}, their tensor powers, the étale Z_p(1) realization and the reduction twist I/I²",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "cyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 307,
+         "fit": "related"
+        }
+       ],
+       "note": "No Breuil–Kisin twist exists in either library (`grep -rn -i 'breuil'` returns nothing). Mathlib's p-adic `cyclotomicCharacter` is the only carrier of a Z_p(1) and is a Galois character, not an A_inf-module twist."
+      },
+      {
+       "target": "Change-of-epsilon comparison for the twists",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the previous two targets; absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AInfCohomology:AI.0",
+       "note": "This substage is the integral prefix of AI.0 and shares its text verbatim; the A_inf/θ/PD/twist targets are stated once."
+      },
+      {
+       "layer": "CrystallineCohomology:CR.0",
+       "note": "The A_cris half of this integral prefix is CR.0's exported PD envelope of ker θ."
+      },
+      {
+       "layer": "PerfectoidQuotients:Q0:integral-algebra",
+       "note": "Same integral perfectoid / A_inf / θ descriptions."
+      }
+     ]
+    },
+    "AInfCohomology:AI.0:period-comparison": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Ring maps from the integral A_inf/A_cris package to the rational period rings B_cris, B_st, B_dR",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "exact"
+        },
+        {
+         "name": "BDeRham",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 90,
+         "fit": "exact"
+        },
+        {
+         "name": "fontaineThetaInvertP",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 64,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib constructs B_dR^+ and B_dR directly from `fontaineTheta` (so the map A_inf[1/p] → B_dR^+ is `AdicCompletion.of` and exists), but A_cris, B_cris and B_st do not exist in either library, so the comparison this substage owns cannot be stated."
+      },
+      {
+       "target": "Proof that the integral and rational period constructions agree ('the common ring maps, not a second set of unconnected constants')",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is only one period-ring construction in the baseline (Mathlib's), so there is nothing yet to compare; no compatibility theorem of this kind exists."
+      },
+      {
+       "target": "Comparison of the Breuil–Kisin twists with their rational realizations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Breuil–Kisin twists are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicHodgeTheory:R06.1",
+       "note": "R06.1 is the declared import of this substage and itself promises 'comparison with the arithmetic construction' of the same rings; the compatibility statement should live in exactly one of them."
+      },
+      {
+       "layer": "CohomologyComparisons:CP.0",
+       "note": "CP.0 'Construct all ring maps to A_cris, B_cris, B_st and B_dR from the shared objects of AI.0, CR.0 and PadicHodgeTheory' — the same coefficient-map normalization dictionary."
+      }
+     ]
+    },
+    "AInfCohomology:AI.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "eta_f on a termwise f-torsionfree complex, and Lf-eta on the derived category",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DerivedCategory",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+         "line": 87,
+         "fit": "related"
+        }
+       ],
+       "note": "No décalage operator exists in either library: `grep -rn -i 'decalage\\|décalage\\|Lη'` over both Lean trees returns nothing mathematical. Mathlib has the derived category of an abelian category with its t-structure, which is the ambient carrier only."
+      },
+      {
+       "target": "Independence of the torsionfree representative and the shift convention for unbounded complexes",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the previous target."
+      },
+      {
+       "target": "The cohomology formula H^i(Lη_f K) = (H^i K)/f-torsion with degree scaling, and the lax symmetric monoidal structure",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The base-change criterion for Lη used by AΩ and the Bockstein description mod f, carrying the Bockstein differential",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither the base-change criterion nor a Bockstein differential is present; `grep -rn -i bockstein` over both trees returns nothing."
+      },
+      {
+       "target": "Derived J-completeness on a replete ringed topos; preservation of completeness by Lη_I (BMS1 6.19) and the I-completion comparison maps (6.20)",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no notion of derived completeness in either library (`IsDerivedComplete` does not exist) and no replete topos; Mathlib's `IsAdicComplete` is the classical, underived condition."
+      },
+      {
+       "target": "Koszul calculation for commuting endomorphisms and integral continuous cochains",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "continuousCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+         "line": 131,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has continuous cohomology of a topological group with topological coefficients (`continuousCohomology`, via homogeneous cochains) and regular sequences, but no Koszul complex of a family of commuting endomorphisms (the `RegularSequence` file lists Koszul regular sequences as a TODO), so the comparison AI.1 needs is not available."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "CrystallineCohomology:CR.4",
+       "note": "CR.4 constructs strict saturated Dieudonné complexes and 'the fixed-point characterization for Lη_p', and states that AI.1 supplies the generic Lη; the p-adic instance appears in both layers."
+      },
+      {
+       "layer": "HabiroCohomologyFoundations:HQ.8",
+       "note": "HQ.8's comparison atlas imports 'Lη and the A_inf/Breuil–Kisin–Fargues objects from AI', so the Lη interface must be owned once."
+      }
+     ]
+    },
+    "AInfCohomology:AI.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Finitely presented A_inf-modules, finite free after inverting p, with a phi-semilinear isomorphism M[1/xi] → M[1/tilde-xi] (BKF modules)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.Isocrystal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 113,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.isocrystal_classification",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 183,
+         "fit": "related"
+        }
+       ],
+       "note": "No Breuil–Kisin–Fargues module appears in either library. The nearest object is Mathlib's F-isocrystal: a φ-semilinear bijection on a vector space over the fraction field of W(k), with the Dieudonné–Manin classification in dimension one (`isocrystal_classification`, sorry-free). That is a φ-module over K(k), not over A_inf, and carries no ξ/ξ̃ poles."
+      },
+      {
+       "target": "Kernels, tensor and dual operations in the valid subcategories, torsion decompositions, étale and Witt specializations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the previous target."
+      },
+      {
+       "target": "Fargues' equivalence: finite free BKF modules over algebraically closed C ↔ pairs (T, Ξ) with T finite free over Z_p and Ξ a B_dR^+-lattice",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "exact"
+        }
+       ],
+       "note": "B_dR^+ exists as a ring in Mathlib but no lattice theory over it (it is not even known there to be a discrete valuation ring), and there is no Fargues–Fontaine curve, no modification of vector bundles and no patching argument in either library."
+      },
+      {
+       "target": "Tensor/Tate-twist compatibility of the equivalence and full faithfulness",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the previous target."
+      },
+      {
+       "target": "Descent from a discretely valued field retaining the continuous Galois action",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no continuous semilinear Galois descent for these modules exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+       "note": "R07.4 'Breuil–Kisin modules' builds the power-series coefficient ring, Frobenius modules and height bounds — the S = W(k)[[u]] cousins of AI.2's A_inf objects; AI.7 explicitly hands the representation classification to R07."
+      },
+      {
+       "layer": "RelativeFarguesFontaine:RF2",
+       "note": "RF2 constructs B_D^+/B_D and their lattices over the relative curve; AI.2's B_dR^+-lattices and modifications are the one-point case."
+      },
+      {
+       "layer": "PrismaticCohomology:PR.7",
+       "note": "PR.7 constructs prismatic F-crystals with φ^*E[1/I] ≅ E[1/I] and the BKF/Robba boundedness argument — the same φ-module data on the perfect prism (A_inf, ker θ)."
+      },
+      {
+       "layer": "FarguesFontaineDiamonds:F0",
+       "note": "F0 reuses the adic A_inf objects and owns the Fargues–Fontaine curve, its bundles and modifications that AI.2 says it will not rebuild."
+      }
+     ]
+    },
+    "AInfCohomology:AI.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The completed integral structure sheaf on the pro-étale site of an analytic adic space, its tilt and the Witt sheaf A_inf,X",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no adic space, no analytic generic fibre and no pro-étale site of an adic space in either library; Tau Ceti's adic work stops at the set Spa(A,A⁺), rational subsets and a presentation-indexed structure presheaf that is not yet identified with 𝒪_X."
+      },
+      {
+       "target": "Comparison with the rational period sheaves after the correct completion/localization",
+       "library": "absent",
+       "declarations": [],
+       "note": "Period sheaves do not exist in either library."
+      },
+      {
+       "target": "Scholze's corrected transfinite pro-étale covers",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Mathlib's pro-étale site is for schemes (`Mathlib/AlgebraicGeometry/Sites/Proetale.lean`, via weakly étale morphisms) and has no transfinite-tower covering definition."
+      },
+      {
+       "target": "AΩ = Lη_mu Rnu_* A_inf,X with its Frobenius and multiplication",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Sheaf.H",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+         "line": 59,
+         "fit": "related"
+        }
+       ],
+       "note": "Depends on Lη (AI.1) and on the pro-étale sheaf; Mathlib has abstract sheaf cohomology on a site but no pushforward along ν : X_proét → 𝔛_Zar."
+      },
+      {
+       "target": "Toric perfectoid cover of a small framed affine, its continuous group cochains and the almost purity comparison",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "continuousCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+         "line": 131,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's `continuousCohomology` is a usable carrier for the group-cochain half, but there is no perfectoid ring, no almost mathematics and no almost purity theorem in either library (`grep -rn -i 'almost purity\\|almost module'` is empty)."
+      },
+      {
+       "target": "Framing independence, restriction/sheaf descent and functoriality; separation of the integral part of the toric cochains",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the whole construction."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicHodgeTheory:P8:local-rational",
+       "note": "P8:local-rational imports the integral A_inf sheaf from AI.3 and builds the rational structural B_dR and crystalline period sheaves on the same pro-étale site; the sheaf-level constructions must be shared."
+      },
+      {
+       "layer": "PrismaticCohomology:PR.6",
+       "note": "PR.6 owns the explicit all-coordinates comparison AΩ_R ≃ qΩ ≃ φ^*Δ with framing independence; AI.3's framed toric computation is the same local calculation."
+      },
+      {
+       "layer": "AdicEtaleGeometry:A1",
+       "note": "A1 owns the pro-étale site with Scholze's corrected covering definition; AI.3 restates that correction rather than importing it."
+      }
+     ]
+    },
+    "AInfCohomology:AI.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Hodge–Tate reduction of AΩ along tilde-theta, with cohomology sheaves identified with differential forms and BK twists",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "KaehlerDifferential",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Kaehler/Basic.lean",
+         "line": 153,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Kähler differentials of a ring map, but neither AΩ nor θ̃ nor a BK twist exists; nothing of this statement can be formed."
+      },
+      {
+       "target": "The Bockstein differential reconstructing the de Rham differential",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Bockstein construction in either library."
+      },
+      {
+       "target": "Theta specialization giving the de Rham complex",
+       "library": "absent",
+       "declarations": [],
+       "note": "The de Rham complex of a smooth (formal) scheme is not constructed in either library; only the module of Kähler differentials exists."
+      },
+      {
+       "target": "Relative de Rham–Witt comparison via Langer–Zink objects and universal Witt-complex maps",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.map",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Basic.lean",
+         "line": 253,
+         "fit": "more general"
+        }
+       ],
+       "note": "There is no de Rham–Witt complex in either library (`grep -rn -i 'de rham-witt\\|deRhamWitt\\|Langer'` is empty); only the Witt-vector ring itself is available."
+      },
+      {
+       "target": "Absolute A_cris comparison by compatible PD envelopes and the all-coordinates construction, with presentation independence",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DividedPowers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+         "line": 78,
+         "fit": "related"
+        }
+       ],
+       "note": "A_cris does not exist (no PD envelope), and neither does crystalline cohomology."
+      },
+      {
+       "target": "The mu-inverted étale comparison with p-adic cohomology of the generic fibre, with derived p-completion",
+       "library": "absent",
+       "declarations": [],
+       "note": "Étale cohomology of an adic space does not exist; μ does not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "CrystallineCohomology:CR.4",
+       "note": "CR.4 owns the ordinary and relative (Langer–Zink) de Rham–Witt complexes and states that they supply BMS1 §§10–12 — exactly AI.4's de Rham–Witt comparison input."
+      },
+      {
+       "layer": "PerfectoidQuotients:Q1",
+       "note": "Q1 reexports the prismatic Hodge–Tate comparison with Breuil–Kisin twists, the prismatic form of AI.4's tilde-theta reduction."
+      },
+      {
+       "layer": "DerivedDeRhamCohomology:DD.4",
+       "note": "DD.4 constructs the derived de Rham → crystalline comparison and the p-completed derived de Rham description of A_cris, overlapping AI.4's absolute A_cris comparison."
+      },
+      {
+       "layer": "CohomologyComparisons:CP.1",
+       "note": "CP.1 tabulates precisely these specializations (θ, θ̃, Witt, A_cris, μ-inversion) as the rows of its integral comparison diagram."
+      }
+     ]
+    },
+    "AInfCohomology:AI.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "RΓ_Ainf(𝔛) = RΓ(𝔛, AΩ) for smooth proper 𝔛/O_C",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Sheaf.H",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+         "line": 59,
+         "fit": "related"
+        }
+       ],
+       "note": "AΩ does not exist and neither do formal schemes over O_C; Mathlib has sheaf cohomology on an abstract site only."
+      },
+      {
+       "target": "Perfectness and finite presentation of its cohomology, and that the cohomology modules are BKF modules",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the previous target; BKF modules are absent (AI.2)."
+      },
+      {
+       "target": "Global derived theta, W(k), A_cris and mu-inverted specializations with cup products, Frobenius, functoriality and base change",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The linear algebra controlling integral torsion under these specializations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no length/torsion inequality of this kind is proved for any cohomology theory in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "CohomologyComparisons:CP.5",
+       "note": "CP.5 states the torsion inequalities and lattice-recovery applications and explicitly imports AI.5's BKF linear algebra; the two must not both prove the length inequality."
+      },
+      {
+       "layer": "CohomologyComparisons:CP.1",
+       "note": "CP.1 instantiates the same K_A = RΓ_Ainf(𝔛) and its specializations."
+      }
+     ]
+    },
+    "AInfCohomology:AI.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Semistable formal models over a complete mixed-characteristic DVR with their standard charts and divisorial log structures",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no logarithmic geometry in either library (`grep -rn -i 'log structure\\|logarithmic structure'` is empty), and no formal schemes. Tau Ceti has semistable reduction data for curves (`AlgebraicGeometry/Curves/StableReduction`, numerical types and intersection matrices), which is combinatorial and not a log structure."
+      },
+      {
+       "target": "Local integral/nonintegral monomial analysis and the log all-coordinates PD construction",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DividedPowers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+         "line": 78,
+         "fit": "related"
+        }
+       ],
+       "note": "No log PD envelope; Mathlib's divided-power API has no envelope at all."
+      },
+      {
+       "target": "Derived comparisons of log-AΩ with log de Rham, Hyodo–Kato/log crystalline, A_cris and étale cohomology",
+       "library": "absent",
+       "declarations": [],
+       "note": "None of these cohomology theories exists in either library."
+      },
+      {
+       "target": "The B_dR^+ comparison with the canonical deformation of the smooth generic fibre",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "exact"
+        }
+       ],
+       "note": "B_dR^+ exists as a ring in Mathlib but there is no de Rham cohomology to deform."
+      },
+      {
+       "target": "Semistable finiteness, torsion and lattice statements under the source's torsionfree hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "CrystallineCohomology:CR.5",
+       "note": "CR.5 owns log structures, charts, exactification and the log PD envelope, including the standard semistable chart O_K[x_1..x_d]/(x_1…x_r−π) that AI.6 also names."
+      },
+      {
+       "layer": "CrystallineCohomology:CR.6",
+       "note": "CR.6 owns the Hyodo–Kato complex, Frobenius, monodromy and change of uniformizer; AI.6 asks for the comparison with the same objects."
+      },
+      {
+       "layer": "CohomologyComparisons:CP.4",
+       "note": "CP.4 assembles the semistable rational comparison from AI.6 and CR.6, and both layers state the Nφ = pφN convention and the change-of-uniformizer formula."
+      },
+      {
+       "layer": "PrismaticCohomology:PR.8",
+       "note": "PR.8 'Logarithmic prismatics and exact comparison ranges' covers the same semistable comparison in the prismatic model."
+      }
+     ]
+    },
+    "AInfCohomology:AI.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "S = W(k)[[u]]-valued cohomology of a smooth proper formal scheme over O_K, with its Frobenius, via the prism (S,(E(u)))",
+       "library": "absent",
+       "declarations": [],
+       "note": "No prismatic cohomology, no Breuil–Kisin prism and no Eisenstein-polynomial prism structure exists in either library; `MvPowerSeries`/`PowerSeries` supply the ring W(k)[[u]] only as a formal power series ring."
+      },
+      {
+       "target": "Comparison with BMS2 §11's trace construction (THH bridge)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Topological Hochschild homology does not exist in either library."
+      },
+      {
+       "target": "A_inf base change, the Frobenius-twisted de Rham map S → O_K and the Frobenius-normalized map S → W(k)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; depends on the previous targets."
+      },
+      {
+       "target": "Dependence on a uniformizer and compatible roots, and the transport/descent statement",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Import of PR.6's comparison AΩ_R ≃ phi_A^* Delta_(R/Ainf) and agreement of all prior comparison maps via BS22 §18",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; prismatic cohomology is not present in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PrismaticCohomology:PR.6",
+       "note": "PR.6 owns exactly the comparison AΩ_R ≃ φ_A^*Δ_(R/A_inf) and the BS22 §18 uniqueness argument that AI.7 says it imports."
+      },
+      {
+       "layer": "PrismaticCohomology:PR.7",
+       "note": "PR.7 evaluates prismatic F-crystals on the Breuil–Kisin prism and compares with R07's Kisin functor, including uniformizer dependence — the same descent data AI.7 states."
+      },
+      {
+       "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+       "note": "R07.4 owns Breuil–Kisin modules and their classification; AI.7 keeps the cohomology functor but the S-module structures are shared."
+      },
+      {
+       "layer": "HabiroCohomologyFoundations:HQ.8",
+       "note": "HQ.8's atlas records the same squares between A_inf, crystalline and prismatic theories."
+      }
+     ]
+    }
+   }
+  },
+  "AdicEtaleGeometry": {
+   "summary": "Tau Ceti already owns the predecessor layer this roadmap starts from, and owns it in depth: Huber rings and pairs with pairs of definition, pseudouniformizers and completion; restricted power series A⟨T⟩ and topologically-finite-type maps; rational subsets with their basis, perturbation invariance and refinement calculus; rational localisation A⟨T/s⟩ with its universal property, flatness and faithful flatness over a finite rational cover; Spa(A,A⁺) with its functorial comap; a presentation-indexed structure presheaf and a criterion reducing sheafhood to rational covers; the closed polydisc; and the full analytic-locus theory, including Tate charts on the analytic locus of a non-Tate pair — all sorry-free. What is missing is everything that makes this roadmap a successor rather than a predecessor: there is no adic space object, no structure sheaf identified with 𝒪_X, no completed tensor product or fibre product, no uniform or perfectoid rings, no étale or finite étale morphisms of adic spaces, no étale or pro-étale site, no differentials/Jacobian criterion/smoothness in the analytic setting, no analytification, no formal schemes, and no pseudocoherent module theory. A0, A1 and A2 are partly built (the analytic locus and Tate charts, the finite-module topology over a Tate ring, and the closed polydisc are genuinely present); A3 and A4 are not built. The roadmap also overlaps AdicSpacesPartII R0–R4 and F0 by design — A0 and A2 name it as canonical owner — so the two documents must not both construct the fibre products.",
+   "layers": {
+    "AdicEtaleGeometry:A0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Topology on the tensor product of compatible complete Huber pairs, its separated completion, and the plus subring as the integral closure of the image",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.Pair",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Pair.lean",
+         "line": 107,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Huber.IsRingOfIntegralElements",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Pair.lean",
+         "line": 73,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.completion",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Completion.lean",
+         "line": 400,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.spa_integralClosure",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+         "line": 121,
+         "fit": "related"
+        }
+       ],
+       "note": "There is no completed tensor product anywhere in either library: `grep -rn -i 'tensor' TauCeti/RingTheory/Huber TauCeti/AlgebraicGeometry/AdicSpace` only finds flatness arguments. Tau Ceti does have Huber pairs, rings of integral elements, completion of a Huber ring (with its pair of definition) and the fact that Spa is unchanged by replacing A⁺ by its integral closure, i.e. the pieces the construction would use."
+      },
+      {
+       "target": "Universal property of the completed tensor product for continuous morphisms of Huber pairs",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.existsUnique_continuous_ringHom_locTopology",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/LocalizationTopology/UniversalProperty.lean",
+         "line": 198,
+         "fit": "special case"
+        }
+       ],
+       "note": "Absent. The only universal property of this shape in Tau Ceti is `existsUnique_continuous_ringHom_locTopology` for the rational localisation A⟨T/s⟩ (Wedhorn 5.51)."
+      },
+      {
+       "target": "Uniformization of a Huber pair and its universal property",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library defines a uniform Huber/Tate ring (`grep -rn -i 'IsUniform\\|uniform ring\\|uniform Tate'` over the Huber tree is empty), so uniformization and its universal property are absent."
+      },
+      {
+       "target": "Existence of pullbacks along rational open immersions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.existsUnique_continuous_ringHom_locTopology",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/LocalizationTopology/UniversalProperty.lean",
+         "line": 198,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.spaLocalizationHomeomorph",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Localization/Homeomorph.lean",
+         "line": 137,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.rationalSubset",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Basic.lean",
+         "line": 134,
+         "fit": "exact"
+        }
+       ],
+       "note": "The affine half is present: A⟨T/s⟩ with its topology and universal property, and `spaLocalizationHomeomorph` identifying Spa of the (uncompleted) rational localisation with R(T/s). Missing is any category of adic spaces in which to form a pullback — Tau Ceti has no `AdicSpace` object and the structure presheaf is not yet identified with 𝒪_X."
+      },
+      {
+       "target": "Pullbacks along finite étale maps, and the extension to locally finite-type/noetherian cases",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Etale",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Etale.lean",
+         "line": 41,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.IsFinite",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Finite.lean",
+         "line": 40,
+         "fit": "related"
+        }
+       ],
+       "note": "No finite étale morphism of Huber pairs or adic spaces exists (`grep -rn -i 'etale' TauCeti/RingTheory/Huber TauCeti/AlgebraicGeometry/AdicSpace` is empty). Mathlib's étale and finite morphisms are for schemes only."
+      },
+      {
+       "target": "Gluing the affine constructions, the categorical pullback property, chart independence, associativity and unit comparison maps with coherence",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.presentationLimitPresheaf",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/StructurePresheaf/Basic.lean",
+         "line": 298,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.isSheaf_iff_isSheafFor_rationalCover",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/SheafCriterion.lean",
+         "line": 51,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Tau Ceti has a presentation-indexed presheaf on Spa and a criterion reducing sheafhood to rational covers, but neither the structure sheaf nor an adic-space category, so there is nothing to glue."
+      },
+      {
+       "target": "The analytic locus of Spa(A,A⁺), and Tate charts on it for a non-Tate Huber pair",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.spaAnalytic",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Analytic.lean",
+         "line": 80,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.isCompact_val_preimage_spaAnalytic",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Analytic.lean",
+         "line": 334,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.spaAnalytic_eq_spa_of_isTateRing",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Analytic.lean",
+         "line": 360,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.spaAnalytic_eq_biUnion_rationalSubset",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Analytic.lean",
+         "line": 264,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.isTateRing_completion_locTopology_of_mem_generators",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Analytic.lean",
+         "line": 305,
+         "fit": "exact"
+        }
+       ],
+       "note": "Fully constructed and sorry-free in Tau Ceti: `spaAnalytic` (Wedhorn 7.39), its openness and quasi-compactness, equality with the whole spectrum for a Tate ring, the finite rational cover by the generators of an ideal of definition, and — exactly A0's 'Tate charts on their analytic loci' — that the completed rational localisation at such a generator is a Tate ring. This works for non-Tate Huber pairs such as Witt rings, as A0 requires."
+      },
+      {
+       "target": "Morphism restriction interfaces for analytic adic spaces over Spa(ℤ_p,ℤ_p)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.spaComap",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Comap.lean",
+         "line": 82,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.continuous_spaComap",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Comap.lean",
+         "line": 92,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.spaComap_comp",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Comap.lean",
+         "line": 106,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.spaComap_preimage_rationalSubset",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Comap.lean",
+         "line": 173,
+         "fit": "exact"
+        }
+       ],
+       "note": "`spaComap` with continuity, contravariant functoriality and compatibility with rational subsets is the affine restriction interface; but there are no analytic adic spaces and no base Spa(ℤ_p,ℤ_p) object, so the morphism-restriction interface A0 specifies cannot be stated."
+      },
+      {
+       "target": "Tracking changes of rings of definition, pseudouniformizers and plus rings",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.IsPseudoUniformizer",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Basic.lean",
+         "line": 163,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.completion",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Completion.lean",
+         "line": 400,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.spa_integralClosure",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+         "line": 121,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.spa",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+         "line": 97,
+         "fit": "exact"
+        }
+       ],
+       "note": "Tau Ceti carries a pair of definition as explicit data with a refinement order and presentations, has `IsPseudoUniformizer`, transports pairs of definition through completion, and proves `spa_antitone`/`spa_integralClosure` for changes of plus ring. This bookkeeping is the one A0 names and it is in place."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdicSpacesPartII:R0",
+       "note": "A0 itself names AdicSpacesPartII as the canonical owner; R0 states the same completed tensor product, plus-ring construction, universal property and gluing to fibre products."
+      },
+      {
+       "layer": "AdicSpacesPartII:F0",
+       "note": "F0 says it 'includes original diamond AdicEtaleGeometry A0 and ordinary geometric portions of A1–A2', so the fibre-product constructions are duplicated verbatim."
+      },
+      {
+       "layer": "PerfectoidSpaces:P2",
+       "note": "P2 owns rational localization and sheafiness for perfectoid Huber pairs and the perfectoid pullback theorem A0 defers to it."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+       "note": "Tau Ceti's own AdicSpaces Layer 0–3 already owns Huber pairs, pairs of definition, pseudouniformizers, rational localisation and its universal property — the supplier A0 assumes."
+      }
+     ]
+    },
+    "AdicEtaleGeometry:A1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The canonical topology on a finite (étale) algebra over a complete Tate Huber pair, with continuity and uniqueness",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.IsTateRing.isModuleTopology",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/OpenMapping.lean",
+         "line": 306,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Huber.IsTateRing.t2Space_moduleTopology",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/FiniteModuleTopology.lean",
+         "line": 62,
+         "fit": "more general"
+        }
+       ],
+       "note": "Tau Ceti proves Wedhorn Proposition 6.18(1) in full: for a complete Hausdorff (noetherian) Tate ring and a finite module, the module topology is first countable, nonarchimedean, complete and Hausdorff, and is the unique such topology. That is more general than the finite-étale case A1 asks for."
+      },
+      {
+       "target": "The integral plus ring of a finite étale algebra and its affinoid spectrum, with compatibility with rational restriction",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.IsRingOfIntegralElements",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Pair.lean",
+         "line": 73,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.spa",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+         "line": 97,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.spaComap_preimage_rationalSubset",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Comap.lean",
+         "line": 173,
+         "fit": "exact"
+        }
+       ],
+       "note": "Rings of integral elements, Spa of an arbitrary pair, and compatibility of `spaComap` with rational subsets exist, but the plus ring of a finite étale algebra is not constructed and there is no sheafiness statement for it."
+      },
+      {
+       "target": "Finite étale and étale morphisms of analytic adic spaces by the local algebraic/open-immersion description, compared with Huber's definition",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Etale",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Etale.lean",
+         "line": 41,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.IsOpenImmersion",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/OpenImmersion.lean",
+         "line": 36,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent from both libraries; Mathlib's `AlgebraicGeometry.Etale` and `IsOpenImmersion` are properties of morphisms of schemes."
+      },
+      {
+       "target": "Local-to-global recognition, base change, composition, morphisms between étale objects, open images and diagonal descriptions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the previous target."
+      },
+      {
+       "target": "The small étale and finite étale sites and their topologies; basis comparison, slice sites, geometric stalks and enough points",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.etaleTopology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
+         "line": 40,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.smallEtaleTopology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.geometricFiber",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
+         "line": 96,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.isConservative_pointSmallEtale",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/EtalePoint.lean",
+         "line": 124,
+         "fit": "related"
+        }
+       ],
+       "note": "For schemes Mathlib has exactly this package — `etaleTopology`, `smallEtaleTopology`, the geometric-point functor and a conservative family of points on the small étale site — but nothing for adic spaces, which have no site in either library."
+      },
+      {
+       "target": "Field pairs (K,K⁺) including higher-rank integral valuation subrings as test objects",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.spa",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+         "line": 97,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Huber.IsRingOfIntegralElements",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Pair.lean",
+         "line": 73,
+         "fit": "exact"
+        }
+       ],
+       "note": "Tau Ceti's `Spv`/`spa` are rank-agnostic (a point is a valuative relation with no chosen value group) and the analytic-point theory explicitly handles height-one generizations of higher-rank points, so the objects exist; what is missing is their use as points of a site, since no site exists."
+      },
+      {
+       "target": "Pro-étale covers in Scholze's corrected form (arbitrary transfinite towers whose successor maps are pullbacks of finite étale surjections)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.proetaleTopology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/Proetale.lean",
+         "line": 66,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's pro-étale site is for schemes and is defined through weakly étale morphisms, not through transfinite towers; nothing corresponding exists for adic spaces."
+      },
+      {
+       "target": "Generalized adic-space presentations and their agreement with sheafy adic spaces",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.presentationLimitPresheaf",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/StructurePresheaf/Basic.lean",
+         "line": 298,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Tau Ceti has a presentation-indexed limit presheaf, explicitly documented as not yet identified with 𝒪_X, and no notion of sheafy Huber pair or adic space."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdicSpacesPartII:R4",
+       "note": "R4 is declared to be the 'early site reexport' of A1 — 'transport the elementary site and sheaf operations from A1 without constructing a second site'."
+      },
+      {
+       "layer": "AdicSpacesPartII:R0",
+       "note": "A1's own first paragraph assigns the ordinary finite/étale morphism constructions to AdicSpacesPartII's early prefix, which is R0."
+      },
+      {
+       "layer": "DiamondsAndVStacks:D2",
+       "note": "D2 'Pro-étale and v-topologies' constructs the pro-étale topology on the diamond side; the corrected covering convention must be stated once."
+      },
+      {
+       "layer": "DiamondEtaleCohomology:C0",
+       "note": "C0 'Sites and bounded comparison' builds the same étale/pro-étale sites for the cohomological theory."
+      },
+      {
+       "layer": "AInfCohomology:AI.3",
+       "note": "AI.3 restates the corrected transfinite pro-étale covering definition and the non-splitting caveat rather than importing A1's."
+      }
+     ]
+    },
+    "AdicEtaleGeometry:A2": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Diagonals, separated, proper and partially proper morphisms of analytic adic spaces, with valuative criteria and comparison to Huber's definitions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.IsSeparated",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Separated.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.IsProper",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
+         "line": 42,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.ValuativeCriterion",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/ValuativeCriterion.lean",
+         "line": 88,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has `IsSeparated`, `IsProper` and the `ValuativeCriterion` for morphisms of schemes, sorry-free; there is no adic-space analogue in either library, and no adic-space category to carry a diagonal."
+      },
+      {
+       "target": "Finite-dimensional analytic balls (closed polydiscs)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.closedPolydisc",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Huber.restrictedMvPowerSeriesCompletion",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Completion.lean",
+         "line": 103,
+         "fit": "exact"
+        }
+       ],
+       "note": "Tau Ceti constructs the closed polydisc Spa(A⟨T₁,…,T_k⟩, A⟨T⟩°) over a nonarchimedean ring, with its classical points given by evaluation at power-bounded tuples and their injectivity at trivial-support points (Wedhorn Example 7.57). Sorry-free."
+      },
+      {
+       "target": "Analytic tori (Laurent domains / G_m^k)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.restrictedMvPowerSeriesCompletion",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Completion.lean",
+         "line": 103,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.rationalSubset",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Basic.lean",
+         "line": 134,
+         "fit": "exact"
+        }
+       ],
+       "note": "Laurent rational subsets and the associated Laurent series rings are built (`Huber/LaurentSeries.lean`, `LocalizationTopology/Laurent/*`), but there is no analytic torus object: `grep -rn -i 'torus\\|annulus'` over the Huber and AdicSpace trees is empty."
+      },
+      {
+       "target": "Locally finite-type morphisms of analytic adic spaces",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.IsTopologicallyFiniteType",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/TopologicallyFiniteType.lean",
+         "line": 112,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Huber.IsStrictlyTopologicallyFiniteType",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/TopologicallyFiniteType.lean",
+         "line": 128,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Huber.IsStronglyNoetherian",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/StronglyNoetherian.lean",
+         "line": 128,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has Wedhorn §6.6 at the ring level — `IsTopologicallyFiniteType`, its strict variant, and their interaction with strong noetherianity — but not the morphism-of-spaces notion, since adic spaces are not constructed."
+      },
+      {
+       "target": "Continuous Kähler differentials in the finite-presentation setting and the analytic Jacobian criterion",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "KaehlerDifferential",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Kaehler/Basic.lean",
+         "line": 153,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's `KaehlerDifferential` is the purely algebraic module of differentials; there is no completed/continuous variant and no Jacobian criterion in the analytic setting in either library."
+      },
+      {
+       "target": "Smooth morphisms; smooth is locally étale over a relative ball; base change, composition and dimension estimates",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Smooth",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+         "line": 62,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent for adic spaces; Mathlib's `Smooth` is a scheme morphism property."
+      },
+      {
+       "target": "Adic analytification of finite-type schemes over a nonarchimedean field and the relative version over an affinoid pair",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: `grep -rn -i 'analytification\\|rigid analytic'` over both Lean trees finds only bibliography lines."
+      },
+      {
+       "target": "Formal schemes, admissible formal models and their generic fibres",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: there is no `Spf`, no formal scheme and no admissible blow-up in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdicSpacesPartII:R0",
+       "note": "A2 names AdicSpacesPartII as canonical owner; R0 states the separatedness, finite, smooth and étale morphism package."
+      },
+      {
+       "layer": "AdicSpacesPartII:R1",
+       "note": "R1 owns the adic analytification of finite-type schemes and the properness/GAGA comparison A2 also lists."
+      },
+      {
+       "layer": "AdicSpacesPartII:R2",
+       "note": "R2 owns admissible formal schemes, blow-ups and the adic generic-fibre functor, which A2 restates."
+      },
+      {
+       "layer": "AdicSpacesPartII:F0",
+       "note": "F0 explicitly absorbs 'ordinary geometric portions of A1–A2', including properness/smoothness comparisons with formal models."
+      },
+      {
+       "layer": "ClassicalAdicEtaleCohomology:H1",
+       "note": "H1 owns the formal-model specialization and nearby-cycle comparison that A2's formal-model paragraph hands off."
+      }
+     ]
+    },
+    "AdicEtaleGeometry:A3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Pseudocoherent modules over the relevant Tate algebras, strict exactness, completed localizations and acyclic gluing on rational covers",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.faithfullyFlat_pi_toCompletionLoc",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Localization/FaithfullyFlat.lean",
+         "line": 74,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.isSheaf_iff_isSheafFor_rationalCover",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/SheafCriterion.lean",
+         "line": 51,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.restrictedMvPowerSeriesCompletion",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Completion.lean",
+         "line": 103,
+         "fit": "exact"
+        }
+       ],
+       "note": "`pseudocoherent` occurs nowhere in either library. Tau Ceti has the flatness chain that the gluing argument rests on — flatness of rational restriction maps and faithful flatness/injectivity of A → ∏ A⟨Tᵢ/sᵢ⟩ over a finite rational cover — plus a criterion reducing sheafhood to rational covers, but not Tate acyclicity itself and no module-level exactness theory."
+      },
+      {
+       "target": "Closed embedding of an affinoid étale object into a finite relative ball, its ideal sheaf and the conormal description",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.closedPolydisc",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean",
+         "line": 72,
+         "fit": "exact"
+        }
+       ],
+       "note": "The relative ball exists (`closedPolydisc`), but there are no closed embeddings of adic spaces, no ideal sheaves and no conormal sequence in the analytic setting."
+      },
+      {
+       "target": "That ideal sheaf is the sheaf of a pseudocoherent module, with the affine quotient and plus-ring description",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the previous two targets."
+      },
+      {
+       "target": "Quantitative nonarchimedean implicit-function/perturbation lemmas: close equations define an affinoid étale space, with stability of the plus ring and presentation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.exists_forall_rationalSubset_eq_of_sub_mem_idealImage",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Perturbation.lean",
+         "line": 112,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves a quantitative perturbation theorem (Wedhorn 7.34, strengthened to an arbitrary Huber ring): sufficiently small perturbations of the numerators and denominator leave the rational subset unchanged. That is a perturbation statement about rational subsets, not about the equations of an étale space, and no implicit-function theorem in this setting exists."
+      },
+      {
+       "target": "Finite-stage approximation of the equations, inequalities and Jacobian inverse, with presentation independence",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; requires the perfectoid tower and the whole preceding chain."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdicSpacesPartII:R3",
+       "note": "R3 owns the affinoid coherent-sheaf equivalence, acyclicity and Kiehl-type finiteness — the coherent-module theory whose nonnoetherian strengthening A3 needs."
+      },
+      {
+       "layer": "PerfectoidSpaces:P2",
+       "note": "A3's inputs P2–P5 include rational localization and sheafiness for perfectoid pairs; the completed-localization and gluing statements overlap."
+      },
+      {
+       "layer": "DiamondsAndVStacks:D6",
+       "note": "D6 owns the diamond comparison A3 is forbidden to use; the finite-stage approximation is the analytic replacement for its locality statement."
+      }
+     ]
+    },
+    "AdicEtaleGeometry:A4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Uniform completion of a Tate pair, and invariance of its valuation spectrum",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.spaSeparationQuotientHomeomorph",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/SeparationQuotient.lean",
+         "line": 96,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.completion",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Completion.lean",
+         "line": 400,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Huber.IsTateRing",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Basic.lean",
+         "line": 182,
+         "fit": "exact"
+        }
+       ],
+       "note": "Tau Ceti proves the Hausdorff half — `spaSeparationQuotientHomeomorph`, that Spa is unchanged when A is replaced by A/closure(0) (Wedhorn 7.49(2)) — and constructs the completion of a Huber ring with its pair of definition. Missing are uniformity (no `IsUniform` predicate anywhere) and invariance of Spa under passing to the completion."
+      },
+      {
+       "target": "The étale-category comparison along uniform completion needed in ECD 15.3–15.4",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no étale category for adic spaces in either library."
+      },
+      {
+       "target": "The cofiltered system of finite étale torsors with no remaining nonsplit finite étale covers",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; finite étale covers of adic spaces do not exist."
+      },
+      {
+       "target": "Perfectoidness of the uniform completion, with the pseudouniformizer and Frobenius-surjectivity arguments",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.IsPseudoUniformizer",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Basic.lean",
+         "line": 163,
+         "fit": "exact"
+        }
+       ],
+       "note": "No perfectoid ring or space is defined in either library; Mathlib's perfectoid directory contains only the tilt-based period rings and states no perfectoid condition. Tau Ceti has pseudouniformizers but nothing about Frobenius surjectivity on A/p."
+      },
+      {
+       "target": "Invariance and effectivity of the finite étale data along the tower, and the compactness condition for surjectivity of a v-sheaf",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; v-sheaves do not exist in either library."
+      },
+      {
+       "target": "The local analytic presentation of §15: a perfectoid cover with its perfectoid equivalence relation, or a generalized-affinoid presentation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; depends on all the previous targets."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DiamondsAndVStacks:D6",
+       "note": "A4 states that Spd(A,A⁺), diamond representability and the agreement of the analytic and diamond étale sites are owned by D6; the perfectoid-cover presentation is the shared object."
+      },
+      {
+       "layer": "PerfectoidSpaces:P2",
+       "note": "P2 owns the perfectoidness of uniform completions and the tilting correspondence that A4's uniform-completion argument requires."
+      },
+      {
+       "layer": "AdicSpacesPartII:R5",
+       "note": "R5's sousperfectoid class and its local affinoid descriptions cover the same 'which completions stay perfectoid' question."
+      }
+     ]
+    }
+   }
+  },
+  "AdicSpacesPartII": {
+   "summary": "The libraries have essentially nothing of this roadmap's successor material. There is no formal scheme, no Spf, no formal GAGA, no analytification, no dagger or overconvergent algebra, no completed tensor product of Huber pairs, no fibre product of adic spaces, no coherent sheaf theory on an affinoid, no Kiehl finiteness, no analytic trace and no étale or pro-étale site of an adic space; Tau Ceti has no `AdicSpace` object at all and its structure presheaf on Spa is explicitly not yet identified with 𝒪_X. What is genuinely in place and reusable is the affine prefix: Huber pairs with completion, restricted power series and topologically-finite-type maps, strong noetherianity, rational localisation A⟨T/s⟩ with its universal property, flatness of restriction maps and faithful flatness over a finite rational cover, a sheafhood criterion on rational covers, the closed embedding induced by a quotient Huber pair, the base change M ⊗_A A⟨T⟩ ≅ M⟨T⟩, the closed polydisc, and — on the algebraic side — Mathlib's `Algebra.trace` with transitivity and localization compatibility, its quasi-coherent affine equivalence, and its étale/pro-étale sites for schemes. F0, F1 and R0–R3 and R5 are not built; R4 is a declared reexport of AdicEtaleGeometry A1 and is process. The roadmap overlaps AdicEtaleGeometry A0–A3 by design and further overlaps PerfectoidSpaces P2/P9 and PadicDifferentialEquationsAndRigidCohomology RD.0 for the dagger algebras.",
+   "layers": {
+    "AdicSpacesPartII:F0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Spf(A) for a complete separated noetherian adic ring, with its structure sheaf, independence of the ideal of definition and gluing",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AdicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 171,
+         "fit": "related"
+        }
+       ],
+       "note": "There is no formal scheme in either library: `grep -rn -i 'formal scheme\\|\\bSpf\\b'` over both Lean trees returns only a bibliography line. Mathlib has `AdicCompletion` of rings and modules with functoriality, which is the affine algebra only."
+      },
+      {
+       "target": "Equivalence of Spf with compatible systems of schemes modulo powers of the ideal of definition",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no formal-scheme carrier."
+      },
+      {
+       "target": "Functorial completion along a closed subscheme",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AdicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 171,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the ring/module-level adic completion and its functoriality exist; there is no completion of a scheme along a closed subscheme."
+      },
+      {
+       "target": "Affine coherent-module equivalence, formal functions and formal GAGA in the proper finite-presentation setting with ample line bundle",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.tildeEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Modules/Tilde.lean",
+         "line": 889,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.isQuasicoherent_iff_isIso_fromTildeΓ",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Modules/Tilde.lean",
+         "line": 867,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves the affine quasi-coherent equivalence for schemes (`tildeEquiv`, `isQuasicoherent_iff_isIso_fromTildeΓ`), but the theorem on formal functions and Grothendieck existence/algebraization are absent from both libraries (`grep -rn -i 'formal function\\|Grothendieck existence'` finds nothing)."
+      },
+      {
+       "target": "Locally strongly noetherian analytic fibre products from admissible completed tensor products",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.IsStronglyNoetherian",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/StronglyNoetherian.lean",
+         "line": 128,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.pullbackSpecIso",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Pullbacks.lean",
+         "line": 725,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the strongly-noetherian predicate and Mathlib has pullbacks of schemes with the affine formula `pullbackSpecIso`, but there is no completed tensor product of Huber pairs and no analytic-space category to form the fibre product in."
+      },
+      {
+       "target": "Stability of finite and étale morphisms under these fibre products, and implicit-function/Jacobian local criteria",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Etale",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Etale.lean",
+         "line": 41,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent: no étale morphisms of adic spaces and no analytic implicit-function theorem in either library."
+      },
+      {
+       "target": "Properness, separatedness and smoothness comparisons with formal models and finite-type analytification",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.IsSeparated",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Separated.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.IsProper",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
+         "line": 42,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Smooth",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+         "line": 62,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has these properties for morphisms of schemes only; there is no analytification and no formal model to compare with."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdicEtaleGeometry:A0",
+       "note": "F0 states that it 'includes original diamond AdicEtaleGeometry A0', i.e. the completed tensor products and fibre products are the same construction."
+      },
+      {
+       "layer": "AdicEtaleGeometry:A2",
+       "note": "F0 also absorbs 'ordinary geometric portions of A1–A2', including the properness/smoothness comparisons with formal models."
+      },
+      {
+       "layer": "AdicSpacesPartII:R2",
+       "note": "R2 constructs admissible formal schemes, formal completion and the adic generic-fibre functor — the same formal geometry F0 builds."
+      },
+      {
+       "layer": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+       "note": "H1 constructs formal schemes of Huber's type (S) and the specialization map, overlapping F0's formal-scheme prefix."
+      },
+      {
+       "layer": "ComplexComparisonPartII:C3",
+       "note": "C3's proper coherent GAGA is the archimedean twin of F0's formal GAGA/algebraization statement."
+      }
+     ]
+    },
+    "AdicSpacesPartII:F1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Weakly complete dagger affinoid algebras, radius-indexed presentations and comparison with completed rigid/adic affinoids",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.restrictedMvPowerSeriesCompletion",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Completion.lean",
+         "line": 103,
+         "fit": "related"
+        }
+       ],
+       "note": "`dagger`, `overconvergent` and `weakly complete` appear nowhere in either Lean tree. Tau Ceti's completed restricted power series A⟨T⟩ are the affinoid side of the comparison, with nothing overconvergent to compare them to."
+      },
+      {
+       "target": "Independence of presentations and cofinal systems of strict neighbourhoods",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `strict neighborhood` has no occurrence in either library."
+      },
+      {
+       "target": "Restriction, completed/overconvergent tensor products and admissible gluing for dagger spaces",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no completed tensor product of topological algebras at all."
+      },
+      {
+       "target": "Coherent dagger modules, differential forms, exterior derivative and the logarithmic complex for a strict normal crossings boundary",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "KaehlerDifferential",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Kaehler/Basic.lean",
+         "line": 153,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the algebraic module of Kähler differentials but no de Rham complex of a scheme or analytic space, and no logarithmic structures anywhere."
+      },
+      {
+       "target": "Local acyclicity/base-change with explicit convergence and finiteness hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Compact-support variants for smooth pairs by extension/vanishing at the boundary, with the natural localization maps",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicDifferentialEquationsAndRigidCohomology:RD.0",
+       "note": "RD.0 'Dagger algebras and Robba rings' constructs overconvergent power-series algebras, weak completion maps and differential forms and declares F1 as an input; the dagger-algebra construction is stated in both."
+      },
+      {
+       "layer": "PadicDifferentialEquationsAndRigidCohomology:RD.3",
+       "note": "RD.3 builds tubes and strict neighbourhoods of a frame, the same cofinal-system machinery F1 asks for."
+      },
+      {
+       "layer": "AutomorphicGaloisRepresentationsPartII:AG2.4",
+       "note": "F1 explicitly hands the ordinary-locus rigid cohomology and slope comparison to AG2.4, which restates the overconvergent de Rham package."
+      },
+      {
+       "layer": "PadicHodgeTheory:P7:annulus-foundations",
+       "note": "P7's early analytic coefficient rings are radius-indexed overconvergent algebras of the same kind."
+      }
+     ]
+    },
+    "AdicSpacesPartII:R0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Completed tensor products of Huber pairs with their topology and explicit plus-ring construction",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.Pair",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Pair.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.completion",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Completion.lean",
+         "line": 400,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent from both libraries; Tau Ceti has Huber pairs and the completion of a Huber ring with its pair of definition, but no tensor construction."
+      },
+      {
+       "target": "The universal property of the completed tensor product on the classes of Huber pairs where it holds",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.existsUnique_continuous_ringHom_locTopology",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/LocalizationTopology/UniversalProperty.lean",
+         "line": 198,
+         "fit": "special case"
+        }
+       ],
+       "note": "Absent. The only universal property of a completed topological algebra in Tau Ceti is that of the rational localisation A⟨T/s⟩ (Wedhorn 5.51), which is a localisation, not a tensor product."
+      },
+      {
+       "target": "Sheafiness/localization compatibility for the affinoid products actually needed, then gluing to fibre products of locally strongly noetherian analytic spaces",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.flat_toCompletionLoc",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/Flat.lean",
+         "line": 762,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.faithfullyFlat_pi_toCompletionLoc",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Localization/FaithfullyFlat.lean",
+         "line": 74,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.isSheaf_iff_isSheafFor_rationalCover",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/SheafCriterion.lean",
+         "line": 51,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.IsStronglyNoetherian",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/StronglyNoetherian.lean",
+         "line": 128,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves flatness of rational restriction maps and faithful flatness of A → ∏ A⟨Tᵢ/sᵢ⟩ over a finite rational cover (Wedhorn 8.30, 8.32) and reduces sheafhood on Spa to rational covers, but the sheaf property of the structure presheaf is not proved and there is no analytic-space category to glue in."
+      },
+      {
+       "target": "Open and closed immersions, separatedness, finite maps, smooth maps and étale maps of analytic adic spaces by local presentations, with presentation independence",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.isClosedEmbedding_spaComap_quotientMk",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Comap.lean",
+         "line": 260,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.spaLocalizationHomeomorph",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Localization/Homeomorph.lean",
+         "line": 137,
+         "fit": "special case"
+        },
+        {
+         "name": "AlgebraicGeometry.IsSeparated",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Separated.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Etale",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Etale.lean",
+         "line": 41,
+         "fit": "related"
+        }
+       ],
+       "note": "At the level of adic spectra Tau Ceti has the closed embedding induced by a quotient Huber pair (Wedhorn 7.38) and the homeomorphism Spa(A(T/s)) ≅ R(T/s) giving rational open immersions; none of separated, finite, smooth or étale exists for adic spaces, and Mathlib's versions are for schemes."
+      },
+      {
+       "target": "Relating these notions to topological and stalkwise properties under the justifying hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the previous target."
+      },
+      {
+       "target": "Closed analytic subspaces and their defining coherent ideals retained as ringed spaces",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.presentationLimitPresheaf",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/StructurePresheaf/Basic.lean",
+         "line": 298,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent: Tau Ceti's Spa carries only a presentation-indexed presheaf, explicitly not yet identified with 𝒪_X, so there is no locally ringed space to cut out."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdicEtaleGeometry:A0",
+       "note": "A0 states the same completed tensor product, plus-ring construction, universal property, rational and finite-étale pullbacks and gluing, and names AdicSpacesPartII as the canonical owner."
+      },
+      {
+       "layer": "AdicEtaleGeometry:A1",
+       "note": "A1 assigns 'the ordinary finite/étale morphism constructions' to this early prefix, so the étale-morphism definitions appear in both."
+      },
+      {
+       "layer": "AdicSpacesPartII:F0",
+       "note": "F0 repeats the locally-strongly-noetherian fibre-product construction from admissible completed tensors."
+      },
+      {
+       "layer": "PerfectoidSpaces:P2",
+       "note": "P2 constructs fibre products of perfectoid spaces 'using A0' and their affine formulas, consuming this same completed tensor algebra."
+      }
+     ]
+    },
+    "AdicSpacesPartII:R1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Adic analytification of a finite-type scheme over the base field from affine charts",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent from both libraries; `grep -rn -i 'analytification'` over the two Lean trees finds only bibliography lines."
+      },
+      {
+       "target": "Independence of presentation, gluing, and compatibility with fibre products, immersions, finite maps, smoothness and étaleness",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Etale",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Etale.lean",
+         "line": 41,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Smooth",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+         "line": 62,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.IsClosedImmersion",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/ClosedImmersion.lean",
+         "line": 45,
+         "fit": "related"
+        }
+       ],
+       "note": "Depends on the previous target; the scheme-side properties exist in Mathlib but there is no functor to transport them along."
+      },
+      {
+       "target": "Properness comparison and proper GAGA for algebraic coefficient sheaves",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.IsProper",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
+         "line": 42,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.tildeEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Modules/Tilde.lean",
+         "line": 889,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; neither library has a GAGA theorem of any kind, archimedean or nonarchimedean."
+      },
+      {
+       "target": "Analytification of finite locally free group schemes, abelian schemes, isogenies and quotient maps, with comparison of invariant differentials",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "KaehlerDifferential",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Kaehler/Basic.lean",
+         "line": 153,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has abelian varieties and affine group schemes on the algebraic side, but no analytification functor, so the comparison of invariant differentials cannot be stated."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdicEtaleGeometry:A2",
+       "note": "A2 also asks for 'the adic analytification of finite-type schemes over a nonarchimedean field and the relative constructions over an affinoid pair'."
+      },
+      {
+       "layer": "AdicSpacesPartII:R2",
+       "note": "R2 compares a model's formal generic fibre with the analytification of its algebraic generic fibre, so the analytification functor is shared."
+      },
+      {
+       "layer": "ComplexComparisonPartII:C0",
+       "note": "C0 constructs coherent analytic modules on algebraic analytifications in the complex setting — the same statement over ℂ rather than over a nonarchimedean field."
+      },
+      {
+       "layer": "ClassicalAdicEtaleCohomology:H5",
+       "note": "H5 owns the algebraic/analytic comparison and compactification for smooth curves, which consumes R1's analytification and GAGA."
+      }
+     ]
+    },
+    "AdicSpacesPartII:R2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Admissible formal schemes, formal completion and admissible blow-ups",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AdicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 171,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent from both libraries; there is no formal scheme and no blow-up of a formal scheme (`grep -rn -i 'admissible blow'` is empty)."
+      },
+      {
+       "target": "The adic generic-fibre functor and its invariance under admissible modifications",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; depends on the previous target and on an adic-space category."
+      },
+      {
+       "target": "Comparison of a model's formal generic fibre with the analytification of its algebraic generic fibre, identifying the good-reduction locus",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; neither side of the comparison is constructed."
+      },
+      {
+       "target": "Rational subdomains cut out by a section of a line bundle and a valuation bound, with independence of local trivializations",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.rationalSubset",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Basic.lean",
+         "line": 134,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.spaLocalizationHomeomorph",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Localization/Homeomorph.lean",
+         "line": 137,
+         "fit": "special case"
+        }
+       ],
+       "note": "Tau Ceti's rational subsets R(T/s) are cut out by elements of A together with a valuation bound, with a full basis/refinement/perturbation calculus; the line-bundle-section version (choosing local trivializations and proving independence) is not there, and no line bundles on adic spaces exist."
+      },
+      {
+       "target": "The Hasse ideal, its blow-ups and the transition maps as the radius changes",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no Hasse invariant in the adic setting in either library."
+      },
+      {
+       "target": "Fractional p-valuation bounds by valuation ideals or by an explicit extension containing the relevant p-power root",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; Tau Ceti has valuation ideals and `LtAddSubgroup`/`CofinalIdeal` machinery but no fractional-power radius convention for adic subdomains."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdicSpacesPartII:F0",
+       "note": "F0 constructs Spf, its structure sheaf and formal completion, i.e. the formal-scheme half of R2."
+      },
+      {
+       "layer": "AdicEtaleGeometry:A2",
+       "note": "A2 also promises 'formal schemes, admissible formal models and their generic fibres in the scope required by H1'."
+      },
+      {
+       "layer": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+       "note": "H1 constructs the formal completion and specialization comparison map on the same formal/adic carriers."
+      },
+      {
+       "layer": "HodgeTateAndCanonicalSubgroups:T6",
+       "note": "The Hasse-ideal blow-ups and radius transitions are the canonical-subgroup construction that HodgeTateAndCanonicalSubgroups consumes and partly restates."
+      }
+     ]
+    },
+    "AdicSpacesPartII:R3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Affinoid coherent-sheaf equivalence, acyclicity and the comparison for finite affinoid covers",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.flat_toCompletionLoc",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/Flat.lean",
+         "line": 762,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.faithfullyFlat_pi_toCompletionLoc",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Localization/FaithfullyFlat.lean",
+         "line": 74,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.isSheaf_iff_isSheafFor_rationalCover",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/SheafCriterion.lean",
+         "line": 51,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.tildeEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Modules/Tilde.lean",
+         "line": 889,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the flatness chain underlying Tate acyclicity — flat rational restriction maps, faithful flatness and injectivity of A → ∏ A⟨Tᵢ/sᵢ⟩ — and a criterion reducing sheafhood on Spa to rational covers, but neither the module-level equivalence M ↦ M̃ nor Čech acyclicity is proved. Mathlib's `tildeEquiv` is the corresponding statement for schemes."
+      },
+      {
+       "target": "Locally free sheaves, coherent ideals, tensor operations and base change on analytic adic spaces",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "SheafOfModules.LocalGeneratorsData.IsLocallyFreeData.isFinitePresentation",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/Sheaf/FinitePresentation.lean",
+         "line": 47,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Cohomology/Basic.lean",
+         "line": 61,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.restrictedMvPowerSeriesBaseChange",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Restricted/BaseChange.lean",
+         "line": 221,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent for adic spaces. Tau Ceti has sheaves of modules on schemes with local generators, finite presentation and cohomology, and a base-change comparison M ⊗_A A⟨T⟩ ≅ M⟨T⟩ for finitely generated modules over a complete noetherian Tate ring (Wedhorn 8.29) — the affine ingredient only."
+      },
+      {
+       "target": "Kiehl-type proper finiteness/coherence and the analytic comparison statements used for compactifications",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: `Kiehl` has no occurrence in either library and there is no proper morphism of analytic spaces."
+      },
+      {
+       "target": "Trace for finite locally free algebras and finite étale analytic maps, with base-change and composition laws and compatibility with the algebraic trace",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Algebra.trace",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Trace/Defs.lean",
+         "line": 71,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.trace_trace",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Trace/Defs.lean",
+         "line": 138,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.trace_algebraMap",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Trace/Defs.lean",
+         "line": 111,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.trace_localization",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Localization/NormTrace.lean",
+         "line": 84,
+         "fit": "related"
+        }
+       ],
+       "note": "The algebraic half is in Mathlib for a finite free algebra: `Algebra.trace`, transitivity (`trace_trace`, `trace_comp_trace`), `trace_algebraMap` and compatibility with localization (`trace_localization`). Missing are the finite locally free (non-free) case, any analytic trace and the compatibility statement between them."
+      },
+      {
+       "target": "Pull–identify–trace on coefficient sheaves along correspondences",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; requires the analytic trace and a correspondence formalism, neither of which exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdicEtaleGeometry:A3",
+       "note": "A3 develops pseudocoherent modules, strict exactness, completed localizations and acyclic gluing on rational covers — the nonnoetherian strengthening of R3's coherent theory."
+      },
+      {
+       "layer": "PerfectoidSpaces:P2",
+       "note": "P2 proves the sheaf theorem and all-degree almost acyclicity on perfectoid affinoids and supplies the acyclic basis comparison R3 also states."
+      },
+      {
+       "layer": "PerfectoidSpaces:P9",
+       "note": "P9 descends finite locally free modules along torsors and constructs completed external tensor products, overlapping R3's locally free sheaves and base change."
+      },
+      {
+       "layer": "ModularCurvesPartII:R14.1",
+       "note": "R14.1 builds algebraic Hecke correspondences with their pull–identify–trace maps; R3's analytic version must agree with, not duplicate, that trace."
+      }
+     ]
+    },
+    "AdicSpacesPartII:R4": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Identify AdicEtaleGeometry A1's étale and pro-étale sites on AdicSpacesPartII's adic carriers (a reexport, not a second site)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.etaleTopology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
+         "line": 40,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.smallEtaleTopology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.proetaleTopology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/Proetale.lean",
+         "line": 66,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither site exists for adic spaces, so there is nothing to reexport. Mathlib's small/big étale and pro-étale sites and topologies are for schemes."
+      },
+      {
+       "target": "Geometric pullbacks of these sites",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; depends on the sites."
+      },
+      {
+       "target": "Restriction of the sites to the complement of a smooth pair's boundary",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no smooth pair and no boundary divisor in the analytic setting in either library."
+      },
+      {
+       "target": "Transport of the elementary sheaf operations from A1 to these carriers",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.isSheaf_iff_isSheafFor_rationalCover",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/SheafCriterion.lean",
+         "line": 51,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.presentationLimitPresheaf",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/StructurePresheaf/Basic.lean",
+         "line": 298,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Tau Ceti has a sheaf criterion on Spa for the Zariski-type topology of opens, not sheaf operations on an étale site."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdicEtaleGeometry:A1",
+       "note": "A1 owns the site construction outright; R4's own text says to transport it 'without constructing a second site', so R4 is the integration layer for A1's output."
+      },
+      {
+       "layer": "ClassicalAdicEtaleCohomology:H0",
+       "note": "H0 separately owns module sheaves, stalks, derived global sections and direct image on the analytic adic étale site."
+      },
+      {
+       "layer": "HodgeTateAndCanonicalSubgroups:T6:log-sites",
+       "note": "T6:log-sites is named in R4's text as the consumer that builds the logarithmic sites on precisely this input."
+      },
+      {
+       "layer": "DiamondEtaleCohomology:C0",
+       "note": "C0 constructs the same étale/pro-étale sites for the diamond-side cohomology."
+      }
+     ]
+    },
+    "AdicSpacesPartII:R5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The sousperfectoid class and its usable local affinoid descriptions",
+       "library": "absent",
+       "declarations": [],
+       "note": "`sousperfectoid` has no occurrence in either library, and there is no perfectoid ring or space to define it relative to."
+      },
+      {
+       "target": "Existence and sheaf properties of X_∞ ×_L U for perfectoid X_∞ and a smooth rigid parameter space U",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.closedPolydisc",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean",
+         "line": 72,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.restrictedMvPowerSeriesCompletion",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Completion.lean",
+         "line": 103,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent: no perfectoid spaces, no rigid-analytic spaces, and no fibre products of adic spaces. Tau Ceti's closed polydisc and A⟨T⟩ are the only concrete analytic objects available."
+      },
+      {
+       "target": "Completed coefficient sheaves on that product and torsor descent for them",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no torsors of adic spaces and no completed coefficient sheaves in either library."
+      },
+      {
+       "target": "Sheaf base-change and equalizer results defining and descending families of automorphic coefficients",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.restrictedMvPowerSeriesBaseChange",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Restricted/BaseChange.lean",
+         "line": 221,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. The only base-change comparison in this area is Tau Ceti's M ⊗_A A⟨T⟩ ≅ M⟨T⟩ for a finitely generated module over a complete noetherian Tate ring."
+      },
+      {
+       "target": "Local compatibility of rational and integral sheaves",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PerfectoidSpaces:P9",
+       "note": "P9 constructs the completed external tensor product for affinoid smooth rigid weight spaces, proves the sheaf condition and descends finite locally free modules — the same product-with-weight-space statement, and it names R5's sousperfectoid stage as its input."
+      },
+      {
+       "layer": "AdicEtaleGeometry:A0",
+       "note": "The fibre product X_∞ ×_L U is an instance of A0's completed tensor product and pullback construction."
+      },
+      {
+       "layer": "BunGAndNewtonStrata:BG0",
+       "note": "BG0 uses the sousperfectoid class for torsors and isocrystals with reductive structure group."
+      },
+      {
+       "layer": "RelativeFarguesFontaine:RF0",
+       "note": "RF0's relative period annuli are sousperfectoid families of the same kind."
+      }
+     ]
+    }
+   }
+  },
+  "CohomologyComparisons": {
+   "summary": "This roadmap compares cohomology theories that neither library has: there is no crystalline, log-crystalline, Hyodo–Kato, de Rham, de Rham–Witt, prismatic or AΩ cohomology, no étale cohomology of an adic space, no formal schemes or adic generic fibres, no A_cris/B_cris/B_st, no Breuil–Kisin twists or modules, no Chern classes or dlog maps, and no monodromy operator. The only pieces already present are coefficient-level: Mathlib's Fontaine θ, the Witt Frobenius and functoriality, B_dR^+ and B_dR as rings (constructed exactly as CP.0 describes, but with no θ-extension, filtration or DVR property proved), the p-adic cyclotomic character, F-isocrystals with the one-dimensional Dieudonné–Manin classification, divided-power structures without an envelope, `Module.length` for the CP.5 torsion inequalities, continuous group cohomology, and Tau Ceti's Kummer map Kˣ → H¹(G_K,μ_n). All seven layers are not built. Because CP is by design an assembly roadmap, every layer restates targets owned elsewhere — AI.0/AI.4/AI.5/AI.6, CR.0/CR.2/CR.6, PR.4/PR.6/PR.8, R06.1–R06.6, R07.3–R07.4 and RT.5–RT.6 — so the boundary that matters is that CP proves compatibility rather than constructing any of these maps a second time.",
+   "layers": {
+    "CohomologyComparisons:CP.0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Comparison functors between a formal scheme, its special fibre, its adic/rigid generic fibre and their scheme/pro-étale/log sites",
+       "library": "absent",
+       "declarations": [],
+       "note": "None of the four carriers exists: there is no formal scheme, no adic/rigid generic fibre, no pro-étale site of an adic space and no log site in either library."
+      },
+      {
+       "target": "Algebraic versus formal proper-cohomology comparison; compatible geometric points; base change to O_C versus reduction to the algebraically closed residue field",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PadicComplexInt",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Complex.lean",
+         "line": 251,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Mathlib supplies ℂ_p and its ring of integers as the base object but no cohomology of a formal model to compare."
+      },
+      {
+       "target": "The normalization dictionary for theta, tilde-theta, xi, tilde-xi, mu, Witt reduction, the Breuil–Kisin uniformizer, arithmetic/geometric Frobenius and HT(chi_p)=+1",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 165,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 221,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.map",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Basic.lean",
+         "line": 253,
+         "fit": "related"
+        },
+        {
+         "name": "cyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 307,
+         "fit": "related"
+        }
+       ],
+       "note": "θ and the Witt Frobenius/functoriality exist in Mathlib and the p-adic cyclotomic character is defined with its Hodge–Tate normalization implicit in `cyclotomicCharacter`; ξ, ξ̃, μ, θ̃ and the Breuil–Kisin uniformizer do not exist, so most of the dictionary has no entries to normalize."
+      },
+      {
+       "target": "All ring maps from the shared objects to A_cris, B_cris, B_st and B_dR",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "BDeRham",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 90,
+         "fit": "related"
+        },
+        {
+         "name": "DividedPowers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+         "line": 78,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the B_dR side exists: B_dR^+ is constructed in Mathlib directly as the ker-θ-adic completion of A_inf[1/p], with the structure map `AdicCompletion.of`. A_cris, B_cris and B_st are absent because Mathlib has divided power structures but no PD envelope."
+      },
+      {
+       "target": "Compatibility of Tate, Breuil–Kisin and filtration twists, and of scalar extension with semilinear linearization",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.Isocrystal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "Breuil–Kisin twists do not exist. The only semilinear-linearization carrier in the libraries is Mathlib's F-isocrystal (φ-semilinear bijections over the fraction field of W(k))."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AInfCohomology:AI.0",
+       "note": "AI.0 constructs θ, θ̃, ξ, ξ̃, μ, the Witt reduction and the Breuil–Kisin twists; CP.0's 'normalization dictionary' is the same list of objects and must record, not rebuild, them."
+      },
+      {
+       "layer": "PadicHodgeTheory:R06.1",
+       "note": "R06.1 constructs B_dR^+, B_dR, B_cris and B_st and their ring maps from the shared A_inf/θ, which is CP.0's fourth target."
+      },
+      {
+       "layer": "CrystallineCohomology:CR.0",
+       "note": "CR.0 exports the PD envelope of ker θ and A_cris together with the maps induced by Witt reduction and θ."
+      },
+      {
+       "layer": "AdicSpacesPartII:R2",
+       "note": "R2 owns the formal completion and generic-fibre functors CP.0 says it will reuse."
+      }
+     ]
+    },
+    "CohomologyComparisons:CP.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "K_A = RΓ_Ainf(𝔛) for a smooth proper O_C-formal scheme, as the object being compared",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Sheaf.H",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+         "line": 59,
+         "fit": "related"
+        },
+        {
+         "name": "DerivedCategory",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+         "line": 87,
+         "fit": "related"
+        }
+       ],
+       "note": "AΩ and its cohomology do not exist (AI.3/AI.5), and there are no formal schemes; Mathlib supplies abstract sheaf cohomology and derived categories only."
+      },
+      {
+       "target": "Derived theta base change to O_C compared with formal de Rham cohomology",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "KaehlerDifferential",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Kaehler/Basic.lean",
+         "line": 153,
+         "fit": "related"
+        }
+       ],
+       "note": "There is no de Rham complex of a scheme or formal scheme in either library, only the module of Kähler differentials."
+      },
+      {
+       "target": "Derived tilde-theta reduction compared with the Hodge–Tate complex with BK-twisted form cohomology",
+       "library": "absent",
+       "declarations": [],
+       "note": "θ̃ and Breuil–Kisin twists are absent."
+      },
+      {
+       "target": "Derived Witt reduction compared with crystalline cohomology of the special fibre",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.map",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Basic.lean",
+         "line": 253,
+         "fit": "related"
+        }
+       ],
+       "note": "Crystalline cohomology does not exist in either library."
+      },
+      {
+       "target": "Derived base change to A_cris compared with crystalline cohomology over the PD base",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DividedPowers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+         "line": 78,
+         "fit": "related"
+        }
+       ],
+       "note": "A_cris does not exist (no PD envelope)."
+      },
+      {
+       "target": "mu-inversion compared with generic-fibre Z_p étale cohomology tensor A_inf[1/mu]",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.EllAdicCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "Étale cohomology of an adic space is absent; Mathlib's `EllAdicCohomology` is ℓ-adic pro-étale cohomology of a scheme, with no comparison theory."
+      },
+      {
+       "target": "phi_A-pullback of relative prismatic cohomology for ker theta identified with K_A",
+       "library": "absent",
+       "declarations": [],
+       "note": "Prismatic cohomology does not exist in either library."
+      },
+      {
+       "target": "Commutativity of the overlaps (polynomial/torus maps, PD universal properties, BS22 §18 uniqueness) preserving the Bockstein/de Rham differential and the multiplicative structure",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; depends on all the rows of the table."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AInfCohomology:AI.4",
+       "note": "AI.4 constructs the θ, θ̃, de Rham–Witt, A_cris and μ-inverted specializations that are the rows of CP.1's table; CP.1 states the same maps and must only prove their compatibility."
+      },
+      {
+       "layer": "AInfCohomology:AI.5",
+       "note": "AI.5 globalizes those specializations to RΓ_Ainf with cup products, Frobenius and base change — CP.1's object of study."
+      },
+      {
+       "layer": "PrismaticCohomology:PR.6",
+       "note": "PR.6 owns the φ_A-pullback comparison AΩ_R ≃ φ_A^*Δ that forms CP.1's last row, with the BS22 §18 uniqueness argument CP.1 also cites."
+      },
+      {
+       "layer": "CrystallineCohomology:CR.2",
+       "note": "CR.2's PD Poincaré lemma and de Rham computations supply the crystalline side of two of the rows."
+      }
+     ]
+    },
+    "CohomologyComparisons:CP.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The chain of maps giving RΓ_et(X_C,Q_p) ⊗ B_cris ≃ RΓ_crys(X_k/W(k))[1/p] ⊗ B_cris for a smooth proper formal O_K-model",
+       "library": "absent",
+       "declarations": [],
+       "note": "None of the three cohomology theories (p-adic étale of the generic fibre, crystalline of the special fibre) nor B_cris exists in either library."
+      },
+      {
+       "target": "Crystalline change-of-base/invariance after p-inversion",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; crystalline cohomology does not exist."
+      },
+      {
+       "target": "G_K and Frobenius compatibility, multiplicativity and compatibility with the de Rham filtration",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.Isocrystal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 113,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.isocrystal_classification",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 183,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. The nearest carrier is Mathlib's F-isocrystal theory over W(k)[1/p], including the one-dimensional Dieudonné–Manin classification, which supplies the linear algebra but no cohomological comparison."
+      },
+      {
+       "target": "Passage to individual cohomology groups using perfectness and rational flatness, and identification of D_cris with crystalline cohomology",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; D_cris and the admissibility theory are themselves absent (PadicHodgeTheory R06.2)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AInfCohomology:AI.4",
+       "note": "AI.4 constructs the absolute A_cris comparison and the μ-inverted étale comparison that CP.2 chains together."
+      },
+      {
+       "layer": "PadicHodgeTheory:R06.5",
+       "note": "R06.5 'Geometric comparison theorems' is stated to import this comparison instead of rebuilding it; the two layers state the same theorem."
+      },
+      {
+       "layer": "PadicHodgeTheory:R06.2",
+       "note": "R06.2 owns the period-functor/admissibility theorems CP.2 needs to identify D_cris."
+      },
+      {
+       "layer": "DerivedDeRhamCohomology:DD.4",
+       "note": "DD.4 constructs the derived de Rham–crystalline comparison and the A_cris description, overlapping CP.2's crystalline input."
+      }
+     ]
+    },
+    "CohomologyComparisons:CP.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The canonical B_dR^+-valued deformation of de Rham cohomology of a proper smooth adic space X/C, by an infinitesimal/PD-style embedding system",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "B_dR^+ exists as a ring in Mathlib (`BDeRhamPlus`, with only its `CommRing` structure proved — the file lists extending θ to it and its DVR property as TODOs), but there is no adic space, no de Rham cohomology and no embedding system to deform along."
+      },
+      {
+       "target": "Completed tensor construction and coordinate independence of the deformation",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no completed tensor product of topological modules in either library."
+      },
+      {
+       "target": "Finite freeness in the source scope, theta reduction and the comparison after B_dR-inversion with p-adic étale cohomology",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "BDeRham",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 90,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; `BDeRham` is defined but nothing is proved about it."
+      },
+      {
+       "target": "Comparison with H_dR(X_0/K) ⊗_K B_dR^+ when X descends, and agreement with the corrected structural B_dR^+ period sheaf",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; period sheaves do not exist."
+      },
+      {
+       "target": "Filtration strictness and the Hodge–Tate/de Rham spectral-sequence comparisons in characteristic zero",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.SpectralSequence",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/SpectralSequence/Basic.lean",
+         "line": 37,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has an abstract category of spectral sequences (pages with differentials and isomorphisms onto the next page) but not the spectral sequence of a filtered complex, and neither the Hodge filtration on de Rham cohomology nor any degeneration statement exists in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicHodgeTheory:P8:local-rational",
+       "note": "P8:local-rational builds the rational structural B_dR period sheaves, local acyclicity and the relative Poincaré lemma, and its proper-comparison suffix consumes CP.3; the corrected structural B_dR^+ sheaf is stated in both."
+      },
+      {
+       "layer": "AInfCohomology:AI.6",
+       "note": "AI.6 also constructs 'the B_dR^+ comparison with the smooth generic fibre's canonical deformation'."
+      },
+      {
+       "layer": "HodgeTateAndCanonicalSubgroups:T1",
+       "note": "T1 applies the same period rings and relative comparison to degree-one abelian families and imports rather than rebuilds this deformation."
+      },
+      {
+       "layer": "PadicHodgeTheory:R06.1",
+       "note": "R06.1 constructs B_dR^+ with its filtration, which CP.3's deformation is built over."
+      }
+     ]
+    },
+    "CohomologyComparisons:CP.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The B_st comparison for proper flat semistable O_K-formal models, from AI.6's semistable A_inf theory and CR.6's Hyodo–Kato complex",
+       "library": "absent",
+       "declarations": [],
+       "note": "B_st, log structures, log-crystalline and Hyodo–Kato cohomology are all absent from both libraries."
+      },
+      {
+       "target": "Compatibility with G_K, Frobenius, monodromy and filtration after B_st → B_dR; the relation N phi = p phi N in cohomological grading",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.Isocrystal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "No monodromy operator exists in either library (`grep -rn -i 'monodromy operator'` is empty); the φ-semilinear side is only Mathlib's F-isocrystal."
+      },
+      {
+       "target": "Change-of-uniformizer formula and the descended period statement",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Compatibility of the absolute log-crystalline A_cris map with CP.3's B_dR^+ deformation, giving filtration compatibility",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DividedPowers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+         "line": 78,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; A_cris does not exist."
+      },
+      {
+       "target": "Comparison with PR.8's log-prismatic maps under Cartier-type and perfect-log-prism hypotheses; Kummer-étale versus ordinary étale generic-fibre cohomology",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; prismatic and log-prismatic cohomology and Kummer-étale sites do not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AInfCohomology:AI.6",
+       "note": "AI.6 constructs the semistable AΩ and its log de Rham/Hyodo–Kato/A_cris/étale comparisons; CP.4 assembles exactly those maps and states the same Nφ = pφN convention."
+      },
+      {
+       "layer": "CrystallineCohomology:CR.6",
+       "note": "CR.6 owns the Hyodo–Kato complex, Frobenius, monodromy, the Nφ = pφN relation and the change-of-uniformizer transformation — restated in CP.4."
+      },
+      {
+       "layer": "PrismaticCohomology:PR.8",
+       "note": "PR.8's logarithmic prismatic comparison is the second route to the same semistable statement."
+      },
+      {
+       "layer": "PadicHodgeTheory:R06.3",
+       "note": "R06.3 owns the monodromy and Weil–Deligne comparison at p, the representation-theoretic side of CP.4's monodromy operator."
+      }
+     ]
+    },
+    "CohomologyComparisons:CP.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The length inequality between crystalline p-primary torsion mod p^n over W(k) and étale torsion mod p^n over Z_p, in each degree",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.length",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Length.lean",
+         "line": 32,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has `Module.length` and its basic theory, so the numerical invariant exists, but neither crystalline nor p-adic étale cohomology exists to compare, and no inequality of this kind is proved anywhere."
+      },
+      {
+       "target": "The mod-p de Rham dimension bound via the derived base-change spectral sequence, and torsionfree crystalline H^i implies torsionfree étale H^i",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; depends on the previous target and on AI.5's BKF linear algebra."
+      },
+      {
+       "target": "Recovery of the crystalline lattice from the G_K lattice under torsionfreeness in degrees i and i+1",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.isocrystal_classification",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 183,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; requires BKF modules and the Kisin comparison, neither of which exists."
+      },
+      {
+       "target": "The semistable analogues with log-de-Rham/crystalline torsion assumptions, ramification-normalized length factors and the functorial lattice theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; log-crystalline cohomology does not exist."
+      },
+      {
+       "target": "Comparison with R07's classified Fontaine–Laffaille/Breuil–Kisin objects in the small-weight range, and the normalization agreement",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: Fontaine–Laffaille modules and Breuil–Kisin modules do not exist in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AInfCohomology:AI.5",
+       "note": "AI.5 proves 'the linear algebra controlling integral torsion under these specializations' and CP.5 states the resulting inequalities uniformly; the BKF length argument must live in exactly one of them."
+      },
+      {
+       "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+       "note": "R07.3 owns Fontaine–Laffaille theory, whose small-weight classification CP.5 compares against."
+      },
+      {
+       "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+       "note": "R07.4 owns Breuil–Kisin modules and their classification, the second small-weight regime CP.5 names."
+      },
+      {
+       "layer": "PadicHodgeTheory:R06.4",
+       "note": "R06.4 is the 'Integral and small-weight interface' and states the same normalization agreement."
+      }
+     ]
+    },
+    "CohomologyComparisons:CP.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Naturality under base change, products, duals and cup products for the comparison maps",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Sheaf.H",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+         "line": 59,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; none of the cohomology theories being compared exists, and Mathlib's abstract sheaf cohomology carries no cup product."
+      },
+      {
+       "target": "Trace and Gysin operations where proper smooth/crystalline duality has been proved",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Poincaré duality for any of these theories in either library."
+      },
+      {
+       "target": "First Chern classes of line bundles under the étale Kummer, de Rham dlog, crystalline PD and prismatic logarithm maps, with twists",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.kummerMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 187,
+         "fit": "related"
+        },
+        {
+         "name": "Differential.logDeriv",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Differential/Basic.lean",
+         "line": 29,
+         "fit": "related"
+        },
+        {
+         "name": "KaehlerDifferential",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Kaehler/Basic.lean",
+         "line": 153,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Cohomology/Basic.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "No Chern class of any kind exists in either library (`grep -rn -i chern` over both trees finds only Chernoff bounds). Tau Ceti has the Kummer map Kˣ → H¹(G_K,μ_n) and cohomology of sheaves of modules on schemes, and Mathlib has the algebraic logarithmic derivative `Differential.logDeriv` with its multiplicativity — the dlog map of a differential field, not of a de Rham complex. Together these supply ingredients of the degree-one étale Kummer class only."
+      },
+      {
+       "target": "Higher Chern classes and projective-bundle formulas through the source's splitting construction",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: no projective bundle formula in any cohomology theory in either library."
+      },
+      {
+       "target": "Compatibility with RefinedTraceMethods' cyclotomic Chern character",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; topological Hochschild homology and the cyclotomic trace do not exist in either library."
+      },
+      {
+       "target": "Export of the geometric crystalline/semistable/de Rham Galois consequences and the Habiro p-adic/q=1 specialization diagrams",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "continuousCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+         "line": 131,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Mathlib's continuous cohomology of a topological group is the only carrier for the Galois-representation side; there is no Habiro ring or q-deformation in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "RefinedTraceMethods:RT.5",
+       "note": "RT.5 owns the cyclotomic Chern character and its compatibility with this diagram, which CP.6 says must not be replaced by an unnamed regulator."
+      },
+      {
+       "layer": "PrismaticCohomology:PR.4",
+       "note": "PR.4 owns the étale comparison and p-adic Tate twists, including the prismatic logarithm/Chern class CP.6 compares."
+      },
+      {
+       "layer": "SchemeKTheoryOperations:S.7",
+       "note": "S.7 constructs Chern classes, the Chern character and the splitting principle through projective/flag bundles — CP.6's higher classes and projective bundle formula are the p-adic instance."
+      },
+      {
+       "layer": "PadicHodgeTheory:R06.6",
+       "note": "R06.6 'Arithmetic consequences' is the declared recipient of CP.6's exports and states the same Galois conclusions."
+      },
+      {
+       "layer": "RefinedTraceMethods:RT.6",
+       "note": "RT.6 'Habiro interfaces and verification' restates the q=1 and p-adic specialization diagrams CP.6 hands to Habiro consumers."
       }
      ]
     }

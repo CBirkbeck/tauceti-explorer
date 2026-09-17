@@ -1,0 +1,410 @@
+{
+ "job": "COMPARE-36",
+ "notes": {
+  "tauceti:TauCetiRoadmap/AlgebraicCurves": {
+   "targets": "Stichtenoth's theory of algebraic function fields of one variable: places, divisors and L(D); the genus and Riemann-Roch; the different and the Riemann-Hurwitz genus formula; constant-field extensions and inseparability; residues and the Kaehler/Weil-differential comparison; model classes (elliptic, hyperelliptic, plane, Kummer, Artin-Schreier); Aut(F/k) with the 84(g-1) Hurwitz bound; and the anti-equivalence between function fields and regular projective curves.",
+   "baselineHas": [
+    "TauCeti.isRiemannRochDivisor_weilDifferentialDivisor and degree_weilDifferentialDivisor (TauCeti/FieldTheory/FunctionField/Differential/CanonicalDivisor.lean:377,394) - Riemann-Roch, l((omega))=g and deg(omega)=2g-2 are already proved, so the roadmap's headline target is in",
+    "TauCeti.genus (RiemannRoch/Genus.lean:189) with Riemann's theorem, and TauCeti.Divisor.degree_principal (Divisor/ProductFormula.lean:234) - the product formula",
+    "TauCeti.Divisor.different (FunctionField/Different/Divisor.lean:141) with the tame value d = e - 1 in Different/Tame.lean",
+    "TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable (Place/Extension/Fundamental.lean:77); 72 files under TauCeti/FieldTheory/FunctionField/"
+   ],
+   "missing": [
+    "the cotrace of Weil differentials and the Hurwitz genus formula 2g'-2 = [F':F](2g-2) + deg Diff (Layer 7; 10 of 19 audited targets absent)",
+    "constant-field extensions with genus invariance, Hilbert's different formula, Abhyankar's lemma and the inseparable genus bounds (Layer 8; 20 of 27 targets absent)",
+    "local power-series expansions, residues, the residue theorem and the Kaehler-vs-Weil differential comparison (Layer 9)",
+    "genus computations for hyperelliptic, plane, Kummer and Artin-Schreier curves (Layer 10), all resting on Hurwitz",
+    "Weierstrass points via the Wronskian, rigidity, finiteness of Aut for g >= 2 and the 84(g-1) bound (Layer 11), resting on Layers 7-10",
+    "the scheme-side dictionary (Layer 12; 12 of 15 targets absent): curves as integral proper dimension-one schemes, normalization of P^1_k in F, the anti-equivalence with function fields, Weil divisors, H^0(O(D)) = L(D) and the cohomological genus - the last importing coherent cohomology and Serre duality from the still-unbuilt JacobianChallenge roadmap"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/DenseGraphLimits": {
+   "targets": "Lovasz's dense graph limit theory: graphons, homomorphism densities t(F,W), cut norm and cut distance, weak regularity, compactness of the graphon space, the equivalence of cut-distance convergence with convergence of all homomorphism densities, Lovasz-Szegedy representability, and exchangeable graph laws with their graphon mixtures.",
+   "baselineHas": [
+    "TauCeti.DenseGraphLimits.cutDist (CutMetric/Distance.lean:135) with the cross-carrier coupling definition, and the triangle inequality and GraphonSpace quotient now in (CutMetric/Triangle.lean, GraphonSpace/)",
+    "TauCeti.DenseGraphLimits.counting_lemma (Counting.lean:268) and weak_regularity_frieze_kannan (StepGraphon/Regularity.lean:175) with the partition energy and its Pythagoras increment",
+    "TauCeti.DenseGraphLimits.forall_homDensity_eq_of_cutDist_eq_zero (Separation/Forward.lean:61) and totallyBounded_graphonSpaceI (GraphonSpace/TotallyBounded.lean:69)",
+    "the whole sampling and exchangeable-law scaffolding (Sampling/, ExchangeableGraphLaw/, Representability/ConnectionMatrix.lean) - 51 files in all; Mathlib supplies MeasureTheory.condExp, Martingale and szemeredi_regularity"
+   ],
+   "missing": [
+    "completeness and compactness of GraphonSpaceI (Lovasz-Szegedy compactness): the measure-preserving realignment of cut-Cauchy sequences and the dyadic conditional-expectation/martingale L^1 argument, plus the atomless mod-null equivalence with (I, volume)",
+    "the inverse counting lemma, hence separation cutDist = 0 <=> all t(F,.) agree, and the convergence equivalence of Layer 6b",
+    "the Lovasz-Szegedy representability theorem and its Moebius/consistency spine (Layer 8b: all audited targets absent)",
+    "extremality of dissociated laws, the finite-to-infinite extension and the graphon-mixture representation of exchangeable graph laws (Layer 9b), plus almost-sure sampling convergence (Layer 9c)",
+    "no theory is imported from any other roadmap: everything missing is measure theory and combinatorics directly on Mathlib"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/ProfiniteCohomology": {
+   "targets": "Computational continuous cohomology of a profinite group on discrete modules: explicit low-degree cocycles and the comparison with the canonical carrier, the finite-quotient colimit description, long exact sequences, corestriction and Shapiro, cup products, cohomological dimension, profinite Hilbert 90 and Kummer theory, and the Evens norm.",
+   "baselineHas": [
+    "Mathlib's continuousCohomology (Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean:131) with compatible-pair functoriality, plus groupCohomology in all degrees and TateCohomology",
+    "TauCeti.ContCohomology.explicitShapiro1 (ContCohomology/Shapiro.lean:372) and explicitCor2_comp_res2 (Corestriction.lean:893)",
+    "the six low-degree cup products with associativity, commutativity, restriction, inflation and the projection formula (ContCohomology/Cup/), the long exact sequence through H^2, and the finite-quotient system with the degree 0-1 colimit (FiniteQuotient/Colimit.lean)",
+    "TauCeti.kummerShortExact (FieldTheory/GaloisCohomology/Coefficients.lean:195) and the absolute-Galois coefficient modules; 28 files under ContCohomology/"
+   ],
+   "missing": [
+    "the degree-1 and degree-2 comparison with the canonical continuousCohomology, and the degree-2 finite-quotient colimit",
+    "the transgression and five-term exact sequence, transitivity and Mackey for change of groups, Shapiro in degree 2, the cup/connecting-map identities and the Bockstein",
+    "profinite Hilbert 90 and hence the Kummer isomorphism, with the field-extension bridge (Layer 9)",
+    "continuous cohomology in all degrees: the canonical all-degree colimit description, long exact sequence, corestriction, Shapiro and the torsion theorem (Layer 10)",
+    "cohomological dimension cd/scd with its Galois-theoretic theorems (Layer 11, wholly absent), the graded cup product in all degrees (Layer 12, wholly absent) and the Evens norm via wreath products (Layer 13, wholly absent) - these four stack on one another",
+    "nothing is imported from another roadmap; the four missing layers sit directly on Mathlib's homological algebra"
+   ]
+  },
+  "ArithmeticGaloisDuality": {
+   "targets": "Poitou-Tate duality for a number field with restricted ramification, a justified passage from finite discrete to compact p-adic coefficients, continuous Hochschild-Serre and derived inverse limits, compactly supported arithmetic cohomology, and the Selmer/deformation comparisons and Taylor-Wiles numerics built on them.",
+   "baselineHas": [
+    "Mathlib's continuousCohomology for arbitrary topological coefficient modules, abstract spectral sequences and the Mittag-Leffler condition",
+    "TauCeti's explicit degree <= 2 continuous cohomology with restriction, inflation, corestriction with cor.res = index and cup products (TauCeti/RepresentationTheory/Homological/ContCohomology/)",
+    "TauCeti.ClassFieldTheory.AbelianLayer and the class-formation files (TauCeti/NumberTheory/ClassFieldTheory/Formation/, 5 files) - the abstract formation layer only",
+    "Mathlib's groupCohomology.Hilbert90 and TateCohomology as templates; no invariant map, reciprocity or duality theorem anywhere"
+   ],
+   "missing": [
+    "global class field theory itself: idele class module, local invariant maps and their sum, Artin reciprocity - the tauceti ClassFieldTheory roadmap is 11 of 15 layers not built, and local Tate duality with the Euler-characteristic formula sits there",
+    "the continuous Hochschild-Serre spectral sequence with its convergence, lim^1 and derived inverse limits, and the compact/lattice/torsion coefficient dictionary (R02.1-R02.2, D7)",
+    "G_{F,S}, finiteness of finite-coefficient cohomology, cohomological-dimension bounds with real-place corrections, the global Euler characteristic and compactly supported cohomology (R02.3)",
+    "Poitou-Tate duality itself in finite, compact and lattice forms and the nine-term sequence (R02.4), then derived dimension-general duality (D7)",
+    "Selmer groups with the Greenberg-Wiles formula and the patching inequalities (R02.5-R02.6)",
+    "imported and unbuilt: ArithmeticGaloisRepresentations R01.1/G7, and through SelmerIwasawaCohomology L2 the Bloch-Kato local conditions, which drag in PadicHodgeRegulators L1 and with it the period rings B_dR/B_cris and the perfectoid/A_inf foundations (38 upstream stages across 13 roadmaps, depth 9)"
+   ]
+  },
+  "AutomorphicSpectralTheory": {
+   "targets": "Langlands' complete spectral decomposition of L^2(G(F)\\G(A)) for a connected reductive group over a number field - Eisenstein series and their meromorphic continuation, intertwining operators, Arthur truncation and Maass-Selberg - together with Franke's weighted cohomology comparison and the coarse, fine and invariant trace formulas.",
+   "baselineHas": [
+    "Mathlib's L^2/Bochner integration, the spectral theorem for compact self-adjoint operators and the continuous functional calculus, Schwartz spaces and tempered distributions, Fubini and the quotient-measure unfolding lemma",
+    "TauCeti's unbounded self-adjoint operators with Stone's theorem (TauCeti/Analysis/Semigroups/Group/Stone/) and the Peter-Weyl decomposition of L^2(G) for compact G (TauCeti/RepresentationTheory/Compact/)",
+    "TauCeti's Casimir element, Verma central characters and dynamic parabolic subgroups with Levi decomposition on points; Mathlib's root pairings",
+    "holomorphic Eisenstein series of weight k >= 3 for Gamma(N) in Mathlib - classical, not the adelic object; 'Automorphic', 'Shimura' and 'traceFormula' have no hits in the declaration index"
+   ],
+   "missing": [
+    "the whole unbuilt substrate: ReductiveGroupsPartII (parabolics, Levi and root data over a general base), AdelicAlgebraicGroups (adelic points, reduction theory, Siegel sets, measures), SmoothRepresentationsOfLocalGroups (smooth/admissible representations, normalized induction, Jacquet modules, characters), AutomorphicFormsOnReductiveGroups (growth, cuspidality, constant terms, (g,K)-modules) and ArithmeticLocallySymmetricSpaces - about 39 layers, none built",
+    "measurable fields of Hilbert spaces and direct integrals, decomposable operators, trace-class/Hilbert-Schmidt integral operators, nuclear Frechet test-function spaces and meromorphic operator families (AS.0)",
+    "Eisenstein series for a rational parabolic with absolute convergence and constant terms (AS.1), global and local intertwiners with cocycle identities and meromorphic continuation with functional equations (AS.2)",
+    "Arthur truncation, its alternating-sum identities and T-dependence, and the Maass-Selberg relations (AS.3)",
+    "the complete spectral decomposition with residual spectrum, Weyl multiplicities and finite discrete multiplicities (AS.4), and the weighted L^2 complexes comparing automorphic and smooth relative Lie algebra cohomology (AS.5)",
+    "the automorphic kernel, the coarse geometric and spectral expansions, weighted orbital integrals and characters, (G,M)-families and the invariantization recursion giving the invariant trace formula (AS.6)"
+   ]
+  },
+  "LocalGaloisDeformationRings": {
+   "targets": "Kisin-style local deformation rings with genuine moduli meaning: framed and fixed-determinant unrestricted rings, conditions away from p (unramified, inertial type, Steinberg, minimally ramified), potentially semistable rings with fixed Hodge and inertial type and the Kisin dimension formula, finite-flat/Barsotti-Tate lattice moduli with component comparisons, dyadic endpoints, and the ordinary flag versus determinant-ordinary distinction of ACC+ 6.2.",
+   "baselineHas": [
+    "Mathlib's WittVector.fontaineTheta (RingTheory/Perfectoid/FontaineTheta.lean:165) and BDeRhamPlus/BDeRham (RingTheory/Perfectoid/BDeRham.lean:77,90) - period-ring beginnings only",
+    "Mathlib's complete local rings, local fields and Witt vectors; Mathlib's Proj as a scheme for the Grassmannian/lattice-moduli side",
+    "TauCeti's Huber-ring and Spa machinery (about 1000 declarations under TauCeti/RingTheory/Huber/ and TauCeti/AlgebraicGeometry/AdicSpace/) for the rigid-geometry input",
+    "'deformation' as a ring-theoretic functor has zero hits in the declaration index: no deformation functor, no Schlessinger criterion, no framed deformation ring"
+   ],
+   "missing": [
+    "the arithmetic p-adic Hodge stack it consumes: B_cris, B_st and the period functors D_HT/D_dR/D_cris/D_st with weak admissibility (PadicHodgeTheory R06.1-R06.2) and the p-adic monodromy theorem giving the Weil-Deligne parameter (R06.3), together with their perfectoid/A_inf/PD/derived-de-Rham foundations",
+    "integral p-adic Hodge theory: Breuil-Kisin modules, Fontaine-Laffaille and finite flat group schemes (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.3-R07.4)",
+    "formal and moduli geometry: projective Grassmannians with representability and properness (AlgebraicModuliForArithmeticGeometry R09.1) and the deformation/patching algebra (DeformationAndDerivedPatchingAlgebra R03.1-R03.2)",
+    "its own eight layers, all unbuilt: framed representability and tangent/obstruction theory, the conditions away from p with their components, potentially semistable rings with the characteristic-zero point criterion and dimension formula, bounded-height lattice moduli with the image statement, the p=2 and endpoint-weight calculations, the ordinary flag scheme versus the determinant-ordinary quotient",
+    "45 upstream stages across 15 roadmaps at depth 8, essentially none of them built"
+   ]
+  },
+  "FaltingsFinitenessAndIsogenyTheorems": {
+   "targets": "Faltings' height finiteness on arithmetic moduli, the isogeny-height estimate and boundedness in an isogeny class, semisimplicity of V_ell(A) and the Tate isogeny theorem Hom(A,B) tensor Q_ell = Hom_{G_F}(V_ell A, V_ell B), Shafarevich finiteness, and the elliptic-curve interfaces (End_Q(E) = Z consequences and finiteness of Q-isogeny classes).",
+   "baselineHas": [
+    "TauCeti.AlgebraicGeometry.AbelianVariety (AlgebraicGeometry/AbelianVariety/Basic.lean:94) with endomorphism rings, isogenies, products and base change",
+    "TauCeti's elliptic-curve isogeny theory (degrees, kernels, deg(1-pi_q) = #E(F_q)), Cartier duality for finite locally free Hopf algebras, and Weierstrass models over a DVR",
+    "Mathlib's absolute heights with Northcott, Hermite's discriminant finiteness and class-group finiteness (the rank-one case of Jordan-Zassenhaus); Mathlib's elliptic-curve reduction types",
+    "'Neron', 'TateModule' and 'Arakelov' have zero hits in the declaration index"
+   ],
+   "missing": [
+    "polarisations, dual abelian varieties and moduli of polarised abelian schemes with level structure (AbelianSchemesAndArithmeticModuli, PELModuli), Neron models and semistable reduction (NeronModelsAndSemistableAbelianVarieties), all unbuilt",
+    "Tate modules and their Galois representations, and the Faltings height with Arakelov-theoretic comparison (ArakelovGeometryAndAbelianHeights, 6 layers unbuilt)",
+    "the whole of PadicHodgeTheory including the geometric comparison theorems (R06.5-R06.6), which itself carries the perfectoid, A_inf, crystalline, de Rham and etale-cohomology stack",
+    "the finite-field weight bounds from WeightsInEtaleCohomology, hence etale cohomology of schemes, absent from both libraries",
+    "its own six layers: Zarhin's trick and the general Jordan-Zassenhaus theorem, the isogeny-height estimate with p-divisible-group input, stationarity in the isogeny class (in Faltings' corrected 1984 form), semisimplicity and the Tate isogeny theorem, Shafarevich finiteness, and the elliptic exports",
+    "193 upstream stages across 35 roadmaps at depth 14"
+   ]
+  },
+  "PadicHodgeTheory": {
+   "targets": "The period rings B_dR, B_cris, B_st and the period functors D_HT/D_dR/D_cris/D_st with admissibility; the p-adic monodromy theorem and the potentially semistable Weil-Deligne parameter; the integral and small-weight interface; relative period sheaves on the pro-etale site with the local Poincare lemma; and the crystalline, de Rham and semistable comparison theorems for proper smooth varieties with their arithmetic consequences for Tate modules.",
+   "baselineHas": [
+    "Mathlib's WittVector.fontaineTheta and surjective_fontaineTheta (RingTheory/Perfectoid/FontaineTheta.lean:165,195) and BDeRhamPlus/BDeRham (RingTheory/Perfectoid/BDeRham.lean:77,90) - the theta map and B_dR for a perfectoid ring",
+    "Mathlib's PreTilt.untilt (RingTheory/Perfectoid/Untilt.lean:49) and the full Witt-vector API",
+    "TauCeti's Huber rings, Spa, rational subsets and the structure presheaf (TauCeti/AlgebraicGeometry/AdicSpace/Spa/) - the start of adic geometry",
+    "'Bcris', 'crystalline' and 'etale cohomology' have zero hits in the declaration index"
+   ],
+   "missing": [
+    "B_cris, B_st with Frobenius, filtration and monodromy, the period functors and weak admissibility, the p-adic monodromy theorem and the Weil-Deligne parameter (R06.1-R06.3)",
+    "the Robba/overconvergent annulus rings with Frobenius and Gamma action, and the (phi,Gamma)-module comparison imported from PhiGammaModulesAndIwasawaCohomology (P7)",
+    "relative period sheaves B_dR, B_cris on the analytic pro-etale site with local acyclicity, filtration strictness and the relative Poincare lemma, which need adic spaces Part II, perfectoid spaces, AdicEtaleGeometry and the A_inf sheaf of AInfCohomology - itself resting on RelativeFarguesFontaine (P8)",
+    "crystalline, log-crystalline and de Rham cohomology of schemes and the actual proper-smooth comparison morphisms (CrystallineCohomology, DerivedDeRhamCohomology, CohomologyComparisons), plus etale realisation and the weight theory (R06.5)",
+    "Fontaine-Laffaille and Breuil-Kisin integral classifications (R06.4) from FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "150 upstream stages across 28 roadmaps at depth 12; RelativeFarguesFontaine is strictly inside this closure"
+   ]
+  },
+  "GeneralizedHeegnerCycles": {
+   "targets": "Higher-weight generalized Heegner cycles on Kuga-Sato varieties times CM elliptic curves, their etale and p-adic Abel-Jacobi classes, ring-class trace and congruence relations, ordinary stabilization and universal norms, Castella-Hsieh's explicit reciprocity and p-adic Gross-Zagier formula, the higher-weight Kolyvagin system with its Selmer consequences, Hida-family big classes, and the weight-two comparison with the Heegner point system.",
+   "baselineHas": [
+    "Mathlib's pro-etale ell-adic cohomology groups and TauCeti's scheme Weil divisors / algebraic cycles (TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Basic.lean)",
+    "TauCeti's Weierstrass-curve isogenies and Hecke operators on cusp forms (TauCeti/NumberTheory/HeckeRing/, TauCeti/NumberTheory/ModularForms/)",
+    "TauCeti's 2-Selmer groups of elliptic curves (WeierstrassCurve.Affine.selmerGroup2, EllipticCurve/MordellWeil/SelmerGroup.lean:104) - descent-style, not Galois-cohomological Selmer groups",
+    "'Heegner', 'ModularCurve', 'Shimura' and 'crystalline' all have zero hits in the declaration index"
+   ],
+   "missing": [
+    "everything in its own nine layers: desingularized Kuga-Sato fibre powers and CM projectors with their integrality, the cycles themselves with codimension/rationality/homological triviality, the etale and syntomic Abel-Jacobi maps, trace and congruence relations, ordinary stabilization and universal norms, the reciprocity and p-adic Abel-Jacobi formulas, the Kolyvagin system, the Hida big classes and the weight-two comparison",
+    "modular curves and their compactified universal families (ModularCurvesPartII, 20 layers), abelian schemes and arithmetic moduli, and the whole etale-cohomology and cycle-class apparatus (MotivicEtaleKTheory, 21 layers)",
+    "Iwasawa-theoretic infrastructure: Selmer complexes and Iwasawa cohomology, Coleman/Perrin-Riou regulators (PadicHodgeRegulators), p-adic L-functions (AutomorphicPadicLFunctions), Euler and Kolyvagin systems, Hida families (PadicFamilies)",
+    "the complete p-adic Hodge theory stack (PadicHodgeTheory is strictly inside its closure), complex multiplication and explicit reciprocity, and the Heegner point system it must compare with",
+    "533 upstream stages across 78 roadmaps at depth 23 - among the largest closures in the block"
+   ]
+  },
+  "HeckeStacksAndLocalShtukas": {
+   "targets": "Fargues-Scholze's global and local Hecke stacks of modifications of G-bundles on the Fargues-Fontaine curve, the Hecke functors T_V built from Satake kernels with their Drinfeld-lemma Weil^I action, bounded local shtuka moduli with commuting J_b(E) actions, their compactly supported cohomology as a representation-valued functor, and the fusion/creation-annihilation compatibility library feeding excursion operators.",
+   "baselineHas": [
+    "Mathlib's condensed sets and modules with the free/forgetful adjunction (Mathlib/Condensed/Basic.lean:51) - the coefficient formalism the continuous actions need",
+    "Mathlib's rigid monoidal categories with exact pairings, the abstract shape of the creation/annihilation identities",
+    "TauCeti's profinite and pro-p group theory (TauCeti/GroupTheory/, ProfiniteProPGroups) for pro-p level subgroups, and TauCeti's abstract double-coset Hecke ring (NumberTheory/HeckeRing/)",
+    "'shtuka', 'Satake', 'BunG' and 'FarguesFontaine' have zero hits in the declaration index, and there is no diamond or v-stack in either tree"
+   ],
+   "missing": [
+    "the entire relative Fargues-Fontaine curve with its divisors, B_dR sheaves and Beauville-Laszlo patching (RelativeFarguesFontaine, strictly inside this closure), and beneath it perfectoid spaces, perfectoid quotients, diamonds and v-stacks and adic spaces Part II",
+    "Bun_G with its Newton strata and uniformization (BunGAndNewtonStrata, 7 layers unbuilt) and vector bundles/isocrystals on the curve",
+    "geometric Satake and fusion with the integral dual group (GeometricSatakeAndFusion, 14 layers unbuilt) and the six-operation/lisse-sheaf formalism on v-stacks (VStackSheavesAndLisseCategories, DiamondSixOperations, EnhancedDerivedSheaves)",
+    "smooth representations of p-adic groups and reductive groups Part II for the target category of HS3",
+    "its own five layers, none built: the Hecke correspondence with representability and boundedness, the pull-tensor-push Hecke functors with ULA preservation, local shtuka moduli with diamond representability and descent to the reflex field, the cohomology functor with its finiteness and admissibility, and the fusion library",
+    "208 upstream stages across 30 roadmaps at depth 11"
+   ]
+  },
+  "ModularIwasawaMainConjectures": {
+   "targets": "The cyclotomic main conjecture for modular forms in its ordinary Greenberg, cohomological/determinant and signed formulations with their proved comparisons, and the theorem families: Fouquet-Wan's ordinary and broader cohomological theorems, the Burungale-Castella-Skinner theorem for ordinary elliptic curves, universal-family and signed consequences, plus the interfaces to the anticyclotomic, Eisenstein-prime and supersingular branches.",
+   "baselineHas": [
+    "TauCeti's descent-style 2-Selmer groups of elliptic curves over number fields (WeierstrassCurve.Affine.selmerGroup2, EllipticCurve/MordellWeil/SelmerGroup.lean:104)",
+    "Mathlib's elliptic-curve reduction types (good, multiplicative, additive) and Mathlib/TauCeti continuous group cohomology",
+    "TauCeti's modular forms, Hecke operators and L-series (TauCeti/NumberTheory/ModularForms/, HeckeRing/, LSeries/)",
+    "'Iwasawa' matches only MulAction.IwasawaStructure in Mathlib; there is no Iwasawa algebra, characteristic ideal, Coleman map, zeta element or p-adic L-function of a modular form"
+   ],
+   "missing": [
+    "Galois representations attached to modular forms with stable lattices, Greenberg and signed Selmer groups, Iwasawa cohomology and characteristic ideals - even the statements of L0 cannot be made",
+    "Poitou-Tate duality and Selmer complexes (ArithmeticGaloisDuality, SelmerIwasawaCohomology), Iwasawa algebras and p-adic measures, Coleman maps and Perrin-Riou regulators (PadicHodgeRegulators), all unbuilt",
+    "the zeta elements and Euler systems that prove one divisibility: Kato's Euler system, Heegner point Euler systems, Gross-Zagier, the Kolyvagin machinery",
+    "the reverse divisibility from Eisenstein congruences on unitary groups (AutomorphicCongruences, 10 layers unbuilt), which drags in Shimura varieties, automorphic forms and the endoscopic comparison, plus Hida families (PadicFamilies)",
+    "GeneralizedHeegnerCycles, RankZeroOneBSD, IntegralIwasawaTheory and LocalGaloisDeformationRings are all strictly inside its closure",
+    "597 upstream stages across 88 roadmaps at depth 25 - the largest closure in the block"
+   ]
+  },
+  "PotentialAutomorphyInfrastructure": {
+   "targets": "The reusable general-rank infrastructure behind ACC+ 'Potential automorphy over CM fields': a common integral cohomology interface for arithmetic locally symmetric spaces, Fontaine-Laffaille and ordinary degree-shifting, derived support comparisons for changes of local deformation condition (derived Ihara avoidance), Taylor-Wiles auxiliary primes with ultrapatching compatibility, and compatible-system transport.",
+   "baselineHas": [
+    "TauCeti's Chebotarev machinery (TauCeti/NumberTheory/Chebotarev/, e.g. NumberField.exists_auxiliaryPrime at AuxiliaryPrime.lean:45) - one of the two named tauceti prerequisites",
+    "TauCeti's explicit continuous cohomology (ContCohomology/) - the other named tauceti prerequisite, built only in low degrees",
+    "Mathlib's groupCohomology in all degrees, highest-weight theory for semisimple Lie algebras and root pairings, as raw material for Weyl/dual Weyl modules",
+    "'Shimura', 'Automorphic', 'deformation' and 'ModularCurve' have zero hits in the declaration index"
+   ],
+   "missing": [
+    "arithmetic locally symmetric spaces with their Borel-Serre boundary, integral cohomology and Hecke actions (ArithmeticLocallySymmetricSpaces, 8 layers unbuilt), together with the adelic/reductive/automorphic substrate beneath them",
+    "Shimura varieties, their compactifications and PEL moduli, Igusa varieties with the torsion-concentration theorem, and perfectoid Shimura varieties - all unbuilt",
+    "global Galois deformation rings and the derived patching algebra, and beneath them the local deformation rings and the whole p-adic Hodge theory stack with Fontaine-Laffaille",
+    "completed cohomology, torsion cohomology infrastructure and automorphic Galois representations Part II, which supply the Galois representations attached to torsion classes",
+    "its own six layers: the coefficient/level/boundary comparison interface, the two independent degree-shifting arguments, the derived support comparison with its exact hypotheses, the Taylor-Wiles sets with a fixed nonprincipal ultrafilter and ultrapatching, and the compatible-system checklist",
+    "378 upstream stages across 55 roadmaps at depth 11"
+   ]
+  },
+  "RefinedTraceMethods": {
+   "targets": "A shared trace-theoretic library: Hochschild and cyclic homology with the SBI sequence and HKR; THH with its circle action, cyclotomic structure and TC/TC^-/TP; the Dennis and cyclotomic traces with the relative nilpotent and rational comparison theorems; the AMMN Beilinson fibre square; topological K-theory ku/KU with cyclonic enhancements and the q-Hodge even filtration; Efimov-Scholze refined localizing invariants; and the BMS2 quasisyntomic motivic-filtration/prismatic comparison.",
+   "baselineHas": [
+    "Mathlib's simplicial objects with the alternating face map complex, Moore normalisation and Dold-Kan (Mathlib/AlgebraicTopology/DoldKan/), and total complexes of bicomplexes",
+    "Mathlib's Kaehler differentials and exterior powers, Tor in monoidal abelian categories and Morita equivalence - the algebraic input for RT.1",
+    "Mathlib's Tate cohomology of finite groups with TauCeti's Herbrand quotients and cyclic periodicity (the algebraic shadow of the Tate construction), and p-typical Witt vectors with Frobenius and Verschiebung",
+    "TauCeti's real Clifford-algebra Bott periodicity and Mathlib's topological vector bundles; 'THH', 'Hochschild', 'prismatic' and 'SphereSpectrum' have zero hits in the declaration index"
+   ],
+   "missing": [
+    "the entire stable-homotopy foundation: spectra, smash products and genuine homotopy limits (StableHomotopyKTheory, 12 layers essentially unbuilt), enhanced stable categories (EnhancedDerivedSheaves, 11 layers unbuilt) and algebraic K-theory as a spectrum (GeneralAlgebraicKTheory, 15 layers mostly unbuilt)",
+    "Hochschild/cyclic complexes with Connes' B and the SBI sequence, then THH of spectral categories with its S^1-action, cyclotomic Frobenius, TC, TC^- and TP (RT.1-RT.2)",
+    "the cyclotomic trace with the relative nilpotent comparison (Dundas-Goodwillie-McCarthy) and its excision/functor-calculus inputs (RT.3), and the AMMN Beilinson fibre square (RT.3b)",
+    "topological ku/KU with Bott periodicity at spectrum level, the genuine finite-C_m cyclonic enhancements, even filtrations and the q-de Rham/q-Hodge comparison (RT.4)",
+    "localizing motives with the Efimov-Scholze rigidity theorem and refined THH/TC^- (RT.5), and the BMS2 quasisyntomic filtration with its comparison to prismatic cohomology, Nygaard pieces and Breuil-Kisin twists (RT.6), with PrismaticCohomology itself unbuilt",
+    "78 upstream stages across 19 roadmaps at depth 7, but the missing foundations are unusually deep per layer"
+   ]
+  },
+  "RelativeFarguesFontaine": {
+   "targets": "The Fargues-Fontaine curve over an arbitrary perfectoid base in F_q-algebras and an arbitrary local coefficient field E: ramified Witt coefficients W_{O_E}, the period spaces Y_S and X_S = Y_S/phi^Z, the divisor spaces Div^d with their B_D^+ and B_dR sheaves, the line bundles O(n) with the graded algebra and the analytic-to-schematic map, and Beauville-Laszlo patching for vector bundles and G-torsors.",
+   "baselineHas": [
+    "Mathlib's full Witt-vector API with Frobenius, Teichmueller and ghost components, PreTilt.untilt (RingTheory/Perfectoid/Untilt.lean:49) and WittVector.fontaineTheta (FontaineTheta.lean:165)",
+    "Mathlib's BDeRhamPlus/BDeRham for a single perfectoid ring (RingTheory/Perfectoid/BDeRham.lean:77,90) - the absolute, non-relative object",
+    "TauCeti's Huber rings, power-bounded elements, completions and the whole Spa apparatus with rational subsets, the sheaf criterion and the structure presheaf (about 1000 declarations under TauCeti/RingTheory/Huber/ and TauCeti/AlgebraicGeometry/AdicSpace/)",
+    "'Perfectoid' outside Mathlib's tilting files, 'Diamond' in the geometric sense and 'FarguesFontaine' have no hits in the declaration index"
+   ],
+   "missing": [
+    "perfectoid spaces themselves with tilting equivalence and almost purity, perfectoid quotients, and adic spaces Part II (sousperfectoid, stably uniform, sheafiness of the structure presheaf beyond the cases TauCeti covers)",
+    "the pro-etale/v-topology, diamonds and v-stacks with their small-v-sheaf theory (DiamondsAndVStacks) and the absolute Fargues-Fontaine diamond F0-F4",
+    "ramified Witt vectors W_{O_E} with their pi-adic universal property, and the integral period space Y_S with the FS II.1.1 perfectoid chart theorem and the untilt functor",
+    "Div^d as a v-sheaf with the Cartier-divisor comparison, the completed sheaves B_D^+ and B_D, and B_dR^+ with its residue and filtration in the relative setting",
+    "O(1) by Frobenius descent, the graded algebra with Proj and the analytic-to-schematic map, and Beauville-Laszlo gluing with its Tannakian transfer to G-torsors",
+    "69 upstream stages across 16 roadmaps at depth 7; it is strictly upstream of PadicHodgeTheory and HeckeStacksAndLocalShtukas"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "DenseGraphLimits is missing about eleven targets - compactness of GraphonSpaceI, the inverse counting lemma, Lovasz-Szegedy representability and the exchangeable-law mixture - all directly on Mathlib's condExp and martingale convergence; AlgebraicCurves still needs the cotrace and the Hurwitz genus formula, the constant-field-extension and inseparability layer (20 of 27 targets absent), residues and the Kaehler-Weil comparison, the model classes and the automorphism layer above them, and the whole scheme-side dictionary with its import of coherent cohomology and Serre duality from the unbuilt JacobianChallenge roadmap."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+   "b": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ProfiniteCohomology has four wholly or largely unbuilt layers stacked on one another - all-degree continuous cohomology, cohomological dimension, the graded cup product, the Evens norm - plus Hilbert 90, the five-term sequence and Mackey, some fifty absent targets; DenseGraphLimits has the cut metric, the quotient space, weak regularity, sampling and the exchangeable-law scaffolding already built and needs only compactness, inverse counting and representability."
+  },
+  {
+   "a": "ArithmeticGaloisDuality",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ArithmeticGaloisDuality is explicitly the Part II of ProfiniteCohomology: it must first have that roadmap's material and then add global class field theory with local invariant maps (the tauceti ClassFieldTheory roadmap is 11 of 15 layers unbuilt, only class formations exist), continuous Hochschild-Serre with derived inverse limits, G_{F,S} finiteness and the Euler characteristic, Poitou-Tate duality, and through SelmerIwasawaCohomology L2 the Bloch-Kato local conditions with the period rings behind them."
+  },
+  {
+   "a": "AutomorphicSpectralTheory",
+   "b": "ArithmeticGaloisDuality",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "AutomorphicSpectralTheory has to build its whole substrate from nothing - reductive groups over a general base, adelic points with reduction theory and measures, smooth representations of local groups, automorphic forms with constant terms, plus direct integrals of Hilbert spaces - before Eisenstein continuation, Maass-Selberg, the complete spectral decomposition and Arthur's invariant trace formula; ArithmeticGaloisDuality also needs a lot (global class field theory, Poitou-Tate, compact coefficients, and a period-ring branch through SelmerIwasawaCohomology), but roughly half of its profinite-cohomology base is already in TauCeti, whereas 'automorphic' has no hits in the declaration index at all."
+  },
+  {
+   "a": "LocalGaloisDeformationRings",
+   "b": "AutomorphicSpectralTheory",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "LocalGaloisDeformationRings needs B_cris/B_st, the period functors, the p-adic monodromy theorem, Breuil-Kisin and Fontaine-Laffaille integral theory, projective Grassmannians with representability and the deformation-functor algebra before any of its own eight layers - 45 upstream stages over 15 roadmaps at depth 8, none built; AutomorphicSpectralTheory's stack, though individually heavier per layer, is 21 upstream stages over 6 roadmaps at depth 5, and its own analytic layers rest on Mathlib's operator theory rather than on another unbuilt geometric tower."
+  },
+  {
+   "a": "FaltingsFinitenessAndIsogenyTheorems",
+   "b": "LocalGaloisDeformationRings",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Faltings needs everything LocalGaloisDeformationRings needs and much more: the complete p-adic Hodge theory including the geometric comparison theorems, and on top of that polarised abelian schemes and their moduli, PEL moduli, Neron models with semistable reduction, the Arakelov-theoretic Faltings height, Tate modules and the finite-field weight bounds from etale cohomology; LocalGaloisDeformationRings stops at the arithmetic period functors R06.1-R06.3 plus integral p-adic Hodge theory and formal moduli (193 upstream stages at depth 14 against 45 at depth 8)."
+  },
+  {
+   "a": "PadicHodgeTheory",
+   "b": "FaltingsFinitenessAndIsogenyTheorems",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Faltings consumes PadicHodgeTheory's last stage R06.6 and therefore the whole of it, then adds abelian-variety moduli with polarisations, Neron models, the Faltings height and Zarhin's trick, Jordan-Zassenhaus, and the Weil bounds for abelian varieties over finite fields; PadicHodgeTheory's own missing theory - period rings, period functors, relative period sheaves and the crystalline/de Rham/semistable comparisons - is strictly a subset of what Faltings must have."
+  },
+  {
+   "a": "PadicHodgeTheory",
+   "b": "GeneralizedHeegnerCycles",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "GeneralizedHeegnerCycles imports PadicHodgeTheory outright (it sits inside its closure) and then needs modular curves with compactified universal families, desingularized Kuga-Sato varieties and CM projectors, etale and syntomic Abel-Jacobi maps, ring class fields, anticyclotomic Iwasawa cohomology with Coleman/Perrin-Riou regulators, Kolyvagin systems and Hida families - 533 upstream stages over 78 roadmaps at depth 23 against PadicHodgeTheory's 150 over 28 at depth 12."
+  },
+  {
+   "a": "GeneralizedHeegnerCycles",
+   "b": "HeckeStacksAndLocalShtukas",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "HeckeStacksAndLocalShtukas needs one large geometric tower - relative Fargues-Fontaine, Bun_G with Newton strata, geometric Satake and the six-operation theory on v-stacks - about 208 upstream stages; GeneralizedHeegnerCycles needs that scale of p-adic geometry too (PadicHodgeTheory and the diamond machinery are inside its closure) and in addition modular and Shimura geometry, cycle-class and Abel-Jacobi theory, p-adic L-functions, Euler and Kolyvagin systems and Hida families, 533 upstream stages at depth 23."
+  },
+  {
+   "a": "ModularIwasawaMainConjectures",
+   "b": "HeckeStacksAndLocalShtukas",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ModularIwasawaMainConjectures cannot even state L0 without Galois representations of modular forms, Selmer groups, Iwasawa algebras, characteristic ideals and p-adic L-functions, and its proofs need Kato's and Heegner Euler systems, Coleman maps and the Eisenstein-congruence divisibility on unitary groups - 597 upstream stages over 88 roadmaps at depth 25; HeckeStacksAndLocalShtukas, while resting on the whole unbuilt diamond/Fargues-Fontaine/Satake tower, is 208 stages over 30 roadmaps."
+  },
+  {
+   "a": "PotentialAutomorphyInfrastructure",
+   "b": "ModularIwasawaMainConjectures",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Both sit near the top of the atlas, but ModularIwasawaMainConjectures needs the Iwasawa-theoretic apparatus (Selmer complexes, characteristic ideals, Coleman maps, zeta elements, p-adic L-functions, Kato and Heegner Euler systems) on top of essentially the same modularity-lifting and Shimura machinery that PotentialAutomorphyInfrastructure needs, and it additionally requires the Eisenstein-congruence divisibility on unitary groups; 597 upstream stages over 88 roadmaps at depth 25 against 378 over 55 at depth 11."
+  },
+  {
+   "a": "PotentialAutomorphyInfrastructure",
+   "b": "RefinedTraceMethods",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "RefinedTraceMethods must build spectra, algebraic K-theory and the cyclotomic-trace formalism from nothing, but that is a single tower of about 78 upstream stages; PotentialAutomorphyInfrastructure needs arithmetic locally symmetric spaces with their adelic and automorphic substrate, Shimura varieties with compactifications, Igusa and perfectoid Shimura varieties, completed and torsion cohomology, global and local Galois deformation rings, derived patching and the whole p-adic Hodge stack with Fontaine-Laffaille - 378 stages over 55 roadmaps."
+  },
+  {
+   "a": "RelativeFarguesFontaine",
+   "b": "RefinedTraceMethods",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "The two closures are close (69 stages over 16 roadmaps against 78 over 19), but RelativeFarguesFontaine has a real running start - Mathlib's Witt vectors, tilting, fontaineTheta and B_dR and TauCeti's thousand-declaration Huber/Spa apparatus - while RefinedTraceMethods has nothing at all beneath it: no spectra, no smash product, no algebraic K-theory spectrum, hence no THH, TC or cyclotomic trace, and its endpoints (Efimov-Scholze localizing motives, the cyclonic q-Hodge filtration, the BMS2 prismatic comparison) each need a further tower above that."
+  },
+  {
+   "a": "RelativeFarguesFontaine",
+   "b": "HeckeStacksAndLocalShtukas",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "HeckeStacksAndLocalShtukas consumes the relative Fargues-Fontaine curve outright - RF2's divisors and RF4's G-torsors are its declared inputs - and then adds Bun_G with Newton strata and uniformization, geometric Satake with fusion and the integral dual group, the lisse/solid sheaf theory on v-stacks with Drinfeld's lemma, and smooth representations of local groups, before its own five layers of Hecke functors, shtuka moduli and their cohomology."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+   "b": "ArithmeticGaloisDuality",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "AlgebraicCurves already has places, divisors, the genus, Riemann-Roch and the different divisor, and what remains - Hurwitz, constant-field extensions, residues, model classes, the automorphism layer and the scheme dictionary - is classical curve theory with one import; ArithmeticGaloisDuality has none of its own eight layers built and must first have global class field theory with local invariant maps (tauceti ClassFieldTheory is 11 of 15 layers unbuilt), continuous Hochschild-Serre with derived limits, G_{F,S} finiteness and the Euler characteristic, and then Poitou-Tate duality, with a period-ring branch entering through the Bloch-Kato local conditions."
+  },
+  {
+   "a": "FaltingsFinitenessAndIsogenyTheorems",
+   "b": "PotentialAutomorphyInfrastructure",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Faltings needs abelian-variety moduli, Neron models, the Faltings height and the full p-adic Hodge stack - 193 upstream stages; PotentialAutomorphyInfrastructure needs that same p-adic Hodge stack plus arithmetic locally symmetric spaces with their adelic/automorphic substrate, Shimura varieties with compactifications, Igusa and perfectoid Shimura varieties, completed and torsion cohomology, ordinary parts and derived patching, 378 upstream stages over 55 roadmaps (and its declared prerequisites GlobalGaloisDeformations and LocalGaloisDeformationRings are not even recorded in that graph)."
+  },
+  {
+   "a": "ModularIwasawaMainConjectures",
+   "b": "LocalGaloisDeformationRings",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "LocalGaloisDeformationRings lies strictly inside ModularIwasawaMainConjectures' closure: the main conjectures need those deformation rings through the modularity-lifting inputs, and on top of them Galois representations of modular forms with stable lattices, Greenberg and signed Selmer groups, Iwasawa algebras and characteristic ideals, p-adic L-functions, Kato and Heegner Euler systems, and the reverse divisibility from unitary-group Eisenstein congruences."
+  },
+  {
+   "a": "GeneralizedHeegnerCycles",
+   "b": "RefinedTraceMethods",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "RefinedTraceMethods is one tall tower - spectra, K-theory, THH/TC, prismatic comparison - of about 78 upstream stages over 19 roadmaps; GeneralizedHeegnerCycles needs modular and Shimura geometry, Kuga-Sato varieties, cycle classes and Abel-Jacobi maps, the complete p-adic Hodge theory, anticyclotomic Iwasawa cohomology, explicit reciprocity, Kolyvagin systems and Hida families, 533 upstream stages over 78 roadmaps at depth 23."
+  },
+  {
+   "a": "RelativeFarguesFontaine",
+   "b": "PadicHodgeTheory",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "PadicHodgeTheory consumes the relative Fargues-Fontaine curve (through the A_inf sheaf its relative period sheaves import) and then needs B_cris/B_st with the period functors and weak admissibility, the p-adic monodromy theorem, the integral Fontaine-Laffaille interface, and the crystalline/de Rham/semistable comparison theorems for proper smooth varieties with the crystalline and etale cohomology behind them; RelativeFarguesFontaine stops at the curve, its divisors, B_dR sheaves and Beauville-Laszlo patching."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Both are Tau Ceti roadmaps with a large built core and four to six unbuilt layers. AlgebraicCurves has more absent theory (about seventy audited targets against fifty): the cotrace and Hurwitz formula, the constant-field and inseparability layer, residues with the Kaehler-Weil comparison, the model classes, the Weierstrass-point and 84(g-1) layer above them, and a whole scheme-side dictionary that also imports coherent cohomology and Serre duality from the unbuilt JacobianChallenge roadmap; ProfiniteCohomology's four missing layers (all-degree cohomology, cohomological dimension, the graded cup product, the Evens norm) are deep but sit directly on Mathlib's fully developed group and Tate cohomology."
+  },
+  {
+   "a": "HeckeStacksAndLocalShtukas",
+   "b": "AutomorphicSpectralTheory",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "The two share an unbuilt base - reductive groups over a general field and smooth representations of local groups - but HeckeStacksAndLocalShtukas adds on top of it the whole perfectoid, diamond and v-stack geometry, the relative Fargues-Fontaine curve, Bun_G with Newton strata, geometric Satake with fusion and the six-operation/lisse formalism, about 208 upstream stages over 30 roadmaps; AutomorphicSpectralTheory adds instead adelic reduction theory, automorphic forms, direct integrals and the Eisenstein/trace-formula analysis, roughly 28 further layers."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+   "b": "ArithmeticGaloisDuality",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "DenseGraphLimits already has graphons, the cut metric with its quotient, weak regularity, sampling and exchangeable laws in Tau Ceti and needs only compactness, the inverse counting lemma, representability and the mixture representation, all self-contained over Mathlib's measure theory; ArithmeticGaloisDuality has none of its eight layers built and depends on global class field theory, continuous Hochschild-Serre with derived limits, G_{F,S} finiteness, Poitou-Tate duality and a period-ring branch reaching into p-adic Hodge theory."
+  },
+  {
+   "a": "LocalGaloisDeformationRings",
+   "b": "GeneralizedHeegnerCycles",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "LocalGaloisDeformationRings is inside GeneralizedHeegnerCycles' closure, and the cycles roadmap needs far more besides: Kuga-Sato varieties over modular curves with CM projectors, cycle classes and etale/syntomic Abel-Jacobi maps, ring class fields and trace relations, anticyclotomic Iwasawa cohomology with regulators, explicit reciprocity, Kolyvagin systems and Hida families (533 upstream stages at depth 23 against 45 at depth 8)."
+  },
+  {
+   "a": "FaltingsFinitenessAndIsogenyTheorems",
+   "b": "RefinedTraceMethods",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "RefinedTraceMethods must build spectra, algebraic K-theory, THH/TC and the prismatic comparison from a library with none of them, but that is 78 upstream stages over 19 roadmaps at depth 7; Faltings needs the whole p-adic Hodge stack including the geometric comparison theorems, etale cohomology with the weight bounds, polarised abelian schemes and PEL moduli, Neron models and semistable reduction, and the Arakelov-theoretic Faltings height - 193 stages over 35 roadmaps at depth 14 - before any of its own six layers."
+  }
+ ]
+}
