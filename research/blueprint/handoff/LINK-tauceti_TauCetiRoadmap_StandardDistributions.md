@@ -1,179 +1,148 @@
-# LINK-tauceti_TauCetiRoadmap_StandardDistributions — continuation handoff
+# LINK-tauceti_TauCetiRoadmap_StandardDistributions — author handoff
 
-**Status: partial; not acceptance-ready.** Four proposed links, one rescope overlap, and 80 cumulative examined roadmap identifiers. This is an authored continuation of the merged #384 checkpoint, not an independent review or a claim of completed catalogue coverage. Do not mark #69 done from this file.
+**Status: partial, not acceptance-ready.** Four links, one rescope overlap, and 218 cumulative examination identifiers. The larger inventory is not a claim of 218 full README reviews or a completed catalogue-wide full-text screen. This is author continuation, not independent review, Lean implementation or integration.
 
-## Worker, claim and permitted changes
+## Identity, submission and scope
 
-- Job: `LINK-tauceti_TauCetiRoadmap_StandardDistributions`, issue [#69](https://github.com/CBirkbeck/tauceti-explorer/issues/69).
-- Worker: **ChatGPT Pro — cgp-aa0b3d0309fb**.
-- Claim [5697531906](https://github.com/CBirkbeck/tauceti-explorer/issues/69#issuecomment-5697531906); explicit bot acceptance [5697534070](https://github.com/CBirkbeck/tauceti-explorer/issues/69#issuecomment-5697534070). Re-read during preparation; no competing acceptance found.
-- Continuation authorised by the orchestrator's [5696975472](https://github.com/CBirkbeck/tauceti-explorer/issues/69#issuecomment-5696975472), after merging the earlier worker's [#384](https://github.com/CBirkbeck/tauceti-explorer/pull/384).
-- Isolated submission branch: `w3/cgp-aa0b3d0309fb/link-standard-distributions`.
-- The only repository outputs are this file and `research/blueprint/links/tauceti_TauCetiRoadmap_StandardDistributions.json`. No queue, atlas, source README, sibling packet, application or implementation file is changed. No git command was run by this worker.
+Job: `LINK-tauceti_TauCetiRoadmap_StandardDistributions`, issue [#69](https://github.com/CBirkbeck/tauceti-explorer/issues/69). Worker: **ChatGPT Pro — cgp-aa0b3d0309fb**. Claim comment 5697531906 and bot acceptance 5697534070 explicitly identify this session. The orchestrator authorised continuation after merging predecessor PR #384 (comment 5696975472).
 
-The actual PR URL, submitted commit and later CI outcome belong in the issue submission comment. Checks are not presumed merely by writing this handoff. A submission is not integration or approval. Do not release another worker's claim; this worker has not used `/unclaim`.
+Submission: draft [PR #786](https://github.com/CBirkbeck/tauceti-explorer/pull/786), branch `w3/cgp-aa0b3d0309fb/link-standard-distributions`. The earlier attempt to create this PR was rate-limited; the retry on 17 September succeeded. Issue comment 5713556850 records its first actual CI result. Later issue comments are authoritative for the submitted head, latest validation and release of the execution claim.
 
-## Revisions and evidence provenance
+Only this handoff and `research/blueprint/links/tauceti_TauCetiRoadmap_StandardDistributions.json` are changed. No git command was run. No source README, sibling packet, queue, atlas, retirement record or implementation file was edited. The final issue handoff releases this unfinished execution for continuation; it does not mark it done or accept its mathematics. A successor should continue these two files from PR #786, not restart from the older main-branch checkpoint.
 
-The continuation's mathematical input is Explorer commit **`088ac3dcfb573a1e875fcea971ce54526bbe74d3`**. The submission-base recheck is **`be09b0fb85faab7fc6a8646e9f524140cfa0df2e`**. GitHub comparison reports four intervening commits, with no change to the source READMEs, atlas, baseline, link validator or the two authorised outputs. New sibling link packets will be included in the PR validator's combined graph. Five newly added roadmap packets also require screening: `AnalyticHabiroStack`, `AnalyticStacks`, `QWittVectors`, `RingStacksAndTransmutation` and `SolidAnalyticRings`. They are not silently counted in the inherited 80. The earlier checkpoint used `06324eb3a84b57956b9a72e2249e0fd9ea654bf7`; its 80 examination records are preserved with inherited read-depth labels, not reclassified as 80 new full reviews.
+## Revisions and what was actually read
 
-Files actually opened at the continuation input:
+The preceding continuation used mathematical input `088ac3dcfb573a1e875fcea971ce54526bbe74d3` and branch base `be09b0fb85faab7fc6a8646e9f524140cfa0df2e`. The 17 September reads used `dbafc759460581dbd23999a3c112149fedefe2b5` and then `66e35f2051d4e49644701ad398112de45095d315`. The latter is one swarm-output commit after the former. Comparison with the old branch base reports 62 intervening commits: atlas extracts, new-roadmap definitions, other packets, retirement handling and validators have changed. Do not treat the old whole-world graph as current.
 
-| Input | Git blob SHA |
+The code baseline remains Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Two Tau Ceti source files were freshly inspected, as detailed below. **Source inspection is not a fresh Lean build or a complete transitive axiom audit.** Other implementation statements in README/status files were not independently certified.
+
+| Fresh 17 September source | Git blob SHA | Read scope |
+| --- | --- | --- |
+| `TauCeti/Probability/Moments/Determinacy.lean` at the Tau Ceti pin | `bec3f5f56939b7165c0d9ffc4b2703271241f4eb` | Full file |
+| `TauCeti/Probability/Distributions/Uniform.lean` at that pin | `abc620e3a1e8d4cbe05cdc54c3c7b03e8fe4a7bf` | Lines 1–175, including definitions and the cited theorems |
+| `data/roadmap-summaries.json` | `f36baf08b7da52ceba98181a70668441823ebb51` | All 152 campaign summaries; upstream overrides are not all upstream documents |
+| `content/campaign/ArithmeticStatistics/README.md` | `0eccbca73df569a605f94ab63a9494a0b6e2b574` | Full six-stage README |
+| `content/campaign/ComputationalNumberTheory/README.md` | `cc0e5740dd0cb809e44b01b8bd17ef6ff05116d8` | Full six-stage README |
+| `content/campaign/AnalyticNumberTheory/README.md` | `364688662759ca338c9ba87121e149c94b0f1a95` | Full ten-stage README |
+| `content/campaign/QSeriesPartitionsAndMockModularForms/README.md` | `2d096774ef0c12604c30d5dcba3ab85f37697975` | Full seven-stage README |
+| `research/blueprint/roadmaps/SolidAnalyticRings.json` | `bd5008d8760f0657c4aac7c1be956f5076d44f8d` | Full root README/summary and SA.0 |
+| `research/blueprint/roadmaps/AnalyticStacks.json` | `7eab859457d749fd5107b4baa74afb2ff20e9b9e` | Full root README/summary, not every stage description |
+| `research/blueprint/roadmaps/AnalyticHabiroStack.json` | `6d34100064c7480cfc26770bd73b39c91359ee10` | Full root README/summary, not every stage description |
+| `research/blueprint/roadmaps/RingStacksAndTransmutation.json` | `601a0f69d0858c3ae12a8ea0247dad21f442a1f5` | Full root README/summary, not every stage description |
+| `research/blueprint/roadmaps/QWittVectors.json` | `ec2e7e68136b0ef578bdceaee40328682c5d2ec7` | Full root README/summary, not every stage description |
+| `research/blueprint/roadmaps/MordellLawrenceVenkatesh.json` | `b18c75cd5ea017e32be3733f9d060d97dd151979` | Full root README/summary, not every stage description |
+| `data/roadmap-retirements.json` | `b2458ea2cd37e8f64459b8fd296f25329d4e4a76` | Full file |
+| `scripts/check_links.py` | `57e02703163a9286d28cf3869b557983be6efc64` | Full current validator |
+| `research/blueprint/BROWSER_AGENTS.md` | `e4854be9cb94f4e9fe6f4ac76a5468f56c53d3a0` | Current instructions |
+
+The main mathematical README blobs used for the four links remain: StandardDistributions `754b87b5eb8d0e066a2ab00a94ed40f92768dfe6`; Completed/OrthogonalL2Bases `6d96bb586dbc564970da66578acf0c523dcaf18a`; OptimalTransport `401e5d3c67027cbfa194775d452e6ddaf841ff69`; DenseGraphLimits `f0ba56d3967542749552dac19ba0c6cca24423b5`. The preceding continuation also read the six-stage PM README (`157781050fae549a2799021e9b2316463a26b988`), HabiroNahmSeries (`12c1df529f98fea9558c45198c85f16e71bffd0b`) and PDE Lane F (`1cdc0eecdad413406476f99a21600efe34a2119a`).
+
+Referenced probability, transport and Habiro books/papers were not independently read to verify their proofs in this link job. Their labels in README text are not fresh source-verification claims.
+
+## What changed and why
+
+The four-link graph and the Gaussian rescope proposal are preserved. Three reasons are corrected or made more specific after reading the pinned implementation. The unselected PM.1 moment-method edge stays out of the prerequisite graph. The reading log grows from 80 to 218 identifiers, with explicit scope labels and no claim that a summary-only negative is a full-text negative. Detailed predecessor notes remain in the #384 packet and the earlier commits of this branch; their shorter current labels do not upgrade the depth of that inherited reading.
+
+**Retirement matters.** `FoundationsAndLibraryIntegration` was retired on 16 September. Its historical summary remains in the reading log because it was read; no link uses it as a supplier. The retirement record says its library inputs must be taken from their actual library/roadmap owners. Thus 218 is a cumulative historical count, not a claim that 218 active roadmaps exist.
+
+## Seven-layer input/output inventory
+
+| SD layer | Objects and boundaries |
 | --- | --- |
-| StandardDistributions README | `754b87b5eb8d0e066a2ab00a94ed40f92768dfe6` |
-| Completed/OrthogonalL2Bases README | `6d96bb586dbc564970da66578acf0c523dcaf18a` |
-| OptimalTransport README | `401e5d3c67027cbfa194775d452e6ddaf841ff69` |
-| DenseGraphLimits README | `f0ba56d3967542749552dac19ba0c6cca24423b5` |
-| PDE README | `1cdc0eecdad413406476f99a21600efe34a2119a` |
-| ProbabilisticAndMetricNumberTheory README | `157781050fae549a2799021e9b2316463a26b988` |
-| HabiroNahmSeries README | `12c1df529f98fea9558c45198c85f16e71bffd0b` |
-| Previous StandardDistributions link packet | `fceb8f47a841329804eacf2267e8903d592d8a43` |
-| Previous handoff | `e656303b4dfb62ee532a6ec417dadf811b5c6c36` |
-| OrthogonalL2Bases sibling link packet | `dc48a2ba771c7f9e94a23aeff83b4786917baf81` |
-| Blueprint protocol | `41099c03ea64d701d05b1277a83141ef9d4868db` |
-| Link validator | `88135efe5a74ef82e088f3fa3189893e27a7867a` |
-| Swarm-check workflow | `d638775ee3342612163098a71aab508d381c8bc6` |
-| Atlas-extract README | `22ede6d732928f3721da127a22cdb2f24d3c8463` |
-| Library baseline | `fdb00afdfae8e5728e070f310f5a880707764bc2` |
+| 0 | Existing measures, law/PDF/Radon–Nikodym bridges, conditional-volume uniform law, parameter measurability. Invalid zero measures and valid singular Dirac laws remain distinct. |
+| 1 | Elementary moments, transforms, exact integrability domains and native Nat-valued pgfs. Totalized integral values are not integrability theorems. |
+| 2 | Incomplete Gamma/Beta, error functions, closed cdfs and discrete tails. Complete Gamma factors elsewhere do not automatically consume this layer. |
+| 3 | New scalar families with parameter ranges, boundary laws and sharp moment restrictions. Polynomial moments alone do not give positive-exponential-moment determinacy. |
+| 4 | Gaussian squares/ratios, Gamma–Beta independence, Gamma–Poisson mixtures, sums and nonempty-family extrema. Generic conditioning is not a dependence on exchangeability. |
+| 5 | Covariance-matrix/bilinear-form bridge with MemLp, PD Gaussian densities, PSD affine images, quadratic transforms, conditional Gaussian kernel, multinomial and Dirichlet laws. Simplex chart measure is not ambient volume. |
+| 6 | Symmetric-matrix topology, coordinate Lebesgue normalization, Cholesky/Jacobian, multivariate Gamma, density and Gaussian-Gram Wishart families, Bartlett and inverse Wishart. Singular laws and dimension-zero cases cannot be discarded. |
 
-The upstream README paths are `content/tau-ceti/<name>/README.md`, with **`Completed/OrthogonalL2Bases`** for the completed supplier. The two campaign paths are `content/campaign/<name>/README.md`. Atlas extracts were used to identify records; campaign identifiers have no `campaign:` prefix.
+All seven target layers and the target atlas records were read in the preceding continuation. The particular paired stages for retained links were read in full. Generic nouns such as matrix, moment, kernel, uniformity or distribution do not by themselves determine an edge.
 
-The recorded code pins are Mathlib **`082e2d37e8b0463410cdb532e111cd43d5a66174`** and Tau Ceti **`f790474821cf4256814db967cb154e7af3d0c369`**. These were read from `research/blueprint/baseline.json`. **This worker did not independently audit Lean declarations at those pins.** The sibling packet's reported declaration checks are not promoted to fresh verification. No implementation claim or Lean proof is submitted.
+## The four retained links
 
-The mathematical sources for this links job are the roadmap specifications themselves. Referenced books and CGZ/GSWZ, transport and probability papers were not independently read to check their proofs. Their theorem numbers, where discussed in the source README, are source labels only, not new verification claims.
+### 1. OrthogonalL2Bases B1 → SD Layer 1: corrected finite-measure interface
 
-## What changed from #384
+The consumer's ownership paragraph explicitly names the determinacy supplier; its exact quote and the B1 quote remain in the JSON. The function-level explanation in the earlier checkpoint was **too restrictive as a description of available pinned API**.
 
-The JSON now explicitly says `status: partial`. Four of the earlier five links are retained, with narrower interface descriptions. The optional PM.1 moment-method edge is removed from the prerequisite graph but preserved below with its evidence and reinstatement conditions. The Gaussian-affine-law overlap remains a rescope proposal, not a forced dependency direction.
+At the Tau Ceti pin, `TauCeti.Measure.ext_of_forall_integral_pow_eq` applies to two **finite measures on R**, assumes `0 ∈ interior (integrableExpSet id μ)` and the same condition for ν, and assumes equality of every polynomial moment. Its conclusion is μ = ν. The alternative `TauCeti.Measure.ext_of_forall_integral_pow_eq_of_exists_integrable_exp` assumes, for each measure separately, an integrable `exp(a*abs(x))` for some positive a. The file first identifies characteristic functions via analyticity of complexMGF. Module documentation explicitly identifies this as the B1 engine.
 
-The eight previously unresolved candidate sections were inspected: OT Layers 11, 12, 13C and 16; Habiro HB.4, HB.8 and HB.9; PDE Lane F. No additional direct StandardDistributions dependency was established by their texts. This closes those named *candidate inspections*, not the general problem of proving their theorems or screening the remaining catalogue.
+No density, absolute continuity or common-reference construction is required by these theorems. Both exponential hypotheses are required in the cited signatures; do not silently drop the condition on the competing measure. A native Nat-valued law needs transport through the real cast and recovery along that injective measurable map. An arbitrary weak limit does not acquire the needed exponential hypothesis merely because moments are mentioned. The nondegenerate log-normal family is not eligible just because all its polynomial moments exist.
 
-The cumulative list still contains 60 upstream and 20 campaign roadmap identifiers. Notes for unrelated areas explicitly preserve the original overview or keyword-only scope. A `none` result never asserts a proof of absence.
+This is existing-library reuse attached to the relevant uniqueness applications, not a demand to rebuild B1 or a prerequisite for every scalar moment calculation. The earlier OrthogonalL2Bases sibling packet leaves this edge in SD rather than duplicating it; recheck current sibling packets before integration.
 
-## Target inventory and exact ownership boundaries
+### 2. SD Layer 0 → OT Layer 3 item 7: existing uniform-source quantiles
 
-All seven StandardDistributions layers were read. Layer 0 owns the named-law/PDF and interval-uniform bridges; Layer 1 owns elementary scalar moments, transforms and exact integrability domains; Layer 2 owns incomplete special functions and closed cdfs; Layer 3 adds scalar families; Layer 4 owns the stated changes of law and mixture examples; Layer 5 owns multivariate distribution theory; Layer 6 owns symmetric-matrix/Cholesky/Wishart distribution theory.
+The pinned definition is `TauCeti.Probability.uniformMeasure a b := ProbabilityTheory.cond volume (Set.Ioc a b)`. `uniformMeasure_eq_smul` identifies it with `(ENNReal.ofReal (b-a))⁻¹` times restricted volume. At a=0,b=1 the factor is one. The cited IsUniform/HasLaw bridge uses the identical conditional measure, not a separately normalized construction.
 
-Do not conflate invalid zero measures with valid degenerate Dirac laws. Do not infer integrability from totalized integrals. Positive-semidefinite Gaussian affine laws do not require, and do not imply, positive-definite Lebesgue densities. Simplex-coordinate volume is not ambient volume. Natural-degree Gaussian-Gram laws include singular cases that the positive-definite-density Wishart family does not. Bartlett's zero-based index gives degrees `ν - i.1`; the inverse-Wishart first-moment threshold has its separate dimension-zero case.
+The probability instance requires a<b (with a named zero-one instance). For b≤a the definition is zero, not a Dirac law. OT must still compare its chosen open/closed interval or interval-subtype presentation with this law by measurable inclusion/pushforward and null-endpoint lemmas. Quantile endpoint values may be assigned on null sets. Generalized-inverse measurability, the law identity, monotone optimality and Wp formulas remain OT's targets.
 
-These distinctions matter to link selection: a downstream use of a kernel, moment, matrix or Gaussian expression is not automatically a use of an entire distribution-theory layer.
+The normalization/provider question is resolved at the pinned definition level. The consumer-specific carrier adapter is not claimed implemented. This narrow reuse edge does not impose all of SD0 as a new construction block.
 
-## The four retained links and required adapters
+### 3. SD Layer 1 → OT Layer 3 item 2: the Cauchy component counterexample
 
-### 1. OrthogonalL2Bases B1 → StandardDistributions Layer 1
+For a valid Cauchy law of nonzero scale, finite second moment about any basepoint would imply integrability of the shifted identity by probability-space L2-to-L1 inclusion. Adding the integrable constant would make id integrable, contradicting the supplied theorem. Independently, the diagonal coupling gives W2(μ,μ)=0. Thus the law belongs to its own finite-W2 component but not P2. The zero-scale Dirac law is excluded. No step infers non-integrability from a totalized integral being zero.
 
-Locators: supplier README, **B1 — Completeness toolkit (moment determinacy)**; consumer ownership paragraph preceding Layer 0. Exact stage identifiers and literal quotes are in the JSON. The explicit classification follows issue #69's job-specific rule: a text naming the other roadmap is explicit. The consumer names its supplier; that classification is not an implementation claim.
+### 4. SD Layer 0 → DG Layer 9a: one marginal uniform law
 
-The usable interface is: an L1 function `h` with vanishing polynomial moments and `∫ exp(a |x|) |h(x)| dx < ∞` for some `a > 0` is zero almost everywhere. A single positive `a` gives strip analyticity; all positive exponential moments give the stronger entire-transform argument. Neither is a pointwise Gaussian domination hypothesis.
+DG's joint sampler explicitly uses one uniform per unordered pair. The same cond-based uniform law provides that marginal. The pinned `uniformMeasure_Iio` gives the strict-threshold probability p for p in [0,1]; changing to a weak threshold uses a null-singleton lemma. Different interval carriers require the inclusion/pushforward adapter just discussed.
 
-For two absolutely continuous probability laws, the consumer must construct their density difference against the same reference, establish the weighted L1 and moment identities, apply B1, and convert almost-everywhere density equality to measure equality. These are separate declaration-sized interfaces. B1's quoted function-level statement does not automatically give uniqueness for a discrete law or an arbitrary weak limit. Do not apply it to a nondegenerate log-normal law merely because all polynomial moments exist.
+DG still owns the independent countable product, independent sampled positions, measurable position-dependent threshold, infinite graph law and finite restrictions. A scalar marginal law supplies none of those automatically. The `binomialRandom` compatibility target does not justify a dependence on scalar Bernoulli moments or concentration estimates.
 
-The sibling `tauceti_Completed_OrthogonalL2Bases.json` explicitly leaves this dependency in the StandardDistributions packet and emits no duplicate. Its separate Peter-Weyl rescope proposal does not create a reverse Gaussian-law prerequisite.
+## Deferred and rejected candidate routes
 
-### 2. StandardDistributions Layer 0 → OptimalTransport Layer 3 item 7
+**PM.1, Erdős–Kac.** The consumer states: “Prove Turan-Kubilius and source-scoped Hardy-Ramanujan/Erdos-Kac theorems through moment or characteristic-function estimates.” SD supplies: “Prove `centralMoment id (2*n) = v^n * (2*n - 1)‼`, the vanishing of odd central moments,”. This is a possible moment-method route, not a selected hard prerequisite; the schema has no conditional-route flag. Reinstate only after PM.1 selects that route and needs the normal moment sequence. PM.1 owns arithmetic moment estimates, large-prime control, convergence and the actual determinacy hypotheses. Its uniform integers are not the continuous interval law; its Gauss-map invariant measure is not Gaussian.
 
-Locators: SD **Layer 0**, especially its uniform-law completion check; OT **Layer 3**, item 7. The consumer explicitly needs a uniform-source quantile pushforward, not a closed-form cdf for every named distribution.
+**OT 11, 12 and 16.** These complete candidate sections were read in the preceding continuation. Gaussian heat-flow checks, Gaussian barycenters and end-to-end Gaussian examples reuse OT's own Layer-5 matrix/law interface and its flow prerequisites. They do not establish additional independent whole-SD dependencies. Record the elementary affine-law duplication as the overlap below rather than adding multiple mediated copies.
 
-The adapter starts with the probability law on `(0,1]`. Prove equality with the corresponding Lebesgue restriction, show that both endpoints have zero mass, and compare `(0,1)`, `(0,1]`, `[0,1]` and the chosen interval subtype by measurable inclusion/pushforward. A generalized inverse may be assigned arbitrary endpoint values on null sets. OT still owns generalized-inverse measurability, the pushforward identity, optimality of the monotone coupling and the Wp formula.
+**OT 13C.** The Brownian reference, path-space construction, Markov and reciprocal properties, disintegration and Schrödinger bridges are not supplied by a finite-dimensional conditional-Gaussian formula. The isotropic transition density does not by itself require new general covariance-density theory. No direct SD edge is established by the stated route.
 
-Before scheduling, decide whether the selected pinned interval-law provider already supplies this interface and only an adapter is needed. The inferred link is an interface-reuse proposal, not a demand to finish all of SD0 first.
+**PDE Lane F.** The heat kernel is constructed through Fourier analysis. A Gaussian-looking kernel does not establish a dependency on elementary distribution moments; a Poisson kernel is not a Poisson probability law.
 
-### 3. StandardDistributions Layer 1 → OptimalTransport Layer 3 item 2
+**Habiro HB.4/HB.8/HB.9.** Full candidate stages and README were read in the preceding continuation. Formal Gaussian integration, Hessian square-root branches and formal coefficient recurrences are not automatically positive real Gaussian probability measures. No Wishart or scalar-law edge is justified.
 
-Locators: SD **Layer 1**, Cauchy paragraph; OT **Layer 3**, item 2. Let `μ` be the valid Cauchy law with nonzero scale. If its second moment about `a` were finite, probability-space L2-to-L1 inclusion would make `x ↦ x-a` integrable; adding the integrable constant `a` would make `id` integrable, contradicting the supplied Cauchy theorem. Thus `μ` is not in P2.
+**ArithmeticStatistics.** The freshly read ST.5 mentions source-scoped random-matrix distributions, but selects no ensemble. Do not guess Wishart. ST.3/ST.4 arithmetic class-group/Selmer moments do not become named SD moments without an actual limiting-law specification.
 
-Independently, the diagonal coupling gives zero W2 self-distance. Hence `μ` lies in its own finite-distance component even though it does not lie in P2. Keep the nonzero-scale assumption: zero scale is a Dirac law. This proof uses actual non-integrability, not an integral being assigned zero outside its domain.
+**ComputationalNumberTheory.** The freshly read CN.0/CN.1 require randomness models and success/error guarantees but specify no named SD family or elementary transform API. CN.4 interval/ball arithmetic is numerical enclosure, not a uniform random variable.
 
-### 4. StandardDistributions Layer 0 → DenseGraphLimits Layer 9a
+**AnalyticNumberTheory.** The freshly read AN.5 keeps random-matrix/correlation predictions in conjectural models and selects no SD ensemble. Complete Gamma factors, Poisson summation and arithmetic zeta moments do not establish the corresponding probability-law inputs.
 
-Locators: SD's same uniform-law completion check; DG **Layer 9a — finite and joint graphon sampling**, re-read with adjacent representation clauses. For `0 ≤ p ≤ 1`, the adapter must prove `P(U ≤ p) = p`; mapping the threshold test to the consumer's two-point carrier then gives the coin law, including endpoints.
+**QSeriesPartitionsAndMockModularForms.** The freshly read QM.0 concerns formal generating products and q-binomial identities, not pgfs. QM.3/QM.4 concern harmonic Maass Fourier parts and a selected Zwegers correction construction, but do not state a particular SD2 incomplete-Gamma/error-function interface. Source decomposition may expose one; no hard edge is guessed from the broad target alone. In particular, an upper incomplete Gamma at a different parameter range would not be supplied automatically by SD2's positive-shape clamped lower function.
 
-DG owns the independent family indexed by unordered pairs, the independent sampled positions, measurable adjacency, the single infinite graph law and its restriction identities. Reusing a marginal uniform law proves none of these by itself. The named compatibility with `binomialRandom` is not a dependency on SD's scalar Bernoulli moment formulas. The exact carrier/provider is an unresolved coordination decision, as for OT.
-
-## Deferred candidate: the optional Erdős–Kac moment route
-
-This preserves the removed fifth edge for a later source-selected decision:
-
-- Source: `tauceti:TauCetiRoadmap/StandardDistributions#layer-1-complete-the-elementary-theory-of-existing-distributions`.
-- Candidate consumer: `ProbabilisticAndMetricNumberTheory:PM.1`.
-- Supplier quote: “Prove `centralMoment id (2*n) = v^n * (2*n - 1)‼`, the vanishing of odd central moments,”.
-- Consumer quote: “Prove Turan-Kubilius and source-scoped Hardy-Ramanujan/Erdos-Kac theorems through moment or characteristic-function estimates.”
-
-The full six-stage PM README was re-read. PM.1 has not selected the moment route rather than the explicitly permitted characteristic-function route. The link schema has no conditional-route flag, so keeping this pair in `links` would impose an unselected prerequisite.
-
-**Reinstatement condition:** PM.1's source decomposition selects a moment proof and explicitly consumes the scalar Gaussian target moments. Specialize the supplied central moments to mean zero and variance one, including the zeroth moment. PM.1 must still prove arithmetic moment estimates, large-prime errors, tightness/moment convergence and target-law determinacy in the exact measure generality required. The density-level B1 statement above is not by itself a theorem about an arbitrary weak subsequential limit. A characteristic-function route should not acquire this new moment dependency.
-
-PM.0's uniform integers live on changing finite sample spaces, not on the continuous interval law. PM.4's Gauss-map invariant measure is not Gaussian. No new edge is inferred from either phrase.
+**Six new definitions.** Their full root READMEs were screened, not all their stage descriptions. Solid analytic rings, analytic stacks, ring stacks/transmutation, q-Witt complexes and the analytic Habiro stack concern nonarchimedean or derived algebra. Their kernels, rapid decay and q-multinomial coefficients do not specify SD laws. Lawrence–Venkatesh's Gauss–Manin and finite Frobenius-orbit proportions also specify no SD law. The notes do not claim these subjects have no possible future analytic interfaces.
 
 ## Gaussian affine-law overlap: rescope, not merge
 
-Locators: SD **Layer 5**, item 3; OT **Layer 5**, item 3. Both ask for the elementary affine covariance-pushforward identity. Keep the law theorem in SD for rectangular real `L` and positive-semidefinite `S`, giving covariance `L S Lᵀ`. Include the Euclidean carrier comparison and the corresponding covariance-bilinear-form identity with the needed second-moment assumptions.
+Both SD Layer 5 item 3 and OT Layer 5 item 3 request Gaussian covariance-pushforward lemmas. Keep the elementary measure identity in SD, allowing rectangular real L and PSD S. OT imports it through its Euclidean carrier adapter and keeps the PD square-root/inverse/geometric-mean identities, Brenier matrix, W2 formula, interpolation and barycenters. SD keeps Cholesky, Wishart and conditional-Gaussian theory.
 
-OT should consume that law identity and own positive-definite square-root/inverse/geometric-mean identities, the Brenier matrix, W2, interpolation and barycenters. SD retains Cholesky, conditional-Gaussian and Wishart distribution theory. Do not restrict the affine theorem to square invertible maps or positive-definite covariances merely because one transport application is nondegenerate. Do not extend it to arbitrary covariance parameters under a totalized definition.
+Do not replace the PSD affine theorem by a PD-only one; do not extend it to arbitrary non-PSD totalized covariance parameters. No edge for this duplicated-ownership pair is emitted until the owner resolves the rescope. There is no recommendation to merge whole roadmaps or add a reverse whole-roadmap edge.
 
-No SD5→OT5 edge is emitted before the maintainer accepts the ownership change. No reverse whole-roadmap edge is justified. SD's stale relative link to OrthogonalL2Bases should be repaired separately to `../Completed/OrthogonalL2Bases/README.md`; this job does not edit source READMEs.
+A separately authorised maintenance change should repair the stale SD relative link to OrthogonalL2Bases: the actual supplier path is `content/tau-ceti/Completed/OrthogonalL2Bases/README.md`. It was not edited here.
 
-## Closed candidate inspections: exact reasons, not vocabulary exclusions alone
+## Search log and exact remaining work
 
-### OT Layer 11 — heat, JKO and Ornstein–Uhlenbeck
+The original 60 upstream overview/keyword screens and the earlier 20 campaign entries are inherited from #384 unless the current packet says a deeper read occurred. All 152 campaign summaries were freshly read by overlapping line slices of `data/roadmap-summaries.json`; this establishes a summary screen only. The new definitions directory contained six files at dbafc759; all six root READMEs were read. Every cumulative identifier is listed in `examined`, including the retired historical entry.
 
-The full section was read. Its opening explicitly consumes Layers 8–10 and weak PDE infrastructure. Item 9 requires agreement with the PDE roadmap's heat semigroup and with the one-parameter-semigroup interface, identifying a Banach realization and closed generator before uniqueness. The Gaussian covariance-growth acceptance test is not supplied by an isolated scalar-moment formula. No additional direct SD link is established. Constructing an OU path or semigroup remains OT work unless a separately accepted supplier appears.
+Fresh repository searches included probability, random, Gaussian, Wishart, Cholesky, covariance, incomplete gamma, incomplete, probability generating, characteristic function, uniformMeasure, Schur complement, Weibull, Pareto, hypergeometric and multinomial. Results included primary README excerpts and many derived audit/classification/status packets; the latter are discovery aids, not independent mathematical evidence. The multi-term REST query containing OR did not behave as a verified union and is not counted as one. The phrase Schur complement also misses hyphenated spelling and is not a negative certificate.
 
-### OT Layer 12 — Gaussian barycenters
+No complete local full-text dump of the current atlas and new stage records was searched. The full atlas reader returned empty content, and the local interpreter could not resolve the raw GitHub host. The extracts remain the correct continuation inputs; this handoff does not claim that the entire repository is inaccessible. Several minified extract responses were truncated, and no truncation is counted as a full read.
 
-The full section was read. Item 8 requires the exact matrix fixed-point equation and separates the nondegenerate positive-weight tier from the all-semidefinite tier. These are consumers of OT5's positive-matrix/transport geometry; elementary Gaussian law theory alone does not prove the barycenter theorem. After resolving the SD5/OT5 overlap, any law-level reuse is mediated through that owner. Do not add a redundant direct edge to every later Gaussian example or transfer uniqueness/inverse claims to the all-semidefinite case.
+Before acceptance:
 
-### OT Layer 13C — Brownian and Schrödinger theory
-
-The full dynamic subsection was read, together with the preceding static and Sinkhorn sections. Item 12 fixes generator `(ε/2)Δ`, the isotropic transition density and the initial probability law, separately treating the sigma-finite Lebesgue-start reference. A density formula is not the path-law construction, Markov property, endpoint disintegration or reciprocal-process theorem.
-
-Item 13's Gaussian mollification belongs to a relaxed recovery theorem with converging, not exact, endpoints. Its exact-endpoint finite-entropy regime and Dirac guardrail prevent treating a Gaussian formula as an arbitrary exact-marginal bridge. No exact new SD output is selected as a direct prerequisite by these clauses; the specific heat/path interfaces remain with their stated owners.
-
-### OT Layer 16 — public API and examples
-
-The full Layer 16 and end-to-end example list were read. The Gaussian example gathers Brenier, W2, interpolation, heat and barycenter results through the earlier OT layers. It does not supply an independent construction that justifies a new SD edge. Preserve the local dependency structure rather than adding a whole-roadmap dependency at the assembly layer.
-
-### Habiro HB.4, HB.8 and HB.9
-
-The complete HabiroNahmSeries README was read, including its input distinctions, source-unit checkpoints and final handoff. HB.4 needs all-orders radial estimates, Hessian determinant/branch control, finite root-of-unity sums and uniform remainder estimates. A real Gaussian probability law alone supplies none of that full package. A future proof decomposition could select a narrow analytic integral supplier, but the present specification does not establish that match.
-
-HB.8 develops formal Gaussian/q-difference algebra for arbitrary symmetric integral matrices; HB.9 works with arithmetic coefficient extensions, nondegenerate solutions, square roots and Frobenius congruences. Those hypotheses do not imply a positive real covariance measure. HB.3 explicitly distinguishes positive-definite rational analytic data from arbitrary symmetric integral formal data. Consequently no probability-law edge is emitted merely for these formal Gaussian occurrences. This is a specification-level negative decision, not a claim that an analytic/formal bridge is impossible or that CGZ/GSWZ proofs were audited.
-
-### PDE Lane F
-
-The overview and complete Lane F, items 24–26, were read. It owns Bochner/Gelfand-triple, Galerkin, heat-semigroup, generator and smoothing theory. The heat-kernel clause explicitly consumes Fourier analysis. No exact additional SD law interface is identified. The stochastic stretch goals likewise do not name a scalar or Wishart output. A future source-selected stochastic construction needs a new explicit interface, not a blanket Gaussian-word dependency.
-
-## Coverage boundary and resumable next work
-
-The original 80 examined IDs, their outcomes and the specificity of their negative screens are preserved. Fresh continuation work deepened SD, OrthogonalL2Bases, OT, DG, PM, PDE and Habiro. The remaining unrelated entries are inherited overview/keyword results. The native GitHub Gaussian search was a discovery aid; neither its returned snippets nor opening the minified atlas index certifies a complete record-by-record screen.
-
-**The catalogue-wide screen is still unfinished.** A successor should continue this file, not restart the eight candidate inspections above. Use `research/blueprint/atlas/index.json` for the full inventory and the area extracts for full descriptions. Screen every remaining campaign roadmap and any newly added roadmap against each of these target interfaces: probability/normal/uniform laws; moments/cumulants/characteristic functions/pgf; incomplete Gamma/Beta and error functions; kernels/mixtures/conditioning; covariance/Schur complements; simplex/Dirichlet; Cholesky/Wishart and symmetric volume. Record the scope of each negative decision and open the full matched source and consumer stages. Check synonyms and mathematical use, not just exact names.
-
-Before acceptance, also:
-
-1. Resolve the uniform-law provider/carrier questions for OT and DG with their authors. If a baseline result is used to eliminate or narrow an edge, search both libraries and read the declaration at the recorded pin; documentation alone does not verify it.
-2. Resolve the SD5/OT5 duplicate ownership before emitting a directed link. Check the accepted supplier's exact rectangular/semidefinite interface and retain all transport-specific geometry with OT.
-3. Keep PM.1 deferred unless the proof route is selected. Check any claimed measure-valued determinacy theorem against its actual pinned source rather than extending the quoted B1 function theorem by assertion.
-4. Re-read the live source/input revisions and sibling link packets, validate the combined graph, and obtain independent review under the repository's account-independence requirement. The author and a new session on the same account are not an independent reviewer.
+1. Finish the full catalogue text search from the current area extracts or a local atlas dump for every Layer-0–6 input/output family and its synonyms. In particular close the remaining scalar-family names, density/HasPDF/rnDeriv, cdf/mgf/pgf, mixture/conditioning, simplex/Dirichlet, covariance/Schur-complement and symmetric-matrix/Jacobian searches. Read each genuine candidate stage in full; record explicit exclusions and any newly justified edge. A summary-only entry is not that work.
+2. Reconcile the current atlas, six new stage sets, retirement overlay and sibling link packets. Do not duplicate a pair already owned by the partner's packet, and check the complete combined graph. In particular revisit the OrthogonalL2Bases, OptimalTransport and DenseGraphLimits packets at the integration revision.
+3. Keep the now-resolved pinned determinacy and uniform normalization facts. The remaining carrier adapters and ownership decision are source/implementation coordination, not reasons to rebuild those providers. Retain the optional PM.1 route outside hard links until selected.
+4. Run the official validator on the latest head, then obtain an independent review. No self-acceptance is recorded here.
 
 ## Validation record
 
-Executed in the worker's local author scratch; both exited 0:
+Actual official validation of the preceding checkpoint was read from the completed workflow log:
 
-```text
-python3 -m json.tool research/blueprint/links/tauceti_TauCetiRoadmap_StandardDistributions.json > /dev/null
-python3 scratch/check_packet.py
-```
+- PR #786 head `d03d99e3661ab8063c0fd7c62cc3eca1e7789b23`.
+- Base `dbafc759460581dbd23999a3c112149fedefe2b5`.
+- Test merge `25503ab45d2a97fda2b2d63162ea7884c2032b86`.
+- Run 35215132755, job 105181704507.
+- Command: `python3 scripts/check_links.py research/blueprint/links/tauceti_TauCetiRoadmap_StandardDistributions.json`.
+- Result: **4 links, 1 overlap, 80 examined; 0 errors, 0 warnings**.
 
-The second check reported **4 links, 1 overlap, 80 unique examined IDs (60 upstream and 20 campaign)**. It checks field shapes, allowed tags, evidence-endpoint association, pair/ID uniqueness, acyclicity of the four proposed edges alone, and that PM.1 is no longer an active edge. It is not a repository validator, a full source-quote checker, or a mathematical proof. Literal evidence was compared with the fetched roadmap passages.
-
-Required full command, **not run locally**:
-
-```text
-python3 scripts/check_links.py research/blueprint/links/tauceti_TauCetiRoadmap_StandardDistributions.json
-```
-
-The local interpreter lacks the full repository/atlas; a direct public raw-file read also failed with a DNS-resolution error. The browser-sized inputs are readable through the connector, so this is not a renewed claim that the atlas-input blocker prevents mathematical work. The actual `swarm-check.yml` was read: its PR workflow runs `check_links.py` against the repository atlas and sibling packets. Read its job log after submission and record that outcome on #69; do not infer a pass from opening a PR.
-
-The previous worker's issue comment reports a successful official 5-link check for #384 (run `35092139116`, job `104780705569`). That is historical validation of the old version only and does not certify this revision. No Lean build was run, and no theorem is declared implemented, integrated or approved.
+That result supersedes the earlier rate-limited checkpoint's pending-CI note, but does not validate these new reasons and 218-entry inventory. Local JSON parsing, unique-ID and edge-shape checks are separate limited checks. The official result for this revised submission must be read from its own workflow and recorded in the issue/PR comments. The validator checks structural validity, quoted evidence and combined graph cycles; it does not certify exhaustive candidate coverage or mathematical correctness.
