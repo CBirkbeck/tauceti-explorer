@@ -6,7 +6,7 @@
    "summary": "Mathlib supplies the two raw ingredients this roadmap builds on — Roby polynomial laws (`Mathlib/RingTheory/PolynomialLaw/Basic.lean`, definition, module structure and universe-polymorphic `toFun`/`isCompat` only) and the universal divided power algebra Γ_R(M) (`Mathlib/RingTheory/DividedPowerAlgebra/Init.lean`, with `dp`, `lift`, `map`) — plus Cayley–Hamilton for a single endomorphism (`LinearMap.aeval_self_charpoly`), lifting of complete orthogonal idempotents along nilpotent kernels, t-structures and derived categories. Tau Ceti has a genuinely large Hecke-ring development (`TauCeti/NumberTheory/HeckeRing/`, ~1100 declarations: abstract double-coset Hecke rings on top of Mathlib's `IsHeckeTriple`, associativity, commutativity, degree, GL_n coset decomposition, prime decomposition and Shimura's polynomial-ring presentation for n = 1, 2) and continuous group cohomology (`TauCeti/RepresentationTheory/Homological/ContCohomology/`). What is genuinely missing is the entire determinant theory: no homogeneous degree-n polynomial laws, no multiplicative laws, no Chenevier determinants or pseudo-representations, no characteristic-polynomial ideal or Cayley–Hamilton quotient, no reconstruction theorem, and no Fitting ideals of modules at all (`Fitt₀` is absent from both libraries, so IHG.6's central bound cannot even be stated). The Hecke-on-complexes package (IHG.2), the spherical normalization and Hecke polynomial P_v(X) (IHG.3 — no Satake transform exists anywhere in either library), the interpolation (IHG.4) and the nilpotent descent schemas (IHG.5) are likewise absent; Tau Ceti's Hecke rings are classical GL_n(ℚ)/SL_n(ℤ) double-coset rings, not local spherical algebras with vol(K)=1.",
    "layers": {
     "IntegralHeckeAndGaloisDeterminants:IHG.0": {
-     "verdict": "not built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "Polynomial laws natural in commutative coefficient algebras (Roby laws)",
@@ -98,7 +98,7 @@
          "name": "Matrix.charpoly",
          "library": "mathlib",
          "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
-         "line": 50,
+         "line": 134,
          "fit": "related"
         },
         {
@@ -225,6 +225,14 @@
       {
        "layer": "AutomorphicGaloisRepresentations:R19.6",
        "note": "R19.6 'Representations over Hecke algebras' constructs the determinant law from Hecke operators and proves representability under residual absolute irreducibility — the same reconstruction theorem, instantiated at a localised completed Hecke algebra."
+      },
+      {
+       "layer": "AutomorphicCongruences:L0",
+       "note": "L0 states that it imports 'congruence ideals/modules, generalized matrix algebras, pseudorepresentations, reducibility ideals and the general extension-class construction from IntegralHeckeAndGaloisDeterminants' — i.e. exactly this layer's output — and adds only the automorphic period identification."
+      },
+      {
+       "layer": "GL2ModularityLifting:R32.4",
+       "note": "Pan's residually reducible theorem is formalised there 'including pseudodeformations, reducibility ideals, the global support argument'; the reducibility-ideal machinery is owned here and applied there."
       }
      ]
     },
@@ -336,6 +344,14 @@
       {
        "layer": "AutomorphicGaloisRepresentations:R19.6",
        "note": "R19.6 asks for 'nilpotent structure and the distinction between reduced characteristic-zero specialisations and the whole integral Hecke algebra' — the same nilpotent-ideal phenomenon, but for the completed Hecke algebra of a fixed automorphic setting."
+      },
+      {
+       "layer": "DeformationAndDerivedPatchingAlgebra:P7",
+       "note": "P7 owns perfect complexes over complete Noetherian local O-algebras, minimal representatives, Tor-amplitude, derived tensor and the amplitude distinctions this layer's nilpotence bound depends on; IHG.2 adds the Hecke action and the nilpotence theorem."
+      },
+      {
+       "layer": "DeformationAndDerivedPatchingAlgebra:P9",
+       "note": "P9 relates amplitude, depth and component support for perfect complexes; it shares IHG.2's 'preserve the dependence on amplitude' obligation from the commutative-algebra side."
       }
      ]
     },
@@ -398,7 +414,15 @@
       {
        "target": "Explicit conversion theorems between conventions (arithmetic/geometric Frobenius, inverse roots)",
        "library": "absent",
-       "declarations": [],
+       "declarations": [
+        {
+         "name": "NumberField.artinSymbol_eq_mk_of_isArithFrobAt",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+         "line": 72,
+         "fit": "related"
+        }
+       ],
        "note": "Tau Ceti has arithmetic Frobenius at a prime of a number field (`NumberField.Chebotarev.isArithFrobAt` and the Artin symbol API under `TauCeti/NumberTheory/Chebotarev/`), but no dictionary relating Frobenius conventions to a Hecke polynomial."
       },
       {
@@ -418,9 +442,16 @@
          "file": "TauCeti/NumberTheory/HeckeRing/GL2/Recurrence.lean",
          "line": 210,
          "fit": "related"
+        },
+        {
+         "name": "NumberField.artinSymbol",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+         "line": 57,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti proves the n = 1 and n = 2 cases of Shimura's Theorem 3.20 (surjectivity of ℤ[X₁,X₂] ↠ R_p) and has the GL₂ Hecke recurrence T(p^{k+1}) = T(p)T(p^k) − p·T(p^{k−1})·⟨p⟩-type relations, which is the classical n = 2 content the layer wants checked; the check itself, against a Hecke polynomial that does not exist, cannot be stated. Tau Ceti's own file header records that general n needs two further unformalised steps."
+       "note": "Tau Ceti proves the n = 1 and n = 2 cases of Shimura's Theorem 3.20 (surjectivity of ℤ[X₁,X₂] ↠ R_p) and has the GL₂ Hecke recurrence T(p^{k+1}) = T(p)T(p^k) − p·T(p^{k−1})·⟨p⟩-type relations, which is the classical n = 2 content the layer wants checked; Tau Ceti also has the Artin symbol of an unramified prime with its functoriality (`NumberField.artinSymbol`), the n = 1 class-field-theory side of the check. The check itself, against a Hecke polynomial that does not exist, cannot be stated. Tau Ceti's own file header records that general n needs two further unformalised steps."
       }
      ],
      "duplicates": [
@@ -478,8 +509,16 @@
       {
        "target": "Existence by polynomial-law identities on the completed group algebra",
        "library": "absent",
-       "declarations": [],
-       "note": "`grep -i 'completedGroup|CompletedGroupAlgebra|iwasawaAlgebra|ProfiniteGroupAlgebra'` over declarations.tsv returns nothing; the completed group algebra ℤ_p[[G]] of a profinite group is not in either library, let alone polynomial-law identities on it."
+       "declarations": [
+        {
+         "name": "AbstractMeasure.amiceTransformEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 156,
+         "fit": "related"
+        }
+       ],
+       "note": "`grep -i 'completedGroup|CompletedGroupAlgebra|iwasawaAlgebra|ProfiniteGroupAlgebra'` over declarations.tsv returns nothing: the completed group algebra O[[G]] of a profinite group is not in either library. The one nearby object is Mathlib's Amice transform, a linear equivalence D(ℤ_[p], ℤ_[p]) ≃ ℤ_[p]⟦X⟧ between measures on ℤ_p and power series — the abelian G = ℤ_p case, and without a convolution ring structure. Polynomial-law identities on such an algebra are absent."
       },
       {
        "target": "Change-of-level, change-of-coefficients and passage to inverse limits for determinants",
@@ -692,6 +731,1611 @@
       {
        "layer": "EulerSystemsAndKolyvaginSystems:ES.7",
        "note": "ES.7 'Higher-rank derivatives and Fitting-ideal control' needs the same absent Fitting-ideal API, though for Kolyvagin systems rather than Ribet classes."
+      },
+      {
+       "layer": "DeformationAndDerivedPatchingAlgebra:R03.3",
+       "note": "R03.3 develops regular sequences, depth, Cohen–Macaulay modules and complete-intersection criteria — the grade/regularity hypotheses this layer needs for the exactness of its Koszul and Buchsbaum–Rim complexes."
+      }
+     ]
+    }
+   }
+  },
+  "LocalGaloisDeformationRings": {
+   "summary": "Deformation theory of Galois representations is entirely absent from both libraries: `grep -i '\\bdeformation'` over the 316811-line declarations index returns zero hits, and there is no Schlessinger criterion, no category of complete local Noetherian O-algebras as a deformation base, and no framed/unframed deformation functor. What does exist are ambient carriers this roadmap would build on: Mathlib's continuous representations of topological groups (`TopRep`, `Mathlib/RepresentationTheory/Continuous/`) and continuous cohomology, `Module.Grassmannian` as a functor of rank-k quotients, `Algebra.FormallySmooth`/`FormallyUnramified`, `ringKrullDim`, `irreducibleComponents`, `IsAdicComplete`, and the very first pieces of p-adic Hodge theory (`BDeRhamPlus`/`BDeRham` and Fontaine's θ in `Mathlib/RingTheory/Perfectoid/`, plus Witt-vector isocrystals). Tau Ceti adds Galois lattices with open kernels, adic-space foundations (valuation spectra and continuity) and normalized valuations on local fields. Genuinely missing: every object this roadmap names — framed local deformation rings, unramified/inertial-type/Steinberg/minimally-ramified conditions, Kisin's potentially semistable rings, Breuil–Kisin modules, bounded-height Frobenius-stable lattice moduli and local models, Fontaine–Laffaille conditions, ordinary flag schemes and determinant-ordinary quotients. No layer of this roadmap has any of its stated theorems in the libraries.",
+   "layers": {
+    "LocalGaloisDeformationRings:L7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Bounded-height Frobenius-stable lattice moduli inside projective Grassmannians",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.Grassmannian",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Grassmannian.lean",
+         "line": 68,
+         "fit": "related"
+        },
+        {
+         "name": "Module.Grassmannian.functor",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Grassmannian.lean",
+         "line": 188,
+         "fit": "related"
+        },
+        {
+         "name": "Module.Grassmannian.baseChangeMkQ",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Grassmannian.lean",
+         "line": 102,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the Grassmannian of rank-k quotients of a module as a functor on R-algebras with its base-change maps, which is the ambient space the layer works in. The Frobenius-stable lattice locus, the height bound and the moduli problem itself are absent; there is no Breuil–Kisin or φ-module theory in either library (`grep -i 'kisin|breuil'` over both Lean trees returns nothing)."
+      },
+      {
+       "target": "Height equations, representability, projectivity and the universal lattice",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing of this kind exists. Mathlib has projective morphisms and `AlgebraicGeometry.IsProper`, but no local-model construction."
+      },
+      {
+       "target": "Map to the framed deformation ring and the precise image on the generic fibre",
+       "library": "absent",
+       "declarations": [],
+       "note": "Framed deformation rings do not exist in either library."
+      },
+      {
+       "target": "Fixed labeled Hodge-type and inertial-type potentially semistable deformation rings for every rank n and finite K/Q_p",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has just begun p-adic Hodge theory: B_dR⁺ and B_dR are defined (for the ring of integers of a perfectoid, following Scholze) but the file's own TODO list still asks for θ on B_dR⁺ and the DVR property. There is no D_st, no Hodge–Tate weights, no inertial type and no potentially semistable deformation ring."
+      },
+      {
+       "target": "Characteristic-zero point criterion, reduced/flat quotient properties, Kisin dimension formula",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ringKrullDim",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/KrullDimension/Basic.lean",
+         "line": 29,
+         "fit": "related"
+        }
+       ],
+       "note": "Krull dimension of a ring is available in general, but the specific dimension formula for a potentially semistable deformation ring (and the flat/reduced quotient constructions) is absent."
+      },
+      {
+       "target": "Fontaine–Laffaille deformation conditions in the unramified small-weight range, with filtration ranks, tangent spaces and formal smoothness",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Algebra.FormallySmooth",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Smooth/Basic.lean",
+         "line": 70,
+         "fit": "related"
+        }
+       ],
+       "note": "`grep -rn -i 'fontaine-laffaille|fontaine laffaille'` over both trees returns nothing. Formal smoothness of algebras is in Mathlib as an ambient notion only."
+      },
+      {
+       "target": "Ordinary deformation functors with a full invariant flag and specified graded characters; representability, dimension and component maps",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; and see L8, which owns the distinction between this flag-bearing functor and the determinant-ordinary quotient."
+      },
+      {
+       "target": "Semistable, Steinberg and minimally ramified analogues away from p for rank n, with the nilpotent monodromy operator",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsNilpotent",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/GroupWithZero/Basic.lean",
+         "line": 154,
+         "fit": "related"
+        }
+       ],
+       "note": "No Weil–Deligne representations exist in either library (`grep -i 'WeilDeligne|WeilGroup'` over declarations.tsv is empty), so the monodromy operator N has no carrier."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AlgebraicModuliForArithmeticGeometry:R09.1",
+       "note": "R09.1 owns the projective parameter spaces themselves — Grassmannians, flag schemes and 'the closedness of the equations defining invariant subbundles and Frobenius-stable lattices' — which this layer consumes; the Frobenius-stable-lattice equations are stated in both."
+      },
+      {
+       "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+       "note": "R07.4 owns Breuil–Kisin modules and the height bound from the Eisenstein polynomial, the input to this layer's bounded-height lattice moduli."
+      },
+      {
+       "layer": "GlobalGaloisDeformations:G7",
+       "note": "G7 treats local deformation conditions as representable subfunctors with a point criterion and consumes 'the precise local comparisons and component support input used in ACC+ §6.2' that this layer exports; the local conditions themselves are owned here."
+      },
+      {
+       "layer": "LocalGaloisDeformationRings:R08.3",
+       "note": "R08.3 constructs Kisin's potentially semistable deformation rings for rank two; L7 states the same construction for arbitrary rank n and arbitrary K/Q_p, and says so explicitly."
+      },
+      {
+       "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+       "note": "R07.3 owns Fontaine–Laffaille theory with its exact weight interval and full-faithfulness range, and says 'additional local arguments at weights p and p+1 are required in R08/R22'; L7's Fontaine–Laffaille deformation conditions are that application."
+      }
+     ]
+    },
+    "LocalGaloisDeformationRings:L8": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The ordinary flag scheme over the framed deformation ring and the image ring of its proper pushforward",
+       "library": "absent",
+       "declarations": [],
+       "note": "Framed deformation rings do not exist; flag schemes over a base do not exist either (Mathlib has `Module.Grassmannian` but no relative flag scheme)."
+      },
+      {
+       "target": "The determinant-ordinary quotient cut out by (ρ(g₁)−χ₁(g₁))⋯(ρ(g_n)−χ_n(g_n))=0 and the full characteristic-polynomial identities",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Matrix.charpoly",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+         "line": 134,
+         "fit": "related"
+        }
+       ],
+       "note": "Characteristic polynomials of matrices exist; the ideal generated by ordered products of (ρ(g)−χ(g)) over a universal deformation ring does not, because the universal ring does not."
+      },
+      {
+       "target": "Universal character coefficient rings, including their chosen torsion components",
+       "library": "absent",
+       "declarations": [],
+       "note": "No universal deformation ring of a character exists; Mathlib does have `Mathlib/RepresentationTheory/` character theory for finite groups, which is unrelated."
+      },
+      {
+       "target": "The comparison between the two ordinary conditions under the published hypotheses, at the integral/reduced/characteristic-zero level",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; both sides of the comparison are missing."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "LocalGaloisDeformationRings:L7",
+       "note": "L7 constructs the ordinary deformation functor with a full invariant flag and 'separate[s] the flag-bearing functor from its image after forgetting the flag'; L8 is the same distinction stated as the comparison with the determinant-ordinary quotient."
+      },
+      {
+       "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+       "note": "R21.3 builds ordinary Galois and deformation families and needs the same ordinary local condition; it consumes this comparison rather than proving it."
+      }
+     ]
+    },
+    "LocalGaloisDeformationRings:R08.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Framed local deformation functor and its representability",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TopRep",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Continuous/TopRep.lean",
+         "line": 31,
+         "fit": "related"
+        },
+        {
+         "name": "IsAdicComplete",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 56,
+         "fit": "related"
+        }
+       ],
+       "note": "Continuous representations of a topological group on a topological module are in Mathlib as `TopRep`, and complete local Noetherian rings are expressible; but the deformation functor on Artinian O-algebras, Schlessinger's criterion and the universal framed ring are all absent — `grep -i '\\bdeformation'` over declarations.tsv returns zero hits in both libraries."
+      },
+      {
+       "target": "Tangent and obstruction description via H¹ and H² of ad ρ̄",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ContinuousCohomology.cocycles",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+         "line": 142,
+         "fit": "related"
+        },
+        {
+         "name": "groupCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean",
+         "line": 186,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContinuousCohomology.res",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Functoriality.lean",
+         "line": 127,
+         "fit": "related"
+        }
+       ],
+       "note": "Both discrete group cohomology and continuous cohomology of topological groups exist, with functoriality, restriction, inflation and long exact sequences (the last mostly in Tau Ceti). The adjoint representation ad ρ̄ of a Galois representation, and the identification of H¹(ad ρ̄) with the tangent space of a deformation functor, are absent."
+      },
+      {
+       "target": "Effect of fixing the determinant and of forgetting a framing",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent for the same reason."
+      },
+      {
+       "target": "Archimedean (real-place) deformation rings at p=2",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.InfinitePlace",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+         "line": 57,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has infinite places of a number field and complex conjugation, but no deformation theory of the order-two local Galois group at a real place."
+      },
+      {
+       "target": "Relation of a local deformation ring over O to residue-field extension and to restriction of global universal representations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DeformationAndDerivedPatchingAlgebra:R03.2",
+       "note": "R03.2 owns the abstract Schlessinger criterion, framed representability, hulls versus prorepresenting objects and the obstruction algebra; R08.1 applies it to the local Galois functor."
+      },
+      {
+       "layer": "GlobalGaloisDeformations:R04.1",
+       "note": "R04.1 defines framed and unframed deformations, continuity and determinant-fixed variants for the global group; R08.1 is the same definition for a local group, and R04.1 explicitly restricts to the local one."
+      },
+      {
+       "layer": "GlobalGaloisDeformations:R04.2",
+       "note": "R04.2 proves existence of universal framed rings and the framed-versus-unframed power-series comparison; the framing/determinant bookkeeping is stated in both."
+      }
+     ]
+    },
+    "LocalGaloisDeformationRings:R08.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Unramified deformation condition and its representability",
+       "library": "absent",
+       "declarations": [],
+       "note": "No local Galois deformation conditions of any kind exist. Tau Ceti has unramifiedness of a prime in a field extension (`NumberField.Chebotarev.isUnramifiedAt_of_mem_frobeniusPrimeSet`) but not of a representation."
+      },
+      {
+       "target": "Fixed inertial type deformation condition",
+       "library": "absent",
+       "declarations": [],
+       "note": "Inertial types require the inertia subgroup of a local Galois group and its representations; neither library has the local Galois group of a p-adic field as a named object with its inertia filtration."
+      },
+      {
+       "target": "Steinberg/special condition including the monodromy operator",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Weil–Deligne representations and no monodromy operator N exist in either library."
+      },
+      {
+       "target": "Minimally ramified deformation condition",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Dimensions, smoothness and irreducible components of these conditions, with residual hypotheses visible",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "irreducibleComponents",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Irreducible.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "ringKrullDim",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/KrullDimension/Basic.lean",
+         "line": 29,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.FormallySmooth",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Smooth/Basic.lean",
+         "line": 70,
+         "fit": "related"
+        }
+       ],
+       "note": "The general vocabulary (irreducible components of a topological/prime spectrum, Krull dimension, formal smoothness) is in Mathlib; every particular computation the layer asks for is absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GlobalGaloisDeformations:G7",
+       "note": "G7 requires local deformation conditions 'as representable subfunctors or quotient rings with a proved point criterion' for the polarized arbitrary-rank problem; it consumes the conditions built here."
+      },
+      {
+       "layer": "LocalGaloisDeformationRings:L7",
+       "note": "L7 states the rank-n semistable, Steinberg and minimally ramified analogues away from p; R08.2 is the rank-two classical case of the same list."
+      }
+     ]
+    },
+    "LocalGaloisDeformationRings:R08.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Kisin's potentially semistable deformation rings with fixed Hodge and inertial type",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "BDeRham",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 90,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.Isocrystal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's p-adic Hodge theory consists of B_dR⁺/B_dR and Fontaine's θ (with the DVR property still a TODO), plus Witt-vector isocrystals and a one-dimensional Dieudonné–Manin classification. There is no D_cris, no D_st, no de Rham/semistable/crystalline predicate on a representation, and hence no such deformation ring."
+      },
+      {
+       "target": "Characterisation of the characteristic-zero points of these rings",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "p-torsion-freeness and reducedness where asserted",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsReduced",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/GroupWithZero/Basic.lean",
+         "line": 192,
+         "fit": "related"
+        },
+        {
+         "name": "Module.Flat",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Flat/Basic.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "Reducedness and torsion-freeness/flatness are general Mathlib notions; the statements about these particular rings are absent."
+      },
+      {
+       "target": "Generic dimension and the required smoothness results",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Compatibility with finite coefficient extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "LocalGaloisDeformationRings:L7",
+       "note": "L7 says it builds 'fixed labeled Hodge-type and inertial-type potentially semistable deformation rings' for every finite rank n; R08.3 is the same construction in the rank-two source setting."
+      },
+      {
+       "layer": "PadicHodgeTheory:R06.3",
+       "note": "R06.3 owns the p-adic monodromy theorem and the potentially semistable Weil–Deligne parameter of a de Rham representation, the input this layer's types are defined against."
+      }
+     ]
+    },
+    "LocalGaloisDeformationRings:R08.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Bounded-height lattice moduli and their proper maps to deformation spaces",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Grassmannian",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Grassmannian.lean",
+         "line": 68,
+         "fit": "related"
+        }
+       ],
+       "note": "Same situation as L7: the Grassmannian functor exists in Mathlib, the Frobenius-stable bounded-height locus and its map to a deformation space do not. Mathlib does have `AlgebraicGeometry.UniversallyClosed`/proper-morphism API to state properness, but there is no morphism here to state it about."
+      },
+      {
+       "target": "Connectedness and component comparisons in the ordinary and nonordinary cases",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "irreducibleComponents",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Irreducible.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "ConnectedComponents",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Connected/Clopen.lean",
+         "line": 510,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the general topology of connected and irreducible components is present."
+      },
+      {
+       "target": "Identification of which components a chosen modular point meets, including the image of the lattice moduli",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Finite-flat group schemes and Barsotti–Tate (p-divisible) groups",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -i 'BarsottiTate|pDivisible|p_divisible'` over declarations.tsv returns only Tau Ceti's `SpecialLinear/Center/FiniteFlat.lean` (the centre of SL_n as a finite flat group scheme), which is a finite flat group scheme but carries none of the classification theory. There is no category of finite flat group schemes and no p-divisible group in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+       "note": "R07.4 owns Breuil–Kisin modules and the classification of finite-flat and p-divisible groups including the dyadic theorem; R08.4 consumes that classification to build the lattice moduli."
+      },
+      {
+       "layer": "LocalGaloisDeformationRings:L7",
+       "note": "L7 constructs the same bounded-height Frobenius-stable lattice moduli and the image statement in arbitrary rank, and names R08.4 as the specialized small-prime rank-two family."
+      },
+      {
+       "layer": "GL2ModularityLifting:R22.6",
+       "note": "R22.6 consumes Kisin's 2-adic Barsotti–Tate statement and 'local deformation geometry'; the component-comparison input is stated in both."
+      }
+     ]
+    },
+    "LocalGaloisDeformationRings:R08.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Real-place (archimedean) local calculations at p=2",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no deformation theory at all, and no adjoint-representation decomposition for the order-two group at a real place."
+      },
+      {
+       "target": "Local-at-2 and twisting calculations for Kisin's 2-adic Barsotti–Tate theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Crystalline endpoint-weight calculations beyond the Fontaine–Laffaille interval (KW I Theorem 4.1)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Crystalline representations are not defined in either library (`grep -rn -i 'crystalline representation'` over both Lean trees returns nothing)."
+      },
+      {
+       "target": "Avoiding the splitting End = k ⊕ ad⁰ and the degenerate trace pairing at p=2",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Matrix.trace",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+         "line": 45,
+         "fit": "related"
+        },
+        {
+         "name": "LinearMap.BilinForm.Nondegenerate",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/BilinearForm/Properties.lean",
+         "line": 291,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the trace form and nondegeneracy predicates, so the failure of nondegeneracy in characteristic 2 is expressible; the adjoint-representation statement for a Galois representation is not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GL2ModularityLifting:R22.6",
+       "note": "R22.6 proves the 2-adic lifting results needed by KW I 'including nonsolvable residual image, infinity, local deformation geometry and all twisting arguments' — the same dyadic package, seen from the global lifting side."
+      },
+      {
+       "layer": "ClassicalSerreModularity:R27.5",
+       "note": "R27.5 treats characteristic two of weight four and even conductor and needs the same dyadic local input."
+      },
+      {
+       "layer": "GL2ModularityLifting:R32.3",
+       "note": "R32.3 is the modern dyadic de Rham lifting theorem and explicitly distinguishes itself from the potentially Barsotti–Tate route this layer supplies."
+      },
+      {
+       "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+       "note": "R07.3 fixes the safe Fontaine–Laffaille interval (and the smaller one at p=2); R08.5 owns the crystalline endpoint-weight calculations that lie outside it."
+      }
+     ]
+    },
+    "LocalGaloisDeformationRings:R08.6": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "A registry entry per source local condition: ring, dimension, nonemptiness, tangent condition, component relation",
+       "library": "absent",
+       "declarations": [],
+       "note": "This is an export/packaging layer over R08.1–R08.5; none of the objects to be exported exists in either library, so the registry has nothing to record."
+      },
+      {
+       "target": "Separate entries for KW I Theorem 5.1's lift types",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; R24.3 states the same four lift constructions with their hypotheses."
+      },
+      {
+       "target": "The good-dihedral auxiliary type",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no dihedral or induced-representation local type exists in either library."
+      },
+      {
+       "target": "The dyadic weight-two transition entry",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The interface for modern general de Rham lifting applications (delegated to R32)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, and explicitly delegated: the layer says 'General de Rham lifting is R32; its analytic representation theory is not silently assumed as part of this classical local-ring construction.'"
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PotentialModularityAndCompatibleSystems:R24.3",
+       "note": "R24.3 'Prescribed local lifts' enumerates the same KW I Theorem 5.1 lift types and the good-dihedral and weight-two applications; R08.6 exports the local rings, R24.3 pins the source hypotheses and the global application."
+      },
+      {
+       "layer": "GlobalGaloisDeformations:G7",
+       "note": "G7 consumes 'the precise local comparisons and component support input' that this layer exports."
+      },
+      {
+       "layer": "GL2ModularityLifting:R32.3",
+       "note": "Named in the layer as the owner of general de Rham lifting; the de Rham entry here is an interface to it."
+      }
+     ]
+    }
+   }
+  },
+  "ModularityAndLanglandsExtensions": {
+   "summary": "This roadmap sits entirely above the automorphic/Galois frontier of both libraries. Neither Mathlib nor Tau Ceti has automorphic representations, Artin representations, Galois representations attached to modular forms, base change, automorphic induction, symmetric-power functoriality, trace formulas, endoscopy or Sato–Tate: `grep -rn -i 'automorphic'` over both Lean trees hits only bibliography lines citing Shimura's book and the unrelated 'automorphic set' of racks, and `grep -rn -i 'sato.tate|equidistribut|langlands|fundamental lemma'` returns nothing at all. What does exist is the classical GL₂/ℚ carrier the endpoints would be stated about: Mathlib's `ModularForm`/`CuspForm` with Eisenstein series, dimension formulas, q-expansions, Petersson inner products and modular L-functions, and Tau Ceti's larger development — Hecke operators via the slash action, eigenforms, newforms with strong multiplicity one and Atkin–Lehner theory, the Sturm bound, and Wiener–Ikehara Tauberian machinery that a Sato–Tate equidistribution argument would consume. Three of the six layers (ML.0, ML.4, ML.5) are registries that bind theorems to sources and owners rather than proving mathematics; the three mathematical layers (ML.1–ML.3) have none of their theorems in either library.",
+   "layers": {
+    "ModularityAndLanglandsExtensions:ML.0": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "A common register of automorphic/Galois objects, coefficient fields, infinity types, local parameters and conductors",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ModularForm",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+         "line": 74,
+         "fit": "related"
+        },
+        {
+         "name": "DirichletCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 40,
+         "fit": "related"
+        }
+       ],
+       "note": "Registry bookkeeping, not mathematics. The only objects the register could currently point at are Mathlib's modular forms and Dirichlet characters; automorphic representations, infinity types, local parameters and conductors of automorphic representations have no carrier in either library."
+      },
+      {
+       "target": "Normalization conversions between conventions",
+       "library": "absent",
+       "declarations": [],
+       "note": "No normalization dictionary of this kind exists; the corresponding Satake/Frobenius dictionary is owned by IntegralHeckeAndGaloisDeterminants IHG.3 and AutomorphicGaloisRepresentationsPartII AG2.0 and is itself unbuilt."
+      },
+      {
+       "target": "Binding each theorem to a selected source version and its original stage producers, with known/conditional/conjectural status",
+       "library": "absent",
+       "declarations": [],
+       "note": "Pure bookkeeping: a per-endpoint status table and dependency map, with no mathematical content to search for."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+       "note": "AG2.0 owns the normalization dictionary among algebraic weights, Frobenius conventions, cyclotomic twists and normalized Satake; ML.0's 'normalization conversions' is the same material for the endpoint register."
+      },
+      {
+       "layer": "GrossZagierAndArithmeticHeights:GZ.0",
+       "note": "GZ.0 'Normalization and change-of-convention interfaces' is a sibling registry of conventions for a different endpoint family."
+      }
+     ]
+    },
+    "ModularityAndLanglandsExtensions:ML.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Deligne–Serre Artin representations attached to weight-one eigenforms",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.IsEigenformAwayFromLevel",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Eigenform.lean",
+         "line": 65,
+         "fit": "related"
+        },
+        {
+         "name": "ModularForm",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+         "line": 74,
+         "fit": "related"
+        }
+       ],
+       "note": "Weight-one modular forms are expressible (Mathlib's `ModularForm Γ k` takes an arbitrary integer weight) and Tau Ceti has Hecke eigenforms, newforms and strong multiplicity one, so the automorphic side of Deligne–Serre exists in the classical GL₂/ℚ case. The Artin representation itself is absent: `grep -rn -i 'artin representation'` over both trees returns nothing, and no Galois representation is attached to any modular form."
+      },
+      {
+       "target": "Weight-one modularity in the proved cases",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; the converse direction (an odd two-dimensional Artin representation comes from a weight-one form) has neither side formalised."
+      },
+      {
+       "target": "Modularity over totally real and CM fields with source-scoped restrictions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Hilbert and Bianchi modular forms do not exist in either library; `grep -rn -i 'hilbert modular|bianchi'` over both trees returns nothing relevant. Mathlib has `IsTotallyReal` and CM extensions as field-theoretic notions only."
+      },
+      {
+       "target": "Separation from the weight-at-least-two cohomological and GL₂/ℚ endpoints",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no modularity statement of any weight in either library to separate."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicGaloisRepresentations:R19.1",
+       "note": "R19.1 'Classical Galois representations' constructs the weight-one Artin representation in the Deligne–Serre setting alongside the weight-two and higher-weight cases; ML.1 organises the same endpoints."
+      },
+      {
+       "layer": "AlgebraicModularFormsAndSerreWeights:R15.5",
+       "note": "R15.5 owns the Deligne–Serre eigenvalue-lifting lemma and the mod-p to characteristic-zero passage, including the weight-one caveat ML.1's acceptance clause restates."
+      },
+      {
+       "layer": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+       "note": "R17.5 proves the solvable two-dimensional Artin modularity theorem 'with its weight-one interpretation over Q' — the proved case ML.1 would register."
+      }
+     ]
+    },
+    "ModularityAndLanglandsExtensions:ML.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Potential automorphy with full regularity, polarization, residual-image, local and field-extension hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Automorphic representations do not exist in either library, so no automorphy statement can be made. `grep -rn -i 'automorphic'` over both Lean trees yields only Shimura bibliography entries and `Quandle.lean`'s 'automorphic set'."
+      },
+      {
+       "target": "Compatible systems of Galois representations and their tracking",
+       "library": "absent",
+       "declarations": [],
+       "note": "No compatible system exists; Galois representations attached to arithmetic objects are absent from both libraries (Tau Ceti's `GaloisLattice` is a finite-rank continuous Galois module used for torus descent, not a compatible system)."
+      },
+      {
+       "target": "Descent to the original field as a separate theorem with its own hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PotentialAutomorphyInfrastructure:PA.5",
+       "note": "PA.5 is the named input: the general-rank compatible-system and transport interface. ML.2 is the application layer that assembles the final theorem from it."
+      },
+      {
+       "layer": "PotentialModularityAndCompatibleSystems:R24.5",
+       "note": "R24.5 constructs compatible systems from potential modularity by solvable base change and character induction; ML.2 restates the same assembly at arbitrary rank."
+      }
+     ]
+    },
+    "ModularityAndLanglandsExtensions:ML.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Newton–Thorne symmetric-power automorphy, source-scoped",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no automorphic representation, no functorial lift, and no symmetric-power transfer exists. Tau Ceti's `Analysis/Polynomial/SymmetricPower.lean` is about continuity of the coefficients of ∏(X − aᵢ), unrelated."
+      },
+      {
+       "target": "CM and non-CM branches",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; CM modular forms are not defined in either library."
+      },
+      {
+       "target": "Sato–Tate equidistribution for the resulting Frobenius angles",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'sato.tate'` and `grep -rn -i 'equidistribut'` over both Lean trees return zero hits; there is no equidistribution or Weyl-criterion API at all in either library."
+      },
+      {
+       "target": "Nonvanishing and analytic inputs for the Weyl criterion",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "riemannZeta_ne_zero_of_one_le_re",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+         "line": 413,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.LSeries.tendsto_tsum_term_mul_fourier_atTop_of_nonneg",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LSeries/WienerIkehara/BoundaryGrowth.lean",
+         "line": 236,
+         "fit": "related"
+        },
+        {
+         "name": "DirichletCharacter.LFunction_ne_zero_of_one_le_re",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+         "line": 400,
+         "fit": "related"
+        }
+       ],
+       "note": "The analytic toolkit a Weyl-criterion argument consumes partly exists: nonvanishing of ζ and of Dirichlet L-functions on Re s = 1, and Tau Ceti's Wiener–Ikehara Tauberian development (four files, no `sorry`). But nonvanishing for symmetric-power L-functions, and the Weyl criterion itself, are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PotentialAutomorphyInfrastructure:PA.5",
+       "note": "PA.5 supplies the symmetric-power operation on compatible systems and warns against assuming all symmetric powers are automorphic — the same caveat ML.3's acceptance clause repeats."
+      },
+      {
+       "layer": "AnalyticNumberTheory:AN.4",
+       "note": "Named input: the analytic nonvanishing/equidistribution machinery is owned there, and ML.3 requires it be supplied separately from the automorphy."
+      }
+     ]
+    },
+    "ModularityAndLanglandsExtensions:ML.4": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Assign explicit proof-source owners to the Arthur/Mok/KMSW classification inputs (stabilization, transfer, fundamental lemma, packets, multiplicities, local-global compatibility)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Ownership assignment, not mathematics. None of the named inputs exists in either library: there is no trace formula, no endoscopic datum, no transfer factor and no L-packet (`grep -rn -i 'fundamental lemma|endoscop|trace formula'` over both Lean trees returns nothing)."
+      },
+      {
+       "target": "Preserve source-specific conditional hypotheses until the missing result and its replacement are verified",
+       "library": "absent",
+       "declarations": [],
+       "note": "An auditing requirement on how the classification is recorded."
+      },
+      {
+       "target": "A named source-verification task for the symplectic torsion branch",
+       "library": "absent",
+       "declarations": [],
+       "note": "Bookkeeping: the acceptance clause requires that this branch not be marked unconditional on the strength of the unitary theorem."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.3",
+       "note": "ET.3 owns the fundamental lemma and the existence of local transfer with the exact residue-characteristic bounds; ML.4 registers that ownership rather than reproving it."
+      },
+      {
+       "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+       "note": "ET.4 owns the simple stable and twisted unitary trace formulas that the Arthur/Mok classification consumes."
+      },
+      {
+       "layer": "AutomorphicSpectralTheory:AS.6",
+       "note": "Named input: AS.6 builds the coarse, fine and invariant trace formula whose stabilization ML.4 assigns owners for."
+      }
+     ]
+    },
+    "ModularityAndLanglandsExtensions:ML.5": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Register cyclic base change with exact hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Registry entry. Base change of automorphic representations does not exist in either library; `grep -rn -i 'cyclic base change|automorphic induction'` over both Lean trees returns nothing."
+      },
+      {
+       "target": "Register automorphic induction",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent for the same reason."
+      },
+      {
+       "target": "Register selected tensor and symmetric-power transfers",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no functorial transfer of any kind is formalised."
+      },
+      {
+       "target": "Formalize statements and conditional implications for general global/local and categorical Langlands",
+       "library": "absent",
+       "declarations": [],
+       "note": "Statement-formalisation with no proofs intended; the acceptance clause is explicitly that no general correspondence may be inferred from a known GL_n case. Nothing of this exists in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+       "note": "R17.4 proves cyclic and solvable base change and descent for GL₂ with the failure-of-cuspidality criterion; ML.5 registers that theorem with its hypotheses."
+      },
+      {
+       "layer": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+       "note": "R17.5 owns automorphic induction and the monomial/Langlands–Tunnell cases that ML.5 registers."
+      },
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+       "note": "GS.5 states the function-field excursion/parameter correspondence; ML.5's 'frontier' statements for categorical Langlands overlap with that formulation."
+      }
+     ]
+    }
+   }
+  },
+  "OrdinaryAutomorphicFormsAndModularityLifting": {
+   "summary": "Nothing in this roadmap's Hida-theoretic or lifting chain exists in either library. There is no completed group ring O[[G]] (`grep -i 'iwasawaAlgebra|completedGroup|CompletedGroupAlgebra'` over declarations.tsv is empty; every `iwasawa` hit in Mathlib is the unrelated `IwasawaStructure` used for simplicity of PSL₂), no ordinary projector, no Hida family or control theorem, no Galois representation over a Hecke algebra, no deformation ring and hence no R=T statement. The one genuine hit is the algebraic core of the ordinary projector: Mathlib proves the Fitting decomposition of a module with respect to an endomorphism — `LinearMap.eventually_isCompl_ker_pow_range_pow` and `LinearMap.isCompl_iSup_ker_pow_iInf_range_pow` for Artinian and Noetherian modules — which is precisely the finite-module statement PadicFamilies L0a asks for, though the idempotent e = lim U^{n!} itself is not constructed. Around it sit the classical carriers: Tau Ceti's modular-forms tower (Hecke operators, eigenforms, newforms, strong multiplicity one, Atkin–Lehner, U_p at bad primes, Sturm bound) and Mathlib's `ModularForm`/`CuspForm` with q-expansions, plus `PowerSeries` for weight algebras. Genuinely missing: the ordinary tower and its projector on Hecke complexes, Hida control and finite flatness, the ordinary Galois/determinant family, the ordinary R=T theorem, and the Skinner–Wiles residually reducible results including the Berger–Li–Zhu crystalline-to-ordinary criterion.",
+   "layers": {
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Completed group algebras / Iwasawa algebras O[[G]] (consumed from PadicMeasuresIwasawaAlgebras L1)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AbstractMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 40,
+         "fit": "special case"
+        },
+        {
+         "name": "AbstractMeasure.amiceTransformEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 156,
+         "fit": "special case"
+        },
+        {
+         "name": "AbstractMeasure.dirac",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 93,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+         "line": 60,
+         "fit": "related"
+        },
+        {
+         "name": "ProfiniteGrp",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Category/ProfiniteGrp/Basic.lean",
+         "line": 44,
+         "fit": "related"
+        }
+       ],
+       "note": "The general inverse limit lim_{n,U} (R/Iⁿ)[G/U] is not constructed in either library. Mathlib does have the abelian prototype: measures on ℤ_p (`AbstractMeasure`, notation `D(ℤ_[p], R)`) with Dirac elements, pushforward and Fubini contractions, identified with ℤ_[p]⟦X⟧ by the Amice transform — but as a *linear* equivalence over the base ℤ_[p] only, with no convolution product proved and the general-base case listed as a TODO in the file. Augmentation, density of O[G] and the universal property for continuous actions are absent."
+      },
+      {
+       "target": "Ordinary projectors and their finite-level comparison (consumed from PadicFamilies L0a)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "LinearMap.eventually_isCompl_ker_pow_range_pow",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Artinian/Module.lean",
+         "line": 317,
+         "fit": "more general"
+        },
+        {
+         "name": "LinearMap.isCompl_iSup_ker_pow_iInf_range_pow",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Artinian/Module.lean",
+         "line": 326,
+         "fit": "more general"
+        },
+        {
+         "name": "LinearMap.eventually_codisjoint_ker_pow_range_pow",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Artinian/Module.lean",
+         "line": 300,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves the Fitting decomposition M = ker(fⁿ) ⊕ im(fⁿ) for a sufficiently large n and an endomorphism of a module that is both Artinian and Noetherian — exactly the finite-module statement the ordinary projector is built from, and in greater generality (any ring, any such module). What is missing is the projector itself: that U^{n!} is eventually constant with value an idempotent e, its U-equivariance and naturality, and the inverse limit of these projectors over a tower of finite discrete quotients."
+      },
+      {
+       "target": "Application of the projector to modular/Hilbert/quaternionic Hecke complexes",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.heckeUNat",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/BadPrime/Basic.lean",
+         "line": 54,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the U_p operator on classical modular forms at a bad prime (`heckeUNat`, `heckeUCuspNat`) together with its q-expansion characterisation, so the operator the projector is formed from exists in the GL₂/ℚ case. Hilbert and quaternionic Hecke complexes do not exist, and no complex carries a Hecke action in either library."
+      },
+      {
+       "target": "Proof that each map used in the arithmetic deformation problem preserves its ordinary image",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no deformation problem and no ordinary image to preserve."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicFamilies:L0a",
+       "note": "L0a owns the group-independent finite and profinite ordinary projector, including the Fitting decomposition and the inverse-limit construction R21.1 consumes."
+      },
+      {
+       "layer": "PadicMeasuresIwasawaAlgebras:L1",
+       "note": "L1 owns the completed group ring R[[G]] with convolution and the universal property; R21.1 declares it as an import."
+      },
+      {
+       "layer": "PotentialAutomorphyInfrastructure:PA.2",
+       "note": "PA.2 also consumes PadicFamilies L0a's projector and proves the finite-quotient and continuity hypotheses for its own tower — the same hypothesis-checking obligation as R21.1, for a different family of complexes."
+      }
+     ]
+    },
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Ordinary families and the ordinary Hecke algebra over the weight Iwasawa algebra",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'hida|ordinary projector|ordinary idempotent'` over both Lean trees returns only unrelated identifier fragments (`hidApply`). No p-adic family of modular forms exists in either library."
+      },
+      {
+       "target": "Hida control (specialisation at arithmetic weights recovers the classical ordinary space)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. The classical target of the specialisation — spaces of ordinary classical forms — is not defined either, though Tau Ceti has the ambient classical spaces and their Hecke actions."
+      },
+      {
+       "target": "Nearly ordinary totally real control statements with p-distinguishedness, tame characters and stabilizers",
+       "library": "absent",
+       "declarations": [],
+       "note": "Hilbert modular forms do not exist in either library."
+      },
+      {
+       "target": "Eisenstein / residually reducible control statements needed by Skinner–Wiles",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no Eisenstein ideal, no residual reducibility notion for a Hecke eigensystem."
+      },
+      {
+       "target": "Comparison of each arithmetic specialization with the same classical newform and Galois family",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.IsEigenformAwayFromLevel",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Eigenform.lean",
+         "line": 65,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has newforms with strong multiplicity one and the Hecke eigenvalue/q-expansion dictionary (`TauCeti/NumberTheory/ModularForms/Newforms/`), so the classical newform side of the comparison exists for GL₂/ℚ. The family and the Galois side do not."
+      },
+      {
+       "target": "Finite flatness of the ordinary Hecke algebra over the weight algebra, in the source cases",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Flat",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Flat/Basic.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "Flatness and finiteness are general Mathlib notions; the statement about a Hida Hecke algebra is absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicFamilies:L0",
+       "note": "L0 owns ordinary modular forms, the ordinary cuspidal Hecke algebra, finite generation and the control statements over weight Iwasawa algebras; R21.2 imports those and adds only the nearly ordinary and Eisenstein cases."
+      },
+      {
+       "layer": "PadicFamilies:L5",
+       "note": "L5 owns Hida control over totally real fields and says explicitly that 'the specialized residually reducible Eisenstein cases belong to that lifting owner', i.e. to R21.2."
+      }
+     ]
+    },
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Galois representation or determinant law over the ordinary Hecke algebra",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither Galois representations attached to automorphic data nor determinant laws (Chenevier pseudo-representations) exist in either library; see IntegralHeckeAndGaloisDeterminants IHG.0–IHG.1 in this same batch, where both are recorded absent."
+      },
+      {
+       "target": "Its ordinary local structure at p (filtration with specified graded characters)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Ordinary deformation rings with the filtration data, and comparison of local tangent conditions",
+       "library": "absent",
+       "declarations": [],
+       "note": "No deformation ring of any kind exists in either library (`grep -i '\\bdeformation'` over declarations.tsv returns zero hits)."
+      },
+      {
+       "target": "The map from the ordinary deformation ring to the Hecke algebra",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The pseudo-representation formalism for the residually reducible cases",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `grep -rn -i 'pseudorepresentation|pseudo-representation|pseudocharacter'` over both trees returns nothing."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicGaloisRepresentations:R19.6",
+       "note": "Named dependency: R19.6 constructs the determinant law from Hecke operators and the representation over the localised completed Hecke algebra; R21.3 is the ordinary-family instance of that construction."
+      },
+      {
+       "layer": "LocalGaloisDeformationRings:L8",
+       "note": "L8 owns the distinction between the ordinary flag functor and the determinant-ordinary quotient; R21.3's 'ordinary deformation rings with the filtration data' is the same object at GL₂."
+      },
+      {
+       "layer": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+       "note": "IHG.1 owns the pseudo-representation/Cayley–Hamilton formalism that R21.3 requires for the residually reducible cases."
+      }
+     ]
+    },
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The ordinary R=T modularity lifting theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Mathlib mentions Taylor–Wiles only in the bibliography of `Mathlib/NumberTheory/FLT/Basic.lean`; `grep -rn -i 'patching'` over both trees finds no Taylor–Wiles patching."
+      },
+      {
+       "target": "The commutative-algebra input (complete intersections, numerical criterion)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "RingTheory.Sequence.IsRegular",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Regular/RegularSequence.lean",
+         "line": 146,
+         "fit": "related"
+        },
+        {
+         "name": "ringKrullDim",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/KrullDimension/Basic.lean",
+         "line": 29,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has regular sequences, their flat base change, Krull dimension and a Rees-style depth characterisation (`ModuleCat.exists_isRegular_tfae`), which is the ambient commutative algebra. There is no Cohen–Macaulay or complete-intersection predicate in either library (`grep -i 'cohen.macaulay|CompleteIntersection'` returns nothing), and the Wiles–Lenstra numerical criterion is absent."
+      },
+      {
+       "target": "Dual Selmer group arguments",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.selmerGroup₂",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+         "line": 104,
+         "fit": "related"
+        }
+       ],
+       "note": "The only Selmer group in either library is Tau Ceti's classical 2-descent Selmer group for a Weierstrass curve, defined by local solubility of a torsor; it is not a Galois-cohomological Selmer group with prescribed local conditions and has no dual (Greenberg–Wiles) formula."
+      },
+      {
+       "target": "The integral Hecke-module arguments",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no integral Hecke module of an arithmetic variety exists."
+      },
+      {
+       "target": "Individual recording of determinant, ramification, local distinguishedness, character and residual modularity assumptions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Bookkeeping over statements that do not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GL2ModularityLifting:R22.1",
+       "note": "R22.1 constructs the deformation-to-Hecke map and proves surjectivity in the minimal non-ordinary setting; R21.4 is the ordinary analogue, with the roadmap insisting the two are distinct theorems."
+      },
+      {
+       "layer": "DeformationAndDerivedPatchingAlgebra:R03.5",
+       "note": "Named dependency: the generic patching algebra is owned there, so R21.4 owns only the ordinary arithmetic input."
+      },
+      {
+       "layer": "AutomorphicCongruences:L5",
+       "note": "L5 ('The ordinary elliptic-curve refinement') uses an ordinary R=T input of the same shape."
+      }
+     ]
+    },
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The residually reducible ordinary modularity results of Skinner–Wiles",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `grep -rn -i 'skinner'` over both Lean trees returns nothing."
+      },
+      {
+       "target": "The modern p=3 branch with residual shape 1⊕χ₃, its ordinary local condition and nontriviality hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Mathlib has the mod-3 cyclotomic character only in the sense of `ZMod 3` Dirichlet characters; there is no residual Galois representation to give it this shape."
+      },
+      {
+       "target": "The crystalline-to-ordinary criterion, including the Berger–Li–Zhu calculation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Crystalline representations are not defined in either library, so no reducibility-of-the-crystalline-slope criterion can be stated; `grep -rn -i 'berger.li.zhu'` returns nothing."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GL2ModularityLifting:R32.5",
+       "note": "R32.5 'Small-prime ordinary completion' uses 'the precisely proved Skinner–Wiles theorem and the local crystalline/ordinary calculation to cover the p=3 branch' and matches the same residual 1⊕χ₃ condition — the same statement, consumed there and owned here."
+      },
+      {
+       "layer": "GL2ModularityLifting:R32.4",
+       "note": "R32.4 (Pan's p≥5 residually reducible Fontaine–Mazur theorem) is the complementary residually reducible result; the roadmaps are explicit that the p=3 branch is not a consequence of it."
+      },
+      {
+       "layer": "ClassicalSerreModularity:R26.4",
+       "note": "R26.4 'Degenerate residual branches' handles the same residually reducible degenerations inside the Serre argument."
+      }
+     ]
+    },
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.6": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Export the exact lifting statements and their finite-level modularity witnesses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Export layer; the statements to be exported (R21.4, R21.5) do not exist in either library."
+      },
+      {
+       "target": "A dependency check that the ordinary theorem initialising Serre does not import Serre through a globalisation or modularity assertion",
+       "library": "absent",
+       "declarations": [],
+       "note": "An acyclicity audit of the roadmap's own dependency graph — bookkeeping, not mathematics."
+      },
+      {
+       "target": "Supply the classical ordinary family for later p-adic L-function work, without interpolation or a main conjecture",
+       "library": "absent",
+       "declarations": [],
+       "note": "Interface delimitation; the ordinary family itself is R21.2's target and is absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ModularSymbolsPadicLFunctions:L0",
+       "note": "The downstream consumer of the exported ordinary family; the interface is stated on both sides."
+      },
+      {
+       "layer": "CompletedCohomologyAndLocalGlobalCompatibility:R31.6",
+       "note": "R31.6 runs the same kind of source-independence audit ('a result used in an independent proof of Serre must not invoke the full Serre theorem') for the completed-cohomology branch."
+      }
+     ]
+    }
+   }
+  },
+  "PadicLocalLanglandsForGL2Qp": {
+   "summary": "The p-adic local Langlands correspondence for GL₂(Q_p) has no part of itself in either library, and neither does the coefficient theory it rests on: there is no Robba ring, no (φ,Γ)-module, no Herr complex, no smooth or admissible or locally analytic representation of a p-adic group, and no block decomposition of such a category (`grep -rn -i 'robba|phi.gamma|locally analytic representation|smooth representation'` over both Lean trees returns nothing but unrelated differential-geometry hits). Two genuine ingredients do exist. First, Mathlib's p-adic distribution theory: `AbstractMeasure`/`D(ℤ_[p], R)` with Dirac measures, pushforward and Fubini-style contractions, the Mahler basis (`mahler`, `PadicInt.mahlerEquiv`), and the Amice transform `AbstractMeasure.amiceTransformEquiv : D(ℤ_[p], ℤ_[p]) ≃ ℤ_[p]⟦X⟧` — the coefficient ring on which a (φ,Γ)-module over Q_p is built, though only as a linear equivalence (the ring/convolution structure and the general base are TODOs in the file). Second, Tau Ceti's projective covers and injective envelopes of modules (`TauCeti.IsProjectiveCover`, `TauCeti.IsInjectiveEnvelope`, with existence and minimal-presentation comparisons), the module-theoretic prototype of R30.5's projective envelopes. Everything the roadmap actually names — Colmez's functor, locally algebraic vectors, blocks, Breuil–Mézard multiplicities, and the Paškūnas / Hu–Tan / Tung theorems — is missing.",
+   "layers": {
+    "PadicLocalLanglandsForGL2Qp:R30.1": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Import the analytic Robba/annulus coefficient rings from PadicHodgeTheory P7:annulus-foundations",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AbstractMeasure.amiceTransformEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 156,
+         "fit": "related"
+        },
+        {
+         "name": "PadicInt.mahlerEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+         "line": 357,
+         "fit": "related"
+        }
+       ],
+       "note": "An import obligation, and the imported object does not exist: `grep -rn -i 'robba'` over both Lean trees is empty, and there are no rings of convergent Laurent series on an annulus. Mathlib does have the closest available coefficient ring, ℤ_p⟦X⟧ identified with measures on ℤ_p by the Amice transform, but only as a linear equivalence over the base ℤ_[p] (the file lists the general-base and bounded-power-series theory as TODO)."
+      },
+      {
+       "target": "Import étale (φ,Γ)-modules, the Galois equivalence, overconvergence and the Herr comparison from PG.0–PG.3",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent from both libraries; no semilinear φ/Γ action on a coefficient ring, no étale module, and no Herr three-term complex. The nearest carrier is Mathlib's `WittVector.Isocrystal` (a φ-semilinear structure over the fraction field of Witt vectors), which is a different object."
+      },
+      {
+       "target": "Fix the GL₂(Q_p) covariance convention and prove the normalization bridge with R16.3",
+       "library": "absent",
+       "declarations": [],
+       "note": "Convention-fixing plus a bridge theorem between the p-adic and classical normalizations; neither side exists, since there is no local Langlands correspondence for GL₂ in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PhiGammaModulesAndIwasawaCohomology:PG.0",
+       "note": "PG.0 is the declared sole owner of the cyclotomic coefficient rings and the commuting φ, Γ actions; R30.1 imports them and constructs no second carrier."
+      },
+      {
+       "layer": "PhiGammaModulesAndIwasawaCohomology:PG.2",
+       "note": "PG.2 owns Cherbonnier–Colmez overconvergence and the Robba realization that R30.1 imports."
+      },
+      {
+       "layer": "PadicHodgeTheory:P7",
+       "note": "P7:annulus-foundations owns the Robba analytic coefficient rings themselves; P7's own text repeats the 'no second Herr or Wach' ownership fence."
+      },
+      {
+       "layer": "PadicHodgeRegulators:L2",
+       "note": "L2 '(phi,Gamma)-modules and Iwasawa cohomology' is another consumer of the same PG.0–PG.3 package."
+      }
+     ]
+    },
+    "PadicLocalLanglandsForGL2Qp:R30.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The category of smooth mod-p representations of GL₂(Q_p)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TopRep",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Continuous/TopRep.lean",
+         "line": 31,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has continuous representations of a topological group on a topological module (`TopRep`), but no smoothness predicate (every vector has open stabiliser), no abelian-category structure for smooth representations, and no representation theory of GL₂ over a p-adic field. `grep -rn -i 'smooth representation|locally profinite'` over both trees returns nothing."
+      },
+      {
+       "target": "Admissible unitary Banach representations and their duals",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsUltrametricDist",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/MetricSpace/Ultra/Basic.lean",
+         "line": 46,
+         "fit": "related"
+        }
+       ],
+       "note": "Nonarchimedean normed-space foundations exist (`IsUltrametricDist`, `NonarchimedeanAddGroup`, complete p-adic normed modules), but no unitary Banach representation, no admissibility condition and no Schikhof duality."
+      },
+      {
+       "target": "Locally analytic representations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Locally analytic functions on a p-adic group are not defined in either library; the only `locally analytic` hit is a docstring about polar parts in Tau Ceti's complex-analysis contour theory."
+      },
+      {
+       "target": "Completed group-algebra actions on the duals",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AbstractMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 40,
+         "fit": "related"
+        },
+        {
+         "name": "AbstractMeasure.dirac",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 93,
+         "fit": "related"
+        }
+       ],
+       "note": "Measures on ℤ_p with Dirac elements and pushforward exist and are the abelian prototype of a completed group algebra, but no convolution product is defined on them and there is no O[[K]] for a compact p-adic group K."
+      },
+      {
+       "target": "Finiteness and compactness results needed for projective envelopes and deformation-theoretic endomorphism rings",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; the categories do not exist."
+      },
+      {
+       "target": "The mod-p classification of smooth irreducible representations in every residual characteristic, including exceptional low-characteristic blocks",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Tau Ceti has extensive finite-group modular representation theory (Brauer characters, blocks of finite groups are not present either) but nothing for GL₂(Q_p)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.0",
+       "note": "SR.0 owns the abelian category of smooth representations of a general p-adic group, with smooth vectors, invariants and admissibility; R30.2 needs that carrier and adds the mod-p classification and Banach/locally analytic layers."
+      },
+      {
+       "layer": "LocallyAnalyticDistributions:L0",
+       "note": "L0 owns the Banach spaces of locally analytic functions, the inductive-limit topology and the dual distribution algebra that R30.2's locally analytic category is built on."
+      },
+      {
+       "layer": "OverconvergentAutomorphicForms:O0",
+       "note": "O0 'Weight spaces and locally analytic representations' constructs the same locally analytic representation theory for a different application."
+      }
+     ]
+    },
+    "PadicLocalLanglandsForGL2Qp:R30.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Colmez's functor from two-dimensional (φ,Γ)-modules to GL₂(Q_p)-representations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `grep -rn -i 'colmez'` over both Lean trees returns nothing, and neither the source nor the target category exists."
+      },
+      {
+       "target": "The associated Galois functor in the source's direction",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Functoriality and exactness where valid",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Compatibility with determinant and central character",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; central characters of representations of a p-adic group are not defined in either library."
+      },
+      {
+       "target": "The prescribed irreducibility statements",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicHodgeRegulators:L2",
+       "note": "Shares the (φ,Γ)-module side of the construction, though it applies it to Iwasawa cohomology rather than to GL₂ representations."
+      }
+     ]
+    },
+    "PadicLocalLanglandsForGL2Qp:R30.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Locally algebraic vectors in a Banach representation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; neither Banach representations nor locally algebraic vectors are defined."
+      },
+      {
+       "target": "Identification of the locally algebraic vectors attached to de Rham representations with distinct integral Hodge weights",
+       "library": "absent",
+       "declarations": [],
+       "note": "De Rham representations and Hodge–Tate weights are absent from both libraries; Mathlib's p-adic Hodge theory stops at B_dR⁺/B_dR."
+      },
+      {
+       "target": "Comparison with classical smooth local Langlands and the algebraic weight",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no local Langlands correspondence of any kind in either library."
+      },
+      {
+       "target": "Nonvanishing and density/closure assertions used in modularity lifting",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+       "note": "R16.3 owns the classical GL₂ local Langlands correspondence that this layer compares against, and explicitly records that 'the p-adic Banach correspondence of R30 is different theory'."
+      },
+      {
+       "layer": "PadicHodgeTheory:R06.3",
+       "note": "R06.3 owns the potentially semistable Weil–Deligne parameter of a de Rham representation, the object on the Galois side of this comparison."
+      }
+     ]
+    },
+    "PadicLocalLanglandsForGL2Qp:R30.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Blocks of the category of smooth mod-p representations of GL₂(Q_p)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No block decomposition of any representation category exists in either library; every `Block` hit in declarations.tsv is either `MulAction.IsBlock` (blocks of a permutation action) or unrelated probability/combinatorics."
+      },
+      {
+       "target": "Projective envelopes in those blocks",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.IsProjectiveCover",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Module/ProjectiveCover/Basic.lean",
+         "line": 105,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.IsProjectiveCover.exists_isMinimalProjectivePresentation",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Module/MinimalProjectivePresentation/Existence.lean",
+         "line": 103,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.IsInjectiveEnvelope",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Module/Injective/Envelope.lean",
+         "line": 101,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.IsMinimalProjectivePresentation",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Module/MinimalProjectivePresentation/Basic.lean",
+         "line": 133,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has projective covers and injective envelopes of modules with uniqueness, existence and the minimal-presentation comparison — the module-theoretic prototype of what the layer needs. They are stated for `Module R M`, not for a smooth-representation category of a p-adic group, which does not exist."
+      },
+      {
+       "target": "Endomorphism-ring comparison of the projective envelope with a local deformation or pseudodeformation ring",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; deformation rings do not exist in either library (see the LocalGaloisDeformationRings entries in this same batch), nor do pseudodeformation rings."
+      },
+      {
+       "target": "Support and multiplicity statements for the local Breuil–Mézard results",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'breuil'` over both Lean trees returns nothing."
+      },
+      {
+       "target": "Separate treatment of absolutely irreducible, reducible and exceptional blocks, and the small-p distinction",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicLocalLanglandsForGL2Qp:R30.2",
+       "note": "R30.2 proves 'the finiteness and compactness results needed for projective envelopes and deformation-theoretic endomorphism rings' and the mod-p block classification; R30.5 constructs the envelopes and the comparison on top of them."
+      },
+      {
+       "layer": "LocalGaloisDeformationRings:R08.1",
+       "note": "The local (pseudo)deformation ring that R30.5 compares its endomorphism ring against is owned there."
+      }
+     ]
+    },
+    "PadicLocalLanglandsForGL2Qp:R30.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Paškūnas 2015: the p≥5 deformation/block comparison under scalar residual endomorphisms",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `grep -rn -i 'paskunas|paškūnas'` over both Lean trees returns nothing, and every input (blocks, projective envelopes, deformation rings) is missing."
+      },
+      {
+       "target": "Hu–Tan 2015: the p≥5 split/non-scalar-endomorphism cases",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Tung 2021a: the p=3 modularity-lifting input with its block and globalisation hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Paškūnas 2016 plus Tung 2021b: the p=2 deformation/local–global route",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "A theorem-hypothesis table replacing one unqualified 'p-adic local Langlands theorem', with the exceptional-block proofs as construction targets",
+       "library": "absent",
+       "declarations": [],
+       "note": "The table itself is bookkeeping, but the layer states that 'the full exceptional-block proofs remain R30.5–R30.6 construction targets', so mathematical content remains here; none of it is in the libraries."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GL2ModularityLifting:R32.2",
+       "note": "R32.2 'accounts for the progression from Kisin/Emerton to Paškūnas, Hu–Tan and Tung' and applies exactly these local theorems, including the p=3 case; R30.6 owns their local statements."
+      },
+      {
+       "layer": "CompletedCohomologyAndLocalGlobalCompatibility:R31.6",
+       "note": "R31.6 supplies the local–global compatibility statements for the same branches of R32 and audits their globalisation inputs; R30.6 fences its own results as purely local."
+      },
+      {
+       "layer": "PadicLocalLanglandsForGL2Qp:R30.5",
+       "note": "The layer itself says the exceptional-block proofs are shared R30.5–R30.6 construction targets."
       }
      ]
     }
