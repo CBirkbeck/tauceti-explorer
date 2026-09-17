@@ -1441,6 +1441,10 @@
       {
        "layer": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons",
        "note": "Identifies the explicit K₃ model with the degree-three homotopy group of the K-theory space, the comparison K₃(A) ≅ H₃(St(A), ℤ) made here."
+      },
+      {
+       "layer": "StableHomotopyKTheory:H.3",
+       "note": "Constructs X ↦ X⁺_P for a perfect normal subgroup with its universal property, and its stated test is exactly this layer's method: plus of a perfect group's classifying space is simply connected with the same integral homology, after which Hurewicz computes the first nonzero homotopy group."
       }
      ]
     },
@@ -2908,7 +2912,12 @@
        "note": "Absent with K₁."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "ArithmeticKTheory:N.1",
+       "note": "Restates the determinant isomorphism K₁(O_{F,S}) ≅ O_{F,S}ˣ and the separation of K₁(F) = Fˣ from the finitely generated S-unit group, this layer's canonical identification, although N.1 presents it as imported from U."
+      }
+     ]
     },
     "KTheoryLowDegrees:U.5": {
      "verdict": "not built",
@@ -3212,9 +3221,23 @@
          "file": "TauCeti/CategoryTheory/Exact/Projective.lean",
          "line": 320,
          "fit": "related"
+        },
+        {
+         "name": "Module.IsStablyFree",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/StablyFree/Basic.lean",
+         "line": 33,
+         "fit": "related"
+        },
+        {
+         "name": "Module.IsStablyFree.of_free_prod",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/StablyFree/Basic.lean",
+         "line": 70,
+         "fit": "related"
         }
        ],
-       "note": "Every element is a difference [P] − [Q] (`SplitK0.exists_eq_sub`). The comparison with Mathlib's group completion of the monoid of isomorphism classes (`SplitK0.grothendieckAddGroupEquiv`) and Schanuel's lemma are present. Missing: the statement that [P] = [Q] exactly when P ⊕ Rⁿ ≅ Q ⊕ Rⁿ for some n, which would follow from the group-completion comparison and cofinality of free modules."
+       "note": "Every element is a difference [P] − [Q] (`SplitK0.exists_eq_sub`). The comparison with Mathlib's group completion of the monoid of isomorphism classes (`SplitK0.grothendieckAddGroupEquiv`) and Schanuel's lemma are present. Missing: the statement that [P] = [Q] exactly when P ⊕ Rⁿ ≅ Q ⊕ Rⁿ for some n, which would follow from the group-completion comparison and cofinality of free modules. Mathlib does name the one-sided case: `Module.IsStablyFree R M` says M ⊕ N is free for some finite free N, over any ring, with `IsStablyFree.of_free_prod` as its constructor and `IsStablyFree.equiv` for transport; this is the P ⊕ Rⁿ ≅ Rᵐ case (Q free), not the general [P] = [Q] ↔ P ⊕ Rⁿ ≅ Q ⊕ Rⁿ criterion the layer asks for."
       },
       {
        "target": "Scalar extension and Morita functoriality of ring K₀",
@@ -4028,5 +4051,35 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-29",
+  "date": "2026-09-17",
+  "checked": 199,
+  "corrections": [
+   {
+    "layer": "KTheoryLowDegrees:Z.1",
+    "target": "Object-class induction and equality of classes by stable isomorphism",
+    "was": "partial, citing only Tau Ceti's SplitK0 lemmas; the note did not mention Mathlib's name for stable freeness",
+    "now": "partial, with `Module.IsStablyFree` (Mathlib/Algebra/Module/StablyFree/Basic.lean:33) and `IsStablyFree.of_free_prod` added as related, and the note saying which case they cover",
+    "why": "`IsStablyFree` is the standard Mathlib name for the notion this target is phrased in; it gives the Q-free special case of stable isomorphism, so it belongs in the entry even though the verdict (partial) is unchanged."
+   },
+   {
+    "layer": "KTheoryLowDegrees:U.4",
+    "target": "(duplicates)",
+    "was": "no duplicates listed",
+    "now": "ArithmeticKTheory:N.1 added",
+    "why": "N.1 states 'Import Z and U to obtain K₀(O_{F,S}) ≅ ℤ ⊕ Cl(O_{F,S}) and the determinant isomorphism K₁(O_{F,S}) ≅ O_{F,S}ˣ', which is U.4's target; the audit already listed N.1 as a duplicate of Z.4 for the K₀ half."
+   },
+   {
+    "layer": "K3BlochGroups:V.1",
+    "target": "(duplicates)",
+    "was": "only GeneralAlgebraicKTheory:K.2:low-degree-comparisons listed",
+    "now": "StableHomotopyKTheory:H.3 added",
+    "why": "This layer's target 'Plus construction of BSt(A) and comparison with the appropriate connected cover' names the construction H.3 owns; the audit already lists an imported owner as a duplicate elsewhere (RT.4:topological for L.1, CR.4 for L.5, RT.1–RT.3 for L.4)."
+   }
+  ],
+  "notes": "Checked all 199 target entries (177 distinct targets: 133 absent, 34 partial, 6 mathlib, 4 tauceti), all 304 declaration citations and all 75 duplicate claims. Citations: every one resolves in declarations.tsv at exactly the stated library, file and line (0 mismatches); all 157 cited files exist in the pinned trees and none contains `sorry`; no axiom, structure-field or `private` declaration is cited. I opened and read the statement, the enclosing `variable` lines and the hypotheses of every declaration cited for a target marked mathlib/tauceti/partial, and they match the notes, including the generality caveats (Small.{v} k for SplitK0.finrankEquiv; FinitePresentation + Flat for isLocallyConstant_rankAtStalk; IsDomain for ClassGroup.equivPic; Finite (MaximalSpectrum R) for free_of_flat_of_finrank_eq; IsArtinianRing for simpleClassBasis; IsIntegral + IsNoetherian + coheight ≤ 1 for classGroupToLineBundleClass_injective). Absent/partial claims: I re-searched every distinct target by concept and by Mathlib naming convention, with grep -rn -i over both whole Lean trees and grep -i -P over declarations.tsv. Independently confirmed as absent: Steinberg groups of a ring, Milnor K-theory, Steinberg/tame/Dennis–Stein symbols, Matsumoto, Weil reciprocity (Tau Ceti has only the apparatus: Divisor.eval, disjoint-support moving, deg div = 0 — no theorem states f(div g) = g(div f)), Bloch/pre-Bloch groups, five-term relations, cross-ratios, dilogarithms, Suslin's sequence, configuration complexes, homological stability, Hurewicz, the plus construction, Gabber/Suslin rigidity, Bocksteins, Brauer lifting, Adams operations, λ-rings and γ-filtrations, topological K-theory and Bott periodicity (Tau Ceti's Clifford periodicity is algebraic), Hochschild/THH/TR/TC, de Rham–Witt, Hilbert symbols, a Brauer invariant map, local Tate duality, Galois Tate twists ℤ_p(j) (Tau Ceti's tateTwist is for Hodge structures), unimodular rows, Mennicke symbols, stable range, the Dieudonné determinant (Mathlib has only Dieudonné's generation theorem), Whitehead's lemma, GL(A) as a colimit and any block-sum GL_m × GL_n → GL_{m+n}, the Steinitz classification in rank ≥ 2, projectivity of exterior powers of projectives, det : K₀ → Pic, the projective-bundle formula, perfect complexes of modules, and K₀ of a scheme. Neither library has any K_n for n ≥ 1, and Mathlib has no K₀ or Grothendieck group of modules at all — all K₀ in this batch is Tau Ceti's. Two further checks worth recording: there is no Picard *group* of a scheme in either tree (Mathlib has only CommRing.Pic; Tau Ceti's LineBundleClass is a CommMonoid whose docstring says inverses are deliberately not asserted), so Z.5's 'absent' is right; and the S-unit rank formula is genuinely missing — Tau Ceti's SInteger/Unit.lean proves only finite generation and says the rank refinement is not there, and Mathlib's DedekindDomain/SUnit.lean (PR #40791) is not in the pin. Duplicates: all 75 cited layer ids exist in the atlas, none belongs to the one retired roadmap, and each claim matches the cited layer's description. I swept all ~1960 atlas layer descriptions for the batch's vocabulary and found three near misses that are correctly excluded — EllipticKTheory:E.4 defines a curve SK₁ and explicitly says to keep it distinct from U.3's stable-matrix SK₁; SpecialValuesBirchTate:B.3 consumes K₂(ℤ) ≅ ℤ/2 rather than proving it; ArithmeticKTheory:N.3:ranks only cautions that the K₁ rank is the S-unit rank — and two that were missing, added above. Verdicts are consistent with the targets throughout: the five 'partly built' layers are exactly the five with at least one present and one missing target, and no layer has every target present."
  }
 }
