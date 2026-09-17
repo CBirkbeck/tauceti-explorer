@@ -191,7 +191,7 @@
          "library": "tauceti",
          "file": "TauCeti/RepresentationTheory/GaloisLattice/FiniteQuotient.lean",
          "line": 108,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "TauCeti.GaloisLatticeCat.separableActionFieldRepresentation",
@@ -201,7 +201,7 @@
          "fit": "special case"
         }
        ],
-       "note": "Tau Ceti proves open stabilisers imply an open kernel for any finite module, and that the action then factors through a finite (separable) Galois quotient, but only packages the factorisation for Z-lattices; the converse and the stated equivalence for finite coefficient rings are not recorded."
+       "note": "Tau Ceti proves open stabilisers imply an open kernel for any finitely generated module, that every open subgroup of the Galois group of a normal extension has finite quotient, and that the action then factors through a finite separable Galois quotient, but only packages the factorisation for Z-lattices; the converse and the stated equivalence for finite coefficient rings are not recorded."
       },
       {
        "target": "Reduction of a lattice followed by semisimplification, and independence of the lattice via characteristic polynomials and characteristic-p Brauer-Nesbitt",
@@ -296,6 +296,13 @@
          "fit": "special case"
         },
         {
+         "name": "ValuationSubring.decompositionSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/RamificationGroup.lean",
+         "line": 30,
+         "fit": "related"
+        },
+        {
          "name": "Ideal.inertia",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/Ideal/Defs.lean",
@@ -310,7 +317,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib gives a continuous map of absolute Galois groups from a field embedding (for example K into its completion), explicitly depending on a chosen embedding of algebraic closures; conjugacy independence is not proved. Decomposition and inertia subgroups exist only for finite Galois extensions."
+       "note": "Mathlib gives a continuous map of absolute Galois groups from a field embedding (for example K into its completion), explicitly depending on a chosen embedding of algebraic closures, and defines the decomposition and inertia subgroups of a valuation subring of an arbitrary extension L/K (no finiteness or Galois hypothesis). What is missing is the arithmetic content: a decomposition group attached to a place of a number field inside the absolute Galois group, and independence of the choice of place or embedding up to conjugacy. Tau Ceti's decomposition groups are for a finite extension of number fields or a place of a function field."
       },
       {
        "target": "Tame characters and fundamental characters of levels one and two",
@@ -457,6 +464,10 @@
       {
        "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
        "note": "Proves Artin conductor formulas for rank-two Weil-Deligne parameters in explicit GL2 coordinates."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+       "note": "Owns Tate's algorithm over a DVR, the algorithmic (Ogg) exponent v(Delta) - m + 1 and its identification with the ramification-theoretic conductor, and Neron-Ogg-Shafarevich; that identification is the elliptic-curve conductor comparison asked for here."
       }
      ]
     },
@@ -589,6 +600,10 @@
       {
        "layer": "IntegralHeckeAndGaloisDeterminants:IHG.1",
        "note": "Proves reconstruction of semisimple representations from determinants over algebraically closed fields."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+       "note": "Owns the Chebotarev density theorem itself (hasDirichletDensity_frobeniusPrimeSet, value #C/#G over every number field), the Frobenius density this layer consumes for recognition and for the determinant comparison."
       }
      ]
     },
@@ -804,6 +819,10 @@
       {
        "layer": "AutomorphicGaloisRepresentationsPartII:AG2.7",
        "note": "The rank-n constructions of AG2.2-AG2.4 produce these rank-two representations again; AG2.7 compares its GL2 special case with R19 by uniqueness."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+       "note": "Owns the analytic Eichler-Shimura route through modular symbols, giving the integral Hecke algebra and the coefficient field as a number field: the same coefficient-field and integral-structure target as this layer's eigenspace, by a different route from the geometric cohomology here."
       }
      ]
     },
@@ -1029,6 +1048,10 @@
       {
        "layer": "CompletedCohomologyAndLocalGlobalCompatibility:R31.3",
        "note": "Constructs the Galois determinant and representation over the completed Hecke algebra and the map from the deformation ring, the completed analogue."
+      },
+      {
+       "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+       "note": "Restates the same target for the ordinary Hecke algebra: the Galois representation or determinant law over it, and the map from the ordinary deformation ring, with the pseudorepresentation formalism in the residually reducible case."
       }
      ]
     }
@@ -1965,6 +1988,10 @@
       {
        "layer": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
        "note": "Supplies the Snowden-form geometric realizations of the terminal weight-two systems and their reduction checks."
+      },
+      {
+       "layer": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+       "note": "Owns Schoof's semistable small-prime theorem (no positive-dimensional semistable abelian variety over Q with good reduction outside one prime in {2,3,5,7,13}), the prime-5 nonexistence theorem this layer applies."
       }
      ]
     },
@@ -2256,5 +2283,28 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-31",
+  "date": "2026-09-17",
+  "checked": 160,
+  "corrections": [
+   {
+    "layer": "ArithmeticGaloisRepresentations:R01.2",
+    "target": "Restriction to a decomposition group through a place or an embedding into a local separable closure, with independence of the choice up to conjugacy",
+    "was": "note: \"Decomposition and inertia subgroups exist only for finite Galois extensions.\"",
+    "now": "note rewritten; added ValuationSubring.decompositionSubgroup (Mathlib/RingTheory/Valuation/RamificationGroup.lean:30, related)",
+    "why": "False. ValuationSubring.decompositionSubgroup and ValuationSubring.inertiaSubgroup are defined for an arbitrary field extension L/K and an arbitrary valuation subring of L, with no finiteness or Galois hypothesis. What is genuinely missing is the arithmetic content: a decomposition group at a place of a number field inside the absolute Galois group, and conjugacy independence. The library classification (partial) and the layer verdict are unchanged."
+   },
+   {
+    "layer": "ArithmeticGaloisRepresentations:R01.1",
+    "target": "Finite Galois factorisation versus continuity for finite coefficients",
+    "was": "Field.absoluteGaloisGroup.finite_quotient_of_isOpen, fit \"exact\"",
+    "now": "fit \"related\"; note sharpened (Module.Finite is finitely generated, and the finite-quotient theorem is about open subgroups of any normal extension)",
+    "why": "The theorem states that Gal(L/K)/U is finite for an open subgroup U of the Galois group of any normal extension. That is one input to the target, not the stated equivalence between continuity and factorisation through a finite Galois quotient for finite coefficient rings."
+   }
+  ],
+  "notes": "Re-checked all 97 declaration citations (75 distinct): every one matches declarations.tsv on name, library, file and line, no cited file contains sorry, and the statements read at those lines match the audit's notes. Namespaces were confirmed in the file for the Tau Ceti citations whose prefix could have been wrong. Independently re-searched every absent and partial claim by concept over declarations.tsv and both Lean trees: no Weil group or Weil-Deligne representation, no Artin or Swan conductor (Mathlib's higher ramification groups are still a TODO and Tau Ceti's are for places of a function field), no Brauer-Nesbitt or semisimplification, no tame or fundamental characters, no Tate module or Weil pairing (only divisor-calculus preparation), no Dickson classification (only Dickson polynomials), no absolute irreducibility, no modular curves, Kuga-Sato varieties, Eichler-Shimura relation, Hilbert modular forms, Shimura varieties, local Langlands, Satake transform, trace formula, endoscopy, eigenvarieties, dagger spaces, rigid cohomology, nearby cycles, crystalline or semistable comparison, deformation rings, patching, completed cohomology, Iwasawa algebras, locally analytic or admissible representations, Serre weights, or any of the named source theorems (Langlands-Tunnell, Skinner-Wiles, Schoof, Fontaine, Kisin, Buzzard, Pan, Rohrlich-Tunnell, Snowden). Apparent hits that are not the concept: Hodge-Tate resolves to the Tate Hodge structure Q(n) in TauCeti/Geometry/Hodge, Steinberg to groups of Lie type and the GL2(F_q) character table, Ramanujan to RamanujanFormula.lean, Iwasawa to MulAction.IwasawaStructure, Jacobian to Jacobian coordinates, and the 337 Fredholm declarations to operator index theory whose Riesz results need IsRCLikeNormedField, not Serre's Fredholm determinants of completely continuous operators. Tau Ceti's Chebotarev directory (83 declarations) has Frobenius prime sets, ramified primes, tagged fibres and von Mangoldt weights but no density conclusion, as the audit says. No target is claimed present anywhere in the batch, so \"not built\" is the right verdict for all 44 mathematical layers; the three \"process\" layers (the AG2.1 aggregate, R26.1's source decomposition and R31.6's export-and-dependency audit) match their descriptions and the pattern of accepted audits. All 54 duplicates were confirmed against the atlas; five more were added."
  }
 }
