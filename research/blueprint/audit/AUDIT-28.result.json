@@ -1,0 +1,3002 @@
+{
+ "job": "AUDIT-28",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "BorelRegulators": {
+   "summary": "Nothing in the Borel-regulator chain exists in either library. There is no algebraic K-theory above K₀ in Mathlib or Tau Ceti (Tau Ceti has a substantial categorical K₀ — TauCeti.SplitK0/ExactK0/AbelianK0/TriangulatedK0 with the resolution theorem — but no plus construction, no K_n for n≥1, no rational Hurewicz), so the rank theorem, the regulator maps r_j and the covolume statements have no carrier at all. The arithmetic-group infrastructure (Siegel sets, Borel–Serre compactification, Tamagawa measures, orders in central division algebras) is equally absent, although the ingredients underneath it — general Haar measure, the adele ring of a number field, central simple algebras and Brauer groups — are present in both libraries. What the libraries genuinely do have towards R.4–R.5 is the j=1 shadow of the whole picture: NumberField.Units.regulator as a ZLattice covolume, the full-rank unit lattice (Dirichlet), and the Dedekind zeta function together with the class number formula for its residue at s=1 (Mathlib) and its Euler product (Tau Ceti). Genuinely missing: continuation and functional equation of ζ_F (Mathlib has these only for ζ and Dirichlet L-functions over ℚ), relative Lie-algebra cohomology and van Est, Deligne cohomology, polylogarithms and the Bloch–Wigner function, and every Tamagawa-measure statement.",
+   "layers": {
+    "BorelRegulators:R.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Restriction of scalars (Weil restriction) for algebraic groups, and the induced arithmetic subgroup",
+       "library": "partial",
+       "declarations": [],
+       "note": "Neither library has Weil restriction of scalars for group schemes or algebraic groups: greps for `weilRestriction`, `WeilRestriction`, `RestrictionOfScalars` over group objects return nothing. Only module/algebra-level restriction of scalars (Mathlib's `RestrictScalars`, Tau Ceti's `CommAlgCat.restrictScalars`) exists, which is the wrong direction."
+      },
+      {
+       "target": "Haar measure and Tamagawa measure on an adelic algebraic group",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Measure.haarMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Haar/Basic.lean",
+         "line": 521,
+         "fit": "related"
+        },
+        {
+         "name": "MeasureTheory.Measure.haar",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Haar/Basic.lean",
+         "line": 584,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.AdeleRing",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "General Haar measure on a locally compact group and the adele ring of a number field both exist, but nothing named or described as a Tamagawa measure does: `grep -rn -i tamagawa` over both trees returns no hits. The convergence factors, local measures and their product are absent."
+      },
+      {
+       "target": "Reduction theory: minimal rational parabolics, Siegel sets, finite covering of the arithmetic quotient, finite volume",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Siegel sets, no reduction theory: `siegel`, `SiegelSet`, `reduction theory` return nothing in either tree. AdelicAlgebraicGroups:AA.3 is the declared upstream owner and is itself unbuilt."
+      },
+      {
+       "target": "Borel–Serre compactification, finite-complex models for arithmetic quotients, torsion-stabilizer descent",
+       "library": "absent",
+       "declarations": [],
+       "note": "`borel.serre` matches nothing in either library; there is no manifold-with-corners compactification of a locally symmetric space and no finiteness-property theory for arithmetic groups."
+      },
+      {
+       "target": "Orders in central division algebras over a number field, and Borel's block-inclusion maps",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Algebra.IsCentral",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Central/Defs.lean",
+         "line": 67,
+         "fit": "related"
+        },
+        {
+         "name": "BrauerGroup",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/BrauerGroup/Defs.lean",
+         "line": 99,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.IsSimpleRing.exists_algEquiv_matrix_centralDivisionRing",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/CentralSimple/Wedderburn.lean",
+         "line": 92,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.BrauerGroup.exists_eq_mk_centralDivisionRing",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/BrauerGroup/Division.lean",
+         "line": 69,
+         "fit": "related"
+        }
+       ],
+       "note": "Central simple algebras, Wedderburn, Skolem–Noether, splitting and the Brauer group are developed in both libraries (Mathlib.Algebra.Central/BrauerGroup, TauCeti.Algebra.CentralSimple/BrauerGroup), but the *arithmetic* of orders — maximal orders in a division algebra over a number field, their unit groups as arithmetic groups — is absent (`maximal order` matches nothing)."
+      },
+      {
+       "target": "Finite generation / finite-type homotopy properties of arithmetic groups",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Subgroup.FG",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/Finiteness.lean",
+         "line": 303,
+         "fit": "related"
+        }
+       ],
+       "note": "The abstract predicate `Subgroup.FG` exists, but no arithmetic group is proved finitely generated or of finite type; even SL₂(ℤ) has no finite-generation theorem in Tau Ceti's Matrix.SpecialLinearGroup files."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdelicAlgebraicGroups:AA.3",
+       "note": "AA.3 is the declared owner of Siegel sets, reduction theory, finite covering and finite volume; R.1 restates the same targets as an import and then specialises them to division-algebra orders."
+      },
+      {
+       "layer": "ArithmeticLocallySymmetricSpaces:ALS.2",
+       "note": "ALS.2 owns the Borel–Serre compactification, its manifold-with-corners structure and the homotopy equivalence from the interior, which R.1 lists as imported targets."
+      },
+      {
+       "layer": "ArithmeticKTheory:N.3:finite-generation",
+       "note": "N.3:finite-generation proves finite generation of K_n(O_{F,S}) and explicitly develops 'the arithmetic-group finiteness and finite-type homotopy input in Quillen's proof', the same finiteness infrastructure R.1 asks for."
+      }
+     ]
+    },
+    "BorelRegulators:R.2": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Continuous group-cochain complex of a topological group with topological coefficients",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "ContinuousCohomology.map",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Functoriality.lean",
+         "line": 148,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.ContinuousCohomology.res",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Functoriality.lean",
+         "line": 127,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContinuousCohomology.infl",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Functoriality.lean",
+         "line": 187,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContinuousCohomology.zeroIsoNatIso",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/DegreeZero.lean",
+         "line": 155,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines continuous cochain cohomology Hⁿ(G,X) for a topological group acting on a topological module, and Tau Ceti builds a large API on it (restriction, inflation, corestriction, cup products, Shapiro, long exact sequence, low degrees, compact/discrete comparison). This covers the continuous-cochain half of the layer. It is stated for topological groups in general, not for real Lie groups, and there is no differentiable-cochain complex and no smoothing comparison."
+      },
+      {
+       "target": "Relative Lie-algebra cochain complex C*(g,K;V) and its cohomology",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "LieModule.Cohomology.d₁₂",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Cochain.lean",
+         "line": 100,
+         "fit": "special case"
+        },
+        {
+         "name": "LieModule.Cohomology.d₂₃",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Cochain.lean",
+         "line": 122,
+         "fit": "special case"
+        },
+        {
+         "name": "LieModule.Cohomology.twoCocycle",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Cochain.lean",
+         "line": 155,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib has only the bottom of the Chevalley–Eilenberg complex — one- and two-cochains with d₁₂, d₂₃ and two-cocycles, built for Lie-algebra extensions (file is sorry-free). There is no cochain complex in all degrees, no Lie-algebra cohomology functor, and nothing relative to a compact subgroup K."
+      },
+      {
+       "target": "Complex of G-invariant V-valued differential forms on G/K and its identification with relative Lie cochains",
+       "library": "absent",
+       "declarations": [],
+       "note": "No invariant-form complex on a homogeneous space; `invariant forms` and `G/K` searches find only Lie-theoretic invariant bilinear forms (Mathlib.Algebra.Lie.InvariantForm), which is unrelated."
+      },
+      {
+       "target": "van Est isomorphism H*_cont(G,V) ≅ H*(g,K;V)",
+       "library": "absent",
+       "declarations": [],
+       "note": "`vanest` matches no declaration and `van Est` no docstring in either tree."
+      },
+      {
+       "target": "Comparison to the arithmetic subgroup; compatibility with block inclusions, primitive classes and coefficient extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the previous three targets and on arithmetic quotients, none of which exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicFormsOnReductiveGroups:AF.1a",
+       "note": "AF.1a is explicitly the owner of continuous/differentiable cochain complexes, the invariant-form complex on G/K, its identification with relative Lie cochains and van Est; R.2's first sentence imports exactly that list, leaving only the arithmetic-subgroup comparison as R.2's own content."
+      },
+      {
+       "layer": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
+       "note": "ALS.5 owns the comparison between invariant forms and cohomology of the arithmetic quotient, which is the comparison R.2 says it will construct."
+      }
+     ]
+    },
+    "BorelRegulators:R.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Stable cohomology of the compact duals of the classical groups (exterior algebra on primitive generators)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library computes H*(U(n);ℚ), H*(O(n);ℚ) or their stable limits; there is no cohomology ring of a Lie group at all, and no fibration-based computation."
+      },
+      {
+       "target": "Stable-range comparison between arithmetic-group cohomology and the compact dual, with explicit bounds",
+       "library": "absent",
+       "declarations": [],
+       "note": "Requires the arithmetic quotients of R.1 and the invariant-form complex of R.2; none present."
+      },
+      {
+       "target": "Rational Hurewicz theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "`hurewicz` matches no declaration in either library; Mathlib has no Hurewicz theorem, rational or integral."
+      },
+      {
+       "target": "Plus-construction comparison K_n(R) = π_n(BGL(R)⁺)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No plus construction: `plusConstruction`, `quillenPlus`, `BGL` all return nothing. There is no higher algebraic K-theory in either library."
+      },
+      {
+       "target": "Borel's Proposition 12.2: rank K_i of an order in a central division algebra, period-four pattern 0, r₁+r₂, 0, r₂",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.InfinitePlace.nrRealPlaces",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+         "line": 437,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.InfinitePlace.nrComplexPlaces",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+         "line": 441,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Units.rank",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+         "line": 359,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only the invariants r₁, r₂ and the i=1 case (Dirichlet's unit rank r₁+r₂−1, which is K₁ of the ring of integers up to the class group) exist. The theorem itself has no statement, since K_i is undefined for i≥2."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticKTheory:N.3:ranks",
+       "note": "N.3:ranks states the same period-four rank formula for K_n(O_{F,S}); it declares that it consumes R.3's cohomology theorem rather than reproving it, so the two layers state the same conclusion at different generality (order in a division algebra vs S-integers)."
+      },
+      {
+       "layer": "GeneralAlgebraicKTheory:K.2:plus",
+       "note": "K.2:plus owns the plus construction and the comparison π_n(BGL(R)⁺) ≅ K_n(R) that R.3 lists as an input."
+      },
+      {
+       "layer": "StableHomotopyKTheory:H.6",
+       "note": "Declared prerequisite supplying the rational homotopy/Hurewicz input R.3 uses."
+      },
+      {
+       "layer": "StableHomotopyKTheory:H.3",
+       "note": "H.3 owns the plus construction X → X⁺_P with its acyclic universal property and the Hurewicz computation of the first nonzero homotopy group — exactly the step R.3 uses to convert primitive cohomology into K-ranks."
+      }
+     ]
+    },
+    "BorelRegulators:R.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Normalised continuous-cohomology Borel classes and their pairing with K-theory homology classes",
+       "library": "absent",
+       "declarations": [],
+       "note": "`borelRegulator`, `borelClass` match nothing. Continuous cohomology exists as a functor (Mathlib ContinuousCohomology) but no specific classes for GL_n(ℂ) are constructed."
+      },
+      {
+       "target": "The component regulator for an embedding F ↪ ℂ and complex-conjugation parity",
+       "library": "absent",
+       "declarations": [],
+       "note": "No construction; the only `regulator` in either library is NumberField.Units.regulator, the classical unit regulator."
+      },
+      {
+       "target": "The assembled map r_j : K_{2j-1}(F) → V_j(F) with dim V_j = r₁+r₂ (j odd), r₂ (j even), and its naturality/transfer/Adams-weight compatibilities",
+       "library": "absent",
+       "declarations": [],
+       "note": "K_{2j-1}(F) does not exist, so neither the source nor the map can be stated; Adams operations on K-theory are also absent."
+      },
+      {
+       "target": "Determinant line, regulator covolume of the torsion-free K-group, and full-lattice image",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.Units.regulator",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+         "line": 266,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.Units.unitLattice",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+         "line": 174,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.Units.dirichletUnitTheorem.unitLattice_span_eq_top",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+         "line": 318,
+         "fit": "special case"
+        },
+        {
+         "name": "ZLattice.covolume",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+         "line": 72,
+         "fit": "more general"
+        }
+       ],
+       "note": "The j=1 instance of this exact package is fully proved in Mathlib: the unit lattice is a full ℤ-lattice (Dirichlet), its covolume is `NumberField.Units.regulator`, and `ZLattice.covolume` is the general covolume machinery with basis-independence. The roadmap document does not mention this. For j≥2 nothing exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticKTheory:N.3:finite-generation",
+       "note": "R.4 explicitly consumes N.3's finite generation of K_n(O_{F,S}); the two layers share the finite-generation-to-lattice step."
+      },
+      {
+       "layer": "SpecialValuesBirchTate:B.8",
+       "note": "The roadmap document's producer–consumer note says B.8 uses R.4's lattice/determinant normalisation, so the determinant-line conventions are stated twice."
+      }
+     ]
+    },
+    "BorelRegulators:R.5": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The Dedekind zeta function of a number field",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "NumberField.dedekindZeta",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 49,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.dedekindZeta_eulerProduct_hasProd",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 386,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.dedekindZeta_ne_zero_of_one_lt_re",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 408,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.abscissaOfAbsConv_dedekindZetaCoeff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Estimates.lean",
+         "line": 485,
+         "fit": "related"
+        }
+       ],
+       "note": "ζ_F is defined in Mathlib as the L-series of the ideal-counting function, and Tau Ceti proves its Euler product, non-vanishing for Re s > 1 and abscissa of absolute convergence. Both are sorry-free."
+      },
+      {
+       "target": "Completed zeta with archimedean factors, analytic continuation and functional equation",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "completedRiemannZeta",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+         "line": 68,
+         "fit": "special case"
+        },
+        {
+         "name": "differentiable_completedZeta₀",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+         "line": 90,
+         "fit": "special case"
+        },
+        {
+         "name": "DirichletCharacter.IsPrimitive.completedLFunction_one_sub",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 284,
+         "fit": "special case"
+        },
+        {
+         "name": "Complex.Gammaℝ",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+         "line": 45,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has completion, continuation and the functional equation only for the Riemann zeta function and Dirichlet L-functions over ℚ (via Hurwitz zeta and Mathlib.NumberTheory.LSeries.AbstractFuncEq), together with Deligne's Γℝ/Γℂ factors. Nothing continues ζ_F past Re s > 1 for a general number field, and there is no Hecke/Tate proof; `NumberField.dedekindZeta` has no continuation lemma."
+      },
+      {
+       "target": "Tate integrals / Poisson summation route with normalised Haar measures and discriminant",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Real.tsum_eq_tsum_fourier",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/PoissonSummation.lean",
+         "line": 102,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.AdeleRing",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "Poisson summation over ℝ and the adele ring exist, but there are no adelic Schwartz–Bruhat functions, no local or global Tate zeta integrals, and no adelic Poisson summation."
+      },
+      {
+       "target": "Order of vanishing of ζ_F at 1−j equals dim V_j(F), for j≥2, and the leading coefficient",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not statable: ζ_F is only defined on its half-plane of convergence, and V_j(F) is undefined. The analogous statement for the Riemann zeta function (trivial zeros) is in Mathlib but only for F = ℚ and only via `riemannZeta_neg_two_mul_nat_add_one`."
+      },
+      {
+       "target": "Borel's regulator theorem: rational proportionality of the leading coefficient and the regulator covolume",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 77,
+         "fit": "special case"
+        }
+       ],
+       "note": "The j=1 analogue — the Dirichlet class number formula relating the residue of ζ_F at s=1 to the regulator, class number, torsion order and discriminant — is fully proved in Mathlib, sorry-free. That is the only proportionality statement available; Borel's theorem for j≥2 is absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+       "note": "AL.1 owns the Tate zeta integrals, local functional equation, gamma factors and the global continuation/functional equation by Poisson summation that R.5's first paragraph imports."
+      },
+      {
+       "layer": "DirichletPadicLFunctions:KU-zeta",
+       "note": "KU-zeta is the readiness checkpoint for the completed Dedekind zeta function and its special values, aggregating DirichletPadicLFunctions:L0 and AL.1 — the same continuation/functional-equation package R.5 imports."
+      }
+     ]
+    },
+    "BorelRegulators:R.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Local Haar/Tamagawa measures on an algebraic group over a local field and their product over all places",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Measure.haarMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Haar/Basic.lean",
+         "line": 521,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.AdeleRing",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the general existence/uniqueness of Haar measure on a locally compact group and the adele ring are available; there is no measure on an adelic group, no convergence factors, and no Tamagawa number."
+      },
+      {
+       "target": "Finite-volume integrals of the adelic quotient and the discriminant/archimedean conversion factors",
+       "library": "absent",
+       "declarations": [],
+       "note": "No finiteness-of-volume theorem for G(F)\\G(𝔸)¹ exists; `Tamagawa` has no hits at all."
+      },
+      {
+       "target": "Primitive cohomology pairings and the comparison of Bloch's Tamagawa formulation with Borel's",
+       "library": "absent",
+       "declarations": [],
+       "note": "Both sides of the comparison (R.3/R.4 Borel classes and the Tamagawa description) are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdelicAlgebraicGroups:AA.3",
+       "note": "AA.3 proves finite volume of G(F)\\G(𝔸)¹ and supplies the reduction theory that the Tamagawa-measure integrals in R.6 rest on."
+      },
+      {
+       "layer": "Polylogarithms:P.2",
+       "note": "R.6 is a declared prerequisite of P.2 and both restate Bloch's lecture-series identification of the abstract regulator; the hyperbolic-volume/cross-ratio computation is P.2's."
+      },
+      {
+       "layer": "PeriodsAndSpecialValues:PS.4",
+       "note": "PS.4 computes bad-prime Euler and Tamagawa factors inside integral determinant lines, restating the Tamagawa-measure bookkeeping R.6 develops."
+      }
+     ]
+    },
+    "BorelRegulators:R.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The Beilinson/Deligne regulator on motivic cohomology",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Deligne cohomology (`DeligneCohomology`, `deligne cohomology` have no hits) and no motivic cohomology, so the target of the comparison does not exist."
+      },
+      {
+       "target": "The precise scalar between Borel's and Beilinson's normalisations (the factor-of-2 convention) and its r-th power on determinants",
+       "library": "absent",
+       "declarations": [],
+       "note": "Both maps are absent, so the scalar is not statable."
+      },
+      {
+       "target": "Weight-two test against the Bloch–Wigner regulator",
+       "library": "absent",
+       "declarations": [],
+       "note": "The Bloch–Wigner dilogarithm does not exist in either library; the only mention of a dilogarithm anywhere is a docstring aside in Mathlib/Analysis/SpecialFunctions/Integrals/LogTrigonometric.lean, with no definition."
+      },
+      {
+       "target": "Zero-rank cases over ℚ and the rank-one weight-two regulator of an imaginary quadratic field",
+       "library": "absent",
+       "declarations": [],
+       "note": "Requires K₃ and the Bloch–Wigner map; neither exists."
+      },
+      {
+       "target": "Coordinate-free maps versus computational matrices, with the linking equality",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing to export."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "Polylogarithms:P.2",
+       "note": "P.2 already assembles the embedding-wise Bloch–Wigner map for a number field and compares it with the Borel class including sign and scalar — the same weight-two comparison R.7 uses as its test."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.6",
+       "note": "Declared prerequisite: M.6 builds the motivic spectral sequence and the rational weight decomposition K_m(X)_ℚ^(j) ≅ H^{2j-m}(X,ℚ(j)) on which the Beilinson regulator is defined."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.8",
+       "note": "Consumer of R.7's comparison; the Borel-to-Beilinson scalar appears on both sides of that handoff."
+      }
+     ]
+    }
+   }
+  },
+  "EllipticKTheory": {
+   "summary": "The elliptic-curve half of this roadmap is far better supplied than the K-theory half. Mathlib has Weierstrass curves in affine, projective and Jacobian models with the full point group, division polynomials, normal forms and reduction; Tau Ceti adds function-field isogenies with degree, separability, kernels, invariant differentials and Frobenius, a Riemann-Roch/divisor theory for function fields, and — the sharpest hit — a sorry-free proof that E(F) is the degree-zero divisor class group (WeierstrassCurve.Affine.pointEquivDegreeZeroDivisorClass) together with the Cl ≅ Pic⁰ ⊕ ℤ degree splitting and the principality of n(T)-n(O) at an n-torsion point. What is missing is everything K-theoretic: neither library has K₀ of a scheme, K₁, K₂, K₃, a localisation sequence, tame symbols, coniveau spectral sequences, Adams operations or projective-bundle theorems, and the only K-theory present is Tau Ceti's categorical K₀ of exact/abelian/triangulated categories, which is not applied to coherent sheaves. Also absent: the elliptic curve as a Scheme (Mathlib has the general Proj construction but no curve built from it), regular proper models of arithmetic surfaces, and Tate modules. E.2's Pic⁰(E) ≅ E(F) and E.7's torsion-divisor function are genuinely already built and the roadmap treats them as work to do.",
+   "layers": {
+    "EllipticKTheory:E.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The smooth projective scheme of a Weierstrass equation over a field, with its section at infinity",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.«Proj»",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Scheme.lean",
+         "line": 854,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Projective.Point",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Projective/Point.lean",
+         "line": 356,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Proj of an ℕ-graded ring as a Scheme, and Weierstrass curves in affine, projective and Jacobian coordinates, but no elliptic curve is ever produced as an `AlgebraicGeometry.Scheme`: `grep -rn Scheme` over both libraries' EllipticCurve directories returns nothing. The projective model is a quotient of a point set, not a scheme."
+      },
+      {
+       "target": "Affine-chart equations, smoothness, properness, geometric connectedness, regularity of the curve",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Nonsingular",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Basic.lean",
+         "line": 211,
+         "fit": "related"
+        }
+       ],
+       "note": "Nonsingularity of a Weierstrass point is defined pointwise in Mathlib, but there is no scheme to be smooth, proper, geometrically connected or regular; Tau Ceti's AlgebraicGeometry/Scheme/Regular.lean and Morphisms/Smooth/GeometricallyReduced.lean are general and unconnected to curves."
+      },
+      {
+       "target": "Identification of the function field of the scheme",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.functionField",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/FunctionField.lean",
+         "line": 37,
+         "fit": "more general"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.FunctionField",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+         "line": 95,
+         "fit": "related"
+        }
+       ],
+       "note": "Both halves exist separately: Mathlib defines the function field of an irreducible scheme and the function field of a Weierstrass curve as the fraction field of its coordinate ring, but the two are never compared, because the scheme does not exist."
+      },
+      {
+       "target": "Comparison of scheme-valued F-points and their group law with the existing Weierstrass point group",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+         "line": 478,
+         "fit": "related"
+        }
+       ],
+       "note": "The Weierstrass point group with its group law is fully built in Mathlib (affine, projective and Jacobian, with equivalences between them), but there is no scheme-valued functor of points to compare it with."
+      },
+      {
+       "target": "Comparison of function-field isogenies with scheme morphisms; degree, separability, kernels, pullbacks of divisors, invariant differentials",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Basic.lean",
+         "line": 139,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.degree",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Degree.lean",
+         "line": 99,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.frobeniusIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Frobenius/Basic.lean",
+         "line": 106,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.separableDegree_frobeniusIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Frobenius/Basic.lean",
+         "line": 163,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has a complete function-field isogeny theory — coordinate pullbacks, degree, separability, kernel, differential, Frobenius, [n], base change — which is the 'existing function-field isogenies' side of the comparison and which the layer already treats as given. Every target of this layer nevertheless needs the scheme, which does not exist, so the comparison itself, the treatment of the zero morphism as a scheme map and the identification of divisor pullbacks under it are all absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SchemeKTheoryOperations:S.1",
+       "note": "Declared prerequisite supplying the scheme-theoretic setting; E.1 is its elliptic specialisation."
+      },
+      {
+       "layer": "EllipticRegulators:ER.1",
+       "note": "ER.1 builds the analytic elliptic curve and its uniformisation on top of E.1's scheme; the two layers both fix the curve's model and its origin."
+      }
+     ]
+    },
+    "EllipticKTheory:E.2": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "K₀(X) ≅ ℤ ⊕ Pic(X) for a connected regular noetherian curve (rank–determinant isomorphism)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AbelianK0",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Abelian.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ExactK0",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+         "line": 162,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has K₀ of an essentially small exact or abelian category with the resolution theorem, but K₀ of a scheme (of its vector bundles or coherent sheaves) is never defined, so the rank–determinant isomorphism has no statement. The Picard group is also not defined as a group: TauCeti.AlgebraicGeometry.LineBundleClass is only a commutative monoid, inverses being deferred."
+      },
+      {
+       "target": "Class of a closed point, class of a line bundle, degree map, Euler characteristic, pushforward to the base",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.AbelianK0.eulerChar",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/EulerCharacteristic.lean",
+         "line": 242,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Divisor.degree",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+         "line": 51,
+         "fit": "related"
+        }
+       ],
+       "note": "Divisor degree and a categorical Euler characteristic exist, but not as maps out of a scheme's K₀; no pushforward of K-classes to the base exists."
+      },
+      {
+       "target": "Picard decomposition by degree on an elliptic curve with rational origin",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.classGroupAddEquivPicZeroProdInt",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/Degree/Splitting.lean",
+         "line": 227,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.classGroupQuotientPicZeroEquivIntOfWeightOne",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/Degree/Image/Splitting.lean",
+         "line": 63,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves Cl(X) ≅ Pic⁰(X) × ℤ for an order system with a weight-one rational point, which is exactly the degree splitting of the Picard group at a rational origin, and in greater generality than the elliptic case. Sorry-free."
+      },
+      {
+       "target": "Pic⁰(E) ≅ E(F)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.pointEquivDegreeZeroDivisorClass",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/DivisorClass.lean",
+         "line": 79,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.val_pointEquivDegreeZeroDivisorClass_some",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/DivisorClass.lean",
+         "line": 88,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.degreeClass_divisorClass_pointPlace_sub_infinity",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/DivisorClass.lean",
+         "line": 68,
+         "fit": "related"
+        }
+       ],
+       "note": "Fully proved and sorry-free: the points of a Weierstrass curve over a field with Dedekind coordinate ring are the degree-zero divisor classes of its function field, with the computation rule sending an affine point P to the class of (P)-(O). This is Silverman III.3.4, stated over an arbitrary field, and it uses the rational origin exactly as the layer requires. The roadmap does not record it."
+      },
+      {
+       "target": "K₀(E) ≃ ℤ ⊕ ℤ ⊕ E(F) as a group, with tensor-product multiplication",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the first target; K₀ of the curve is undefined. Tau Ceti's SplitK0 ring structure (TauCeti.SplitK0.instCommRing) shows the tensor-product multiplication pattern at the categorical level only."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "KTheoryLowDegrees:Z.5",
+       "note": "E.2's first sentence imports Z.5's rank–determinant isomorphism K₀(X) ≅ ℤ ⊕ Pic(X) verbatim; Z.5 is the owner. Z.5 (vector bundles and curves) owns Pic of a curve and its degree decomposition; Tau Ceti’s classGroupAddEquivPicZeroProdInt already realises the abstract Pic ≅ Pic⁰ ⊕ ℤ splitting E.2 restates."
+      },
+      {
+       "layer": "SchemeKTheoryOperations:S.3",
+       "note": "Declared prerequisite owning K₀ of a scheme, line-bundle classes and the degree map that E.2 identifies."
+      }
+     ]
+    },
+    "EllipticKTheory:E.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The localisation sequence for a curve in degrees 0–3, over all closed points",
+       "library": "absent",
+       "declarations": [],
+       "note": "No K-theory localisation sequence of any kind; `localisationSequence`, `LocalizationSequence` have no hits, and K₁, K₂, K₃ are undefined."
+      },
+      {
+       "target": "The tame symbol ∂ : K₂(F(X)) → ⊕_x k(x)× with its order/sign convention",
+       "library": "absent",
+       "declarations": [],
+       "note": "`tameSymbol` matches nothing and there is no K₂ of a field; the closest object is Tau Ceti's function-field valuation/place API, which supplies orders but no symbols."
+      },
+      {
+       "target": "div : F(X)× → ⊕_x ℤ and exactness at K₀(X) → ℤ → 0",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.principalHom",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Principal.lean",
+         "line": 128,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Divisor.degreeClass",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean",
+         "line": 263,
+         "fit": "related"
+        }
+       ],
+       "note": "The divisor map of a rational function and the class group exact sequence exist in Tau Ceti's function-field divisor theory, which is the bottom row of the displayed sequence; the K-theoretic terms above it do not."
+      },
+      {
+       "target": "Naturality for open immersions and finite maps, with residue-field norms and ramification multiplicities",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.ramificationIdx",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean",
+         "line": 294,
+         "fit": "related"
+        }
+       ],
+       "note": "Ramification indices, residue degrees and norms of places exist for Dedekind domains and function fields in both libraries, but there is nothing K-theoretic for them to act on."
+      },
+      {
+       "target": "Comparison theorems: K₂(k(x)) torsion over a number field, zero over a finite field",
+       "library": "absent",
+       "declarations": [],
+       "note": "K₂ of a field is undefined, so neither the torsion statement nor the finite-field vanishing can be stated."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.4",
+       "note": "T is the declared owner of the tame symbol and its order/sign convention, which E.3 reuses as its boundary map."
+      },
+      {
+       "layer": "KTheoryLowDegrees:Z.5",
+       "note": "Z.5's low-degree localisation results supply the K₀/K₁ end of the same sequence."
+      }
+     ]
+    },
+    "EllipticKTheory:E.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Image of K₁(X) in F(X)× equal to F× for a proper geometrically connected curve with H⁰(X,O_X)=F",
+       "library": "absent",
+       "declarations": [],
+       "note": "K₁ of a scheme is undefined; H⁰(X,O_X) as a coherent-cohomology statement also has no elliptic instance (Tau Ceti has general sheaf cohomology in AlgebraicGeometry/Cohomology but no curve computation)."
+      },
+      {
+       "target": "SK₁ of a curve as the kernel of that map, identified with the cokernel of the tame-symbol map; constant-unit splitting",
+       "library": "absent",
+       "declarations": [],
+       "note": "`SK1` matches nothing in either library, in either the curve or the stable-matrix sense."
+      },
+      {
+       "target": "Two-column coniveau spectral sequence of a curve and its filtration",
+       "library": "absent",
+       "declarations": [],
+       "note": "`coniveau` has no hits; Mathlib has spectral sequences of filtered complexes in general homological algebra but no coniveau tower."
+      },
+      {
+       "target": "Adams operations and rational motivic comparison; weight eigenspaces with finite coefficients and base change",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Adams operations (`adams` has no hits) and no motivic cohomology."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K3BlochGroups:V.4",
+       "note": "Declared prerequisite: V.4 owns the indecomposable K₃ of a field that E.4 distinguishes from the curve's extra geometry."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.6a",
+       "note": "M.6a owns the coniveau/support filtration and the homotopy-coniveau tower; E.4 restates the two-column case for a curve."
+      },
+      {
+       "layer": "SchemeKTheoryOperations:S.7",
+       "note": "S owns the Adams operations and the Chern character E.4 applies."
+      }
+     ]
+    },
+    "EllipticKTheory:E.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "K-theory pullback for arbitrary morphisms and pushforward for proper perfect morphisms; comparison with transfer for finite flat maps",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ExactK0.map",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+         "line": 438,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has functoriality of categorical K₀ for conflation-exact functors, which would be the mechanism, but no scheme-level pullback or pushforward exists because K₀ of a scheme is undefined."
+      },
+      {
+       "target": "Projection formula f_*f^*(a) = [f_*O_X]·a and the isogeny pull–push computation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing to state; Tau Ceti's isogeny degree theory (TauCeti.Isogeny.degree) exists but there is no K-theory for it to act on."
+      },
+      {
+       "target": "K-theory of P¹ via the projective-bundle theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "`projectiveBundle` has no hits in either library."
+      },
+      {
+       "target": "K-theory of an elliptic curve over a finite field via Frobenius on the Jacobian/Tate module; K₁(E/F_q) ≅ F_q× ⊕ F_q×",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.frobeniusIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Frobenius/Basic.lean",
+         "line": 106,
+         "fit": "related"
+        }
+       ],
+       "note": "The Frobenius isogeny with its degree and separable degree exists in Tau Ceti, but there is no Tate module (`TateModule` has no hits), no Hasse bound and no K-theory of a finite-field curve."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticKTheory:N.3:finite-generation",
+       "note": "Declared prerequisite; E.5 says the finite-curve theorem's proof includes its finite-generation input, which N.3 owns."
+      },
+      {
+       "layer": "KTheoryFiniteLocalFields:L.1",
+       "note": "L.1 is Quillen’s finite-field calculation, the input E.5 uses for the elliptic curve over F_q and the K₁(E/F_q) computation."
+      }
+     ]
+    },
+    "EllipticKTheory:E.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "A regular proper flat model 𝒔 over O_{F,S} of E/F, with minimal-regular-model / resolution results, local charts, vertical components and intersection multiplicities",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.IsIntegral",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 59,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.exists_isIntegral",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 160,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Model.IsProper",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Model/Basic.lean",
+         "line": 72,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has integral Weierstrass models over a DVR and the reduction machinery; Tau Ceti has an abstract stable-reduction model framework with numerical types and fibres. Neither produces a regular proper flat model of an elliptic curve over a ring of S-integers, and `NeronModel`, `minimalModel`, `arithmeticSurface` all have no hits."
+      },
+      {
+       "target": "The rational integral part K₂(E)_{ℤ,ℚ} = im(K₂(𝒔)⊗ℚ → K₂(E)⊗ℚ) and its S-integral variant",
+       "library": "absent",
+       "declarations": [],
+       "note": "K₂ of a scheme is undefined."
+      },
+      {
+       "target": "Model independence via comparison of regular models, blow-up and localisation formulas",
+       "library": "absent",
+       "declarations": [],
+       "note": "No blow-ups of arithmetic surfaces and no K-theoretic localisation."
+      },
+      {
+       "target": "The vertical-residue description using residue fields of vertical components and codimension-two compatibility",
+       "library": "absent",
+       "declarations": [],
+       "note": "Requires residues on K₂ of a two-dimensional regular scheme; absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SchemeKTheoryOperations:S.7",
+       "note": "Declared prerequisite supplying the Chern character and operations used to define the integral part."
+      },
+      {
+       "layer": "EllipticRegulators:ER.6",
+       "note": "ER.6 restates the integral part and the Beilinson statement for it; the definition of K₂(E)_ℤ appears in both layers."
+      }
+     ]
+    },
+    "EllipticKTheory:E.7": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "A candidate class as a finite sum ∑{f_i,g_i} in K₂(F(E)), with rational functions from the coordinate/function-field API",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.FunctionField",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+         "line": 95,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.isIntegral_eval_of_isIntegral",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/FunctionField.lean",
+         "line": 82,
+         "fit": "related"
+        }
+       ],
+       "note": "The rational-function API of the curve (coordinate ring, function field, places, valuations, norms) is well developed in Mathlib and Tau Ceti, but K₂ and the Steinberg symbol {f,g} do not exist, so the sum has no home."
+      },
+      {
+       "target": "Divisors and local leading units of the chosen functions, with finite-support certificates",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.CoordinateRing.pointPlace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/Place.lean",
+         "line": 119,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.infinity",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/PointPlace.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "Places of the curve's function field, the place at infinity, valuations and divisors of functions are available and finite-support divisors are proved; the tame-symbol certificate itself is not statable."
+      },
+      {
+       "target": "Rational functions attached to torsion divisors by the Picard/Riemann–Roch criterion",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.exists_principal_zsmul_pointPlace_sub_infinity",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/TorsionDivisor.lean",
+         "line": 42,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.pointEquivDegreeZeroDivisorClass",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/DivisorClass.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.exists_isRiemannRochDivisor",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Differential/CanonicalDivisor.lean",
+         "line": 412,
+         "fit": "related"
+        }
+       ],
+       "note": "Exactly the layer's requirement 'not by an assumed existence field': Tau Ceti proves sorry-free that at an n-torsion point T the divisor n(T)-n(O) is the divisor of a function, deriving it from the Picard criterion (pointEquivDegreeZeroDivisorClass) rather than positing the function. Riemann–Roch spaces and the canonical divisor are also available."
+      },
+      {
+       "target": "Bloch's Proposition 10.1.1: multiplication by C and constant-symbol corrections remove tame residues; the classes S_a and their independence modulo torsion and constants",
+       "library": "absent",
+       "declarations": [],
+       "note": "Requires K₂ and tame symbols; absent."
+      },
+      {
+       "target": "Transfer and norm/descent formulas for non-rational torsion points",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.map",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/BaseChange.lean",
+         "line": 212,
+         "fit": "related"
+        }
+       ],
+       "note": "Base change of the curve and its isogenies along a field extension exists, and function-field norms are developed (Affine/FunctionField/Norm.lean), but K-theoretic transfer does not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EllipticRegulators:ER.4",
+       "note": "ER.4 uses the same Bloch classes S_a and the divisor formula; the construction of the symbols is stated in both layers, with ER.4 owning the regulator comparison."
+      },
+      {
+       "layer": "EllipticRegulators:ER.5",
+       "note": "ER.5's complete CM example re-derives the explicit symbol certificates E.7 constructs."
+      }
+     ]
+    },
+    "EllipticKTheory:E.8": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Public API supplying K₀–K₃ from one functor, the K₀ computation, localisation, coniveau, functoriality, and symbol interfaces",
+       "library": "absent",
+       "declarations": [],
+       "note": "This layer is an acceptance criterion aggregating E.1–E.7 rather than a new mathematical target; none of the aggregated K-groups exist."
+      },
+      {
+       "target": "One nontrivial symbol certificate, one non-rational closed-point residue, one bad-fibre integrality calculation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Worked examples over the missing K₂ theory."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EllipticKTheory:KU-symbols",
+       "note": "The KU-symbols readiness checkpoint aggregates E.7 and E.8 and states the same completion condition."
+      }
+     ]
+    }
+   }
+  },
+  "EllipticRegulators": {
+   "summary": "Almost none of this roadmap exists, because its two pillars — K₂ of a curve and Deligne cohomology — are absent from both libraries, as is the dilogarithm in any form. What is present and relevant: Mathlib has a full Weierstrass ℘-function theory (℘, ℘', g₂, g₃, periodicity and the differential equation ℘'² = 4℘³ - g₂℘ - g₃ over an arbitrary period lattice) and, notably, the Hasse–Weil L-function of a Weierstrass curve with its local Euler factors at good, split/non-split multiplicative and additive reduction; Tau Ceti has singular homology, abstract weight-one Hodge structures with polarisations and Tate twists, newforms with strong multiplicity one, the Petersson product, and a large contour-integration library. Genuinely missing: the uniformisation E(ℂ) ≅ ℂ/Λ, the Tate presentation ℂ×/q^ℤ, algebraic de Rham cohomology and the period comparison, the real Deligne complex, the regulator form η(f,g), the elliptic dilogarithm D_q and its companion J_q, Bloch's divisor formula, Hecke/Größen characters and CM theory of elliptic curves, the conductor of an elliptic curve, modular curves as schemes, modular units and Manin–Drinfeld, Rankin–Selberg, and syntomic cohomology.",
+   "layers": {
+    "EllipticRegulators:ER.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The complex manifold of a smooth projective elliptic curve",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no elliptic curve as a scheme (see EllipticKTheory:E.1) and no complex-manifold structure on one; `RiemannSurface` has no hits in either library."
+      },
+      {
+       "target": "Complex uniformisation E(ℂ) ≅ ℂ/Λ, the Weierstrass functions and the period lattice",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "PeriodPair",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 60,
+         "fit": "related"
+        },
+        {
+         "name": "PeriodPair.lattice",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "PeriodPair.weierstrassP",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 268,
+         "fit": "related"
+        },
+        {
+         "name": "PeriodPair.derivWeierstrassP_sq",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 1075,
+         "fit": "related"
+        },
+        {
+         "name": "PeriodPair.finrank_lattice",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 156,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the period lattice of an ℝ-independent pair, ℘ and ℘' with local uniform convergence, periodicity, parity, meromorphy, pole orders, the Eisenstein coefficients G, g₂, g₃ and the proved relation ℘'² = 4℘³ - g₂℘ - g₃ (sorry-free). What is missing is the map going the other way: that z ↦ (℘(z), ℘'(z)) is a group isomorphism ℂ/Λ ≅ E(ℂ), and that every lattice arises from an elliptic curve."
+      },
+      {
+       "target": "Invariant differentials, homology of the curve and the intersection pairing",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TopPair.singularHomology",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicTopology/Singular/Relative.lean",
+         "line": 165,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.CoordinateRing.basis",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+         "line": 117,
+         "fit": "related"
+        }
+       ],
+       "note": "Singular homology of a topological pair with its long exact sequence exists in Tau Ceti, but no homology of a torus is computed and no intersection pairing exists. The invariant differential of a Weierstrass curve appears only in Tau Ceti's isogeny differential file, algebraically."
+      },
+      {
+       "target": "The multiplicative presentation ℂ×/q^ℤ, q = exp(2πiτ), Im τ > 0, and change-of-basis transformations",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "UpperHalfPlane",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/UpperHalfPlane/Basic.lean",
+         "line": 25,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Periodic.hasDerivAt_qParam",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Complex/Periodic.lean",
+         "line": 96,
+         "fit": "related"
+        }
+       ],
+       "note": "The upper half-plane and the q-parameter exp(2πiτ/h) with its analytic properties exist and are used throughout the modular-forms development, but there is no Tate curve ℂ×/q^ℤ (`TateCurve` has no hits) and no identification of it with ℂ/Λ."
+      },
+      {
+       "target": "All complex embeddings of a number field with conjugation action, carried through the analytic construction",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.InfinitePlace",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.InfinitePlace.IsComplex",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+         "line": 188,
+         "fit": "related"
+        }
+       ],
+       "note": "Infinite places, real/complex classification and the conjugation action on embeddings are complete in Mathlib; only the elliptic-curve payload they are supposed to carry is missing."
+      },
+      {
+       "target": "Comparison of algebraic de Rham cohomology, holomorphic differentials and singular cohomology; the period matrix and its nondegeneracy",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Structure.lean",
+         "line": 62,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.eigenspace_weilOperator_I",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/WeightOne/Basic.lean",
+         "line": 106,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has abstract pure Hodge structures with Hodge decomposition, Weil operator, polarisation and Tate twists, including the weight-one case that an elliptic curve realises. Algebraic de Rham cohomology of a variety does not exist in either library (`deRham` matches only the perfectoid period ring B_dR), so there is no comparison isomorphism and no period matrix."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EllipticKTheory:E.1",
+       "note": "Declared prerequisite; E.1 owns the algebraic curve and ER.1 the analytic side, but both fix the model, the origin and the invariant differential."
+      },
+      {
+       "layer": "ComplexComparisonPartII:C5",
+       "note": "C5 is the algebraic de Rham–Betti comparison ER.1 says it will coordinate with a verified supplier rather than reprove."
+      }
+     ]
+    },
+    "EllipticRegulators:ER.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The real Deligne complex, its hypercohomology and the degree-two weight-two exact sequence",
+       "library": "absent",
+       "declarations": [],
+       "note": "Deligne cohomology does not exist in either library: `DeligneCohomology` and the phrase 'Deligne cohomology' have no hits. Hypercohomology of a complex of sheaves is also not available."
+      },
+      {
+       "target": "The symbol regulator r_D : K₂(E) → H²_D(E_ℝ, ℝ(2)) and the dimension of its target",
+       "library": "absent",
+       "declarations": [],
+       "note": "Both source and target are undefined."
+      },
+      {
+       "target": "The form η(f,g) = log|f| d arg g - log|g| d arg f with its differential identity and behaviour at zeros and poles",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Complex.arg",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Complex/Arg.lean",
+         "line": 30,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Contour.argumentPrinciple_nullHomologous",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Contour/Argument/Cycle.lean",
+         "line": 110,
+         "fit": "related"
+        }
+       ],
+       "note": "The analytic ingredients (complex argument, logarithmic derivatives, winding numbers, residues, contour integration along piecewise-C¹ cycles) are strongly developed in Tau Ceti's Analysis/Contour library, but there is no notion of a differential 1-form on a curve, so η(f,g) cannot be written down as stated."
+      },
+      {
+       "target": "The Steinberg relation via the Bloch–Wigner dilogarithm",
+       "library": "absent",
+       "declarations": [],
+       "note": "No dilogarithm and no Steinberg relation (`steinbergRelation`, `Steinberg.*relation` have no hits in a K-theoretic sense)."
+      },
+      {
+       "target": "Tame-symbol triviality giving the period pairing; independence of representatives, cuts and punctured cycles; the 2π factor and orientation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Requires the tame symbol and Deligne cohomology; neither exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "Polylogarithms:P.2",
+       "note": "Declared prerequisite: P.2 owns the Bloch–Wigner function, which ER.2 uses to prove the Steinberg relation, and the comparison with the universal regulator normalisation."
+      },
+      {
+       "layer": "EllipticKTheory:E.3",
+       "note": "ER.2's final paragraph compares the function-field formula with E.3's localisation restriction image; the tame-symbol boundary appears in both."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.7",
+       "note": "The universal Chern/Deligne regulator ER.2 normalises against belongs to the motivic roadmap."
+      }
+     ]
+    },
+    "EllipticRegulators:ER.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The elliptic Bloch–Wigner dilogarithm D_q as a convergent q-orbit sum",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither the ordinary dilogarithm Li₂ nor the Bloch–Wigner function exists in either library; the only mention of Li₂ anywhere is a docstring aside in Mathlib/Analysis/SpecialFunctions/Integrals/LogTrigonometric.lean."
+      },
+      {
+       "target": "The regularised logarithmic companion J_q and Bloch's convention R_q = J_q + iD_q",
+       "library": "absent",
+       "declarations": [],
+       "note": "No hits."
+      },
+      {
+       "target": "Convergence, Bernoulli-polynomial correction, invariance under z ↦ qz, inversion, conjugation and lattice-basis change",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Polynomial.bernoulli",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
+         "line": 51,
+         "fit": "related"
+        }
+       ],
+       "note": "Bernoulli polynomials and their basic identities exist in Mathlib, and Tau Ceti has ample machinery for interchanging sums and integrals, but the functions whose properties are asserted do not exist."
+      },
+      {
+       "target": "Fourier/Kronecker–Eisenstein descriptions with justified interchange of sums and integrals",
+       "library": "absent",
+       "declarations": [],
+       "note": "`KroneckerEisenstein` has no hits; Eisenstein series exist in Mathlib only as modular forms on the upper half-plane, not as Kronecker–Eisenstein series in two variables."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "Polylogarithms:P.1",
+       "note": "The Polylogarithms roadmap owns the classical dilogarithm and Bloch–Wigner function; ER.3's elliptic version reuses its convergence and functional-equation patterns."
+      }
+     ]
+    },
+    "EllipticRegulators:ER.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The diamond convolution (f)⋄(g) = ∑ m_i n_j [Q_j - P_i] on divisors, with its sign convention",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+         "line": 43,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Divisor.principalHom",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Principal.lean",
+         "line": 128,
+         "fit": "related"
+        }
+       ],
+       "note": "Divisors of functions and their formal ℤ-linear algebra exist for function fields in Tau Ceti; the convolution indexed by differences of points and the translation to the group law is not defined."
+      },
+      {
+       "target": "The formula relating R_q({f,g}) to evaluation on that divisor, and independence of permitted lifts",
+       "library": "absent",
+       "declarations": [],
+       "note": "Requires R_q from ER.3 and the symbol {f,g} from E.7; neither exists."
+      },
+      {
+       "target": "Regulator of Bloch's corrected classes S_a via the divisors of ρ and f_a; vanishing of constant-symbol corrections",
+       "library": "absent",
+       "declarations": [],
+       "note": "No hits for Bloch's functions or classes."
+      },
+      {
+       "target": "Finite Fourier transform on C-torsion and the odd-function identities",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ZMod.dft",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/ZMod.lean",
+         "line": 88,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the discrete Fourier transform on ZMod n with inversion and Parseval, which is the shape of the finite Fourier transform used; it is not attached to the C-torsion of an elliptic curve."
+      },
+      {
+       "target": "Transfer and the trace formula for the regulator",
+       "library": "absent",
+       "declarations": [],
+       "note": "No K-theoretic transfer."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EllipticKTheory:E.7",
+       "note": "Declared prerequisite: E.7 constructs the classes S_a and Bloch's Proposition 10.1.1 corrections that ER.4 evaluates; the construction of the classes is described in both layers."
+      },
+      {
+       "layer": "EllipticRegulators:ER.5",
+       "note": "ER.5 re-uses the finite Fourier transform on C-torsion and the S_a combination, stating the normalisation 1/C again."
+      }
+     ]
+    },
+    "EllipticRegulators:ER.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "A CM elliptic curve over ℚ with multiplication by the full ring of integers of an imaginary quadratic field of class number one",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.classNumber",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+         "line": 64,
+         "fit": "related"
+        }
+       ],
+       "note": "Class numbers and imaginary quadratic fields are available, but complex multiplication of elliptic curves does not exist in either library: `hasCM`, `ComplexMultiplication` have no hits and the endomorphism ring of a Weierstrass curve is not constructed."
+      },
+      {
+       "target": "The associated Hecke (Größen)character and Deuring's comparison with the Hasse–Weil L-function, with conductor and local Euler factors including bad primes",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.LFunction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.localEulerFactor",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.localPolynomial",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 43,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.HasGoodReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 325,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines the Hasse–Weil L-function of a Weierstrass curve with its local polynomial at every place — good reduction 1 - aT + qT², split multiplicative 1 - T, non-split 1 + T, additive 1 — so the bad-prime Euler factors the layer insists on are already built (sorry-free). Hecke characters do not exist (`HeckeCharacter`, `Grossencharacter` have no hits), so Deuring's comparison cannot be stated; neither is the conductor of an elliptic curve defined."
+      },
+      {
+       "target": "Lecture 11's conductor/torsion data C = fg, the finite character, roots of unity and the Gauss/Fourier transform",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "gaussSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/GaussSum.lean",
+         "line": 72,
+         "fit": "related"
+        },
+        {
+         "name": "ZMod.dft",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/ZMod.lean",
+         "line": 88,
+         "fit": "related"
+        }
+       ],
+       "note": "Gauss sums and the finite Fourier transform on ZMod n, with the standard normalisation lemmas, exist in Mathlib; the elliptic data they are to be applied to does not."
+      },
+      {
+       "target": "The rational K₂ class U as a finite combination of the S_a, with descent to E/ℚ",
+       "library": "absent",
+       "declarations": [],
+       "note": "K₂ is undefined."
+      },
+      {
+       "target": "Bloch's Theorem 11.2.1: L(2, χ^Gross) = π|μ_κ| χ̂(ḡ) g / (i y² C⁴) R_q(U)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Every ingredient (the Hecke L-series, R_q, U) is missing."
+      },
+      {
+       "target": "Nonvanishing of the L-value at s = 2 by absolute convergence and the Euler product",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "EulerProduct.eulerProduct_completely_multiplicative_hasProd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/EulerProduct/Basic.lean",
+         "line": 346,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.dedekindZeta_ne_zero_of_one_lt_re",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 408,
+         "fit": "related"
+        }
+       ],
+       "note": "The general pattern — an Euler product converging absolutely in a half-plane forces non-vanishing — is proved in both libraries (Tau Ceti for ζ_F, Mathlib for completely multiplicative Euler products), so this step is available in principle once the Hecke L-series exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EllipticRegulators:ER.4",
+       "note": "Declared prerequisite; the finite Fourier transform on C-torsion and the S_a classes are set up in ER.4 and re-specified here."
+      },
+      {
+       "layer": "DirichletPadicLFunctions:L0",
+       "note": "Declared prerequisite supplying the L-series conventions and non-vanishing arguments."
+      },
+      {
+       "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+       "note": "CM.4 owns CM Hecke characters and their Galois realisations, which ER.5 constructs again for Bloch’s class-number-one example."
+      }
+     ]
+    },
+    "EllipticRegulators:ER.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Restriction of the regulator to the integral part of K₂",
+       "library": "absent",
+       "declarations": [],
+       "note": "Both the regulator and the integral part (EllipticKTheory:E.6) are undefined."
+      },
+      {
+       "target": "The elliptic Beilinson conjecture: rational structure, determinant line and the period-normalised leading term at s=0",
+       "library": "absent",
+       "declarations": [],
+       "note": "No statement is possible; no determinant of a K-theory lattice exists."
+      },
+      {
+       "target": "Equivalence of the leading-term-at-zero and L(E,2) formulations, including conductor and gamma factors",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Complex.Gammaℝ",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+         "line": 45,
+         "fit": "related"
+        },
+        {
+         "name": "Complex.Gammaℂ",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+         "line": 53,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.LFunction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "Deligne's archimedean gamma factors and the L-function itself exist, but the functional equation of L(E,s) (which the equivalence presupposes) is not proved for any elliptic curve, and the conductor is not defined."
+      },
+      {
+       "target": "The three separated conclusions (nonzero regulator of a class; determinant relation on a subspace; rank and isomorphism on the whole integral part)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Bookkeeping over absent objects."
+      },
+      {
+       "target": "The vertical-residue statement distinguishing generic unramifiedness from arithmetic integrality",
+       "library": "absent",
+       "declarations": [],
+       "note": "Requires residues on K₂ of an arithmetic surface; absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EllipticKTheory:E.6",
+       "note": "Declared prerequisite defining the integral part K₂(E)_ℤ; ER.6 restates the definition in order to restrict the regulator to it."
+      },
+      {
+       "layer": "SpecialValuesBirchTate:B.7",
+       "note": "The Beilinson conjecture statement and its determinant/period normalisation are also stated in the special-values roadmap."
+      }
+     ]
+    },
+    "EllipticRegulators:ER.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Modular units, their divisors at cusps and the Manin–Drinfeld relation",
+       "library": "absent",
+       "declarations": [],
+       "note": "`modularUnit` and `ManinDrinfeld` have no hits; there is no modular curve on which cusps and divisors could live."
+      },
+      {
+       "target": "Modular-curve K₂ classes",
+       "library": "absent",
+       "declarations": [],
+       "note": "`ModularCurve` has no hits in either library: modular forms are developed analytically on the upper half-plane, with no algebraic or analytic modular curve."
+      },
+      {
+       "target": "The regulator integral and its Rankin–Selberg/Hecke evaluation at the stated level and character",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.Newform",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
+         "line": 102,
+         "fit": "related"
+        },
+        {
+         "name": "UpperHalfPlane.peterssonInner_slash_slash_of_det_pos",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Petersson/Adjoint.lean",
+         "line": 119,
+         "fit": "related"
+        },
+        {
+         "name": "ModularForm.eisensteinSeriesMF",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/EisensteinSeries/Basic.lean",
+         "line": 35,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has newforms with Hecke eigenvalues, strong multiplicity one, the Petersson inner product with its adjoint formulas, and Mathlib has Eisenstein series as modular forms — the standard inputs to a Rankin–Selberg unfolding. No unfolding or Rankin–Selberg integral is proved (`RankinSelberg` has no hits)."
+      },
+      {
+       "target": "Pushforward along a modular parametrisation X₀(N) → E and nonvanishing of the resulting class",
+       "library": "absent",
+       "declarations": [],
+       "note": "No modular parametrisation and no modularity theorem exist in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ModularCurvesPartII:R14.6",
+       "note": "Declared prerequisite owning modular curves as schemes and their cusps; ER.7 restates the cusp-divisor and Manin–Drinfeld requirements."
+      },
+      {
+       "layer": "EllipticCurveModularity:R29.6",
+       "note": "Declared prerequisite owning the modular parametrisation and modularity theorem ER.7 uses."
+      },
+      {
+       "layer": "EllipticKTheory:E.7",
+       "note": "Declared prerequisite; the explicit symbol construction and its transfer/descent formulas are stated in both layers."
+      }
+     ]
+    },
+    "EllipticRegulators:ER.8": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The syntomic regulator in the good-reduction case and its comparison with explicit symbols",
+       "library": "absent",
+       "declarations": [],
+       "note": "`syntomic` has no hits; there is no syntomic or rigid cohomology in either library."
+      },
+      {
+       "target": "p-adic elliptic integrals of the explicit symbols (Coleman integration)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Coleman integration; the ColemanIntegration roadmap's subject is also unbuilt in the libraries."
+      },
+      {
+       "target": "The p-adic Beilinson statement with its p-adic L-function, periods and exceptional factors",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "PadicInt",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+         "line": 62,
+         "fit": "related"
+        }
+       ],
+       "note": "p-adic analysis exists but there is no p-adic L-function of an elliptic curve in either library, so the statement cannot be made."
+      },
+      {
+       "target": "Worked examples: P¹ normalisation, CM class U with divisor and residue certificates, non-rational torsion with transfer, arithmetic-model integrality",
+       "library": "absent",
+       "declarations": [],
+       "note": "Examples over absent theory."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicHodgeRegulators:D.5",
+       "note": "Declared prerequisite owning the syntomic regulator in the good-reduction case; ER.8 is its elliptic specialisation."
+      },
+      {
+       "layer": "ColemanIntegration:L1",
+       "note": "L1 builds Frobenius continuation and rigid/de Rham cohomology for a good-reduction curve, the machinery ER.8’s p-adic elliptic integrals require."
+      }
+     ]
+    }
+   }
+  },
+  "GeneralAlgebraicKTheory": {
+   "summary": "Everything in degree zero is built and everything above it is missing. Tau Ceti already owns the exact-category input this roadmap says it will use — TauCeti.ExactStructure with conflations, admissible mono/epi, conflation-exact functors, essential smallness and transport — together with exact K₀ (TauCeti.ExactK0) and its universal property, the split, abelian and triangulated variants, the resolution theorem (TauCeti.ExactStructure.resolutionEquiv), and, crucially for K.2:plus and K.3, the exact category Proj_fg(A) itself: TauCeti.finiteProjectiveModulesExactStructure with the theorem that it is the split structure, the Cartan map K₀(proj R) → G₀(mod R) and the module-level resolution theorem. Mathlib supplies the homotopy-theoretic ingredients that would be needed one level up — the nerve of a category, geometric realisation SSet.toTop, homotopy groups, model categories, CW complexes, the Karoubi envelope, Serre classes with their abelian localisation, and Morita equivalence including the matrix case. What is entirely absent is the K-theory itself: no Q-construction, no K_n for n≥1, no plus construction or BGL(A)⁺, no Waldhausen category or S-construction, no spectra in the stable-homotopy sense, no additivity/dévissage/localisation theorems above degree zero, no relative or nonconnective theory, no Bass Nil terms and no products on higher K-groups.",
+   "layers": {
+    "GeneralAlgebraicKTheory:K.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Quillen exact structures on an additive category (the stated input TauCeti.ExactStructure C)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ExactStructure",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/ExactStructure.lean",
+         "line": 231,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ExactStructure.isProjective_iff",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Projective.lean",
+         "line": 137,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.finiteProjectiveModulesExactStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+         "line": 195,
+         "fit": "related"
+        }
+       ],
+       "note": "The exact-category input is fully built in Tau Ceti, with conflations, admissible monomorphisms and epimorphisms, extension-closed full subcategories, transport along equivalences, projectivity relative to an exact structure, and worked instances (finitely generated modules, finitely generated projectives, modules of finite projective dimension). Sorry-free."
+      },
+      {
+       "target": "The category Q(C) of admissible spans, with pullback composition and representative independence",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Q-construction exists in either library; `Q(C)`, `qConstruction` and similar names return nothing."
+      },
+      {
+       "target": "Essentially small models, transport of the exact structure and independence, natural in exact functors",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ExactStructure.transport",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Equivalence.lean",
+         "line": 197,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ExactK0.transportEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+         "line": 490,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ExactK0.mapEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+         "line": 471,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti transports an exact structure along an equivalence and proves the resulting K₀ is invariant, which is exactly the small-model independence the layer asks for at the level it can currently be stated. The skeleton/shrink choice is made once in GrothendieckGroup/Presentation.lean."
+      },
+      {
+       "target": "K_n(C) = π_{n+1}(|NQ(C)|, 0) with its abelian-group structure",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.nerve",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean",
+         "line": 37,
+         "fit": "related"
+        },
+        {
+         "name": "SSet.toTop",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicTopology/SingularSet.lean",
+         "line": 67,
+         "fit": "related"
+        },
+        {
+         "name": "HomotopyGroup",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Homotopy/HomotopyGroup.lean",
+         "line": 440,
+         "fit": "related"
+        }
+       ],
+       "note": "All three ingredients — the nerve of a category as a simplicial set, its geometric realisation, and π_n of a pointed space with its group structure — exist in Mathlib, but no K-theory space or K-group is defined from them."
+      },
+      {
+       "target": "π₁ NQ(C) ≅ ExactK0 C via the universal property",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ExactK0.liftEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+         "line": 314,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ExactK0.of_conflation",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+         "line": 179,
+         "fit": "related"
+        }
+       ],
+       "note": "The right-hand side and the universal property the comparison is supposed to use are built and sorry-free; the left-hand side is not defined."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "KTheoryLowDegrees:Z.1",
+       "note": "Z.1 owns finitely generated projectives and their presentations, the degree-zero input K.1 builds on; Tau Ceti’s ExactStructure and ExactK0 already supply it (their own source cites the upstream GrothendieckEulerForms roadmap, which is not an atlas roadmap)."
+      },
+      {
+       "layer": "StableHomotopyKTheory:H.1",
+       "note": "Declared prerequisite owning nerves, realisation and homotopy groups of the spaces K.1 forms."
+      },
+      {
+       "layer": "GeneralAlgebraicKTheory:KU-qconstruction",
+       "note": "Readiness checkpoint titled \"Q-construction and existing ExactK0 comparison\", aggregating exactly K.1’s two endpoints."
+      },
+      {
+       "layer": "StableHomotopyKTheory:KU-homotopy",
+       "note": "Checkpoint for nerves, fibres, classifying spaces and Quillen A/B — the topological input K.1 needs before taking πₙ of |NQ(C)|."
+      }
+     ]
+    },
+    "GeneralAlgebraicKTheory:K.2": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The exact category Proj_fg(A) of finitely generated projectives",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.finiteProjectiveModulesExactStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+         "line": 195,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.finiteProjectiveModulesExactStructure_eq_split",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+         "line": 204,
+         "fit": "exact"
+        }
+       ],
+       "note": "Built and sorry-free in Tau Ceti, with the proof that the induced exact structure is the split one; see K.2:plus."
+      },
+      {
+       "target": "Functorial K(A) and the plus comparison ΩQ(Proj_fg(A)) ≃ K₀(A) × BGL(A)⁺ with its cofinality statement",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.SplitK0.grothendieckAddGroupEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Split.lean",
+         "line": 373,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the algebraic shadow (split K₀ is the group completion of the monoid of isomorphism classes) exists; there is no plus construction and no BGL(A). See K.2:plus."
+      },
+      {
+       "target": "Identification of the explicit K₁, K₂ and K₃ models, and Matsumoto's presentation as a field-specific theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "None of K₁, K₂, K₃, the Steinberg group or the Bloch group exists in either library. See K.2:low-degree-comparisons."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeneralAlgebraicKTheory:K.2:plus",
+       "note": "Child stage; K.2 carries the identical description text and adds no target of its own."
+      },
+      {
+       "layer": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons",
+       "note": "Child stage; same description text."
+      }
+     ]
+    },
+    "GeneralAlgebraicKTheory:K.2:plus": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The essentially small exact category Proj_fg(A) built from the module category with projectivity and finiteness predicates",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.finiteProjectiveModulesExactStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+         "line": 195,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.finiteProjectiveModulesExactStructure_conflation_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+         "line": 221,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.finiteProjectiveModulesExactStructure_eq_split",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+         "line": 204,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.finiteModulesExactStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+         "line": 188,
+         "fit": "related"
+        }
+       ],
+       "note": "Built exactly as the layer describes: the full subcategory of finitely generated projectives of ModuleCat R, with the exact structure induced from the abelian one, proved to be the split structure (short exact sequences with projective quotient split) and essentially small. Sorry-free. The roadmap document does not record this."
+      },
+      {
+       "target": "Scalar extension along a unital ring homomorphism preserves finitely generated projectives and their split exact sequences, without a flatness hypothesis",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.Projective.tensorProduct",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/Projective.lean",
+         "line": 240,
+         "fit": "related"
+        },
+        {
+         "name": "ModuleCat.restrictScalars",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean",
+         "line": 85,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves projectivity and finiteness survive base change at the module level, and extension/restriction of scalars is available as a functor on ModuleCat, but it is not packaged as a conflation-exact functor on Tau Ceti's Proj_fg exact structure, and K(A) is not constructed functorially."
+      },
+      {
+       "target": "Functorial K(A)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No higher K-theory functor exists; only K₀ functoriality (TauCeti.ExactK0.map for conflation-exact functors)."
+      },
+      {
+       "target": "Comparison of ΩQ(Proj_fg(A)) with the direct-sum group completion of the maximal subgroupoid; π₀ = K₀(A); zero component ≅ BGL(A)⁺; the product description K₀(A) × BGL(A)⁺",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.SplitK0.grothendieckAddGroupEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Split.lean",
+         "line": 373,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.GrothendieckGroup",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/MonoidLocalization/GrothendieckGroup.lean",
+         "line": 36,
+         "fit": "related"
+        }
+       ],
+       "note": "The purely algebraic shadow — split K₀ is the group completion of the additive monoid of isomorphism classes — is proved in Tau Ceti, and Mathlib has the group completion of a commutative monoid. Nothing topological exists: there is no plus construction, no BGL(A), no infinite-loop space and no stable general linear group (`plusConstruction`, `BGL` have no hits)."
+      },
+      {
+       "target": "Cofinality: every finitely generated projective has a complement making the sum free",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.Projective.of_basis",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/Projective.lean",
+         "line": 152,
+         "fit": "related"
+        },
+        {
+         "name": "Module.Projective",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/Projective.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib characterises projectives as retracts/direct summands of free modules, which gives the complement; the finitely generated refinement (complement can be taken finitely generated, so the sum is finite free) is not stated as a named lemma, and no cofinality consequence for K-groups is drawn."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "KTheoryLowDegrees:U.1",
+       "note": "Declared prerequisite owning BGL(A)⁺ and the classical low-degree models the plus comparison lands in."
+      },
+      {
+       "layer": "KTheoryLowDegrees:Z.1",
+       "note": "Declared prerequisite owning K₀ of a ring; Tau Ceti's finiteProjectiveModulesExactStructure and split-K₀ already realise it."
+      },
+      {
+       "layer": "GeneralAlgebraicKTheory:K.2",
+       "note": "Parent aggregation node with identical text."
+      },
+      {
+       "layer": "StableHomotopyKTheory:H.3",
+       "note": "H.3 constructs the plus construction and its universal property; K.2:plus only identifies the zero component of the K-theory space with BGL(A)⁺."
+      },
+      {
+       "layer": "StableHomotopyKTheory:H.4",
+       "note": "H.4 owns group completion of a symmetric monoidal groupoid and explicitly \"the cofinal stabilisation argument that will identify projective-module group completion with the stable general linear group plus construction\" — the same comparison and the same cofinality statement K.2:plus lists."
+      }
+     ]
+    },
+    "GeneralAlgebraicKTheory:K.2:low-degree-comparisons": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Identification of the explicit K₁ model (GL(A)/E(A)) with π₁ of the K-theory space",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Matrix.GeneralLinearGroup",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+         "line": 43,
+         "fit": "related"
+        }
+       ],
+       "note": "The general linear group of matrices exists in both libraries with a substantial API, but neither the elementary subgroup E(A), the stable colimit GL(A), nor K₁ is defined."
+      },
+      {
+       "target": "Identification of the explicit K₂ model (Steinberg group / H₂(E(A)))",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Steinberg group of a ring: the only `Steinberg` hits are Kostant's Steinberg elements in Tau Ceti's Lie-theory files and a Steinberg basis for quaternion algebras, both unrelated."
+      },
+      {
+       "target": "Identification of the explicit K₃ model",
+       "library": "absent",
+       "declarations": [],
+       "note": "No K₃ and no Bloch group in either library."
+      },
+      {
+       "target": "Matsumoto's presentation of K₂ of a field",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no symbol presentation of any K-group exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "KTheoryLowDegrees:U.6",
+       "note": "Declared prerequisite owning the explicit low-degree models; this stage only combines them."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.1:plus",
+       "note": "Declared prerequisite owning the K₂ model and Matsumoto's theorem."
+      },
+      {
+       "layer": "K3BlochGroups:V.4",
+       "note": "Declared prerequisite owning the K₃ model."
+      },
+      {
+       "layer": "GeneralAlgebraicKTheory:K.2",
+       "note": "Parent aggregation node with identical text."
+      }
+     ]
+    },
+    "GeneralAlgebraicKTheory:K.3": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Additivity for the exact category of conflations, and additivity of exact functors in a short exact sequence",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ExactK0.AdditiveInvariant",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+         "line": 276,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the degree-zero statement (an invariant additive on conflations descends to K₀) exists; there is no K-theory space for the additivity theorem to be about."
+      },
+      {
+       "target": "Dévissage for a full abelian subcategory closed under subobjects and quotients with finite filtrations",
+       "library": "absent",
+       "declarations": [],
+       "note": "`devissage` matches nothing; not even the K₀ form is present."
+      },
+      {
+       "target": "The resolution theorem for a full exact resolving subcategory, with the alternating-resolution inverse in degree zero and the comparison with the existing K₀ resolution theorem",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ExactStructure.resolutionEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/ProjectiveResolution.lean",
+         "line": 393,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ExactStructure.eulerClassOf",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/ProjectiveResolution.lean",
+         "line": 211,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.moduleResolutionEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+         "line": 297,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.cartanMap",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+         "line": 235,
+         "fit": "related"
+        }
+       ],
+       "note": "The degree-zero half of this target — which the layer explicitly calls for ('construct the alternating-resolution inverse in degree zero and compare it to the existing K₀ resolution theorem') — is fully proved and sorry-free: the Euler class of a finite resolution, its independence of the resolution, and the resolution isomorphism, plus the module instance identifying K₀(proj R) with G₀(mod R) when finite projective resolutions exist. The higher-degree resolution theorem is absent."
+      },
+      {
+       "target": "Quillen localisation for a Serre subcategory of a small abelian category and its quotient",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.ObjectProperty.IsSerreClass",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Abelian/SerreClass/Basic.lean",
+         "line": 47,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.ObjectProperty.SerreClassLocalization.isZero_obj_iff",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Abelian/SerreClass/Localization.lean",
+         "line": 132,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Serre classes in an abelian category and the localisation of the category at the corresponding morphisms, with the expected characterisations — the input to Quillen's localisation theorem. The localisation long exact sequence in K-theory does not exist, in any degree."
+      },
+      {
+       "target": "Cofinality with the degree-zero correction (idempotent completion may change K₀)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Idempotents.Karoubi",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Idempotents/Karoubi.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ExactK0.ofLE_surjective",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+         "line": 523,
+         "fit": "related"
+        }
+       ],
+       "note": "The Karoubi envelope exists in Mathlib and Tau Ceti has comparison maps between K₀'s of different exact structures, but no cofinality theorem relating K-groups of a cofinal subcategory is stated."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeneralAlgebraicKTheory:K.4",
+       "note": "Declared prerequisite; K.4 proves additivity for Waldhausen categories, and K.3's additivity for exact categories is the special case obtained through the Q-vs-S comparison."
+      },
+      {
+       "layer": "KTheoryLowDegrees:Z.6",
+       "note": "Z.6 is the degree-zero comparison layer; the K₀ resolution theorem K.3 compares against is stated there and is already proved in Tau Ceti as ExactStructure.resolutionEquiv."
+      },
+      {
+       "layer": "GeneralAlgebraicKTheory:KU-fundamental",
+       "note": "Readiness checkpoint \"Resolution, devissage, relative theory and localisation\", aggregating K.3 with K.4 and K.5 under the same four theorem names."
+      }
+     ]
+    },
+    "GeneralAlgebraicKTheory:K.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The full Waldhausen package: categories with cofibrations and weak equivalences, S_•, additivity, delooping, fibration, approximation, the Q-vs-S comparison and Gillet–Waldhausen",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HomotopicalAlgebra.ModelCategory",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicTopology/ModelCategory/Basic.lean",
+         "line": 43,
+         "fit": "related"
+        }
+       ],
+       "note": "This node aggregates K.4:construction. `Waldhausen` matches nothing in either library. Mathlib's model-category and cofibration/weak-equivalence machinery (HomotopicalAlgebra, with the Quillen model structure on bounded-below cochain complexes) is the nearest infrastructure, but it is not a Waldhausen category and produces no K-theory."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeneralAlgebraicKTheory:K.4:construction",
+       "note": "Child stage carrying the identical description text; K.4 adds no separate target."
+      },
+      {
+       "layer": "StableHomotopyKTheory:H.5:S-delooping",
+       "note": "Declared prerequisite owning the delooping of the S-construction."
+      },
+      {
+       "layer": "GeneralAlgebraicKTheory:KU-waldhausen",
+       "note": "Readiness checkpoint \"S-construction, additivity and delooping\", aggregating K.4."
+      }
+     ]
+    },
+    "GeneralAlgebraicKTheory:K.4:construction": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Waldhausen categories: zero object, cofibrations, weak equivalences, pushouts and the gluing axiom; exact functors between them",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HomotopicalAlgebra.ModelCategory",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicTopology/ModelCategory/Basic.lean",
+         "line": 43,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ExactStructure",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/ExactStructure.lean",
+         "line": 231,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has model categories with cofibrations, fibrations, weak equivalences and factorisations, and Tau Ceti has Quillen exact structures; neither is a Waldhausen category, and the gluing axiom is not isolated."
+      },
+      {
+       "target": "The categories S_n C of filtered objects with quotient squares and simplicial identities; the weak-equivalence subcategories; iterating S to form a spectrum",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.SimplicialObject",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicTopology/SimplicialObject/Basic.lean",
+         "line": 52,
+         "fit": "related"
+        }
+       ],
+       "note": "Simplicial objects exist, but there is no S-construction and no notion of a spectrum in either library (`Prespectrum`, `SequentialSpectrum` have no hits; Mathlib's `spectrum` is the algebra-theoretic spectrum of an operator)."
+      },
+      {
+       "target": "Additivity and the delooping theorem for the S-construction",
+       "library": "absent",
+       "declarations": [],
+       "note": "No statement is possible."
+      },
+      {
+       "target": "The fibration theorem with cylinder, saturation and extension axioms, and the approximation theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Comparison of S with the Q-construction, and the Gillet–Waldhausen comparison of bounded complexes of projectives with Proj_fg(A)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.finiteProjectiveModulesExactStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+         "line": 195,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AbelianK0.eulerChar_eq_of_quasiIso",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/EulerCharacteristic.lean",
+         "line": 333,
+         "fit": "related"
+        }
+       ],
+       "note": "The degree-zero shadow of Gillet–Waldhausen is present: Tau Ceti proves that the Euler characteristic of a bounded complex is a quasi-isomorphism invariant in abelian K₀, which is the K₀ statement that complexes and their homology agree. Neither the Q- nor the S-construction exists, so the comparison itself does not."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeneralAlgebraicKTheory:K.1",
+       "note": "Declared prerequisite; the Q-construction K.4 compares against is K.1's."
+      },
+      {
+       "layer": "EnhancedDerivedSheaves:E5:abstract",
+       "note": "Declared prerequisite supplying the enhanced derived-category input for the complex model."
+      },
+      {
+       "layer": "StableHomotopyKTheory:H.5:spectra",
+       "note": "Declared prerequisite owning spectra, which K.4 iterates S into."
+      },
+      {
+       "layer": "GeneralAlgebraicKTheory:K.4",
+       "note": "Parent aggregation node with identical text."
+      }
+     ]
+    },
+    "GeneralAlgebraicKTheory:K.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Relative K-theory of a ring map or exact functor as a homotopy fibre, with the map to the source theory and connecting homomorphisms",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HomologicalComplex.homotopyFiber",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/HomotopyFiber.lean",
+         "line": 55,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the homotopy fibre of a map of homological complexes, but there is no K-theory spectrum or space of which to take a fibre."
+      },
+      {
+       "target": "Relative K-theory of a pair (A,I) via A → A/I, distinguished from support K-theory of a localisation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Nonunital rings: a specified unitisation, the corresponding relative theory, and comparison with the unital theory",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Unitization",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Algebra/Unitization.lean",
+         "line": 68,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's `Unitization R A` with its universal property is exactly the unitisation the layer specifies; nothing K-theoretic is built on it."
+      },
+      {
+       "target": "Excision under the hypotheses of the adopted theorem, with a counterexample or test blocking an unconditional instance",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.6",
+       "note": "Consumer stating relative K₂ of a pair, the same relative construction in low degree."
+      },
+      {
+       "layer": "NoncommutativeAndEquivariantIwasawa:NE.2",
+       "note": "Consumer restating relative K-theory of an ideal pair for the Iwasawa-theoretic setting."
+      }
+     ]
+    },
+    "GeneralAlgebraicKTheory:K.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "A nonconnective K-theory spectrum by flasque enlargement/suspension with an Eilenberg swindle and idempotent completion",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Idempotents.Karoubi",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Idempotents/Karoubi.lean",
+         "line": 44,
+         "fit": "related"
+        }
+       ],
+       "note": "Idempotent completion exists in Mathlib; flasque categories in the K-theoretic sense do not (Tau Ceti's and Mathlib's `IsFlasque` are about sheaves), there are no spectra, and no Eilenberg swindle is formalised."
+      },
+      {
+       "target": "Independence of the enlargement and agreement with connective K-theory in nonnegative degrees",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Negative K-groups of rings via Bass's construction; localisation in the nonconnective formulation; the fundamental theorem with Nil terms",
+       "library": "absent",
+       "declarations": [],
+       "note": "`NK`, `NilGroup`, `bassNil` have no hits."
+      },
+      {
+       "target": "Vanishing of negative K-groups for regular noetherian rings",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SchemeKTheoryOperations:S.2",
+       "note": "Consumer requiring the nonconnective spectrum for schemes; the flasque/swindle construction is described there too."
+      },
+      {
+       "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+       "note": "Consumer of both K.4:construction and K.6, restating the negative-K-group inputs."
+      },
+      {
+       "layer": "GeneralAlgebraicKTheory:KU-nonconnective",
+       "note": "Readiness checkpoint \"Nonconnective K-theory and Morita/product interfaces\", aggregating K.6 with K.7."
+      }
+     ]
+    },
+    "GeneralAlgebraicKTheory:K.7": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Morita invariance of K-theory",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsMoritaEquivalent",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Morita/Basic.lean",
+         "line": 124,
+         "fit": "related"
+        },
+        {
+         "name": "IsMoritaEquivalent.matrix",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Morita/Matrix.lean",
+         "line": 218,
+         "fit": "related"
+        }
+       ],
+       "note": "Morita equivalence of rings with the matrix example is proved in Mathlib, and Tau Ceti's K₀ is invariant under exact equivalences (ExactK0.mapEquiv), which gives Morita invariance of K₀; nothing above degree zero exists."
+      },
+      {
+       "target": "Finite-product and filtered-colimit compatibility for rings; equivalence invariance at the enhanced categorical level",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ExactK0.mapEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+         "line": 471,
+         "fit": "related"
+        },
+        {
+         "name": "CommRingCat.Colimits.hasColimits_commRingCat",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/Ring/Colimits.lean",
+         "line": 588,
+         "fit": "related"
+        }
+       ],
+       "note": "Colimits of commutative rings and K₀-invariance under exact equivalences exist; no K-theory continuity statement does."
+      },
+      {
+       "target": "External products from biexact functors, with associativity, unit and symmetry homotopies; graded-commutative K-groups for commutative rings",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ExactK0.BiadditiveInvariant",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+         "line": 386,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.SplitK0.mulHom",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Monoidal.lean",
+         "line": 153,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.SplitK0.instCommRing",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Monoidal.lean",
+         "line": 300,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the degree-zero product: biadditive invariants descend to a pairing of exact K₀'s, and the tensor product makes split K₀ a (commutative) ring with [X]·[Y] = [X⊗Y] and functoriality for monoidal additive functors. The higher-degree products and their coherence homotopies are absent."
+      },
+      {
+       "target": "Compatibility of products with relative groups, localisation boundaries and transfers",
+       "library": "absent",
+       "declarations": [],
+       "note": "Relative groups, localisation boundaries and transfers are all absent, so no compatibility can be stated."
+      },
+      {
+       "target": "The comparison of the product with tensor products on K₀",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.SplitK0.of_mul_of",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Monoidal.lean",
+         "line": 179,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SplitK0.mapRingHom",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Monoidal.lean",
+         "line": 324,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.SplitK0.ringHom_ext",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Monoidal.lean",
+         "line": 247,
+         "fit": "related"
+        }
+       ],
+       "note": "Proved and sorry-free: [X]*[Y] = [X⊗Y] on split K₀, with the ring structure, its universal property for multiplicative unit-preserving invariants, functoriality for monoidal additive functors and ring-hom extensionality."
+      },
+      {
+       "target": "Multiplication of units on K₁",
+       "library": "absent",
+       "declarations": [],
+       "note": "K₁ does not exist in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SchemeKTheoryOperations:S.6",
+       "note": "Consumer owning products and λ-operations on scheme K-theory; the external-product construction is stated in both."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.2:graded-map",
+       "note": "Consumer using the product to build the graded symbol map; the K₀×K₀ → K₀ and K₁×K₁ → K₂ pairings appear in both layers."
+      }
+     ]
+    }
+   }
+  },
+  "HabiroNumberFields": {
+   "summary": "None of the four layers is built, and the reason is uniform: the roadmap sits on top of K₃, Bloch groups and p-adic regulators, none of which exist in either library, and on Habiro rings, which have no trace anywhere (`Habiro` matches nothing in Mathlib or Tau Ceti). What does exist, and is substantial, is the surrounding arithmetic: Mathlib has the modular and p-adic cyclotomic characters, cyclotomic extensions, primitive roots of unity, power series in one and several variables, adic completions of Dedekind domains and completions of number fields at finite places, and arithmetic Frobenius elements; Tau Ceti has the Kummer map Kˣ → H¹(G_K, μₙ) with its kernel computed (so Kˣ/(Kˣ)ⁿ injects into H¹), continuous Galois cohomology with long exact sequences, and cyclotomic fields with their automorphism groups and fixed fields. The genuinely missing mathematics is the whole of it: the Bloch group in either the Suslin or the CGZ convention, finite-coefficient K₃ and its Chern class, the Bockstein sequence, cyclotomic units, the cyclic quantum dilogarithm and its five-term identity, the Bott element and Soulé's product formula, the Habiro ring itself (even for F = ℚ), and the K₃-indexed modules.",
+   "layers": {
+    "HabiroNumberFields:HB.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The Bloch group in the CGZ and Suslin conventions, with the comparison map and its bounded 2-/6-primary difference",
+       "library": "absent",
+       "declarations": [],
+       "note": "`BlochGroup`, `blochGroup` match nothing, and no pre-Bloch group or five-term relation exists in either library."
+      },
+      {
+       "target": "Finite-coefficient K₃ and its Chern class via the Bockstein sequence, Tate twists and Galois cohomology",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.kummerShortExact",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Coefficients.lean",
+         "line": 195,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContinuousCohomology.res",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Functoriality.lean",
+         "line": 127,
+         "fit": "related"
+        }
+       ],
+       "note": "Continuous Galois cohomology of a profinite group with its long exact sequence is built in Tau Ceti on top of Mathlib's ContinuousCohomology, and the Kummer short exact sequence of discrete G_K-modules is available. K₃ with finite coefficients, the Bockstein and the Chern class do not exist; `Bockstein` has no hits in either library."
+      },
+      {
+       "target": "The finite set of excluded primes for a number field F and the CGZ injectivity/isomorphism results under hypotheses on n, roots of unity, the discriminant and K₂(O_F)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.discr",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
+         "line": 36,
+         "fit": "related"
+        },
+        {
+         "name": "IsPrimitiveRoot",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+         "line": 63,
+         "fit": "related"
+        }
+       ],
+       "note": "The discriminant of a number field and roots of unity are fully available, but K₂(O_F) is undefined, so the hypotheses cannot be stated and the conclusion has no content."
+      },
+      {
+       "target": "The χ⁻¹-eigenspace in cyclotomic units, with a fixed cyclotomic-character convention",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "modularCyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 212,
+         "fit": "exact"
+        },
+        {
+         "name": "cyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 307,
+         "fit": "exact"
+        },
+        {
+         "name": "IsPrimitiveRoot.autToPow_eq_modularCyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 242,
+         "fit": "related"
+        }
+       ],
+       "note": "The convention-fixing half of this target is already in Mathlib: the mod-n cyclotomic character (L ≃+* L) →* (ZMod n)ˣ with its uniqueness characterisation, the p-adic character valued in ℤ_pˣ, its continuity, and its compatibility with `autToPow`. Cyclotomic units themselves are not defined in either library (`cyclotomicUnit` has no hits), so the eigenspace has no ambient group."
+      },
+      {
+       "target": "The norm-residue/Chern comparison and the finite-coefficient exact sequence used in CGZ §3",
+       "library": "absent",
+       "declarations": [],
+       "note": "The norm-residue isomorphism (Bloch–Kato/Milnor conjecture) is absent from both libraries, as is any Chern class from K-theory to étale cohomology."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K3BlochGroups:V.4",
+       "note": "Declared prerequisite owning the Bloch group and K₃ in the Suslin convention; HB.1's first target is the comparison with it."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.7",
+       "note": "Declared prerequisite owning the finite-coefficient Chern classes, Tate twists and the norm-residue comparison HB.1 says must be formalised rather than assumed."
+      },
+      {
+       "layer": "ArithmeticKTheory:N.5",
+       "note": "Declared prerequisite supplying the arithmetic finiteness inputs (K₂(O_F) and the excluded-prime set)."
+      },
+      {
+       "layer": "StableHomotopyKTheory:H.6",
+       "note": "H.6 constructs finite coefficients E/m for a spectrum and proves the Bockstein exact sequence 0 → πₙ(E)/m → πₙ(E/m) → πₙ₋₁(E)[m] → 0, which is the Bockstein input HB.1 uses to build finite-coefficient K₃."
+      }
+     ]
+    },
+    "HabiroNumberFields:HB.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The cyclic quantum dilogarithm in a Kummer extension, and its change under a choice of n-th root",
+       "library": "absent",
+       "declarations": [],
+       "note": "No quantum dilogarithm, cyclic dilogarithm or q-Pochhammer symbol exists in either library."
+      },
+      {
+       "target": "The resulting class in units modulo n-th powers, and the distinction between units, S-units, Kummer classes and their quotients",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.kummerMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 187,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.kummerCocycle",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 97,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Units.rank",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+         "line": 359,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti builds the Kummer map Kˣ → H¹(G_K, μₙ), computes it on cocycles and proves its kernel is (Kˣ)ⁿ, so Kˣ/(Kˣ)ⁿ injects into H¹ — exactly the bookkeeping HB.2 asks to keep straight. Surjectivity (profinite Hilbert 90) is explicitly noted as missing in that file, so the Kummer isomorphism is not available. The unit and S-unit groups of a number field are in Mathlib."
+      },
+      {
+       "target": "The five-term identity, distribution relation, Galois action and well-definedness on the Bloch quotient",
+       "library": "absent",
+       "declarations": [],
+       "note": "No five-term relation of any dilogarithm exists and there is no Bloch quotient to descend to."
+      },
+      {
+       "target": "CGZ Theorem 1.6 comparison with the finite Chern class, and Hutchinson's refinement R_ζ = c_ζ² for odd N",
+       "library": "absent",
+       "declarations": [],
+       "note": "Both sides are absent."
+      },
+      {
+       "target": "Cyclic bar cycles, the Bott element and Soulé's Chern-product formula",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Bott element (there is no K-theory spectrum), no cyclic bar construction in a K-theoretic sense, and no Soulé product formula."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HabiroNahmSeries:HB.5",
+       "note": "Consumer of the ε_m(ξ) interface; the Kummer classes and choice torsors HB.2 exports are re-described there."
+      },
+      {
+       "layer": "K3BlochGroups:V.3",
+       "note": "The Bloch quotient and its five-term relation on which HB.2's well-definedness rests are owned by the K3BlochGroups roadmap."
+      }
+     ]
+    },
+    "HabiroNumberFields:HB.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "R = O_F[1/Δ] with Δ divisible by the discriminant, its compatible root-of-unity coefficient rings and their p-adic completions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.discr",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
+         "line": 36,
+         "fit": "related"
+        },
+        {
+         "name": "IsCyclotomicExtension",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/Basic.lean",
+         "line": 76,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.HeightOneSpectrum.adicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+         "line": 602,
+         "fit": "related"
+        },
+        {
+         "name": "IsLocalization.Away",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "Every ingredient is in Mathlib — localisation away from Δ, the discriminant, cyclotomic extensions and their rings of integers, adic completions of a Dedekind domain and completions of a number field at a finite place — but the compatible system of coefficient rings indexed by root orders is not assembled anywhere."
+      },
+      {
+       "target": "Frobenius endomorphisms at primes not inverted, acting on the completed coefficient algebra",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsArithFrobAt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Frobenius.lean",
+         "line": 183,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.artinSymbol",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+         "line": 57,
+         "fit": "related"
+        }
+       ],
+       "note": "Arithmetic Frobenius elements at unramified primes and the Artin symbol exist in Mathlib and Tau Ceti respectively, but no Frobenius endomorphism of a completed cyclotomic coefficient algebra is constructed, and the layer's warning that it need not be a global automorphism of F has no formal counterpart yet."
+      },
+      {
+       "target": "Families of power series with the Frobenius-twisted Taylor-gluing condition (GSWZ Definition 1.1), and the substitution by ζ_{pm} - ζ_m in the required completion",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "PowerSeries",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+         "line": 60,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries.subst",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+         "line": 158,
+         "fit": "related"
+        },
+        {
+         "name": "IsPrimitiveRoot",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+         "line": 63,
+         "fit": "related"
+        }
+       ],
+       "note": "Power series with a genuine substitution operation (with the topological hypotheses that make substitution by a non-nilpotent element legitimate) exist in Mathlib, which is exactly the tool the layer says must not be replaced by a formal substitution. The gluing condition itself is not defined."
+      },
+      {
+       "target": "The ring H_R: ring operations preserving gluing, the comparison with the usual Habiro ring when F = ℚ and Δ = 1, and the failure of integrality",
+       "library": "absent",
+       "declarations": [],
+       "note": "The Habiro ring does not exist in either library in any form: `Habiro` matches no declaration and no docstring. Even the classical ℚ-case completion of ℤ[q] along the ideals generated by (q;q)_n is absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HabiroCyclotomicCompletions:HC.3",
+       "note": "Declared prerequisite owning root evaluation and Taylor maps for the cyclotomic completion; HB.6's gluing condition is stated in terms of those maps."
+      },
+      {
+       "layer": "HabiroCyclotomicCompletions:HC.1",
+       "note": "HC.1 builds the directed system R[q]^S and its topology, which is the F = ℚ case of HB.6's construction."
+      },
+      {
+       "layer": "HabiroRings:HR.5-number-field-comparison",
+       "note": "HR.5 proves the relative étale Habiro construction specialises to HB.6's ring; the roadmap summary explicitly says this is a comparison, not a duplicate, but the two layers state the same ring."
+      },
+      {
+       "layer": "HabiroRings:HR.5",
+       "note": "HR.5 builds the relative Habiro ring with the same cyclotomic Taylor/Frobenius equalizer presentation and the same warning about using the full cyclotomic coefficient algebra; its number-field sub-stage recovers HB.6’s ring."
+      }
+     ]
+    },
+    "HabiroNumberFields:HB.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The local invertible L_p(ξ)-sections of GSWZ Definition 1.3",
+       "library": "absent",
+       "declarations": [],
+       "note": "Requires HB.2's Kummer units attached to a K₃ class and a p-adic regulator; neither exists."
+      },
+      {
+       "target": "The global modules H_{R,ξ} (GSWZ Definition 1.4), with independence of permitted choices and local-to-global compatibility",
+       "library": "absent",
+       "declarations": [],
+       "note": "The ambient ring H_R of HB.6 does not exist."
+      },
+      {
+       "target": "The p-adic regulator on K₃ with its normalisation",
+       "library": "absent",
+       "declarations": [],
+       "note": "No p-adic regulator and no syntomic/p-adic Chern class in either library; the only `regulator` is the classical unit regulator NumberField.Units.regulator."
+      },
+      {
+       "target": "Multiplication, change of index, scalar extension, Galois action, root-order restriction and evaluation, with the proved invertibility/localisation hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Module operations over an absent ring."
+      },
+      {
+       "target": "The ring case ξ = 0, tensor/power comparisons, and compatibility of Frobenius gluing with the K₃ transfer",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; K-theoretic transfer does not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicHodgeRegulators:D.4",
+       "note": "Declared prerequisite owning the p-adic regulator and its normalisation, which HB.7 uses directly; D.3 owns the unramified p>3 regulator theorem the layer cites."
+      },
+      {
+       "layer": "HabiroRings:HR.6",
+       "note": "Consumer restating the K₃-indexed modules in the relative étale setting."
+      },
+      {
+       "layer": "HabiroNahmSeries:HB.9",
+       "note": "Consumer using the same modules for Nahm-sum membership."
+      }
+     ]
+    }
+   }
+  }
+ }
+}

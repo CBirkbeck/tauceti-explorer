@@ -1,0 +1,3352 @@
+{
+ "job": "AUDIT-29",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "K2SymbolsBrauer": {
+   "summary": "Neither Mathlib nor Tau Ceti contains any algebraic K-theory: there is no K₀, K₁ or K₂ of a ring, no Steinberg group of a ring, no Milnor K-theory, no tame symbol, no Hilbert symbol and no Weil reciprocity, so every layer of this roadmap is not built. What the libraries do supply is the arithmetic substrate the roadmap runs on, and quite a lot of it: elementary matrices as `Matrix.GeneralLinearGroup.transvection` and `Matrix.TransvectionStruct`; group homology with `groupHomology.H2`; discrete valuations, uniformisers and residue fields (`IsDedekindDomain.HeightOneSpectrum.valuation`, `Valuation.IsUniformizer`, `IsLocalRing.ResidueField`); Tau Ceti's function-field places with `Place.normResidue` — the exact 'unit part, then residue' discipline T.3 demands — together with `Divisor.eval`, `Divisor.principal`, the product formula `Divisor.degree_principal` and the classification `Place.ratFuncEquiv` of the places of k(t) including ∞; the S-integer class group and S-unit finiteness results; and Tau Ceti's Kummer class map `Kˣ/(Kˣ)ⁿ → H¹(G_K, μₙ)`. Genuinely missing is everything K-theoretic: the Steinberg group and its universal central extension, the symbol and Matsumoto's theorem, the tame symbol and the localisation sequence, Weil reciprocity in symbol form, the tame kernel and the calculations K₂(ℤ) ≅ ℤ/2 and K₂(F_q) = 0, Dennis–Stein symbols, and the Galois-symbol/Hilbert-symbol comparison — the last also blocked by the absence of a cup product on group cohomology and of étale cohomology of schemes.",
+   "layers": {
+    "K2SymbolsBrauer:T.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Steinberg group St_n(A) presented by generators x_ij(a) and the Steinberg relations, with explicit distinct-index hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Steinberg group of a ring in either library. Every `Steinberg` name in Tau Ceti (TauCeti.TypeALieIndex.steinberg, TauCeti.SlStd.*Steinberg, TauCeti.GraphTwistedIndex.datumSteinberg, TauCeti.QuaternionAlgebra.steinbergBasis) is a Frobenius/graph-automorphism endomorphism of a group of Lie type or a quaternion basis, as the layer itself warns. Mathlib's `PresentedGroup` could carry the presentation but no one has written it."
+      },
+      {
+       "target": "Elementary matrices e_ij(a) inside the finite general linear groups",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Matrix.GeneralLinearGroup.transvection",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/ElementaryRowOperations.lean",
+         "line": 98,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.TransvectionStruct",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Transvection.lean",
+         "line": 145,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.GeneralLinearGroup",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+         "line": 43,
+         "fit": "related"
+        }
+       ],
+       "note": "`Matrix.GeneralLinearGroup.transvection i j hij c` is exactly e_ij(c) as an element of `GL n R` over a commutative ring, and `Matrix.TransvectionStruct` bundles (i, j, c, i ≠ j). This is the only piece of the layer the libraries supply."
+      },
+      {
+       "target": "Stabilisation and the stable Steinberg group St(A) as a colimit",
+       "library": "absent",
+       "declarations": [],
+       "note": "No colimit of Steinberg groups. Mathlib has `AddCommGroup.DirectLimit` (Mathlib/Algebra/Colimit/Module.lean:284) for modules but no filtered colimit of the GL_n or St_n tower."
+      },
+      {
+       "target": "Stable elementary subgroup E(A) and the surjection St(A) ↠ E(A)",
+       "library": "absent",
+       "declarations": [],
+       "note": "E(A) as a subgroup of the stable general linear group is not defined; nor is any map out of a Steinberg group."
+      },
+      {
+       "target": "Centrality of the kernel of St(A) → E(A) in the stable range",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing to state it about."
+      },
+      {
+       "target": "Universal-central-extension property of St(A) → E(A)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Group.IsPerfect",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/IsPerfect.lean",
+         "line": 41,
+         "fit": "related"
+        }
+       ],
+       "note": "`Group.IsPerfect` exists, but neither library defines a central extension of groups as a structure, let alone a universal one; `grep -rn -i \"universal central extension\"` finds nothing."
+      },
+      {
+       "target": "Definition of classical K₂(A) as that kernel",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library contains algebraic K-theory: `grep -rn -i \"K-theory\"` over both trees returns no declaration, and there is no `K0`/`K1`/`K2` group of a ring anywhere. "
+      },
+      {
+       "target": "Second integral homology H₂(E(A), ℤ) of the stable elementary group",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "groupHomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+         "line": 230,
+         "fit": "related"
+        },
+        {
+         "name": "groupHomology.H2",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean",
+         "line": 1063,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has group homology in full generality (`groupHomology` for `Rep k G`) with `groupHomology.H2` in low degrees, so the coefficient side exists; the group E(A) does not, so the object H₂(E(A),ℤ) cannot be formed."
+      },
+      {
+       "target": "Comparison K₂(A) ≅ H₂(E(A), ℤ) via the universal central extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Requires both K₂ and the UCE property; neither exists."
+      },
+      {
+       "target": "Hurewicz theorem and the plus construction identifying the group with π₂ of the K-theory space",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i hurewicz` over both trees hits only a passing remark in Mathlib/Topology/Homotopy/Lifting.lean:309 about Hurewicz fibrations. There is no plus construction, no BGL(A)⁺ and no K-theory space."
+      },
+      {
+       "target": "Naturality of the comparison in the ring A",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing to be natural."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.1:classical",
+       "note": "Sub-stage: the whole classical half of this parent's description is that layer's own text."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.1:plus",
+       "note": "Sub-stage: the homotopy-comparison half of this parent's description is that layer's own text."
+      },
+      {
+       "layer": "K2SymbolsBrauer:KU-k2classical",
+       "note": "Readiness checkpoint that aggregates T.1:classical together with T.2:symbols, T.3:symbols, T.4, T.5 and T.6."
+      }
+     ]
+    },
+    "K2SymbolsBrauer:T.1:classical": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Steinberg group St_n(A) presented by generators x_ij(a) and the Steinberg relations, with explicit distinct-index hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Steinberg group of a ring in either library. Every `Steinberg` name in Tau Ceti (TauCeti.TypeALieIndex.steinberg, TauCeti.SlStd.*Steinberg, TauCeti.GraphTwistedIndex.datumSteinberg, TauCeti.QuaternionAlgebra.steinbergBasis) is a Frobenius/graph-automorphism endomorphism of a group of Lie type or a quaternion basis, as the layer itself warns. Mathlib's `PresentedGroup` could carry the presentation but no one has written it."
+      },
+      {
+       "target": "Elementary matrices e_ij(a) inside the finite general linear groups",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Matrix.GeneralLinearGroup.transvection",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/ElementaryRowOperations.lean",
+         "line": 98,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.TransvectionStruct",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Transvection.lean",
+         "line": 145,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.GeneralLinearGroup",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+         "line": 43,
+         "fit": "related"
+        }
+       ],
+       "note": "`Matrix.GeneralLinearGroup.transvection i j hij c` is exactly e_ij(c) as an element of `GL n R` over a commutative ring, and `Matrix.TransvectionStruct` bundles (i, j, c, i ≠ j). This is the only piece of the layer the libraries supply."
+      },
+      {
+       "target": "Stabilisation and the stable Steinberg group St(A) as a colimit",
+       "library": "absent",
+       "declarations": [],
+       "note": "No colimit of Steinberg groups. Mathlib has `AddCommGroup.DirectLimit` (Mathlib/Algebra/Colimit/Module.lean:284) for modules but no filtered colimit of the GL_n or St_n tower."
+      },
+      {
+       "target": "Stable elementary subgroup E(A) and the surjection St(A) ↠ E(A)",
+       "library": "absent",
+       "declarations": [],
+       "note": "E(A) as a subgroup of the stable general linear group is not defined; nor is any map out of a Steinberg group."
+      },
+      {
+       "target": "Centrality of the kernel of St(A) → E(A) in the stable range",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing to state it about."
+      },
+      {
+       "target": "Universal-central-extension property of St(A) → E(A)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Group.IsPerfect",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/IsPerfect.lean",
+         "line": 41,
+         "fit": "related"
+        }
+       ],
+       "note": "`Group.IsPerfect` exists, but neither library defines a central extension of groups as a structure, let alone a universal one; `grep -rn -i \"universal central extension\"` finds nothing."
+      },
+      {
+       "target": "Definition of classical K₂(A) as that kernel",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library contains algebraic K-theory: `grep -rn -i \"K-theory\"` over both trees returns no declaration, and there is no `K0`/`K1`/`K2` group of a ring anywhere. "
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.1",
+       "note": "Parent stage carrying the same text."
+      },
+      {
+       "layer": "K3BlochGroups:V.1",
+       "note": "Asserts the stable Steinberg group is superperfect and computes H₃(St(A),ℤ); it presupposes exactly the St(A) constructed here."
+      },
+      {
+       "layer": "KTheoryLowDegrees:U.1",
+       "note": "Builds GL(A), the elementary matrices e_ij(a) and the stable elementary subgroup E(A) that this layer's surjection St(A) ↠ E(A) targets."
+      }
+     ]
+    },
+    "K2SymbolsBrauer:T.1:plus": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Second integral homology H₂(E(A), ℤ) of the stable elementary group",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "groupHomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+         "line": 230,
+         "fit": "related"
+        },
+        {
+         "name": "groupHomology.H2",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean",
+         "line": 1063,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has group homology in full generality (`groupHomology` for `Rep k G`) with `groupHomology.H2` in low degrees, so the coefficient side exists; the group E(A) does not, so the object H₂(E(A),ℤ) cannot be formed."
+      },
+      {
+       "target": "Comparison K₂(A) ≅ H₂(E(A), ℤ) via the universal central extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Requires both K₂ and the UCE property; neither exists."
+      },
+      {
+       "target": "Hurewicz theorem and the plus construction identifying the group with π₂ of the K-theory space",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i hurewicz` over both trees hits only a passing remark in Mathlib/Topology/Homotopy/Lifting.lean:309 about Hurewicz fibrations. There is no plus construction, no BGL(A)⁺ and no K-theory space."
+      },
+      {
+       "target": "Naturality of the comparison in the ring A",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing to be natural."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.1",
+       "note": "Parent stage carrying the same text."
+      },
+      {
+       "layer": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons",
+       "note": "Also identifies the explicit K₁, K₂ and K₃ models with the plus-construction K-theory, i.e. the same comparison from the other side."
+      },
+      {
+       "layer": "KTheoryLowDegrees:U.6",
+       "note": "Same plus-construction comparison one degree lower (π₁BGL(A)⁺ against GL(A)/E(A))."
+      }
+     ]
+    },
+    "K2SymbolsBrauer:T.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Steinberg symbol {a,b} ∈ K₂(F) from explicit lifts of diagonal matrices",
+       "library": "absent",
+       "declarations": [],
+       "note": "No K₂ and no symbol map; `grep -rn -i \"steinberg symbol\"` over both trees is empty."
+      },
+      {
+       "target": "Bilinearity of the symbol and the Steinberg relation {a, 1−a} = 0",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with the symbol."
+      },
+      {
+       "target": "Milnor K-theory K^M_*(F) as the tensor algebra of Fˣ modulo the homogeneous Steinberg ideal",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TensorAlgebra",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/TensorAlgebra/Basic.lean",
+         "line": 66,
+         "fit": "related"
+        }
+       ],
+       "note": "`grep -rn -i milnor` over both trees returns only Milnor–Moore, Milnor's Morse-theory book and the Milnor conjecture for torus links — no Milnor K-theory. Mathlib's `TensorAlgebra` (and `RingQuot`) would be the raw material."
+      },
+      {
+       "target": "Matsumoto's theorem: K₂^M(F) → K₂(F) is an isomorphism, by normal form and presentation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; Matsumoto appears nowhere in either library."
+      },
+      {
+       "target": "Consequences {a,b} = −{b,a}, {a,−a} = 0 and the correct value of {a,a}",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with the symbol."
+      },
+      {
+       "target": "Natural graded map K^M_*(F) → K_*(F) built from products",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither side of the map exists; there is no product structure on K-theory either."
+      },
+      {
+       "target": "The degree-two case is an isomorphism (Matsumoto) while higher degrees are not asserted",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with Matsumoto."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.2:symbols",
+       "note": "Sub-stage carrying the Matsumoto half of this text."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.2:graded-map",
+       "note": "Sub-stage carrying the graded-comparison half of this text."
+      },
+      {
+       "layer": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1",
+       "note": "Extends the same unit-symbol tensor quotient to all Milnor degrees; it names K2SymbolsBrauer:T.2 as its input, so the degree-two construction is shared."
+      }
+     ]
+    },
+    "K2SymbolsBrauer:T.2:graded-map": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Natural graded map K^M_*(F) → K_*(F) built from products",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither side of the map exists; there is no product structure on K-theory either."
+      },
+      {
+       "target": "The degree-two case is an isomorphism (Matsumoto) while higher degrees are not asserted",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with Matsumoto."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.2",
+       "note": "Parent stage carrying the same text."
+      },
+      {
+       "layer": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1",
+       "note": "Also constructs Milnor K in all degrees and maps out of it."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.4",
+       "note": "Motivic cohomology in weight n compared with Milnor K_n; the same graded comparison map appears there."
+      }
+     ]
+    },
+    "K2SymbolsBrauer:T.2:symbols": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Steinberg symbol {a,b} ∈ K₂(F) from explicit lifts of diagonal matrices",
+       "library": "absent",
+       "declarations": [],
+       "note": "No K₂ and no symbol map; `grep -rn -i \"steinberg symbol\"` over both trees is empty."
+      },
+      {
+       "target": "Bilinearity of the symbol and the Steinberg relation {a, 1−a} = 0",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with the symbol."
+      },
+      {
+       "target": "Milnor K-theory K^M_*(F) as the tensor algebra of Fˣ modulo the homogeneous Steinberg ideal",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TensorAlgebra",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/TensorAlgebra/Basic.lean",
+         "line": 66,
+         "fit": "related"
+        }
+       ],
+       "note": "`grep -rn -i milnor` over both trees returns only Milnor–Moore, Milnor's Morse-theory book and the Milnor conjecture for torus links — no Milnor K-theory. Mathlib's `TensorAlgebra` (and `RingQuot`) would be the raw material."
+      },
+      {
+       "target": "Matsumoto's theorem: K₂^M(F) → K₂(F) is an isomorphism, by normal form and presentation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; Matsumoto appears nowhere in either library."
+      },
+      {
+       "target": "Consequences {a,b} = −{b,a}, {a,−a} = 0 and the correct value of {a,a}",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with the symbol."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.2",
+       "note": "Parent stage carrying the same text."
+      },
+      {
+       "layer": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons",
+       "note": "Explicitly reserves Matsumoto's presentation as a field-specific theorem to be imported from here."
+      },
+      {
+       "layer": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1",
+       "note": "Builds the same tensor-algebra-modulo-Steinberg quotient, in all degrees."
+      }
+     ]
+    },
+    "K2SymbolsBrauer:T.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Tame symbol/residue ∂_v{f,g} = (−1)^{v(f)v(g)} · overline(f^{v(g)}/g^{v(f)}) for a discrete valuation v",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsDedekindDomain.HeightOneSpectrum.valuation",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+         "line": 321,
+         "fit": "related"
+        },
+        {
+         "name": "Valuation.IsUniformizer",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/Discrete/Basic.lean",
+         "line": 199,
+         "fit": "related"
+        },
+        {
+         "name": "IsLocalRing.ResidueField",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/LocalRing/ResidueField/Defs.lean",
+         "line": 30,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.normResidue",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Residue.lean",
+         "line": 140,
+         "fit": "related"
+        }
+       ],
+       "note": "`grep -rn -i \"tame symbol\"` over both trees is empty. All the ingredients are there — `IsDedekindDomain.HeightOneSpectrum.valuation`, `Valuation.IsUniformizer`, `IsLocalRing.ResidueField` — and Tau Ceti's `Place.normResidue` implements exactly the layer's 'unit part then residue' device, but only for one function at a place, not for a pair."
+      },
+      {
+       "target": "Implementation via unit parts so that the residue is never applied to a non-integral element",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.normResidue",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Residue.lean",
+         "line": 140,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.normResidueOrOne",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Residue.lean",
+         "line": 153,
+         "fit": "related"
+        }
+       ],
+       "note": "`TauCeti.Place.residueUnit`/`normResidue` take a unit of order 0 at a place to a unit of the residue field, which is the required discipline; `normResidueOrOne` is the total extension by 1. Nothing assembles f^{v(g)}/g^{v(f)} from these."
+      },
+      {
+       "target": "Independence of the residue from the choice of uniformiser; bilinearity; the Steinberg relation for ∂_v",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with the tame symbol."
+      },
+      {
+       "target": "Normalisation ∂_v{u,π} = ū and ∂_v{π,u} = ū⁻¹",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with the tame symbol."
+      },
+      {
+       "target": "Identification of ∂_v with the connecting map of the K-theory localisation sequence, with its sign fixed",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no localisation sequence in K-theory in either library."
+      },
+      {
+       "target": "Finite support of the residues of a symbol and of a finite sum of symbols",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.principal",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Principal.lean",
+         "line": 134,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Divisor.mem_support_principal_iff",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Principal.lean",
+         "line": 153,
+         "fit": "related"
+        }
+       ],
+       "note": "For a function field, Tau Ceti's `Divisor.principal : Fˣ →+ Divisor k F` lands in a Finsupp, so the set of places where a function has nonzero order is finite; that is the geometric half of the finiteness. The statement about residues of symbols needs the symbol."
+      },
+      {
+       "target": "Higher Milnor residues and specialisation along a uniformiser, with product signs",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with Milnor K-theory."
+      },
+      {
+       "target": "Transfer for finite extensions and the norm/residue formula with e and f",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.ramificationIdx",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean",
+         "line": 294,
+         "fit": "related"
+        },
+        {
+         "name": "Ideal.ramificationIdx",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RamificationInertia/Ramification.lean",
+         "line": 52,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the ramification/residue-degree bookkeeping for places of function fields (`Place.ramificationIdx`, `Place.relativeDegree`, Divisor/Conorm.lean) and Mathlib has `Ideal.ramificationIdx`/`Ideal.inertiaDeg`, so the arithmetic input exists; the K-theoretic transfer does not."
+      },
+      {
+       "target": "res then tr is multiplication by the extension degree, with the projection formula",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with transfer."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.3:symbols",
+       "note": "Sub-stage carrying the residue-map half of this text."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.3:localization-comparison",
+       "note": "Sub-stage carrying the localisation-comparison half of this text."
+      },
+      {
+       "layer": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1",
+       "note": "Constructs discrete-valuation boundary maps and iterated residues with signs, naming K2SymbolsBrauer:T.3 as its input."
+      }
+     ]
+    },
+    "K2SymbolsBrauer:T.3:localization-comparison": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Identification of ∂_v with the connecting map of the K-theory localisation sequence, with its sign fixed",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no localisation sequence in K-theory in either library."
+      },
+      {
+       "target": "Finite support of the residues of a symbol and of a finite sum of symbols",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.principal",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Principal.lean",
+         "line": 134,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Divisor.mem_support_principal_iff",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Principal.lean",
+         "line": 153,
+         "fit": "related"
+        }
+       ],
+       "note": "For a function field, Tau Ceti's `Divisor.principal : Fˣ →+ Divisor k F` lands in a Finsupp, so the set of places where a function has nonzero order is finite; that is the geometric half of the finiteness. The statement about residues of symbols needs the symbol."
+      },
+      {
+       "target": "Higher Milnor residues and specialisation along a uniformiser, with product signs",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with Milnor K-theory."
+      },
+      {
+       "target": "Transfer for finite extensions and the norm/residue formula with e and f",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.ramificationIdx",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean",
+         "line": 294,
+         "fit": "related"
+        },
+        {
+         "name": "Ideal.ramificationIdx",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RamificationInertia/Ramification.lean",
+         "line": 52,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the ramification/residue-degree bookkeeping for places of function fields (`Place.ramificationIdx`, `Place.relativeDegree`, Divisor/Conorm.lean) and Mathlib has `Ideal.ramificationIdx`/`Ideal.inertiaDeg`, so the arithmetic input exists; the K-theoretic transfer does not."
+      },
+      {
+       "target": "res then tr is multiplication by the extension degree, with the projection formula",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with transfer."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.3",
+       "note": "Parent stage carrying the same text."
+      },
+      {
+       "layer": "EllipticKTheory:E.3",
+       "note": "States the curve localisation sequence whose boundary on symbols is declared to be 'T's tame symbol with the same order/sign convention' — the identification asked for here."
+      },
+      {
+       "layer": "SchemeKTheoryOperations:S.3",
+       "note": "Supports and localisation for schemes; the same connecting map, in the general setting."
+      }
+     ]
+    },
+    "K2SymbolsBrauer:T.3:symbols": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Tame symbol/residue ∂_v{f,g} = (−1)^{v(f)v(g)} · overline(f^{v(g)}/g^{v(f)}) for a discrete valuation v",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsDedekindDomain.HeightOneSpectrum.valuation",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+         "line": 321,
+         "fit": "related"
+        },
+        {
+         "name": "Valuation.IsUniformizer",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/Discrete/Basic.lean",
+         "line": 199,
+         "fit": "related"
+        },
+        {
+         "name": "IsLocalRing.ResidueField",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/LocalRing/ResidueField/Defs.lean",
+         "line": 30,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.normResidue",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Residue.lean",
+         "line": 140,
+         "fit": "related"
+        }
+       ],
+       "note": "`grep -rn -i \"tame symbol\"` over both trees is empty. All the ingredients are there — `IsDedekindDomain.HeightOneSpectrum.valuation`, `Valuation.IsUniformizer`, `IsLocalRing.ResidueField` — and Tau Ceti's `Place.normResidue` implements exactly the layer's 'unit part then residue' device, but only for one function at a place, not for a pair."
+      },
+      {
+       "target": "Implementation via unit parts so that the residue is never applied to a non-integral element",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.normResidue",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Residue.lean",
+         "line": 140,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.normResidueOrOne",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Residue.lean",
+         "line": 153,
+         "fit": "related"
+        }
+       ],
+       "note": "`TauCeti.Place.residueUnit`/`normResidue` take a unit of order 0 at a place to a unit of the residue field, which is the required discipline; `normResidueOrOne` is the total extension by 1. Nothing assembles f^{v(g)}/g^{v(f)} from these."
+      },
+      {
+       "target": "Independence of the residue from the choice of uniformiser; bilinearity; the Steinberg relation for ∂_v",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with the tame symbol."
+      },
+      {
+       "target": "Normalisation ∂_v{u,π} = ū and ∂_v{π,u} = ū⁻¹",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with the tame symbol."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.3",
+       "note": "Parent stage carrying the same text."
+      },
+      {
+       "layer": "HigherLocalFieldsAndHigherClassFieldTheory:HL.4",
+       "note": "Explicit symbols and ramification filtrations; reuses the tame symbol in higher local fields."
+      },
+      {
+       "layer": "EllipticKTheory:E.7",
+       "note": "Certified symbol constructions compute products of tame symbols at closed points, using the residue defined here."
+      }
+     ]
+    },
+    "K2SymbolsBrauer:T.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Bass–Tate exact sequence for K^M_*(F(t))",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.ratFuncEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
+         "line": 330,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent with Milnor K-theory. Tau Ceti does classify the places of a rational function field (`Place.ratFuncEquiv`: places of k(t) = monic irreducibles together with ∞, and `Place.ratFuncEquivMonicIrreducible`), which is the indexing set the Bass–Tate sequence runs over, including the place at infinity the layer insists on."
+      },
+      {
+       "target": "Milnor transfers for F(t)/F and their transitivity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with Milnor K-theory."
+      },
+      {
+       "target": "Weil reciprocity ∏_{x ∈ X^(1)} N_{k(x)/F}(∂_x{f,g}) = 1 on a proper regular curve",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.eval",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean",
+         "line": 118,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Divisor.eval_eq_prod_normResidue",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean",
+         "line": 192,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.normResidue",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Residue.lean",
+         "line": 140,
+         "fit": "related"
+        }
+       ],
+       "note": "Not proved: `grep -rn -i \"weil recip\"` is empty in both trees. Tau Ceti has built the apparatus deliberately for it — `Divisor.eval D f = ∏_P N_{F_P/k}(f(P))^{coeff D P}` with `eval_eq_prod_normResidue`, and the file's own docstring says this is 'what Weil reciprocity f(div g) = g(div f) compares' — but the reciprocity theorem itself is not stated, and its symbol form needs the tame symbol."
+      },
+      {
+       "target": "Only finitely many factors in the reciprocity product differ from 1",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.principal",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Principal.lean",
+         "line": 134,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Divisor.eval",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean",
+         "line": 118,
+         "fit": "related"
+        }
+       ],
+       "note": "Divisors are finitely supported by construction in Tau Ceti and `Place.normResidueOrOne` is 1 off the support, so the finiteness holds for `Divisor.eval`; the statement for residues of a symbol is not available."
+      },
+      {
+       "target": "Comparison of the divisor valuation with the valuation already used in AlgebraicCurves",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.degree_principal",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean",
+         "line": 234,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Divisor.degreeClass",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean",
+         "line": 263,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's function-field places, `Place.ord`, divisors and the product formula `Divisor.degree_principal` (deg div f = 0) are a single coherent API already reconciled with the Weil-divisor machinery in TauCeti/AlgebraicGeometry/WeilDivisor; what is missing is the comparison with a K-theoretic residue, which does not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EllipticKTheory:E.7",
+       "note": "Requires the same finite-support certificate 'the product of tame symbols is one at every closed point', i.e. Weil reciprocity on a curve."
+      },
+      {
+       "layer": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1",
+       "note": "Proves projection formulas and norm-residue compatibility for finite extensions, which is the transfer half of this layer in all degrees."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-11-automorphisms-and-the-hurwitz-bound",
+       "note": "The 'valuation already used in AlgebraicCurves' this layer must be compared with is the function-field place API owned by that roadmap."
+      }
+     ]
+    },
+    "K2SymbolsBrauer:T.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The unramified subgroup of K₂(F) cut out by vanishing of all finite-place tame symbols",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library contains algebraic K-theory: `grep -rn -i \"K-theory\"` over both trees returns no declaration, and there is no `K0`/`K1`/`K2` group of a ring anywhere. "
+      },
+      {
+       "target": "Localisation sequence 0 → K₂(O_F) → K₂(F) → ⊕_p k(p)ˣ → 0 for a number field, with injectivity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Mathlib has the ring of integers, its height-one spectrum and residue fields, so only the K-groups and the sequence are missing."
+      },
+      {
+       "target": "S-integer variant: allow residues at S and compare the two tame kernels",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsDedekindDomain.integerClassGroupEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+         "line": 136,
+         "fit": "related"
+        },
+        {
+         "name": "Set.unit_fg",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
+         "line": 149,
+         "fit": "related"
+        }
+       ],
+       "note": "The ring O_{F,S} exists (Mathlib `Set.integer`), and Tau Ceti proves the two arithmetic facts a tame-kernel comparison would consume — Cl(O_S) ≅ Cl(R)/⟨[v] : v ∈ S⟩ and finite generation of the S-units. The K₂ sequence itself is absent."
+      },
+      {
+       "target": "Certified finite presentations of tame kernels with verified relations and finite generation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "K₂(ℤ) ≅ ℤ/2 with generator {−1,−1}",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "K₂(F_q) = 0",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "K₂(ℚ) containing the direct sum of residue-field unit groups and therefore infinite",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticKTheory:N.8",
+       "note": "Requires the same computations: K₂ of ℤ and of ℚ, the S-integer exact sequence for ℤ[1/p], and 'the field's K₂ is infinite while the integral tame kernel has order 2'."
+      },
+      {
+       "layer": "SpecialValuesBirchTate:B.3",
+       "note": "Its base example recomputes the tame kernel of a quadratic field independently of Birch–Tate."
+      },
+      {
+       "layer": "EllipticKTheory:E.3",
+       "note": "The exact sequence 0 → K₂(O) → K₂(F) → ⊕ k(x)ˣ is the affine-curve case of the same localisation sequence."
+      }
+     ]
+    },
+    "K2SymbolsBrauer:T.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Dennis–Stein symbols ⟨a,b⟩ under the hypothesis that 1 + ab is invertible",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i \"dennis\"` over both trees returns nothing relevant."
+      },
+      {
+       "target": "Relations satisfied by Dennis–Stein symbols and their comparison with Steinberg symbols on units",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with the symbols."
+      },
+      {
+       "target": "Presentation theorems for K₂ of a ring under stable-range/local-ring hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no stable range condition in either library either."
+      },
+      {
+       "target": "Square-zero ideals and nilpotent relative examples as tests of relative K-theory",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsNilpotent",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/GroupWithZero/Basic.lean",
+         "line": 154,
+         "fit": "related"
+        },
+        {
+         "name": "TrivSqZeroExt",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/TrivSqZeroExt/Basic.lean",
+         "line": 69,
+         "fit": "related"
+        }
+       ],
+       "note": "Square-zero extensions (`TrivSqZeroExt`) and nilpotency of ideals are in Mathlib, so the test rings exist; the relative K-groups they are meant to test do not."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "RefinedTraceMethods:RT.3",
+       "note": "Its relative/nilpotent comparison is the trace-theoretic route to the same relative K₂ of a square-zero or nilpotent ideal."
+      },
+      {
+       "layer": "KTheoryLowDegrees:U.5",
+       "note": "Builds relative K₁ for a pair (A,I) and the beginning of the relative sequence, whose K₂ boundary term is what this layer's Dennis–Stein symbols describe."
+      }
+     ]
+    },
+    "K2SymbolsBrauer:T.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Norm-residue (Galois symbol) map K₂(F)/m → H²(F, μ_m^{⊗2}) sending {a,b} to (a) ∪ (b)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.kummerClassMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 279,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the degree-one half: `kummerClassMap : Kˣ/(Kˣ)ⁿ → H¹(G_K, μₙ)`, injective (`kummerClassMap_injective`), together with the Kummer short exact sequence of discrete G_K-modules. There is no cup product on group cohomology in either library (`grep` for cup product finds only Brauer-diagram combinatorics), and no K₂, so the symbol map cannot be formed."
+      },
+      {
+       "target": "Agreement of the symbol map with the étale Chern class",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Chern classes in K-theory and no étale cohomology of schemes; Mathlib has only pro-étale ℓ-adic cohomology (Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean)."
+      },
+      {
+       "target": "Tate's comparison theorem for local and global fields",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsNonarchimedeanLocalField",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LocalField/Basic.lean",
+         "line": 45,
+         "fit": "related"
+        }
+       ],
+       "note": "`IsNonarchimedeanLocalField` and number fields exist; the theorem does not."
+      },
+      {
+       "target": "Extension to S-integers with the primes dividing m inverted, through the étale localisation sequence",
+       "library": "absent",
+       "declarations": [],
+       "note": "No étale cohomology of Spec O_{F,S} and no localisation sequence."
+      },
+      {
+       "target": "Comparison with the Hilbert norm-residue symbol and the local invariant; change-of-root rule; global reciprocity",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "BrauerGroup",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/BrauerGroup/Defs.lean",
+         "line": 99,
+         "fit": "related"
+        }
+       ],
+       "note": "`grep -rn -i \"hilbert symbol\"` and `\"hasse invariant\"` return nothing in either tree. The Brauer group is in both libraries (Mathlib `BrauerGroup`, Tau Ceti's base change/splitting API) but there is no local invariant map inv : Br(K) → ℚ/ℤ."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "MotivicEtaleKTheory:M.3",
+       "note": "Says outright 'Construct the norm-residue/Chern map of T.7' and then proves the local and global theorem: the same map and the same Tate comparison."
+      },
+      {
+       "layer": "SpecialValuesBirchTate:B.4",
+       "note": "The historical odd-primary theorem consumes the same norm-residue comparison in degree two."
+      },
+      {
+       "layer": "HabiroNumberFields:HB.1",
+       "note": "Constructs finite-coefficient Chern classes using the Bockstein sequence, the Tate twist and Galois cohomology — the same norm-residue comparison one degree up."
+      }
+     ]
+    }
+   }
+  },
+  "K3BlochGroups": {
+   "summary": "This roadmap is entirely unbuilt: `grep -rn -i` over both trees finds no Bloch group, no pre-Bloch group, no five-term relation, no Suslin sequence, no dilogarithm, no cross-ratio and no K₃ of anything — and the stable Steinberg group the homological model is built on does not exist either. The genuinely useful infrastructure the libraries already provide is Mathlib's group homology: `groupHomology` in all degrees, computed by the inhomogeneous (bar) complex, with explicit low-degree chain identifications (`groupHomology.chainsIso₃`) and functorial chain maps, which is exactly the chain-level apparatus V.1 and V.6 ask for; plus `CategoryTheory.Tor` for the Tor₁(μ,μ) term, `rootsOfUnity`, tensor products of ℤ-modules, and the number-field invariants r₁ and r₂ (`NumberField.InfinitePlace.IsReal`, `NumberField.Units.rank`) that V.2's arithmetic statement is phrased in. Everything else — the Bloch-group conventions, Suslin's theorem, the configuration complex, and every calculation from K₃(F_q) ≅ ℤ/(q²−1) to K₃(ℚ(i)) ≅ ℤ ⊕ ℤ/24 — is missing. Note the roadmap's own warning is correct: Tau Ceti's many `Steinberg` declarations are Lie-theoretic Frobenius twists and are not this Steinberg group.",
+   "layers": {
+    "K3BlochGroups:V.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Superperfection of the stable Steinberg group St(A) (H₁ and H₂ vanish)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Group.IsPerfect",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/IsPerfect.lean",
+         "line": 41,
+         "fit": "related"
+        },
+        {
+         "name": "groupHomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+         "line": 230,
+         "fit": "related"
+        }
+       ],
+       "note": "St(A) itself does not exist in either library (see K2SymbolsBrauer:T.1:classical). `Group.IsPerfect` and Mathlib's `groupHomology` would express superperfection once the group existed; the word 'superperfect' appears nowhere."
+      },
+      {
+       "target": "Plus construction of BSt(A) and comparison with the connected cover of the K-theory space",
+       "library": "absent",
+       "declarations": [],
+       "note": "No plus construction, no K-theory space and no connected covers of spaces in either library."
+      },
+      {
+       "target": "Hurewicz in the first nonzero degree giving K₃(A) ≅ H₃(St(A), ℤ)",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i hurewicz` over both trees hits only a remark about Hurewicz fibrations in Mathlib/Topology/Homotopy/Lifting.lean."
+      },
+      {
+       "target": "Bar cycles, boundaries, chain maps and evaluation of the comparison on representatives",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "groupHomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+         "line": 230,
+         "fit": "related"
+        },
+        {
+         "name": "groupHomology.chainsIso₃",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "groupHomology.chainsMap",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+         "line": 58,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's group homology is computed by the inhomogeneous (bar) chain complex, with explicit degree-≤3 identifications (`groupHomology.chainsIso₃`) and functorial chain maps (`groupHomology.chainsMap`), so the chain-level machinery for H₃ of a group is genuinely there. What is missing is the group St(A) and the comparison map itself."
+      },
+      {
+       "target": "Naturality under ring maps and compatibility with stabilisation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing to be natural in."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.1:classical",
+       "note": "Constructs the stable Steinberg group St(A) whose superperfection and H₃ this layer needs; the object is shared, not duplicated work."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.1:plus",
+       "note": "The same plus-construction/Hurewicz comparison one degree lower (K₂ ≅ H₂(E(A),ℤ))."
+      },
+      {
+       "layer": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons",
+       "note": "Also identifies the explicit K₃ model with the plus-construction K-theory."
+      }
+     ]
+    },
+    "K3BlochGroups:V.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Product map K₃^M(F) → K₃(F)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither Mathlib nor Tau Ceti contains algebraic K-theory of a ring in any degree; there is no K₃, no Milnor K-theory and no Bloch group. There is also no product structure on any K-theory."
+      },
+      {
+       "target": "Definition K₃^ind(F) = coker(K₃^M(F) → K₃(F)), with the decomposable part as the image",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with both sides of the map."
+      },
+      {
+       "target": "Quotient maps and exactness of the decomposable/indecomposable sequence",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Arithmetic specialisation: K₃^M of a number field is torsion and controlled by its real places, while K₃ has free rank r₂",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.InfinitePlace.IsReal",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+         "line": 185,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Units.rank",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+         "line": 359,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the real/complex infinite places (`NumberField.InfinitePlace.IsReal`, `IsComplex`) and the Dirichlet rank r₁+r₂−1, so the invariants r₁ and r₂ the statement is phrased in are available; the K-groups are not."
+      },
+      {
+       "target": "Retention of integral information (not just after ⊗ ℚ)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.2:graded-map",
+       "note": "Constructs the graded map K^M_*(F) → K_*(F) from products; this layer is its degree-three instance plus the cokernel."
+      },
+      {
+       "layer": "EllipticKTheory:E.4",
+       "note": "Also separates 'the field's indecomposable K₃ contribution' from the rest, via the coniveau filtration."
+      },
+      {
+       "layer": "BorelRegulators:R.3",
+       "note": "Its stable cohomology calculation supplies the rank statements about the free part of K₃ that this layer states arithmetically."
+      }
+     ]
+    },
+    "K3BlochGroups:V.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Pre-Bloch group of a field with its five-term relations",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i \"bloch\"` over both trees returns nothing; `\"five-term\"` hits only the inflation-restriction sequence in Tau Ceti's continuous cohomology."
+      },
+      {
+       "target": "The antisymmetric tensor quotient (Fˣ ⊗_ℤ Fˣ)/⟨a ⊗ b + b ⊗ a⟩, distinguished from the exterior square",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TensorProduct",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has tensor products of ℤ-modules (via `Additive Fˣ`) and exterior powers, but not this quotient, and nothing records that it differs from Λ² in the presence of 2-torsion."
+      },
+      {
+       "target": "Boundary map [x] ↦ x ⊗ (1−x) with a chosen sign, and vanishing on every five-term relation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with the pre-Bloch group."
+      },
+      {
+       "target": "Bloch group as the kernel of that boundary",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The Bloch, Goncharov and Calegari–Garoufalidis–Zagier conventions, their comparison maps and small-torsion corrections",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. There is also no dilogarithm in either library: the only occurrence of 'dilogarithm' is a comment in Mathlib/Analysis/SpecialFunctions/Integrals/LogTrigonometric.lean."
+      },
+      {
+       "target": "Separate definitions and calculations for small finite fields",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HabiroNumberFields:HB.1",
+       "note": "Compares CGZ's Bloch group with 'V's Suslin convention' and identifies the bounded 2-/6-primary differences: the same convention-reconciliation problem."
+      },
+      {
+       "layer": "K3BlochGroups:V.6",
+       "note": "Exports the same integral/rational/finite-coefficient comparisons and the element-level conventions."
+      }
+     ]
+    },
+    "K3BlochGroups:V.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Bloch–Wigner/Suslin exact sequence 0 → Tor₁(μ(F),μ(F))~ → K₃^ind(F) → B_Sus(F) → 0 for infinite fields",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i suslin` over both trees returns nothing."
+      },
+      {
+       "target": "The enhanced torsion term Tor~ with its characteristic-dependent convention",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Tor",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Tor.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "rootsOfUnity",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RootsOfUnity/Basic.lean",
+         "line": 56,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has `CategoryTheory.Tor n` for a monoidal abelian category (so Tor₁ of two ℤ-modules is available) and `rootsOfUnity`, so the ordinary Tor₁(μ,μ) can be written down; the enhanced (non-trivially-extended) version and its characteristic convention are absent."
+      },
+      {
+       "target": "Configuration complex of points of the projective line, its group action and spectral sequence",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no configuration complex of points of P¹ in either library."
+      },
+      {
+       "target": "Cross-ratio map and the identification of the homology terms",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i \"cross.ratio\"` over both trees returns nothing."
+      },
+      {
+       "target": "The homology-stability and configuration-acyclicity lemmas the proof consumes",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i \"homological stability\"` and `\"homology stability\"` return nothing in either tree."
+      },
+      {
+       "target": "Agreement of the degree-three map with V.1 and with the indecomposable quotient",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with both."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HabiroNumberFields:HB.1",
+       "note": "Depends on the same Suslin sequence to relate its Bloch group to K₃^ind of a number field."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.6",
+       "note": "Cites Suslin's work for the motivic spectral sequence; the homology-stability inputs overlap."
+      }
+     ]
+    },
+    "K3BlochGroups:V.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "K₃(F_q) ≅ ℤ/(q²−1) for every finite field, including q = 2 and q = 3",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ZMod",
+         "library": "mathlib",
+         "file": "Mathlib/Data/ZMod/Defs.lean",
+         "line": 142,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Only the target group ℤ/(q²−1) exists (`ZMod`); there is no K-theory of a finite field, and Quillen's calculation is not formalised."
+      },
+      {
+       "target": "Restriction and transfer through the finite-field model",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "K₃(ℤ) ≅ ℤ/48 and K₃(ℚ) ≅ ℤ/48, the latter by localisation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Separate tracking of the decomposable class and the indecomposable quotient",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with V.2."
+      },
+      {
+       "target": "K₃(ℚ(i)) ≅ ℤ ⊕ ℤ/24",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "KTheoryFiniteLocalFields:L.1",
+       "note": "Owns Quillen's calculation K_{2j−1}(F_q) ≅ ℤ/(q^j−1), of which K₃(F_q) ≅ ℤ/(q²−1) is the j = 2 case, together with restriction and transfer for finite extensions."
+      },
+      {
+       "layer": "ArithmeticKTheory:N.8",
+       "note": "Requires the same certified examples, explicitly including K₃(ℚ(i)) ≅ ℤ ⊕ ℤ/24 and the first four K-groups of ℤ."
+      }
+     ]
+    },
+    "K3BlochGroups:V.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Constructors for a Bloch element from a finite combination of field elements with a proved vanishing boundary",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with the Bloch group."
+      },
+      {
+       "target": "Certificate format expressing a relation as a finite combination of five-term relations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Connection of those certificates with bar cycles in the integral comparison",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "groupHomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+         "line": 230,
+         "fit": "related"
+        },
+        {
+         "name": "groupHomology.chainsIso₃",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the generic side exists: Mathlib's group homology is computed by explicit inhomogeneous chains, so a bar cycle is expressible; there is nothing to compare it with."
+      },
+      {
+       "target": "Validity of a root-of-unity symbol [ζ] in a chosen integral Bloch group (the appropriate multiple, quotient class or coefficient-localised class)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "rootsOfUnity",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RootsOfUnity/Basic.lean",
+         "line": 56,
+         "fit": "related"
+        }
+       ],
+       "note": "Roots of unity exist (`rootsOfUnity`, `IsPrimitiveRoot`); the Bloch group and the membership question do not."
+      },
+      {
+       "target": "Rational, integral and finite-coefficient Bloch/K₃ comparisons",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Agreement of the real and p-adic regulators with the abstract K-theory regulators",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there are no K-theory regulators in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EllipticKTheory:E.7",
+       "note": "The same certificate discipline for symbols: finite combinations with a proved vanishing boundary/residue."
+      },
+      {
+       "layer": "HabiroNumberFields:HB.1",
+       "note": "Also fixes which multiple or quotient class of a root-of-unity element is integrally valid before a regulator is applied."
+      },
+      {
+       "layer": "K3BlochGroups:V.3",
+       "note": "Sets the conventions whose comparison maps this layer exports."
+      }
+     ]
+    }
+   }
+  },
+  "KTheoryFiniteLocalFields": {
+   "summary": "Nothing in this roadmap's K-theoretic content exists in either library: there is no K-theory of a ring, no topological K-theory or Bott periodicity, no Brauer lifting or Adams operations, no Hochschild or cyclic homology, no THH/TR/TC, no cyclotomic trace, no de Rham–Witt complex, no Bockstein sequence and no Hilbert symbol — each checked by `grep -rn -i` over both trees. The one layer that is partly built is L.5, whose first instruction is to 'consume existing Witt-vector algebra': Mathlib's `WittVector` development is substantial and complete (ring structure, Frobenius, Verschiebung, Teichmüller, truncation, isocrystals), so that target needs no work. The remaining supporting arithmetic is also in place and should not be re-derived: `HenselianLocalRing` and Tau Ceti's henselianity instances for rings of integers and adic completions, `IsDiscreteValuationRing`, `IsNonarchimedeanLocalField`, adic completions of a Dedekind domain, `Matrix.card_GL_field`, `PerfectField`, `DivisibleBy`, and Tau Ceti's local unit filtration and Teichmüller lift (`TauCeti.unitFiltration`, `TauCeti.teichmuller`, `rootsOfUnityEquivResidueFieldUnits`), which is exactly the target group L.3's structure theorem lands in. L.4 is almost pure import from RefinedTraceMethods, and L.5 imports its de Rham–Witt input from CrystallineCohomology CR.4.",
+   "layers": {
+    "KTheoryFiniteLocalFields:L.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "K₀(F_q) = ℤ",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library contains algebraic K-theory of a ring in any degree. There is no K₀ of a ring, so this cannot even be stated."
+      },
+      {
+       "target": "K_{2j}(F_q) = 0 and K_{2j−1}(F_q) ≅ ℤ/(q^j−1) for j ≥ 1 (Quillen)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Matrix.card_GL_field",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Card.lean",
+         "line": 99,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Mathlib knows the order of GL_n(F_q) (`Matrix.card_GL_field`), which the layer explicitly says is not enough, and nothing else towards the calculation."
+      },
+      {
+       "target": "Stable cohomology of the finite general linear groups",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "groupHomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+         "line": 230,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.card_GL_field",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Card.lean",
+         "line": 99,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has group (co)homology of an arbitrary group with coefficients in a representation, but no stability results and no computation for GL_n(F_q); `grep -rn -i \"homological stability\"` is empty in both trees."
+      },
+      {
+       "target": "Brauer lifting",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "BrauerGroup",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/BrauerGroup/Defs.lean",
+         "line": 99,
+         "fit": "related"
+        }
+       ],
+       "note": "`grep -rn -i \"brauer lifting\"` returns nothing. Both libraries have the Brauer group of a field, which is a different object."
+      },
+      {
+       "target": "Adams/Frobenius comparison and the homotopy fibre of an Adams operation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "FiniteField.frobeniusAlgEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Basic.lean",
+         "line": 349,
+         "fit": "related"
+        }
+       ],
+       "note": "`grep -rn -i \"adams operation\"` hits only a docstring remark in Mathlib/RingTheory/Binomial.lean about λ-rings with trivial Adams operations. The field Frobenius (`FiniteField.frobeniusAlgEquiv`) exists; the K-theoretic Adams operations and homotopy fibres do not."
+      },
+      {
+       "target": "Topological complex K-theory and Bott periodicity (imported from RefinedTraceMethods RT.4)",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i bott` over both trees matches only 'bottom' in Computability. There is no spectrum, no KU and no Bott periodicity."
+      },
+      {
+       "target": "Restriction and transfer for finite extensions of finite fields, with their formulas",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "FiniteField.frobeniusAlgEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Basic.lean",
+         "line": 349,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; only the Galois theory of finite fields exists."
+      },
+      {
+       "target": "Recovery of the determinant in degree one and the symbol calculation in degree two",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with K₁ and K₂."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K3BlochGroups:V.5",
+       "note": "Uses exactly this calculation in degree three (K₃(F_q) ≅ ℤ/(q²−1)) and its restriction/transfer maps."
+      },
+      {
+       "layer": "KTheoryLowDegrees:U.6",
+       "note": "Computes K₁ of finite fields, the j = 1 case of K_{2j−1}(F_q) ≅ ℤ/(q^j−1)."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.5",
+       "note": "States K₂(F_q) = 0, the j-even case in degree two."
+      }
+     ]
+    },
+    "KTheoryFiniteLocalFields:L.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Rigidity with coefficients prime to the residue characteristic for henselian pairs",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HenselianLocalRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Henselian.lean",
+         "line": 108,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has `HenselianLocalRing` and `HenselianRing` (a henselian pair), and Tau Ceti registers henselianity of the ring of integers of a local field and of adic completions; the rigidity theorem is K-theoretic and absent."
+      },
+      {
+       "target": "Localisation for a henselian DVR O with fraction field L and finite residue field k",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsDiscreteValuationRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
+         "line": 58,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.henselianLocalRing_integer",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/Henselian.lean",
+         "line": 34,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+         "line": 806,
+         "fit": "related"
+        }
+       ],
+       "note": "The rings are all there (`IsDiscreteValuationRing`, `adicCompletionIntegers`, `TauCeti.henselianLocalRing_integer`); the K-theory localisation sequence is not."
+      },
+      {
+       "target": "Comparison K(O; ℤ/m) ≅ K(k; ℤ/m) when m is invertible in k",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no K-theory with finite coefficients."
+      },
+      {
+       "target": "Bockstein exact sequence relating finite-coefficient and integral groups",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i bockstein` over both trees returns nothing."
+      },
+      {
+       "target": "Marking of uniformiser-dependent splittings as such",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with the splittings."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "KTheoryFiniteLocalFields:KU-rigidity",
+       "note": "Readiness checkpoint whose sole content is this layer."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.1",
+       "note": "Named as this layer's input; the étale/finite-coefficient comparison machinery is shared."
+      }
+     ]
+    },
+    "KTheoryFiniteLocalFields:L.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Map from K₂ of a nonarchimedean local field to its roots of unity, with the full collection of Hilbert-symbol components",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsNonarchimedeanLocalField",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LocalField/Basic.lean",
+         "line": 45,
+         "fit": "related"
+        },
+        {
+         "name": "rootsOfUnity",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RootsOfUnity/Basic.lean",
+         "line": 56,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.kummerClassMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 279,
+         "fit": "related"
+        }
+       ],
+       "note": "`grep -rn -i \"hilbert symbol\"` is empty in both trees; there is no K₂ either. `IsNonarchimedeanLocalField`, `rootsOfUnity` and Tau Ceti's Kummer class map exist as the surrounding arithmetic."
+      },
+      {
+       "target": "Structure theorem separating the divisible part from the finite quotient of K₂(L)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DivisibleBy",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/Divisible.lean",
+         "line": 89,
+         "fit": "related"
+        }
+       ],
+       "note": "`DivisibleBy` exists as a class, so 'uniquely divisible' is expressible; the theorem is absent."
+      },
+      {
+       "target": "Comparison of the ring-of-integers subgroup with the tame-symbol quotient",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+         "line": 806,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent with the tame symbol (see K2SymbolsBrauer:T.3:symbols)."
+      },
+      {
+       "target": "Separation of the canonical short exact sequence from a non-canonical direct-sum splitting; residue-characteristic and characteristic-zero variants",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Consistency with the local norm-residue map and the residue-field unit group",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.teichmuller",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
+         "line": 100,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.unitFiltration",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean",
+         "line": 88,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the local unit filtration U^n with its graded pieces and the Teichmüller lift identifying the prime-to-p roots of unity with the residue-field units (`TauCeti.rootsOfUnityEquivResidueFieldUnits`), so the target group and its filtration are well developed; the norm-residue map into it is absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.7",
+       "note": "Owns the Hilbert norm-residue symbol and the local Tate comparison that this layer's map to roots of unity is assembled from."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.3",
+       "note": "Proves the local and global degree-two theorem whose local case is this structure theorem."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.5",
+       "note": "The same 'unramified subgroup / tame-symbol quotient' comparison, for global rather than local fields."
+      }
+     ]
+    },
+    "KTheoryFiniteLocalFields:L.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Hochschild, cyclic homology, THH and TC constructions (imported from RefinedTraceMethods RT.2–RT.3)",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i hochschild` over both trees hits only a passing mention of the Hochschild–Serre spectral sequence in a docstring; `\"cyclic homology\"`, `\"THH\"` and `\"topological Hochschild\"` return nothing. Mathlib has simplicial objects and homological algebra but no cyclic object or trace theory."
+      },
+      {
+       "target": "Cyclotomic trace",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `grep -rn -i \"cyclotomic trace\"` is empty."
+      },
+      {
+       "target": "Nilpotent relative theorem with completion/connectivity hypotheses and the rational relative comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Comparison to the classical TR/Frobenius convention of Hesselholt–Madsen, with its input hypotheses verified",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The localization square for the trace theories",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "RefinedTraceMethods:RT.2",
+       "note": "This layer explicitly imports its Hochschild/cyclic/THH/TC constructions; only the Hesselholt–Madsen convention comparison and the localization square are new here."
+      },
+      {
+       "layer": "RefinedTraceMethods:RT.3",
+       "note": "Owns the trace and the relative comparison, including the nilpotent theorem this layer re-imports."
+      }
+     ]
+    },
+    "KTheoryFiniteLocalFields:L.5": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Witt-vector algebra (consumed, not redefined)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "WittVector",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Defs.lean",
+         "line": 52,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 221,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.verschiebung",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Verschiebung.lean",
+         "line": 110,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has a full Witt-vector development (≈350 declarations): the ring structure, Frobenius, Verschiebung, Teichmüller, truncated Witt vectors and the isocrystal/Dieudonné material. This target is genuinely already built."
+      },
+      {
+       "target": "Ordinary de Rham–Witt complexes with Frobenius, Verschiebung and restriction (imported from CrystallineCohomology CR.4)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 221,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.verschiebung",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Verschiebung.lean",
+         "line": 110,
+         "fit": "related"
+        }
+       ],
+       "note": "`grep -rn -i \"de rham.witt\"` over both trees returns nothing: the complex itself is absent, although the Witt-vector-level F and V operators exist."
+      },
+      {
+       "target": "Logarithmic/DVR de Rham–Witt comparison with ramification data",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with the complex."
+      },
+      {
+       "target": "THH/TR/TC of perfect fields, truncated polynomial rings and complete DVRs",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PerfectField",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Perfect.lean",
+         "line": 289,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+         "line": 806,
+         "fit": "related"
+        }
+       ],
+       "note": "`PerfectField` and complete DVRs exist as rings; the trace theories do not (see L.4)."
+      },
+      {
+       "target": "Relative calculation for k[t]/(tᵉ) with k perfect of positive characteristic, and the characteristic-zero square-zero comparison with differential forms",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "KaehlerDifferential",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Kaehler/Basic.lean",
+         "line": 153,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Kähler differentials and the ring k[t]/(tᵉ); the K-theoretic/THH statements to be tested are absent."
+      },
+      {
+       "target": "Keeping integral, p-completed and finite-coefficient statements distinct, and the separate p = 2 hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "CrystallineCohomology:CR.4",
+       "note": "Owns the ordinary and relative de Rham–Witt complexes this layer imports and is forbidden to redefine."
+      },
+      {
+       "layer": "KTheoryFiniteLocalFields:L.4",
+       "note": "Supplies the THH/TR/TC constructions whose values this layer computes."
+      },
+      {
+       "layer": "AInfCohomology:AI.4",
+       "note": "Local specialisations and the crystalline comparison use the same de Rham–Witt input."
+      }
+     ]
+    },
+    "KTheoryFiniteLocalFields:L.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Local-field descriptions of the higher K-groups (Handbook I.5 §5.6)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsNonarchimedeanLocalField",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LocalField/Basic.lean",
+         "line": 45,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library contains algebraic K-theory of a ring in any degree."
+      },
+      {
+       "target": "Rank [L:Q_p] of K_{2j−1}(L; ℤ_p) for j ≥ 2, for finite extensions of Q_p",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Padic",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+         "line": 531,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; p-adic fields exist, the K-groups do not."
+      },
+      {
+       "target": "Identification of the torsion by the specified Galois-cohomology groups, and of the even groups' p-primary parts by twist and duality",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i \"tate duality\"`/`\"local duality\"` returns nothing in either tree, so even the Galois-cohomological input is missing."
+      },
+      {
+       "target": "Separate account of the divisible components of the integral K-groups, distinguished from finite generation of the completed group",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DivisibleBy",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/Divisible.lean",
+         "line": 89,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent."
+      },
+      {
+       "target": "Exact comparison maps with their kernels and cokernels",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Extension to equal-characteristic local fields by their own de Rham–Witt arguments",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with the de Rham–Witt complex."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "MotivicEtaleKTheory:M.7",
+       "note": "Named as this layer's input; the étale comparison producing the Galois-cohomological description of the local K-groups is owned there."
+      },
+      {
+       "layer": "PadicHodgeRegulators:D.3",
+       "note": "The unramified p > 3 K₃ theorem consumes the same local higher K-groups."
+      }
+     ]
+    },
+    "KTheoryFiniteLocalFields:L.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Compatibility of local restriction and transfer with completion of a number field at a finite place",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsDedekindDomain.HeightOneSpectrum.adicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+         "line": 602,
+         "fit": "related"
+        }
+       ],
+       "note": "Completion at a finite place exists (`IsDedekindDomain.HeightOneSpectrum.adicCompletion`, and Tau Ceti's local-field API on top of it); the K-theoretic restriction and transfer do not."
+      },
+      {
+       "target": "Compatibility of arithmetic Chern classes with completion",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Chern classes in K-theory in either library."
+      },
+      {
+       "target": "Compatibility of Hilbert symbols with completion",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Hilbert symbol in either library."
+      },
+      {
+       "target": "Compatibility of cyclotomic traces with completion",
+       "library": "absent",
+       "declarations": [],
+       "note": "No trace theories (see L.4)."
+      },
+      {
+       "target": "The completed K₃ model that D's unramified p > 3 regulator theorem consumes",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with K₃."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticKTheory:N.5",
+       "note": "The local conditions this layer supplies are stated there; the compatibility is the same statement seen globally."
+      },
+      {
+       "layer": "PadicHodgeRegulators:D.2",
+       "note": "Étale and syntomic regulators use the same local-to-global compatibility at a finite place."
+      }
+     ]
+    }
+   }
+  },
+  "KTheoryLowDegrees": {
+   "summary": "This roadmap is the one in the batch with real library coverage, and two clusters of it are effectively already done. On the K₀ side, Mathlib supplies Z.1's projective-module presentation (`Module.Projective.iff_split`, `LinearMap.exists_rightInverse_of_surjective`), essentially all of Z.2 (`Module.rankAtStalk` as a locally constant function on Spec, with base change, localisation and product formulas, plus `Module.free_of_flat_of_isLocalRing` for freeness over a local ring), the Picard group `CommRing.Pic` with `ClassGroup.equivPic : ClassGroup R ≃* Pic R` for Z.4's Pic/class-group comparison, and Morita equivalence; Tau Ceti supplies Z.4's S-integer specialisation outright (`IsDedekindDomain.integerClassGroupEquiv : Cl(𝒪_S) ≃* Cl(R)/⟨[v] : v ∈ S⟩`) and, for Z.5, the elliptic-curve equivalence `Point.toClassEquiv` with `toClass_surjective` — Mathlib has only injectivity — together with an additive, injective divisor-class-to-line-bundle-class map on regular noetherian curves. On the K₁ side, Tau Ceti's `SpecialLinearGroup/Transvection.lean` and `Diagonal.lean` prove, sorry-free and over an arbitrary commutative ring where possible, U.1's type-A commutator relations (`commutatorElement_transvection`: ⁅x_ij(c), x_jl(d)⁆ = x_il(cd)) and Whitehead's identity (`diag2nUnit_decompose`: diag(a, a⁻¹) is six transvections), and U.3's elementary reduction over a field (`closure_range_toSpecialLinearGroup_eq_top_of_field`: SL_n(K) = E_n(K)) and its integral analogue for SL_n(ℤ); for U.4, Mathlib's Dirichlet unit theorem and Tau Ceti's finite generation of the S-units cover everything except the rank formula r₁+r₂+|S|−1. What is genuinely missing is the K-theory itself: there is no K₀ or K₁ of a ring or a scheme, no stable GL(A) or E(A), no determinant/SK₁ decomposition, no Dieudonné determinant, no Bass–Milnor–Serre theorem, no relative K₁ or congruence subgroups for a general pair (A,I), no λ-ring or Adams operations, no Steinitz classification and no I ⊕ J ≅ A ⊕ IJ, no K₀(X) ≅ ℤ ⊕ Pic(X) and no projective-bundle formula. The roadmap documents treat several of the items above as to-be-built that are in fact already proved; those are flagged target by target.",
+   "layers": {
+    "KTheoryLowDegrees:U.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "GL(A) as the filtered colimit of the finite general linear groups along g ↦ diag(g,1), with finite representatives and equality after common stabilisation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Matrix.GeneralLinearGroup",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+         "line": 43,
+         "fit": "related"
+        },
+        {
+         "name": "AddCommGroup.DirectLimit",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Colimit/Module.lean",
+         "line": 284,
+         "fit": "related"
+        }
+       ],
+       "note": "`Matrix.GeneralLinearGroup` exists for each finite index type, and Mathlib has filtered colimits of modules (`AddCommGroup.DirectLimit`), but the colimit of the GL_n tower — and the stabilisation embedding itself — is not built in either library."
+      },
+      {
+       "target": "Block sums and the elementary matrices e_ij(a) in the finite general linear groups",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Matrix.GeneralLinearGroup.transvection",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/ElementaryRowOperations.lean",
+         "line": 98,
+         "fit": "exact"
+        },
+        {
+         "name": "Matrix.TransvectionStruct",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Transvection.lean",
+         "line": 145,
+         "fit": "exact"
+        },
+        {
+         "name": "Matrix.blockDiagonal",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Matrix/Block.lean",
+         "line": 329,
+         "fit": "related"
+        }
+       ],
+       "note": "`Matrix.GeneralLinearGroup.transvection hij c` is e_ij(c) in GL over a commutative ring and `Matrix.TransvectionStruct` bundles the index data; `Matrix.fromBlocks`/`Matrix.blockDiagonal` give block sums at the matrix level (not yet as a group homomorphism GL_m × GL_n → GL_{m+n})."
+      },
+      {
+       "target": "The stable elementary subgroup E(A)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, since the stable group is absent. The finite-rank elementary subgroup is available as `Subgroup.closure (Set.range TransvectionStruct.toSpecialLinearGroup)`, which Tau Ceti uses."
+      },
+      {
+       "target": "Elementary commutator identities [e_ij(a), e_jl(b)] = e_il(ab) and the commuting cases",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "Matrix.SpecialLinearGroup.commutatorElement_transvection",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SpecialLinearGroup/Transvection.lean",
+         "line": 739,
+         "fit": "exact"
+        },
+        {
+         "name": "Matrix.SpecialLinearGroup.commute_transvection",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SpecialLinearGroup/Transvection.lean",
+         "line": 718,
+         "fit": "exact"
+        },
+        {
+         "name": "Matrix.SpecialLinearGroup.transvection_mul_transvection_eq_mul_mul",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SpecialLinearGroup/Transvection.lean",
+         "line": 727,
+         "fit": "exact"
+        }
+       ],
+       "note": "Tau Ceti proves the type-A Chevalley relations over an arbitrary commutative ring: `commutatorElement_transvection` is exactly ⁅x_ij(c), x_jl(d)⁆ = x_il(cd) for distinct i, j, l, with `commute_transvection` for the non-chaining pairs. These are the finite-rank identities the layer asks for, and they are sorry-free. Only their stable (colimit) form is missing."
+      },
+      {
+       "target": "Normality of E(A) in GL(A)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not stated in either library, in finite rank or stably."
+      },
+      {
+       "target": "Perfectness of the elementary group",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Matrix.SL2.commutator_eq_top",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+         "line": 804,
+         "fit": "special case"
+        },
+        {
+         "name": "Group.IsPerfect",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/IsPerfect.lean",
+         "line": 41,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves `Matrix.SL2.commutator_eq_top`: for a field with an element a ≠ 0, a² ≠ 1, the commutator subgroup of SL(2,F) is everything — i.e. SL₂ is perfect away from the small fields. Nothing is proved for general n, for a general ring, or stably; `Group.IsPerfect` supplies the vocabulary."
+      },
+      {
+       "target": "Whitehead's identity [GL(A), GL(A)] = E(A)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Matrix.SpecialLinearGroup.diag2nUnit_decompose",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SpecialLinearGroup/Diagonal.lean",
+         "line": 95,
+         "fit": "special case"
+        },
+        {
+         "name": "Matrix.SpecialLinearGroup.commutatorElement_transvection",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SpecialLinearGroup/Transvection.lean",
+         "line": 739,
+         "fit": "exact"
+        }
+       ],
+       "note": "The key Whitehead identity is proved in Tau Ceti over an arbitrary commutative ring: `diag2nUnit_decompose` writes diag(a, a⁻¹) (a a unit, placed at two coordinates) as a product of six transvections. Combined with `commutatorElement_transvection` this is the standard ingredient list, but the equality of the commutator subgroup with E(A) is not stated at any rank."
+      },
+      {
+       "target": "Explicit rank bounds in the finite-matrix statements, with the stable theorem not exported to SL₂",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Matrix.SpecialLinearGroup.closure_range_toSpecialLinearGroup_eq_top_of_field",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SpecialLinearGroup/Transvection.lean",
+         "line": 595,
+         "fit": "special case"
+        },
+        {
+         "name": "Matrix.SpecialLinearGroup.diagonal_transvection_induction'",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+         "line": 708,
+         "fit": "related"
+        }
+       ],
+       "note": "All the Tau Ceti and Mathlib statements above are genuinely finite-rank and index-type-explicit, so the discipline this target asks for is respected by what exists; there is no stable theorem to mis-export."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "KTheoryLowDegrees:KU-matrices",
+       "note": "Readiness checkpoint whose sole content is this layer."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.1:classical",
+       "note": "The surjection St(A) ↠ E(A) constructed there targets exactly the stable elementary subgroup built here; the Steinberg relations there are the same type-A relations."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
+       "note": "Uses 'elementary subgroup' in the unrelated Brauer-induction sense; not a real overlap, recorded to forestall a false match."
+      }
+     ]
+    },
+    "KTheoryLowDegrees:U.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Classical K₁(A) = GL(A)/E(A), compared with the abelianisation of GL(A)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither Mathlib nor Tau Ceti defines any K-group of a ring; `grep -rn -i \"K-theory\"` over both trees returns nothing."
+      },
+      {
+       "target": "Functoriality of K₁ for ring homomorphisms",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Matrix.SpecialLinearGroup.map",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+         "line": 225,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.SpecialLinearGroup.map_transvection",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SpecialLinearGroup/Transvection.lean",
+         "line": 661,
+         "fit": "related"
+        }
+       ],
+       "note": "Base change of matrix groups along a ring hom exists (`Matrix.SpecialLinearGroup.map`, and Tau Ceti's `map_transvection` showing it sends transvections to transvections), which is the functoriality at matrix level; K₁ itself is absent."
+      },
+      {
+       "target": "Multiplication/block-sum compatibility, stabilisation invariance, triviality of the class of an elementary matrix",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with K₁."
+      },
+      {
+       "target": "K₁ class of an automorphism of a finite projective, via a complement, independent of the complement",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Projective.iff_split",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/Projective.lean",
+         "line": 234,
+         "fit": "exact"
+        }
+       ],
+       "note": "The complement exists (`Module.Projective.iff_split`); the class does not."
+      },
+      {
+       "target": "Additivity along a projective filtration, and compatibility with direct sums and scalar extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with K₁."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "KTheoryLowDegrees:KU-k1classical",
+       "note": "Readiness checkpoint aggregating U.2 with U.3, U.4 and U.5."
+      },
+      {
+       "layer": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons",
+       "note": "Identifies the explicit K₁ model built here with the plus-construction K-theory."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.2:symbols",
+       "note": "Named as depending on U.2; the Steinberg symbol is built from K₁-level lifts of diagonal matrices."
+      }
+     ]
+    },
+    "KTheoryLowDegrees:U.3": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Stable determinant K₁(A) → Aˣ for commutative A with its section from Aˣ",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Matrix.GeneralLinearGroup.det",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+         "line": 94,
+         "fit": "related"
+        }
+       ],
+       "note": "`Matrix.GeneralLinearGroup.det : GL n R →* Rˣ` exists at each finite rank and is surjective (`det_surjective`); the stable group and hence the stable determinant do not."
+      },
+      {
+       "target": "SK₁(A) as the kernel of the determinant, and the split decomposition K₁(A) ≅ Aˣ ⊕ SK₁(A)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with K₁."
+      },
+      {
+       "target": "SK₁ vanishing for fields, by explicit elementary reduction",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Matrix.SpecialLinearGroup.closure_range_toSpecialLinearGroup_eq_top_of_field",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SpecialLinearGroup/Transvection.lean",
+         "line": 595,
+         "fit": "special case"
+        },
+        {
+         "name": "Matrix.SpecialLinearGroup.diagonal_transvection_induction'",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+         "line": 708,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.Pivot.exists_list_transvec_mul_diagonal_mul_list_transvec",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Transvection.lean",
+         "line": 676,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves the finite-rank statement in full: `closure_range_toSpecialLinearGroup_eq_top_of_field` says SL(ι, K) is generated by its transvections for any field K and finite index type ι, i.e. SL_n(K) = E_n(K). Mathlib supplies the reduction it rests on (`Matrix.Pivot.exists_list_transvec_mul_diagonal_mul_list_transvec`, `diagonal_transvection_induction'`). What is missing is only the statement in the stable group, i.e. SK₁ of a field as a K-theory group."
+      },
+      {
+       "target": "SK₁ vanishing for commutative semilocal rings",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not proved at any rank; `IsSemilocalRing` exists in Mathlib but no elementary-generation theorem over it."
+      },
+      {
+       "target": "Dieudonné determinant for a division ring, valued in the abelianisation of the multiplicative group",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LinearEquiv.mem_transvections_pow_mul_dilatransvections_of_not_isExceptional",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Transvection/Generation.lean",
+         "line": 487,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib formalises Dieudonné's *generation* theorem over a division ring (Mathlib/LinearAlgebra/Transvection/Generation.lean, non-exceptional cases; its own TODO list still contains 'prove that the general linear group is generated by dilatransvections'), but not the Dieudonné determinant."
+      },
+      {
+       "target": "The warning that K₁(A) = Aˣ is not a general rule, and that K₁ of a scheme is not the unit group of global functions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing to warn about yet."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EllipticKTheory:E.4",
+       "note": "Defines a curve's SK₁ and explicitly says to keep it distinct from the stable-matrix SK₁ of an affine ring defined here."
+      },
+      {
+       "layer": "KTheoryLowDegrees:U.4",
+       "note": "The arithmetic SK₁ vanishing theorem for S-integers, the case this layer defers."
+      }
+     ]
+    },
+    "KTheoryLowDegrees:U.4": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Bass–Milnor–Serre: SK₁(O_{F,S}) = 0 for a number field F and finite S",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Matrix.SpecialLinearGroup.closure_range_toSpecialLinearGroup_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SpecialLinearGroup/Transvection.lean",
+         "line": 584,
+         "fit": "special case"
+        },
+        {
+         "name": "Matrix.SpecialLinearGroup.exists_list_transvec_prod",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SpecialLinearGroup/Transvection.lean",
+         "line": 563,
+         "fit": "special case"
+        }
+       ],
+       "note": "`grep -rn -i \"bass.milnor\"`, `\"mennicke\"` and `\"unimodular row\"` are all empty in both trees. Tau Ceti does prove the simplest instance at finite rank — SL(ι, ℤ) is generated by transvections (`closure_range_toSpecialLinearGroup_eq_top`, by the Euclidean algorithm on the first column) — which is SK₁(ℤ) = 0 in finite rank, but nothing for a general ring of S-integers."
+      },
+      {
+       "target": "Stable elementary generation via unimodular rows and Mennicke symbols, with the arithmetic norm/congruence arguments",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; neither unimodular rows nor Mennicke symbols appear in either library."
+      },
+      {
+       "target": "K₁(O_{F,S}) ≅ O_{F,S}ˣ canonically",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with K₁."
+      },
+      {
+       "target": "Dirichlet's S-unit theorem O_{F,S}ˣ ≅ μ(F) ⊕ ℤ^{r₁+r₂+|S|−1}",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Set.unit_fg",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
+         "line": 149,
+         "fit": "related"
+        },
+        {
+         "name": "Set.unit_fg_of_units",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
+         "line": 207,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.unitsMulEquivTorsionProdMultiplicative",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Units/Dirichlet.lean",
+         "line": 78,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.Units.unitLattice_rank",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+         "line": 385,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.Units.exist_unique_eq_mul_prod",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+         "line": 506,
+         "fit": "special case"
+        }
+       ],
+       "note": "The S = ∅ case is complete: Mathlib's Dirichlet unit theorem gives rank r₁+r₂−1 (`NumberField.Units.unitLattice_rank`, `rank`) and unique decomposition (`exist_unique_eq_mul_prod`), and Tau Ceti packages it as the isomorphism (𝓞F)ˣ ≃* torsion × ℤ^rank. For general finite S, Tau Ceti proves the S-units are finitely generated (`Set.unit_fg`, `Set.unit_fg_of_units`) but its own docstring states 'the rank refinement — that the rank is exactly rank Rˣ + |S| — is a separate topic and is not here'. So finite generation is built and the rank formula r₁+r₂+|S|−1 is missing."
+      },
+      {
+       "target": "Finite-field and local-ring specialisations, and the unit inclusion into K₁(F)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with K₁."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "KTheoryLowDegrees:U.3",
+       "note": "Defines SK₁ and proves the field/semilocal vanishing that this layer's arithmetic theorem extends."
+      },
+      {
+       "layer": "KTheoryLowDegrees:Z.4",
+       "note": "Also specialises to O_{F,S} and to the localised ring; the S-integer package (class group and units) is shared."
+      },
+      {
+       "layer": "ArithmeticKTheory:N.8",
+       "note": "Demonstrates the S-integer exact sequence for ℤ[1/p], the same arithmetic input."
+      }
+     ]
+    },
+    "KTheoryLowDegrees:U.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Congruence subgroups and relative elementary subgroups for a pair (A, I)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CongruenceSubgroup.Gamma",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+         "line": 41,
+         "fit": "special case"
+        },
+        {
+         "name": "Matrix.SpecialLinearGroup.exists_mul_modEq_one_of_coprime",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SpecialLinearGroup/CongruenceSplit.lean",
+         "line": 0,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the classical modular case exists: Mathlib's `CongruenceSubgroup.Gamma N` is the principal congruence subgroup of SL(2,ℤ), and Tau Ceti has a Chinese-remainder splitting of SL(ι,ℤ) modulo coprime moduli. There is no congruence subgroup of GL(n,A) for a general ideal I, and no relative elementary subgroup."
+      },
+      {
+       "target": "Relative K₁(A,I) compared with the homotopy-fibre definition, not defined as ker(K₁(A) → K₁(A/I))",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with K₁ and with homotopy theory of K-theory spaces."
+      },
+      {
+       "target": "The beginning of the relative exact sequence with its K₂ boundary term made explicit",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Transfer along a finite projective algebra extension by restriction of scalars, agreeing with the field norm on units",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Algebra.norm",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Norm/Defs.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "`Algebra.norm` and its multiplicativity exist, so the target of the comparison is available; the K-theoretic transfer is not."
+      },
+      {
+       "target": "Projection formula against K₀, and the boundary map Lˣ → K₀(residue field) equal to the valuation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with K₀ and K₁."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.6",
+       "note": "Owns the Dennis–Stein description of the relative K₂ boundary term this layer must identify, and the square-zero/nilpotent tests."
+      },
+      {
+       "layer": "GeneralAlgebraicKTheory:K.5",
+       "note": "Named as T.6's input; the relative/homotopy-fibre definition of relative K-theory is owned there."
+      }
+     ]
+    },
+    "KTheoryLowDegrees:U.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Identification of π₁ BGL(A)⁺ with GL(A)/E(A), matching determinant and transfer",
+       "library": "absent",
+       "declarations": [],
+       "note": "No plus construction and no K-theory space in either library."
+      },
+      {
+       "target": "K₁ of ℤ, of finite fields, of ℤ[1/p] and of a product of fields",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Matrix.SpecialLinearGroup.closure_range_toSpecialLinearGroup_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SpecialLinearGroup/Transvection.lean",
+         "line": 584,
+         "fit": "special case"
+        }
+       ],
+       "note": "Absent. The finite-rank shadow of K₁(ℤ) ≅ {±1} is Tau Ceti's SL(ι,ℤ) = E(ι,ℤ) together with `Matrix.GeneralLinearGroup.det`, but no K-group is formed."
+      },
+      {
+       "target": "Test: a triangular matrix has the product of its diagonal units as determinant class",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Matrix.det_of_upperTriangular",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+         "line": 0,
+         "fit": "related"
+        }
+       ],
+       "note": "The determinant of a triangular matrix is the product of the diagonal in Mathlib; the statement about its K₁ class is absent."
+      },
+      {
+       "target": "Test: diag(g, g⁻¹) has trivial class after stabilisation",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Matrix.SpecialLinearGroup.diag2nUnit_decompose",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SpecialLinearGroup/Diagonal.lean",
+         "line": 95,
+         "fit": "special case"
+        }
+       ],
+       "note": "Tau Ceti's `diag2nUnit_decompose` writes the two-coordinate diag(a, a⁻¹) as a product of six transvections over any commutative ring, which is exactly why this class is trivial; the K₁ statement is absent."
+      },
+      {
+       "target": "Test: the valuation boundary of a uniformiser is 1",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with the boundary map."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "K2SymbolsBrauer:T.1:plus",
+       "note": "The same plus-construction comparison one degree up (K₂ against H₂(E(A),ℤ))."
+      },
+      {
+       "layer": "GeneralAlgebraicKTheory:K.2:plus",
+       "note": "Identifies the zero component of the K-theory space with BGL(A)⁺, which is what this comparison runs through."
+      },
+      {
+       "layer": "KTheoryFiniteLocalFields:L.1",
+       "note": "Its 'recover determinant in degree one' is this layer's K₁ of a finite field."
+      }
+     ]
+    },
+    "KTheoryLowDegrees:Z.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Equivalence between finitely generated projective modules and direct summands of finite free modules, with the complement and splitting maps available",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Module.Projective.iff_split",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/Projective.lean",
+         "line": 234,
+         "fit": "exact"
+        },
+        {
+         "name": "LinearMap.exists_rightInverse_of_surjective",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/Projective.lean",
+         "line": 111,
+         "fit": "exact"
+        }
+       ],
+       "note": "`Module.Projective.iff_split` is exactly 'projective iff a direct summand of a free module', with the maps i and s produced, and `LinearMap.exists_rightInverse_of_surjective` splits any surjection onto a projective. Finiteness is carried by `Module.Finite`; this target is built."
+      },
+      {
+       "target": "Idempotent matrix attached to a finitely generated projective, and the correspondence between idempotent matrices up to stabilised equivalence and projective isomorphism classes",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Submodule.isIdempotentElemEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Projection.lean",
+         "line": 531,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the correspondence between idempotent endomorphisms and complemented submodules (`Submodule.isIdempotentElemEquiv`), but nothing that presents a finitely generated projective by an idempotent matrix, and no stabilised-equivalence classification."
+      },
+      {
+       "target": "Ring K₀ via the existing split/exact K₀ universal property",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Algebra.GrothendieckGroup",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/MonoidLocalization/GrothendieckGroup.lean",
+         "line": 36,
+         "fit": "related"
+        }
+       ],
+       "note": "There is no K₀ of a ring or of an exact category in either library. The only Grothendieck group is `Algebra.GrothendieckGroup`, the group completion of a commutative monoid (localisation at the top submonoid) — the correct raw material, but not applied to isomorphism classes of projectives."
+      },
+      {
+       "target": "Object-class induction, equality of classes by stable isomorphism, scalar extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with K₀."
+      },
+      {
+       "target": "Morita functoriality of K₀",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsMoritaEquivalent",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Morita/Basic.lean",
+         "line": 124,
+         "fit": "related"
+        },
+        {
+         "name": "IsMoritaEquivalent.matrix",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Morita/Matrix.lean",
+         "line": 218,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has `MoritaEquivalence`/`IsMoritaEquivalent` and proves R and Mₙ(R) are Morita equivalent; K₀ and hence its Morita invariance are absent."
+      },
+      {
+       "target": "Every short exact sequence of projectives with projective quotient splits (so direct-sum relations suffice)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "LinearMap.exists_rightInverse_of_surjective",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/Projective.lean",
+         "line": 111,
+         "fit": "exact"
+        },
+        {
+         "name": "Module.Projective.iff_split",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/Projective.lean",
+         "line": 234,
+         "fit": "exact"
+        }
+       ],
+       "note": "`LinearMap.exists_rightInverse_of_surjective` for a projective quotient is precisely this splitting; it is stated for an arbitrary surjection onto a projective module, more general than the projective-terms case asked for."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "KTheoryLowDegrees:KU-k0classical",
+       "note": "Readiness checkpoint aggregating Z.1 with Z.2, Z.3 and Z.4."
+      },
+      {
+       "layer": "GeneralAlgebraicKTheory:K.2:plus",
+       "note": "Constructs the exact category Proj_fg(A) and its cofinality statement; this layer's projective-module presentation is the same category seen concretely."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+       "note": "Owns the split/exact K₀ universal property that this layer is instructed to use rather than rebuild."
+      }
+     ]
+    },
+    "KTheoryLowDegrees:Z.2": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Rank of a finitely generated projective over a commutative ring as a locally constant ℤ-valued function on Spec A",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Module.rankAtStalk",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Spectrum/Prime/FreeLocus.lean",
+         "line": 183,
+         "fit": "exact"
+        },
+        {
+         "name": "Module.isLocallyConstant_rankAtStalk",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Spectrum/Prime/FreeLocus.lean",
+         "line": 224,
+         "fit": "exact"
+        },
+        {
+         "name": "Module.freeLocus_localization",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Spectrum/Prime/FreeLocus.lean",
+         "line": 103,
+         "fit": "related"
+        }
+       ],
+       "note": "`Module.rankAtStalk M : PrimeSpectrum R → ℕ` with `Module.isLocallyConstant_rankAtStalk` (for a finitely presented flat module) is exactly this, and a finitely generated projective is finitely presented and flat (`Module.Flat.of_projective`). Built."
+      },
+      {
+       "target": "Finite image of the rank function and compatibility with localisation and base change",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Module.rankAtStalk_baseChange",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Spectrum/Prime/FreeLocus.lean",
+         "line": 322,
+         "fit": "exact"
+        },
+        {
+         "name": "Module.freeLocus_localization",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Spectrum/Prime/FreeLocus.lean",
+         "line": 103,
+         "fit": "related"
+        },
+        {
+         "name": "Module.rankAtStalk_tensorProduct",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Spectrum/Prime/FreeLocus.lean",
+         "line": 359,
+         "fit": "exact"
+        }
+       ],
+       "note": "`Module.rankAtStalk_baseChange`, `Module.freeLocus_localization` and `Module.rankAtStalk_tensorProduct` supply localisation and base-change compatibility; local constancy on a quasi-compact Spec gives the finite image."
+      },
+      {
+       "target": "On a connected spectrum the rank is a single integer; on a disconnected spectrum it must not be collapsed",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.isLocallyConstant_rankAtStalk",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Spectrum/Prime/FreeLocus.lean",
+         "line": 224,
+         "fit": "exact"
+        },
+        {
+         "name": "Module.rankAtStalk_prod",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Spectrum/Prime/FreeLocus.lean",
+         "line": 311,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib's rank is a function on Spec throughout, so the distinction is structurally respected, and `Module.rankAtStalk_prod` computes it on a product ring; the explicit 'locally constant on a connected space is constant' specialisation for `rankAtStalk` is not stated (though `IsLocallyConstant.apply_eq_of_preconnectedSpace` is available generically)."
+      },
+      {
+       "target": "K₀(F) ≅ ℤ for fields and division rings, by dimension",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.finrank",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
+         "line": 62,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent with K₀; `Module.finrank`/`Module.rank` supply the dimension invariant over a division ring."
+      },
+      {
+       "target": "Finite-product formula for K₀ and the test K₀(F × F) ≅ ℤ²",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.rankAtStalk_prod",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Spectrum/Prime/FreeLocus.lean",
+         "line": 311,
+         "fit": "exact"
+        }
+       ],
+       "note": "Absent with K₀. `Module.rankAtStalk_prod` is the rank-level analogue on a product ring."
+      },
+      {
+       "target": "For local rings, finitely generated projectives are free",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Module.free_of_flat_of_isLocalRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/LocalRing/Module.lean",
+         "line": 304,
+         "fit": "more general"
+        },
+        {
+         "name": "Module.Flat.of_projective",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Flat/Basic.lean",
+         "line": 227,
+         "fit": "related"
+        }
+       ],
+       "note": "`Module.free_of_flat_of_isLocalRing` (stacks 00NZ) proves that a finite flat module over a local ring is free; with `Module.Flat.of_projective` this gives the target in greater generality than the layer's Nakayama/finite-presentation route. Built."
+      },
+      {
+       "target": "Semilocal decomposition with the connected-component information",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not stated for semilocal rings in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "KTheoryLowDegrees:Z.3",
+       "note": "Reuses the locally constant rank to define the componentwise determinant."
+      },
+      {
+       "layer": "KTheoryLowDegrees:Z.6",
+       "note": "Repeats the same tests (fields, ℤ, a product of two fields) at the level of the comparison with π₀K."
+      }
+     ]
+    },
+    "KTheoryLowDegrees:Z.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "K₀ ring structure by tensor product on a commutative ring",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.rankAtStalk_tensorProduct",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Spectrum/Prime/FreeLocus.lean",
+         "line": 359,
+         "fit": "exact"
+        }
+       ],
+       "note": "Absent with K₀; `Module.rankAtStalk_tensorProduct` is the rank-level multiplicativity the ring structure would induce."
+      },
+      {
+       "target": "Exterior powers of finite projectives and the filtration formula for an extension",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ExteriorAlgebra.exteriorPower",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "exteriorPower.instFinite",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/ExteriorPower/Basis.lean",
+         "line": 30,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has exterior powers ⋀[R]^n M with bases and finiteness, but the development is aimed at free/finite modules; there is no statement that Λⁿ of a finitely generated projective is projective, and no filtration Λⁿ(M) for a short exact sequence 0 → M' → M → M'' → 0."
+      },
+      {
+       "target": "λ-ring identities on K₀ and their extension from modules to virtual classes",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "BinomialRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Binomial.lean",
+         "line": 76,
+         "fit": "related"
+        }
+       ],
+       "note": "There is no λ-ring in either library: `grep -i \"lambdaring\"` is empty and the only mention of λ-rings is a docstring remark in Mathlib/RingTheory/Binomial.lean that binomial rings are the λ-rings with trivial Adams operations."
+      },
+      {
+       "target": "Determinant of a projective of locally constant rank, defined componentwise",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ExteriorAlgebra.exteriorPower",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "Module.rankAtStalk",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Spectrum/Prime/FreeLocus.lean",
+         "line": 183,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both ingredients (rankAtStalk and exterior powers) exist; the componentwise determinant of a projective is not defined."
+      },
+      {
+       "target": "Determinant as an additive-group homomorphism K₀(A) → Pic(A), with tensor product as the Picard operation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CommRing.Pic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 429,
+         "fit": "exact"
+        },
+        {
+         "name": "Module.Invertible",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 77,
+         "fit": "exact"
+        }
+       ],
+       "note": "`CommRing.Pic R` exists as the group of invertible modules under tensor product (`CommRing.Pic.mul_eq_tensor`, `inv_eq_dual`), so the target of the map is fully built; the map itself is absent with K₀."
+      },
+      {
+       "target": "Augmentation/rank kernel and its relation with the γ-filtration; degree-zero normalisation of the Adams operations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no γ-filtration and no Adams operations."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SchemeKTheoryOperations:S.6",
+       "note": "Owns the higher Adams operations and λ-ring operations whose degree-zero normalisation is fixed here."
+      },
+      {
+       "layer": "KTheoryLowDegrees:Z.4",
+       "note": "Uses the determinant K₀ → Pic built here to state (rank, det) : K₀(A) ≅ ℤ ⊕ Pic(A)."
+      }
+     ]
+    },
+    "KTheoryLowDegrees:Z.4": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Steinitz classification: a positive-rank finite projective over a Dedekind domain is a free summand plus an invertible ideal",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.free_of_flat_of_isLocalRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/LocalRing/Module.lean",
+         "line": 304,
+         "fit": "more general"
+        }
+       ],
+       "note": "`grep -rn -i steinitz` over both trees hits only the Steinitz theorem on algebraic extensions (Mathlib/FieldTheory/PrimitiveElement.lean) and Steinitz/supernatural numbers in Tau Ceti. Mathlib's Dedekind-domain module theory (Mathlib/Algebra/Module/DedekindDomain.lean) covers only torsion modules."
+      },
+      {
+       "target": "I ⊕ J ≅ A ⊕ IJ for invertible ideals",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not stated in either library."
+      },
+      {
+       "target": "(rank, det) : K₀(A) ≅ ℤ ⊕ Pic(A) for a Dedekind domain, with its inverse and independence of ideal representatives, and the zero module treated separately",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CommRing.Pic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 429,
+         "fit": "exact"
+        },
+        {
+         "name": "Module.rankAtStalk",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Spectrum/Prime/FreeLocus.lean",
+         "line": 183,
+         "fit": "exact"
+        }
+       ],
+       "note": "Absent with K₀; both components of the target exist."
+      },
+      {
+       "target": "Comparison of Pic with the existing ideal class group",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "ClassGroup.equivPic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 876,
+         "fit": "exact"
+        },
+        {
+         "name": "CommRing.Pic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 429,
+         "fit": "exact"
+        },
+        {
+         "name": "ClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/ClassGroup/Basic.lean",
+         "line": 90,
+         "fit": "related"
+        }
+       ],
+       "note": "`ClassGroup.equivPic (R) [CommRing R] [IsDomain R] : ClassGroup R ≃* Pic R` is exactly this comparison, for any domain (more general than Dedekind). Built."
+      },
+      {
+       "target": "Specialisation to O_F and O_{F,S}, using the actual localised ring and the quotient of the class group by the classes of primes in S",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "IsDedekindDomain.integerClassGroupEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+         "line": 136,
+         "fit": "exact"
+        },
+        {
+         "name": "IsDedekindDomain.finite_integer_classGroup",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+         "line": 94,
+         "fit": "related"
+        }
+       ],
+       "note": "`IsDedekindDomain.integerClassGroupEquiv : ClassGroup 𝒪_S ≃* ClassGroup R ⧸ ⟨[v] : v ∈ S⟩` is precisely the layer's statement, for an arbitrary Dedekind domain R with the honest localised ring `Set.integer`, together with finiteness of Cl(𝒪_S) and the evaluation lemmas. The class-group half of this target is built; only its K₀ packaging is missing."
+      },
+      {
+       "target": "Induced maps under localisation, extension of number fields and finite-flat restriction of scalars; the transfer of an ideal class by the determinant/norm formula",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ClassGroup.extendedHom",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/ClassGroup/ExtendedHom.lean",
+         "line": 47,
+         "fit": "related"
+        },
+        {
+         "name": "ClassGroup.extendedRelNormHom",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/ClassGroup/ExtendedRelNorm.lean",
+         "line": 98,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.integerClassGroupEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+         "line": 136,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib has extension of ideal classes along a ring extension (`ClassGroup.extendedHom`, with composition and evaluation lemmas) and Tau Ceti has the relative-norm map on class groups (`ClassGroup.extendedRelNormHom`) — that is the norm side of the transfer formula at the level of Pic. The K₀-level transfer and the compatibility statements are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "KTheoryLowDegrees:U.4",
+       "note": "The same ring O_{F,S} and the same S-indexed arithmetic, on the unit rather than the ideal-class side."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups",
+       "note": "Owns Picard groups of orders and their comparison with the ideal class group."
+      },
+      {
+       "layer": "KTheoryLowDegrees:Z.5",
+       "note": "The curve case of the same rank-and-determinant classification."
+      }
+     ]
+    },
+    "KTheoryLowDegrees:Z.5": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "K₀ of finite locally free sheaves on a scheme, via the categorical construction",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "SheafOfModules.IsLocallyFree",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/ModuleCat/Sheaf/LocallyFree.lean",
+         "line": 61,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SheafOfModules.IsInvertible.isLocallyFree",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/Sheaf/Invertible/Basic.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has `SheafOfModules.IsLocallyFree` (and Tau Ceti derives it for invertible sheaves), so the vector-bundle interface exists; there is no K₀ of a scheme."
+      },
+      {
+       "target": "For a connected regular noetherian curve, rank and determinant give K₀(X) ≅ ℤ ⊕ Pic(X)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.LineBundleClass",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/LineBundle/Class.lean",
+         "line": 49,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.SchemeWeilDivisor.classGroupToLineBundleClass_injective",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/LineBundle.lean",
+         "line": 140,
+         "fit": "partial"
+        }
+       ],
+       "note": "Absent with K₀. Tau Ceti has the Pic side for exactly this class of schemes: `LineBundleClass X` with a divisor-class map that is additive (`toLineBundleClass_add`) and injective (`classGroupToLineBundleClass_injective`) on an integral noetherian scheme of dimension ≤ 1 whose codimension-one local rings are DVRs; the file states that surjectivity 'requires further structure still'."
+      },
+      {
+       "target": "Structure-sheaf and skyscraper-sheaf class formulas through the K/G comparison, so that a divisor class agrees with the line-bundle class",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.SchemeWeilDivisor.classGroupToLineBundleClass_injective",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/LineBundle.lean",
+         "line": 140,
+         "fit": "partial"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.SchemeWeilDivisor.toLineBundleClass_add",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/TensorProduct.lean",
+         "line": 385,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Divisor.degree_principal",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean",
+         "line": 234,
+         "fit": "related"
+        }
+       ],
+       "note": "The divisor-class/line-bundle-class agreement is half proved in Tau Ceti (injective and additive, surjectivity open), and the function-field product formula `Divisor.degree_principal` fixes the degree. The K-theoretic class formulas need K₀ and G₀."
+      },
+      {
+       "target": "Pic(E) ≅ ℤ ⊕ E(F) for an elliptic curve with origin, hence K₀(E) ≅ ℤ² ⊕ E(F)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.toClassEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/ToClass.lean",
+         "line": 672,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.toClass_surjective",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/ToClass.lean",
+         "line": 655,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.toClass",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+         "line": 752,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves the hard half: `Point.toClass_surjective` and `Point.toClassEquiv : W.Point ≃+ Additive (ClassGroup W.CoordinateRing)` (Mathlib had only injectivity). That is E(F) ≅ Pic of the affine coordinate ring, i.e. the degree-zero part; the degree splitting by the origin and the K₀ consequence are absent. The file is sorry-free."
+      },
+      {
+       "target": "Restriction to curves with a rational point, not an arbitrary genus-one curve",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.toClassEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/ToClass.lean",
+         "line": 672,
+         "fit": "exact"
+        }
+       ],
+       "note": "The Tau Ceti equivalence is stated for a Weierstrass curve, which comes with its rational point at infinity, so the hypothesis discipline is respected by what exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EllipticKTheory:E.1",
+       "note": "Supplies the Picard specialisation Pic(E) ≅ ℤ ⊕ E(F) that this layer combines with rank; the roadmap's own ownership note assigns it there."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+       "note": "Owns line bundles, divisors, the Picard group and degree on a curve — the divisor-class/line-bundle comparison this layer consumes."
+      },
+      {
+       "layer": "SchemeKTheoryOperations:S.6",
+       "note": "Named as this layer's prerequisite; the vector-bundle interface is specified there."
+      }
+     ]
+    },
+    "KTheoryLowDegrees:Z.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Agreement of these definitions and maps with π₀K from the general K-theory",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither Mathlib nor Tau Ceti defines any K-group of a ring; `grep -rn -i \"K-theory\"` over both trees returns nothing."
+      },
+      {
+       "target": "Localisation sends a projective class to its localised class and a perfect complex to its Euler class",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no K-theory of perfect complexes and no Euler characteristic in a K-group."
+      },
+      {
+       "target": "Comparison of the Cartan map K₀ → G₀ with the existing general Cartan map",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; neither G₀ nor a Cartan map exists in either library."
+      },
+      {
+       "target": "Tests: fields, ℤ, a product of two fields, a Dedekind domain with a nonprincipal ideal class",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/ClassGroup/Basic.lean",
+         "line": 90,
+         "fit": "related"
+        },
+        {
+         "name": "Module.rankAtStalk_prod",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Spectrum/Prime/FreeLocus.lean",
+         "line": 311,
+         "fit": "exact"
+        }
+       ],
+       "note": "Absent with K₀. The nonprincipal ideal class is available as data (`ClassGroup`, and Mathlib's class-number computations), but not as a K₀ test."
+      },
+      {
+       "target": "K₀(P¹_F) ≅ ℤ² by the projective-bundle construction and by rank/Pic, with the two bases compared",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `grep -rn -i \"projective bundle formula\"` is empty in both trees."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+       "note": "Owns the Cartan map K₀(proj A) → G₀(mod A) that this layer is told to compare with rather than redefine."
+      },
+      {
+       "layer": "SchemeKTheoryOperations:S.7",
+       "note": "Named as this layer's prerequisite; the projective-bundle formula giving K₀(P¹) ≅ ℤ² is owned there."
+      },
+      {
+       "layer": "ArithmeticKTheory:N.1",
+       "note": "Arithmetic carriers in degrees zero and one repeat the K₀ tests for ℤ and for fields."
+      }
+     ]
+    }
+   }
+  }
+ }
+}

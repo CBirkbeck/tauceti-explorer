@@ -1,0 +1,394 @@
+{
+ "job": "COMPARE-29",
+ "notes": {
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras": {
+   "targets": "Artin-Wedderburn with intrinsic invariants and uniqueness, the Jacobson density/double-centralizer theorem, central simple algebras (simplicity of tensor products, degree, A tensor A^op), Skolem-Noether and the centralizer theorem, the Brauer group as a commutative group with base change, splitting fields, maximal subfields and index, Br(F_q) = 0 and Br(R) = Z/2.",
+   "baselineHas": [
+    "Tau Ceti WedderburnPresentation, TauCeti.blockMultiplicity and TauCeti.WedderburnPresentation.exists_equiv_degree_eq_blockMultiplicity (TauCeti/RingTheory/Semisimple/Wedderburn/Canonical.lean); TauCeti.simpleModuleClass (Semisimple/RegularIsotypicComponent.lean); TauCeti.isSemiprimaryRing_mulOpposite_iff (RingTheory/Jacobson/MulOpposite.lean)",
+    "TauCeti.toModuleEnd_moduleEnd_bijective and TauCeti.exists_smul_eq_of_linearIndependent (TauCeti/RingTheory/Semisimple/DoubleCentralizer.lean): density theorem",
+    "TauCeti.skolemNoether (TauCeti/Algebra/CentralSimple/SkolemNoether.lean:107) and TauCeti.centralizer_centralizer (CentralSimple/Centralizer.lean:480)",
+    "TauCeti.BrauerGroup.instCommGroup (Algebra/BrauerGroup/Group.lean:174), TauCeti.subsingleton_brauerGroup_of_finite (BrauerGroup/Trivial.lean:247), TauCeti.Quaternion.brauerGroupMulEquiv : BrauerGroup R ≃* Multiplicative (ZMod 2) (BrauerGroup/Real.lean:102)"
+   ],
+   "missing": [
+    "No substantive layer found missing: all seven layers, including base change of Brauer classes, maximal subfields, the index and separable splitting fields, are in Tau Ceti; at most a few worked examples remain"
+   ]
+  },
+  "tauceti:Completed/EffectiveBounds": {
+   "targets": "Explicit bounds from geometry of numbers: |d_F| <= |disc b|, the ideal count X^2 2^n, h_F <= |d_F| 4^n, [O^x : O^x2] <= 2^n, an effective Hermite-Minkowski count of number fields of bounded discriminant, and explicit lower bounds for the regulator.",
+   "baselineHas": [
+    "NumberField.classNumber_le_bound (TauCeti/NumberTheory/EffectiveBounds/ClassNumber/Basic.lean:81) and NumberField.card_ideal_absNorm_le (EffectiveBounds/IdealCount/Basic.lean:399)",
+    "NumberField.units_sq_index_le (EffectiveBounds/UnitSquares/Basic.lean:62)",
+    "NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le (EffectiveBounds/HermiteCount/Basic.lean:172), the effective Hermite-Minkowski count",
+    "Mathlib NumberField.Units.regulator (Units/Regulator.lean:266); Tau Ceti has only rank-zero regulator bounds (EffectiveBounds/Regulator.lean)"
+   ],
+   "missing": [
+    "Layer 3: explicit lower bounds for the regulator in positive unit rank (Remak/Zimmert/Friedman type); nothing else (Brauer-Siegel is only a long-horizon aspiration)"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/AnalyticToricGeometry": {
+   "targets": "Algebraic and complex-analytic toric varieties of finite regular rational fans: affine toric schemes and fan gluing, the analytic manifold realization, torus action, orbit-cone correspondence, simple-normal-crossings boundary, toric maps with the support criterion for properness, compactness of complete fans, and the algebraic-analytic comparison.",
+   "baselineHas": [
+    "TauCeti.Toric.IsToricCone (TauCeti/Geometry/Toric/Algebraic/Cone.lean:124), rays with unique primitive generators, regular cones with extending bases",
+    "TauCeti.Toric.Fan (Geometry/Toric/Algebraic/Fan/Basic.lean:81) with subfans, products, subdivisions and FanHom",
+    "TauCeti.Toric.mixedMonomialMap_comp (Geometry/Toric/Analytic/MixedMonomial.lean:289) and TauCeti.Toric.t2Space_affinePointTopology (Analytic/AffinePoint.lean:269)",
+    "Mathlib TopCat.GlueData, AlgebraicGeometry.Scheme.GlueData and Spec.homEquivAlgHom"
+   ],
+   "missing": [
+    "L0: Minkowski-Weyl for rational cones (intersections, generation by rays), regular implies simplicial, dual semigroups with Gordan's lemma and face localization, affine toric schemes, face inclusions as open immersions, fan scheme gluing, algebraic torus action",
+    "L1-L2: face localizations as open holomorphic embeddings, regular affine charts C^k x (C*)^(n-k) with ChartedSpace/IsManifold structure, orbits as locally closed submanifolds",
+    "L3: a complex-manifold gluing theorem (in neither library), Hausdorffness from the fan axiom, second countability",
+    "L4: glued holomorphic torus action, orbit-cone correspondence, ray-indexed boundary hypersurfaces with SNC local form",
+    "L5-L6: toric maps of fan morphisms, support criterion for properness, compactness of complete fans, comparison Hom(Spec C, X_Sigma) with the analytic realization"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/Chebotarev": {
+   "targets": "Chebotarev density for finite Galois extensions of number fields in Dirichlet-density, prime-number-theorem (psi_C, theta_C, pi_C) and natural-density forms, via cyclotomic crossing, fixed-field contraction and a Tauberian theorem.",
+   "baselineHas": [
+    "NumberField.artinSymbol (TauCeti/NumberTheory/NumberField/ArtinSymbol.lean:57) with both tower laws, and NumberField.Chebotarev.frobeniusPrimeSet (NumberTheory/Chebotarev/FrobeniusPrimeSet.lean:93)",
+    "NumberField.exists_auxiliaryPrime (Chebotarev/AuxiliaryPrime.lean:45), IsCyclotomicExtension.galEquivProd and tagged fixed fields",
+    "NumberField.Chebotarev.frobeniusDiscard_isLittleO (Chebotarev/PrimeCounting/Discard.lean:45) with frobeniusPsi/frobeniusTheta",
+    "Arithmetic Dirichlet Series infrastructure: Euler products, TauCeti.LSeries.landau (NumberTheory/LSeries/Landau.lean:290), smoothed Wiener-Ikehara TauCeti.LSeries.tendsto_tsum_term_mul_fourier_atTop_of_nonneg; Mathlib NumberField.Set.HasDirichletDensity"
+   ],
+   "missing": [
+    "Imported from Global Number Fields L3/L9: power-saving lattice-point counting for Lipschitz-parametrizable sets, ray-class fundamental domains, rayClassIdealCount, RayClassCharacter with partial-sum cancellation",
+    "Imported from Arithmetic Dirichlet Series L6-L10: continuation of ray-class character L-series past Re s = 1, Dirichlet-density calculus, the unsmoothed Wiener-Ikehara theorem, the prime ideal theorem",
+    "L3-L6: density normalization, conductor factorization, nonvanishing at s = 1, cyclotomic Dirichlet density",
+    "L7-L10: compositum ramification and contraction lemmas, exact fixed-field fibre count, abelian and general Dirichlet-density Chebotarev",
+    "L11.4-L14: log-derivative identity, boundary continuity, weighted residue-degree-one transfer and crossing, pi_C asymptotic, natural-density Chebotarev"
+   ]
+  },
+  "AdditiveCombinatorics": {
+   "targets": "Freiman/BSG structure theory, Szemeredi's theorem, Gowers norms with the Green-Tao-Ziegler inverse theorem and nilsequences, the Green-Tao theorem, linear equations in primes and Mobius-nilsequence orthogonality.",
+   "baselineHas": [
+    "Mathlib Finset.mulEnergy/addEnergy (Mathlib/Combinatorics/Additive/Energy.lean:58) and Finset.pluennecke_ruzsa_inequality_pow_div_pow_mul (Additive/PluenneckeRuzsa.lean:236)",
+    "Mathlib Roth via corners: cornersTheoremBound (Additive/Corner/Roth.lean:74), ThreeGPFree/ThreeAPFree",
+    "Mathlib Nat.infinite_setOf_prime_and_eq_mod (NumberTheory/LSeries/PrimesInAP.lean:437) and the Selberg sieve carrier",
+    "Mathlib zeta and Dirichlet L-functions with nonvanishing on Re s >= 1 (AnalyticNumberTheory AN.0-AN.1 built)"
+   ],
+   "missing": [
+    "Imported AN.2-AN.3: prime number theorem (also in progressions), zero-free region, explicit formulas, zero-density estimates",
+    "Imported SV.0-SV.3: sieve dimension/fundamental lemma, large sieve, Vaughan identity, Bombieri-Vinogradov",
+    "AC.1: BSG, Freiman/PFR-type inverse theorems, Bohr sets, arithmetic regularity",
+    "AC.2: Szemeredi for all k via one full route, Furstenberg correspondence, Varnavides",
+    "AC.3: Gowers norms, generalized von Neumann, inverse theorems incl. Green-Tao-Ziegler, nilmanifolds, Mal'cev bases, polynomial-orbit equidistribution",
+    "AC.4-AC.5: pseudorandom majorant, dense model and relative Szemeredi, Green-Tao theorem, linear equations in primes, Mobius-nilsequence orthogonality"
+   ]
+  },
+  "DrinfeldModulesAndTModules": {
+   "targets": "Drinfeld modules and Anderson t-motives: torsion and Tate modules, analytic uniformization over C_infinity, moduli with Pink's compactification, the Tate conjecture (Taguchi-Tamagawa), Taelman's class-number formula, elliptic sheaves, and Papanikolas' algebraic independence of Carlitz logarithms.",
+   "baselineHas": [
+    "Mathlib SkewPolynomial, the Ore ring L{tau} (Mathlib/Algebra/SkewPolynomial/Basic.lean:94)",
+    "Mathlib PadicComplex (NumberTheory/Padics/Complex.lean:137) as the model for C_infinity; Mathlib/Tau Ceti Tate algebras",
+    "Tau Ceti function-field Riemann-Roch and TauCeti.Divisor.classNumber (TauCeti/FieldTheory/FunctionField/RiemannRoch/ClassNumber.lean:202)",
+    "Tau Ceti affine group schemes incl. G_a with Frobenius (TauCeti/Algebra/AlgebraicGroup/AdditiveGroup/), finite flat kernels, Cartier duality"
+   ],
+   "missing": [
+    "Imported SchemeAndStackFoundations SF.1-SF.4: algebraic spaces and stacks, effective descent, proper/smooth base change and compact support, Picard schemes and Jacobians, formal schemes, algebraization, deformation theory",
+    "Imported FunctionFieldArithmetic FA.2: function-field adeles, ideles and Poisson summation",
+    "DM.0-DM.2: Drinfeld modules over bases, Carlitz module, torsion and Tate modules, C_infinity, nonarchimedean entire functions, exponential and lattice uniformization",
+    "DM.3: moduli stacks with level structure, Hecke correspondences, Pink's Satake compactification",
+    "DM.4-DM.6: t-modules and t-motives, Tate conjecture for Drinfeld modules, Taelman's class-number formula (Fitting ideals, nuclear determinants)",
+    "DM.7-DM.8: elliptic sheaves/shtukas, neutral Tannakian and Frobenius-difference Galois theory, ABP/Papanikolas transcendence"
+   ]
+  },
+  "QSeriesPartitionsAndMockModularForms": {
+   "targets": "q-series identities and partition congruences, theta/eta/Jacobi forms with multipliers, the Rademacher exact formula, harmonic Maass forms and the xi operator, Zwegers' mock modular completions, quantum modular forms linked to WRT invariants, and monstrous moonshine.",
+   "baselineHas": [
+    "Mathlib Nat.Partition.genFun (Mathlib/Combinatorics/Enumerative/Partition/GenFun.lean:56) and Euler's pentagonal number theorem",
+    "Mathlib ModularForm.eta (NumberTheory/ModularForms/DedekindEta.lean:60) with the S-transformation",
+    "Mathlib jacobiTheta₂_add_left (ModularForms/JacobiTheta/TwoVariable.lean:384) and EisensteinSeries.E2_slash_action (EisensteinSeries/E2/Transform.lean:229)",
+    "Tau Ceti TauCeti.Sporadic.Monster.presentation (TauCeti/GroupTheory/SpecificGroups/CFSG/Sporadic/Monster.lean:187), a transcribed presentation with nothing proved about the group; Mathlib VertexOperator (Mathlib/Algebra/Vertex/VertexOperator.lean:40) but no vertex algebras"
+   ],
+   "missing": [
+    "QM.0-QM.1: q-binomial identities, congruences, multiplier systems, half-integral weight and Jacobi forms, importing MetaplecticAutomorphicForms MP.0-MP.8 (with automorphic spectral theory AS.0-AS.2, smooth local representations)",
+    "QM.2: Kloosterman sums, Bessel functions, Rademacher; its ExponentialSums ES.0-ES.3 import brings in the Weil bounds FF.2, i.e. Weil conjectures WC.0-3, Deligne purity DWP.0-7, Lefschetz pencils and etale duality",
+    "QM.3-QM.4: weight-k Laplacian, harmonic Maass forms, Poincare series, Bruinier-Funke duality, indefinite theta functions and Appell-Lerch sums",
+    "QM.5: quantum modular forms, importing ArithmeticQuantumTopology QT.0-QT.4 (WRT invariants) and HabiroCyclotomicCompletions",
+    "QM.6: vertex operator algebras, the moonshine module, the no-ghost theorem, the Monster Lie algebra and Borcherds' proof"
+   ]
+  },
+  "PhiGammaModulesAndIwasawaCohomology": {
+   "targets": "Fontaine's etale (phi,Gamma)-module equivalence, Cherbonnier-Colmez overconvergence, Herr complexes computing continuous Galois cohomology, the psi operator and the Iwasawa-cohomology comparison, Wach modules, and Kedlaya-Pottharst-Xiao families.",
+   "baselineHas": [
+    "Mathlib WittVector.fontaineTheta and BDeRhamPlus (Mathlib/RingTheory/Perfectoid/BDeRham.lean:77); PreTilt.untilt",
+    "Tau Ceti TauCeti.ContCohomology (TauCeti/RepresentationTheory/Homological/ContCohomology/, degrees <= 2 only)",
+    "Mathlib PowerSeries.exists_isWeierstrassDivision (RingTheory/PowerSeries/WeierstrassPreparation.lean:504) and the Mahler/Amice transform (NumberTheory/Padics/MahlerBasis.lean)"
+   ],
+   "missing": [
+    "Imported ArithmeticGaloisDuality R02.1-R02.4, D7: continuous cochains in all degrees, local Tate duality",
+    "Imported PadicHodgeTheory P7 annulus foundations and R06.1-R06.2 period rings, PerfectoidSpaces P0-P3, EnhancedDerivedSheaves E0-E5",
+    "Imported PadicMeasuresIwasawaAlgebras L0-L5, LocallyAnalyticDistributions L0-L4, SelmerIwasawaCohomology L0-L3",
+    "PG.0-PG.2: A_K, B_K, field of norms, Fontaine's equivalence, overconvergence and Robba realization",
+    "PG.3-PG.5: Herr complex quasi-isomorphism with cup products and duality, psi operator, psi-complex = Iwasawa cohomology",
+    "PG.6-PG.7: Wach modules for crystalline lattices, relative Herr/Iwasawa complexes over affinoid Robba rings"
+   ]
+  },
+  "HabiroRings": {
+   "targets": "The relative Habiro ring of an etale algebra over a perfectly covered Lambda-ring, with derived Habiro completion, cyclotomic E-infinity descent, relative q-Witt rings, the Taylor equalizer presentation, the number-field comparison and its identification with degree-zero Habiro cohomology and K_3-indexed modules.",
+   "baselineHas": [
+    "Mathlib WittVector.ghostMap (Mathlib/RingTheory/WittVector/Basic.lean:287) with Frobenius and Verschiebung",
+    "Mathlib cyclotomic polynomial factorization over finite fields and Polynomial.cyclotomic_prime (RingTheory/Polynomial/Cyclotomic/Basic.lean:367)",
+    "Mathlib formally etale/smooth lifting into adically complete rings, and AlgHom.equalizer (Algebra/Algebra/Subalgebra/Basic.lean:1030)"
+   ],
+   "missing": [
+    "Imported EnhancedDerivedSheaves E0-E5 and StableHomotopyKTheory H.1-H.6 (infinity-categories, spectra), DerivedDeRham DD.0-DD.6, PrismaticCohomology PR.0-PR.3 and PR.6, AInf AI.1/AI.3/AI.4, Crystalline CR.0-CR.5",
+    "Imported HabiroCohomologyFoundations HQ.1-HQ.5 (needed by HR.6) and HabiroNumberFields HB.6-HB.7",
+    "Through HB.7 the K-theory stack: Quillen K-theory, K_2/K_3 and Bloch groups, Borel regulators, motivic cohomology, the norm-residue theorem and Quillen-Lichtenbaum (MotivicEtaleKTheory M.1-M.7)",
+    "HR.1-HR.2: Lambda-rings with Adams operations, perfectly covered bases, Habiro-complete modules and derived detection",
+    "HR.3-HR.5: finite cyclotomic E-infinity descent, relative q-Witt rings, H_(R/A,m) and the relative Habiro ring with Taylor presentation",
+    "HR.6: identification with Habiro cohomology and K_3-indexed line modules"
+   ]
+  },
+  "IntegralIwasawaTheory": {
+   "targets": "Arithmetic Iwasawa theory: cyclotomic unit index formula, Iwasawa's growth formula, Vandiver special case, Ferrero-Washington and Baker-Brumer, the Mazur-Wiles and Wiles main conjectures, integral Brumer-Stark (Dasgupta-Kakde, DKSW), Kurihara's all-prime determinant main conjecture and its comparison with the K-theoretic Birch-Tate formulation.",
+   "baselineHas": [
+    "Mathlib arithmetic of Q(zeta_n): discriminant (IsCyclotomicExtension.Rat.discr_prime_pow_ne_two', NumberTheory/NumberField/Cyclotomic/Basic.lean:49), ramification, Galois group, CM structure",
+    "Mathlib analytic class number formula NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT (NumberTheory/NumberField/DedekindZeta.lean:77) and Dirichlet's unit theorem",
+    "Mathlib PowerSeries.exists_isWeierstrassDivision (RingTheory/PowerSeries/WeierstrassPreparation.lean:504) and the Amice transform",
+    "Tau Ceti TauCeti.GlobalNumberFields.RayClassGroup (TauCeti/NumberTheory/NumberField/Global/RayClass/Basic.lean:180) and the ideal-theoretic Artin map (no reciprocity)"
+   ],
+   "missing": [
+    "Imported PadicMeasuresIwasawaAlgebras L0-L5 (completed group rings, Lambda-module structure, characteristic/Fitting ideals), DirichletPadicLFunctions, ColemanPowerSeries, LocallyAnalyticDistributions, SelmerIwasawaCohomology, ArithmeticGaloisDuality D7",
+    "Imported AutomorphicPadicLFunctions L0-L3 (Deligne-Ribet via Hilbert modular Eisenstein series), ModularCurvesPartII R12-R14.1, IntegralHecke IHG.6, ComplexComparison C0-C5, SpecialValuesBirchTate B.1-B.6",
+    "Imported K-theory stack (declared dependencies T, M, N, R.5): Quillen/Waldhausen K-theory, spectra, K_2 and K_3, Borel ranks, motivic cohomology, norm-residue theorem, Quillen-Lichtenbaum",
+    "L0-L4: cyclotomic units and index formula, infinite CFT exact sequences, mu/lambda growth, Vandiver case, Baker-Brumer and Ferrero-Washington",
+    "I.1-I.5: Z_p-towers, arithmetic Iwasawa modules, p-adic zeta functions, Euler characteristics, Mazur-Wiles and Wiles main conjectures",
+    "I.6-I.10: Ritter-Weiss modules, integral Brumer-Stark, compactly supported Iwasawa complexes, Kurihara's determinant main conjecture, comparison with classical/K-theoretic formulations"
+   ]
+  },
+  "PerfectoidQuotients": {
+   "targets": "Bhatt-Scholze Theorem 7.4 (surjectivity of perfectoidization for semiperfectoid quotients) and Remark 7.5, giving Zariski closed perfectoid quotients (ECD Theorem 5.8), via universal prisms and Andre's flatness lemma.",
+   "baselineHas": [
+    "Mathlib PreTilt.untilt (Mathlib/RingTheory/Perfectoid/Untilt.lean:49), WittVector.fontaineTheta and BDeRhamPlus (Perfectoid/BDeRham.lean:77)",
+    "Mathlib naive cotangent complex Algebra.H1Cotangent (RingTheory/Etale/Kaehler.lean) and Kaehler differentials",
+    "Tau Ceti Huber pairs and adic spectra (TauCeti/AlgebraicGeometry/AdicSpace/Spa/HuberPair.lean)"
+   ],
+   "missing": [
+    "Imported EnhancedDerivedSheaves E0-E5: infinity-categorical enhancement, derived sheaves, Postnikov completeness, coherent Kan extensions, derived adic completion, animated rings",
+    "Imported DerivedDeRham DD.0-DD.2, DD.5 (cotangent complex, derived completion, derived de Rham, quasisyntomic descent) and Crystalline CR.0-CR.2",
+    "Imported PrismaticCohomology PR.0-PR.2: delta-rings, prisms, prismatic site, Hodge-Tate comparison, derived prismatic cohomology",
+    "Imported PerfectoidSpaces P0-P4: almost mathematics, perfectoid Tate rings, almost purity, perfectoid morphisms; AdicEtaleGeometry A0-A1",
+    "Q0-Q2: integral perfectoid rings vs perfect prisms, universal prisms and perfectoidization of semiperfectoid rings",
+    "Q3-Q4: Andre's flatness lemma (transfinite absolutely integrally closed extensions), surjectivity of perfectoidization, closed perfectoid quotients"
+   ]
+  },
+  "CompletedCohomologyAndLocalGlobalCompatibility": {
+   "targets": "Completed cohomology of modular and Shimura-curve towers, locally algebraic vectors, completed Hecke algebras with their Galois representations, Emerton's p-adic local-global compatibility theorem, and patched completed modules for GL_2/Q modularity lifting.",
+   "baselineHas": [
+    "Mathlib group cohomology as Ext with Shapiro groupCohomology.coindIso (Mathlib/RepresentationTheory/Homological/GroupCohomology/Shapiro.lean:59) and AdicCompletion",
+    "Tau Ceti low-degree continuous cohomology TauCeti.ContCohomology and smooth discrete representations (TauCeti/RepresentationTheory/Homological/ContCohomology/)",
+    "Tau Ceti modular forms with Hecke operators, e.g. HeckeRing.GL2.heckeUNat (TauCeti/NumberTheory/ModularForms/HeckeSlash/BadPrime/Basic.lean:54)"
+   ],
+   "missing": [
+    "Imported CompletedCohomologyPartII CC.0-CC.8: towers, derived limits, admissibility, locally algebraic vectors, compact support",
+    "Imported ModularCurvesPartII R12-R14 and HilbertModularVarietiesAndShimuraCurves R18 (with Shimura compactifications, etale cohomology, Weil II via R34/DWP, Lefschetz pencils)",
+    "Imported AutomorphicGaloisRepresentations R19 (with GL2 automorphic representations and Jacquet-Langlands R16-R17, the trace formula AS.6, p-adic comparison via A_inf, relative Fargues-Fontaine, perfectoid spaces and diamond six operations)",
+    "Imported PadicLocalLanglandsForGL2Qp R30.1-R30.6 (Colmez functor via (phi,Gamma)-modules PG.0-PG.3, Paskunas) and GlobalGaloisDeformations R04",
+    "R31.1-R31.3: completed cohomology of modular/Shimura curves, classical specialisations, completed Hecke algebra and Galois actions",
+    "R31.4-R31.6: Emerton's local-global compatibility, patched completed modules and support, exports"
+   ]
+  },
+  "HabiroCohomologyFoundations": {
+   "targets": "q-de Rham and q-Hodge filtrations with the Habiro cohomology functor (Wagner): global q-de Rham gluing over Lambda-rings, derived q-de Rham, q-Hodge modification landing in Habiro-complete modules, q-de Rham-Witt complexes with cyclotomic descent, existence theorems for smooth, quasi-regular and trace-theoretic inputs, and the comparison atlas with crystalline, A_inf and prismatic cohomology.",
+   "baselineHas": [
+    "Mathlib q-integer identities as geometric sums: geom_sum_mul and Polynomial.cyclotomic_prime (Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean:367)",
+    "Mathlib p-typical Witt vectors with WittVector.ghostMap (RingTheory/WittVector/Basic.lean:287), Kaehler differentials",
+    "Mathlib BDeRhamPlus (RingTheory/Perfectoid/BDeRham.lean:77) and underived filtrations/adic completion"
+   ],
+   "missing": [
+    "Imported PrismaticCohomology PR.0-PR.3, PR.6 (q-crystalline and AOmega comparison), AInfCohomology AI.0-AI.6, Crystalline CR.0-CR.6 incl. de Rham-Witt, DerivedDeRham DD.0-DD.6, EnhancedDerivedSheaves E0-E5",
+    "Imported HabiroRings HR.1-HR.4 (Habiro-complete modules, q-Witt rings) with spectra StableHomotopyKTheory H.1-H.6 and RefinedTraceMethods RT.1-RT.6 (THH, spherical lifts)",
+    "Through HQ.8/CP.1: CohomologyComparisons CP.0-CP.6, all of PerfectoidQuotients, PerfectoidSpaces P0-P6, DiamondsAndVStacks D0-D6, relative Fargues-Fontaine",
+    "HQ.1-HQ.2: global q-de Rham gluing, derived q-de Rham and Leta applications",
+    "HQ.3-HQ.4: q-Hodge filtrations, qHdg functor to Habiro-complete modules, q-de Rham-Witt complexes and cyclotomic descent",
+    "HQ.5-HQ.8: existence theorems (smooth, quasi-regular, trace-theoretic), analytic boundary statements, comparison atlas"
+   ]
+  },
+  "ModularityAndLanglandsExtensions": {
+   "targets": "Deligne-Serre and weight-one modularity, modularity over totally real and CM fields, potential automorphy, Newton-Thorne symmetric-power functoriality with Sato-Tate, Arthur/Mok/KMSW endoscopic classification, and known functorial transfers (base change, automorphic induction).",
+   "baselineHas": [
+    "Mathlib ModularForm and DirichletCharacter.LFunction_ne_zero_of_one_le_re (Mathlib/NumberTheory/LSeries/Nonvanishing.lean:400)",
+    "Tau Ceti modular forms with Hecke operators (HeckeRing.GL2.heckeUNat, TauCeti/NumberTheory/ModularForms/HeckeSlash/BadPrime/Basic.lean:54)",
+    "Tau Ceti Chevalley group schemes over Z, TauCeti.DynkinType.geckGroupScheme (TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/GeckLattice/GroupScheme.lean:153), and NumberField.artinSymbol (TauCeti/NumberTheory/NumberField/ArtinSymbol.lean:57)"
+   ],
+   "missing": [
+    "Imported AutomorphicSpectralTheory AS.0-AS.6 (Eisenstein series, spectral decomposition, Arthur's invariant trace formula), SmoothRepresentationsOfLocalGroups, AdelicAlgebraicGroups, AnalyticNumberTheory AN.0-AN.4",
+    "Imported PotentialAutomorphyInfrastructure (ML.2 applies all of PA.0-PA.5): integral cohomology of locally symmetric spaces, Igusa varieties and torsion concentration, Scholze's torsion Galois representations, derived/ultra patching, local deformation rings, p-adic Hodge theory, etale cohomology and Weil II, Shimura varieties, perfectoid Shimura varieties",
+    "ML.1: Deligne-Serre, weight-one modularity, modularity over totally real/CM fields",
+    "ML.2-ML.3: potential automorphy assembly, symmetric-power functoriality and Sato-Tate",
+    "ML.4: stabilization, transfer, fundamental lemma, packets and multiplicities for classical groups",
+    "ML.5: cyclic base change, automorphic induction and tensor/symmetric-power transfers"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+   "b": "tauceti:Completed/EffectiveBounds",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Semisimple algebras is essentially complete in Tau Ceti (Wedderburn invariants and uniqueness, density theorem, Skolem-Noether, centralizer theorem, Brauer group with base change, index and Br(R) = Z/2), leaving at most worked examples; effective bounds still lacks explicit lower bounds for the regulator in positive unit rank. Both residuals are small."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "b": "tauceti:Completed/EffectiveBounds",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Analytic toric geometry still needs Minkowski-Weyl and Gordan's lemma, affine toric schemes and fan gluing, regular analytic charts with a complex-manifold gluing theorem, the orbit-cone correspondence and SNC boundary, the properness criterion and the algebraic-analytic comparison; effective bounds only lacks positive-rank regulator lower bounds."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "b": "tauceti:TauCetiRoadmap/Chebotarev",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Toric geometry's missing theory is broad but shallow (cone lemmas, toric schemes and gluing, manifold charts and gluing, orbits and boundary, properness, comparison). Chebotarev needs a deeper analytic stack: power-saving ray-class ideal counts over Lipschitz-parametrized fundamental domains, ray-class characters with L-series continuation and nonvanishing, the unsmoothed Wiener-Ikehara theorem and prime ideal theorem, then the Dirichlet-density calculus and the abelian, general and weighted crossings."
+  },
+  {
+   "a": "AdditiveCombinatorics",
+   "b": "tauceti:TauCetiRoadmap/Chebotarev",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Chebotarev's gap is classical analytic number theory over number fields (ray-class counts, L-series near Re s = 1, Wiener-Ikehara, density crossings) on a largely built algebraic half. Additive combinatorics needs the prime number theorem, zero-density estimates and Bombieri-Vinogradov, then Freiman/BSG, Szemeredi's theorem, Gowers norms with the Green-Tao-Ziegler inverse theorem and nilmanifold equidistribution, the Green-Tao theorem and linear equations in primes."
+  },
+  {
+   "a": "AdditiveCombinatorics",
+   "b": "DrinfeldModulesAndTModules",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Additive combinatorics needs a tall analytic tower (PNT, zero-density and Bombieri-Vinogradov; Freiman/BSG, Szemeredi, the GTZ inverse theorem with nilsequences, Green-Tao, linear equations in primes). Drinfeld modules has almost nothing built and needs algebraic stacks, etale base change, Picard schemes and deformation theory (SF.1-SF.4) and function-field adeles beneath nine deep layers: C_infinity uniformization, moduli with Pink's compactification, t-motives, the Taguchi-Tamagawa Tate conjecture, Taelman's class-number formula, elliptic sheaves and Papanikolas' Tannakian transcendence."
+  },
+  {
+   "a": "DrinfeldModulesAndTModules",
+   "b": "QSeriesPartitionsAndMockModularForms",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Drinfeld modules needs stack and etale foundations plus its nine Drinfeld-module layers. Q-series imports much more: metaplectic automorphic forms MP.0-MP.8 with automorphic spectral theory, the Weil bounds through ES.3/FF.2 (Weil conjectures, Deligne purity, Lefschetz pencils, etale duality), WRT invariants QT.0-QT.4 and Habiro completions, on top of its own harmonic Maass forms, Zwegers completions and the whole moonshine proof (vertex algebras, moonshine module, no-ghost theorem, Borcherds)."
+  },
+  {
+   "a": "PhiGammaModulesAndIwasawaCohomology",
+   "b": "QSeriesPartitionsAndMockModularForms",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "(phi,Gamma)-modules needs Fontaine's equivalence, Cherbonnier-Colmez, Herr and psi complexes, Wach modules and KPX families on imports of local Tate duality, period rings, perfectoid P0-P3 and Iwasawa algebras (about 48 stages). Q-series imports about 130 stages, including metaplectic automorphic forms, the Weil conjectures and Deligne purity via the Weil bounds and WRT invariants, and must also build mock modular forms and moonshine."
+  },
+  {
+   "a": "HabiroRings",
+   "b": "PhiGammaModulesAndIwasawaCohomology",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Habiro rings imports infinity-categories and spectra, derived de Rham, prismatic cohomology including q-crystalline PR.6, q-Hodge cohomology HQ.1-HQ.5, and through HB.7 the whole K-theory stack with the norm-residue theorem, before its own E-infinity cyclotomic descent and q-Witt constructions. (phi,Gamma)-modules needs p-adic period rings, local duality and Iwasawa algebras beneath a chain of local layers (Fontaine, overconvergence, Herr, psi, Wach, KPX)."
+  },
+  {
+   "a": "HabiroRings",
+   "b": "IntegralIwasawaTheory",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Both import the K-theory stack (norm residue, Quillen-Lichtenbaum), infinity-categorical foundations and perfectoid P0-P3. Beyond that Habiro rings adds prismatic and derived de Rham cohomology, HQ.1-HQ.5 and its Habiro constructions, while Iwasawa theory adds far more: modular curves, Kubota-Leopoldt and Deligne-Ribet p-adic L-functions, Coleman power series, Birch-Tate and complex comparison, plus its own Mazur-Wiles, Wiles, Dasgupta-Kakde, Kurihara and Ferrero-Washington proofs."
+  },
+  {
+   "a": "IntegralIwasawaTheory",
+   "b": "PerfectoidQuotients",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Perfectoid quotients needs infinity-categorical derived algebra, cotangent complex and derived de Rham, crystalline and prismatic cohomology with Hodge-Tate comparison, almost purity, then universal prisms and Andre's lemma. Iwasawa theory's closure already contains many of those foundations (E0-E3 and E5, CR.0-CR.2 and CR.4, perfectoid P0-P3) and adds the K-theory stack with the norm-residue theorem, modular curves, p-adic L-functions, Iwasawa algebras and several main-conjecture proofs."
+  },
+  {
+   "a": "PerfectoidQuotients",
+   "b": "CompletedCohomologyAndLocalGlobalCompatibility",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Completed cohomology's closure contains all of perfectoid quotients (through A_inf cohomology and relative Fargues-Fontaine, for the p-adic Hodge comparison of automorphic Galois representations) and adds etale cohomology with Weil II, Shimura curves and compactifications, GL2 automorphic representations and Jacquet-Langlands, automorphic Galois representations, (phi,Gamma)-modules and p-adic local Langlands for GL2(Qp), and Emerton's local-global compatibility."
+  },
+  {
+   "a": "CompletedCohomologyAndLocalGlobalCompatibility",
+   "b": "HabiroCohomologyFoundations",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "The two share perfectoid, diamond, A_inf, crystalline and derived de Rham foundations (about 92 stages). Habiro cohomology adds q-de Rham, q-Hodge and q-Witt theory with spectra, THH and HR.1-HR.4 (about 34 stages), whereas completed cohomology adds about 290: etale cohomology and Weil II, Shimura varieties and compactifications, diamond six operations, p-adic local Langlands, GL2 transfer and the trace formula, completed cohomology and Emerton's theorem."
+  },
+  {
+   "a": "ModularityAndLanglandsExtensions",
+   "b": "HabiroCohomologyFoundations",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Habiro cohomology's gap is q-Hodge and q-Witt theory on prismatic, A_inf, perfectoid and infinity-categorical foundations. Modularity and Langlands extensions applies the whole potential-automorphy infrastructure (Igusa varieties, torsion Galois representations, patching, Shimura varieties, Weil II, p-adic Hodge theory) and the invariant trace formula, then must build Newton-Thorne symmetric powers and Arthur's endoscopic classification with the fundamental lemma."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Semisimple algebras is essentially fully built in Tau Ceti, from the Wedderburn invariants to Br(R) = Z/2. Analytic toric geometry still lacks dual semigroups and Gordan's lemma, toric schemes and fan gluing, analytic charts with manifold gluing, the orbit-cone correspondence and SNC boundary, properness and the algebraic-analytic comparison."
+  },
+  {
+   "a": "ModularityAndLanglandsExtensions",
+   "b": "PhiGammaModulesAndIwasawaCohomology",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "(phi,Gamma)-modules is a local p-adic Hodge chain (Fontaine equivalence, overconvergence, Herr and psi complexes, Wach modules, KPX) on about 48 imported stages. Modularity and Langlands extensions needs the potential-automorphy infrastructure, the trace formula, endoscopic classification and symmetric-power functoriality on about 400 imported stages that include p-adic Hodge theory itself."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/Chebotarev",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Semisimple algebras has no substantive missing layer in the baseline. Chebotarev still needs power-saving ray-class ideal counts, ray-class L-series continuation and nonvanishing, the unsmoothed Wiener-Ikehara theorem, the prime ideal theorem and every Dirichlet- and natural-density theorem."
+  },
+  {
+   "a": "PerfectoidQuotients",
+   "b": "HabiroCohomologyFoundations",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Habiro cohomology's comparison atlas HQ.8 imports all of perfectoid quotients, and even its core HQ.1-HQ.5 needs more than PQ's imports: the q-crystalline and AOmega comparison PR.6, A_inf cohomology AI.1-AI.4, de Rham-Witt CR.4-CR.5, derived de Rham DD.3-DD.6, spectra and THH, and Habiro rings HR.1-HR.4, before its q-Hodge filtrations and q-Witt descent. Relative to that core, perfectoid quotients adds only derived adic completion E4, perfectoid morphisms P4 and its own universal prisms, Andre's lemma and perfectoidization surjectivity."
+  },
+  {
+   "a": "IntegralIwasawaTheory",
+   "b": "QSeriesPartitionsAndMockModularForms",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Q-series imports the Weil conjectures and Deligne purity (via the Weil bounds), Vinogradov mean values, metaplectic automorphic forms and WRT invariants, and must build moonshine and mock modular forms. Iwasawa theory imports a larger stack, the whole K-theory development with the norm-residue theorem and Quillen-Lichtenbaum, p-adic L-functions via Hilbert Eisenstein series, Iwasawa algebras, Coleman power series and Birch-Tate, and must build several main-conjecture proofs (Mazur-Wiles, Wiles, Dasgupta-Kakde, Kurihara)."
+  },
+  {
+   "a": "CompletedCohomologyAndLocalGlobalCompatibility",
+   "b": "ModularityAndLanglandsExtensions",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "The potential-automorphy infrastructure that ML.2 applies shares about 313 stages with completed cohomology's closure (Shimura varieties, etale cohomology, p-adic Hodge theory, perfectoid geometry). Completed cohomology adds GL2-specific modular curves, p-adic local Langlands and Emerton's theorem, while modularity and Langlands adds Igusa varieties, torsion Galois representations and patching, plus Arthur's classification with the fundamental lemma and Newton-Thorne symmetric powers."
+  },
+  {
+   "a": "DrinfeldModulesAndTModules",
+   "b": "HabiroRings",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Drinfeld modules needs stack and etale foundations (SF.1-SF.4) under its nine Drinfeld-module layers. Habiro rings needs a far larger imported closure: infinity-categories and spectra, derived de Rham, prismatic and A_inf cohomology, q-Hodge cohomology HQ.1-HQ.5, and the K-theory stack with Bloch groups, Borel regulators and the norm-residue theorem, before its own Habiro constructions."
+  },
+  {
+   "a": "PerfectoidQuotients",
+   "b": "AdditiveCombinatorics",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Additive combinatorics needs PNT, zero-density and Bombieri-Vinogradov and a tall analytic tower (Freiman/BSG, Szemeredi, the GTZ inverse theorem and nilsequences, Green-Tao, linear equations in primes) on measure-theoretic and Fourier foundations that Mathlib largely has. Perfectoid quotients needs more stacked foundations absent from both libraries: infinity-categorical derived sheaves and animated rings, cotangent complex and derived de Rham, crystalline and prismatic cohomology with Hodge-Tate comparison, perfectoid spaces with almost purity, then universal prisms and Andre's lemma."
+  },
+  {
+   "a": "tauceti:Completed/EffectiveBounds",
+   "b": "tauceti:TauCetiRoadmap/Chebotarev",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Effective bounds only lacks positive-rank regulator lower bounds. Chebotarev still needs its analytic spine (power-saving ray-class counts, ray-class characters, L-series continuation and nonvanishing, Wiener-Ikehara, the prime ideal theorem) and every density theorem."
+  },
+  {
+   "a": "HabiroCohomologyFoundations",
+   "b": "DrinfeldModulesAndTModules",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Drinfeld modules needs stack and etale foundations and its own Drinfeld-module layers. Habiro cohomology needs infinity-categorical, derived de Rham, crystalline and de Rham-Witt, prismatic, A_inf, perfectoid, diamond and relative Fargues-Fontaine theory plus spectra, THH and Habiro rings before its q-de Rham, q-Hodge and q-Witt layers."
+  },
+  {
+   "a": "CompletedCohomologyAndLocalGlobalCompatibility",
+   "b": "IntegralIwasawaTheory",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Iwasawa theory's unique imports are the K-theory stack (norm residue, Quillen-Lichtenbaum, Borel), used for its K-theoretic comparison, plus p-adic L-functions, Coleman power series and Birch-Tate, with several main-conjecture proofs of its own. Completed cohomology's imports on its critical path are larger: etale cohomology with Weil II for Shimura curves, Shimura compactifications, GL2 automorphic representations and the trace formula, p-adic comparison via A_inf and perfectoid/diamond geometry, (phi,Gamma)-modules and p-adic local Langlands, then completed cohomology and Emerton's theorem."
+  }
+ ]
+}
