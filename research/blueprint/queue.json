@@ -38586,11 +38586,12 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-37.md",
    "timeout": 14400,
-   "state": "running",
-   "account": "claude4",
+   "state": "pending",
+   "account": null,
    "lane": 2,
    "startedAt": "2026-09-17T21:53:03Z",
-   "attempts": 1
+   "attempts": 0,
+   "note": "released after a usage limit on claude4/2 at 2026-09-17T22:06:59Z"
   },
   {
    "id": "COMPARE-38",
