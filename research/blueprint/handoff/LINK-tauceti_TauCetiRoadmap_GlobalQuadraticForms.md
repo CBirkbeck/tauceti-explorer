@@ -1,95 +1,73 @@
-# Handoff: GlobalQuadraticForms links
+# Handoff: GlobalQuadraticForms links — continuation
 
-## Identity, ownership, and status
+## Identity, provenance and status
 
-- Job: `LINK-tauceti_TauCetiRoadmap_GlobalQuadraticForms`; issue [#27](https://github.com/CBirkbeck/tauceti-explorer/issues/27).
-- Worker: **ChatGPT Pro — cgp-95cdeccd608b**; date: 2026-09-16.
-- Claim comment: [5697552450](https://github.com/CBirkbeck/tauceti-explorer/issues/27#issuecomment-5697552450); session-specific acceptance: [5697554564](https://github.com/CBirkbeck/tauceti-explorer/issues/27#issuecomment-5697554564). The claimed label was independently re-fetched before substantive work.
-- Input revision: `088ac3dcfb573a1e875fcea971ce54526bbe74d3`.
-- Isolated branch: `cgp-95cdeccd608b/link-global-quadratic-forms`.
-- Packet checkpoint commit: `7eb608147e492f8b84cebfc38878e3963e74b181`.
-- **Partial link audit, not a complete catalogue screen, an independent review, or an implementation.** No review verdict is added.
+Job `LINK-tauceti_TauCetiRoadmap_GlobalQuadraticForms`, issue [#27](https://github.com/CBirkbeck/tauceti-explorer/issues/27). Worker **ChatGPT Pro — cgp-21d912f1de06**, 2026-09-17. Claim [5713483338](https://github.com/CBirkbeck/tauceti-explorer/issues/27#issuecomment-5713483338) was accepted for this session in [5713485629](https://github.com/CBirkbeck/tauceti-explorer/issues/27#issuecomment-5713485629); ownership was rechecked before submission. No other job is held at this handoff.
 
-Authorised deliverables are this note and `research/blueprint/links/tauceti_TauCetiRoadmap_GlobalQuadraticForms.json`. No source roadmap, application file, atlas data, queue, reserved identifier, or another worker's packet has been edited. No git command was run.
+This continues the checkpoint by **ChatGPT Pro — cgp-95cdeccd608b**, merged in [#778](https://github.com/CBirkbeck/tauceti-explorer/pull/778). The orchestrator explicitly made this job available again in comment 5698182143. Input revision: `dbafc759460581dbd23999a3c112149fedefe2b5`. Isolated branch: `cgp-21d912f1de06/link-global-quadratic-forms-continuation`.
 
-The baseline file was read: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Declaration names quoted here are planned roadmap contracts. This link job makes no declaration-level claim of library availability and did not verify Lean implementations.
+**Status remains partial.** The submission extends the reading record and ownership analysis. It is not a completed catalogue-wide screen, an independent review, or a formalisation. Only this handoff and `research/blueprint/links/tauceti_TauCetiRoadmap_GlobalQuadraticForms.json` are changed. No git command, source-roadmap edit, atlas/queue edit, merge, approval or issue closure was performed.
 
-## Delivered mathematical mapping
+The branch starts at `66e35f2051d4e49644701ad398112de45095d315`; both authorised input files were unchanged there. Packet checkpoint commit: `9d4eb62e097a574c740e8f2b0c9406c84bf723d5`, packet blob `ccb6dd1f95faac752c291bc17b356155d8265d99`.
 
-The packet records **37 new directed links**: **35 incoming** (22 from QuadraticFormInvariants, four from NumberFieldArithmetic, four from GlobalNumberFields, five from ClassFieldTheory), and **two outgoing** to `GeometryOfNumbersAndQuadraticArithmetic:GN.2`. Each has two verbatim source passages and a hypothesis-sensitive reason. The one overlap recommends **keep**, with explicit reuse boundaries rather than a roadmap-wide merge.
+The historical [packet](https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/research/blueprint/links/tauceti_TauCetiRoadmap_GlobalQuadraticForms.json) and [handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/research/blueprint/handoff/LINK-tauceti_TauCetiRoadmap_GlobalQuadraticForms.md) retain the original per-file source provenance, ten-layer inventory and validation receipt. Their original input was `088ac3dcfb573a1e875fcea971ce54526bbe74d3`. Inherited reading is explicitly labelled in the new packet, not attributed to fresh independent checking.
 
-A pre-existing link from GlobalQuadraticForms Layer 1 to SpinRepresentations Layer 1 is listed separately and not duplicated. It supplies complex classification by rank, not the arithmetic Hasse principle or an SO-torsor theorem.
+## What this continuation delivers
 
-The mapping preserves these distinctions:
+The **37 inherited directed links are unchanged**, including endpoints, reasons, confidence and paired quotations. They consist of 35 incoming links (22 QuadraticFormInvariants, four NumberFieldArithmetic, four GlobalNumberFields and five ClassFieldTheory), and two outgoing links to `GeometryOfNumbersAndQuadraticArithmetic:GN.2`. The pre-existing GQF Layer 1 to SpinRepresentations Layer 1 complex-normal-form edge remains excluded as a duplicate. No new directed link is asserted.
 
-- Canonical local-field structures versus completion maps in an actual field extension: tower maps are used in quaternary base change, not in defining ordinary localization.
-- Field-generic Witt/discriminant theory versus nonarchimedean classification and dyadic square theorems. Real signs are computed separately.
-- Mixed weak approximation versus additive strong approximation; idelic carriers and norm maps versus arithmetic norm-index and Hasse-norm theorems.
-- The Hilbert product formula is necessary for prescribed sign patterns but does not construct them. The concrete quadratic norm index is a separate input.
-- Global isometry uniqueness does not manufacture a global realization of local invariant data.
-- Rational isometry does not imply integral isometry, membership in a genus, or a hermitian analogue.
+The original rational/integral ownership overlap is retained. A second, explicitly qualified **coherence-interface overlap** records GQF Layer 3 versus `GrossZagierAndArithmeticHeights:GZ.6`. It is a proposed boundary to resolve, not a claim that GQF already supplies an analytic vanishing theorem.
 
-## Target-stage input/output inventory
+There are **185 examined records**. Twelve have substantive stage-level reading, with inherited versus fresh scope recorded individually; **173 are summary-only**. This continuation read all **182 entries** of `data/roadmap-summaries.json`, excluding the one retired FoundationsAndLibraryIntegration record from the examined list. That override file is not the complete atlas. The result `none` on a summary-only record means no edge asserted at that depth, not that all its stages have been checked.
 
-All ten target stages were read in full. This inventory identifies the declaration-level needs that guided stage matching; it is not a blueprint packet.
+### Integral lattices: the previously unfinished exclusion is now settled
 
-| Target layer | Inputs and outputs checked |
-| --- | --- |
-| 0 | Actual scalar extension into finite, real and complex completions; canonical finite-local-field structure; tower compatibility only for changing fields. Outputs localization and intrinsic local predicates, with rank-qualified complex automaticity. |
-| 1 | Real diagonalization and inertia; outputs signatures, real classification, and complex classification by rank. No finite-local-field theorem supplies the real signature. |
-| 2 | Plain discriminant and local Hasse API, canonical completions, odd-unit Hilbert calculations and local classification. Outputs finite Hasse support and almost-all isotropy in the stated rank range. |
-| 3 | One global square class, signatures, exact local realization exceptions and Hilbert reciprocity. Outputs admissible positive-rank invariant systems, not unrelated choices of local discriminants. |
-| 4 | Mixed weak approximation, local square openness, canonical ideles/norm maps, concrete norm index, cyclic Hasse norm and the sign dictionary. Outputs the global square theorem, quadratic norm adapter, localized product formula and prescribed even Hilbert-sign patterns. |
-| 5 | Binary square criterion, ternary norm theorem, field-generic quaternary descent, completion towers and higher-rank vector approximation. Outputs Hasse–Minkowski isotropy, with ranks two, three, four and at least five separated. |
-| 6 | Nonzero-scalar representation/isotropy criterion and regular Witt cancellation. Outputs scalar and form representation principles and global isometry from local isometry. |
-| 7 | Exact local realization, approximation, correction planes, global form representation and local Witt cancellation. Outputs actual global realizations and their uniqueness. The rank-one and hyperbolic-binary exceptions remain explicit. |
-| 8 | Global isometry plus genuine Witt-ring functoriality. Outputs complete invariant classification, local-global hyperbolicity, injectivity of the Witt localization map, and a form-theoretic SO consequence. No H1 carrier or surjectivity theorem is introduced. |
-| 9 | Earlier theorem and local-computation outputs. Tests include a finite obstruction invisible over the reals, a rational isometry, a two-real-place example over Q(sqrt(5)), small-rank nonexamples and the quaternary finiteness trap. |
+The complete `Completed/IntegralLattices` README, including all five layers, the D8-to-E8 calculation and completion criterion, was read. It expressly excludes lattice classification, genera, mass formulas and theta theory. Its overlattice theorem compares integral carriers within one fixed rational space via subgroups of the finite discriminant group. Its signature interface works over the rational ordered field and consumes the indicated existing signature API; it does not need a global number-field classification theorem.
 
-## Six precise corrections, gaps, or coordination requests
+Consequently, do not attach an integral-genus consumer to this completed roadmap merely because the GQF introduction mentions integral lattices. GN.2 is the explicit registered consumer already linked. Rational isometry does not produce the required integral carrier isometry, and determinant one does not establish the D8-plus/E8 identification without the actual basis/isometry calculation.
 
-**1. Quaternary sign explanation — definite arithmetic error.** In target 5.1 the explanatory bullet says that `(-1)^(n(n-1)/2) = -1` in dimension four. It is `(-1)^6 = +1`. Signed and plain discriminants therefore agree in rank four. Retain the chosen plain convention but correct that sentence in a separately authorised source edit. This does not refute the displayed descent theorem.
+### PEL and rational-point obstructions: avoid false Hasse principles
 
-**2. Approximation locator — definite cross-reference mismatch.** The target's contract discussion cites GlobalNumberFields 0.2. The pinned supplier places `weakApproximation_denseRange` in **Layer 1, weak approximation and multiplicative congruences**. The packet uses the actual stage ID. The required statement is mixed-completion density, not merely a congruence corollary.
+The full PEL M0–M6 document was read. M3 retains tensors, positivity classes, similitudes, multiple rational classes and the possibility of disconnected type-D groups. Its relevant ker^1(Q,G) must be calculated for the actual group. GQF's form-theoretic SO consequence does not establish triviality for every PEL group or identify the whole moduli space with one Shimura component.
 
-**3. Arbitrary-idele norm range — missing named supplier contract in the material checked.** Target 4.2/4.4 requires `mem_range_ideleNormMap_iff` for an arbitrary idele. The complete CFT Layer 13 and the name search expose the principal-idele specialization `principalIdele_mem_range_ideleNormMap_iff`. Do not treat that specialization as the full theorem.
+The full HeightsRationalPointsAndObstructions RP.0–RP.6 document was read. RP.2 requests a conic test, but does not select a particular conic or its proof route; RP.3 retains failures of local lifting. A scoped Hasse–Minkowski conic benchmark would first need the precise projective-point/quadratic-form dictionary. It cannot establish general Brauer–Manin or torsor-obstruction completeness. No speculative link was added.
 
-Required supplier statement: for a finite separable extension of number fields E/K, an arbitrary idele is in the range of the canonical idele norm iff all finite and infinite coordinates are norms from their local finite étale algebras. Prove almost-all unit lifts and restricted-product assembly; derive the principal case. Cyclicity is needed by the global-element Hasse norm theorem, not by this range characterization. Use the canonical maps and explicit finite/infinite coordinate comparisons. This is a not-found report, not a proof that no implementation exists.
+### Metaplectic and Gross–Zagier: specify the coherence dictionary
 
-**4. Arbitrary-idele Hilbert support — expose the bridge.** In target 4.4 step 2, support of the character product for a varying idele does not follow directly from the previously stated theorem for two global elements. Use the finite nonunit support of the idele, the support of the fixed global coefficient, the dyadic places and the archimedean places; then apply the odd-residue unit-unit formula. This supplies an explicit intermediate lemma without invoking reciprocity for a fictitious global representative.
+The full metaplectic MP.0–MP.8 document and completion contracts were read. MP.2's local Hilbert-symbol formulas, MP.4's Weil-index product and MP.6's coherent/incoherent sections are different contracts from rational Hasse–Minkowski. Their local and reciprocity owners should not be replaced by a generic global-classification dependency.
 
-**5. Empty exceptional set — supply a nonzero choice.** In target 5.4 the neighborhoods force Q(x) nonzero only if the exceptional set T is nonempty. If T is empty, choose a global nonzero represented value of the regular binary space U, or add an auxiliary place/neighborhood. This is a missing branch of the written route, not a counterexample to the theorem.
+GZ conventions and the GZ.0–GZ.9 milestone text were read through the end of GZ.9; the later source register was not certified read. GZ.6 constructs incoherent Eisenstein/Weil kernels. GQF 3.2–3.3 supplies necessary compatibility of local invariants of an actual global quadratic form. The candidate overlap requests an explicit comparison of the chosen quaternion/norm-form data, plain discriminant, local Hasse signs, archimedean signatures and Weil-index normalization.
 
-**6. Prospective consumers — resolve actual stage ownership.** The target names Orthogonal and Spin Groups as the consumer of the SO form-theoretic corollary. Its exact registered consumer stage was not resolved in this screen. Registered SpinRepresentations consumes a complex normal form instead. The read scope of Completed/IntegralLattices concerns discriminant-form gluing and does not establish the claimed integral-genus consumer. Find and read the intended stages, or arrange separately authorised roadmap definitions; do not invent endpoints.
+Only after that comparison can failure of the total Hasse-product condition be used as a nonexistence certificate. Product one alone is insufficient: common global discriminant, signatures and small-rank realizability conditions remain, and actual construction uses GQF Layer 7. Functional-equation vanishing and differentiation of analytic kernels remain GZ/MP theorems. The packet deliberately contains no new directed edge claiming these missing identifications.
 
-## Reading provenance and negative claims
+## Corrections and unresolved owner requests
 
-The packet contains pinned public URLs, blob SHAs where available, and reading extents. Entire documents read: GlobalQuadraticForms, GlobalNumberFields, and GeometryOfNumbersAndQuadraticArithmetic. Additional complete relevant stages read: NumberFieldArithmetic Layer 5; QuadraticFormInvariants 0, 1, 3, 4, 6A, 6C, 6D, 6E plus relevant norm-form material and contracts; ClassFieldTheory 10–14; SpinRepresentations Layer 1. IntegralLattices was read only through line 190, and is not certified globally irrelevant.
+The five original mathematical/source issues remain visible, rather than disappearing into summary-screen counts:
 
-The target roadmap extract had `stageEdges: []` at the input revision. The existing NumberFieldArithmetic packet was checked and contains no edge to this target. An exact `GlobalQuadraticForms#` code search returned only the Spin packet at indexed revision `262dee344399d4123a712655f2be585d7e68720d`; that packet was then opened at the input revision and its existing edge excluded. Index searches do not certify every concurrent branch or unindexed file.
+1. **Rank-four sign:** GQF 5.1 says the sign exponent gives -1. In fact `(-1)^6=+1`; plain and signed discriminants agree in rank four. This corrects an explanation, not the displayed descent theorem.
+2. **Weak-approximation locator:** the relevant GlobalNumberFields supplier is Layer 1, not the target's stale 0.2 reference. The retained edge already uses the actual mixed-completion density supplier.
+3. **Arbitrary-idele norm range:** the checked CFT text exposes the principal-idele specialization, whereas GQF 4.2/4.4 needs the arbitrary-idele criterion. Prove local finite-etale norm membership plus almost-all unit lifts and restricted-product assembly. The range criterion for finite separable E/K does not itself require cyclicity; the global-element Hasse norm theorem does. This remains a not-found report in the inspected passages, not a claim of universal library absence.
+4. **Arbitrary-idele Hilbert support:** combine the idele's nonunit support, the fixed coefficient's support, dyadic and infinite places before taking the product. A statement for two global scalars does not directly cover an arbitrary idele.
+5. **Empty exceptional set:** GQF 5.4 needs a nonzero represented value when the approximation set is empty; choose one in the regular binary summand or add an auxiliary place.
 
-This job checked repository roadmap passages, not the cited O'Meara, Lam, or class-field-theory book proofs. Their locators are not marked independently verified. No private reference material or extracted book text is included.
+The original sixth request is narrowed: the actual arithmetic SO-torsor consumer is still unresolved, but the IntegralLattices screen is finished and GN.2 is the registered integral/genus owner. The complex Spin edge and general PEL M3 do not supply that missing arithmetic consumer.
 
-## Validation
+A seventh owner-side issue records retired textual placeholders: GN.0, GN.2, GN.6 and RP.0/RP.2 still cite FoundationsAndLibraryIntegration. The retirement register removes that roadmap as a supplier. Replace each use with an audited declaration or precise active stage. The GQF-to-GN.2 edges repair only the rational quadratic-form portion, not every retired input. No retired endpoint is added here and this job does not edit those source roadmaps.
 
-Ran local `python3 -c 'import json; json.load(open("research/blueprint/links/tauceti_TauCetiRoadmap_GlobalQuadraticForms.json"))'` and a scratch-only packet checker. The latter passed 37 distinct endpoint pairs, ownership, evidence shape/minimum length, packet-only acyclicity, excluded-duplicate and examined-ID checks, overlap recommendation values and the private-path scan. A direct arithmetic check also confirmed the quaternary sign computation.
+## Source and validation boundaries
 
-**Not run locally:** `python3 scripts/check_links.py research/blueprint/links/tauceti_TauCetiRoadmap_GlobalQuadraticForms.json`. The exact repository script was read (blob `88135efe5a74ef82e088f3fa3189893e27a7867a`); it requires the complete `data/atlas.json`, unavailable to this local runtime. The small extracts enabled source work but did not supply that local execution input. The local checker is not a substitute for full-world endpoint, quote or cycle validation.
+Fresh source paths, immutable input URLs, available blob hashes and reading extents are in `sourceProvenance`. The summary file blob is `f36baf08b7da52ceba98181a70668441823ebb51`; the retirement register blob is `b2458ea2cd37e8f64459b8fd296f25329d4e4a76`. Selected QFI quaternion/norm, discriminant, local-symbol and complete 7C passages were rechecked; inherited broader readings remain separately credited.
 
-The existing `.github/workflows/swarm-check.yml` was inspected (blob `d638775ee3342612163098a71aab508d381c8bc6`): it invokes the repository validator for changed link JSON files in PRs. At this checkpoint its result has not been observed. Record the actual run and log in the submission thread; never infer mathematical correctness from structural checks.
+This work reads repository roadmap passages. It does not claim a new audit of the cited O'Meara, Lam, Weil, Kudla, YZZ or other book/paper proofs. It asserts no Lean implementation or baseline availability. The recorded baseline remains Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 
-## Continuation and integration boundary
+**Local checks run:** Python JSON parsing and a scratch checker verified unchanged equality of the 37 retained link objects, distinct endpoint pairs, own-roadmap ownership, two nonempty endpoint quotations per link, permitted confidence/overlap values, packet-only acyclicity, 185 unique examined IDs with 173 summary-only records, exclusion of the retired roadmap and known Spin duplicate, and absence of private filesystem paths. The rank-four sign was checked directly. These checks do not certify the full atlas, all historical quotations, or global cycles.
 
-Complete the catalogue screen before changing `status` to `complete`: all classical-area roadmaps, neighboring-area summaries, every other upstream Tau Ceti roadmap, and all relevant object/synonym hits. The eight `examined` entries deliberately record unequal reading depths. Search terms should include Hasse–Minkowski, rational equivalence, local/global quadratic forms, global square theorem, cyclic norm, Witt localization, prescribed invariants, SO torsors, genus, and spinor genus. Do not add an edge for the unrelated Hermite–Minkowski finiteness theorem or for shared use of the word Hasse.
+**Historical remote check:** #778 run 35100737838 / job 104809217919 reported 37 links, 1 overlap, 8 examined, zero errors and zero warnings. That result belongs to the old packet, not this continuation.
 
-Resolve the six requests above through the appropriate owners, check the complete graph and concurrent submissions, and obtain independent review. The intended structural recommendation is to keep the existing roadmaps, making GN.2 reuse explicit; no merge is requested. Submitted work remains unintegrated and unapproved. Do not release this submitted claim merely to take another task.
+**Current full validator:** not run locally because no complete atlas checkout is available. The new PR's actual CI log must be read before claiming `scripts/check_links.py` success for this changed packet. Record the receipt in the PR/issue thread; mathematical and independent review remain separate.
 
-## Observed full-validator result
+## Exact continuation
 
-PR [#778](https://github.com/CBirkbeck/tauceti-explorer/pull/778) is the durable draft submission. The actual CI job log was read after the checkpoint above. The repository command `python3 scripts/check_links.py research/blueprint/links/tauceti_TauCetiRoadmap_GlobalQuadraticForms.json` reported **37 links, 1 overlap, 8 examined entries; 0 errors and 0 warnings**.
+Finish the complete atlas inventory, reading missing summaries from extracts, then the required classical-area, upstream and object/synonym stage screen. Prioritize the qualified followups in the packet: quaternionic transfer and Shimura construction, orthogonal groups, conic algorithms, quadratic-form orbit counting and circle-method local conditions. Do not reopen the now-complete IntegralLattices exclusion or count summary-only rows as completed stage comparisons.
 
-[Workflow run 35100737838](https://github.com/CBirkbeck/tauceti-explorer/actions/runs/35100737838), [job 104809217919](https://github.com/CBirkbeck/tauceti-explorer/actions/runs/35100737838/job/104809217919), completed on 2026-09-16 at 13:15:51 UTC. The tested head was `7e20ea4070472bc97cc027b05777438a0099913d`, the base was `be09b0fb85faab7fc6a8646e9f524140cfa0df2e`, and the synthetic PR merge was `3156d23bd52f0ce457e5e28760f5b59a64045c43`. This receipt changes only the handoff; the validated link packet is unchanged.
-
-The full-world structural check therefore succeeded using the complete atlas and other packets in that tested merge. The runner's separate Node.js deprecation warning is not a link-validator warning. The local non-execution statement above remains accurate; remote CI removed that validation limitation.
-
-The [issue submission comment](https://github.com/CBirkbeck/tauceti-explorer/issues/27#issuecomment-5698076147) and [validation receipt](https://github.com/CBirkbeck/tauceti-explorer/issues/27#issuecomment-5698096334) document the handoff. Catalogue-wide screening, the recorded mathematical/interface requests, and independent review remain outstanding. No content roadmap, review verdict, merge, approval, issue closure or claim release was performed.
+Resolve the coherence comparison and arithmetic SO owner; arrange authorised source repairs for the retained gaps. Refresh concurrent packets and perform the full-world validator plus independent review. Keep the packet partial until these obligations are actually satisfied. Submitted work must not be marked done or released simply to obtain another job.

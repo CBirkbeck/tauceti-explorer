@@ -2,445 +2,278 @@
  "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
  "protocol": "links-v1",
  "status": "partial",
- "worker": "ChatGPT Pro — cgp-95cdeccd608b",
- "jobId": "LINK-tauceti_TauCetiRoadmap_GlobalQuadraticForms",
- "issueNumber": 27,
- "inputRevision": "088ac3dcfb573a1e875fcea971ce54526bbe74d3",
- "summary": "Partial source-audited link mapping for regular quadratic forms over arbitrary number fields: 35 incoming core-supplier links, two outgoing Hasse–Minkowski integration links, and one keep-boundaries overlap. Exact two-sided excerpts preserve canonical completions, local/archimedean hypotheses, discriminant conventions, norm-index and reciprocity distinctions. One pre-existing Spin normal-form edge is not duplicated. Six precise gaps/clarifications and catalogue-screening limits are recorded; no implementation or independent-review claim is made.",
- "baseline": {
-  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
-  "declarationVerification": "No declaration-level library claims are made. Names in quotes are roadmap export contracts, not assertions of implemented declarations."
- },
+ "summary": "Continuation of the merged #778 checkpoint for issue #27. Preserve 37 directed links and the rational/integral reuse boundary; complete the IntegralLattices reading, examine PEL, rational-point, metaplectic and Gross-Zagier interfaces, and screen all 182 published summary overrides. One retired summary is excluded. The 185 examined records include 173 summary-only entries and 12 entries with substantive stage reading (some inherited); they do not certify a complete atlas-wide screen. Record an additional coherence-interface overlap without asserting an unproved dependency or analytic theorem.",
  "links": [
-  {
-   "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-0-places-completions-and-scalar-extension",
-   "reason": "Milestone 0.1 uses the canonical nonarchimedean local-field instance of NFA 5.1. Only its repeated-base-change clause uses the canonical continuous completionAlgHom of NFA 5.2 for a place above another. Ordinary localization uses the existing map K into its own completion, not a tower map. The valuation and topology must be the canonical ones, not arbitrary structures.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places", "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance\n`IsNonarchimedeanLocalField (v.adicCompletion K)`."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-0-places-completions-and-scalar-extension", "quote": "`isNonarchimedeanLocalField_adicCompletion`. The tower item, and only the tower item, also uses\nR Number Field Arithmetic `completionAlgHom`."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support",
-   "reason": "NFA 5.1 identifies the canonical completion with its nonarchimedean local-field structure and residue field. This permits application of QFI local invariants, local isotropy criteria and good-place Hilbert-symbol calculations to the actual global completions in 2.1–2.3; it does not itself supply finite Hasse support.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places", "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance\n`IsNonarchimedeanLocalField (v.adicCompletion K)`."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support", "quote": "*Prerequisites:* L 2.1; R Quadratic Form Invariants `hilbertSymbol_unramified` and Layer 6D's\nrank-by-rank isotropy list; R Number Field Arithmetic Layer 5.1."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
-   "reason": "The finite-place square-openness statements in 4.5 require NFA 5.1 to discharge the canonical local-field hypotheses. Odd-residue and dyadic arguments stay separate; this edge does not assert that a Q_2-algebra hypothesis applies at odd primes.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places", "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance\n`IsNonarchimedeanLocalField (v.adicCompletion K)`."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas", "quote": "*Prerequisites:* R Quadratic Form Invariants Layers 1 and 6A; R Number Field Arithmetic Layer 5.1;\nM Hensel's lemma; L 0.1."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
-   "reason": "The quaternary step changes the number field from K to E=K(sqrt(d)). NFA 5.2 supplies the canonical continuous K_v-algebra structure on E_w for every w above v. Combined with GQF 0.1, this identifies the localization of the base-changed form and transports local isotropy. Mere existence of an arbitrary compatible algebra structure is insufficient. No quadratic descent theorem is attributed to NFA.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places", "quote": "completionAlgHom v w : K_v →ₐ[K] L_w"},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy", "quote": "*Prerequisites:* L 0.2, L 0.1 tower item, L 4.2, L 4.3; R Number Field Arithmetic\n`completionAlgHom`; R Quadratic Form Invariants representation, hyperbolic-plane, Witt, and\nlocal-classification milestones, and `discr` with `discr_mk`."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants",
-   "reason": "The invariant carrier uses the supplier's multiplicative square-class quotient and its pushforward along the canonical completion maps. One global discriminant class determines all local classes; the consumer must not replace it by unrelated local classes.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence", "quote": "the multiplicative avatar `Kˣ ⧸ Subgroup.square Kˣ`, with the `ZMod 2`-module\n    dictionary to the landed additive one;"},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants", "quote": "*Prerequisites:* L 1.1, L 2.1; R Quadratic Form Invariants square-class carrier."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
-   "reason": "The square-class invariance of represented nonzero values supplies the final assertion of 4.5 and the binary representation calculus used in 4.3. This is the Layer 0 value-set API, more precise than the consumer's broad reference to Layer 1. No assertion about representing zero is used as isotropy.",
-   "confidence": "inferred",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence", "quote": "`unitValueSet` is closed under multiplication by squares, so it is a union of\n    square classes;"},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas", "quote": "- represented nonzero values are stable under multiplication by a square."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
-   "reason": "The field-generic nonzero-scalar representation criterion and binary normal forms are used in the rank-separated Hasse–Minkowski proof, including 5.3. The scalar lies in K units; isotropy requires a nonzero vector and is not mere representation of zero.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence", "quote": "for regular `Q` and `a : Kˣ`,\n    `a ∈ unitValueSet Q` if and only if `Q ⊥ ⟨−a⟩` is isotropic."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy", "quote": "*Prerequisites:* L 2.2; R Quadratic Form Invariants Layer 0 representation criterion and\nLayer 1 hyperbolic-plane theory."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry",
-   "reason": "Milestone 6.1 reduces nonzero scalar representation to isotropy of the regular orthogonal sum with the line of coefficient -a. The separate zero case remains trivial, not an application of the unit-valued reduction.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence", "quote": "for regular `Q` and `a : Kˣ`,\n    `a ∈ unitValueSet Q` if and only if `Q ⊥ ⟨−a⟩` is isotropic."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry", "quote": "*Prerequisites:* L 5.5; R Quadratic Form Invariants representation criterion."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-0-places-completions-and-scalar-extension",
-   "reason": "The algebraically closed and complex automaticity assertions in 0.3 use the field-generic hyperbolic-plane and Witt calculus after square-root diagonal normalization. Rank at least two is retained for isotropy; no global theorem is imported into the local predicates.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory", "quote": "Prove that `ℍ_q` represents every unit, that\n  `⟨a, −a⟩ ≅ ℍ_q`, that a regular isotropic form splits off a hyperbolic plane"},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-0-places-completions-and-scalar-extension", "quote": "*Prerequisites:* M algebraic closure and square-root existence; R Quadratic Form Invariants\ndiagonalization and Witt theory."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
-   "reason": "Splitting an isotropic regular plane and its universality supply the U_v-isotropic branch of 5.3 and the small-rank reductions. Witt theory is field-generic with 2 invertible, so it applies over K as well as its completions.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory", "quote": "Prove that `ℍ_q` represents every unit, that\n  `⟨a, −a⟩ ≅ ℍ_q`, that a regular isotropic form splits off a hyperbolic plane"},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy", "quote": "If `U_v` is isotropic, use universality of the hyperbolic plane."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry",
-   "reason": "The induction proving global representation of forms splits off a common regular line and uses local Witt extension and cancellation to compare complements. The cancelled summand remains regular.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory", "quote": "**Witt cancellation** (Lam I.4.2): `q ⊥ q₁ ≅ q ⊥ q₂ → q₁ ≅ q₂` for regular `q`,"},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry", "quote": "*Prerequisites:* L 6.1; R Quadratic Form Invariants Witt extension and cancellation."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants",
-   "reason": "After the correction planes have been embedded globally, Witt cancellation compares their regular complements with the prescribed local forms. This is an actual step in the existence proof, not a deduction of existence from uniqueness.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory", "quote": "**Witt cancellation** (Lam I.4.2): `q ⊥ q₁ ≅ q ⊥ q₂ → q₁ ≅ q₂` for regular `q`,"},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants", "quote": "At `v ∉ R`, Witt\n   cancellation against `P_v ≃ P'_v` gives `V_v ≃ W_v ≃ U_v`."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences",
-   "reason": "The hyperbolicity criterion and zero Witt-kernel statement combine global isometry with field-generic hyperbolic-plane theory and cancellation. Parity of the rank is retained.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory", "quote": "**Witt cancellation** (Lam I.4.2): `q ⊥ q₁ ≅ q ⊥ q₂ → q₁ ≅ q₂` for regular `q`,"},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences", "quote": "*Prerequisites:* L 6.3; R Quadratic Form Invariants hyperbolic-plane theory and Witt cancellation."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support",
-   "reason": "Localized discriminants are the images of the supplier's isometry-invariant plain discriminant under field embeddings. No signed-discriminant convention is silently substituted.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group", "quote": "`discr` and `signedDiscr` commute with base change along `K →+* L`;"},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support", "quote": "*Prerequisites:* L 0.1; R Quadratic Form Invariants `discr`, `localHasse`,\n`localHasse_congr`."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
-   "reason": "The binary and quaternary arguments use discriminants and their diagonal/orthogonal-sum formulas. The separately recorded incorrect sign explanation in 5.1 must not be imported as an identity; in dimension four the plain and signed discriminants coincide.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group", "quote": "d(q ⊥ r)  = d(q) · d(r)"},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy", "quote": "local-classification milestones, and `discr` with `discr_mk`."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants",
-   "reason": "The correction planes P=<1,-β> and P'= <α,-αβ> have the same plain discriminant because their products differ by α². The supplier's discriminant formulas and scalar-extension compatibility justify retaining one global square class while changing the local Hasse sign.",
-   "confidence": "inferred",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group", "quote": "d(q ⊥ r)  = d(q) · d(r)"},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants", "quote": "d(P) = [-β],        d(P') = [-α²β] = [-β],"}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences",
-   "reason": "Milestone 8.3 needs the genuine Witt-ring carrier and its functorial maps for field embeddings. Only injectivity of the finite/real localization map is claimed; unrestricted surjectivity is neither supplied nor needed.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal", "quote": "Prove the basic\n  theory: `W` as a functor for field embeddings, and the dimension-mod-2 ring map\n  `W(K) → ZMod 2`."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences", "quote": "Only after the supplier's `wittRing K` and its localization maps are genuine carriers, define the\nglobal-to-local map to the family of finite and real Witt groups and prove it injective."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6a-the-local-field-substrate-consumed",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
-   "reason": "The local-square containment U(K_v,2e+1) in squares supplies a neighborhood of 1 at dyadic places in 4.5. Odd residue characteristic is handled separately by Hensel. The general number-field completion instance comes from NFA, and no Q_2-algebra structure is requested at odd primes.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6a-the-local-field-substrate-consumed", "quote": "With\n  `e = v_K(2)`, `U(K, 2e+1) ⊆ (Kˣ)²`,"},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas", "quote": "At a\ndyadic place, consume the sharp local square theorem from Quadratic Form Invariants Layer 6A."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support",
-   "reason": "The local Hasse sign and its isometry invariance define finiteHasse on actual completions. The odd-residue unit-unit symbol formula supplies almost-all triviality after excluding dyadic places and coefficient support. Locality and the i<j convention are retained.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant", "quote": "**The local Hasse invariant** `localHasse q = ∏_{i<j} (aᵢ, aⱼ)_K ∈ ℤˣ` for\n   `q ≅ ⟨a₁,…,aₙ⟩`."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support", "quote": "define `finiteHasse Q v` by applying the supplier's `localHasse` to\n`atFinitePlace Q v`."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants",
-   "reason": "QFI 6C item 13 supplies the frozen cohomological-to-sign comparison needed to translate CFT's additive product relation into admissibility of the global form's Hasse signs. This exported comparison is built after QFI 7C; merely constructing a nonarchimedean symbol earlier in 6C does not discharge it.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant", "quote": "The milestone `hilbertSymbol_eq_cohomological` says that it agrees with\n    `hilbertSymbol` after the dictionary `0 -> +1`, `1 -> -1`."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants", "quote": "R Quadratic Form Invariants `hilbertSymbol_eq_cohomological`."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
-   "reason": "The local symbol, multiplicativity, nonsquare nondegeneracy and the inherited sign product formula supply 4.4. The nonarchimedean theorems are not applied at real places: GQF computes those signs from the norm equation. Item 14 imports CFT reciprocity; it does not itself prove sign prescription, which also uses the CFT norm index.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant", "quote": "`hilbertSymbol_productFormula` is an export to `GlobalQuadraticForms`, not a local-\n    global classification theorem here."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas", "quote": "The value is `hilbertSymbol_productFormula`\ntransported from Class Field Theory's `finiteHilbertInvariantAt` and `infiniteHilbertInvariantAt`"}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants",
-   "reason": "The correction-plane calculation in 7.2 uses (α,-α)=1 and local bimultiplicativity to change exactly the chosen finite Hasse signs while preserving rank and discriminant. At archimedean places it uses GQF 4.4 and the chosen positive β, not a nonarchimedean typeclass theorem.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant", "quote": "**Bimultiplicativity** `(a, bc)_K = (a,b)_K · (a,c)_K`, with the dyadic case\n   included."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants", "quote": "realization, Witt cancellation, `hilbertSymbol_mul` and `hilbertSymbol_neg_self`."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support",
-   "reason": "Local classification and the rank-by-rank isotropy list are transported into canonical number-field completions. The rank-at-least-three almost-all isotropy assertion also uses the good-place unit-symbol calculations in QFI 6C; the local-field result alone does not supply global finite support.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries", "quote": "Two regular forms over `K` are\n  isometric if and only if `(dim, d, s)` agree, where `d` is the plain discriminant in\n  `Kˣ/(Kˣ)²` and `s = localHasse`."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support", "quote": "*Prerequisites:* L 2.1; R Quadratic Form Invariants Layer 6D and `exists_of_realization`."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants",
-   "reason": "Admissibility records exactly the positive-rank local realization exclusions: rank one cannot have Hasse sign -1, and a binary form with plain discriminant [-1] cannot have Hasse sign -1. Finite support and product one do not replace these restrictions.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries", "quote": "A triple `(n, d, s)` with `n ≥ 1`,\n  `d ∈ Kˣ/(Kˣ)²`, and `s ∈ {±1}` is realized by a regular form, except in exactly two\n  cases: `n = 1` with `s = −1`; and `n = 2` with `d = [−1]` and `s = −1`."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants", "quote": "Every finite local triple `(n,d_v,s_v)` meets `exists_of_realization`'s two small-rank\n   conditions:"}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
-   "reason": "The low-rank local criteria and almost-all isotropy of rank at least three explain the finite-exceptional-set boundary used by the higher-rank proof. They do not supply field-generic quaternary discriminant-extension descent, which remains GQF 5.1's own theorem.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries", "quote": "- rank 4: isotropic if and only if `d ≠ [1]`, or `d = [1]` and `s = (−1,−1)_K`;\n  - rank at least 5: always isotropic."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy", "quote": "*Prerequisites:* L 2.2; R Quadratic Form Invariants Layer 6D."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants",
-   "reason": "Local realization constructs the finite-place forms attached to an admissible global system. The complete local (n,d,s) classification and local representation criteria then justify the correction-plane construction and uniqueness. Real signatures are supplied by GQF Layer 1, not by this nonarchimedean classification.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries", "quote": "A triple `(n, d, s)` with `n ≥ 1`,\n  `d ∈ Kˣ/(Kˣ)²`, and `s ∈ {±1}` is realized by a regular form, except in exactly two\n  cases: `n = 1` with `s = −1`; and `n = 2` with `d = [−1]` and `s = −1`."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants", "quote": "*Prerequisites:* L 3.2, L 1.2; R Quadratic Form Invariants `exists_of_realization`."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
-   "reason": "The current supplier places weakApproximation_denseRange in Layer 1, not the consumer's stale Layer 0.2 locator. Its finite mixed product of actual completions gives the vector approximation of 4.1 and the multiplicative neighborhood choices in the square and sign-prescription proofs. No approximation theorem imposing integrality at all omitted places is used.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences", "quote": "Prove Artin--Whaples weak approximation in the named mixed-completion form\n`GlobalNumberFields.weakApproximation_denseRange`."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas", "quote": "*Prerequisites:* R Global Number Fields `weakApproximation_denseRange`; M finite-dimensional\ncoordinates and continuity of linear equivalences."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
-   "reason": "The finite-adele restricted-product condition and one-place elements support the idele preimage assembly in 4.2 and the finite-place factors of the prescribed idele in 4.4. The full idele carrier is supplied separately by GNF 6; finite support of a varying idele must not be inferred just from a theorem for a fixed global scalar.",
-   "confidence": "inferred",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles", "quote": "projections, integral\nsubrings, elements supported at one place, the restricted-product condition, local compactness,\nand the unit group."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas", "quote": "Assembling those preimages in the restricted\n   product gives `(α)^{-1} i ∈ N_{E/K}(I_E)`"}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
-   "reason": "The global square theorem and Hilbert-sign prescription run on the actual idele group and its principal quotient with the units topology. GNF 6 supplies these carriers, not the arithmetic norm-index equality. Its additive strong approximation theorem is not a substitute for the mixed weak approximation used here.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles", "quote": "Define `IdeleGroup K` as the units of the full adele ring and `IdeleClassGroup K` as the quotient by\nprincipal ideles, retaining Mathlib's units topology."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas", "quote": "R Global Number Fields `IdeleGroup`, `IdeleClassGroup`, `ideleFiniteCoord`, `ideleInfiniteCoord`."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
-   "reason": "The norm maps on the canonical adelic and idelic carriers, their local component formulas and their principal-element compatibility underlie the named CFT norm interfaces used in 4.2 and 4.4. This stage supplies the maps and topology; CFT supplies the index and norm principles. A general arbitrary-idele range characterization is recorded separately as an unmet named contract.",
-   "confidence": "inferred",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles", "quote": "Define the norm maps on adeles, ideles, and idele classes, with component formulas over the places\nabove each base place."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas", "quote": "`principalIdele`, `ideleNormMap`, `ideleClassNorm`, and `mem_range_ideleNormMap_iff`;"}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
-   "reason": "For the nonsplit quadratic extension E/K the concrete norm index is two. It yields the contradiction in the almost-everywhere square theorem and identifies the kernel of the idele Hilbert-sign character for sign prescription. Reciprocity alone, class-field existence alone, or an unproved prime-distribution assertion does not supply this index step.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence", "quote": "the norm-index theorem `[C_K : N C_L] = [L:K]` for finite abelian `L/K` in the concrete\n  extension carrier (`card_ideleClassNormQuotient`);"},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas", "quote": "*Prerequisites:* L 4.1, L 4.5; R Class Field Theory `card_ideleClassNormQuotient`,"}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
-   "reason": "The cyclic Hasse norm theorem in genuine finite and infinite completion norm predicates supplies the quadratic norm-form adapter in 4.3. At a split place the norm is that of the full finite étale algebra. This edge does not assert that the supplier has already exported the stronger arbitrary-idele range criterion required by 4.2/4.4.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields", "quote": "Export the consumer-facing composite\nas `isGlobalNorm_iff_isLocalNormEverywhere`."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas", "quote": "Specialize `isGlobalNorm_iff_isLocalNormEverywhere` to `K(√d)/K`."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
-   "reason": "The ternary step explicitly passes from local isotropy to finite and infinite local norm equations and then uses the cyclic global norm theorem. The extension is quadratic and hence cyclic; no biquadratic or arbitrary-extension Hasse norm principle is used.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields", "quote": "for cyclic `L/K`, `x : Kˣ` is a global norm exactly when its principal idele is\nan idele norm."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy", "quote": "combine them as\n`IsLocalNormEverywhere`, and apply `isGlobalNorm_iff_isLocalNormEverywhere`."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants",
-   "reason": "The additive sum of mod-two local invariants gives the product compatibility of global form invariants after the separately supplied QFI sign comparison. Finite and real contributions are retained; the signs are the i<j Hasse convention.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity", "quote": "in additive cohomological form: the sum of the local `ZMod 2` invariants is zero."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants", "quote": "*Prerequisites:* L 3.2, L 2.2, L 1.2; R Class Field Theory `hilbertProductFormula`;"}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
-   "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
-   "reason": "Reciprocity and finite Hilbert support supply the localized product formula and the inclusion of principal ideles in the kernel of the Hilbert-sign character. The existence of a specified even sign pattern requires the separate norm-index edge from CFT 12; it is not a consequence of product one alone.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity", "quote": "`QuadraticFormInvariants` later proves its norm-equation/quaternion symbol agrees with this one\nand inherits the product formula."},
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas", "quote": "*Prerequisites:* L 4.1, L 4.5; R Class Field Theory `hilbertProductFormula`,"}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
-   "target": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
-   "reason": "GN.2 explicitly reuses GlobalQuadraticForms and integrates Hasse–Minkowski. The regular number-field isotropy theorem supplies its rational local–global input. It does not classify integral lattices or prove a hermitian/quaternionic analogue; those variants require separate statements and hypotheses.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy", "quote": "Q is isotropic over K ↔ IsLocallyIsotropic Q."},
-    {"stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2", "quote": "Integrate Witt groups, discriminants, Clifford/Hasse invariants, local classification and Hasse-Minkowski; add integral lattices, genera, spinor genera and quaternionic/hermitian variants with characteristic restrictions."}
-   ]
-  },
-  {
-   "source": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry",
-   "target": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
-   "reason": "The representation and local–global isometry theorems supply the rational-equivalence part of GN.2. The consumer explicitly keeps rational equivalence, integral isometry and genus distinct. No integral or genus classification is inferred from the rational theorem.",
-   "confidence": "explicit",
-   "evidence": [
-    {"stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry", "quote": "Q ≃ R over K ↔ LocallyEquivalent Q R."},
-    {"stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2", "quote": "Keep rational equivalence, integral isometry and genus distinct; verify dyadic and real-place invariants and the product formula."}
-   ]
-  }
+  {"source":"tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-0-places-completions-and-scalar-extension","reason":"Milestone 0.1 uses the canonical nonarchimedean local-field instance of NFA 5.1. Only its repeated-base-change clause uses the canonical continuous completionAlgHom of NFA 5.2 for a place above another. Ordinary localization uses the existing map K into its own completion, not a tower map. The valuation and topology must be the canonical ones, not arbitrary structures.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places","quote":"For `v : HeightOneSpectrum (𝓞 K)`, give the instance\n`IsNonarchimedeanLocalField (v.adicCompletion K)`."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-0-places-completions-and-scalar-extension","quote":"`isNonarchimedeanLocalField_adicCompletion`. The tower item, and only the tower item, also uses\nR Number Field Arithmetic `completionAlgHom`."}]},
+  {"source":"tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support","reason":"NFA 5.1 identifies the canonical completion with its nonarchimedean local-field structure and residue field. This permits application of QFI local invariants, local isotropy criteria and good-place Hilbert-symbol calculations to the actual global completions in 2.1–2.3; it does not itself supply finite Hasse support.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places","quote":"For `v : HeightOneSpectrum (𝓞 K)`, give the instance\n`IsNonarchimedeanLocalField (v.adicCompletion K)`."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support","quote":"*Prerequisites:* L 2.1; R Quadratic Form Invariants `hilbertSymbol_unramified` and Layer 6D's\nrank-by-rank isotropy list; R Number Field Arithmetic Layer 5.1."}]},
+  {"source":"tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","reason":"The finite-place square-openness statements in 4.5 require NFA 5.1 to discharge the canonical local-field hypotheses. Odd-residue and dyadic arguments stay separate; this edge does not assert that a Q_2-algebra hypothesis applies at odd primes.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places","quote":"For `v : HeightOneSpectrum (𝓞 K)`, give the instance\n`IsNonarchimedeanLocalField (v.adicCompletion K)`."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","quote":"*Prerequisites:* R Quadratic Form Invariants Layers 1 and 6A; R Number Field Arithmetic Layer 5.1;\nM Hensel's lemma; L 0.1."}]},
+  {"source":"tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy","reason":"The quaternary step changes the number field from K to E=K(sqrt(d)). NFA 5.2 supplies the canonical continuous K_v-algebra structure on E_w for every w above v. Combined with GQF 0.1, this identifies the localization of the base-changed form and transports local isotropy. Mere existence of an arbitrary compatible algebra structure is insufficient. No quadratic descent theorem is attributed to NFA.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places","quote":"completionAlgHom v w : K_v →ₐ[K] L_w"},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy","quote":"*Prerequisites:* L 0.2, L 0.1 tower item, L 4.2, L 4.3; R Number Field Arithmetic\n`completionAlgHom`; R Quadratic Form Invariants representation, hyperbolic-plane, Witt, and\nlocal-classification milestones, and `discr` with `discr_mk`."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants","reason":"The invariant carrier uses the supplier's multiplicative square-class quotient and its pushforward along the canonical completion maps. One global discriminant class determines all local classes; the consumer must not replace it by unrelated local classes.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence","quote":"the multiplicative avatar `Kˣ ⧸ Subgroup.square Kˣ`, with the `ZMod 2`-module\n    dictionary to the landed additive one;"},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants","quote":"*Prerequisites:* L 1.1, L 2.1; R Quadratic Form Invariants square-class carrier."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","reason":"The square-class invariance of represented nonzero values supplies the final assertion of 4.5 and the binary representation calculus used in 4.3. This is the Layer 0 value-set API, more precise than the consumer's broad reference to Layer 1. No assertion about representing zero is used as isotropy.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence","quote":"`unitValueSet` is closed under multiplication by squares, so it is a union of\n    square classes;"},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","quote":"- represented nonzero values are stable under multiplication by a square."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy","reason":"The field-generic nonzero-scalar representation criterion and binary normal forms are used in the rank-separated Hasse–Minkowski proof, including 5.3. The scalar lies in K units; isotropy requires a nonzero vector and is not mere representation of zero.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence","quote":"for regular `Q` and `a : Kˣ`,\n    `a ∈ unitValueSet Q` if and only if `Q ⊥ ⟨−a⟩` is isotropic."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy","quote":"*Prerequisites:* L 2.2; R Quadratic Form Invariants Layer 0 representation criterion and\nLayer 1 hyperbolic-plane theory."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry","reason":"Milestone 6.1 reduces nonzero scalar representation to isotropy of the regular orthogonal sum with the line of coefficient -a. The separate zero case remains trivial, not an application of the unit-valued reduction.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence","quote":"for regular `Q` and `a : Kˣ`,\n    `a ∈ unitValueSet Q` if and only if `Q ⊥ ⟨−a⟩` is isotropic."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry","quote":"*Prerequisites:* L 5.5; R Quadratic Form Invariants representation criterion."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-0-places-completions-and-scalar-extension","reason":"The algebraically closed and complex automaticity assertions in 0.3 use the field-generic hyperbolic-plane and Witt calculus after square-root diagonal normalization. Rank at least two is retained for isotropy; no global theorem is imported into the local predicates.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory","quote":"Prove that `ℍ_q` represents every unit, that\n  `⟨a, −a⟩ ≅ ℍ_q`, that a regular isotropic form splits off a hyperbolic plane"},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-0-places-completions-and-scalar-extension","quote":"*Prerequisites:* M algebraic closure and square-root existence; R Quadratic Form Invariants\ndiagonalization and Witt theory."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy","reason":"Splitting an isotropic regular plane and its universality supply the U_v-isotropic branch of 5.3 and the small-rank reductions. Witt theory is field-generic with 2 invertible, so it applies over K as well as its completions.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory","quote":"Prove that `ℍ_q` represents every unit, that\n  `⟨a, −a⟩ ≅ ℍ_q`, that a regular isotropic form splits off a hyperbolic plane"},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy","quote":"If `U_v` is isotropic, use universality of the hyperbolic plane."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry","reason":"The induction proving global representation of forms splits off a common regular line and uses local Witt extension and cancellation to compare complements. The cancelled summand remains regular.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory","quote":"**Witt cancellation** (Lam I.4.2): `q ⊥ q₁ ≅ q ⊥ q₂ → q₁ ≅ q₂` for regular `q`,"},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry","quote":"*Prerequisites:* L 6.1; R Quadratic Form Invariants Witt extension and cancellation."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants","reason":"After the correction planes have been embedded globally, Witt cancellation compares their regular complements with the prescribed local forms. This is an actual step in the existence proof, not a deduction of existence from uniqueness.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory","quote":"**Witt cancellation** (Lam I.4.2): `q ⊥ q₁ ≅ q ⊥ q₂ → q₁ ≅ q₂` for regular `q`,"},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants","quote":"At `v ∉ R`, Witt\n   cancellation against `P_v ≃ P'_v` gives `V_v ≃ W_v ≃ U_v`."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences","reason":"The hyperbolicity criterion and zero Witt-kernel statement combine global isometry with field-generic hyperbolic-plane theory and cancellation. Parity of the rank is retained.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory","quote":"**Witt cancellation** (Lam I.4.2): `q ⊥ q₁ ≅ q ⊥ q₂ → q₁ ≅ q₂` for regular `q`,"},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences","quote":"*Prerequisites:* L 6.3; R Quadratic Form Invariants hyperbolic-plane theory and Witt cancellation."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support","reason":"Localized discriminants are the images of the supplier's isometry-invariant plain discriminant under field embeddings. No signed-discriminant convention is silently substituted.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group","quote":"`discr` and `signedDiscr` commute with base change along `K →+* L`;"},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support","quote":"*Prerequisites:* L 0.1; R Quadratic Form Invariants `discr`, `localHasse`,\n`localHasse_congr`."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy","reason":"The binary and quaternary arguments use discriminants and their diagonal/orthogonal-sum formulas. The separately recorded incorrect sign explanation in 5.1 must not be imported as an identity; in dimension four the plain and signed discriminants coincide.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group","quote":"d(q ⊥ r)  = d(q) · d(r)"},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy","quote":"local-classification milestones, and `discr` with `discr_mk`."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants","reason":"The correction planes P=<1,-β> and P'= <α,-αβ> have the same plain discriminant because their products differ by α². The supplier's discriminant formulas and scalar-extension compatibility justify retaining one global square class while changing the local Hasse sign.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group","quote":"d(q ⊥ r)  = d(q) · d(r)"},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants","quote":"d(P) = [-β],        d(P') = [-α²β] = [-β],"}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences","reason":"Milestone 8.3 needs the genuine Witt-ring carrier and its functorial maps for field embeddings. Only injectivity of the finite/real localization map is claimed; unrestricted surjectivity is neither supplied nor needed.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal","quote":"Prove the basic\n  theory: `W` as a functor for field embeddings, and the dimension-mod-2 ring map\n  `W(K) → ZMod 2`."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences","quote":"Only after the supplier's `wittRing K` and its localization maps are genuine carriers, define the\nglobal-to-local map to the family of finite and real Witt groups and prove it injective."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6a-the-local-field-substrate-consumed","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","reason":"The local-square containment U(K_v,2e+1) in squares supplies a neighborhood of 1 at dyadic places in 4.5. Odd residue characteristic is handled separately by Hensel. The general number-field completion instance comes from NFA, and no Q_2-algebra structure is requested at odd primes.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6a-the-local-field-substrate-consumed","quote":"With\n  `e = v_K(2)`, `U(K, 2e+1) ⊆ (Kˣ)²`,"},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","quote":"At a\ndyadic place, consume the sharp local square theorem from Quadratic Form Invariants Layer 6A."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support","reason":"The local Hasse sign and its isometry invariance define finiteHasse on actual completions. The odd-residue unit-unit symbol formula supplies almost-all triviality after excluding dyadic places and coefficient support. Locality and the i<j convention are retained.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant","quote":"**The local Hasse invariant** `localHasse q = ∏_{i<j} (aᵢ, aⱼ)_K ∈ ℤˣ` for\n   `q ≅ ⟨a₁,…,aₙ⟩`."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support","quote":"define `finiteHasse Q v` by applying the supplier's `localHasse` to\n`atFinitePlace Q v`."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants","reason":"QFI 6C item 13 supplies the frozen cohomological-to-sign comparison needed to translate CFT's additive product relation into admissibility of the global form's Hasse signs. This exported comparison is built after QFI 7C; merely constructing a nonarchimedean symbol earlier in 6C does not discharge it.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant","quote":"The milestone `hilbertSymbol_eq_cohomological` says that it agrees with\n    `hilbertSymbol` after the dictionary `0 -> +1`, `1 -> -1`."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants","quote":"R Quadratic Form Invariants `hilbertSymbol_eq_cohomological`."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","reason":"The local symbol, multiplicativity, nonsquare nondegeneracy and the inherited sign product formula supply 4.4. The nonarchimedean theorems are not applied at real places: GQF computes those signs from the norm equation. Item 14 imports CFT reciprocity; it does not itself prove sign prescription, which also uses the CFT norm index.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant","quote":"`hilbertSymbol_productFormula` is an export to `GlobalQuadraticForms`, not a local-\n    global classification theorem here."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","quote":"The value is `hilbertSymbol_productFormula`\ntransported from Class Field Theory's `finiteHilbertInvariantAt` and `infiniteHilbertInvariantAt`"}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants","reason":"The correction-plane calculation in 7.2 uses (α,-α)=1 and local bimultiplicativity to change exactly the chosen finite Hasse signs while preserving rank and discriminant. At archimedean places it uses GQF 4.4 and the chosen positive β, not a nonarchimedean typeclass theorem.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant","quote":"**Bimultiplicativity** `(a, bc)_K = (a,b)_K · (a,c)_K`, with the dyadic case\n   included."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants","quote":"realization, Witt cancellation, `hilbertSymbol_mul` and `hilbertSymbol_neg_self`."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support","reason":"Local classification and the rank-by-rank isotropy list are transported into canonical number-field completions. The rank-at-least-three almost-all isotropy assertion also uses the good-place unit-symbol calculations in QFI 6C; the local-field result alone does not supply global finite support.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries","quote":"Two regular forms over `K` are\n  isometric if and only if `(dim, d, s)` agree, where `d` is the plain discriminant in\n  `Kˣ/(Kˣ)²` and `s = localHasse`."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support","quote":"*Prerequisites:* L 2.1; R Quadratic Form Invariants Layer 6D and `exists_of_realization`."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants","reason":"Admissibility records exactly the positive-rank local realization exclusions: rank one cannot have Hasse sign -1, and a binary form with plain discriminant [-1] cannot have Hasse sign -1. Finite support and product one do not replace these restrictions.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries","quote":"A triple `(n, d, s)` with `n ≥ 1`,\n  `d ∈ Kˣ/(Kˣ)²`, and `s ∈ {±1}` is realized by a regular form, except in exactly two\n  cases: `n = 1` with `s = −1`; and `n = 2` with `d = [−1]` and `s = −1`."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants","quote":"Every finite local triple `(n,d_v,s_v)` meets `exists_of_realization`'s two small-rank\n   conditions:"}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy","reason":"The low-rank local criteria and almost-all isotropy of rank at least three explain the finite-exceptional-set boundary used by the higher-rank proof. They do not supply field-generic quaternary discriminant-extension descent, which remains GQF 5.1's own theorem.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries","quote":"- rank 4: isotropic if and only if `d ≠ [1]`, or `d = [1]` and `s = (−1,−1)_K`;\n  - rank at least 5: always isotropic."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy","quote":"*Prerequisites:* L 2.2; R Quadratic Form Invariants Layer 6D."}]},
+  {"source":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants","reason":"Local realization constructs the finite-place forms attached to an admissible global system. The complete local (n,d,s) classification and local representation criteria then justify the correction-plane construction and uniqueness. Real signatures are supplied by GQF Layer 1, not by this nonarchimedean classification.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries","quote":"A triple `(n, d, s)` with `n ≥ 1`,\n  `d ∈ Kˣ/(Kˣ)²`, and `s ∈ {±1}` is realized by a regular form, except in exactly two\n  cases: `n = 1` with `s = −1`; and `n = 2` with `d = [−1]` and `s = −1`."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants","quote":"*Prerequisites:* L 3.2, L 1.2; R Quadratic Form Invariants `exists_of_realization`."}]},
+  {"source":"tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","reason":"The current supplier places weakApproximation_denseRange in Layer 1, not the consumer's stale Layer 0.2 locator. Its finite mixed product of actual completions gives the vector approximation of 4.1 and the multiplicative neighborhood choices in the square and sign-prescription proofs. No approximation theorem imposing integrality at all omitted places is used.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences","quote":"Prove Artin--Whaples weak approximation in the named mixed-completion form\n`GlobalNumberFields.weakApproximation_denseRange`."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","quote":"*Prerequisites:* R Global Number Fields `weakApproximation_denseRange`; M finite-dimensional\ncoordinates and continuity of linear equivalences."}]},
+  {"source":"tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","reason":"The finite-adele restricted-product condition and one-place elements support the idele preimage assembly in 4.2 and the finite-place factors of the prescribed idele in 4.4. The full idele carrier is supplied separately by GNF 6; finite support of a varying idele must not be inferred just from a theorem for a fixed global scalar.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles","quote":"projections, integral\nsubrings, elements supported at one place, the restricted-product condition, local compactness,\nand the unit group."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","quote":"Assembling those preimages in the restricted\n   product gives `(α)^{-1} i ∈ N_{E/K}(I_E)`"}]},
+  {"source":"tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","reason":"The global square theorem and Hilbert-sign prescription run on the actual idele group and its principal quotient with the units topology. GNF 6 supplies these carriers, not the arithmetic norm-index equality. Its additive strong approximation theorem is not a substitute for the mixed weak approximation used here.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles","quote":"Define `IdeleGroup K` as the units of the full adele ring and `IdeleClassGroup K` as the quotient by\nprincipal ideles, retaining Mathlib's units topology."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","quote":"R Global Number Fields `IdeleGroup`, `IdeleClassGroup`, `ideleFiniteCoord`, `ideleInfiniteCoord`."}]},
+  {"source":"tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","reason":"The norm maps on the canonical adelic and idelic carriers, their local component formulas and their principal-element compatibility underlie the named CFT norm interfaces used in 4.2 and 4.4. This stage supplies the maps and topology; CFT supplies the index and norm principles. A general arbitrary-idele range characterization is recorded separately as an unmet named contract.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles","quote":"Define the norm maps on adeles, ideles, and idele classes, with component formulas over the places\nabove each base place."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","quote":"`principalIdele`, `ideleNormMap`, `ideleClassNorm`, and `mem_range_ideleNormMap_iff`;"}]},
+  {"source":"tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","reason":"For the nonsplit quadratic extension E/K the concrete norm index is two. It yields the contradiction in the almost-everywhere square theorem and identifies the kernel of the idele Hilbert-sign character for sign prescription. Reciprocity alone, class-field existence alone, or an unproved prime-distribution assertion does not supply this index step.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence","quote":"the norm-index theorem `[C_K : N C_L] = [L:K]` for finite abelian `L/K` in the concrete\n  extension carrier (`card_ideleClassNormQuotient`);"},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","quote":"*Prerequisites:* L 4.1, L 4.5; R Class Field Theory `card_ideleClassNormQuotient`,"}]},
+  {"source":"tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","reason":"The cyclic Hasse norm theorem in genuine finite and infinite completion norm predicates supplies the quadratic norm-form adapter in 4.3. At a split place the norm is that of the full finite étale algebra. This edge does not assert that the supplier has already exported the stronger arbitrary-idele range criterion required by 4.2/4.4.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields","quote":"Export the consumer-facing composite\nas `isGlobalNorm_iff_isLocalNormEverywhere`."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","quote":"Specialize `isGlobalNorm_iff_isLocalNormEverywhere` to `K(√d)/K`."}]},
+  {"source":"tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy","reason":"The ternary step explicitly passes from local isotropy to finite and infinite local norm equations and then uses the cyclic global norm theorem. The extension is quadratic and hence cyclic; no biquadratic or arbitrary-extension Hasse norm principle is used.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields","quote":"for cyclic `L/K`, `x : Kˣ` is a global norm exactly when its principal idele is\nan idele norm."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy","quote":"combine them as\n`IsLocalNormEverywhere`, and apply `isGlobalNorm_iff_isLocalNormEverywhere`."}]},
+  {"source":"tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants","reason":"The additive sum of mod-two local invariants gives the product compatibility of global form invariants after the separately supplied QFI sign comparison. Finite and real contributions are retained; the signs are the i<j Hasse convention.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity","quote":"in additive cohomological form: the sum of the local `ZMod 2` invariants is zero."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants","quote":"*Prerequisites:* L 3.2, L 2.2, L 1.2; R Class Field Theory `hilbertProductFormula`;"}]},
+  {"source":"tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity","target":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","reason":"Reciprocity and finite Hilbert support supply the localized product formula and the inclusion of principal ideles in the kernel of the Hilbert-sign character. The existence of a specified even sign pattern requires the separate norm-index edge from CFT 12; it is not a consequence of product one alone.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity","quote":"`QuadraticFormInvariants` later proves its norm-equation/quaternion symbol agrees with this one\nand inherits the product formula."},{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas","quote":"*Prerequisites:* L 4.1, L 4.5; R Class Field Theory `hilbertProductFormula`,"}]},
+  {"source":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy","target":"GeometryOfNumbersAndQuadraticArithmetic:GN.2","reason":"GN.2 explicitly reuses GlobalQuadraticForms and integrates Hasse–Minkowski. The regular number-field isotropy theorem supplies its rational local–global input. It does not classify integral lattices or prove a hermitian/quaternionic analogue; those variants require separate statements and hypotheses.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy","quote":"Q is isotropic over K ↔ IsLocallyIsotropic Q."},{"stageId":"GeometryOfNumbersAndQuadraticArithmetic:GN.2","quote":"Integrate Witt groups, discriminants, Clifford/Hasse invariants, local classification and Hasse-Minkowski; add integral lattices, genera, spinor genera and quaternionic/hermitian variants with characteristic restrictions."}]},
+  {"source":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry","target":"GeometryOfNumbersAndQuadraticArithmetic:GN.2","reason":"The representation and local–global isometry theorems supply the rational-equivalence part of GN.2. The consumer explicitly keeps rational equivalence, integral isometry and genus distinct. No integral or genus classification is inferred from the rational theorem.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry","quote":"Q ≃ R over K ↔ LocallyEquivalent Q R."},{"stageId":"GeometryOfNumbersAndQuadraticArithmetic:GN.2","quote":"Keep rational equivalence, integral isometry and genus distinct; verify dyadic and real-place invariants and the product formula."}]}
  ],
  "overlaps": [
-  {
-   "stages": ["tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry", "GeometryOfNumbersAndQuadraticArithmetic:GN.2"],
-   "detail": "Both texts include Hasse–Minkowski/rational equivalence. GN.2 already says to reuse GlobalQuadraticForms, so this is an integration overlap, not evidence of two independent proofs. Its integral, genus and hermitian extensions are not supplied by the number-field form theorem.",
-   "recommendation": "keep",
-   "proposal": "Keep GlobalQuadraticForms as the sole owner of the rational number-field isotropy, representation and isometry proofs. Make GN.2 consume its Layer 5 and Layer 6 outputs explicitly; retain the integral/genera/hermitian work on the consumer side with its own precise hypotheses. No roadmap-wide merge is proposed."
-  }
+  {"stages":["tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry","GeometryOfNumbersAndQuadraticArithmetic:GN.2"],"detail":"Both texts include Hasse-Minkowski/rational equivalence. GN.2 falls under the opening instruction to reuse GlobalQuadraticForms. Its integral, genus and hermitian extensions are not supplied by the number-field form theorem.","recommendation":"keep","proposal":"Keep GlobalQuadraticForms as the sole owner of rational number-field isotropy, representation and isometry. GN.2 consumes Layers 5 and 6 explicitly and owns its integral/genera/hermitian additions. Replace the retired foundations placeholder with actual suppliers; no roadmap-wide merge."},
+  {"stages":["tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants","GrossZagierAndArithmeticHeights:GZ.6"],"detail":"GQF 3.2-3.3 develops global compatibility of local quadratic-form invariants. GZ.6 requires incoherent Eisenstein/Weil data. Their arithmetic coherence test is a potential shared interface, but the consumer does not state the local norm-form/Hasse/Weil-index dictionary. This is an interface overlap to resolve, not a claim that GQF already proves the analytic construction or vanishing.","recommendation":"keep","proposal":"Keep the global admissibility criterion in GQF and the arithmetic generating series, kernels and derivative analysis in GZ.6. Specify the local quadratic spaces, a common global discriminant and all real signs; prove the conversion from the consumer normalization to GQF Hasse signs. A product -1 then obstructs a global form. Add a directed link only after this use statement is fixed. Product +1 requires the other admissibility conditions and GQF Layer 7 for existence; it is not alone a realizability theorem.","evidence":[{"stageId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants","quote":"Construct `globalInvariants Q` for a regular positive-rank global form and prove it admissible."},{"stageId":"GrossZagierAndArithmeticHeights:GZ.6","quote":"Construct incoherent Eisenstein/Weil kernels and their central derivatives, normalized local Whittaker terms, holomorphic projection and cuspidal projection."}]}
  ],
  "examined": [
-  {"roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms", "result": "links", "note": "All ten target stage descriptions and the entire README read. All target layers have an input/output inventory in the handoff. No baseline-availability assertion in a README is independently endorsed."},
-  {"roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic", "result": "links", "note": "Complete Layer 5, including canonical valuation/topology, tower maps, semilocal algebra, integral structures and trace/norm comparisons read. Only the local-field instance and tower map are direct contracts here; unrelated ramification exports are not made prerequisites."},
-  {"roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants", "result": "links", "note": "Read the conventions and ownership tables, Layers 0, 1, 3, 4, 6A, 6C, 6D and 6E, and the relevant norm-form construction. QFI 6C items 13–14 explicitly export the sign comparison and product formula after the later cohomological layer; 6E is not recorded as an additional duplicate supplier of the same export. The hypotheses distinguish all-fields, nonarchimedean and dyadic-only results."},
-  {"roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields", "result": "links", "note": "Entire README read, including all twelve stages and ownership boundaries. Direct inputs are the mixed weak-approximation theorem (actual Layer 1), restricted-product API, idele carriers and norm-map functoriality. Norm-index theorems, reciprocity and Hasse norm are explicitly excluded from this supplier."},
-  {"roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory", "result": "links", "note": "Complete global Layers 10–14 read, including the construction order and non-circularity exclusions. The needed exports occur in Layers 12, 13 and 14. The named arbitrary-idele range criterion was not found: the checked Layer 13 states its principal-idele specialization."},
-  {"roadmapId": "GeometryOfNumbersAndQuadraticArithmetic", "result": "links", "note": "Entire README and all seven extracted stages read. GN.2 is an explicit reuse consumer and an integration overlap; GN.3 and GN.6 already consume GN.2, so transitive links are not added solely from related vocabulary."},
-  {"roadmapId": "tauceti:Completed/IntegralLattices", "result": "none", "note": "Read introduction, scope, conventions, supplier discussion and start of Layer 1 (lines 1–190). The registered completed roadmap concerns rational ambient lattices, finite discriminant forms, overlattices and ADE glue; these passages do not substantiate the target README's asserted genera/global-classification consumer. No edge is added, and the rest of this roadmap has not been certified negative."},
-  {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations", "result": "links", "note": "Read complete Layer 1 and the existing Spin link packet entry. The complex normal-form dependency from GlobalQuadraticForms Layer 1 to Spin Layer 1 is already recorded there and is deliberately not duplicated. This is not a verification of a number-field SO-torsor consumer or a review of the entire Spin packet."}
+  {"roadmapId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms","result":"links","note":"All ten target stages and the README read; Layer 3 and the norm/approximation and quaternary passages rechecked at the continuation revision. No assertion that a planned declaration is implemented."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/NumberFieldArithmetic","result":"links","note":"Inherited checkpoint: complete Layer 5, including canonical completion structures and tower maps. The 2026-09-17 continuation retains those four links; it is not a second independent source review."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants","result":"links","note":"Inherited reading: conventions and ownership, Layers 0,1,3,4,6A,6C,6D,6E and the norm-form material. Continuation additionally re-read quaternion norm/splitting, invariant formulas, Witt construction, the 6C product export and the complete 7C cup-norm criterion. The latter is field-generic, not a number-field Hasse principle."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/GlobalNumberFields","result":"links","note":"Inherited checkpoint read the entire README and located mixed weak approximation in Layer 1, restricted products, ideles and extension norm maps. This continuation retains those four links and their historical provenance."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/ClassFieldTheory","result":"links","note":"Inherited checkpoint read global Layers 10-14 and located the norm index, cyclic Hasse norm and reciprocity in Layers 12-14. The arbitrary-idele range contract remains a not-found report in those checked passages, not a library-absence theorem."},
+  {"roadmapId":"GeometryOfNumbersAndQuadraticArithmetic","result":"links","note":"Entire current README, GN.0-GN.6, re-read. GN.2 explicitly integrates Hasse-Minkowski under the opening reuse rule. GN.3 and GN.6 consume GN.2, so no transitive duplicate is added. GN.6 is exact-category hermitian K-theory, not a new general Hasse principle. Retired Foundations inputs in the text need owner repair."},
+  {"roadmapId":"tauceti:Completed/IntegralLattices","result":"none","note":"Continuation completes the previous partial reading: entire README, all five layers, explicit D8-to-E8 glue calculation and completion criterion. This roadmap expressly excludes lattice classification, genera, mass and theta theory. Its finite discriminant modules and overlattice correspondence use one fixed rational ambient form. Rational Hasse-Minkowski does not give the integral carrier isometry required by its acceptance tests. No GQF edge is substantiated."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations","result":"links","note":"Inherited checkpoint read Layer 1 and its existing link packet: the complex normal-form edge from GQF Layer 1 is already recorded and is not duplicated. Continuation read the published summary, not the whole Spin roadmap. This is still not an identified arithmetic SO-torsor consumer."},
+  {"roadmapId":"PELModuli","result":"none","note":"Entire README M0-M6 and construction handoff read. M3 fixes the PEL tensors and positivity class in ker^1(Q,G), permits multiple rational classes and disconnected type-D similitude groups. GQF 8.4 supplies only the form-theoretic SO consequence. No blanket triviality of the PEL obstruction, or direct supplier edge claiming it, is inferred."},
+  {"roadmapId":"HeightsRationalPointsAndObstructions","result":"none","note":"Entire README RP.0-RP.6 read. RP.2 constructs adelic points/Brauer evaluation and asks for a conic test, while RP.3 expressly retains failures of local lifting. No particular conic/Hasse-Minkowski proof is selected. GQF could supply a scoped conic benchmark after the projective-point/form dictionary is specified; it does not prove general obstruction completeness. No edge is added merely because a conic could be chosen."},
+  {"roadmapId":"MetaplecticAutomorphicForms","result":"none","note":"Entire README MP.0-MP.8 and completion contracts read. MP.2 uses local Hilbert-symbol and discriminant formulas; MP.4 needs a Weil-index product formula; MP.6 exports coherent/incoherent sections. These are not identifications with the rational Hasse-Minkowski theorem. Local invariant owners and CFT reciprocity must be used with a proved Weil-index dictionary. No extra GQF edge is established."},
+  {"roadmapId":"GrossZagierAndArithmeticHeights","result":"overlap","note":"Conventions and complete GZ.0-GZ.9 milestone text read through the end of GZ.9; the later source register was not certified read. GZ.5-GZ.6 motivate the recorded arithmetic-coherence interface. Its norm-form/Hasse/Weil-index comparison is not explicit enough to assert a direct link or analytic vanishing theorem."},
+  {"roadmapId":"AInfCohomology","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"AbelianSchemesAndArithmeticModuli","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"AdditiveCombinatorics","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"AdelicAlgebraicGroups","result":"none","note":"Published summary only; no stage-level negative conclusion. Check arithmetic orthogonal examples separately from the general reductive-group carrier."},
+  {"roadmapId":"AdicCoefficientsAndComparisons","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"AdicEtaleGeometry","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"AdicSpacesPartII","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"AlgebraicModularFormsAndSerreWeights","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"AlgebraicModuliForArithmeticGeometry","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"AnabelianGeometryAndNonabelianChabauty","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"AnalyticNumberTheory","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ArakelovGeometryAndAbelianHeights","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ArithmeticDynamics","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ArithmeticGaloisDuality","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ArithmeticGaloisRepresentations","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ArithmeticKTheory","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ArithmeticLocallySymmetricSpaces","result":"none","note":"Published summary only; no stage-level negative conclusion. Check whether an actual orthogonal rational-form classification is consumed, rather than a given group."},
+  {"roadmapId":"ArithmeticQuantumTopology","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ArithmeticStatistics","result":"none","note":"Published summary only; no stage-level negative conclusion. Inspect quadratic-form orbit parametrizations and local solubility, without assuming integral Hasse principles."},
+  {"roadmapId":"AutomorphicBundles","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"AutomorphicCongruences","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"AutomorphicFormsOnReductiveGroups","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"AutomorphicGaloisRepresentations","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"AutomorphicGaloisRepresentationsPartII","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"AutomorphicLFunctionsAndLocalFactors","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"AutomorphicPadicLFunctions","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"AutomorphicSpectralTheory","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"BorelRegulators","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"BunGAndNewtonStrata","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ClassicalAdicEtaleCohomology","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ClassicalArithmeticCompletion","result":"none","note":"Published summary only; no stage-level negative conclusion. Inspect the particular classical Diophantine targets for a stated quadratic-form use."},
+  {"roadmapId":"ClassicalSerreModularity","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"CohomologyComparisons","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ColemanIntegration","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ColemanPowerSeries","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"CompletedCohomologyAndLocalGlobalCompatibility","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"CompletedCohomologyPartII","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ComplexComparisonPartII","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ComplexMultiplicationAndExplicitReciprocity","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ComputationalNumberTheory","result":"none","note":"Published summary only; no stage-level negative conclusion. Inspect certified quadratic-form or conic algorithms and their precise completeness hypotheses."},
+  {"roadmapId":"CrystallineCohomology","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"DeformationAndDerivedPatchingAlgebra","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"DeligneWeightsAndPurity","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"DerivedDeRhamCohomology","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"DiamondEtaleCohomology","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"DiamondSixOperations","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"DiamondsAndVStacks","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"DiophantineApproximationAndTranscendence","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"DirichletPadicLFunctions","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"DrinfeldModulesAndTModules","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"EffectiveDiophantineMethods","result":"none","note":"Published summary only; no stage-level negative conclusion. Inspect the selected conic/descent tests and whether their proof uses rational quadratic forms."},
+  {"roadmapId":"EllipticCurveModularity","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"EllipticKTheory","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"EllipticRegulators","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"EndoscopicTransferAndUnitaryTraceComparison","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"EnhancedDerivedSheaves","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"EtaleDualityAndPerverseSheaves","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"EulerSystemsAndKolyvaginSystems","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"EulerSystemsCyclotomicMainConjecture","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ExcursionOperatorsAndSpectralAction","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ExponentialSumsAndCircleMethod","result":"none","note":"Published summary only; no stage-level negative conclusion. Separate rational isotropy from integral counting, nonsingularity and singular-series positivity."},
+  {"roadmapId":"FaltingsFinitenessAndIsogenyTheorems","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"FarguesFontaineDiamonds","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"FiniteFieldsAndCharacterSums","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"FiniteFlatGroupsAndIntegralPadicHodgeTheory","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"FunctionFieldArithmetic","result":"none","note":"Published summary only; no stage-level negative conclusion. The GQF endpoint is number-field only; no characteristic-p extension is supplied."},
+  {"roadmapId":"GL2AutomorphicRepresentationsAndTransfer","result":"none","note":"Published summary only; no stage-level negative conclusion. Inspect the exact quaternion-algebra ramification/existence input before selecting a global quadratic-form supplier."},
+  {"roadmapId":"GL2ModularityLifting","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"GeneralAlgebraicKTheory","result":"none","note":"Published summary only; no stage-level negative conclusion. Degree-zero Witt comparisons require the quadratic/hermitian owner; ordinary K-theory is not Witt theory."},
+  {"roadmapId":"GeneralizedHeegnerCycles","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"GeometricSatakeAndFusion","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"GlobalGaloisDeformations","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"GlobalShtukasAndFunctionFieldLanglands","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"HabiroCohomologyFoundations","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"HabiroCyclotomicCompletions","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"HabiroNahmSeries","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"HabiroNumberFields","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"HabiroRings","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"HeckeStacksAndLocalShtukas","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"HeegnerPointEulerSystems","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"HigherLocalFieldsAndHigherClassFieldTheory","result":"none","note":"Published summary only; no stage-level negative conclusion. Higher local fields do not satisfy the same locally compact number-field hypotheses."},
+  {"roadmapId":"HilbertModularVarietiesAndShimuraCurves","result":"none","note":"Published summary only; no stage-level negative conclusion. Inspect quaternionic rational-form existence and local models, distinguishing a given algebra from prescribed ramification."},
+  {"roadmapId":"HodgeTateAndCanonicalSubgroups","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"IgusaVarietiesAndTorsionConcentration","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"IntegralHeckeAndGaloisDeterminants","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"IntegralIwasawaTheory","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"InverseGaloisAndArithmeticFundamentalGroups","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"K2SymbolsBrauer","result":"none","note":"Published summary only; no stage-level negative conclusion. Hilbert symbols and Brauer reciprocity are not by themselves uses of global quadratic-form classification."},
+  {"roadmapId":"K3BlochGroups","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"KTheoryFiniteLocalFields","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"KTheoryLowDegrees","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"KatoEulerSystems","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"LanglandsParameterStacks","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"LefschetzPencilsAndVanishingCycles","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"LocalGaloisDeformationRings","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"LocallyAnalyticDistributions","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"LogicAndDefinabilityInNumberTheory","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ModularCurvesPartII","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ModularIwasawaMainConjectures","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ModularSymbolsPadicLFunctions","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ModularityAndLanglandsExtensions","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"MotivesAndAlgebraicCycles","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"MotivicEtaleKTheory","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"NeronModelsAndSemistableAbelianVarieties","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"NoncommutativeAndEquivariantIwasawa","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"OrdinaryAutomorphicFormsAndModularityLifting","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"OverconvergentAutomorphicForms","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"PadicDifferentialEquationsAndRigidCohomology","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"PadicFamilies","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"PadicHodgeRegulators","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"PadicHodgeTheory","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"PadicLocalLanglandsForGL2Qp","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"PadicMeasuresIwasawaAlgebras","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"PerfectoidQuotients","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"PerfectoidShimuraVarieties","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"PerfectoidSpaces","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"PeriodsAndSpecialValues","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"PhiGammaModulesAndIwasawaCohomology","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"Polylogarithms","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"PotentialAutomorphyInfrastructure","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"PotentialModularityAndCompatibleSystems","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"PrismaticCohomology","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ProbabilisticAndMetricNumberTheory","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"QSeriesPartitionsAndMockModularForms","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"RankZeroOneBSD","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ReductiveGroupsPartII","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"RefinedTraceMethods","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"RelativeFarguesFontaine","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"SchemeAndStackFoundations","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"SchemeKTheoryOperations","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"SelmerIwasawaCohomology","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"SerreWeightAndLevelOptimisation","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ShimuraCompactifications","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ShimuraData","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"ShimuraVarieties","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"SieveMethodsAndPrimePatterns","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"SmallRamificationAndAbelianVarietyBaseCases","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"SmoothRepresentationsOfLocalGroups","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"SpecialValuesBirchTate","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"StableHomotopyKTheory","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"TorsionCohomologyInfrastructure","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"TropicalAndBerkovichArithmetic","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"VStackSheavesAndLisseCategories","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"VectorBundlesAndIsocrystals","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"WeightsInEtaleCohomology","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"WeilConjectures","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:Completed/ContourIntegration","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:Completed/EffectiveBounds","result":"none","note":"Published summary only; no stage-level negative conclusion. Hermite-Minkowski finiteness is not Hasse-Minkowski isotropy."},
+  {"roadmapId":"tauceti:Completed/OrthogonalL2Bases","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/ConformalMapping","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/Exchangeability","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/GeometricTopology","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/HeegaardFloer","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/JacobianChallenge","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/ModularForms","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/Multiquadratic","result":"none","note":"Published summary only; no stage-level negative conclusion. Distinguish genus fields and quadratic class groups from genera of integral lattices."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/OneParameterSemigroups","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/OptimalTransport","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/PDE","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/ReductiveGroups","result":"none","note":"Published summary only; no stage-level negative conclusion. Check actual form-theoretic arithmetic consumers, not just orthogonal root data."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups","result":"none","note":"Published summary only; no stage-level negative conclusion. Tensor representations of classical groups do not alone use the number-field Hasse principle."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."},
+  {"roadmapId":"tauceti:TauCetiRoadmap/UniversalCovers","result":"none","note":"Summary only; no edge asserted. Stage-level screen pending."}
  ],
  "gaps": [
-  {"id": "quaternary-sign-explanation", "title": "Incorrect discriminant-sign explanation in the source README", "detail": "GlobalQuadraticForms 5.1 says (-1)^(n(n-1)/2)=-1 in dimension four. In fact (-1)^6=+1, so the signed and plain discriminants agree in dimension four. Retain the declared plain-discriminant convention, but correct that explanatory sentence through a separately authorised source edit. This job does not modify content/.", "affectedStages": ["tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy"]},
-  {"id": "weak-approximation-locator", "title": "Stale supplier layer number for weak approximation", "detail": "GlobalQuadraticForms names GlobalNumberFields Layer 0.2 in its contract discussion. In the pinned supplier README and extract the named weakApproximation_denseRange theorem is in Layer 1: weak approximation and multiplicative congruences. The link uses that actual stage ID. Correct the textual locator without changing the mathematical requirement from density to a congruence-only corollary.", "affectedStages": ["tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas"], "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences"},
-  {"id": "arbitrary-idele-norm-range", "title": "A principal-idele bridge does not supply the required arbitrary-idele theorem", "detail": "The pinned CFT Layer 13 explicitly constructs principalIdele_mem_range_ideleNormMap_iff for x in K units. GQF 4.2 and 4.4 require mem_range_ideleNormMap_iff for an arbitrary i in I_K. The stronger named statement was not found in the checked supplier README/search. Required statement: for a finite separable extension E/K, an arbitrary idele i lies in the range of the canonical idele norm exactly when every finite and infinite coordinate is a norm from the corresponding finite étale completion algebra. Prove the converse using unit norm-surjectivity outside the finite ramified/nonunit set and restricted-product assembly; derive the existing principal case. The theorem itself need not assume cyclicity; cyclicity belongs to the global-element Hasse norm theorem. The maps must be the supplied canonical maps, with explicit comparison to ideleFiniteCoord and ideleInfiniteCoord.", "affectedStages": ["tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas"], "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"},
-  {"id": "idele-sign-finite-support", "title": "The Hilbert character of an arbitrary idele needs its own finite-support bridge", "detail": "GQF 4.4 step 2 defines φ(i)=product_v (i_v,b_v). The preceding product theorem is stated for two global units. For an arbitrary idele i, establish support containment using the finite nonunit support of i, the support of the fixed global b, the dyadic places and archimedean places. Then use the odd-residue unit-unit symbol formula. This adaptation is not an application of global reciprocity to a nonexistent global representative of i.", "affectedStages": ["tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas"], "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles"},
-  {"id": "empty-exceptional-set", "title": "Explicit nonzero choice in the empty-exceptional-set branch", "detail": "In GQF 5.4 the local neighborhoods force Q(x) nonzero only when T is nonempty. If T is empty, choose a global vector of the regular binary U with Q(x) nonzero (or add one auxiliary place/neighborhood) before defining b. The theorem is not contradicted; this is a small but explicit missing branch in the displayed proof route.", "affectedStages": ["tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy"]},
-  {"id": "unresolved-named-consumers", "title": "Do not conflate named prospective consumers with registered roadmap stages", "detail": "GlobalQuadraticForms names Orthogonal and Spin Groups as the consumer of its number-field SO form-theoretic corollary. The exact consumer stage was not resolved in the inspected index/search. The registered SpinRepresentations Layer 1 consumes a complex normal form, not this H1/SO consequence. Likewise the read scope of Completed/IntegralLattices does not establish the asserted genus/classification consumer. Locate the intended registered stages, or create separately authorised roadmap definitions, and read their precise use statements before adding those links. No unknown stage IDs are invented.", "affectedStages": ["tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences"]}
+  {"id":"quaternary-sign-explanation","title":"Incorrect discriminant-sign explanation in the source README","detail":"GQF 5.1 says (-1)^(n(n-1)/2)=-1 in dimension four, but (-1)^6=+1. Signed and plain discriminants agree there. Preserve the chosen plain convention and correct the sentence through an authorised source edit; this does not refute the descent theorem. Rechecked in this continuation.","affectedStages":["tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy"]},
+  {"id":"weak-approximation-locator","title":"Stale supplier layer number for weak approximation","detail":"The GQF contract discussion names GlobalNumberFields 0.2, but weakApproximation_denseRange is in its actual Layer 1. The retained link already uses the correct stage. The needed input is mixed-completion density, not a congruence-only corollary.","affectedStages":["tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas"],"supplier":"tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences"},
+  {"id":"arbitrary-idele-norm-range","title":"A principal-idele bridge does not supply the required arbitrary-idele theorem","detail":"Inherited not-found report: CFT 13 states principalIdele_mem_range_ideleNormMap_iff for global units, whereas GQF 4.2/4.4 needs mem_range_ideleNormMap_iff for an arbitrary idele. For finite separable E/K prove membership in the canonical idele norm range iff each finite/infinite coordinate is a norm from the corresponding finite etale completion algebra. Prove almost-all unit lifts and restricted-product assembly; derive the principal specialization. This range characterization does not require cyclicity. It is not a claim that the implementation is absent everywhere.","affectedStages":["tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas"],"supplier":"tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"},
+  {"id":"idele-sign-finite-support","title":"The Hilbert character of an arbitrary idele needs a finite-support bridge","detail":"GQF 4.4 defines the product of (i_v,b_v) for varying i. Combine the finite nonunit support of i, the fixed global coefficient support, dyadic places and archimedean places; then use the odd-residue unit-unit formula. A theorem for two global elements cannot directly be applied to an arbitrary idele.","affectedStages":["tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas"],"supplier":"tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles"},
+  {"id":"empty-exceptional-set","title":"Explicit nonzero choice when the exceptional set is empty","detail":"In GQF 5.4 the approximation neighborhoods force a nonzero represented value only when T is nonempty. If T is empty, choose a vector of the regular binary U with nonzero value or add an auxiliary place/neighborhood. This is a missing branch, not a counterexample.","affectedStages":["tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy"]},
+  {"id":"unresolved-named-consumers","title":"Resolve the arithmetic SO consumer, not the complex Spin roadmap","detail":"No registered arithmetic SO-torsor consumer was established in this run. The inherited Spin edge concerns complex normal forms. The previously unfinished IntegralLattices screen is now complete: it excludes classification and does not supply the claimed genus consumer. GN.2 is the explicit registered integral/genus reuse owner already linked. PEL M3 is not a substitute for an SO classification theorem: it retains tensors, positivity, similitudes, component issues and potentially nontrivial ker^1. Do not invent an SO stage ID.","affectedStages":["tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences"]},
+  {"id":"retired-consumer-inputs","title":"Consumer text still cites retired foundations placeholders","detail":"The read GN.0, GN.2 and GN.6 input lists cite FoundationsAndLibraryIntegration, which data/roadmap-retirements.json retires. RP.0/RP.2 also retain such textual references. These are owner-side source repairs, not new link endpoints. Replace each with audited library declarations or exact active supplier stages. The retained GQF-to-GN.2 links replace only the rational quadratic-form part, not every removed placeholder.","affectedStages":["GeometryOfNumbersAndQuadraticArithmetic:GN.2","GeometryOfNumbersAndQuadraticArithmetic:GN.6","HeightsRationalPointsAndObstructions:RP.2"]}
  ],
  "remainingWork": [
-  "Complete the catalogue-wide screen: every classical-area roadmap, neighboring-area summaries, all upstream Tau Ceti roadmaps and every relevant object/synonym search hit. The eight examined entries record different reading depths; they are not a claim that this screen is complete.",
-  "Resolve the intended Orthogonal and Spin Groups and integral-genus consumer stages; the current registered Spin and Completed/IntegralLattices passages are not substitutes.",
-  "Complete source decomposition of the arbitrary-idele norm-range bridge, arbitrary-idele Hilbert finite support and the empty-exceptional-set branch through the appropriate owner jobs; correct the quaternary sign sentence and stale approximation locator via authorised source edits.",
-  "Run the full repository link validator with the complete atlas and all other link packets; check concurrent submissions and arrange independent review before integration."
+  "Complete the atlas-index inventory and the stage-description/object/synonym screen. The 182-entry summary override file is not the whole atlas and includes one retired entry. Read omitted summaries from roadmap extracts. Summary-only examined records are not certified negative comparisons.",
+  "Deep-read all required classical-area and upstream roadmaps not already recorded at stage depth. Prioritize the explicit followups in summary-only notes, especially quaternionic transfer/Shimura consumers, conic algorithms, circle-method local solubility and orthogonal groups. Do not infer links from general local-global vocabulary.",
+  "Resolve the GQF/GZ.6 coherence dictionary in the second overlap before adding its directed dependency; distinguish Hasse signs, quaternion ramification and Weil indices, and necessary product conditions from existence and analytic vanishing.",
+  "Locate and read the intended arithmetic SO consumer. The complete IntegralLattices negative comparison is finished; it should not be reopened as though it were a genus-classification roadmap.",
+  "Retain the five inherited source corrections/bridge requests and arrange authorised repairs of retired placeholders. No content/ or data/ edit is made by this link job.",
+  "Run and inspect the full repository link validator on this continuation, recheck concurrent submissions and obtain independent review. Historical #778 validation does not certify this changed packet."
  ],
  "sourceProvenance": {
-  "accessDate": "2026-09-16",
-  "revision": "088ac3dcfb573a1e875fcea971ce54526bbe74d3",
-  "files": [
-   {"roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms", "path": "content/tau-ceti/GlobalQuadraticForms/README.md", "blob": "bb83aab6339acc7f26876963cce729570bdab453", "read": "README and all ten layers; evidence locators are the exact stage anchors.", "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/088ac3dcfb573a1e875fcea971ce54526bbe74d3/content/tau-ceti/GlobalQuadraticForms/README.md"},
-   {"roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic", "path": "content/tau-ceti/NumberFieldArithmetic/README.md", "blob": "ce02686a0c05618148eb4713ee3a5fafc50be31b", "read": "Layer 5 in full, lines 1285–1718 approximately; tool-read ranges 1170–1780 include the complete layer.", "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/088ac3dcfb573a1e875fcea971ce54526bbe74d3/content/tau-ceti/NumberFieldArithmetic/README.md"},
-   {"roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants", "path": "content/tau-ceti/QuadraticFormInvariants/README.md", "blob": "2c864e6a950cf35ad944e0c7f583d68609ab018a", "read": "Conventions/contracts; complete Layers 0,1,3,4,6A,6C,6D,6E and relevant norm-form material. Unrelated cohomology and transfer targets are not asserted reviewed.", "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/088ac3dcfb573a1e875fcea971ce54526bbe74d3/content/tau-ceti/QuadraticFormInvariants/README.md"},
-   {"roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields", "path": "content/tau-ceti/GlobalNumberFields/README.md", "blob": "8055760d129f0f8dc38c1e0d5f6b1055d03c0376", "read": "Entire README, lines 1 through end; extract for exact stage IDs.", "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/088ac3dcfb573a1e875fcea971ce54526bbe74d3/content/tau-ceti/GlobalNumberFields/README.md"},
-   {"roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory", "path": "content/tau-ceti/ClassFieldTheory/README.md", "blob": "279f7362ddec72bd3d5e0d55d037a82f46debf3d", "read": "Complete Layers 10–14, tool ranges 1050–1420; named norm-criterion search as a discovery check, followed by Layer 13 source reading.", "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/088ac3dcfb573a1e875fcea971ce54526bbe74d3/content/tau-ceti/ClassFieldTheory/README.md"},
-   {"roadmapId": "GeometryOfNumbersAndQuadraticArithmetic", "path": "content/campaign/GeometryOfNumbersAndQuadraticArithmetic/README.md", "blob": "7ac6436fd499048580cb800ee15936735bf05ffe", "read": "Entire README and all seven stage descriptions in its pinned roadmap extract.", "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/088ac3dcfb573a1e875fcea971ce54526bbe74d3/content/campaign/GeometryOfNumbersAndQuadraticArithmetic/README.md"},
-   {"roadmapId": "tauceti:Completed/IntegralLattices", "path": "content/tau-ceti/Completed/IntegralLattices/README.md", "read": "Lines 1–190 only; no all-document negative conclusion.", "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/088ac3dcfb573a1e875fcea971ce54526bbe74d3/content/tau-ceti/Completed/IntegralLattices/README.md"},
-   {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations", "path": "content/tau-ceti/RepresentationTheory/SpinRepresentations/README.md", "blob": "5f6b908d0666e50886082a18f8946808f9a1b761", "read": "Complete Layer 1, tool range 297–327, for the already-recorded complex normal-form edge.", "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/088ac3dcfb573a1e875fcea971ce54526bbe74d3/content/tau-ceti/RepresentationTheory/SpinRepresentations/README.md"}
+  "accessDate":"2026-09-17",
+  "revision":"dbafc759460581dbd23999a3c112149fedefe2b5",
+  "submissionBase":"66e35f2051d4e49644701ad398112de45095d315",
+  "worker":"ChatGPT Pro — cgp-21d912f1de06",
+  "inheritedCheckpoint":{"pr":778,"author":"ChatGPT Pro — cgp-95cdeccd608b","revision":"088ac3dcfb573a1e875fcea971ce54526bbe74d3","packetBlob":"00dd252b08d58e2b9639616107a8c2b29d05a5d9","url":"https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/research/blueprint/links/tauceti_TauCetiRoadmap_GlobalQuadraticForms.json","read":"The complete retained packet and original handoff were read. Original per-file reading extents and immutable source links remain recoverable at this checkpoint; inherited reading is labelled in examined."},
+  "files":[
+   {"path":"content/tau-ceti/GlobalQuadraticForms/README.md","blob":"bb83aab6339acc7f26876963cce729570bdab453","read":"All target layers; GQF 3.1-3.3 and 4.2-4.4 rechecked for the coherence/norm distinctions.","url":"https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/content/tau-ceti/GlobalQuadraticForms/README.md"},
+   {"path":"content/tau-ceti/QuadraticFormInvariants/README.md","blob":"2c864e6a950cf35ad944e0c7f583d68609ab018a","read":"Continuation reads 760-960, 1490-1710 and 2050-2250; complete 7C and relevant displayed norm, discriminant and Hilbert export passages. Inherited broader extents are identified separately.","url":"https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/content/tau-ceti/QuadraticFormInvariants/README.md"},
+   {"path":"content/tau-ceti/Completed/IntegralLattices/README.md","blob":"f43ed8eedd4356ede2cb63490af233b185498a61","read":"Entire document. Overlapping short fetches cover all mathematical sections and the closing reference list; this is not a claim to have read the cited books.","url":"https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/content/tau-ceti/Completed/IntegralLattices/README.md"},
+   {"path":"content/campaign/GeometryOfNumbersAndQuadraticArithmetic/README.md","blob":"7ac6436fd499048580cb800ee15936735bf05ffe","read":"Entire GN.0-GN.6 document.","url":"https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/content/campaign/GeometryOfNumbersAndQuadraticArithmetic/README.md"},
+   {"path":"content/campaign/PELModuli/README.md","blob":"dbf8addc49e46d473261446798bb13ea1c855864","read":"Entire M0-M6 document and construction handoff.","url":"https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/content/campaign/PELModuli/README.md"},
+   {"path":"content/campaign/HeightsRationalPointsAndObstructions/README.md","blob":"a84d84759b1cc4b7e801199066512311c50cde43","read":"Entire RP.0-RP.6 document.","url":"https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/content/campaign/HeightsRationalPointsAndObstructions/README.md"},
+   {"path":"content/campaign/MetaplecticAutomorphicForms/README.md","blob":"6ade73f9e174a93396e53c36fe93b2d6535f9b75","read":"Entire MP.0-MP.8 document and completion contracts.","url":"https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/content/campaign/MetaplecticAutomorphicForms/README.md"},
+   {"path":"content/campaign/GrossZagierAndArithmeticHeights/README.md","read":"Conventions and GZ.0-GZ.9 through the end of GZ.9, especially complete GZ.5 and GZ.6; later source-register material not certified read.","url":"https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/content/campaign/GrossZagierAndArithmeticHeights/README.md"},
+   {"path":"data/roadmap-summaries.json","blob":"f36baf08b7da52ceba98181a70668441823ebb51","read":"Entire 182-entry file in successive line ranges 1-30,31-60,61-90,91-120,121-150,151-180,181-240. One retired record excluded from examined.","url":"https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/data/roadmap-summaries.json"},
+   {"path":"data/roadmap-retirements.json","blob":"b2458ea2cd37e8f64459b8fd296f25329d4e4a76","read":"Entire file; FoundationsAndLibraryIntegration is not used as an endpoint.","url":"https://github.com/CBirkbeck/tauceti-explorer/blob/dbafc759460581dbd23999a3c112149fedefe2b5/data/roadmap-retirements.json"}
   ]
  },
  "validation": {
-  "json": "Parsed successfully with Python json.load after each checkpoint.",
-  "localChecks": "PASS: Python scratch/check_packet_local.py checked JSON, 37 distinct endpoint pairs, own-roadmap endpoint ownership, evidence shape/minimum length, packet-only acyclicity, exclusion of the known Spin edge, unique examined IDs, overlap recommendations and absence of prohibited private paths. It did not check the full atlas, all verbatim matches or global cycles.",
-  "officialValidator": "Not run locally: the complete data/atlas.json required by scripts/check_links.py is unavailable to this runtime. The existing PR workflow explicitly invokes the validator for changed link packets; no CI result is claimed before observing its log."
+  "json":"Local Python JSON parsing and scratch structural checks run before submission; see handoff for exact scope.",
+  "historicalCI":"PR #778 run 35100737838 / job 104809217919 reported 37 links, 1 overlap, 8 examined, 0 errors and 0 warnings. This is inherited validation, not a result for this changed packet.",
+  "officialValidator":"Not run locally: no complete atlas checkout in this runtime. Read the new PR CI log before reporting full-world validation success."
  },
- "existingLinksNotDuplicated": [
-  {"source": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-1-archimedean-forms-and-signatures", "target": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-1-the-structure-theorem", "packet": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json", "packetBlob": "b71b3e5d74958150984dc26732e39bf16d67320d", "note": "Read at input revision; complex classification by rank only."}
- ],
- "duplicateAudit": {
-  "atlas": "Target roadmap extract at the input revision has stageEdges = [].",
-  "otherPackets": "Read the existing NumberFieldArithmetic packet: GlobalQuadraticForms occurs in remaining work, with no recorded edge. An exact GlobalQuadraticForms# code search returned only SpinRepresentations (indexed revision 262dee344399d4123a712655f2be585d7e68720d); opened that packet at the input revision and excluded its existing edge. Search indexing is a discovery aid, not a complete concurrent-submission audit.",
-  "pending": "Full-world validation and final current-main/PR refresh are still required."
- }
+ "existingLinksNotDuplicated":[{"source":"tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-1-archimedean-forms-and-signatures","target":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-1-the-structure-theorem","packet":"research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json","note":"Inherited checkpoint verified this existing complex-normal-form edge. No new arithmetic SO dependency is inferred."}],
+ "screening":{"summaryEntriesRead":182,"retiredSummaryEntriesExcluded":1,"substantiveStageEntries":12,"summaryOnlyEntries":173,"completeCatalogueScreen":false,"note":"The examined result none means no edge asserted at the recorded reading depth; it is not a claim that every stage was checked. No new directed edge is introduced by this continuation."}
 }
