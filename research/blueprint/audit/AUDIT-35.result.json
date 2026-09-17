@@ -1,0 +1,568 @@
+{
+ "job": "AUDIT-35",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369; mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "MotivesAndAlgebraicCycles": {
+   "summary": "Neither library has algebraic cycles modulo an adequate equivalence, correspondences, or any category of motives: 'Chow', 'motive', 'Tannakian category', 'numerical equivalence' and 'Weil cohomology' return no mathematical declaration in either tree. What is genuinely present and reusable is categorical rather than motivic: Mathlib's Karoubi envelope with its universal property (`CategoryTheory.Idempotents.karoubiUniversal`, `functorExtension`), rigid monoidal categories with duals, pro-étale ℓ-adic cohomology of schemes, and an unquotiented cycle group with proper pushforward (`AlgebraicGeometry.AlgebraicCycle.map`, functoriality unproved); Tau Ceti supplies pure and mixed Hodge structures with Tate twists, polarizations and semisimplicity, and a sorry-free Tannakian reconstruction of an affine group scheme from its category of finite-dimensional comodules (`TauCeti.Tannaka.tensorAutFunctor`). Everything specific to this roadmap — Chow groups, correspondence composition, pure and mixed motive categories, realizations and cycle classes, Jannsen semisimplicity, Nori's diagram category, motivic Galois groups and the cycle conjectures — is missing. The roadmap should also be reconciled with SchemeAndStackFoundations SF.5 and MotivicEtaleKTheory M.4/M.5a, which promise the same cycle and correspondence groups.",
+   "layers": {
+    "MotivesAndAlgebraicCycles:MC.0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Chow groups of smooth projective varieties (cycles modulo rational equivalence), graded",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.AlgebraicCycle",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.SchemeWeilDivisor",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Basic.lean",
+         "line": 47,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library defines a Chow group or rational equivalence of cycles. Mathlib's `AlgebraicCycle X R` is only the group of locally-finitely-supported functions on the points of a scheme (an unquotiented cycle group); grep for 'Chow' and 'rational equivalence' over both trees returns nothing mathematical. Tau Ceti's `WeilDivisor` tree has divisor classes and linear equivalence in codimension one only, and its `Dedekind/ClassGroup` file specialises further."
+      },
+      {
+       "target": "Proper pushforward of cycles, with functoriality",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.AlgebraicCycle.map",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
+         "line": 69,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.AlgebraicCycle.map_id",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
+         "line": 74,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines pushforward `AlgebraicCycle.map` for a quasi-compact morphism, weighted by user-supplied dimension functions and the residue degree, and proves only `map_id`. Composition/functoriality `map_comp`, the projection formula and compatibility with any equivalence relation are absent; the file has four declarations in total and no `sorry`."
+      },
+      {
+       "target": "Flat and refined (lci/Gysin) pullback of cycles",
+       "library": "absent",
+       "declarations": [],
+       "note": "No flat pullback, refined intersection or Gysin map for cycles in either library; `grep -rn -i 'flat pullback\\|refined intersection\\|Gysin'` over both Lean trees returns no declaration."
+      },
+      {
+       "target": "External product of cycles and composition of correspondences via the triple product",
+       "library": "absent",
+       "declarations": [],
+       "note": "Correspondences of varieties do not exist in either library; the only `Correspondence` names in Mathlib are unrelated (order/graph theory)."
+      },
+      {
+       "target": "Associativity, diagonal identity, transpose and projection-formula compatibility for correspondences",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the previous target; nothing of the kind is present."
+      },
+      {
+       "target": "Rational, algebraic, homological and numerical equivalence with the implication maps",
+       "library": "absent",
+       "declarations": [],
+       "note": "No adequate equivalence relation on cycles is defined. `numerical equivalence`, `homological equivalence` and `Weil cohomology` produce no hits in either tree."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SchemeAndStackFoundations:SF.5",
+       "note": "SF.5 'Intersection theory and Riemann-Roch' itself promises Chow groups, rational equivalence, proper pushforward, flat/lci pullback, refined Gysin maps and intersection products — the whole constructive core of MC.0. MC.0 lists SF.5 as its input, so the two layers must not both build the cycle groups."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.4",
+       "note": "M.4 constructs Bloch cycle complexes with the moving lemma, localisation, products, flat pullback and proper pushforward; the codimension-j cycle groups and their pullback/pushforward calculus are the same objects MC.0 states."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.5a",
+       "note": "M.5a constructs finite correspondences and sheaves with transfers, overlapping MC.0's correspondence composition (and MC.4 declares M.5a as its input for exactly this reason)."
+      },
+      {
+       "layer": "SchemeKTheoryOperations:S.7",
+       "note": "S.7 builds Chern classes, the γ-filtration and 'the comparison with Chow groups in the regular setting', so it presupposes the same Chow-group construction."
+      }
+     ]
+    },
+    "MotivesAndAlgebraicCycles:MC.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Additive category of correspondences of smooth projective varieties",
+       "library": "absent",
+       "declarations": [],
+       "note": "Requires MC.0's correspondence groups, which do not exist; no category of motives of any flavour is defined in either library."
+      },
+      {
+       "target": "Idempotent completion (Karoubi envelope) of an additive/preadditive category",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Idempotents.Karoubi",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Idempotents/Karoubi.lean",
+         "line": 44,
+         "fit": "more general"
+        },
+        {
+         "name": "CategoryTheory.Idempotents.toKaroubi",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Idempotents/Karoubi.lean",
+         "line": 139,
+         "fit": "more general"
+        },
+        {
+         "name": "CategoryTheory.Idempotents.Karoubi.karoubi_hasFiniteBiproducts",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Idempotents/Biproducts.lean",
+         "line": 76,
+         "fit": "more general"
+        }
+       ],
+       "note": "`CategoryTheory.Idempotents.Karoubi C` is the pseudo-abelian completion of an arbitrary category, with `toKaroubi` the canonical embedding, preadditive and finite-biproduct structure (`Biproducts.lean`), and idempotent-completeness of the result. This is strictly more general than the pseudo-abelian envelope of a correspondence category. No `sorry` in the `Idempotents` directory."
+      },
+      {
+       "target": "Universal extension of additive functors through idempotent completion",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Idempotents.karoubiUniversal",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Idempotents/FunctorExtension.lean",
+         "line": 224,
+         "fit": "more general"
+        },
+        {
+         "name": "CategoryTheory.Idempotents.karoubiUniversal₁",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Idempotents/FunctorExtension.lean",
+         "line": 161,
+         "fit": "more general"
+        },
+        {
+         "name": "CategoryTheory.Idempotents.functorExtension",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Idempotents/FunctorExtension.lean",
+         "line": 218,
+         "fit": "more general"
+        }
+       ],
+       "note": "`karoubiUniversal : (Karoubi C ⥤ Karoubi D) ≅ (C ⥤ Karoubi D)` together with `functorExtension`, `functorExtension₁`, `karoubiUniversal₁` and `karoubiUniversal₂` are exactly the stated universal property, proved for arbitrary categories, so a fortiori for preadditive correspondence categories."
+      },
+      {
+       "target": "Tensor product, dual, unit object on the motive category; Tate localization inverting the Lefschetz object",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.RigidCategory",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean",
+         "line": 732,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Hodge.tate",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Tate/Basic.lean",
+         "line": 90,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.HodgeStructureOn.tateTwist",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Tate/Twist.lean",
+         "line": 57,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the general theory of rigid (left/right dualizable) monoidal categories, and Tau Ceti has the Tate Hodge structure `ℤ(m)` and Tate twists of Hodge structures, but neither library has the Lefschetz motive, its inversion, or a monoidal structure on a category of motives."
+      },
+      {
+       "target": "Explicit Chow–Künneth projectors for projective spaces and a pointed smooth projective curve, and projective-bundle decomposition",
+       "library": "absent",
+       "declarations": [],
+       "note": "No projective-bundle formula in any cohomology theory is present in either library (`grep -rn -i 'projective bundle'` returns nothing), and without Chow groups there are no projectors to exhibit."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeneralAlgebraicKTheory:K.3",
+       "note": "K.3's idempotent-completion of exact categories restates the same Karoubi-envelope construction that MC.1 asks for; both are already covered by Mathlib's `CategoryTheory.Idempotents`."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.5a",
+       "note": "M.5a constructs finite correspondences and effective motivic complexes, i.e. the correspondence category MC.1 idempotent-completes."
+      }
+     ]
+    },
+    "MotivesAndAlgebraicCycles:MC.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Realization functors on a category of motives (Betti, de Rham, étale) for the admitted base fields",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructureCat",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Category.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.EllAdicCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "There is no category of motives, hence no realization functor. The nearest carriers are Tau Ceti's category of mixed Hodge structures (a possible target of a Betti realization, built with no source functor) and Mathlib's pro-étale ℓ-adic cohomology of a scheme; neither is connected to cycles."
+      },
+      {
+       "target": "Cycle class maps into a Weil cohomology",
+       "library": "absent",
+       "declarations": [],
+       "note": "No cycle class map exists; `grep -rn -i 'cycle class'` finds only Tau Ceti's Kummer-theory `cycleClass` names in `FieldTheory/GaloisCohomology/Kummer.lean`, which are unrelated Galois-cohomology classes of units."
+      },
+      {
+       "target": "Compatibility of cycle classes with composition, cup products, pushforward, trace and Tate twists",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the previous target. Mathlib has no cup product or trace map on étale/ℓ-adic cohomology of schemes either — `EllAdicCohomology` is defined as a sheaf-cohomology group with no ring structure developed."
+      },
+      {
+       "target": "Betti/de Rham comparison for an embedding into ℂ, and étale realization compared with its comparison suppliers",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructureCat",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Category.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.tate",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Tate/Basic.lean",
+         "line": 90,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither algebraic de Rham cohomology of a variety nor singular cohomology of the analytification is constructed in either library, so there is no comparison to prove. Tau Ceti's Hodge package supplies the linear-algebra target only."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PeriodsAndSpecialValues:PS.0",
+       "note": "PS.0 builds Betti/de Rham realization comparison matrices, Hodge filtration and Tate twists for motives and names MC.2 as its input; the realization interface is stated in both."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.4",
+       "note": "M.4's motivic cohomology and its comparisons cover the cycle-class-to-cohomology maps in the higher-Chow formulation."
+      },
+      {
+       "layer": "GeneralizedHeegnerCycles:GH.1",
+       "note": "GH.1 constructs the étale cycle class and Abel–Jacobi map plus the de Rham/syntomic realization for its own cycles, duplicating MC.2's cycle-class compatibility statements in a special case."
+      }
+     ]
+    },
+    "MotivesAndAlgebraicCycles:MC.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The rational category of numerical motives as a quotient of Chow motives",
+       "library": "absent",
+       "declarations": [],
+       "note": "Numerical equivalence is not defined in either library, so the quotient category does not exist."
+      },
+      {
+       "target": "Finite-dimensionality of numerical correspondence spaces via a Weil cohomology",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Weil cohomology is available in either library to bound the correspondence spaces."
+      },
+      {
+       "target": "Decomposition of endomorphism algebras/idempotents and Jannsen's semisimple abelian theorem",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.exists_finset_isAtom_sup_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Semisimple.lean",
+         "line": 86,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has semisimplicity for modules and rings (`RingTheory/Semisimple`) but no notion of semisimple abelian category (`CategoryTheory/Preadditive/HomOrthogonal.lean` says such a definition is still 'preliminary'). Tau Ceti proves the analogous semisimplicity for polarizable pure Hodge structures, which is a different theorem about a different category."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "MotivesAndAlgebraicCycles:MC.7",
+       "note": "MC.7's 'standard conjectures' register restates the homological-versus-numerical equivalence question that MC.3 must keep separate; the two layers must share one definition of numerical equivalence."
+      }
+     ]
+    },
+    "MotivesAndAlgebraicCycles:MC.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Finite correspondences and Nisnevich sheaves with transfers",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has finite correspondences or presheaves with transfers; the Nisnevich topology itself is only mentioned in a comment in `Mathlib/CategoryTheory/Sites/MayerVietorisSquare.lean` and is not defined."
+      },
+      {
+       "target": "The derived/localized category DM, A¹-invariance and Tate stabilization, geometric subcategory",
+       "library": "absent",
+       "declarations": [],
+       "note": "Mathlib has general derived categories and Bousfield-style localization of categories, but no motivic homotopy category, no A¹-localization and no Tate spectrum."
+      },
+      {
+       "target": "Localization, homotopy invariance and projective-bundle comparison in DM",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing of the kind exists."
+      },
+      {
+       "target": "Identification of higher Chow/motivic cohomology with the DM mapping groups",
+       "library": "absent",
+       "declarations": [],
+       "note": "Higher Chow groups are not defined in either library."
+      },
+      {
+       "target": "Motives of A¹, G_m and projective space; the boundary map for a closed point of a smooth curve",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the whole construction; absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "MotivicEtaleKTheory:M.5a",
+       "note": "M.5a is declared an input and states the same targets verbatim — finite correspondences, Nisnevich sheaves with transfers, A¹-localization, effective motivic complexes and cancellation."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.4",
+       "note": "M.4 owns Bloch's higher Chow groups and motivic cohomology, which MC.4 asks to identify with DM mapping groups; the motivic-cohomology definition must not be duplicated."
+      },
+      {
+       "layer": "LogicAndDefinabilityInNumberTheory:LD.3",
+       "note": "LD.3 ('Motivic integration and transfer') consumes MC.4 and restates a Grothendieck-ring-of-varieties/motivic-measure layer over the same geometric input."
+      }
+     ]
+    },
+    "MotivesAndAlgebraicCycles:MC.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Endomorphism coalgebra of a finite diagram representation and its filtered colimit",
+       "library": "absent",
+       "declarations": [],
+       "note": "Mathlib has coalgebras, comodules and Hopf algebras, and Tau Ceti has finite comodule categories, but the diagram/quiver-representation endomorphism coalgebra of Nori's construction is not built in either."
+      },
+      {
+       "target": "The Nori diagram category and its universal factorization property",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'nori'` over both Lean trees returns nothing."
+      },
+      {
+       "target": "Homology of algebraic pairs, boundary morphisms and the long exact sequence of a triple",
+       "library": "absent",
+       "declarations": [],
+       "note": "Tau Ceti has singular homology of topological pairs in `AlgebraicTopology/Singular`, but relative singular cohomology of an algebraic pair (X,Y) as a functor on Nori's diagram is not constructed."
+      },
+      {
+       "target": "Tensor and duality structure on the Nori category; Betti and de Rham fibre functors",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; algebraic de Rham cohomology of a variety does not exist in either library."
+      },
+      {
+       "target": "The comparison functor from geometric motives to Nori motives",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither category exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PeriodsAndSpecialValues:PS.2",
+       "note": "PS.2 compares the algebra of formal periods with 'the coordinate ring of the Nori period torsor', so it consumes the same Nori construction; MC.5/MC.6 must own it once."
+      }
+     ]
+    },
+    "MotivesAndAlgebraicCycles:MC.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The group functor of tensor automorphisms of a fibre functor on a neutral Tannakian category",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Tannaka.tensorAutFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/GroupFunctor.lean",
+         "line": 63,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Tannaka.fgPointTensorIsoEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Equivalence.lean",
+         "line": 188,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Tannaka.reconstructedPoint",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Reconstruction.lean",
+         "line": 89,
+         "fit": "special case"
+        }
+       ],
+       "note": "Tau Ceti builds `Tannaka.tensorAutFunctor`, the functor sending a commutative algebra A to the tensor automorphisms of the scalar-extended forgetful functor on finite-dimensional comodules over a Hopf algebra H, and proves it is represented by H (`fgPointTensorIsoEquiv`, `reconstructedPoint`), sorry-free. What is missing is the abstract input: there is no definition of a (neutral) Tannakian category, so the construction is only available when the category is already presented as comodules over a given Hopf algebra."
+      },
+      {
+       "target": "Torsor of tensor isomorphisms between two fibre functors",
+       "library": "absent",
+       "declarations": [],
+       "note": "Only automorphisms of a single fibre functor are constructed in Tau Ceti; no Isom-torsor between two distinct fibre functors, and no proof that it is a torsor, exists in either library."
+      },
+      {
+       "target": "Finite-diagram approximation and pro-algebraic reconstruction of the Tannakian group",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Tannaka.reconstructedPoint",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Reconstruction.lean",
+         "line": 89,
+         "fit": "special case"
+        },
+        {
+         "name": "CategoryTheory.PreGaloisCategory.autMulEquivAutGalois",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Galois/Prorepresentability.lean",
+         "line": 390,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.PreGaloisCategory.FiberFunctor",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Galois/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's reconstruction is for a single Hopf algebra, not a filtered colimit over finite subdiagrams; Mathlib's `autMulEquivAutGalois` does the analogous pro-representability for Galois categories — `Aut F` is the inverse limit of the automorphism groups of pointed Galois objects, which is the profinite, not the pro-algebraic, statement."
+      },
+      {
+       "target": "Artin and Tate subcategories and their tensor automorphism groups; export of period torsors",
+       "library": "absent",
+       "declarations": [],
+       "note": "No category of motives, hence no Artin or Tate subcategory; period torsors are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeometricSatakeAndFusion:GS4",
+       "note": "GS4:integral-dual-group constructs a total-cohomology fibre functor, proves exactness/faithfulness/tensor compatibility and reconstructs its affine group scheme — the same Tannakian reconstruction machinery MC.6 states, in the Satake category."
+      },
+      {
+       "layer": "RelativeFarguesFontaine:RF4:G-torsors",
+       "note": "RF4:G-torsors ('Tannakian transfer') transports structures along a tensor functor using the same torsor-of-fibre-functors formalism."
+      },
+      {
+       "layer": "PeriodsAndSpecialValues:PS.2",
+       "note": "PS.2 consumes MC.6 and restates the Nori period torsor and its coordinate ring."
+      },
+      {
+       "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+       "note": "IG.0 owns Galois categories and fibre functors; the pro-representability half of MC.6's reconstruction is the same argument in the profinite setting (and is already in Mathlib for Galois categories)."
+      }
+     ]
+    },
+    "MotivesAndAlgebraicCycles:MC.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Typed statements of the Hodge, Tate and standard conjectures",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.tate",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Tate/Basic.lean",
+         "line": 90,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Hodge.MixedHodgeStructureCat",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Mixed/Category.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library states any of these conjectures; `grep -rn -i 'hodge conjecture\\|tate conjecture\\|standard conjecture'` over both Lean trees returns nothing. Tau Ceti's Hodge package supplies Hodge structures and Tate twists but no notion of Hodge class of a cycle."
+      },
+      {
+       "target": "Bloch–Beilinson filtrations and motivic t-structures as typed statements",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no t-structure API on any triangulated category in either library (`TStructure` hits are Tau Ceti's exact structures on module categories, an unrelated notion)."
+      },
+      {
+       "target": "A theorem register separating known classes of varieties and coefficients from the general conjecture",
+       "library": "absent",
+       "declarations": [],
+       "note": "Bookkeeping over statements that do not exist."
+      },
+      {
+       "target": "Proved special cases: divisor/Lefschetz (1,1), curve and abelian-variety cases",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.exists_finset_isAtom_sup_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Semisimple.lean",
+         "line": 86,
+         "fit": "related"
+        }
+       ],
+       "note": "No special case is proved. Tau Ceti's divisor theory (`WeilDivisor`, `CartierDivisor`, Abel–Jacobi for curves) and its polarizable-Hodge-structure semisimplicity are the closest carriers, but none states a cycle-class surjectivity theorem."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "MotivesAndAlgebraicCycles:MC.3",
+       "note": "MC.3's Jannsen theorem is the one unconditional result in this circle of ideas; MC.7 must state the conjectural homological-equals-numerical half separately."
+      },
+      {
+       "layer": "HodgeTateAndCanonicalSubgroups:T1",
+       "note": "T1 explicitly warns that its absolute-Hodge/tensor input 'is a proved dependency, not an assumption that the Hodge conjecture holds', so the typed Hodge-conjecture statement MC.7 owns is consumed there."
+      },
+      {
+       "layer": "DrinfeldModulesAndTModules:DM.5",
+       "note": "DM.5 proves the Tate theorem for Drinfeld modules — a function-field analogue of the Tate conjecture case MC.7 registers."
+      }
+     ]
+    }
+   }
+  }
+ }
+}

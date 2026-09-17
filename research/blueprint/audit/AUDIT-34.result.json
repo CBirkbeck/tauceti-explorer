@@ -3,7 +3,7 @@
  "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369; mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
  "roadmaps": {
   "PotentialAutomorphyInfrastructure": {
-   "summary": "Nothing in either library approaches the ACC+ infrastructure. Mathlib supplies the generic homological scaffolding the layers would be built on top of — group cohomology with arbitrary coefficient representations and its functoriality, Shapiro's lemma, spectral objects/spectral sequences, `Module.support`, Krull dimension, regular sequences, and nonprincipal ultrafilters (`Filter.hyperfilter`, `Ultrafilter`) — and Tau Ceti supplies abstract double-coset Hecke rings for GL_n and GL_2, parabolic subgroups and Levi decompositions of algebraic groups by the dynamic method, characteristic-zero highest-weight theory and Weyl modules over Q-algebras, and the Chebotarev groundwork (an auxiliary-prime existence theorem, Frobenius prime sets). What is genuinely missing is everything specific: there are no arithmetic locally symmetric spaces, no Borel-Serre boundary, no arithmetic/Levi complexes with integral Hecke actions, no Fontaine-Laffaille theory, no integral (modular) Weyl and dual Weyl modules or linkage, no ordinary projectors or ordinary-parts functors, no Galois deformation rings, no patching or ultrapatching of complexes, no Taylor-Wiles primes, and no compatible systems of Galois representations. Not one of PA.0-PA.5 has a target present in the libraries; each is a fresh development.",
+   "summary": "Nothing in either library approaches the ACC+ infrastructure. Mathlib supplies the generic homological scaffolding the layers would be built on top of — group cohomology with arbitrary coefficient representations and its functoriality, Shapiro's lemma, spectral objects/spectral sequences, `Module.support`, Krull dimension, regular sequences, and nonprincipal ultrafilters (`Filter.hyperfilter`, `Ultrafilter`) — and Tau Ceti supplies abstract double-coset Hecke rings for GL_n and GL_2, parabolic subgroups and Levi decompositions of algebraic groups by the dynamic method, characteristic-zero highest-weight theory and Weyl modules over Q-algebras, and the Chebotarev groundwork (an auxiliary-prime existence theorem, Frobenius prime sets). What is genuinely missing is everything specific: there are no arithmetic locally symmetric spaces, no Borel-Serre boundary, no arithmetic/Levi complexes with integral Hecke actions, no Fontaine-Laffaille theory, no integral (modular) Weyl and dual Weyl modules or linkage, no ordinary projectors or ordinary-parts functors, no Galois deformation rings, no patching or ultrapatching of complexes, no Taylor-Wiles primes, and no compatible systems of Galois representations. The single exception is PA.4's instruction to fix a nonprincipal ultrafilter, which Mathlib supplies outright (`Filter.hyperfilter` together with the ultrafilter lemma), so PA.4 is partly built; PA.0-PA.3 and PA.5 have no target present in the libraries and each is a fresh development.",
    "layers": {
     "PotentialAutomorphyInfrastructure:PA.0": {
      "verdict": "not built",
@@ -220,14 +220,14 @@
          "name": "groupCohomology.δ",
          "library": "mathlib",
          "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/LongExactSequence.lean",
-         "line": 0,
+         "line": 94,
          "fit": "related"
         },
         {
          "name": "CategoryTheory.Abelian.SpectralObject",
          "library": "mathlib",
          "file": "Mathlib/Algebra/Homology/SpectralObject/Basic.lean",
-         "line": 0,
+         "line": 41,
          "fit": "related"
         },
         {
@@ -338,7 +338,7 @@
          "name": "CategoryTheory.Limits.lim",
          "library": "mathlib",
          "file": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
-         "line": 0,
+         "line": 541,
          "fit": "related"
         }
        ],
@@ -348,7 +348,7 @@
        "target": "Ordinary degree-shifting comparison preserving the Galois filtration and its characters",
        "library": "absent",
        "declarations": [],
-       "note": "Galois representations attached to automorphic forms do not exist in either library (the only `GaloisRepresentation` names are cocharacter Galois actions on tori), so an ordinary filtration of one cannot be stated."
+       "note": "Galois representations attached to automorphic forms do not exist in either library (Tau Ceti's Galois-representation objects are the cocharacter Galois action on a torus and `TauCeti.GaloisLatticeCat`, integral representations of the absolute Galois group with open stabilisers, neither attached to automorphic data), so an ordinary filtration of one cannot be stated."
       }
      ],
      "duplicates": [
@@ -361,8 +361,8 @@
        "note": "Named supplier of the concentration theorem, imported independently of PA.1's use."
       },
       {
-       "layer": "OrdinaryAutomorphicFormsAndModularityLifting",
-       "note": "The GL_2 modular/Hilbert/quaternionic ordinary tower there is the rank-2 instance of PA.2's construction; the roadmap itself flags it as a comparison example rather than a supplier."
+       "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+       "note": "R21.1 applies the ordinary projector to the modular/Hilbert/quaternionic Hecke complexes and proves the maps of the deformation problem preserve the ordinary image; that is the rank-2 instance of PA.2's construction, and the roadmap itself flags it as a comparison case."
       },
       {
        "layer": "ExcursionOperatorsAndSpectralAction:ES7:parabolic",
@@ -407,14 +407,14 @@
          "name": "ringKrullDim",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/KrullDimension/Basic.lean",
-         "line": 0,
+         "line": 29,
          "fit": "related"
         },
         {
          "name": "RingTheory.Sequence.IsWeaklyRegular",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/Regular/RegularSequence.lean",
-         "line": 0,
+         "line": 135,
          "fit": "related"
         }
        ],
@@ -449,7 +449,7 @@
      ]
     },
     "PotentialAutomorphyInfrastructure:PA.4": {
-     "verdict": "not built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "Construction of Taylor-Wiles auxiliary prime sets under a residual image hypothesis",
@@ -493,7 +493,7 @@
          "name": "Ultrafilter.exists_le",
          "library": "mathlib",
          "file": "Mathlib/Order/Filter/Ultrafilter/Defs.lean",
-         "line": 0,
+         "line": 293,
          "fit": "more general"
         }
        ],
@@ -545,8 +545,23 @@
       {
        "target": "Compatible systems of Galois representations and their comparison under restriction to field extensions",
        "library": "absent",
-       "declarations": [],
-       "note": "grep -i compatiblesystem gives zero hits; no library defines a system (ρ_λ) with matching Frobenius characteristic polynomials. Restriction of a representation to a subgroup exists generically (`Representation.comp`, `Rep.res`) but there is no arithmetic object to restrict."
+       "declarations": [
+        {
+         "name": "TauCeti.GaloisLatticeCat",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/GaloisLattice/Basic.lean",
+         "line": 135,
+         "fit": "related"
+        },
+        {
+         "name": "ContRepresentation",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Continuous/Basic.lean",
+         "line": 54,
+         "fit": "related"
+        }
+       ],
+       "note": "grep -i compatiblesystem gives zero hits; no library defines a system (ρ_λ) with matching Frobenius characteristic polynomials. Restriction of a representation to a subgroup exists generically (`Representation.comp`, `Rep.res`) but there is no arithmetic object to restrict. Tau Ceti does define continuous Galois representations in one setting — `GaloisLatticeCat`, finite free Z-modules with an absolute-Galois action whose stabilisers are open, with dual, action-field and finite-quotient API — and Mathlib has the general `ContRepresentation`; neither carries a coefficient prime or Frobenius data, so neither gives a member of a compatible system."
       },
       {
        "target": "Tensor products, duals, characters and symmetric powers of compatible systems",
@@ -613,10 +628,10 @@
    }
   },
   "PotentialModularityAndCompatibleSystems": {
-   "summary": "This roadmap plans Moret-Bailly/Taylor potential modularity, Khare-Wintenberger's deformation-ring finiteness and the construction of compatible systems; none of that is in either library. Mathlib does supply several genuine prerequisites of R23.1 that the document treats as still to be built: `AlgebraicGeometry.GeometricallyIrreducible` with its base-change and composition API, linear disjointness of field extensions (`Mathlib/FieldTheory/LinearDisjoint.lean`, plus the Dedekind-domain version), `NumberField.IsTotallyReal` and the real/complex infinite-place API, and Tau Ceti adds weak approximation for number fields, the local-field Henselian package and a full theory of abelian varieties (isogenies, endomorphism rings, base change) short of polarisations. Everything downstream is absent: no moduli of abelian varieties with torsion and polarisation, no Hilbert-Blumenthal varieties, no automorphic base change, no Galois deformation functors or rings (grep -i deformation returns zero declarations), no modularity lifting, and no compatible systems of Galois representations. Tau Ceti's classical newform library (Atkin-Lehner, degeneracy, multiplicity one, Sturm bounds) is the only place where the words 'modular form' attach to arithmetic, and it never meets a Galois representation.",
+   "summary": "This roadmap plans Moret-Bailly/Taylor potential modularity, Khare-Wintenberger's deformation-ring finiteness and the construction of compatible systems; none of that is in either library. R23.1 asks for the geometric and approximation prerequisites of Moret-Bailly's theorem to be included rather than cited, and Mathlib and Tau Ceti already supply several of them, so that layer is partly built: `AlgebraicGeometry.GeometricallyIrreducible` with its base-change and composition API, linear disjointness of field extensions (`Mathlib/FieldTheory/LinearDisjoint.lean`, plus the Dedekind-domain version), `NumberField.IsTotallyReal` and the real/complex infinite-place API, and Tau Ceti adds weak approximation for number fields, the local-field Henselian package and a full theory of abelian varieties (isogenies, endomorphism rings, base change) short of polarisations. Everything downstream is absent: no moduli of abelian varieties with torsion and polarisation, no Hilbert-Blumenthal varieties, no automorphic base change, no Galois deformation functors or rings (grep -i deformation returns zero declarations), no modularity lifting, and no compatible systems of Galois representations. Tau Ceti's classical newform library (Atkin-Lehner, degeneracy, multiplicity one, Sturm bounds) is the only place where the words 'modular form' attach to arithmetic, and it never meets a Galois representation.",
    "layers": {
     "PotentialModularityAndCompatibleSystems:R23.1": {
-     "verdict": "not built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "Moret-Bailly/Rumely rational-point existence theorem for a smooth geometrically irreducible variety with prescribed local conditions",
@@ -674,14 +689,14 @@
          "name": "TauCeti.henselianLocalRing_integer",
          "library": "tauceti",
          "file": "TauCeti/NumberTheory/LocalField/Henselian.lean",
-         "line": 0,
+         "line": 34,
          "fit": "related"
         },
         {
          "name": "HenselianLocalRing",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/Henselian.lean",
-         "line": 0,
+         "line": 108,
          "fit": "related"
         }
        ],
@@ -695,7 +710,7 @@
          "name": "IntermediateField.LinearDisjoint",
          "library": "mathlib",
          "file": "Mathlib/FieldTheory/LinearDisjoint.lean",
-         "line": 0,
+         "line": 157,
          "fit": "related"
         },
         {
@@ -785,7 +800,7 @@
        "target": "Pairing and determinant compatibilities on the torsion (Weil pairing, determinant of the residual representation)",
        "library": "absent",
        "declarations": [],
-       "note": "The Weil pairing on torsion of an abelian variety is not in either library (grep for Weil pairing / TateModule: 0 hits), and no residual representation exists to take determinants of."
+       "note": "The Weil pairing on the torsion of an abelian variety is not in either library: the fourteen textual hits for `WeilPairing` in Tau Ceti are all provenance comments naming an upstream project directory `HasseWeil/WeilPairing/`, and no declaration of a pairing exists; `TateModule` has no hits. No residual representation exists to take determinants of either."
       },
       {
        "target": "Identification of the component of a multi-component twist to which the theorem applies",
@@ -861,7 +876,7 @@
          "name": "IsSolvable",
          "library": "mathlib",
          "file": "Mathlib/GroupTheory/Solvable.lean",
-         "line": 0,
+         "line": 114,
          "fit": "related"
         }
        ],
@@ -904,7 +919,7 @@
          "fit": "related"
         }
        ],
-       "note": "Irreducibility of an abstract representation is defined in Tau Ceti, but restricting a residual Galois representation to a decomposition/absolute Galois subgroup of an extension and keeping irreducibility is not stated."
+       "note": "Irreducibility of an abstract representation is defined in Mathlib (`Representation.IsIrreducible`, as simplicity of the lattice of subrepresentations); restricting a residual Galois representation to the absolute Galois group of an extension and keeping irreducibility is not stated anywhere."
       },
       {
        "target": "Local component comparison permitted by the extension",
@@ -939,7 +954,7 @@
          "name": "IntermediateField.LinearDisjoint",
          "library": "mathlib",
          "file": "Mathlib/FieldTheory/LinearDisjoint.lean",
-         "line": 0,
+         "line": 157,
          "fit": "related"
         },
         {
@@ -960,14 +975,14 @@
          "name": "IsSolvable",
          "library": "mathlib",
          "file": "Mathlib/GroupTheory/Solvable.lean",
-         "line": 0,
+         "line": 114,
          "fit": "related"
         },
         {
          "name": "IsGalois",
          "library": "mathlib",
          "file": "Mathlib/FieldTheory/Galois/Basic.lean",
-         "line": 0,
+         "line": 57,
          "fit": "related"
         }
        ],
@@ -1061,7 +1076,7 @@
          "name": "Module.Finite",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/Finiteness/Defs.lean",
-         "line": 0,
+         "line": 117,
          "fit": "related"
         },
         {
@@ -1107,7 +1122,7 @@
          "name": "ringKrullDim",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/KrullDimension/Basic.lean",
-         "line": 0,
+         "line": 29,
          "fit": "related"
         }
        ],
@@ -1171,7 +1186,7 @@
          "name": "Module.Flat",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/Flat/Basic.lean",
-         "line": 0,
+         "line": 113,
          "fit": "related"
         }
        ],
@@ -1248,7 +1263,7 @@
          "name": "IsCyclotomicExtension",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/Cyclotomic/Basic.lean",
-         "line": 0,
+         "line": 76,
          "fit": "related"
         }
        ],
@@ -1297,14 +1312,14 @@
          "fit": "related"
         },
         {
-         "name": "TauCeti.jordanHolderInvariant",
+         "name": "TauCeti.simpleClassBasis",
          "library": "tauceti",
          "file": "TauCeti/RepresentationTheory/GrothendieckGroup/SimpleBasis.lean",
-         "line": 65,
+         "line": 268,
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti has representation rings and Grothendieck groups of representations, so the distinction between a virtual class and an actual representation is expressible; Brauer's induction theorem and the arithmetic application are not present in the form the layer needs."
+       "note": "Tau Ceti has representation rings and the Grothendieck group G_0 of finite modules with its basis of simple classes (`simpleClassBasis`, together with the Jordan-Holder coordinate homomorphism), so the distinction between a virtual class and an actual representation is expressible; Brauer's induction theorem and the arithmetic application are not present in the form the layer needs."
       },
       {
        "target": "Common coefficient field, Frobenius polynomials, purity, Hodge weights and the available local compatibility",
@@ -1346,7 +1361,7 @@
          "name": "IntermediateField.LinearDisjoint",
          "library": "mathlib",
          "file": "Mathlib/FieldTheory/LinearDisjoint.lean",
-         "line": 0,
+         "line": 157,
          "fit": "related"
         },
         {
@@ -1421,14 +1436,14 @@
          "name": "Representation.exteriorPower",
          "library": "tauceti",
          "file": "TauCeti/RepresentationTheory/ExteriorPower.lean",
-         "line": 0,
+         "line": 50,
          "fit": "related"
         },
         {
          "name": "Representation.ind",
          "library": "mathlib",
          "file": "Mathlib/RepresentationTheory/Induced.lean",
-         "line": 0,
+         "line": 77,
          "fit": "related"
         }
        ],
@@ -1514,7 +1529,7 @@
    }
   },
   "SerreWeightAndLevelOptimisation": {
-   "summary": "The classical characteristic-zero half of the level-changing algebra is genuinely present in Tau Ceti and the roadmap does not say so: level-raising (degeneracy) maps V_d, the old and new subspaces, their complementarity `S_k(Γ₁(N)) = old ⊕ new` via the Petersson product, Miyake's Main Lemma, Atkin-Lehner operators, multiplicity one and strong multiplicity one are all proved without sorry, together with a full nebentypus/character-space theory and Mathlib's Dirichlet-character conductor and change-of-level API. What is missing is everything integral and everything residual: the Hecke modules are complex vector spaces of analytic cusp forms, so there are no integral Hecke modules, no congruence modules, no localisation at a residual eigensystem and no mod-p forms. Beyond that, no level-lowering theorem (Mazur's principle, Ribet, Diamond, Buzzard), no Serre weight recipe or Edixhoven weight theorem, and no Galois representations at all exist in either library, so R20.2-R20.5 are untouched; R20.6 is an export and case-table layer.",
+   "summary": "The classical characteristic-zero half of the level-changing algebra is genuinely present in Tau Ceti and the roadmap does not say so: level-raising (degeneracy) maps V_d, the old and new subspaces, their complementarity `S_k(Γ₁(N)) = old ⊕ new` via the Petersson product, Miyake's Main Lemma, Atkin-Lehner operators, multiplicity one and strong multiplicity one are all proved without sorry, together with a full nebentypus/character-space theory and Mathlib's Dirichlet-character conductor and change-of-level API. What is missing is everything integral and everything residual: the Hecke modules are complex vector spaces of analytic cusp forms, so there are no integral Hecke modules, no congruence modules, no localisation at a residual eigensystem and no mod-p forms. Beyond that, no level-lowering theorem (Mazur's principle, Ribet, Diamond, Buzzard), no Serre weight recipe or Edixhoven weight theorem, and no Galois representation attached to a modular form exists in either library, so R20.2-R20.5 are untouched (Tau Ceti does have continuous integral representations of an absolute Galois group, `TauCeti.GaloisLatticeCat`, and Mathlib has `ContRepresentation`, but neither is attached to arithmetic data); R20.6 is an export and case-table layer.",
    "layers": {
     "SerreWeightAndLevelOptimisation:R20.1": {
      "verdict": "not built",
@@ -1575,7 +1590,7 @@
          "name": "LocalizedModule",
          "library": "mathlib",
          "file": "Mathlib/Algebra/Module/LocalizedModule/Basic.lean",
-         "line": 0,
+         "line": 89,
          "fit": "related"
         },
         {
@@ -1609,7 +1624,7 @@
          "name": "TauCeti.mem_cuspFormsOld_of_forall_coprime_qExpansion_coeff_eq_zero",
          "library": "tauceti",
          "file": "TauCeti/NumberTheory/ModularForms/Newforms/MainLemma.lean",
-         "line": 0,
+         "line": 178,
          "fit": "special case"
         },
         {
@@ -1785,7 +1800,7 @@
          "name": "DirichletCharacter.conductor",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
-         "line": 0,
+         "line": 246,
          "fit": "related"
         },
         {
@@ -1974,7 +1989,7 @@
          "name": "TauCeti.ValuationSpectrum.restrictToIdeal",
          "library": "tauceti",
          "file": "TauCeti/AlgebraicGeometry/AdicSpace/RestrictToIdeal.lean",
-         "line": 0,
+         "line": 69,
          "fit": "related"
         }
        ],
@@ -2123,7 +2138,7 @@
          "name": "CategoryTheory.Limits.HasLimitsOfShape",
          "library": "mathlib",
          "file": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
-         "line": 0,
+         "line": 113,
          "fit": "related"
         },
         {
@@ -2222,7 +2237,7 @@
          "name": "Polynomial.roots",
          "library": "mathlib",
          "file": "Mathlib/Algebra/Polynomial/Roots.lean",
-         "line": 0,
+         "line": 58,
          "fit": "related"
         },
         {
@@ -2286,7 +2301,7 @@
          "name": "CategoryTheory.Limits.limit",
          "library": "mathlib",
          "file": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
-         "line": 0,
+         "line": 181,
          "fit": "related"
         }
        ],
@@ -2327,7 +2342,7 @@
          "name": "CategoryTheory.ShortComplex.homologyMap",
          "library": "mathlib",
          "file": "Mathlib/Algebra/Homology/ShortComplex/Homology.lean",
-         "line": 0,
+         "line": 435,
          "fit": "related"
         }
        ],
@@ -2342,6 +2357,909 @@
       {
        "layer": "CompletedCohomologyPartII:CC.6",
        "note": "Descent and classical comparison: states the corresponding finite-level comparison for completed cohomology."
+      }
+     ]
+    }
+   }
+  },
+  "LogicAndDefinabilityInNumberTheory": {
+   "summary": "Mathlib's Mathlib/ModelTheory tree already supplies most of LD.0 and the computability half of LD.4, and the roadmap document never says so: first-order languages, structures, terms and bounded formulas, satisfaction, definable sets with parameters, language maps, elementary embeddings with the Tarski-Vaught test, the compactness theorem, ultraproducts with Los's theorem, plus worked arithmetic/field examples (completeness of ACF_p, the Lefschetz principle, model-theoretic Ax-Grothendieck, and Presburger definability = semilinear sets). For LD.4 Mathlib has Dioph/DiophFn with their closure properties and Matiyasevic's theorem that exponentiation is Diophantine, and REPred/ComputablePred with the halting problem and Rice's theorem; only the last step (MRDP: RE implies Diophantine, hence undecidability of Hilbert's tenth problem) is missing, and Mathlib's own file records it as a TODO. Genuinely missing everywhere is the valued-field and geometric content: no first-order language of valued fields, no angular components, no quantifier elimination or relative elimination theorem of any kind, no Ax-Kochen-Ershov, no Denef-Pas cell decomposition, no p-adic definable measure or Igusa/Poincare rationality, no Grothendieck ring of varieties or motivic integration, and nothing at all on o-minimality, Pila-Wilkie or Pila-Zannier. Tau Ceti contributes essentially nothing here: it has no model theory (its TauCeti/Logic directory is about Relation and Function.iterate), only the algebraic henselianity that LD.1 would sit on.",
+   "layers": {
+    "LogicAndDefinabilityInNumberTheory:LD.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "First-order languages, including the language of rings and a language of valued fields",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "FirstOrder.Language",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Basic.lean",
+         "line": 58,
+         "fit": "exact"
+        },
+        {
+         "name": "FirstOrder.Language.ring",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Algebra/Ring/Basic.lean",
+         "line": 60,
+         "fit": "exact"
+        },
+        {
+         "name": "FirstOrder.Ring.CompatibleRing",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Algebra/Ring/Basic.lean",
+         "line": 157,
+         "fit": "exact"
+        },
+        {
+         "name": "FirstOrder.Language.presburger",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Arithmetic/Presburger/Basic.lean",
+         "line": 43,
+         "fit": "related"
+        }
+       ],
+       "note": "The general notion of a first-order language and the ring language with its CompatibleRing bridge to Lean's Ring classes are in Mathlib, sorry-free. What is missing is a valued-field language: Mathlib's Language is single-sorted, so the three-sorted Denef-Pas language (valued field, value group, residue field with ac) is not expressible without new work."
+      },
+      {
+       "target": "Structures, terms, formulas, sentences, theories and the satisfaction relation",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "FirstOrder.Language.Structure",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Basic.lean",
+         "line": 154,
+         "fit": "exact"
+        },
+        {
+         "name": "FirstOrder.Language.Term",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Syntax.lean",
+         "line": 79,
+         "fit": "exact"
+        },
+        {
+         "name": "FirstOrder.Language.BoundedFormula",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Syntax.lean",
+         "line": 309,
+         "fit": "exact"
+        },
+        {
+         "name": "FirstOrder.Language.Formula",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Syntax.lean",
+         "line": 320,
+         "fit": "exact"
+        },
+        {
+         "name": "FirstOrder.Language.Theory",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Syntax.lean",
+         "line": 328,
+         "fit": "exact"
+        }
+       ],
+       "note": "Syntax (Term, BoundedFormula indexed by the number of free de Bruijn variables, Formula, Sentence, Theory) and the Realize semantics in Mathlib/ModelTheory/Semantics.lean are complete and sorry-free; quantifier domains are explicit in the Fin n indexing, which is exactly the acceptance condition the layer asks for."
+      },
+      {
+       "target": "Definable sets with an explicit parameter set, and their Boolean/projection algebra",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Set.Definable",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Definability.lean",
+         "line": 56,
+         "fit": "exact"
+        },
+        {
+         "name": "Set.definable_iff_empty_definable_with_params",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Definability.lean",
+         "line": 88,
+         "fit": "exact"
+        },
+        {
+         "name": "Set.Definable.image_comp",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Definability.lean",
+         "line": 242,
+         "fit": "exact"
+        },
+        {
+         "name": "Set.DefinableFun",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Definability.lean",
+         "line": 450,
+         "fit": "exact"
+        },
+        {
+         "name": "FirstOrder.Ring.mvPolynomial_zeroLocus_definable",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Algebra/Ring/Definability.lean",
+         "line": 29,
+         "fit": "special case"
+        }
+       ],
+       "note": "A.Definable L s carries the parameter set A explicitly and comes with the full Boolean algebra, projections along finite index maps, definable functions and the reduction to parameter-free definability over A. The zero locus of a finite set of multivariate polynomials is proved definable in the ring language."
+      },
+      {
+       "target": "Interpretation of one structure/language in another, with a proved semantics bridge",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "FirstOrder.Language.LHom",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/LanguageMap.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "FirstOrder.Language.LEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/LanguageMap.lean",
+         "line": 279,
+         "fit": "related"
+        },
+        {
+         "name": "FirstOrder.Ring.CompatibleRing",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Algebra/Ring/Basic.lean",
+         "line": 157,
+         "fit": "special case"
+        },
+        {
+         "name": "FirstOrder.Ring.mvPolynomial_zeroLocus_definable",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Algebra/Ring/Definability.lean",
+         "line": 29,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has language maps (LHom), language equivalences, expansions by constants and reducts, and a proved bridge between the ring language and Lean's algebraic classes; it does not have interpretations in the model-theoretic sense (a structure interpreted on a definable quotient of a power of another structure) or bi-interpretability, so this target is only half present."
+      },
+      {
+       "target": "Ultraproducts of a family of structures",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "FirstOrder.Language.Ultraproduct.«structure»",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Ultraproducts.lean",
+         "line": 74,
+         "fit": "exact"
+        },
+        {
+         "name": "FirstOrder.Language.Ultraproduct.setoidPrestructure",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Ultraproducts.lean",
+         "line": 49,
+         "fit": "exact"
+        },
+        {
+         "name": "Filter.Germ",
+         "library": "mathlib",
+         "file": "Mathlib/Order/Filter/Germ/Basic.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "The ultraproduct of a family M : alpha -> Type along an ultrafilter u is built as Filter.Product with its induced L-structure; the construction is stated for an arbitrary filter-germ quotient and specialised by [u.NeBot] and ultrafilter hypotheses where needed."
+      },
+      {
+       "target": "Los's transfer theorem for ultraproducts",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "FirstOrder.Language.Ultraproduct.sentence_realize",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Ultraproducts.lean",
+         "line": 154,
+         "fit": "exact"
+        },
+        {
+         "name": "FirstOrder.Language.Ultraproduct.boundedFormula_realize_cast",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Ultraproducts.lean",
+         "line": 95,
+         "fit": "more general"
+        },
+        {
+         "name": "FirstOrder.Language.Ultraproduct.realize_formula_cast",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Ultraproducts.lean",
+         "line": 146,
+         "fit": "more general"
+        },
+        {
+         "name": "FirstOrder.Language.Theory.isSatisfiable_iff_isFinitelySatisfiable",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Satisfiability.lean",
+         "line": 100,
+         "fit": "related"
+        }
+       ],
+       "note": "Los's theorem is proved in the named form (a sentence holds in the ultraproduct iff the set of indices where it holds is in the ultrafilter), together with the stronger bounded-formula version for arbitrary free-variable assignments; the compactness theorem is derived from it, all sorry-free."
+      },
+      {
+       "target": "Explicit elementary extensions (elementary embeddings/substructures, Tarski-Vaught)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "FirstOrder.Language.ElementaryEmbedding",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/ElementaryMaps.lean",
+         "line": 45,
+         "fit": "exact"
+        },
+        {
+         "name": "FirstOrder.Language.Embedding.isElementary_of_exists",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/ElementaryMaps.lean",
+         "line": 245,
+         "fit": "exact"
+        },
+        {
+         "name": "FirstOrder.Language.ElementaryEmbedding.ofModelsElementaryDiagram",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/ElementaryMaps.lean",
+         "line": 224,
+         "fit": "exact"
+        },
+        {
+         "name": "FirstOrder.Language.ElementarySubstructure.isElementary",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/ElementarySubstructures.lean",
+         "line": 72,
+         "fit": "exact"
+        }
+       ],
+       "note": "Elementary embeddings, elementary substructures, the elementary diagram and both forms of the Tarski-Vaught test are present and sorry-free; ElementarySubstructures.lean also proves closure under unions of chains, which is what a nonstandard-extension construction needs."
+      },
+      {
+       "target": "Nonstandard arithmetic with a standard-part interface",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Hyperreal",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Real/Hyperreal.lean",
+         "line": 44,
+         "fit": "special case"
+        },
+        {
+         "name": "ArchimedeanClass.stdPart",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Order/Ring/StandardPart.lean",
+         "line": 273,
+         "fit": "more general"
+        },
+        {
+         "name": "Hyperreal.stdPart_coe",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Real/Hyperreal.lean",
+         "line": 173,
+         "fit": "special case"
+        },
+        {
+         "name": "Hyperreal.stdPart_of_tendsto",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Real/Hyperreal.lean",
+         "line": 299,
+         "fit": "special case"
+        }
+       ],
+       "note": "The standard-part map is in Mathlib in more generality than the layer asks (ArchimedeanClass.stdPart for any ordered field with a finite residue field embedding into the reals), specialised to the hyperreals built from the hyperfilter on the naturals. What does not exist is a packaged nonstandard model of arithmetic: no N* or Z* with an elementary embedding of the standard model recorded, although Ultraproduct.sentence_realize gives it immediately."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PotentialAutomorphyInfrastructure:PA.4",
+       "note": "Also fixes a nonprincipal ultrafilter and builds an ultraproduct, but of a system of finite-level complexes for Taylor-Wiles ultrapatching rather than of first-order structures; it needs the ultrafilter/ultralimit vocabulary this layer exports."
+      },
+      {
+       "layer": "DeformationAndDerivedPatchingAlgebra:P8",
+       "note": "The abstract ultrapatching construction for complexes with cohomology in several degrees; same ultrafilter and ultraproduct infrastructure, different category of objects."
+      },
+      {
+       "layer": "LogicAndDefinabilityInNumberTheory:LD.4",
+       "note": "LD.4 restates the definable-set and interpretation apparatus for Diophantine sets, and its 'each transfer needs its own interpretation theorem' clause is the interpretation target of this layer."
+      }
+     ]
+    },
+    "LogicAndDefinabilityInNumberTheory:LD.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Henselianity of valued/local rings",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "HenselianLocalRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Henselian.lean",
+         "line": 108,
+         "fit": "more general"
+        },
+        {
+         "name": "HenselianRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Henselian.lean",
+         "line": 94,
+         "fit": "more general"
+        },
+        {
+         "name": "HenselianLocalRing.TFAE",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Henselian.lean",
+         "line": 119,
+         "fit": "more general"
+        },
+        {
+         "name": "IsAdicComplete.henselianRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Henselian.lean",
+         "line": 170,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.henselianLocalRing_integer",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/Henselian.lean",
+         "line": 34,
+         "fit": "special case"
+        }
+       ],
+       "note": "Henselian pairs and henselian local rings, the TFAE characterisation, and the fact that adically complete rings are henselian are in Mathlib for arbitrary commutative rings, i.e. more generally than the layer needs; Tau Ceti adds that the integer ring of a nonarchimedean local field and the adic completion of a Dedekind domain at a height-one prime are henselian local rings. All sorry-free. None of this is stated first-order."
+      },
+      {
+       "target": "Residue field and value group as separate sorts of a valued-field structure",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Valued",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Valued/ValuationTopology.lean",
+         "line": 124,
+         "fit": "related"
+        },
+        {
+         "name": "IsLocalRing.ResidueField",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/LocalRing/ResidueField/Defs.lean",
+         "line": 30,
+         "fit": "related"
+        },
+        {
+         "name": "ValuationRing.ValueGroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/ValuationRing.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "The algebraic objects (a valuation with its value group with zero, the residue field of a local ring, the Valued class packaging valuation and topology) are all in Mathlib. They are not sorts of a first-order structure: Mathlib's FirstOrder.Language is single-sorted, so the two-/three-sorted valued-field structure with its sort maps does not exist and cannot be stated without extending the model-theory library."
+      },
+      {
+       "target": "Angular component maps ac_n and the Denef-Pas language",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing: grep for 'angular component', 'acVal', 'Denef' and 'Pas' over both Lean trees returns no hits at all. The choice of an angular component map (a section of the residue map on units) is not formalised even as a plain algebraic definition."
+      },
+      {
+       "target": "Quantifier elimination and relative quantifier elimination results",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "FirstOrder.Language.BoundedFormula.IsQF",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Complexity.lean",
+         "line": 72,
+         "fit": "related"
+        },
+        {
+         "name": "FirstOrder.Language.BoundedFormula.realize_toPrenex",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Complexity.lean",
+         "line": 262,
+         "fit": "related"
+        },
+        {
+         "name": "FirstOrder.Language.presburger.definable_iff_isSemilinearSet",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Arithmetic/Presburger/Definability.lean",
+         "line": 148,
+         "fit": "related"
+        },
+        {
+         "name": "FirstOrder.Field.ACF_isComplete",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Algebra/Field/IsAlgClosed.lean",
+         "line": 165,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the syntactic vocabulary (IsAtomic, IsQF, IsPrenex, prenex normalisation with its realization lemma) and two elimination-flavoured results: Presburger-definable subsets of N^alpha are exactly the semilinear sets, and ACF_p is a complete theory. There is no general quantifier-elimination theorem, no back-and-forth/QE test lemma, and nothing relative over a pair of sorts, which is what the Denef-Pas route needs."
+      },
+      {
+       "target": "Ax-Kochen-Ershov transfer between henselian valued fields",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "FirstOrder.Field.ACF_zero_realize_iff_infinite_ACF_prime_realize",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Algebra/Field/IsAlgClosed.lean",
+         "line": 223,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. The only first-order transfer principle in either library is the Lefschetz principle for algebraically closed fields (a ring sentence holds in ACF_0 iff it holds in ACF_p for infinitely many primes p), which is a different statement and carries none of the equicharacteristic/mixed-characteristic or exceptional-prime bookkeeping the acceptance criterion demands."
+      },
+      {
+       "target": "Denef-Pas cell decomposition for henselian valued fields",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent from both libraries: no cell decomposition of any kind (valued-field, p-adic or o-minimal) appears in Mathlib or Tau Ceti."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ClassicalAdicEtaleCohomology:H1:henselian",
+       "note": "Constructs affinoid henselisations and henselian pairs with their approximation theorems; the same henselianity input, developed for adic spaces rather than for valued-field logic."
+      },
+      {
+       "layer": "KTheoryFiniteLocalFields:L.2",
+       "note": "Works with henselian DVRs and henselian pairs away from the residue characteristic; overlaps only the henselianity target, not the elimination theory."
+      },
+      {
+       "layer": "LogicAndDefinabilityInNumberTheory:LD.2",
+       "note": "LD.2's definable cells are the output of the cell decomposition this layer is asked to prove; the two layers state the same Denef-Pas theorem from opposite sides."
+      }
+     ]
+    },
+    "LogicAndDefinabilityInNumberTheory:LD.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Definable cells and p-adic cell decomposition",
+       "library": "absent",
+       "declarations": [],
+       "note": "No p-adic cell decomposition and no notion of a cell in either library; searches for 'cell decomposition' over both Lean trees return nothing."
+      },
+      {
+       "target": "Measures on p-adic definable sets (Haar measure on Q_p^n and volumes of definable families)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Measure.haarMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Haar/Basic.lean",
+         "line": 521,
+         "fit": "more general"
+        },
+        {
+         "name": "PadicInt.compactSpace",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/ProperSpace.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "MeasureTheory.Measure.haar.index",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Haar/Basic.lean",
+         "line": 94,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Haar measure on an arbitrary locally compact group and proves Z_p compact and Q_p locally compact (Padic's ProperSpace instance, ProperSpace.lean:65), so a Haar measure on Q_p^n exists by instance resolution. What is missing is everything specific: the normalisation vol(Z_p)=1, the volume of a ball of radius p^{-n}, measurability of definable sets and any integration over them."
+      },
+      {
+       "target": "Rationality of local Igusa zeta functions and Poincare series",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: 'Igusa' and 'Poincare series' (in this sense) do not occur anywhere in Mathlib or Tau Ceti. Neither Igusa's rationality theorem nor Denef's proof of it, and no coefficient ring or variable is fixed anywhere for such a series."
+      },
+      {
+       "target": "Constructible functions and their operations (pushforward, integration)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Mathlib's only 'constructible' notions are constructible topological sets (Mathlib/Topology/Constructible.lean and the scheme-theoretic version) and constructible sheaves, which are unrelated to Cluckers-Loeser constructible motivic functions."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.8",
+       "note": "Builds prehomogeneous-vector-space zeta integrals and p-adic local densities and says explicitly that it imports Igusa/motivic local methods via LD.3; the local Igusa integrals are the same objects."
+      },
+      {
+       "layer": "ExponentialSumsAndCircleMethod:ES.3",
+       "note": "Constructs p-adic local densities and singular series with Haar-measure normalisation; overlaps this layer's p-adic measure target for the special case of counting solutions of a form."
+      },
+      {
+       "layer": "SieveMethodsAndPrimePatterns:SV.0",
+       "note": "Defines multiplicative local densities; a much weaker, purely elementary version of the local-density target that LD.2/LD.5 export."
+      },
+      {
+       "layer": "LogicAndDefinabilityInNumberTheory:LD.1",
+       "note": "The cell decomposition that produces these cells is stated as a target of LD.1 (Denef-Pas route)."
+      }
+     ]
+    },
+    "LogicAndDefinabilityInNumberTheory:LD.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The Grothendieck ring of varieties / of definable sets as an integration target",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AbelianK0",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Abelian.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Tau Ceti has a general Grothendieck group of a monoidal/abelian category (used for representation rings) and a Witt-Grothendieck ring of quadratic forms, but no K_0 of varieties over a field, no class [X] of a variety, no Lefschetz motive L and no localisation inverting it. The cited declaration is the wrong Grothendieck ring and the layer itself warns against identifying them."
+      },
+      {
+       "target": "Arc/jet spaces and the motivic measure",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: 'arc space', 'jet scheme' and 'motivic' return no hits in either Lean tree. There is no motivic measure and no motivic integral."
+      },
+      {
+       "target": "Specialization of motivic integrals to p-adic integrals",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; it cannot exist since neither side (the motivic integral of LD.3 nor the p-adic definable integral of LD.2) is formalised."
+      },
+      {
+       "target": "Pushforward along definable maps and the Fubini/change-of-variables theorem for motivic integrals",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Mathlib has change of variables and Fubini for Bochner integrals against Haar and product measures, but nothing in a constructible-function or motivic setting."
+      },
+      {
+       "target": "Transfer principles between characteristics (Cluckers-Loeser)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "FirstOrder.Field.ACF_zero_realize_iff_infinite_ACF_prime_realize",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Algebra/Field/IsAlgClosed.lean",
+         "line": 223,
+         "fit": "related"
+        },
+        {
+         "name": "FirstOrder.Field.ACF_zero_realize_iff_finite_ACF_prime_not_realize",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Algebra/Field/IsAlgClosed.lean",
+         "line": 236,
+         "fit": "related"
+        },
+        {
+         "name": "ax_grothendieck_of_definable",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/AxGrothendieck.lean",
+         "line": 200,
+         "fit": "related"
+        }
+       ],
+       "note": "The Cluckers-Loeser transfer principle for constructible motivic functions is absent. Mathlib does have a genuine model-theoretic transfer principle in a neighbouring setting: the Lefschetz principle for ACF and its application to Ax-Grothendieck, all sorry-free; it transfers sentences between characteristics for algebraically closed fields only, with no residue-characteristic bound and no integrals."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "MotivesAndAlgebraicCycles:MC.4",
+       "note": "Builds Voevodsky-style geometric mixed motives and motivic cohomology; the layer's own text says to coordinate geometric realizations with motives rather than identify the two Grothendieck rings, so the overlap is deliberate but real at the level of the motivic target category."
+      },
+      {
+       "layer": "AnalyticNumberTheory:AN.8",
+       "note": "Declared consumer of LD.3: it imports Igusa/motivic local methods for prehomogeneous zeta integrals, so the local-factor rationality statements are shared."
+      },
+      {
+       "layer": "LogicAndDefinabilityInNumberTheory:LD.2",
+       "note": "The p-adic side of the same specialization statement; LD.2's Igusa rationality is the specialization of LD.3's motivic rationality."
+      }
+     ]
+    },
+    "LogicAndDefinabilityInNumberTheory:LD.4": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Recursively enumerable sets and computable predicates",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "REPred",
+         "library": "mathlib",
+         "file": "Mathlib/Computability/RE.lean",
+         "line": 157,
+         "fit": "exact"
+        },
+        {
+         "name": "ComputablePred",
+         "library": "mathlib",
+         "file": "Mathlib/Computability/RE.lean",
+         "line": 129,
+         "fit": "exact"
+        },
+        {
+         "name": "ComputablePred.computable_iff_re_compl_re",
+         "library": "mathlib",
+         "file": "Mathlib/Computability/RE.lean",
+         "line": 225,
+         "fit": "exact"
+        },
+        {
+         "name": "ComputablePred.halting_problem",
+         "library": "mathlib",
+         "file": "Mathlib/Computability/Halting.lean",
+         "line": 65,
+         "fit": "exact"
+        },
+        {
+         "name": "ComputablePred.rice",
+         "library": "mathlib",
+         "file": "Mathlib/Computability/Halting.lean",
+         "line": 33,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's computability development is complete for this purpose: partial recursive functions with a universal machine (Nat.Partrec.Code), REPred as the domain of a partial recursive function, Post's theorem that a predicate is computable iff it and its complement are r.e., the unsolvability of the halting problem and Rice's theorem, all sorry-free."
+      },
+      {
+       "target": "Diophantine sets and Diophantine representations over the naturals",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Dioph",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Dioph.lean",
+         "line": 245,
+         "fit": "exact"
+        },
+        {
+         "name": "Dioph.DiophFn",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Dioph.lean",
+         "line": 341,
+         "fit": "exact"
+        },
+        {
+         "name": "Dioph.inter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Dioph.lean",
+         "line": 317,
+         "fit": "exact"
+        },
+        {
+         "name": "Dioph.ex_dioph",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Dioph.lean",
+         "line": 347,
+         "fit": "exact"
+        },
+        {
+         "name": "Dioph.dioph_comp",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Dioph.lean",
+         "line": 476,
+         "fit": "exact"
+        }
+       ],
+       "note": "Dioph S says S subset (alpha -> N) is cut out by an integer polynomial in the given and existentially quantified variables; the file proves closure under intersection, union, projection, reindexing and composition with Diophantine functions, and that =, <=, <, /=, |, %, / and modular congruence are Diophantine. Sorry-free."
+      },
+      {
+       "target": "Matiyasevic's theorem that exponentiation is Diophantine (via the Pell equation)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Dioph.pow_dioph",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Dioph.lean",
+         "line": 667,
+         "fit": "exact"
+        },
+        {
+         "name": "Dioph.pell_dioph",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Dioph.lean",
+         "line": 634,
+         "fit": "exact"
+        },
+        {
+         "name": "Dioph.xn_dioph",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Dioph.lean",
+         "line": 659,
+         "fit": "exact"
+        },
+        {
+         "name": "Pell.eq_pow_of_pell",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/PellMatiyasevic.lean",
+         "line": 860,
+         "fit": "exact"
+        }
+       ],
+       "note": "The hard step of MRDP, that the graph of (f,g) |-> f^g is Diophantine, is proved in Mathlib on top of the full Pell-equation development in PellMatiyasevic.lean. Sorry-free. The layer's document does not mention that this is already available."
+      },
+      {
+       "target": "MRDP: every recursively enumerable set is Diophantine",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, and Mathlib says so: Dioph.lean's TODO list reads 'Finish the solution of Hilbert's tenth problem'. There is no statement relating Dioph to REPred, Nat.Partrec or Primrec anywhere; grep for 'dioph' over Mathlib/Computability returns nothing."
+      },
+      {
+       "target": "Negative solution of Hilbert's tenth problem over the integers (undecidability)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ComputablePred.halting_problem",
+         "library": "mathlib",
+         "file": "Mathlib/Computability/Halting.lean",
+         "line": 65,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent: there is no statement that the solvability of integer polynomial equations is undecidable. The reduction source (an undecidable r.e. set) is available, but the bridge from it to Dioph is exactly the missing MRDP step."
+      },
+      {
+       "target": "Variants over other rings and fields (Q, number fields, rings of integers), each with its own interpretation theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent from both libraries. There is no Diophantine definability of Z in a ring of integers, no Julia Robinson-style definition of Z in Q, and no undecidability statement over any field."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ClassicalArithmeticCompletion:CA.4",
+       "note": "Declared input; it supplies Pell equations and elementary descent, which is precisely the PellMatiyasevic material the Diophantine-exponentiation target already uses in Mathlib."
+      },
+      {
+       "layer": "ComputationalNumberTheory:CN.0",
+       "note": "Fixes computable presentations, bit complexity and randomness models; overlaps the recursive/computable-function target but from the algorithmic rather than the undecidability side."
+      },
+      {
+       "layer": "LogicAndDefinabilityInNumberTheory:LD.0",
+       "note": "The 'each transfer needs its own interpretation theorem' clause here is the interpretation target stated in LD.0."
+      }
+     ]
+    },
+    "LogicAndDefinabilityInNumberTheory:LD.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Local-density and point-counting transfer statements derived from definable integration",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; it depends on LD.2 and LD.3, neither of which exists in either library. No uniform-in-p counting statement with a definable family is formalised anywhere."
+      },
+      {
+       "target": "Definability interfaces to arithmetic statistics",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Set.Definable",
+         "library": "mathlib",
+         "file": "Mathlib/ModelTheory/Definability.lean",
+         "line": 56,
+         "fit": "related"
+        }
+       ],
+       "note": "The definability predicate exists (LD.0), but there is no consumer in either library: nothing in Mathlib's or Tau Ceti's analytic number theory is stated in terms of Set.Definable, and Set.Definable has no uses outside Mathlib/ModelTheory and Mathlib/FieldTheory/AxGrothendieck.lean."
+      },
+      {
+       "target": "Definability interfaces to nonarchimedean geometry",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Tau Ceti has a substantial adic/Berkovich-adjacent development, but none of it is connected to first-order definability."
+      },
+      {
+       "target": "Certified-algorithm interfaces for special families and a frontier register of undecided field cases",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, and largely bookkeeping: the 'frontier register' half is a records task rather than mathematics, while the certified-algorithm half would need the decision procedures that neither library has."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.8",
+       "note": "Consumes LD.3 for local densities and Igusa/motivic local methods; the arithmetic-statistics interface this layer exports is the same handoff seen from the consumer side."
+      },
+      {
+       "layer": "ComputationalNumberTheory:CN.0",
+       "note": "States the algorithm/complexity model that this layer's 'certified algorithms for special families' would have to be expressed in."
+      }
+     ]
+    },
+    "LogicAndDefinabilityInNumberTheory:LD.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "o-minimal structures and their definable sets",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsRealClosed",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/IsRealClosed/Basic.lean",
+         "line": 48,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. There is no o-minimality predicate, no semialgebraic or subanalytic set, and no Tarski-Seidenberg theorem in either library; 'o-minimal' and 'semialgebraic' have no hits at all. Mathlib has the algebraic class IsRealClosed but not the first-order theory RCF nor its quantifier elimination."
+      },
+      {
+       "target": "Cell decomposition in an o-minimal structure",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no cell decomposition of any kind exists in either library."
+      },
+      {
+       "target": "Pila-Wilkie rational-point counting outside the algebraic part, with explicit height and epsilon",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Northcott",
+         "library": "mathlib",
+         "file": "Mathlib/Order/Northcott.lean",
+         "line": 36,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. The only counting-by-height machinery in Mathlib is the height library (Mathlib/NumberTheory/Height) with the Northcott property, i.e. finiteness of points of bounded height; there is no notion of the algebraic part of a definable set and no polynomial-in-T^epsilon bound."
+      },
+      {
+       "target": "Pila-Zannier applications (Manin-Mumford, Andre-Oort cases) built from separate orbit and transcendence inputs",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent from both libraries: no Manin-Mumford, no Andre-Oort, no special subvarieties of a Shimura variety, and no statement about torsion points lying on a subvariety."
+      },
+      {
+       "target": "Functional transcendence: Ax-Lindemann and Ax-Schanuel",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LindemannWeierstrass.exp_polynomial_approx",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Transcendental/Lindemann/AnalyticalPart.lean",
+         "line": 157,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Mathlib contains only the analytic half of the classical Lindemann-Weierstrass theorem (the file is named AnalyticalPart and the theorem itself is not concluded), which in any case is a different statement from the functional Ax-Lindemann theorem about uniformising maps."
+      },
+      {
+       "target": "Galois-orbit lower bounds for special points, and definability of uniformisation maps",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Neither library has lower bounds for the size of a Galois orbit of a CM point, nor any statement that a uniformisation map is definable on a fundamental domain."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DiophantineApproximationAndTranscendence:DT.5",
+       "note": "States 'source-scoped functional-transcendence applications' and says it coordinates unlikely intersections with RP; the Ax-Lindemann/Ax-Schanuel and unlikely-intersection targets are the same theorems."
+      },
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.5",
+       "note": "Develops the Mordell-Lang and Manin-Mumford proof routes for subvarieties of abelian varieties; this layer would prove the Manin-Mumford case again by the Pila-Zannier method."
+      },
+      {
+       "layer": "ArithmeticDynamics:DY.6",
+       "note": "States proven dynamical Mordell-Lang and unlikely-intersection cases as source-bound endpoints; the same family of statements in the dynamical setting."
+      },
+      {
+       "layer": "LogicAndDefinabilityInNumberTheory:LD.0",
+       "note": "Declared input: the definable-set apparatus this layer's counting statements quantify over is LD.0's, and it is already in Mathlib."
       }
      ]
     }
