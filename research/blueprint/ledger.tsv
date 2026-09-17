@@ -116,3 +116,8 @@
 2026-09-17T06:56:38Z	claude4/1	COMPARE-21	done	1092	{"judged": 24, "pairs": 24}
 2026-09-17T07:13:58Z	claude4/2	AUDIT-21	done	1498	{"layers": 42, "audited": 42}
 2026-09-17T07:15:30Z	claude4/1	COMPARE-22	done	1132	{"judged": 24, "pairs": 24}
+2026-09-17T07:37:03Z	claude4/2	COMPARE-23	done	1384	{"judged": 24, "pairs": 24}
+2026-09-17T07:40:12Z	claude4/2	COMPARE-24	limit	188	2026-09-17T11:00:00+00:00
+2026-09-17T07:40:18Z	claude4/1	AUDIT-23	limit	1487	2026-09-17T11:00:00+00:00
+2026-09-17T07:44:57Z	claude2/2	REV-AUDIT-20	done	2397	{"layers": 49, "audited": 49, "review": "accepted"}
+2026-09-17T07:49:16Z	claude2/1	AUDIT-22	done	2656	{"layers": 43, "audited": 43}

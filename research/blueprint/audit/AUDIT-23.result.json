@@ -3338,6 +3338,1771 @@
      ]
     }
    }
+  },
+  "tauceti:TauCetiRoadmap/StablePeriodicCurved": {
+   "summary": "The libraries supply the foundations of this roadmap but almost none of its content. Tau Ceti already has the whole generic ideal-quotient construction (TauCeti.MorphismIdeal with its congruence, the quotient through Mathlib's CategoryTheory.Quotient, the hom-group identification and the factorization criterion), the exact-structure package with relative projectives and injectives, enough of each, and the Frobenius exact predicate with the split example, and a complete finite-dimensional Frobenius-algebra theory (Frobenius and symmetric functionals, the equivalence with A ≅ A⁺, the Nakayama automorphism, and two-sided self-injectivity); Mathlib supplies the preadditive/linear quotient API, DifferentialObject, HomologicalComplex over an arbitrary ComplexShape (so ZMod n indexing is expressible), the Pretriangulated/IsTriangulated interfaces, triangulated envelopes and Verdier localization, and Localization.fac. What is genuinely missing is everything the roadmap is about: the object-generated factoring ideal and hence `Stable E`, Happel's triangulation, self-injective module categories, total acyclicity, Gorenstein-projectives, singularity categories and Buchweitz's equivalence, the periodic categories K_n and D_n with their compression, orbit category and Stai hull, curved DG algebras and modules (Tau Ceti's A∞/DG theory is explicitly uncurved), derived categories of the second kind with Positselski's comparisons, and matrix factorizations with the Eisenbud and Orlov theorems. The nearest existing fragments are the ε-periodic projective resolution over the dual numbers, which is the n = 2 case of the flagship example and already proves the ker = im acyclicity that Layer 4's acceptance test needs, and the finite-resolution/syzygy API in the exact-structure package.",
+   "layers": {
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "A bundled two-sided morphism ideal in a preadditive category, its congruence, and the quotient through Mathlib's CategoryTheory.Quotient",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.MorphismIdeal",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 81,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MorphismIdeal.rel",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 157,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MorphismIdeal.Quotient",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 190,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MorphismIdeal.quotientFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 195,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MorphismIdeal.le_def",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 107,
+         "fit": "related"
+        }
+       ],
+       "note": "I(X,Y) is an AddSubgroup (X ⟶ Y) stable on both sides, the congruence is `rel`, and the quotient is literally Mathlib's CategoryTheory.Quotient by that congruence, as the layer prescribes. No sorry in the file."
+      },
+      {
+       "target": "The quotient is preadditive, the quotient functor additive, full and essentially surjective",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Quotient.preadditive",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Quotient/Preadditive.lean",
+         "line": 61,
+         "fit": "exact"
+        },
+        {
+         "name": "CategoryTheory.Quotient.functor_additive",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Quotient/Preadditive.lean",
+         "line": 86,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MorphismIdeal.Quotient",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 190,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib supplies preadditivity of the quotient and additivity of the quotient functor for an arbitrary congruence; fullness and essential surjectivity come from Mathlib's Quotient API, and the TauCeti file's docstring records exactly this reuse."
+      },
+      {
+       "target": "The hom group of the quotient agrees with (X ⟶ Y) ⧸ I(X,Y)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.MorphismIdeal.homAddEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 221,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MorphismIdeal.homAddEquiv_mk",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 229,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MorphismIdeal.quotientFunctor_map_eq_iff",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 203,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MorphismIdeal.quotientFunctor_map_eq_zero_iff",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 209,
+         "fit": "exact"
+        }
+       ],
+       "note": "The identification is an AddEquiv with its computation rule on classes."
+      },
+      {
+       "target": "An additive functor factors through the quotient exactly when it kills I, with the functor, natural-transformation and uniqueness universal properties",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.MorphismIdeal.lift",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 273,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MorphismIdeal.exists_quotientFunctor_comp_eq_iff",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 285,
+         "fit": "exact"
+        },
+        {
+         "name": "CategoryTheory.Functor.kerIdeal",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 127,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MorphismIdeal.kerIdeal_quotientFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 215,
+         "fit": "exact"
+        }
+       ],
+       "note": "The functor part and the 'kills I' criterion are proved. The natural-transformation and uniqueness halves are not restated: the file's docstring points at Mathlib's `CategoryTheory.Quotient.lift_unique'` and `Quotient.natTransLift`, which apply unchanged, so the content is available but not packaged for ideals."
+      },
+      {
+       "target": "Additive functors carrying one ideal into another induce quotient functors; natural transformations descend; identities and composition coherent",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.MorphismIdeal.lift",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 273,
+         "fit": "related"
+        }
+       ],
+       "note": "No declaration takes a functor F with F(I) ⊆ J and produces C/I ⥤ D/J, and no identity/composition coherence for such induced functors exists."
+      },
+      {
+       "target": "Equivalences carrying I onto J induce quotient equivalences",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no such construction in either library."
+      },
+      {
+       "target": "Opposite categories and R-linear enrichments supported",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.MorphismIdeal.smul_mem",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 113,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MorphismIdeal.rel_smul",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 300,
+         "fit": "exact"
+        },
+        {
+         "name": "CategoryTheory.Quotient.Linear.module'",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Quotient/Linear.lean",
+         "line": 54,
+         "fit": "exact"
+        }
+       ],
+       "note": "The R-linear half is complete (every ideal of an R-linear category is automatically scalar-stable, and Mathlib's linear quotient API applies). No opposite-category construction on MorphismIdeal exists."
+      },
+      {
+       "target": "The ideal generated by maps factoring through objects of a class P, defined as an additive closure, and the theorem that each element factors through one P-object when P contains 0 and is closed under finite biproducts and isomorphism",
+       "library": "absent",
+       "declarations": [],
+       "note": "No object-generated (factoring) ideal exists in either library; grep for factoringIdeal / idealOfObjects / generatedIdeal over declarations.tsv returns nothing. This is the ideal the stable category is the quotient by, so its absence is what blocks `Stable E`."
+      },
+      {
+       "target": "Relative projective and relative injective objects through admissible lifting properties, and enough relative projectives/injectives",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ExactStructure.isProjective",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Projective.lean",
+         "line": 132,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ExactStructure.isInjective",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Injective.lean",
+         "line": 54,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ExactStructure.EnoughProjectives",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Projective.lean",
+         "line": 242,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ExactStructure.EnoughInjectives",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Injective.lean",
+         "line": 174,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ExactStructure.abelian_isProjective_iff",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Projective.lean",
+         "line": 214,
+         "fit": "exact"
+        }
+       ],
+       "note": "Defined relative to a specified `TauCeti.ExactStructure` (deflation-lifting for projectives, inflation-extension for injectives), with bundled presentations and the abelian comparison lemmas. This is the exact-structure package the layer says to consume from the dependency roadmap."
+      },
+      {
+       "target": "A Frobenius exact category: enough of both classes and equality of the two predicates",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ExactStructure.IsFrobenius",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Frobenius.lean",
+         "line": 52,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ExactStructure.IsFrobenius.injective_iff_projective",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Frobenius.lean",
+         "line": 66,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ExactStructure.IsFrobenius.op",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Frobenius.lean",
+         "line": 71,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ExactStructure.split_isFrobenius",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Frobenius.lean",
+         "line": 83,
+         "fit": "exact"
+        }
+       ],
+       "note": "Exactly the roadmap's definition, as a property of a specified exact structure (so one additive category may carry several), with the opposite and the split example. No sorry."
+      },
+      {
+       "target": "The projective-injective subcategory, closed under isomorphism, finite biproducts and retracts",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ExactStructure.isProjective_biprod",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Projective.lean",
+         "line": 168,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ExactStructure.isInjective_biprod",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Injective.lean",
+         "line": 89,
+         "fit": "exact"
+        },
+        {
+         "name": "CategoryTheory.ObjectProperty.IsStableUnderRetracts",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/ObjectProperty/Retract.lean",
+         "line": 33,
+         "fit": "related"
+        }
+       ],
+       "note": "Biproduct closure is proved for both classes and `isProjective` is an ObjectProperty so isomorphism-closure is available, but no declaration assembles the projective-injective class as a named subcategory or proves retract-closure for it; Mathlib's IsStableUnderRetracts is the interface it would use."
+      },
+      {
+       "target": "The stable category Stable E as the additive quotient by the factoring ideal",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.MorphismIdeal.Quotient",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 190,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. The generic quotient exists and the MorphismIdeal docstring names the stable category as its intended application, but neither the factoring ideal nor `Stable E` is defined."
+      },
+      {
+       "target": "A Frobenius functional λ : A → k by nondegeneracy of (a,b) ↦ λ(ab), and its equivalence with A ≅ A⁺ as right modules",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "LinearMap.IsFrobeniusFunctional",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Algebra/Frobenius/Basic.lean",
+         "line": 83,
+         "fit": "exact"
+        },
+        {
+         "name": "LinearMap.isFrobeniusFunctional_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Algebra/Frobenius/Basic.lean",
+         "line": 95,
+         "fit": "exact"
+        },
+        {
+         "name": "LinearMap.IsFrobeniusFunctional.isPerfPair",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Algebra/Frobenius/Basic.lean",
+         "line": 150,
+         "fit": "exact"
+        },
+        {
+         "name": "LinearMap.isFrobeniusFunctional_iff_bijective",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Algebra/Frobenius/Basic.lean",
+         "line": 157,
+         "fit": "exact"
+        },
+        {
+         "name": "LinearMap.exists_isFrobeniusFunctional_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Algebra/Frobenius/Basic.lean",
+         "line": 166,
+         "fit": "exact"
+        }
+       ],
+       "note": "`isFrobeniusFunctional_iff_bijective` is the equivalence with bijectivity of a ↦ (b ↦ λ(ab)), i.e. with the right-module isomorphism A ≅ A⁺, and `exists_isFrobeniusFunctional_iff` characterizes Frobenius algebras by existence of such a λ. No sorry."
+      },
+      {
+       "target": "Symmetric Frobenius functionals, and the Nakayama automorphism pinned by λ(a*b) = λ(b*ν(a))",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "LinearMap.IsSymmetricFrobeniusFunctional",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Algebra/Frobenius/Basic.lean",
+         "line": 88,
+         "fit": "exact"
+        },
+        {
+         "name": "LinearMap.IsFrobeniusFunctional.nakayamaAut",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Algebra/Frobenius/Basic.lean",
+         "line": 208,
+         "fit": "exact"
+        },
+        {
+         "name": "LinearMap.IsFrobeniusFunctional.apply_mul_nakayamaAut",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Algebra/Frobenius/Basic.lean",
+         "line": 226,
+         "fit": "exact"
+        },
+        {
+         "name": "LinearMap.IsSymmetricFrobeniusFunctional.nakayamaAut_eq_refl",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Algebra/Frobenius/Basic.lean",
+         "line": 255,
+         "fit": "exact"
+        },
+        {
+         "name": "Matrix.isSymmetricFrobeniusFunctional_traceLinearMap",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Algebra/Frobenius/Matrix.lean",
+         "line": 31,
+         "fit": "related"
+        }
+       ],
+       "note": "`apply_mul_nakayamaAut` is the pinning identity, and `nakayamaAut_eq_refl_iff` / `IsSymmetricFrobeniusFunctional.nakayamaAut_eq_refl` relate symmetry to triviality of ν; the matrix trace is given as a worked example."
+      },
+      {
+       "target": "A Frobenius algebra is left and right self-injective",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "LinearMap.IsFrobeniusFunctional.moduleInjective_self",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Algebra/Frobenius/Basic.lean",
+         "line": 267,
+         "fit": "exact"
+        },
+        {
+         "name": "LinearMap.IsFrobeniusFunctional.moduleInjective_op_self",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Algebra/Frobenius/Basic.lean",
+         "line": 274,
+         "fit": "exact"
+        },
+        {
+         "name": "Function.Bijective.moduleInjective_self",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Module/Injective/SelfInjective.lean",
+         "line": 133,
+         "fit": "related"
+        }
+       ],
+       "note": "Both sides are proved, through a Baer-criterion route in TauCeti/Algebra/Module/Injective/SelfInjective.lean."
+      },
+      {
+       "target": "The module-category Frobenius theorem for a finite-dimensional k-algebra self-injective on both sides",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ExactStructure.IsFrobenius",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Frobenius.lean",
+         "line": 52,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ExactStructure.abelian_enoughProjectives",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Projective.lean",
+         "line": 302,
+         "fit": "related"
+        }
+       ],
+       "note": "Nothing instantiates `IsFrobenius` at the abelian exact structure on finite-dimensional modules over a self-injective algebra; that instantiation is also Layer 2's first target."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+       "note": "That layer owns TauCeti.ConflationClass / TauCeti.ExactStructure and the conflation-exact functors, which is the 'dependency roadmap's exact structure' this layer says it consumes; the relative projective/injective and Frobenius files sit in that package."
+      },
+      {
+       "layer": "GeneralAlgebraicKTheory:K.3",
+       "note": "'Fundamental theorems for exact categories' works with the same exact-category notion for K-theory; the shared object is the exact structure, and the ideal-quotient and Frobenius content here is not restated there."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-1-the-triangulated-stable-category": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Chosen conflations X ↪ I_X ↠ ΣX and ΩX ↪ P_X ↠ X in a Frobenius exact category",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ExactStructure.IsFrobenius",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Frobenius.lean",
+         "line": 52,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ExactStructure.EnoughProjectives.projectivePresentation",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Projective.lean",
+         "line": 309,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ExactStructure.InjectivePresentation",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Injective.lean",
+         "line": 156,
+         "fit": "exact"
+        }
+       ],
+       "note": "The bundled presentations that supply the conflations exist (`EnoughProjectives`/`EnoughInjectives` are fields of `IsFrobenius`, and `EnoughProjectives.projectivePresentation` extracts a presentation for each object) and the Frobenius file's docstring names them as 'the input for the stable-category construction', but no Σ/Ω functor is constructed."
+      },
+      {
+       "target": "Σ and Ω as additive quasi-inverse autoequivalences of Stable E, and independence of the choices up to canonical natural isomorphism",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `Stable E` itself does not exist (Layer 0)."
+      },
+      {
+       "target": "A conflation produces the standard triangle X → Y → Z → ΣX",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The triangulated axioms for the chosen distinguished triangles, including rotation, morphisms of triangles and octahedrality (Happel's theorem)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Pretriangulated",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean",
+         "line": 65,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.IsTriangulated",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/Triangulated.lean",
+         "line": 299,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib supplies the Pretriangulated/IsTriangulated interfaces the layer says to match, but no stable category is shown to satisfy them; a grep for 'Happel' over Tau Ceti finds only bibliography entries in three exact-category files."
+      },
+      {
+       "target": "Agreement with Mathlib's Pretriangulated/Triangulated interfaces and shift notation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Direct sums, opposites and the idempotent-completion comparison respect the triangulation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "An exact functor preserving projective-injectives descends to a triangle functor on stable categories, with the natural-transformation and equivalence APIs and restriction to extension-closed Frobenius subcategories",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ExactStructure.isExtensionClosed_of_le_isProjective",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Projective.lean",
+         "line": 423,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ExactStructure.isExtensionClosed_admitsFiniteResolution",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Projective.lean",
+         "line": 495,
+         "fit": "related"
+        }
+       ],
+       "note": "Extension-closedness of the relevant subcategories is developed in the exact-structure package, but nothing descends an exact functor to a stable category or builds a suspension comparison."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "For a self-injective finite-dimensional algebra, the abelian exact structure on finite-dimensional right modules is Frobenius with projective-injectives exactly the projectives",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LinearMap.IsFrobeniusFunctional.moduleInjective_self",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Algebra/Frobenius/Basic.lean",
+         "line": 267,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ExactStructure.abelian_isProjective_iff",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Projective.lean",
+         "line": 214,
+         "fit": "related"
+        }
+       ],
+       "note": "Self-injectivity of a Frobenius algebra is proved and the abelian exact structure with its projectives exists, but the Frobenius-exact instance on finite-dimensional modules is not stated."
+      },
+      {
+       "target": "stmod-A and its triangulation, kept distinct from StMod-A",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no stable module category in either library."
+      },
+      {
+       "target": "Totally acyclic complexes of finitely generated projectives over a left-and-right noetherian ring",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HomologicalComplex",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+         "line": 59,
+         "fit": "related"
+        }
+       ],
+       "note": "A case-insensitive grep for 'totally acyclic' over both trees returns nothing."
+      },
+      {
+       "target": "Finitely generated Gorenstein-projective modules as degree-zero cycles, independent of the complete resolution",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; 'Gorenstein' appears in Tau Ceti only in unrelated Lie-theory and primary-decomposition files, and in Mathlib only in GroupTheory/Focal.lean."
+      },
+      {
+       "target": "The Frobenius exact category Gproj-R with projective-injectives the finitely generated projectives",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Stable equivalence between Gproj-R and the homotopy category of totally acyclic complexes, by cycle and complete-resolution functors",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Iwanaga–Gorenstein rings, D_sg(R) = D^b(mod-R)/K^b(proj-R) as a Verdier quotient, and Buchweitz's equivalence stable(Gproj-R) ≃ D_sg(R)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.ObjectProperty.trW_inverseImage_ι_iff",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/LocalizingSubcategory.lean",
+         "line": 178,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.ObjectProperty.triangEnvelope",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/Generators.lean",
+         "line": 132,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the Verdier-quotient machinery (localizing subcategories and trW) the construction needs, but 'Iwanaga', 'Buchweitz' and 'singularity categ' all return nothing over both trees."
+      },
+      {
+       "target": "Specializations: every finite-dimensional module over a self-injective algebra is Gorenstein-projective; D_sg(R) = 0 in finite global dimension; the Keller–Vossieck comparison Stable E → D^b(E)/K^b(ProjInj E)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.injectiveDimension",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Abelian/Injective/Dimension.lean",
+         "line": 263,
+         "fit": "related"
+        },
+        {
+         "name": "ModuleCat.projectiveDimension_eq_zero_of_projective",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/ModuleCat/ProjectiveDimension.lean",
+         "line": 139,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has projective and injective dimension of objects, which is what the finite-global-dimension hypothesis would be stated with; none of the three specializations exists."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-3-differential-modules-and-periodic-complexes": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "A differential module: a right R-module with an R-linear d satisfying d² = 0",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.DifferentialObject",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/DifferentialObject.lean",
+         "line": 40,
+         "fit": "more general"
+        },
+        {
+         "name": "CategoryTheory.DifferentialObject.d_squared_apply",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/DifferentialObject.lean",
+         "line": 56,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's `CategoryTheory.DifferentialObject S C` is the generic shape (an object with d : X ⟶ X⟦1⟧ and d ≫ d⟦1⟧' = 0) that the layer says to reuse, and it carries a category, a forgetful functor, zero objects and a shift. Nothing instantiates it as differential modules over a ring, and the one-periodic bridge with the coherent identification of the one-step shift with the identity is not built."
+      },
+      {
+       "target": "A genuine two-periodic complex M₀ ⇄ M₁ with both composites zero, kept distinct from a differential module",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HomologicalComplex",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+         "line": 59,
+         "fit": "related"
+        }
+       ],
+       "note": "No parity-graded complex type exists, and no forgetful functor to differential modules on M₀ ⊕ M₁."
+      },
+      {
+       "target": "n-periodic complexes as ZMod n-indexed families with degree-one differential, for NeZero n",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ComplexShape.up'",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/ComplexShape.lean",
+         "line": 164,
+         "fit": "more general"
+        },
+        {
+         "name": "HomologicalComplex",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+         "line": 59,
+         "fit": "more general"
+        }
+       ],
+       "note": "`HomologicalComplex V (ComplexShape.up' (1 : ZMod n))` is exactly the object type, and Mathlib's HomologicalComplex API gives it a category with an additive and linear structure; but no declaration in either library names this shape, and nothing distinguishes the ZMod 0 case the layer warns about."
+      },
+      {
+       "target": "Categories with evaluation functors, parity and cyclic shifts, even/odd/general homogeneous morphisms, homotopies, null-homotopic maps, mapping cones with the pinned differential, and totalizations",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HomologicalComplex.Hom",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+         "line": 217,
+         "fit": "related"
+        },
+        {
+         "name": "CochainComplex.mappingCone.triangle",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/HomotopyCategory/Pretriangulated.lean",
+         "line": 54,
+         "fit": "special case"
+        },
+        {
+         "name": "CochainComplex.shiftFunctorAdd'",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/HomotopyCategory/Shift.lean",
+         "line": 83,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib has all of this for ℤ-indexed cochain complexes (homotopies, mapping cone, shifts, the cone triangle) but nothing for a ZMod n shape: the cyclic shift, the parity shift and the ZMod n mapping cone are not constructed, and there is no totalization."
+      },
+      {
+       "target": "The componentwise split exact structure on differential modules and periodic complexes is Frobenius, with projective-injectives the contractible objects",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ExactStructure.split_isFrobenius",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Frobenius.lean",
+         "line": 83,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ConflationClass.split",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Split.lean",
+         "line": 95,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the split exact structure of an additive category and proves it Frobenius, but that is the structure whose conflations are split in the ambient category — every object is then projective-injective. The *componentwise* split structure on periodic complexes, whose projective-injectives are the contractible objects, is a different structure and is not constructed."
+      },
+      {
+       "target": "Identification of the stable categories with K₁(A) and K_n(A), with the Mathlib structure package (preadditive, zero object, ℤ-shift with cyclic generator, Pretriangulated, IsTriangulated, distinguished cone triangles) and agreement of the two triangulations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; the stable category itself does not exist, and no periodic homotopy category is constructed."
+      },
+      {
+       "target": "Parity/cyclic homology objects, exact-acyclic periodic complexes, quasi-isomorphisms, and D_n(A) both as a localization and as a Verdier quotient, with the comparison an equivalence of triangulated categories",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.ObjectProperty.trW_inverseImage_ι_iff",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/LocalizingSubcategory.lean",
+         "line": 178,
+         "fit": "related"
+        },
+        {
+         "name": "HomotopyCategory.quasiIso_eq_trW_subcategoryAcyclic",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/HomotopyCategory/Acyclic.lean",
+         "line": 67,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib's derived-category construction is the ℤ-indexed model of exactly this pattern (acyclic objects as a localizing subcategory, quasi-isomorphisms as its trW), which is the route the layer describes; nothing is done for ZMod n."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-4-compression-periodic-resolutions-and-relative-projectives": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Compression/folding Δ_n : C^b(A) → C_n(A) with its induced differential and Koszul signs, preserving homotopies, cones and triangles, and descending to K^b → K_n and D^b → D_n",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no periodic complex category exists to receive it."
+      },
+      {
+       "target": "The orbit category D/[n] with hom groups ⨁_j Hom(X, Y[nj]), its category and preadditive laws, the projection functor, the periodicity isomorphism, and Keller's universal property",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CochainComplex.shiftFunctorAdd'",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/HomotopyCategory/Shift.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "A grep for 'orbit categ' over both trees returns nothing. Mathlib's `shiftFunctorAdd'` is the coherence isomorphism the composition law is meant to use."
+      },
+      {
+       "target": "The orbit functor D^b(mod-Λ)/[n] → D_n(mod-Λ) as the descent of compression, its full faithfulness (Stai Lemma 3.12) and essential image the gradable objects",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "D_n(mod-Λ) ≃ K_n(proj-Λ) through the canonical functor",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Stai Theorem 4.3: the triangulated subcategory generated by the essential image under shifts and cones is all of D_n(mod-Λ), and hence so is the thick envelope",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.ObjectProperty.triangEnvelope",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/Generators.lean",
+         "line": 132,
+         "fit": "exact"
+        },
+        {
+         "name": "CategoryTheory.ObjectProperty.triangEnvelopeIter",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/Generators.lean",
+         "line": 62,
+         "fit": "related"
+        }
+       ],
+       "note": "The `triangEnvelope` the layer names exists in Mathlib, together with the iterated construction; the theorem about D_n(mod-Λ) does not."
+      },
+      {
+       "target": "Relatively projective, projective-flag and homotopically projective differential/periodic modules",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Stai's equivalence of homotopically projective with projective-flag objects and Proposition 3.10, and the finite-global-dimension D_n ≃ K_n(proj-Λ)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The k[t]/(t²) acceptance test: (Λ, d = m_t) is acyclic with projective underlying module but not contractible, nonzero in K₁ and zero in D₁",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.dualNumberEpsSmul",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Homology/Ext/DualNumbers.lean",
+         "line": 112,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.range_dualNumberEpsSmul_eq_ker",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Homology/Ext/DualNumbers.lean",
+         "line": 182,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.dualNumberEpsSmul_comp_dualNumberEpsSmul_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Homology/Ext/DualNumbers.lean",
+         "line": 136,
+         "fit": "exact"
+        }
+       ],
+       "note": "Over the dual numbers Tau Ceti proves exactly the acyclicity input the test needs — ker(ε·) = im(ε·) as `range_dualNumberEpsSmul_eq_ker`, with (ε·)² = 0 — but the conclusions about K₁ and D₁ cannot be stated because those categories do not exist."
+      },
+      {
+       "target": "Periodic projective resolutions as periodic tails with finite preperiod, their compression and unfolding, minimality over artinian/local rings, and chain-homotopy invariance",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.dualNumberProjectiveResolution",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Homology/Ext/DualNumbers.lean",
+         "line": 230,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ExactStructure.FiniteResolution",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Resolution.lean",
+         "line": 128,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ExactStructure.FiniteResolution.syzygy",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Resolution.lean",
+         "line": 173,
+         "fit": "related"
+        }
+       ],
+       "note": "A single ε-periodic projective resolution over k[ε]/(ε²) is constructed (the n = 2 case of the roadmap's flagship example), and the exact-structure package has finite resolutions with syzygies and truncation; the general periodic-resolution theory, its compression/unfolding and minimality are absent."
+      },
+      {
+       "target": "Eventual period one or two over a hypersurface under Eisenbud's hypotheses (regular local S, non-zero-divisor w, R = S/(w), Theorem 6.1)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; grep for 'Eisenbud' over Tau Ceti hits only an unrelated RingTheory/FiniteType file."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/DGAInfinity#layer-7-dg-and-a-quotients-verdier-comparison-and-k₀-localization",
+       "note": "This layer's own text hands the comparison between Keller's DG orbit-category hull and D_n(mod-Λ) to the DG/A∞ roadmap, which owns the pretriangulated envelope and the Verdier comparison; the hull statement about D_n itself stays here."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/DGAInfinity#layer-5-derived-modules-twisted-complexes-and-perfect-envelopes",
+       "note": "Builds shift closures, twisted complexes and the normalized shifted-Hom sign conventions, which is the sign apparatus the compression Koszul signs and the orbit-category composition would reuse."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-5-curved-dg-algebras-modules-and-duplexes": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "A right-convention curved DG algebra: graded algebra, degree-one derivation, curvature w ∈ A², d²(a) = aw - wa and d(w) = 0, with curvature not assumed central",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AInfinityAlgebra",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Homology/AInfinity/Algebra.lean",
+         "line": 54,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's A∞ and DG algebra packages are explicitly *uncurved* — the Algebra.lean docstring says so and the arity-zero operation is required to vanish — so there is no curved DG algebra in either library."
+      },
+      {
+       "target": "The graded-commutator form, the Bianchi identity, base change under flatness, strict morphisms, connection changes, and the zero-curvature equivalence with ordinary DG algebras",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The graded opposite with op(a)*op(b) = (-1)^{|a||b|} op(b*a), d_op(op a) = op(d a), and right curvature -op(w)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Right curved DG modules with d(m*a) = d(m)*a + (-1)^{|m|} m*d(a) and d²(m) = m*w, and left modules through the opposite with d²(m) = -w*m",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The DG category of curved modules of a fixed curvature, its closed degree-zero category, shift, cone, and triangulated homotopy category",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Pretriangulated",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean",
+         "line": 65,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; only the generic triangulated interfaces exist."
+      },
+      {
+       "target": "Tensor products of curved modules with handedness and curvature spelled out",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Curved duplexes: a parity pair M₀ ⇄ M₁ whose two composites are right multiplication by the same even central w, with the w = 0 specialization to two-periodic complexes as separate constructors",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-6-curved-acyclicity-and-derived-categories-of-the-second-kind": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Bundled right curved DG modules with closed degree-zero morphisms, odd homotopies, the boundary of a homotopy, and the curved homotopy category as the quotient by boundaries",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.MorphismIdeal.Quotient",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Preadditive/MorphismIdeal/Basic.lean",
+         "line": 190,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; the generic ideal quotient is the tool a construction would use (null-homotopic maps form an ideal), but no curved modules exist."
+      },
+      {
+       "target": "The triangulated package on the curved homotopy category together with small coproducts and products",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The abelian category of graded right modules over the underlying graded ring, with the forgetful functor from curved modules",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Totalizations of short exact sequences of curved modules",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Absolutely acyclic, coacyclic and contraacyclic objects as the three closures generated by totalizations",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.ObjectProperty.triangEnvelope",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/Generators.lean",
+         "line": 132,
+         "fit": "exact"
+        }
+       ],
+       "note": "`ObjectProperty.triangEnvelope`, which the layer names for the absolutely acyclic class, exists in Mathlib; the coproduct- and product-closed variants and all three instantiations are absent."
+      },
+      {
+       "target": "D_abs, D_co, D_ctr as Verdier quotients with their universal properties, the inclusions Ac_abs ⊆ Ac_co, Ac_abs ⊆ Ac_ctr, and the comparison triangle functors commuting up to Localization.fac",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Localization.fac",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Localization/Predicate.lean",
+         "line": 313,
+         "fit": "exact"
+        },
+        {
+         "name": "CategoryTheory.ObjectProperty.trW_inverseImage_ι_iff",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/LocalizingSubcategory.lean",
+         "line": 178,
+         "fit": "related"
+        }
+       ],
+       "note": "Both named pieces of Mathlib infrastructure — `Localization.fac` and the trW localization of a localizing subcategory — exist at this pin; nothing instantiates them here."
+      },
+      {
+       "target": "The generic closure/quotient/comparison machinery for a triangulated category with a generating class, stated once and instantiated",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.ObjectProperty.triangEnvelope",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/Generators.lean",
+         "line": 132,
+         "fit": "exact"
+        },
+        {
+         "name": "CategoryTheory.ObjectProperty.triangEnvelopeIter",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/Generators.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "CategoryTheory.ObjectProperty.monotone_triangEnvelopeIter",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/Generators.lean",
+         "line": 99,
+         "fit": "related"
+        }
+       ],
+       "note": "The abstract half — the thick triangulated envelope of a class of objects, built by transfinite iteration, plus Verdier localization at its trW — is in Mathlib; the coproduct/product-closed closures and the comparison functors between the three quotients are not."
+      },
+      {
+       "target": "Positselski's comparison results with their hypotheses: Theorem 7.8(a) coincidence in finite graded global dimension, the uncurved 7.8(b) alternatives, and the graded-injective/graded-projective models of Theorem 7.9(a),(b)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; grep for 'Positselski' and 'coacyclic' over both trees returns nothing."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-7-matrix-factorizations": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Matrix factorizations over (S, w): finitely generated projective P₀, P₁ with d₁d₀ = w·id and d₀d₁ = w·id",
+       "library": "absent",
+       "declarations": [],
+       "note": "A case-insensitive grep for 'matrix factoriz' over both Lean trees returns nothing."
+      },
+      {
+       "target": "The additive category, even morphisms, ℤ/2-graded Hom complex, null-homotopies, parity shift, direct sums, tensor products with summed potentials, duals, mapping cones, and the triangulated HMF(S,w)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The componentwise split exact category of factorizations is Frobenius with projective-injectives the contractible factorizations and stable category HMF(S,w)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ExactStructure.IsFrobenius",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/Exact/Frobenius.lean",
+         "line": 52,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; the Frobenius-exact predicate exists but nothing instantiates it here, and the stable category does not exist."
+      },
+      {
+       "target": "The pinned duality (Pᵛ)₀ = P₀ᵛ, d₀ᵛ = (d₁)ᵗ, d₁ᵛ = -(d₀)ᵗ, contravariant from w to -w",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Eisenbud's local theorem: eventual two-periodicity and the cokernel/stable-MCM comparison over a regular local S with w a non-zero-divisor",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Orlov's theorem HMF(S,w) ≃ D_sg(X₀) under the (ELF) conditions with W flat",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; grep for 'Orlov' over both trees returns nothing."
+      },
+      {
+       "target": "Buchweitz's comparison in the commutative hypersurface setting, identifying the finitely generated Gorenstein-projectives with MCM modules",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; depends on Layer 2, which is unbuilt."
+      },
+      {
+       "target": "Comparison of finite matrix factorizations with curved DG modules and duplexes, and the base-change functor to two-periodic complexes over S/(w)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; both sides are missing."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-8-comparison-functors-and-reconciliation": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The eight named comparison functors (compression, Verdier localization, stalk/complete resolution, forgetting finite projectivity, base change at S/(w), cokernel to stable MCM, uncurved DG at w = 0, and the left/right opposite dictionary)",
+       "library": "absent",
+       "declarations": [],
+       "note": "None of the source or target categories exists, so none of the eight functors can be stated; this layer is downstream of Layers 1-7."
+      },
+      {
+       "target": "For each functor: object and morphism formulas, exact/additive/DG/triangle structure, kernel or weak-equivalence behaviour, full faithfulness, essential image, and the hypotheses of each claimed equivalence",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Naturality under ring maps with the centrality, potential-preservation, flatness, finite-generation and regularity hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "No two categories in the distinction table are definitionally equal; reconciliation only by explicit functors",
+       "library": "process",
+       "declarations": [],
+       "note": "This is a discipline constraint on how the other layers are stated rather than a mathematical target of its own."
+      }
+     ],
+     "duplicates": []
+    }
+   }
+  },
+  "AutomorphicPadicLFunctions": {
+   "summary": "Essentially none of this roadmap is in the libraries, and the gap is structural rather than a matter of missing lemmas. What exists is the finite-level arithmetic input and the one-variable p-adic analysis: Tau Ceti has ray class groups for a general modulus with finiteness, class-number and exactness results and the Artin symbol on ideals prime to the conductor, and Mathlib has the adele ring and idele class group, Bernoulli numbers, the Riemann/Hurwitz zeta and Dirichlet L-functions with their values at non-positive integers, classical Eisenstein series with q-expansions, and — most relevantly — abstract measures on ℤ_p with the Mahler basis and the Amice transform, which is the Iwasawa algebra in one variable. Missing is everything the roadmap constructs: the p-power-conductor inverse limit and its character space, Hecke characters with infinity types and p-adic avatars, distributions on ray-class quotients and the conditional construction principle, all of the cohomological GL₂/F and overconvergent BSW theory, Deligne–Ribet and Katz, Hsieh's anticyclotomic distribution, and the unitary-group EHLS and Eischen–Wan constructions. There is no Shimura variety, no Hilbert modular form, no Hida family and no p-adic L-function of any kind at this pin.",
+   "layers": {
+    "AutomorphicPadicLFunctions:L0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The inverse limit of ray class groups with p-power conductor and fixed tame modulus, its reciprocity interpretation, and its character space",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.GlobalNumberFields.RayClassGroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Basic.lean",
+         "line": 180,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.Modulus",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Modulus.lean",
+         "line": 88,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.congruenceSubgroup_finiteIndex",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Finite.lean",
+         "line": 65,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumberFieldArithmetic.artinHomAway",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Ideal/ArtinMap.lean",
+         "line": 175,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.IdeleClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 119,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the finite levels in full — RayClassGroup for a Modulus, with the modulus lattice and gcd, finiteness, the class-number relation and the exact sequences — and the Artin symbol/map on ideals prime to the conductor, which is the reciprocity input. The p-power-conductor inverse limit itself, its topology, and its character space are not constructed in either library."
+      },
+      {
+       "target": "The image/closure of global units and all torsion factors kept, with the dimension formula and the Leopoldt defect where it occurs",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.GlobalNumberFields.principalRayClass",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Exact.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "A case-insensitive grep for 'leopoldt' over both Lean trees returns nothing; there is no p-adic unit-closure or defect statement."
+      },
+      {
+       "target": "Locally algebraic Hecke characters, their algebraic and p-adic avatars through chosen embeddings, conductors, infinity types and local factors",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.IdeleClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 119,
+         "fit": "related"
+        },
+        {
+         "name": "DirichletCharacter.LFunction",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither `HeckeCharacter` nor any notion of infinity type or p-adic avatar exists (grep for 'heckeCharacter', 'infinityType', 'cmType' over declarations.tsv is empty). Mathlib supplies the idele class group these would be characters of, and Dirichlet characters with their complex L-functions for the case F = ℚ."
+      },
+      {
+       "target": "Distributions on the actual ray-class quotient, with descent, finite-level evaluation, norm relations, character twists and change of tame modulus",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AbstractMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 40,
+         "fit": "related"
+        },
+        {
+         "name": "AbstractMeasure.amiceTransformEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 156,
+         "fit": "related"
+        },
+        {
+         "name": "mahler",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+         "line": 103,
+         "fit": "related"
+        },
+        {
+         "name": "AbstractMeasure.dirac",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 93,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the one-variable theory over ℤ_p: abstract measures (the Iwasawa algebra as the continuous dual of C(ℤ_p, ℚ_p)), the Mahler basis and the Amice transform identifying measures with power series. Nothing is defined on a ray-class quotient, and none of descent, finite-level evaluation, norm relations, twisting or change of tame modulus is stated."
+      },
+      {
+       "target": "The conditional construction principle: from a classical class with a period-normalized algebraic evaluation formula, a distribution-valued lift, Hecke norm relations and growth estimates, the evaluation maps give an interpolating distribution, unique in the range of the growth theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; it presupposes the distribution framework above."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+       "note": "That layer defines HeckeCharacter := ContinuousMonoidHom (IdeleClassGroup K) ℂˣ, RayClassCharacter, conductors, local components, primitivity and the Dirichlet dictionary over ℚ — i.e. the complex-valued half of this layer's Hecke-character target; what this layer adds is the algebraic/p-adic avatar and infinity types."
+      },
+      {
+       "layer": "LocallyAnalyticDistributions:L3",
+       "note": "'Character spaces and Mellin transforms' constructs the character functor of a compact commutative p-adic group, identifies the character space of ℤ_p^d with the open polydisc, and proves 'functoriality for homomorphisms of ray-class groups' — the same character space and evaluation apparatus."
+      },
+      {
+       "layer": "PadicMeasuresIwasawaAlgebras:L3",
+       "note": "'Pseudo-measures and evaluation' owns pseudo-measures over O[[G]] and their evaluation at nontrivial characters, which is the distribution/pseudo-measure layer this layer's evaluation maps are built on."
+      }
+     ]
+    },
+    "AutomorphicPadicLFunctions:L1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Arithmetic quotients, Borel–Serre finiteness, Hecke local systems and automorphic-to-cohomology maps (imported)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Imports named by the layer itself; no locally symmetric space, Borel–Serre compactification or automorphic-to-cohomology map exists in either library."
+      },
+      {
+       "target": "GL₂ Whittaker models, local zeta integrals and standard L-functions (imported)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; grep for 'whittaker' and 'zeta integral' over both trees returns nothing."
+      },
+      {
+       "target": "BSW's evaluation cycles in degree r₁+r₂, with signs and rational/period structures",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "BSW Theorem 5.7: the precise critical-value formula",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Agreement for F = ℚ with the classical modular-symbol construction",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ModularForm",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+         "line": 74,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ModularForm.qExpansion_levelRaise",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Degeneracy.lean",
+         "line": 966,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the classical side exists in part: Mathlib has modular and cusp forms for congruence subgroups and Tau Ceti a large Hecke-operator/q-expansion development for GL₂/ℚ, but there are no modular symbols and no p-adic L-function to compare with."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ModularSymbolsPadicLFunctions:L0",
+       "note": "'Modular symbols and Hecke actions' owns the F = ℚ modular-symbol construction this layer is required to agree with."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+       "note": "Owns modular symbols and the integral Hecke algebra over ℚ, the other half of the F = ℚ comparison."
+      }
+     ]
+    },
+    "AutomorphicPadicLFunctions:L2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Locally analytic/distribution coefficient modules at every q | p for an admissible weight λ = (k,v) with k+2v parallel, and specialization to the algebraic module",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AbstractMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 40,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's abstract measures on ℤ_p are the only distribution objects present; there is no locally analytic distribution module with a weight, and grep for 'overconvergent' over both trees returns nothing."
+      },
+      {
+       "target": "Normalization of each U_q and its slope, and BSW Theorem 8.7 in the stated small-slope range h_q < (min k_σ + v_q(λ) + 1)/e_q",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Automorphic cycles, their distribution-valued evaluations, distribution relations, independence of representatives, unit descent and the order of growth at every q",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "BSW Theorem 11.1: interpolation for p-power-conductor Hecke characters in the critical infinity-type range, with archimedean signs, discriminant and Gauss factors, refined eigenvalue factors, periods and local Euler factors each encoded separately",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "gaussSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/GaussSum.lean",
+         "line": 72,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the Gauss sum exists as an independent ingredient; none of the other factors, and no interpolation statement."
+      },
+      {
+       "target": "Agreement with the F = ℚ construction, and the Hilbert and Bianchi specializations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Cohomological control and nonabelian-Leopoldt-type hypotheses for families over general F",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "LocallyAnalyticDistributions:L4",
+       "note": "'Families and operator theory' owns the locally analytic distribution modules with slope decompositions and family operators, which is the coefficient-module and U_q-slope apparatus this layer needs."
+      }
+     ]
+    },
+    "AutomorphicPadicLFunctions:L3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Deligne–Ribet p-adic partial zeta functions/pseudo-measure for a totally real F, with algebraicity of negative critical values, integral congruences, smoothing factors and Euler factors",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "bernoulli",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Bernoulli.lean",
+         "line": 195,
+         "fit": "related"
+        },
+        {
+         "name": "DirichletCharacter.LFunction",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 61,
+         "fit": "related"
+        },
+        {
+         "name": "riemannZeta",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+         "line": 121,
+         "fit": "related"
+        },
+        {
+         "name": "HurwitzZeta.hurwitzZetaEven",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean",
+         "line": 585,
+         "fit": "related"
+        }
+       ],
+       "note": "For F = ℚ Mathlib has Bernoulli numbers, the Riemann and Hurwitz zeta functions and Dirichlet L-functions with their values at non-positive integers, which is the algebraicity input in the base case; there is no partial zeta function of a totally real field, no pseudo-measure, and no p-adic zeta function anywhere (grep for 'padicZeta', 'kubota' and 'partialZeta' over declarations.tsv is empty)."
+      },
+      {
+       "target": "Hilbert Eisenstein series, the integral q-expansion principle and the constant-term argument",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ModularForm.eisensteinSeriesMF",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/EisensteinSeries/Basic.lean",
+         "line": 35,
+         "fit": "special case"
+        },
+        {
+         "name": "EisensteinSeries.eisensteinSeriesSIF",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/EisensteinSeries/Defs.lean",
+         "line": 218,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ModularForm.qExpansion_levelRaise",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Degeneracy.lean",
+         "line": 966,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Eisenstein series for congruence subgroups of SL₂(ℤ) with their q-expansions — the F = ℚ case only. There is no Hilbert modular form, no Hilbert Eisenstein series and no integral q-expansion principle; grep for 'hilbertModular' over declarations.tsv is empty."
+      },
+      {
+       "target": "The Shintani-cone realization compared with the distribution under the same normalization",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Agreement of the F = ℚ specialization with the Kubota–Leopoldt construction",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no p-adic zeta function to specialize."
+      },
+      {
+       "target": "Katz's p-adic L-function for a CM field with a p-ordinary CM type, on its Hecke-character space",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; grep for 'katz' over both Lean trees finds nothing relevant, and there is no CM type."
+      },
+      {
+       "target": "CM abelian varieties with integral ordinary deformation/Igusa theory, algebraic and p-adic differential operators, CM periods, the Eisenstein measure, and the comparison of CM evaluations with critical Hecke L-values",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent in every component; grep for 'cmType', 'igusa', 'differentialOperator' and 'eisensteinMeasure' over declarations.tsv is empty."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IntegralIwasawaTheory:I.3",
+       "note": "That layer says it imports the Deligne–Ribet pseudomeasure from here and then requires the Hilbert modular Eisenstein series, algebraic Fourier coefficients, q-expansion principles and the bounded-denominator theorem to be 'imported from a verified supplier or implemented as the Iwasawa proof's explicit prerequisite', so those Hilbert constructions are claimed on both sides."
+      },
+      {
+       "layer": "DirichletPadicLFunctions:L1",
+       "note": "Owns the Kubota–Leopoldt pseudo-measure over ℚ, which is exactly the F = ℚ specialization this layer must agree with."
+      },
+      {
+       "layer": "SpecialValuesBirchTate:B.5",
+       "note": "'Totally real abelian fields over ℚ' consumes totally real abelian p-adic zeta values for Birch–Tate; it overlaps the abelian totally real half of this layer."
+      }
+     ]
+    },
+    "AutomorphicPadicLFunctions:L3h": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Hsieh's toric test vectors and CM evaluations for a Hilbert representation π over totally real F and CM K/F",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no Hilbert automorphic representations exist in either library."
+      },
+      {
+       "target": "Integral differential operators and the anticyclotomic square-root distribution",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Theorem A's interpolation with every period, gamma, epsilon, conductor and unit factor, for the square of the element",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The p-ordinary CM type, compatible infinity types/central character, squarefree n⁻ and Hypothesis A (local root number +1 at every v | n⁻) retained",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The CM-integrality criterion and Theorem B's μ = 0 with p unramified in F, residual absolute irreducibility over K, and the character-image order condition",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Theorem C under its conductor conditions, distinguishing 'all but finitely many characters in local degree one' from Zariski density in higher dimension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeneralizedHeegnerCycles:GH.6",
+       "note": "'Nonvanishing and source-qualified Selmer consequences' is named here as an export target for Theorems A–C, so it consumes rather than restates them."
+      },
+      {
+       "layer": "AutomorphicCongruences:L5a",
+       "note": "L5a says it proves 'the CM-evaluation/μ calculation via AutomorphicPadicLFunctions L3h and its BCS specialization', so the μ-theorem is imported there."
+      },
+      {
+       "layer": "AutomorphicCongruences:L2",
+       "note": "L2 states explicitly that it imports Hsieh's μ/nonvanishing theorem from L3h."
+      }
+     ]
+    },
+    "AutomorphicPadicLFunctions:L4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "PEL/unitary Shimura varieties, automorphic vector bundles, integral/toroidal compactifications and ordinary Igusa towers in the EHLS setting",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. The 'Shimura' hits in Tau Ceti are all the Shimura slash action on classical modular forms, not Shimura varieties."
+      },
+      {
+       "target": "Coherent cohomology and integral q/Fourier–Jacobi expansion principles",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; grep for 'fourierJacobi' over declarations.tsv is empty."
+      },
+      {
+       "target": "Ordinary Hecke modules, pairings, differential operators and Eisenstein measures",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The doubling embedding and the global zeta integral identity from local integrals, including ramified and p-adic local calculations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "EHLS Main Theorem 9.2.2 with its anti-holomorphic cuspidal ordinary representation, tame type, coefficient modules and bases, and Hypotheses 7.3.2, 7.3.3 and 7.3.5 kept visible",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The output in the completed tensor product of the character Iwasawa algebra with the ordinary Hecke algebra/period module, specializing with the actual congruence and local zeta factors",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AbstractMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 40,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; only the one-variable Iwasawa algebra over ℤ_p exists, as abstract measures."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IgusaVarietiesAndTorsionConcentration:IG.1",
+       "note": "'Igusa towers and their actions' owns the Igusa tower construction this layer says it needs 'in the exact setting of EHLS'."
+      },
+      {
+       "layer": "OverconvergentAutomorphicForms:O7",
+       "note": "'Ordinary Igusa forms and the Hida comparison' owns the ordinary Igusa forms and Hida control that the ordinary Hecke modules here rest on."
+      }
+     ]
+    },
+    "AutomorphicPadicLFunctions:L4e": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The vector-valued Klingen family for a cusp representation of definite GU(r,0) with unramified principal series at an odd split p over an imaginary quadratic field",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Its Eisenstein measure, pullback identity and local zeta calculations, with the auxiliary Hecke character, finite-slope refinement, coefficient module and integral local sections",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Eischen–Wan §§3–5's local/global comparison and interpolation, proved before any congruence is used",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "For r = 2, Theorem 5.8 and Corollary 5.9's constant-term divisibility with the actual two-variable L-function and local factors",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicCongruences:L2",
+       "note": "L2 states that it imports the finite-slope Klingen construction from here and owns the additional cuspidal congruence/Galois-class argument; L2s also reuses this layer's doubling construction."
+      }
+     ]
+    },
+    "AutomorphicPadicLFunctions:L5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Changes of periods, coefficients and primitive/imprimitive conventions across the four constructions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; none of the four constructions exists, so no comparison can be stated."
+      },
+      {
+       "target": "Reduction of the general evaluation principle to each concrete example",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; the evaluation principle of L0 is itself absent."
+      },
+      {
+       "target": "A precise statement of the Coates–Perrin-Riou/Panchishkin existence problem for a specified realization, critical set, periods, refinement/Panchishkin subspace and interpolation formula, without a constructor asserting it",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. This target is a statement-only deliverable, but it still needs the realization, period and refinement objects, none of which exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicPadicLFunctions:L0",
+       "note": "L5's 'reduction of the general evaluation principle to each concrete example' is the other half of L0's construction principle; the two layers state the same reduction from opposite ends."
+      }
+     ]
+    }
+   }
   }
  }
 }
