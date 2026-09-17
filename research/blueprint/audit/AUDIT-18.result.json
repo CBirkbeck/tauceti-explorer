@@ -1,0 +1,2358 @@
+{
+ "job": "AUDIT-18",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "ClassicalArithmeticCompletion": {
+   "summary": "Mathlib already contains all of CA.0 (gcd and Bézout, factorization, congruences, the Chinese remainder theorem including the non-coprime form, valuations, arithmetic functions, Dirichlet convolution and Möbius inversion) and much of CA.1–CA.4: Gauss and Jacobi sums, quadratic and Jacobi reciprocity, Bernoulli numbers, binomial identities and number families, resultants, discriminants and irreducibility criteria, Pell equations, two- and four-square theorems, Fermat for n = 3, 4 and Frobenius numbers. Mathlib and Tau Ceti together already supply every number-field invariant CA.5 hands off (integral bases, units, class groups and explicit class numbers, relative discriminants, Frobenius, Dedekind–Kummer), and CA.6–CA.7 start from Mathlib's Mahler measure, house, Kronecker and Northcott theorems, the rational normal basis theorem and Tau Ceti's K₀. Genuinely missing: power residue symbols, Hilbert symbols and any higher reciprocity law; Euler numbers, automatic and Farey sequences, Christol's theorem, general companion matrices and rational generating functions; Hermite normal form, Smith normal form beyond nonsingular integer matrices, rational canonical form and effective ideal algorithms; the three-square theorem, exponential equations and Egyptian fractions; Pisot and Salem numbers and the Smyth/Dobrowolski bounds; and all integral Galois-module theory (group-ring structure of 𝓞_L, locally free class groups, Noether, Hilbert–Speiser, Fröhlich–Taylor, orders).",
+   "layers": {
+    "ClassicalArithmeticCompletion:CA.0": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "gcd, Bézout identity and the (extended) Euclidean algorithm",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Nat.xgcd",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Int/GCD.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.gcd_eq_gcd_ab",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Int/GCD.lean",
+         "line": 124,
+         "fit": "exact"
+        },
+        {
+         "name": "Int.gcd_eq_gcd_ab",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Int/GCD.lean",
+         "line": 172,
+         "fit": "exact"
+        },
+        {
+         "name": "EuclideanDomain.gcd_eq_gcd_ab",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/EuclideanDomain/Basic.lean",
+         "line": 206,
+         "fit": "more general"
+        },
+        {
+         "name": "IsBezout.gcd_eq_sum",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PrincipalIdealDomain.lean",
+         "line": 203,
+         "fit": "more general"
+        }
+       ],
+       "note": "The extended Euclidean algorithm is computable (`Nat.xgcd`, `EuclideanDomain.xgcd` under `[DecidableEq R]`) and Bézout holds in every Euclidean domain and Bézout domain; `Nat.gcd` itself is in core Lean."
+      },
+      {
+       "target": "Prime factorization: existence and uniqueness",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Nat.primeFactorsList_unique",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/Factors.lean",
+         "line": 168,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.factorization_inj",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/Factorization/Defs.lean",
+         "line": 116,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.prod_factorization_pow_eq_self",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/Factorization/Defs.lean",
+         "line": 97,
+         "fit": "exact"
+        },
+        {
+         "name": "UniqueFactorizationMonoid.factors_unique",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/UniqueFactorizationDomain/Basic.lean",
+         "line": 106,
+         "fit": "more general"
+        },
+        {
+         "name": "PrincipalIdealRing.to_uniqueFactorizationMonoid",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PrincipalIdealDomain.lean",
+         "line": 370,
+         "fit": "more general"
+        }
+       ],
+       "note": "For ℕ as a list of primes or a finsupp (`n ≠ 0`), and up to associates in any UFD; every PID is a UFD (instance)."
+      },
+      {
+       "target": "Congruences and residue rings",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Nat.ModEq",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/ModEq.lean",
+         "line": 36,
+         "fit": "exact"
+        },
+        {
+         "name": "Int.ModEq",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Int/ModEq.lean",
+         "line": 30,
+         "fit": "exact"
+        },
+        {
+         "name": "ZMod.intCast_eq_intCast_iff",
+         "library": "mathlib",
+         "file": "Mathlib/Data/ZMod/Basic.lean",
+         "line": 495,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.ModEq.pow_totient",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Basic.lean",
+         "line": 563,
+         "fit": "exact"
+        },
+        {
+         "name": "SModEq",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/SModEq/Basic.lean",
+         "line": 33,
+         "fit": "more general"
+        }
+       ],
+       "note": "Congruence on ℕ and ℤ, the ring ZMod n with its dictionary to congruences, Euler–Fermat, and congruence modulo a submodule."
+      },
+      {
+       "target": "Chinese remainder theorem for coprime moduli and pairwise-coprime families",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Nat.chineseRemainder",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/ModEq.lean",
+         "line": 473,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.chineseRemainderOfFinset",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/ChineseRemainder.lean",
+         "line": 165,
+         "fit": "exact"
+        },
+        {
+         "name": "ZMod.chineseRemainder",
+         "library": "mathlib",
+         "file": "Mathlib/Data/ZMod/Basic.lean",
+         "line": 889,
+         "fit": "exact"
+        },
+        {
+         "name": "Ideal.quotientInfRingEquivPiQuotient",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+         "line": 248,
+         "fit": "more general"
+        },
+        {
+         "name": "IsDedekindDomain.quotientEquivPiOfProdEq",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+         "line": 918,
+         "fit": "more general"
+        }
+       ],
+       "note": "Computable ℕ versions for two moduli and finite families, the ring isomorphism ZMod (mn) ≃ ZMod m × ZMod n, and the ideal-theoretic CRT for pairwise comaximal ideals of any commutative ring."
+      },
+      {
+       "target": "Chinese remainder theorem at non-coprime moduli with the compatibility hypothesis a ≡ b mod gcd(m,n)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Nat.chineseRemainder'",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/ModEq.lean",
+         "line": 431,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.chineseRemainder'_lt_lcm",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/ModEq.lean",
+         "line": 476,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.mod_lcm",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/ModEq.lean",
+         "line": 487,
+         "fit": "exact"
+        },
+        {
+         "name": "Int.modEq_and_modEq_iff_modEq_lcm",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Int/ModEq.lean",
+         "line": 357,
+         "fit": "exact"
+        },
+        {
+         "name": "ZMod.intCast_lcm_eq_of_eq_of_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Data/ZMod/Divisibility.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "`Nat.chineseRemainder'` takes exactly the hypothesis `a ≡ b [MOD gcd n m]` and returns a solution below lcm(n,m); uniqueness mod lcm holds over ℕ and ℤ. Stated for natural-number residues (a public ℤ-existence form and the fibre-product form R/(I∩J) ≅ R/I ×_{R/(I+J)} R/J are not stated)."
+      },
+      {
+       "target": "p-adic valuations, multiplicities and Legendre's formula for factorials",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "padicValNat",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/MaxPowDiv.lean",
+         "line": 58,
+         "fit": "exact"
+        },
+        {
+         "name": "padicValRat",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+         "line": 128,
+         "fit": "exact"
+        },
+        {
+         "name": "emultiplicity",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Multiplicity.lean",
+         "line": 45,
+         "fit": "more general"
+        },
+        {
+         "name": "padicValNat_factorial",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+         "line": 615,
+         "fit": "exact"
+        },
+        {
+         "name": "sub_one_mul_padicValNat_factorial",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+         "line": 624,
+         "fit": "exact"
+        }
+       ],
+       "note": "Valuations on ℕ, ℤ and ℚ, multiplicity in any monoid, Legendre's formula in both the sum form and the digit-sum form (p−1)v_p(n!) = n − s_p(n); adic valuations of Dedekind domains are `IsDedekindDomain.HeightOneSpectrum.intValuation`."
+      },
+      {
+       "target": "Arithmetic functions (σ_k, φ, μ, Λ, ω, Ω, d) and multiplicativity",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "ArithmeticFunction.IsMultiplicative",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Defs.lean",
+         "line": 421,
+         "fit": "exact"
+        },
+        {
+         "name": "ArithmeticFunction.isMultiplicative_sigma",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+         "line": 202,
+         "fit": "exact"
+        },
+        {
+         "name": "ArithmeticFunction.cardFactors",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+         "line": 258,
+         "fit": "exact"
+        },
+        {
+         "name": "ArithmeticFunction.vonMangoldt",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
+         "line": 65,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.totient_mul",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/Totient.lean",
+         "line": 133,
+         "fit": "exact"
+        }
+       ],
+       "note": "σ_k, μ, Λ, ω (`cardDistinctFactors`), Ω and the divisor count are all defined with their multiplicativity; φ is `Nat.totient` with coprime multiplicativity, though not bundled as an `ArithmeticFunction`. Zero cases follow Mathlib's convention f 0 = 0."
+      },
+      {
+       "target": "Dirichlet convolution and the ring of arithmetic functions",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "ArithmeticFunction.mul_apply",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Defs.lean",
+         "line": 235,
+         "fit": "exact"
+        },
+        {
+         "name": "ArithmeticFunction.instSemiring",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Defs.lean",
+         "line": 283,
+         "fit": "exact"
+        },
+        {
+         "name": "ArithmeticFunction.dirichletInverse",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Defs.lean",
+         "line": 381,
+         "fit": "exact"
+        },
+        {
+         "name": "ArithmeticFunction.IsMultiplicative.mul",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Defs.lean",
+         "line": 488,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IdealArithmeticFunction.convolution",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Convolution.lean",
+         "line": 214,
+         "fit": "more general"
+        }
+       ],
+       "note": "Mathlib's convolution is the multiplication of the (commutative) semiring of arithmetic functions, with Dirichlet inverses when f 1 is invertible; Tau Ceti extends convolution to functions on nonzero ideals of a number field."
+      },
+      {
+       "target": "Möbius inversion, instantiated at divisor sums",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "ArithmeticFunction.sum_eq_iff_sum_mul_moebius_eq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
+         "line": 236,
+         "fit": "exact"
+        },
+        {
+         "name": "ArithmeticFunction.sum_eq_iff_sum_smul_moebius_eq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
+         "line": 206,
+         "fit": "more general"
+        },
+        {
+         "name": "ArithmeticFunction.prod_eq_iff_prod_pow_moebius_eq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
+         "line": 245,
+         "fit": "more general"
+        },
+        {
+         "name": "ArithmeticFunction.moebius_mul_coe_zeta",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
+         "line": 156,
+         "fit": "exact"
+        },
+        {
+         "name": "IncidenceAlgebra.moebius_inversion_top",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/IncidenceAlgebra.lean",
+         "line": 538,
+         "fit": "more general"
+        }
+       ],
+       "note": "(∀ n > 0, ∑_{d|n} f d = g n) ↔ (∀ n > 0, ∑ μ(x) g(y) = f n) over any ring, with additive-group and multiplicative versions and poset Möbius inversion; Tau Ceti adds ideal Möbius inversion (`TauCeti.IdealArithmeticFunction.convolution_one_eq_iff`)."
+      },
+      {
+       "target": "General finite-sum and multiplicative identities for divisor sums",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Nat.sum_totient",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/Totient.lean",
+         "line": 165,
+         "fit": "exact"
+        },
+        {
+         "name": "ArithmeticFunction.zeta_mul_pow_eq_sigma",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+         "line": 195,
+         "fit": "exact"
+        },
+        {
+         "name": "ArithmeticFunction.vonMangoldt_sum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
+         "line": 102,
+         "fit": "exact"
+        },
+        {
+         "name": "ArithmeticFunction.vonMangoldt_mul_zeta",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
+         "line": 119,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.Coprime.sum_divisors_mul",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+         "line": 447,
+         "fit": "exact"
+        }
+       ],
+       "note": "∑_{d|n} φ(d) = n, ζ * pow k = σ_k, ∑_{d|n} Λ(d) = log n and multiplicativity of divisor sums over coprime factors are all proved."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.0",
+       "note": "AN.0 also 'develops arithmetic functions' (with Dirichlet series, Euler products and summation), overlapping this layer's arithmetic-function and convolution targets."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-2-convolution-and-logarithmic-derivatives",
+       "note": "Its §2.2 states Möbius inversion and Dirichlet convolution again, for arithmetic functions on ideals, identified with Mathlib's `ArithmeticFunction ℂ` convolution."
+      }
+     ]
+    },
+    "ClassicalArithmeticCompletion:CA.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Finite cyclic groups, cyclicity of (ℤ/n)ˣ and primitive roots",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "IsCyclic.card_orderOf_eq_totient",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/SpecificGroups/Cyclic.lean",
+         "line": 154,
+         "fit": "exact"
+        },
+        {
+         "name": "ZMod.isCyclic_units_iff",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/ZMod/UnitsCyclic.lean",
+         "line": 325,
+         "fit": "exact"
+        },
+        {
+         "name": "isCyclic_of_injective_ringHom",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/IntegralDomain.lean",
+         "line": 130,
+         "fit": "more general"
+        },
+        {
+         "name": "HasEnoughRootsOfUnity.exists_primitiveRoot",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RootsOfUnity/EnoughRootsOfUnity.lean",
+         "line": 33,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.ZMod.exists_isPrimitiveRoot_of_dvd_sub_one",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/ZMod/Torsion.lean",
+         "line": 42,
+         "fit": "exact"
+        }
+       ],
+       "note": "(ℤ/n)ˣ is cyclic iff n ∈ {1,2,4,p^k,2p^k} (odd p), finite subgroups of units of a domain are cyclic, and a cyclic group has φ(d) elements of order d. The explicit decomposition of (ℤ/2^k)ˣ into cyclic factors is not stated."
+      },
+      {
+       "target": "Power residues: the n-th power residue criterion and n-th power residue symbols (mod p and in number fields)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ZMod.euler_criterion",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LegendreSymbol/Basic.lean",
+         "line": 62,
+         "fit": "special case"
+        },
+        {
+         "name": "FiniteField.isSquare_iff",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Basic.lean",
+         "line": 830,
+         "fit": "special case"
+        },
+        {
+         "name": "IsCyclic.card_powMonoidHom_range",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/SpecificGroups/Cyclic.lean",
+         "line": 683,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ker_kummerMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 260,
+         "fit": "related"
+        },
+        {
+         "name": "AlgHom.IsArithFrobAt.apply_eq_pow_absNorm_of_pow_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Cyclotomic/Frobenius.lean",
+         "line": 96,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the quadratic case exists (Euler's criterion over ZMod p and finite fields); the number of d-th powers in a cyclic group, the Kummer map with kernel (Kˣ)ⁿ and the Frobenius action σζ = ζ^{N𝔭} are ingredients. Missing: the general criterion a^{(q−1)/gcd(n,q−1)} = 1 and any n-th power residue symbol."
+      },
+      {
+       "target": "Gauss sums and Jacobi sums with their norm and product identities",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "gaussSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/GaussSum.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "gaussSum_mul_gaussSum_eq_card",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/GaussSum.lean",
+         "line": 188,
+         "fit": "exact"
+        },
+        {
+         "name": "gaussSum_sq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/GaussSum.lean",
+         "line": 222,
+         "fit": "exact"
+        },
+        {
+         "name": "jacobiSum_eq_gaussSum_mul_gaussSum_div_gaussSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+         "line": 193,
+         "fit": "exact"
+        },
+        {
+         "name": "gaussSum_pow_eq_prod_jacobiSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+         "line": 342,
+         "fit": "exact"
+        }
+       ],
+       "note": "Over any finite commutative ring with a primitive additive character: g(χ,ψ)g(χ⁻¹,ψ⁻¹) = #R for χ ≠ 1, g² = χ(−1)#F for quadratic χ, and J(χ,φ) = g(χ)g(φ)/g(χφ) when χφ ≠ 1. The trivial-character cases are separate lemmas; |g|² = q is two lines from these, not a named lemma."
+      },
+      {
+       "target": "Quadratic reciprocity for Legendre and Jacobi symbols, with the supplementary laws at −1 and 2",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "legendreSym.quadratic_reciprocity",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean",
+         "line": 107,
+         "fit": "exact"
+        },
+        {
+         "name": "jacobiSym.quadratic_reciprocity",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LegendreSymbol/JacobiSymbol.lean",
+         "line": 425,
+         "fit": "exact"
+        },
+        {
+         "name": "legendreSym.at_neg_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LegendreSymbol/Basic.lean",
+         "line": 274,
+         "fit": "exact"
+        },
+        {
+         "name": "legendreSym.at_two",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean",
+         "line": 60,
+         "fit": "exact"
+        },
+        {
+         "name": "jacobiSym.at_two",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LegendreSymbol/JacobiSymbol.lean",
+         "line": 323,
+         "fit": "exact"
+        }
+       ],
+       "note": "For distinct odd primes and for odd positive integers (Jacobi), with (−1/p) = χ₄(p) and (2/p) = χ₈(p); Mathlib has no Kronecker symbol (Tau Ceti assembles prime-discriminant characters instead)."
+      },
+      {
+       "target": "Residue symbols at 2 and at the infinite places (local Hilbert symbols at 2 and ∞)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ZMod.χ₈",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LegendreSymbol/ZModChar.lean",
+         "line": 118,
+         "fit": "related"
+        },
+        {
+         "name": "ZMod.χ₄",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LegendreSymbol/ZModChar.lean",
+         "line": 42,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.signHom",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Units/Signature/Integer.lean",
+         "line": 68,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Quaternion.brauerGroupMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/BrauerGroup/Real.lean",
+         "line": 102,
+         "fit": "related"
+        }
+       ],
+       "note": "The dyadic supplementary characters χ₄, χ₈, the sign homomorphism Kˣ → ∏_{real v} {±1} and Br(ℝ) ≅ ℤ/2 exist. Missing: the Hilbert (norm-residue) symbol at 2 or at a real place and the product formula tying the local symbols together."
+      },
+      {
+       "target": "Higher reciprocity through class field theory (cubic, quartic, Eisenstein, general power and Artin reciprocity), with ramified primes excluded",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.artinSymbol",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumberFieldArithmetic.artinHomAway",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Ideal/ArtinMap.lean",
+         "line": 175,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.Formation",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 123,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Multiquadratic.autCandidateGenusFieldEquivNarrowElementaryTwoQuotient_artinHomAway",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Multiquadratic/CandidateGenusField/Relative/Artin.lean",
+         "line": 345,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the Artin symbol at unramified primes, the ideal-theoretic Artin map away from S (its kernel and image are not determined), class formations without a reciprocity map, and the Artin map of the genus field of a quadratic field. No cubic, quartic, Eisenstein or general Artin reciprocity law is proved."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FiniteFieldsAndCharacterSums:FF.1",
+       "note": "FF.1 constructs Gauss and Jacobi sums over finite fields with their norm and product identities, the same targets as this layer's Gauss/Jacobi item."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
+       "note": "Layer 14 defines the local Hilbert invariants at finite and real places, proves the Hilbert product formula and derives quadratic reciprocity including the real and dyadic factors — the 'residue symbols at 2 and at infinite places' target — and names higher power reciprocity as follow-on work."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+       "note": "Layer 11 constructs the global Artin map and its reciprocity law (triviality on principal ideles), the class-field-theory input CA.1 cites for higher reciprocity."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
+       "note": "6C owns the {±1}-valued Hilbert symbol over nonarchimedean local fields (dyadic case included) and its product formula."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.7",
+       "note": "T.7 compares the norm-residue symbol with the Hilbert symbol and proves the change-of-root rule and global reciprocity for these symbols."
+      }
+     ]
+    },
+    "ClassicalArithmeticCompletion:CA.2": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Linear recurrences, their relation to companion matrices and eigenvalues (without extending scalars)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "LinearRecurrence.solSpace",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/LinearRecurrence.lean",
+         "line": 117,
+         "fit": "exact"
+        },
+        {
+         "name": "LinearRecurrence.toInit",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/LinearRecurrence.lean",
+         "line": 130,
+         "fit": "exact"
+        },
+        {
+         "name": "LinearRecurrence.geom_sol_iff_root_charPoly",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/LinearRecurrence.lean",
+         "line": 229,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.companionFinTwo",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/RationalCanonicalFormFinTwo.lean",
+         "line": 75,
+         "fit": "special case"
+        },
+        {
+         "name": "charpoly_leftMulMatrix",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Minpoly.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the solution space of a linear recurrence (≃ initial values), its characteristic polynomial and the geometric solutions from its roots; companion matrices exist only in rank 2 (Tau Ceti). Missing: closed forms with repeated roots, the general companion matrix with charpoly = the recurrence polynomial, and the state-vector/eigenvalue relation."
+      },
+      {
+       "target": "Divisibility sequences: Fibonacci strong divisibility, Lucas sequences U_n(P,Q), elliptic divisibility sequences",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Nat.fib_gcd",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/Fib/Basic.lean",
+         "line": 231,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.isStrongDvdSequence_fib",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/Fib/Basic.lean",
+         "line": 239,
+         "fit": "exact"
+        },
+        {
+         "name": "IsEllipticDvdSequence",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/EllipticDivisibilitySequence.lean",
+         "line": 314,
+         "fit": "exact"
+        },
+        {
+         "name": "isEllipticNet_normEDS",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EllipticDivisibilitySequence/NormEDS.lean",
+         "line": 167,
+         "fit": "exact"
+        },
+        {
+         "name": "isDvdSequence_normEDS",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EllipticDivisibilitySequence/Complement.lean",
+         "line": 169,
+         "fit": "exact"
+        }
+       ],
+       "note": "Fibonacci is a strong divisibility sequence (Mathlib) and Tau Ceti proves Mathlib's TODO that `normEDS b c d` is an elliptic net and a divisibility sequence over any commutative ring. Missing: general Lucas sequences and their strong divisibility, and strong divisibility of EDS."
+      },
+      {
+       "target": "Bernoulli numbers and Euler numbers",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "bernoulli",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Bernoulli.lean",
+         "line": 195,
+         "fit": "exact"
+        },
+        {
+         "name": "bernoulliPowerSeries_mul_exp_sub_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Bernoulli.lean",
+         "line": 269,
+         "fit": "exact"
+        },
+        {
+         "name": "sum_range_pow",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Bernoulli.lean",
+         "line": 293,
+         "fit": "exact"
+        },
+        {
+         "name": "Bernoulli.vonStaudt_clausen",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Bernoulli.lean",
+         "line": 663,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.bernoulli_generating_function",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
+         "line": 259,
+         "fit": "exact"
+        }
+       ],
+       "note": "Bernoulli numbers are complete (both sign conventions, formal generating function over ℚ-algebras, Faulhaber, von Staudt–Clausen, Bernoulli polynomials). Euler numbers (secant/zigzag numbers) are absent from both libraries."
+      },
+      {
+       "target": "Binomial identities (Vandermonde, Lucas, Kummer)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Nat.add_choose_eq",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/Choose/Vandermonde.lean",
+         "line": 31,
+         "fit": "exact"
+        },
+        {
+         "name": "Choose.choose_modEq_prod_range_choose",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/Choose/Lucas.lean",
+         "line": 88,
+         "fit": "exact"
+        },
+        {
+         "name": "padicValNat_choose",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+         "line": 660,
+         "fit": "exact"
+        },
+        {
+         "name": "add_pow",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/Choose/Sum.lean",
+         "line": 76,
+         "fit": "exact"
+        }
+       ],
+       "note": "Vandermonde (also in binomial rings), Lucas's theorem (alias `Choose.lucas_theorem`), Kummer's carry formula for v_p of a binomial coefficient and the binomial theorem in commutative semirings."
+      },
+      {
+       "target": "Rational and formal generating functions (rational power series; generating function of a linear recurrence)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "PowerSeries",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+         "line": 60,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries.invOneSubPow",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/WellKnown.lean",
+         "line": 115,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.Partition.hasProd_genFun",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/Partition/GenFun.lean",
+         "line": 170,
+         "fit": "exact"
+        },
+        {
+         "name": "PowerSeries.catalanSeries_sq_mul_X_add_one",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Catalan.lean",
+         "line": 47,
+         "fit": "exact"
+        },
+        {
+         "name": "RatFunc.coeToLaurentSeries",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/LaurentSeries.lean",
+         "line": 393,
+         "fit": "related"
+        }
+       ],
+       "note": "Formal power series with inverses, (1−X)^{−d} expansions, the partition product and Catalan functional equation exist, and rational functions embed in Laurent series. Missing: a rationality predicate for power series and the theorem that a sequence satisfies a linear recurrence iff its generating function is P/Q with Q the reversed characteristic polynomial."
+      },
+      {
+       "target": "Radix expansions (integers, reals, p-adics)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Nat.digits",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/Digits/Defs.lean",
+         "line": 78,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.digits_ofDigits",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/Digits/Defs.lean",
+         "line": 216,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.modEq_nine_digits_sum",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Nat/Digits/Div.lean",
+         "line": 28,
+         "fit": "exact"
+        },
+        {
+         "name": "Real.ofDigits_digits",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Real/OfDigits.lean",
+         "line": 157,
+         "fit": "exact"
+        },
+        {
+         "name": "PadicInt.appr",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/RingHoms.lean",
+         "line": 356,
+         "fit": "related"
+        }
+       ],
+       "note": "Base-b digits of naturals with uniqueness and digit-sum congruences, and base-b expansions of reals in [0,1) (existence, no uniqueness statement). p-adic digit expansions ℤ_p ≃ (ℕ → Fin p) are absent."
+      },
+      {
+       "target": "Automatic sequences (k-automatic sequences, automata with output)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DFA",
+         "library": "mathlib",
+         "file": "Mathlib/Computability/DFA.lean",
+         "line": 58,
+         "fit": "related"
+        }
+       ],
+       "note": "Only acceptor DFAs exist; there are no automata with output, k-kernels, Thue–Morse or Cobham's theorem in either library."
+      },
+      {
+       "target": "Farey sequences (mediants, neighbour property)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "SimpContFract.determinant",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/ContinuedFractions/Determinant.lean",
+         "line": 80,
+         "fit": "related"
+        }
+       ],
+       "note": "Nothing named Farey, mediant, Stern–Brocot or Ford circle; the nearest statement is the determinant identity for consecutive continued-fraction convergents."
+      },
+      {
+       "target": "Combinatorial number families (Catalan, Stirling, Bell, partition numbers, derangements)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "catalan_eq_centralBinom_div",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/Catalan/Basic.lean",
+         "line": 102,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.stirlingSecond",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/Stirling.lean",
+         "line": 121,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.bell",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/Bell.lean",
+         "line": 201,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.Partition.genFun",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Enumerative/Partition/GenFun.lean",
+         "line": 56,
+         "fit": "exact"
+        },
+        {
+         "name": "numDerangements",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Derangements/Finite.lean",
+         "line": 66,
+         "fit": "exact"
+        }
+       ],
+       "note": "All named families are defined with their basic closed forms or recursions (Catalan = central binomial/(n+1), Stirling numbers of both kinds, Bell numbers, partition generating function, derangement counts)."
+      },
+      {
+       "target": "Christol's theorem (algebraic power series over F_q ↔ p-automatic coefficients)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Searched Christol, automatic, and algebraicity of power series over finite fields: nothing in either library."
+      },
+      {
+       "target": "Analytic specializations of formal identities with separate convergence theorems",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Real.coe_fib_eq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Real/GoldenRatio.lean",
+         "line": 198,
+         "fit": "exact"
+        },
+        {
+         "name": "hasSum_zeta_nat",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ZetaValues.lean",
+         "line": 431,
+         "fit": "related"
+        },
+        {
+         "name": "riemannZeta_neg_nat_eq_bernoulli",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+         "line": 251,
+         "fit": "related"
+        },
+        {
+         "name": "numDerangements_tendsto_inv_e",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/Derangements/Exponential.lean",
+         "line": 27,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.hasSum_hermite_generating_function",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/Hermite/GeneratingFunction.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "Binet's formula, ζ(2k) and ζ(−n) via Bernoulli numbers, the derangement limit and (Tau Ceti) the convergent Hermite generating function exist. Missing: the convergent Bernoulli generating function z/(e^z−1) for |z| < 2π and a general formal-to-analytic transfer theorem."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "QSeriesPartitionsAndMockModularForms:QM.0",
+       "note": "QM.0 builds partition functions, generating products and q-binomial identities in formal power-series rings with separate convergence theorems — the same formal-generating-function and number-family targets."
+      },
+      {
+       "layer": "DirichletPadicLFunctions:L0",
+       "note": "L0 constructs (generalized) Bernoulli numbers and applies the Mellin argument to the Bernoulli generating function, overlapping the Bernoulli-number and analytic-specialization targets."
+      }
+     ]
+    },
+    "ClassicalArithmeticCompletion:CA.3": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Integer-valued polynomials (binomial-coefficient basis, Int(ℤ), Pólya's theorem)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Ring.choose",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Binomial.lean",
+         "line": 380,
+         "fit": "related"
+        },
+        {
+         "name": "PadicInt.hasSum_mahler",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+         "line": 339,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.binomialPolynomialBasis",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/BinomialBasis.lean",
+         "line": 153,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.mem_ringChooseSpan_X_iff_existsUnique",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/BinomialBasis.lean",
+         "line": 186,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_forall_sum_mul_choose_eq",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Binomial.lean",
+         "line": 440,
+         "fit": "exact"
+        }
+       ],
+       "note": "Tau Ceti proves that the (X choose n) form a basis of K[X] over any ℚ-algebra and a ℤ-basis of their span (closed under multiplication, `TauCeti.mul_mem_ringChooseSpan`), plus integral Newton interpolation; Mathlib has binomial rings and Mahler's basis for C(ℤ_p). Missing: the ring Int(ℤ) itself and Pólya's theorem identifying it with that ℤ-span (a TODO in Mathlib's `Binomial.lean`), and Int(𝓞_K)."
+      },
+      {
+       "target": "Irreducibility criteria",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "Polynomial.irreducible_of_eisenstein_criterion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Eisenstein/Criterion.lean",
+         "line": 176,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.IsPrimitive.irreducible_iff_irreducible_map_fraction_map",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/GaussLemma.lean",
+         "line": 260,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.cyclotomic.irreducible_rat",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Roots.lean",
+         "line": 190,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.X_pow_sub_X_sub_one_irreducible",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Selmer.lean",
+         "line": 49,
+         "fit": "exact"
+        },
+        {
+         "name": "IsCyclotomicExtension.irreducible_cyclotomic_of_unramified",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Cyclotomic/IrreducibleOfUnramified.lean",
+         "line": 258,
+         "fit": "more general"
+        }
+       ],
+       "note": "Eisenstein (prime ideals of domains), Gauss's lemma, the rational root theorem, irreducibility of cyclotomic polynomials over ℚ (and over number fields unramified at q in Tau Ceti), Selmer's X^n−X−1 and Capelli for X^n−a when n is prime, odd, or p^k with p ≠ 2. Not present: Capelli's criterion when 4 | n, and the Perron, Cohn and Newton-polygon criteria."
+      },
+      {
+       "target": "Resultants",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "Polynomial.resultant",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+         "line": 134,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.resultant_eq_prod_roots_sub",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+         "line": 405,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.resultant_eq_zero_iff",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+         "line": 908,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.exists_mul_add_mul_eq_C_resultant",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+         "line": 874,
+         "fit": "exact"
+        },
+        {
+         "name": "AdjoinRoot.norm_mk_eq_resultant",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/Resultant/AdjoinRoot.lean",
+         "line": 284,
+         "fit": "more general"
+        }
+       ],
+       "note": "Sylvester-matrix resultant with the root-product formula for split polynomials, vanishing over a field iff not coprime, the Bézout-type identity and multiplicativity; Tau Ceti identifies the norm in AdjoinRoot g with Res(g,p). Resultants of binary forms are a Mathlib TODO."
+      },
+      {
+       "target": "Discriminants of polynomials",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "Polynomial.discr",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+         "line": 930,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.resultant_deriv",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+         "line": 973,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.discr_prod_X_sub_C",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/Resultant/Discriminant.lean",
+         "line": 348,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.Monic.discr_mul",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/Resultant/Discriminant.lean",
+         "line": 196,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.Monic.separable_map_zmod_iff_not_dvd_discr",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/Resultant/Discriminant.lean",
+         "line": 526,
+         "fit": "exact"
+        }
+       ],
+       "note": "Res(f,f′) = ±lc·disc (Mathlib); the root-difference formula over any commutative ring, disc(fg) = disc f·disc g·Res(f,g)², separability over a field iff disc ≠ 0, and reduction mod p separable iff p ∤ disc (Tau Ceti). Trinomial discriminant formulas are absent."
+      },
+      {
+       "target": "Smith normal form with invertible change-of-basis matrices, the reconstruction equation and d_i | d_{i+1}",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Matrix.exists_smith_normal_form_of_det_ne_zero",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SmithNormalForm.lean",
+         "line": 743,
+         "fit": "special case"
+        },
+        {
+         "name": "Matrix.smith_normal_form_unique",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SmithNormalForm.lean",
+         "line": 836,
+         "fit": "special case"
+        },
+        {
+         "name": "Module.Basis.SmithNormalForm",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/FreeModule/PID.lean",
+         "line": 408,
+         "fit": "related"
+        },
+        {
+         "name": "Submodule.exists_smith_normal_form_of_le",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/FreeModule/PID.lean",
+         "line": 487,
+         "fit": "related"
+        },
+        {
+         "name": "Ideal.exists_smith_normal_form",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/FreeModule/PID.lean",
+         "line": 685,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti: for A ∈ M_n(ℤ) with det A ≠ 0 there are L, R ∈ GL_n(ℤ) with LAR = diag(d), d_i | d_j, unique. Mathlib: basis-level Smith form of a submodule of a free module over a PID, without the divisibility chain. Missing: rectangular or singular matrices, general PIDs, and any algorithm with termination."
+      },
+      {
+       "target": "Hermite normal form over ℤ",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GLn.upperTriGL",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/GLn/CosetDecomposition.lean",
+         "line": 136,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.IsRowEchelon",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Echelon/Basic.lean",
+         "line": 48,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.rowReduce",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/Echelon/RowReduce.lean",
+         "line": 142,
+         "fit": "related"
+        }
+       ],
+       "note": "Only HNF-shaped coset representatives for Hecke double cosets, row-echelon predicates and Gauss–Jordan elimination over division rings; no existence or uniqueness of Hermite normal form over ℤ."
+      },
+      {
+       "target": "Rational canonical form and invariant factors (of endomorphisms and of finitely generated modules over a PID)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.equiv_free_prod_directSum",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/PID.lean",
+         "line": 257,
+         "fit": "related"
+        },
+        {
+         "name": "AddCommGroup.equiv_free_prod_directSum_zmod",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/FiniteAbelian/Basic.lean",
+         "line": 119,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.exists_det_ne_zero_mul_eq_mul_companionFinTwo",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/RationalCanonicalFormFinTwo.lean",
+         "line": 151,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.exists_gramSmithInvariantFactors_smith_normal_form",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Smith.lean",
+         "line": 110,
+         "fit": "special case"
+        }
+       ],
+       "note": "The structure theorem is present in elementary-divisor form R^n × ⊕ R/(p_i^{e_i}); rational canonical form exists only for non-scalar 2×2 matrices over a field (Tau Ceti), and invariant factors only for Gram matrices of integral lattices. Missing: the invariant-factor form d_1 | d_2 | … and the rational canonical form in general."
+      },
+      {
+       "target": "Effective ideal arithmetic (ideal bases via HNF, terminating normal-form algorithms)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Ideal.natAbs_det_basis_change",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean",
+         "line": 376,
+         "fit": "related"
+        },
+        {
+         "name": "MonomialOrder.div",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPolynomial/Groebner.lean",
+         "line": 128,
+         "fit": "related"
+        }
+       ],
+       "note": "The ideal norm as |det| of a basis change and an existential multivariate division theorem exist; there is no algorithm computing ideal bases, no Gröbner-basis algorithm and no terminating normal-form procedure."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-3-the-discriminant-and-the-alternating-group",
+       "note": "Layer 3 states the root-product formula for the discriminant, disc(fg) with its resultant cross term, base change and separability — the resultant/discriminant targets here."
+      },
+      {
+       "layer": "tauceti:Completed/IntegralLattices#layer-2-duality-and-the-finite-discriminant-group",
+       "note": "Layer 2 uses Smith normal form with explicit invariant factors and divisibility chain for Gram matrices, overlapping the Smith-normal-form and invariant-factor targets."
+      },
+      {
+       "layer": "ComputationalNumberTheory:CN.1",
+       "note": "CN.1 factors polynomials with checked factors and irreducibility proofs, overlapping the irreducibility/effective-arithmetic side of CA.3."
+      },
+      {
+       "layer": "FiniteFieldsAndCharacterSums:FF.3",
+       "note": "FF.3 proves finite-field polynomial factorization with checked irreducibility witnesses."
+      },
+      {
+       "layer": "GeometryOfNumbersAndQuadraticArithmetic:GN.5",
+       "note": "GN.5 supplies reductions with exact change-of-basis certificates, the same certificate contract as CA.3's normal-form algorithms."
+      }
+     ]
+    },
+    "ClassicalArithmeticCompletion:CA.4": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Pell equations: nontrivial solutions, fundamental solution, classification of all solutions through units with positivity conventions",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Pell.exists_of_not_isSquare",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Pell.lean",
+         "line": 323,
+         "fit": "exact"
+        },
+        {
+         "name": "Pell.Solution₁",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Pell.lean",
+         "line": 94,
+         "fit": "exact"
+        },
+        {
+         "name": "Pell.IsFundamental.eq_zpow_or_neg_zpow",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Pell.lean",
+         "line": 610,
+         "fit": "exact"
+        },
+        {
+         "name": "Pell.existsUnique_pos_generator",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Pell.lean",
+         "line": 628,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.exists_norm_eq_neg_one_of_sq_sub_mul_sq_eq_neg_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Quadratic/Norm.lean",
+         "line": 108,
+         "fit": "related"
+        }
+       ],
+       "note": "For d > 0 not a square, solutions of x² − dy² = 1 form the unitary group of ℤ√d, a fundamental solution exists, and every solution is ±a₁ⁿ with a unique positive generator. The negative and generalized Pell equations x² − dy² = −1, N and the continued-fraction algorithm are not classified."
+      },
+      {
+       "target": "Sums of squares: two squares, three squares, four squares, representation counts",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Nat.Prime.sq_add_sq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SumTwoSquares.lean",
+         "line": 35,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.eq_sq_add_sq_iff",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SumTwoSquares.lean",
+         "line": 211,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.sum_four_squares",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/SumFourSquares.lean",
+         "line": 199,
+         "fit": "exact"
+        }
+       ],
+       "note": "Fermat's two-square theorem with the full characterization of sums of two squares, and Lagrange's four-square theorem. Legendre's three-square theorem and Jacobi's representation counts r₂, r₄ are absent from both libraries."
+      },
+      {
+       "target": "Elementary descent: x⁴ + y⁴ = z², Fermat for n = 3, 4, Pythagorean triples",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "not_fermat_42",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/FLT/Four.lean",
+         "line": 257,
+         "fit": "exact"
+        },
+        {
+         "name": "Fermat42.not_minimal",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/FLT/Four.lean",
+         "line": 154,
+         "fit": "exact"
+        },
+        {
+         "name": "fermatLastTheoremFour",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/FLT/Four.lean",
+         "line": 267,
+         "fit": "exact"
+        },
+        {
+         "name": "fermatLastTheoremThree",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/FLT/Three.lean",
+         "line": 751,
+         "fit": "exact"
+        },
+        {
+         "name": "PythagoreanTriple.classification",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/PythagoreanTriples.lean",
+         "line": 604,
+         "fit": "exact"
+        }
+       ],
+       "note": "Infinite descent for x⁴ + y⁴ = z², FLT for exponents 3 and 4 (`fermatLastTheoremThree` is a `public theorem`, missing from the index) and the classification of Pythagorean triples."
+      },
+      {
+       "target": "Source-scoped exponential Diophantine equations (Catalan–Mihăilescu, Ramanujan–Nagell, 2^a − 3^b = ±1, …)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Int.emultiplicity_pow_sub_pow",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Multiplicity.lean",
+         "line": 190,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.flt_catalan",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/FLT/Polynomial.lean",
+         "line": 196,
+         "fit": "related"
+        }
+       ],
+       "note": "Only tools: the lifting-the-exponent lemma and the polynomial (Mason–Stothers) analogue of Catalan/FLT. No exponential equation over ℤ is solved."
+      },
+      {
+       "target": "Routing of genus-one and higher-genus equations to rational-point owners, preserving primitivity and local solubility",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.fg_point_of_numberField",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean",
+         "line": 129,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.lutz_nagell",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/ShortNagellLutz.lean",
+         "line": 151,
+         "fit": "related"
+        }
+       ],
+       "note": "An interface rather than a theorem; on the receiving side Tau Ceti already has Mordell–Weil for elliptic curves over number fields and Lutz–Nagell, but no curve-to-equation transfer preserving primitive or local-solubility conditions exists."
+      },
+      {
+       "target": "Linear Diophantine equations and systems",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Int.gcd_dvd_iff",
+         "library": "mathlib",
+         "file": "Mathlib/Data/Int/GCD.lean",
+         "line": 213,
+         "fit": "exact"
+        },
+        {
+         "name": "gcd_dvd_iff_exists",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PrincipalIdealDomain.lean",
+         "line": 470,
+         "fit": "more general"
+        },
+        {
+         "name": "Nat.exists_add_mul_eq_of_gcd_dvd_of_mul_pred_le",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Order/Ring/Int.lean",
+         "line": 68,
+         "fit": "exact"
+        },
+        {
+         "name": "Int.exists_nonneg_lt_and_dvd_mul_sub",
+         "library": "tauceti",
+         "file": "TauCeti/Data/Int/LinearCongruence.lean",
+         "line": 32,
+         "fit": "related"
+        }
+       ],
+       "note": "Solvability of ax + by = n (over ℤ and Bézout domains) and nonnegative solvability beyond (p−1)(q−1) are proved. The parametrization of all solutions and integer linear systems Ax = b (via Smith form) are absent."
+      },
+      {
+       "target": "Numerical semigroups and Frobenius numbers",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "FrobeniusNumber",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/FrobeniusNumber.lean",
+         "line": 48,
+         "fit": "exact"
+        },
+        {
+         "name": "frobeniusNumber_pair",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/FrobeniusNumber.lean",
+         "line": 59,
+         "fit": "exact"
+        },
+        {
+         "name": "exists_frobeniusNumber_iff",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/FrobeniusNumber.lean",
+         "line": 208,
+         "fit": "exact"
+        },
+        {
+         "name": "Nat.exists_mem_closure_of_ge",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/FrobeniusNumber.lean",
+         "line": 171,
+         "fit": "exact"
+        }
+       ],
+       "note": "The Frobenius number of coprime m, n > 1 is mn − m − n, and a Frobenius number exists iff the generators have gcd 1 (and 1 is not a generator). Numerical-semigroup theory (genus, Sylvester's gap count (a−1)(b−1)/2, Apéry sets, symmetry) is absent."
+      },
+      {
+       "target": "Egyptian-fraction identities with precise finite or asymptotic claims",
+       "library": "absent",
+       "declarations": [],
+       "note": "Searched Egyptian, unit fraction, Erdős–Straus, Fibonacci–Sylvester and greedy expansions: nothing in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DiophantineApproximationAndTranscendence:DT.4",
+       "note": "DT.4 turns logarithmic-form bounds into explicit bounds for Thue, S-unit and exponential equations, the 'source-scoped exponential equations' target."
+      },
+      {
+       "layer": "EffectiveDiophantineMethods:ED.2",
+       "note": "ED.2 combines those bounds with lattice reduction and certified residual enumeration, matching the 'finite search complete only after a proven bound' acceptance rule for exponential and S-unit equations."
+      },
+      {
+       "layer": "EffectiveDiophantineMethods:ED.3",
+       "note": "ED.3 owns descent and saturation for genus-one curves, the receiving end of CA.4's routing of genus-one equations."
+      }
+     ]
+    },
+    "ClassicalArithmeticCompletion:CA.5": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Reuse of integral bases of rings of integers",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "NumberField.RingOfIntegers.basis",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Basic.lean",
+         "line": 329,
+         "fit": "exact"
+        },
+        {
+         "name": "IsPrimitiveRoot.integralPowerBasis",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+         "line": 853,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.adjoin_halfGen_eq_top_of_mod_four_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Quadratic/RingOfIntegers.lean",
+         "line": 289,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.adjoin_gen_eq_top_of_mod_four_ne_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Quadratic/RingOfIntegers.lean",
+         "line": 393,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.NumberField.isMonogenic_of_quadratic",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Monogenic.lean",
+         "line": 126,
+         "fit": "exact"
+        }
+       ],
+       "note": "An integral basis exists for every number field (Mathlib), 𝓞 of ℚ(ζ_n) is ℤ[ζ_n] (Mathlib), and 𝓞 of ℚ(√d) is ℤ[√d] or ℤ[(1+√d)/2] for squarefree d (Tau Ceti); nothing to construct here."
+      },
+      {
+       "target": "Reuse of unit groups (Dirichlet's unit theorem, regulator)",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "NumberField.Units.exist_unique_eq_mul_prod",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+         "line": 506,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Units.rank",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+         "line": 359,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Units.regulator",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+         "line": 266,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.unitsMulEquivTorsionProdMultiplicative",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Units/Dirichlet.lean",
+         "line": 78,
+         "fit": "exact"
+        }
+       ],
+       "note": "Dirichlet's unit theorem in unique-decomposition form (Mathlib) and as (𝓞_F)ˣ ≃* torsion × ℤ^rank (Tau Ceti), with the regulator; explicit fundamental units of real quadratic fields are not computed."
+      },
+      {
+       "target": "Reuse of class groups (finiteness, class number, Minkowski bound, explicit class numbers)",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "NumberField.classNumber",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+         "line": 64,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.exists_ideal_in_class_of_norm_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+         "line": 77,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.NumberField.classNumber_adjoinRoot_sqrt_neg_five_eq_two",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Multiquadratic/MinusFive/ClassNumber.lean",
+         "line": 249,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.NumberField.classNumber_adjoinRoot_sqrt_neg_twenty_one_eq_four",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Multiquadratic/MinusTwentyOne/ClassNumber.lean",
+         "line": 304,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.classNumber_le_bound",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/EffectiveBounds/ClassNumber/Basic.lean",
+         "line": 81,
+         "fit": "exact"
+        }
+       ],
+       "note": "Finiteness of the class group, the Minkowski bound, h(ℚ(√−5)) = 2 and h(ℚ(√−21)) = 4, class number one for ℚ(ζ₃), ℚ(ζ₅) (`IsCyclotomicExtension.Rat.three_pid`, `five_pid`) and an effective bound h ≤ |d|·4^n."
+      },
+      {
+       "target": "Reuse of relative discriminants and the different",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "differentIdeal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/Different.lean",
+         "line": 480,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.absNorm_differentIdeal",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Different.lean",
+         "line": 43,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.not_dvd_discr_iff_isUnramifiedIn",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Discriminant/Different.lean",
+         "line": 193,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.relDiscr",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/Discriminant/Basic.lean",
+         "line": 35,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.relDiscr_tower",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/Discriminant/Separable.lean",
+         "line": 50,
+         "fit": "exact"
+        }
+       ],
+       "note": "The different with its tower formula and ramification criterion (Mathlib) and the relative discriminant ideal N(𝔇_{B/A}) with its tower law and ramification criterion (Tau Ceti). The conductor–discriminant formula is absent."
+      },
+      {
+       "target": "Reuse of Frobenius elements",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "IsArithFrobAt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Frobenius.lean",
+         "line": 183,
+         "fit": "exact"
+        },
+        {
+         "name": "IsArithFrobAt.exists_of_isInvariant",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Frobenius.lean",
+         "line": 221,
+         "fit": "exact"
+        },
+        {
+         "name": "arithFrobAt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Frobenius.lean",
+         "line": 260,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.artinSymbol",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+         "line": 57,
+         "fit": "exact"
+        },
+        {
+         "name": "AlgHom.IsArithFrobAt.autToPow_eq_absNorm",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Cyclotomic/Frobenius.lean",
+         "line": 133,
+         "fit": "exact"
+        }
+       ],
+       "note": "Arithmetic Frobenius elements for invariant extensions of rings with existence and uniqueness at unramified primes (Mathlib), the Artin symbol as a conjugacy class, and the cyclotomic normalization Frob ↦ N𝔭 (Tau Ceti)."
+      },
+      {
+       "target": "Reuse of ideal factorization (Dedekind–Kummer; splitting in quadratic and cyclotomic fields)",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "KummerDedekind.normalizedFactorsMapEquivNormalizedFactorsMinPolyMk",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/KummerDedekind.lean",
+         "line": 104,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Ideal.primesOverSpanEquivMonicFactorsMod",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Ideal/KummerDedekind.lean",
+         "line": 169,
+         "fit": "exact"
+        },
+        {
+         "name": "IsCyclotomicExtension.Rat.inertiaDeg_eq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+         "line": 417,
+         "fit": "exact"
+        },
+        {
+         "name": "Ideal.sum_ramification_inertia_eq_finrank",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RamificationInertia/Basic.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.ncard_primesOver_quadratic_iff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Quadratic/Splitting.lean",
+         "line": 169,
+         "fit": "exact"
+        }
+       ],
+       "note": "Dedekind–Kummer with inertia and ramification indices, ∑ e f = n, prime splitting in ℚ(ζ_n) (Mathlib) and the quadratic splitting law via the Legendre symbol (Tau Ceti)."
+      },
+      {
+       "target": "Connection of certified matrix computations to intrinsic invariants, checked on quadratic and cyclotomic examples",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsCyclotomicExtension.Rat.discr",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+         "line": 667,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Multiquadratic.discr_eq_fundamentalDiscriminant",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Multiquadratic/Quadratic/Discriminant.lean",
+         "line": 50,
+         "fit": "exact"
+        },
+        {
+         "name": "IsCyclotomicExtension.Rat.three_pid",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/PID.lean",
+         "line": 34,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.NumberField.classNumber_eq_two_of_minpoly_eq_X_sq_add_five",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Multiquadratic/MinusFive/ClassNumber.lean",
+         "line": 203,
+         "fit": "special case"
+        }
+       ],
+       "note": "The quadratic and cyclotomic discriminants and several class numbers are proved as theorems, so the named comparisons are available. There is no certification pipeline from matrix or LMFDB computations to these invariants; that is ComputationalNumberTheory CN.2's certification scope."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ComputationalNumberTheory:CN.2",
+       "note": "CN.2 certifies integral bases, orders, ideal decomposition and unit/class groups, the same 'certified computation ↔ intrinsic invariant' connection as CA.5."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-3-the-index-dedekindkummer-and-dedekinds-theorem",
+       "note": "Layer 3 owns the power-basis index, the discriminant comparison and Dedekind–Kummer factorization reused here."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-4-the-relative-discriminant",
+       "note": "Layer 4 defines the relative discriminant ideal (now `TauCeti.relDiscr`) that CA.5 lists among the reused invariants."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-7-subfields-integral-bases-monogenicity-and-explicit-units",
+       "note": "Layer 7 owns integral bases of quadratic/cyclotomic fields, monogenicity and explicit units — CA.5's quadratic and cyclotomic acceptance examples."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+       "note": "Layer 2 owns Frobenius elements and the Artin symbol reused by CA.5."
+      }
+     ]
+    },
+    "ClassicalArithmeticCompletion:CA.6": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Mahler measure of polynomials and of algebraic numbers, with multiplicativity and the root (Jensen) formula",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Polynomial.mahlerMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Polynomial/MahlerMeasure.lean",
+         "line": 81,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.logMahlerMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Polynomial/MahlerMeasure.lean",
+         "line": 54,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.mahlerMeasure_mul",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Polynomial/MahlerMeasure.lean",
+         "line": 126,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.mahlerMeasure_eq_leadingCoeff_mul_prod_roots",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Polynomial/MahlerMeasure.lean",
+         "line": 224,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.one_le_mahlerMeasure_of_ne_zero",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/MahlerMeasure.lean",
+         "line": 42,
+         "fit": "exact"
+        }
+       ],
+       "note": "For complex polynomials: definition as a circle average, multiplicativity, M(p) = |lc|∏max(1,|α|) and coefficient bounds. The Mahler measure of an algebraic number (of its minimal polynomial over ℤ) is not defined."
+      },
+      {
+       "target": "House of an algebraic number",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "NumberField.house",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/House.lean",
+         "line": 39,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.house_mul_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/House.lean",
+         "line": 52,
+         "fit": "exact"
+        }
+       ],
+       "note": "Maximum absolute value over all complex embeddings of an element of a number field, with submultiplicativity and the triangle inequality."
+      },
+      {
+       "target": "Pisot and Salem numbers (certified classification by conjugate moduli)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Searched Pisot and Salem (matches are only Salem–Spencer sets): nothing in either library."
+      },
+      {
+       "target": "Dynamical and height comparisons (M(α) versus the Weil height; canonical heights)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.absMulHeight₁",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 137,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 124,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.abs_canonicalHeight_sub_naiveHeight_le",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 196,
+         "fit": "related"
+        }
+       ],
+       "note": "The absolute Weil height exists (Mathlib) and Tau Ceti has the Néron–Tate canonical height with its bounded difference from the naive height. Missing: log M(α) = deg(α)·h(α) and canonical heights of general polarized dynamical systems."
+      },
+      {
+       "target": "Selected proven lower bounds (Kronecker; Smyth, Dobrowolski, Schinzel–Zassenhaus), with Lehmer kept conjectural",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Polynomial.pow_eq_one_of_mahlerMeasure_eq_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/MahlerMeasure.lean",
+         "line": 180,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.cyclotomic_dvd_of_mahlerMeasure_eq_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/MahlerMeasure.lean",
+         "line": 217,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Embeddings.pow_eq_one_of_norm_le_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean",
+         "line": 124,
+         "fit": "exact"
+        }
+       ],
+       "note": "Kronecker's theorem is present in polynomial form (M(p) = 1 for p ∈ ℤ[X] forces roots of unity) and for algebraic integers with all conjugates in the unit disc. Smyth's, Dobrowolski's and Schinzel–Zassenhaus bounds are absent."
+      },
+      {
+       "target": "Finiteness statements (Northcott-type: bounded degree and Mahler measure/house)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Polynomial.finite_mahlerMeasure_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/MahlerMeasure.lean",
+         "line": 107,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Embeddings.finite_of_norm_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean",
+         "line": 109,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.finite_setOfPred_mulHeight₁_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 411,
+         "fit": "more general"
+        },
+        {
+         "name": "Polynomial.card_mahlerMeasure_le_prod",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/MahlerMeasure.lean",
+         "line": 113,
+         "fit": "exact"
+        }
+       ],
+       "note": "Finitely many integer polynomials of degree ≤ n and Mahler measure ≤ B (with an explicit count), finitely many algebraic integers of a fixed field with bounded house, and Northcott for the Weil height."
+      },
+      {
+       "target": "Distinguishing roots of unity among algebraic integers and algebraic numbers",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "NumberField.Embeddings.pow_eq_one_of_norm_eq_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean",
+         "line": 138,
+         "fit": "exact"
+        },
+        {
+         "name": "NumberField.Units.mem_torsion",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
+         "line": 152,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.sum_eq_zero_or_norm_sum_eq_card_of_isIntegral",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/RootsOfUnity/Complex.lean",
+         "line": 73,
+         "fit": "related"
+        }
+       ],
+       "note": "An algebraic integer all of whose conjugates have absolute value 1 is a root of unity, and torsion units are exactly those of house 1."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DiophantineApproximationAndTranscendence:DT.0",
+       "note": "DT.0 defines Weil heights with the product-formula normalization, the height side of CA.6's comparisons."
+      },
+      {
+       "layer": "ArithmeticDynamics:DY.1",
+       "note": "DY.1 constructs canonical heights of polarized morphisms (and CA.6 lists DY.1 as an input for its 'dynamical/height comparisons')."
+      },
+      {
+       "layer": "ArithmeticDynamics:DY.6",
+       "note": "DY.6 keeps dynamical Lehmer conjectural and registers proven cases, the same boundary CA.6 draws for Lehmer-type lower bounds."
+      }
+     ]
+    },
+    "ClassicalArithmeticCompletion:CA.7": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Rings of integers as modules over group rings (𝓞_L over ℤ[G] or 𝓞_K[G])",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.RingOfIntegers.smulCommClass",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/AutomorphismAction.lean",
+         "line": 96,
+         "fit": "related"
+        }
+       ],
+       "note": "The Galois action on 𝓞_L exists (Mathlib's `MulSemiringAction G (𝓞 K)` and `IsGaloisGroup G (𝓞 K) (𝓞 L)` instances; Tau Ceti's commuting-action instance), but no group-ring module structure or theory is built on it."
+      },
+      {
+       "target": "Normal basis theorem and normal-basis maps (rational)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "IsGalois.normalBasis",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Galois/NormalBasis.lean",
+         "line": 120,
+         "fit": "exact"
+        },
+        {
+         "name": "IsGalois.normalBasis_apply",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Galois/NormalBasis.lean",
+         "line": 127,
+         "fit": "exact"
+        },
+        {
+         "name": "exists_linearIndependent_algEquiv_apply",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Galois/NormalBasis.lean",
+         "line": 107,
+         "fit": "exact"
+        }
+       ],
+       "note": "Every finite Galois extension of an arbitrary field has a basis that is a single Galois orbit (`public noncomputable def`, missing from the index). The K[G]-module isomorphism L ≅ K[G] is not stated, and there is no integral version."
+      },
+      {
+       "target": "Locally free class groups of group rings and orders",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CommRing.Pic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 429,
+         "fit": "related"
+        },
+        {
+         "name": "ClassGroup.equivPic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 876,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the Picard group of a commutative ring (and its identification with the ideal class group of a domain) exists; locally free class groups of noncommutative orders such as ℤ[G] are absent."
+      },
+      {
+       "target": "Relative resolvent and discriminant data",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.relDiscr",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/Discriminant/Basic.lean",
+         "line": 35,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.NumberField.relDiscr_int_ringOfIntegers",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Discriminant/Relative.lean",
+         "line": 37,
+         "fit": "exact"
+        },
+        {
+         "name": "differentIdeal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/Different.lean",
+         "line": 480,
+         "fit": "related"
+        }
+       ],
+       "note": "The relative discriminant ideal and different are present; Galois (Lagrange) resolvents in Fröhlich's sense are absent (Tau Ceti's `MvPolynomial.universalResolvent` is a Stauduhar resolvent for computing Galois groups, not this object)."
+      },
+      {
+       "target": "Noether's theorem: tame ramification ⇔ 𝓞_L locally free over 𝓞_K[G] (local normal integral bases)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.not_pow_ramificationIdx_dvd_differentIdeal",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/Different.lean",
+         "line": 121,
+         "fit": "related"
+        }
+       ],
+       "note": "Only tame-ramification infrastructure (the tame half of Dedekind's different theorem) exists; no normal integral basis or local freeness statement."
+      },
+      {
+       "target": "Hilbert–Speiser theorem (tame abelian extensions of ℚ have normal integral bases)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Searched Hilbert–Speiser, Speiser, normal integral basis: nothing in either library."
+      },
+      {
+       "target": "Fröhlich–Taylor Galois-module class-group theorems and integral representation theorems",
+       "library": "absent",
+       "declarations": [],
+       "note": "Searched Fröhlich, Taylor, Galois module, associated order, Swan module: only bibliographic citations of Cassels–Fröhlich."
+      },
+      {
+       "target": "K₀ of rings, imported from existing owners",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.SplitK0",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Split.lean",
+         "line": 111,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.ExactK0",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+         "line": 162,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.finiteProjectiveModulesExactStructure",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+         "line": 195,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.cartanMap",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+         "line": 235,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has split and exact K₀ of categories with the exact structure on finitely generated projective modules, giving K₀(R), and the Cartan map to G₀; Mathlib only has the Grothendieck group of a commutative monoid."
+      },
+      {
+       "target": "Orders in semisimple algebras (ℤ-orders in group algebras, maximal orders)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.NumberField.IntegralPrimitiveElement.index",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Index/Basic.lean",
+         "line": 111,
+         "fit": "related"
+        }
+       ],
+       "note": "Searched maximal order, hereditary order, ℤ-order: nothing; the nearest object is the index of ℤ[θ] in 𝓞_K."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "KTheoryLowDegrees:Z.1",
+       "note": "Z.1 owns K₀ of rings via finitely generated projectives, which CA.7 says it imports."
+      },
+      {
+       "layer": "KTheoryLowDegrees:Z.4",
+       "note": "Z.4 classifies finite projectives over Dedekind domains (Steinitz), the commutative base case of local-versus-global freeness of 𝓞_L."
+      },
+      {
+       "layer": "FiniteFieldsAndCharacterSums:FF.0",
+       "note": "FF.0 builds normal bases of finite-field extensions, the finite-field case of CA.7's normal-basis maps."
+      }
+     ]
+    }
+   }
+  }
+ }
+}
