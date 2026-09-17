@@ -1,0 +1,414 @@
+{
+ "job": "COMPARE-31",
+ "notes": {
+  "tauceti:Completed/OrthogonalL2Bases": {
+   "targets": "Hermite functions as a Hilbert basis of L²(ℝ) and Chebyshev polynomials as a Hilbert basis of their weighted L², built on a family-agnostic weighted-measure layer (completeness by moment determinacy) with product and multidimensional bases.",
+   "baselineHas": [
+    "TauCeti.hermiteHilbertBasis (TauCeti/Analysis/SpecialFunctions/Hermite/Function/HilbertBasis.lean)",
+    "TauCeti.chebyshevTHilbertBasis (TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/HilbertBasis.lean)",
+    "TauCeti.Measure.ext_of_forall_integral_pow_eq_of_exists_integrable_exp (TauCeti/Probability/Moments/Determinacy.lean)",
+    "TauCeti.piHilbertBasis and TauCeti.prodHilbertBasis (TauCeti/Analysis/InnerProductSpace/L2/Pi.lean, Product.lean)"
+   ],
+   "missing": [
+    "Nothing substantive: the roadmap is declared complete and every named target is in Tau Ceti",
+    "Only packaging remains: expansion lemmas for the Chebyshev and Gaussian bases, the Fourier transform as an operator on L², ladder operators on L²",
+    "No imported theory (Laguerre and Jacobi families are explicitly out of scope)"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight": {
+   "targets": "Highest-weight classification of finite-dimensional representations of semisimple Lie algebras, Weyl complete reducibility, the Weyl character, dimension and Kostant multiplicity formulas, the Harish-Chandra isomorphism and Serre presentation, explicit exceptional Lie algebras, and the gl_n theory.",
+   "baselineHas": [
+    "TauCeti/Algebra/Lie/HighestWeight/ (Verma.lean, FiniteDimensional.lean, CompleteReducibility.lean, Freudenthal.lean, CentralCharacter.lean): Layers 0-5 built",
+    "TauCeti/Algebra/Lie/UniversalEnveloping/PBW/ and Triangular.lean (PBW basis, triangular decomposition)",
+    "TauCeti.formalCharacter_mul_weylDenominator_eq_of_forall_coeff_isDominantIntegral_eq (TauCeti/Algebra/Lie/HighestWeight/Character.lean)",
+    "TauCeti.exists_surjective_serreLift_of_base (TauCeti/Algebra/Lie/Presentation/Serre/Killing.lean); TauCeti.Octonion and TauCeti.AlbertAlgebra (basic carriers only)"
+   ],
+   "missing": [
+    "Layer 6: the closing alternation step of the Weyl character formula, the Weyl dimension formula and Kostant's multiplicity formula",
+    "Layer 7: the Harish-Chandra isomorphism Z(U(L)) ≅ S(H)^(W·) with central characters matching dot orbits; injectivity in Serre's presentation theorem",
+    "Layer 8: G₂ = Der(split octonions) of dimension 14, F₄ = Der(Albert algebra), carriers for E₆ and E₇, the E₈ Vinberg bracket, each with Killing-simplicity and identification with the Serre algebra",
+    "No imported theory from other roadmaps"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/EllipticCurves": {
+   "targets": "Graduate theory of elliptic curves: isogenies, dual isogeny, Weil pairing and Tate module; the Hasse bound and zeta function; local theory (reduction filtration, Néron–Ogg–Shafarevich, Tate's algorithm, Tate curve); global minimal models; twists; Mordell–Weil; Selmer groups and Sha; Q-specific adapters.",
+   "baselineHas": [
+    "WeierstrassCurve.Affine.fg_point_of_numberField (TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean)",
+    "WeierstrassCurve.Affine.Point.canonicalHeight_eq_zero_iff_isOfFinAddOrder (TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean)",
+    "TauCeti.Isogeny.degree_mulByIntIsogeny and TauCeti.Isogeny.existsUnique_comp_eq_iff_fieldRange_le (TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/)",
+    "Mathlib WeierstrassCurve group law, division polynomials and reduction predicates"
+   ],
+   "missing": [
+    "Layers 0-1: Weil reciprocity, Galois descent from K^sep, the quadratic degree form and End ring, the dual isogeny, Verschiebung, Vélu quotients, the formal logarithm and Ê(𝔪) ≅ E₁(K)",
+    "Layers 2-3: E[N] ≅ (ZMod N)², the Weil pairing, the Tate module and its Galois representation; the Hasse bound, supersingularity and the zeta function",
+    "Layers 4-4.5: reduction of points and the E₀/E₁ filtration, Néron–Ogg–Shafarevich, Tate's algorithm with correctness, the Tate curve; minimal discriminants, global minimal models and Kraus's criterion",
+    "Layers 5 and 7: nonabelian H¹ classification of twists; discrete Galois cohomology with local–global maps, Selmer groups, Sha, the BSD quotient and Cassels (local Tate duality)",
+    "Layer 8: minimal-pair height and the Szpiro/abc implications; no recorded imports from other roadmaps"
+   ]
+  },
+  "DeformationAndDerivedPatchingAlgebra": {
+   "targets": "Commutative and derived algebra for deformation theory and patching: complete local coefficient categories, Schlessinger representability, depth, Cohen–Macaulay and complete-intersection theory, module patching and component support, perfect complexes and derived coefficient change, and Calegari–Geraghty derived patching.",
+   "baselineHas": [
+    "RingTheory.Sequence.IsRegular (Mathlib/RingTheory/Regular/RegularSequence.lean)",
+    "CategoryTheory.projectiveDimension (Mathlib/CategoryTheory/Abelian/Projective/Dimension.lean)",
+    "MvPowerSeries.eval₂Hom (Mathlib/RingTheory/MvPowerSeries/Evaluation.lean)",
+    "DerivedCategory.TStructure.t and CategoryTheory.Abelian.SpectralObject.spectralSequence (Mathlib/Algebra/Homology/)"
+   ],
+   "missing": [
+    "R03.1-R03.2: bundled coefficient categories, completed tensor products and their Noetherianity, small extensions, Schlessinger's criterion and hulls",
+    "R03.3-R03.4: depth, Cohen–Macaulay and complete-intersection rings, Auslander–Buchsbaum, catenary and excellent hypotheses, characteristic-zero points of finite O-algebras",
+    "R03.5-R03.6: Taylor–Wiles–Kisin patching of modules, support transport, near faithfulness and union-of-components conclusions",
+    "P7-P9: perfect complexes, Tor-amplitude, derived tensor product and RHom, derived completion and Nakayama, the Tor spectral sequence, lim¹; ultrapatching of complexes; amplitude and support inequalities, derived Ihara avoidance and the derived length identity",
+    "No imported roadmaps"
+   ]
+  },
+  "ProbabilisticAndMetricNumberTheory": {
+   "targets": "Turán–Kubilius, Hardy–Ramanujan and Erdős–Kac; the Weyl criterion and discrepancy; metric Diophantine approximation (Khintchine, Duffin–Schaeffer); Gauss-map and continued-fraction ergodic theory with homogeneous dynamics; correlation and short-interval theorems for multiplicative functions.",
+   "baselineHas": [
+    "ProbabilityTheory.tendstoInDistribution_inv_sqrt_mul_sum (Mathlib/Probability/CentralLimitTheorem.lean)",
+    "MeasureTheory.measure_limsup_atTop_eq_zero and ProbabilityTheory.measure_limsup_eq_one (Borel–Cantelli)",
+    "AddCircle.ergodic_zsmul (Mathlib/Dynamics/Ergodic/AddCircle.lean)",
+    "ProbabilityTheory.strong_law_ae (Mathlib/Probability/StrongLaw.lean)"
+   ],
+   "missing": [
+    "PM.0-PM.1: arithmetic probability spaces, Turán–Kubilius, Hardy–Ramanujan and Erdős–Kac (needs only AnalyticNumberTheory AN.0)",
+    "PM.2: Weyl criterion and discrepancy via ExponentialSumsAndCircleMethod ES.0, which imports FF.2 (the Weil and Deligne bounds) and with it WeilConjectures WC.0-WC.3, DeligneWeightsAndPurity DWP.0-DWP.7, Lefschetz pencils LPV.0-LPV.5 and étale duality EDC.0-EDC.4",
+    "PM.3: Khintchine, Duffin–Schaeffer (Koukoulopoulos–Maynard) and Jarník–Besicovitch",
+    "PM.4: Gauss-map invariant measure and ergodicity, Birkhoff's pointwise theorem, continued-fraction statistics, and homogeneous dynamics from GeometryOfNumbersAndQuadraticArithmetic GN.0-GN.4",
+    "PM.5: short-interval and correlation theorems for multiplicative functions in known ranges"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/ZigzagPreprojective": {
+   "targets": "Zigzag algebras (bases, centres, symmetric Frobenius traces, graded Cartan matrices), preprojective algebras and their ADE dichotomy, quadratic and Koszul duality, 2- and 3-dimensional Ginzburg DG algebras as Calabi–Yau completions, derived Koszul duality with Hochschild/A∞ intrinsic formality, and braid group actions.",
+   "baselineHas": [
+    "TauCeti.zigzagGradedCartanMatrix_eq (TauCeti/RepresentationTheory/Quiver/Zigzag/CartanMatrix.lean)",
+    "TauCeti.finrank_center_nonisolatedZigzagQuotient (TauCeti/RepresentationTheory/Quiver/Zigzag/Center.lean)",
+    "TauCeti.reorientPreprojectiveAlgebraEquiv (TauCeti/RepresentationTheory/Quiver/Preprojective/Orientation.lean)",
+    "TauCeti.koszulBraidedCategory (TauCeti/Algebra/Homology/Monoidal/Braiding.lean) and DG/A∞ algebra basics from DGAInfinity"
+   ],
+   "missing": [
+    "Layers 1 and 4 remainder: the skew-zigzag H¹(G,kˣ) classification; finite-dimensionality and self-injectivity of ADE preprojective algebras, infinite dimension and Koszulity for non-Dynkin graphs",
+    "Layer 5: quadratic duals, Koszul complexes and the theorem that zigzag algebras are Koszul exactly off ADE",
+    "Layers 6-7: Ginzburg DG algebras identified with Keller's Calabi–Yau completions; derived Koszul duality, the HH² computation, nontrivial A∞ deformations and the Liu–Wang intrinsic-formality theorem",
+    "Layer 8: bimodule braid complexes, Artin braid group actions, Seidel–Thomas spherical twists",
+    "Imported from DGAInfinity, mostly unbuilt: DG categories and bimodules, A∞ morphisms and homotopy transfer, bar–cobar, derived modules and Morita theory, Hochschild cochains and deformations, smoothness and Calabi–Yau completions"
+   ]
+  },
+  "K3BlochGroups": {
+   "targets": "K₃ as H₃ of the Steinberg group, indecomposable K₃, Bloch groups in several conventions and Suslin's exact sequence, K₃(F_q), K₃(ℤ) ≅ ℤ/48, and explicit Bloch-element certificates compatible with real and p-adic regulators.",
+   "baselineHas": [
+    "TauCeti.ExactStructure and exact/abelian K₀ (TauCeti/CategoryTheory/Exact/ExactStructure.lean): degree zero only",
+    "TauCeti.kummerMap (TauCeti/FieldTheory/GaloisCohomology/Kummer.lean)",
+    "Mathlib nerves, simplicial sets and homotopy groups (no plus construction or higher K-groups)"
+   ],
+   "missing": [
+    "V.1-V.2: plus construction and Hurewicz model K₃(A) ≅ H₃(St(A)), the map from Milnor K₃ and the indecomposable quotient",
+    "V.3-V.4: pre-Bloch and Bloch groups in Suslin/Bloch/CGZ conventions, Suslin's exact sequence with configuration complexes and homology stability",
+    "V.5-V.6: Quillen's K₃(F_q), K₃(ℤ) ≅ K₃(ℚ) ≅ ℤ/48, Bloch-element certificates and regulator comparisons",
+    "Imported foundations: StableHomotopyKTheory H.1-H.6, GeneralAlgebraicKTheory K.1-K.7, KTheoryLowDegrees U/Z, K2SymbolsBrauer T.1-T.2",
+    "Imported through V.5-V.6: MotivicEtaleKTheory M.1-M.7 including the norm-residue theorem, ArithmeticKTheory N.1-N.5 with Borel's stable cohomology (BorelRegulators R.1-R.3), Poitou–Tate duality and scheme K-theory operations"
+   ]
+  },
+  "MetaplecticAutomorphicForms": {
+   "targets": "Heisenberg groups and Stone–von Neumann, the metaplectic cover and Weil representation, Weil indices, dual pairs and local theta modules, the adelic cover and theta kernels, local–global theta integrals, half-integral weight forms with BFH metaplectic Eisenstein kernels, and the genus-two cover with Jacobi forms.",
+   "baselineHas": [
+    "TauCeti.Symplectic.pointsMulEquiv (TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean)",
+    "jacobiTheta₂_functional_equation (Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean)",
+    "NumberField.AdeleRing, RestrictedProduct and MeasureTheory.Measure.haarMeasure (Mathlib)"
+   ],
+   "missing": [
+    "MP.0-MP.2: Heisenberg group over local fields, Schrödinger models, Stone–von Neumann, the topological metaplectic extension and Weil-index cocycle, Weil-index and Hilbert-symbol identities",
+    "MP.3-MP.4: dual-pair splittings, big and small theta modules with Jacquet filtrations; the adelic cover, its rational splitting and the global Weil representation",
+    "MP.5-MP.6: convergence of theta series and genuine automorphic spaces on the cover, factorization of theta kernels, see-saw and regularized theta integrals",
+    "MP.7-MP.8: half-integral weight comparison and BFH metaplectic Eisenstein/Whittaker kernels; the GSp(4) double cover, Jacobi forms and cover-specific Eisenstein continuation",
+    "Imported: SmoothRepresentationsOfLocalGroups SR.0-SR.3a, AdelicAlgebraicGroups AA.0-AA.3, AutomorphicFormsOnReductiveGroups AF.0-AF.3, AutomorphicSpectralTheory AS.0-AS.2 (Eisenstein series and meromorphic continuation), AutomorphicLFunctionsAndLocalFactors AL.0"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/OptimalTransport": {
+   "targets": "Kantorovich duality and Wasserstein spaces, Monge maps with Brenier and McCann, Monge–Ampère regularity (Caffarelli, MTW, partial regularity), Benamou–Brenier and displacement convexity, AGS gradient flows and JKO PDE flows, barycenters, entropic transport and Schrödinger bridges, synthetic Ricci curvature (CD/RCD), and Gromov–Wasserstein.",
+   "baselineHas": [
+    "TauCeti.exists_isOptimalCoupling (TauCeti/MeasureTheory/OptimalTransport/Existence.lean)",
+    "TauCeti.isLUB_kantorovichDualValue_continuous (TauCeti/MeasureTheory/OptimalTransport/Duality/Compact.lean)",
+    "TauCeti.wassersteinEDist with completeness and separability (TauCeti/MeasureTheory/OptimalTransport/Wasserstein/)",
+    "TauCeti.Measure.exists_glue_of_standardBorel_right (TauCeti/MeasureTheory/OptimalTransport/Gluing.lean)"
+   ],
+   "missing": [
+    "Layer 2-4 gaps: Polish lower-semicontinuous duality and dual attainment, the Schachermayer–Teichmann converse, Kantorovich–Rubinstein, Pratelli's theorem",
+    "Layers 5-6: Legendre–Fenchel and Rockafellar convex duality, Brenier and polar factorization, Gangbo–McCann; Aleksandrov Monge–Ampère theory, Caffarelli regularity by sections, MTW/Loeper/Figalli–Kim–McCann and De Philippis–Figalli partial regularity",
+    "Layers 7-9: Riemannian McCann and Feldman–McCann (cut locus, semiconcavity), metric absolutely continuous curves, Lisini superposition, the continuity equation, Benamou–Brenier, displacement convexity",
+    "Layers 10-13: AGS gradient flows, EVI and Γ-convergence; entropy and JKO to Fokker–Planck and porous-medium flows; Wasserstein barycenters; entropic transport, Sinkhorn and Schrödinger bridges with Schilder's LDP",
+    "Layers 14-15: CD/RCD theory, Cheeger energy and heat flow, Bakry–Émery on weighted manifolds, Gigli–Rajala–Sturm maps; Gromov–Wasserstein",
+    "Imported and not yet built: HopfRinow geodesic flow and exponential map, GeometricTopology Riemannian volume and Ricci curvature, PDE Hölder/Schauder regularity and heat semigroup"
+   ]
+  },
+  "AutomorphicBundles": {
+   "targets": "Automorphic vector bundles on Shimura varieties with canonical models over reflex fields, canonical and subcanonical extensions to toroidal compactifications, classical, Hilbert, Siegel and unitary forms as sections with explicit weights, and Hecke actions with q-expansion and Fourier–Jacobi principles.",
+   "baselineHas": [
+    "ModularForm (Mathlib/NumberTheory/ModularForms/Basic.lean)",
+    "SlashAction and UpperHalfPlane.denom_cocycle (Mathlib/NumberTheory/ModularForms/SlashActions.lean, Mathlib/Analysis/Complex/UpperHalfPlane/MoebiusAction.lean)",
+    "TauCeti.Toric.Fan (TauCeti/Geometry/Toric/Algebraic/Fan/Basic.lean) and abstract Hecke rings"
+   ],
+   "missing": [
+    "B0-B2: associated bundles on compact duals and their descent, canonical principal bundles over number fields (Milne), automorphic bundles with de Rham and Hodge realizations",
+    "B3: canonical and subcanonical extensions on toroidal compactifications and pushforward to the minimal compactification",
+    "B4-B5: classical, Hilbert, Siegel and unitary forms as sections, Hecke correspondences, q-expansion and Fourier–Jacobi expansion principles",
+    "Imported: ShimuraData D0-D5, ShimuraVarieties V0-V8 (canonical models, CM theory, Baily–Borel, Borel extension, general conjugation), ShimuraCompactifications C0-C6 (toroidal gluing, Faltings–Chai degenerations, integral PEL compactifications)",
+    "Imported: AbelianSchemesAndArithmeticModuli A1-A5, PELModuli M0-M4, Hilbert modular integral models H0-H4, algebraic spaces and stacks R09.1-R09.4, characteristic-zero resolution R09.7a-d, GAGA, Dieudonné and Breuil–Kisin theory R07.1-R07.6"
+   ]
+  },
+  "LefschetzPencilsAndVanishingCycles": {
+   "targets": "Nearby and vanishing cycles with inertia and monodromy, the Picard–Lefschetz formula, existence of Lefschetz pencils, global vanishing cycles with irreducibility and open symplectic monodromy, perverse t-exactness of nearby cycles, invariant-cycle theorems and nearby cycles of semistable curves.",
+   "baselineHas": [
+    "AlgebraicGeometry.Scheme.etaleTopology (Mathlib/AlgebraicGeometry/Sites/Etale.lean)",
+    "AlgebraicGeometry.Scheme.proetaleTopology (Mathlib/AlgebraicGeometry/Sites/Proetale.lean)",
+    "CategoryTheory.PreGaloisCategory (Mathlib/CategoryTheory/Galois/Basic.lean)",
+    "DerivedCategory.TStructure.t (Mathlib/Algebra/Homology/DerivedCategory/TStructure.lean)"
+   ],
+   "missing": [
+    "LPV.0-LPV.1: RΨ and RΦ on étale sites with base change and constructibility, tame inertia, variation and the monodromy filtration",
+    "LPV.2-LPV.5: ordinary quadratic singularities and Picard–Lefschetz, existence of Lefschetz pencils, global vanishing cycles, irreducibility and open monodromy with ℓ-adic Lie-subgroup arguments",
+    "LPV.6-LPV.7: perverse t-exactness of nearby cycles with adic and diamond comparisons; Deligne's invariant-cycle theorems and nearby cycles of semistable curves",
+    "Imported, absent from the library: the étale six-functor formalism and perverse sheaves (EnhancedDerivedSheaves E0-E4, EtaleDualityAndPerverseSheaves EDC.0-EDC.6, ClassicalAdicEtaleCohomology H0-H5)",
+    "Imported: Deligne's Weil I and Weil II (DeligneWeightsAndPurity DWP.0-DWP.8); for LPV.6, diamond étale cohomology and six operations, perfectoid, prismatic and adic-coefficient comparisons; algebraic stacks and abelian schemes"
+   ]
+  },
+  "GL2AutomorphicRepresentationsAndTransfer": {
+   "targets": "Automorphic representations of GL₂ over number fields with local classification and newvectors, local Langlands for GL₂, multiplicity one and the converse theorem, local and global Jacquet–Langlands, cyclic and solvable base change, automorphic induction and Langlands–Tunnell.",
+   "baselineHas": [
+    "HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq (TauCeti/NumberTheory/ModularForms/Newforms/StrongMultiplicityOne.lean)",
+    "TauCeti.atkinLehnerMatrix and classical newform theory (TauCeti/NumberTheory/ModularForms/)",
+    "ModularForm, NumberField.AdeleRing and MeasureTheory.Measure.haarMeasure (Mathlib)"
+   ],
+   "missing": [
+    "R16.1-R16.3: automorphic functions on GL₂(𝔸_F), smooth admissible GL₂ classification, conductors and newvectors, explicit local Langlands for GL₂",
+    "R16.4-R16.6: global and strong multiplicity one, Whittaker expansions and the GL₂ converse theorem, classical and Hilbert specializations",
+    "R17.1-R17.6: local and global Jacquet–Langlands via trace-formula matching, cyclic and solvable base change, automorphic induction, Langlands–Tunnell and the characteristic-two soluble cases",
+    "Imported: SmoothRepresentationsOfLocalGroups SR.0-SR.5, AutomorphicFormsOnReductiveGroups AF.0-AF.4, AutomorphicLFunctionsAndLocalFactors AL.0-AL.3, AutomorphicSpectralTheory AS.0-AS.6 (spectral decomposition and invariant trace formula)",
+    "Imported: EndoscopicTransferAndUnitaryTraceComparison ET.0-ET.6 (transfer factors, geometric fundamental lemma, local Langlands for GL_n), which brings Shimura varieties, étale cohomology with the decomposition theorem, Weil I/II (DWP.0-DWP.9), Lefschetz pencils LPV.0-LPV.5 and diamond/perfectoid étale cohomology"
+   ]
+  },
+  "HabiroNumberFields": {
+   "targets": "Integral Bloch-group conventions and finite Chern classes on K₃ of number fields (Calegari–Garoufalidis–Zagier), the cyclic quantum dilogarithm, the number-field Habiro ring with Frobenius-twisted Taylor gluing, and K₃-indexed Habiro modules defined through the p-adic regulator.",
+   "baselineHas": [
+    "TauCeti.kummerMap (TauCeti/FieldTheory/GaloisCohomology/Kummer.lean)",
+    "modularCyclotomicCharacter (Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean)",
+    "Mathlib cyclotomic extensions, power series evaluation and adic completions of Dedekind domains"
+   ],
+   "missing": [
+    "HB.1-HB.2: comparison of CGZ and Suslin Bloch groups, finite-coefficient K₃ and its Chern class via the Bockstein sequence, the cyclic quantum dilogarithm with its five-term identity and Hutchinson's refinement",
+    "HB.6-HB.7: the number-field Habiro ring with Frobenius-twisted Taylor gluing, the K₃-indexed modules and their multiplications",
+    "Imported: HabiroCyclotomicCompletions HC.1-HC.3; K3BlochGroups V.1-V.4 with Quillen K-theory foundations",
+    "Imported: PadicHodgeRegulators D.2-D.4, L0-L1 (étale and syntomic regulators, the local K₃ theorem, period rings, Bloch–Kato maps)",
+    "Imported: MotivicEtaleKTheory M.1-M.7 with the norm-residue theorem, ArithmeticKTheory N.1-N.5 with Borel's stable cohomology, KTheoryFiniteLocalFields L.1-L.6, trace methods RT.1-RT.4"
+   ]
+  },
+  "ModularityAndLanglandsExtensions": {
+   "targets": "Langlands endpoints beyond the existing infrastructure: weight-one modularity and modularity over totally real/CM fields in proved cases, potential automorphy over CM fields (ACC+), symmetric-power automorphy and Sato–Tate (Newton–Thorne), the Arthur/Mok/KMSW classification, and cyclic base change, automorphic induction and other known transfers.",
+   "baselineHas": [
+    "ModularForm (Mathlib/NumberTheory/ModularForms/Basic.lean): classical GL₂/ℚ only",
+    "HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq (TauCeti/NumberTheory/ModularForms/Newforms/StrongMultiplicityOne.lean)",
+    "TauCeti/NumberTheory/Chebotarev/ (Frobenius prime sets) and TauCeti.kummerMap"
+   ],
+   "missing": [
+    "ML.0-ML.1: normalization registry; Deligne–Serre weight-one Galois representations and modularity over totally real and CM fields in proved cases",
+    "ML.2: potential automorphy over CM fields, assembling all of PotentialAutomorphyInfrastructure PA.0-PA.5 (integral cohomology, degree shifting, derived Ihara avoidance, ultrapatching)",
+    "ML.3: Newton–Thorne symmetric-power automorphy and Sato–Tate, with AnalyticNumberTheory AN.0-AN.4",
+    "ML.4-ML.5: Arthur/Mok/KMSW classification with stabilization and transfer on top of AutomorphicSpectralTheory AS.6 and endoscopy; cyclic base change and automorphic induction",
+    "Imported through PotentialAutomorphyInfrastructure (about 380 stages): Galois representations for GL_n over CM fields (AG2.0-AG2.7), Igusa varieties IG.0-IG.7, perfectoid Shimura varieties, completed and torsion cohomology, Calegari–Geraghty patching algebra, Shimura varieties and compactifications, étale cohomology with Weil II, endoscopic transfer"
+   ]
+  },
+  "PadicHodgeRegulators": {
+   "targets": "p-adic polylogarithm normalizations, étale and syntomic regulators, the unramified theorem K₃(L;ℤ_p) ≅ p²O_L and its global localisation, syntomic regulators of curves; period rings and Bloch–Kato maps, (φ,Γ)-modules and Iwasawa cohomology, Perrin-Riou's big logarithm, Lei–Loeffler–Zerbes signed Coleman maps and the de Rham regulator.",
+   "baselineHas": [
+    "BDeRhamPlus (Mathlib/RingTheory/Perfectoid/BDeRham.lean)",
+    "TauCeti.kummerMap (TauCeti/FieldTheory/GaloisCohomology/Kummer.lean)",
+    "Mathlib Witt vectors with Teichmüller and Frobenius maps, and continuous group cohomology"
+   ],
+   "missing": [
+    "D.1-D.2: Coleman-integration normalizations; étale Chern and syntomic regulators with the p-adic comparison",
+    "D.3-D.5: the local theorem K₃(L;ℤ_p) ≅ p²O_L, arithmetic localisation and Frobenius, the syntomic regulator of curves",
+    "L0-L2: period rings and admissibility, Bloch–Kato exponential and dual exponential, (φ,Γ)-modules with Herr complexes and Wach modules (PhiGammaModulesAndIwasawaCohomology PG.0-PG.7)",
+    "L3-L4: Perrin-Riou's big logarithm with interpolation and reciprocity; LLZ signed Coleman maps and Rodrigues Jacinto's de Rham regulator",
+    "Imported: the K-theory tower (K3BlochGroups V.1-V.4, Quillen K-theory, MotivicEtaleKTheory M.1-M.7 with the norm-residue theorem, ArithmeticKTheory, KTheoryFiniteLocalFields), ColemanIntegration, LocallyAnalyticDistributions, SelmerIwasawaCohomology",
+    "Imported through L4 (AutomorphicGaloisRepresentations R19.5): Galois representations of modular and Hilbert forms with local–global compatibility at p, bringing GL₂ transfer R16.1-R17.3, modular curves and Néron models, Shimura varieties, étale cohomology with Weil I/II and Lefschetz pencils"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+   "b": "tauceti:Completed/OrthogonalL2Bases",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "OrthogonalL2Bases is declared complete: hermiteHilbertBasis, chebyshevTHilbertBasis and moment determinacy are in Tau Ceti, leaving only packaging. LieHighestWeight still lacks the Weyl character/dimension/Kostant formulas, the Harish-Chandra isomorphism, Serre's presentation theorem and the explicit exceptional Lie algebras."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/EllipticCurves",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "LieHighestWeight has Layers 0–5 built and needs about three more algebraic layers (Weyl/Kostant formulas, Harish-Chandra and Serre, explicit exceptional algebras). EllipticCurves still needs the dual isogeny, Weil pairing and Tate module, Hasse bound and zeta, the whole local theory (reduction filtration, Néron–Ogg–Shafarevich, Tate's algorithm, Tate curve), global minimal models, nonabelian twists and Selmer/Sha with new Galois-cohomology infrastructure, several layers deep."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/EllipticCurves",
+   "b": "DeformationAndDerivedPatchingAlgebra",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Neither imports other roadmaps. DeformationAndDerivedPatchingAlgebra must build depth/Cohen–Macaulay/Auslander–Buchsbaum, Schlessinger, module patching, and a derived layer (perfect complexes, derived completion, Tor spectral sequence, ultrapatching of complexes). EllipticCurves' missing list is broader: dual isogeny, Weil pairing and Tate module, Hasse and zeta, reduction filtration, Néron–Ogg–Shafarevich, Tate's algorithm, Tate curve, minimal models/Kraus, twists and Selmer/Sha."
+  },
+  {
+   "a": "ProbabilisticAndMetricNumberTheory",
+   "b": "DeformationAndDerivedPatchingAlgebra",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "DeformationAndDerivedPatchingAlgebra is self-contained commutative and derived algebra with no imports. ProbabilisticAndMetric needs Erdős–Kac, Duffin–Schaeffer, Birkhoff/Gauss-map ergodic theory and multiplicative correlations. It also imports the Weil/Deligne bounds (ES.0 → FF.2 → WC.3, DWP.7, with étale cohomology and Lefschetz pencils) and homogeneous dynamics through GN.0–GN.4."
+  },
+  {
+   "a": "ProbabilisticAndMetricNumberTheory",
+   "b": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ZigzagPreprojective needs Koszul duality, Ginzburg/Calabi–Yau completions, Hochschild/A∞ formality and braid actions over the mostly unbuilt DGAInfinity layers, which is large but pure homological algebra. ProbabilisticAndMetric's recorded imports bring Deligne's Weil I/II and the étale cohomology tower (ES.0 → FF.2) plus homogeneous dynamics (GN.4), on top of its own Duffin–Schaeffer and ergodic targets."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+   "b": "K3BlochGroups",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Zigzag's remaining theory is homological algebra over the DGAInfinity sibling (A∞ transfer, Hochschild cohomology, Calabi–Yau completions). K3BlochGroups must first build Quillen K-theory (plus construction, Q-construction, homotopy fibres), K₂ symbols and Suslin's exact sequence. V.5–V.6 also import the norm-residue theorem with motivic cohomology (M.1–M.7) and Borel's stable cohomology (N.5, R.1–R.3)."
+  },
+  {
+   "a": "K3BlochGroups",
+   "b": "MetaplecticAutomorphicForms",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Metaplectic needs nine stacked layers (Stone–von Neumann up to the genus-two cover) plus about 22 imported stages (smooth representations, reduction theory, automorphic forms, Eisenstein continuation). K3BlochGroups imports about 84 stages: Quillen K-theory and homotopy foundations, the norm-residue theorem and motivic cohomology, Borel's theorem and Poitou–Tate. On that base it builds Suslin's sequence and K₃(ℤ) ≅ ℤ/48."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/OptimalTransport",
+   "b": "MetaplecticAutomorphicForms",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Metaplectic is deeper: a nine-layer chain on top of reduction theory and Langlands' Eisenstein continuation (AS.1–AS.2). OptimalTransport has more missing theory in total: convex duality and Brenier, Caffarelli/MTW/partial regularity, Riemannian McCann with the unbuilt exponential map and curvature, AGS flows and JKO, entropic transport, CD/RCD and Gromov–Wasserstein, plus Schauder and heat-semigroup theory from PDE."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/OptimalTransport",
+   "b": "AutomorphicBundles",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "OptimalTransport's remaining layers are vast, but they sit on Mathlib's measure theory and analysis and import only Riemannian geometry and elliptic regularity. AutomorphicBundles needs about 93 imported stages, none in the library: Shimura varieties with canonical models and CM theory, toroidal and minimal compactifications with Faltings–Chai degenerations, PEL/Hilbert moduli, algebraic stacks and characteristic-zero resolution."
+  },
+  {
+   "a": "AutomorphicBundles",
+   "b": "LefschetzPencilsAndVanishingCycles",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Both sit on large unbuilt arithmetic geometry. AutomorphicBundles imports Shimura varieties, canonical models, compactifications, PEL moduli and resolution of singularities (about 93 stages). Lefschetz imports the étale six-functor formalism with perverse sheaves, Deligne's Weil I and II, and for LPV.6 diamond étale cohomology with perfectoid and prismatic comparisons (about 136 stages), which tips the balance."
+  },
+  {
+   "a": "LefschetzPencilsAndVanishingCycles",
+   "b": "GL2AutomorphicRepresentationsAndTransfer",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "GL2's import closure contains all of Lefschetz's except LPV.6–LPV.7: the geometric fundamental lemma (decomposition theorem) and local Langlands for GL_n (Shimura-variety cohomology) both pull in Weil II and LPV.0–LPV.5. On top of that GL2 needs smooth representations, Godement–Jacquet/Rankin–Selberg, the invariant trace formula, Jacquet–Langlands, base change and Langlands–Tunnell."
+  },
+  {
+   "a": "HabiroNumberFields",
+   "b": "GL2AutomorphicRepresentationsAndTransfer",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Habiro's extra theory is the K-theory side: Quillen K-theory, Suslin's theorem, the norm-residue theorem, Borel regulators, local K₃ and p-adic regulators, plus Habiro rings (about 104 stages GL2 lacks). GL2's extra theory is about twice that: the étale cohomology and Weil I/II tower, diamond étale cohomology, Shimura varieties, the trace formula, the fundamental lemma and local Langlands for GL_n, besides its own transfer theorems."
+  },
+  {
+   "a": "HabiroNumberFields",
+   "b": "ModularityAndLanglandsExtensions",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Habiro builds K₃-indexed modules on the K-theory, norm-residue and p-adic-regulator tower (closure about 140 stages). ModularityAndLanglandsExtensions must supply potential automorphy over CM fields using all of PotentialAutomorphyInfrastructure (Igusa varieties, perfectoid Shimura varieties, derived patching, GL_n Galois representations), then Newton–Thorne symmetric powers and Arthur's classification. With PA its closure is about 400 stages."
+  },
+  {
+   "a": "ModularityAndLanglandsExtensions",
+   "b": "PadicHodgeRegulators",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "PadicHodgeRegulators has the larger recorded closure: the K-theory/norm-residue tower, (φ,Γ)-modules and Perrin-Riou/LLZ regulators, and through L4 the GL₂ Galois representations with local–global compatibility at p. ModularityAndLanglandsExtensions shares most of the automorphic and étale base and adds, via PA, Igusa varieties, perfectoid Shimura varieties, derived patching and GL_n Galois representations over CM fields. It also needs Newton–Thorne and Arthur's classification, whose stabilization inputs are not even recorded."
+  },
+  {
+   "a": "HabiroNumberFields",
+   "b": "PadicHodgeRegulators",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Habiro's closure is almost inside PadicHodgeRegulators': only HB.1–HB.7 and HabiroCyclotomicCompletions fall outside. PadicHodgeRegulators adds about 320 stages: (φ,Γ)-modules, Perrin-Riou's big logarithm, LLZ maps, syntomic regulators of curves, and through L4 the GL₂ Galois representations, Shimura varieties and étale/Weil II theory."
+  },
+  {
+   "a": "K3BlochGroups",
+   "b": "tauceti:TauCetiRoadmap/EllipticCurves",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "EllipticCurves' remaining theory is classical (dual isogeny, Weil pairing, Hasse, Tate's algorithm, Tate curve, Selmer/Sha), with no imports and Mordell–Weil already built. K3BlochGroups needs higher algebraic K-theory from scratch (plus construction, Q-construction, Suslin's exact sequence), and its K₃(ℤ) targets import the norm-residue theorem, motivic cohomology and Borel's stable cohomology."
+  },
+  {
+   "a": "AutomorphicBundles",
+   "b": "PadicHodgeRegulators",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "PadicHodgeRegulators' closure contains all of AutomorphicBundles' imports except the general-data interfaces (V7, C2/C3.general) and B3–B5. It adds about 370 stages: étale cohomology with Weil I/II, GL₂ transfer and Galois representations, the K-theory/norm-residue tower, (φ,Γ)-modules and the Perrin-Riou/LLZ regulators."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/OptimalTransport",
+   "b": "ModularityAndLanglandsExtensions",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "OptimalTransport's missing theory is analysis and geometry (Brenier, Monge–Ampère regularity, AGS/JKO, RCD, Gromov–Wasserstein) with modest imports. ModularityAndLanglandsExtensions needs potential automorphy over CM fields on top of PotentialAutomorphyInfrastructure's roughly 380-stage closure (Shimura varieties, Weil II, perfectoid and Igusa geometry, patching), plus Newton–Thorne and Arthur's classification."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+   "b": "ProbabilisticAndMetricNumberTheory",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "LieHighestWeight is mostly built and needs about three algebraic layers (Weyl/Kostant formulas, Harish-Chandra and Serre, exceptional algebras). ProbabilisticAndMetric needs Erdős–Kac, equidistribution and discrepancy, Duffin–Schaeffer, ergodic continued-fraction theory and correlation theorems, and imports the Weil/Deligne bounds and homogeneous dynamics."
+  },
+  {
+   "a": "GL2AutomorphicRepresentationsAndTransfer",
+   "b": "MetaplecticAutomorphicForms",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Metaplectic's roughly 31-stage closure (smooth representations, reduction theory, automorphic forms, Eisenstein continuation, then MP.0–MP.8) lies inside GL2's except for MP.0–MP.8 themselves. GL2 adds about 230 stages: the full trace formula, transfer factors and the geometric fundamental lemma, local Langlands for GL_n with Shimura varieties and étale/Weil II cohomology, and its own Jacquet–Langlands and base-change theorems."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+   "b": "LefschetzPencilsAndVanishingCycles",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Zigzag's remaining theory (Koszul duality, Ginzburg DG algebras, Hochschild/A∞ formality, braid actions, over the DGAInfinity layers) is homological algebra. Lefschetz needs the absent étale six-functor formalism and perverse sheaves, Deligne's Weil I/II, nearby cycles, Lefschetz pencils and monodromy, and diamond/perfectoid comparisons for LPV.6."
+  },
+  {
+   "a": "DeformationAndDerivedPatchingAlgebra",
+   "b": "AutomorphicBundles",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "DeformationAndDerivedPatchingAlgebra is nine layers of self-contained commutative and derived algebra with no imports. AutomorphicBundles must first import Shimura data and varieties with canonical models, toroidal compactifications, abelian-scheme and PEL moduli, stacks and resolution of singularities before any automorphic bundle can be defined."
+  },
+  {
+   "a": "LefschetzPencilsAndVanishingCycles",
+   "b": "PadicHodgeRegulators",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "PadicHodgeRegulators' closure contains all of Lefschetz's except LPV.6–LPV.7. It adds about 320 stages: the K-theory/norm-residue tower, GL₂ transfer and modular Galois representations, (φ,Γ)-modules, Iwasawa cohomology and the Perrin-Riou/LLZ regulators."
+  },
+  {
+   "a": "ProbabilisticAndMetricNumberTheory",
+   "b": "tauceti:TauCetiRoadmap/EllipticCurves",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "EllipticCurves' missing theory is classical and self-contained (dual isogeny, Weil pairing, Hasse, local reduction theory, Tate curve, Selmer/Sha). ProbabilisticAndMetric needs Duffin–Schaeffer, pointwise ergodic and continued-fraction theory and multiplicative correlations, and imports Deligne's Weil I/II through ES.0 → FF.2 and homogeneous dynamics through GN.0–GN.4."
+  },
+  {
+   "a": "ModularityAndLanglandsExtensions",
+   "b": "K3BlochGroups",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "K3BlochGroups sits on Quillen K-theory, the norm-residue theorem and Borel's theorem (about 90 stages). ModularityAndLanglandsExtensions, with the PotentialAutomorphyInfrastructure it assembles, reaches about 400 stages of automorphic, étale, perfectoid and patching theory. Its endpoints (potential automorphy, symmetric powers, Arthur's classification) are among the deepest known results."
+  }
+ ]
+}
