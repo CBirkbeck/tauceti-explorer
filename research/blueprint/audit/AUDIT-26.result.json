@@ -2,6 +2,624 @@
  "job": "AUDIT-26",
  "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
  "roadmaps": {
+  "ModularIwasawaMainConjectures": {
+   "summary": "Nothing in either library bears directly on these main conjectures: there are no Galois representations attached to modular forms, Tate modules or Galois action on torsion of elliptic curves, Greenberg or signed Selmer groups, Iwasawa cohomology, characteristic ideals, Poitou–Tate duality, zeta elements, Coleman maps, Hida families or p-adic L-functions. The nearest material is Tau Ceti's descent-style 2-Selmer groups of elliptic curves over number fields, Mathlib's reduction types (good, multiplicative, additive) and continuous group cohomology. Everything is genuinely missing, including the formulations of L0. Several statements are also owned by other roadmaps: FW Theorems 1.7–1.8 by AutomorphicCongruences L4, BCS Theorem 1.1.2 by AutomorphicCongruences L5b, and L6's branch theorems by HeegnerPointEulerSystems HE.8b and RankZeroOneBSD BSD.6a/BSD.7a; L6 itself is integration.",
+   "layers": {
+    "ModularIwasawaMainConjectures:L0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Ordinary Greenberg Selmer group of A = V/T for the lattice T of the modular Galois representation, with the saturated local submodule at p and unramified conditions elsewhere; its compact dual X with the contragredient Iwasawa action",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.selmerGroup₂",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+         "line": 104,
+         "fit": "related"
+        },
+        {
+         "name": "continuousCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+         "line": 131,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's Selmer groups are the descent-theoretic 2-Selmer groups used for Mordell–Weil; Galois representations of modular forms and Greenberg local conditions are absent."
+      },
+      {
+       "target": "Finite generation and torsion of X under the hypotheses of the relevant theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Integral ordinary main conjecture char_Λ X = (L_p(f,α)) with canonical integral periods and primitive/imprimitive conventions, and its rational form over Λ[1/p]",
+       "library": "absent",
+       "declarations": [],
+       "note": "Characteristic ideals and p-adic L-functions of modular forms are absent."
+      },
+      {
+       "target": "Kato's cohomological complex with the source's local conditions and the equality char H²_Iw = char(H¹_Iw/Λ z_Kato) (the zeta element generates the fundamental line)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Comparison of the cohomological and ordinary formulations via Poitou–Tate, local regulators and Euler/Tamagawa corrections",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Poitou–Tate duality in either library."
+      },
+      {
+       "target": "Signed local conditions from integral Coleman maps and the signed formulation char(Im Col_i / Λ L_(p,i)), with the image computation and Wach-basis dependence",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SelmerIwasawaCohomology:L4",
+       "note": "Also proves RJW §10.5's cohomological reinterpretation and the determinant/characteristic-ideal comparison under perfectness and torsion hypotheses."
+      },
+      {
+       "layer": "KatoEulerSystems:L4",
+       "note": "Also transfers the cohomological divisibility to the ordinary Selmer formulation through the same exact sequences and local image theorem (one divisibility)."
+      }
+     ]
+    },
+    "ModularIwasawaMainConjectures:L1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "FW Theorem 1.6: the integral ordinary main conjecture for weight w ≥ 2, Γ₀(N), trivial nebentypus, p ∤ N, residually irreducible, with an auxiliary prime ℓ ‖ N and distinct ordinary residual characters",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Combination of Kato's divisibility with the Skinner–Urban divisibility refined by FW §4.8's period argument",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Integral-period comparison giving both the cohomological and the ordinary Selmer/p-adic L-function formulations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicCongruences:L1",
+       "note": "States the FW Theorem 1.6 target and carries out FW §4.8's refined period argument for the Skinner–Urban divisibility."
+      }
+     ]
+    },
+    "ModularIwasawaMainConjectures:L2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "FW Theorem 1.7: the integral cohomological main conjecture (FW Conjecture 1.5) for even weight and trivial nebentypus, p > 2, under the local exclusion at p and an auxiliary ramified prime ℓ",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Translation from FW's representation convention to the atlas normalization (half-weight twists)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Ordinary and, at crystalline nonordinary points, signed consequences via L0",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicCongruences:L4",
+       "note": "Deduces FW's pointwise theorem, including nonordinary and bad-reduction points, as the integral cohomological statement."
+      }
+     ]
+    },
+    "ModularIwasawaMainConjectures:L3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "BCS Theorem 1.1.2: for E/ℚ, p > 3 good ordinary and E[p] irreducible, the ordinary Selmer dual is torsion and the main conjecture holds over Λ[1/p]",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.HasGoodReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 325,
+         "fit": "related"
+        }
+       ],
+       "note": "Good reduction is defined, but ordinarity, the Galois action on E[p] and Selmer groups over the cyclotomic tower are absent."
+      },
+      {
+       "target": "Integral equality over Λ assuming σ ∈ G_(ℚ(μ_p∞)) with T_p(E)/(σ − 1)T_p(E) ≅ ℤ_p",
+       "library": "absent",
+       "declarations": [],
+       "note": "Tate modules are not defined."
+      },
+      {
+       "target": "Analytic p-adic L-function of E via its modular form, with the comparison of canonical periods and lattices and modularity as an explicit dependency",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicCongruences:L5b",
+       "note": "Supplies the cyclotomic theorem of BCS Theorem 1.1.2 itself, keeping the rational equality and the integral strengthening separate."
+      }
+     ]
+    },
+    "ModularIwasawaMainConjectures:L4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "FW Theorem 1.8 for the universal family: the zeta morphism trivializes the integral fundamental line over Λ ≅ O[[X₁,X₂,X₃]]",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Specializations by derived base change with Euler, local-condition and Tor corrections",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "LLZ signed main-conjecture comparison for crystalline forms, combined with T2 on the common hypotheses; simplification via LLZ Theorem 5.13 up to pseudo-null correction; comparison with Pollack's ± convention",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicCongruences:L4",
+       "note": "Deduces FW's universal-family theorem, distinguishing the determinant over the regular subring from a statement over the deformation ring."
+      }
+     ]
+    },
+    "ModularIwasawaMainConjectures:L5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Local Euler-factor change formulas, invariance under coefficient extension and the relation between the μ-invariants of the two sides",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Explicit examples (ordinary weight two, higher weight, crystalline nonordinary) with the hypotheses verified by ramification calculations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Greenberg's and Coates–Perrin-Riou's conjectures stated as propositions with all their inputs",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SelmerIwasawaCohomology:L4",
+       "note": "Also states RJW Conjecture 13.21 (the Greenberg-type conjecture) with its criticality, ordinary-filtration and corank hypotheses."
+      },
+      {
+       "layer": "AutomorphicPadicLFunctions:L5",
+       "note": "Also states the Coates–Perrin-Riou/Panchishkin existence problem for a specified realization and critical set."
+      }
+     ]
+    },
+    "ModularIwasawaMainConjectures:L6": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Map-level identifications of coefficient rings, contragredient actions, primitive/imprimitive local conditions, p-adic periods and the BDP square convention, used to re-export the anticyclotomic, Eisenstein and supersingular branch theorems",
+       "library": "absent",
+       "declarations": [],
+       "note": "Interface work over theorems owned by HE.8b, BSD.6a and BSD.7a; none of the objects exists in the libraries."
+      },
+      {
+       "target": "Comparison of the anticyclotomic characteristic equality over its completed unramified coefficient ring with the Heegner-index square, after the local logarithm and duality maps",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Replacement-source concordance for withdrawn preprints and the staged import order",
+       "library": "absent",
+       "declarations": [],
+       "note": "Bookkeeping."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeegnerPointEulerSystems:HE.8b",
+       "note": "Owns the ordinary anticyclotomic Heegner/BDP main-conjecture branch (BCS v2 Theorems 1.2.2/1.2.4) that L6 re-exports."
+      },
+      {
+       "layer": "RankZeroOneBSD:BSD.6a",
+       "note": "Owns the JSW supersingular and corrected multiplicative anticyclotomic branches that L6 re-exports."
+      },
+      {
+       "layer": "RankZeroOneBSD:BSD.7a",
+       "note": "Owns the good Eisenstein-prime branch (CGS, Keller–Yin) that L6 re-exports."
+      }
+     ]
+    }
+   }
+  },
+  "ModularSymbolsPadicLFunctions": {
+   "summary": "Neither library has modular symbols, Eichler–Shimura theory or any p-adic L-function of a modular form. Nearby material: Mathlib's L-function of a modular form for an arithmetic subgroup, with entire continuation for cusp forms and the untwisted Mellin identity Λ(f,s) = ∫ f(it) t^(s−1) dt, plus group (co)homology and coinvariants; Tau Ceti's Hecke operators T_n and U_p on forms with nebentypus, diamond operators, level raising V_d, bundled newforms with a_n = λ_n, and (strong) multiplicity one. Missing: modular symbols and parabolic cohomology with Hecke actions, period maps, coefficient fields and periods, the twisted Mellin formula and algebraicity, p-stabilization, distribution-valued symbols and Stevens' control theorem, the interpolation formula, the critical-slope constructions and the examples. L0 and L1 duplicate Tau Ceti's ModularForms Layer 8; L2 and L3 overlap PadicFamilies L2 and L3.",
+   "layers": {
+    "ModularSymbolsPadicLFunctions:L0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Degree-zero divisor module on P¹(ℚ) and modular symbols with values in a representation of the matrix semigroup (left/right actions, determinant factors)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Representation.Coinvariants",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Coinvariants.lean",
+         "line": 57,
+         "fit": "related"
+        }
+       ],
+       "note": "No divisor module on cusps or modular symbols in either library; only generic coinvariants and group (co)homology."
+      },
+      {
+       "target": "Compactly supported/parabolic cohomology of congruence subgroups with boundary maps and comparison theorems",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "groupCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean",
+         "line": 186,
+         "fit": "related"
+        },
+        {
+         "name": "groupHomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+         "line": 230,
+         "fit": "related"
+        }
+       ],
+       "note": "Only abstract group (co)homology exists."
+      },
+      {
+       "target": "Manin symbols and finite presentations",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "SpecialLinearGroup.SL2Z_generators",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/FixedDetMatrices.lean",
+         "line": 274,
+         "fit": "related"
+        },
+        {
+         "name": "ModularGroup.exists_smul_mem_fd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Modular.lean",
+         "line": 426,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ModularForm.fdBoundary",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/LevelOne/FundamentalDomainBoundary/Basic.lean",
+         "line": 227,
+         "fit": "related"
+        }
+       ],
+       "note": "Generation of SL₂(ℤ) by S and T and the level-one fundamental domain with its boundary exist; Manin symbols and the resulting presentation do not."
+      },
+      {
+       "target": "Hecke and diamond operators, nebentypus and the involution at infinity acting on modular symbols",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.heckeTCuspNat",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Operators.lean",
+         "line": 89,
+         "fit": "related"
+        },
+        {
+         "name": "diamondOp",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/DiamondOperators.lean",
+         "line": 148,
+         "fit": "related"
+        },
+        {
+         "name": "cuspFormCharSpace",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/DiamondOperators.lean",
+         "line": 279,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has these operators on modular and cusp forms (the diamond operators in the root namespace), not on symbols."
+      },
+      {
+       "target": "Eichler–Shimura period maps at general level: rational structures, Hecke equivariance, injectivity and eigenspace dimensions",
+       "library": "absent",
+       "declarations": [],
+       "note": "No period map or Eichler integral exists."
+      },
+      {
+       "target": "Elliptic stabilizers handled through a torsion-free auxiliary level and descent",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Functorial comparison with the analytic modular-curve carrier",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+       "note": "Builds the modular-symbol module from Div⁰(P¹(ℚ)) ⊗ Sym^(k−2), Manin symbols, the Hecke action on symbols and the injective period map (Eichler–Shimura) for Γ₁(N)."
+      },
+      {
+       "layer": "ModularCurvesPartII:R14.3",
+       "note": "Constructs ordinary, compactly supported and parabolic cohomology of modular curves with their local systems, comparisons and Hecke compatibility."
+      }
+     ]
+    },
+    "ModularSymbolsPadicLFunctions:L1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Coefficient field of a normalized newform and the plus/minus eigenspaces over it",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.Newform",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
+         "line": 102,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.Newform.qExpansion_coeff_eq_eigenvalue",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Coefficient.lean",
+         "line": 95,
+         "fit": "related"
+        }
+       ],
+       "note": "Newforms and a_n = λ_n exist; the coefficient field as a number field and the ± eigenspaces of symbols do not."
+      },
+      {
+       "target": "Period lines, scalar periods Ω_f^± after a choice of basis, and their dependence on that choice",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Saturated integral modular-symbol lattices and canonical integral periods up to O^× under multiplicity-one hypotheses",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.finrank_cuspFormsNewEigenspace_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/MultiplicityOne.lean",
+         "line": 188,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves multiplicity one for eigenspaces of forms, not of integral symbols."
+      },
+      {
+       "target": "Mellin formula relating integrals of f against z^j dz to L(f,χ,j+1) for 0 ≤ j ≤ w − 2, with the twist, Gauss-sum, orientation and (2πi)^(j+1) conventions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CuspForm.Λ_eq_mellin",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/LFunction.lean",
+         "line": 178,
+         "fit": "special case"
+        },
+        {
+         "name": "ModularForm.L",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/LFunction.lean",
+         "line": 134,
+         "fit": "related"
+        },
+        {
+         "name": "CuspForm.differentiable_L",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/LFunction.lean",
+         "line": 190,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves Λ(f,s) = Mellin transform of t ↦ f(it) for cusp forms, which is the untwisted case along the path 0 → i∞; twists by χ, Gauss sums and the general paths are missing."
+      },
+      {
+       "target": "Algebraicity of period-normalized critical values, with the sign chosen by parity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "RJW B.1 interpolation comparison through the character/period dictionary, including n = 0 and the p-stabilized versus newform L-function",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+       "note": "Also constructs the coefficient field of a newform as a number field through the integral structure of modular symbols."
+      },
+      {
+       "layer": "AutomorphicPadicLFunctions:L1",
+       "note": "Proves the critical-value formula with rational and period structures for GL₂ over a number field (BSW Theorem 5.7), which contains this layer's formula for F = ℚ."
+      }
+     ]
+    },
+    "ModularSymbolsPadicLFunctions:L2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "p-stabilizations for a root α of X² − a_p X + ε(p)p^(w−1), with their U_p eigenvalue, coefficient formula and Euler-factor change; at p | N the actual U_p eigenvalue",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.CuspForm.levelRaise",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Degeneracy.lean",
+         "line": 362,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.heckeUCuspNat",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/BadPrime/Basic.lean",
+         "line": 60,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.heckeUCuspNat_eq_smul_iff_forall_qExpansion_coeff_prime_mul",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/BadPrime/Eigenvector.lean",
+         "line": 56,
+         "fit": "related"
+        }
+       ],
+       "note": "The ingredients exist (V_p, U_p for p | N and the criterion U_p f = c f ⟺ a_{pm} = c a_m), but the p-stabilized form and its properties are not constructed."
+      },
+      {
+       "target": "Distribution-valued modular symbols and their specialization to polynomial-valued symbols",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Stevens' small-slope control theorem for h = v_p(α) < w − 1 via compact operators and filtration estimates",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Unique eigenlift, evaluation on {∞} − {0}, restriction to units, distribution relation, growth of order h, interpolation formula and uniqueness",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Boundedness for h = 0, and integrality of the measure from the integral lattice and period",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicFamilies:L2",
+       "note": "Proves the classicality/control theorem in the small-slope range for distribution-valued modular cohomology in families, whose specialization is this layer's control theorem."
+      }
+     ]
+    },
+    "ModularSymbolsPadicLFunctions:L3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Theta exact sequence and the distinction between slope w − 1, theta-criticality and critical refinements",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Pollack–Stevens construction under the non-theta-critical hypothesis",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Bellaïche construction with the eigencurve local algebra, generalized eigenspaces and secondary L-functions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Replacement for uniqueness at theta-critical points, and dependence on eigenvectors and periods",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Comparison of the critical constructions with the arithmetic one through a reciprocity or family theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicFamilies:L3",
+       "note": "Also proves the Pollack–Stevens non-theta-critical and Bellaïche critical-point results with their local eigenvariety and multiplicity hypotheses, including the theta-critical secondary construction."
+      }
+     ]
+    },
+    "ModularSymbolsPadicLFunctions:L4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Weight-two examples, tame character twists, both refinements at a good supersingular prime and the ordinary case",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Functoriality under coefficient embeddings, primitive/imprimitive level changes and matching of local Euler factors",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "The α = 0 case through the de Rham arithmetic construction",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": []
+    }
+   }
+  },
   "NoncommutativeAndEquivariantIwasawa": {
    "summary": "Neither library contains any noncommutative Iwasawa theory. The available inputs are generic: Mathlib's Ore localization with its universal property and injectivity for non-zero-divisor denominators, Noetherianity of commutative power-series rings, characters of finite-group representations and continuous group cohomology, and Tau Ceti's pro-p groups, K₀ of exact, abelian and triangulated categories, low-degree continuous cohomology with Shapiro's lemma, and the reduced norm of quaternion algebras only. Everything specific is missing: completed group rings of p-adic Lie groups and their noetherianity, the canonical Ore set and S-torsion categories, K₁ and relative K₀ with the localization sequence, characteristic elements, reduced norms and SK₁, Artin evaluation, equivariant Iwasawa complexes, zeta elements, the Kakde and Ritter–Weiss theorems and leading-term descent. NE.0 duplicates PadicMeasuresIwasawaAlgebras L1, NE.4 overlaps IntegralIwasawaTheory I.8 and NE.5 overlaps PeriodsAndSpecialValues PS.5.",
    "layers": {
@@ -383,6 +1001,496 @@
        "library": "absent",
        "declarations": [],
        "note": "Fitting invariants are not defined."
+      }
+     ],
+     "duplicates": []
+    }
+   }
+  },
+  "PadicHodgeRegulators": {
+   "summary": "The libraries hold only foundational fragments: Mathlib's B_dR^+ and B_dR (completions of W(R♭)[1/p] along ker θ, with Fontaine's θ surjective), Witt-vector Teichmüller and Frobenius maps, arithmetic Frobenius elements, the classification of one-dimensional isocrystals, continuous group cohomology and Nakayama; Tau Ceti adds the Teichmüller lift and unit filtration of a local field and the Kummer map Kˣ → H¹(G_K, μ_n). Genuinely missing are Coleman integration and p-adic polylogarithms, étale and syntomic regulators, K₃ of local fields and the unramified theorem K₃(L;ℤ_p) ≅ p²O_L, the decomposition F ⊗ ℚ_p ≅ ∏ F_v, B_cris, B_st and the period functors, Bloch–Kato exponentials, (φ,Γ)-modules, Perrin-Riou's big logarithm, the Lei–Loeffler–Zerbes Coleman maps and the de Rham regulator. L0 is integration only (it imports PadicHodgeTheory R06.1–R06.2); D.2 overlaps MotivicEtaleKTheory M.8, D.3 overlaps KTheoryFiniteLocalFields L.6 and D.5 overlaps EllipticRegulators ER.8.",
+   "layers": {
+    "PadicHodgeRegulators:D.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "p-adic logarithm with a normalized branch on the units and uniformizers of a local field",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NormedSpace.logOneAdd",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Normed/Algebra/LogOneAdd/Basic.lean",
+         "line": 66,
+         "fit": "related"
+        },
+        {
+         "name": "NormedSpace.hasFPowerSeriesOnBall_logOneAdd",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Normed/Algebra/LogOneAdd/Basic.lean",
+         "line": 117,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's log(1+u) series has its radius theorem under [ContinuousSMul ℚ≥0 𝕂], which fails for p-adic fields, so no p-adic logarithm (let alone a branch with log_p(p) fixed) is available."
+      },
+      {
+       "target": "Coleman analytic continuation and p-adic polylogarithms Li_k (imported from ColemanIntegration)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has Coleman integration or p-adic polylogarithms."
+      },
+      {
+       "target": "Regulator-specific comparison of branch, Frobenius and modified-dilogarithm conventions of GSWZ, with the extension-of-scalars square",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Teichmüller representatives, roots of unity and Frobenius as the existing local-field and Witt-vector objects",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "TauCeti.teichmuller",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
+         "line": 100,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.range_teichmuller",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
+         "line": 175,
+         "fit": "exact"
+        },
+        {
+         "name": "WittVector.teichmuller",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
+         "line": 93,
+         "fit": "exact"
+        },
+        {
+         "name": "WittVector.frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 221,
+         "fit": "exact"
+        },
+        {
+         "name": "IsArithFrobAt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Frobenius.lean",
+         "line": 183,
+         "fit": "more general"
+        }
+       ],
+       "note": "Tau Ceti's Teichmüller lift 𝓀[K]ˣ →* 𝒪[K]ˣ has image μ_{q−1}; Mathlib has Witt-vector Teichmüller and Frobenius maps and arithmetic Frobenius elements for finite group actions on rings."
+      },
+      {
+       "target": "Unit decomposition 𝒪_Lˣ ≅ μ_{q−1} × U¹",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ValuationSubring.unitsModPrincipalUnitsEquivResidueFieldUnits",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+         "line": 746,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.rootsOfUnityEquivResidueFieldUnits",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
+         "line": 80,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.unitFiltration",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean",
+         "line": 88,
+         "fit": "related"
+        }
+       ],
+       "note": "Units modulo principal units ≅ residue units and μ_{q−1} ≅ residue units are proved; the internal product decomposition is not stated."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ColemanIntegration:L2",
+       "note": "Owns the p-adic polylogarithms, their Frobenius relations and evaluation at roots of unity; D.1 imports them and only adds the GSWZ normalization comparison."
+      }
+     ]
+    },
+    "PadicHodgeRegulators:D.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Étale Chern regulator from K-theory to continuous Galois cohomology",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.kummerMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 187,
+         "fit": "related"
+        },
+        {
+         "name": "continuousCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+         "line": 131,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the degree-one Kummer map Kˣ → H¹(G_K, μ_n) with finite coefficients exists (injective on Kˣ/(Kˣ)ⁿ); no higher K-groups or Chern classes."
+      },
+      {
+       "target": "Filtered de Rham complexes with Frobenius data, the syntomic mapping fibre and the syntomic regulator in the smooth/unramified setting",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Comparison of the syntomic and étale regulators via a p-adic comparison theorem, with its hypotheses and integral range",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "In degree three and weight two, comparison with the explicit p-adic dilogarithm on the Bloch-group model, with the scalar/Frobenius normalization",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither Bloch groups nor p-adic dilogarithms exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "MotivicEtaleKTheory:M.8",
+       "note": "Also constructs étale Chern classes on K-theory and their compatibilities with norms, residues and products."
+      }
+     ]
+    },
+    "PadicHodgeRegulators:D.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "K₃(L;ℤ_p) by derived p-completion for a finite product L of unramified extensions of ℚ_p, with the product comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "No higher algebraic K-theory in either library."
+      },
+      {
+       "target": "Identification of completed K₃ with the local H¹ group, free of rank equal to the total local degree",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "p²-integrality of the p-adic dilogarithm under the stated hypotheses on z and 1 − z, and its leading reduction mod p by the finite-polylogarithm identity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Spanning of the residue space by values at roots of unity, surjectivity by Nakayama, and D_p : K₃(L;ℤ_p) ≅ p²O_L for p > 3",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Submodule.eq_bot_of_le_smul_of_le_jacobson_bot",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Nakayama.lean",
+         "line": 118,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the Nakayama lemma used in the last step is available."
+      },
+      {
+       "target": "Roots-of-unity Bloch classes via coefficient-localized or integral multiples, compared with GSWZ's [ζ]",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "KTheoryFiniteLocalFields:L.6",
+       "note": "Also identifies K_{2j−1}(L;ℤ_p) for finite extensions of ℚ_p via Galois cohomology and computes its rank [L:ℚ_p], the first step of this layer's proof."
+      }
+     ]
+    },
+    "PadicHodgeRegulators:D.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "F ⊗ ℚ_p ≅ ∏_{v|p} F_v for p unramified in the number field F",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsDedekindDomain.HeightOneSpectrum.adicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+         "line": 602,
+         "fit": "related"
+        }
+       ],
+       "note": "Completions at finite places exist (and L_w is finite over K_v), but the decomposition of the base change into a product of completions is not proved."
+      },
+      {
+       "target": "Localisation map from global K₃, compatibility with all local embeddings, and application of D.3",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Compatibility of the localized regulator with norm/trace and with Frobenius",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsArithFrobAt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Frobenius.lean",
+         "line": 183,
+         "fit": "related"
+        }
+       ],
+       "note": "Frobenius elements exist; the regulator does not."
+      },
+      {
+       "target": "Images of torsion classes and of rationally specified classes with controlled denominators; export in the Habiro-gluing normalization",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": []
+    },
+    "PadicHodgeRegulators:D.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Degree-two syntomic regulator of a smooth proper curve with good reduction",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Comparison with the explicit symbol formula",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Pullback, pushforward and specialisation formulas for the regulator",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Statement of the additional logarithmic/syntomic input needed for bad or semistable reduction",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EllipticRegulators:ER.8",
+       "note": "In the good-reduction cases of D.5 also compares the syntomic regulator with the explicit symbols and their p-adic elliptic integrals."
+      }
+     ]
+    },
+    "PadicHodgeRegulators:L0": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Period rings B_dR^+, B_dR, B_cris, B_st imported from PadicHodgeTheory",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "exact"
+        },
+        {
+         "name": "BDeRham",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 90,
+         "fit": "exact"
+        },
+        {
+         "name": "WittVector.fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 165,
+         "fit": "exact"
+        },
+        {
+         "name": "surjective_fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 195,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib defines B_dR^+ and B_dR and proves θ surjective; filtration, Galois action, B_cris and B_st are missing (the file lists extending θ and the DVR property as TODO)."
+      },
+      {
+       "target": "Realizations D_HT, D_dR, D_cris, D_st with tensor/dual/descent statements and admissibility, imported",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.Isocrystal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 113,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.isocrystal_classification",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 183,
+         "fit": "related"
+        }
+       ],
+       "note": "Only isocrystals over K(p,k) and the classification of one-dimensional ones exist."
+      },
+      {
+       "target": "Integral comparison imported from FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Checks that Hodge–Tate, Frobenius, monodromy and logarithm conventions match the regulator",
+       "library": "absent",
+       "declarations": [],
+       "note": "Convention audit; nothing to check against yet."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicHodgeTheory:R06.1",
+       "note": "Owner of the period rings B_dR^+, B_dR, B_cris^+, B_cris, B_st; L0 only imports them."
+      },
+      {
+       "layer": "PadicHodgeTheory:R06.2",
+       "note": "Owner of the period functors, admissibility and filtered (φ,N)-modules; L0 only imports them."
+      }
+     ]
+    },
+    "PadicHodgeRegulators:L1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Bloch–Kato exponential and dual exponential from the fundamental exact sequences over a finite extension of ℚ_p",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Their domains, kernels, local duality relation and twist compatibilities",
+       "library": "absent",
+       "declarations": [],
+       "note": "Local Tate duality is also absent."
+      },
+      {
+       "target": "The finite (Bloch–Kato) local condition",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Semilocal versions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": []
+    },
+    "PadicHodgeRegulators:L2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "(φ,Γ)-modules over the analytic coefficient rings and the ψ-complex computation of Iwasawa cohomology (imported from PhiGammaModulesAndIwasawaCohomology PG.0–PG.6)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No (φ,Γ)-modules, Robba rings or Iwasawa cohomology in either library."
+      },
+      {
+       "target": "Regulator-specific choice-of-generator, twist, lattice and basis comparisons with SelmerIwasawaCohomology",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": []
+    },
+    "PadicHodgeRegulators:L3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Perrin-Riou's big logarithm L_V : H¹_Iw(ℚ_p,V) → H(G) ⊗ D_cris(V) for crystalline V, with its Δ-isotypic H(Γ) form",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither Iwasawa cohomology nor the locally analytic distribution algebra H(G) exists."
+      },
+      {
+       "target": "Standard choices and the auxiliary h of the big exponential, with their comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Interpolation at every finite-order character and integral twist via Bloch–Kato maps, with Euler operators on their domains",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Linearity, Galois/weight equivariance, growth bounds, determinant/reciprocity formula, lattice integrality and scalar extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Identification of the rank-one Tate case with the Coleman map, with its sign and twist",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": []
+    },
+    "PadicHodgeRegulators:L4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Lei–Loeffler–Zerbes Coleman maps from Wach bases and the logarithmic matrix decomposing the vector regulator",
+       "library": "absent",
+       "declarations": [],
+       "note": "Wach modules are absent."
+      },
+      {
+       "target": "Image descriptions and change-of-basis formulas, including integral refinements",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Rodrigues Jacinto's regulator for de Rham (φ,Γ)-modules with its growth and interpolation range, and its comparison with crystalline Perrin-Riou theory",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
       }
      ],
      "duplicates": []
@@ -984,6 +2092,13 @@
          "fit": "related"
         },
         {
+         "name": "PowerSeries.subst",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+         "line": 158,
+         "fit": "related"
+        },
+        {
          "name": "AbstractMeasure.map",
          "library": "mathlib",
          "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
@@ -991,7 +2106,7 @@
          "fit": "related"
         }
        ],
-       "note": "Only the formal derivative of power series and pushforward of measures exist; none of the operators is defined on measures or transported through the Amice transform."
+       "note": "Only the formal derivative of power series, substitution (which gives T ↦ (1+T)^p − 1) and pushforward of measures exist; none of the operators is defined on measures or transported through the Amice transform."
       }
      ],
      "duplicates": [
@@ -1362,6 +2477,13 @@
          "fit": "related"
         },
         {
+         "name": "TopCat.nonempty_limitCone_of_compact_t2_cofiltered_system",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Category/TopCat/Limits/Konig.lean",
+         "line": 126,
+         "fit": "related"
+        },
+        {
          "name": "AdicCompletion.map_exact",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/AdicCompletion/Exactness.lean",
@@ -1369,7 +2491,7 @@
          "fit": "special case"
         }
        ],
-       "note": "Mathlib has Mittag-Leffler systems of types, nonempty limits of finite (and compact Hausdorff) cofiltered systems, and exactness of adic completion on finite modules over a Noetherian ring; exactness of limits of compact topological modules is not stated."
+       "note": "Mathlib has Mittag-Leffler systems of types, nonempty limits of finite and of compact Hausdorff cofiltered systems, and exactness of adic completion on finite modules over a Noetherian ring; exactness of limits of compact topological modules is not stated."
       },
       {
        "target": "Topological Nakayama for compact modules and finite generation from a finite residual quotient",
