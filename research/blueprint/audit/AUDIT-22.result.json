@@ -1081,13 +1081,28 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib has ℤ_[p] as the inverse limit of ZMod (p^n) at ring level (compatible families lift uniquely, elements are determined by their reductions). Missing: Ẑ, any topological identification with the limit, and every group-level step of the chain."
+       "note": "Mathlib has only the algebraic half of step 2: compatible families of ring homomorphisms into the ZMod (p^n) lift uniquely to ℤ_[p] (`PadicInt.lift`), and elements are determined by their reductions (`ext_of_toZModPow`). There is no continuity statement for `toZModPow` and no topological or group isomorphism with the inverse limit. Missing: Ẑ, the topological identification, and every group-level step of the chain."
       },
       {
        "target": "Abelian pro-p groups: continuous ℤ_p-exponentiation, topological ℤ_p-module structure, automatic ℤ_p-linearity of continuous homomorphisms; topologically finitely generated ⇒ finitely generated ℤ_p-module",
        "library": "absent",
-       "declarations": [],
-       "note": "grep for ℤ_[p]-module structures on pro-p or profinite abelian groups, padic exponentiation and IsProP with PadicInt finds nothing in either tree."
+       "declarations": [
+        {
+         "name": "PadicInt.addChar_of_value_at_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/AddChar.lean",
+         "line": 60,
+         "fit": "related"
+        },
+        {
+         "name": "PadicInt.continuousAddCharEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/AddChar.lean",
+         "line": 103,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's only ℤ_p-exponentiation is for topologically unipotent elements of complete normed ℤ_[p]-algebras: `PadicInt.addChar_of_value_at_one` is the continuous character a ↦ (1+r)^a for r with rⁿ → 0, and `continuousAddCharEquiv` classifies continuous characters of ℤ_[p] this way. Nothing gives abelian pro-p groups a ℤ_p-action or a ℤ_p-module structure, and no statement links `IsProP` with `PadicInt`."
       },
       {
        "target": "Structure theorem A ≅ ℤ_p^r × T for topologically finitely generated abelian pro-p A, with uniqueness of r and the elementary divisors",
@@ -1101,7 +1116,7 @@
          "fit": "more general"
         }
        ],
-       "note": "The algebraic structure theorem for finitely generated modules over a PID applies to ℤ_[p] (a DVR in Mathlib); the pro-p/topological version and the passage from abelian pro-p groups to ℤ_p-modules are missing."
+       "note": "The algebraic structure theorem for finitely generated modules over a PID applies to ℤ_[p] (a DVR in Mathlib) but states existence only. Missing: uniqueness of r and of the elementary divisors, the pro-p/topological version, and the passage from abelian pro-p groups to ℤ_p-modules."
       }
      ],
      "duplicates": []
@@ -1416,9 +1431,30 @@
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Coinduced.lean",
          "line": 329,
          "fit": "related"
+        },
+        {
+         "name": "continuousCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+         "line": 131,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.finiteQuotientSystem",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Basic.lean",
+         "line": 319,
+         "fit": "related"
+        },
+        {
+         "name": "groupCohomology.coindIso",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Shapiro.lean",
+         "line": 59,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti has coinduced discrete modules and Shapiro only in degrees 0 and 1 (closed subgroups, profinite G); there is no all-degree continuous cohomology tool, no acyclicity of Coind_1 and no dimension shifting."
+       "note": "All-degree tools exist, but not the continuous ones this layer needs. Mathlib's `continuousCohomology n` is defined in every degree, Tau Ceti adds an all-degree finite-quotient system (`finiteQuotientSystem`, without its colimit comparison), and Mathlib's Shapiro isomorphism `groupCohomology.coindIso` holds in every degree for abstract groups. For continuous cohomology Tau Ceti has coinduced discrete modules and Shapiro only in degrees 0 and 1 (closed subgroups, profinite G), and its long exact sequence stops at H². There is no acyclicity of Coind_1, no dimension shifting and no dévissage."
       },
       {
        "target": "Free pro-p ⇒ cd_p ≤ 1, and Serre: cd_p G ≤ 1 ⇒ G free pro-p for topologically finitely generated G",
@@ -1584,7 +1620,12 @@
        "note": "No Demushkin groups or cd_p."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+       "note": "LocalFieldsRamification Layer 1 proves 𝒪[K]ˣ ≃ μ_{q−1} × U(K,1) and the deep-unit logarithm U(K,i) ≅ 𝓂[K]^i for (p−1)i > e over finite K/ℚ_p; at K = ℚ_p these are the decomposition ℤ_pˣ ≅ μ_{p−1} × (1 + pℤ_p) and the isomorphisms 1 + pℤ_p ≅ pℤ_p (p odd) and 1 + 4ℤ₂ ≅ 4ℤ₂ that T5 states."
+      }
+     ]
     },
     "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-8-the-central-tower-comparison-method-and-finite-quotient-determinacy": {
      "verdict": "not built",
@@ -1700,7 +1741,7 @@
      "targets": [
       {
        "target": "Bilinear forms over 𝔽_p: left and right radicals, left and right nondegeneracy agreeing in finite dimension, transport and equivalence of forms",
-       "library": "mathlib",
+       "library": "both",
        "declarations": [
         {
          "name": "LinearMap.BilinForm.Nondegenerate",
@@ -1717,18 +1758,11 @@
          "fit": "more general"
         },
         {
-         "name": "LinearMap.BilinForm.nondegenerate_iff_ker_eq_bot",
-         "library": "mathlib",
-         "file": "Mathlib/LinearAlgebra/Matrix/BilinearForm.lean",
-         "line": 524,
-         "fit": "exact"
-        },
-        {
-         "name": "LinearMap.separatingLeft_iff_ker_eq_bot",
-         "library": "mathlib",
-         "file": "Mathlib/LinearAlgebra/SesquilinearForm/Basic.lean",
-         "line": 674,
-         "fit": "exact"
+         "name": "TauCeti.leftRadical",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/SesquilinearForm/NumericalQuotient/Basic.lean",
+         "line": 90,
+         "fit": "more general"
         },
         {
          "name": "LinearMap.BilinForm.congr",
@@ -1736,9 +1770,16 @@
          "file": "Mathlib/LinearAlgebra/BilinearForm/Hom.lean",
          "line": 201,
          "fit": "exact"
+        },
+        {
+         "name": "LinearMap.BilinForm.Equivalent",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/BilinearForm/IsometryEquiv.lean",
+         "line": 46,
+         "fit": "exact"
         }
        ],
-       "note": "Radicals appear as the kernels of the form and its flip; one-sided nondegeneracy implies nondegeneracy for finite free modules over a domain; congr transports forms along linear equivalences. Mathlib has no named radical submodule for bilinear forms."
+       "note": "Tau Ceti names the left and right radicals (`TauCeti.leftRadical` is `b.ker`, `rightRadical` is `b.flip.ker`) for any sesquilinear map over a commutative ring, with `separatingLeft_iff_leftRadical_eq_bot` and its right analogue. In Mathlib, one-sided nondegeneracy implies nondegeneracy for finite free modules over a domain (`Nondegenerate.ofSeparatingLeft`/`ofSeparatingRight`, `nondegenerate_iff_ker_eq_bot`), `congr` transports forms along linear equivalences, and `LinearMap.BilinForm.Equivalent` is the existence of an isometry equivalence, with nondegeneracy transported by `Nondegenerate.congr`."
       },
       {
        "target": "Alternating implies skew-symmetric in every characteristic; at p = 2 skew-symmetric equals symmetric and x ↦ b(x,x) is semilinear; for odd p symmetric and alternating forces zero",
@@ -1750,9 +1791,16 @@
          "file": "Mathlib/LinearAlgebra/BilinearForm/Properties.lean",
          "line": 242,
          "fit": "exact"
+        },
+        {
+         "name": "TauCeti.BilinForm.eq_zero_of_isSymm_of_isAlt",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/BilinearForm/Basic.lean",
+         "line": 42,
+         "fit": "more general"
         }
        ],
-       "note": "Alternating ⇒ skew-symmetric is in Mathlib; the characteristic-2 and odd-characteristic comparisons are not stated."
+       "note": "Alternating ⇒ skew-symmetric is in Mathlib over any commutative ring, and Tau Ceti proves that a symmetric alternating form is zero whenever 2 is left-regular (`TauCeti.BilinForm.eq_zero_of_isSymm_of_isAlt`), which covers odd p. Only the characteristic-2 comparisons are not stated: skew-symmetric equals symmetric, and x ↦ b(x,x) is additive and semilinear."
       },
       {
        "target": "Symplectic normal form: a nondegenerate alternating form over any field (including characteristic 2) has a basis with blocks [[0,1],[−1,0]], so the dimension is even",
@@ -1846,9 +1894,30 @@
          "file": "TauCeti/RingTheory/Huber/Padic/Basic.lean",
          "line": 74,
          "fit": "related"
+        },
+        {
+         "name": "PadicInt.norm_lt_one_iff_dvd",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+         "line": 489,
+         "fit": "related"
+        },
+        {
+         "name": "tendsto_pow_atTop_nhds_zero_of_norm_lt_one",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecificLimits/Normed.lean",
+         "line": 222,
+         "fit": "related"
+        },
+        {
+         "name": "Ideal.isLinearTopology",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Nonarchimedean/AdicTopology.lean",
+         "line": 118,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib evaluates power series at topologically nilpotent elements of complete linearly topologized rings (eval₂, aeval). Neither library supplies IsLinearTopology ℤ_[p] ℤ_[p] or topological nilpotence of p-divisible elements, although Tau Ceti proves the p-adic topology is (p)-adic; the ℤ_p statement is not stated."
+       "note": "Mathlib evaluates power series at topologically nilpotent elements of complete linearly topologized rings (`eval₂`, `aeval`). For ℤ_[p] both inputs are one step away: an element divisible by p has norm < 1, so its powers tend to 0 (`PadicInt.norm_lt_one_iff_dvd`, `tendsto_pow_atTop_nhds_zero_of_norm_lt_one`), which is `HasEval`; `IsLinearTopology ℤ_[p] ℤ_[p]` is not an instance but follows from `Ideal.isLinearTopology` and Tau Ceti's proof that the topology of ℤ_[p] is (p)-adic. The ℤ_p evaluation homomorphism itself is not stated."
       },
       {
        "target": "Division criterion (T − c) ∣ ψ in ℤ_p[[T]] iff ψ(c) = 0, for v_p(c) ≥ 1",
@@ -1902,6 +1971,10 @@
       {
        "layer": "PadicMeasuresIwasawaAlgebras:L4",
        "note": "L4 proves Weierstrass division and preparation for O[[T]], of which the (T − c) division criterion is a special case."
+      },
+      {
+       "layer": "IntegralIwasawaTheory:I.1",
+       "note": "I.1 identifies the procyclic quotient with ℤ_p after choosing a generator, proves the generator-change formulas for Λ = ℤ_p[[Γ]] and describes the finite-level kernels ((1+T)^{p^n} − 1), overlapping T7's power-series coordinate, its generator dependence and the filtration statement."
       }
      ]
     },
@@ -2008,50 +2081,29 @@
    }
   },
   "EnhancedDerivedSheaves": {
-   "summary": "Nothing homotopy-coherent in this roadmap exists: neither library has equivalences or mapping spaces of quasicategories, dg nerves, stable ∞-categories, straightening, presentable ∞-categories, hypercover descent, Postnikov/left completion, derived completion, ∞-operads, animated rings or spectra. Mathlib supplies the named starting points: quasicategories with inner fibrations, nerves and quasicategorical internal homs, Dold–Kan and the simplicial nerve, sheaves of modules as a Grothendieck abelian category with enough injectives, K-injective complexes, the unbounded derived category with t-structures, and 1-categorical Kan extensions, adjoint functor theorems, orthogonal reflections, mates, Karoubi and Ind-completions, sifted colimits and the naive cotangent complex; Tau Ceti adds the DG enrichment of complexes. Everything the layers actually own (the enhancement, its sheaf-theoretic operations, descent, coherent adjoints, derived completion of sheaves, monoidal and animated structures, the spectra comparison) remains to be built, and E5:cotangent-export only re-exports DerivedDeRhamCohomology DD.0.",
+   "summary": "Nothing homotopy-coherent in this roadmap exists: neither library has mapping spaces of quasicategories or an API for their equivalences, dg nerves, stable ∞-categories, straightening, presentable ∞-categories, hypercover descent, limits of Postnikov towers or left completion, derived completion, ∞-operads, E∞-algebras, animated rings or spectra. Mathlib supplies the named starting points and their 1-categorical shadows: quasicategories with inner fibrations, nerves, quasicategorical internal homs and the homotopy 2-category of quasicategories, Dold–Kan and the simplicial nerve, sheaves of modules as a Grothendieck abelian category with enough injectives, K-injective complexes, the unbounded derived category with t-structures, truncation towers and detection of isomorphisms by cohomology, repleteness of coherent and light condensed topoi, and 1-categorical Kan extensions, adjoint functor theorems, orthogonal reflections, mates, Karoubi and Ind-completions, sifted colimits and the naive cotangent complex; Tau Ceti adds the DG enrichment of complexes. Everything the layers actually own (the enhancement, its sheaf-theoretic operations, descent, coherent adjoints, derived completion of sheaves, monoidal and animated structures, the positive-characteristic E∞ comparison and the spectra comparison) remains to be built; apart from that comparison, E5:cotangent-export re-exports DerivedDeRhamCohomology DD.0.",
    "layers": {
     "EnhancedDerivedSheaves:E0": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
-       "target": "Quasicategories with inner horn filling, inner fibrations and the categorical nerve API",
-       "library": "mathlib",
+       "target": "Equivalence, mapping-space, functor and natural-transformation theory for quasicategories, with extended universe support",
+       "library": "partial",
        "declarations": [
         {
          "name": "SSet.Quasicategory",
          "library": "mathlib",
          "file": "Mathlib/AlgebraicTopology/Quasicategory/Basic.lean",
          "line": 41,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "SSet.InnerFibration",
          "library": "mathlib",
          "file": "Mathlib/AlgebraicTopology/Quasicategory/InnerFibration.lean",
          "line": 72,
-         "fit": "exact"
+         "fit": "related"
         },
-        {
-         "name": "SSet.quasicategory_iff_innerFibration",
-         "library": "mathlib",
-         "file": "Mathlib/AlgebraicTopology/Quasicategory/InnerFibration.lean",
-         "line": 78,
-         "fit": "exact"
-        },
-        {
-         "name": "CategoryTheory.Nerve.quasicategory",
-         "library": "mathlib",
-         "file": "Mathlib/AlgebraicTopology/Quasicategory/Nerve.lean",
-         "line": 32,
-         "fit": "exact"
-        }
-       ],
-       "note": "These are the inputs the layer names for reuse."
-      },
-      {
-       "target": "Equivalence, mapping-space, functor and natural-transformation theory for quasicategories, with extended universe support",
-       "library": "partial",
-       "declarations": [
         {
          "name": "SSet.innerFibration_pullbackObjObjπ",
          "library": "mathlib",
@@ -2065,9 +2117,16 @@
          "file": "Mathlib/AlgebraicTopology/SimplicialSet/HomotopyCat.lean",
          "line": 613,
          "fit": "related"
+        },
+        {
+         "name": "SSet.QCat.bicategory",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicTopology/Quasicategory/StrictBicategory.lean",
+         "line": 66,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib proves that the internal hom Fun(A,X) into a quasicategory is a quasicategory (anonymous instance at PushoutProduct.lean:156, via the cited pullback-hom lemma) and has the homotopy-category functor; equivalences of quasicategories, the Joyal model structure and mapping spaces are missing."
+       "note": "E0 reuses Mathlib's quasicategories, inner fibrations and nerve API (`SSet.Quasicategory`, `SSet.InnerFibration`, `SSet.quasicategory_iff_innerFibration`, `CategoryTheory.Nerve.quasicategory`), which the layer names as inputs. Mathlib also proves that the internal hom Fun(A,X) into a quasicategory is a quasicategory (anonymous instance at PushoutProduct.lean:156, via the cited pullback-hom lemma), has the homotopy-category functor, and has the homotopy 2-category of quasicategories (`SSet.QCat.bicategory`, `SSet.QCat.strictBicategory`), in which equivalences can be expressed through `Bicategory.Equivalence`. Missing: an API for equivalences of quasicategories, the Joyal model structure, mapping spaces, and the extended universe support (Quasicategory/Basic.lean records the universe restriction as a TODO)."
       },
       {
        "target": "dg nerve of a DG category via truncation and Dold–Kan of mapping complexes, with coherent composition and mapping-space and homotopy-category descriptions",
@@ -2271,7 +2330,7 @@
       },
       {
        "target": "Symmetric monoidal coherence, derived internal Hom, change of coefficients, compatibility with ordinary derived functors, detection of equivalences by quasi-isomorphisms and cohomology sheaves",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "CategoryTheory.Functor.mapDerivedCategory",
@@ -2286,9 +2345,30 @@
          "file": "Mathlib/CategoryTheory/Functor/Derived/RightDerived.lean",
          "line": 202,
          "fit": "related"
+        },
+        {
+         "name": "DerivedCategory.isIso_iff",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/DerivedCategory/HomologySequence.lean",
+         "line": 88,
+         "fit": "special case"
+        },
+        {
+         "name": "DerivedCategory.isIso_Q_map_iff_quasiIso",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+         "line": 283,
+         "fit": "special case"
+        },
+        {
+         "name": "SheafOfModules.restrictScalars",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/ModuleCat/Sheaf/ChangeOfRings.lean",
+         "line": 36,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib has derived functors of exact functors and total derived functors as Kan extensions, 1-categorically; no derived internal Hom and no monoidal structure on derived categories of sheaves."
+       "note": "The 1-categorical detection statements exist: a morphism of D(A) is an isomorphism iff it induces isomorphisms on all cohomology objects (`DerivedCategory.isIso_iff`; cohomology sheaves when A is a sheaf category), and a morphism of complexes becomes an isomorphism in D(A) iff it is a quasi-isomorphism (`DerivedCategory.isIso_Q_map_iff_quasiIso`). Change of coefficients exists underived (`SheafOfModules.restrictScalars`), and Mathlib has derived functors of exact functors and total derived functors as Kan extensions. Missing: the enhanced versions, symmetric monoidal coherence, derived internal Hom and any monoidal structure on derived categories of sheaves."
       }
      ],
      "duplicates": [
@@ -2324,6 +2404,13 @@
          "fit": "related"
         },
         {
+         "name": "CategoryTheory.Triangulated.TStructure.eTruncGE",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/TStructure/ETrunc.lean",
+         "line": 85,
+         "fit": "related"
+        },
+        {
          "name": "DerivedCategory.TStructure.t",
          "library": "mathlib",
          "file": "Mathlib/Algebra/Homology/DerivedCategory/TStructure.lean",
@@ -2331,12 +2418,26 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib has t-structures, truncation functors and the canonical t-structure on D(A), all 1-categorical; Postnikov towers, their limits and left completion are absent (grep postnikov, \"left complet\" returns nothing)."
+       "note": "Mathlib has t-structures, truncation functors, the canonical t-structure on D(A) and the Postnikov tower of a t-structure as a functor (`TStructure.eTruncGE : EInt ⥤ C ⥤ C`, with `eTruncLT`), all 1-categorical. Limits of the tower (ordinary or enhanced), their convergence and the left completion with its universal comparison are absent (grep postnikov, 'left complet' finds nothing)."
       },
       {
        "target": "Replete-topos results (Bhatt–Scholze §3): exactness of inverse limits of surjections, convergence of derived Postnikov towers, unbounded cohomological descent, the bounded-below comparison and the finite cohomological dimension criterion",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
+        {
+         "name": "CategoryTheory.coherentTopology.epi_π_app_zero_of_epi",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/Coherent/SequentialLimit.lean",
+         "line": 113,
+         "fit": "special case"
+        },
+        {
+         "name": "LightCondensed.epi_π_app_zero_of_epi",
+         "library": "mathlib",
+         "file": "Mathlib/Condensed/Light/Epi.lean",
+         "line": 109,
+         "fit": "special case"
+        },
         {
          "name": "AlgebraicGeometry.Scheme.ProEt.topology",
          "library": "mathlib",
@@ -2345,7 +2446,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib has the pro-étale site of a scheme but no repleteness or hypercompleteness (grep replete finds only the isomorphism-closed sense)."
+       "note": "Mathlib proves the first replete-topos property for particular topoi: a sequential limit of epimorphisms of sheaves is epimorphic for the coherent topology on a preregular finitary extensive category whose sequential limits preserve effective epimorphisms (`coherentTopology.epi_π_app_zero_of_epi`), and for light condensed modules (`LightCondensed.epi_π_app_zero_of_epi`, with `CountableAB4Star (LightCondMod R)`). There is no general notion of a replete topos, and convergence of derived Postnikov towers, unbounded cohomological descent, the bounded-below comparison and the finite cohomological dimension criterion are absent. Mathlib has the pro-étale site of a scheme."
       },
       {
        "target": "Simplicial sites, cartesian complexes, hypercovers and totalizations; enhanced equivalence of sheaves with cartesian objects on a hypercover, cofinality and independence of the hypercover",
@@ -2817,7 +2918,7 @@
      "duplicates": []
     },
     "EnhancedDerivedSheaves:E5:cotangent-export": {
-     "verdict": "process",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Cotangent complex with derivation characterization, transitivity and base change, derived exterior powers and Tor-amplitude tests (the DD.0 interface), and comparison with E∞-algebras in positive characteristic in proved ranges",
@@ -2845,13 +2946,13 @@
          "fit": "special case"
         }
        ],
-       "note": "Mathlib has the naive (two-term) cotangent complex, its H¹ and the Jacobi–Zariski sequence; the full derived cotangent complex, derived exterior powers, Tor amplitude and E∞ comparisons are missing."
+       "note": "The DD.0 interface is partial in Mathlib: the naive (two-term) cotangent complex, its H¹ and the Jacobi–Zariski sequence exist; the full derived cotangent complex, derived exterior powers and Tor amplitude are missing, and DD.0 owns them. The positive-characteristic comparison with E∞-algebras in proved ranges is stated only in this stage (DD.0 does not mention E∞-algebras) and is absent: neither library has E∞-algebras."
       }
      ],
      "duplicates": [
       {
        "layer": "DerivedDeRhamCohomology:DD.0",
-       "note": "DD.0 constructs every mathematical object of this stage (cotangent complex, derivation characterization, transitivity and base change, derived exterior powers, Tor amplitude); this stage only re-exports it and assigns ownership of the prismatic, perfectoid and stack applications."
+       "note": "DD.0 constructs the cotangent complex, its derivation characterization, transitivity and base change, derived exterior powers and Tor-amplitude criteria, which this stage re-exports; the positive-characteristic comparison with E∞-algebras is not in DD.0."
       }
      ]
     },
@@ -2904,7 +3005,7 @@
        "target": "Algebra and module categories and the Eilenberg–MacLane comparison once concrete spectra exist",
        "library": "absent",
        "declarations": [],
-       "note": "No spectra in either library."
+       "note": "The layer defers this to 'a later branch once the concrete spectra are available', which is E5:spectra-comparison (its T0 covers the same comparison). Neither library has spectra."
       }
      ],
      "duplicates": []
@@ -2932,7 +3033,7 @@
    }
   },
   "tauceti:TauCetiRoadmap/DGAInfinity": {
-   "summary": "Tau Ceti already has most of Layer 0 and the algebra-level core of Layers 1–3, beyond what its 1 September STATUS.md reports: internal gradings with shifts, tensor products, opposites and direct sums; signed one-slot substitution and suspension; reduced and coaugmented tensor coalgebras with the coderivation/Taylor equivalence; the Koszul braiding and the linear Hom-complex enrichment of complexes; the Stasheff identities with b² = 0 ⇔ Stasheff; unital and augmented DG algebras with tensor products, cohomology algebras and left/right DG modules; nonunital A∞ algebras with strict, cohomological and augmented units and strict morphisms; and normalization of contractions. Mathlib contributes general enriched categories, signed shifts of Hom complexes and Verdier localization, and Tau Ceti's Grothendieck-group library supplies the triangulated K₀, Ext-Euler pairing and numerical quotients that Layer 10 would specialize. Genuinely missing: DG categories as a theory (H⁰, quasi-equivalences), all bimodules, A∞ morphisms beyond strict ones, A∞ categories and modules, homological transfer and Kadeishvili, bar–cobar and Maurer–Cartan twisting, derived module categories and envelopes, derived Morita theory, DG quotients, Hochschild theory and Massey products, smooth/proper and Calabi–Yau structures, K₀(Perf) Euler theory, and Koszul duality.",
+   "summary": "Tau Ceti already has most of Layer 0 and the algebra-level core of Layers 1–3, beyond what its 1 September STATUS.md reports: internal gradings with shifts, tensor products, opposites and direct sums; signed one-slot substitution and suspension; reduced and coaugmented tensor coalgebras with the coderivation/Taylor equivalence; the Koszul braiding and the linear Hom-complex enrichment of complexes; the Stasheff identities with b² = 0 ⇔ Stasheff; unital and augmented DG algebras with tensor products, cohomology algebras and left/right DG modules; nonunital A∞ algebras with strict, cohomological and augmented units, strict morphisms and the reduced algebra on the augmentation ideal, whose bar differential is the reduced bar construction in pieces; and normalization of contractions. Mathlib contributes general enriched categories, signed shifts of Hom complexes, the triangulated thick closure and Verdier localization, and Tau Ceti's Grothendieck-group library supplies the triangulated K₀, Ext-Euler pairing and numerical quotients that Layer 10 would specialize. Genuinely missing: DG categories as a theory (H⁰, quasi-equivalences), all bimodules, A∞ morphisms beyond strict ones, A∞ categories and modules, homological transfer and Kadeishvili, the bar construction as a DG coalgebra, cobar, twisting cochains and Maurer–Cartan twisting, derived module categories and envelopes, derived Morita theory, DG quotients, Hochschild theory and Massey products, smooth/proper and Calabi–Yau structures, K₀(Perf) Euler theory, and Koszul duality.",
    "layers": {
     "tauceti:TauCetiRoadmap/DGAInfinity#layer-0-signed-graded-multilinear-and-tensor-coalgebra-infrastructure": {
      "verdict": "partly built",
@@ -3213,7 +3314,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Arity 1–4 forms stasheffSum_one…four (Stasheff.lean:582–614); the Stasheff.lean header still says the b² link is owed, but it is proved in Coderivation.lean. The roadmap STATUS.md (1 September) also lists it as missing."
+       "note": "Arity 1–4 forms stasheffSum_one…four (Stasheff.lean:582–614); the Stasheff.lean header still says the b² link is owed, but it is proved in Coderivation.lean. The roadmap STATUS.md (1 September) also lists it as missing. The A∞ sign bookkeeping goes through Tau Ceti helpers over Mathlib's Int.negOnePow (`negOnePowCast`, `suspExp`, `koszulSign`), not through Mathlib's `ComplexShape.TensorSigns`, which the layer names as the accepted endpoint; the mathematics is present, but that instruction is not followed."
       }
      ],
      "duplicates": []
@@ -3327,7 +3428,7 @@
        "note": "General enrichment, enriched functors and the underlying category exist, and Tau Ceti supplies the braiding needed for opposites and the example of complexes. Missing: H⁰, DG tensor categories, quasi-fully faithful functors and quasi-equivalences."
       },
       {
-       "target": "Left and right DG modules over DG algebras with morphisms and cohomology as graded modules over the cohomology algebra",
+       "target": "Left and right DG modules over DG algebras with morphisms, and module cohomology as a module over the cohomology algebra",
        "library": "tauceti",
        "declarations": [
         {
@@ -3352,6 +3453,13 @@
          "fit": "exact"
         },
         {
+         "name": "TauCeti.IsDGLeftModule.instModuleCohomology",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Homology/DG/Module/Cohomology.lean",
+         "line": 141,
+         "fit": "exact"
+        },
+        {
          "name": "TauCeti.IsDGRightModule.instModuleCohomology",
          "library": "tauceti",
          "file": "TauCeti/Algebra/Homology/DG/Module/Right/Cohomology.lean",
@@ -3359,7 +3467,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Right modules are modules over the opposite algebra, as pinned by the roadmap; morphisms of left modules are not bundled."
+       "note": "Right modules are modules over the opposite algebra, as pinned by the roadmap; morphisms of left modules are not bundled. Module cohomology is an ungraded module over the cohomology algebra (`IsDGLeftModule.instModuleCohomology`, and over its opposite for right modules); the grading is recorded only on cycles."
       },
       {
        "target": "Bimodules, DG categories of modules and morphism complexes, restriction/extension of scalars, tensor product and derived tensor target, internal Hom, representables, DG Yoneda lemma, composition laws for tensoring bimodules",
@@ -3403,9 +3511,16 @@
          "file": "TauCeti/Algebra/Homology/AInfinity/Algebra.lean",
          "line": 137,
          "fit": "exact"
+        },
+        {
+         "name": "TauCeti.AInfinity.IsSuspension.taylor_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Homology/AInfinity/Coderivation.lean",
+         "line": 92,
+         "fit": "related"
         }
        ],
-       "note": "Uncurved, m₀ = 0, over a commutative ring; differential and mul expose m₁ and m₂."
+       "note": "Uncurved, m₀ = 0, over a commutative ring; differential and mul expose m₁ and m₂. The structure stores the operations together with their suspended Taylor map, tied by `IsSuspension`: the Taylor map is unique (`IsSuspension.taylor_eq`), but its existence from given operations is not proved, and `ofStasheff` takes it as input."
       },
       {
        "target": "Strictly unital, augmented and cohomologically unital A∞ algebras",
@@ -3574,7 +3689,7 @@
      "targets": [
       {
        "target": "Bar construction B∞A of an augmented A∞ algebra and cobar ΩC of a coaugmented conilpotent DG coalgebra, twisting cochains and the bar–cobar adjunction with its universal property",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.AInfinityAlgebra.barDifferential",
@@ -3582,9 +3697,37 @@
          "file": "TauCeti/Algebra/Homology/AInfinity/Algebra.lean",
          "line": 81,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.AInfinityAlgebra.Augmentation.reducedAlgebra",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Homology/AInfinity/Algebra/Augmentation.lean",
+         "line": 323,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.TensorWords.instCoalgebra",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/TensorCoalgebra/Coaugmented.lean",
+         "line": 431,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.TensorWords.coaugmentation",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/TensorCoalgebra/Coaugmented.lean",
+         "line": 456,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ReducedTensorWords.filtration",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/TensorCoalgebra/Filtration.lean",
+         "line": 52,
+         "fit": "related"
         }
        ],
-       "note": "Only the bar differential as a coderivation of the tensor coalgebra exists; grep cobar and twisting cochain returns nothing."
+       "note": "The bar half exists in pieces: the coaugmented tensor coalgebra (`TensorWords.instCoalgebra`, `coaugmentation`) with its conilpotence filtration, the A∞ algebra on the augmentation ideal of an augmented A∞ algebra (`Augmentation.reducedAlgebra`), and its `barDifferential`, a square-zero degree-one coderivation of the reduced tensor words, i.e. the differential of the reduced bar construction. Missing: B∞A packaged as one coaugmented DG coalgebra (the differential is defined only on the reduced words), the cobar construction, twisting cochains and the adjunction with its universal property (grep cobar and twisting cochain returns nothing)."
       },
       {
        "target": "Enveloping DG algebra U(A) = ΩB∞A with the universal A∞ quasi-isomorphism A → U(A), extended to categories and modules with the derived equivalence",
@@ -3601,8 +3744,16 @@
       {
        "target": "Maurer–Cartan elements in the finite, arity-nilpotent and complete-filtered regimes, twisted operations with Stasheff identities, δ = −α comparison",
        "library": "absent",
-       "declarations": [],
-       "note": "grep Maurer returns nothing; no complete filtered algebras."
+       "declarations": [
+        {
+         "name": "IsRingFiltration",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/FilteredAlgebra/Basic.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "grep Maurer returns nothing. Mathlib has ring filtrations (`IsRingFiltration`) and adic completeness, but no complete separated filtered DG or A∞ algebras with the layer's filtration condition on the operations."
       },
       {
        "target": "Deligne/Getzler gauge equivalence over ℚ-algebras and filtered coalgebra automorphisms over arbitrary rings",
@@ -3702,9 +3853,16 @@
          "file": "Mathlib/CategoryTheory/Idempotents/Karoubi.lean",
          "line": 44,
          "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.ObjectProperty.triangEnvelope",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/Generators.lean",
+         "line": 132,
+         "fit": "related"
         }
        ],
-       "note": "Only the additive Karoubi envelope exists; no triangulated structure on it (Balmer–Schlichting) and no compact objects in triangulated categories."
+       "note": "Mathlib has the additive Karoubi envelope and, for triangulated categories, the thick closure `ObjectProperty.triangEnvelope` (closure under shifts, finite sums, retracts and extensions; the smallest triangulated retract-closed property containing a given one) with classical generators. It has no triangulated structure on idempotent completions (Balmer–Schlichting), no compact objects in the coproduct sense, no perfect modules and no DG or A∞ version."
       }
      ],
      "duplicates": []
@@ -3741,8 +3899,16 @@
       {
        "target": "The Morita bicategory of bimodules with derived tensor composition, and Morita invariance of Hochschild (co)homology, smoothness, properness, Perf and the Euler pairing",
        "library": "absent",
-       "declarations": [],
-       "note": "Nothing present."
+       "declarations": [
+        {
+         "name": "Bimod.monBicategory",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Bimod.lean",
+         "line": 1018,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's `Bimod.monBicategory` is the underived bicategory of monoid objects and bimodule objects with coequalizer tensor products in a monoidal category; it is not instantiated for cochain complexes (preservation of colimits by tensoring is not supplied there) and is not derived. There is no derived Morita bicategory and no Morita invariance of Hochschild (co)homology, smoothness, properness, Perf or the Euler pairing."
       }
      ],
      "duplicates": []
@@ -3828,7 +3994,7 @@
          "fit": "exact"
         }
        ],
-       "note": "The coderivation description holds over any commutative ring; the brace/Hochschild-cochain formulation is missing."
+       "note": "The equivalence b² = 0 ⇔ Stasheff holds over any commutative ring for operations stored with their suspended Taylor map (`IsSuspension.comp_self_eq_zero_iff_forall_stasheffSum_eq_zero`). There is no construction of an A∞ algebra from a square-zero coderivation alone, or of the Taylor map from the operations, so the identification is a comparison of two stored presentations rather than a bijection. The brace/Hochschild-cochain formulation is missing."
       },
       {
        "target": "Filtered formal deformations, first-order classes and obstruction lifting; over ℚ-algebras Maurer–Cartan in the Hochschild dg Lie algebra with gauge, Deligne groupoid and Getzler simplicial sets; HH² and HH³ for associative algebras",
@@ -3991,9 +4157,16 @@
          "file": "TauCeti/RepresentationTheory/Quiver/Zigzag/Relations.lean",
          "line": 101,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.preprojectiveIdeal",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Quiver/Preprojective/Basic.lean",
+         "line": 428,
+         "fit": "related"
         }
        ],
-       "note": "Path algebras (T_S(V) for S = k^{Q₀}) and one quadratic ideal exist; no quadratic dual (grep quadraticDual, koszulDual returns nothing; Mathlib QuadraticAlgebra is unrelated)."
+       "note": "Path algebras (T_S(V) for S = k^{Q₀}) and two quadratic ideals exist, the zigzag relations and the preprojective relations (`preprojectiveIdeal`); there is no quadratic dual (grep quadraticDual, koszulDual returns nothing; Mathlib QuadraticAlgebra is unrelated)."
       },
       {
        "target": "Koszulity of graded right modules via linear resolutions or diagonal Tor/Ext; Koszul ⇒ quadratic, A! Koszul, Ext(S,S) ≅ A! with the Yoneda product, left-module version with the opposite bridge",
@@ -4041,7 +4214,7 @@
    }
   },
   "tauceti:TauCetiRoadmap/GrothendieckEulerForms": {
-   "summary": "Tau Ceti already implements most of this roadmap, well beyond its 1 September STATUS.md: Bühler exact structures with conflation-exact functors, the presented-K₀ engine, split/exact/abelian/triangulated K₀ with graded ℤ-actions, the projective resolution theorem with horseshoe and Schanuel, the Cartan map of any ring and its inverse under finite projective resolutions, the simple basis of G₀ and the Hom-multiplicity formula, Euler–Poincaré, Euler-admissible Ext-Euler pairings with graded and sesquilinear q-Euler versions over LaurentK0, and left/right numerical quotients with the Ext-Euler specialization. Genuinely missing are admissible morphisms and the converse bicartesian criteria, choice independence and product compatibility of K₀, bounded homotopy/derived-category comparisons, general resolving subcategories and the common-refinement resolution theorem, graded and linear (Koszul) resolutions, the Cartan matrix with projective bases, pairing perfectness and unimodularity, Ext-Euler naturality and the quiver comparison, and the q = ±1 specializations and forget-the-grading comparison.",
+   "summary": "Tau Ceti already implements most of this roadmap, well beyond its 1 September STATUS.md: Bühler exact structures with conflation-exact functors, the presented-K₀ engine with equivalence invariance across smallness universes, split/exact/abelian/triangulated K₀ with graded ℤ-actions, the projective resolution theorem with horseshoe and Schanuel, the Cartan map of any ring and its inverse under finite projective resolutions, the simple basis of G₀ and the Hom-multiplicity formula, Euler–Poincaré for invariants on an abelian category, Euler-admissible Ext-Euler pairings with graded and sesquilinear q-Euler versions over LaurentK0, and left/right numerical quotients with the Ext-Euler specialization. Genuinely missing are admissible morphisms and the converse bicartesian criteria, a named choice-independence comparison with its naturality, product compatibility of K₀, bounded homotopy/derived-category comparisons, Euler–Poincaré on exact subcategories, general resolving subcategories and the common-refinement resolution theorem, graded and linear (Koszul) resolutions, the Cartan matrix with projective bases, pairing perfectness and unimodularity, Ext-Euler naturality and the quiver comparison, and the q = ±1 specializations and forget-the-grading comparison.",
    "layers": {
     "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors": {
      "verdict": "partly built",
@@ -4282,6 +4455,13 @@
          "fit": "related"
         },
         {
+         "name": "TauCeti.ExactK0.mapEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+         "line": 471,
+         "fit": "related"
+        },
+        {
          "name": "TauCeti.GradedExactEquiv",
          "library": "tauceti",
          "file": "TauCeti/CategoryTheory/Exact/Graded/Basic.lean",
@@ -4289,7 +4469,7 @@
          "fit": "related"
         }
        ],
-       "note": "Only a graded bundled exact equivalence exists; there is no ungraded one, and no lemma that a conflation-exact functor preserves pushouts along inflations or pullbacks along deflations."
+       "note": "Exact equivalences are used unbundled: `ExactK0.mapEquiv` takes an equivalence whose two functors are conflation-exact (its docstring's definition of an exact equivalence), and `isConflationExact_inverse_iff_reflectsConflations` characterizes the condition on the inverse; only the graded `GradedExactEquiv` is bundled as a structure. No lemma says that a conflation-exact functor preserves pushouts along inflations or pullbacks along deflations."
       },
       {
        "target": "For abelian categories with canonical exact structures, conflation-exact iff preserving finite limits and colimits (comparison with Mathlib)",
@@ -4439,8 +4619,29 @@
       },
       {
        "target": "Choice independence: canonical isomorphisms between two skeleton/small-model presentations characterized by class maps, with naturality and cocycle laws",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
+        {
+         "name": "TauCeti.PresentedK0.mapEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Presentation.lean",
+         "line": 460,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.PresentedK0.mapEquiv_of",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Presentation.lean",
+         "line": 481,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.PresentedK0.mapEquiv_refl",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Presentation.lean",
+         "line": 505,
+         "fit": "related"
+        },
         {
          "name": "TauCeti.PresentedK0.mapEquiv_trans",
          "library": "tauceti",
@@ -4449,7 +4650,7 @@
          "fit": "related"
         }
        ],
-       "note": "Only cocycle laws for isomorphisms induced by equivalences of categories exist; no comparison between different small models or universes."
+       "note": "`PresentedK0.mapEquiv` takes essentially small categories in independent smallness universes w, w' and any equivalence carrying the chosen relations both ways; with the identity equivalence it compares the presentations of one category in two universes, which is the only choice left because `ObjectCode C = Shrink.{w} (Skeleton C)` is determined by C and w. It is characterized on object classes (`mapEquiv_of`), with identity and cocycle laws (`mapEquiv_refl`, `mapEquiv_trans`), and split, exact and triangulated K₀ have the same `mapEquiv`. Missing: a named choice-independence comparison and its naturality with respect to `map`."
       },
       {
        "target": "Compatibility with product categories and finite biproducts; functors additive in each variable yield bilinear maps on K₀",
@@ -4822,9 +5023,23 @@
          "file": "TauCeti/CategoryTheory/GrothendieckGroup/Resolution.lean",
          "line": 102,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.ExactStructure.FiniteResolution.eulerClassFullSubcategory_pad",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Resolution.lean",
+         "line": 188,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ExactStructure.FiniteResolution.eulerClassFullSubcategory_ofIso",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Resolution.lean",
+         "line": 163,
+         "fit": "related"
         }
        ],
-       "note": "Proved for P consisting of E-projectives (Schanuel and horseshoe); the file docstring states that the general resolving case via the common-refinement argument is not carried out. The ambient-K₀ class is independent for trivial telescoping reasons."
+       "note": "Invariance under isomorphism, zero padding and direct sums holds for every extension-closed P containing zero and closed under binary biproducts (`eulerClassFullSubcategory_ofIso`, `_zeroPad`, `_pad`, `_biprod`). Independence of the choice of resolution and additivity on conflations are proved only for P consisting of E-projectives (Schanuel and horseshoe); the file docstring states that the general resolving case via the common-refinement argument is not carried out. The ambient-K₀ class is independent for trivial telescoping reasons."
       },
       {
        "target": "Resolution theorem: under resolving hypotheses the inclusion induces an isomorphism on exact K₀ with inverse the alternating resolution class, natural in compatible exact functors and invariant under equivalence",
@@ -5008,7 +5223,7 @@
          "fit": "exact"
         }
        ],
-       "note": "Proved for a projective cover of a simple module over any k-algebra and M finite-dimensional over k (Webb 7.4.1)."
+       "note": "Proved for a projective cover P of a simple module S over any k-algebra, with P and M finite-dimensional over k (Webb 7.4.1); the diagonal and off-diagonal values need no finiteness, and the split form assumes End_A(S) one-dimensional (automatic over an algebraically closed field)."
       },
       {
        "target": "The Cartan map c_A : K₀(proj A) → G₀(mod A) induced by the inclusion",
@@ -5076,9 +5291,16 @@
          "file": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
          "line": 297,
          "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.projectiveDimension",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Abelian/Projective/Dimension.lean",
+         "line": 265,
+         "fit": "related"
         }
        ],
-       "note": "The hypothesis is that every finitely generated module has a finite resolution by finitely generated projectives, for any ring; there is no global-dimension notion from which to derive it for finite global dimension."
+       "note": "The hypothesis is that every finitely generated module has a finite resolution by finitely generated projectives, for any ring. Mathlib has projective dimension of objects of an abelian category (`projectiveDimension`, `HasProjectiveDimensionLE`), but neither library defines global dimension or derives that hypothesis from a finite one."
       },
       {
        "target": "Graded Cartan map K₀^gr(proj A) → G₀^gr(mod A) over the shift action, graded Cartan matrix with entries ∑_d q^d [P_j : S_i{d}], recovery of the ungraded map at q = 1, relation to inverse graded Poincaré matrix",
@@ -5146,21 +5368,21 @@
       },
       {
        "target": "Euler–Poincaré: the Euler characteristic of a bounded complex equals the alternating homology sum, connected to Mathlib eulerChar/homologyEulerChar without its junk value",
-       "library": "tauceti",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.AbelianK0.AdditiveInvariant.sum_negOnePow_obj_X_eq_sum_negOnePow_obj_homology",
          "library": "tauceti",
          "file": "TauCeti/CategoryTheory/GrothendieckGroup/EulerCharacteristic.lean",
          "line": 191,
-         "fit": "exact"
+         "fit": "special case"
         },
         {
          "name": "TauCeti.AbelianK0.eulerChar_eq_homologyEulerChar",
          "library": "tauceti",
          "file": "TauCeti/CategoryTheory/GrothendieckGroup/EulerCharacteristic.lean",
          "line": 300,
-         "fit": "exact"
+         "fit": "special case"
         },
         {
          "name": "HomologicalComplex.eulerChar_forgetFG_eq_homologyEulerChar",
@@ -5170,7 +5392,7 @@
          "fit": "exact"
         }
        ],
-       "note": "For any additive invariant on an abelian category and complexes strictly supported in a finite interval; the Mathlib bridge is for complexes of finite-dimensional vector spaces over a division ring."
+       "note": "Tau Ceti proves it for an invariant additive on all short exact sequences of an abelian category and complexes strictly supported in a finite interval, with the Mathlib bridge for complexes of finite-dimensional vector spaces over a division ring (no junk value). The layer's form, for an invariant defined only on an exact subcategory whose terms, cycles, boundaries and homology satisfy its closure conditions, is not stated."
       },
       {
        "target": "Euler-admissible pairs (finite-dimensional Ext, eventual vanishing) as separate predicates, closed under isomorphism, extensions in either variable and finite sums",
@@ -5711,5 +5933,280 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-22",
+  "date": "2026-09-17",
+  "checked": 281,
+  "corrections": [
+   {
+    "layer": "EnhancedDerivedSheaves:E0",
+    "target": "Quasicategories with inner horn filling, inner fibrations and the categorical nerve API",
+    "was": "mathlib (listed as a target)",
+    "now": "removed as a target; recorded as a reused input in the T1 note",
+    "why": "E0's text says 'Reuse Mathlib's SSet.Quasicategory, inner horn-filling, inner fibrations and categorical-nerve API; construct the additional ...': these are named inputs, not a construction of the layer (the audit's own note and summary call them inputs and starting points). Counting them as a present target made E0 'partly built' although none of its owned constructions exists; the reuse is now recorded in T1's note."
+   },
+   {
+    "layer": "EnhancedDerivedSheaves:E0",
+    "target": "Equivalence, mapping-space, functor and natural-transformation theory for quasicategories, with extended universe support",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said equivalences are missing; Mathlib's homotopy 2-category of quasicategories expresses them (no API), and T0's reused inputs now live here."
+   },
+   {
+    "layer": "EnhancedDerivedSheaves:E0",
+    "target": "(layer verdict)",
+    "was": "partly built",
+    "now": "not built",
+    "why": "With the reused input removed, E0's targets are one partial and four absent; no construction the layer owns exists."
+   },
+   {
+    "layer": "EnhancedDerivedSheaves:E1",
+    "target": "Symmetric monoidal coherence, derived internal Hom, change of coefficients, compatibility with ordinary derived functors, detection of equivalences by quasi-isomorphisms and cohomology sheaves",
+    "was": "absent",
+    "now": "partial",
+    "why": "Detection of isomorphisms in the derived category by cohomology objects and by quasi-isomorphisms exists 1-categorically, and change of coefficients exists underived; the audit labels such 1-categorical shadows partial elsewhere in this roadmap (E2 T0, E3 T1/T3/T4/T6, E5 T1/T2)."
+   },
+   {
+    "layer": "EnhancedDerivedSheaves:E2",
+    "target": "Truncations and Postnikov towers with enhanced inverse limits; the left completion of a derived category with its universal comparison and criteria for an equivalence",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said Postnikov towers are absent; the tower of a t-structure exists as the functor eTruncGE, and only its limit, convergence and left completion are missing."
+   },
+   {
+    "layer": "EnhancedDerivedSheaves:E2",
+    "target": "Replete-topos results (Bhatt–Scholze §3): exactness of inverse limits of surjections, convergence of derived Postnikov towers, unbounded cohomological descent, the bounded-below comparison and the finite cohomological dimension criterion",
+    "was": "absent",
+    "now": "partial",
+    "why": "Mathlib proves the defining property of repleteness (sequential limits of epimorphisms are epimorphic) for coherent-topology sheaves under a hypothesis on the site and for light condensed modules; the note's 'no repleteness' was false."
+   },
+   {
+    "layer": "EnhancedDerivedSheaves:E5:cotangent-export",
+    "target": "Cotangent complex with derivation characterization, transitivity and base change, derived exterior powers and Tor-amplitude tests (the DD.0 interface), and comparison with E∞-algebras in positive characteristic in proved ranges",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not say that the E∞ comparison is this stage's own and unowned elsewhere; that is what changes the verdict."
+   },
+   {
+    "layer": "EnhancedDerivedSheaves:E5:cotangent-export",
+    "target": "(layer verdict)",
+    "was": "process",
+    "now": "not built",
+    "why": "Most of the stage re-exports DD.0 and assigns ownership, but its instruction to compare with E∞-algebras in positive characteristic, only in proved ranges, is mathematics that DD.0 and no other layer states, and it is absent (REV-AUDIT-19's WC.0 precedent: a layer that is only partly bookkeeping is not 'process')."
+   },
+   {
+    "layer": "EnhancedDerivedSheaves:E5:cotangent-export",
+    "target": "duplicate DerivedDeRhamCohomology:DD.0",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said DD.0 constructs every mathematical object of this stage; it does not state the E∞ comparison."
+   },
+   {
+    "layer": "EnhancedDerivedSheaves:E5:presentability",
+    "target": "Algebra and module categories and the Eilenberg–MacLane comparison once concrete spectra exist",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not record that the layer defers this item to E5:spectra-comparison."
+   },
+   {
+    "layer": "EnhancedDerivedSheaves",
+    "target": "(roadmap summary)",
+    "was": "summary",
+    "now": "summary updated",
+    "why": "E0 is no longer partly built, E5:cotangent-export is no longer process, and the summary denied Mathlib's homotopy 2-category of quasicategories, truncation towers and repleteness results."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+    "target": "Bilinear forms over 𝔽_p: left and right radicals, left and right nondegeneracy agreeing in finite dimension, transport and equivalence of forms",
+    "was": "mathlib",
+    "now": "both",
+    "why": "Tau Ceti names the left and right radicals, which the note said no library does, and Mathlib has the equivalence of forms; the target is fully present across both libraries."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+    "target": "Alternating implies skew-symmetric in every characteristic; at p = 2 skew-symmetric equals symmetric and x ↦ b(x,x) is semilinear; for odd p symmetric and alternating forces zero",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said the odd-characteristic comparison is not stated; Tau Ceti proves it in greater generality."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+    "target": "Evaluation ψ ↦ ψ(c) : ℤ_p[[T]] → ℤ_p for v_p(c) ≥ 1 as a ℤ_p-algebra homomorphism",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said neither library supplies topological nilpotence of p-divisible elements; Mathlib gives it directly from the norm, and the linear topology is one composition away."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+    "target": "Dévissage from elementary abelian to all finite p-primary modules, and vanishing of H² for all such modules implying vanishing in all degrees ≥ 2 by dimension shifting through Coind_1^G",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said there is no all-degree continuous cohomology tool; Mathlib's carrier, Tau Ceti's finite-quotient system and discrete Shapiro are all-degree."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+    "target": "Rank one: maximalProPQuotient p Ẑ ≅ lim ℤ/p^n ≅ ℤ_p as topological groups; freeProP p (Fin 1) ≅ Multiplicative ℤ_[p]; Sylow characterization in Ẑ",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note's 'compatible families lift uniquely' read as a statement about families of elements; Mathlib's lift is a universal property for ring homomorphisms, with no topology."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+    "target": "Abelian pro-p groups: continuous ℤ_p-exponentiation, topological ℤ_p-module structure, automatic ℤ_p-linearity of continuous homomorphisms; topologically finitely generated ⇒ finitely generated ℤ_p-module",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said a grep for p-adic exponentiation finds nothing; Mathlib has it in complete normed ℤ_p-algebras, though not for pro-p groups."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+    "target": "Structure theorem A ≅ ℤ_p^r × T for topologically finitely generated abelian pro-p A, with uniqueness of r and the elementary divisors",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note omitted that uniqueness of the rank and elementary divisors, which the target includes, is also missing."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+    "target": "duplicate tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+    "was": "not listed",
+    "now": "added",
+    "why": "Another roadmap's layer states the ℤ_pˣ splitting and the p-adic logarithm isomorphism of T5, for all finite extensions of ℚ_p."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+    "target": "duplicate IntegralIwasawaTheory:I.1",
+    "was": "not listed",
+    "now": "added",
+    "why": "Another roadmap's layer states T7's coordinate identification and change-of-generator formulas."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/DGAInfinity#layer-4-bar--cobar-dg-strictification-and-controlled-maurer--cartan-twisting",
+    "target": "Bar construction B∞A of an augmented A∞ algebra and cobar ΩC of a coaugmented conilpotent DG coalgebra, twisting cochains and the bar–cobar adjunction with its universal property",
+    "was": "absent",
+    "now": "partial",
+    "why": "The bar half exists in pieces (coaugmented tensor coalgebra, conilpotence filtration, the A∞ algebra on the augmentation ideal and its square-zero bar differential); the note credited only the bar differential of the non-reduced algebra."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/DGAInfinity#layer-4-bar--cobar-dg-strictification-and-controlled-maurer--cartan-twisting",
+    "target": "Maurer–Cartan elements in the finite, arity-nilpotent and complete-filtered regimes, twisted operations with Stasheff identities, δ = −α comparison",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said there are no complete filtered algebras; Mathlib's ring filtrations and adic completeness exist, though not the filtered A∞ notion the layer needs."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/DGAInfinity#layer-2-a-algebras-categories-morphisms-functors-modules-and-bimodules",
+    "target": "Nonunital A∞ algebras as square-zero degree-one coderivations with exposed unsuspended operations",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note omitted that operations and coderivation are stored side by side, so neither presentation is constructed from the other."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality",
+    "target": "A∞ structures as degree-one square-zero coderivations over any commutative base, equivalently as brace solutions m{m} = 0 in arity-complete Hochschild cochains",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said the coderivation description holds; only the comparison for a stored pair of presentations is proved."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules",
+    "target": "Left and right DG modules over DG algebras with morphisms and cohomology as graded modules over the cohomology algebra",
+    "was": "target: Left and right DG modules over DG algebras with morphisms and cohomology as graded modules over the cohomology algebra",
+    "now": "target: Left and right DG modules over DG algebras with morphisms, and module cohomology as a module over the cohomology algebra",
+    "why": "Tau Ceti's module cohomology is an ungraded module over the cohomology algebra (the grading is recorded only on cycles), and the layer does not ask for graded module cohomology; the target text overstated what is present."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules",
+    "target": "Left and right DG modules over DG algebras with morphisms, and module cohomology as a module over the cohomology algebra",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note did not say that module cohomology carries no grading."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/DGAInfinity#layer-5-derived-modules-twisted-complexes-and-perfect-envelopes",
+    "target": "tria(C), Perf(C) as idempotent completion and as compact objects of D(C), their equivalence with retracts of finite semi-free modules, DG/A∞ Karoubi envelope and triangulated idempotent completion",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said only the additive Karoubi envelope exists; Mathlib also has the triangulated thick closure."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/DGAInfinity#layer-6-quasi-equivalence-derived-morita-theory-and-compact-generators",
+    "target": "The Morita bicategory of bimodules with derived tensor composition, and Morita invariance of Hochschild (co)homology, smoothness, properness, Perf and the Euler pairing",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said nothing is present; Mathlib's underived bicategory of bimodules exists."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/DGAInfinity#layer-11-relative-quadratic-and-derived-koszul-duality",
+    "target": "Quadratic algebras T_S(V)/(R) over a separable semisimple S with the right bimodule dual, R^⊥, A! and the left-dual comparison; idempotent components and reversed quiver arrows for S = k^I",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said one quadratic ideal exists; the preprojective relations are a second."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/DGAInfinity#layer-0-signed-graded-multilinear-and-tensor-coalgebra-infrastructure",
+    "target": "Suspension/unsuspension, the general Stasheff component formula and the arity 1–4 equations, and b² = 0 iff all Stasheff identities",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note omitted that the implementation does not reuse ComplexShape.TensorSigns, which the layer makes an acceptance condition."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/DGAInfinity",
+    "target": "(roadmap summary)",
+    "was": "summary",
+    "now": "summary updated",
+    "why": "L4 T0 is now partial (the bar construction exists in pieces) and the summary listed bar–cobar as wholly missing."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-1-the-small-presentation-and-universal-additive-invariants",
+    "target": "Choice independence: canonical isomorphisms between two skeleton/small-model presentations characterized by class maps, with naturality and cocycle laws",
+    "was": "absent",
+    "now": "partial",
+    "why": "PresentedK0.mapEquiv compares presentations across independent smallness universes and equivalences, is characterized on classes and has identity and cocycle laws; the note's 'no comparison between different small models or universes' was false."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+    "target": "Euler–Poincaré: the Euler characteristic of a bounded complex equals the alternating homology sum, connected to Mathlib eulerChar/homologyEulerChar without its junk value",
+    "was": "tauceti",
+    "now": "partial",
+    "why": "Tau Ceti proves Euler–Poincaré only for invariants additive on all short exact sequences of an abelian category; the layer asks for invariants defined on an exact subcategory whose terms, cycles, boundaries and homology satisfy its closure conditions, which is more general."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
+    "target": "Exact equivalences as a notion, and preservation of admissible pushouts and pullbacks by conflation-exact functors",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said there is no ungraded exact equivalence; the notion is used unbundled in Tau Ceti's equivalence invariance of exact K₀."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem",
+    "target": "Euler class of a finite resolution: independence of length, padding and choice, and additivity on conflations by the common-refinement argument for general resolving P",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note implied the whole independence statement needs projectives; padding and isomorphism invariance hold for general extension-closed P."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+    "target": "dim_k Hom_A(P_i, M) = dim_k End_A(S_i) · [M : S_i], its diagonal specialization, and identification with raw Hom dimension under split hypotheses",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note omitted the hypothesis that P is finite-dimensional over k."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+    "target": "Under finite finitely generated projective resolutions (e.g. finite global dimension) c_A is an isomorphism with inverse the alternating resolution class",
+    "was": "note",
+    "now": "note corrected",
+    "why": "The note said there is no global-dimension notion; Mathlib's object-level projective dimension exists, and only global dimension and the derivation are missing."
+   },
+   {
+    "layer": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+    "target": "(roadmap summary)",
+    "was": "summary",
+    "now": "summary updated",
+    "why": "L1 T2 is now partial and L5 T1 partial; the summary listed choice independence as wholly missing and Euler–Poincaré as fully present."
+   }
+  ],
+  "notes": "Checked all 281 targets. Mechanically: all 43 batch layers are present with no extras; the 444 distinct citations (497 uses) resolve at their file and line in declarations.tsv, or in source for four priority-100/90 instances, with namespaces confirmed by a comment-stripping resolver; none is private or deprecated and no cited file contains sorry or an axiom. After correction there are 470 distinct citations (528 uses), rechecked the same way. Every present and partial target was read at source with its variable lines and hypotheses, by me or by one of five search agents whose findings I re-verified at source before using them. Every absent target was searched again by concept in declarations.tsv and both trees; I re-ran the standard-name searches myself for residual finiteness of free groups, symplectic bases, Koszul complexes, unbounded K-injective replacements, presentable adjoint functor theorems, Sylow images under surjections, the p-adic logarithm and the splitting of ℤ_pˣ, the linear topology of ℤ_[p], and repleteness. The audit is reliable: no present label was sorry-backed or wrongly named, and no absent target turned out to be fully present. Corrections (38): 6 labels (EDS E1 T7, EDS E2 T1, DGA L4 T0 and GEF L1 T2 absent → partial; GEF L5 T1 tauceti → partial, because Euler–Poincaré is proved only on abelian categories; PPG Layer 9 prerequisites T0 mathlib → both, for Tau Ceti's named radicals); 1 target removed and 2 verdicts (EDS E0 counted Mathlib's quasicategories, which the layer only reuses, as a present target and is now not built; E5:cotangent-export states a positive-characteristic comparison with E∞-algebras that DD.0 does not own, so it is not built rather than process); 1 target text (DGA L1 T4: module cohomology is ungraded); 22 notes that denied or understated library content (topological nilpotence of pℤ_p and the linear topology of ℤ_[p]; all-degree cohomology carriers; the triangulated thick closure; the homotopy 2-category of quasicategories and the Postnikov tower functor; unbundled use of exact equivalences; object-level projective dimension; Tau Ceti's odd-characteristic alternating-form lemma; p-adic exponentiation in normed ℤ_p-algebras; the stored Taylor map of A∞ algebras; the bar construction's pieces; Mathlib's bimodule bicategory; a second quadratic ideal; the TensorSigns acceptance caveat); 3 duplicate changes (LocalFieldsRamification Layer 1 added for PPG Layer 7, IntegralIwasawaTheory:I.1 added for PPG Layer 9 prerequisites, and the DD.0 note for E5:cotangent-export corrected); 3 summaries. The other 15 listed duplicates were confirmed against the named layers, and the atlas sweeps otherwise found only consumers and suppliers. After correction: 1 built, 18 partly built, 24 not built, 0 process; 280 targets (5 mathlib, 5 both, 61 tauceti, 59 partial, 150 absent); 18 duplicates."
  }
 }

@@ -1,0 +1,419 @@
+{
+ "job": "COMPARE-24",
+ "notes": {
+  "DiophantineApproximationAndTranscendence": {
+   "targets": "Roth's theorem; Schmidt's subspace theorem with S-unit and norm-form equations; Lindemann–Weierstrass, Gelfond–Schneider and Baker/Matveev lower bounds for linear forms in complex and p-adic logarithms; effective bounds for Thue, Thue–Mahler, S-unit and exponential equations; Mahler functions, E/G-functions, algebraic independence and scoped functional transcendence.",
+   "baselineHas": [
+    "Mathlib Height.mulHeight and NumberField.absMulHeight₁ (Mathlib/NumberTheory/Height/): Weil heights with the product formula and Northcott",
+    "Mathlib Liouville.transcendental (Mathlib/NumberTheory/Transcendental/Liouville/Basic.lean), continued fractions and Dirichlet approximation (Mathlib/NumberTheory/DiophantineApproximation/Basic.lean)",
+    "Mathlib Int.Matrix.exists_ne_zero_int_vec_norm_le (Mathlib/NumberTheory/SiegelsLemma.lean) and the house version over rings of integers",
+    "Mathlib LindemannWeierstrass.exp_polynomial_approx (analytic step only); Tau Ceti Set.unit_fg (S-units finitely generated)"
+   ],
+   "missing": [
+    "DT.0 remainder: approximation exponents, simultaneous approximation, p-adic logarithms; imports only Minkowski's second theorem (GN.1) and certified LLL reduction (GN.5)",
+    "DT.1: Thue and Roth via auxiliary polynomials, index estimates and Roth's lemma",
+    "DT.2: archimedean/non-archimedean subspace theorem, S-unit and decomposable-form equations",
+    "DT.3: auxiliary functions and zero estimates; Lindemann–Weierstrass, Gelfond–Schneider, Baker–Wüstholz/Matveev and p-adic bounds",
+    "DT.4: effective Thue, Thue–Mahler, S-unit and exponential equations",
+    "DT.5: Mahler's method, Siegel–Shidlovskii E-functions, G-functions, algebraic independence, functional transcendence"
+   ]
+  },
+  "IntegralHeckeAndGaloisDeterminants": {
+   "targets": "Roby polynomial laws and Chenevier determinants; Cayley–Hamilton algebras, generalized matrix algebras and reconstruction; Hecke algebras on perfect complexes with the derived nilpotence bound; the GL_n Hecke polynomial against the normalized Satake transform; interpolation of determinants through finite quotients; nilpotent descent schemas; the Dasgupta–Kakde–Silliman–Wang integral Ribet theorem.",
+   "baselineHas": [
+    "Mathlib PolynomialLaw (Mathlib/RingTheory/PolynomialLaw/Basic.lean): the definition and module structure only, no degree, coefficients or multiplicative laws",
+    "Mathlib DividedPowers (Mathlib/RingTheory/DividedPowers/Basic.lean)",
+    "Mathlib HeckeRing types (Mathlib/NumberTheory/HeckeRing/Defs.lean) and Tau Ceti HeckeRing.GLn.polynomialRingEquivTwo (classical GL_n(Z) Hecke ring polynomial for n ≤ 2)",
+    "Mathlib CategoryTheory.Triangulated.TStructure; Tau Ceti NumberField.Chebotarev.frobeniusPrimeSet (no density theorem)"
+   ],
+   "missing": [
+    "IHG.0: homogeneous degree-n laws, determinants and characteristic-polynomial identities",
+    "IHG.1: Cayley–Hamilton quotients, GMAs, reconstruction, reducibility ideals",
+    "IHG.2: Hecke images on bounded perfect complexes, localization and nilpotence of derived endomorphisms",
+    "IHG.3–IHG.5: Hecke polynomial/Satake normalization, interpolation via Chebotarev density, nilpotent descent",
+    "IHG.6: DKSW generalized Ribet lemma with Fitting ideals, Koszul/Buchsbaum–Rim complexes and rational cohomology of GL2",
+    "imports: smooth representations and Hecke algebras (SR.0, SR.1), the Satake isomorphism SR.4 and through it Bruhat–Tits theory RG2.0–RG2.5 (topologies on rational points, valued root data, buildings, parahoric group schemes, Cartan/Iwasawa decompositions, integral dual groups); R02.1 coefficients; Chebotarev density (Tau Ceti layers not built)"
+   ]
+  },
+  "AbelianSchemesAndArithmeticModuli": {
+   "targets": "Abelian schemes over arbitrary bases with rigidity and the square/cube theorems; the dual via the relative Picard algebraic space and Raynaud's theorem, Poincaré bundle, polarizations and Rosati; fppf quotients, [n] and Weil pairings; relative H^1_dR, Gauss–Manin, Tate local systems and Serre–Tate; complex uniformization with the Siegel family; Hom finiteness, Poincaré reducibility and Weil restriction.",
+   "baselineHas": [
+    "Tau Ceti TauCeti.AlgebraicGeometry.AbelianVariety (TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean): field case only, with Hom, End, isogenies and tangent space",
+    "Mathlib AlgebraicGeometry.isCommMonObj_of_isProper_of_geometricallyIntegral (Mathlib/AlgebraicGeometry/Group/Abelian.lean): commutativity over a field",
+    "Tau Ceti TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality (TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean)",
+    "Tau Ceti TauCeti.Hodge.IsPolarization (TauCeti/Geometry/Hodge/Polarization.lean): polarized Hodge structures"
+   ],
+   "missing": [
+    "A1: abelian schemes over a base, rigidity, square and cube theorems, comparison with #81 elliptic curves",
+    "A2: relative Pic as algebraic space, Raynaud's theorem, dual and Poincaré bundle, polarizations, Rosati",
+    "A3: fppf quotients, [n] finite locally free of rank n^{2g}, Weil pairings",
+    "A4: relative H^1_dR, Gauss–Manin, Tate local systems, Serre–Tate with the Hodge filtration",
+    "A5: Riemann relations, algebraicity of polarized tori, Siegel family and monodromy",
+    "A6: finite generation of Hom, Poincaré reducibility, Weil restriction",
+    "imports: AlgebraicModuli R09.1–R09.6 (Hilbert/Quot, algebraic spaces and stacks, coarse spaces, Artin representability) with formal geometry (AdicSpacesPartII F0, R0–R3); FiniteFlat R07.1, R07.2, R07.4–R07.6 (p-divisible groups, Dieudonné, Breuil–Kisin, Grothendieck–Messing) pulling in period rings R06.1–R06.2, AI.0 and perfectoid P0–P3; ComplexComparisonPartII C0–C2, C4 (coherent analytic sheaves, GAGA, Chow); Tau Ceti JacobianChallenge layers B–F"
+   ]
+  },
+  "DiamondsAndVStacks": {
+   "targets": "ECD §§7–15: totally disconnected and w-local perfectoid spaces with pro-étale covers; pro-étale and v-sites with v-descent and higher acyclicity; effective descent and étale/quasi-pro-étale morphisms of stacks; diamonds and small v-stacks; spatial diamonds and representability; Spd of analytic adic spaces.",
+   "baselineHas": [
+    "Mathlib spectral maps (Mathlib/Topology/Spectral/Hom.lean) and Tau Ceti pro-constructible subsets (TauCeti/Topology/Spectral/ProConstructible.lean)",
+    "Mathlib ExtremallyDisconnected (Mathlib/Topology/ExtremallyDisconnected.lean) and Stonean spaces",
+    "Mathlib descent data and stacks for pseudofunctors (Mathlib/CategoryTheory/Sites/Descent/IsStack.lean), Grothendieck topologies and sheafification",
+    "Tau Ceti TauCeti.ValuationSpectrum.spa (TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean); Mathlib PreTilt"
+   ],
+   "missing": [
+    "D0: topos and sheaf-cohomology foundations (Leray, Čech), cardinal cutoffs, stackification",
+    "D1: totally disconnected and w-local perfectoid spaces, pro-étale covers, automatic flatness",
+    "D2: pro-étale and v-sites, v-descent and almost acyclicity",
+    "D3: effective descent, étale and quasi-pro-étale maps of stacks, profinite torsors",
+    "D4–D5: diamonds, small v-stacks, underlying spaces, spatial diamonds and representability",
+    "D6: Spd Z_p, Spd(A,A+) and X^♢ with étale-site comparison",
+    "imports: PerfectoidSpaces P0–P6 (almost mathematics, tilting, sheafiness, almost purity, limits, affinoid approximation), AdicEtaleGeometry A0–A4, and through A3 the prismatic perfectoidization theorem (PerfectoidQuotients Q0–Q4, PrismaticCohomology PR.0–PR.2, DD.0–DD.5, CR.0–CR.2), EnhancedDerivedSheaves E0–E5"
+   ]
+  },
+  "PerfectoidSpaces": {
+   "targets": "Almost mathematics; perfectoid Tate rings, tilts and untilts; rational localization, sheafiness and perfectoid spaces; almost purity and étale tilting; morphisms and Zariski closed immersions; limits and finite-stage approximation; pro-étale presentations; tilde-limits and towers; finite quotients and closed perfectoidization; continuous torsor descent with coefficients.",
+   "baselineHas": [
+    "Mathlib PreTilt and Perfection (Mathlib/RingTheory/Perfection.lean)",
+    "Mathlib WittVector.fontaineTheta (Mathlib/RingTheory/Perfectoid/FontaineTheta.lean) and BDeRhamPlus (Mathlib/RingTheory/Perfectoid/BDeRham.lean)",
+    "Tau Ceti Huber rings, rings of definition and restricted power series (TauCeti/RingTheory/Huber/)",
+    "Tau Ceti TauCeti.ValuationSpectrum.spa and rationalSubset (no structure sheaf or sheafiness)"
+   ],
+   "missing": [
+    "P0: almost mathematics over an idempotent ideal",
+    "P1: perfectoid Tate rings, tilting, θ and untilt classification",
+    "P2: tilting of spectra, sheafiness, perfectoid spaces and fibre products",
+    "P3: almost purity and étale-site equivalence",
+    "P4–P6: morphisms, limits, finite-stage approximation, pro-étale presentations",
+    "P7–P9: tilde-limits and towers, finite quotients with closed perfectoidization, continuous torsor descent",
+    "imports: DiamondsAndVStacks D0–D4, PerfectoidQuotients Q4 with the prismatic stack (Q0–Q3, PR.0–PR.2, DD, CR), AdicEtaleGeometry A0–A3, AdicSpacesPartII F0, R0–R3, R5 (formal models, coherent sheaves, sousperfectoid families), EnhancedDerivedSheaves E0–E5"
+   ]
+  },
+  "AdicCoefficientsAndComparisons": {
+   "targets": "ECD §§26–27: adic coefficient categories with six operations; the small v-sheaf of a scheme; Nagata compactification and Rf_! for qcqs schemes; characteristic-p comparisons 27.1–27.4; mixed-characteristic proper-support comparison 27.5; de Jong alterations with cohomological descent and local normal-crossing computations; 27.6–27.7.",
+   "baselineHas": [
+    "Mathlib IsAdicComplete and AdicCompletion (Mathlib/RingTheory/AdicCompletion/Basic.lean), regular sequences",
+    "Mathlib AlgebraicGeometry.Scheme.ProEt (Mathlib/AlgebraicGeometry/Sites/Proetale.lean) and Scheme.EllAdicCohomology (definition only)",
+    "Mathlib AlgebraicGeometry.Scheme.exists_isAffine_of_isLimit (AffineTransitionLimit.lean) and Scheme.Hom.normalization",
+    "Tau Ceti TauCeti.ValuationSpectrum.spa"
+   ],
+   "missing": [
+    "L0: derived-complete adic coefficient categories as limits, completed tensor, six operations",
+    "L1: scheme-to-v-sheaf functors in characteristic p and over a complete DVR",
+    "L2: noetherian approximation, Nagata compactification, qcqs scheme Rf_!",
+    "L3–L4: comparisons 27.1–27.5",
+    "L5: de Jong alterations (blowups, flattening, stable reduction of curve fibrations), proper hypercovers and cohomological descent, local purity and nearby cycles",
+    "L6: constructible comparison and full faithfulness 27.6–27.7",
+    "imports: DiamondSixOperations S0–S5 with its whole closure — DiamondEtaleCohomology C0–C9, ClassicalAdicEtaleCohomology H0–H5, EtaleDuality EDC.0–EDC.4 on unbuilt scheme étale foundations (CohomologicalPointCounting), DiamondsAndVStacks D0–D6, PerfectoidSpaces P0–P6 with the prismatic Q4 stack, AlgebraicModuli R09.1–R09.4, AbelianSchemes A1–A3, LPV.0–LPV.2, EnhancedDerivedSheaves E0–E5"
+   ]
+  },
+  "ArithmeticQuantumTopology": {
+   "targets": "Kirby calculus for surgery presentations; ribbon categories and U_q(sl2) Reshetikhin–Turaev invariants; colored Jones cyclotomic expansions; Habiro's unified invariant of integral homology spheres; WRT/Ohtsuki evaluations and general Lie type; hyperbolic ideal triangulations, extended Bloch classes and regulators; state integrals and asymptotics; quantum-modularity statements.",
+   "baselineHas": [
+    "Tau Ceti TauCeti.SmoothLinkEmbedding.SmoothAmbientIsotopic (TauCeti/KnotTheory/SmoothLink/Isotopy.lean), PD and Gauss codes, TauCeti.BraidGroup",
+    "Tau Ceti TauCeti.TemperleyLieb.jones (TauCeti/KnotTheory/TemperleyLieb.lean): Jones representation of braid groups, no Markov trace or Jones polynomial",
+    "Mathlib CategoryTheory.BraidedCategory (Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean) and rigid categories; no ribbon categories or quantum groups",
+    "Tau Ceti TauCeti.Slope (TauCeti/LowDimTopology/DehnSurgery/Slope.lean); Mathlib Polynomial.cyclotomic"
+   ],
+   "missing": [
+    "QT.0: framed links and tangles, Reidemeister moves, surgery presentations and Kirby's theorem",
+    "QT.1: ribbon categories, U_q(sl2) at roots of unity, Reshetikhin–Turaev invariants",
+    "QT.2: colored Jones polynomials and Habiro's cyclotomic expansion",
+    "QT.3–QT.4: unified invariant, WRT and Ohtsuki series, general Lie type",
+    "QT.5: hyperbolic 3-manifolds, ideal triangulations, extended Bloch group, volume and Chern–Simons regulators",
+    "QT.6–QT.7: state integrals, asymptotics, quantum-modularity statements",
+    "imports: HabiroCyclotomicCompletions HC.1–HC.6; HabiroNahmSeries HB.5a, HB.8, HB.9 bringing in HabiroNumberFields HB.1–HB.7 with PadicHodgeRegulators and local K-theory via THH/TC (RT.1–RT.4); K3BlochGroups V.1–V.5 and MotivicEtaleKTheory M.1–M.7 including the full norm-residue theorem; Quillen K-theory (GeneralAlgebraicKTheory, StableHomotopyKTheory, SchemeKTheoryOperations), Borel regulators with reduction theory, Poitou–Tate duality"
+   ]
+  },
+  "DeligneWeightsAndPurity": {
+   "targets": "Weil I: the Riemann hypothesis for smooth projective varieties over finite fields; Weil II: weights of R f_!, purity and geometric semisimplicity; absolute hard Lefschetz.",
+   "baselineHas": [
+    "Mathlib Module.End.hasEigenvalue_iff_isRoot_charpoly (Mathlib/LinearAlgebra/Eigenspace/Charpoly.lean) and generalized eigenspace decompositions",
+    "Tau Ceti TauCeti.LSeries.landau (TauCeti/NumberTheory/LSeries/Landau.lean) and the 3-4-1 positivity inequality",
+    "Tau Ceti TauCeti.symplecticCap_comp_tensorPower (degree-two symplectic invariants) and TauCeti.Hodge.MixedHodgeStructure",
+    "Mathlib AlgebraicGeometry.Scheme.EllAdicCohomology (Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean): definition only"
+   ],
+   "missing": [
+    "DWP.0: Weil numbers and weights of endomorphisms",
+    "DWP.1: Weil's estimate for abelian varieties via Rosati, curve H^1 via Jacobians",
+    "DWP.2–DWP.4: Weil I fundamental estimate, pencil local-factor rationality with function-field Chebotarev, dimension induction",
+    "DWP.5–DWP.7: Weil II local weights, pure local systems on curves, the direct-image theorem",
+    "DWP.8–DWP.9: mixed complexes, geometric semisimplicity, hard Lefschetz",
+    "imports: EtaleDuality EDC.0–EDC.4 (Rf^!, Verdier and Poincaré duality, cycle classes, weak Lefschetz) on unbuilt scheme étale foundations (constructible sheaves, base change, compact support, trace formula); LefschetzPencils LPV.0–LPV.5, LPV.7 (vanishing cycles, Picard–Lefschetz, pencils, Kazhdan–Margulis monodromy, invariant cycles); AbelianSchemes A1–A3, A6 with AlgebraicModuli R09.1–R09.4; R02.1–R02.2; EnhancedDerivedSheaves E0–E3"
+   ]
+  },
+  "DiamondSixOperations": {
+   "targets": "ECD §§22–25: compactifiable morphisms; Rf_! with the dim.trg bounds, base change and projection formula; non-quasicompact maps and small v-stacks by Kan extension and hyperdescent; Rf^!; cohomological smoothness; the ball, quotient and analytic-smooth examples; biduality and Verdier conservativity.",
+   "baselineHas": [
+    "Mathlib DerivedCategory (Mathlib/Algebra/Homology/DerivedCategory/Basic.lean) and CategoryTheory.Triangulated.TStructure",
+    "Mathlib SSet.Quasicategory and CategoryTheory.IsLocallyPresentable (no stable or presentable ∞-categories)",
+    "Mathlib AlgebraicGeometry.Scheme.smallEtaleTopology and CategoryTheory.Sheaf.H",
+    "Tau Ceti TauCeti.ValuationSpectrum.spa"
+   ],
+   "missing": [
+    "S0: compactifiable morphisms",
+    "S1: proper-support pushforward and dimension bounds (22.5–22.12)",
+    "S2: Kan-extended Rf_! for non-quasicompact maps and small v-stacks",
+    "S3: Rf^! and formal identities",
+    "S4: cohomological smoothness",
+    "S5–S6: ball, quotient and Spd Q_p examples; biduality",
+    "imports: DiamondEtaleCohomology C0–C9, ClassicalAdicEtaleCohomology H0–H5 (Huber's étale cohomology with curve duality and the algebraic/analytic comparison), EtaleDuality EDC.0–EDC.4 on unbuilt scheme étale foundations, DiamondsAndVStacks D0–D6, PerfectoidSpaces P0–P6 with prismatic Q0–Q4 and PR.0–PR.2, AdicEtaleGeometry A0–A4, EnhancedDerivedSheaves E0–E5, AlgebraicModuli R09.1–R09.4 and AbelianSchemes A1–A3, LPV.0–LPV.2, Nagata compactification (AC L2)"
+   ]
+  },
+  "HabiroNumberFields": {
+   "targets": "The Calegari–Garoufalidis–Zagier comparison of Bloch groups with K3 and finite Chern classes; the cyclic quantum dilogarithm with Hutchinson's refinement; the GSWZ number-field Habiro ring with Frobenius-twisted Taylor gluing; K3-indexed Habiro modules.",
+   "baselineHas": [
+    "Mathlib Polynomial.cyclotomic and IsPrimitiveRoot (cyclotomic arithmetic)",
+    "Mathlib NumberField.Units.regulator and NumberField.Units.exist_unique_eq_mul_prod (Dirichlet unit theorem)",
+    "Mathlib continuousCohomology (Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean)",
+    "Tau Ceti TauCeti.ExactK0 (TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean): K0 only, no higher K-theory, Bloch groups or Habiro rings"
+   ],
+   "missing": [
+    "HB.1: Bloch-group and K3 conventions, finite-coefficient Chern classes",
+    "HB.2: cyclic quantum dilogarithm, Bott element, Soulé's Chern-product formula",
+    "HB.6: number-field Habiro ring",
+    "HB.7: K3-indexed Habiro modules",
+    "imports: MotivicEtaleKTheory M.1–M.7 (motivic cohomology, the norm-residue theorem with motivic homotopy, operations and Rost motives, the motivic spectral sequence, étale K-theory); K3BlochGroups V.1–V.4; ArithmeticKTheory N.1–N.5; GeneralAlgebraicKTheory K.1–K.7, StableHomotopyKTheory H.1–H.6, SchemeKTheoryOperations S.1–S.6; KTheoryFiniteLocalFields L.1–L.6 with THH/TC (RT.1–RT.4); BorelRegulators R.1–R.3 with Borel–Serre and adelic reduction theory; PadicHodgeRegulators D.2–D.4 with period rings, A_inf and de Rham–Witt; HabiroCyclotomicCompletions HC.1–HC.3; Poitou–Tate R02.3–R02.4"
+   ]
+  },
+  "VectorBundlesAndIsocrystals": {
+   "targets": "Dieudonné–Manin classification; vector bundles on the relative Fargues–Fontaine curve with slopes and cohomology; ampleness and algebraization; classification at geometric points; Banach–Colmez spaces including projectivized properness and cohomological smoothness; HN polygons, relative HN filtrations and slope-zero bundles as pro-étale local systems.",
+   "baselineHas": [
+    "Mathlib WittVector.isocrystal_classification (Mathlib/RingTheory/WittVector/Isocrystal.lean): one-dimensional isocrystals only",
+    "Mathlib PreTilt, WittVector.fontaineTheta and BDeRhamPlus (Mathlib/RingTheory/Perfectoid/)",
+    "Tau Ceti Huber rings and TauCeti.ValuationSpectrum.spa; the Tau Ceti adic Fargues–Fontaine curve layer is not begun"
+   ],
+   "missing": [
+    "VB0: Dieudonné–Manin in all ranks with slope conventions",
+    "VB1: bundles on X_S, descent, degree and slope, H^0 and H^1",
+    "VB2: ampleness, schematic curve, classification at geometric points",
+    "VB3: Banach–Colmez spaces (positive, projectivized, general)",
+    "VB4: HN strata and slope-zero local systems",
+    "imports: RelativeFarguesFontaine RF0–RF3 and FarguesFontaineDiamonds F0–F4; DiamondSixOperations S0–S5 with DiamondEtaleCohomology C0–C9, ClassicalAdicEtaleCohomology H0–H4, EDC.0–EDC.4 and scheme étale foundations, DiamondsAndVStacks D0–D6, PerfectoidSpaces P0–P6 with the prismatic Q4 stack, AdicEtaleGeometry A0–A4, AdicSpacesPartII, AlgebraicModuli R09.1–R09.4, AbelianSchemes A1–A3, E0–E5"
+   ]
+  },
+  "PotentialAutomorphyInfrastructure": {
+   "targets": "The reusable infrastructure of Allen–Calegari–Caraiani–Gee–Helm–Le Hung–Newton–Scholze–Taylor–Thorne: integral cohomology of locally symmetric spaces with boundary; Fontaine–Laffaille and ordinary degree shifting; derived support comparisons for Ihara avoidance; Taylor–Wiles primes with ultrapatching; compatible-system transport.",
+   "baselineHas": [
+    "Mathlib HeckeRing types (Mathlib/NumberTheory/HeckeRing/Defs.lean) and Tau Ceti Hecke products and GL_n Hecke rings (TauCeti/NumberTheory/HeckeRing/)",
+    "Mathlib continuousCohomology and groupCohomology; Tau Ceti low-degree continuous cohomology",
+    "Tau Ceti NumberField.Chebotarev.frobeniusPrimeSet (no density theorem)",
+    "Mathlib CategoryTheory.Triangulated.TStructure, IsAdicComplete and regular sequences"
+   ],
+   "missing": [
+    "PA.0: integral cohomology interface with coefficient, level and boundary compatibilities",
+    "PA.1: Fontaine–Laffaille weights and degree shifting",
+    "PA.2: ordinary induction and degree shifting",
+    "PA.3: derived support and change of local deformation conditions",
+    "PA.4: auxiliary primes and ultrapatching compatibility",
+    "PA.5: compatible-system transport",
+    "imports (about 350 unbuilt layers): ArithmeticLocallySymmetricSpaces, AutomorphicGaloisRepresentationsPartII with endoscopic transfer and the fundamental lemma, the trace formula, Shimura varieties, compactifications and PEL moduli; IgusaVarieties (Caraiani–Scholze) with perfectoid Shimura varieties, diamonds and the diamond six operations; DeligneWeightsAndPurity DWP.0–DWP.9; derived patching; FiniteFlat R07.1–R07.6, p-adic Hodge theory, A_inf; SmoothRepresentations SR.0–SR.5; IntegralHecke IHG.0–IHG.4"
+   ]
+  },
+  "RefinedTraceMethods": {
+   "targets": "Hochschild and cyclic homology with HKR; THH, cyclotomic spectra and TC/TC−/TP; the cyclotomic trace with DGM and Goodwillie comparisons; the AMMN Beilinson fibre square; ku and KU; Wagner's q-Hodge even filtration, cyclonic spectra and Habiro comparison; refined localizing invariants; BMS2 motivic filtrations against prismatic cohomology.",
+   "baselineHas": [
+    "Mathlib KaehlerDifferential (Mathlib/RingTheory/Kaehler/Basic.lean) as HKR input",
+    "Mathlib WittVector (Mathlib/RingTheory/WittVector/Defs.lean) with Frobenius and Verschiebung",
+    "Mathlib SSet.Quasicategory and AlgebraicTopology.DoldKan (no spectra or stable ∞-categories)",
+    "Mathlib VectorBundle (topological vector bundles, no topological K-theory); Tau Ceti TauCeti.ExactK0"
+   ],
+   "missing": [
+    "RT.1: Hochschild, cyclic, negative and periodic complexes, SBI, Morita invariance, HKR",
+    "RT.2: THH with circle action, Tate constructions, cyclotomic spectra, TC and TP",
+    "RT.3, RT.3b: cyclotomic trace, DGM and Goodwillie comparisons, the AMMN square",
+    "RT.4: topological K-theory and Bott periodicity, q-Hodge filtration, cyclonic spectra, Habiro comparison",
+    "RT.5: refined localizing invariants (Efimov rigidity)",
+    "RT.6: BMS2 THH/TC filtrations versus prismatic cohomology",
+    "imports: StableHomotopyKTheory H.1–H.6 (spectra), GeneralAlgebraicKTheory K.1, K.4, EnhancedDerivedSheaves E0–E5, PrismaticCohomology PR.0–PR.3, PR.6, AInfCohomology AI.0–AI.4, DerivedDeRham DD.0–DD.6, Crystalline CR.0–CR.5, HabiroRings HR.1–HR.5, HabiroCohomologyFoundations HQ.1–HQ.4, HabiroCyclotomicCompletions HC.1–HC.3, HabiroNumberFields HB.6, perfectoid P0–P3, Poitou–Tate R02.3–R02.4"
+   ]
+  },
+  "SpecialValuesBirchTate": {
+   "targets": "The Birch–Tate formula ζ_F(−1) = ±#K_2(O_F)/w_2(F) for every totally real F (odd part via Wiles's main conjecture, 2-part via Kurihara and Kolster, abelian case separately), its S-integer version, and higher special-value statements with their odd-primary consequences.",
+   "baselineHas": [
+    "Mathlib riemannZeta_neg_nat_eq_bernoulli (Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean): ζ(−1) = −1/12",
+    "Mathlib NumberField.dedekindZeta with the class number formula for the residue (Mathlib/NumberTheory/NumberField/DedekindZeta.lean); no continuation to s = −1",
+    "Tau Ceti TauCeti.dedekindZeta_eulerProduct_hasProd (TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean)",
+    "Mathlib NumberField.Units.regulator and NumberField.classNumber; no K_2, Steinberg symbols or higher K-theory"
+   ],
+   "missing": [
+    "B.1–B.3: statement with w_2, rationality and sign from the functional equation, Q and real quadratic examples",
+    "B.4: odd-primary theorem via Tate's K_2 comparison and Iwasawa Euler characteristics",
+    "B.5–B.6: abelian and 2-primary cases via Kolster's implication",
+    "B.7: S-integers and Euler factors",
+    "B.8: higher special-value statements",
+    "imports: IntegralIwasawaTheory I.1–I.10 (Wiles's totally real main conjecture, DKSW integral Brumer–Stark with IHG.0, IHG.1, IHG.6, Kurihara's all-prime main conjecture) with AutomorphicPadicLFunctions (Deligne–Ribet) and ModularCurvesPartII R12–R14; K2SymbolsBrauer T.1–T.7; ArithmeticKTheory N.1–N.6; MotivicEtaleKTheory M.1–M.7 with the norm-residue theorem; GeneralAlgebraicKTheory, StableHomotopyKTheory, SchemeKTheoryOperations, KTheoryFiniteLocalFields with RT.1–RT.4; BorelRegulators R.1–R.6; Polylogarithms P.1–P.6; Dirichlet p-adic L-functions and Iwasawa algebras; ComplexComparisonPartII C0–C5"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "DiophantineApproximationAndTranscendence",
+   "b": "IntegralHeckeAndGaloisDeterminants",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "DT needs Roth, the subspace theorem, Baker–Matveev bounds, effective Thue–Mahler equations and E/G-function transcendence, but beyond Mathlib's heights, Siegel lemma and Liouville it imports only Minkowski's second theorem and LLL. IHG needs Chenevier determinants, generalized matrix algebras, derived Hecke nilpotence and the DKSW Ribet theorem stacked on smooth representations, the Satake isomorphism and Bruhat–Tits buildings, parahoric group schemes and integral dual groups (RG2), plus Chebotarev density: a comparable amount in a deeper stack."
+  },
+  {
+   "a": "AbelianSchemesAndArithmeticModuli",
+   "b": "IntegralHeckeAndGaloisDeterminants",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "AS needs algebraic spaces and stacks with Hilbert/Picard representability and Artin's criteria (R09.1–R09.6), p-divisible, Dieudonné, Breuil–Kisin and Grothendieck–Messing theory with period rings and perfectoid basics, and complex GAGA (C0–C4) before its duals, Serre–Tate and Siegel family. IHG's polynomial-law determinants, GMAs, DKSW theorem and imported Satake/Bruhat–Tits theory form a much smaller algebraic stack."
+  },
+  {
+   "a": "AbelianSchemesAndArithmeticModuli",
+   "b": "DiamondsAndVStacks",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "AS must build algebraic spaces, stacks, coarse spaces and Artin representability, formal geometry, Dieudonné/Breuil–Kisin/Grothendieck–Messing theory and complex-analytic GAGA before its duals, polarizations, Serre–Tate and uniformization. DV's stack is deeper but narrower — diamonds, v-descent and spatial diamonds (D1–D6) on perfectoid limits (P4–P6), adic étale approximation (A2–A4) and the prismatic perfectoidization theorem (Q0–Q4, PR.0–PR.2) — and it shares D0, P0–P3 and E0–E5 with AS."
+  },
+  {
+   "a": "PerfectoidSpaces",
+   "b": "DiamondsAndVStacks",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "PerfectoidSpaces already imports D0–D4 and the prismatic Q4 stack, so its closure contains nearly all of DV's; beyond that it needs tilde-limits and towers, finite quotients with closed perfectoidization and torsor descent (P7–P9) and rigid geometry (AdicSpacesPartII R0–R3, R5). DV adds only spatial diamonds (D5), Spd of analytic adic spaces (D6) and the A4 presentations."
+  },
+  {
+   "a": "AdicCoefficientsAndComparisons",
+   "b": "PerfectoidSpaces",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "AC's closure contains P0–P6, D0–D6 and the prismatic stack and adds étale cohomology of diamonds (C0–C9), Huber's adic étale cohomology (H0–H5), scheme étale duality (EDC.0–EDC.4), the diamond six operations (S0–S5) and its own adic coefficients, Nagata compactification and de Jong alterations. PerfectoidSpaces adds only P7–P9 and AdicSpacesPartII."
+  },
+  {
+   "a": "AdicCoefficientsAndComparisons",
+   "b": "ArithmeticQuantumTopology",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Through K3BlochGroups V.5 and HabiroNahmSeries HB.9, AQT imports the norm-residue theorem and motivic spectral sequence (M.4–M.7), Quillen and Borel K-theory, THH/TC local K-theory and p-adic regulators, on top of its own Kirby calculus, Reshetikhin–Turaev and Habiro invariants, hyperbolic Bloch regulators and state integrals. AC's missing diamond six-functor stack with ECD §§26–27, Nagata compactification and alterations is clearly smaller."
+  },
+  {
+   "a": "ArithmeticQuantumTopology",
+   "b": "DeligneWeightsAndPurity",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "DWP needs scheme étale foundations and duality (EDC.0–EDC.4), Lefschetz pencils and vanishing cycles (LPV), abelian-scheme duals (A1–A3, A6) and then Weil I/II with hard Lefschetz. AQT needs the whole arithmetic K-theory stack (norm-residue theorem, Quillen and Borel K-theory, THH/TC, HabiroNumberFields) plus Kirby calculus, quantum-group invariants, Habiro's unified invariant and hyperbolic Bloch regulators, far more."
+  },
+  {
+   "a": "DiamondSixOperations",
+   "b": "DeligneWeightsAndPurity",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "DSO's closure already contains DWP's foundations (scheme étale theory, EDC.0–EDC.4, LPV.0–LPV.2, A1–A3, R09.1–R09.4) and adds perfectoid spaces, diamonds, Huber's and diamond étale cohomology (P0–P6, D0–D6, H0–H5, C0–C9), the prismatic Q4 stack and the six operations. DWP adds only Weil I/II, hard Lefschetz, the pencil and monodromy layers LPV.3–LPV.7 and A6."
+  },
+  {
+   "a": "DiamondSixOperations",
+   "b": "HabiroNumberFields",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "HNF imports the norm-residue theorem with motivic homotopy, Rost motives and the motivic spectral sequence (M.1–M.7), Quillen's K-theory, Suslin's K3 theorem, Borel's stable cohomology with reduction theory, and local K-theory via THH/TC (L.1–L.6, RT.1–RT.4) before its Habiro modules. DSO's diamond stack (ECD étale cohomology and six operations, Huber's adic étale cohomology, SGA4-level duality, perfectoid and prismatic inputs, algebraic stacks) is equally deep but somewhat smaller."
+  },
+  {
+   "a": "VectorBundlesAndIsocrystals",
+   "b": "HabiroNumberFields",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "VBI adds the relative Fargues–Fontaine curve and its diamond, rigid geometry, bundle classification and Banach–Colmez spaces to the diamond stack through S0–S5 (C0–C9, H0–H4, EDC, perfectoid, prismatic). HNF's imported norm-residue theorem, motivic cohomology and étale K-theory, Quillen and Borel K-theory, THH/TC local K-theory and p-adic regulators amount to somewhat more."
+  },
+  {
+   "a": "VectorBundlesAndIsocrystals",
+   "b": "PotentialAutomorphyInfrastructure",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "PAI's closure contains all but a dozen of VBI's layers (diamonds, six operations, étale cohomology of diamonds, perfectoid spaces, most of the Fargues–Fontaine curve) and adds Weil II, endoscopic transfer with the fundamental lemma, Shimura and Igusa varieties with Caraiani–Scholze vanishing, automorphic Galois representations and derived patching. VBI adds only its own isocrystal, bundle and Banach–Colmez layers."
+  },
+  {
+   "a": "PotentialAutomorphyInfrastructure",
+   "b": "RefinedTraceMethods",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "RTM needs spectra, THH/TC and trace comparisons, q-Hodge and cyclonic spectra, refined localizing invariants and BMS2 with prismatic, A_inf and Habiro-ring inputs, about 75 layers. PAI's closure of about 355 layers spans étale and diamond cohomology, Weil II, Shimura and Igusa varieties, the trace formula and fundamental lemma, automorphic Galois representations and patching."
+  },
+  {
+   "a": "RefinedTraceMethods",
+   "b": "SpecialValuesBirchTate",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "SVBT needs Wiles's and Kurihara's main conjectures with DKSW integral Brumer–Stark, modular-curve moduli, Deligne–Ribet p-adic zeta functions, Tate's K_2 theorems, the norm-residue theorem, Quillen–Borel K-theory, Borel regulators and polylogarithms, and it even contains RT.1–RT.4. RTM's own trace, q-Hodge, refined-invariant and BMS2 layers with their Habiro and prismatic imports are much less."
+  },
+  {
+   "a": "SpecialValuesBirchTate",
+   "b": "AdicCoefficientsAndComparisons",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "SVBT's arithmetic stack (Iwasawa main conjectures and integral Brumer–Stark, modular curves, K_2, K_3 and higher K-theory with the norm-residue theorem, Borel regulators, p-adic L-functions) is about 210 layers. AC's missing theory is the diamond six-functor stack with Huber and ECD étale cohomology, SGA4-level duality, alterations and Nagata compactification, about 100 layers."
+  },
+  {
+   "a": "DiamondsAndVStacks",
+   "b": "DiophantineApproximationAndTranscendence",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "DV needs perfectoid spaces P0–P6, adic étale geometry, the prismatic perfectoidization theorem and ∞-categorical sheaf foundations before diamonds and v-descent. DT's Roth, subspace theorem, Baker bounds and E/G-functions sit directly on Mathlib's heights, Siegel lemma and Liouville with only Minkowski's second theorem and LLL imported."
+  },
+  {
+   "a": "SpecialValuesBirchTate",
+   "b": "PotentialAutomorphyInfrastructure",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "SVBT's missing theory is the arithmetic K-theory and Iwasawa stack (norm residue, Quillen–Borel K-theory, main conjectures, modular curves, regulators). PAI's much larger closure (about 355 layers against 210) contains étale, perverse and diamond cohomology, Weil II, perfectoid Shimura and Igusa varieties, endoscopic transfer with the fundamental lemma, the trace formula, automorphic Galois representations and patching."
+  },
+  {
+   "a": "IntegralHeckeAndGaloisDeterminants",
+   "b": "PerfectoidSpaces",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "PS needs almost mathematics, tilting, sheafiness, almost purity, limits and towers, with imported prismatic cohomology up to perfectoidization, D0–D4, adic étale and rigid geometry and ∞-categorical sheaves (about 50 layers). IHG's determinants, GMAs, DKSW theorem and imported Satake/Bruhat–Tits theory (about 20 layers) are a smaller, shallower stack."
+  },
+  {
+   "a": "DeligneWeightsAndPurity",
+   "b": "AbelianSchemesAndArithmeticModuli",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "DWP contains AS's core (A1–A3, A6 with R09.1–R09.4) and stacks on it scheme étale foundations and duality (EDC.0–EDC.4), vanishing cycles, Lefschetz pencils and Kazhdan–Margulis monodromy (LPV), then Weil I/II and hard Lefschetz. AS instead needs wide but shallower side branches — Serre–Tate via Dieudonné, Breuil–Kisin and Grothendieck–Messing, complex GAGA for uniformization, Artin representability and formal geometry — so the amounts are close and DWP's taller tower decides."
+  },
+  {
+   "a": "RefinedTraceMethods",
+   "b": "VectorBundlesAndIsocrystals",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "VBI needs the diamond stack through S0–S5 (diamond étale cohomology, Huber's adic étale cohomology, EDC and scheme étale theory, perfectoid and prismatic inputs, algebraic stacks) plus the relative Fargues–Fontaine curve, rigid geometry and bundle classification. RTM needs spectra, THH/TC, Bott periodicity, Wagner's cyclonic q-Hodge theory, Efimov's refined invariants and BMS2 with A_inf, prismatic and Habiro inputs: comparable, but VBI's stack is larger and much deeper."
+  },
+  {
+   "a": "DiamondSixOperations",
+   "b": "ArithmeticQuantumTopology",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "AQT imports all of HabiroNumberFields' K-theory (norm residue, motivic cohomology, Quillen and Borel K-theory, THH/TC, p-adic regulators) and adds Kirby calculus, ribbon-category and Reshetikhin–Turaev invariants, Habiro's unified invariant and hyperbolic Bloch regulators. DSO's diamond six-functor stack is clearly smaller."
+  },
+  {
+   "a": "AdicCoefficientsAndComparisons",
+   "b": "HabiroNumberFields",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "AC adds ECD §§26–27, Nagata compactification and de Jong alterations with cohomological descent to the diamond stack (diamond and Huber étale cohomology, EDC and scheme étale theory, perfectoid, prismatic, six operations). HNF's imported norm-residue theorem, motivic spectral sequence, étale K-theory, Quillen and Borel K-theory, THH/TC local K-theory and p-adic regulators amount to somewhat more."
+  },
+  {
+   "a": "DiophantineApproximationAndTranscendence",
+   "b": "AbelianSchemesAndArithmeticModuli",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "AS needs algebraic spaces and stacks with Artin representability, p-divisible group and Grothendieck–Messing theory, complex GAGA and its own duals, polarizations and Serre–Tate, about 50 layers. DT's approximation and transcendence theorems sit on Mathlib's heights, Siegel lemma and Liouville with only Minkowski's second theorem and LLL imported."
+  },
+  {
+   "a": "VectorBundlesAndIsocrystals",
+   "b": "SpecialValuesBirchTate",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "SVBT needs the arithmetic stack of Iwasawa main conjectures, integral Brumer–Stark, modular curves, K_2 and higher K-theory with the norm-residue theorem, Borel regulators and p-adic L-functions, about 210 layers. VBI's diamond stack with Fargues–Fontaine bundles and Banach–Colmez spaces, about 120 layers, is smaller."
+  },
+  {
+   "a": "DiamondsAndVStacks",
+   "b": "PotentialAutomorphyInfrastructure",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "PAI's closure contains every layer DV needs (perfectoid, prismatic, D0–D6) and adds the diamond six operations, Weil II, Shimura and Igusa varieties, the fundamental lemma, automorphic Galois representations and patching. DV's diamonds and v-stacks are a small part of it."
+  }
+ ]
+}
