@@ -384,6 +384,34 @@
    "farther": "b",
    "strength": "clear",
    "reason": "ProbabilisticAndMetric can state most of its targets directly over Mathlib's probability and ergodic theory and TauCeti's built Dirichlet-series layer, its only heavy import being homogeneous dynamics; ArithmeticGaloisDuality has essentially no arithmetic content in either library and must build the continuous Hochschild-Serre spectral sequence, derived inverse limits with compact p-adic coefficients, G_{F,S} with global finiteness and the Euler characteristic, and Poitou-Tate duality itself, on top of an unbuilt global class field theory and local Tate duality."
+  },
+  {
+   "a": "AnalyticNumberTheory",
+   "b": "IntegralHeckeAndGaloisDeterminants",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "IntegralHecke has no stage built and must construct polynomial laws, determinants, Cayley-Hamilton algebras, derived Hecke nilpotence and the DKSW theorem over three unbuilt suppliers; AnalyticNumberTheory has AN.0 and AN.1 finished, but the theory still to build is larger - the whole quantitative subject (zero-free regions, PNT and PNT in progressions, explicit formulas, zero-density and mean values), Dedekind, Hecke and Artin L-functions, Halasz-type value distribution, and then two stages resting on suppliers bigger than anything IntegralHecke imports: adelic and motivic integration for prehomogeneous zeta, and the full automorphic spectral decomposition with the invariant trace formula for Selberg zeta."
+  },
+  {
+   "a": "SpecialValuesBirchTate",
+   "b": "ComplexMultiplicationAndExplicitReciprocity",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "ComplexMultiplication imports canonical models of Shimura varieties, abelian-scheme moduli, Neron models and modular curves, but its own seven stages are classical explicit theory once those exist; Birch-Tate imports ten roadmaps and needs algebraic K-theory from scratch with K_2, the tame kernel and Quillen finite generation, the continuation of Dedekind zeta with Siegel-Klingen rationality, Deligne-Ribet p-adic L-functions, the motivic norm-residue theorem, Borel regulators and polylogarithms, and above all the Iwasawa Main Conjecture over arbitrary totally real fields including the prime 2, which itself needs Hilbert modular forms and their Galois representations."
+  },
+  {
+   "a": "ArithmeticDynamics",
+   "b": "MotivesAndAlgebraicCycles",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "ArithmeticDynamics already has Mathlib's height machinery with Northcott and TauCeti's Neron-Tate package, and its gaps - Berkovich spaces, dynatomic schemes, equidistribution, arboreal representations - are additions to an existing arithmetic base; MotivesAndAlgebraicCycles has no cycle theory at all and must build intersection theory and Chow groups, etale, Betti and de Rham cohomology with their comparison and cycle-class maps, Jannsen semisimplicity, the Voevodsky category over the norm-residue theorem, Nori diagram categories and Tannakian reconstruction before any of its targets can even be stated."
+  },
+  {
+   "a": "HabiroRings",
+   "b": "EulerSystemsAndKolyvaginSystems",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "EulerSystems is intricate but classical in kind: it builds on continuous and group cohomology that exist, needing Poitou-Tate duality, Selmer complexes and Iwasawa algebras above them and then nine stages of descent theory; HabiroRings cannot state its first definition without a foundation layer that Mathlib entirely lacks - arithmetic Lambda-rings and delta-rings with prismatic cohomology, derived completion, infinity-categorical derived sheaves, E-infinity ring spectra and solid modules - and then needs q-Hodge/Habiro cohomology and two further Habiro roadmaps before its own seven stages."
   }
  ]
 }
