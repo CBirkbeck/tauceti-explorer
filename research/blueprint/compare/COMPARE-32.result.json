@@ -1,0 +1,399 @@
+{
+ "job": "COMPARE-32",
+ "notes": {
+  "tauceti:TauCetiRoadmap/Multiquadratic": {
+   "targets": "Degree 2^n and Galois group (Z/2)^n of K(√d1,…,√dn) with the subfield lattice; the prime-splitting/Frobenius law including ramification at 2; Cl/Cl^2, unit square index and the ambiguous class number formula; the genus field, Gal(K_gen/K) ≅ Cl(K)/Cl(K)^2 and the 2-rank formula t−1 (narrow and imaginary).",
+   "baselineHas": [
+    "TauCeti.Multiquadratic.finrank_adjoin_range and intermediateFieldEquivSubmodule (NumberTheory/Multiquadratic/Degree.lean, Subfield/Lattice.lean)",
+    "NumberField.isArithFrobAt_multiquadratic_eq_one_iff (Multiquadratic/Frobenius.lean)",
+    "TauCeti.Multiquadratic.narrowTwoRank_eq_ncard_ramifiedPrimes_sub_one (Quadratic/TwoRank.lean, both signatures) and natCard_classGroup_sq_eq_one_eq_two_pow (Quadratic/AmbiguousClassNumber.lean)",
+    "autCandidateGenusFieldEquivNarrowElementaryTwoQuotient, autCandidateGenusFieldEquivElementaryTwoQuotient, autCandidateGenusFieldRealEquivElementaryTwoQuotient (CandidateGenusField/Relative/*.lean); worked examples finrank_adjoin_sqrt_two_three, finrank_adjoin_I_sqrt_primes"
+   ],
+   "missing": [
+    "Essentially nothing required by Layers 0–3: the baseline (newer than the STATUS report) has the narrow 2-rank formula for both signatures, the ambiguous class number formula and Gal(K_gen/K) ≅ Cl/Cl^2 in the imaginary, real and narrow forms",
+    "Optional polish only: identifying the genus-field isomorphism with the Artin map (the files say this is not done), which the roadmap does not require; the long-horizon items (Kronecker–Weber, Hilbert class field) are explicitly optional"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/ConformalMapping": {
+   "targets": "Rouché/Hurwitz/Morera, Montel–Vitali, Schwarz–Pick and the Poincaré disc, the Riemann mapping theorem, reflection/removability/monodromy, Carathéodory's theorem for Jordan domains, and Schwarz–Christoffel maps onto polygons.",
+   "baselineHas": [
+    "TauCeti.riemannMapping and riemannMapping_normalized (Analysis/Complex/Conformal/RiemannMapping/*.lean)",
+    "TauCeti.exists_homeomorph_closedBall_closure_of_isJordanCurve_frontier (Conformal/Jordan/Approach.lean)",
+    "TauCeti.differentiableOn_schwarzReflection_of_symmetric and continuesInside_iff_exists_analyticOnNhd (Reflection/Principle.lean, GlobalBranch.lean)",
+    "schwarzChristoffelPrimitive, schwarzChristoffelBoundary, range_schwarzChristoffelCompactifiedBoundary (SchwarzChristoffel/*, 120 declarations)"
+   ],
+   "missing": [
+    "L6 completion: global injectivity of the Schwarz–Christoffel map and identification of its image with the polygon interior (argument principle plus boundary behaviour)",
+    "L6 parameter problem: prevertices and exponents realizing an arbitrary simple polygon (via the existing Riemann map, Carathéodory extension and reflection)",
+    "No imported theory: L0–L5 are built on Mathlib and the completed ContourIntegration roadmap"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/AlgebraicCodingTheory": {
+   "targets": "Linear and additive codes with generator/check matrices, puncturing/shortening and equivalences; minimum distance and Euclidean/Hermitian duality; weight enumerators and the MacWilliams identity; doubly-even and Type II codes; tetracode, hexacode, extended Golay codes G24 and G12 with enumerators; Construction A with exact discriminant/unimodularity criteria; codes as isotropic subgroups of discriminant modules.",
+   "baselineHas": [
+    "TauCeti.LinearCode, TauCeti.AdditiveCode, Matrix.generatedBy/checkedBy, LinearCode.IsGeneratorMatrix (InformationTheory/Coding/Basic.lean, Matrix.lean)",
+    "Mathlib hammingDist/hammingNorm (InformationTheory/Hamming.lean) and AddChar.FiniteField.primitiveChar for the character sum",
+    "Completed IntegralLattices roadmap: TauCeti.IntegralLattice.discriminantSubgroup, intermediateCarrierOfDiscriminantSubgroup, IntermediateCarrier.dual_eq_self_iff_isLagrangian (LinearAlgebra/IntegralLattice/Overlattice/*)"
+   ],
+   "missing": [
+    "L1 rest: puncturing, shortening, direct sums, permutation/monomial/semilinear equivalences and automorphism groups",
+    "L2: minimum distance API, Euclidean and Hermitian duals with double-dual and dimension formulas, duality of puncture/shorten",
+    "L3: weight distribution and enumerators, character orthogonality, q-ary MacWilliams identity",
+    "L4: doubly-even/Type II codes, length ≡ 0 mod 8, enumerator invariances",
+    "L5: explicit tetracode, hexacode, G24 and G12 with parameters, self-duality and enumerators (large finite computations)",
+    "L6–L7: Construction A over IntegralLattice (duality, discriminant, evenness) and coordinate discriminant isometries for Z/m, A2 and D4 alphabets",
+    "All elementary finite algebra; the lattice theory it consumes is already complete"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/Chebotarev": {
+   "targets": "Chebotarev density for finite Galois L/K: Dirichlet density #C/#G, ψ_C(x) ~ (#C/#G)x, π_C(x) ~ (#C/#G)Li(x) and natural density, by the cyclotomic-crossing route (cyclotomic → abelian → general via cyclic fixed fields).",
+   "baselineHas": [
+    "NumberField.Chebotarev.frobeniusPrimeSet, NumberField.exists_auxiliaryPrime, TauCeti.fixedField_zpowers_isCyclotomicExtension, MonoidHom.galoisCharacterWeight, frobeniusVonMangoldtCoeff (NumberTheory/Chebotarev/*, 83 declarations)",
+    "NumberField.artinSymbol with artinSymbol_map_restrictNormalHom (NumberTheory/NumberField/ArtinSymbol.lean)",
+    "ArithmeticDirichletSeries (665 declarations: primeTheta_asymptotic_of_primePsi, primeCount_asymptotic_of_primeTheta, standardPrimePowerRemoval) and TauCeti/NumberTheory/LSeries/WienerIkehara/*, Landau.lean, ThreeFourOne.lean",
+    "Mathlib NumberField.Set.HasDirichletDensity / primeIdealZetaSum (NumberField/DirichletDensity.lean) and NumberField.dedekindZeta_residue; Tau Ceti GlobalNumberFields.RayClassGroup with finite_rayClassGroup"
+   ],
+   "missing": [
+    "Imported GlobalNumberFields Layer 3 (absent): power-saving lattice-point count for Lipschitz boundaries, congruence sublattice, ray fundamental domain, uniform rayClassIdealCount with explicit main term, rayClassCharacter_partialSums",
+    "L3 density normalization via the Euler product; L4 conductor factorization of cyclotomic characters through ray class characters",
+    "L5 continuation of cyclotomic character series past Re s = 1, pole of the trivial character and nonvanishing at s = 1; L6 cyclotomic density",
+    "L7–L8 remaining: Frobenius compatibility in the compositum, exact fixed-field fibre count and exceptional set",
+    "L9–L10 abelian and general Dirichlet-density Chebotarev",
+    "L11–L12 remaining discard estimates, logarithmic-derivative identity, regularized boundary function and the weighted crossing through Wiener–Ikehara",
+    "L13–L14 Abel summation to π_C, prime ideal theorem for K and natural density"
+   ]
+  },
+  "PadicMeasuresIwasawaAlgebras": {
+   "targets": "Bounded p-adic measures on profinite spaces; rigid character/weight spaces; completed group rings O[[G]] ≅ measures with convolution; Mahler–Amice over general O with φ, ψ and friends; pseudo-measures; Weierstrass theory, the Λ-module structure theorem, characteristic ideals, μ/λ and multivariable divisors; determinant lines of perfect complexes, topological Nakayama and Tor specialization; Gorenstein coefficient orders with exact duality.",
+   "baselineHas": [
+    "Mathlib AbstractMeasure with dirac, map, prodMk_eq_prodMk' (NumberTheory/Padics/Measure/Basic.lean) and WeakTopology/StrongTopology",
+    "Mathlib AbstractMeasure.amiceTransformEquiv (only D(Z_p,Z_p) ≃ Z_p⟦X⟧, linear) and PadicInt.hasSum_mahler",
+    "Mathlib PowerSeries.exists_isWeierstrassDivision and WeierstrassPreparation.lean; Tau Ceti Huber-ring/adic-spectrum material with closed polydiscs only"
+   ],
+   "missing": [
+    "L0: integral lattice of measures, clopen finitely additive description, orthonormal-basis theorem for p-adic Banach spaces, completed tensor products",
+    "L0a: rigid analytic weight spaces representing characters on affinoid algebras (needs rigid/adic space foundations beyond the unfinished AdicSpaces layers)",
+    "L1: completed group rings, universal property, convolution algebra ≅ integral measures, restriction/induction",
+    "L2: Amice transform over general O as an algebra map, Z_p^d, the RJW §3.5 operators; L3 pseudo-measures",
+    "L4: regularity and dimension of O[[T]], structure theorem up to pseudo-isomorphism, characteristic and Fitting ideals, μ/λ, height-one divisors of O[[Z_p^d]]",
+    "L5: determinant functor on perfect complexes, Mittag-Leffler exactness, topological Nakayama, Tor specialization",
+    "L6: Gorenstein orders, invertible O-dual, Matlis-type duality, exterior biduals"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/GlobalNumberFields": {
+   "targets": "Places and the product formula, weak approximation, moduli and ray class groups, power-saving ray-class ideal counting, finite and full adeles, strong approximation, ideles and the compact norm-one idele class group, the ray-class dictionary, adele base change, Hecke and ray class characters, infinity types and cyclotomic arithmetic, orders with Pic and NarrowPic.",
+   "baselineHas": [
+    "TauCeti.GlobalNumberFields.finprod_normalizedAbsValue_eq_one (Global/Places/Basic.lean) and weakApproximation_denseRange with sign corollaries (Approximation/Weak.lean)",
+    "RayClassGroup, idealClass_eq_one_iff, finite_rayClassGroup, card_rayClassGroup, mulExact_residueSignRayClass_rayClassToClassGroup (Global/RayClass/*)",
+    "discreteTopology_principalSubgroup (Global/Adeles/Discrete.lean); Mathlib AdeleRing, FiniteAdeleRing, IdeleGroup, mixedEmbedding.fundamentalCone, dedekindZeta_residue"
+   ],
+   "missing": [
+    "L0 rest: functoriality of normalized absolute values under finite extensions",
+    "L3: power-saving lattice-point counting (3A), congruence lattice (3B), ray fundamental domain with Lipschitz frontier (3C), uniform ray-class counts, main term and character cancellation (3D–3F)",
+    "L4–L5: finite-idele description of the class group, local compactness, compactness of A_K/K",
+    "L6: strong approximation, idele class group, idele norm and compactness of the norm-one part",
+    "L7: idele congruence subgroups, ray class quotient, identity component D_K",
+    "L8: adele/idele extension and norm maps with the topological base-change equivalence",
+    "L9–L10: Hecke characters, conductors, shift/unitary part, classification of characters of R^× and C^×, infinity-type carriers, cyclotomic splitting and RayClassGroup((n)∞) ≅ (Z/n)^×",
+    "L11: orders, conductors, invertible ideals, Pic and NarrowPic with functoriality and the ideal class monoid",
+    "Foundational and broad, with no large imported theory"
+   ]
+  },
+  "GeometryOfNumbersAndQuadraticArithmetic": {
+   "targets": "Lattices and covolumes; Minkowski's first and second theorems; quadratic and hermitian local–global theory (Hilbert symbols, Hasse invariants, Hasse–Minkowski over number fields, genera and spinor genera); reduction theory, local densities, mass formulas and theta series; lattice-point error terms, equidistribution, unipotent flows and nondivergence for Oppenheim/Duke-type results, packing, Siegel mean value; certified LLL reduction; hermitian K-theory and Grothendieck–Witt groups.",
+   "baselineHas": [
+    "Mathlib ZLattice.covolume, NumberField.mixedEmbedding.covolume_idealLattice (GN.0 complete)",
+    "Mathlib MeasureTheory.exists_ne_zero_mem_lattice_of_measure_mul_two_pow_lt_measure and NumberField.exists_ideal_in_class_of_norm_le",
+    "Tau Ceti Witt theory TauCeti.equivalent_of_equivalent_prod, TauCeti.RegularFormClass.discr, QuadraticForm.IsLocallyIsotropic; TauCeti.IntegralLattice"
+   ],
+   "missing": [
+    "GN.1: successive minima and Minkowski's second theorem",
+    "GN.2: Hilbert symbols, Hasse/Clifford invariants, nonarchimedean and dyadic classification, Hasse–Minkowski over number fields (needs the Hilbert reciprocity/norm-index input of Class Field Theory through GlobalQuadraticForms, which is not built), lattices over O_K, genera, spinor genera, hermitian variants",
+    "GN.3: higher-rank reduction theory, representation densities, finiteness of classes and automorphisms, the Smith–Minkowski–Siegel mass formula, modularity of lattice theta series",
+    "GN.4: error terms, equidistribution, mixing and unipotent-flow (Ratner) theory, Dani–Margulis nondivergence, Oppenheim/Duke-type applications, packing, Minkowski–Hlawka, Siegel mean-value formula",
+    "GN.5: LLL with a proven approximation factor and certificates",
+    "GN.6: exact categories with duality, higher Grothendieck–Witt spaces, localization and periodicity, importing GeneralAlgebraicKTheory K.1–K.6 with StableHomotopyKTheory H.1–H.5 and EnhancedDerivedSheaves E0/E5"
+   ]
+  },
+  "ShimuraData": {
+   "targets": "Deligne's category of Shimura data: Weil restriction and the Deligne torus, Rep(S) ≅ Hodge structures, Cartan involutions and Hermitian symmetric domains, homogeneous variations of Hodge structure, compact duals and reflex fields with descent, special points and Hodge/abelian/pre-abelian types, neat levels and the torus, GL2, Siegel and Hilbert examples.",
+   "baselineHas": [
+    "TauCeti.Hodge.HodgeStructureOn with Weil operator and Tate twists (linear-algebraic Hodge structures)",
+    "Tau Ceti affine algebraic groups: tori with Galois descent, reductive/derived/adjoint groups, central isogenies, dynamic parabolics on points, Sp_2m",
+    "Mathlib NumberField.AdeleRing, IdeleGroup; the GL2 case (upper half-plane as a complex manifold, arithmetic subgroups)"
+   ],
+   "missing": [
+    "Imports: Weil restriction of affine group schemes (ReductiveGroupsPartII RG2.0a, RG2.0 topologies on points), restricted products and adelic points (AdelicAlgebraicGroups AA.0–AA.1), Grassmannians/flag schemes (AlgebraicModuli R09.1), the real-analytic group interface (AutomorphicForms AF.1a) — all absent",
+    "D1: the Deligne torus and the equivalence of its real representations with Hodge structures",
+    "D2: Cartan involutions via compact real forms, invariant complex structure and Hermitian symmetric-domain charts (deeper Lie structure theory not in the library)",
+    "D3: variations of Hodge structure, homogeneous variations, compact dual G/P, Borel embedding, reflex field and descent",
+    "D4–D5: category of data, special points, Hodge/abelian/pre-abelian type, neatness, arithmetic subgroups, torus/GL2/Siegel/Hilbert data"
+   ]
+  },
+  "LogicAndDefinabilityInNumberTheory": {
+   "targets": "First-order languages and Łoś; valued-field logic (Ax–Kochen–Ershov, Denef–Pas elimination); p-adic cell decomposition and rationality of Igusa/Poincaré series; motivic integration and transfer; MRDP and Hilbert's tenth problem; uniform arithmetic applications; o-minimality, cell decomposition, Pila–Wilkie counting and Pila–Zannier/André–Oort cases.",
+   "baselineHas": [
+    "Mathlib FirstOrder.Language.Ultraproduct.sentence_realize (ModelTheory/Ultraproducts.lean)",
+    "Mathlib FirstOrder.Field.ACF_isComplete (ModelTheory/Algebra/Field/IsAlgClosed.lean) and ModelTheory/Algebra/Ring/Definability.lean",
+    "Mathlib NumberTheory/Dioph.lean and PellMatiyasevic.lean (exponentiation is Diophantine)"
+   ],
+   "missing": [
+    "LD.1: henselian valued-field languages, angular components, AKE and Denef–Pas quantifier elimination",
+    "LD.2: p-adic definable cells and measures, rationality of Igusa/Poincaré series",
+    "LD.3: Cluckers–Loeser motivic integration and transfer, importing MotivesAndAlgebraicCycles MC.4 (geometric mixed motives and motivic cohomology) and through it MotivicEtaleKTheory, SchemeKTheoryOperations, GeneralAlgebraicKTheory, StableHomotopyKTheory, EnhancedDerivedSheaves, plus SchemeAndStackFoundations SF.0–SF.5 (algebraic spaces and stacks, intersection theory)",
+    "LD.4: r.e. sets and the full MRDP theorem",
+    "LD.6: o-minimal structures and cell decomposition, Pila–Wilkie, definability of uniformizations, functional transcendence and Galois-orbit inputs for Pila–Zannier and André–Oort cases, with DiophantineApproximation DT.0 heights",
+    "LD.5: uniform local-density and counting transfer applications"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/BelyiMaps": {
+   "targets": "Permutation triples, passports, dessins, enumeration and the Frobenius formula; triangle groups; π1(C∖{0,1}) ≅ F2 and covers ↔ triples; compactified branched covers; Riemann surfaces and analytic Riemann existence for three-point covers; algebraization and Belyi's theorem in both directions; fields of moduli and Weil descent; ẑ-powers, π1^geo ≅ free profinite group, the branch-cycle theorem; the pro-ℓ peripheral theorem and faithfulness of Gal(Q̄/Q) on dessins; LMFDB semantics.",
+   "baselineHas": [
+    "TauCeti.PermutationTriple with relabeling, monodromy/automorphism groups, eulerChar, orderTriple (Combinatorics/PermutationTriple/*, 140 declarations)",
+    "TauCeti.BipartiteRibbonGraph and PermutationTriple.ribbonGraph (Combinatorics/RibbonGraph/*)",
+    "Tau Ceti covering-space classification: TauCeti.UniversalCover.ActionCover, FiniteCoveringSpace.profiniteCompletionAutFiberFunctorMulEquiv; Mathlib IsCoveringMap.monodromyPerm",
+    "TauCeti.maximalProPQuotient (Topology/Algebra/Group/Profinite/MaximalProP.lean) and function-field riemannRochSpace (partial AlgebraicCurves)"
+   ],
+   "missing": [
+    "L1–L4: passports and blocks, dessin→triple and the S3 action, executable enumeration, Frobenius product-one formula and generating counts, triangle groups with spherical classification and hyperbolic infiniteness",
+    "L5–L7: two-open van Kampen (named supplier UniversalCovers, absent), π1(U) ≅ F2, the remaining cover classification, compactification to topological branched covers",
+    "L8: Riemann sphere and Riemann-surface API, local normal form, degree theorem, complex structure on filled covers, analytic Riemann existence; imports the compact Riemann-surface cohomology chain of ModularForms Layer 10B (H¹ finiteness, Riemann–Roch, Riemann–Hurwitz, meromorphic sections), not started",
+    "L9: meromorphic function fields, [M(X):C(t)] = deg β, points ↔ places, algebraization/analytification; imports AlgebraicCurves Layers 5–8 and 12 (Riemann–Roch, constant-field extension, regular model), partial or not started",
+    "L10–L11: Belyi's theorem both ways with descent to a number field, fields of moduli and definition, Weil descent",
+    "L12–L13: ẑ as a ring with profinite exponentiation (unwritten ProfiniteArithmetic), free profinite and pro-ℓ groups (ProfiniteProPGroups), π1^geo comparison, arithmetic exact sequence, tame inertia, branch-cycle theorem, pro-ℓ peripheral theorem, faithfulness",
+    "L14: LMFDB record certificates"
+   ]
+  },
+  "AutomorphicPadicLFunctions": {
+   "targets": "A general evaluation/interpolation framework on ray-class character spaces, and four constructions: Bergdall–Williams small-slope p-adic L-functions for GL2 over any number field, Deligne–Ribet and Katz CM p-adic L-functions (with Hsieh's anticyclotomic μ theorem), Eischen–Harris–Li–Skinner unitary doubling p-adic L-functions and Eischen–Wan Klingen families, with comparisons.",
+   "baselineHas": [
+    "Tau Ceti TauCeti.GlobalNumberFields.RayClassGroup with transition maps and the ideal Artin map",
+    "Mathlib DirichletCharacter conductors, NumberField.IdeleGroup, Eisenstein series and L-series of modular forms over Q",
+    "Mathlib AbstractMeasure and amiceTransform (Z_p only); Tau Ceti sheaf cohomology of O_X-modules"
+   ],
+   "missing": [
+    "L0: p-power ray-class limit with Leopoldt defect, locally algebraic Hecke characters with infinity types, distributions on ray-class quotients, conditional interpolation principle",
+    "L1–L2: cohomology of arithmetic groups over number fields with Borel–Serre and evaluation cycles, overconvergent coefficient modules, control theorem and BSW interpolation",
+    "L3: Hilbert Eisenstein series, q-expansion principle, Deligne–Ribet; CM abelian varieties, Igusa towers, p-adic differential operators and Katz's measure; L3h Hsieh's toric distributions and μ = 0",
+    "L4–L4e: unitary PEL Shimura varieties, toroidal compactifications, ordinary Igusa towers, doubling zeta integrals (EHLS), Klingen Eisenstein families",
+    "Imports (all absent): PadicMeasures L1, LocallyAnalyticDistributions, Dirichlet and modular-symbol p-adic L-functions, PadicFamilies eigenvarieties, HeegnerPointEulerSystems, SelmerIwasawaCohomology, IntegralIwasawaTheory, ModularCurvesPartII — transitively 559 stages over 83 roadmaps, depth 23"
+   ]
+  },
+  "PadicDifferentialEquationsAndRigidCohomology": {
+   "targets": "Dagger algebras and Robba rings; differential modules, generic radii and Frobenius slope filtrations; the p-adic local monodromy theorem; overconvergent F-isocrystals on frames; rigid cohomology with compact support; Kedlaya finiteness, duality and Künneth; rigid trace formula, p-adic Fourier transform and p-adic Weil II; rigid–crystalline comparison and compatibility with ℓ-adic Weil factors.",
+   "baselineHas": [
+    "Mathlib WittVector isocrystals (RingTheory/WittVector/Isocrystal.lean) only",
+    "Tau Ceti Huber rings and adic spectra (partial AdicSpaces: Spa(A,A⁺), rational subsets)",
+    "Tau Ceti sheaf cohomology of O_X-modules on schemes"
+   ],
+   "missing": [
+    "RD.0–RD.2: dagger algebras, Robba rings, differential modules with Frobenius, slope filtrations, Kedlaya's local monodromy theorem",
+    "RD.3–RD.4: frames, tubes, overconvergent isocrystals, rigid cohomology and compact support with functoriality",
+    "RD.5: finiteness with coefficients (relative monodromy, alterations/descent), Poincaré duality, Künneth",
+    "RD.6: rigid Lefschetz trace formula, p-adic Fourier transform, Kedlaya's p-adic Weil II",
+    "RD.7: rigid–crystalline comparison and Weil-factor export",
+    "Imports (absent): AdicSpacesPartII F0/F1 and R0–R3 (dagger and formal geometry), CrystallineCohomology CR.0–CR.3, DeligneWeightsAndPurity DWP.0–DWP.4 (Weil I) with EtaleDualityAndPerverseSheaves EDC.0–EDC.4, LefschetzPencilsAndVanishingCycles and the étale point-counting foundations, WeilConjectures WC.0–WC.1, period rings (PadicHodgeTheory P7, R06.1); transitively 86 stages over 21 roadmaps, depth 7"
+   ]
+  },
+  "CohomologyComparisons": {
+   "targets": "Common objects and period-ring normalizations; the integral derived comparison diagram for A_inf-cohomology (de Rham, Hodge–Tate, crystalline, étale, prismatic); rational crystalline comparison and descent; the canonical B_dR^+ deformation and de Rham comparison; semistable/log/Hyodo–Kato comparison; integral torsion inequalities and lattice recovery; product, Chern-class and arithmetic exports.",
+   "baselineHas": [
+    "Mathlib WittVector theory including isocrystals (RingTheory/WittVector/*)",
+    "Tau Ceti Huber rings and adic spectra (partial AdicSpaces)",
+    "Tau Ceti O_X-module sheaf cohomology; no perfectoid, prismatic, A_inf or crystalline cohomology in either library"
+   ],
+   "missing": [
+    "CP.0: formal/special/generic-fibre comparison functors and all ring maps to A_cris, B_cris, B_st, B_dR",
+    "CP.1: commutativity of the integral A_inf comparison diagram including the prismatic Frobenius-pullback identification",
+    "CP.2–CP.3: rational crystalline comparison via A_inf, and the canonical B_dR^+ deformation with the de Rham comparison and filtration strictness",
+    "CP.4: semistable/log comparison with Hyodo–Kato and monodromy",
+    "CP.5–CP.6: torsion inequalities and lattice recovery, Chern-class and product compatibilities",
+    "Imports (absent): AInfCohomology AI.0–AI.6 (BMS1), PrismaticCohomology PR.0–PR.6 with PerfectoidQuotients Q0–Q4, CrystallineCohomology CR.0–CR.6 (de Rham–Witt, log, Hyodo–Kato), DerivedDeRhamCohomology, PerfectoidSpaces P0–P6, DiamondsAndVStacks, Fargues–Fontaine, PadicHodgeTheory period rings and sheaves, Breuil–Kisin modules, EnhancedDerivedSheaves; transitively 91 stages over 18 roadmaps, depth 11"
+   ]
+  },
+  "ExcursionOperatorsAndSpectralAction": {
+   "targets": "Fargues–Scholze Chapters IX–X: the excursion algebra and Bernstein centre, finite ramification, the rational and integral categorical action of perfect complexes on the parameter stack, spectral support, the semisimple L-parameter φ_π, its functoriality (isogenies, products, Weil restriction, tori/LCFT, parabolic induction), and comparisons with the classical GL_n correspondence and with Laumon–Rapoport–Stuhler in equal characteristic.",
+   "baselineHas": [
+    "Mathlib CategoryTheory.CatCenter (centre of a category)",
+    "Mathlib condensed sets/modules with solidification (Condensed, CondensedMod.IsSolid), derived and triangulated categories",
+    "Tau Ceti central simple algebras and Brauer group, reductive group schemes with root data, smooth representations of profinite groups"
+   ],
+   "missing": [
+    "ES0–ES4: excursion operators on D_lis(Bun_G), finite ramification, the categorical Perf action over Q and Z_ℓ, spectral support",
+    "ES5–ES6: semisimple parameter assignment and its functorial properties including local class field theory for tori",
+    "ES7: parabolic induction compatibility, GL_n comparison through Harris–Taylor-type realizations (EndoscopicTransfer ET.6/ET.6a), function-field automorphic theory for division algebras and the LRS comparison",
+    "Imports (all absent): HeckeStacksAndLocalShtukas HS1–HS4, VStackSheavesAndLisseCategories, LanglandsParameterStacks LP0–LP4, GeometricSatakeAndFusion GS4, BunGAndNewtonStrata, SmoothRepresentationsOfLocalGroups SR.0–SR.3, DeligneWeightsAndPurity DWP.7–DWP.9 (Weil II, hard Lefschetz), EtaleDualityAndPerverseSheaves, FunctionFieldArithmetic, EnhancedDerivedSheaves E5 — transitively 324 stages over 52 roadmaps (diamonds, v-stacks, perfectoid spaces, Fargues–Fontaine, étale cohomology), depth 13"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "tauceti:TauCetiRoadmap/Multiquadratic",
+   "b": "tauceti:TauCetiRoadmap/ConformalMapping",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Multiquadratic has essentially nothing left: the baseline already has the narrow 2-rank formula for both signatures, the ambiguous class number formula and Gal(K_gen/K) ≅ Cl/Cl^2. ConformalMapping still has to prove the global Schwarz–Christoffel theorem (injectivity and image equal to the polygon) and the parameter problem, although it can build on the existing Riemann-mapping, Carathéodory and reflection results."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "b": "tauceti:TauCetiRoadmap/ConformalMapping",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Beyond generator and check matrices, Coding Theory must build all of duality (Euclidean and Hermitian), weight enumerators and MacWilliams, Type II codes, the explicit tetracode/hexacode/Golay computations, Construction A and the discriminant-module bridge: six largely unbuilt layers. ConformalMapping lacks only the final Schwarz–Christoffel layer."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "b": "tauceti:TauCetiRoadmap/Chebotarev",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Chebotarev needs a deeper stack. It imports GlobalNumberFields' power-saving ray-class lattice-point counts, then must build continuation and nonvanishing of cyclotomic character series near Re s = 1, the abelian and general density theorems, a Wiener–Ikehara weighted crossing and the prime ideal theorem for K. Coding Theory's missing layers (duality, MacWilliams, Golay codes, Construction A) are broad but elementary finite algebra on an already complete lattice library."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/Chebotarev",
+   "b": "PadicMeasuresIwasawaAlgebras",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Chebotarev's gap is the imported ray-class ideal counting plus about ten layers of analytic assembly, and the baseline already has Artin symbols, Frobenius prime sets, Wiener–Ikehara, prime-count transfers and Dirichlet density. PadicMeasures has less underneath (abstract measures, the Z_p-only Amice transform, Weierstrass preparation). It must build completed group rings and convolution, general Amice theory with φ/ψ, the Λ-module structure theorem with characteristic and Fitting ideals, determinant functors on perfect complexes and Gorenstein duality, plus rigid weight spaces that need missing rigid-analytic foundations."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+   "b": "PadicMeasuresIwasawaAlgebras",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "GlobalNumberFields still lacks many layers: power-saving ray-class counting, adelic compactness and strong approximation, the idele class group dictionary, adele base change, Hecke characters and infinity types, and orders with Picard groups. But these are textbook foundations on Mathlib's adele and fundamental-cone API and its finished ray-class layer. PadicMeasures stacks more advanced new theory with less support: completed group rings, the Iwasawa structure theorem and characteristic ideals, Knudsen–Mumford determinants of perfect complexes, Gorenstein-order duality and rigid weight spaces requiring rigid geometry that does not yet exist."
+  },
+  {
+   "a": "GeometryOfNumbersAndQuadraticArithmetic",
+   "b": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "GlobalNumberFields' remaining layers (ray-class lattice counting, adeles and ideles, Hecke characters, orders and Picard groups) are foundational and build on Mathlib's adele and fundamental-cone API. GeometryOfNumbers must build much deeper theory: Minkowski's second theorem, Hasse–Minkowski over number fields (which needs class-field-theoretic reciprocity), genera and spinor genera, the Siegel mass formula and theta series, unipotent-flow and nondivergence dynamics for Oppenheim/Duke-type results, LLL, and higher hermitian K-theory on imported algebraic K-theory."
+  },
+  {
+   "a": "ShimuraData",
+   "b": "GeometryOfNumbersAndQuadraticArithmetic",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "ShimuraData's gap is a single coherent stack: Weil restriction and adelic points, Cartan involutions and Hermitian symmetric domains, variations of Hodge structure with compact duals and reflex fields, then the datum category and examples. GeometryOfNumbers needs several independent deep theories: local–global quadratic forms through Hasse–Minkowski and spinor genera, mass formulas and theta series, homogeneous dynamics (Ratner-type unipotent flows, Dani–Margulis), and Grothendieck–Witt theory on imported algebraic K-theory and spectra."
+  },
+  {
+   "a": "LogicAndDefinabilityInNumberTheory",
+   "b": "ShimuraData",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Logic must build valued-field model theory (AKE, Denef–Pas elimination), p-adic cell decomposition and Igusa rationality, and Cluckers–Loeser motivic integration, which imports geometric mixed motives and, through them, K-theory, stacks and intersection theory. It also needs MRDP and o-minimality with Pila–Wilkie and André–Oort cases. ShimuraData's missing Lie-group, Hermitian-domain, Hodge-variation and flag-variety layers are a smaller and shallower stack."
+  },
+  {
+   "a": "LogicAndDefinabilityInNumberTheory",
+   "b": "tauceti:TauCetiRoadmap/BelyiMaps",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "BelyiMaps' gap is long but classical: triangle groups, van Kampen and π1 ≅ F2, analytic Riemann existence resting on imported compact-Riemann-surface cohomology, algebraization, Belyi's theorem, fields of moduli and the branch-cycle and pro-ℓ arguments. Logic requires research-level theories that are absent together with their foundations: Denef–Pas quantifier elimination and p-adic integration, motivic integration importing mixed motives, and o-minimal geometry with Pila–Wilkie counting and André–Oort cases."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/BelyiMaps",
+   "b": "AutomorphicPadicLFunctions",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "BelyiMaps needs classical covering-space, Riemann-surface and profinite-group theory. AutomorphicPadicLFunctions needs overconvergent cohomology of arithmetic groups over number fields (BSW), Hilbert modular q-expansion theory (Deligne–Ribet), CM abelian varieties with Igusa towers and p-adic differential operators (Katz, Hsieh), and unitary Shimura varieties with toroidal compactifications and doubling integrals (EHLS). On top of that it imports Iwasawa algebras, eigenvarieties and Euler-system roadmaps: about 559 stages across 83 roadmaps."
+  },
+  {
+   "a": "AutomorphicPadicLFunctions",
+   "b": "PadicDifferentialEquationsAndRigidCohomology",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "PadicDifferentialEquations needs Robba rings, Kedlaya's local monodromy theorem, rigid cohomology with finiteness and p-adic Weil II, on top of imported Weil I and crystalline cohomology. AutomorphicPadicLFunctions needs four monograph-scale constructions (BSW overconvergent cohomology over number fields, Deligne–Ribet/Katz with Igusa towers and p-adic differential operators, Hsieh, and EHLS on compactified unitary Shimura varieties). Its import graph (559 stages, 83 roadmaps, depth 23) even contains part of the p-adic-cohomology stack itself."
+  },
+  {
+   "a": "PadicDifferentialEquationsAndRigidCohomology",
+   "b": "CohomologyComparisons",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Both sit on vast absent stacks: CohomologyComparisons imports A_inf and prismatic cohomology, de Rham–Witt/log-crystalline/Hyodo–Kato theory and perfectoid geometry, while PadicDifferentialEquations imports all of ℓ-adic étale cohomology through Weil I plus crystalline basics and dagger geometry. The difference is in the roadmaps' own layers. CohomologyComparisons mostly assembles comparisons from maps its suppliers construct. PadicDifferentialEquations must itself build Robba-ring theory and Kedlaya's local monodromy theorem, rigid cohomology from frames up, finiteness with alterations and duality, and p-adic Weil II."
+  },
+  {
+   "a": "ExcursionOperatorsAndSpectralAction",
+   "b": "CohomologyComparisons",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "CohomologyComparisons needs the integral p-adic Hodge stack (A_inf, prismatic, crystalline, perfectoid) plus its comparison layers. Excursion operators need the whole Fargues–Scholze geometrization on the same perfectoid/diamond base: local shtukas, Bun_G strata, geometric Satake, lisse v-stack sheaves and Langlands parameter stacks. They also need Weil II with hard Lefschetz, the classical GL_n correspondence and function-field automorphic theory, and then the spectral action itself (324 imported stages across 52 roadmaps)."
+  },
+  {
+   "a": "AutomorphicPadicLFunctions",
+   "b": "ExcursionOperatorsAndSpectralAction",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Both are at the far end. Excursion operators need the full Fargues–Scholze machinery (local shtukas, Bun_G, geometric Satake, parameter stacks, Weil II) plus the categorical action and GL_n/LRS comparisons. AutomorphicPadicLFunctions needs four separate monograph-scale constructions (BSW, Deligne–Ribet/Katz/Hsieh, EHLS, Eischen–Wan) and imports Shimura compactifications, Igusa towers, eigenvarieties, Iwasawa theory and much of the same étale and p-adic geometry (559 stages over 83 roadmaps against 324 over 52)."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/Multiquadratic",
+   "b": "tauceti:TauCetiRoadmap/Chebotarev",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Multiquadratic's genus theory is essentially complete in the baseline, including the 2-rank formulas and Gal(K_gen/K) ≅ Cl/Cl^2. Chebotarev still needs the imported power-saving ray-class ideal counts, continuation and nonvanishing of character series, the abelian and general density theorems, the Wiener–Ikehara weighted transfer and the prime ideal theorem for K."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ConformalMapping",
+   "b": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "ConformalMapping lacks only the global Schwarz–Christoffel theorem and its parameter problem, on top of an existing Riemann-mapping/Carathéodory/reflection library. GlobalNumberFields still has about nine unbuilt layers: power-saving ray-class lattice counting, finite and full adeles with compactness and strong approximation, the idele class group and ray-class dictionary, adele base change, Hecke characters and infinity types, cyclotomic arithmetic, and orders with Pic/NarrowPic."
+  },
+  {
+   "a": "ExcursionOperatorsAndSpectralAction",
+   "b": "PadicDifferentialEquationsAndRigidCohomology",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "PadicDifferentialEquations builds rigid cohomology, Kedlaya's local monodromy and p-adic Weil II on imported Weil I and crystalline cohomology. Excursion operators import a larger étale stack (Weil II with hard Lefschetz, perverse sheaves, vanishing cycles) together with the entire Fargues–Scholze geometrization: perfectoid spaces and diamonds, local shtukas, Bun_G, geometric Satake, parameter stacks. They also need the classical GL_n correspondence and function-field automorphic theory, and only then construct the spectral action."
+  },
+  {
+   "a": "LogicAndDefinabilityInNumberTheory",
+   "b": "GeometryOfNumbersAndQuadraticArithmetic",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Both carry several research-scale theories: GeometryOfNumbers has Hasse–Minkowski with its reciprocity input, mass formulas and theta series, Ratner-type dynamics for Oppenheim/Duke, and hermitian K-theory. Logic has AKE/Denef–Pas elimination, p-adic and motivic integration, MRDP, and o-minimality with Pila–Wilkie and André–Oort cases. Logic's import graph (42 stages, depth 11) contains GeometryOfNumbers' K-theory imports (19 stages) and adds geometric mixed motives, motivic cohomology, algebraic stacks and intersection theory, which tips the balance."
+  },
+  {
+   "a": "ShimuraData",
+   "b": "PadicMeasuresIwasawaAlgebras",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "PadicMeasures has one geometric layer (rigid weight spaces) among mostly algebraic ones: completed group rings, the Iwasawa structure theorem and characteristic ideals, determinant functors and Gorenstein duality. ShimuraData stacks more geometry: imported Weil restriction, adelic group points and flag schemes, then real Lie structure theory (Cartan involutions, compact real forms) for Hermitian symmetric domains, variations of Hodge structure, compact duals with reflex-field descent, and the datum category with Siegel/Hilbert examples. That is a somewhat larger and deeper gap."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "b": "tauceti:TauCetiRoadmap/BelyiMaps",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Coding Theory's missing layers (duality, MacWilliams, Type II and Golay codes, Construction A, discriminant bridge) are elementary finite algebra on a complete lattice library. BelyiMaps must stack triangle groups, van Kampen and cover classification, branched-cover compactification, and Riemann existence resting on imported compact-Riemann-surface cohomology and function-field Riemann–Roch. It then needs algebraization, Belyi's theorem with descent, fields of moduli, the profinite π1 comparison, the branch-cycle theorem and pro-ℓ faithfulness."
+  },
+  {
+   "a": "CohomologyComparisons",
+   "b": "AutomorphicPadicLFunctions",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "CohomologyComparisons needs the A_inf/prismatic/crystalline/perfectoid stack plus its comparison layers. AutomorphicPadicLFunctions' import graph already contains CohomologyComparisons stages and most of that p-adic geometry, and it adds Shimura varieties with toroidal compactifications and Igusa towers, eigenvarieties, Iwasawa algebras and Euler systems. It also has four monograph-scale p-adic L-function constructions of its own (BSW, Deligne–Ribet/Katz/Hsieh, EHLS, Eischen–Wan)."
+  },
+  {
+   "a": "PadicMeasuresIwasawaAlgebras",
+   "b": "tauceti:TauCetiRoadmap/ConformalMapping",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ConformalMapping lacks only the global Schwarz–Christoffel theorem and the parameter problem, on an existing Riemann-mapping and boundary-correspondence library. PadicMeasures has almost everything still to build: completed group rings and convolution, general Amice theory with φ/ψ, pseudo-measures, the Iwasawa structure theorem with characteristic and Fitting ideals, determinant functors, Gorenstein duality and rigid weight spaces."
+  },
+  {
+   "a": "LogicAndDefinabilityInNumberTheory",
+   "b": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Coding Theory needs elementary finite algebra (duality, MacWilliams, explicit Golay codes, Construction A) on a complete lattice library. Logic needs valued-field quantifier elimination, p-adic and motivic integration with imported motives and stacks, the full MRDP theorem, and o-minimal geometry with Pila–Wilkie counting and André–Oort cases."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/BelyiMaps",
+   "b": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "GlobalNumberFields' gap is broad but foundational: ray-class lattice counting, adeles and ideles, Hecke characters and infinity types, and orders with Picard groups, on Mathlib's adele API and a finished ray-class layer. BelyiMaps stacks many more layers: triangle groups, van Kampen and cover classification, compactification, analytic Riemann existence on imported compact-Riemann-surface cohomology, algebraization with function-field Riemann–Roch, and Belyi's theorem with descent. It then needs fields of moduli, the profinite π1 comparison with ẑ-powers, the branch-cycle theorem and pro-ℓ faithfulness."
+  }
+ ]
+}
