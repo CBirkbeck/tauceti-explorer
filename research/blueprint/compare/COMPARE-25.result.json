@@ -1,0 +1,395 @@
+{
+ "job": "COMPARE-25",
+ "notes": {
+  "tauceti:TauCetiRoadmap/UniversalCovers": {
+   "targets": "Construct the universal cover of a path-connected, locally path-connected, semilocally simply connected space, with Deck(proj) ≅ π₁ᵒᵖ; the lifting criterion and the pointed and unpointed Galois correspondence for covers (regular covers, deck group N(H)/H); higher homotopy groups of covers; applications π₁(S¹) ≅ ℤ, π_n(S¹) = 0, tori, π₁(RPⁿ) and recognition of K(G,1) spaces.",
+   "baselineHas": [
+    "TauCeti.UniversalCover.existsUnique_subgroup_homeomorph_subgroupQuotient (TauCeti/AlgebraicTopology/UniversalCover/Classification/Bijection.lean)",
+    "TauCeti.CoveringSpace.monodromyEquivalence (TauCeti/AlgebraicTopology/UniversalCover/Classification/MonodromyEquivalence.lean)",
+    "AddCircle.fundamentalGroupMulEquivInt (TauCeti/AlgebraicTopology/UniversalCover/Circle/FundamentalGroup.lean)",
+    "TauCeti.RealProjectiveSpace.fundamentalGroupMulEquivAt (TauCeti/AlgebraicTopology/UniversalCover/RealProjective/FundamentalGroup/Basic.lean)"
+   ],
+   "missing": [
+    "Essentially nothing: Stages 0–4 are proved sorry-free in TauCeti/AlgebraicTopology/UniversalCover; what remains lies outside the roadmap (π_n of spheres, existence of K(G,1) for arbitrary G)"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries": {
+   "targets": "Ideal-indexed arithmetic functions and weights of a number field regrouped into Mathlib's LSeries; ideal convolution, Möbius and von Mangoldt functions; Euler products and their logarithms; ideal and prime counting estimates; Abel and Perron summation; Dirichlet-density calculus; Landau's theorem; Wiener–Ikehara; and a generic ψ→ϑ→π prime-number-theorem transfer from a boundary package.",
+   "baselineHas": [
+    "TauCeti.IdealArithmeticFunction and the weight carriers (TauCeti/NumberTheory/ArithmeticDirichletSeries/Basic.lean, Weight.lean); Layers 0–4 built sorry-free",
+    "Arithmetic Perron formula (TauCeti/NumberTheory/ArithmeticDirichletSeries/Perron/Formula.lean)",
+    "TauCeti.LSeries.tendsto_tsum_term_mul_fourier_sub_pole_atTop, the smoothed Wiener–Ikehara limit (TauCeti/NumberTheory/LSeries/WienerIkehara/Asymptotic.lean)",
+    "NumberField.Set.HasDirichletDensity (Mathlib/NumberTheory/NumberField/DirichletDensity.lean)"
+   ],
+   "missing": [
+    "L9: the final Tauberian step of Wiener–Ikehara (Chebyshev-type bound, x⁻¹∑_{n≤x} a_n → κ) and its variants",
+    "L7: Dirichlet-density calculus beyond Mathlib's base API (finite error, unions, squeeze, all-prime normalization from the Euler product, natural to Dirichlet density, fibre counts)",
+    "L6.5 HasCancellation and continuedLFunctionOfWeight; L8 ordinary-versus-absolute abscissa; L5.3 density-zero corollary",
+    "L10: PrimeBoundaryRemainder, primePsi_asymptotic_of_boundary and the primeNumberTheoremTransfer summit",
+    "No layers imported from other roadmaps"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations": {
+   "targets": "Clifford algebra filtration with gr ≅ Λ; the structure theorem Cliff ≅ matrix algebras; Pin and Spin as double covers of O and SO with the spinor norm; so(V) ≅ Λ²V; spin and half-spin representations, irreducible and identified with L(ω) for types B_l and D_l; the exceptional isomorphisms Spin₃ to Spin₆; real Clifford algebras, Bott periodicity and Spin(n) as universal cover; triality for Spin₈; Kostant's isotypy corollary.",
+   "baselineHas": [
+    "TauCeti.isIrreducible_spinPlusSubrep and the half-spin splitting (TauCeti/RepresentationTheory/Spin/Irreducible.lean, HalfSpin.lean)",
+    "TauCeti.SpinPolarizationData.cliffordEquivMatrix, the structure theorem (TauCeti/RepresentationTheory/Spin/Structure.lean)",
+    "CliffordAlgebra.spinDoubleCoverSpinorNormKernel and Cartan–Dieudonné (TauCeti/LinearAlgebra/CliffordAlgebra/Spin/SpinorNorm/DoubleCover.lean, CartanDieudonne.lean), with Bott and eight-fold periodicity (CliffordAlgebra/EightPeriodicity.lean)",
+    "TauCeti.nonempty_spinGroup_mulEquiv_specialLinearGroup_of_finrank_eq_three (TauCeti/RepresentationTheory/Spin/Exceptional/Three/Group.lean); highest-weight theory Layers 0–5 and TauCeti.LieAlgebra.adjointSO"
+   ],
+   "missing": [
+    "L4–L5: identification of S, S⁺ and S⁻ with L(ω_l) and L(ω_{l−1}) through a Cartan subalgebra matched to the abstract B_l/D_l root datum (weights and type-D fork vectors exist)",
+    "L6: Spin₄ ≅ SL₂ × SL₂, Spin₅ ≅ Sp₄ and Spin₆ ≅ SL₄ (only Spin₃ ≅ SL₂ is built)",
+    "L7: simple connectivity of Spin(n) for n ≥ 3 (covering map and connectedness exist)",
+    "L8: triality, both the representation-level permutation and the order-three outer automorphism of Spin₈ with its invariant trilinear form",
+    "L9: Kostant's isotypy corollary for a semisimple Lie algebra (rank bookkeeping d = l + 2·#Δ⁺ and the general isotypy argument; only the gl_N instance exists)"
+   ]
+  },
+  "PadicMeasuresIwasawaAlgebras": {
+   "targets": "p-adic measures on profinite spaces as continuous duals; completed group rings R[[G]] with measures ≅ O[[G]]; the Mahler–Amice isomorphism M(ℤ_p,O) ≅ O[[T]] with φ and ψ; pseudo-measures; the structure theorem for Λ-modules, characteristic ideals, μ and λ; determinant lines of perfect complexes and specialization; Gorenstein coefficient orders with exact duality; rigid character and weight spaces.",
+   "baselineHas": [
+    "PadicInt.mahlerEquiv and PadicInt.hasSum_mahler (Mathlib/NumberTheory/Padics/MahlerBasis.lean)",
+    "Weierstrass division and preparation for power series (Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean)",
+    "Profinite spaces and groups in Mathlib, and TauCeti's profinite group foundations (TauCeti/Topology/Algebra/Group/Profinite/)",
+    "Huber rings and adic spectra only up to rational localisation (TauCeti.ValuationSpectrum.spaLocalizationHomeomorph, TauCeti/AlgebraicGeometry/AdicSpace/Spa/Localization/Homeomorph.lean)"
+   ],
+   "missing": [
+    "L0: measures and duals on profinite spaces, integral lattices, the orthonormal-basis theorem, dual topologies",
+    "L1: completed group rings, convolution, measures ≅ O[[G]], restriction/induction/norm maps",
+    "L2–L3: Mahler–Amice transform with the ∂, φ, ψ and restriction operators; pseudo-measures and character evaluation",
+    "L4: O[[T]] as a two-dimensional regular UFD, the structure theorem for finitely generated Λ-modules up to pseudo-isomorphism, characteristic ideals, μ/λ, multivariable divisors",
+    "L5–L6: determinant lines of perfect complexes, Mittag-Leffler and topological Nakayama, specialization; Gorenstein orders, exact duality, Fitting ideals and exterior biduals",
+    "L0a: rigid character and weight spaces, which need rigid or adic spaces with gluing (TauCeti's AdicSpaces has no structure sheaf or sheafiness) and the LocallyAnalyticDistributions L0–L2 modules"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/CFSGStatement": {
+   "targets": "The named proposition ClassificationStatement with an honest Group carrier for every index: cyclic, alternating, the 26 sporadic groups by audited presentations, and every Lie-type family as the derived subgroup modulo centre of the fixed points of a Steinberg endomorphism on an explicit carrier; plus L5, the identification of explicit carriers with pinned Chevalley–Demazure groups.",
+   "baselineHas": [
+    "Indices and glue: LieTypeIndex, ValidLieTypeIndex, SporadicName (26), CFSGIndex (TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean)",
+    "TauCeti.SporadicName.presentation with all 26 presentations, including the Monster by Y443 (TauCeti/GroupTheory/SpecificGroups/CFSG/Sporadic/Presentation.lean)",
+    "Carriers, Steinberg maps, fixed points and Group for 13 of 17 constructors, e.g. TauCeti.TypeDSpinCarrier.groupScheme (TauCeti/Algebra/Lie/Orthogonal/TypeD/SpinCarrier/Basic.lean) and TauCeti.TypeALieIndex.Group",
+    "TauCeti.exists_mulEquiv_of_forall_finite_isSimpleGroup_zero, the universe-lowering step (TauCeti/GroupTheory/SimpleGroupUniverse.lean)"
+   ],
+   "missing": [
+    "L0/L1: the tripled D₄ carrier with triality as a numbered symmetry, hence ³D₄",
+    "L0/L2: short-root G₂ (over 𝔽₃) and F₄ (over 𝔽₂) group-scheme carriers with explicit special isogenies satisfying τ² = Frob, hence the Ree and Tits branches",
+    "L3/A0: the uniform ValidLieTypeIndex.Group, CFSGIndex.Group and ClassificationStatement",
+    "L5: uniform pinned Chevalley–Demazure group schemes over ℤ and the isomorphism theorem for pinned groups (ReductiveGroups Layer 9 has only type-by-type carriers and rigidity), then an agreement isomorphism for each explicit carrier"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/PDE": {
+   "targets": "Weak-derivative Sobolev spaces on domains with density, embeddings, Poincaré, trace, extension, Rellich and Hölder spaces; maximal function, interpolation, Calderón–Zygmund theory and BMO; maximum principles, Harnack, Green's functions, Poisson kernel and Perron; energy-method elliptic existence and the Dirichlet spectrum; elliptic regularity (H², W^{2,p}, Schauder, De Giorgi–Nash–Moser); parabolic existence and the heat semigroup.",
+   "baselineHas": [
+    "TauCeti.PDE.existsUnique_isWeakSolutionDirichlet and the Dirichlet eigenfunction basis (TauCeti/Analysis/PDE/DirichletProblem.lean, Spectrum.lean); Lane D complete",
+    "TauCeti.Wkp and TauCeti.W1p0.isCompactOperator_valueL (TauCeti/Analysis/Sobolev/Wkp/Basic.lean, RellichKondrachov.lean)",
+    "TauCeti.eLpNorm_maximalFunction_le (TauCeti/MeasureTheory/Integral/MaximalFunction.lean)",
+    "Mathlib distributions, Fourier transform, Gagliardo–Nirenberg–Sobolev and Lax–Milgram; TauCeti's Hille–Yosida (OneParameterSemigroups, done) for Lane F"
+   ],
+   "missing": [
+    "Lane A: Meyers–Serrin density, trace and extension for Lipschitz domains, Morrey and borderline embeddings, agreement with the Bessel-potential scale, Hölder spaces as Banach spaces",
+    "Lane B: Riesz–Thorin, general Marcinkiewicz, Calderón–Zygmund decomposition and singular integrals, Mihlin–Hörmander, BMO and John–Nirenberg",
+    "Lane C: mean-value property in ℝⁿ, strong maximum principle and Hopf lemma, Harnack for general L, −ΔG = δ, Green's function, Poisson kernel, Perron's method",
+    "Lane E: interior H² regularity, W^{2,p} estimates, Schauder estimates, De Giorgi–Nash–Moser",
+    "Lane F: Bochner spaces and the Gelfand triple, Galerkin parabolic existence, heat kernel and semigroup smoothing"
+   ]
+  },
+  "ShimuraData": {
+   "targets": "Deligne's category of pure Shimura data: the Deligne torus with S-representations ↔ real Hodge structures, Cartan involutions and Hermitian symmetric domains, homogeneous variations of Hodge structure, compact duals and the Borel embedding, reflex fields with descent of the flag variety, morphisms, special points, Hodge/abelian types, neat levels and arithmetic subgroups, and the torus, GL₂, Siegel and Hilbert examples.",
+   "baselineHas": [
+    "TauCeti.Hodge.HodgeStructureOn with polarizations and mixed Hodge structures (TauCeti/Geometry/Hodge/Structure.lean)",
+    "Affine algebraic groups over a field with tori and character lattices, e.g. TauCeti.CommHopfAlgCat.geometricCharacterGroup (TauCeti/Algebra/AlgebraicGroup/CommHopfAlgCat/CharacterLattice/Basic.lean)",
+    "NumberField.AdeleRing (Mathlib/NumberTheory/NumberField/AdeleRing.lean) and the upper half-plane with its SL₂(ℝ) action",
+    "TauCeti Lie groups: only Layer 0 and part of Layer 2"
+   ],
+   "missing": [
+    "Imports: ReductiveGroupsPartII RG2.0–RG2.0a (topologies on rational points, Weil restriction, Deligne torus), AdelicAlgebraicGroups AA.0–AA.1 (restricted products, adelic points), AutomorphicFormsOnReductiveGroups AF.1a (real Lie groups with maximal compacts, van Est), AlgebraicModuli R09.1 (projective bundles, Grassmannians, flag schemes)",
+    "D1: S-representations ↔ real Hodge structures with the rational-weight criterion",
+    "D2: Cartan involutions via compact real forms; complex structure and Hermitian symmetric-domain structure on the conjugacy class X",
+    "D3: variations of Hodge structure, the compact dual as a flag variety, Borel embedding, reflex field and descent",
+    "D4–D5: the category of data, special points, Hodge/abelian/pre-abelian types, neatness and arithmetic subgroups, Siegel and Hilbert data"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/ProfiniteProPGroups": {
+   "targets": "Profinite foundations; supernatural order and index with profinite Sylow theory; pro-p Frattini theory, Burnside and generator rank; free pro-p and pro-C groups; presentations, extensions and the H² dictionary; cohomological dimension (Serre's theorem, Nielsen–Schreier); Demushkin groups with canonical character and duality; the lower p-series comparison method; Labute's classification of Demushkin groups; free pro-C groups on profinite spaces.",
+   "baselineHas": [
+    "TauCeti.Supernatural with profinite index and Lagrange (TauCeti/NumberTheory/Supernatural.lean, TauCeti/Topology/Algebra/Group/Profinite/Index/)",
+    "TauCeti.exists_isProPSylow with conjugacy and containment (TauCeti/Topology/Algebra/Group/Profinite/Sylow/)",
+    "TauCeti.maximalProPQuotient, TauCeti.proPFrattini with Burnside, and the Hopf property (Profinite/MaximalProP.lean, ProP/Frattini.lean, ProP/Burnside.lean, Hopfian.lean)",
+    "Explicit continuous cohomology in degrees ≤ 2, e.g. TauCeti.ContCohomology.explicitCup11 (TauCeti/RepresentationTheory/Homological/ContCohomology/Cup/Product.lean)"
+   ],
+   "missing": [
+    "L4: free profinite, pro-p and pro-C groups with universal property and rank; structure of finitely generated abelian pro-p groups",
+    "L5: presented pro-p groups, extensions ↔ H², embedding problems and projectivity, H² of free groups, H¹/H² rank interpretations",
+    "L6: cd_p theory (dévissage, dimension shifting, Serre's theorem, Sylow equality, Euler formulas, pro-p Nielsen–Schreier)",
+    "L7: Demushkin groups (invariants, canonical character, perfect cup pairings, open-subgroup theorem, recognition)",
+    "L8–L9: graded lower p-series and the comparison schema; bilinear forms over 𝔽_p, ℤ_p[[Γ]] and Labute's relation module; Labute's classification including q = 2",
+    "L10 and imports: free pro-C groups on profinite spaces; from ProfiniteCohomology the five-term sequence, Shapiro for closed subgroups in all degrees, corestriction naturality and cd_p (only a degree ≤ 2 model exists)"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/QuadraticFormInvariants": {
+   "targets": "Witt theory and the four-fold quaternion splitting criterion; the Witt ring, fundamental ideal and Pfister forms; Brauer-valued Hasse and Clifford invariants; quadratic defect, the dyadic Hilbert symbol and classification of forms over nonarchimedean local fields; Br(K) ≅ H²(G_K, Kˢˣ) via crossed products and the cup-norm theorem; Stiefel–Whitney classes w₁, w₂; the Scharlau transfer and Kahn's relative Stiefel–Whitney formula; bridges to the class-field-theory local symbol and product formula.",
+   "baselineHas": [
+    "TauCeti.SquareClassGroup, chain equivalence and RegularFormClass (TauCeti/FieldTheory/SquareClassGroup/Basic.lean, TauCeti/LinearAlgebra/QuadraticForm/Diagonal/Chain.lean)",
+    "Witt decomposition, cancellation (TauCeti.equivalent_of_equivalent_prod, TauCeti/LinearAlgebra/QuadraticForm/Witt/Cancellation.lean), reflections and Witt's extension theorem",
+    "Quaternion norm forms and split symbol equivalences (TauCeti/Algebra/Quaternion/NormForm.lean, SymbolEquiv.lean); TauCeti.BrauerGroup.instCommGroup (TauCeti/Algebra/BrauerGroup/Group.lean)",
+    "TauCeti.normalizedValuation and unit filtration for local fields, and the injective TauCeti.kummerMap into H¹ (TauCeti/NumberTheory/LocalField/, TauCeti/FieldTheory/GaloisCohomology/Kummer.lean)"
+   ],
+   "missing": [
+    "L2–L3 remainders: split-or-division dichotomy, naturality of quaternion equivalences, the four-fold criterion, the binary quaternion lemma",
+    "L4–L5: Witt–Grothendieck and Witt rings, fundamental ideal and Pfister generation; quaternion algebras as central simple symbols in Br(K), Hasse and Clifford invariants, I² → Br₂",
+    "L6: imported local-field arithmetic (finite extensions, power-class counts, unramified extensions and norm groups, all missing in LocalFieldsRamification), quadratic defect, bimultiplicative dyadic Hilbert symbol, local classification",
+    "L7: Hilbert 90 and the Kummer isomorphism for G_K and the Evens norm (ProfiniteCohomology Layers 9 and 13, missing), crossed products and Br(K) ≅ H², the cup-norm theorem",
+    "L8–L9: Stiefel–Whitney classes, Scharlau transfer, Kahn's formula",
+    "Bridges in 6C/6E: ClassFieldTheory's local invariant, Tate duality and global Hilbert reciprocity (not built)"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/DGAInfinity": {
+   "targets": "Signed graded and tensor-coalgebra infrastructure; DG algebras, categories, modules and bimodules; A∞ algebras, categories, functors, modules and bimodules; minimal models and homological transfer (Kadeishvili); bar–cobar and Maurer–Cartan twisting; derived modules, twisted complexes and Perf; derived Morita theory; DG quotients; Hochschild cochains, deformations, Massey products and formality; smooth/proper, Serre and Calabi–Yau structures, CY completions and HRR; K₀(Perf) Euler forms; Koszul duality.",
+   "baselineHas": [
+    "TauCeti.koszulBraidedCategory and the linear Hom-complex enrichment (TauCeti/Algebra/Homology/Monoidal/Braiding.lean, LinearHomComplex/Enrichment.lean)",
+    "TauCeti.AInfinityAlgebra with Stasheff identities, augmentations, units and strict morphisms (TauCeti/Algebra/Homology/AInfinity/)",
+    "TauCeti.IsDGAlgebra, DG tensor products and right DG modules (TauCeti/Algebra/Homology/DG/)",
+    "TauCeti.Contraction.normalize (TauCeti/Algebra/Homology/Contraction.lean); Mathlib triangulated and derived categories; TauCeti Grothendieck-group K₀ (TauCeti.ExactStructure.resolutionEquiv)"
+   ],
+   "missing": [
+    "L1: DG categories as enriched categories, H⁰ and Z⁰, DG functors, module and bimodule categories, the DG Yoneda lemma",
+    "L2: general A∞ morphisms and homotopies, A∞ categories, functors and transformations, A∞ modules and bimodules, unit strictification",
+    "L3–L4: tree transfer, Kadeishvili's theorem, perturbation lemma, D(A) ≃ D∞(H*A); bar–cobar adjunction, enveloping DG algebra, Maurer–Cartan twisting",
+    "L5–L7: derived A∞ modules, twisted complexes, pretriangulated envelopes and Perf; derived Morita theory with compact generators; Drinfeld DG quotients and the Verdier comparison",
+    "L8–L11: Hochschild cochains and deformation theory, Massey products and formality; smooth/proper, Serre functors, CY structures and completions, Shklyarov's HRR; K₀(Perf) Euler forms; quadratic and derived Koszul duality"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/JacobianChallenge": {
+   "targets": "For a smooth proper geometrically connected curve with a rational point over a field: the Picard group, divisors and degree; coherent cohomology with genus, Riemann–Roch and Serre duality; relative cohomology and base change; the relative Picard functor and representability of Pic⁰ as the Jacobian scheme; abelian varieties with duals and polarizations; the Abel–Jacobi morphism with its Albanese universal property and base change.",
+   "baselineHas": [
+    "TauCeti.AlgebraicGeometry.InvertibleSheaf and Weil/Cartier divisors with TauCeti.AlgebraicGeometry.SchemeWeilDivisor.equivCartierDivisor (TauCeti/AlgebraicGeometry/LineBundle/Basic.lean, WeilDivisor/Scheme/Cartier/Inverse.lean)",
+    "TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology with long exact and Mayer–Vietoris sequences (TauCeti/AlgebraicGeometry/Cohomology/Basic.lean)",
+    "Riemann–Roch, genus and deg K = 2g − 2 for algebraic function fields (TauCeti/FieldTheory/FunctionField/)",
+    "TauCeti.AlgebraicGeometry.AbelianVariety and its TangentSpace (TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean, TangentSpace.lean), with Mathlib's rigidity theorem"
+   ],
+   "missing": [
+    "A: Pic X as a group (duals of line bundles), line bundle → divisor, deg L = χ(L) − χ(𝒪_X)",
+    "B: affine acyclicity, Čech comparison, finiteness for proper X, vanishing above dimension, Serre duality and Riemann–Roch for curves as schemes",
+    "C: higher direct images, flat base change, cohomology and base change with semicontinuity, formal functions, relative effective Cartier divisors, Symᵈ X",
+    "D: fppf sheafification and descent, the Picard functor with rigidification, representability of Pic⁰, properness and projectivity",
+    "E–F: T₀Pic⁰ ≅ H¹(𝒪_X), theorems of the cube and square, dual abelian variety, polarizations, [n] as an isogeny; the Abel–Jacobi morphism, Albanese property and base change"
+   ]
+  },
+  "AutomorphicSpectralTheory": {
+   "targets": "For connected reductive groups over number fields: direct integrals and trace-class functional analysis; Eisenstein series for parabolically induced families with convergence, intertwining operators and meromorphic continuation; Arthur truncation and the Maass–Selberg relations; Langlands' spectral decomposition of L²(G(F)\\G(𝔸)); Franke's weighted cohomology comparison; the coarse, fine and invariant trace formula.",
+   "baselineHas": [
+    "Mathlib's compact self-adjoint spectral theorem, Hilbert sums, test-function and Schwartz spaces, and holomorphic Eisenstein series for Γ(N) (ModularForm.eisensteinSeriesMF, Mathlib/NumberTheory/ModularForms/EisensteinSeries/Basic.lean)",
+    "Unbounded self-adjoint operators and Stone's theorem (IsSelfAdjoint.existsUnique_isUnitary_complexGenerator_eq_I_smul, TauCeti/Analysis/Semigroups/Group/Stone/Unbounded.lean)",
+    "TauCeti.stdPeterWeylBasis (TauCeti/RepresentationTheory/Compact/PeterWeyl.lean)",
+    "Dynamic parabolic subgroups with Levi decomposition on points for affine groups (TauCeti/Algebra/AlgebraicGroup/)"
+   ],
+   "missing": [
+    "Imports (20 unbuilt stages from 6 roadmaps): AdelicAlgebraicGroups AA.0–AA.3 with Haar measures and reduction theory; AutomorphicFormsOnReductiveGroups AF.0–AF.3 (growth, real reductive representations, automorphic forms, constant terms and cusp forms); SmoothRepresentationsOfLocalGroups SR.0–SR.3a (Jacquet functors, second adjointness, uniform admissibility); ArithmeticLocallySymmetricSpaces ALS.0–ALS.1; ReductiveGroupsPartII RG2.0–RG2.0a; AlgebraicModuli R09.1",
+    "AS.0: direct integrals, trace-class and Hilbert–Schmidt kernels, nuclear test-function spaces, meromorphic operator families",
+    "AS.1–AS.2: Eisenstein series, intertwining operators, meromorphic continuation and functional equations",
+    "AS.3–AS.4: Arthur truncation, Maass–Selberg relations, the complete spectral decomposition",
+    "AS.5–AS.6: weighted L² cohomology comparison; coarse, fine and invariant trace formula"
+   ]
+  },
+  "GrossZagierAndArithmeticHeights": {
+   "targets": "Néron–Tate heights on abelian varieties and the Poincaré pairing; admissible arithmetic intersection pairings on curves (Faltings–Hriljac); automorphic realizations on quaternionic Shimura curves and modular degrees; Saito–Tunnell toric multiplicity one and test vectors; Waldspurger's formula; arithmetic generating series and incoherent Eisenstein kernels; local intersection identities; the general Yuan–Zhang–Zhang Gross–Zagier formula; the BDP p-adic Waldspurger formula.",
+   "baselineHas": [
+    "WeierstrassCurve.Affine.Point.canonicalHeight (TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean) and the elliptic Mordell–Weil regulator (TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean)",
+    "TauCeti.AlgebraicGeometry.AbelianVariety basics (TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean)",
+    "Mathlib elliptic curves, modular forms and adeles"
+   ],
+   "missing": [
+    "Imports: 19 listed prerequisite roadmaps, about 460 largely unbuilt upstream stages across 72 roadmaps in the stage graph, including AutomorphicSpectralTheory AS.0–AS.4, AbelianSchemesAndArithmeticModuli, ArakelovGeometryAndAbelianHeights, GL2AutomorphicRepresentationsAndTransfer (Jacquet–Langlands), MetaplecticAutomorphicForms (Weil representation, theta), HilbertModularVarietiesAndShimuraCurves (Čerednik–Drinfeld), NeronModels, HeegnerPointEulerSystems, PadicHodgeRegulators, PadicMeasuresIwasawaAlgebras and JacobianChallenge",
+    "GZ.0–GZ.2: normalizations, heights on abelian varieties, arithmetic intersection pairings on arithmetic surfaces",
+    "GZ.3–GZ.5: automorphic realizations on Shimura curves, toric multiplicity one and test vectors, the Waldspurger formula",
+    "GZ.6–GZ.8: arithmetic generating series, incoherent kernels, local intersection identities, the YZZ formula",
+    "GZ.9: the BDP p-adic L-function and p-adic Waldspurger formula"
+   ]
+  },
+  "KTheoryFiniteLocalFields": {
+   "targets": "Quillen's computation of K_*(𝔽_q); Henselian rigidity away from the residue characteristic; integral K₂ of local fields through Hilbert symbols; THH, TR and TC calculations via the cyclotomic trace for perfect fields, truncated polynomial rings and complete DVRs; higher K-groups of local fields; local-to-global compatibility.",
+   "baselineHas": [
+    "Exact-category K₀ with the resolution theorem (TauCeti.ExactStructure.resolutionEquiv, TauCeti/CategoryTheory/GrothendieckGroup/ProjectiveResolution.lean)",
+    "WittVector (Mathlib/RingTheory/WittVector/Defs.lean) and model categories (Mathlib/AlgebraicTopology/ModelCategory/Basic.lean)",
+    "Low-degree Tate and continuous group cohomology (TauCeti/RepresentationTheory/Homological/)"
+   ],
+   "missing": [
+    "Imports: about 104 largely unbuilt upstream stages across 15 roadmaps, among them GeneralAlgebraicKTheory (plus and Q-constructions, resolution, dévissage, localization), StableHomotopyKTheory (spectra, completions, spectral sequences), RefinedTraceMethods (topological K-theory with Bott periodicity, THH, cyclotomic trace), CrystallineCohomology (de Rham–Witt), MotivicEtaleKTheory (étale K-theory comparison), K2SymbolsBrauer and KTheoryLowDegrees",
+    "L.1: Quillen's finite-field calculation via Brauer lifting and Adams operations",
+    "L.2–L.3: rigidity for Henselian DVRs; integral K₂ of local fields",
+    "L.4–L.5: trace constructions and Hesselholt–Madsen calculations",
+    "L.6–L.7: higher K-groups of local fields and local-to-global compatibility"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+   "b": "tauceti:TauCetiRoadmap/UniversalCovers",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Universal covers is essentially finished in Tau Ceti (universal cover, pointed and unpointed Galois correspondence, π₁(S¹), π₁(RPⁿ), K(G,1) recognition all proved), whereas arithmetic Dirichlet series still lacks the final Wiener–Ikehara Tauberian step, the Dirichlet-density calculus and the prime-number-theorem transfer summit."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Both are largely built; arithmetic Dirichlet series still needs the last Wiener–Ikehara step, the density calculus and the PNT transfer, while spin representations still needs the Spin₄–Spin₆ isomorphisms, the L(ω) identification, triality including the order-three outer automorphism of Spin₈, and Kostant's isotypy corollary for semisimple Lie algebras, a somewhat larger and deeper remainder."
+  },
+  {
+   "a": "PadicMeasuresIwasawaAlgebras",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Spin representations has a large built base with a few summits left (Spin₄–Spin₆, L(ω), triality, Kostant isotypy), whereas p-adic measures must build measures on profinite spaces, completed group rings, Mahler–Amice theory, Λ-module structure and characteristic ideals, determinant lines and Gorenstein duality with only Mathlib's Mahler basis and Weierstrass preparation to start from, plus rigid weight spaces that need unbuilt rigid geometry."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/CFSGStatement",
+   "b": "PadicMeasuresIwasawaAlgebras",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "CFSG already has carriers for 13 of 17 Lie-type constructors and all 26 sporadic presentations, leaving the ³D₄, Ree and Tits carriers, the final assembly and the L5 Chevalley–Demazure agreement; p-adic measures needs seven stacked unbuilt layers (measures, completed group rings, Mahler–Amice, Λ-modules, determinants, Gorenstein duality) plus rigid geometry for its weight spaces."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/CFSGStatement",
+   "b": "tauceti:TauCetiRoadmap/PDE",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "CFSG's remainder is three explicit carrier families, the uniform assembly and L5 (uniform Chevalley–Demazure schemes and agreement), while PDE still lacks Calderón–Zygmund theory, interpolation and BMO, trace, extension, Morrey and Hölder spaces, Green/Poisson/Perron potential theory, Schauder, W^{2,p} and De Giorgi–Nash–Moser regularity, and parabolic Galerkin theory."
+  },
+  {
+   "a": "ShimuraData",
+   "b": "tauceti:TauCetiRoadmap/PDE",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "PDE's missing lanes (harmonic analysis, boundary Sobolev theory, potential theory, elliptic regularity, parabolic existence) are voluminous but sit about three layers deep on Mathlib's analysis; Shimura data needs comparable volume stacked on unbuilt imports (Weil restriction, adelic points, flag schemes, real Lie groups with van Est) and on missing real-reductive structure for Cartan involutions, Hermitian symmetric domains, variations of Hodge structure and reflex-field descent."
+  },
+  {
+   "a": "ShimuraData",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Pro-p groups has its Sylow, Frattini and Burnside base built and needs free pro-p groups, the H² dictionary, cd theory, Demushkin duality and Labute's classification over existing profinite and low-degree cohomology foundations; Shimura data needs a similar amount but on absent foundations: Weil restriction, adelic points, flag schemes, real Lie groups and Cartan involutions, Hermitian domains, VHS and reflex fields."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+   "b": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Pro-p groups needs free pro-p groups, extensions and H², cd theory, Demushkin duality and Labute's classification over non-arithmetic profinite cohomology; quadratic form invariants needs Witt rings, Brauer and Clifford invariants, the dyadic Hilbert symbol and local classification, crossed products for Br ≅ H² and Kahn's formula, and also imports unbuilt local-field arithmetic, Hilbert 90, Kummer theory and the Evens norm for G_K, plus class field theory for its bridges."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+   "b": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Quadratic form invariants' main targets need Witt and Brauer invariants, the local Hilbert-symbol classification, crossed products for Br ≅ H², Stiefel–Whitney classes and Kahn's formula plus imported local-field and Galois-cohomology pieces (class field theory only for comparison bridges); DGA must build DG and A∞ categories with modules and bimodules, transfer, bar–cobar, twisted complexes and Perf, derived Morita theory, DG quotients, Hochschild deformation theory, CY completions with HRR and Koszul duality, a larger stack with only the DG/A∞ algebra definitions in place."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "b": "tauceti:TauCetiRoadmap/JacobianChallenge",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "DGA's missing layers are voluminous but rest on Mathlib's homological and triangulated foundations; the Jacobian challenge needs coherent-cohomology finiteness and Serre duality for schemes, cohomology and base change, Symᵈ X, fppf descent, representability and properness of Pic⁰, dual abelian varieties and polarizations, and the Albanese property, deeper foundational algebraic geometry that is almost entirely absent."
+  },
+  {
+   "a": "AutomorphicSpectralTheory",
+   "b": "tauceti:TauCetiRoadmap/JacobianChallenge",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "The Jacobian challenge is large but self-contained algebraic geometry; automorphic spectral theory needs Eisenstein series with meromorphic continuation, Arthur truncation, the full spectral decomposition and the invariant trace formula on top of 20 unbuilt imported stages (adelic reduction theory, automorphic forms on reductive groups, smooth local representations with second adjointness)."
+  },
+  {
+   "a": "AutomorphicSpectralTheory",
+   "b": "GrossZagierAndArithmeticHeights",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Gross–Zagier imports automorphic spectral theory through AS.4 together with many further unbuilt roadmaps (Arakelov heights, Shimura curves, Jacquet–Langlands, theta correspondence, Heegner points, p-adic Hodge regulators, the Jacobian challenge), then stacks Waldspurger, arithmetic generating series and the YZZ formula on top."
+  },
+  {
+   "a": "GrossZagierAndArithmeticHeights",
+   "b": "KTheoryFiniteLocalFields",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "K-theory of finite and local fields needs higher algebraic K-theory, spectra, THH/TC, de Rham–Witt and étale K-theory (about 104 largely unbuilt upstream stages, chain depth about 24), but Gross–Zagier's import tree is several times larger (about 460 largely unbuilt stages across 72 roadmaps, depth about 92), containing automorphic spectral theory, Shimura curves, Arakelov geometry and p-adic Hodge theory."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/UniversalCovers",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Universal covers has every stage proved in Tau Ceti, while spin representations still lacks the Spin₄–Spin₆ isomorphisms, the highest-weight identification of the spin modules, triality and Kostant's isotypy corollary."
+  },
+  {
+   "a": "KTheoryFiniteLocalFields",
+   "b": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "DGA is a large but self-contained algebraic theory on Mathlib's homological foundations; K-theory of local fields must first import unbuilt higher algebraic K-theory (plus and Q-constructions), stable homotopy theory, topological K-theory, THH/TC with the cyclotomic trace, de Rham–Witt complexes and étale K-theory before Quillen's and Hesselholt–Madsen's calculations."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+   "b": "ShimuraData",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Arithmetic Dirichlet series is nearly complete (Wiener–Ikehara's last step, density calculus, PNT transfer), whereas Shimura data has nothing at datum level and needs Weil restriction, adelic points, flag schemes, real Lie groups, Hermitian symmetric domains, variations of Hodge structure and reflex fields."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+   "b": "tauceti:TauCetiRoadmap/CFSGStatement",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "CFSG lacks only three carrier families, the uniform assembly and the L5 agreement with Chevalley–Demazure schemes; quadratic form invariants lacks nearly everything above basic Witt theory (Witt ring, Brauer and Clifford invariants, local Hilbert symbol and classification, Br ≅ H² via crossed products, Stiefel–Whitney classes, Kahn's formula) and its local-field and Galois-cohomology imports."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/PDE",
+   "b": "PadicMeasuresIwasawaAlgebras",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Both need a large amount; PDE's missing lanes sit about three layers deep on Mathlib's analysis, while p-adic measures stacks seven unbuilt layers from measures and completed group rings through Λ-module structure, determinant lines and Gorenstein duality, and its weight spaces need rigid geometry and locally analytic distributions that are not in the library."
+  },
+  {
+   "a": "KTheoryFiniteLocalFields",
+   "b": "tauceti:TauCetiRoadmap/JacobianChallenge",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "The Jacobian challenge needs coherent cohomology, base change, the Picard functor and abelian-variety duality; K-theory of local fields needs the far larger stack of higher algebraic K-theory, spectra, topological Hochschild and cyclic homology, de Rham–Witt complexes and étale K-theory comparisons."
+  },
+  {
+   "a": "AutomorphicSpectralTheory",
+   "b": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Pro-p groups sits on a built profinite, Sylow and Frattini base and needs free pro-p groups, cd theory and Demushkin theory; automorphic spectral theory needs Eisenstein series, truncation, the spectral decomposition and the trace formula over 20 unbuilt imported stages on adelic groups, automorphic forms and local representations."
+  },
+  {
+   "a": "GrossZagierAndArithmeticHeights",
+   "b": "tauceti:TauCetiRoadmap/DGAInfinity",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "DGA is a self-contained homological theory, whereas Gross–Zagier imports about 460 largely unbuilt stages (automorphic spectral theory, Shimura curves, Arakelov intersection theory, Jacobians, theta correspondence, p-adic Hodge theory) before its own height and period layers."
+  },
+  {
+   "a": "PadicMeasuresIwasawaAlgebras",
+   "b": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Arithmetic Dirichlet series is mostly built with a small analytic remainder, whereas p-adic measures and Iwasawa algebras is essentially unbuilt: measures, completed group rings, Mahler–Amice theory, Λ-modules and characteristic ideals, determinant lines, Gorenstein duality and rigid weight spaces."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/PDE",
+   "b": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "The amounts are comparable: PDE lacks harmonic analysis, boundary Sobolev theory, potential theory, elliptic regularity and parabolic existence at depth about three, while quadratic form invariants lacks Witt rings, Brauer invariants, the dyadic local classification, crossed products and Kahn's formula stacked on unbuilt imports (local-field ramification, Hilbert 90, Kummer and Evens norm for G_K, class field theory for its bridges), which makes it deeper."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+   "b": "ShimuraData",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Spin representations has only a few remaining summits (Spin₄–Spin₆, L(ω), triality, Kostant isotypy), while Shimura data needs Weil restriction, adelic points, flag schemes, real Lie groups with Cartan involutions, Hermitian symmetric domains, VHS, compact duals and reflex fields, none of which is in the library."
+  }
+ ]
+}
