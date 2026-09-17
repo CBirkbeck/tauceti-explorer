@@ -211,6 +211,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-5-full-adeles-and-the-additive-quotient",
        "note": "Declared supplier rather than overlap: it states discreteness of K in 𝔸_K and compactness of 𝔸_K/K, the lattice and covolume that AL.0's Poisson summation takes from GlobalNumberFields. Discreteness is already proved in Tau Ceti."
+      },
+      {
+       "layer": "MetaplecticAutomorphicForms:MP.0",
+       "note": "Builds Schwartz–Bruhat function spaces as the Schrödinger models of the Heisenberg extension, with polarizations and their change maps, local compactness, Haar normalization and the translation/modulation relations for a chosen Fourier convention: AL.0's local test-function spaces and change-of-character formulas, one layer below MP.4's adelic Weil representation."
       }
      ]
     },
@@ -445,6 +449,10 @@
       {
        "layer": "AutomorphicFormsOnReductiveGroups:AF.5",
        "note": "Proves the GL₁ dictionary with Hecke characters, including infinity type, conductor and unitary twist: the same character bookkeeping AL.1 does locally."
+      },
+      {
+       "layer": "AnalyticNumberTheory:AN.8",
+       "note": "Builds prehomogeneous-vector-space zeta integrals and local densities with orbit decomposition, Poisson summation and functional equations, and lists AL.0 among its inputs: the same zeta-integral-to-functional-equation route as AL.1 for a different family, so the convergence and local-factor conventions must be shared."
       }
      ]
     },
@@ -1900,6 +1908,10 @@
       {
        "layer": "ArithmeticLocallySymmetricSpaces:ALS.6",
        "note": "Assembles direct and inverse systems in tame and p-power level with restriction, corestriction and Hecke actions, and reexports CC's limits. The finite-level tower data overlaps CC.0."
+      },
+      {
+       "layer": "ArithmeticLocallySymmetricSpaces:ALS.2",
+       "note": "Constructs the Borel–Serre compactification: rational parabolic boundary components, the manifold-with-corners structure at neat level, compactness of the quotient, the homotopy equivalence from the interior and the stratification spectral sequence. That is the compactification CC.0's compact-support target names, and the neat-level hypothesis CC.0's cofinal towers require."
       }
      ]
     },
@@ -2211,6 +2223,10 @@
       {
        "layer": "DeformationAndDerivedPatchingAlgebra:P7",
        "note": "Proves derived Mittag-Leffler comparisons and keeps lim¹ for inverse systems of complexes over complete local rings, overlapping CC.2's derived-limit and Mittag-Leffler targets."
+      },
+      {
+       "layer": "StableHomotopyKTheory:H.6",
+       "note": "Defines p-completion as the derived inverse limit of the E/p^r system and constructs the Milnor lim¹ exact sequence together with the hypotheses under which it collapses to an ordinary inverse limit: CC.2's derived-limit, lim¹ and Milnor-sequence targets in the spectra setting."
       }
      ]
     },
@@ -2473,6 +2489,10 @@
       {
        "layer": "PotentialAutomorphyInfrastructure:PA.0",
        "note": "Compares finite-level cellular complexes, algebraic local systems and integral Hecke actions with derived coefficient and level change, overlapping CC.4's finite-level chain-model comparisons."
+      },
+      {
+       "layer": "ArithmeticLocallySymmetricSpaces:ALS.2",
+       "note": "Its manifold-with-corners Borel–Serre model, boundary fibrations and finite stratification are the Borel–Serre cell models on which CC.4's equivariant lifted cell complexes and boundary chains are built."
       }
      ]
     },
@@ -3133,6 +3153,14 @@
       {
        "layer": "ArithmeticGaloisRepresentations:R01.2",
        "note": "Constructs Weil–Deligne representations and the monodromy operator with the arithmetic-Frobenius relation r(F)N r(F)⁻¹ = qN, the normalization R16.3's special-representation monodromy must match."
+      },
+      {
+       "layer": "ArithmeticGaloisRepresentations:R01.3",
+       "note": "Defines Artin and Swan conductors from the ramification filtration, with independence of the finite quotient, integrality, induction and twist formulas and the ℓ-adic monodromy term: the conductor half of R16.3's arithmetic/unitary normalization bridge."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+       "note": "Owns the absolute local Artin map with its unramified coordinate and cyclotomic normalization, and the conductor exponent, conductor ideal and character conductor: the local Artin map and conductor normalizations R16.3 works out in explicit coordinates."
       }
      ]
     },
@@ -3568,6 +3596,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6e-the-two-hasse-invariants-agree-and-both-are-the-invariant-map",
        "note": "Proves uniqueness of the quaternion division algebra over a nonarchimedean local field and identifies its Hasse invariant with the Brauer invariant 1/2: the local D of R17.1."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
+       "note": "Declares the Hilbert symbol its own and constructs it together with the local Hasse invariant over any nonarchimedean local field, dyadic case included, with symmetry, bimultiplicativity, nondegeneracy, the closed formulas and the comparison with the class-field-theory local symbol: exactly the Hasse-invariant and Hilbert-symbol data R17.1 records as missing."
       }
      ]
     },
@@ -3708,6 +3740,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
        "note": "Proves the Hilbert product formula from the sum of local invariants, which is exactly the parity of the ramification set of a quaternion algebra that R17.3 records."
+      },
+      {
+       "layer": "K2SymbolsBrauer:T.7",
+       "note": "Compares the norm-residue map with the Hilbert norm-residue symbol and the local invariant and proves global reciprocity: a second owner of the reciprocity statement behind R17.3's parity condition on the ramification set, alongside ClassFieldTheory layer 14."
       }
      ]
     },
@@ -3894,6 +3930,10 @@
       {
        "layer": "ModularityAndLanglandsExtensions:ML.5",
        "note": "Registers automorphic induction with its exact hypotheses, R17.5's monomial construction."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier",
+       "note": "Owns projective representations, factor sets and the Schur multiplier H²(G,kˣ) with the criterion for rescaling a projective representation to a linear one — the declarations R17.5's own citations come from. R17.5's projective and linear lifting steps should consume this layer rather than restate it."
       }
      ]
     },
@@ -4064,6 +4104,10 @@
       {
        "layer": "QSeriesPartitionsAndMockModularForms:QM.0",
        "note": "Builds q-binomial identities and generating products formally, where HB.10's rank-one product identity would live."
+      },
+      {
+       "layer": "HabiroRings:HR.6",
+       "note": "The coefficient-and-cohomology interface HB.10's export target names: complete modules, derived scalar extension, perfect complexes and the K₃-indexed modules imported from HB.7, identified with Habiro cohomology."
       }
      ]
     },
@@ -4325,6 +4369,10 @@
       {
        "layer": "QSeriesPartitionsAndMockModularForms:QM.0",
        "note": "Builds generating products, q-binomial identities and coefficientwise finiteness of infinite products in formal power series rings, the formal side of HB.4's q-Pochhammer target."
+      },
+      {
+       "layer": "HabiroNumberFields:HB.2",
+       "note": "Constructs the cyclic quantum dilogarithm in the relevant Kummer extension, its change under an n-th-root choice, the five-term and distribution identities and the comparison with the finite Chern class: the cyclic-dilogarithm transformation law HB.4's expansion-coefficient target invokes."
       }
      ]
     },
@@ -4397,6 +4445,10 @@
       {
        "layer": "HabiroNumberFields:HB.1",
        "note": "Declared supplier: proves the injectivity/isomorphism results for the finite Chern class under the precise good-order hypotheses that HB.5's final argument invokes."
+      },
+      {
+       "layer": "HabiroNumberFields:HB.2",
+       "note": "The same layer supplies the cyclic-dilogarithm and finite-Chern-class identities under the good-order hypotheses HB.5's final argument uses; HB.1, already listed, supplies only the injectivity/isomorphism results for the Chern class."
       }
      ]
     },
@@ -4754,9 +4806,132 @@
        "note": "No HB.7 modules, p-adic regulators or p-adic dilogarithms exist in either library."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "HabiroRings:HR.2",
+       "note": "Constructs Habiro-complete modules over A[q,q⁻¹] by derived vanishing against the localization inverting every q^m−1, with idempotence, the divisibility-indexed limit description and the cofinal Habiro-factorial tower: the completion along the ((q;q)_n) family HB.9's module-membership statement needs."
+      },
+      {
+       "layer": "HabiroRings:HR.1",
+       "note": "Constructs the Λ-ring/Adams-operation framework recording the Frobenius congruences and composition law, and the uniquely extended Frobenius lift with its linearized relative Frobenius: the Frobenius side of HB.9's congruence."
+      }
+     ]
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-14",
+  "date": "2026-09-17",
+  "checked": 142,
+  "corrections": [
+   {
+    "layer": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "MetaplecticAutomorphicForms:MP.0 added",
+    "why": "Builds Schwartz–Bruhat function spaces as the Schrödinger models of the Heisenberg extension, with polarizations and their change maps, local compactness, Haar normalization and the translation/modulation relations for a chosen Fourier convention: AL.0's local test-function spaces and change-of-character formulas, one layer below MP.4's adelic Weil representation."
+   },
+   {
+    "layer": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "AnalyticNumberTheory:AN.8 added",
+    "why": "Builds prehomogeneous-vector-space zeta integrals and local densities with orbit decomposition, Poisson summation and functional equations, and lists AL.0 among its inputs: the same zeta-integral-to-functional-equation route as AL.1 for a different family, so the convergence and local-factor conventions must be shared."
+   },
+   {
+    "layer": "CompletedCohomologyPartII:CC.0",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "ArithmeticLocallySymmetricSpaces:ALS.2 added",
+    "why": "Constructs the Borel–Serre compactification: rational parabolic boundary components, the manifold-with-corners structure at neat level, compactness of the quotient, the homotopy equivalence from the interior and the stratification spectral sequence. That is the compactification CC.0's compact-support target names, and the neat-level hypothesis CC.0's cofinal towers require."
+   },
+   {
+    "layer": "CompletedCohomologyPartII:CC.2",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "StableHomotopyKTheory:H.6 added",
+    "why": "Defines p-completion as the derived inverse limit of the E/p^r system and constructs the Milnor lim¹ exact sequence together with the hypotheses under which it collapses to an ordinary inverse limit: CC.2's derived-limit, lim¹ and Milnor-sequence targets in the spectra setting."
+   },
+   {
+    "layer": "CompletedCohomologyPartII:CC.4",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "ArithmeticLocallySymmetricSpaces:ALS.2 added",
+    "why": "Its manifold-with-corners Borel–Serre model, boundary fibrations and finite stratification are the Borel–Serre cell models on which CC.4's equivariant lifted cell complexes and boundary chains are built."
+   },
+   {
+    "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "ArithmeticGaloisRepresentations:R01.3 added",
+    "why": "Defines Artin and Swan conductors from the ramification filtration, with independence of the finite quotient, integrality, induction and twist formulas and the ℓ-adic monodromy term: the conductor half of R16.3's arithmetic/unitary normalization bridge."
+   },
+   {
+    "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors added",
+    "why": "Owns the absolute local Artin map with its unramified coordinate and cyclotomic normalization, and the conductor exponent, conductor ideal and character conductor: the local Artin map and conductor normalizations R16.3 works out in explicit coordinates."
+   },
+   {
+    "layer": "GL2AutomorphicRepresentationsAndTransfer:R17.1",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant added",
+    "why": "Declares the Hilbert symbol its own and constructs it together with the local Hasse invariant over any nonarchimedean local field, dyadic case included, with symmetry, bimultiplicativity, nondegeneracy, the closed formulas and the comparison with the class-field-theory local symbol: exactly the Hasse-invariant and Hilbert-symbol data R17.1 records as missing."
+   },
+   {
+    "layer": "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "K2SymbolsBrauer:T.7 added",
+    "why": "Compares the norm-residue map with the Hilbert norm-residue symbol and the local invariant and proves global reciprocity: a second owner of the reciprocity statement behind R17.3's parity condition on the ramification set, alongside ClassFieldTheory layer 14."
+   },
+   {
+    "layer": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier added",
+    "why": "Owns projective representations, factor sets and the Schur multiplier H²(G,kˣ) with the criterion for rescaling a projective representation to a linear one — the declarations R17.5's own citations come from. R17.5's projective and linear lifting steps should consume this layer rather than restate it."
+   },
+   {
+    "layer": "HabiroNahmSeries:HB.4",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "HabiroNumberFields:HB.2 added",
+    "why": "Constructs the cyclic quantum dilogarithm in the relevant Kummer extension, its change under an n-th-root choice, the five-term and distribution identities and the comparison with the finite Chern class: the cyclic-dilogarithm transformation law HB.4's expansion-coefficient target invokes."
+   },
+   {
+    "layer": "HabiroNahmSeries:HB.5",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "HabiroNumberFields:HB.2 added",
+    "why": "The same layer supplies the cyclic-dilogarithm and finite-Chern-class identities under the good-order hypotheses HB.5's final argument uses; HB.1, already listed, supplies only the injectivity/isomorphism results for the Chern class."
+   },
+   {
+    "layer": "HabiroNahmSeries:HB.9",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "HabiroRings:HR.2 added",
+    "why": "Constructs Habiro-complete modules over A[q,q⁻¹] by derived vanishing against the localization inverting every q^m−1, with idempotence, the divisibility-indexed limit description and the cofinal Habiro-factorial tower: the completion along the ((q;q)_n) family HB.9's module-membership statement needs."
+   },
+   {
+    "layer": "HabiroNahmSeries:HB.9",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "HabiroRings:HR.1 added",
+    "why": "Constructs the Λ-ring/Adams-operation framework recording the Frobenius congruences and composition law, and the uniquely extended Frobenius lift with its linearized relative Frobenius: the Frobenius side of HB.9's congruence."
+   },
+   {
+    "layer": "HabiroNahmSeries:HB.10",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "HabiroRings:HR.6 added",
+    "why": "The coefficient-and-cohomology interface HB.10's export target names: complete modules, derived scalar extension, perfect complexes and the K₃-indexed modules imported from HB.7, identified with Habiro cohomology."
+   }
+  ],
+  "notes": "Re-checked the whole batch against the pinned baseline (mathlib 082e2d3, tauceti f790474): 5 roadmaps, 41 layers, 169 targets, 411 declaration citations naming 374 distinct declarations, and 104 duplicate claims. No target changed library, no note needed repair and no verdict moved; the corrections are 15 duplicates the audit had not found. Presence claims: all 61 targets that claim something is in the libraries (5 mathlib, 2 both, 54 partial) were re-derived from the source. Every citation resolves at its stated library, file and line; none is private, an axiom or a bare structure field; `grep -n sorry` is clean in all 374 cited files (the two hits in Mathlib/GroupTheory/FiniteAbelian/Basic.lean sit inside a TODO comment block, not in a declaration). Three citations are absent from declarations.tsv but present in the sources exactly as described (ModularForm.weakFEPair, ModularForm.Λ, Topology.RelCWComplex). Hypotheses and generality were checked against each target: hasDerivAt_integral_of_dominated_loc_of_deriv_le really is over an RCLike parameter, so holomorphic dependence is included; Fourier.fourierIntegral really is defined for any CommRing while every theorem from line 417 of FourierTransform.lean carries [InnerProductSpace ℝ V] [FiniteDimensional ℝ V]; haarMeasure_quotient really carries [Subgroup.Normal Γ] [Countable Γ], which is why the non-normal quotient GL₂(F)Z(𝔸)\\GL₂(𝔸) is correctly called missing; groupCohomology.coindIso holds for every subgroup and Rep.indCoindIso for finite index, so CC.0's level-change claim is sound; polynomialRingEquivTwo is Shimura Theorem 3.20 for n = 1, 2 only, as the note says. Absence and partial claims: 81 of the 108 'absent' targets were re-searched independently by concept, by Mathlib naming convention and by grep of both Lean trees, together with the missing half of each of the 54 'partial' targets. Every claim held. Confirmed absent from both libraries: Schwartz–Bruhat spaces, self-dual local measures, adelic Poisson summation, Tate/Godement–Jacquet/Rankin–Selberg zeta integrals, ε- and γ-factors, Satake and L-groups, Weil–Deligne data and local Langlands, Whittaker and Kirillov models, converse theorems, trace-class/Hilbert–Schmidt/Schatten/nuclear operators, direct integrals and spectral measures, Arthur truncation and Maass–Selberg, orbital integrals and every trace formula, weighted cohomology and Franke's comparison, lim¹ and the Milnor sequence, Mittag-Leffler for module systems, the Hochschild–Serre spectral sequence (a TODO in GroupCohomology/Basic.lean), cellular homology and singular cohomology, Borel–Serre, perfect complexes, completed group rings and Lazard's theorem, admissible smooth or Banach representations, locally algebraic vectors, modular curves and Shimura varieties, Galois representations of modular forms, Jacquet–Langlands and quaternionic forms, Brandt matrices and Eichler orders, the Hilbert symbol and Hasse invariants, base change and automorphic induction, Langlands–Tunnell and Rohrlich–Tunnell, q-Pochhammer symbols and q-binomials (a TODO in RingTheory/Polynomial/Pochhammer.lean), Li₂ and the Bloch–Wigner and cyclic dilogarithms, Bloch groups and the five-term relation, Euler–Maclaurin and saddle-point asymptotics, Nahm and Habiro objects, Dieudonné–Dwork and Artin–Hasse. Two searches that could plausibly have overturned a claim and did not: Mathlib's p-adic AbstractMeasure carries no Mul or Ring instance and no convolution, and amiceTransformEquiv is only a linear equivalence D(ℤ_p,ℤ_p) ≃ₗ ℤ_p⟦X⟧, so it is not the completed group ring O[[ℤ_p]] and CC.3's and CC.5's claims stand; Mathlib's convexity API has only the one-variable strictConvexOn_of_deriv2_pos, with no positive-definite-Hessian criterion, so HB.3's note is right. Verdicts: 35 not built, 6 partly built, none built or process. All 7 fully present targets sit in 'partly built' layers and every 'not built' layer has no present target, so the verdicts are consistent with the targets. The target lists faithfully decompose the layer descriptions in the extracts; no stated target is missing. CC.0's derived group-cohomology target is the one presence claim that reads generously, since its arithmetic-group input does not exist, but the model itself is in Mathlib for any group and the note says so, so 'mathlib' is the right message: do not rebuild group cohomology. Duplicates: all 104 original claims resolve to live atlas stages (85 roadmap layers and 19 Tau Ceti roadmap anchors); none belongs to the retired FoundationsAndLibraryIntegration and none is self-referential. The four hidden HabiroNahmSeries KU-* stages are correctly omitted. The 15 added duplicates are listed above; the sharpest are QuadraticFormInvariants 6C, which owns the Hilbert symbol and local Hasse invariant R17.1 needs, ArithmeticLocallySymmetricSpaces ALS.2, which is the Borel–Serre compactification CC.0 and CC.4 build on, StableHomotopyKTheory H.6, which constructs the Milnor lim¹ sequence CC.2 asks for, and HabiroNumberFields HB.2, which owns the cyclic quantum dilogarithm HB.4 and HB.5 invoke."
  }
 }

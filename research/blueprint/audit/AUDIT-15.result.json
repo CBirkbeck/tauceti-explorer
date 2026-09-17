@@ -1,0 +1,1987 @@
+{
+ "job": "AUDIT-15",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "HilbertModularVarietiesAndShimuraCurves": {
+   "summary": "Neither library contains any Shimura theory: grep of both trees finds no Shimura datum, Shimura variety, Hilbert modular variety, Hilbert-Blumenthal abelian scheme, polarization of an abelian scheme, dual abelian variety, Weil pairing on an abelian scheme, p-divisible group, Hasse invariant, Deligne-Pappas or Rapoport locus, and no Weil restriction of group schemes. What exists is substrate: Mathlib's totally real number fields, Dirichlet unit theorem and regulator, quaternion algebras, upper half-plane, congruence subgroups and classical SL2(Z) modular forms; TauCeti's abelian varieties over a field (proper geometrically integral group schemes, with End/Hom and isogenies but no dual and no polarization), its affine algebraic-group library (centre, derived subgroup, GL_n, symplectic groups, tori), its pure Hodge structures with polarizations, its narrow class group and totally positive elements, and its central simple algebra / Brauer-group development for quaternion algebras. Genuinely missing is essentially everything the roadmap states: the two Hilbert data and their domains, abelian schemes with real multiplication and c-polarizations, the moduli problems and their representability, integral models at ramified p, the ordinary locus and Hasse ideal, unit actions on polarization classes, p-level structures, Shimura curves for quaternion algebras, definite quaternionic algebraic modular forms, etale/Betti cohomology with Hecke correspondences, and Cerednik-Drinfeld uniformisation. Note that ShimuraData D5 and PELModuli M5 already claim the Hilbert data and the trace-pairing PEL datum, so H0-H1 substantially duplicate layers of the prerequisite roadmaps.",
+   "layers": {
+    "HilbertModularVarietiesAndShimuraCurves:H0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The group G = Res_{F/Q} GL_2 (Weil restriction of scalars of a linear algebraic group)",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'weil restriction|restriction of scalars' over both trees returns only module/algebra restriction of scalars (Mathlib/Algebra/Module/Submodule/RestrictScalars.lean and friends); there is no Weil restriction of schemes or of group schemes anywhere. TauCeti has an affine algebraic-group library (TauCeti/Algebra/AlgebraicGroup/) with GL_n, SL_n, tori and symplectic groups, but no restriction-of-scalars functor."
+      },
+      {
+       "target": "The subgroup G* = G x_{Res Gm} Gm cut out by scalar determinant",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the previous target; no fibre product of algebraic groups along determinant and scalar inclusion is constructed. TauCeti has determinant as a character of GL_n (TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Determinant.lean) but no such fibre product."
+      },
+      {
+       "target": "Derived-group and centre descriptions of G and G*",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.CommHopfAlgCat.centerGroupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Center/Basic.lean",
+         "line": 438,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.GeneralLinearGroup.center_eq_range_scalar",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Basic.lean",
+         "line": 52,
+         "fit": "special case"
+        },
+        {
+         "name": "Matrix.SL2.commutator_eq_top",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+         "line": 804,
+         "fit": "special case"
+        }
+       ],
+       "note": "TauCeti has a general centre-of-an-affine-group-scheme construction and a derived-subgroup construction (TauCeti/Algebra/AlgebraicGroup/Derived/Basic.lean), and Mathlib computes the centre of GL_n(R) as the scalars and the commutator subgroup of SL_2 over suitable rings. What is missing is the group G at all, hence any description of its centre Res_{F/Q} Gm or of the common derived group of G and G*."
+      },
+      {
+       "target": "The conjugacy domains: the G-class of all independent half-plane choices, the G*-class with common-sign components",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "UpperHalfPlane",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/UpperHalfPlane/Basic.lean",
+         "line": 25,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the single upper half-plane with its SL2(R)/GL2(R)+ action, but not H^±, not its product over the g real places, and no description of it as a conjugacy class of homomorphisms from the Deligne torus; grep finds no 'Deligne torus' or 'Shimura datum' in either tree."
+      },
+      {
+       "target": "The datum morphism G* -> G is the expected inclusion; both reflex fields are Q",
+       "library": "absent",
+       "declarations": [],
+       "note": "No notion of Shimura datum, morphism of data, or reflex field exists in either library (grep -rn -i 'reflex field' returns nothing)."
+      },
+      {
+       "target": "Symplectic representation of G* from the trace pairing on O_F with the lattice and different recorded",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Algebra.traceForm",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Trace/Defs.lean",
+         "line": 171,
+         "fit": "related"
+        },
+        {
+         "name": "FractionalIdeal.dual",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/Different.lean",
+         "line": 229,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.symplecticGroup",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/SymplecticGroup.lean",
+         "line": 101,
+         "fit": "related"
+        }
+       ],
+       "note": "The trace form, the inverse different and the symplectic group all exist separately, and TauCeti has symplectic algebraic groups (TauCeti/Algebra/AlgebraicGroup/Symplectic/), but the trace-pairing symplectic representation of G* is not constructed because G* is not constructed."
+      },
+      {
+       "target": "The G* datum is of Hodge type; the G datum is of abelian type via the derived-group comparison",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.Polarization",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Polarization.lean",
+         "line": 157,
+         "fit": "related"
+        }
+       ],
+       "note": "TauCeti has pure Hodge structures with polarizations as linear algebra, but no Shimura data, hence no Hodge-type or abelian-type classification."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraData:D5",
+       "note": "D5 already states 'the two Hilbert data from a totally real field ... including the Hilbert trace-pairing symplectic embedding for G*' and 'Treat the general G=Res GL_2 separately' — the same constructions H0 states."
+      },
+      {
+       "layer": "ShimuraVarieties:V6",
+       "note": "V6 owns the Hodge-type and abelian-type theory (including descent through central isogenies of derived groups) that H0's last paragraph invokes for the G datum."
+      },
+      {
+       "layer": "PELModuli:M0",
+       "note": "M0 builds the similitude group, its symplectic representation, the positivity/Hodge structure link and the reflex field for PEL data, which covers H0's symplectic representation and reflex-field targets in greater generality."
+      }
+     ]
+    },
+    "HilbertModularVarietiesAndShimuraCurves:H1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Abelian scheme with real multiplication by O_F",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 94,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.End",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "TauCeti defines an abelian variety over a field (proper geometrically integral group scheme) with its endomorphism ring, base change and isogenies, but there is no abelian scheme over a general base and no O_F-action datum; grep -rn -i 'real multiplication' finds nothing mathematical in either tree."
+      },
+      {
+       "target": "The dual abelian scheme and the module of symmetric O_F-linear homomorphisms A -> A^dual, with its positive cone",
+       "library": "absent",
+       "declarations": [],
+       "note": "No dual abelian variety, Picard scheme or Hom(A,A^dual) module exists: grep for DualAbelian/PicardScheme in declarations.tsv and for 'dual abelian' in the sources returns nothing."
+      },
+      {
+       "target": "c-polarization through an ordered invertible O_F-module c",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Hodge.Polarization",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Hodge/Polarization.lean",
+         "line": 157,
+         "fit": "related"
+        }
+       ],
+       "note": "The only 'polarization' in the libraries are RootPairing.Polarization (a root-system map) and TauCeti's polarization of a pure Hodge structure; neither is a polarization of an abelian scheme, and no c-polarization by a fractional ideal exists."
+      },
+      {
+       "target": "The Hilbert-Blumenthal moduli problem with tame mu_N level and K, K_0, K_1 variants; representability",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -i 'moduli' over declarations.tsv returns no declaration in either library; there is no moduli functor, no Isom sheaf of level structures, no representability theorem."
+      },
+      {
+       "target": "Determinant condition for the O_F-action on the Lie algebra",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Kottwitz/Deligne determinant condition appears in either library."
+      },
+      {
+       "target": "Comparison of complex fibres with the adelic double-coset description",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DoubleCoset.Quotient",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/DoubleCoset.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has abstract double cosets and the finite adele ring of a Dedekind domain, but no adelic uniformization of a moduli space."
+      },
+      {
+       "target": "Trace/different dictionary for the O_F-linear Weil pairing; change-of-choice theorem for a generator of c d^{-1}",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "FractionalIdeal.dual",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/Different.lean",
+         "line": 229,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.traceForm",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Trace/Defs.lean",
+         "line": 171,
+         "fit": "related"
+        }
+       ],
+       "note": "The different and the trace pairing duality of fractional ideals are in Mathlib in full Dedekind generality, but the Weil pairing of an abelian scheme does not exist in either library (the only 'Weil pairing' mentions are docstring references in TauCeti's elliptic-curve function-field files, where it is explicitly not yet constructed), so the dictionary cannot be stated."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PELModuli:M1",
+       "note": "M1 defines the fibre categories of polarized abelian schemes with endomorphisms, Rosati compatibility, determinant condition and level structures — the same moduli problem H1 states, in PEL generality."
+      },
+      {
+       "layer": "PELModuli:M5",
+       "note": "M5 explicitly 'Construct[s] the trace-pairing PEL datum for a totally real field and a polarization module; hand[s] its Hilbert moduli problem to H1-H2', so the datum and the polarization module are owned there."
+      },
+      {
+       "layer": "AbelianSchemesAndArithmeticModuli:A5",
+       "note": "A5 owns polarized complex tori, Riemann relations and level structures against symplectic lattice trivializations, which H1's complex-fibre comparison consumes."
+      }
+     ]
+    },
+    "HilbertModularVarietiesAndShimuraCurves:H2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Deligne-Pappas integral model of the c-polarized Hilbert moduli problem",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -i 'deligne.?pappas' over both trees and over declarations.tsv returns nothing; there is no integral moduli model of any kind."
+      },
+      {
+       "target": "The Rapoport locus (locally free rank-one O_F tensor O_S Lie/differential condition) and its smoothness",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -i 'rapoport' returns nothing in either library."
+      },
+      {
+       "target": "Generic-fibre identification, normality and flatness of the integral model",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Flat",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Flat.lean",
+         "line": 42,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has flatness of morphisms of schemes as a morphism property, but at this baseline neither library has a notion of a normal or a regular scheme (grep -rn -i 'IsNormal|regular scheme' over Mathlib/AlgebraicGeometry returns nothing), and there is no integral model here to state the properties of."
+      },
+      {
+       "target": "The ordinary locus defined through the p-divisible group",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'p-divisible|Barsotti' over both trees finds only two incidental Barsotti-Tate mentions in Mathlib's perfectoid files; no p-divisible group is defined."
+      },
+      {
+       "target": "The Hasse ideal, its formal blow-up/thickening models, and independence of a local lift of the Hasse invariant",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'hasse invariant' over both trees finds nothing (TauCeti's Hasse invariant of a quadratic form is a different object and is itself only a roadmap layer, not a declaration); there are no formal schemes or admissible blow-ups either."
+      },
+      {
+       "target": "Construction valid at p = 2 and at ramified p; splitting-model comparison identifying the locus consumed",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing to qualify: the construction does not exist at any prime."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PELModuli:M2",
+       "note": "M2 owns representability and smoothness of integral PEL models at good level, including the deformation calculation H2 would reuse."
+      },
+      {
+       "layer": "PELModuli:M4",
+       "note": "M4 owns the normalization construction of integral models at higher p-level with its finiteness/normality/flatness statements, which H2 restates for the Hilbert case."
+      },
+      {
+       "layer": "ShimuraCompactifications:C6",
+       "note": "C6 states the Hilbert models 'around the ordinary locus' with their Hasse ideals and semi-abelian extensions, overlapping H2's ordinary locus and Hasse ideal targets."
+      }
+     ]
+    },
+    "HilbertModularVarietiesAndShimuraCurves:H3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Action of totally positive units on polarizations and its kernel at tame level",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.IsTotallyPositive",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/TotallyPositive.lean",
+         "line": 70,
+         "fit": "related"
+        }
+       ],
+       "note": "TauCeti defines totally positive elements of a number field with their multiplicative closure, but there are no polarizations for them to act on."
+      },
+      {
+       "target": "Delta(N) = O_F^{x,+}/((1+N O_F)^x)^2 and its finiteness",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.units_sq_index_eq",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Units/ElementaryTwoQuotient.lean",
+         "line": 84,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.card_elementaryTwoQuotient_units",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Units/ElementaryTwoQuotient.lean",
+         "line": 62,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Units.rank",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+         "line": 359,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Units.basisUnitLattice",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+         "line": 471,
+         "fit": "related"
+        }
+       ],
+       "note": "The unit theorem is fully available (Mathlib's Dirichlet unit theorem, rank and unit lattice basis) and TauCeti proves the exact index [O_F^x : (O_F^x)^2] = 2^(rank+1) with finiteness of that elementary-2 quotient. The specific group Delta(N) — totally positive units modulo squares of units congruent to 1 mod N — is not defined, and its finiteness is not stated, though it follows from finite generation of the units."
+      },
+      {
+       "target": "Quotient comparison giving the arithmetic Hilbert variety for G",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Hilbert variety exists to take a quotient of."
+      },
+      {
+       "target": "Maps associated with changing the polarization ideal c, and the disjoint union over polarization classes",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.NarrowClassGroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.NarrowClassGroup.instFinite",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Finite.lean",
+         "line": 38,
+         "fit": "related"
+        }
+       ],
+       "note": "The indexing set — the narrow class group with its finiteness — is built in TauCeti, but the moduli components it would index do not exist."
+      },
+      {
+       "target": "Hecke operators on the disjoint union, moving between polarization components; polarization-class descent for G",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsHeckeTriple",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib and TauCeti have the abstract Hecke ring of a Hecke pair and the classical GL_2(Q) Hecke algebra acting on SL_2(Z)-modular forms, but no Hecke correspondences on a moduli space and nothing over a totally real field."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraCompactifications:C6",
+       "note": "C6 restates the unit quotient and the compatibility of G* polarization quotients, overlapping H3's unit action and quotient comparison."
+      },
+      {
+       "layer": "PerfectoidShimuraVarieties:S5",
+       "note": "S5 restates the comparison of geometric, intermediate and arithmetic Hilbert towers and the polarization torsor statements that H3-H4 construct."
+      }
+     ]
+    },
+    "HilbertModularVarietiesAndShimuraCurves:H4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Full G* p-level, full G p-level, and the intermediate full-level moduli problem",
+       "library": "absent",
+       "declarations": [],
+       "note": "No level structures on abelian schemes exist in either library; there is no Tate module of an abelian scheme (grep -rn -i 'Tate module' returns nothing)."
+      },
+      {
+       "target": "The two comparison maps between these moduli and their components via the linearized Weil pairing",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Weil pairing of an abelian scheme is constructed in either library."
+      },
+      {
+       "target": "Iwahori and Gamma_0(p^n) levels as subgroup-scheme conditions; full p-levels as generic-fibre trivializations",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CongruenceSubgroup.Gamma0",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ClosedSubgroupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/GroupScheme/ClosedSubgroup.lean",
+         "line": 81,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the classical congruence subgroups of SL_2(Z) and TauCeti has closed subgroup schemes, but neither has level structures on a moduli problem, so the Iwahori conditions cannot be stated."
+      },
+      {
+       "target": "Interaction of level action and polarization action, including the adjugate gamma^vee = det(gamma) gamma^{-1} on T_p A^dual",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Matrix.adjugate",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+         "line": 188,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.adjugate_eq_det_smul_inv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Adjugate.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "The matrix identity adj(A) = det(A) A^{-1} is in Mathlib (and TauCeti has an Adjugate slash-action file for GL_2 modular forms), but the action on the Tate module of the dual abelian scheme does not exist."
+      },
+      {
+       "target": "Ineffective central subgroup at finite level and the resulting PGamma groups; unit-square comparison and stabilization of Delta_n(N); the profinite lim Delta(p^n N)",
+       "library": "absent",
+       "declarations": [],
+       "note": "These are properties of the arithmetic groups acting on the Hilbert tower; none of the objects exist. The abstract ingredients (profinite limits, unit squares) are present but say nothing about the stated groups."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PerfectoidShimuraVarieties:S5",
+       "note": "S5 states 'the full-tower profinite polarization torsor statement and the different finite torsor statement on connected components' for the Hilbert towers of H4, the same distinction H4 draws."
+      },
+      {
+       "layer": "PELModuli:M1",
+       "note": "M1 owns the prime-to-p and p-level structures of PEL moduli problems, of which the Hilbert p-levels of H4 are a case."
+      }
+     ]
+    },
+    "HilbertModularVarietiesAndShimuraCurves:H5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "For F = Q, identify both Hilbert groups with GL_2 and all moduli/level constructions with the modular-curve counterparts",
+       "library": "absent",
+       "declarations": [],
+       "note": "There are no modular curves as schemes in either library (grep -rn -i 'modular curve' over both trees returns nothing), and no Hilbert constructions to compare with them."
+      },
+      {
+       "target": "For a real quadratic field, the domain dimension and the zero-dimensional rational boundary components; distinguishing them from a product of two modular curves",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Baily-Borel or rational boundary component theory exists in either library."
+      },
+      {
+       "target": "Splitting of the characteristic-zero Hodge bundle into embedding components after extension, with descent",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'hodge bundle' returns nothing in either tree; there is no universal abelian scheme and no Hodge bundle."
+      },
+      {
+       "target": "Weight and central-unit conditions for classical algebraic Hilbert modular forms",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ModularForm",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+         "line": 74,
+         "fit": "special case"
+        },
+        {
+         "name": "CuspForm",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+         "line": 82,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib defines modular and cusp forms only for finite-index subgroups of SL_2(Z) acting on the single upper half-plane; there is no Hilbert modular form of any kind, hence no weight or central-unit condition over a totally real field."
+      },
+      {
+       "target": "Tests with a nontrivial polarization ideal class and with a ramified prime",
+       "library": "absent",
+       "declarations": [],
+       "note": "Process-style validation of objects that do not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraVarieties:V8",
+       "note": "V8 owns the GL_2 modular-curve comparison Sh_{K(N)}(GL_2, H^±) ≅ Y_full(N)_Q, which is exactly H5's F = Q test."
+      },
+      {
+       "layer": "ModularCurvesPartII:R12.2",
+       "note": "R12.2 owns the classification of full, Gamma_1 and Gamma_0 level structures under uniformisation and the analytic quotient identification that H5's F = Q comparison consumes."
+      },
+      {
+       "layer": "AlgebraicModularFormsAndSerreWeights:R15.1",
+       "note": "R15.1 owns the Hodge bundle and the geometric-versus-analytic comparison of modular forms; H5 restates the Hodge-bundle splitting in the Hilbert case."
+      }
+     ]
+    },
+    "HilbertModularVarietiesAndShimuraCurves:H6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Simultaneous torsion-level twist of the H1 moduli by an Isom torsor, for two residue characteristics and prescribed Galois modules",
+       "library": "absent",
+       "declarations": [],
+       "note": "No moduli problem to twist and no Isom torsor of level structures exists; Mathlib has torsors of a group action (AddTorsor / MulAction) but nothing in this setting."
+      },
+      {
+       "target": "Determinant/Weil-pairing compatibility and the real signature prescribed by the polarization cone",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Weil pairing of an abelian scheme and no polarization cone exist."
+      },
+      {
+       "target": "Base change over a splitting field, descent of the selected component, geometric irreducibility there",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.GeometricallyIrreducible",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Geometrically/Irreducible.lean",
+         "line": 42,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has geometric irreducibility of morphisms as a property, and Galois descent for quasi-coherent sheaves, but the variety whose component must be descended does not exist."
+      },
+      {
+       "target": "Nonempty real and finite local open loci via explicit abelian varieties and deformation calculations",
+       "library": "absent",
+       "declarations": [],
+       "note": "No deformation theory of abelian schemes (Serre-Tate, Grothendieck-Messing) exists in either library."
+      },
+      {
+       "target": "Export of the smooth quasi-projective scheme, universal family, field of definition, dimension and prescribed local opens",
+       "library": "absent",
+       "declarations": [],
+       "note": "Interface export of objects that do not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PotentialModularityAndCompatibleSystems:R23.2",
+       "note": "R23.2 'Construct[s] the simultaneous torsion/polarisation problem using R10's actual moduli scheme' and proves its geometric irreducibility and local points — the same construction, and it names H6 as its dependency; the roadmap says H6 owns the moduli portion of R23.2."
+      },
+      {
+       "layer": "PotentialModularityAndCompatibleSystems:R23.1",
+       "note": "R23.1 owns Moret-Bailly's theorem, whose input hypotheses H6 supplies; the overlap is in which layer states the geometric irreducibility and local-point conditions."
+      }
+     ]
+    },
+    "HilbertModularVarietiesAndShimuraCurves:R18.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Quaternion algebra over a totally real field split at exactly one specified real place",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "QuaternionAlgebra",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Quaternion.lean",
+         "line": 65,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.IsTotallyReal",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
+         "line": 47,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.QuaternionAlgebra.aNegAEquivMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Quaternion/Split.lean",
+         "line": 248,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.IsCentralSimple",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Central/Defs.lean",
+         "line": 30,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines quaternion algebras (a,b|R) and totally real fields; TauCeti has a central-simple-algebra and Brauer-group development with quaternion splitting criteria and the real classification. What is missing is the ramification set of a quaternion algebra over a number field, hence the condition 'split at exactly one real place'."
+      },
+      {
+       "target": "The canonical Shimura curve attached to that quaternion algebra, and its complex uniformization",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'shimura' over both trees finds only bibliography citations to Shimura's book in Hecke-ring and congruence-subgroup files; no Shimura variety or curve is constructed."
+      },
+      {
+       "target": "Its reflex field, dimension, level and stabilizers",
+       "library": "absent",
+       "declarations": [],
+       "note": "No reflex field notion exists (grep returns nothing)."
+      },
+      {
+       "target": "Comparison of the split rational case with the modular curve",
+       "library": "absent",
+       "declarations": [],
+       "note": "No modular curve as a scheme exists in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraData:D5",
+       "note": "D5 constructs the explicit Shimura data including the Hilbert ones; R18.1 re-applies the same machinery to a quaternion algebra."
+      },
+      {
+       "layer": "ShimuraVarieties:V8",
+       "note": "V8 owns the algebraic tower and the modular-curve comparison that R18.1 asks to compare the split rational case with."
+      },
+      {
+       "layer": "ModularCurvesPartII:R12.2",
+       "note": "R18.1 explicitly compares to R12.2's level-structure and quotient identification."
+      }
+     ]
+    },
+    "HilbertModularVarietiesAndShimuraCurves:R18.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Hilbert toroidal and minimal compactifications imported from C6; generic automorphic bundles",
+       "library": "absent",
+       "declarations": [],
+       "note": "No toroidal or minimal compactification of any Shimura variety exists in either library, and no automorphic vector bundles."
+      },
+      {
+       "target": "Quaternionic integral models at good and bad places",
+       "library": "absent",
+       "declarations": [],
+       "note": "No integral models of Shimura curves; grep -i 'carayol' returns nothing."
+      },
+      {
+       "target": "Extension of Hecke maps to the integral models",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Hecke correspondences on schemes exist; only abstract Hecke rings of group pairs."
+      },
+      {
+       "target": "Local flatness/regularity of the integral models and comparison with the canonical generic fibre",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Flat",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Flat.lean",
+         "line": 42,
+         "fit": "related"
+        }
+       ],
+       "note": "Flatness of morphisms of schemes is available in Mathlib, but there is no notion of a regular or normal scheme in either library at this baseline, and no model to apply either property to."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraCompactifications:C6",
+       "note": "C6 owns the Hilbert toroidal and minimal models that R18.2 imports; the overlap is the import boundary."
+      },
+      {
+       "layer": "PELModuli:M4",
+       "note": "M4 owns integral models at higher level by normalization with the finiteness/normality/flatness statements R18.2 restates for quaternionic curves."
+      }
+     ]
+    },
+    "HilbertModularVarietiesAndShimuraCurves:R18.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Algebraic automorphic forms on the finite double-coset set of a definite quaternion algebra, with weight module and integral coefficients",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DoubleCoset.Quotient",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/DoubleCoset.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.FiniteAdeleRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+         "line": 94,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has abstract double cosets and the finite adele ring, but no adelic points of an algebraic group, no class set of a quaternion order and no algebraic modular forms; grep -rn -i 'algebraic modular form|brandt' finds nothing mathematical."
+      },
+      {
+       "target": "Finiteness of the class set",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ClassGroup.fintypeOfAdmissibleOfFinite",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ClassNumber/Finite.lean",
+         "line": 353,
+         "fit": "related"
+        }
+       ],
+       "note": "Finiteness of the class group of a number field is in Mathlib, but the class set of a definite quaternion algebra (finiteness of the adelic double-coset set) is not."
+      },
+      {
+       "target": "Hecke action on algebraic modular forms and change of level",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing for the module on which the Hecke algebra would act."
+      },
+      {
+       "target": "Comparison with the corresponding GL_2 representations (Jacquet-Langlands)",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'jacquet' over both trees returns nothing; there is no automorphic representation theory in either library."
+      },
+      {
+       "target": "Stabiliser computation and freeness over Taylor-Wiles group rings, including KW II's dyadic twisting",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Taylor-Wiles patching infrastructure exists in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdelicAlgebraicGroups:AA.5",
+       "note": "AA.5 checks compactness of the adelic quotient for a definite quaternion inner form and exports that comparison, which is the substrate R18.3's finite double-coset set rests on."
+      },
+      {
+       "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+       "note": "R18.3's comparison with the corresponding GL_2 representations consumes R16.2's explicit local GL_2 classification."
+      }
+     ]
+    },
+    "HilbertModularVarietiesAndShimuraCurves:R18.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Etale and Betti cohomology of the Shimura curves with algebraic local systems",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.EllAdicCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+         "line": 75,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.ellAdicSheaf",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+         "line": 63,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines the pro-etale Z_l sheaf and the l-adic cohomology groups of a scheme, but only as definitions: the file's own docstring says the comparison with classical etale cohomology is future work, and there are no local systems attached to algebraic representations and no Betti comparison."
+      },
+      {
+       "target": "Integral Hecke modules, pairings and the Betti/etale comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Hecke action on cohomology and no Artin comparison theorem exists in either library."
+      },
+      {
+       "target": "Finite-level and degeneracy-map properties used downstream",
+       "library": "absent",
+       "declarations": [],
+       "note": "No degeneracy maps between levels of a Shimura curve tower."
+      },
+      {
+       "target": "Relationship between definite and indefinite quaternionic realisations via Jacquet-Langlands",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Jacquet-Langlands correspondence in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "WeightsInEtaleCohomology:R34.5",
+       "note": "R34.5 owns the purity/weight input R18.4 consumes; R18.4 explicitly defers purity to it."
+      },
+      {
+       "layer": "AlgebraicModularFormsAndSerreWeights:R15.1",
+       "note": "R15.1 owns the geometric/analytic comparison of forms with algebraic local systems in the modular-curve case that R18.4 generalises."
+      }
+     ]
+    },
+    "HilbertModularVarietiesAndShimuraCurves:R18.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The Drinfeld upper half-plane over a p-adic field and its arithmetic quotients",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'drinfeld' over both trees finds only the Drinfeld centre of a monoidal category in Mathlib/CategoryTheory/Monoidal/Center.lean; there is no rigid-analytic or formal Drinfeld upper half-plane. TauCeti has adic spaces (Spa, rational subsets, structure presheaf) but no formal models of this kind."
+      },
+      {
+       "target": "The formal model and descent datum for Cerednik-Drinfeld uniformisation",
+       "library": "absent",
+       "declarations": [],
+       "note": "No formal schemes over Z_p and no Weil descent data in either library."
+      },
+      {
+       "target": "The uniformisation theorem for the Shimura curves used for character groups and level lowering",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither the curves nor the theorem exist."
+      },
+      {
+       "target": "Dual graphs, monodromy pairings and Hecke/degeneracy maps under the comparison",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.NumericalType",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Basic.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "TauCeti has stable-reduction numerical types with dual-graph data and the Picard group of the special fibre, which is the shape of a character group of a degenerate curve, but nothing tied to quaternionic uniformisation or to monodromy pairings."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+       "note": "R11.3 owns semistable reduction and uniformisation of abelian varieties, the general theory behind the character groups R18.5 extracts."
+      }
+     ]
+    },
+    "HilbertModularVarietiesAndShimuraCurves:R18.6": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Export the varieties, integral modules, Galois actions, local systems and stabiliser hypotheses used by KW II and by the Hilbert Galois construction",
+       "library": "absent",
+       "declarations": [],
+       "note": "This layer states no new mathematics: it packages the outputs of R18.1-R18.5 as an interface for downstream roadmaps. None of the packaged objects exist in either library."
+      },
+      {
+       "target": "Export the local moduli interpretation needed in potential modularity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Interface export, conditional on H6 and R18.2-R18.5."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PerfectoidShimuraVarieties:S5",
+       "note": "S5 consumes this geometry directly, as R18.6 notes; the export boundary is shared."
+      },
+      {
+       "layer": "PotentialModularityAndCompatibleSystems:R23.2",
+       "note": "R23.2 consumes the local moduli interpretation R18.6 exports."
+      }
+     ]
+    }
+   }
+  },
+  "MetaplecticAutomorphicForms": {
+   "summary": "Nothing of the metaplectic theory itself is in either library: grep -rn -i over both whole trees finds no occurrence of 'Heisenberg', 'Stone-von Neumann', 'metaplectic', 'Weil index', 'Weil representation', 'oscillator', 'Schwartz-Bruhat', 'dual pair', 'theta kernel', 'Jacobi form', 'Whittaker' or 'half-integral weight', and there is no Hilbert symbol in either library. What is present is the analytic and algebraic substrate: Mathlib's Haar measure on locally compact groups, Pontryagin dual, Fourier transform on a vector space over a local field with inversion, Schwartz space, Gaussian Fourier transforms, Poisson summation for Schwartz functions on Z subset R, the restricted product construction, adele rings and idele groups of a number field, abstract group extensions, quadratic forms with discriminants and Gauss sums, together with TauCeti's symplectic forms, symplectic algebraic groups, group extensions with factor sets and their H^2 classification, and Hermite/Fourier L^2 analysis. Classically, Mathlib has the one- and two-variable Jacobi theta functions with their S- and T-transformation laws — the g = 1 shadow of MP.5's theta kernel. Genuinely missing is the whole roadmap: the Heisenberg group of a symplectic space, Stone-von Neumann, the metaplectic cover and Weil cocycle, the Weil index and its Hilbert-symbol identities, dual pairs and theta modules, the adelic cover with its canonical splitting, adelic theta kernels and genuine automorphic spaces, half-integral weight forms, Jacobi forms and the genus-two cover.",
+   "layers": {
+    "MetaplecticAutomorphicForms:MP.0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Finite-dimensional symplectic space W over a local field and its automorphisms",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.SymplecticForm",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Symplectic/AlmostComplex.lean",
+         "line": 343,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.symplecticGroup",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/SymplecticGroup.lean",
+         "line": 101,
+         "fit": "related"
+        },
+        {
+         "name": "LinearMap.BilinForm.IsAlt",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/BilinearForm/Properties.lean",
+         "line": 236,
+         "fit": "related"
+        }
+       ],
+       "note": "TauCeti bundles a nondegenerate alternating form as SymplecticForm (over a real/complex module, in the almost-complex-structure file) and has symplectic algebraic groups over a ring; Mathlib has the symplectic matrix group with det = 1 and alternating bilinear forms. None of these is set up over a general local field with its topology, which is what MP.0 needs."
+      },
+      {
+       "target": "The Heisenberg central extension of W with group law given by half the alternating pairing, its inverse and symplectic automorphisms",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'heisenberg' over both trees returns nothing. TauCeti has abstract group extensions with factor sets, but no Heisenberg group is constructed."
+      },
+      {
+       "target": "Polarizations of W, their change maps, local compactness and Haar normalization",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Measure.haarMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Haar/Basic.lean",
+         "line": 521,
+         "fit": "related"
+        },
+        {
+         "name": "MeasureTheory.Measure.IsHaarMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Group/Measure.lean",
+         "line": 785,
+         "fit": "related"
+        }
+       ],
+       "note": "Haar measure with existence and uniqueness up to scalar is fully available in Mathlib for locally compact groups, but there are no Lagrangian polarizations of a symplectic space and no self-dual normalization attached to an additive character."
+      },
+      {
+       "target": "Schrodinger models on Schwartz-Bruhat functions; Hilbert and smooth-vector realizations at infinity",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "SchwartzMap",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Distribution/SchwartzSpace/Basic.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's Schwartz space is defined on a normed vector space (the archimedean case only); there is no Schwartz-Bruhat space over a nonarchimedean local field or over the adeles (grep -rn -i 'schwartz.?bruhat' returns nothing), and no induced representation model of the Heisenberg group."
+      },
+      {
+       "target": "Central character and translation/modulation relations with the chosen Fourier convention",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "VectorFourier.fourierIntegral",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/FourierTransform.lean",
+         "line": 82,
+         "fit": "related"
+        },
+        {
+         "name": "PontryaginDual",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/PontryaginDual.lean",
+         "line": 37,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the Fourier transform against a general additive character of a commutative group acting on a vector space, its translation/modulation identities and Fourier inversion, plus the Pontryagin dual; what is missing is the Heisenberg representation these would be the relations of."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+       "note": "AL.0 owns local Schwartz-Bruhat spaces, Fourier transforms, self-duality of local additive groups and the restricted tensor-product adelic space — the same substrate MP.0 builds its Schrodinger models on."
+      }
+     ]
+    },
+    "MetaplecticAutomorphicForms:MP.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Stone-von Neumann: uniqueness of the irreducible Heisenberg representation with a fixed nontrivial central character",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'stone.?von.?neumann' over both trees returns nothing; there is no Heisenberg group and no such uniqueness theorem in any category."
+      },
+      {
+       "target": "Intertwining operators for symplectic transformations and their scalar ambiguity",
+       "library": "absent",
+       "declarations": [],
+       "note": "No intertwiner theory for these representations exists; Mathlib's Schur-lemma material is about modules over a ring, not unitary representations of a locally compact group."
+      },
+      {
+       "target": "The topological central extension built from the intertwiners; identification of the double cover by the normalized Weil-index cocycle",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "GroupExtension",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/GroupExtension/Defs.lean",
+         "line": 74,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.FactorSet.cohomologyClass",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
+         "line": 112,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.FactorSet.ofIsMulCocycle₂",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
+         "line": 161,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has abstract group extensions with sections and splittings, and TauCeti classifies extensions by factor sets and their H^2 class, including the central case; but these are extensions of abstract groups — there is no topological/continuous central extension theory, and no Weil cocycle."
+      },
+      {
+       "target": "Associativity, continuity, coboundary-independence, and comparison of the scalar extension with the double-cover model",
+       "library": "absent",
+       "declarations": [],
+       "note": "The coboundary-independence part is abstractly available from TauCeti's H^2 classification, but continuity and the specific comparison of the C^1-extension with the two-fold cover are not stated anywhere."
+      },
+      {
+       "target": "Genuine representations with central -1 acting by -1",
+       "library": "absent",
+       "declarations": [],
+       "note": "No genuine representations of a cover group exist in either library."
+      }
+     ],
+     "duplicates": []
+    },
+    "MetaplecticAutomorphicForms:MP.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The Weil index of a nondegenerate quadratic form via a normalized oscillatory/Fourier integral",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "GaussianFourier.verticalIntegral",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Gaussian/FourierTransform.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "gaussSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/GaussSum.lean",
+         "line": 72,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib computes the Fourier transform of a Gaussian over R and has classical Gauss sums over finite fields (with the quadratic Gauss sum), which are the archimedean and residual shadows of the Weil index; the Weil index itself is defined nowhere (grep -rn -i 'weil index' returns nothing)."
+      },
+      {
+       "target": "Orthogonal-sum, scaling, discriminant and Hilbert-symbol identities for the Weil index, including dyadic factors",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "QuadraticForm.discr",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+         "line": 1280,
+         "fit": "related"
+        }
+       ],
+       "note": "The discriminant of a quadratic form exists in Mathlib, but there is no Hilbert symbol in either library (grep -rn -i 'hilbert symbol' over both trees returns nothing), so none of these identities can even be stated."
+      },
+      {
+       "target": "The Weil representation on unipotent, Levi and Fourier generators, with their relations, agreeing with the intrinsic representation of MP.1",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Weil representation in either library."
+      },
+      {
+       "target": "Change-of-additive-character and dual/conjugate formulas",
+       "library": "absent",
+       "declarations": [],
+       "note": "Mathlib's Fourier transform is stated for a general additive character, so change-of-character is available at the level of the transform, but not for the Weil index or the Weil representation."
+      }
+     ],
+     "duplicates": []
+    },
+    "MetaplecticAutomorphicForms:MP.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Orthogonal-symplectic and unitary dual-pair embeddings and the restriction of the metaplectic cover to them",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'dual pair' over both trees finds only unrelated hits; no reductive dual pairs exist."
+      },
+      {
+       "target": "Splitting statements with auxiliary characters, dimensions and parity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing to split: the cover does not exist."
+      },
+      {
+       "target": "Big theta modules as coinvariants and small theta quotients",
+       "library": "absent",
+       "declarations": [],
+       "note": "No smooth representation theory of p-adic groups exists in either library (no admissible/smooth representation class, no Jacquet functor)."
+      },
+      {
+       "target": "Equivariance, admissibility/finite-length, see-saw identities, Jacquet filtrations and first-occurrence/vanishing comparisons",
+       "library": "absent",
+       "declarations": [],
+       "note": "None of these notions are present; the only representation theory in the libraries is of finite groups, Lie algebras and algebraic groups."
+      }
+     ],
+     "duplicates": []
+    },
+    "MetaplecticAutomorphicForms:MP.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The restricted product of the local metaplectic covers with distinguished splittings over almost all maximal compacts",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "RestrictedProduct",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.AdeleRing",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has a general restricted-product construction with its topology, and the adele ring and idele group of a number field built from it; but there are no adelic points of an algebraic group, and no local covers to take the restricted product of."
+      },
+      {
+       "target": "Product formula for Weil indices and the canonical splitting over the rational symplectic group",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Weil index, hence no product formula. Mathlib does have the product formula for absolute values of a number field, which is a different statement."
+      },
+      {
+       "target": "The adelic Weil representation on the restricted tensor product of Schwartz spaces",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no restricted tensor product of representations and no adelic Schwartz-Bruhat space in either library."
+      },
+      {
+       "target": "Compatibility with the rational splitting, local choices and changes of additive character; explicit treatment of the finite central quotient",
+       "library": "absent",
+       "declarations": [],
+       "note": "Conditional on the previous targets, none of which exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdelicAlgebraicGroups:AA.1",
+       "note": "AA.1 owns adelic points of an algebraic group with their functoriality, restriction of scalars and unimodularity, which MP.4's restricted product of covers builds on."
+      }
+     ]
+    },
+    "MetaplecticAutomorphicForms:MP.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Theta series of a rational quadratic/symplectic datum as a sum of the Weil-transformed Schwartz function over rational vectors",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "jacobiTheta",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/JacobiTheta/OneVariable.lean",
+         "line": 29,
+         "fit": "special case"
+        },
+        {
+         "name": "jacobiTheta₂",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean",
+         "line": 251,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib has the classical one- and two-variable Jacobi theta functions, i.e. the theta series of the rank-one lattice Z with the standard Gaussian, but no theta series attached to a general quadratic space and no Weil-representation transform in the summand."
+      },
+      {
+       "target": "Convergence, smoothness, transformation under rational points, moderate growth and central character, proved by Poisson summation",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "SchwartzMap.tsum_eq_tsum_fourier",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/PoissonSummation.lean",
+         "line": 219,
+         "fit": "related"
+        },
+        {
+         "name": "jacobiTheta_S_smul",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/JacobiTheta/OneVariable.lean",
+         "line": 43,
+         "fit": "special case"
+        },
+        {
+         "name": "jacobiTheta₂_functional_equation",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean",
+         "line": 465,
+         "fit": "special case"
+        },
+        {
+         "name": "differentiableAt_jacobiTheta",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/JacobiTheta/OneVariable.lean",
+         "line": 121,
+         "fit": "special case"
+        }
+       ],
+       "note": "Poisson summation is proved in Mathlib for Schwartz functions on R summed over Z (and for functions of suitable decay), and the S- and T-transformation laws of jacobiTheta are derived from it, but only in this rank-one archimedean case; there is no adelic Poisson summation (no Tate's thesis in either library) and no moderate-growth theory."
+      },
+      {
+       "target": "Genuine cusp and Eisenstein spaces on the cover, constant terms and Fourier-Whittaker expansions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CuspForm",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+         "line": 82,
+         "fit": "related"
+        },
+        {
+         "name": "ModularForm.eisensteinSeriesMF",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/EisensteinSeries/Basic.lean",
+         "line": 35,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has classical cusp forms and Eisenstein series for finite-index subgroups of SL_2(Z) with integer weight, but nothing adelic, nothing on a cover, and no Whittaker expansion (grep -rn -i 'whittaker' returns only an unrelated hit)."
+      },
+      {
+       "target": "Convergence of the theta lift and a named truncation/regularization construction where it fails",
+       "library": "absent",
+       "declarations": [],
+       "note": "No theta lift integrals and no Arthur-style truncation exist in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GrossZagierAndArithmeticHeights:GZ.5",
+       "note": "GZ.5 imports MP.0-6's theta kernels and convergence and proves the quaternionic-norm-form specialization; the layers are explicitly disjoint but state the same kernel objects at different generality."
+      },
+      {
+       "layer": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+       "note": "AL.0 owns adelic Poisson summation and the Fourier inversion that MP.5's transformation law is proved from."
+      }
+     ]
+    },
+    "MetaplecticAutomorphicForms:MP.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Factorization of pure-tensor theta kernels and local integral decompositions for toric pairings",
+       "library": "absent",
+       "declarations": [],
+       "note": "No theta kernels, no restricted tensor products of representations, and no toric periods exist in either library."
+      },
+      {
+       "target": "Compatible self-dual measures and ramified test functions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Measure.IsHaarMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Group/Measure.lean",
+         "line": 785,
+         "fit": "related"
+        }
+       ],
+       "note": "Haar measure and its uniqueness up to scalar are in Mathlib, but self-duality of a local additive group with respect to a chosen character, and the resulting normalization, are not proved anywhere."
+      },
+      {
+       "target": "Spectral projection and see-saw identities under convergence/regularization hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "No spectral decomposition of an automorphic space exists in either library."
+      },
+      {
+       "target": "Export of quadratic-character and quaternionic-norm-form instances, and of coherent/incoherent local sections and functional-equation conventions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "QuaternionAlgebra",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Quaternion.lean",
+         "line": 65,
+         "fit": "related"
+        }
+       ],
+       "note": "Quaternion algebras exist in Mathlib and TauCeti has their norm form as a quadratic form (QuaternionAlgebra.normForm), but the theta-integral instances to be exported do not."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GrossZagierAndArithmeticHeights:GZ.5",
+       "note": "MP.6 exports exactly the instances GZ.5 consumes; the two layers share the quaternionic-norm-form theta integral, with the Waldspurger identity itself reserved to GZ.5."
+      },
+      {
+       "layer": "GrossZagierAndArithmeticHeights:GZ.6",
+       "note": "MP.6 exports the coherent/incoherent local sections and functional-equation conventions that GZ.6's incoherent Eisenstein/Weil kernels are built from."
+      }
+     ]
+    },
+    "MetaplecticAutomorphicForms:MP.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Comparison of adelic genuine forms on the rank-one cover with classical half-integral-weight forms for congruence subgroups with multiplier systems",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ModularForm",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+         "line": 74,
+         "fit": "related"
+        },
+        {
+         "name": "CongruenceSubgroup.Gamma0",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's modular forms have integer weight and a slash action with no multiplier system; grep -rn -i 'multiplier system' and 'half-integral' find nothing mathematical in either tree, and there are no adelic automorphic forms to compare them with."
+      },
+      {
+       "target": "Metaplectic Eisenstein/Whittaker kernels of Bump-Friedberg-Hoffstein and Friedberg-Hoffstein with ramified local characters and test functions",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Whittaker functions and no Eisenstein series on a cover group exist in either library."
+      },
+      {
+       "target": "Transformation, Fourier-coefficient and Euler-factor identities for those kernels",
+       "library": "absent",
+       "declarations": [],
+       "note": "Conditional on kernels that do not exist. Mathlib has Euler products for Dirichlet series (EulerProduct) but nothing attached to these objects."
+      },
+      {
+       "target": "Export of the input to the double-Dirichlet-series continuation",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'double dirichlet' over both trees returns nothing."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "QSeriesPartitionsAndMockModularForms:QM.1",
+       "note": "QM.1 constructs theta/eta functions and Jacobi forms with multiplier systems and half-integral weights, and names MP.7/MP.8 as its inputs; the half-integral multiplier conventions are stated in both."
+      },
+      {
+       "layer": "RankZeroOneBSD:BSD.2",
+       "note": "BSD.2 imports MP.0-8 and proves the BFH/Friedberg-Hoffstein unfolding and twist-series comparison; MP.7 supplies the kernels and BSD.2 the residue/nonvanishing argument."
+      }
+     ]
+    },
+    "MetaplecticAutomorphicForms:MP.8": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The double cover of GSp(4,R) with its arithmetic/adelic realization and similitude action",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Matrix.symplecticGroup",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/SymplecticGroup.lean",
+         "line": 101,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Sp_{2n} as a matrix group and TauCeti has symplectic algebraic groups with root data, but there is no similitude group GSp (grep -i 'GSp|similitude' over declarations.tsv returns nothing) and no cover of it."
+      },
+      {
+       "target": "The Heisenberg semidirect product defining the Jacobi group",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Heisenberg group in either library; Mathlib has SemidirectProduct as a general construction only."
+      },
+      {
+       "target": "Jacobi modular forms, theta decomposition and half-integral-weight automorphy factors",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "jacobiTheta₂",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean",
+         "line": 251,
+         "fit": "related"
+        }
+       ],
+       "note": "The two-variable Jacobi theta function exists in Mathlib as an analytic function with its functional equation, but no Jacobi form, no index, and no theta decomposition."
+      },
+      {
+       "target": "Genus-two genuine Eisenstein series attached to an elliptic newform, with Fourier-Jacobi/Whittaker expansions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Mathlib's Eisenstein series are the classical level-one/congruence-subgroup ones on the upper half-plane; there are no Siegel or genus-two Eisenstein series, and no newform theory beyond TauCeti's Atkin-Lehner/newform development for SL_2(Z)-congruence subgroups."
+      },
+      {
+       "target": "Cover-specific constant-term, meromorphic continuation, functional-equation and residue calculations, with convergence in the initial chamber",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Langlands constant-term or intertwining-operator theory exists in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "RankZeroOneBSD:BSD.2",
+       "note": "BSD.2 imports MP.0-8's genus-two half-integral-weight Eisenstein constructions and cover-specific continuation, and owns only the final residue/positivity step."
+      },
+      {
+       "layer": "QSeriesPartitionsAndMockModularForms:QM.1",
+       "note": "QM.1 also constructs Jacobi forms with weights and indices and cites MP.8 as its owner, so the Jacobi-form definitions are stated twice."
+      }
+     ]
+    }
+   }
+  },
+  "OverconvergentAutomorphicForms": {
+   "summary": "Nothing in this roadmap is built. grep -rn -i over both whole trees finds no 'overconvergent', no 'Igusa', no 'Hida', no 'locally analytic' representation or distribution theory, no rigid-analytic weight space, no 'anticanonical' locus, no automorphy cocycle in the p-adic setting, and no Koecher principle; and since the roadmap's geometric base (the Hilbert integral models and towers of H2-H4, and the Hodge-Tate period maps of T3-T5) is itself absent from the libraries, there is nothing to put a coefficient sheaf on. The substrate that does exist is real: Mathlib's p-adic numbers and integers with the Mahler basis and the Amice transform, abstract measures (the Iwasawa-algebra construction), continuous monoid homomorphisms, ultrametric normed spaces and compact operators, Grothendieck topologies with sheaves and the sheaf condition as an equalizer, torsors (algebraic and topological), filtered colimits; and TauCeti's adic-space development (valuation spectra, Huber pairs, Spa with rational subsets, the structure presheaf and its sheaf criterion, polydiscs), its Fredholm theory with compact perturbations, and its classical modular-forms and Hecke-operator library. Genuinely missing is the entire construction: geometric and arithmetic Hilbert weight spaces, analytic coefficient modules, equivariant sheaves from cocycles, the BHW automorphy factor and its domains, integral lattices, arithmetic descent, the AIP comparison, cusp forms and Hecke/U_p operators with complete continuity, the Igusa/Hida comparison, and the Siegel and unitary instantiations.",
+   "layers": {
+    "OverconvergentAutomorphicForms:O0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Rigid character spaces, universal characters and Iwasawa charts for a compact abelian p-adic group",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AbstractMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 40,
+         "fit": "related"
+        },
+        {
+         "name": "mahler",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+         "line": 103,
+         "fit": "related"
+        },
+        {
+         "name": "ContinuousMonoidHom",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+         "line": 57,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the Iwasawa-algebra substrate — abstract measures on a compact space, the Mahler basis with Mahler's theorem, the Amice transform — and continuous characters as ContinuousMonoidHom, but there is no rigid analytic space of characters: grep -rn -i 'rigid.?analytic' finds only two incidental docstring mentions, and TauCeti's adic-space library has no weight space."
+      },
+      {
+       "target": "Specialization to the geometric and arithmetic Hilbert tori; bounded-family restriction and extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Conditional on the previous target; no Hilbert weight space of characters of O_p^x or O_p^x x Z_p^x exists."
+      },
+      {
+       "target": "Radius of analyticity locally uniformly in the weight family",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no locally analytic function or distribution theory in either library (grep -rn -i 'locally analytic' finds only one unrelated hit in a contour-integration file)."
+      },
+      {
+       "target": "The BHW character formula kappa = w^2 (t^{-1} o Nm) with the corresponding dual group map",
+       "library": "absent",
+       "declarations": [],
+       "note": "Source-convention bookkeeping about objects that do not exist."
+      },
+      {
+       "target": "Finite-rank analytic coefficient modules and locally analytic induced modules on compact open pieces of Levi/parabolic groups, with tensor/dual compatibility and specialization to algebraic representations",
+       "library": "absent",
+       "declarations": [],
+       "note": "No smooth or locally analytic representation theory of p-adic groups exists in either library; the representation theory present is of finite groups, Lie algebras, compact groups and algebraic groups."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicMeasuresIwasawaAlgebras:L0a",
+       "note": "L0a constructs exactly the rigid character/weight spaces and the universal-character action on distribution modules, and states that 'OverconvergentAutomorphicForms O0 imports this coefficient/weight API' — O0's first paragraph is that import."
+      },
+      {
+       "layer": "PadicFamilies:L2a",
+       "note": "L2a also consumes L0a's rigid character space for spectral gluing; the weight-space construction is stated once in L0a and consumed by both."
+      }
+     ]
+    },
+    "OverconvergentAutomorphicForms:O1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Equivariant coefficient sheaf from a torsor/group action and an analytic automorphy cocycle, as an equalizer in a sheaf category",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Sheaf",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/Sheaf.lean",
+         "line": 301,
+         "fit": "related"
+        },
+        {
+         "name": "Torsor",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Torsor/Defs.lean",
+         "line": 70,
+         "fit": "related"
+        },
+        {
+         "name": "IsTopologicalTorsor",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Group/Torsor.lean",
+         "line": 35,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has sheaves on a site with the sheaf condition as an equalizer, and torsors under a group (algebraic and topological), but no torsor under a group sheaf on a site and no construction of an associated/descended sheaf from a cocycle."
+      },
+      {
+       "target": "Sheaf property, pullback, functoriality and independence of local trivialization",
+       "library": "absent",
+       "declarations": [],
+       "note": "The general sheafification/pullback API exists in Mathlib's site theory but the specific construction to which these properties attach does not."
+      },
+      {
+       "target": "Local freeness/coherence under descent hypotheses",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "SheafOfModules.LocalGeneratorsData.IsLocallyFreeData",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/Sheaf/FinitePresentation.lean",
+         "line": 47,
+         "fit": "related"
+        }
+       ],
+       "note": "TauCeti has locally free data for sheaves of modules on a ringed site (with invertible sheaves and local trivializations) and Mathlib has quasi-coherent sheaves on schemes, so the target notion exists abstractly; but there is no sheaf here to prove locally free, and no descent statement in the rigid-analytic setting."
+      },
+      {
+       "target": "A nontrivial coefficient representation, not only characters; the cocycle law recorded in a fixed left/right convention",
+       "library": "absent",
+       "declarations": [],
+       "note": "The only automorphy factors in either library are the classical SL_2(Z) slash actions (TauCeti's ModularForms/Basic and Petersson files), which are the scalar weight-k case over C."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicBundles:B0",
+       "note": "B0 owns the generic associated-bundle construction for torsors and representations, with tensor/dual/determinant and pullback, and the equivariant-function description of sections; O1 is the analytic-cocycle analogue of the same construction."
+      }
+     ]
+    },
+    "OverconvergentAutomorphicForms:O2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The coordinate from the Hodge-Tate map on the anticanonical Hilbert tower",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no Hodge-Tate period map in either library (TauCeti's Hodge/Tate/Basic.lean is the Tate Hodge structure Z(m), a different object), and no anticanonical locus (grep -rn -i 'anticanonical' returns nothing)."
+      },
+      {
+       "target": "kappa(cz+d) is an invertible analytic function on the permitted domain, with a radius depending on the weight family",
+       "library": "absent",
+       "declarations": [],
+       "note": "Requires locally analytic characters evaluated on a rigid domain; neither exists."
+      },
+      {
+       "target": "The transformation rule gamma* f = kappa(cz+d)^{-1} f, with the determinant factor w(det gamma) in the arithmetic case",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "SlashAction",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/SlashActions.lean",
+         "line": 36,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's slash action gives the integer-weight complex analogue f|_k gamma = (cz+d)^{-k} det(gamma)^{k-1} f(gamma z) for GL_2^+(R); there is no p-adic analytic weight version and no descent through an effective PGamma action."
+      },
+      {
+       "target": "Descent of the automorphy factor through the effective PGamma action using H4",
+       "library": "absent",
+       "declarations": [],
+       "note": "H4's finite-group calculation is itself not built (see the HilbertModularVarietiesAndShimuraCurves audit)."
+      },
+      {
+       "target": "Finite-level geometric sheaves with change-of-level and change-of-radius maps; overconvergence as extension to a positive radius",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'overconvergent' over both trees returns nothing."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HodgeTateAndCanonicalSubgroups:T4",
+       "note": "T4 owns the canonical/anticanonical loci, their finite-level maps and the quantitative period-map inclusions that fix O2's permitted radius; O2 cites those bounds."
+      },
+      {
+       "layer": "AutomorphicBundles:B4",
+       "note": "B4 states the classical cocycle identity j(g1 g2, z) = j(g1, g2 z) j(g2, z) and the left/right action bookkeeping that O2 restates in the analytic setting."
+      }
+     ]
+    },
+    "OverconvergentAutomorphicForms:O3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Integral coefficient sheaf from the integral cocycle and the modified lattice/weight torsor, with local freeness and rationalization to O2",
+       "library": "absent",
+       "declarations": [],
+       "note": "The modified integral lattice omega^int is T5's object and does not exist in either library; there is no integral cocycle to build from."
+      },
+      {
+       "target": "Compatibility with bounded smooth families and pullbacks; a ramified-p calculation locating omega^int",
+       "library": "absent",
+       "declarations": [],
+       "note": "Conditional on objects that do not exist."
+      },
+      {
+       "target": "Sections at a fixed radius, the direct system under shrinking neighbourhoods, and the overconvergent space as its colimit over positive radii",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Limits.HasColimit",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
+         "line": 96,
+         "fit": "related"
+        }
+       ],
+       "note": "Filtered colimits are fully available in Mathlib as a general construction, but the direct system of section spaces does not exist."
+      },
+      {
+       "target": "Topologies and continuity of restriction/operator maps",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsUltrametricDist",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/MetricSpace/Ultra/Basic.lean",
+         "line": 46,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has normed spaces over nontrivially normed fields with ultrametric distance and continuous linear maps; nothing specific to these section spaces."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HodgeTateAndCanonicalSubgroups:T5",
+       "note": "T5 constructs the integral differential lattice omega^int with its independence, local freeness and cokernel estimates; O3 consumes that lattice and builds the integral sheaf on it."
+      }
+     ]
+    },
+    "OverconvergentAutomorphicForms:O4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Arithmetic sheaves via the effective full-level action and via descent along the geometric-to-arithmetic polarization quotient, with an explicit isomorphism between them",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither the sheaves nor the polarization quotient exist; H3-H4 are themselves unbuilt."
+      },
+      {
+       "target": "Spaces over the polarization-class collection needed for the Hecke action",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.NarrowClassGroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "The indexing narrow class group with its finiteness is in TauCeti, but there are no spaces to index."
+      },
+      {
+       "target": "For G*, comparison choices and their effect on operators; for G, canonical independence after polarization descent",
+       "library": "absent",
+       "declarations": [],
+       "note": "Conditional on unbuilt objects."
+      },
+      {
+       "target": "The four finite/infinite-level presentations of BHW section 9 and their comparison, with the correct profinite and finite-component groups from H4",
+       "library": "absent",
+       "declarations": [],
+       "note": "Conditional on H4, which is not built."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PerfectoidShimuraVarieties:S5",
+       "note": "S5 proves the full-tower profinite polarization torsor statement and the finite torsor statement on connected components that O4's four presentations are compared through."
+      },
+      {
+       "layer": "HilbertModularVarietiesAndShimuraCurves:H4",
+       "note": "H4 owns the ineffective central subgroup, the PGamma groups and the Delta_n(N)/lim Delta(p^n N) distinction that O4 restates as a requirement."
+      }
+     ]
+    },
+    "OverconvergentAutomorphicForms:O5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The AIP coefficient sheaf from its torsor of modified differential trivializations, in integral and rational versions",
+       "library": "absent",
+       "declarations": [],
+       "note": "No such torsor and no such sheaf exist; grep -rn -i 'andreatta|iovita|pilloni' over both trees returns nothing."
+      },
+      {
+       "target": "The sheaf isomorphism with the perfectoid definition via T5's torsor comparison (BHW Theorems 7.14 and 9.12)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Both sides of the comparison are missing."
+      },
+      {
+       "target": "Verification on a trivializing cover, gluing, and uniqueness with the tautological section",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Sheaf",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/Sheaf.lean",
+         "line": 301,
+         "fit": "related"
+        }
+       ],
+       "note": "Gluing over a cover is available abstractly from Mathlib's sheaf theory and TauCeti's Spa sheaf criterion, but there is nothing to glue."
+      },
+      {
+       "target": "Compatibility with change of level, weight and radius",
+       "library": "absent",
+       "declarations": [],
+       "note": "Conditional on unbuilt objects."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HodgeTateAndCanonicalSubgroups:T5",
+       "note": "T5 constructs the AIP torsor and proves its comparison with the Hodge-Tate trivialization, which T5 itself calls 'the substantive input to O5's comparison'; the two layers share that torsor comparison."
+      }
+     ]
+    },
+    "OverconvergentAutomorphicForms:O6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Cusp forms via the subcanonical coefficient/boundary ideal, compatible with the classical and AIP definitions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CuspForm",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+         "line": 82,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines classical cusp forms by vanishing at the cusps for finite-index subgroups of SL_2(Z); there is no boundary ideal of a compactified Hilbert variety and no Koecher principle (grep -rn -i 'koecher' returns nothing)."
+      },
+      {
+       "target": "Tame Hecke and diamond operators and the p-level correspondences including U_p for p | p, defined by pullback, coefficient identification and trace",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsHeckeTriple",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
+         "line": 75,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.heckeTNat",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Operators.lean",
+         "line": 82,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the abstract Hecke ring of a Hecke triple and TauCeti has a substantial classical Hecke-operator and diamond-operator development for congruence subgroups of SL_2(Z) with q-expansion formulas, but none of it is a geometric correspondence with pullback-and-trace, and nothing is over a totally real field or p-adic."
+      },
+      {
+       "target": "Banach-module topology at finite wild level and bounded affinoid weight, and the compact restriction theorem for nested affinoids",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsCompactOperator",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Normed/Operator/Compact/Basic.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines compact operators between topological vector spaces over a normed field, and TauCeti has Fredholm theory with compact perturbations, but the theory of orthonormalizable Banach modules over an affinoid algebra and Serre's compactness-of-restriction theorem are absent."
+      },
+      {
+       "target": "Complete continuity of U_p = prod U_p^{e_p} and the renormalization preserving an integral lattice",
+       "library": "absent",
+       "declarations": [],
+       "note": "No p-adic completely continuous operator theory and no U_p operator exist in either library."
+      },
+      {
+       "target": "q-expansion comparison with the automorphic-bundle definition",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "UpperHalfPlane.qExpansion",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/QExpansion.lean",
+         "line": 162,
+         "fit": "related"
+        }
+       ],
+       "note": "Classical q-expansions of SL_2(Z)-modular forms exist in Mathlib and TauCeti; there are no Hilbert q-expansions and no geometric expansion principle."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicBundles:B5",
+       "note": "B5 constructs the Hecke action by pullback/coefficient identification/trace and the q-expansions at modular and Hilbert cusps that O6 compares with; the pullback-trace definition is stated in both."
+      },
+      {
+       "layer": "ShimuraCompactifications:C6",
+       "note": "C6 owns the Koecher extension theorem for Hilbert sections that O6 invokes in higher degree."
+      }
+     ]
+    },
+    "OverconvergentAutomorphicForms:O7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Ordinary p-adic forms on the Igusa tower as completed functions/sections with their weight action",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'igusa' over both trees returns nothing; there is no Igusa tower and no ordinary locus."
+      },
+      {
+       "target": "The finite-level description: direct limit in Igusa level mod p^m then inverse limit in m, with the comparison to the completed structure sheaf, in that order",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Limits.HasColimit",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
+         "line": 96,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Limits.HasLimit",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
+         "line": 90,
+         "fit": "related"
+        }
+       ],
+       "note": "Limits and colimits with their non-commutation are general Mathlib theory; the specific towers do not exist."
+      },
+      {
+       "target": "Restriction of an overconvergent form to the ordinary locus and its Igusa description, compatible with weights, q-expansions and Hecke actions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither side of the restriction exists."
+      },
+      {
+       "target": "The explicit non-identification of ordinary Hida forms with finite-slope overconvergent forms; Hida's ordinary-projector/control theorems as separate hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'hida' over both trees returns only one unrelated author-name hit; no ordinary projector and no control theorem exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicFamilies:L0",
+       "note": "L0 owns the ordinary projector and Hida's ordinary Hecke algebras in the elliptic case; O7 restates the ordinary restriction in the Hilbert/Igusa setting."
+      },
+      {
+       "layer": "PadicFamilies:L5",
+       "note": "L5 owns the ordinary theory over totally real fields, which is the same Hida comparison O7 states from the geometric side."
+      },
+      {
+       "layer": "IgusaVarietiesAndTorsionConcentration:IG.2",
+       "note": "That roadmap owns Igusa varieties and their partial compactifications, overlapping O7's Igusa tower."
+      }
+     ]
+    },
+    "OverconvergentAutomorphicForms:O8": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Instantiation of the coefficient construction on Siegel varieties of arbitrary genus on the proven anticanonical domains",
+       "library": "absent",
+       "declarations": [],
+       "note": "There are no Siegel varieties in either library (no moduli of abelian schemes at all) and no anticanonical domains."
+      },
+      {
+       "target": "For scalar determinant weights, the automorphy factor from the tautological Hodge torsor, and comparison of algebraic specializations with powers of the determinant Hodge bundle",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Hodge bundle exists (grep -rn -i 'hodge bundle' returns nothing in either tree)."
+      },
+      {
+       "target": "For algebraic Levi representations, recovery of the vector-valued automorphic bundles",
+       "library": "absent",
+       "declarations": [],
+       "note": "Mathlib and TauCeti have algebraic-group representation theory (TauCeti/Algebra/AlgebraicGroup/Representation/, root data, Schur functors in Mathlib), but no automorphic bundles to recover."
+      },
+      {
+       "target": "Unitary and other datum-specific domains once their analytic reduction is supplied; general toroidal diamond coefficients",
+       "library": "absent",
+       "declarations": [],
+       "note": "No diamonds, no v-stacks and no toroidal compactifications exist in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicBundles:B4",
+       "note": "B4 already identifies the Siegel Hodge vector bundle, its determinant and Schur-functor weights, and the unitary PEL Hodge summands; O8 recovers the same bundles from the analytic construction."
+      },
+      {
+       "layer": "PerfectoidShimuraVarieties:S6",
+       "note": "S6 owns the general toroidal-diamond period map that O8 routes its general coefficients through."
+      }
+     ]
+    }
+   }
+  }
+ }
+}
