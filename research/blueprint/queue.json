@@ -38042,12 +38042,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-24.md",
    "timeout": 14400,
-   "state": "running",
+   "state": "done",
    "account": "claude6",
    "lane": 2,
    "startedAt": "2026-09-17T07:55:00Z",
    "attempts": 1,
-   "note": "released after a usage limit on claude4/2 at 2026-09-17T07:40:12Z"
+   "note": "",
+   "finishedAt": "2026-09-17T08:22:32Z",
+   "seconds": 1652,
+   "result": {
+    "judged": 24,
+    "pairs": 24
+   }
   },
   {
    "id": "COMPARE-25",
@@ -38076,7 +38082,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-25.md",
    "timeout": 14400,
-   "state": "pending"
+   "state": "running",
+   "account": "claude6",
+   "lane": 2,
+   "startedAt": "2026-09-17T08:22:32Z",
+   "attempts": 1
   },
   {
    "id": "COMPARE-26",
@@ -40037,12 +40047,20 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-21.md",
    "timeout": 21600,
-   "state": "running",
+   "state": "done",
    "avoidAccountOf": "AUDIT-21",
    "account": "claude2",
    "lane": 2,
    "startedAt": "2026-09-17T07:44:57Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-17T08:12:34Z",
+   "seconds": 1656,
+   "result": {
+    "layers": 42,
+    "audited": 42,
+    "review": "accepted"
+   },
+   "note": ""
   },
   {
    "id": "AUDIT-22",
@@ -40094,12 +40112,20 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-22.md",
    "timeout": 21600,
-   "state": "running",
+   "state": "done",
    "avoidAccountOf": "AUDIT-22",
    "account": "claude6",
    "lane": 1,
    "startedAt": "2026-09-17T07:55:00Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-17T08:30:24Z",
+   "seconds": 2124,
+   "result": {
+    "layers": 43,
+    "audited": 43,
+    "review": "accepted"
+   },
+   "note": ""
   },
   {
    "id": "AUDIT-23",
@@ -40119,12 +40145,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-23.md",
    "timeout": 21600,
-   "state": "running",
+   "state": "done",
    "account": "claude2",
    "lane": 1,
    "startedAt": "2026-09-17T07:49:16Z",
    "attempts": 1,
-   "note": "released after a usage limit on claude4/1 at 2026-09-17T07:40:18Z"
+   "note": "",
+   "finishedAt": "2026-09-17T08:28:07Z",
+   "seconds": 2331,
+   "result": {
+    "layers": 45,
+    "audited": 45
+   }
   },
   {
    "id": "REV-AUDIT-23",
@@ -40147,8 +40179,12 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-23.md",
    "timeout": 21600,
-   "state": "pending",
-   "avoidAccountOf": "AUDIT-23"
+   "state": "running",
+   "avoidAccountOf": "AUDIT-23",
+   "account": "claude6",
+   "lane": 1,
+   "startedAt": "2026-09-17T08:30:24Z",
+   "attempts": 1
   },
   {
    "id": "AUDIT-24",
@@ -40168,7 +40204,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-24.md",
    "timeout": 21600,
-   "state": "pending"
+   "state": "running",
+   "account": "claude2",
+   "lane": 2,
+   "startedAt": "2026-09-17T08:12:34Z",
+   "attempts": 1
   },
   {
    "id": "REV-AUDIT-24",
@@ -40212,7 +40252,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-25.md",
    "timeout": 21600,
-   "state": "pending"
+   "state": "running",
+   "account": "claude2",
+   "lane": 1,
+   "startedAt": "2026-09-17T08:28:07Z",
+   "attempts": 1
   },
   {
    "id": "REV-AUDIT-25",
