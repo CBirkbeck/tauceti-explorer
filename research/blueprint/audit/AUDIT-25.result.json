@@ -1,0 +1,1685 @@
+{
+ "job": "AUDIT-25",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "GrossZagierAndArithmeticHeights": {
+   "summary": "The libraries have only the elementary inputs. Mathlib supplies Weil heights on projective space with polynomial-map bounds, Northcott for number fields, the descent theorem, and generic Gram-determinant and Haar-measure scaling. Tau Ceti supplies the elliptic canonical height, Néron–Tate pairing, regulator and Mordell–Weil over number fields, plus combinatorial intersection matrices of fibres. Everything specific to the roadmap is missing: heights and the Poincaré pairing on abelian varieties, arithmetic intersection theory and Green functions, Shimura curves, toric periods and Saito–Tunnell, theta kernels and Waldspurger, generating series, local intersection identities, and both the complex and the BDP p-adic Gross–Zagier formulas. Tau Ceti's baseline Néron–Tate pairing has ⟨P,P⟩ = ĥ(P) with ĥ half the x-height, so its regulator is 2^(−r) times Silverman's and Cremona's, which contradicts GZ.0's description of the existing convention.",
+   "layers": {
+    "GrossZagierAndArithmeticHeights:GZ.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Shift between the motivic centre s=1 and the unitary automorphic centre s=1/2 for the L-functions in the period and height identities",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ModularForm.L",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/LFunction.lean",
+         "line": 134,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has L-functions of automorphic representations of GL₂ over a number field or their base change to K, so there is nothing to renormalise. Mathlib's ModularForm.L is the classical L-function of a modular form for an arithmetic subgroup, with its centre at k/2."
+      },
+      {
+       "target": "Completed versus finite L-functions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ModularForm.Λ",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/LFunction.lean",
+         "line": 91,
+         "fit": "special case"
+        },
+        {
+         "name": "ModularForm.L",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/LFunction.lean",
+         "line": 134,
+         "fit": "special case"
+        },
+        {
+         "name": "DirichletCharacter.LFunction_eq_completed_div_gammaFactor",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 259,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib relates the completed and finite L-functions of classical modular forms (L = Λ·2/Γ_ℂ(s)) and of Dirichlet characters. The automorphic GL₂, base-change and Rankin–Selberg L-functions over F, with their archimedean factors, are missing."
+      },
+      {
+       "target": "Trace versus normalised average of CM (Heegner) orbits",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has CM points, Heegner points or Galois orbits of them."
+      },
+      {
+       "target": "Geometric Artin reciprocity convention",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.NumberFieldArithmetic.artinHomAway",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Ideal/ArtinMap.lean",
+         "line": 175,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti defines the ideal-theoretic Artin map of a finite abelian extension away from a finite set S, sending each unramified prime to its arithmetic Frobenius. The file says explicitly that kernel, image and ray-class factorisation are not proved. There is no reciprocity law, no idelic Artin map and no geometric normalisation."
+      },
+      {
+       "target": "Comparison maps and rescaling formulas for choices of volume, Haar measure, differential, polarisation and coefficient embedding",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Measure.haarScalarFactor",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Haar/Unique.lean",
+         "line": 278,
+         "fit": "more general"
+        },
+        {
+         "name": "MeasureTheory.Measure.isMulLeftInvariant_eq_smul",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Haar/Unique.lean",
+         "line": 922,
+         "fit": "more general"
+        },
+        {
+         "name": "MeasureTheory.Measure.addHaar_smul",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Lebesgue/EqHaar.lean",
+         "line": 362,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.pullbackDifferential",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Differential.lean",
+         "line": 68,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib shows that Haar measures on a locally compact, second-countable group agree up to haarScalarFactor, and that dilation by r scales additive Haar measure by |r|^dim. Tau Ceti pulls invariant differentials back along isogenies of elliptic curves. Nothing handles polarisations, coefficient embeddings, or rescaling either side of a period or height identity."
+      },
+      {
+       "target": "If a bilinear pairing is scaled by c, its rank-r Gram determinant is scaled by c^r",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "Matrix.det_smul",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+         "line": 272,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.IntegralLattice.gramDet_smul",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/IntegralLattice/Scaling.lean",
+         "line": 153,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.neronTateGramMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/PointModTorsion.lean",
+         "line": 129,
+         "fit": "related"
+        }
+       ],
+       "note": "det(c•A) = c^(card n)·det A holds over any commutative ring. Since the Gram matrix LinearMap.toMatrix₂ is linear in the form, this gives the Gram-determinant rescaling. Tau Ceti states the same fact for scaled integral lattices."
+      },
+      {
+       "target": "Pairing convention of the existing elliptic height, and its comparison with each source's pairing",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 124,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.neronTatePairing",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 374,
+         "fit": "exact"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.regulator",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+         "line": 91,
+         "fit": "exact"
+        }
+       ],
+       "note": "At the baseline the height is lim h_x(2ⁿP)/(2·4ⁿ): the height for the divisor (O), which is half the x-height (Silverman's ĥ). The pairing is QuadraticMap.associated', so ⟨P,P⟩ = ĥ(P). This contradicts the layer's premise that the existing height is the x-height normalisation. It also makes Tau Ceti's regulator 2^(−r) times the regulators of Silverman (⟨P,Q⟩ = ĥ(P+Q)−ĥ(P)−ĥ(Q)) and Cremona, which both have ⟨P,P⟩ = lim h_x(2ⁿP)/4ⁿ. No comparison lemma with another convention exists."
+      },
+      {
+       "target": "Relation between real-component periods, the full real period and the c∞ factor",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PeriodPair",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 60,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library defines the real (Néron) period of an elliptic curve. Mathlib's PeriodPair is the period lattice of the Weierstrass ℘-function, and Tau Ceti's EllipticCurves Layer 7 period Ω(E) is planned but not built."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+       "note": "Also pins the canonical-height normalisation and defines the regulator as the Gram determinant. Its text states the x-height normalisation, which the baseline code does not follow."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+       "note": "Fixes the real-period convention Ω(E) = 2∫dx/√D_W of the global minimal model, including how one or two real components are handled."
+      },
+      {
+       "layer": "EulerSystemsAndKolyvaginSystems:ES.2",
+       "note": "Builds the normalisation dictionary between arithmetic and geometric Frobenius, which overlaps the Artin-reciprocity convention here."
+      }
+     ]
+    },
+    "GrossZagierAndArithmeticHeights:GZ.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Projective-height lemmas: Weil heights on projective space and their behaviour under morphisms given by homogeneous polynomials",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Projectivization.logHeight",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Projectivization.lean",
+         "line": 51,
+         "fit": "exact"
+        },
+        {
+         "name": "Height.logHeight_eval_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/MvPolynomial.lean",
+         "line": 368,
+         "fit": "exact"
+        },
+        {
+         "name": "Height.logHeight_eval_ge",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/MvPolynomial.lean",
+         "line": 491,
+         "fit": "exact"
+        },
+        {
+         "name": "Height.AdmissibleAbsValues",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/Basic.lean",
+         "line": 78,
+         "fit": "more general"
+        }
+       ],
+       "note": "These work over any field with an admissible family of absolute values. The upper bound h(F(x)) ≤ N·h(x)+C holds for homogeneous polynomials of degree N. The matching lower bound needs a Nullstellensatz-type identity ∑ q·p = x^(M+N), which is the morphism condition."
+      },
+      {
+       "target": "Weil heights for line bundles on projective abelian varieties, with bounded-error functoriality (the height machine)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Height.logHeight_eval_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/MvPolynomial.lean",
+         "line": 368,
+         "fit": "related"
+        }
+       ],
+       "note": "Only heights of points in projective space exist. Neither library has divisor-class or line-bundle heights on a variety, heights modulo bounded functions, or pullback and tensor laws."
+      },
+      {
+       "target": "Canonical limit for symmetric bundles: convergence, and uniqueness among bounded-error quadratic refinements",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 124,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.tendsto_naiveHeight_two_pow_nsmul_div_four_pow",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 166,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.abs_canonicalHeight_sub_naiveHeight_le",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 196,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only for Weierstrass elliptic curves over a field with admissible absolute values, and only for the x-coordinate height. There is no uniqueness statement, even for elliptic curves, and nothing for abelian varieties."
+      },
+      {
+       "target": "Addition (parallelogram) and multiplication formulas, and isogeny pullback",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight_parallelogram_law",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 211,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight_zsmul",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 283,
+         "fit": "special case"
+        }
+       ],
+       "note": "The parallelogram law and ĥ(nP) = n²ĥ(P) are proved for elliptic curves. The isogeny formula ĥ(φP) = deg φ·ĥ(P) is absent, as is every abelian-variety version."
+      },
+      {
+       "target": "Independence of the height under finite extension, with the arithmetic-degree normalisation",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.absMulHeight₁",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 137,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's absolute height of an algebraic number is defined through ℚ(x), so it does not depend on the field. The AdmissibleAbsValues heights of tuples and of elliptic points are relative to the base field, and there is no base-change invariance for points on curves or abelian varieties."
+      },
+      {
+       "target": "Positivity for ample symmetric bundles, and zero locus equal to torsion over a number field (via Northcott and finite generation)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight_nonneg",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 266,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight_eq_zero_iff_isOfFinAddOrder",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 338,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.finite_setOfPred_mulHeight₁_le",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Height/NumberField.lean",
+         "line": 411,
+         "fit": "related"
+        }
+       ],
+       "note": "Elliptic curves only. The torsion characterisation takes Northcott for the naïve height as an instance hypothesis, and Mathlib proves Northcott for elements of a number field."
+      },
+      {
+       "target": "Bilinear height A(F̄)×A∨(F̄)→ℝ from the Poincaré biextension, with adjunction under homomorphisms",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.neronTatePairing",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 374,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.End",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's abelian varieties have endomorphisms but no dual abelian variety, Poincaré bundle or biextension. The only height pairing is the elliptic self-pairing on E(F)."
+      },
+      {
+       "target": "Pairing on rational points modulo torsion and under scalar extension",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.neronTatePairingModTorsion",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/PointModTorsion.lean",
+         "line": 68,
+         "fit": "special case"
+        }
+       ],
+       "note": "Descends to the torsion quotient for elliptic curves only. Scalar extension is not treated."
+      },
+      {
+       "target": "M-linear pairing valued in M⊗ℚℝ for strict GL₂-type A, with trace equal to the rational pairing and compatible with dual endomorphisms",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has GL₂-type abelian varieties or coefficient-linear height pairings."
+      },
+      {
+       "target": "Comparison of the dimension-one instance with the existing elliptic height",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 124,
+         "fit": "related"
+        }
+       ],
+       "note": "The elliptic height exists, but there is no general construction to compare it with."
+      },
+      {
+       "target": "Descent argument: finiteness of G/2G plus a Northcott height satisfying the approximate parallelogram law gives finite generation",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "CommGroup.fg_of_descent'",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/Descent.lean",
+         "line": 149,
+         "fit": "exact"
+        },
+        {
+         "name": "Group.fg_of_descent",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/Descent.lean",
+         "line": 69,
+         "fit": "more general"
+        }
+       ],
+       "note": "Stated for any commutative group; the additive version AddCommGroup.fg_of_descent' comes from to_additive. This is the height half of Mordell–Weil."
+      },
+      {
+       "target": "Weak Mordell–Weil and Mordell–Weil for abelian varieties over number fields",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.finiteIndex_range_nsmulAddMonoidHom_two",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/WeakMordellWeil.lean",
+         "line": 94,
+         "fit": "special case"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.fg_point_of_numberField",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean",
+         "line": 129,
+         "fit": "special case"
+        }
+       ],
+       "note": "Proved for elliptic curves over number fields by 2-descent in the étale algebra K[X]/(f). Nothing is proved for higher-dimensional abelian varieties."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.0",
+       "note": "Constructs divisor and line-bundle heights modulo bounded functions, with pullback and tensor laws, and compares Néron–Tate and local heights on abelian varieties. This is the same height machine."
+      },
+      {
+       "layer": "ArithmeticDynamics:DY.1",
+       "note": "Constructs the canonical limit d^(−n)h_L(fⁿP) with its error bound, uniqueness and zero-height criterion via Northcott. Its acceptance test is multiplication on an abelian variety."
+      },
+      {
+       "layer": "HeightsRationalPointsAndObstructions:RP.1",
+       "note": "Owns weak Mordell–Weil and descent for abelian varieties, which this layer also lists as a construction target."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+       "note": "The dimension-one case: canonical height, Néron–Tate pairing, isogeny compatibility and regulator. Most of it is already built in Tau Ceti."
+      }
+     ]
+    },
+    "GrossZagierAndArithmeticHeights:GZ.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Arithmetic intersection pairing on a curve over a number field, from finite-place intersection lengths and archimedean Green functions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has Arakelov intersection theory, arithmetic divisors or intersection lengths on arithmetic surfaces."
+      },
+      {
+       "target": "Regular models, and their extension after semistable base change",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Model",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Model/Basic.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.FiniteDVRExtension",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/DVRExtension/Basic.lean",
+         "line": 85,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti packages flat, finitely presented models over a DVR with a fixed generic fibre, and finite DVR extensions with a chosen place. It has no regularity predicate, no existence of regular models, and no base change of models after semistable reduction."
+      },
+      {
+       "target": "Vertical correction divisors, intersection matrices of special fibres and their kernel",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.NumericalType",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Basic.lean",
+         "line": 113,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType.finrank_ker_vecMulLinear_intersection",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Picard/Rank.lean",
+         "line": 167,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.NumericalType.intersection_self_neg",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Basic.lean",
+         "line": 209,
+         "fit": "related"
+        }
+       ],
+       "note": "The intersection matrix is an axiomatised combinatorial datum (Stacks 0C6Z) whose fibre relation is a structure field. Its kernel is proved to have rank one, but the matrix is never computed from a regular model, and there are no vertical correction divisors."
+      },
+      {
+       "target": "Projection formulas and independence of auxiliary disjoint representatives",
+       "library": "absent",
+       "declarations": [],
+       "note": "No intersection product exists, so neither does its functoriality."
+      },
+      {
+       "target": "Reduction graph, Laplacian, admissible measure and Green kernel at nonarchimedean semistable places, agreeing with model intersection after vertical correction",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "SimpleGraph.lapMatrix",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/SimpleGraph/LapMatrix.lean",
+         "line": 75,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType.intersectionGraph",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Topology.lean",
+         "line": 46,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the combinatorial Laplacian of a simple graph and the intersection graph of a numerical type exist. Metric graphs, Zhang's admissible measures and Green kernels are missing."
+      },
+      {
+       "target": "Existence and normalisation of the archimedean Green kernel, with analytic estimates",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has Arakelov Green functions on compact Riemann surfaces. A grep for Green functions finds only the Newtonian kernel on Euclidean space."
+      },
+      {
+       "target": "Faltings–Hriljac comparison with the canonical Jacobian pairing for degree-zero divisors",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.neronTatePairing",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 374,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has a Jacobian variety of a curve or a Néron–Tate pairing on it. The only such pairing is the elliptic one."
+      },
+      {
+       "target": "Regularised self-intersection of degree-one Hodge classes, and the local height decomposition, base-change and correspondence-adjunction APIs",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+       "note": "Develops intersection multiplicities of vertical divisors on regular models over a DVR, with the projection formula, self-intersection and the negative-semidefinite intersection matrix. This duplicates the finite-place part."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+       "note": "Constructs regular and minimal models and the fibre divisor div(π) = Σ mᵢCᵢ."
+      },
+      {
+       "layer": "TropicalAndBerkovichArithmetic:TB.3",
+       "note": "Divisors, Laplacian and Jacobian on metric graphs, with specialisation from the curve; overlaps the reduction graph and its Laplacian."
+      },
+      {
+       "layer": "TropicalAndBerkovichArithmetic:TB.6",
+       "note": "Model metrics, model measures weighted by intersection numbers, and local heights; overlaps admissible measures and the local height decomposition."
+      },
+      {
+       "layer": "EllipticKTheory:E.6",
+       "note": "Regular proper models and intersection multiplicities of vertical components, for elliptic curves."
+      }
+     ]
+    },
+    "GrossZagierAndArithmeticHeights:GZ.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Quaternionic Shimura curves X_U with the degree-one normalised Hodge class ξ_U, compatible with level maps",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has Shimura curves, or modular curves as schemes or compact Riemann surfaces."
+      },
+      {
+       "target": "Rational space of ξ-normalised maps X_U→A, its direct limit over levels, endomorphism and Hecke actions, and identification with the GL₂-transfer representation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Tau Ceti's Hecke operators act on classical modular forms, not on Jacobians of Shimura curves."
+      },
+      {
+       "target": "Strict-GL₂-type and field-of-definition statements under the parametrisation hypotheses",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.End",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the endomorphism ring of an abelian variety exists."
+      },
+      {
+       "target": "Pairing of the realisations for A and A∨ through induced homomorphisms of Jacobians, divided by the curve volume; level independence, adjunction and perfectness",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Comparison with the Petersson pairing and local tensor factors",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "UpperHalfPlane.peterssonInner",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Petersson/Basic.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "UpperHalfPlane.petersson",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Petersson.lean",
+         "line": 31,
+         "fit": "related"
+        }
+       ],
+       "note": "Petersson inner products of classical modular forms exist in both libraries, and Tau Ceti proves Hecke adjointness. There is no automorphic or quaternionic Petersson pairing, and no factorisation into local factors."
+      },
+      {
+       "target": "In dimension one, the composition equals the degree of the modular parametrisation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has modular parametrisations or modular degrees."
+      },
+      {
+       "target": "Differential pullbacks and Manin constants, with exact isogeny functoriality",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.pullbackDifferential",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Differential.lean",
+         "line": 68,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the pullback of differentials along isogenies of elliptic curves exists. Manin constants are absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "GrossZagierAndArithmeticHeights:GZ.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Toric Hom space for an irreducible admissible representation of the split or division quaternion algebra over a local field and a character with matching central character",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.QuaternionAlgebra.oneEquivMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Quaternion/Split.lean",
+         "line": 139,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has smooth or admissible representations of p-adic or real groups. Tau Ceti has explicit splittings of symbol quaternion algebras and the reduced norm form."
+      },
+      {
+       "target": "Saito–Tunnell multiplicity one and the epsilon dichotomy, in GZ.0's convention",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: no local epsilon factors of representations and no local Langlands input."
+      },
+      {
+       "target": "Split and nonsplit tori treated separately, including archimedean discrete-series contributions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Normalised toric matrix-coefficient integrals: convergence or regularisation, rationality, invariance under rescaling, and the unramified value",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Nonzero test vectors from local orders, newvectors and their translates, including conductor mismatch, ramified and dyadic cases",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Tau Ceti's newform theory is for classical modular forms, not local representations."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicPadicLFunctions:L3h",
+       "note": "Constructs Hsieh's toric test vectors and CM evaluations for Hilbert representations; overlaps the test-vector construction."
+      }
+     ]
+    },
+    "GrossZagierAndArithmeticHeights:GZ.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Quaternionic norm-form specialisation of the theta kernel, with the quadratic-character and measure comparison",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "QuaternionAlgebra.normForm",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Quaternion/NormForm.lean",
+         "line": 72,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the reduced norm form of a quaternion algebra as a quadratic form. Neither library has Weil representations or theta kernels."
+      },
+      {
+       "target": "Coherent theta-lift identities and global toric factorisation, distinguishing zero and nonzero cases",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Waldspurger period formula with adjoint L-value, zeta and eta factors, and normalised local toric forms",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Nonvanishing of a toric period exactly under local distinction and nonvanishing of the central L-value",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Explicit split, ramified and definite-quaternionic specialisations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "MetaplecticAutomorphicForms:MP.6",
+       "note": "Factorises pure-tensor theta kernels and the local integrals behind toric pairings, and exports the quaternionic norm-form instance to GZ.5. It overlaps the toric factorisation, but leaves the Waldspurger identity to GZ.5."
+      }
+     ]
+    },
+    "GrossZagierAndArithmeticHeights:GZ.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "CM divisors and correspondences on X_U, their ξ-normalised degree-zero classes and arithmetic extensions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: no Shimura curves and no CM points."
+      },
+      {
+       "target": "Special cycles as proper push-forward with multiplicities; pullback, push-forward, Hecke and diagonal identities",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.AlgebraicCycle.map",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
+         "line": 69,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines algebraic cycles and push-forward along quasi-compact morphisms with residue-degree multiplicities (Stacks 02R3), but proves only map_id. There is no pullback, no functoriality, no rational equivalence or Chow group, and no correspondences."
+      },
+      {
+       "target": "Modularity of the curve-level Chow-valued generating series",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Incoherent Eisenstein/Weil kernels, their central derivatives and normalised local Whittaker terms",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "ModularForm.eisensteinSeriesMF",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/EisensteinSeries/Basic.lean",
+         "line": 35,
+         "fit": "related"
+        }
+       ],
+       "note": "Only classical holomorphic Eisenstein series for congruence subgroups exist. There are no adelic Eisenstein series, Whittaker functions or incoherent families."
+      },
+      {
+       "target": "Holomorphic and cuspidal projection, the functional-equation vanishing, and the interchange of derivatives, sums and integrals",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Comparison of the arithmetic height kernel with the analytic derivative, modulo constant, Eisenstein and old components",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "MetaplecticAutomorphicForms:MP.6",
+       "note": "Supplies the coherent and incoherent local sections and functional-equation conventions for the analytic kernel. The arithmetic derivative identity is left to GZ.6."
+      }
+     ]
+    },
+    "GrossZagierAndArithmeticHeights:GZ.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Finite-place identities between CM intersection multiplicities and derivatives of local representation densities or Whittaker functions, for split, inert and ramified extensions and ordinary, supersingular and superspecial reduction",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.HasGoodReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 325,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib classifies good, multiplicative and additive reduction of Weierstrass curves. Supersingular reduction, CM intersection numbers and representation densities are absent."
+      },
+      {
+       "target": "Deformation-length calculations using finite flat and Serre–Tate theory on the local models",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.formalGroup",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Basic.lean",
+         "line": 58,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the formal group law of a Weierstrass curve exists: no Serre–Tate theory, quasi-canonical lifts or Gross–Keating computations."
+      },
+      {
+       "target": "Archimedean Green-function identity with convergent spectral expansion",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Self-intersection and normalised Hodge-divisor terms, and cusp corrections on noncompact modular curves",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Assembly of the local formulas into the global kernel comparison, including conductor and discriminant terms",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "GrossZagierAndArithmeticHeights:GZ.8": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "YZZ's corrected height identity for factorizable test vectors, as an equality of invariant bilinear forms",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Zero case when the toric Hom space vanishes; global sign −1; non-torsion of a Heegner point from a nonzero derivative",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Specialisations to X₀(N), rational elliptic quotients, generalised-Heegner quaternionic curves and ring-class characters, with the Cai–Shu–Tian explicit formulas",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Comparison of trace-normalised and averaged Heegner points with the existing elliptic height",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.canonicalHeight",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+         "line": 124,
+         "fit": "related"
+        }
+       ],
+       "note": "The elliptic height exists, but there are no Heegner points to compare it with."
+      }
+     ],
+     "duplicates": []
+    },
+    "GrossZagierAndArithmeticHeights:GZ.9": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "BDP/Brooks p-adic L-function in the weight-two Heegner setting, with its interpolation range, CM periods and removed Euler factors",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AbstractMeasure.amiceTransformEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 156,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib identifies ℤ_p-valued measures on ℤ_p with ℤ_p⟦X⟧, but neither library has an anticyclotomic measure, CM periods or p-adic L-functions."
+      },
+      {
+       "target": "Quaternionic good-supersingular variant (JSW §5.1, Brooks Prop. 8.13) with integral test-vector and period comparisons",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "p-adic Waldspurger formula: the weight-two specialisation equals the square of the formal logarithm of the Heegner point times local factors, with the Bloch–Kato logarithm comparison",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.formalGroup",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Basic.lean",
+         "line": 58,
+         "fit": "related"
+        },
+        {
+         "name": "FormalGroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/FormalGroup/Basic.lean",
+         "line": 56,
+         "fit": "related"
+        }
+       ],
+       "note": "Formal group laws exist, but there is no formal logarithm and no Bloch–Kato logarithm."
+      },
+      {
+       "target": "Compatibility with isogenies, finite characters and anticyclotomic specialisation; the square versus the square root",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Multiplicative exceptional-zero variant with its Tate-period / L-invariant term",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeneralizedHeegnerCycles:GH.4",
+       "note": "Proves the Castella–Hsieh generalised p-adic Gross–Zagier/Abel–Jacobi formula and distinguishes the square-root BDP distribution from its square. Its weight-two case is this logarithm formula."
+      },
+      {
+       "layer": "AutomorphicPadicLFunctions:L3h",
+       "note": "Constructs the anticyclotomic square-root toric distribution and test vectors, which overlaps the construction of the anticyclotomic p-adic L-function."
+      }
+     ]
+    }
+   }
+  },
+  "HeegnerPointEulerSystems": {
+   "summary": "Nothing specific to Heegner points exists in either library. The generic inputs are Mathlib's Picard/class group of an arbitrary domain with the units-to-Pic exact sequence (a home for Pic(O_c) and its conductor-change kernels), idele class groups, degree-one inflation–restriction, continuous cohomology and Dirichlet's theorem. Tau Ceti adds the ideal-theoretic Artin map, ray class groups, the field Kummer map Kˣ→H¹(G_K,μ_n), and Chebotarev infrastructure without the density theorem. Missing: orders O_c themselves, ring class fields, CM theory and modular or Shimura curves, Heegner points and their norm and reduction relations, elliptic Kummer maps, Tate modules, Weil pairing and Selmer local conditions, Kolyvagin derivative classes and descent, Sha, anticyclotomic Iwasawa theory, Cornut–Vatsal and the BCS/BCGS main conjectures. HE.7s and HE.8c are source bookkeeping.",
+   "layers": {
+    "HeegnerPointEulerSystems:HE.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Orders O_c = ℤ + cO_K of an imaginary quadratic field and their proper invertible ideals",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "conductor",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Conductor.lean",
+         "line": 32,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library defines orders of a number field. Mathlib's conductor is the conductor of R[x] in S. Tau Ceti's GlobalNumberFields Layer 11 plans NumberFieldOrder, but it is not built."
+      },
+      {
+       "target": "Picard group Pic(O_c): invertible fractional ideals modulo principal ones",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "ClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/ClassGroup/Basic.lean",
+         "line": 90,
+         "fit": "more general"
+        },
+        {
+         "name": "CommRing.Pic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 429,
+         "fit": "more general"
+        },
+        {
+         "name": "ClassGroup.equivPic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 876,
+         "fit": "more general"
+        }
+       ],
+       "note": "ClassGroup R is invertible fractional ideals modulo principal ones for any domain R, so it applies to O_c once the subring is written down. It agrees with the module-theoretic Picard group. Finiteness is proved only in the Dedekind setting, so Pic(O_c) for a non-maximal order has no finiteness theorem or congruence description."
+      },
+      {
+       "target": "Conductor-change maps Pic(O_cℓ)→Pic(O_c) and their kernels, and extension degrees with the exceptional unit indices retained",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CommRing.Pic.mapAlgebra",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 553,
+         "fit": "more general"
+        },
+        {
+         "name": "Submodule.ker_unitsToPic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 740,
+         "fit": "more general"
+        },
+        {
+         "name": "Submodule.range_unitsToPic",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 836,
+         "fit": "more general"
+        }
+       ],
+       "note": "Mathlib has Pic functoriality along an algebra map, and exactness of Rˣ → Aˣ → (Submodule R A)ˣ → Pic R → Pic A at the last two terms. That is the general tool for the kernel. The explicit kernel (O_c/ℓO_c)ˣ/(ℤ/ℓ)ˣ modulo units, and the ℓ±1 degree formulas with unit-index exceptions, are absent."
+      },
+      {
+       "target": "Comparison of Pic(O_c) with idele-class quotients",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.IdeleClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 119,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.RayClassGroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Basic.lean",
+         "line": 180,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines the idele class group as a quotient, and Tau Ceti has ideal-theoretic ray class groups with finiteness. Neither library has a map from ideles to Pic of an order."
+      },
+      {
+       "target": "Ring class fields and Artin maps from class field theory: fields of definition, ramification, splitting, complex conjugation and the generalised dihedral action",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.NumberFieldArithmetic.artinHomAway",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Ideal/ArtinMap.lean",
+         "line": 175,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the ideal-theoretic Artin map of a given abelian extension exists. There is no existence theorem, no ring or Hilbert class field and no reciprocity isomorphism with Pic(O_c)."
+      },
+      {
+       "target": "Order and idele variants for a CM extension K/F, compatible with field and ideal norms, reciprocity and change of finite level",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Exceptional small discriminants tracked separately, with no division by unit-group orders",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.Units.torsion",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
+         "line": 146,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the torsion units of a number field. There is no computation of the unit groups of imaginary quadratic orders."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups",
+       "note": "Defines orders, conductors, invertible proper fractional ideals, Pic O and extension/contraction maps prime to the conductor. These are the same order and Picard-group targets."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+       "note": "Constructs ringClassField for quadratic orders, ringClassArtinMap, Gal(H_O/K) ≃ Pic O, the ramification bound and the splitting criterion. These are the same ring-class-field targets."
+      },
+      {
+       "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+       "note": "Orders in CM fields and their proper invertible ideals, keeping an order's class group distinct from the maximal order's."
+      },
+      {
+       "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.3",
+       "note": "Identifies ring class fields of imaginary quadratic orders, via class polynomials."
+      }
+     ]
+    },
+    "HeegnerPointEulerSystems:HE.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "CM elliptic curves and cyclic-isogeny pairs over ℂ attached to proper ideals of orders, identified with X₀(N) moduli objects",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PeriodPair",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+         "line": 60,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the Weierstrass ℘-function of a lattice and its differential equation, but no uniformisation ℂ/Λ ≅ E(ℂ), no CM curves and no modular curve X₀(N) as a moduli space."
+      },
+      {
+       "target": "Descent of CM points to ring class fields by the main theorem of complex multiplication and canonical-model reciprocity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Optimal embeddings of orders into quaternion orders, CM points on quaternionic Shimura curves and the local embedding conditions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Map from CM points to degree-zero Jacobian classes (via a cusp or the normalised Hodge class) and to A or E through the modular quotient, tracking denominators and parametrisation degree",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: no Jacobians of modular curves and no modular parametrisations."
+      },
+      {
+       "target": "Compatible family of points P_c, with dependence on choices given by Galois and Hecke actions and torsion translation; trace to K kept distinct from the ring-class-field point",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+       "note": "Constructs the elliptic curve attached to a complex ideal lattice, with its order action and ideal-class classification."
+      },
+      {
+       "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+       "note": "The CM reciprocity law with ideal, idele and torsion dictionaries, which HE.1 needs for descent."
+      },
+      {
+       "layer": "GeneralizedHeegnerCycles:GH.1",
+       "note": "Builds generalised Heegner cycles from graphs of CM isogenies and proves rationality over the ring class field; the higher-weight analogue of the CM-point construction."
+      }
+     ]
+    },
+    "HeegnerPointEulerSystems:HE.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Hecke correspondences on CM points via the classification of local cyclic subgroups; the trace relation at inert ℓ and the full recurrences at split, ramified and repeated conductor primes, including unit exceptions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.doubleCoset_natDiagGL_Gamma0_eq_iUnion_rightCosets_of_prime",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/GL2/Gamma0/Diagonal/PrimeCosets.lean",
+         "line": 124,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti decomposes the Γ₀(N) double coset of diag(1,p) into right cosets, which is the matrix form of the ℓ+1 cyclic sublattices. Nothing acts on CM points."
+      },
+      {
+       "target": "The same relations on Jacobians and the modular quotient, without absorbing torsion errors",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Reduction congruence P_cℓ ≡ Frob(P_c) at primes above inert ℓ, via a specialisation map to the Néron model or good-reduction curve",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.HasGoodReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 325,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib classifies reduction types of Weierstrass curves. There are no Néron models of modular Jacobians and no reduction of CM points."
+      },
+      {
+       "target": "Eichler–Shimura congruence relation in the needed geometric category",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Extension to the quaternionic Heegner hypothesis through the local models and transfer comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeneralizedHeegnerCycles:GH.2",
+       "note": "Tame and p-power trace relations, geometric Frobenius congruences and conductor/CM-unit exceptions for generalised Heegner cycles; the higher-weight analogue."
+      },
+      {
+       "layer": "ModularCurvesPartII:R14.6",
+       "note": "Supplies the special-fibre Eichler–Shimura relation, which HE.2 also lists as a target."
+      }
+     ]
+    },
+    "HeegnerPointEulerSystems:HE.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Finite and p-adic Kummer maps applied to P_c, compatible with restriction, corestriction and coefficient reduction",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.kummerMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 187,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitCor1",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Corestriction.lean",
+         "line": 457,
+         "fit": "related"
+        },
+        {
+         "name": "continuousCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+         "line": 131,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the multiplicative Kummer map Kˣ → H¹(G_K, μ_n) and restriction, inflation and corestriction on continuous cohomology with discrete coefficients. Mathlib defines continuous cohomology. There is no Kummer map E(K)/mE(K) → H¹(K, E[m]) for an elliptic curve."
+      },
+      {
+       "target": "Weil-pairing self-duality of E[p^n]",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has the Weil pairing. Tau Ceti has the Weil-reciprocity and divisor-evaluation infrastructure for it."
+      },
+      {
+       "target": "Integral Tate-module classes in continuous cohomology and their finite torsion reductions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "continuousCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+         "line": 131,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has the Tate module of an elliptic curve or ℤ_p-coefficient Galois cohomology as a limit."
+      },
+      {
+       "target": "Classes unramified outside S and satisfying the finite/crystalline or ordinary local condition at p",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Local Kummer image at bad primes and the component-group obstruction to the unramified condition; the real/Tate correction at infinite places",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Tau Ceti's explicit 2-descent local conditions in the étale algebra K[X]/(f) are not the cohomological Kummer image."
+      },
+      {
+       "target": "Relation between finite-level classes and a saturated lattice in the Selmer group, with comparisons to rational and torsion coefficients",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: no cohomological Selmer groups of elliptic curves."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+       "note": "Owns the Kummer sequence for [m], the local Kummer maps and the Selmer local conditions that HE.3 applies to Heegner points."
+      },
+      {
+       "layer": "GeneralizedHeegnerCycles:GH.2",
+       "note": "Verifies unramified and finite local conditions for generalised Heegner classes, using reduction and p-adic comparison maps."
+      }
+     ]
+    },
+    "HeegnerPointEulerSystems:HE.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Kolyvagin primes inert in K, and the coefficient ideal generated by a_ℓ and ℓ+1",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Derivative classes from ES.3's operator, invariant modulo that ideal",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: no Kolyvagin derivative operators."
+      },
+      {
+       "target": "Descent of the differentiated class to K by inflation–restriction, keeping torsion obstructions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "groupCohomology.H1InfRes_exact",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Functoriality.lean",
+         "line": 393,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitInfRes_exact",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean",
+         "line": 336,
+         "fit": "more general"
+        }
+       ],
+       "note": "Degree-one inflation–restriction exactness is proved for discrete group cohomology (Mathlib) and for continuous cohomology with discrete coefficients (Tau Ceti). Its application to Heegner derivative classes is absent."
+      },
+      {
+       "target": "Tensor with cyclic Galois groups in the coefficients, and the transformation law under change of generator",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "At n=1 the Kummer image of the trace P_1; reduction compatibility as p^m varies; enlarging or shrinking the prime set; complex-conjugation parity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Corrected Kolyvagin system with the exact Heegner/Howard compatibility",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EulerSystemsAndKolyvaginSystems:ES.3",
+       "note": "Constructs the derivative operators, proves invariance and descent with kernel/cokernel errors and generator independence, and makes the Mazur–Rubin Appendix A correction that HE.4 also asks for."
+      },
+      {
+       "layer": "EulerSystemsAndKolyvaginSystems:ES.1",
+       "note": "Finite–singular comparison with the cyclic-group tensor factor and independence of the chosen generator."
+      }
+     ]
+    },
+    "HeegnerPointEulerSystems:HE.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Finite/singular relation at every auxiliary prime from HE.2's reduction congruence, and the transverse condition after ramification",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Self-dual/cartesian local-condition hypotheses and the twisted conjugation pairing in Howard's Heegner Kolyvagin systems",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Existence of auxiliary primes by Chebotarev for the actual residual representation, keeping the big-image hypotheses",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.frobeniusPrimeSet",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
+         "line": 93,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.exists_auxiliaryPrime",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/AuxiliaryPrime.lean",
+         "line": 45,
+         "fit": "related"
+        },
+        {
+         "name": "Nat.forall_exists_prime_gt_and_eq_mod",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+         "line": 442,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the set of unramified primes with a given Artin class and prime-counting weights, but not the Chebotarev density theorem. Mathlib proves Dirichlet's theorem on primes in progressions. There are no Galois representations on E[p] to apply either to."
+      },
+      {
+       "target": "Local error terms at p and at Tamagawa primes, with comparison lemmas and examples (p dividing a Tamagawa number, nonzero local p-torsion)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: no Tamagawa numbers of elliptic curves."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EulerSystemsAndKolyvaginSystems:ES.1",
+       "note": "Chebotarev selection of auxiliary primes from the fields cut out by T and finitely many classes, with the finite, singular and transverse local descriptions."
+      },
+      {
+       "layer": "EulerSystemsAndKolyvaginSystems:ES.4",
+       "note": "Error-tolerant descent keeping restriction errors and bounded local torsion; HE.5 converts those abstract errors into arithmetic quantities."
+      }
+     ]
+    },
+    "HeegnerPointEulerSystems:HE.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Howard Theorem A (D≠−3,−4, p odd, p,D,N pairwise coprime, G_K→GL₂(ℤ_p) surjective): a nonzero bottom class gives a rank-one compact Selmer lattice and a discrete Selmer group with one divisible rank-one summand and paired finite summands",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Finite summands identified with Sha through the Kummer sequence; length bound by the index of the bottom class, with the direction of divisibility and the self-duality factor two",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: no Tate–Shafarevich group in either library."
+      },
+      {
+       "target": "Nonzero versus primitive versus primitive-after-local-correction classes; equality under ES.5's primitivity hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Zhang's indivisibility theorem with enumerated residual ramification assumptions, and the Heegner congruence/rank-lowering application",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EulerSystemsAndKolyvaginSystems:ES.5",
+       "note": "Primitivity, rank-one module theorem and index-equals-length equality under primitivity, including the square-index Sha bound for self-dual Heegner descent."
+      },
+      {
+       "layer": "EulerSystemsAndKolyvaginSystems:ES.4",
+       "note": "The clean Mazur–Rubin DVR bound by the divisibility index of the initial class, which HE.6 instantiates."
+      }
+     ]
+    },
+    "HeegnerPointEulerSystems:HE.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Kolyvagin's theorem: a non-torsion Heegner point gives rank one and finiteness of the whole of Sha, at all primes",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Bounded-denominator derivative classes with uniform bounds on restriction/corestriction kernels, invariants and local error terms",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "p=2 with the real-place/Tate correction and the integral conjugation argument",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Open-image and cohomological bounds for non-CM curves; character and decomposition bounds for CM curves",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: no Galois representations of elliptic curves and no open image theorem."
+      },
+      {
+       "target": "Sha[p^∞]=0 for almost all p, bounded exponent at the rest, and finiteness via finite finite-level Selmer groups",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Kolyvagin–Logachev extension to admissible RM quotients of quaternionic Jacobians",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EulerSystemsAndKolyvaginSystems:ES.4",
+       "note": "The error-tolerant Rubin/classical descent with uniform bounds before passing to p-primary Selmer groups. ES.4 assigns the exceptional, dyadic and CM arithmetic checks to HE.7."
+      }
+     ]
+    },
+    "HeegnerPointEulerSystems:HE.7s": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Source boundary for HE.7: select Kolyvagin (bounded-denominator/error estimates), Kolyvagin–Logachev (RM extension) and Rubin 1987 (CM branch), and verify the dyadic and CM passages",
+       "library": "absent",
+       "declarations": [],
+       "note": "Source-acquisition bookkeeping. It adds no mathematics beyond HE.7, and none of HE.7's targets are in the libraries."
+      }
+     ],
+     "duplicates": []
+    },
+    "HeegnerPointEulerSystems:HE.8": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "p-stabilised norm-compatible Heegner classes over the anticyclotomic ℤ_p-extension, with the initial Euler factor, ring-class torsion and class-number factor explicit",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Interpolation into Iwasawa cohomology and comparison with HE.4 after specialisation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: no Iwasawa cohomology."
+      },
+      {
+       "target": "Cornut–Vatsal CM-point distribution and nonvanishing of Heegner classes in the modular and quaternionic settings; nonzero Λ-adic bottom classes",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Howard's Λ-adic divisibility and invariant paired torsion structure via ES.8 and the Selmer control maps; Howard Theorem B hypotheses",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PowerSeries.exists_isWeierstrassFactorization",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean",
+         "line": 813,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Weierstrass preparation over complete local rings, an input to Λ-module structure theory. It has no characteristic ideals and no structure theorem for Λ-modules."
+      },
+      {
+       "target": "BCGS comparison of specialisations near the trivial character with Tamagawa/torsion errors and the Heegner divisibility index",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Castella–Sano determinant/Selmer-complex reformulation with its specialisation corrections",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeneralizedHeegnerCycles:GH.3",
+       "note": "Ordinary stabilisation and universal-norm classes over the anticyclotomic tower, keeping ring-class torsion and p∤h_K; the higher-weight analogue of HE.8's family construction."
+      },
+      {
+       "layer": "EulerSystemsAndKolyvaginSystems:ES.8",
+       "note": "The Iwasawa-variation machinery and control that HE.8 applies to get Howard's divisibility."
+      }
+     ]
+    },
+    "HeegnerPointEulerSystems:HE.8b": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "BCS anticyclotomic Heegner-point main conjecture (Theorems 1.2.2/1.2.4, Theorem 4.2.1, §5) under p>3, good ordinary reduction and (disc), (Heeg), (spl): rational statement from residual irreducibility, integral equality from surjectivity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Greenberg/BDP form char(X_Gr)Λ^ur = (L_BDP²) in the square-root convention, with coefficient extension, local-condition changes and primitive/imprimitive factors",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Anticyclotomic comparison, explicit reciprocity and reverse divisibility from GZ.9 and the early HE.8 family",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "BCGS Theorem 1.2.13(ii)/(iii) rational/integral split",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicCongruences:L5a",
+       "note": "Owns BCS v2 Theorem 4.2.1's two-variable Iwasawa–Greenberg comparison, which HE.8b also pins as part of its proof."
+      }
+     ]
+    },
+    "HeegnerPointEulerSystems:HE.8c": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Record the exact hypotheses of Cornut's modular-curve theorem (Heegner hypothesis, p∤N; non-torsion trace at some conductor)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Source-hypothesis bookkeeping for HE.8's nonvanishing target."
+      },
+      {
+       "target": "Record the Cornut–Vatsal definite and indefinite branches: exceptional set S, epsilon-sign parity, torsion character χ₀, and ω=1 with N, D, P coprime in the derivative branch",
+       "library": "absent",
+       "declarations": [],
+       "note": "Bookkeeping. The geometric CM distribution it orders before GZ's formula is HE.8's target."
+      },
+      {
+       "target": "Record BCGS Theorem A's hypotheses ((Heeg), (disc), (tor), p odd good ordinary split) and discharge its rational anticyclotomic main conjecture only through HE.8b",
+       "library": "absent",
+       "declarations": [],
+       "note": "Bookkeeping that ties HE.8 to HE.8b."
+      }
+     ],
+     "duplicates": []
+    }
+   }
+  }
+ }
+}

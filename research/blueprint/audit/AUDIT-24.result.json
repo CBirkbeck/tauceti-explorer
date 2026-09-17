@@ -1,0 +1,2207 @@
+{
+ "job": "AUDIT-24",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "ColemanPowerSeries": {
+   "summary": "The libraries hold only general inputs. These are cyclotomic extensions of an arbitrary field, norms of ζ−1 over a base where the cyclotomic polynomial is irreducible, Mathlib's power-series derivative, substitution and Weierstrass preparation, the Amice transform D(Z_p,Z_p) ≃ Z_p[[X]], Tau Ceti's Teichmüller lift and unit filtration for local fields, the elementary cyclotomic-unit lemmas and CM-field unit indices. Genuinely missing: the local tower Q_p(μ_{p^n}) with its degree and ramification, norm-compatible inverse limits and the Z_p[[G]]-action, Coleman's norm operator and Theorem 10.13, ψ and the Coleman map, the fundamental exact sequence, and the cyclotomic-unit quotient theorem 12.23.",
+   "layers": {
+    "ColemanPowerSeries:L0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Local cyclotomic fields K_n = Q_p(mu_{p^n}) with integer rings and local-field structure",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CyclotomicField",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/Basic.lean",
+         "line": 654,
+         "fit": "more general"
+        },
+        {
+         "name": "IsCyclotomicExtension",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/Basic.lean",
+         "line": 76,
+         "fit": "more general"
+        },
+        {
+         "name": "IsCyclotomicExtension.Rat.isIntegralClosure_adjoin_singleton_of_prime_pow",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+         "line": 81,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.HeightOneSpectrum.isNonarchimedeanLocalField_adicCompletion",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/AdicValuation/ValuativeRel.lean",
+         "line": 143,
+         "fit": "related"
+        }
+       ],
+       "note": "CyclotomicField (p^n) ℚ_[p] exists because cyclotomic extensions are defined over any field, and Tau Ceti makes the completion of a Dedekind domain with finite residue field a local field, which covers ℚ(ζ_{p^n}) completed above p. Missing: identifying that completion with ℚ_p(μ_{p^n}), its ring of integers ℤ_p[ζ] (Mathlib's ℤ[ζ] result is over ℚ), and a local-field structure on arbitrary finite extensions of ℚ_[p]."
+      },
+      {
+       "target": "Compatible system of primitive p-power roots of unity (ζ_{p^{n+1}}^p = ζ_{p^n})",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsPrimitiveRoot.pow_of_dvd",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+         "line": 245,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the single-step fact that a power of a primitive root is primitive of the quotient order; no chosen compatible system or tower of roots."
+      },
+      {
+       "target": "Degree [K_n:Q_p] = φ(p^n), total ramification, uniformizer ζ_{p^n}−1 and residue field F_p",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsCyclotomicExtension.finrank",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean",
+         "line": 180,
+         "fit": "more general"
+        },
+        {
+         "name": "cyclotomic_prime_pow_comp_X_add_one_isEisensteinAt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Eisenstein/IsIntegral.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "IsCyclotomicExtension.Rat.ramificationIdx_span_zeta_sub_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+         "line": 124,
+         "fit": "related"
+        },
+        {
+         "name": "IsCyclotomicExtension.Rat.inertiaDeg_span_zeta_sub_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+         "line": 100,
+         "fit": "related"
+        },
+        {
+         "name": "IsCyclotomicExtension.ramificationIdx_eq_totient",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Cyclotomic/IrreducibleOfUnramified.lean",
+         "line": 141,
+         "fit": "related"
+        }
+       ],
+       "note": "The degree formula needs Irreducible (cyclotomic (p^n) ℚ_[p]), which is not proved (Eisenstein-ness is stated over ℤ only). Total ramification, the prime ζ−1 and inertia degree 1 are proved for ℚ(ζ_{p^n}) and, in Tau Ceti, for number fields unramified at p, not for the local field."
+      },
+      {
+       "target": "Transitivity of field norms in the tower K_{n+1}/K_n/Q_p",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Algebra.norm_norm",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Norm/Transitivity.lean",
+         "line": 207,
+         "fit": "more general"
+        },
+        {
+         "name": "Algebra.norm",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Norm/Defs.lean",
+         "line": 61,
+         "fit": "more general"
+        }
+       ],
+       "note": "Norm_{A/R} = Norm_{S/R} ∘ Norm_{A/S} for any tower of commutative rings with A free over S, which covers the tower of finite field extensions."
+      },
+      {
+       "target": "Norm identities N_{K_{n+1}/K_n}(ζ_{p^{n+1}}−1)=ζ_{p^n}−1 and continuity of the norm on units",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsPrimitiveRoot.sub_one_norm_isPrimePow",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean",
+         "line": 360,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib computes the norm of ζ−1 only down to a base over which the whole cyclotomic polynomial is irreducible (value p); the relative step K_{n+1}/K_n and continuity of Algebra.norm are not stated."
+      },
+      {
+       "target": "Norm-compatible units U_∞ as an inverse limit; principal units as a compact Z_p-module",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ValuationSubring.principalUnitGroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+         "line": 635,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.unitFiltration",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean",
+         "line": 88,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.isCompact_unitFiltration",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean",
+         "line": 332,
+         "fit": "related"
+        },
+        {
+         "name": "PadicInt.instBinomialRing",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+         "line": 78,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries.binomialSeries",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Binomial.lean",
+         "line": 47,
+         "fit": "related"
+        }
+       ],
+       "note": "Principal units and the compactness of each U(K,i) exist at a single finite level, and ℤ_[p] is a binomial ring so (1+X)^a is defined formally for a ∈ ℤ_[p]. The inverse limit under norms and the Z_p-module structure on principal units are absent (the latter is a TODO in PowerSeries/Binomial.lean)."
+      },
+      {
+       "target": "Continuous action of the completed group ring Z_p[[G]] extending the Galois action",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library defines completed group rings or Iwasawa algebras; Mathlib only has the Amice transform for measures on Z_p."
+      },
+      {
+       "target": "Decomposition U_∞ = μ_{p−1} × U_{∞,1} for odd p",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.teichmuller",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
+         "line": 100,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.range_teichmuller",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
+         "line": 175,
+         "fit": "related"
+        },
+        {
+         "name": "ValuationSubring.unitsModPrincipalUnitsEquivResidueFieldUnits",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+         "line": 746,
+         "fit": "related"
+        }
+       ],
+       "note": "At a single level of a local field, Tau Ceti's Teichmüller lift is a multiplicative section with image μ_{q−1}, and Mathlib identifies units modulo principal units with residue units. The product splitting is not stated even at finite level, and nothing is done on the inverse limit."
+      },
+      {
+       "target": "The Tate-module subgroup Z_p(1) of U_∞",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "cyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 307,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the p-adic cyclotomic character of a ring automorphism exists; the Tate module lim μ_{p^n} as a subgroup of norm-compatible units is absent."
+      },
+      {
+       "target": "Coefficient extension and the semilocal version for an unramified coefficient extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "No semilocal cyclotomic units or unramified coefficient extensions of the local tower in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+       "note": "That layer states 𝒪[K]ˣ ≃ μ_{q−1} × U(K,1) and the pro-p structure of principal units, the finite-level form of this layer's U_∞ = μ_{p−1} × U_{∞,1}."
+      },
+      {
+       "layer": "PadicMeasuresIwasawaAlgebras:L1",
+       "note": "Owns completed group rings and their universal property for continuous actions, which this layer re-asks for when extending the G-action to Z_p[[G]]."
+      }
+     ]
+    },
+    "ColemanPowerSeries:L1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "O[[T]] finite free over φ(O[[T]]), φ(T)=(1+T)^p−1, with explicit basis (1+T)^i",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PowerSeries.subst",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+         "line": 158,
+         "fit": "related"
+        }
+       ],
+       "note": "Substitution of power series exists; the finiteness and freeness of O[[T]] over the image of φ is not proved."
+      },
+      {
+       "target": "Coleman norm operator N defined by the determinant of multiplication, and the trace",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Algebra.norm",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Norm/Defs.lean",
+         "line": 61,
+         "fit": "more general"
+        },
+        {
+         "name": "LinearMap.det",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Determinant.lean",
+         "line": 179,
+         "fit": "more general"
+        }
+       ],
+       "note": "Algebra.norm (determinant of left multiplication) and trace are general, so the definition is available once the finite-free structure is proved; the operator on O[[T]] and its properties are absent."
+      },
+      {
+       "target": "Identification of N(f) with ∏_{ξ∈μ_p} f(ξ(1+T)−1) after adjoining μ_p",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Algebra.norm_eq_prod_embeddings",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Norm/Transitivity.lean",
+         "line": 268,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's product formula for norms is over fields with embeddings into an algebraically closed field, not for this power-series extension."
+      },
+      {
+       "target": "Integrality of the normalized trace and its identification with ψ",
+       "library": "absent",
+       "declarations": [],
+       "note": "No ψ operator on power series in either library."
+      },
+      {
+       "target": "Norm/trace compatibility with evaluation at ξ_{p^n}−1, the congruences of RJW Lemma 10.11 and continuity",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PowerSeries.eval₂",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+         "line": 132,
+         "fit": "related"
+        }
+       ],
+       "note": "Only general evaluation of power series at topologically nilpotent elements exists."
+      },
+      {
+       "target": "Uniqueness of the interpolating unit power series, via Weierstrass preparation over O[[T]]",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "PowerSeries.exists_isWeierstrassFactorization",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean",
+         "line": 813,
+         "fit": "more general"
+        },
+        {
+         "name": "PowerSeries.IsWeierstrassFactorization.unique",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean",
+         "line": 855,
+         "fit": "more general"
+        }
+       ],
+       "note": "Weierstrass preparation is proved over any complete local ring for series with nonzero reduction, so it covers O[[T]] for a complete DVR O. Missing: the consequence that a series vanishing at all ξ_{p^n}−1 is zero, and the uniqueness of the interpolating unit."
+      },
+      {
+       "target": "Coleman's theorem 10.13: U_∞ ≃ {f ∈ Z_p[[T]]^× : N(f) = f} with interpolation f(ξ_{p^n}−1)=u_n",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Coleman power series, norm-compatible units or interpolation theorem."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PhiGammaModulesAndIwasawaCohomology:PG.4",
+       "note": "PG.4 constructs ψ from the finite-free φ-coordinate decomposition (normalized trace) and proves its integrality and continuity, the same construction this layer asks for on O[[T]]."
+      },
+      {
+       "layer": "PadicMeasuresIwasawaAlgebras:L2",
+       "note": "L2 defines φ(T)=(1+T)^p−1 and ψ with ψφ=1 on O[[T]] ≅ measures, overlapping the ψ identification here."
+      },
+      {
+       "layer": "PadicMeasuresIwasawaAlgebras:L4",
+       "note": "L4 owns Weierstrass division and preparation for O[[T]], which Mathlib already proves over complete local rings."
+      }
+     ]
+    },
+    "ColemanPowerSeries:L2": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Logarithmic derivative Δ(f)=∂f/f with ∂=(1+T)d/dT on unit power series",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "PowerSeries.derivative",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries.derivative_inv",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+         "line": 117,
+         "fit": "related"
+        }
+       ],
+       "note": "The formal derivative as a derivation (with inverse and chain rules) exists; the operator ∂ and the homomorphism Δ from units to O[[T]] are not defined."
+      },
+      {
+       "target": "Amice transform A between measures on Z_p and Z_p[[T]] (with inverse)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "AbstractMeasure.amiceTransformEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 156,
+         "fit": "exact"
+        },
+        {
+         "name": "AbstractMeasure.invTransform",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 128,
+         "fit": "exact"
+        }
+       ],
+       "note": "Linear equivalence D(ℤ_[p],ℤ_[p]) ≃ ℤ_[p]⟦X⟧ with coefficients μ(binom(x,n)); only ℤ_[p] coefficients are bundled as an equivalence."
+      },
+      {
+       "target": "Operators on measures: 1−φψ as restriction to Z_p^×, ∂ as multiplication by x, and ∂^{-1} on ψ=0 via x^{-1}",
+       "library": "absent",
+       "declarations": [],
+       "note": "No φ, ψ, restriction to units or multiplication-by-x operators on measures or power series."
+      },
+      {
+       "target": "The Coleman map Col_0 = A^{-1}∘∂^{-1}∘(1−φψ)∘Δ∘Coleman and the computation Col_0(c(a)) = −([a]−1)ζ_p",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on Coleman power series and the p-adic zeta pseudo-measure, neither of which exists."
+      },
+      {
+       "target": "Sign-adjusted Col = −Col_0 with proved comparison; additivity, continuity, Z_p-linearity and G-equivariance",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicMeasuresIwasawaAlgebras:L2",
+       "note": "L2 builds ∂=(1+T)d/dT, φ, ψ, restriction to units as 1−φψ and inversion of multiplication by x on units, the operators in this layer's Col_0 pipeline."
+      },
+      {
+       "layer": "LocallyAnalyticDistributions:L1",
+       "note": "Also states restriction, φ, ψ, differentiation and division by x on distributions supported on units, extending the same operators."
+      }
+     ]
+    },
+    "ColemanPowerSeries:L3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Exact sequence for the logarithmic derivative on norm-invariant units (mod-p computation, lifting, compactness)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Exact sequence for 1−φ on ψ=1 via the convergent sum of φ-iterates and evaluation at T=0",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Kernel of Col_0 is μ_{p−1}×Z_p(1) and cokernel Z_p(1) via the cyclotomic moment",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Fundamental exact sequence 0→Z_p(1)→U_{∞,1}→Z_p[[G]]→Z_p(1)→0 (RJW Theorem 12.17), topological and algebraic",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Finite-flat coefficient extension O⊗_{Z_p} of the sequence with completed-tensor comparison",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.Flat.lTensor_exact",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Flat/Basic.lean",
+         "line": 323,
+         "fit": "more general"
+        },
+        {
+         "name": "AdicCompletion.ofTensorProductEquivOfFiniteNoetherian",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
+         "line": 328,
+         "fit": "related"
+        }
+       ],
+       "note": "Exactness of tensoring with a flat module and the comparison of adic completion with base change for finite modules over Noetherian rings are general Mathlib results; the specific sequence and its topological version are absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "ColemanPowerSeries:L4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Global cyclotomic unit group D_n (roots of unity and cyclotomic differences, intersected with units)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsPrimitiveRoot.geom_sum_isUnit",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean",
+         "line": 100,
+         "fit": "related"
+        },
+        {
+         "name": "IsPrimitiveRoot.associated_sub_one_pow_sub_one_of_coprime",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves that (ζ^a−1)/(ζ−1) is a unit and that ζ^a−1 and ζ−1 are associated for a prime to n; the subgroup D_n and its structure are not defined."
+      },
+      {
+       "target": "Real generators γ_{n,a}, retaining −1 at finite level, and the identities of RJW §12.3",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.IsCMField.indexRealUnits_eq_one_or_two",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/CMField.lean",
+         "line": 374,
+         "fit": "related"
+        },
+        {
+         "name": "IsCyclotomicExtension.Rat.isCMField",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/CMField.lean",
+         "line": 565,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the CM structure of ℚ(ζ_n) and the index (1 or 2) of real units times roots of unity in all units; the explicit real cyclotomic generators and §12.3 identities are absent."
+      },
+      {
+       "target": "Z_p-span of a finitely generated subgroup of principal units equals its closure",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Z_p-module structure on principal units, so no such closure statement."
+      },
+      {
+       "target": "Teichmüller-adjusted norm-compatible generator and inverse-limit cyclicity of cyclotomic units",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Image of the closed cyclotomic tower under Col and Theorem 12.23: U^+_{∞,1}/C^+_{∞,1} ≃ Z_p[[G^+]]/(I(G^+)ζ_p), with O-coefficients",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IntegralIwasawaTheory:L0",
+       "note": "L0 also defines cyclotomic units as a subgroup of actual units, relates the real and full-field groups and torsion, and gives the explicit prime-power-conductor generators this layer asks for."
+      }
+     ]
+    }
+   }
+  },
+  "DirichletPadicLFunctions": {
+   "summary": "Mathlib already has much of the complex side: ζ(−k) as Bernoulli numbers for every k ≥ 0, continuation and trivial zeros of Dirichlet L-functions, Euler-factor deletion under change of level, conductors and primitive characters, the Gauss-sum inversion formula, the Mellin transform, the class-number limit of ζ_K, von Staudt–Clausen, the Amice transform and the level-one E_k q-expansion. Tau Ceti adds q-expansions of f(dτ), so the p-stabilized Eisenstein series is within reach. Missing on the complex side are generalized Bernoulli numbers and L(χ,1−n), Gauss-sum nonvanishing for composite conductor, and continuation of ζ_K. All of the p-adic theory is missing: the smoothed measure, the Kubota–Leopoldt pseudo-measure and its twists, Kummer congruences, the p-adic logarithm and Leopoldt's formula, the pole at s = 1 and the Eisenstein measures.",
+   "layers": {
+    "DirichletPadicLFunctions:L0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Mellin-transform continuation of L(f,s) for decaying f (RJW Theorem 2.4), with differentiation under the integral and values at negative integers",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "mellin",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/MellinTransform.lean",
+         "line": 91,
+         "fit": "related"
+        },
+        {
+         "name": "mellin_differentiableAt_of_isBigO_rpow",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/MellinTransform.lean",
+         "line": 401,
+         "fit": "related"
+        },
+        {
+         "name": "mellin_hasDerivAt_of_isBigO_rpow",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/MellinTransform.lean",
+         "line": 320,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the Mellin transform with convergence and differentiability under big-O decay bounds. The continuation of Γ(s)^{-1}·Mellin(f) to all of ℂ with L(f,−n) = (−1)^n f^{(n)}(0) is not stated."
+      },
+      {
+       "target": "Application to the Bernoulli generating function t/(e^t−1) and its smoothed variant",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "bernoulliPowerSeries_mul_exp_sub_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Bernoulli.lean",
+         "line": 269,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the formal power-series identity for the Bernoulli generating function exists; ζ is continued in Mathlib through Hurwitz zeta and theta functions, not through this Mellin argument, and the smoothed variant is absent."
+      },
+      {
+       "target": "Special values ζ(−n) in terms of Bernoulli numbers, including the n = 0 case ζ(0) = −1/2",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "riemannZeta_neg_nat_eq_bernoulli'",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+         "line": 240,
+         "fit": "exact"
+        },
+        {
+         "name": "riemannZeta_neg_nat_eq_bernoulli",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+         "line": 251,
+         "fit": "exact"
+        }
+       ],
+       "note": "Proved for every k ∈ ℕ, including k = 0 (ζ(0) = −1/2), in both Bernoulli sign conventions."
+      },
+      {
+       "target": "Generalized Bernoulli numbers B_{n,χ} and L(χ,1−n) = −B_{n,χ}/n, compared with the complex L-function",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HurwitzZeta.hurwitzZeta_neg_nat",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+         "line": 189,
+         "fit": "related"
+        },
+        {
+         "name": "DirichletCharacter.LFunction",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 61,
+         "fit": "related"
+        },
+        {
+         "name": "DirichletCharacter.Even.LFunction_neg_two_mul_nat",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 110,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.bernoulli",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
+         "line": 51,
+         "fit": "related"
+        }
+       ],
+       "note": "Dirichlet L-functions are continued as combinations of Hurwitz zeta functions, whose values at strictly negative integers are Bernoulli-polynomial values; the trivial zeros are proved. B_{n,χ} is not defined and the formula for L(χ,1−n) is a stated TODO in HurwitzZetaValues.lean."
+      },
+      {
+       "target": "Inversion formula for Gauss sums of primitive characters",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "gaussSum_mulShift_of_isPrimitive",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/GaussSum.lean",
+         "line": 57,
+         "fit": "exact"
+        },
+        {
+         "name": "DirichletCharacter.IsPrimitive.fourierTransform_eq_inv_mul_gaussSum",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/ZMod.lean",
+         "line": 220,
+         "fit": "exact"
+        }
+       ],
+       "note": "For primitive χ mod N, g(χ, ψ_a) = χ^{-1}(a) g(χ, ψ) for every a ∈ ZMod N (including non-units), and the discrete Fourier transform of χ is χ^{-1}(−k) times the Gauss sum."
+      },
+      {
+       "target": "Nonvanishing of Gauss sums of primitive Dirichlet characters",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "gaussSum_ne_zero_of_nontrivial",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/GaussSum.lean",
+         "line": 215,
+         "fit": "special case"
+        }
+       ],
+       "note": "Nonvanishing (via g(χ)g(χ^{-1}) = #R) is proved only for nontrivial characters of a finite field, i.e. prime modulus; the composite-conductor statement |g(χ)|² = N is absent."
+      },
+      {
+       "target": "Conductors, primitive characters and change of level",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "DirichletCharacter.conductor",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 246,
+         "fit": "exact"
+        },
+        {
+         "name": "DirichletCharacter.primitiveCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 307,
+         "fit": "exact"
+        },
+        {
+         "name": "DirichletCharacter.IsPrimitive",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 292,
+         "fit": "exact"
+        },
+        {
+         "name": "DirichletCharacter.changeLevel",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 66,
+         "fit": "exact"
+        }
+       ],
+       "note": "Characters with values in any commutative ring; primitivity of the induced primitive character is proved."
+      },
+      {
+       "target": "Imprimitive Euler-factor deletion L(χ_N,s) = L(χ,s)·∏_{p|N}(1−χ(p)p^{−s})",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "DirichletCharacter.LFunction_changeLevel",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 150,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated for the continued L-functions, for all s when χ is nontrivial and for s ≠ 1 otherwise."
+      },
+      {
+       "target": "Dedekind zeta: meromorphic germ at s = 1, simple pole, residue equal to the class-number limit (RJW Theorem 2.2)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.dedekindZeta",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.dedekindZeta_eulerProduct_hasProd",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
+         "line": 386,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines ζ_K only as the Dirichlet series and proves the real one-sided limit (s−1)ζ_K(s) → residue; Tau Ceti adds the Euler product on Re s > 1. No continuation, meromorphic germ or pole order exists."
+      },
+      {
+       "target": "Algebraicity of normalized L-values with explicit complex and p-adic embeddings",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PadicComplex",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Complex.lean",
+         "line": 137,
+         "fit": "related"
+        }
+       ],
+       "note": "ℂ_[p] exists, but no statement that the normalized values lie in the field generated by the character values, nor the embedding dictionary."
+      },
+      {
+       "target": "Dirichlet characters as finite-order idele class characters (RJW Propositions 2.9/2.11), with the archimedean connectedness argument",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.IdeleClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 119,
+         "fit": "related"
+        }
+       ],
+       "note": "The idele and idele class groups of a number field are defined; the correspondence with Dirichlet characters is absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AnalyticNumberTheory:AN.1",
+       "note": "AN.1 constructs Dirichlet L-function continuation, trivial zeros, conductor/Gauss-sum functional equations and imprimitive Euler factors, overlapping this layer's Gauss-sum, conductor and Euler-factor targets (largely already in Mathlib)."
+      },
+      {
+       "layer": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+       "note": "AL.1 computes Gauss sums and conductors of characters and proves continuation with the trivial-character pole, which covers this layer's Dedekind-zeta pole and residue target."
+      }
+     ]
+    },
+    "DirichletPadicLFunctions:L1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "F_a(T) = 1/T − a/((1+T)^a−1) as an element of Z_p[[T]] by cancellation, for a > 1 prime to p",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The smoothed measure μ_a as the Amice inverse of F_a",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AbstractMeasure.invTransform",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 128,
+         "fit": "exact"
+        }
+       ],
+       "note": "The inverse Amice transform ℤ_[p]⟦X⟧ → D(ℤ_[p],ℤ_[p]) exists; the specific measure μ_a does not."
+      },
+      {
+       "target": "Polynomial moments of μ_a, ψ(μ_a) = μ_a and the Euler factor on restriction to Z_p^×",
+       "library": "absent",
+       "declarations": [],
+       "note": "No ψ or restriction operators on measures."
+      },
+      {
+       "target": "Pseudo-measure ζ_p via x^{-1}Res(μ_a)/([a]−1) in the total quotient ring, regularity and independence of a",
+       "library": "absent",
+       "declarations": [],
+       "note": "No completed group rings, total quotient rings of Iwasawa algebras or pseudo-measures."
+      },
+      {
+       "target": "Interpolation ∫_{Z_p^×} x^k dζ_p = (1−p^{k−1})ζ(1−k) for k ≥ 1, including k = 1",
+       "library": "absent",
+       "declarations": [],
+       "note": "The complex values ζ(1−k) are in Mathlib (riemannZeta_neg_nat_eq_bernoulli'); the p-adic interpolation is absent."
+      },
+      {
+       "target": "Parity of ζ_p and descent to the quotient by ±1 for odd p",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Smoothed and character-component Kummer congruences with denominator restrictions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Bernoulli.vonStaudt_clausen",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Bernoulli.lean",
+         "line": 663,
+         "fit": "related"
+        },
+        {
+         "name": "Bernoulli.padicValRat_bernoulli",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Bernoulli.lean",
+         "line": 690,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has von Staudt–Clausen and the p-adic valuation −1 of B_{2k} when p−1 | 2k (the denominator information); the Kummer congruences themselves are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicPadicLFunctions:L3",
+       "note": "L3 constructs the Deligne–Ribet p-adic zeta pseudo-measure with smoothing factors, Euler factors and congruences for totally real F and requires its F = Q specialization to agree with this construction."
+      }
+     ]
+    },
+    "DirichletPadicLFunctions:L2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Twisting measures by p-power-conductor characters, the roots-of-unity restriction formula and its Gauss-sum computation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "gaussSum_mulShift_of_isPrimitive",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/GaussSum.lean",
+         "line": 57,
+         "fit": "related"
+        }
+       ],
+       "note": "The Gauss-sum inversion formula that the computation uses is in Mathlib; twisting of p-adic measures is absent."
+      },
+      {
+       "target": "Integral measure ζ_η for primitive η of conductor D > 1 prime to p with ∫χ(x)x^k dζ_η = (1−(χη)(p)p^{k−1})L(χη,1−k) (RJW Theorems 5.1/5.7)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Trivial-character case, descent to the field of values of η, scalar extension, conductor change and primitive/imprimitive comparisons",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MulChar.ringHomComp",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/MulChar/Basic.lean",
+         "line": 453,
+         "fit": "related"
+        },
+        {
+         "name": "DirichletCharacter.primitiveCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 307,
+         "fit": "related"
+        },
+        {
+         "name": "DirichletCharacter.changeLevel",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 66,
+         "fit": "related"
+        }
+       ],
+       "note": "The character-side API (coefficient change along ring maps, primitive character, change of level) exists; the corresponding statements for the p-adic measures are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicPadicLFunctions:L3",
+       "note": "The Deligne–Ribet construction over F = Q interpolates partial zeta functions of all ray classes, hence all Dirichlet characters of tame conductor, overlapping this layer's measures ζ_η."
+      }
+     ]
+    },
+    "DirichletPadicLFunctions:L3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Teichmüller decomposition of Z_p^× and the branches L_{p,i} (RJW Theorems 5.17/5.20), with an integral p = 2 component construction",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.teichmuller",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
+         "line": 100,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's Teichmüller lift for local fields gives ω on residue units; the decomposition Z_p^× ≅ μ_{p−1} × (1+pZ_p), the 1+4Z_2 variant and the analytic branches are absent."
+      },
+      {
+       "target": "p-adic logarithm with log_p(p) = 0, compatibly on all algebraic extensions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Only the formal series log(1+X) over ℚ-algebras (PowerSeries.log) exists; no analytic p-adic or Iwasawa logarithm."
+      },
+      {
+       "target": "Complex formula for L(1,χ) via Gauss sums and logarithms of cyclotomic numbers",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DirichletCharacter.LFunction_apply_one_ne_zero",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+         "line": 408,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves only L(1,χ) ≠ 0 for nontrivial χ."
+      },
+      {
+       "target": "Leopoldt's formula for L_p(1,χ) (RJW Theorem 6.1) for tame and pure p-power conductor",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Pole of the p-adic zeta function only on the trivial component, with residue 1−p^{−1} in RJW's s-coordinate, and its transformation under coordinate change (Theorem 7.1)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DirichletCharacter.LFunctionTrivChar_residue_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+         "line": 182,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the complex analogue (residue of L(1_N, s) at s = 1) exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ColemanIntegration:L3",
+       "note": "Requires the complex formula and that k = 1 of Theorem 6.7 recovers Theorem 6.1, overlapping this layer's Leopoldt formula target."
+      },
+      {
+       "layer": "ColemanIntegration:L0",
+       "note": "Also constructs the p-adic logarithm with log_p(p) = 0 and records branch changes."
+      },
+      {
+       "layer": "IntegralIwasawaTheory:L0",
+       "note": "Uses Gauss sums and the complex L(χ,1) formula for the cyclotomic-unit regulator, the same complex logarithmic formula stated here."
+      },
+      {
+       "layer": "LocallyAnalyticDistributions:L3",
+       "note": "Constructs the p−1 components of the character space of Z_p^× (1+4Z_2 at p = 2) and the coordinate change for another generator, which underlie the branches and the residue transformation here."
+      }
+     ]
+    },
+    "DirichletPadicLFunctions:L4": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "q-expansion of the level-one Eisenstein series E_k for even k ≥ 4",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "EisensteinSeries.q_expansion_bernoulli",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/EisensteinSeries/QExpansion.lean",
+         "line": 298,
+         "fit": "exact"
+        },
+        {
+         "name": "EisensteinSeries.E_qExpansion_coeff",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/EisensteinSeries/QExpansion.lean",
+         "line": 323,
+         "fit": "exact"
+        }
+       ],
+       "note": "E_k = 1 − (2k/B_k)∑σ_{k−1}(n)q^n for even k ≥ 3, with the coefficients identified in the q-expansion power series; RJW's normalization is this series times ζ(1−k)/2 = −B_k/(2k)."
+      },
+      {
+       "target": "q-expansion of the p-stabilization E_k(z) − p^{k−1}E_k(pz)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ModularForm.levelRaise",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Degeneracy.lean",
+         "line": 278,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ModularForm.qExpansion_levelRaise_coeff",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Degeneracy.lean",
+         "line": 990,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's V_d f(τ) = f(dτ) with a_n(V_d f) = a_{n/d}(f), combined with Mathlib's E_k expansion, gives the ingredients; the stabilized form and its expansion are not stated."
+      },
+      {
+       "target": "Coefficient measures A_n = ∑_{d|n, p∤d} δ_d and the pseudo-measure A_0 = xζ_p/2",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AbstractMeasure.dirac",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 93,
+         "fit": "related"
+        }
+       ],
+       "note": "Dirac measures exist, so A_n for n > 0 is a finite sum of existing objects; A_0 needs ζ_p, which is absent."
+      },
+      {
+       "target": "Specialization at x^{k−1} gives the p-stabilized form coefficientwise (RJW Theorem 8.2)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Generalized Eisenstein series with tame nebentypus and their integral q-expansion congruences",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "eisensteinSeries",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/EisensteinSeries/Defs.lean",
+         "line": 205,
+         "fit": "related"
+        },
+        {
+         "name": "ModularForm.eisensteinSeriesMF",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/EisensteinSeries/Basic.lean",
+         "line": 35,
+         "fit": "related"
+        },
+        {
+         "name": "DirichletCharacter.twistedDivisorSum",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ArithmeticFunction/TwistedDivisorSum.lean",
+         "line": 52,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Eisenstein series of level Γ(N) with a congruence condition (weight ≥ 3), and Tau Ceti has the twisted divisor sums ∑_{d|n} ψ(n/d)φ(d)d^e that are their coefficients. Eisenstein series attached to pairs of characters, their q-expansions and congruences are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+       "note": "Specifies Eisenstein series with character E_k^{ψ,φ,t} and their q-expansions via generalized Bernoulli numbers, the same generalized nebentypus Eisenstein series this layer includes."
+      },
+      {
+       "layer": "AutomorphicPadicLFunctions:L3",
+       "note": "Builds Hilbert Eisenstein series and the Eisenstein measure/q-expansion argument for totally real F, whose F = Q case is this layer's Eisenstein family."
+      }
+     ]
+    }
+   }
+  },
+  "EulerSystemsAndKolyvaginSystems": {
+   "summary": "The libraries supply only generic ingredients: continuous group cohomology (a Mathlib functor, plus Tau Ceti's low-degree model with restriction, inflation, corestriction, cup products, Shapiro and the long exact sequence) and Tau Ceti's Kummer map. On the number-field side there are Frobenius elements, inertia groups, Artin symbols, ray class groups and Chebotarev infrastructure without the density theorem; on the algebra side, exterior powers with the determinant pairing, reflexive modules and the norm map on representations. Everything specific to Euler, Kolyvagin and Stark systems is missing: Selmer structures and core rank, auxiliary-prime local conditions, Poitou–Tate, derivative classes and the Mazur–Rubin correction, descent bounds, primitivity, exterior biduals, Gorenstein coefficient orders, Fitting and characteristic ideals, and the Iwasawa-theoretic variation.",
+   "layers": {
+    "EulerSystemsAndKolyvaginSystems:ES.0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Selmer data from actual continuous cohomology with local submodules; propagation under T→T/ϖ^m, inclusion into V and passage to V/T; compatibility with annihilators under local duality",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "continuousCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+         "line": 131,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitRes1",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/ExplicitFunctoriality.lean",
+         "line": 497,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.selmerGroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/SelmerGroup.lean",
+         "line": 163,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.localCondition",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/LocalCondition.lean",
+         "line": 257,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines continuous cohomology as a functor, and Tau Ceti has an explicit low-degree continuous-cochain model with restriction, inflation, corestriction and long exact sequences for discrete modules. No local conditions on p-adic representations, propagation to quotients or local duality exist; the only Selmer groups are Mathlib's K(S,n) cut out by valuations and Tau Ceti's elliptic 2-descent conditions on square classes."
+      },
+      {
+       "target": "Cartesian local conditions on the quotient category, saturated lattice conditions and core rank",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Finite-level Euler-characteristic (core-rank) formula and independence of the modulus",
+       "library": "absent",
+       "declarations": [],
+       "note": "No global Euler-characteristic formula or Poitou–Tate input in either library."
+      },
+      {
+       "target": "Source-qualified admissibility hypothesis records for MR 2004 §3.5 and MR 2016 §4 with implication lemmas",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SelmerIwasawaCohomology:L2",
+       "note": "Also defines local conditions as submodules of actual cohomology, unramified/strict/relaxed conditions, saturation and the passage between T, V and A."
+      },
+      {
+       "layer": "SelmerIwasawaCohomology:L1",
+       "note": "Proves the annihilator and saturation properties of the chosen local conditions under local duality, the square this layer verifies."
+      },
+      {
+       "layer": "ArithmeticGaloisDuality:R02.5",
+       "note": "Owns Selmer groups with local conditions and the dimension formula used in auxiliary-prime arguments, overlapping the core-rank Euler-characteristic formula."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+       "note": "Sets up Selmer structures for a general Galois module following Rubin's Euler Systems I.§1–2, the same carrier as this layer's Selmer data (with discrete coefficients)."
+      }
+     ]
+    },
+    "EulerSystemsAndKolyvaginSystems:ES.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Ray-class extensions K(q), their local cyclic quotients and the squarefree-conductor category",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.GlobalNumberFields.RayClassGroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/RayClass/Basic.lean",
+         "line": 180,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumberFieldArithmetic.artinHomAway",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Ideal/ArtinMap.lean",
+         "line": 175,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Multiquadratic.autCandidateGenusFieldEquivNarrowElementaryTwoQuotient_artinHomAway",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Multiquadratic/CandidateGenusField/Relative/Artin.lean",
+         "line": 345,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has ray class groups of a modulus, the ideal-theoretic Artin map for a given abelian extension, and Artin reciprocity only for genus fields of quadratic fields. Existence of ray class fields (class field theory) and the conductor category are absent."
+      },
+      {
+       "target": "Unramified, finite, singular and transverse local conditions at an auxiliary prime via the Frobenius quotient and inertia",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsArithFrobAt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Frobenius.lean",
+         "line": 183,
+         "fit": "related"
+        },
+        {
+         "name": "Ideal.inertia",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/Defs.lean",
+         "line": 154,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.artinSymbol",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/ArtinSymbol.lean",
+         "line": 57,
+         "fit": "related"
+        }
+       ],
+       "note": "Arithmetic Frobenius elements, inertia subgroups and the Artin symbol exist; the local cohomological conditions do not."
+      },
+      {
+       "target": "Finite–singular comparison isomorphism with its cyclic-group tensor factor and generator independence",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Simultaneous Chebotarev selection of auxiliary primes for extensions cut out by T mod p^k and finitely many classes, avoiding a finite set",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.frobeniusPrimeSet",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
+         "line": 93,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.exists_auxiliaryPrime",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/AuxiliaryPrime.lean",
+         "line": 45,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti defines the set of unramified primes with a prescribed Artin class and proves auxiliary lemmas for its Chebotarev programme, but the Chebotarev density theorem itself is not proved in either library, and the simultaneous-localization lemmas are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeegnerPointEulerSystems:HE.5",
+       "note": "Proves the finite/singular relation, the transverse condition and auxiliary-prime existence by Chebotarev on the extensions cutting out the Heegner classes, re-deriving this layer's auxiliary-prime selection in the Heegner case."
+      }
+     ]
+    },
+    "EulerSystemsAndKolyvaginSystems:ES.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Module of Euler systems over a directed family of finite abelian extensions as an equalizer, with universal property and restriction of the family",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Corestriction norm relations (p-power tower and auxiliary-prime relations with Euler factors)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ContCohomology.explicitCor1",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Corestriction.lean",
+         "line": 457,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitCor1_comp_res1",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Corestriction.lean",
+         "line": 496,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has corestriction in degrees 0–2 for open finite-index subgroups (with cor∘res = index); Euler polynomials of Frobenius and the Euler-system relations are absent."
+      },
+      {
+       "target": "Coefficient extension, twisting, smoothing, adding/removing Euler factors, and equivalence with the conductor-indexed presentation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Normalization dictionary between arithmetic/geometric Frobenius and the Tate-dual convention",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EulerSystemsCyclotomicMainConjecture:L0",
+       "note": "Re-proves the dictionary with Rubin's Tate-dual Euler polynomial and arithmetic-Frobenius convention for the cyclotomic family, the convention map this layer constructs in general."
+      }
+     ]
+    },
+    "EulerSystemsAndKolyvaginSystems:ES.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Cyclic group-ring norm N_q and Kolyvagin derivative D_q with (σ_q−1)D_q = |G_q| − N_q and product/augmentation identities for squarefree n",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Representation.norm",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Basic.lean",
+         "line": 284,
+         "fit": "related"
+        },
+        {
+         "name": "Rep.FiniteCyclicGroup.leftRegular.range_norm_eq_ker_applyAsHom_sub",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/FiniteCyclic.lean",
+         "line": 102,
+         "fit": "related"
+        }
+       ],
+       "note": "The norm operator ∑ρ(g) and the exactness of N and g−1 on the regular representation of a cyclic group exist; the derivative D_q and the telescoping identity are absent."
+      },
+      {
+       "target": "Derivative classes modulo I_n: invariance, descent with kernel/cokernel errors, lift and generator independence",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ContCohomology.explicitInfl1",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean",
+         "line": 195,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitInfRes_exact",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean",
+         "line": 336,
+         "fit": "related"
+        },
+        {
+         "name": "groupCohomology.H1InfRes_exact",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Functoriality.lean",
+         "line": 393,
+         "fit": "related"
+        }
+       ],
+       "note": "Exactness of inflation–restriction at H¹ exists for discrete group cohomology (Mathlib) and continuous cochains (Tau Ceti); derivative classes, the conductor ideal I_n and the descent statement are absent."
+      },
+      {
+       "target": "Mazur–Rubin Appendix A correction and the Euler-to-Kolyvagin system theorem (MR Theorem 3.2.4), generalized vs ordinary output, conductor-one component",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeegnerPointEulerSystems:HE.4",
+       "note": "Proves invariance and descent of differentiated classes, the cyclic-group tensor factor with its generator-change law, and the corrected system relations, the same choice-independence and correction targets for Heegner classes."
+      }
+     ]
+    },
+    "EulerSystemsAndKolyvaginSystems:ES.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Selmer graph and Kolyvagin-system sheaf; core-vertex connectivity and local cyclicity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Poitou–Tate comparison of strict/relaxed modifications and length bounds on the dual Selmer group",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.length",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Length.lean",
+         "line": 32,
+         "fit": "related"
+        }
+       ],
+       "note": "Module length exists; Poitou–Tate and Selmer groups of representations are absent."
+      },
+      {
+       "target": "Clean DVR bound (MR 2004 Theorem 5.2.2) by the divisibility index of the initial class",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Error-tolerant Rubin II.2.2 bound retaining n_W and n_W^*, uniform in the torsion exponent",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeegnerPointEulerSystems:HE.7",
+       "note": "Proves uniform bounds on restriction kernels and local error terms with bounded-denominator derivative classes, overlapping the uniform error-tolerant descent bound (HE.7 assigns the reusable argument to ES.4)."
+      }
+     ]
+    },
+    "EulerSystemsAndKolyvaginSystems:ES.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Residual primitivity and the index of a Kolyvagin system via reduction maps and core vertices",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Rank-one module theorem, reduction surjectivity and index = dual-Selmer length under primitivity and core rank one",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Higher elementary-divisor information from the components of the system",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.equiv_directSum_of_isTorsion",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/PID.lean",
+         "line": 232,
+         "fit": "related"
+        }
+       ],
+       "note": "The structure theorem for finitely generated torsion modules over a PID gives elementary divisors over a DVR; the comparison with system components is absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "EulerSystemsAndKolyvaginSystems:ES.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Exterior bidual ⋂^r M = Hom_R(⋀^r Hom_R(M,R),R) with determinant evaluation, contraction maps, functoriality and coefficient change",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ExteriorAlgebra.exteriorPower",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "exteriorPower.pairingDual",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/ExteriorPower/Pairing.lean",
+         "line": 64,
+         "fit": "related"
+        },
+        {
+         "name": "Module.Dual",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Dual/Defs.lean",
+         "line": 62,
+         "fit": "related"
+        }
+       ],
+       "note": "Exterior powers, duals and the determinant pairing ⋀^r Dual(M) → Dual(⋀^r M) exist, so the bidual is expressible; it is not defined, and contraction maps and coefficient-change lemmas are absent."
+      },
+      {
+       "target": "Agreement of the exterior bidual with ⋀^r M for finite projective modules",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "exteriorPower.bijective_pairingDual",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/ExteriorPower/Basis.lean",
+         "line": 183,
+         "fit": "related"
+        },
+        {
+         "name": "Module.evalEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Dual/Defs.lean",
+         "line": 226,
+         "fit": "related"
+        },
+        {
+         "name": "Module.IsReflexive.of_finite_of_free",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Dual/Lemmas.lean",
+         "line": 259,
+         "fit": "related"
+        }
+       ],
+       "note": "For finite free M, pairingDual is bijective and M is reflexive, which together give the agreement; the statement is not made, and the finite projective (non-free) case is not covered by bijective_pairingDual."
+      },
+      {
+       "target": "Gorenstein orders, self-injective Artinian reductions, exact duality and Fitting ideals (imported from PadicMeasuresIwasawaAlgebras L6)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Function.Bijective.moduleInjective_self",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Module/Injective/SelfInjective.lean",
+         "line": 133,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves self-injectivity of algebras over a field with an associative perfect form; Gorenstein orders over DVRs and Fitting ideals are absent from both libraries."
+      },
+      {
+       "target": "Mazur–Rubin 2016 Stark and Kolyvagin systems over principal Artinian rings and DVRs of core rank r: Stark regulator, rank-one freeness, structure control",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Extension to semilocal Gorenstein orders (BSS II) under Hypotheses 3.2, 3.3, 4.2 and 4.7",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicMeasuresIwasawaAlgebras:L6",
+       "note": "Owns exterior powers, exterior-bidual base-change/denominator lemmas and Fitting ideals over Gorenstein orders, overlapping this layer's construction of exterior biduals and their coefficient change."
+      }
+     ]
+    },
+    "EulerSystemsAndKolyvaginSystems:ES.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Higher-rank Euler systems in exterior biduals over O[Gal(F/K)] with transition maps",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Higher derivative map with generator/order independence and determinant/permutation corrections; rank-one comparison with ES.3",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "BSS II Theorem 6.12/Corollary 6.13 construction under reflexivity of H¹, H⁰(F,T)=0, the Z_p^d-extension and Frobenius-power injectivity hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "System-component ideals bound higher Fitting ideals, with equality for basis Stark/Kolyvagin systems",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library defines Fitting ideals."
+      }
+     ],
+     "duplicates": []
+    },
+    "EulerSystemsAndKolyvaginSystems:ES.8": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Iwasawa-theoretic system maps from inverse-limit/control results; specialization outside exceptional primes",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Residual primitivity versus Λ-primitivity and all local-control kernels and cokernels",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Characteristic-ideal divisibility and the equality criterion of MR 2004 Theorem 5.3.10; multivariable variants with pseudo-null versus finite modules",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library defines characteristic ideals or pseudo-null modules."
+      },
+      {
+       "target": "One-way application adapters for cyclotomic, Kato and Heegner systems",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    }
+   }
+  },
+  "EulerSystemsCyclotomicMainConjecture": {
+   "summary": "Nothing specific to this roadmap exists in either library. The only nearby inputs are Mathlib's elementary cyclotomic-unit lemmas, the class number formula as a residue of ζ_K, the CM unit index and classical Kummer theory, plus Tau Ceti's injective Kummer map into H¹(G_K, μ_n) and its auxiliary-prime lemma. Genuinely missing: the cyclotomic Euler system with its norm and Euler-factor relations, finite-level and Iwasawa descent, characteristic ideals and Iwasawa modules, the index argument and Theorem 13.8, and Greither's abelian/p = 2 theorem.",
+   "layers": {
+    "EulerSystemsCyclotomicMainConjecture:L0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Cyclotomic specialization of the ES.2 Euler-system carrier with Rubin's Tate-dual Euler-polynomial and arithmetic-Frobenius dictionary",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Euler-system carrier exists in either library."
+      },
+      {
+       "target": "Norm-compatible cyclotomic p-units and smoothed (non-torsion) cyclotomic units",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsPrimitiveRoot.geom_sum_isUnit",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean",
+         "line": 100,
+         "fit": "related"
+        },
+        {
+         "name": "IsPrimitiveRoot.associated_sub_one_pow_sub_one_of_coprime",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves (ζ^a−1)/(ζ−1) is a unit and ζ^a−1 ~ ζ−1 for a prime to n; the norm relations N(1−ζ_{mℓ}) = (1−ζ_m)^{1−Frob_ℓ^{-1}}, p-units and smoothing are absent."
+      },
+      {
+       "target": "Kummer map applied to the unit family",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.kummerClassMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 279,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.kummerClassMap_injective",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 298,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the injective Kummer map Kˣ/(Kˣ)^n → H¹(G_K, μ_n) for n invertible in K; the p-adic limit to H¹(K, Z_p(1)) and its use on cyclotomic units are absent."
+      },
+      {
+       "target": "p-power norm relation and auxiliary-prime Euler-factor relation for the cyclotomic system; comparison with c(a) and the smoothing divisor",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EulerSystemsAndKolyvaginSystems:ES.2",
+       "note": "ES.2 constructs the arithmetic/geometric Frobenius and Tate-dual normalization dictionary in general and names the cyclotomic smoothed-unit classes as its acceptance test, overlapping this layer's dictionary."
+      },
+      {
+       "layer": "ColemanPowerSeries:L4",
+       "note": "Constructs norm-compatible cyclotomic unit generators and proves their norm compatibility up the p-power tower, the p-power half of this layer's unit family."
+      }
+     ]
+    },
+    "EulerSystemsCyclotomicMainConjecture:L1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Cyclotomic unit classes satisfy ES.1/ES.3 hypotheses; local Kummer conditions and derivative classes computed",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Simultaneous Chebotarev and independence lemmas in the explicit cyclotomic representation fields",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.exists_auxiliaryPrime",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/AuxiliaryPrime.lean",
+         "line": 45,
+         "fit": "related"
+        },
+        {
+         "name": "IsCyclotomicExtension.irreducible_cyclotomic_of_unramified",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Cyclotomic/IrreducibleOfUnramified.lean",
+         "line": 258,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti produces primes ≡ 1 mod n unramified in given fields with Φ_q irreducible, but not the Chebotarev density theorem or the simultaneous localization lemmas."
+      },
+      {
+       "target": "Poitou–Tate descent bound on the class-group/Selmer comparison controlling length",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Verification of Rubin II.2.2 hypotheses (p > 2, residual irreducibility, τ) and vanishing of n_W, n_W^*; nonvanishing of the localized class",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "EulerSystemsCyclotomicMainConjecture:L2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Rubin II.3 inverse-limit bounds: no-completely-split-finite-prime hypothesis and control maps for the cyclotomic extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Rubin III.2.7: char(Y_∞^χ) divides char(E_∞^χ/C_∞,χ) for nontrivial even χ",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Iwasawa modules or characteristic ideals."
+      },
+      {
+       "target": "Characters trivial on the decomposition group at p: augmentation corrections and their removal; abelian Leopoldt input",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "EulerSystemsCyclotomicMainConjecture:L3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Equality by the cyclotomic-unit index/class-number argument (Rubin III.2.8, Lang's appendix) with product over characters and finite-layer error terms",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.IsCMField.indexRealUnits_eq_one_or_two",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/CMField.lean",
+         "line": 374,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the class number formula as a residue of ζ_K and the CM unit index exist; the cyclotomic-unit index formula and its characterwise refinement are absent."
+      },
+      {
+       "target": "Use of 0 → E^+/C^+ → U^+/C^+ → X^+ → Y^+ → 0 with char(E^+/C^+) = char(Y^+) and the local-unit theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Finite generation and torsion of X_∞^+ and char(X_∞^+) = I(G^+)ζ_p for every odd p (RJW Theorem 13.8)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Equivalent even-character, odd-character/class-group and Tate-twisted Selmer formulations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IntegralIwasawaTheory:I.5",
+       "note": "States the abelian-Q main conjecture of Mazur–Wiles at odd primes, the same theorem as this layer's endpoint, proved there through Hecke algebras and Eisenstein ideals."
+      },
+      {
+       "layer": "IntegralIwasawaTheory:L3",
+       "note": "Derives the same ideal equality char(X_∞^+) = I(G^+)ζ_p under Vandiver and its standard isotypic formulations."
+      }
+     ]
+    },
+    "EulerSystemsCyclotomicMainConjecture:L4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Semilocal units over abelian fields of conductor prime to p; integral character functors with bounded errors when p divides the group order",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Circular units, the local-unit characteristic computation and the Euler-system inequality over abelian fields",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Kummer duality between class-group and unit components",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "autAdjoinRootXPowSubCEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/KummerExtension.lean",
+         "line": 257,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.kummerClassMap",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+         "line": 279,
+         "fit": "related"
+        }
+       ],
+       "note": "Classical Kummer theory of cyclic extensions and the Kummer map are present; the reflection/duality between Iwasawa modules used by Greither is absent."
+      },
+      {
+       "target": "Analytic class-number equality for abelian fields",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "The residue form of the class number formula is proved for all number fields; its factorization into L(1,χ) for abelian fields is absent."
+      },
+      {
+       "target": "Greither Theorem 3.2 with the one-half normalization, exceptional trivial/Teichmüller terms, including p = 2 integrally",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IntegralIwasawaTheory:I.9",
+       "note": "Kurihara's all-prime determinant main conjecture for abelian totally real extensions includes the p = 2 abelian case, overlapping Greither's integral p = 2 theorem here."
+      }
+     ]
+    }
+   }
+  },
+  "GeneralizedHeegnerCycles": {
+   "summary": "Essentially nothing towards generalized Heegner cycles exists in either library. The nearest objects are Mathlib's definition of algebraic cycles on a scheme and of pro-étale ℓ-adic cohomology groups, and Tau Ceti's Weierstrass-curve isogenies and Hecke operators on cusp forms. Missing: Kuga–Sato varieties and CM elliptic curves, correspondences and projectors, cycle class and Abel–Jacobi maps, ring class fields, trace and congruence relations, anticyclotomic Iwasawa classes, explicit reciprocity, the Kolyvagin-system application, Hida-family big classes and the weight-two comparison.",
+   "layers": {
+    "GeneralizedHeegnerCycles:GH.0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Desingularized fiber powers of the universal elliptic curve (Kuga–Sato varieties) and their products with powers of a CM elliptic curve",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has modular curves as schemes, universal elliptic curves over them, CM elliptic curves or resolution of singularities (Tau Ceti's universal Weierstrass curve lives over ℤ[a₁,…,a₆], not over a modular curve)."
+      },
+      {
+       "target": "Symmetric/alternating, Hecke and CM-character correspondences as idempotents compatible with cohomological realization",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.heckeTCuspNat",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Operators.lean",
+         "line": 89,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has Hecke operators on spaces of cusp forms, not algebraic correspondences on varieties."
+      },
+      {
+       "target": "Integral projectors with factorial, CM-unit, level and discriminant denominators tracked",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Identification of the modular coefficient representation with a cohomological summand and its self-dual Tate twist; smooth-proper comparison in characteristic zero",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.EllAdicCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib only defines pro-étale ℓ-adic cohomology groups Hⁱ(X, ℤ_ℓ) of a scheme, with no comparison, Galois action or Kuga–Sato computation."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicGaloisRepresentations:R19.1",
+       "note": "Constructs the higher-weight Galois representation from Kuga–Sato varieties, proving the required projector and two-dimensional eigenspace, the same identification this layer asks for."
+      },
+      {
+       "layer": "AutomorphicGaloisRepresentationsPartII:AG2.1",
+       "note": "Builds étale cohomology of Kuga–Sato powers with algebraic correspondences/projectors, Schur functor and Tate twist, overlapping this layer's projectors."
+      },
+      {
+       "layer": "ModularCurvesPartII:R14.1",
+       "note": "Owns algebraic Hecke correspondences on modular curves, which this layer extends to Kuga–Sato varieties."
+      }
+     ]
+    },
+    "GeneralizedHeegnerCycles:GH.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Generalized Heegner cycles from graphs of CM isogenies, projected by GH.0's correspondences",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.AlgebraicCycle",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Basic.lean",
+         "line": 139,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines algebraic cycles on a scheme (with pushforward) and Tau Ceti defines isogenies of Weierstrass curves by coordinate pullbacks; graphs as cycles, CM isogenies and projections are absent."
+      },
+      {
+       "target": "Codimension, rationality over the ring class field and homological triviality",
+       "library": "absent",
+       "declarations": [],
+       "note": "No ring class fields or cycle class maps."
+      },
+      {
+       "target": "Étale Abel–Jacobi map via the cycle class and the Hochschild–Serre filtration, independence of choices, lattice comparison in V_f(r)⊗χ",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.EllAdicCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+         "line": 75,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.weightedAbelJacobiClass",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/WeilDivisor/AbelJacobi/Basic.lean",
+         "line": 53,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the definition of ℓ-adic cohomology groups exists, with no cycle class map or Hochschild–Serre spectral sequence; Tau Ceti's Abel–Jacobi class is the divisor class of [x] − w(x)[x₀] for curves, not an étale Abel–Jacobi map for higher-codimension cycles."
+      },
+      {
+       "target": "de Rham/syntomic realization in the good-reduction range and compatibility with the étale class; denominator bounds and descent",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeegnerPointEulerSystems:HE.1",
+       "note": "Constructs CM elliptic curves and cyclic-isogeny pairs with descent to ring class fields, the weight-two version of this layer's CM isogeny data and rationality."
+      }
+     ]
+    },
+    "GeneralizedHeegnerCycles:GH.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Tame and p-power trace relations through correspondences, Frobenius congruences, conjugation and character-twist identities with conductor/CM-unit exceptions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Unramified and finite local conditions via reduction and p-adic comparison, including the CH erratum (Lemma 7.5, Proposition 7.8 via Kobayashi–Ota, Lemma 7.10)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeegnerPointEulerSystems:HE.2",
+       "note": "Proves the trace relations via Hecke correspondences, the Frobenius reduction congruence and conductor/unit exceptions for Heegner points, the weight-two case of these relations."
+      }
+     ]
+    },
+    "GeneralizedHeegnerCycles:GH.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Unit-root stabilized classes over the anticyclotomic tower with initial Euler factor, coefficient completion and corestriction compatibility",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Universal-norm lifting (LV Lemma 4.2, Proposition 4.5) and the class in derived Iwasawa cohomology compared with GH.1",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeegnerPointEulerSystems:HE.8",
+       "note": "Forms p-stabilized norm-compatible Heegner classes over the anticyclotomic Z_p-extension with the initial Euler factor and ring-class torsion, the weight-two analogue of this layer."
+      }
+     ]
+    },
+    "GeneralizedHeegnerCycles:GH.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "CH Theorem 4.9: generalized p-adic Gross–Zagier/Abel–Jacobi formula",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "CH Theorem 5.7: big-logarithm reciprocity with the period functional, twist, Gauss sum, unit root and σ_{−1,p} factors; square-root versus squared BDP distribution",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GrossZagierAndArithmeticHeights:GZ.9",
+       "note": "Constructs the BDP/Brooks p-adic L-function and proves the p-adic Waldspurger/logarithm formula at weight two, the weight-two case of CH Theorem 4.9, with the same square-root/square distinction."
+      }
+     ]
+    },
+    "GeneralizedHeegnerCycles:GH.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Application of ES.2–ES.5 to GH.2–GH.3: finite–singular compatibility, residual self-duality, auxiliary primes, cartesian local conditions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "LV Definition 2.1 exceptional set and hypotheses (H.1)–(H.5), Assumption 3.2",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "LV Theorem 3.5: rank-one module, paired torsion pseudo-isomorphism and characteristic-ideal divisibility",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeegnerPointEulerSystems:HE.5",
+       "note": "Verifies the finite/singular, transverse, self-dual/cartesian and auxiliary-prime hypotheses of Howard's Heegner Kolyvagin systems, the weight-two instance of this verification."
+      }
+     ]
+    },
+    "GeneralizedHeegnerCycles:GH.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Nonvanishing for CH Theorems 3.7/6.1 from Hsieh's theorem with its local-root-number, conductor and residual hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "LV Theorem 4.12 rank-one universal-norm module; CH rank-zero, nonzero-class rank-one and parity statements with the corrected Theorem 6.3 dimension formula",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "GeneralizedHeegnerCycles:GH.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Howard/Castella big Heegner classes over the integral Hida coefficient ring with the ordinary projector and tower correspondences",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Hida families or ordinary projectors in either library."
+      },
+      {
+       "target": "Weight moments and comparison of specialized family classes with GH.3's cycle classes",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Castella's two-variable explicit reciprocity with the Yager-module exponential, ideal J = (Ψ(Frob_p)−1, γ₀−1) and pseudo-null correction (Cas Theorems 2.11, 3.4/3.7, 4.3, 5.3, 6.5)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "GeneralizedHeegnerCycles:GH.8": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Weight-two specialization agrees with HE.3/HE.8 after modular-parametrization, differential, twist and period comparisons",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Export of source-qualified reciprocity to AutomorphicCongruences L2 and BSD.6a, with characteristic ideals, determinant lines and primitive/imprimitive versions identified by maps",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ModularIwasawaMainConjectures:L6",
+       "note": "Constructs the canonical identifications of coefficient rings, primitive/imprimitive local conditions, periods and the BDP square convention for the anticyclotomic Heegner branch, the same map-level comparisons this layer requires."
+      }
+     ]
+    }
+   }
+  }
+ }
+}
