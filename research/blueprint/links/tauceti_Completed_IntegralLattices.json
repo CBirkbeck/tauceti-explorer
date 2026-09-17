@@ -1,0 +1,383 @@
+{
+  "roadmapId": "tauceti:Completed/IntegralLattices",
+  "protocol": "links-v1",
+  "status": "partial",
+  "summary": "Partial, source-checked checkpoint for issue #36: seven outward links to the dual-code, Construction-A and discriminant-gluing stages of AlgebraicCodingTheory. No new inward link is emitted: the Bourbaki/ADE input from RootSystems is already recorded in its own link packet. One narrow rescope overlap concerns GN.2 integral-lattice carriers. Read scope and unresolved catalogue coverage are explicit; this is neither an exhaustive link inventory nor an implementation or independent-review certificate.",
+  "provenance": {
+    "jobId": "LINK-tauceti_Completed_IntegralLattices",
+    "issue": 36,
+    "worker": "ChatGPT Pro — cgp-aae89b9faddc",
+    "sessionId": "cgp-aae89b9faddc",
+    "initialInputRevision": "dbafc759460581dbd23999a3c112149fedefe2b5",
+    "inputRevision": "66e35f2051d4e49644701ad398112de45095d315",
+    "claimComment": 5713511526,
+    "claimConfirmation": 5713513255,
+    "sourceKind": "Roadmap source texts and atlas stage records; not an implementation audit.",
+    "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauCetiCommit": "f790474821cf4256814db967cb154e7af3d0c369",
+    "baselineDeclarationClaims": [],
+    "submissionBase": "66e35f2051d4e49644701ad398112de45095d315",
+    "duplicateSearch": "Before submission, indexed code search for the IntegralLattices stage prefix under research/blueprint/links returned only the RootSystems packet (incomplete_results=false). The full-graph validator is still required."
+  },
+  "links": [
+    {
+      "source": "tauceti:Completed/IntegralLattices#layer-3-finite-bilinear-and-quadratic-modules",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-2-hamming-data-and-dual-codes",
+      "reason": "The consumer expressly uses the finite bilinear/quadratic alphabet supplied here. It forms coordinate powers and additive orthogonal codes on the same Q/Z-valued carrier. The finite-cardinality and double-perpendicular conclusions require a nondegenerate polar form: the unrestricted formula is H-perp-perp = H + rad(b), not H. Field-linear Euclidean and Hermitian code duals still require the separate field-to-additive pairing comparisons owned by coding theory; no Hermitian structure is supplied by a symmetric Q/Z pairing.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-3-finite-bilinear-and-quadratic-modules",
+          "quote": "Define a finite bilinear module as a finite abelian group with a symmetric biadditive\n  `ℚ/ℤ`-valued form."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-2-hamming-data-and-dual-codes",
+          "quote": "For a finite bilinear alphabet `A` from the integral-lattices roadmap, construct the coordinate\n  power on `ι → A` by summing pairings. Define the orthogonal additive code and prove the\n  finite-cardinality and double-perpendicular results under nondegeneracy."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:Completed/IntegralLattices#layer-1-lattices-with-forms",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+      "reason": "Construction A needs the shared full rational lattice with its integral symmetric form and invariants. For m >= 2 and an additive code C, first construct the full preimage carrier in Q^ι with B_m(x,y) = (sum x_i*y_i)/m; only after proving C <= C-perp may it be bundled as IntegralLattice. Layer 1 supplies that bundle, the integral/rational comparison, evenness, unimodularity and isometry vocabulary. Coding theory owns the residue calculation, its literal dual-carrier identity and the proof of the required integrality. No square root is introduced into the rational ambient space, and no nonintegral code preimage is treated as an integral lattice.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-1-lattices-with-forms",
+          "quote": "Define an integral symmetric lattice from a carrier `L : Submodule ℤ V` with\n  `[L.IsLattice ℚ]`, a symmetric `B : BilinForm ℚ V`, and a proof that `B(L,L)⊆ℤ`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+          "quote": "Prove that `P_m(C)` is a full `ℤ`-lattice in `ℚ^ι` for every `C`.  It bundles as an\n  `IntegralLattice` exactly when `C ≤ C^⊥`."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:Completed/IntegralLattices#layer-2-duality-and-the-finite-discriminant-group",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+      "reason": "The nondegenerate integral branch of Construction A uses the canonical dual lattice, discriminant and unimodularity criteria. Once coding theory proves its literal equality P_m(C)^dual = P_m(C-perp), the equivalence of self-duality, trivial discriminant and unimodularity is the Layer-2 lattice theorem applied on that carrier. B_m is positive definite for m > 0; integrality additionally requires C <= C-perp. The direct dual-preimage calculation for arbitrary additive C remains in coding theory, because the nonintegral branch is not an input to the bundled Layer-2 theorem.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-2-duality-and-the-finite-discriminant-group",
+          "quote": "Prove the equivalence of the following, with nondegeneracy, integrality, fullness, and finite rank\n  visible in the theorem context: `L=L^∨`; `A_L` is trivial; `#A_L=1`; the Gram determinant has\n  absolute value one; and the restricted pairing `L → Module.Dual ℤ L` is an equivalence."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+          "quote": "Prove that integral `P_m(C)` is unimodular exactly when `C=C^⊥`.  Keep self-orthogonality visible\n  in the construction so “unimodular” is never asserted of an unbundled nonintegral carrier."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:Completed/IntegralLattices#layer-2-duality-and-the-finite-discriminant-group",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+      "reason": "The coordinate discriminant bridge has to start from the actual subtype quotient L0^dual/L0 and its canonical bilinear form, not an abstract finite group of the same order. Layer 2 supplies this quotient, representative API and form. Coding theory identifies L0=m Z^ι in (Q^ι,B_m), computes L0^dual=Z^ι and proves the reduction-modulo-m isometry. Thus m need not be prime and field-linearity is not assumed. The even quadratic refinement uses Layer 3 separately.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-2-duality-and-the-finite-discriminant-group",
+          "quote": "Define `A_L` as the actual quotient of the subtype `L^∨` by the inverse-image of `L`; provide its\n  quotient map, representative lemmas, zero criterion, additive-group structure, and functorial map\n  induced by an isometry."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+          "quote": "Let `L₀(m,ι)` have carrier `mℤ^ι` in `ℚ^ι` and form `B_m`.  Prove\n  `L₀(m,ι)^∨=ℤ^ι` and construct an isometry\n  `A_{L₀} ≅ (ZMod m)^ι` carrying the class of an integer vector to its coordinatewise\n  reduction modulo `m`, and carrying the discriminant pairing to\n  `∑ lift(x_i)lift(y_i)/m mod ℤ`."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:Completed/IntegralLattices#layer-3-finite-bilinear-and-quadratic-modules",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+      "reason": "The bridge transports coordinate quadratic forms to actual lattice discriminant forms and takes orthogonal sums. Layer 3 supplies the half-norm Q/Z discriminant quadratic module, sum isometries and polar-form API. Coding theory supplies the specific coordinate isometries and checks isotropy of the named codes. For L0(m,ι), the quadratic refinement is used only for even m; an odd integral lattice has a discriminant bilinear module but not this canonical quadratic refinement. The common q=B(x,x)/2 convention must be retained for A2 and D4 as well.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-3-finite-bilinear-and-quadratic-modules",
+          "quote": "For an even lattice,\n  prove `B(x,x)/2 mod ℤ` descends to `A_L`, has polar form `b_L`, and is nondegenerate; package it as\n  its discriminant quadratic module."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+          "quote": "State the reusable interface for an isometry from a coordinate finite quadratic module to the\n  discriminant module of an orthogonal lattice sum.  Its input subgroup remains an\n  `AddSubgroup`; field-linearity is used only when separately proved for a named code."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:Completed/IntegralLattices#layer-4-overlattices-and-isotropic-subgroups",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+      "reason": "This is an expressly delegated gluing theorem, not duplicate mathematics: after coding theory constructs the coordinate discriminant isometry and transports C as an actual subgroup, use the intermediate-overlattice correspondence and A_(L_H) isometric to H-perp/H. Bilinear isotropy gives integrality; quadratic isotropy gives evenness when the original lattice is even. Transport the isometry to P_m(C), including the actual quotient and representative map, and derive unimodularity from the Lagrangian condition. Neither the determinant formula alone nor matching abstract group orders supplies this conclusion.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-4-overlattices-and-isotropic-subgroups",
+          "quote": "For isotropic `H`, define the induced form on `H^⊥/H` and construct the natural isometry\n  `A_{L_H} ≅ H^⊥/H`, bilinear in the integral case and quadratic in the even case."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+          "quote": "Consume the general gluing theorem to obtain, for isotropic `C`, the natural isometry\n  `A_{P_m(C)} ≅ C^⊥/C`, first as an isometry of finite bilinear modules and, when `m` is even\n  and `q_m|_C=0`, as an isometry of finite quadratic modules."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms",
+      "target": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+      "confidence": "explicit",
+      "reason": "Layer 5 supplies actual finite quadratic modules of A2 and D4 with the chosen positive root-norm-two convention. Coding theory transports them to additive GF(3) and GF(4) coordinate alphabets. For A2 specialize q=n/(2(n+1)) at n=2, obtaining q(1)=1/3 and b(a,b)=2ab/3 modulo Z. For D4 the vector and two spinor classes all have q=1/2; their polar pairing is the half trace-Hermitian pairing after the explicitly named GF(4) identification. The supplier must give the named generators, pairings and isometries, not only groups Z/3 and (Z/2)^2. Coordinate summation, trace-Hermitian versus Hermitian duality for GF(4)-linear codes, isotropy of a particular code and its glued lattice remain coding theory. No classification of unimodular lattices follows just from these values.",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms",
+          "quote": "| `A_n`, `n≥1` | `ℤ/(n+1)` | first fundamental-weight class has `q=n/(2(n+1))`. |"
+        },
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms",
+          "quote": "| `D_n`, even `n≥4` | `(ℤ/2)²` | vector class has `q=1/2`; both spinor classes have `q=n/8`. |"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+          "quote": "Use the `A_2` discriminant generator of squared norm `2/3` to transport its quadratic module to\n  the additive group of `GF(3)`, with\n  `q(a)=lift(a)^2/3 mod ℤ` and `b(a,b)=2 lift(a)lift(b)/3 mod ℤ`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-7-codes-as-isotropic-discriminant-subgroups",
+          "quote": "Use the three nonzero `D_4` discriminant classes (vector and both spinors) to identify the\n  additive group with `GF(4)`, taking `1` to the vector class and `ω,ω²` to the spinor classes."
+        }
+      ]
+    }
+  ],
+  "overlaps": [
+    {
+      "stages": [
+        "tauceti:Completed/IntegralLattices#layer-1-lattices-with-forms",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
+      ],
+      "detail": "GN.2 says to add integral lattices while the completed upstream roadmap already owns full rational symmetric integral lattices, integral isometries and their basic invariant API. That common rational/Z symmetric subcase is an ownership overlap. It is not an overlap with the entire quaternionic or hermitian theory, nor does it make integral genus classification an upstream theorem.",
+      "recommendation": "rescope",
+      "proposal": "Retain the canonical rational/Z symmetric lattice bundle and its signature, dual and finite-discriminant interfaces in IntegralLattices. Make GN.2 import it for that subcase, with comparison maps if its broader arithmetic base uses a different carrier. Keep genera, spinor genera, local classification, hermitian/quaternionic coefficients and their hypotheses in GN.2. No whole-roadmap merge and no directed prerequisite for the duplicate construction are asserted before this boundary is reconciled."
+    }
+  ],
+  "examined": [
+    {"roadmapId": "tauceti:Completed/IntegralLattices", "result": "links", "note": "Target README and all five target layers read; scratch input/output inventory records hypotheses, constructions and exclusions. No inference of implementation status from the Completed path."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory", "result": "links", "note": "README and stage records read, with full dual-code, Construction-A and discriminant-gluing contracts checked. Code matrices and enumerators remain coding theory, not claims of the lattice supplier."},
+    {"roadmapId": "GeometryOfNumbersAndQuadraticArithmetic", "result": "overlap", "note": "Full README read. GN.0 real covolume theory is not the rational integral-form theory; GN.2 has a narrow integral-lattice construction overlap. No mass formula, dynamics, LLL or hermitian K-theory theorem is attributed to IntegralLattices."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems", "result": "links", "note": "Full README and the already recorded Layer-6 to IntegralLattices Layer-5 edge read. That edge and the same-pair keep overlap are NOT duplicated here. Layer 5 owns abstract Q/P root-data lattices; reconcile the target ownership paragraph with the supplier before adding a new narrow Q/P adapter link."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight", "result": "none", "note": "Overview and first 225 README lines read, including the explicit attribution of root and weight lattices to RootSystems. The IntegralLattices scope paragraph instead names this roadmap. This is a supplier-ownership mismatch, not grounds for a whole representation-theory prerequisite. Later representation-theoretic stages are not certified as fully screened."},
+    {"roadmapId": "MetaplecticAutomorphicForms", "result": "none", "note": "Full README read. The local and adelic Weil-representation, Schwartz-function and theta constructions do not specify an exact dependency on the finite Q/Z discriminant module or isotropic-overlattice theorem. This records no established edge, not proof that no future Weil/discriminant interface will be useful."},
+    {"roadmapId": "QSeriesPartitionsAndMockModularForms", "result": "none", "note": "Full README read, particularly QM.4 theta/Jacobi constructions and its metaplectic normalization input. No exact use of the integral finite-discriminant or gluing theorem is specified. A theta-series keyword is not sufficient evidence of a prerequisite."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ModularForms", "result": "none", "note": "Overview and initial README sections read; theta search in the fetched document returned no match. No integral-lattice/discriminant-form dependency was established in that scope. The entire long roadmap has not been read as part of this job."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants", "result": "none", "note": "Overview, standing conventions, Layer 0 and signature search excerpts read. Field-level Witt/discriminant/local invariants are distinct from integral subtype quotients and Q/Z discriminant forms. The target says to reuse existing signature API; no pinned-source audit or new QFI-to-lattice edge is claimed from that wording."},
+    {"roadmapId": "AInfCohomology", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AbelianSchemesAndArithmeticModuli", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AdditiveCombinatorics", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AdelicAlgebraicGroups", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AdicCoefficientsAndComparisons", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AdicEtaleGeometry", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AdicSpacesPartII", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AlgebraicModularFormsAndSerreWeights", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AlgebraicModuliForArithmeticGeometry", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AnabelianGeometryAndNonabelianChabauty", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AnalyticNumberTheory", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ArakelovGeometryAndAbelianHeights", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ArithmeticDynamics", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ArithmeticGaloisDuality", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ArithmeticGaloisRepresentations", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ArithmeticKTheory", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ArithmeticLocallySymmetricSpaces", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ArithmeticQuantumTopology", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ArithmeticStatistics", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AutomorphicBundles", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AutomorphicCongruences", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AutomorphicFormsOnReductiveGroups", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AutomorphicGaloisRepresentations", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AutomorphicGaloisRepresentationsPartII", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AutomorphicLFunctionsAndLocalFactors", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AutomorphicPadicLFunctions", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "AutomorphicSpectralTheory", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "BorelRegulators", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "BunGAndNewtonStrata", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ClassicalAdicEtaleCohomology", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ClassicalArithmeticCompletion", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ClassicalSerreModularity", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "CohomologyComparisons", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ColemanIntegration", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ColemanPowerSeries", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "CompletedCohomologyPartII", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ComplexComparisonPartII", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ComplexMultiplicationAndExplicitReciprocity", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ComputationalNumberTheory", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "CrystallineCohomology", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "DeformationAndDerivedPatchingAlgebra", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "DeligneWeightsAndPurity", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "DerivedDeRhamCohomology", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "DiamondEtaleCohomology", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "DiamondSixOperations", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "DiamondsAndVStacks", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "DiophantineApproximationAndTranscendence", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "DirichletPadicLFunctions", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "DrinfeldModulesAndTModules", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "EffectiveDiophantineMethods", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "EllipticCurveModularity", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "EllipticKTheory", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "EllipticRegulators", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "EndoscopicTransferAndUnitaryTraceComparison", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "EnhancedDerivedSheaves", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "EtaleDualityAndPerverseSheaves", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "EulerSystemsAndKolyvaginSystems", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "EulerSystemsCyclotomicMainConjecture", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ExcursionOperatorsAndSpectralAction", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ExponentialSumsAndCircleMethod", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "FaltingsFinitenessAndIsogenyTheorems", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "FarguesFontaineDiamonds", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "FiniteFieldsAndCharacterSums", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "FoundationsAndLibraryIntegration", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "FunctionFieldArithmetic", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "GL2AutomorphicRepresentationsAndTransfer", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "GL2ModularityLifting", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "GeneralAlgebraicKTheory", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "GeneralizedHeegnerCycles", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "GeometricSatakeAndFusion", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "GlobalGaloisDeformations", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "GlobalShtukasAndFunctionFieldLanglands", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "GrossZagierAndArithmeticHeights", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "HabiroCohomologyFoundations", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "HabiroCyclotomicCompletions", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "HabiroNahmSeries", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "HabiroNumberFields", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "HabiroRings", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "HeckeStacksAndLocalShtukas", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "HeegnerPointEulerSystems", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "HeightsRationalPointsAndObstructions", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "HilbertModularVarietiesAndShimuraCurves", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "HodgeTateAndCanonicalSubgroups", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "IgusaVarietiesAndTorsionConcentration", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "IntegralHeckeAndGaloisDeterminants", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "IntegralIwasawaTheory", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "InverseGaloisAndArithmeticFundamentalGroups", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "K2SymbolsBrauer", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "K3BlochGroups", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "KTheoryFiniteLocalFields", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "KTheoryLowDegrees", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "KatoEulerSystems", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "LanglandsParameterStacks", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "LefschetzPencilsAndVanishingCycles", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "LocalGaloisDeformationRings", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "LocallyAnalyticDistributions", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "LogicAndDefinabilityInNumberTheory", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ModularCurvesPartII", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ModularIwasawaMainConjectures", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ModularSymbolsPadicLFunctions", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ModularityAndLanglandsExtensions", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "MotivesAndAlgebraicCycles", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "MotivicEtaleKTheory", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "NeronModelsAndSemistableAbelianVarieties", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "NoncommutativeAndEquivariantIwasawa", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "OverconvergentAutomorphicForms", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "PELModuli", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "PadicDifferentialEquationsAndRigidCohomology", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "PadicFamilies", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "PadicHodgeRegulators", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "PadicHodgeTheory", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "PadicLocalLanglandsForGL2Qp", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "PadicMeasuresIwasawaAlgebras", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "PerfectoidQuotients", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "PerfectoidShimuraVarieties", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "PerfectoidSpaces", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "PeriodsAndSpecialValues", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "PhiGammaModulesAndIwasawaCohomology", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "Polylogarithms", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "PotentialAutomorphyInfrastructure", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "PotentialModularityAndCompatibleSystems", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "PrismaticCohomology", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ProbabilisticAndMetricNumberTheory", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "RankZeroOneBSD", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ReductiveGroupsPartII", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "RefinedTraceMethods", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "RelativeFarguesFontaine", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "SchemeAndStackFoundations", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "SchemeKTheoryOperations", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "SelmerIwasawaCohomology", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "SerreWeightAndLevelOptimisation", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ShimuraCompactifications", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ShimuraData", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "ShimuraVarieties", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "SieveMethodsAndPrimePatterns", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "SmallRamificationAndAbelianVarietyBaseCases", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "SmoothRepresentationsOfLocalGroups", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "SpecialValuesBirchTate", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "StableHomotopyKTheory", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "TorsionCohomologyInfrastructure", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "TropicalAndBerkovichArithmetic", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "VStackSheavesAndLisseCategories", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "VectorBundlesAndIsocrystals", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "WeightsInEtaleCohomology", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "WeilConjectures", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:Completed/ContourIntegration", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:Completed/EffectiveBounds", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:Completed/OrthogonalL2Bases", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/Exchangeability", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/PDE", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers", "result": "none", "note": "Summary only; stage-pair screen pending. No absence claim."}
+  ],
+  "remainingWork": [
+    "Catalogue screen is not closed: finish every upstream roadmap overview and relevant stage-pair search, not merely the roadmap-summaries overrides.",
+    "Complete the catalogue-wide synonyms/notation search for integral lattices, dual lattices, finite bilinear/quadratic modules, gluing, isotropic subgroups, discriminant forms, root/weight lattices and ADE. Read full candidate stages before adding any edge.",
+    "Read all six new roadmap definitions currently listed under research/blueprint/roadmaps; directory names alone were not classified as absence of a dependency.",
+    "Resolve the root/weight-lattice ownership mismatch and GN.2 rescope request; do not edit their files under this issue.",
+    "Recheck target and supplier versions, every other link packet and the recorded graph before any continuation; continue this file rather than creating a duplicate.",
+    "Obtain independent mathematical review after the remaining screen. A successful structural validator does not complete that review."
+  ],
+  "recordedElsewhere": [
+    {
+      "packet": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json",
+      "packetBlob": "b2e02f329cb5d14b7003b9acd97774f6f8b0c755",
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-bourbaki-tables-dynkin-diagrams-and-classification",
+      "target": "tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms",
+      "disposition": "Do not duplicate the existing prerequisite or same-pair keep overlap. This is a record of what was read, not this session accepting or reviewing the other packet."
+    }
+  ],
+  "requests": [
+    {
+      "owner": "IntegralLattices / RootSystems / LieHighestWeight maintainers",
+      "kind": "ownership_reconciliation",
+      "detail": "IntegralLattices scope assigns root/weight lattices arising from a root datum to LieHighestWeight; the current LieHighestWeight coordination section assigns root/weight lattices to RootSystems and consumes them. RootSystems Layer 5 explicitly constructs Q, P and P/Q. Resolve the prose discrepancy and state the precise simply-laced positive-normalization identification with L-dual/L before introducing a second incoming link. The already recorded Bourbaki Cartan-matrix edge remains separate."
+    },
+    {
+      "owner": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+      "kind": "rescope_comparison",
+      "detail": "Reuse the full rational/Z symmetric integral-lattice carrier for that subcase, preserving nondegeneracy and the half-norm convention. Keep genus/spinor-genus and broader arithmetic/hermitian construction theorems in GN.2. The current atlas GN.4/GN.5 titles also differ in order from the current README; this packet does not silently rename either stage."
+    }
+  ],
+  "validation": {
+    "local": "Passed: python3 -m json.tool <packet>; python3 scratch/check_checkpoint.py. Seven unique cross-roadmap pairs, two-sided evidence and local schema/status checks; no full-atlas or independent mathematical validation claimed.",
+    "repositoryValidator": "Not yet run for this checkpoint; expected through the existing pull-request workflow.",
+    "mathematicalReview": "Not performed independently."
+  },
+  "coverage": {
+    "level": "partial",
+    "summarySource": "data/roadmap-summaries.json",
+    "summaryReadCount": 182,
+    "detailedRecords": 9,
+    "meaning": "Summary-only records refer to data/roadmap-summaries.json; detailed records state their deeper read scope. The examined array does not certify full catalogue or stage coverage."
+  }
+}
