@@ -37802,12 +37802,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-18.md",
    "timeout": 14400,
-   "state": "pending",
-   "account": null,
-   "lane": 2,
-   "startedAt": "2026-09-17T02:25:22Z",
-   "attempts": 0,
-   "note": "released after a usage limit on claude4/2 at 2026-09-17T02:39:14Z"
+   "state": "done",
+   "account": "claude6",
+   "lane": 1,
+   "startedAt": "2026-09-17T03:31:31Z",
+   "attempts": 1,
+   "note": "",
+   "finishedAt": "2026-09-17T03:53:15Z",
+   "seconds": 1303,
+   "result": {
+    "judged": 24,
+    "pairs": 24
+   }
   },
   {
    "id": "COMPARE-19",
@@ -37836,7 +37842,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-19.md",
    "timeout": 14400,
-   "state": "pending"
+   "state": "running",
+   "account": "claude6",
+   "lane": 1,
+   "startedAt": "2026-09-17T03:53:15Z",
+   "attempts": 1
   },
   {
    "id": "COMPARE-20",
@@ -39571,13 +39581,20 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-15.md",
    "timeout": 21600,
-   "state": "running",
+   "state": "done",
    "avoidAccountOf": "AUDIT-15",
    "account": "claude6",
    "lane": 2,
    "startedAt": "2026-09-17T03:20:40Z",
    "attempts": 1,
-   "note": "released after a usage limit on claude2/1 at 2026-09-17T03:12:48Z"
+   "note": "",
+   "finishedAt": "2026-09-17T03:48:42Z",
+   "seconds": 1681,
+   "result": {
+    "layers": 46,
+    "audited": 46,
+    "review": "accepted"
+   }
   },
   {
    "id": "AUDIT-16",
@@ -39662,12 +39679,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-17.md",
    "timeout": 21600,
-   "state": "running",
+   "state": "done",
    "account": "claude6",
    "lane": 1,
    "startedAt": "2026-09-17T02:55:00Z",
    "attempts": 1,
-   "note": "released after a usage limit on claude4/1 at 2026-09-17T02:39:19Z"
+   "note": "",
+   "finishedAt": "2026-09-17T03:31:31Z",
+   "seconds": 2191,
+   "result": {
+    "layers": 34,
+    "audited": 34
+   }
   },
   {
    "id": "REV-AUDIT-17",
@@ -39711,11 +39734,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-18.md",
    "timeout": 21600,
-   "state": "pending",
-   "account": null,
+   "state": "running",
+   "account": "claude6",
    "lane": 2,
-   "startedAt": "2026-09-17T02:39:06Z",
-   "attempts": 0,
+   "startedAt": "2026-09-17T03:48:42Z",
+   "attempts": 1,
    "note": "released after a usage limit on claude2/2 at 2026-09-17T03:12:59Z"
   },
   {
