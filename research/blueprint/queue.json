@@ -38466,11 +38466,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-34.md",
    "timeout": 14400,
-   "state": "running",
+   "state": "done",
    "account": "claude4",
    "lane": 2,
    "startedAt": "2026-09-17T16:57:50Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-17T17:15:34Z",
+   "seconds": 1064,
+   "result": {
+    "judged": 24,
+    "pairs": 24
+   },
+   "note": ""
   },
   {
    "id": "COMPARE-35",
@@ -38499,7 +38506,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-35.md",
    "timeout": 14400,
-   "state": "pending"
+   "state": "running",
+   "account": "claude4",
+   "lane": 2,
+   "startedAt": "2026-09-17T17:15:34Z",
+   "attempts": 1
   },
   {
    "id": "COMPARE-36",
@@ -40923,11 +40934,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-33.md",
    "timeout": 21600,
-   "state": "running",
+   "state": "done",
    "account": "claude4",
    "lane": 1,
    "startedAt": "2026-09-17T16:52:08Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-17T17:13:45Z",
+   "seconds": 1297,
+   "result": {
+    "layers": 33,
+    "audited": 33
+   },
+   "note": ""
   },
   {
    "id": "REV-AUDIT-33",
@@ -40971,7 +40989,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-34.md",
    "timeout": 21600,
-   "state": "pending"
+   "state": "running",
+   "account": "claude4",
+   "lane": 1,
+   "startedAt": "2026-09-17T17:13:45Z",
+   "attempts": 1
   },
   {
    "id": "REV-AUDIT-34",
