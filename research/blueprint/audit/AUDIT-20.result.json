@@ -1,0 +1,3668 @@
+{
+ "job": "AUDIT-20",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "DrinfeldModulesAndTModules": {
+   "summary": "The baseline contains essentially none of this roadmap's mathematics. Its one real asset is Mathlib's new `SkewPolynomial` ring (Mathlib/Algebra/SkewPolynomial/Basic.lean, explicitly modelled on Papikian's Drinfeld-modules book): for a ring with a `MulSemiringAction (Multiplicative ℕ)` — e.g. L with the q-power Frobenius — it is exactly the Ore ring L{τ} with τa = a^qτ, with the ring structure and the commutation rule proved. Nothing else is there: no Drinfeld module, no Carlitz module, no torsion or Tate module, no exponential/lattice uniformization, no moduli stack, no t-module or t-motive, no Tate/Taguchi theorem, no Taelman class-number formula, no elliptic sheaves, no Frobenius-difference Tannakian category. Peripheral tools exist and are the honest starting points — Mathlib's `AlgebraicIndependent`, `Algebra.FormallyEtale`, Dedekind-domain and DVR theory, and Tau Ceti's affine group schemes, Hopf-algebra Cartier duality and Tannakian reconstruction for commutative Hopf algebras — but they supply no theorem this roadmap states.",
+   "layers": {
+    "DrinfeldModulesAndTModules:DM.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The Ore ring L{tau} with tau a = a^q tau",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "SkewPolynomial",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/SkewPolynomial/Basic.lean",
+         "line": 94,
+         "fit": "more general"
+        },
+        {
+         "name": "SkewPolynomial.instRing",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/SkewPolynomial/Basic.lean",
+         "line": 603,
+         "fit": "more general"
+        },
+        {
+         "name": "SkewPolynomial.X_mul",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/SkewPolynomial/Basic.lean",
+         "line": 306,
+         "fit": "exact"
+        },
+        {
+         "name": "SkewPolynomial.monomial_mul_monomial",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/SkewPolynomial/Basic.lean",
+         "line": 233,
+         "fit": "exact"
+        },
+        {
+         "name": "SkewPolynomial.φ",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/SkewPolynomial/Basic.lean",
+         "line": 220,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib's `SkewPolynomial R` is `SkewMonoidAlgebra R (Multiplicative ℕ)`; the twist φ is carried by a `MulSemiringAction (Multiplicative ℕ) R`, and `X_mul`/`monomial_mul_monomial` give Xa = φ(a)X. Instantiating φ as the q-power Frobenius of L is exactly L{τ}; the file's docstring cites Papikian's Drinfeld-modules book, chapter 3, and the δ = 0 case of Ore. No degree function, no left/right division algorithm, and no Euclidean theory are developed, so only the ring itself is there."
+      },
+      {
+       "target": "Identification of L{tau} with the F_q-linear polynomial endomorphisms of G_a (additive polynomials)",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'additive polynomial'` returns nothing in either tree, and there is no ring map from `SkewPolynomial` to `Polynomial` sending τ^i to X^{q^i}. Mathlib has `Polynomial.expand` and Frobenius machinery but no theory of additive/F_q-linear polynomials and no identification with endomorphisms of the additive group scheme."
+      },
+      {
+       "target": "Rank-r Drinfeld A-module: characteristic map A → L, deg φ_a = r·deg a, nonzero constant term",
+       "library": "absent",
+       "declarations": [],
+       "note": "No occurrence of `Drinfeld` in either library outside `CategoryTheory/Monoidal/Center.lean` (the Drinfeld centre of a monoidal category, an unrelated notion). The degree normalization at infinity is likewise absent."
+      },
+      {
+       "target": "Morphisms, isogenies and kernels of Drinfeld modules as group schemes",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.CommHopfAlgCat.pointwiseQuotientTorsorAction",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Torsor.lean",
+         "line": 185,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has affine group schemes over a base field via commutative Hopf algebras, with fppf quotients, kernels and Cartier duality, but nothing attached to a Drinfeld module; the kernel group scheme of φ_a is not constructed anywhere."
+      },
+      {
+       "target": "Drinfeld modules over a general base via line bundles with invertible leading coefficients (moduli functor)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no relative version of any of the above, and no line-bundle-valued additive group scheme."
+      },
+      {
+       "target": "The Carlitz module t ↦ theta + tau, its rank, multiplication and kernel degree",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i carlitz` returns nothing in either tree."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FiniteFieldsAndCharacterSums:FF.4",
+       "note": "FF.4 mentions additive polynomials over finite fields among 'finite rings, sequences and codes'; the F_q-linear polynomial ring is the shared object, although FF.4 wants it for coding theory rather than for a Drinfeld module."
+      }
+     ]
+    },
+    "DrinfeldModulesAndTModules:DM.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Ideal torsion φ[a] of a Drinfeld module and its finite flatness of the expected degree",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Flat",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Flat/Basic.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "Flatness and finite locally free modules are in Mathlib in full generality, but there is no Drinfeld module to take torsion of, so the statement does not exist."
+      },
+      {
+       "target": "Etaleness of a-torsion away from the characteristic ideal; inseparability at the characteristic",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Algebra.FormallyEtale",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Etale/Basic.lean",
+         "line": 47,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has formally étale/unramified/smooth algebras and étale morphisms of schemes; none of this is applied to torsion of a Drinfeld module."
+      },
+      {
+       "target": "Tate module T_lambda(phi) as an inverse limit of lambda-power torsion, free of rank r over A_lambda",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'tate module'` returns nothing in either library — there is no Tate module even for elliptic curves, let alone for Drinfeld modules."
+      },
+      {
+       "target": "Continuous Galois action on the Tate module",
+       "library": "absent",
+       "declarations": [],
+       "note": "Tau Ceti has continuous cohomology of smooth discrete Galois modules (`TauCeti/RepresentationTheory/Homological/ContCohomology/`), but no Tate module carrying such an action."
+      },
+      {
+       "target": "Separate treatment of the local object at the characteristic prime (connected part not visible in separable points)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no connected-étale sequence for finite group schemes in either tree."
+      }
+     ],
+     "duplicates": []
+    },
+    "DrinfeldModulesAndTModules:DM.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The completed algebraic closure C_infinity of K_infinity with its generic-characteristic embedding",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "FunctionField.FqtInfty",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/FunctionField.lean",
+         "line": 188,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the completion of F_q(t) at the infinite place (now a deprecated alias for `RatFunc.CompletionAtInfty`), but not the algebraic closure of that completion nor its completion; no analogue of C_p exists in either tree."
+      },
+      {
+       "target": "The Drinfeld exponential: entire, solving the functional equation, surjective",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. There is no nonarchimedean entire-function theory (no Weierstrass products, no Newton polygons: `grep -i 'newton polygon'` is empty) on which such a construction could rest."
+      },
+      {
+       "target": "Kernel of the exponential is a discrete projective A-lattice of rank r",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsZLattice",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+         "line": 432,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's lattice theory is for discrete ℤ-submodules of real vector spaces; there is no nonarchimedean A-lattice theory and no projectivity statement in this setting."
+      },
+      {
+       "target": "The inverse lattice-to-module functor and independence under homothety",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Carlitz exponential recurrence and period lattice",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "DrinfeldModulesAndTModules:DM.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The moduli stack of rank-r Drinfeld modules and fine level-structure schemes away from the characteristic",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Neither library has algebraic stacks at all: Mathlib's only `Stack` notion is `CategoryTheory.Pseudofunctor.IsStackFor` (descent for pseudofunctors on a site, Mathlib/CategoryTheory/Sites/Descent/DescentData.lean:507), which is the abstract stack condition, not a moduli stack."
+      },
+      {
+       "target": "Representability and smoothness of the level moduli over the stated open base",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Hecke correspondences on Drinfeld modular varieties",
+       "library": "absent",
+       "declarations": [],
+       "note": "Tau Ceti's `NumberTheory/HeckeRing/` and `NumberTheory/ModularForms/` are the classical elliptic-modular Hecke theory over ℂ; nothing concerns Drinfeld moduli."
+      },
+      {
+       "target": "Pink's generic-fibre Satake compactification via generalized Drinfeld modules, and its uniqueness",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The ample line bundle of Drinfeld modular forms and change-of-level pullback/pushforward",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "DrinfeldModulesAndTModules:DM.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Anderson t-module on G_a^d with differential theta·Id + nilpotent",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `grep -rn -i anderson` in the Lean sources matches only unrelated names (Anderson-type results in topology/probability), never a t-module."
+      },
+      {
+       "target": "The motive of a t-module: F_q-linear maps to G_a, contravariant convention, tau action, finite generation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. The underlying skew-polynomial module structure could be expressed with `SkewPolynomial` but no such module is defined."
+      },
+      {
+       "target": "Equivalence of abelian t-modules with effective Anderson motives (inverse functors and Hom maps)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Purity, rigid analytic triviality and uniformizability as separate properties",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no rigid analytic geometry in either tree (Tau Ceti has adic spaces `Spa` of Huber pairs but no rigid-analytic triviality notion)."
+      },
+      {
+       "target": "The Carlitz motive and its tensor powers",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "DrinfeldModulesAndTModules:DM.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The natural map Hom_L(phi,psi) ⊗_A A_lambda → Hom_Galois(T_lambda phi, T_lambda psi)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: neither the Hom module of Drinfeld modules nor the Tate module exists."
+      },
+      {
+       "target": "Injectivity of that map",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Surjectivity (the Tate conjecture for Drinfeld modules / t-motives, Taguchi–Tamagawa)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. No analogue of Tate's isogeny theorem exists in either library even for abelian varieties."
+      },
+      {
+       "target": "Semisimplicity of the rational Tate representation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "DrinfeldModulesAndTModules:DM.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Taelman's convergent Euler-product L-value for an integral Drinfeld module",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "EulerProduct.eulerProduct_completely_multiplicative",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/EulerProduct/Basic.lean",
+         "line": 367,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's Euler products are for complex-valued multiplicative functions on ℕ with analytic convergence; there is no characteristic-p Goss L-value, no product over closed points of a curve, and no convergence statement in C_infinity."
+      },
+      {
+       "target": "The exponential unit lattice U(phi/A) and the finite class module H(phi/A)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Normalized lattice covolume and Fitting polynomial of the class module",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; Mathlib has no Fitting ideals of modules at all (the only `Fitting` names are Lie-theoretic `posFittingComp`)."
+      },
+      {
+       "target": "The determinant / nuclear-operator identity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Taelman's class-number formula",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Tau Ceti does prove finiteness of the divisor class group and defines a function-field class number (`TauCeti.Divisor.classNumber`, TauCeti/FieldTheory/FunctionField/RiemannRoch/ClassNumber.lean:202), but that is the classical Pic^0, not Taelman's class module, and there is no special-value identity."
+      }
+     ],
+     "duplicates": []
+    },
+    "DrinfeldModulesAndTModules:DM.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The chain of vector bundles with Frobenius modification attached to a Drinfeld module (elliptic sheaf)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `grep -rn -i shtuka` and `grep -rn -i 'elliptic sheaf'` return nothing in either tree."
+      },
+      {
+       "target": "Distinguished pole at infinity, characteristic leg and periodicity conditions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The elliptic-sheaf equivalence with Drinfeld modules in its normalized range",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Prime-to-characteristic Tate realizations, and local-shtuka comparison interfaces",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.2",
+       "note": "DM.7 explicitly exports its construction as the rank-r special case of GS.2's global shtuka stacks; both state the Frobenius-modification definition, and neither is in the libraries."
+      },
+      {
+       "layer": "HeckeStacksAndLocalShtukas:HS2",
+       "note": "The local-shtuka and comparison interfaces DM.7 promises are the objects HS2 constructs (local shtuka moduli and bounds); the overlap is the local realization, not the global elliptic sheaf."
+      }
+     ]
+    },
+    "DrinfeldModulesAndTModules:DM.8": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Neutral Tannakian category of rigid analytically trivial pre-t-motives with its fibre functor",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/GroupFunctor.lean",
+         "line": 138,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves Tannakian reconstruction in the Hopf-algebra direction — the points functor of a commutative Hopf algebra is isomorphic to the tensor-automorphism functor of its comodule category — but there is no general 'neutral Tannakian category ⇒ affine group scheme' theorem, and no category of t-motives to apply it to."
+      },
+      {
+       "target": "The Frobenius-difference Galois group of a t-motive",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no difference- or differential-Galois (Picard–Vessiot) theory in either library."
+      },
+      {
+       "target": "The analytic trivialization matrix and the specialization/lifting criterion identifying period transcendence degree with the group dimension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Algebraic independence of Carlitz logarithms of algebraic arguments under linear independence",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicIndependent",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AlgebraicIndependent/Defs.lean",
+         "line": 54,
+         "fit": "related"
+        }
+       ],
+       "note": "`AlgebraicIndependent` is only the definition of the predicate; no transcendence theorem in characteristic p is proved anywhere, and there is no Carlitz logarithm."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "MotivesAndAlgebraicCycles:MC.6",
+       "note": "States the same Tannakian package — tensor automorphism groups of a fibre functor, torsors between two fibre functors, pro-algebraic reconstruction and period torsors — for motives rather than for rigid analytically trivial t-motives."
+      }
+     ]
+    }
+   }
+  },
+  "FunctionFieldArithmetic": {
+   "summary": "This is by far the best-covered roadmap in the batch, because Tau Ceti has already built Stichtenoth's theory of algebraic function fields: `TauCeti.Place` (normalized discrete valuations trivial on the constants, with residue fields, degrees, weak and strong approximation, and finiteness of places of bounded degree), divisors with the product formula `deg (div f) = 0`, Riemann--Roch spaces, the genus, Weil differentials and the full Riemann--Roch theorem with the canonical class of degree 2g-2, finiteness of Cl^0 over a finite constant field, and a complete e/f/decomposition/inertia/ramification-group/different theory of finite extensions, all sorry-free. So FA.0 and FA.1 are largely done and FA.3 is half done. What is genuinely missing is everything analytic and adelic: the adele ring of a function field with its topology (Mathlib has only `RestrictedProduct` and the finite adeles of a Dedekind domain), discreteness and cocompactness, self-dual measures and Poisson summation, the idele degree map and compactness of the degree-zero idele class group; then all of class field theory (Tau Ceti has class-formation scaffolding and Tate cohomology but no Artin map), the zeta function of a curve and Artin L-factors, function-field Chebotarev, and the entire automorphic layer FA.6. Riemann--Hurwitz, upper-numbering ramification, and Artin--Schreier/Witt descriptions of p-power cyclic extensions are also absent. FA.2 is marked partly built rather than not built because every one of its constructions has a genuine partial in the libraries — `RestrictedProduct` with its local-compactness criteria, `IsDedekindDomain.FiniteAdeleRing` (literally the restricted product of the adic completions of an affine model of the curve), and Tau Ceti's algebraic A_F(D)/F quotient — even though no single target is present in full.",
+   "layers": {
+    "FunctionFieldArithmetic:FA.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "One-variable function fields over a base field, as an intrinsic predicate",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "TauCeti.IsFunctionField",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Basic.lean",
+         "line": 44,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isFunctionField_iff_trdeg_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Basic.lean",
+         "line": 170,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsFunctionField.finite_extension",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Basic.lean",
+         "line": 189,
+         "fit": "exact"
+        },
+        {
+         "name": "FunctionField",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/FunctionField.lean",
+         "line": 58,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.isFunctionField_iff_functionField",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Basic.lean",
+         "line": 133,
+         "fit": "exact"
+        }
+       ],
+       "note": "Tau Ceti's intrinsic `IsFunctionField k F` (transcendence degree one plus essential finite type) is proved equivalent to Mathlib's chosen-generator `FunctionField F K`, and is stable under finite extension. No hypothesis that k is finite or perfect."
+      },
+      {
+       "target": "Closed points identified with discrete valuations trivial on the constants",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Place",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
+         "line": 99,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.instIsDiscreteValuationRing",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
+         "line": 333,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.integers_injective",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
+         "line": 405,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.degree",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
+         "line": 469,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.center",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/AffineModel/Place.lean",
+         "line": 95,
+         "fit": "exact"
+        }
+       ],
+       "note": "`Place k F` is exactly a surjective `Valuation F ℤᵐ⁰` trivial on kˣ; its valuation ring is a DVR, a place is determined by its ring, its residue field is finite-dimensional over k, and `Place.center` plus `Place.restrictOfPrimeEquivPrimesOver` set up the bijection with height-one primes of an affine model. The identification of places with *scheme-theoretic* closed points of a projective model is the part that is missing."
+      },
+      {
+       "target": "Normalization of a projective model; the contravariant equivalence between one-variable function fields and smooth projective curves over a perfect field",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.isDedekindDomain_integralClosure",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean",
+         "line": 177,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.functionField",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/FunctionField.lean",
+         "line": 37,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.restrictOfPrimeEquivPrimesOver",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/AffineModel/Extension.lean",
+         "line": 257,
+         "fit": "related"
+        }
+       ],
+       "note": "The affine half is there: the integral closure of k[x] in F is a Dedekind domain with fraction field F, and its height-one primes correspond to the places not at infinity. Mathlib defines the function field of an integral scheme as the stalk at the generic point. Missing entirely: gluing the two affine normalizations into a projective curve, properness, and the anti-equivalence of categories — there is no `Curve` object in either tree over which to state it."
+      },
+      {
+       "target": "The exact constant field, and its finiteness when k is finite",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.IsFunctionField.finiteDimensional_algebraicClosure",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/ConstantField.lean",
+         "line": 85,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsFunctionField.exists_intermediateField_isIntegrallyClosedIn",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/ConstantField.lean",
+         "line": 140,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isIntegrallyClosedIn_iff_finrank_algebraicClosure_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/ConstantField.lean",
+         "line": 110,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.algebraicClosure_ratFunc",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/ConstantField.lean",
+         "line": 150,
+         "fit": "special case"
+        },
+        {
+         "name": "FunctionField.finiteDimensional_of_constantExtension",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/FunctionField.lean",
+         "line": 277,
+         "fit": "related"
+        }
+       ],
+       "note": "The constant field k̃ = algebraicClosure k F is finite-dimensional over k and F/k̃ has exact constants; for k finite this gives a finite constant field, but the specialization to a finite field is not stated. `algebraicClosure_ratFunc` is the F_q(t) acceptance case."
+      },
+      {
+       "target": "Geometric connectedness after choosing the exact constant field",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.GeometricallyConnected",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Geometrically/Connected.lean",
+         "line": 40,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.constantCompositum",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/GeometricDegree.lean",
+         "line": 98,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.finrank_constantCompositum_eq_finrank_of_isSeparable",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/GeometricDegree.lean",
+         "line": 251,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has `GeometricallyConnected` for scheme morphisms and Tau Ceti has the constant compositum and geometric degree of a function-field extension, but the theorem 'exact constants ⇒ the curve is geometrically connected' (equivalently F ⊗_k k̄ is a field) is not proved anywhere."
+      },
+      {
+       "target": "Finite morphisms from finite field extensions, with inseparable degree and induced residue-field maps",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.restrict",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean",
+         "line": 283,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.restrict_surjective",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Existence.lean",
+         "line": 54,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.relativeDegree",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean",
+         "line": 443,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.degree_eq_degree_restrict_mul_relativeDegree",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Degree.lean",
+         "line": 60,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.card_inertiaSubgroup_eq_ramificationIdx_mul_finInsepDegree",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Inertia.lean",
+         "line": 375,
+         "fit": "exact"
+        }
+       ],
+       "note": "Every place of the base extends (`restrict_surjective`), with e and f, the tower formulas, and the residue-field extension; the inseparable residue degree appears explicitly in the inertia count. Stated on places rather than on a morphism of schemes."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+       "note": "Identical targets: the `IsFunctionField` predicate, the constant field k̃ and its finiteness over k, and places as normalized valuations trivial on constants — this Tau Ceti layer is what produced the declarations cited above."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
+       "note": "Owns the normalization of k[x] in F including the inseparable case, and the places-to-height-one-primes dictionary that FA.0's 'normalization of a projective model' rests on."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+       "note": "Owns exactly FA.0's remaining target, the contravariant dictionary between function fields and (regular, not smooth) projective curves, including the normalization of P^1 in F."
+      },
+      {
+       "layer": "SchemeAndStackFoundations:SF.3",
+       "note": "FA.0 lists SF.3 as an input; SF.3's 'Curves, divisors and Picard objects' states the scheme-side curve theory FA.0 wants to pull back to function fields."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-1-the-rational-function-field",
+       "note": "Owns the places of k(x) and the fact that k is the exact constant field of k(x) — FA.0's 'recover P^1 from F_q(t)' acceptance case."
+      }
+     ]
+    },
+    "FunctionFieldArithmetic:FA.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Divisors, effectivity, and degree weighted by residue degrees",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+         "line": 43,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.degree",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+         "line": 51,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.degree_ofPoint",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+         "line": 87,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.conorm",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Conorm.lean",
+         "line": 118,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.degree_conorm",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Conorm.lean",
+         "line": 262,
+         "fit": "exact"
+        }
+       ],
+       "note": "`Divisor k F` is the free abelian group on places with `degree` weighted by `Place.degree`, with effectivity, lattice operations, positive/negative parts, the conorm along a finite extension and the cross-multiplied degree identity."
+      },
+      {
+       "target": "The principal divisor map and the product formula deg(div f) = 0",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.principal",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Principal.lean",
+         "line": 134,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.degree_principal",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean",
+         "line": 234,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.degree_poles",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean",
+         "line": 210,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.degreeClass",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean",
+         "line": 263,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.principal_eq_zero_iff",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Principal.lean",
+         "line": 230,
+         "fit": "exact"
+        }
+       ],
+       "note": "`deg (f)_∞ = [F : k(f)]` (`Divisor.degree_poles`, and `degree_zeros` for the zero divisor) gives `degree_principal : deg (div f) = 0`, hence the degree map on the class group; `div f = 0` iff f is algebraic over k."
+      },
+      {
+       "target": "Riemann--Roch spaces L(D) and their dimensions",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.riemannRochSpace",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Basic.lean",
+         "line": 83,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.dim",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Basic.lean",
+         "line": 95,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.finiteDimensional_riemannRochSpace",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Basic.lean",
+         "line": 349,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.dim_le_degree_posPart_add_one",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Basic.lean",
+         "line": 443,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.dim_eq_of_linearlyEquivalent",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Principal.lean",
+         "line": 124,
+         "fit": "exact"
+        }
+       ],
+       "note": "L(D) is finite-dimensional with the bound ℓ(D) ≤ deg D₊ + 1, monotone, and invariant under linear equivalence; `Divisor.dim` is ℓ."
+      },
+      {
+       "target": "Canonical divisors, the canonical class and deg K = 2g-2",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.weilDifferentialDivisor",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Differential/CanonicalDivisor.lean",
+         "line": 150,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.canonicalClass",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Differential/CanonicalDivisor.lean",
+         "line": 256,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.degreeClass_canonicalClass",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Differential/CanonicalDivisor.lean",
+         "line": 402,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.dim_weilDifferentialDivisor",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Differential/CanonicalDivisor.lean",
+         "line": 386,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.divisorClass_eq_canonicalClass_iff",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Differential/CanonicalDivisor.lean",
+         "line": 460,
+         "fit": "exact"
+        }
+       ],
+       "note": "Built from Weil differentials (linear forms on the repartition space vanishing on A(D)+F); ℓ(W)=g and deg W = 2g-2 are proved, under the standing hypotheses `IsFunctionField k F` and `IsIntegrallyClosedIn k F` (exact constants)."
+      },
+      {
+       "target": "The Riemann--Roch theorem",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.isRiemannRochDivisor_weilDifferentialDivisor",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Differential/CanonicalDivisor.lean",
+         "line": 377,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.IsRiemannRochDivisor",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Uniqueness.lean",
+         "line": 89,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_isRiemannRochDivisor",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Differential/CanonicalDivisor.lean",
+         "line": 412,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.genus",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Genus.lean",
+         "line": 189,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.dim_eq_degree_add_one_sub_genus_of_two_mul_genus_sub_one_le_degree",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Consequences/HighDegree.lean",
+         "line": 65,
+         "fit": "exact"
+        }
+       ],
+       "note": "`ℓ(D) = deg D + 1 - g + ℓ(W-D)` for every D, with W the divisor of any nonzero Weil differential (Stichtenoth 1.5.15), plus the deg D ≥ 2g-1 corollary. Proved without sorry; hypotheses are `IsFunctionField k F` and exact constants, with no finiteness assumption on k — more general than FA.1's F_q setting."
+      },
+      {
+       "target": "Finiteness of Pic^0 over a finite constant field",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.finite_ker_degreeClass",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/ClassNumber.lean",
+         "line": 143,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.classNumber",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/ClassNumber.lean",
+         "line": 202,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.classNumber_pos",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/ClassNumber.lean",
+         "line": 210,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.ker_degreeClass_eq_picZero",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean",
+         "line": 278,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.finite_classGroup",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/AffineClassNumber.lean",
+         "line": 90,
+         "fit": "exact"
+        }
+       ],
+       "note": "`finite_ker_degreeClass` is exactly 'Cl⁰(F) is finite for a finite constant field' (Stichtenoth 5.1.3), with the class number defined and positive; the affine class group of a holomorphy ring is also finite."
+      },
+      {
+       "target": "Rational divisor classes versus chosen rational points",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.exists_place_degree_eq_one_of_isEffective_of_degree_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+         "line": 176,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_place_degree_eq_one_of_genus_eq_zero_of_divisor_degree_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Consequences/GenusZero.lean",
+         "line": 58,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.degree_surjective_of_degree_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+         "line": 105,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsEllipticFunctionField.exists_place_degree_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Elliptic.lean",
+         "line": 123,
+         "fit": "exact"
+        }
+       ],
+       "note": "The distinction is respected throughout: hypotheses are stated as 'a divisor of degree one' and the existence of a degree-one *place* is derived only where Riemann--Roch produces it (genus 0 and genus 1 cases)."
+      },
+      {
+       "target": "Residue maps",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.repartitionDualComponent",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Differential/LocalComponent.lean",
+         "line": 84,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.finsum_repartitionDualComponent_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Differential/LocalComponent.lean",
+         "line": 219,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.finrank_kaehlerDifferential_eq_one_of_separating",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Differential/Kaehler.lean",
+         "line": 112,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.repartitionDualComponent_ratFuncWeilDifferential_zpow",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Differential/RatFunc.lean",
+         "line": 272,
+         "fit": "special case"
+        }
+       ],
+       "note": "What exists is the *local component* ω_P of a Weil differential and the abstract residue theorem ∑_P ω_P(x) = 0 (the file's own docstring says this holds 'before any residue map has been constructed'). The residue map Res_P : Ω_F → k on Kähler differentials and its comparison with Weil differentials (Stichtenoth IV.3) are not built: `Kaehler.lean` only proves dim_F Ω[F/k] = 1 for a separating element and sets up the derivative."
+      },
+      {
+       "target": "Bases of L(D) from certified presentations (an algorithm)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.riemannRochSpace_zsmul_ofPoint_infty",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/RatFunc.lean",
+         "line": 144,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only the explicit P^1 computation L(n·∞) = polynomials of degree ≤ n exists (an acceptance case of FA.1); there is no algorithm computing a basis of L(D) on a general curve and no certificate format."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+       "note": "States FA.1's divisors, product formula, L(D), Riemann's theorem and the genus verbatim (Stichtenoth I.4); it is the roadmap that produced Tau Ceti's `Divisor`/`riemannRochSpace`/`genus`."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
+       "note": "Owns Riemann--Roch itself via repartitions and Weil differentials — the theorem FA.1 asks to 'transport'."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+       "note": "Owns the deg D ≥ 2g-1 regime, strong approximation and the local components that FA.1 calls residue maps."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+       "note": "Owns exactly FA.1's missing piece: the residue map on Kähler differentials and its comparison with the Weil formalism."
+      },
+      {
+       "layer": "SchemeAndStackFoundations:SF.3",
+       "note": "FA.1 says it transports 'the curve Riemann--Roch theorem' from SF.3; both layers state Riemann--Roch, one on schemes and one on function fields."
+      },
+      {
+       "layer": "TropicalAndBerkovichArithmetic:TB.3",
+       "note": "TB.3 states a Riemann--Roch/specialization package for divisors on curves and metric graphs; the divisor and L(D) vocabulary overlaps, the tropical specialization does not."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+       "note": "States the same places/divisors/divisor-class-group dictionary, specialized to the function field of an elliptic curve, and consumes it for the Weil pairing."
+      }
+     ]
+    },
+    "FunctionFieldArithmetic:FA.2": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The adele ring of K as a restricted product of local completions with respect to their valuation rings",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "RestrictedProduct",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+         "line": 79,
+         "fit": "more general"
+        },
+        {
+         "name": "IsDedekindDomain.FiniteAdeleRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+         "line": 94,
+         "fit": "special case"
+        },
+        {
+         "name": "IsDedekindDomain.HeightOneSpectrum.adicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+         "line": 602,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.repartitionSpace",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Repartition/Basic.lean",
+         "line": 122,
+         "fit": "related"
+        },
+        {
+         "name": "FunctionField.FqtInfty",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/FunctionField.lean",
+         "line": 188,
+         "fit": "special case"
+        }
+       ],
+       "note": "The general restricted-product construction and the finite adeles of a Dedekind domain (hence of an affine model of the curve, with adic completions and their integer rings) are in Mathlib. What is missing is the adele ring of a function field itself: the places at infinity are not adjoined, and Tau Ceti's `repartitionSpace` is the completion-free repartition space, not a topological ring."
+      },
+      {
+       "target": "Local compactness of the adele ring",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "RestrictedProduct.locallyCompactSpace_of_group",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 621,
+         "fit": "more general"
+        },
+        {
+         "name": "RestrictedProduct.weaklyLocallyCompactSpace_of_cofinite",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+         "line": 405,
+         "fit": "more general"
+        },
+        {
+         "name": "NumberField.InfiniteAdeleRing.locallyCompactSpace",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfiniteAdeleRing.lean",
+         "line": 70,
+         "fit": "related"
+        }
+       ],
+       "note": "The general criterion (each factor locally compact, the distinguished subgroups open and compact) is proved for restricted products, so local compactness of a function-field adele ring would follow once the ring is constructed; the instance itself is not in the libraries."
+      },
+      {
+       "target": "Discreteness and cocompactness of K in its additive adeles",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.GlobalNumberFields.discreteTopology_principalSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/Adeles/Discrete.lean",
+         "line": 64,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GlobalNumberFields.isClosed_principalSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/Adeles/Discrete.lean",
+         "line": 89,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.finrank_quotient_repartitionSpace",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Repartition/IndexOfSpecialty.lean",
+         "line": 176,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.adeleFiltration_inf_sup_diagonalRepartitions",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Repartition/Basic.lean",
+         "line": 372,
+         "fit": "related"
+        }
+       ],
+       "note": "Discreteness and closedness of the diagonal are proved for number fields only, and cocompactness is not proved even there. For function fields Tau Ceti proves the algebraic shadow — A(D) ∩ F = L(D) and dim_k A_F/(A_F(D)+F) = i(D) < ∞ — which is the finite-dimensionality behind cocompactness, but with no topology on the repartition space."
+      },
+      {
+       "target": "The idele group, the idele degree map and the compact degree-zero idele class group",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.IdeleClassGroup",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+         "line": 119,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines the idele and idele class groups of a number field but proves nothing about them; there is no degree map, no degree-zero subgroup and no compactness statement, and nothing at all in the function-field case."
+      },
+      {
+       "target": "Local residue characters from a nonzero differential and self-dual Haar measures",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Measure.haar",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Haar/Basic.lean",
+         "line": 584,
+         "fit": "more general"
+        },
+        {
+         "name": "VectorFourier.fourierIntegral",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/FourierTransform.lean",
+         "line": 82,
+         "fit": "more general"
+        },
+        {
+         "name": "AddChar",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Group/AddChar.lean",
+         "line": 70,
+         "fit": "related"
+        }
+       ],
+       "note": "The ambient machinery is more general than one might expect: Mathlib has Haar measure on any locally compact group, `AddChar` valued in the circle, and `VectorFourier.fourierIntegral` for an arbitrary commutative ring 𝕜 with a unitary additive character, a bilinear pairing and a measure — so the adelic Fourier integral is expressible. What is missing is everything specific: no additive character of a positive-characteristic local field built from a residue, no self-duality of a measure, and no Fourier inversion outside finite-dimensional real inner product spaces."
+      },
+      {
+       "target": "The global residue pairing and Poisson summation on the adeles",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Real.tsum_eq_tsum_fourier_of_rpow_decay",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/PoissonSummation.lean",
+         "line": 205,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's Poisson summation is ∑_{n∈ℤ} f(n) = ∑ 𝓕f(n) on ℝ with decay hypotheses; there is no Pontryagin duality for general LCA groups (Fourier inversion is proved only for finite-dimensional real inner product spaces), no adelic Fourier transform and no adelic Poisson summation."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-5-full-adeles-and-the-additive-quotient",
+       "note": "The same construction and the same discreteness/cocompactness statements, for number fields; FA.2 explicitly says the archimedean arguments cannot be imported unchanged, so the overlap is in the statements, not the proofs."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+       "note": "Owns the idele group and the idele class group in the number-field case, including strong approximation."
+      },
+      {
+       "layer": "AdelicAlgebraicGroups:AA.1",
+       "note": "AA.1 constructs adelic points of algebraic groups over a global field as restricted products with their topology; the underlying adele ring and its local compactness are shared with FA.2."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
+       "note": "Owns the repartition (completion-free adele) space and the filtration A_F(D), which FA.2 re-uses as the algebraic skeleton of its adele ring."
+      },
+      {
+       "layer": "AdelicAlgebraicGroups:AA.0",
+       "note": "Owns restricted products of locally compact groups: local compactness, compact-open cylinders and restricted products of Haar measures normalized on almost all places — exactly FA.2's first two targets in group-theoretic generality."
+      }
+     ]
+    },
+    "FunctionFieldArithmetic:FA.3": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Integral closures in finite separable extensions and the places above a place",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.isDedekindDomain_integralClosure",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean",
+         "line": 177,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Fundamental.lean",
+         "line": 77,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/AffineModel/Extension.lean",
+         "line": 293,
+         "fit": "exact"
+        },
+        {
+         "name": "IsIntegralClosure.isDedekindDomain",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/IntegralClosure.lean",
+         "line": 220,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Place.restrictOfPrimeEquivNormalizedFactors",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/AffineModel/Kummer.lean",
+         "line": 101,
+         "fit": "exact"
+        }
+       ],
+       "note": "The fundamental identity ∑ e_i f_i = [F':F] is proved (separably, and on an affine model), together with Kummer's factorization theorem and integral bases."
+      },
+      {
+       "target": "Decomposition and inertia groups",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.decompositionField",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Decomposition.lean",
+         "line": 102,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.stabilizer_eq_decompositionSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Galois.lean",
+         "line": 145,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.mem_inertiaSubgroup_iff",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Inertia.lean",
+         "line": 141,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.card_inertiaSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Inertia.lean",
+         "line": 410,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.ncard_mul_ramificationIdx_mul_relativeDegree_eq_finrank",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Galois.lean",
+         "line": 331,
+         "fit": "exact"
+        }
+       ],
+       "note": "Galois transitivity on the fibre, the decomposition field with its degree, and the inertia group with |I| = e·(inseparable residue degree) are all proved for place extensions of function fields."
+      },
+      {
+       "target": "The different and the discriminant",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.different",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Different/Divisor.lean",
+         "line": 141,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.differentExponent",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Different/Basic.lean",
+         "line": 212,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.ramificationIdx_le_differentExponent_add_one",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Different/Basic.lean",
+         "line": 235,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.ramificationIdx_eq_differentExponent_add_one",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Different/Tame.lean",
+         "line": 81,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Divisor.different_eq_conorm_add",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Different/Tower.lean",
+         "line": 181,
+         "fit": "exact"
+        }
+       ],
+       "note": "Dedekind's different theorem is proved in both halves: d(P'|P) ≥ e-1 always, with equality exactly in the tame case, plus transitivity in towers. Mathlib supplies `differentIdeal` and the discriminant underneath. The wild different is therefore bounded but not computed by a ramification-filtration formula."
+      },
+      {
+       "target": "Lower and upper ramification filtrations",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.ramificationGroup",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/RamificationGroup.lean",
+         "line": 109,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.ramificationGroup_antitone",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/RamificationGroup.lean",
+         "line": 159,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.iInf_ramificationGroup_eq_bot",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/RamificationGroup.lean",
+         "line": 188,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Place.ramificationResidueHom",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/RamificationGroup.lean",
+         "line": 265,
+         "fit": "exact"
+        },
+        {
+         "name": "ValuationSubring.inertiaSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/RamificationGroup.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the lower-numbering filtration G_i is built, with the quotient embeddings into the residue field and the p-group structure of G_1. The Herbrand function φ/ψ and the upper numbering are absent from both libraries, so the wild conductor computation FA.3's acceptance demands is not available."
+      },
+      {
+       "target": "Riemann--Hurwitz including the wild different",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: `grep -rn -i hurwitz` matches only Hurwitz zeta functions in Mathlib. The different divisor exists, but 2g'-2 = [F':F](2g-2) + deg Diff(F'/F) is not stated anywhere; note also that Tau Ceti's genus theory is in place, so this is a missing theorem rather than missing vocabulary."
+      },
+      {
+       "target": "Artin--Schreier and Witt-vector descriptions of cyclic p-power extensions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Defs.lean",
+         "line": 52,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.IsEisensteinAt",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Eisenstein.lean",
+         "line": 150,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Witt vectors and Frobenius/Verschiebung but no Artin--Schreier theory: the only `artinSchreier` names are ad hoc quadratic-splitting lemmas in Tau Ceti's elliptic-curve files. The classification of ℤ/p-extensions by F℘(F) and of ℤ/p^n-extensions by Witt vectors is absent, as is the equivalence relation on the defining elements."
+      },
+      {
+       "target": "Purely inseparable extensions by Frobenius, treated separately",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.card_inertiaSubgroup_eq_ramificationIdx_mul_finInsepDegree",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Inertia.lean",
+         "line": 375,
+         "fit": "related"
+        },
+        {
+         "name": "IsPurelyInseparable",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/PurelyInseparable/Basic.lean",
+         "line": 107,
+         "fit": "more general"
+        }
+       ],
+       "note": "Mathlib's general purely inseparable field theory is available and Tau Ceti keeps the inseparable residue degree visible in the inertia count, but there is no function-field-specific treatment of F^{1/p}/F: no statement that it has no Galois group, no different and no étale-cover interpretation."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+       "note": "Owns e, f, the fundamental identity, the conorm and the decomposition theory that FA.3 restates."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+       "note": "Owns both the different (already built) and the Hurwitz genus formula (FA.3's missing target), from the same Stichtenoth sections FA.3 cites via Rosen."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+       "note": "Owns constant-field extensions and the inseparability traps that FA.3 says must be treated separately."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+       "note": "Owns the unit filtration U(K,i) of a local field and its comparison with the ramification groups G_j, the local counterpart of FA.3's filtrations (and the part Tau Ceti has already built)."
+      }
+     ]
+    },
+    "FunctionFieldArithmetic:FA.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Local reciprocity for F_{q^d}((t)): the local Artin map and its norm-subgroup description",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFieldTheory.Formation",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 123,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.norm",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 383,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.tateHZeroEquivNormQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 459,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.TateCohomology.herbrandQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/HerbrandQuotient.lean",
+         "line": 59,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the abstract scaffolding of a class formation — smooth discrete Galois modules, finite normal layers, norms, norm quotients, Tate cohomology in low degrees and Herbrand quotients — but the class-formation axioms, the invariant map and the Artin map are not defined: `grep -rn -i reciprocity` in that directory finds only docstrings saying what will later be read off these carriers. The local unit filtration of a local field exists (`TauCeti/NumberTheory/LocalField/UnitFiltration/`) but is not connected to any reciprocity map."
+      },
+      {
+       "target": "The global reciprocity map from ideles, with principal ideles acting trivially",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: there is no idele class group of a function field, and no Artin map in either library (Tau Ceti's `NumberFieldArithmetic.artinElement` is the Frobenius/Artin symbol at an unramified prime of a number field, not the reciprocity homomorphism)."
+      },
+      {
+       "target": "Identification of finite abelian quotients by their norm subgroups; the infinite statement via profinite completion or dense image",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The degree map versus the Galois group of the constant extension",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.degree",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
+         "line": 469,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; place degrees exist but there is no divisor/idele degree map to ẑ and no comparison with Gal(F̄_q/F_q)."
+      },
+      {
+       "target": "Ray class fields with conductor data",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent for function fields. Tau Ceti has ray-class-style objects only in the number-field Multiquadratic/genus-theory development."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
+       "note": "Owns local class field theory including the norm-subgroup correspondence; FA.4 specializes the same statement to F_{q^d}((t))."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+       "note": "Owns the global class formation and the Artin reciprocity map from ideles, which FA.4 restates for a function field."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+       "note": "Owns the existence theorem and the norm-index identification of finite abelian quotients."
+      },
+      {
+       "layer": "HigherLocalFieldsAndHigherClassFieldTheory:HL.7",
+       "note": "HL.7's comparison examples include the classical one-dimensional local and global class field theory of function fields as the degenerate case of higher class field theory."
+      }
+     ]
+    },
+    "FunctionFieldArithmetic:FA.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The Euler product over closed points by degree, and the zeta function of the curve",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.finite_setOf_degree_le",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/BoundedDegree.lean",
+         "line": 93,
+         "fit": "related"
+        },
+        {
+         "name": "EulerProduct.eulerProduct_completely_multiplicative",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/EulerProduct/Basic.lean",
+         "line": 367,
+         "fit": "related"
+        }
+       ],
+       "note": "The convergence ingredient is there — only finitely many places have degree ≤ n — and Mathlib has Euler products for multiplicative functions on ℕ, but the zeta function Z_C(t) = ∏_P (1-t^{deg P})^{-1} of a curve over a finite field is not defined in either library."
+      },
+      {
+       "target": "Rationality of the zeta function and its numerator, via Riemann--Roch and the independent Weil theorem",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.finite_setOf_isEffective_degree_le",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/ClassNumber.lean",
+         "line": 82,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Divisor.classNumber",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/ClassNumber.lean",
+         "line": 202,
+         "fit": "related"
+        }
+       ],
+       "note": "The two facts the Riemann--Roch rationality proof needs — finitely many effective divisors of bounded degree, and finiteness of Cl⁰ — are proved in Tau Ceti; the L-polynomial, its degree 2g, its functional equation and the Riemann hypothesis for curves are not."
+      },
+      {
+       "target": "Artin local factors on inertia invariants for a finite Galois cover, including ramified places",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.mem_inertiaSubgroup_iff",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/Inertia.lean",
+         "line": 141,
+         "fit": "related"
+        }
+       ],
+       "note": "Inertia subgroups of place extensions exist, but there is no Artin L-function of a Galois representation in either library (Mathlib's L-series are Dirichlet/Hurwitz/modular)."
+      },
+      {
+       "target": "A function-field Chebotarev theorem retaining the degree congruence imposed by the constants",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.isUnramifiedAt_of_mem_frobeniusPrimeSet",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
+         "line": 127,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's Chebotarev directory is number-field infrastructure in progress (Frobenius prime sets, auxiliary primes, von Mangoldt counting); the density theorem itself is not proved there, and there is nothing for function fields, where the constant-field degree obstruction is the whole point."
+      },
+      {
+       "target": "Error terms recorded with genus, conductor and representation dimension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.1",
+       "note": "FA.5 imports DWP.1's Weil estimate for curves; DWP.1 states the Riemann hypothesis for curves that FA.5 uses to locate the zeros of the numerator."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+       "note": "Owns the Chebotarev density theorem in the number-field case; FA.5 wants the function-field analogue with the degree congruence."
+      },
+      {
+       "layer": "WeilConjectures:WC.5:surface-alternative",
+       "note": "States the curve bound by intersection theory, i.e. the same Riemann-hypothesis-for-curves input to FA.5's numerator."
+      },
+      {
+       "layer": "WeilConjectures:WC.1",
+       "note": "States the same Euler product by closed-point degree, the relation N_r = ∑_{m|r} m a_m with its Möbius inversion, and rationality of the zeta series — FA.5's first two targets, over a general variety rather than a curve."
+      }
+     ]
+    },
+    "FunctionFieldArithmetic:FA.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The adelic quotient G(K)\\G(A_K) for a connected reductive K-group",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.reductiveCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Reductive/Basic.lean",
+         "line": 70,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has a substantial affine-group-scheme library including reductivity, tori, Borels and root data, but no adelic points of an algebraic group, and no adele ring of a function field to take points in."
+      },
+      {
+       "target": "Compact-level functions, central characters, constant terms and cuspidal subspaces",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: `grep -rn -i cuspidal` in the Lean sources matches only cusp forms for congruence subgroups in Tau Ceti's classical modular-forms development."
+      },
+      {
+       "target": "Reduction-theoretic finiteness of cuspidal spaces at fixed level and central character",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no reduction theory (no Siegel sets, no Harder--Narasimhan reduction) in either tree."
+      },
+      {
+       "target": "Hecke correspondences and the unramified Satake dictionary with normalized Frobenius",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeCoset.toSet",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/Basic.lean",
+         "line": 106,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's Hecke rings are double-coset algebras for the classical elliptic-modular setting; `grep -rn -i satake` returns nothing in either library, so the Satake isomorphism does not exist in any form."
+      },
+      {
+       "target": "Complex or characteristic-zero ell-adic coefficient models with descent of eigenvalues",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.4",
+       "note": "Owns the unramified Satake dictionary for a local group, which FA.6 imports and restates adelically."
+      },
+      {
+       "layer": "AdelicAlgebraicGroups:AA.1",
+       "note": "Owns adelic points of algebraic groups and their functoriality — the carrier G(A_K) that FA.6 quotients."
+      },
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic",
+       "note": "ES7's function-field supplier restates FA.6's adelic quotient, Haar measures and discrete spectral decomposition for a central division algebra; FA.6 is its declared source."
+      },
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+       "note": "GS.0 needs exactly FA.6's adelic description of rational points in torsor classes, and lists FA.6 as an input."
+      }
+     ]
+    },
+    "FunctionFieldArithmetic:FA.7": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Packaging divisor arithmetic, ray characters, conductors, L-polynomials and normalized local completions as independently checkable data",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+         "line": 43,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.HeightOneSpectrum.adicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+         "line": 602,
+         "fit": "related"
+        }
+       ],
+       "note": "This is an export/packaging obligation rather than a theorem. Its inputs that exist are divisor arithmetic and adic completions; its inputs that do not exist are ray characters, conductors and L-polynomials, all of which belong to FA.4 and FA.5."
+      },
+      {
+       "target": "Certified finite-field factorization and place enumeration",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.finite_setOf_degree_le_ratFunc",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/BoundedDegree.lean",
+         "line": 69,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.restrictOfPrimeEquivNormalizedFactors",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/AffineModel/Kummer.lean",
+         "line": 101,
+         "fit": "related"
+        }
+       ],
+       "note": "Places of bounded degree on k(x) are enumerated by monic irreducibles and Kummer's theorem reduces places above P to factorization of a minimal polynomial mod P; but there is no certified factorization algorithm, no cost model and no executable enumeration in either library."
+      },
+      {
+       "target": "Riemann--Roch linear algebra with a stated representation and complexity",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.dim_ratFunc",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/RatFunc.lean",
+         "line": 244,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.genus_ratFunc",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/RatFunc.lean",
+         "line": 192,
+         "fit": "special case"
+        }
+       ],
+       "note": "The P^1 case is fully computed (ℓ(D) and genus 0), which is FA.7's first worked example; no general algorithm or complexity statement exists."
+      },
+      {
+       "target": "Exporting FA.6 to ES7:function-field-automorphic and to global shtukas; distinguishing global function fields from local equal-characteristic fields",
+       "library": "absent",
+       "declarations": [],
+       "note": "Pure integration: it records which object a downstream roadmap consumes and at which place the completion is taken. Nothing to prove, and the thing to be exported (FA.6) does not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic",
+       "note": "The consumer of FA.7's export; the 'chosen place and its completion' comparison is stated on both sides."
+      },
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.7",
+       "note": "GS.7 states the same local--global place-comparison contract from the shtuka side."
+      },
+      {
+       "layer": "ComputationalNumberTheory:CN.5",
+       "note": "CN.5 is the analogous certified-computation/export layer for number fields, with the same 'stated representation and cost model' requirement."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-1-the-rational-function-field",
+       "note": "Owns the F_q(t) end-to-end computation (all places, their degrees, ℓ(n·∞), genus 0) that FA.7's acceptance suite starts from."
+      }
+     ]
+    }
+   }
+  },
+  "GlobalShtukasAndFunctionFieldLanglands": {
+   "summary": "Nothing in this roadmap is in the pinned libraries. Neither Mathlib nor Tau Ceti has algebraic stacks (Mathlib's only `Stack` notion is the abstract descent condition `CategoryTheory.Pseudofunctor.IsStackFor`), loop groups, affine or Beilinson--Drinfeld Grassmannians, perverse sheaves, intersection cohomology, shtukas, Drinfeld's lemma, or excursion operators; `grep -rn -i shtuka` and `grep -rn -i satake` are both empty across the two trees. What does exist is foundational and genuinely useful: Mathlib now carries the étale, fppf, fpqc and pro-étale topologies on schemes and a definition of ℓ-adic cohomology as pro-étale cohomology with ℤ_ℓ-coefficients (`AlgebraicGeometry.Scheme.EllAdicCohomology`), together with faithfully flat descent for modules and descent of morphism properties along flat quasi-compact surjections; Tau Ceti has reductive affine group schemes, root data and fppf quotients. But no cohomological theorem — finiteness, base change, duality, the trace formula — is proved for ℓ-adic cohomology, so even GS.3's coefficient formalism is unavailable. Every layer is not built.",
+   "layers": {
+    "GlobalShtukasAndFunctionFieldLanglands:GS.0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Bun_G on the global curve for a chosen smooth group model",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Pseudofunctor.IsStackFor",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/Descent/DescentData.lean",
+         "line": 507,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.reductiveCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Reductive/Basic.lean",
+         "line": 70,
+         "fit": "related"
+        }
+       ],
+       "note": "There is no moduli stack of G-bundles in either library, and no algebraic-stack formalism to define it in: Mathlib's stack notion is the descent condition for a pseudofunctor on a site, with no representability or atlas theory. Tau Ceti's reductive groups are affine group schemes over a field given by Hopf algebras, not smooth group schemes over a curve."
+      },
+      {
+       "target": "Level structures on G-bundles",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The deformation complex of a G-bundle",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no cotangent complex for stacks and no Lie-algebra-valued cohomology of a bundle on a curve."
+      },
+      {
+       "target": "Harder--Narasimhan bounded opens, and their finite type",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: `grep -i harder` and `grep -i semistab` find nothing relevant in either tree (the one 'semistable' hit is stable reduction of curves in Tau Ceti), so slopes and HN filtrations of bundles do not exist."
+      },
+      {
+       "target": "Automorphisms and central degree; the adelic description of rational points in torsor classes",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor.ker_degreeClass_eq_picZero",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean",
+         "line": 278,
+         "fit": "related"
+        }
+       ],
+       "note": "Weil uniformization G(K)\\G(A)/G(O) is absent — there is no adele ring of a function field. The GL_1 acceptance case reduces to the Picard group, and Tau Ceti has Pic⁰ and the degree exact sequence as abelian groups, but not the Picard stack with its degree components."
+      },
+      {
+       "target": "Descent data for nonsplit groups, retaining the ramified places",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.fpqcTopology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/Fpqc.lean",
+         "line": 75,
+         "fit": "related"
+        },
+        {
+         "name": "comonadicExtendScalars",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/ModuleCat/Descent.lean",
+         "line": 59,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgHom.faithfullyFlatDescentMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/FaithfullyFlatDescent.lean",
+         "line": 218,
+         "fit": "related"
+        }
+       ],
+       "note": "General faithfully flat descent for modules (as comonadicity of extension of scalars) and the fpqc/étale topologies are available, and Tau Ceti has faithfully flat descent for subgroups of affine group schemes; nothing is assembled into descent data for a nonsplit reductive group over a curve."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "BunGAndNewtonStrata:BG2:uniformization",
+       "note": "States the same objects — the groupoid of G-bundles, v-descent, the diagonal via Isom sheaves and a uniformization theorem — over the Fargues--Fontaine curve rather than the global curve C."
+      },
+      {
+       "layer": "FunctionFieldArithmetic:FA.6",
+       "note": "GS.0's adelic description of rational points is FA.6's adelic quotient G(K)\\G(A_K); FA.6 is GS.0's declared input."
+      }
+     ]
+    },
+    "GlobalShtukasAndFunctionFieldLanglands:GS.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The Beilinson--Drinfeld Grassmannian over powers of C",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Grassmannian",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Grassmannian.lean",
+         "line": 68,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's `Module.Grassmannian` is the functor of rank-n quotients of a module — the finite-dimensional Grassmannian. There is no loop group, no affine Grassmannian and nothing over powers of a curve."
+      },
+      {
+       "target": "Bounded Hecke stacks, convolution, and collision/factorization maps",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The classical equal-characteristic geometric Satake equivalence with its pinning and commutativity constraint",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: `grep -rn -i satake` returns nothing in either tree, and there are no perverse sheaves (`grep -i perverse` is empty) to state it with."
+      },
+      {
+       "target": "Rational ell-adic intersection complexes with half-Tate-twist conventions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.EllAdicCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines ℓ-adic cohomology of a scheme as pro-étale cohomology with ℤ_ℓ-coefficients but proves nothing about it; there is no six-functor formalism, no perverse t-structure and no intersection complex."
+      },
+      {
+       "target": "Descent of nonsplit data via the L-group",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no dual group or L-group in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeometricSatakeAndFusion:GS2",
+       "note": "Owns Satake objects and convolution; GS.1 is the equal-characteristic classical counterpart of the same equivalence."
+      },
+      {
+       "layer": "GeometricSatakeAndFusion:GS0",
+       "note": "Owns Beilinson--Drinfeld Grassmannians and loop groups, the same geometric input GS.1 constructs over powers of C."
+      },
+      {
+       "layer": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison",
+       "note": "Explicitly the comparison between the mixed-characteristic and classical Satake equivalences that GS.1 says it must prove separately."
+      }
+     ]
+    },
+    "GlobalShtukasAndFunctionFieldLanglands:GS.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Multi-leg global shtukas as successive modifications with an isomorphism to the Frobenius pullback, with a specified direction",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Frobenius itself exists in Mathlib (`frobenius`, `iterateFrobenius`) and Tau Ceti uses Frobenius twists for elliptic curves, but there is no notion of a bundle modification or a shtuka."
+      },
+      {
+       "target": "Bounds, level structures, partial Frobenius and Harder--Narasimhan truncations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Representability / Deligne--Mumford and finite-type statements with stabilizer hypotheses",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.LocalRepresentability.representableBy",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/Representability.lean",
+         "line": 193,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has a representability criterion for functors on schemes (an fpqc-sheaf condition plus a covering by open subfunctors), which is the kind of tool this layer would use; no Deligne--Mumford stack exists."
+      },
+      {
+       "target": "Smooth local-model maps to bounded Grassmannians; central-lattice quotients",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DrinfeldModulesAndTModules:DM.7",
+       "note": "DM.7 constructs the rank-r elliptic sheaf that GS.2 says is an optional specialized realization of a global shtuka; both state the Frobenius-modification definition."
+      },
+      {
+       "layer": "HeckeStacksAndLocalShtukas:HS2",
+       "note": "Owns local shtuka moduli and bounds; GS.2's bounds and local models are the global counterpart."
+      }
+     ]
+    },
+    "GlobalShtukasAndFunctionFieldLanglands:GS.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Compactly supported intersection cohomology of bounded truncations and its transition maps",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.ellAdicSheaf",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+         "line": 63,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Sheaf.H",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+         "line": 59,
+         "fit": "related"
+        }
+       ],
+       "note": "Sheaf cohomology on a site and the ℓ-adic coefficient sheaf exist as definitions; compactly supported cohomology, the six operations, and intersection complexes do not exist in either library."
+      },
+      {
+       "target": "The filtered colimit over truncations used for shtuka cohomology",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Hecke correspondences, cohomological correspondences and adjunction maps on the colimit",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The Hecke-finite/cuspidal sector and its finiteness",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The relation between that sector and automorphic cusp forms",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there are no automorphic forms over a function field in either library (see FA.6)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EtaleDualityAndPerverseSheaves:EDC.5",
+       "note": "GS.3's declared input; EDC.5 owns the compact-support and intersection-complex formalism GS.3 uses."
+      },
+      {
+       "layer": "FunctionFieldArithmetic:FA.6",
+       "note": "FA.6 owns the cusp-form space that GS.3's trivial-representation acceptance case must match."
+      }
+     ]
+    },
+    "GlobalShtukasAndFunctionFieldLanglands:GS.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Drinfeld's lemma in the lisse/finite-rank setting",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no étale fundamental group of a scheme in either library (`grep -i EtaleFundamentalGroup` is empty; Mathlib's 428 `FundamentalGroup` hits are the topological fundamental group and groupoid)."
+      },
+      {
+       "target": "The continuous action of a product of global Galois groups on the Hecke-finite sector",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Specialization of legs with independence and coalescence isomorphisms",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Commutation of creation/annihilation and partial Frobenius with Hecke operators",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES0",
+       "note": "The creation/Weil/annihilation composition and its relations are stated in both places — GS.4/GS.5 globally over a function field, ES0 locally in the Fargues--Scholze setting."
+      }
+     ]
+    },
+    "GlobalShtukasAndFunctionFieldLanglands:GS.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Excursion operators indexed by invariant functions and Galois tuples, with their relations and commutativity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. The only `excursion` names in either library are Tau Ceti's combinatorial excursion processes (`TauCeti/Combinatorics/Enumerative/ExcursionProcess.lean`), an unrelated notion."
+      },
+      {
+       "target": "Reconstruction of continuous semisimple L-group parameters from characters of the excursion algebra",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The canonical decomposition of the fixed-level cuspidal space",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Unramified Satake compatibility and independence from auxiliary leg choices",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Nonsplit projection to the Galois group; generalized eigenspaces rather than diagonalizability",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES0",
+       "note": "ES0 constructs the same excursion operators (finite leg set, matrix coefficient, coevaluation/Weil tuple/evaluation) in the local Fargues--Scholze setting, with the same relations."
+      },
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES5",
+       "note": "ES5's semisimple parameter assignment from excursion characters is the local analogue of GS.5's reconstruction of L-parameters."
+      },
+      {
+       "layer": "LanglandsParameterStacks:LP2:excursion-presentation",
+       "note": "Owns the presentation of the excursion algebra that both GS.5 and ES0 use to prove independence of the realizing representation."
+      }
+     ]
+    },
+    "GlobalShtukasAndFunctionFieldLanglands:GS.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Compactifications of shtuka moduli and boundary analysis",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Negligible cohomology and induction on the rank",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The trace formula and matching of Hecke and Frobenius terms",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Grothendieck--Lefschetz trace formula in either library."
+      },
+      {
+       "target": "The bijection between cuspidal automorphic representations with finite-order central character and irreducible continuous n-dimensional ell-adic representations with finite-order determinant",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent in both directions. The n = 1 acceptance case is global class field theory for function fields, which is itself absent (see FA.4)."
+      },
+      {
+       "target": "Local factors, purity and multiplicity conclusions in the theorem's range",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FunctionFieldArithmetic:FA.4",
+       "note": "GS.6's n = 1 case is exactly FA.4's global reciprocity map for a function field."
+      },
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.7",
+       "note": "GS.6's declared input for purity of the local factors; the purity statement is stated in both."
+      }
+     ]
+    },
+    "GlobalShtukasAndFunctionFieldLanglands:GS.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Comparison of the restriction of a global parameter with the local parameter at a chosen place",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; neither a global nor a local Langlands parameter exists in the libraries."
+      },
+      {
+       "target": "Local--global compatibility beginning with unramified Satake and GL_n",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Local shtuka uniformization and nearby-cycle comparison maps with level and boundedness hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there are no nearby cycles in either library."
+      },
+      {
+       "target": "Keeping semisimplification and monodromy distinct in every comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Weil--Deligne representation in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic",
+       "note": "GS.7 says it reuses the ES7 function-field branch as a local Langlands input; ES7:equal-characteristic owns the D-elliptic-sheaf realization for E = F_q((t)) that this comparison needs."
+      },
+      {
+       "layer": "HeckeStacksAndLocalShtukas:HS3",
+       "note": "Owns local shtuka cohomology as a representation-valued functor, the object GS.7 compares its global restriction with."
+      }
+     ]
+    }
+   }
+  },
+  "BunGAndNewtonStrata": {
+   "summary": "This roadmap lives on the Fargues--Fontaine curve over perfectoid spaces, and that setting does not exist in the pinned baseline: Mathlib has the tilting/untilting fragment (`PreTilt.untilt`, `WittVector.fontaineTheta`, `BDeRham`) but no perfectoid ring or space, and Tau Ceti has adic spaces `Spa(A,A⁺)` of Huber pairs but no diamonds, no v-stacks, no Fargues--Fontaine curve. The one genuine asset is Mathlib's `WittVector.Isocrystal`: isocrystals over W(k)[1/p] with φ-semilinear automorphisms are defined and the Dieudonné--Manin classification is proved in dimension one (`WittVector.isocrystal_classification`), which is the GL_1 shadow of BG0's B(G). Tau Ceti supplies reductive affine group schemes, root data with isogenies and dominant cones, Tannakian reconstruction for commutative Hopf algebras, and fppf torsor quotients — real inputs for the group-theoretic half of BG0 and BG1, but no σ-conjugacy classes, no Kottwitz map, no Newton cocharacter, no Bun_G and no strata. Every layer is not built.",
+   "layers": {
+    "BunGAndNewtonStrata:BG0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "G-torsors on sousperfectoid spaces and on the Fargues--Fontaine curve",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.CommHopfAlgCat.fppfQuotientTorsorAction",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Torsor.lean",
+         "line": 293,
+         "fit": "related"
+        },
+        {
+         "name": "PreTilt.untilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/Untilt.lean",
+         "line": 49,
+         "fit": "related"
+        }
+       ],
+       "note": "There is no perfectoid ring or space in Mathlib (only the untilt map and Fontaine's θ) and no Fargues--Fontaine curve in either tree, so there is no base on which to define a G-torsor. Tau Ceti has fppf torsors under an affine group scheme over a field, which is the algebraic prototype only."
+      },
+      {
+       "target": "Comparison of geometric etale torsors, etale sheaf torsors and exact tensor functors Rep_E(G) → vector bundles",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/GroupFunctor.lean",
+         "line": 138,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.etaleTopology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
+         "line": 40,
+         "fit": "related"
+        },
+        {
+         "name": "comonadicExtendScalars",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/ModuleCat/Descent.lean",
+         "line": 59,
+         "fit": "related"
+        }
+       ],
+       "note": "The pieces of the Tannakian comparison exist in the affine algebraic setting: Tau Ceti proves that the points of a commutative Hopf algebra are the tensor automorphisms of its comodule category, Mathlib has the étale and fpqc topologies and faithfully flat descent for modules. The comparison of the three torsor notions over an analytic base, and the equivalence with exact tensor functors into vector bundles, are not proved."
+      },
+      {
+       "target": "Extension of structure group, inner twisting, faithful-representation independence",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.RootPairingIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/Isogeny/Basic.lean",
+         "line": 105,
+         "fit": "related"
+        }
+       ],
+       "note": "Isogenies of root data exist; extension of structure group of a torsor along G → H, inner forms and independence of a chosen faithful representation are absent."
+      },
+      {
+       "target": "B(G) as sigma-conjugacy classes in G(E-breve), and its comparison with isomorphism classes of G-isocrystals",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.Isocrystal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 113,
+         "fit": "special case"
+        },
+        {
+         "name": "WittVector.isocrystal_classification",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 183,
+         "fit": "special case"
+        },
+        {
+         "name": "WittVector.StandardOneDimIsocrystal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 159,
+         "fit": "special case"
+        },
+        {
+         "name": "WittVector.FractionRing.frobeniusRingHom",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 84,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines an isocrystal as a K(p,k)-vector space with a φ-semilinear automorphism and proves the Dieudonné--Manin classification only in dimension 1 (over an algebraically closed k, the slope m ∈ ℤ is a complete invariant). There is no slope decomposition in higher rank, no G-isocrystal for a general reductive G, no σ-conjugacy set B(G) and no ramified/unequal-characteristic version."
+      },
+      {
+       "target": "J_b as the algebraic sigma-centralizer: representability and inner-Levi description",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no σ-centralizer group functor is defined, and there is no Levi subgroup theory attached to a Newton point."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "VectorBundlesAndIsocrystals:VB0",
+       "note": "Owns isocrystals and slope conventions; BG0's B(G) is the reductive upgrade of VB0's GL_n isocrystals."
+      },
+      {
+       "layer": "RelativeFarguesFontaine:RF4:G-torsors",
+       "note": "Owns the Tannakian transfer of the patching theorem to G-torsors, the same comparison BG0 states for exact tensor functors."
+      },
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+       "note": "GS.0 constructs G-bundles and their descent for nonsplit groups on the global curve; BG0 does the same on the Fargues--Fontaine curve."
+      }
+     ]
+    },
+    "BunGAndNewtonStrata:BG1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "pi_1(G) and its Galois coinvariants",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.RootPairingIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/Isogeny/Basic.lean",
+         "line": 105,
+         "fit": "related"
+        },
+        {
+         "name": "RootPairing",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/RootSystem/Defs.lean",
+         "line": 82,
+         "fit": "related"
+        }
+       ],
+       "note": "Root data and isogenies between them are in Tau Ceti (including simply connected root data by type), so the cocharacter and coroot lattices are available, but the algebraic fundamental group X_*(T)/Q^∨ is not defined and there is no Galois action on it."
+      },
+      {
+       "target": "The Kottwitz map kappa and the dominant Newton cocharacter nu",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.exists_weylGroup_smul_dominant_of_forall_reflection_mem_of_sub_mem_posRootCone",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/DominantCone.lean",
+         "line": 251,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent: `grep -i kottwitz` returns nothing in either tree. Tau Ceti's dominant-cone theory would supply the 'rational dominant representative' step, but there is no σ-conjugacy class to take invariants of."
+      },
+      {
+       "target": "Independence of representatives and of the maximal torus; behaviour under homomorphisms, central quotients and z-extensions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The classification/uniqueness statements for B(G), basic classes and the centralizer Levi",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.isocrystal_classification",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 183,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only the one-dimensional isocrystal classification exists; B(G) and its basic locus are absent."
+      },
+      {
+       "target": "The partial order on B(G) (equal kappa, dominance of Newton points) and semicontinuity with the stated order topology",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `grep -i 'newton polygon'` finds nothing in either tree, so even the GL_n dominance order on slope polygons is missing."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "VectorBundlesAndIsocrystals:VB0",
+       "note": "Owns slope conventions and the isocrystal invariants that specialize BG1's κ and ν to GL_n."
+      },
+      {
+       "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+       "note": "Uses the same Kottwitz invariants for stable conjugacy and endoscopic data; the κ map is stated in both."
+      },
+      {
+       "layer": "IgusaVarietiesAndTorsionConcentration:IG.0",
+       "note": "IG.0's Newton strata and central leaves use the same B(G) partial order and semicontinuity."
+      }
+     ]
+    },
+    "BunGAndNewtonStrata:BG2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Bun_G as a groupoid-valued functor S ↦ G-bundles on X_S, with v-descent and representable diagonal",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Pseudofunctor.IsStackFor",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/Descent/DescentData.lean",
+         "line": 507,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent: no v-topology, no diamonds and no Artin v-stacks. Mathlib's abstract stack condition for a pseudofunctor on a site is the only ambient notion."
+      },
+      {
+       "target": "Hecke-modification uniformization around an untilt divisor, with v-surjectivity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The bijection |Bun_G| → B(G) with geometric-base independence and the kappa/nu formulas",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent (both sides of the bijection are missing)."
+      },
+      {
+       "target": "kappa locally constant, nu semicontinuous, including non-simply-connected derived group",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Bun_G is an ell-cohomologically smooth Artin v-stack of ell-dimension zero, with the Beauville--Laszlo covering by disjoint [G(E)\\Gr_{G,mu}]",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no cohomological smoothness, no dualizing complex for v-stacks, no affine Grassmannian and no Beauville--Laszlo gluing in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+       "note": "Constructs the analogous Bun_G with level structures on the global curve, including the adelic uniformization statement."
+      },
+      {
+       "layer": "VStackSheavesAndLisseCategories:VS0",
+       "note": "BG2:smooth-Artin imports VS0's Artin v-stacks and eligible operations; the smoothness vocabulary is owned there."
+      },
+      {
+       "layer": "GeometricSatakeAndFusion:GS0:Schubert-smoothness",
+       "note": "The Schubert-smoothness input to BG2:smooth-Artin, explicitly flagged as an early geometric return to Bun_G."
+      }
+     ]
+    },
+    "BunGAndNewtonStrata:BG2:smooth-Artin": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Bun_G is an ell-cohomologically smooth Artin v-stack of ell-dimension zero (FS IV.1.19)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: neither Artin v-stacks nor ℓ-cohomological smoothness exist in the libraries; Mathlib's only ℓ-adic object is the pro-étale coefficient sheaf `AlgebraicGeometry.Scheme.ellAdicSheaf`, with no theorems."
+      },
+      {
+       "target": "The separated cohomologically smooth Beauville--Laszlo covering by the disjoint union of [G(E)\\Gr_{G,mu-bar}]",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The locally spatial diagonal via Isom sheaves (IV.1.20)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there are no spatial diamonds and no Isom sheaves of torsors on an analytic base."
+      },
+      {
+       "target": "Identification of the cover fibres with geometrically trivial open loci in modifications of fixed relative position",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The dimension-zero assertion by the atlas/dualizing calculation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "BunGAndNewtonStrata:BG2",
+       "note": "This is the parent layer's own text; BG2's description contains BG2:smooth-Artin verbatim, so the two share all targets."
+      },
+      {
+       "layer": "VStackSheavesAndLisseCategories:VS0",
+       "note": "Owns Artin v-stacks and the eligible operations this layer's smoothness statement is phrased in."
+      }
+     ]
+    },
+    "BunGAndNewtonStrata:BG2:uniformization": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The groupoid-valued functor of G-bundles on X_S with v-descent and smallness cutoffs",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Pseudofunctor.IsStackFor",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/Descent/DescentData.lean",
+         "line": 507,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; see BG2. The only descent framework available is the abstract stack condition for pseudofunctors on a site."
+      },
+      {
+       "target": "Representability of the diagonal via torsor-Isom sheaves",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The Hecke-modification uniformization theorem around an untilt divisor, with v-surjectivity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; RF4's patching input does not exist either."
+      },
+      {
+       "target": "The bijection |Bun_G| → B(G), geometric-base independence, and the kappa/nu formulas",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.isocrystal_classification",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 183,
+         "fit": "special case"
+        }
+       ],
+       "note": "Absent. The nearest statement in the libraries is the one-dimensional Dieudonné--Manin classification, i.e. |Bun_{GL_1}| → B(GL_1) = ℤ in the isocrystal picture only."
+      },
+      {
+       "target": "kappa locally constant by z-extension and v-surjectivity; nu semicontinuous by faithful-representation HN theory, including non-simply-connected derived group",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Harder--Narasimhan theory in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "BunGAndNewtonStrata:BG2",
+       "note": "The parent layer repeats this sublayer's text verbatim; identical targets."
+      },
+      {
+       "layer": "RelativeFarguesFontaine:RF4",
+       "note": "Owns the patching/modification theorem BG2:uniformization consumes to prove v-surjectivity."
+      }
+     ]
+    },
+    "BunGAndNewtonStrata:BG3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Bun_G^b as a locally closed substack for each b",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "For basic b, the classifying-stack description [*/J_b(E)]; openness of the union of basic strata",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The full automorphism v-group Gtilde_b, its map to J_b(E), connected kernel and quotient description",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The positive Banach--Colmez filtration of the kernel, its ell-cohomological smoothness and the dimension pairing <2rho, nu_b>",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; Banach--Colmez spaces do not exist in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "VStackSheavesAndLisseCategories:VS4",
+       "note": "Owns sheaves on the Bun_G strata and the comparison of étale coefficient categories after removing the connected kernel, which BG3 explicitly defers to it."
+      },
+      {
+       "layer": "VectorBundlesAndIsocrystals:VB3",
+       "note": "Owns Banach–Colmez spaces (the sheaf T ↦ H⁰(X_T, E_T), its diamond representability and exact sequences); BG3 uses the positive Banach–Colmez filtration to identify the connected kernel of Gtilde_b."
+      }
+     ]
+    },
+    "BunGAndNewtonStrata:BG4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The filtered-bundle chart M_b with associated graded geometrically E_b",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there are no filtered bundles on the Fargues--Fontaine curve in the libraries."
+      },
+      {
+       "target": "Representability, partial properness and cohomological smoothness of M_b over [*/J_b(E)] and of M_b → Bun_G",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Surjectivity/covering of the intended neighbourhoods, compatibility with HN strata and dimension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The FS IV Jacobian-criterion input",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; VS1's Jacobian criterion is not in the libraries either."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "VStackSheavesAndLisseCategories:VS1",
+       "note": "Owns the ULA/Jacobian criterion that BG4 is the only consumer of."
+      }
+     ]
+    }
+   }
+  },
+  "ExcursionOperatorsAndSpectralAction": {
+   "summary": "Nothing this roadmap states is in the pinned libraries. Its whole setting — lisse sheaves on Artin v-stacks, coherent Hecke kernels, the stack of Langlands parameters, the Bernstein centre, smooth representations of a p-adic group, local Langlands — is absent: `grep -rn -i` finds no `satake`, no `bernstein center`, no `Weil group`, no `local Langlands`, no `shtuka`, and the only `excursion` declarations in either tree are Tau Ceti's combinatorial excursion processes. What does exist is ambient machinery the roadmap would eventually sit on: Mathlib's condensed sets and modules with solidification (`Condensed`, `CondensedMod`, `CondensedMod.IsSolid`), derived categories and Ext, the étale/pro-étale topologies with an ℓ-adic coefficient sheaf, and Haar measure; Tau Ceti's central simple algebras and Brauer group (including the division-algebra representative of a class), smooth discrete representations of a profinite group, Tate cohomology, and reductive group schemes with root data. The two most classically flavoured layers, ES7:function-field-automorphic and ES7:equal-characteristic, are the ones with the most usable inputs — division algebras, restricted products, Haar measure, function-field places — but neither their adelic constructions nor any of their theorems exist. Every layer is not built.",
+   "layers": {
+    "ExcursionOperatorsAndSpectralAction:ES0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The algebra of natural endomorphisms of the identity of the enhanced category, its centrality and scalar structure",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.End",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Endomorphism.lean",
+         "line": 33,
+         "fit": "related"
+        },
+        {
+         "name": "Condensed",
+         "library": "mathlib",
+         "file": "Mathlib/Condensed/Basic.lean",
+         "line": 44,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has endomorphism monoids of objects and of functors (`CategoryTheory.End`, natural transformations), and condensed sets/modules for the coefficient formalism, but no category D_lis(Bun_G) and hence no centre of it; the distinction between an endomorphism of one object and a natural endomorphism of the identity is available abstractly but is not applied to anything here."
+      },
+      {
+       "target": "Comparison of the degree-zero centre with the Bernstein centre of smooth representations",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.IsSmoothDiscrete",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 254,
+         "fit": "related"
+        }
+       ],
+       "note": "The Bernstein centre does not exist in either library (`grep -i 'bernstein center'` is empty; Tau Ceti's `Bernstein` names are Bernstein functions in analysis). Tau Ceti's `IsSmoothDiscrete` is the smoothness condition for a discrete module over a profinite group, the closest available notion of a smooth representation, but there is no category of smooth representations of a locally profinite group and no Bernstein decomposition."
+      },
+      {
+       "target": "Excursion operators from a finite leg set, an invariant function, coevaluation, a Weil tuple and evaluation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Weil group of a local field in either library and no Hecke functor to create or annihilate legs with."
+      },
+      {
+       "target": "Independence of the realizing representation, via the parameter algebra's presentation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Linearity, multiplication, reindexing, unit insertion and composition relations, including twisted conjugation for nonsplit G; continuity in the Weil variables",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+       "note": "GS.5 constructs excursion operators indexed by invariant functions and Galois tuples with the same relations, globally over a function field."
+      },
+      {
+       "layer": "LanglandsParameterStacks:LP2:excursion-presentation",
+       "note": "Owns the unrestricted excursion algebra and its presentation, which ES0 uses to prove independence of the realizing representation."
+      }
+     ]
+    },
+    "ExcursionOperatorsAndSpectralAction:ES0:classical-center": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Comparison of the categorical centre with the classical Bernstein-block description over complex coefficients",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: neither side exists. There is no block decomposition of smooth complex representations of a p-adic group in either library, and no categorical centre of D_lis(Bun_G)."
+      },
+      {
+       "target": "The characteristic-zero coefficient dictionary used for the comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.3",
+       "note": "Owns the classical admissible-complex-representation theory and the Bernstein block description this layer compares with; ES0:classical-center is explicitly a return to it."
+      }
+     ]
+    },
+    "ExcursionOperatorsAndSpectralAction:ES1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "A single wild inertia subgroup P working for all representations V and finite leg sets on each compact object (FS IX.5.1)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no ramification filtration of the absolute Galois group of a local field in either library (no upper numbering, no wild inertia), and no compact objects in a lisse-sheaf category."
+      },
+      {
+       "target": "Decomposition of compact D_lis into a direct sum and of its Ind-category into a product over components",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Ind",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Limits/Indization/Category.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Ind-categories and compact objects abstractly; the decomposition statement has no subject here."
+      },
+      {
+       "target": "The map from functions on the parameter stack to the categorical centre, when |pi_0 Z(G)| is invertible in Lambda",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; the stack of Langlands parameters does not exist in either library."
+      },
+      {
+       "target": "Compatibility with Hecke functors, coefficient change and finite-wild pieces",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Factorization of every compact object through a single small wild-inertia quotient (FS IX.5.2)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "LanglandsParameterStacks:LP2:integral-invariants",
+       "note": "Owns the stronger spectral-coordinate theorem that ES1:spectral-center consumes to build the map from functions on the parameter stack."
+      }
+     ]
+    },
+    "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "One wild subgroup P for all V and all finite leg sets on each compact object A (FS IX.5.1)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The reduction to a tensor generator and the compactness argument in the condensed endomorphism algebra",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CondensedMod",
+         "library": "mathlib",
+         "file": "Mathlib/Condensed/Module.lean",
+         "line": 40,
+         "fit": "related"
+        },
+        {
+         "name": "CondensedMod.IsSolid",
+         "library": "mathlib",
+         "file": "Mathlib/Condensed/Solid.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "Condensed modules and solidification exist in Mathlib, so the ambient algebra could be phrased; no condensed endomorphism algebra of a sheaf category is constructed, and the compactness argument has no subject."
+      },
+      {
+       "target": "The component decomposition of compact D_lis as a direct sum and of its Ind-category as a product",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES1",
+       "note": "The parent layer's description contains this sublayer verbatim, so the targets coincide."
+      }
+     ]
+    },
+    "ExcursionOperatorsAndSpectralAction:ES1:spectral-center": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The conditional map from functions on the parameter stack to the categorical centre (|pi_0 Z(G)| invertible in Lambda)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Its passage to the relevant Bernstein centre through the stratum and smooth-representation comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; the Bernstein centre is not defined in either library."
+      },
+      {
+       "target": "Compatibility with Hecke functors, coefficient change and finite-wild pieces",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The fall-back excursion-algebra map when the centre-order condition fails",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES1",
+       "note": "The parent layer's description contains this sublayer verbatim."
+      },
+      {
+       "layer": "LanglandsParameterStacks:LP2:integral-invariants",
+       "note": "Supplies the invariant-coordinate theorem this map is built from."
+      }
+     ]
+    },
+    "ExcursionOperatorsAndSpectralAction:ES2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The universal theorem of FS X.1: coherent finite-set Hecke data gives an action of Perf of the derived parameter stack (characteristic-zero coefficients)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DerivedCategory",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+         "line": 87,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has derived categories of abelian categories; there is no derived algebraic geometry, no perfect complexes on a stack, and no Hecke data."
+      },
+      {
+       "target": "Construction via the finite-free-group and affine quotient presentations, with descent, independence, exactness, monoidal coherence and the unit",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Recovery of the Hecke family from the universal parameter, and the two constructions being inverse as spaces of coherent data",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Object-by-object compact support over the non-quasicompact parameter union",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Agreement of the degree-zero action with ES1, and comparison of representation bundles with Satake/Hecke operations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "LanglandsParameterStacks:LP4",
+       "note": "Owns the categorical universal property of the parameter stack that ES2's action is constructed from."
+      }
+     ]
+    },
+    "ExcursionOperatorsAndSpectralAction:ES3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Finite-free-group descent and generation with integral good-filtration and Donkin-subgroup input",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.reductiveCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Reductive/Basic.lean",
+         "line": 70,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; good filtrations, Weyl modules over ℤ and Donkin's theorem are not in either library, although Tau Ceti has reductive group schemes and highest-weight theory over a field."
+      },
+      {
+       "target": "The integral Perf action and its equivalence with coherent Hecke data (FS X.0.1--X.0.2/X.3), carrying ell not dividing |pi_1(dual G)_tors|",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no dual group in either library, so the hypothesis cannot even be stated."
+      },
+      {
+       "target": "Derived reduction and comparison with rationalization",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Compatibility maps for coefficient extension, finite pinned action quotient and finite-wild cutoff",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "LanglandsParameterStacks:LP3",
+       "note": "Owns the integral good-filtration and Donkin results ES3 consumes."
+      },
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES2",
+       "note": "The same universal action theorem, over characteristic-zero rather than integral coefficients."
+      }
+     ]
+    },
+    "ExcursionOperatorsAndSpectralAction:ES4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Spectral support of an object via annihilators/central functions on finite-wild pieces",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Functoriality of support under exact triangles, retracts and coefficient change; localization/decomposition operations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; Mathlib has triangulated categories and Verdier localization abstractly, but no support theory for the objects in question."
+      },
+      {
+       "target": "Compatibility of duality with the Chevalley/contragredient involution",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Chevalley involution of a reductive group in either library."
+      },
+      {
+       "target": "Commuting excursion operators on local shtuka cohomology and their compatibility with the two smooth group actions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HeckeStacksAndLocalShtukas:HS3",
+       "note": "Owns local shtuka cohomology as a representation-valued functor, the object ES4 recovers excursion operators on."
+      }
+     ]
+    },
+    "ExcursionOperatorsAndSpectralAction:ES5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "For a Schur object A in D_lis(Bun_G, L) with End(A) = L as condensed algebras, a continuous semisimple parameter phi_A : W_E → dual G(L) ⋊ Q (FS IX.4.1)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Condensed",
+         "library": "mathlib",
+         "file": "Mathlib/Condensed/Basic.lean",
+         "line": 44,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Mathlib's condensed formalism could express 'End(A) = L as condensed algebras', but there is no Weil group W_E, no dual group and no D_lis(Bun_G)."
+      },
+      {
+       "target": "Uniqueness up to dual-G conjugacy",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The defining excursion identity for every datum (I, V, alpha, beta, (gamma_i))",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The excursion character from the Schur condition, its relations and continuity, and LP2's geometric character theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "phi_{(G,b,pi)} for every irreducible smooth representation pi of G_b(E) via VS4's stratum embedding, with the condensed Schur fact",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.IsSmoothDiscrete",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 254,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; irreducible smooth representations of a p-adic group are not defined in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+       "note": "The global analogue: reconstruction of semisimple L-parameters from excursion characters, with the same uniqueness-up-to-conjugacy caveat."
+      },
+      {
+       "layer": "LanglandsParameterStacks:LP2:semisimple-characters",
+       "note": "Owns the geometric character theorem ES5 applies to its excursion character."
+      }
+     ]
+    },
+    "ExcursionOperatorsAndSpectralAction:ES6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Compatibility of the parameter assignment with isogenies inducing an isomorphism of adjoint groups",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.RootPairingIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/Isogeny/Basic.lean",
+         "line": 105,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; isogenies of root data exist in Tau Ceti, but there is no parameter assignment to be compatible with."
+      },
+      {
+       "target": "Product groups give product parameters for Schur-irreducible constituents of exterior products",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Weil restriction: nonabelian Shapiro equivalence and the excursion-algebra comparison for G = Res_{E'/E} G'",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; Weil restriction of group schemes is not in either library."
+      },
+      {
+       "target": "For a torus, reduction to G_m and the identification phi_chi = local class field theory with a fixed geometric-Frobenius normalization",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFieldTheory.Formation",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 123,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Local class field theory itself is not proved (Tau Ceti has only the class-formation carriers and Tate cohomology), so the identification has no right-hand side."
+      },
+      {
+       "target": "Twisting, central-character compatibility, and z-embeddings for disconnected centre",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Contragredients: FS IX.5.3 for the Bernstein--Zelevinsky dual and supercuspidal smooth duals, preserving the Chevalley involution",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Bernstein--Zelevinsky duality and no Chevalley involution in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
+       "note": "The parent layer's description contains this sublayer verbatim; the isogeny/product/restriction/torus targets coincide."
+      },
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES6:duality",
+       "note": "The parent layer's description also contains the duality sublayer verbatim."
+      },
+      {
+       "layer": "FunctionFieldArithmetic:FA.4",
+       "note": "The torus case needs local class field theory with a normalized geometric Frobenius; FA.4 states that theory for local fields of equal characteristic."
+      }
+     ]
+    },
+    "ExcursionOperatorsAndSpectralAction:ES6:duality": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "FS IX.5.3 for the Bernstein--Zelevinsky dual, via VS5 and GS4's Chevalley/sw comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Parameters of supercuspidal smooth duals",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; supercuspidal representations are not defined in either library."
+      },
+      {
+       "target": "General smooth-dual compatibility using ES7:parabolic and the representation-theoretic duality/induction theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES6",
+       "note": "The parent layer repeats this sublayer verbatim."
+      },
+      {
+       "layer": "VStackSheavesAndLisseCategories:VS5",
+       "note": "Owns the duality and admissibility results this layer applies."
+      }
+     ]
+    },
+    "ExcursionOperatorsAndSpectralAction:ES6:functoriality": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Maps of Bun/Hecke correspondences and comparison of their kernels before evaluating characters",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Isogeny compatibility for Schur-irreducible constituents of pullback (IX.6.1)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.RootPairingIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/Isogeny/Basic.lean",
+         "line": 105,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; only the combinatorial notion of an isogeny of root data exists."
+      },
+      {
+       "target": "Product groups and exterior products through the product Hecke diagram",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Weil restriction for finite separable E'/E: nonabelian Shapiro and finite-index subgroups of finite free groups",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "subgroupIsFreeOfIsFree",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/FreeGroup/NielsenSchreier.lean",
+         "line": 321,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Mathlib does have the Nielsen--Schreier theorem (a subgroup of a free group is free, with the finite-index rank formula), which is the group-theoretic ingredient of the excursion-algebra comparison; nothing else is present."
+      },
+      {
+       "target": "Tori: induced-torus resolution, the two-leg line-bundle computation, diagonality of the centre map, and phi_chi = LCFT",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Twisting, central characters, z-embeddings for disconnected centre, and the |pi_0 Z(G)| invertibility hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES6",
+       "note": "The parent layer repeats this sublayer verbatim."
+      },
+      {
+       "layer": "FunctionFieldArithmetic:FA.4",
+       "note": "The torus case's phi_chi is local class field theory, which FA.4 owns for equal-characteristic local fields."
+      }
+     ]
+    },
+    "ExcursionOperatorsAndSpectralAction:ES7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The stratum maps Psi_G and Psi_G^b and their excursion-algebra variants (IX.7.1)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Factorization through Psi_{G_b} with the twisted Levi cocycle (2rho_dualG - 2rho_dualG_b)(sqrt q)^{deg w} (IX.7.2)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no dual group, no half-sum of positive coroots as a cocharacter of it, and no Weil-group degree map."
+      },
+      {
+       "target": "IX.7.3 for unnormalized parabolic induction and every irreducible subquotient, with the dictionary to normalized induction",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; parabolic induction of smooth representations is not defined in either library."
+      },
+      {
+       "target": "The GL_n comparison phi_pi = rho_pi^ss over characteristic zero",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; the classical local Langlands correspondence is not in either library."
+      },
+      {
+       "target": "The equal-characteristic realization for E = F_q((t)) via D-elliptic sheaves",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The characteristic-p global automorphic supplier for a central division algebra over a function field",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.BrauerGroup.exists_eq_mk_centralDivisionRing",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/BrauerGroup/Division.lean",
+         "line": 69,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
+         "line": 99,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the algebra is available: Tau Ceti proves every Brauer class over a field is represented by a central division algebra and has the places of a function field, but no adelic theory, no Haar measures on the adelic quotient and no automorphic spectrum."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES7:parabolic",
+       "note": "The parent layer's description contains all four sublayers verbatim, so their targets are repeated here."
+      },
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison",
+       "note": "Repeated verbatim inside ES7."
+      },
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic",
+       "note": "Repeated verbatim inside ES7."
+      },
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic",
+       "note": "Repeated verbatim inside ES7."
+      }
+     ]
+    },
+    "ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Import of the classical local Langlands correspondence and Jacquet--Langlands for GL_n over E/Q_p",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: neither the local Langlands correspondence nor the Jacquet--Langlands transfer exists in either library."
+      },
+      {
+       "target": "Identification of the two Hecke operations with pi ⊗ rho_pi and sigma ⊗ rho_pi^∨, including the shift [n-1] and the half Tate twist",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Evaluation of unit/counit scalars at the identity Weil tuple and the two-leg excursion equal to trace(rho_pi)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "phi_pi = rho_pi^ss from semisimple trace determination and ES5 uniqueness, extended to all irreducible smooth Qbar_ell-representations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; Brauer--Nesbitt-style semisimple trace determination exists in Mathlib only for finite-dimensional representations of an abstract group over a field, not for continuous Weil-group representations, and there is no segment classification."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+       "note": "Owns the classical local GL_m and inner-form comparison imported here."
+      },
+      {
+       "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+       "note": "Owns the two-tower cohomological realization this layer identifies with the minuscule Hecke fibres."
+      }
+     ]
+    },
+    "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "D-elliptic sheaves and their level moduli over a function-field curve",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.CSA.of",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/BrauerGroup/Basic.lean",
+         "line": 126,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Tau Ceti has central simple algebras and their division-algebra representatives, but no sheaf of orders on a curve, no elliptic sheaf and no moduli."
+      },
+      {
+       "target": "Frobenius/Hecke correspondences and local deformation spaces of D-elliptic sheaves",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Uniformization by Drinfeld/local-shtuka towers (Hausberger)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The supercuspidal isotypic compact-support cohomology with its three commuting actions, its purity, finiteness and automorphic decomposition",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.EllAdicCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; Mathlib's ℓ-adic cohomology is a bare definition (pro-étale cohomology with ℤ_ℓ-coefficients) with no finiteness, purity or compact-support theory."
+      },
+      {
+       "target": "The continuous Hochschild--Serre construction applied to this geometric quotient, and the cuspidal degeneration",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.IsSmoothDiscrete",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 254,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has continuous cohomology of smooth discrete modules over a profinite group, which is the coefficient half of a Hochschild--Serre spectral sequence, but no such spectral sequence for a geometric quotient."
+      },
+      {
+       "target": "The corrected dual isotypic pairing (Kaiser's erratum to LRS 14.11/14.14/14.17)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DrinfeldModulesAndTModules:DM.7",
+       "note": "DM.7's elliptic sheaves are the D = matrix algebra case of the D-elliptic sheaves this layer constructs."
+      },
+      {
+       "layer": "HeckeStacksAndLocalShtukas:HS3",
+       "note": "This layer's realization is explicitly transported to HS3's local shtuka cohomology."
+      }
+     ]
+    },
+    "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Restricted products from the places of the curve, integral orders and the diagonal embedding for a central division algebra over K",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "RestrictedProduct",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+         "line": 79,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Place",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
+         "line": 99,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.BrauerGroup.exists_eq_mk_centralDivisionRing",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/BrauerGroup/Division.lean",
+         "line": 69,
+         "fit": "related"
+        },
+        {
+         "name": "IsDedekindDomain.FiniteAdeleRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+         "line": 94,
+         "fit": "related"
+        }
+       ],
+       "note": "The general restricted product with its topology, the places of a function field, the finite adeles of a Dedekind domain and central division algebras all exist separately. The restricted product of the completions D_v over a chosen family of maximal orders, and the diagonal embedding of D^×, are not constructed — nor is the adele ring of a function field itself (see FA.2)."
+      },
+      {
+       "target": "Degree/central quotients and compatible Haar measures",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Measure.haar",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Haar/Basic.lean",
+         "line": 584,
+         "fit": "more general"
+        }
+       ],
+       "note": "Mathlib has Haar measure on a locally compact group with uniqueness up to scalar; nothing selects compatible local measures on the D_v or a quotient measure on the adelic quotient, and the degree map does not exist."
+      },
+      {
+       "target": "Discreteness and compactness modulo centre of the division-algebra adelic quotient",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.GlobalNumberFields.discreteTopology_principalSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Global/Adeles/Discrete.lean",
+         "line": 64,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. The nearest statement is discreteness of a number field in its adele ring; cocompactness is not proved even there, and the multiplicative division-algebra statement is not approached."
+      },
+      {
+       "target": "Discrete spectral decomposition, finite multiplicities, factorization and the kernel trace identity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no L² theory on an adelic quotient and no trace identity for a convolution kernel in either library."
+      },
+      {
+       "target": "Euler--Poincare / weakly cuspidal local functions and their orbital and character identities",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; orbital integrals do not exist in either library."
+      },
+      {
+       "target": "The simple trace comparison, local-to-global existence with prescribed supercuspidal places, and the GL_n/inner-form transfer used for globalization",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FunctionFieldArithmetic:FA.6",
+       "note": "FA.6 is the declared supplier: it constructs G(K)\\\\G(A_K), Haar-compatible level structures, central characters and the finiteness of cuspidal spaces that this layer restates for a division algebra."
+      },
+      {
+       "layer": "FunctionFieldArithmetic:FA.2",
+       "note": "FA.2 owns the restricted product of local completions, Haar measures and the compactness of the degree-zero idele class group this layer needs."
+      },
+      {
+       "layer": "AdelicAlgebraicGroups:AA.1",
+       "note": "Owns adelic points of an algebraic group over a global field as a restricted product, including the D^× case."
+      },
+      {
+       "layer": "AdelicAlgebraicGroups:AA.0",
+       "note": "Owns restricted products of locally compact groups with compatible normalized Haar measures and the distinction from Tamagawa measures — the first two constructions this layer lists."
+      }
+     ]
+    },
+    "ExcursionOperatorsAndSpectralAction:ES7:parabolic": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Construction of Psi_G and Psi_G^b from the spectral centre and VS4's stratum embeddings, with excursion-algebra variants",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "IX.7.2: factorization through Psi_{G_b} with the twisted Levi cocycle, and the cocycle property for the fixed pinned actions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The increasingly unstable sequence b_N, preservation of the canonical parabolic under bounded self-modifications, and the constant-term Hecke diagram",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Harder--Narasimhan canonical parabolic in either library."
+      },
+      {
+       "target": "IX.7.3 for unnormalized parabolic induction and every irreducible subquotient",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The dictionary with normalized induction: cancellation of the square-root modulus against the cyclotomic twist",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Measure.modularCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Group/ModularCharacter.lean",
+         "line": 130,
+         "fit": "more general"
+        }
+       ],
+       "note": "Mathlib does have the modular character of a locally compact group (`modularCharacter`, with `map_right_mul_eq_modularCharacterFun_smul`), so δ of a group is available in general; but there is no parabolic subgroup of a p-adic group, no δ_P, no normalized induction and hence no dictionary to state."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES7",
+       "note": "The parent layer repeats this sublayer verbatim."
+      },
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.1",
+       "note": "Owns normalized parabolic induction and the modulus character that ES7:parabolic's dictionary is stated against."
+      }
+     ]
+    }
+   }
+  }
+ }
+}

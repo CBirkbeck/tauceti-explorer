@@ -1,0 +1,653 @@
+{
+ "job": "AUDIT-21",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "GeometricSatakeAndFusion": {
+   "summary": "Nothing in this roadmap is built. Neither Mathlib nor Tau Ceti has perfectoid spaces, diamonds, v-sheaves, the Fargues-Fontaine curve, loop groups, affine or Beilinson-Drinfeld Grassmannians, Schubert cells, perverse sheaves, universal local acyclicity, hyperbolic localization or any six-operation formalism; 'Satake', 'Schubert', 'Perverse' and 'Fargues' each have zero hits in the declaration index and in both Lean trees. What the libraries do supply are inputs, not targets: Mathlib's Witt vectors, perfection and tilting/untilting, its module Grassmannian, its abstract t-structures, derived categories and symmetric monoidal categories; Tau Ceti's simply connected root data for every Dynkin type, its Chevalley involution on the Geck carrier, and its Tannakian reconstruction for a commutative Hopf algebra. Two things the roadmap treats as work are closer to done than it suggests: the pinned dual root datum as combinatorial data (TauCeti.DynkinType.simplyConnectedRootDatum together with RootPairing.flip), and the abstract double-coset Hecke ring that the classical Satake comparison needs (Mathlib.NumberTheory.HeckeRing). Genuinely missing is everything geometric: the loop-group and Schubert geometry of GS0, the Bhatt-Scholze projectivity route (no ample, nef or semiample line bundles exist in either library), the relative perverse t-structure of GS1, convolution and fusion, and the Tannakian identification with the pinned dual group.",
+   "layers": {
+    "GeometricSatakeAndFusion:GS0:loop-geometry": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Positive and full loop groups L+G, LG over Div^d_Y from a split reductive O_E-model",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has loop groups of a group scheme: grep -c for LoopGroup in declarations.tsv is 0 and no Lean file in either tree mentions L+G/LG. The Fargues-Fontaine curve, Div^d_Y and B_D^+ are absent too."
+      },
+      {
+       "target": "The etale quotient LG/L+G and the double-quotient local Hecke stack",
+       "library": "absent",
+       "declarations": [],
+       "note": "Mathlib has stacks only as CategoryTheory.Pseudofunctor.IsStack (a descent condition on a pseudofunctor); there is no algebraic or v-stack theory and no quotient-stack construction anywhere in either tree."
+      },
+      {
+       "target": "Descent of finite projective modules on the completed divisor rings",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgHom.faithfullyFlatDescentMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/FaithfullyFlatDescent.lean",
+         "line": 218,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has faithfully flat descent for algebra maps in the affine setting only; there is no descent of finite projective modules along the completed rings of a divisor on the FF curve, and no B_dR^+ at all."
+      },
+      {
+       "target": "Relative Grassmannian of a G-bundle trivialized off ordered leg divisors; Beauville-Laszlo gluing",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Grassmannian",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Grassmannian.lean",
+         "line": 68,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's Module.Grassmannian is the functor of submodules with locally free quotient of fixed rank (EGA I.9.7.3), representability still a TODO. It is not the affine/BD Grassmannian. grep -c -i Beauville in declarations.tsv is 0 and neither tree mentions Beauville-Laszlo."
+      },
+      {
+       "target": "v-sheaf representability and local spatiality in legs",
+       "library": "absent",
+       "declarations": [],
+       "note": "No diamonds, v-sheaves or v-topology exist in either library; grep -rn -i for 'v-sheaf' and 'diamond' in the Lean sources returns only unrelated uses of the word diamond (diamond inheritance, Data/UInt)."
+      },
+      {
+       "target": "Bounded relative position by dominant cocharacters; Schubert cells and closures, properness, dimension <2rho,mu>, closure relations",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -c -i Schubert in declarations.tsv is 0 and grep -rn -i Schubert in both Lean trees returns nothing; no affine flag variety and no Demazure resolution (the only 'Demazure' hits are bibliographic references to SGA III and prose about the Chevalley--Demazure construction)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.1",
+       "note": "GS.1 also constructs the Beilinson-Drinfeld Grassmannian, bounded Hecke stacks and collision/factorization maps, over powers of a curve in equal characteristic; its own text says it is a separate classical proof even where this mixed-characteristic API is reusable."
+      },
+      {
+       "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b",
+       "note": "ET.2b constructs equal-characteristic affine Grassmannians and affine Springer fibres with their Picard actions and finite-type quotients for the Hitchin fibration."
+      }
+     ]
+    },
+    "GeometricSatakeAndFusion:GS0:Schubert-smoothness": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Truncated positive loop groups and their congruence filtration by vector-group quotients",
+       "library": "absent",
+       "declarations": [],
+       "note": "No loop groups exist in either library, so no truncation or congruence filtration of one does either."
+      },
+      {
+       "target": "ell-cohomological smoothness of the open cell Gr_(G,mu) of ell-dimension <2rho,mu> (FS VI.2.4/IV.1.18)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Cohomological smoothness is a notion for morphisms of v-stacks; neither library has the six-operation formalism on diamonds in which it is stated."
+      },
+      {
+       "target": "Identification of a Schubert cell by its parabolic flag base and positive-loop unipotent fibres",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Schubert cells in either tree; Tau Ceti's flag-variety material stops at abstract root-system and Coxeter combinatorics."
+      },
+      {
+       "target": "VI.2.8's explicit congruence bound from the weights of mu on Lie G",
+       "library": "absent",
+       "declarations": [],
+       "note": "No such bound; Tau Ceti's weight theory (TauCeti/Algebra/Lie/Weights) is about Lie-algebra weight spaces, not congruence levels of a loop group."
+      },
+      {
+       "target": "Descent of the Galois-orbit cells over a splitting field",
+       "library": "absent",
+       "declarations": [],
+       "note": "Galois descent exists in Tau Ceti only for group algebras, lattices and representations, not for Schubert cells of a Grassmannian that does not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "BunGAndNewtonStrata:BG2:smooth-Artin",
+       "note": "BG2:smooth-Artin is the named consumer of exactly this smoothness statement; it imports rather than restates it."
+      }
+     ]
+    },
+    "GeometricSatakeAndFusion:GS0:Witt-geometry": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Witt-vector lattice functor on perfect residue algebras and its bounded subfunctors",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Defs.lean",
+         "line": 52,
+         "fit": "related"
+        },
+        {
+         "name": "TruncatedWittVector",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Truncated.lean",
+         "line": 62,
+         "fit": "related"
+        },
+        {
+         "name": "Ring.Perfection",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 43,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the ramified-free Witt vectors W(R), truncated Witt vectors, Frobenius, Verschiebung, Teichmuller and the perfection/tilting functors, but no lattice functor L -> W(R)-lattices in W(R)[1/p]^n and no bounded subfunctors; grep -i 'WittVector.*lattice' in declarations.tsv is empty. The roadmap's ramified Witt algebra (RF0) is also absent."
+      },
+      {
+       "target": "Perfectly finitely presented Grassmannian/flag spaces, Demazure resolutions, relative-position strata",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Grassmannian",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Grassmannian.lean",
+         "line": 68,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has perfect schemes as a geometric category (Mathlib's PerfectRing/IsPerfectClosure is ring-theoretic), nor the Witt Grassmannian, nor a Demazure resolution."
+      },
+      {
+       "target": "h/v-descent for vector bundles on perfect schemes (BS17 SS2-4)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Mathlib's descent theory for schemes is for the Zariski, etale and (new) pro-etale precoverages on Scheme; there is no h- or v-topology and no descent theorem for vector bundles along it."
+      },
+      {
+       "target": "Bhatt-Scholze projectivity: geometric determinant line on a Demazure resolution and the trivial-on-geometric-fibres descent criterion (BS17 6.8/6.12)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, and so is every ingredient: there is no determinant-of-cohomology line bundle and no Demazure resolution in either tree."
+      },
+      {
+       "target": "Positivity/ampleness by the semiampleness criterion (BS17 SS7-8) and Keel's positive-characteristic criterion (exceptional locus of a nef bundle, Frobenius-power extension of sections, reduction to semiampleness)",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no ample, nef, semiample or big line bundle anywhere: grep -rn -i 'isAmple|ample line bundle|very ample' over both Lean trees returns nothing and 'semiample' has zero hits in declarations.tsv. Tau Ceti's AlgebraicGeometry/LineBundle has no positivity notions."
+      },
+      {
+       "target": "The v-sheaf of these perfections identified with the special fibre of the GS0:loop-geometry Grassmannian; integral family and bounded properness",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on objects neither library has."
+      }
+     ],
+     "duplicates": []
+    },
+    "GeometricSatakeAndFusion:GS0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Aggregate of GS0:loop-geometry, GS0:Schubert-smoothness and GS0:Witt-geometry",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Grassmannian",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Grassmannian.lean",
+         "line": 68,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Defs.lean",
+         "line": 52,
+         "fit": "related"
+        },
+        {
+         "name": "Ring.Perfection",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 43,
+         "fit": "related"
+        }
+       ],
+       "note": "Every target of the three substages is absent; the only related library material is Mathlib's module Grassmannian, Witt vectors and perfection/tilting, none of which is loop-group or Schubert geometry."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.1",
+       "note": "Same Beilinson-Drinfeld Grassmannian and bounded Hecke stacks, in the equal-characteristic function-field setting."
+      }
+     ]
+    },
+    "GeometricSatakeAndFusion:GS1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Positive-loop equivariance, orbit stratifications, semi-infinite orbits and their intersections with Schubert strata, with dimension estimates",
+       "library": "absent",
+       "declarations": [],
+       "note": "No loop groups, no semi-infinite orbits, no Schubert strata in either library."
+      },
+      {
+       "target": "Finiteness for compact-support cohomology and hyperbolic-localization comparisons",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'hyperbolic localization' over both Lean trees returns nothing; there is no attractor/repeller formalism."
+      },
+      {
+       "target": "Relative perverse t-structure on bounded constructible complexes with stalk/costalk inequalities and gluing across finite stratifications",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Triangulated.TStructure",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean",
+         "line": 55,
+         "fit": "related"
+        },
+        {
+         "name": "DerivedCategory",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+         "line": 87,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the abstract theory of t-structures on a triangulated category (TStructure, IsLE/IsGE, truncations) and derived categories of abelian categories, but no perverse t-structure on any geometric category: grep -c -i Perverse in declarations.tsv is 0 and neither Lean tree mentions perverse sheaves or recollement."
+      },
+      {
+       "target": "Flat perverse objects versus arbitrary perverse objects in integral coefficients",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on a perverse t-structure that does not exist."
+      },
+      {
+       "target": "One-leg special/generic-fibre comparison on ULA, flat-perverse categories over Spd(O_C), Spd(C) and Spd(k-bar), full faithfulness and essential surjectivity (FS VI.5-VI.7)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Universal local acyclicity is absent from both trees (grep -rn -i 'universally locally acyclic' returns nothing), as are Spd and adic spectra of perfectoid rings."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EtaleDualityAndPerverseSheaves:EDC.4",
+       "note": "EDC.4-EDC.5 own the ordinary scheme perverse/recollement foundation that GS1 imports; GS1 owns only the relative/diamond extension."
+      },
+      {
+       "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.2",
+       "note": "ET.2a re-exports the same EDC.0-5 scheme perverse foundation, so the scheme half of GS1's t-structure input has two other declared owners."
+      }
+     ]
+    },
+    "GeometricSatakeAndFusion:GS2:correspondences": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Satake objects defined by equivariance, relative perversity, ULA and coefficient flatness (FS VI.6-VI.8)",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -c -i Satake in declarations.tsv is 0 and neither Lean tree mentions Satake; the defining conditions (relative perversity, ULA) are themselves absent."
+      },
+      {
+       "target": "Convolution diagrams, the convolution map and the convolution operation by proper-support pushforward",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no proper pushforward of sheaves on v-stacks in either library; Mathlib's sheaf pushforward is the ordinary direct image on a site, with no exceptional functors."
+      },
+      {
+       "target": "Ambient associativity and unit with coherent maps",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.MonoidalCategory",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Category.lean",
+         "line": 106,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has monoidal categories with full associator/unitor coherence, which is the abstract shape of the statement, but not for a convolution product on a category of Satake objects that does not exist."
+      }
+     ],
+     "duplicates": []
+    },
+    "GeometricSatakeAndFusion:GS2:Satake-closure": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Preservation of relative perversity under convolution",
+       "library": "absent",
+       "declarations": [],
+       "note": "No perverse t-structure and no convolution in either library."
+      },
+      {
+       "target": "Preservation of coefficient flatness, excluding the Tor obstruction to t-exactness",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.Flat",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Flat/Defs.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has flatness of modules and Tor; the statement here is about flatness of the cohomology sheaves of a convolution of Satake objects, which does not exist."
+      },
+      {
+       "target": "Preservation of ULA under convolution, restricting the operation to Satake objects",
+       "library": "absent",
+       "declarations": [],
+       "note": "ULA is absent from both libraries."
+      }
+     ],
+     "duplicates": []
+    },
+    "GeometricSatakeAndFusion:GS2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Aggregate of GS2:correspondences and GS2:Satake-closure",
+       "library": "absent",
+       "declarations": [],
+       "note": "Every target of both substages is absent; neither library has Satake objects, convolution of sheaves on v-stacks, relative perversity or ULA."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.1",
+       "note": "GS.1 constructs convolution and the classical equal-characteristic geometric Satake equivalence for the same kind of object over a curve."
+      }
+     ]
+    },
+    "GeometricSatakeAndFusion:GS3:fusion": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Factorization of the Grassmannian into products of single-leg Grassmannians over disjoint-leg loci",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Beilinson-Drinfeld Grassmannian in either library."
+      },
+      {
+       "target": "Fusion by ULA extension along collision diagonals, its uniqueness and compatibility with repeated collisions",
+       "library": "absent",
+       "declarations": [],
+       "note": "ULA is absent; no collision/nearby-cycle formalism for v-stacks exists."
+      },
+      {
+       "target": "The commutativity constraint, with the Koszul/sign and half-Tate normalization making the cohomology fibre functor symmetric monoidal",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.BraidedCategory",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
+         "line": 51,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.SymmetricCategory",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
+         "line": 205,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has symmetric and braided monoidal categories and symmetric monoidal functors, which is the abstract target shape; the geometric construction of the constraint and the Koszul-sign/half-Tate normalization are absent."
+      },
+      {
+       "target": "coCartesian finite-set functoriality: permutations, maps I -> J, disjoint unions, diagonal pullback, unit insertion and all composition laws",
+       "library": "absent",
+       "declarations": [],
+       "note": "No such coherent family exists; Mathlib's Finset/Fintype functoriality is not a family of fusion isomorphisms."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.1",
+       "note": "GS.1 constructs the same collision/factorization maps and asks for the associativity diagrams, not only objectwise isomorphisms, in equal characteristic."
+      }
+     ]
+    },
+    "GeometricSatakeAndFusion:GS3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Aggregate of GS3:fusion",
+       "library": "absent",
+       "declarations": [],
+       "note": "Every target of GS3:fusion is absent from both libraries."
+      }
+     ],
+     "duplicates": []
+    },
+    "GeometricSatakeAndFusion:GS4:rational-reductivity": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Application of the decomposition theorem to finite-type proper models of bounded Witt Schubert spaces over F-bar_q",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has the decomposition theorem, perverse sheaves, or Witt Schubert spaces; the whole EDC.7 input is an atlas obligation, not a library fact."
+      },
+      {
+       "target": "Geometric semisimplicity of the rational Satake category via the orbit/IC calculation",
+       "library": "absent",
+       "declarations": [],
+       "note": "No intersection complexes in either library (grep -rn -i 'intersection complex' returns nothing)."
+      },
+      {
+       "target": "Reductivity of the generic fibre of the Tannakian group",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no Tannakian group of an abstract tensor category in either library, hence nothing whose reductivity could be stated."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EtaleDualityAndPerverseSheaves:EDC.7",
+       "note": "EDC.7 owns pure IC, geometric semisimplicity and the decomposition theorem that this stage applies; it is imported, not restated."
+      }
+     ]
+    },
+    "GeometricSatakeAndFusion:GS4:integral-dual-group": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Total cohomology fibre functor: exactness, faithfulness, tensor compatibility and duals in the integral category",
+       "library": "absent",
+       "declarations": [],
+       "note": "No cohomology of sheaves on v-stacks exists; no fibre functor of any Satake category."
+      },
+      {
+       "target": "Tannakian reconstruction of the affine group scheme from the fibre functor",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/GroupFunctor.lean",
+         "line": 138,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Tannaka.reconstructedPoint",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Reconstruction.lean",
+         "line": 89,
+         "fit": "related"
+        },
+        {
+         "name": "TannakaDuality.FiniteGroup.equivApp",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Tannaka.lean",
+         "line": 55,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves reconstruction for a commutative Hopf algebra H over a field: the points functor of H is isomorphic to the tensor-automorphism functor of scalar extension on finite H-comodules. Mathlib proves Tannaka duality for a finite group. Both start from a group (or Hopf algebra) already given; neither reconstructs an affine group scheme from an abstract rigid tensor category with a fibre functor, which is what this target needs."
+      },
+      {
+       "target": "Identification of the maximal torus and root datum via weight functors, rank-one calculations and simple reflections; identification with the pinned dual group",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.DynkinType.simplyConnectedRootDatum",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/Assembly.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "RootPairing.flip",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/RootSystem/Defs.lean",
+         "line": 127,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.DynkinType.simplyConnectedBase",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/Assembly.lean",
+         "line": 88,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has a named simply connected root datum for every valid DynkinType and Mathlib has RootPairing.flip, the formal duality that turns a root datum into its dual, so the pinned dual datum as combinatorial data is available. What is absent is any way to produce it from weight functors on a Satake category, and there is no L-group construction: grep -i for LanglandsDual, dualGroup and LGroup in declarations.tsv is empty."
+      },
+      {
+       "target": "Descent for nonsplit G, the geometric Weil action, and the normalization isomorphism involving rho and sqrt(q)",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no Weil group of a local field in either library (grep -i WeilGroup in declarations.tsv is empty)."
+      },
+      {
+       "target": "Passage from Z/ell^n to Z_ell and integral recovery from torus/rank-one Levi maps with maximal compact generation (FS VI.9-VI.11)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Naturality for Levi restriction/constant term, products, adjoint isomorphisms and Weil restriction",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; Tau Ceti has Weil restriction of scalars only in the sense of RepresentationTheory/RelativeNorm, not for dual groups."
+      },
+      {
+       "target": "The Chevalley involution and its compatibility with Verdier duality, inversion of modifications and representation duals",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.DynkinType.geckChevalleyInvolution",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/GeckConstruction/ChevalleyInvolution.lean",
+         "line": 118,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has a Chevalley involution on the Geck-construction carrier of a root system. Verdier duality does not exist in either library (the only 'Verdier' hits are CategoryTheory.ObjectProperty.IsVerdierLeftLocalizing, about localizing subcategories), so the compatibility cannot be stated."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
+       "note": "ES6:functoriality is the declared consumer of the Levi/product/isogeny/Weil-restriction naturality proved here, and restates the same maps on the parameter side."
+      },
+      {
+       "layer": "ReductiveGroupsPartII:RG2.5",
+       "note": "RG2.5 owns the integral dual group and its pinning, including the remark that square roots used in normalized Satake are coefficient choices; this stage identifies the Tannakian group with it."
+      }
+     ]
+    },
+    "GeometricSatakeAndFusion:GS4:classical-Satake-comparison": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Frobenius trace of a Satake object on its finite-type special-fibre model",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Satake objects and no trace-of-Frobenius function of a complex in either library."
+      },
+      {
+       "target": "The spherical Hecke function algebra of a hyperspecial subgroup and the classical Satake transform",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HeckeCosetModule",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
+         "line": 183,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeCoset",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
+         "line": 157,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.DoubleCoset.DecompQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/Basic.lean",
+         "line": 108,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib and Tau Ceti have the abstract double-coset Hecke ring of a Hecke pair, following Shimura Ch. 3, with the product, associativity, commutativity criterion and degree. That is the right algebra in the commensurable-pair setting, but no Satake transform to the Weyl-invariants of the dual torus is defined, and there is no p-adic reductive group, hyperspecial subgroup or Haar measure normalization to state it with."
+      },
+      {
+       "target": "Convolution/trace and constant-term compatibilities with Haar volume, geometric Frobenius, q^<rho,mu> and the half twist",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; Mathlib's Haar measure exists for locally compact groups but there is no p-adic reductive group with a hyperspecial subgroup in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.4",
+       "note": "SR.4 owns the classical Satake transform and the isomorphism with the invariant algebra on the dual torus; this stage imports it and only proves the comparison."
+      },
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+       "note": "GS.5 proves unramified Satake compatibility for the function-field excursion construction, the equal-characteristic analogue of this comparison."
+      }
+     ]
+    },
+    "GeometricSatakeAndFusion:GS4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Aggregate of GS4:rational-reductivity, GS4:integral-dual-group and GS4:classical-Satake-comparison",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/GroupFunctor.lean",
+         "line": 138,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.DynkinType.simplyConnectedRootDatum",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/Assembly.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "All three substages are unbuilt; the closest library material is Tau Ceti's Tannakian reconstruction for a known commutative Hopf algebra and its named simply connected root data."
+      }
+     ],
+     "duplicates": []
+    }
+   }
+  }
+ }
+}

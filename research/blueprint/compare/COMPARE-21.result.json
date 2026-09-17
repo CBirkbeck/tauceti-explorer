@@ -1,0 +1,399 @@
+{
+ "job": "COMPARE-21",
+ "notes": {
+  "tauceti:TauCetiRoadmap/GrothendieckEulerForms": {
+   "targets": "Quillen exact structures and the split/exact/abelian/triangulated Grothendieck groups with their universal properties; finite resolutions and the resolution theorem; the Cartan map K0(proj A) -> G0(mod A) of a finite-dimensional algebra with its Cartan matrix and unimodularity; ordinary and bigraded Ext-Euler pairings, the Laurent-valued q-Euler form and its specialisations; left and right numerical Grothendieck groups.",
+   "baselineHas": [
+    "TauCeti.ExactStructure (TauCeti/CategoryTheory/Exact/ExactStructure.lean:231) - Buehler's E0/E1/E2 axioms with the split, abelian, induced, opposite and graded structures",
+    "TauCeti.PresentedK0 (TauCeti/CategoryTheory/GrothendieckGroup/Presentation.lean:189) and TauCeti.ExactStructure.resolutionEquiv (TauCeti/CategoryTheory/GrothendieckGroup/ProjectiveResolution.lean:393)",
+    "TauCeti.extEulerPairing (TauCeti/Algebra/Homology/EulerCharacteristic/ExtEuler/Descent.lean:303), TauCeti.AbelianK0.eulerChar_eq_homologyEulerChar (.../EulerCharacteristic.lean:300), TauCeti.LaurentK0.T_smul (.../Laurent.lean:154)",
+    "TauCeti.cartanMap (TauCeti/Algebra/Category/ModuleCat/CartanMap.lean:235) - already ahead of the roadmap's STATUS.md - and TauCeti.titsPolarForm (TauCeti/RepresentationTheory/Quiver/EulerForm.lean:102)"
+   ],
+   "missing": [
+    "Layer 4 in bases: indecomposable-projective and simple bases of the two groups, the multiplicity pairing <[P_i],[M]> = [M:S_i] with the dim_k D_i correction, the Cartan matrix and its unimodularity, and the graded Cartan map/matrix",
+    "Layer 6: sesquilinear chi_q descended to LaurentK0, Gram matrices, evaluation at q = 1 and q = -1, and the comparison after forgetting the grading with its graded/ungraded Ext comparison hypotheses",
+    "Layer 2-3: bounded-complex comparisons (split K0 with triangulated K0 of the bounded homotopy category, and the derived-category version) and general resolving subcategories beyond the projective case (Weibel II.7.6)",
+    "Layer 3/5: graded and linear resolutions with the Koszulity equivalences, and the quiver Ringel-form comparison, ungraded and graded",
+    "the worked examples, including the mandatory dual-numbers rejection. No other roadmap supplies anything: this roadmap has no recorded upstream stage edges at all"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction": {
+   "targets": "Transitivity of induction/coinduction and the projection formula on Rep k G; conjugate representations; the induced-character formula and Frobenius reciprocity; the Mackey decomposition and the Mackey irreducibility criterion; Clifford's theorem and the Clifford correspondence; the representation ring with Artin and Brauer induction; projective representations, factor sets and the Schur multiplier.",
+   "baselineHas": [
+    "Representation.ind and Rep.indResAdjunction (Mathlib/RepresentationTheory/Induced.lean:77,155), Rep.indCoindIso (Mathlib/RepresentationTheory/FiniteIndex.lean:178)",
+    "Rep.mackeySummand (TauCeti/RepresentationTheory/Induction/Mackey/Decomposition.lean:86) and TauCeti.simple_indFDRep_iff (TauCeti/RepresentationTheory/Induction/Mackey/Irreducible.lean:249)",
+    "TauCeti.clifford_restrict_character (TauCeti/RepresentationTheory/Induction/Clifford/Decomposition.lean:274) and TauCeti.indProjectionEquiv (TauCeti/RepresentationTheory/Induction/Projection.lean:175)",
+    "TauCeti.repRing (TauCeti/RepresentationTheory/RepresentationRing/Basic.lean:106), TauCeti.IsElementary (TauCeti/GroupTheory/Elementary.lean:110), TauCeti.IsProjectiveRep and TauCeti.schurMultiplier (TauCeti/RepresentationTheory/ProjectiveRepresentation/)"
+   ],
+   "missing": [
+    "integral Brauer induction: only the rational surjectivity and the |G|.chi statement are present (TauCeti.ClassFunction.indVirtualCharacterDirectSumBaseChangeRat_isElementary_surjective, natCard_nsmul_mem_indVirtualCharacters_isElementary); the sharp Z-surjectivity and Brauer's characterization of characters are absent",
+    "the cyclotomic splitting-field corollary Q(zeta_e), which the roadmap itself scopes as a separate sublayer over Schur indices and field-of-definition descent; no schurIndex declaration exists in either library",
+    "twisted group algebras k_alpha[G], central extensions of groups and representation groups (Schur covers): Mathlib carries central extensions only for Lie algebras",
+    "the Clifford obstruction class in H^2(T/N, k^x) and the Clifford correspondence Irr(T|V) = Irr(G|V) as a bijection",
+    "the representation-level projection formula Ind(A tensor Res B) = Ind A tensor B with naturality; only the representation-ring identity repRingInd_mul_repRingRes is present. No upstream stage edges."
+   ]
+  },
+  "ColemanPowerSeries": {
+   "targets": "RJW sections 9-12: the local cyclotomic tower Q_p(mu_{p^n}) and its norm-compatible units, the Coleman norm operator and U_infty = {f in Z_p[[T]]^x : N(f) = f} (Thm 10.13), the Coleman map and its sign, the fundamental exact sequence 0 -> Z_p(1) -> U_{infty,1} -> Z_p[[G]] -> Z_p(1) -> 0 (Thm 12.17), and U^+/C^+ = Z_p[[G^+]]/(I(G^+) zeta_p) (Thm 12.23).",
+   "baselineHas": [
+    "AbstractMeasure.amiceTransformEquiv (Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean) - bounded measures on Z_p identified with Z_p[[T]]",
+    "PowerSeries.IsWeierstrassDivision / WeierstrassPreparation (Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean)",
+    "TauCeti.unitFiltration (TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean) and the Teichmueller lift (TauCeti/NumberTheory/LocalField/Teichmuller.lean)",
+    "IsCyclotomicExtension API and Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean"
+   ],
+   "missing": [
+    "the completed group ring Z_p[[G]] as an Iwasawa algebra with its continuous action, structure theory and specialisation (imported from PadicMeasuresIwasawaAlgebras L0/L2/L4/L5, 7 upstream stages)",
+    "the Kubota-Leopoldt p-adic L-function and its branches (DirichletPadicLFunctions L0/L1/L3): no kubota or padic-L declaration exists in either library",
+    "the Coleman norm operator itself: O[[T]] finite free over phi(O[[T]]), the normalized trace psi, the Lemma 10.11 congruences and the interpolating-unit uniqueness/existence argument",
+    "the Coleman map pipeline Col_0 = A^-1 . d^-1 . (1 - phi psi) . Delta, its equivariance, and the kernel/cokernel exact sequence of topological modules",
+    "the global cyclotomic-unit index formula imported from IntegralIwasawaTheory L0, and the inverse-limit cyclicity theorem for the cyclotomic tower"
+   ]
+  },
+  "ComputationalNumberTheory": {
+   "targets": "Certified algorithms with exported mathematical certificates: exact representations and complexity models; primality certificates and factorisation; certified integral bases, unit and class groups, local expansions; modular symbols, Hecke matrices, point counts, isogenies and descent; validated real and p-adic numerics; reproducible certificate schemas.",
+   "baselineHas": [
+    "Int.instCommRing, Rat.commRing, ZMod.commRing with decidable equality (Mathlib) - the exact computable carriers of CN.0",
+    "LucasLehmer / mersenne (Mathlib/NumberTheory/LucasLehmer.lean), Lucas' primality theorem and Fermat pseudoprimes (Mathlib/NumberTheory/FermatPsp.lean)",
+    "TauCeti.Cyclotomic and TauCeti.Cyclotomic.equivAdjoinRoot (TauCeti/RingTheory/Cyclotomic/Basic.lean) - exact computable cyclotomic integers",
+    "TauCeti.ModularForm.sturm_bound_finiteIndex (TauCeti/NumberTheory/ModularForms/SturmBound.lean)"
+   ],
+   "missing": [
+    "the algorithms and their correctness proofs: Pratt certificates, Miller-Rabin and AKS, polynomial factorisation over finite fields, Hermite normal form and LLL, Round 2, class-group and unit computation with index certificates (AUDIT-17: CN.2 and CN.4 not built)",
+    "interval/ball arithmetic and certified root isolation - no intervalArith or BallArith declaration exists - together with L-value enclosures",
+    "the Weil and Deligne exponential-sum bounds imported through FiniteFieldsAndCharacterSums FF.2-FF.3, which pulls in WeilConjectures WC.3 and DeligneWeightsAndPurity DWP.7 and with them etale cohomology, Lefschetz pencils and the weight formalism",
+    "modular curves as schemes with algebraic Hecke correspondences and differentials (ModularCurvesPartII R12.5/R14.1) and SchemeAndStackFoundations SF.3 curves/divisors/Picard, needed before CN.3's modular symbols and Hecke matrices",
+    "the analytic interfaces AnalyticNumberTheory AN.0-AN.4: Dirichlet series and Perron, Hecke/Dedekind/Artin L-functions, the analytic class-number formula and Chebotarev, needed by CN.4. 83 upstream stages across 18 roadmaps, depth 26"
+   ]
+  },
+  "ProbabilisticAndMetricNumberTheory": {
+   "targets": "Arithmetic probability spaces; Turan-Kubilius, Hardy-Ramanujan and Erdos-Kac; Weyl's criterion, equidistribution and discrepancy; metric Diophantine approximation with Khintchine and Duffin-Schaeffer-type theorems; the Gauss map, its invariant measure and ergodicity with continued-fraction statistics; short-interval correlations of multiplicative functions.",
+   "baselineHas": [
+    "ProbabilityTheory.uniformOn (Mathlib/Probability/UniformOn.lean), ProbabilityTheory.moment and MeasureTheory.charFun with Levy continuity",
+    "MeasureTheory.measure_limsup_cofinite_eq_zero (Mathlib/MeasureTheory/OuterMeasure/BorelCantelli.lean) - both Borel-Cantelli lemmas, plus Hausdorff measure",
+    "AddCircle.ergodic_zsmul (Mathlib/Dynamics/Ergodic/AddCircle.lean), Koopman operators and the mean ergodic theorem; TauCeti Birkhoff L1 convergence (TauCeti/Probability/Ergodic/BirkhoffLp.lean)",
+    "GenContFract (Mathlib/Algebra/ContinuedFractions/) with convergent approximations"
+   ],
+   "missing": [
+    "Turan-Kubilius, Hardy-Ramanujan and Erdos-Kac with the Mertens estimates they need: no ErdosKac or TuranKubilius declaration exists (AUDIT-07: PM.1 not built)",
+    "Weyl's criterion and every equidistribution/discrepancy theorem - no equidistrib or Discrepancy declaration exists - and normal numbers",
+    "Khintchine, Duffin-Schaeffer and Jarnik-Besicovitch; the Gauss map with its invariant measure and ergodicity, and continued-fraction statistics (PM.4 not built)",
+    "Weyl differencing, van der Corput, stationary phase and completion of sums imported from ExponentialSumsAndCircleMethod ES.0, which itself imports FiniteFieldsAndCharacterSums FF.2, i.e. the Weil/Deligne bounds and the etale-cohomology machinery behind them",
+    "lattice-point equidistribution and homogeneous dynamics from GeometryOfNumbersAndQuadraticArithmetic GN.4, and the modern multiplicative-correlation theorems of PM.5. 58 upstream stages across 15 roadmaps, depth 27"
+   ]
+  },
+  "StableHomotopyKTheory": {
+   "targets": "The homotopy constructions the Q-, plus- and S-constructions need: nerves and classifying spaces, homotopy fibres with Quillen's Theorems A and B, the plus construction, homotopy group completion, a spectrum model with the stable homotopy category, and coefficient/Bockstein/completion spectral sequences.",
+   "baselineHas": [
+    "SSet and CategoryTheory.nerve with SSet.toTop geometric realisation (Mathlib/AlgebraicTopology/SingularSet.lean, SimplicialSet/Nerve.lean)",
+    "Mathlib's Kan complexes, simplicial model-category structure and Dold-Kan (Mathlib/AlgebraicTopology/SimplicialSet/KanComplex, ModelCategory, DoldKan)",
+    "TauCeti.IsAspherical and IsEilenbergMacLaneSpaceOne (TauCeti/AlgebraicTopology/EilenbergMacLane/Basic.lean) with fundamental group and singular homology",
+    "group cohomology/homology as Ext and Tor in Rep k G (Mathlib/RepresentationTheory/Homological/)"
+   ],
+   "missing": [
+    "Quillen's Theorem A and Theorem B with the bisimplicial diagonal comparison: no Quillen A/B declaration exists",
+    "the plus construction X -> X^+_P with its acyclic universal property and relative form: no plusConstruction or acyclic-map declaration exists",
+    "homotopy group completion via Segal Gamma-spaces with the group-completion theorem and the cofinal stabilisation argument",
+    "spectra: no homotopy-theoretic Spectrum in either library, hence no suspension spectra, stable homotopy groups, stable homotopy category, smash products or deloopings",
+    "coefficient spectra E/m with the Bockstein sequence, p-completion with Milnor lim^1, and exact couples/convergence. Only 4 upstream stages across 2 roadmaps (EnhancedDerivedSheaves E5:abstract and GeneralAlgebraicKTheory K.4:construction), depth 5 - almost all of the work is its own"
+   ]
+  },
+  "ColemanIntegration": {
+   "targets": "Coleman integration on good-reduction curves: analytic differential equations on residue discs, Frobenius continuation with the Coleman uniqueness principle, p-adic polylogarithms Li_k with their distribution/inversion/Frobenius relations, and RJW Theorem 6.7 expressing L_p(theta,k) through Li_{k,p} at roots of unity.",
+   "baselineHas": [
+    "TauCeti's adic-space foundation: TauCeti.ValuationSpectrum.IsContinuous and the Spa structure presheaf (TauCeti/AlgebraicGeometry/AdicSpace/Spa/)",
+    "AbstractMeasure.amiceTransform (Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean) for the bounded half of the measure input",
+    "Padic/PadicInt with Hensel's lemma and the Mahler basis (Mathlib/NumberTheory/Padics/)",
+    "TauCeti local-field theory: normalized valuations, unit filtration, Teichmueller (TauCeti/NumberTheory/LocalField/)"
+   ],
+   "missing": [
+    "rigid-analytic geometry in the form the roadmap needs: wide-open and overconvergent neighbourhoods, annuli, residues and termwise integration - no overconvergent or rigid-analytic declaration exists",
+    "finite-dimensional rigid/de Rham cohomology of curves with Frobenius lifts and independence of lift - no deRhamCohomology or frobeniusLift declaration exists",
+    "the Coleman function category itself: the Frobenius-polynomial continuation argument, the uniqueness principle, and the direct unipotent construction on P^1 minus {0,1,infinity}",
+    "p-adic polylogarithms Li_k with tangential base point, distribution, inversion and Frobenius relations, and evaluation at p-power roots of unity - no polylog or dilogarithm declaration exists",
+    "Amice's unbounded transform (LocallyAnalyticDistributions L1) and the Kubota-Leopoldt p-adic L-function with branches and poles (DirichletPadicLFunctions L0/L1/L3). 17 upstream stages across 6 roadmaps, depth 8"
+   ]
+  },
+  "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
+   "targets": "The integral local theory joining finite-flat residual representations to bounded-height Frobenius modules: finite flat group schemes and p-divisible groups with Raynaud's theorem, Dieudonne theory, Fontaine-Laffaille theory in its exact range, Breuil-Kisin modules including p=2, local residual types feeding Serre weights, and integral deformation plus Fontaine's ramification bound.",
+   "baselineHas": [
+    "TauCeti.FiniteLocallyFreeBicommutativeHopfAlgCat with Cartier duality and base change (TauCeti/Algebra/HopfAlgebra/FiniteDual/CartierDuality/)",
+    "TauCeti's affine group schemes and Hopf-algebra correspondence (TauCeti/AlgebraicGeometry/AffineGroupScheme/, TauCeti/Algebra/AlgebraicGroup/)",
+    "WittVector with ghost components and Frobenius, plus Mathlib/RingTheory/Perfectoid/FontaineTheta.lean and Untilt.lean",
+    "DividedPowers (Mathlib/RingTheory/DividedPowers/Basic.lean) and Algebra.Extension.cotangentComplex (Mathlib/RingTheory/Extension/Cotangent/Basic.lean)"
+   ],
+   "missing": [
+    "p-divisible groups themselves with Tate modules, connected-etale sequences and finite-flat closure, and Raynaud's generic-fibre full faithfulness for e < p-1 - no pDivisible or BarsottiTate declaration exists",
+    "Dieudonne theory over perfect residue fields with Frobenius/Verschiebung, slopes and deformation over nilpotent thickenings - no Dieudonne module declaration exists",
+    "Fontaine-Laffaille theory and Breuil-Kisin modules with the dyadic cases - neither FontaineLaffaille nor BreuilKisin appears anywhere in the baseline",
+    "the crystalline site and crystals (CrystallineCohomology CR.0/CR.1) and derived de Rham/log cotangent complexes (DerivedDeRhamCohomology DD.0/DD.1): no crystalline declaration exists at all",
+    "p-adic Hodge period rings and admissibility (PadicHodgeTheory R06.2), perfectoid spaces (4 stages), algebraic spaces and descent (AlgebraicModuli R09.3), and the derived-sheaf foundations (EnhancedDerivedSheaves, 6 stages). 31 upstream stages across 12 roadmaps, depth 13"
+   ]
+  },
+  "HabiroNahmSeries": {
+   "targets": "Nahm equations and their Bloch classes; convergence and all-orders radial root-of-unity asymptotics of Nahm sums (CGZ Thm 7.1); finite-index modular functions at cusps; CGZ Theorem 7.5, modularity implies torsion of the Bloch class; GSWZ admissibility and the finite-support product theorem; GSWZ Frobenius congruences and Habiro-module membership, with explicit examples.",
+   "baselineHas": [
+    "finite-index subgroups of SL2(Z) with cusps, widths and scaling matrices (TauCeti/NumberTheory/ModularForms/Cusps/, Norm/Cusps.lean) - AUDIT-14 calls HB.5a the only layer with a present target",
+    "eulerFunction_eq_tprod and the pentagonal number theorem (Mathlib/Combinatorics/Enumerative/Pentagonal/), Dedekind eta with its S-transformation",
+    "Gaussian integrals, Stirling's formula and multipliable infinite products (Mathlib/Analysis/)",
+    "WittVector ghost maps and Frobenius on power series (Mathlib/RingTheory/WittVector/)"
+   ],
+   "missing": [
+    "Nahm equations, their distinguished algebraic solution and the associated Bloch class - no Nahm and no Bloch-group declaration exists (AUDIT-14: six of seven layers not built)",
+    "finite q-Pochhammer symbols, analytic Nahm sums, Euler-Maclaurin and saddle-point asymptotics, and the GSWZ admissible-series finite-support theorem - no qPochhammer or Habiro declaration exists",
+    "the whole integral K3/Bloch tower it imports: K3BlochGroups V.1-V.6 (Suslin's exact sequence, integral Bloch conventions) and HabiroNumberFields HB.1/HB.2/HB.7",
+    "the algebraic K-theory tower under that: StableHomotopyKTheory (spectra, plus construction), GeneralAlgebraicKTheory, KTheoryLowDegrees, K2SymbolsBrauer, KTheoryFiniteLocalFields, MotivicEtaleKTheory (21 stages) and BorelRegulators - none of algebraic K-theory exists in the baseline",
+    "Polylogarithms P.1, ColemanIntegration and PadicHodgeRegulators for the p-adic regulator identity. 208 upstream stages across 39 roadmaps, depth 29 - the largest closure in this block"
+   ]
+  },
+  "K3BlochGroups": {
+   "targets": "A concrete homological model K_3(A) = H_3(St(A),Z); the decomposable/indecomposable split with K_3^ind; integral pre-Bloch and Bloch groups with the competing conventions; Suslin's exact sequence 0 -> Tor~ -> K_3^ind(F) -> B(F) -> 0; K_3(F_q) = Z/(q^2-1), K_3(Z) = K_3(Q) = Z/48, K_3(Q(i)) = Z + Z/24; explicit Bloch elements and certificates.",
+   "baselineHas": [
+    "TauCeti.cartanMap and the exact-K0 machinery (TauCeti/CategoryTheory/GrothendieckGroup/) - degree-zero K-theory only",
+    "group homology as Tor in Rep k G and SSet/nerve/geometric realisation (Mathlib/AlgebraicTopology/)",
+    "Mathlib's Brauer-group and central-simple-algebra material plus TauCeti/Algebra/BrauerGroup/ for the K2/symbol side",
+    "roots of unity, IsPrimitiveRoot and cyclotomic fields for the torsion computations"
+   ],
+   "missing": [
+    "the Steinberg group St(A), K_1, K_2, symbols and tame residues: no MilnorK or tameSymbol declaration exists, and the only 'Steinberg' files are Chevalley root-subgroup relations (TauCeti/Algebra/Lie/SpecialLinear/.../Steinberg.lean)",
+    "Suslin's exact sequence with its configuration complex, spectral sequence and homology-stability inputs, and the integral pre-Bloch/Bloch groups with their five-term relations - no Bloch declaration exists",
+    "Quillen's K-theory of finite fields, needed for K_3(F_q), and the arithmetic input for K_3(Z) = Z/48",
+    "the imported K-theory tower: StableHomotopyKTheory (10 stages: plus construction, spectra), GeneralAlgebraicKTheory (10), KTheoryLowDegrees (13), K2SymbolsBrauer (8), MotivicEtaleKTheory (12) and BorelRegulators",
+    "BorelRegulators' stable cohomology of arithmetic groups, which itself imports ArithmeticLocallySymmetricSpaces, AdelicAlgebraicGroups and ReductiveGroupsPartII. 90 upstream stages across 18 roadmaps, depth 22"
+   ]
+  },
+  "CompletedCohomologyPartII": {
+   "targets": "Reusable completed cohomology for towers of arithmetic locally symmetric spaces in arbitrary reductive dimension: torsion colimits with the smooth group action, completion and derived inverse limits, continuous duals and completed homology, finite-cell tower complexes over O[[K_0]], noetherian finiteness and admissibility, continuous Hochschild-Serre descent, compact-support/boundary triangles, and Shimura/Galois/Hecke adapters.",
+   "baselineHas": [
+    "group cohomology as Ext in Rep k G with Shapiro's lemma (Mathlib/RepresentationTheory/Homological/GroupCohomology/)",
+    "TauCeti.ContCohomology - continuous cohomology of profinite groups in low degrees with inflation-restriction, corestriction and the finite-quotient colimit (TauCeti/RepresentationTheory/Homological/ContCohomology/)",
+    "adic completion of modules with exactness, Mittag-Leffler systems, and Pontryagin duals with compact/discrete topologies (Mathlib)",
+    "TauCeti smooth discrete representations with open stabilizers, abstract Hecke rings, and OpenSubgroup/ProfiniteGrp cofinal normal sequences"
+   ],
+   "missing": [
+    "everything specific to completed cohomology: AUDIT-14 finds CC.2-CC.8 not built and no completedCohomology, lim^1/Milnor, O[[K_0]] completed group ring, cellular chain, Hochschild-Serre spectral sequence, Banach/admissible representation or Shimura declaration in either library",
+    "arithmetic locally symmetric spaces themselves: arithmetic quotients, Borel-Serre models, finite-level complexes and coefficient systems (ArithmeticLocallySymmetricSpaces ALS.0-ALS.5, 6 upstream stages)",
+    "smooth representations of p-adic reductive groups (SmoothRepresentationsOfLocalGroups SR.0-SR.2) and continuous Hochschild-Serre from ArithmeticGaloisDuality D7 (5 stages)",
+    "noetherian Iwasawa algebras of compact p-adic analytic groups (PadicMeasuresIwasawaAlgebras L1) and perfect-complex language from DeformationAndDerivedPatchingAlgebra P7 (4 stages)",
+    "adelic algebraic groups and ReductiveGroupsPartII under those. 30 upstream stages across 11 roadmaps, depth 17"
+   ]
+  },
+  "ArithmeticKTheory": {
+   "targets": "K-theory of number fields and S-integers: arithmetic carriers in degrees 0 and 1, the full localisation sequence, finite generation of K_n(O_{F,S}) and Borel's rank formula, the twist invariants w_j(F), the integral structure of the odd groups, the even groups via arithmetic cohomology, regular primes and Bernoulli numbers, and certified examples for Q, Q(i) and a real quadratic field.",
+   "baselineHas": [
+    "TauCeti.cartanMap with K0(proj R) = G0(mod R) machinery (TauCeti/Algebra/Category/ModuleCat/CartanMap.lean) - degree zero only",
+    "number-field arithmetic: ClassGroup, NumberField.Units with Dirichlet's unit theorem, Dedekind-domain localisation and prime ideals (Mathlib)",
+    "cyclotomic fields, Bernoulli numbers and IsPrimitiveRoot for the N.4/N.7 invariants",
+    "Mathlib's Brauer group and TauCeti/Algebra/BrauerGroup/ towards the K2/symbol layer"
+   ],
+   "missing": [
+    "all of higher algebraic K-theory: no K_1, K_2, Milnor K-theory, Steinberg group St(A), Q-construction, localisation sequence or K-theory spectrum exists in either library",
+    "the tower it imports before its own first target: StableHomotopyKTheory (11 stages: Quillen A/B, plus construction, group completion, spectra), GeneralAlgebraicKTheory (13), KTheoryLowDegrees (15), K2SymbolsBrauer (9), KTheoryFiniteLocalFields (9), SchemeKTheoryOperations (10)",
+    "MotivicEtaleKTheory (20 stages) supplying the etale/motivic descent and finite-coefficient comparisons that N.5-N.6 read the group structures off",
+    "BorelRegulators' independent stable cohomology theorem, on which the whole rank formula of N.3:ranks rests, plus K3BlochGroups V.5/V.6",
+    "IntegralIwasawaTheory L0 for the cyclotomic class-group input of N.7. 151 upstream stages across 28 roadmaps, depth 26"
+   ]
+  },
+  "PrismaticCohomology": {
+   "targets": "Prisms and their ringed sites: delta-rings, prisms and envelopes; relative prismatic cohomology with the crystalline, Hodge-Tate and de Rham comparisons; the derived/animated extension with quasisyntomic descent; the Nygaard filtration and divided Frobenius; the etale comparison and syntomic Tate twists; absolute prismatics and Cartier-Witt stacks; q-crystalline charts with the A-Omega comparison; prismatic F-crystals; logarithmic prismatic cohomology.",
+   "baselineHas": [
+    "WittVector with ghost components, Frobenius and Mathlib/RingTheory/Perfectoid/FontaineTheta.lean, Untilt.lean, BDeRham.lean",
+    "PreTilt and Perfection (Mathlib/RingTheory/Perfection.lean) for the perfectoid/tilting input",
+    "DividedPowers (Mathlib/RingTheory/DividedPowers/Basic.lean) towards the PD envelopes of CR.0",
+    "Algebra.Extension.cotangentComplex (Mathlib/RingTheory/Extension/Cotangent/Basic.lean) and TauCeti's adic spaces (TauCeti/AlgebraicGeometry/AdicSpace/Spa/)"
+   ],
+   "missing": [
+    "delta-rings and prisms themselves: no DeltaRing or Prism declaration exists, so PR.0's distinguished elements, envelopes and the perfect-prism/perfectoid equivalence all start from nothing",
+    "crystalline cohomology (CrystallineCohomology CR.0-CR.5, 6 stages) - no crystalline declaration exists anywhere - and derived de Rham cohomology (DerivedDeRhamCohomology, 6 stages)",
+    "A_inf cohomology and the A-Omega complexes (AInfCohomology, 6 stages) needed for PR.3's L-eta and PR.6's comparison",
+    "perfectoid spaces, perfectoid quotients, adic spaces Part II and the relative Fargues-Fontaine curve (7+7+7+6 stages) under the site constructions",
+    "RefinedTraceMethods RT.3b/RT.6, i.e. THH/TC and the AMMN Beilinson fibre sequence, an explicit prerequisite of PR.7's F-crystal equivalence, which drags in StableHomotopyKTheory and GeneralAlgebraicKTheory. 87 upstream stages across 19 roadmaps, depth 30"
+   ]
+  },
+  "VStackSheavesAndLisseCategories": {
+   "targets": "The Fargues-Scholze sheaf theory: Artin v-stacks with cohomologically smooth atlases and the eligible six operations; universal local acyclicity, the Jacobian criterion and hyperbolic localization with Drinfeld's lemma; condensed and solid foundations with D_solid on small v-stacks; lisse categories D_lis and the coefficient comparisons; sheaves on Bun_G strata with compact generation; Bernstein-Zelevinsky and Verdier duality with admissibility.",
+   "baselineHas": [
+    "Condensed sets and modules with CondensedMod, and Condensed.profiniteSolid (Mathlib/Condensed/Solid.lean), the exact starting point VS2 names",
+    "Profinite, light profinite and the topological-space comparison (Mathlib/Topology/Category/, Mathlib/Condensed/TopComparison.lean)",
+    "TauCeti's adic-space foundation: Huber rings, the valuation spectrum and Spa with rational subsets and the structure presheaf (TauCeti/AlgebraicGeometry/AdicSpace/)",
+    "PreTilt/Perfection and FontaineTheta (Mathlib/RingTheory/Perfection.lean, Perfectoid/) towards the perfectoid input"
+   ],
+   "missing": [
+    "diamonds and v-stacks themselves, and etale cohomology of diamonds with the six operations: no diamond or v-stack in Scholze's sense exists in either library, the only 'diamond' declarations being Hecke diamond operators (DiamondsAndVStacks 7 stages, DiamondSixOperations 6, DiamondEtaleCohomology 10, ClassicalAdicEtaleCohomology 10)",
+    "the Fargues-Fontaine curve, relative and diamond versions, and vector bundles/isocrystals on it: no Fargues declaration exists (RelativeFarguesFontaine 10 stages, FarguesFontaineDiamonds 5, VectorBundlesAndIsocrystals 8)",
+    "Bun_G with its Newton strata and smooth-Artin charts (BunGAndNewtonStrata 6 stages) and smooth representations of local groups (4 stages), before VS4 can even be stated",
+    "its own VS0-VS5: Artin v-stacks with pi-sharp, ULA and the Jacobian criterion, the solidification universal property and D_solid, D_lis, the semiorthogonal HN decomposition and Bernstein-Zelevinsky duality",
+    "adic coefficients and comparisons (7 stages), perfectoid spaces and quotients (14), etale duality and perverse sheaves (9), plus PrismaticCohomology itself (3). 149 upstream stages across 28 roadmaps, depth 38 - the deepest stack in this block"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+   "b": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Both are self-contained Tau Ceti roadmaps whose spines have landed, but InductionRestriction's remainder stacks higher: integral Brauer induction, then Brauer's characterization of characters, then the cyclotomic splitting field over Schur indices and field-of-definition descent (no schurIndex anywhere), plus twisted group algebras and group central extensions feeding the Clifford obstruction. GrothendieckEulerForms' remainder - Cartan matrix in bases and unimodularity, sesquilinear chi_q on LaurentK0, bounded-complex comparisons, linear resolutions - is mostly one step off already-built machinery such as TauCeti.cartanMap and TauCeti.LaurentK0.T_smul."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+   "b": "ColemanPowerSeries",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "ColemanPowerSeries has nothing of its own in the baseline (no Coleman declaration at all) and must first import the Iwasawa algebra Z_p[[G]], Weierstrass/specialisation theory and the Kubota-Leopoldt p-adic L-function from PadicMeasuresIwasawaAlgebras and DirichletPadicLFunctions, then build the norm operator, the Coleman map and the fundamental exact sequence. InductionRestriction already has Mathlib's two adjunctions plus Tau Ceti's Mackey decomposition, Clifford theorem, Artin induction and Schur multiplier, and imports nothing."
+  },
+  {
+   "a": "ComputationalNumberTheory",
+   "b": "ColemanPowerSeries",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ComputationalNumberTheory's closure is four times larger (83 upstream stages across 18 roadmaps against 20 across 7): CN.1 imports the Weil and Deligne bounds through FiniteFieldsAndCharacterSums FF.2, CN.3 imports modular curves with algebraic Hecke correspondences and SchemeAndStackFoundations, CN.4 the Hecke/Artin L-function interface - on top of Pratt/Miller-Rabin/LLL/Round 2/Schoof and interval arithmetic, none of which exists. ColemanPowerSeries needs one narrower chain: Iwasawa algebras and Kubota-Leopoldt, then the Coleman operator and the U_infty exact sequences."
+  },
+  {
+   "a": "ComputationalNumberTheory",
+   "b": "ProbabilisticAndMetricNumberTheory",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Both import the exponential-sum/Weil-bound chain through FiniteFieldsAndCharacterSums FF.2 and share the ClassicalArithmeticCompletion/AnalyticNumberTheory base, but ComputationalNumberTheory adds modular curves as schemes with Hecke correspondences and differentials, SchemeAndStackFoundations and the whole Hecke/Dedekind/Artin L-function interface through AN.4, where ProbabilisticAndMetric only adds geometry of numbers and homogeneous dynamics (GN.4). Their own layers are comparable in weight, and Mathlib's probability stack (Borel-Cantelli, Levy, ergodic rotations, Hausdorff measure) gives PM the better head start."
+  },
+  {
+   "a": "StableHomotopyKTheory",
+   "b": "ProbabilisticAndMetricNumberTheory",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "ProbabilisticAndMetric must build six analytic layers that are wholly absent (Erdos-Kac and Turan-Kubilius, Weyl's criterion and discrepancy, Khintchine/Duffin-Schaeffer, Gauss-map ergodicity, short-interval correlations) and imports 58 upstream stages across 15 roadmaps, including Weyl differencing/van der Corput from ES.0 and the Weil-Deligne bounds behind it. StableHomotopyKTheory imports only 4 upstream stages from 2 roadmaps and builds its plus construction, group completion and spectra on Mathlib's existing SSet, nerve, geometric realisation and Kan-complex machinery."
+  },
+  {
+   "a": "StableHomotopyKTheory",
+   "b": "ColemanIntegration",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "ColemanIntegration has no baseline for its own objects - no overconvergent or rigid-analytic declaration, no de Rham cohomology, no Frobenius lift, no polylogarithm - so it must build wide-open rigid geometry, rigid cohomology with Frobenius, the Coleman uniqueness principle and Li_k, and it also imports Amice's unbounded transform and Kubota-Leopoldt (17 upstream stages, 6 roadmaps). StableHomotopyKTheory's missing tower (Quillen A/B, plus construction, group completion, spectra, Bockstein) is large but rests on Mathlib's simplicial and homotopy foundations and imports almost nothing."
+  },
+  {
+   "a": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "b": "ColemanIntegration",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "FiniteFlatGroups must stack several absent theories before its own targets: the crystalline site and crystals, derived de Rham and the cotangent complex, p-adic Hodge period rings and perfectoid spaces, then p-divisible groups, Raynaud's theorem, Dieudonne theory, Fontaine-Laffaille and Breuil-Kisin (none of Dieudonne, FontaineLaffaille, BreuilKisin or pDivisible appears in the baseline). ColemanIntegration needs rigid geometry, Coleman functions and polylogarithms plus the p-adic L-function input - fewer distinct theories and half the upstream closure (17 stages against 31)."
+  },
+  {
+   "a": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "b": "HabiroNahmSeries",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "HabiroNahmSeries sits on top of the entire algebraic K-theory tower (StableHomotopy, GeneralAlgebraicKTheory, KTheoryLowDegrees, K2SymbolsBrauer, MotivicEtaleKTheory, BorelRegulators, K3BlochGroups, ArithmeticKTheory) plus Polylogarithms, ColemanIntegration and HabiroNumberFields, and then still needs Nahm equations, q-Pochhammer/Nahm sums, Euler-Maclaurin asymptotics and the GSWZ Frobenius congruences: 208 upstream stages across 39 roadmaps. FiniteFlatGroups needs 31 upstream stages across 12, and Cartier duality for finite locally free Hopf algebras is already in Tau Ceti."
+  },
+  {
+   "a": "HabiroNahmSeries",
+   "b": "K3BlochGroups",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "HabiroNahmSeries' upstream closure strictly contains K3BlochGroups' (every one of its 107 stages, plus 127 more, including all of ArithmeticKTheory, Polylogarithms, HabiroNumberFields, PadicHodgeRegulators and ColemanIntegration), K3BlochGroups owes Suslin's exact sequence, integral Bloch conventions and the K_3 computations on top of the K-theory tower; HabiroNahmSeries owes all of that and then Nahm equations with their Bloch classes, root-of-unity asymptotics, finite-index modular functions at cusps and the GSWZ admissibility and Frobenius-congruence theorems."
+  },
+  {
+   "a": "K3BlochGroups",
+   "b": "CompletedCohomologyPartII",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "K3BlochGroups cannot state K_3(A) = H_3(St(A),Z) until the whole K-theory tower exists - Steinberg groups, K_1/K_2 and symbols, the plus construction and spectra, Quillen's finite-field computation, etale/motivic K-theory and Borel's regulator theorem, 90 upstream stages across 18 roadmaps - and none of K_1, K_2, MilnorK or Bloch appears in the baseline. CompletedCohomologyPartII needs 30 upstream stages across 11 roadmaps (locally symmetric spaces, smooth representations, Iwasawa algebras, continuous Hochschild-Serre) and can lean on Mathlib group cohomology and Tau Ceti's continuous cohomology."
+  },
+  {
+   "a": "ArithmeticKTheory",
+   "b": "CompletedCohomologyPartII",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ArithmeticKTheory's closure contains all of K3BlochGroups' and adds MotivicEtaleKTheory's 20 stages, BorelRegulators and IntegralIwasawaTheory - 151 upstream stages across 28 roadmaps - and its own rank and integral-structure theorems cannot even be stated before higher K-theory exists, which it does not anywhere in the baseline. CompletedCohomologyPartII's 30 upstream stages sit on arithmetic locally symmetric spaces, smooth representations and Iwasawa algebras, a smaller and shallower stack."
+  },
+  {
+   "a": "PrismaticCohomology",
+   "b": "ArithmeticKTheory",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Both start from essentially nothing (no DeltaRing or Prism declaration; no K_1, K_2 or MilnorK declaration), but ArithmeticKTheory imports 151 upstream stages across 28 roadmaps - the complete K-theory tower from spectra and the plus construction through MotivicEtaleKTheory's 20 stages to Borel's regulator theorem - against Prismatic's 87 across 19 (crystalline, derived de Rham, A_inf, perfectoid/adic, Fargues-Fontaine, THH/TC). Prismatic's own nine layers are the heavier mathematics and it stacks slightly deeper, which is why this is close."
+  },
+  {
+   "a": "PrismaticCohomology",
+   "b": "VStackSheavesAndLisseCategories",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "VStackSheaves imports PrismaticCohomology itself and adds the entire Fargues-Scholze apparatus on top: diamonds and v-stacks, etale cohomology of diamonds with the six operations, the relative Fargues-Fontaine curve, vector bundles and isocrystals, Bun_G with its Newton strata and smooth representations - 149 upstream stages across 28 roadmaps at depth 38, against Prismatic's 87 across 19. No Fargues-Fontaine curve and no Scholze diamond appears anywhere in the baseline."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+   "b": "ProbabilisticAndMetricNumberTheory",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "GrothendieckEulerForms already has its exact-category spine, all four Grothendieck groups, the resolution theorem, the Ext-Euler pairing and even the Cartan map in Tau Ceti, imports no other roadmap, and needs only the Cartan matrix in bases, sesquilinear chi_q and the bounded-complex comparisons. ProbabilisticAndMetric has six unbuilt analytic layers (no ErdosKac, equidistrib, Discrepancy or Gauss-map declaration) and imports 58 stages across 15 roadmaps including the exponential-sum and Weil-bound machinery."
+  },
+  {
+   "a": "VStackSheavesAndLisseCategories",
+   "b": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "VStackSheaves' closure all but contains FiniteFlatGroups' (only 9 of the latter's 40 stages lie outside it) and adds diamonds, the six operations for diamonds, adic coefficients, the relative Fargues-Fontaine curve, vector bundles and isocrystals, and Bun_G - 149 upstream stages at depth 38 against 31 at depth 13 - before its own ULA, solid and lisse layers can be stated."
+  },
+  {
+   "a": "ComputationalNumberTheory",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ComputationalNumberTheory imports 83 upstream stages across 18 roadmaps - Weil and Deligne bounds, modular curves with Hecke correspondences, scheme and stack foundations, the analytic L-function interface - and still owes Pratt certificates, Miller-Rabin, LLL, Round 2, class-group certificates and interval arithmetic, none of which exists. InductionRestriction imports nothing and already has induction, restriction, Mackey, Clifford, Artin induction and the Schur multiplier in the baseline."
+  },
+  {
+   "a": "K3BlochGroups",
+   "b": "PrismaticCohomology",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "The two closures are nearly the same size (90 against 87 upstream stages, 18 against 19 roadmaps), but Prismatic stacks deeper (30 against 22) and its own nine layers - prisms and envelopes, the relative site with three comparisons, Nygaard, syntomic twists, Cartier-Witt stacks, q-crystalline and A-Omega, F-crystals, log prismatic - are a much larger body of new theory than K3BlochGroups' Suslin sequence and K_3 computations, and it must also import crystalline cohomology, derived de Rham, A_inf, perfectoid and THH/TC, none of which exists."
+  },
+  {
+   "a": "ColemanPowerSeries",
+   "b": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ColemanPowerSeries has no baseline for any of its objects - no Coleman, Iwasawa-algebra or Kubota-Leopoldt declaration - and must import p-adic measures and Iwasawa algebras, the Kubota-Leopoldt L-function and the global cyclotomic index formula before building the norm operator, the Coleman map and the U_infty exact sequences. GrothendieckEulerForms imports nothing and has its spine, the resolution theorem, the Ext-Euler pairing and the Cartan map already built in Tau Ceti."
+  },
+  {
+   "a": "ColemanIntegration",
+   "b": "ArithmeticKTheory",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "ArithmeticKTheory's closure all but contains ColemanIntegration's (only 4 of the latter's 21 stages lie outside it, since it too imports the p-adic measure and Dirichlet p-adic L-function chain) and adds the complete algebraic K-theory tower, MotivicEtaleKTheory and Borel's regulator theorem: 151 upstream stages against 17, with no K_1, K_2 or Milnor K-theory anywhere in the baseline."
+  },
+  {
+   "a": "CompletedCohomologyPartII",
+   "b": "HabiroNahmSeries",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "HabiroNahmSeries imports 208 upstream stages across 39 roadmaps - the whole K-theory and Bloch-group tower, Polylogarithms, ColemanIntegration, HabiroNumberFields and PadicHodgeRegulators - and then still owes Nahm equations, q-Pochhammer sums, root-of-unity asymptotics and the GSWZ integrality theorems. CompletedCohomologyPartII imports 30 stages across 11 roadmaps and can build on Mathlib group cohomology, adic completion and Tau Ceti's continuous cohomology."
+  },
+  {
+   "a": "StableHomotopyKTheory",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "StableHomotopyKTheory must build Quillen's Theorems A and B, the plus construction, the group-completion theorem and a full spectrum model with the stable homotopy category and Bockstein/completion spectral sequences - no plus-construction or homotopy-theoretic Spectrum declaration exists in either library. InductionRestriction imports nothing and already has Mathlib's induction/restriction adjunctions and Tau Ceti's Mackey, Clifford, Artin and Schur-multiplier layers; only Brauer's integral theorem, twisted algebras and the Clifford obstruction remain."
+  },
+  {
+   "a": "ArithmeticKTheory",
+   "b": "VStackSheavesAndLisseCategories",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "The two closures are the same size (151 against 149 upstream stages, 28 roadmaps each) and almost disjoint, but VStackSheaves stacks far deeper (38 against 26): adic spaces, perfectoid spaces, diamonds, etale cohomology of diamonds, the six operations, the Fargues-Fontaine curve, isocrystals and Bun_G must be built one on the next before VS0 is stateable, whereas ArithmeticKTheory's tower, though equally voluminous, is broader rather than deeper."
+  },
+  {
+   "a": "ComputationalNumberTheory",
+   "b": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "ComputationalNumberTheory's closure is nearly three times larger and twice as deep (83 stages across 18 roadmaps at depth 26 against 31 across 12 at depth 13), importing the Weil-Deligne bounds with their etale-cohomology chain, modular curves with Hecke correspondences, and the analytic L-function interface, and its own certified-algorithm layers are largely unbuilt. FiniteFlatGroups is closer only in volume: its own six layers (Raynaud, Dieudonne, Fontaine-Laffaille, Breuil-Kisin) are deeper mathematics, which is why this is slight rather than clear."
+  },
+  {
+   "a": "ProbabilisticAndMetricNumberTheory",
+   "b": "ColemanPowerSeries",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ProbabilisticAndMetric imports 58 upstream stages across 15 roadmaps - Dirichlet series and Perron, Weyl differencing and van der Corput from ES.0 with the Weil-Deligne bounds behind them, and homogeneous dynamics from GN.4 - and owes six unbuilt layers from Erdos-Kac to Duffin-Schaeffer and Gauss-map ergodicity. ColemanPowerSeries imports 20 stages across 7 roadmaps and its own chain is a single narrow line from Iwasawa algebras through the norm operator to the U_infty exact sequences."
+  }
+ ]
+}
