@@ -3,7 +3,7 @@
  "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
  "roadmaps": {
   "MotivicEtaleKTheory": {
-   "summary": "Apart from low-degree Galois-cohomological ingredients, none of this roadmap exists: neither library has Milnor K-theory or any K-theory above K_0, higher Chow groups or cycle complexes, motivic cohomology, finite correspondences, Nisnevich sheaves or motivic categories, motivic operations, norm varieties or Rost motives, the motivic spectral sequence, etale K-theory, rigidity, Quillen-Lichtenbaum, etale Chern classes, Deligne cohomology, local or global Galois duality, or Selmer complexes, so all fourteen layers are not built. What the libraries do have: Mathlib's continuous cohomology of topological representations in all degrees, the p-adic cyclotomic character, the small etale and pro-etale sites of a scheme with Ext-based sheaf cohomology and untwisted l-adic cohomology H^i(X, Z_l), Hilbert 90 for finite Galois extensions, Tate cohomology of finite groups, algebraic cycles with pushforward, Picard groups, the weight-one unit regulator, Euler polynomials of elliptic curves from point counts, and abstract spectral sequences of spectral objects; Tau Ceti's explicit low-degree continuous cohomology with corestriction, cup products and the injective Kummer map K^x/(K^x)^n -> H^1(G_K, mu_n), cyclic Tate periodicity, line-bundle classes, determinant lines of free modules and 2-Selmer groups of elliptic curves. These give the degree-one case of the norm-residue theorem only up to the missing profinite Hilbert 90, and the cup product of Kummer classes needed for the Galois symbol in M.3, but no Steinberg relation. Most coefficient and duality targets in M.1-M.2 are restatements of ArithmeticGaloisDuality D7/R02, and the symbol comparison in M.3 is shared with K2SymbolsBrauer T.7.",
+   "summary": "Apart from low-degree Galois-cohomological ingredients, none of this roadmap exists: neither library has Milnor K-theory or any K-theory above K_0, higher Chow groups or cycle complexes, motivic cohomology, finite correspondences, Nisnevich sheaves or motivic categories, motivic operations, norm varieties or Rost motives, the motivic spectral sequence, etale K-theory, rigidity, Quillen-Lichtenbaum, etale Chern classes, Deligne cohomology, cohomological dimension, local or global Galois duality, or Selmer complexes, so all fourteen layers are not built. What the libraries do have: Mathlib's continuous cohomology of topological representations in all degrees, the p-adic cyclotomic character, the small etale and pro-etale sites of a scheme with Ext-based sheaf cohomology and untwisted l-adic cohomology H^i(X, Z_l), Hilbert 90 for finite Galois extensions, Tate cohomology of finite groups, algebraic cycles with pushforward, Picard groups, the S-Selmer group K(S, n), the weight-one unit regulator, Euler polynomials of elliptic curves from point counts, and abstract spectral sequences of spectral objects; Tau Ceti's explicit low-degree continuous cohomology with corestriction, cup products and the injective Kummer map K^x/(K^x)^n -> H^1(G_K, mu_n), the finite-quotient colimit theorem in degrees zero and one, the Artin-Tate class-formation framework of formations, finite normal layers, norms and transfer with Ht^0 the norm quotient and Ht^(-2)(G, Z) = G^ab, cyclic Tate periodicity, the Steinberg relation for quaternion symbols, line-bundle classes, determinant lines of free modules and 2-Selmer groups of elliptic curves. These give the degree-one case of the norm-residue theorem only up to the missing profinite Hilbert 90, and the cup product of Kummer classes needed for the Galois symbol in M.3, but no K_2 and no cup-product form of the Steinberg relation; the fundamental class, the invariant map and the reciprocity map that Tate's argument needs are also absent. Most coefficient and duality targets in M.1-M.2 are restatements of ArithmeticGaloisDuality D7/R02, and the symbol comparison in M.3 is shared with K2SymbolsBrauer T.7.",
    "layers": {
     "MotivicEtaleKTheory:M.1": {
      "verdict": "not built",
@@ -48,6 +48,20 @@
          "fit": "related"
         },
         {
+         "name": "TauCeti.ContCohomology.explicitFiniteQuotientColimit1",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Colimit.lean",
+         "line": 493,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.ContCohomology.explicitFiniteQuotientColimit0",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Colimit.lean",
+         "line": 224,
+         "fit": "special case"
+        },
+        {
          "name": "Field.absoluteGaloisGroup",
          "library": "mathlib",
          "file": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
@@ -62,7 +76,7 @@
          "fit": "related"
         }
        ],
-       "note": "Mathlib defines continuous cohomology of any topological representation in all degrees (so compact coefficients are admissible), and Tau Ceti has an explicit low-degree model with long exact sequences; for schemes Mathlib defines l-adic cohomology H^i(X, Z_l) as pro-etale cohomology of the sheaf of continuous Z_l-valued maps (untwisted, with no comparison to etale cohomology yet). Derived inverse limits, lim^1 and the comparison of continuous cohomology with the limit of finite-coefficient cohomology are absent."
+       "note": "Mathlib defines continuous cohomology of any topological representation in all degrees (so compact coefficients are admissible), and Tau Ceti has an explicit low-degree model with long exact sequences and, for a profinite group with discrete coefficients, proves the finite-quotient colimit theorem H^i(G, M) = colim_U H^i(G/U, M^U) in degrees zero and one (the degree-two cocone is built but not shown colimiting); for schemes Mathlib defines l-adic cohomology H^i(X, Z_l) as pro-etale cohomology of the sheaf of continuous Z_l-valued maps (untwisted, with no comparison to etale cohomology yet). What is absent is the inverse-limit side: derived inverse limits, lim^1 and the comparison of continuous cohomology with the limit of finite-coefficient cohomology (only Mathlib's Mittag-Leffler condition for cofiltered systems of sets exists)."
       },
       {
        "target": "Small etale sites of schemes and the comparison of etale cohomology of a field or S-integer ring with Galois cohomology",
@@ -132,6 +146,10 @@
       {
        "layer": "ArithmeticKTheory:N.4",
        "note": "Defines W_j(F) = H^0(F, Q/Z(j)) from the cyclotomic character, using the same primewise Q/Z(j) twist M.1 specifies."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+       "note": "Owns continuous cohomology of a profinite group in all degrees with restriction, inflation, conjugation, the all-degree finite-quotient colimit theorem H^n(G, M) = colim_U H^n(G/U, M^U) and the long exact sequence: the same continuous-cohomology carrier M.1 imports, and the owner of the degree zero and one cases Tau Ceti has built."
       }
      ]
     },
@@ -186,6 +204,18 @@
       {
        "layer": "ArithmeticGaloisDuality:R02.4",
        "note": "Proves finite-module Poitou-Tate duality and its lattice and rational versions, the global duality input M.2 restates."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+       "note": "Defines cd_p, scd_p and cd of a profinite group in ENat with their bounding predicates, the cohomological-dimension invariant M.2 must verify."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+       "note": "Owns the local Brauer group H^2(G_F, (F^s)^x), the invariant map normalised by arithmetic Frobenius and local duality, which is exactly the local half of M.2's duality target (ArithmeticGaloisDuality D7 explicitly leaves local Tate duality for finite modules here)."
+      },
+      {
+       "layer": "ArithmeticGaloisDuality:R02.3",
+       "note": "Proves finiteness of finite-coefficient cohomology, bounds on cohomological dimension with the real-place exceptions and constructs compactly supported arithmetic cohomology, the compact-support and finite-generation/vcd hypotheses M.2 asks to verify."
       }
      ]
     },
@@ -209,9 +239,16 @@
          "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Cup/Product.lean",
          "line": 577,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.QuaternionAlgebra.steinbergEquivMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Quaternion/Steinberg.lean",
+         "line": 117,
+         "fit": "special case"
         }
        ],
-       "note": "Tau Ceti has the Kummer map K^x -> H^1(G_K, mu_n) and the (1,1) cup product H^1 x H^1 -> H^2 for any equivariant continuous pairing, so kappa(a) cup kappa(b) can be formed; missing are K_2, the twisted coefficient mu_n (x) mu_n, and the Steinberg relation kappa(a) cup kappa(1-a) = 0."
+       "note": "Tau Ceti has the Kummer map K^x -> H^1(G_K, mu_n) and the (1,1) cup product H^1 x H^1 -> H^2 for any equivariant continuous pairing, so kappa(a) cup kappa(b) can be formed, and it proves the Steinberg relation in its quaternion-symbol form: for a field with 2 invertible and a, 1 - a nonzero, the quaternion algebra (a, 1 - a) splits (steinbergEquivMatrix, sorry-free). Missing are K_2, the twisted coefficient mu_n (x) mu_n, and the cohomological form kappa(a) cup kappa(1-a) = 0 of the Steinberg relation."
       },
       {
        "target": "Compatibility of the symbol map with norms (corestriction) and residues",
@@ -230,8 +267,30 @@
       {
        "target": "Tate's theorem for local and global fields, via global reciprocity, the cohomology of roots of unity and the limit lemmas",
        "library": "absent",
-       "declarations": [],
-       "note": "Absent; the cohomological class field theory it needs is also absent."
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 182,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ClassFieldTheory.NormalLayer.tateHZeroEquivNormQuotient",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+         "line": 459,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.TateCohomology.HNegTwoAddEquivAbelianization",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/TateCohomology/LowDegree.lean",
+         "line": 302,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent, but the class field theory it needs is scaffolded rather than missing: Tau Ceti has the Artin-Tate formation framework (a formation as a smooth discrete integral representation of a compact totally disconnected group, its finite normal layers with their Galois groups, levels, norms and norm quotients, degree-zero Tate cohomology identified with the norm quotient, abelian layers, restriction, refinement, inflation and the group-theoretic transfer) together with Ht^(-2)(G, Z) = G^ab. The fundamental class, the local invariant map, Tate's theorem for a class formation and the reciprocity map are all absent, so no form of Tate's degree-two theorem can be stated."
       },
       {
        "target": "The S-integer comparison K_2(O_(F,S))/l^r = H^2_et(O_(F,S), mu_(l^r)^(x)2) with primes above l inverted, as a separate ring statement",
@@ -762,6 +821,10 @@
       {
        "layer": "ArithmeticKTheory:N.6",
        "note": "Identifies the finite cohomological descriptions of even K-groups with inverse-limit, real-place and exceptional-field corrections, the same degree-specific extraction M.7 performs for N."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+       "note": "Defines the cohomological dimension of a profinite group, the invariant that fixes the degree range of M.7's Quillen-Lichtenbaum statement."
       }
      ]
     },
@@ -852,8 +915,22 @@
       },
       {
        "target": "Selmer complexes from explicit local conditions (unramified away from p, crystalline/semistable at p), their determinant lines and local/global regulator maps, as Bloch-Kato statement infrastructure",
-       "library": "absent",
+       "library": "partial",
        "declarations": [
+        {
+         "name": "IsDedekindDomain.selmerGroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DedekindDomain/SelmerGroup.lean",
+         "line": 163,
+         "fit": "special case"
+        },
+        {
+         "name": "IsDedekindDomain.selmerGroup.fromSUnit",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/DedekindDomain/SInteger/SelmerGroup/Basic.lean",
+         "line": 138,
+         "fit": "related"
+        },
         {
          "name": "WeierstrassCurve.Affine.selmerGroup₂",
          "library": "tauceti",
@@ -862,7 +939,7 @@
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti's Selmer groups are the classical 2-Selmer groups of elliptic curves via descent, not Selmer complexes of Galois representations; no crystalline or semistable conditions exist."
+       "note": "Only the classical Selmer groups exist: Mathlib's K(S, n), the subgroup of K^x/(K^x)^n on which every valuation outside S is divisible by n (that is, the unramified-outside-S local condition for mu_n), with Tau Ceti's S-unit map into it and its 2-Selmer groups of elliptic curves from descent. There is no Selmer complex of a Galois representation, no crystalline or semistable local condition, no determinant line of such a complex and no local or global regulator map."
       }
      ],
      "duplicates": [
@@ -1000,10 +1077,6 @@
       {
        "layer": "ColemanIntegration:L2",
        "note": "Defines the p-adic polylogarithms Li_k from the power series with the differential recursion, distribution and inversion relations, the p-adic counterpart of P.1's Li_n targets, and separately asks for compatibility with the complex polylogarithm formula."
-      },
-      {
-       "layer": "EllipticRegulators:ER.2",
-       "note": "Proves the Steinberg relation of the regulator form through the Bloch-Wigner dilogarithm, reusing P.1's five-term identity and differential formula for D."
       }
      ]
     },
@@ -1564,6 +1637,10 @@
       {
        "layer": "GeneralAlgebraicKTheory:K.5",
        "note": "Defines relative K-theory as the homotopy fibre and proves excision under the adopted theorem's hypotheses, overlapping RT.3's relative-fibre compatibility and excision input."
+      },
+      {
+       "layer": "KTheoryFiniteLocalFields:L.5",
+       "note": "Proves the THH/TR/TC calculations for perfect fields, truncated polynomial algebras k[t]/(t^e) and complete DVRs, and the characteristic-zero square-zero comparison with differential forms: the same square-zero and truncated-polynomial tests RT.3 lists."
       }
      ]
     },
@@ -1686,6 +1763,10 @@
       {
        "layer": "HabiroRings:HR.6",
        "note": "Identifies degree-zero q-Hodge/Habiro cohomology with the relative Habiro ring and its GSWZ specialisation, the pi_0 comparison of RT.4:Habiro-comparison."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-7-real-clifford-algebras-bott-periodicity-and-spinp-q",
+       "note": "Owns the real Clifford-algebra Bott periodicity Cliff(p+1, q+1) = Cliff(p, q) (x) M_2(R) and the mod-8 table, the algebraic periodicity Tau Ceti has already built and that RT.4's Bott-periodicity target cites."
       }
      ]
     },
@@ -1796,7 +1877,12 @@
        "note": "Absent."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-7-real-clifford-algebras-bott-periodicity-and-spinp-q",
+       "note": "Owns the real Clifford-algebra Bott periodicity and the eightfold-way classification, the algebraic input of this layer's Bott-periodicity target and the owner of the Tau Ceti declarations cited here."
+      }
+     ]
     },
     "RefinedTraceMethods:RT.5": {
      "verdict": "not built",
@@ -2423,6 +2509,10 @@
       {
        "layer": "GeneralAlgebraicKTheory:K.7",
        "note": "Constructs external products from biexact functors with graded commutativity for commutative rings, the ring case of S.6's product target."
+      },
+      {
+       "layer": "MotivicEtaleKTheory:M.6b",
+       "note": "Compares multiplicative and Adams operations at the filtered-spectrum level and proves the rational degeneration and eigenspace identification, the filtered form of S.6's Adams-operation and weight-eigenspace targets (M.6b already lists S.6 in the other direction)."
       }
      ]
     },
@@ -2622,6 +2712,13 @@
          "fit": "related"
         },
         {
+         "name": "SSet.prodStdSimplex.isoNerve",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicTopology/SimplicialSet/ProdStdSimplex.lean",
+         "line": 85,
+         "fit": "special case"
+        },
+        {
          "name": "GeneratedByTopCat",
          "library": "mathlib",
          "file": "Mathlib/Topology/Convenient/Category.lean",
@@ -2629,7 +2726,7 @@
          "fit": "related"
         }
        ],
-       "note": "Only the simplicial part for limits follows from the adjunction hoFunctor -| nerveFunctor; missing are |N(C x D)| ~ |N C| x |N D| and the commutation of nerve and realisation with filtered colimits of categories. Mathlib has started the convenient category of X-generated spaces where the product statement would live, but its cartesian closed structure is still a TODO and nothing connects it to realisation."
+       "note": "Only the simplicial part for limits is there: it follows from the adjunction hoFunctor -| nerveFunctor, and Mathlib proves the representable case explicitly (Delta[p] (x) Delta[q] = nerve of the product order). Missing are |N(C x D)| ~ |N C| x |N D| after realisation and the commutation of nerve and realisation with filtered colimits of categories. Mathlib has started the convenient category of X-generated spaces where the product statement would live, but its cartesian closed structure is still a TODO and nothing connects it to realisation."
       },
       {
        "target": "Contractibility of the classifying space of a category with an initial or terminal object",
@@ -3368,5 +3465,126 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-30",
+  "date": "2026-09-17",
+  "checked": 222,
+  "corrections": [
+   {
+    "layer": "MotivicEtaleKTheory:M.1",
+    "target": "Continuous Galois cohomology with finite, compact and discrete coefficients and derived inverse limits",
+    "was": "note said the comparison of continuous cohomology with the limit of finite-coefficient cohomology is absent",
+    "now": "note records Tau Ceti's finite-quotient colimit theorem in degrees 0 and 1, cited; only the inverse-limit side (derived limits, lim^1) is absent",
+    "why": "TauCeti.ContCohomology.explicitFiniteQuotientColimit0/1 prove H^i(G,M) = colim_U H^i(G/U, M^U) for profinite G and discrete M, i = 0, 1."
+   },
+   {
+    "layer": "MotivicEtaleKTheory:M.3",
+    "target": "The norm-residue (Galois symbol) map K_2(F)/l^r -> H^2(F, mu_(l^r)^(x)2) with its symbol formula",
+    "was": "note listed the Steinberg relation among the missing pieces",
+    "now": "the Steinberg relation is cited as built in its quaternion-symbol form; only its cup-product form is missing",
+    "why": "TauCeti.QuaternionAlgebra.steinbergEquivMatrix proves H[K, a, 1-a] = M_2(K) for 2 invertible, the l = 2 Steinberg relation."
+   },
+   {
+    "layer": "MotivicEtaleKTheory:M.3",
+    "target": "Tate's theorem for local and global fields, via global reciprocity, the cohomology of roots of unity and the limit lemmas",
+    "was": "note: 'Absent; the cohomological class field theory it needs is also absent.'",
+    "now": "note records Tau Ceti's Artin-Tate class-formation framework and Ht^(-2)(G,Z) = G^ab, with the fundamental class, invariant map, Tate's theorem and the Artin map still absent",
+    "why": "TauCeti/NumberTheory/ClassFieldTheory/Formation/*.lean has 153 declarations of formations, normal layers, norms and transfer."
+   },
+   {
+    "layer": "MotivicEtaleKTheory:M.8",
+    "target": "Selmer complexes from explicit local conditions, their determinant lines and local/global regulator maps",
+    "was": "absent, citing only Tau Ceti's 2-Selmer groups",
+    "now": "partial, citing Mathlib's IsDedekindDomain.selmerGroup K(S,n) and Tau Ceti's S-unit map into it",
+    "why": "Mathlib's Selmer group is defined by explicit local conditions away from S; Selmer complexes, crystalline conditions, determinant lines and regulators are still absent."
+   },
+   {
+    "layer": "StableHomotopyKTheory:H.1",
+    "target": "Compatibility of classifying spaces with products and filtered diagrams of categories",
+    "was": "cited only nerveAdjunction and GeneratedByTopCat",
+    "now": "also cites SSet.prodStdSimplex.isoNerve, the representable case of the nerve/product identification",
+    "why": "Mathlib proves Delta[p] (x) Delta[q] = nerve (Fin (p+1) x Fin (q+1)) in ProdStdSimplex.lean."
+   },
+   {
+    "layer": "MotivicEtaleKTheory (summary)",
+    "target": "roadmap summary",
+    "was": "said the libraries have 'no Steinberg relation' and did not mention the class-formation framework, the finite-quotient colimit theorem or the S-Selmer group",
+    "now": "summary records all four and keeps the list of what is genuinely missing",
+    "why": "the summary contradicted TauCeti.QuaternionAlgebra.steinbergEquivMatrix and the ClassFieldTheory/Formation and ContCohomology/FiniteQuotient files."
+   },
+   {
+    "layer": "Polylogarithms:P.1",
+    "target": "duplicate EllipticRegulators:ER.2",
+    "was": "listed as a duplicate",
+    "now": "removed",
+    "why": "ER.2 proves the Steinberg relation of eta(f,g) using the Bloch-Wigner dilogarithm; it states none of P.1's targets (Li_n, continuation, distribution relations, the single-valued functions or D's five-term identity), so it is a consumer of P.1, not another owner."
+   },
+   {
+    "layer": "MotivicEtaleKTheory:M.1",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "added duplicate tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+    "why": "Owns continuous cohomology of a profinite group in all degrees with restriction, inflation, conjugation, the all-degree finite-quotient colimit theorem H^n(G, M) = colim_U H^n(G/U, M^U) and the long exact sequence: the same continuous-cohomology carrier M.1 imports, and the owner of the degree zero and one cases Tau Ceti has built."
+   },
+   {
+    "layer": "MotivicEtaleKTheory:M.2",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "added duplicate tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+    "why": "Defines cd_p, scd_p and cd of a profinite group in ENat with their bounding predicates, the cohomological-dimension invariant M.2 must verify."
+   },
+   {
+    "layer": "MotivicEtaleKTheory:M.2",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "added duplicate tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+    "why": "Owns the local Brauer group H^2(G_F, (F^s)^x), the invariant map normalised by arithmetic Frobenius and local duality, which is exactly the local half of M.2's duality target (ArithmeticGaloisDuality D7 explicitly leaves local Tate duality for finite modules here)."
+   },
+   {
+    "layer": "MotivicEtaleKTheory:M.2",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "added duplicate ArithmeticGaloisDuality:R02.3",
+    "why": "Proves finiteness of finite-coefficient cohomology, bounds on cohomological dimension with the real-place exceptions and constructs compactly supported arithmetic cohomology, the compact-support and finite-generation/vcd hypotheses M.2 asks to verify."
+   },
+   {
+    "layer": "MotivicEtaleKTheory:M.7",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "added duplicate tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+    "why": "Defines the cohomological dimension of a profinite group, the invariant that fixes the degree range of M.7's Quillen-Lichtenbaum statement."
+   },
+   {
+    "layer": "RefinedTraceMethods:RT.4",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "added duplicate tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-7-real-clifford-algebras-bott-periodicity-and-spinp-q",
+    "why": "Owns the real Clifford-algebra Bott periodicity Cliff(p+1, q+1) = Cliff(p, q) (x) M_2(R) and the mod-8 table, the algebraic periodicity Tau Ceti has already built and that RT.4's Bott-periodicity target cites."
+   },
+   {
+    "layer": "RefinedTraceMethods:RT.4:topological",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "added duplicate tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-7-real-clifford-algebras-bott-periodicity-and-spinp-q",
+    "why": "Owns the real Clifford-algebra Bott periodicity and the eightfold-way classification, the algebraic input of this layer's Bott-periodicity target and the owner of the Tau Ceti declarations cited here."
+   },
+   {
+    "layer": "RefinedTraceMethods:RT.3",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "added duplicate KTheoryFiniteLocalFields:L.5",
+    "why": "Proves the THH/TR/TC calculations for perfect fields, truncated polynomial algebras k[t]/(t^e) and complete DVRs, and the characteristic-zero square-zero comparison with differential forms: the same square-zero and truncated-polynomial tests RT.3 lists."
+   },
+   {
+    "layer": "SchemeKTheoryOperations:S.6",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "added duplicate MotivicEtaleKTheory:M.6b",
+    "why": "Compares multiplicative and Adams operations at the filtered-spectrum level and proves the rational degeneration and eigenspace identification, the filtered form of S.6's Adams-operation and weight-eigenspace targets (M.6b already lists S.6 in the other direction)."
+   }
+  ],
+  "notes": "All 222 targets in the 45 layers of the 5 roadmaps were re-checked against the pinned baseline (tauceti f790474, mathlib 082e2d3). Every one of the 180 declaration citations resolves: the file exists, the declaration's short name occurs at the cited line, none is private and none lives in a file containing sorry. The one name missing from declarations.tsv, Topology.CWComplex, is correct in the source (class CWComplex at Mathlib/Topology/CWComplex/Classical/Basic.lean:135, inside namespace Topology opened at line 92); the index is incomplete there. I read every citation on a present or partial target in context; all held. No layer is marked built or process; the three partly-built layers each have a present target and no not-built layer does. I re-searched every absent and partial target by name and by concept in both trees. The sweeping absence claims hold: no Milnor K-theory, no K-theory above K_0, no Nisnevich topology, no motivic or higher Chow theory, no norm varieties or Rost motives, no etale K-theory or Quillen-Lichtenbaum, no Deligne cohomology, no Chern classes or Chern character, no lambda- or Adams operations, no perfect complexes, no blow-ups, no Gersten, no spectra in any model, no smash products, no Bockstein, no Hurewicz, no van Kampen for spaces, no plus construction, no group-completion theorem, no Waldhausen S-construction, no Quillen Theorem A or B, no lim^1 or derived inverse limits, no Hochschild or cyclic homology, no THH/TC/TR, no topological K-theory or topological Bott periodicity, no q-de Rham, prismatic, syntomic or Nygaard objects, no Habiro rings, no polylogarithm beyond Li_1, no dilogarithm or Bloch group, no cross-ratio, no p-adic logarithm or regulator, and no Leopoldt statement. Five target entries were understated and are corrected: the Steinberg relation for quaternion symbols, the degree zero and one finite-quotient colimit theorems for continuous cohomology, Tau Ceti's Artin-Tate class-formation framework, Mathlib's S-Selmer group K(S, n), and Mathlib's nerve/product identification in the representable case. The MotivicEtaleKTheory summary was rewritten to match. Of the 84 duplicate claims, all named layers exist in the atlas, none belongs to the retired roadmap and none is a same-roadmap layer; 83 are genuine other owners and one (Polylogarithms:P.1 -> EllipticRegulators:ER.2) was a consumer and was removed. Nine missed owners were added, including the Tau Ceti ProfiniteCohomology and ClassFieldTheory roadmap layers that own the continuous-cohomology, cohomological-dimension and local-duality targets, and the SpinRepresentations layer that owns the Clifford Bott periodicity RT.4 cites."
  }
 }
