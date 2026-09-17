@@ -192,7 +192,6 @@
     {"roadmapId": "BorelRegulators", "result": "none", "note": "Summary only."},
     {"roadmapId": "BunGAndNewtonStrata", "result": "none", "note": "Summary only."},
     {"roadmapId": "ClassicalAdicEtaleCohomology", "result": "none", "note": "Summary only."},
-    {"roadmapId": "ClassicalAdicEtaleCohomology", "result": "none", "note": "Summary only."},
     {"roadmapId": "ClassicalArithmeticCompletion", "result": "none", "note": "Summary only."},
     {"roadmapId": "ClassicalSerreModularity", "result": "none", "note": "Summary only."},
     {"roadmapId": "CohomologyComparisons", "result": "none", "note": "Summary only."},
@@ -371,7 +370,7 @@
   ],
   "validation": {
     "local": "Passed: python3 -m json.tool <packet>; python3 scratch/check_checkpoint.py. Seven unique cross-roadmap pairs, two-sided evidence and local schema/status checks; no full-atlas or independent mathematical validation claimed.",
-    "repositoryValidator": "Attempt 1, workflow 35219756942/job 105196711167: 4 quote-matching errors, 0 warnings, despite a success badge. The four ADE evidence strings were corrected from fresh README reads; rerun pending. No acceptance claimed.",
+    "repositoryValidator": "Attempt 1, workflow 35219756942/job 105196711167: four quote-matching errors despite a success badge. Corrected evidence then passed in workflow 35220346212/job 105198642419 at head 3fbbee51a3db1afbb904cb0b76d7876349e68633: zero errors and zero warnings. That version contained one duplicated summary-only examination record; this revision removes the duplicate without changing any link. Final count-check rerun pending; the mathematical screen remains partial.",
     "mathematicalReview": "Not performed independently.",
     "workflowWarning": "The current check step pipes through tee without pipefail, so its green badge did not propagate check_links.py failure. Inspect the validator log. Workflow edits are outside this issue."
   },
