@@ -1294,7 +1294,7 @@
          "fit": "related"
         }
        ],
-       "note": "Tau Ceti: for A ∈ M_n(ℤ) with det A ≠ 0 there are L, R ∈ GL_n(ℤ) with LAR = diag(d), d_i | d_j, unique. Mathlib: basis-level Smith form of a submodule of a free module over a PID, without the divisibility chain. Missing: rectangular or singular matrices, general PIDs, and any algorithm with termination."
+       "note": "Tau Ceti: for A ∈ M_n(ℤ) with det A ≠ 0 there are L, R ∈ GL_n(ℤ) with LAR = diag(d), d_i | d_j, unique. Mathlib: basis-level Smith form of a submodule of a free module over a PID, without the divisibility chain. Missing: existence for rectangular or singular matrices (uniqueness, `Matrix.smith_normal_form_unique`, already covers singular diagonals), general PIDs, and any algorithm with termination — the existence theorem is an `∃ L R d` statement, not a procedure."
       },
       {
        "target": "Hermite normal form over ℤ",
@@ -2664,6 +2664,10 @@
       {
        "layer": "DiamondsAndVStacks:D6",
        "note": "D6 constructs Spd ℤ_p and Spd(A,A⁺) by marked untilts, the same marked-untilt construction L1 uses over Spa(O,O), though D6 restricts to Tate pairs and analytic adic spaces rather than schemes."
+      },
+      {
+       "layer": "RelativeFarguesFontaine:RF2:untilts",
+       "note": "RF2:untilts constructs marked untilts over E, the primitive kernel of theta and its Cartier divisor on Y_S and X_S — the same marked-untilt object L1 builds, there over the unramified coefficient base rather than over Spa(O,O) for a complete DVR."
       }
      ]
     },
@@ -2900,6 +2904,14 @@
       {
        "layer": "EtaleDualityAndPerverseSheaves:EDC.6",
        "note": "EDC.6 proves the scheme/adic/diamond comparisons of operations explicitly through L2–L6, restating L3's Rf_! comparison as its transport target."
+      },
+      {
+       "layer": "DiamondSixOperations:S0",
+       "note": "S0 defines and packages exactly the eligible class ECD 27.4 imposes — compactifiable, representable in locally spatial diamonds, locally finite dim.trg — with its closure properties, the diamond-side hypotheses of L3's third target."
+      },
+      {
+       "layer": "DiamondSixOperations:S3",
+       "note": "S3 constructs the right adjoint Rf^! of the diamond Rf_! with its identity, composition and formal base-change identities, the right-adjoint statement L3's third target transports across the comparison."
       }
      ]
     },
@@ -2951,6 +2963,10 @@
       {
        "layer": "EtaleDualityAndPerverseSheaves:EDC.6",
        "note": "EDC.6 transports the mixed-characteristic scheme/adic/diamond Rf_! comparison of L4 into its comparison of operations."
+      },
+      {
+       "layer": "DiamondSixOperations:S0",
+       "note": "S0 owns the compactifiable / representable-in-locally-spatial-diamonds / locally-finite-dim.trg eligibility that ECD 27.5 requires on the diamond side of L4's mixed-characteristic Rf_! comparison."
       }
      ]
     },
@@ -3130,7 +3146,7 @@
        "target": "ECD 27.6: constructible direct-image comparison for separated finite-type maps over O with finite coefficients killed by an integer prime to p",
        "library": "absent",
        "declarations": [],
-       "note": "No constructible étale sheaves on schemes or adic spaces exist; the only constructibility result is Chevalley's theorem for sets (`AlgebraicGeometry.Scheme.Hom.isConstructible_image`)."
+       "note": "No constructible étale sheaves on schemes or adic spaces exist. Constructibility appears only for sets: Chevalley's theorem (`AlgebraicGeometry.Scheme.Hom.isConstructible_image`, Mathlib/AlgebraicGeometry/Morphisms/FinitePresentation.lean:161) and Tau Ceti's pro-constructible subsets of spectral spaces (`TauCeti.IsProConstructible`, TauCeti/Topology/Spectral/ProConstructible.lean:111), used for the patch presentation of Spa."
       },
       {
        "target": "Explicit Galois-cohomology calculation with the inertia group for Spec K → Spec O (tame inertia ≅ ∏_{ℓ≠p} ℤ_ℓ(1))",
@@ -4004,7 +4020,20 @@
        "note": "Absent together with its inputs (scheme trace and purity, formal models)."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "EtaleDualityAndPerverseSheaves:EDC.2",
+       "note": "H3's own description names EDC.2 as the owner of the scheme trace, relative purity and Poincaré pairing it transfers; EDC.2 states the same trace normalization, perfect pairing and nondegeneracy targets for schemes."
+      },
+      {
+       "layer": "DiamondSixOperations:S1",
+       "note": "S1 constructs Rf_! = R f̄_* j_! from the canonical compactification with base change, composition, the projection formula and the cohomological-dimension estimate — H3's proper-support and dimension-bound targets in the diamond setting."
+      },
+      {
+       "layer": "AdicSpacesPartII:R3",
+       "note": "R3 constructs the trace for finite locally free algebras and finite étale analytic maps with its base-change and composition laws and its compatibility with the algebraic trace, the finite-étale half of H3's trace normalization."
+      }
+     ]
     },
     "ClassicalAdicEtaleCohomology:H4": {
      "verdict": "not built",
@@ -4050,7 +4079,16 @@
        "note": "No perfectoid spaces or continuity theorems exist."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "DiamondEtaleCohomology:C1",
+       "note": "C1's reduction to strictly totally disconnected bases proves the geometric-field, relative-ball approximation and extension-by-zero assertions (ECD 16.2–16.5), the same relative-ball approximation over an approximating base as H4's first target."
+      },
+      {
+       "layer": "DiamondEtaleCohomology:C6",
+       "note": "C6 is ECD 19.5 and says it uses 'the annulus/open-ball calculations in H4', the prime-to-p cohomology of discs, punctured discs and annuli that H4's second target computes."
+      }
+     ]
     },
     "ClassicalAdicEtaleCohomology:H5": {
      "verdict": "not built",
@@ -6071,6 +6109,14 @@
       {
        "layer": "CohomologyComparisons:CP.6",
        "note": "CP.6 extends projective-bundle formulas through the splitting construction across étale and other realizations, overlapping EDC.4's projective-bundle decomposition."
+      },
+      {
+       "layer": "LefschetzPencilsAndVanishingCycles:LPV.3",
+       "note": "LPV.3 identifies the incidence total space with the blowup along the smooth codimension-two axis of a pencil and proves it smooth with projective morphism, EDC.4's blowup and codimension-two-axis targets; LPV.4 in turn consumes EDC.4's blowup/projective-bundle maps."
+      },
+      {
+       "layer": "SchemeKTheoryOperations:S.5",
+       "note": "S.5 proves the projective-bundle theorem with generators the powers of the tautological line bundle and the blow-up formula in the regular-centre setting — the K-theoretic analogues of EDC.4's projective-bundle decomposition and blowup formula."
       }
      ]
     },
@@ -6445,5 +6491,70 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-18",
+  "date": "2026-09-17",
+  "checked": 254,
+  "corrections": [
+   {
+    "layer": "AdicCoefficientsAndComparisons:L1",
+    "target": "duplicates",
+    "was": "1 duplicate (DiamondsAndVStacks:D6)",
+    "now": "added RelativeFarguesFontaine:RF2:untilts",
+    "why": "RF2:untilts constructs marked untilts with the primitive kernel of theta and its Cartier divisor — the same marked-untilt object as L1's third target, which the audit attributed only to D6."
+   },
+   {
+    "layer": "AdicCoefficientsAndComparisons:L3",
+    "target": "duplicates",
+    "was": "1 duplicate (EtaleDualityAndPerverseSheaves:EDC.6)",
+    "now": "added DiamondSixOperations:S0 and DiamondSixOperations:S3",
+    "why": "L3's ECD 27.4 target names compactifiability, representability in locally spatial diamonds, finite dim.trg and the Rf^! right-adjoint identity; S0 owns exactly that eligibility package and S3 owns the diamond Rf^! with its identities."
+   },
+   {
+    "layer": "AdicCoefficientsAndComparisons:L4",
+    "target": "duplicates",
+    "was": "1 duplicate (EtaleDualityAndPerverseSheaves:EDC.6)",
+    "now": "added DiamondSixOperations:S0",
+    "why": "ECD 27.5 imposes the same eligibility predicates on the diamond side; S0 is their owner."
+   },
+   {
+    "layer": "ClassicalAdicEtaleCohomology:H3",
+    "target": "duplicates",
+    "was": "no duplicates recorded",
+    "now": "added EtaleDualityAndPerverseSheaves:EDC.2, DiamondSixOperations:S1, AdicSpacesPartII:R3",
+    "why": "H3's own description names EDC.2 as the owner of the scheme trace/purity/pairing it transfers; S1 constructs Rf_! with base change, composition, projection formula and the cohomological-dimension estimate; R3 constructs the analytic finite-locally-free and finite-étale trace with its compatibility with the algebraic trace."
+   },
+   {
+    "layer": "ClassicalAdicEtaleCohomology:H4",
+    "target": "duplicates",
+    "was": "no duplicates recorded",
+    "now": "added DiamondEtaleCohomology:C1 and DiamondEtaleCohomology:C6",
+    "why": "C1 proves the relative-ball approximation and extension-by-zero assertions over strictly totally disconnected bases (ECD 16.2–16.5), H4's first target; C6's description says it uses 'the annulus/open-ball calculations in H4', H4's second target."
+   },
+   {
+    "layer": "EtaleDualityAndPerverseSheaves:EDC.4",
+    "target": "duplicates",
+    "was": "1 duplicate (CohomologyComparisons:CP.6)",
+    "now": "added LefschetzPencilsAndVanishingCycles:LPV.3 and SchemeKTheoryOperations:S.5",
+    "why": "LPV.3 identifies the incidence space with the blowup along the smooth codimension-two axis of a pencil — EDC.4's blowup and axis targets; S.5 proves the projective-bundle theorem and the regular-centre blow-up formula, the K-theoretic analogues the audit already counted for CP.6."
+   },
+   {
+    "layer": "ClassicalArithmeticCompletion:CA.3",
+    "target": "Smith normal form with invertible change-of-basis matrices, the reconstruction equation and d_i | d_{i+1}",
+    "was": "note: \"Missing: rectangular or singular matrices, general PIDs, and any algorithm with termination.\"",
+    "now": "note now says existence is what is missing for rectangular/singular matrices, since `Matrix.smith_normal_form_unique` already covers singular diagonals, and that the existence theorem is an ∃-statement rather than a procedure",
+    "why": "TauCeti/LinearAlgebra/Matrix/SmithNormalForm.lean:836 states uniqueness 'including singular forms, whose chains vanish from the first zero on'; only `exists_smith_normal_form_of_det_ne_zero` (line 743) carries the det ≠ 0 hypothesis. The verdict ('partial') is unchanged."
+   },
+   {
+    "layer": "AdicCoefficientsAndComparisons:L6",
+    "target": "ECD 27.6: constructible direct-image comparison for separated finite-type maps over O with finite coefficients killed by an integer prime to p",
+    "was": "note: \"the only constructibility result is Chevalley's theorem for sets\"",
+    "now": "note also records Tau Ceti's pro-constructible subsets of spectral spaces (`TauCeti.IsProConstructible`, TauCeti/Topology/Spectral/ProConstructible.lean:111) used for the patch presentation of Spa, and gives the Chevalley file and line",
+    "why": "The set-level constructibility in the baseline is not only Chevalley's theorem; the sheaf-level claim, and so 'absent', is unchanged."
+   }
+  ],
+  "notes": "Checked all 254 targets of the 49 layers. (1) Presence claims: all 33 targets marked mathlib/tauceti/both were re-read in the pinned Lean sources; every statement, hypothesis set and generality matches the target, and none is private, an axiom or a bare structure field. Machine re-verification of all 557 cited declarations against declarations.tsv and the two trees found every one at its cited file and line; the seven apparent mismatches are artefacts of the index (named instances `PrincipalIdealRing.to_uniqueFactorizationMonoid`, `IsAdicComplete.henselianRing` and the `public theorem`s `not_fermat_42`, `fermatLastTheoremFour` are dropped from declarations.tsv) or of primed names. No cited declaration depends on a sorry: the only `sorry` tokens in any cited file are in a commented-out TODO block in Mathlib/GroupTheory/FiniteAbelian/Basic.lean and in a docstring in TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Frobenius/Basic.lean; all 11 `sorry` occurrences in the whole pinned Tau Ceti tree are inside comments. (2) Verdicts: CA.0 'built' is right — all ten targets are present and the acceptance conditions (zero/unit cases, Möbius inversion at divisor sums, CRT at non-coprime moduli with the gcd compatibility hypothesis via `Nat.chineseRemainder'`) are met. CA.5 and DWP.10 'process' are right: both are reuse/export layers ('Number-field arithmetic handoff', 'Arithmetic interfaces and acceptance checks') whose content is integration and acceptance checking, not new mathematics; DWP.10 is the more borderline of the two, since its point-count and weight/monodromy exports are mathematical statements, but they are statements proved at DWP.4/7–9 and LPV. No layer's verdict contradicts its targets. (3) Absent/partial: re-searched independently, by Mathlib naming convention and by concept, well over half of the 221 absent/partial targets and every one with a standard name. Confirmed absent from both trees: Hilbert/norm-residue and power-residue symbols, any higher or Artin reciprocity law, Euler (secant) numbers, Lucas sequences, a rationality predicate for power series, general companion matrices (TauCeti's `companionGL`/`companionFinTwo` are 2x2 only), Farey/Stern–Brocot, automatic sequences and Christol, Hermite normal form, rational canonical form, Int(Z) and Pólya, Gröbner bases, Legendre's three-square theorem and r_2/r_4, Catalan–Mihăilescu, Egyptian fractions, numerical semigroups and Apéry sets, Pisot/Salem numbers and the Smyth/Dobrowolski/Schinzel–Zassenhaus/Lehmer bounds, normal integral bases, Hilbert–Speiser, Fröhlich–Taylor, orders in semisimple algebras, henselization and strict henselization, excellent/Nagata/Japanese rings, blowups, de Jong alterations, Nagata compactification, hypercovers above degree one and cohomological descent, derived completeness and completed tensor products, v-sheaves/diamonds/perfectoid spaces (Mathlib's Perfectoid directory is only Untilt, FontaineTheta, BDeRham), formal schemes and Spf, analytification and GAGA, overconvergent/dagger algebras, nearby and vanishing cycles, constructible sheaves (only Chevalley for sets), Rf_!, f^!, dualizing complexes and Verdier duality, Gysin maps, Chow groups, Chern classes and cycle classes (Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean is 79 lines with four declarations, only `map_id` proved), weak and hard Lefschetz, perverse sheaves, recollement and IC, Leray and Hochschild–Serre, Künneth, Poincaré duality in any étale setting, Weil numbers, Tate modules, zeta functions of varieties, the Hasse bound (TauCeti has only the conditional pencil-determinant form), function-field Chebotarev, Pringsheim, lim^1/R lim, and Lefschetz–Verdier traces. Two partial claims I re-derived independently and confirmed: Mathlib's `Module.Basis.SmithNormalForm` carries no divisibility chain (the field `a : Fin n → R` is unconstrained), and AffineTransitionLimit.lean proves eventual affineness and quasi-affineness only — there is no eventual separatedness, properness, closed immersion or étaleness. The heart-is-abelian gap in EDC.5 is a literal 'TODO (@joelriou)' in Mathlib/CategoryTheory/Triangulated/TStructure/Heart.lean, and the triangulated structure of `rightDerivedFunctorPlus` is a TODO in its own file, as the audit states. (4) Duplicates: all 117 recorded entries resolve — 101 to live atlas stage ids (none retired) and 16 to headings that exist in content/tau-ceti; a sample of eleven was read in full and each states the claimed overlap. A phrase-overlap sweep of all 2000+ atlas layer descriptions surfaced eleven further genuine overlaps, added above; the most serious were H3 and H4, which carried no duplicates at all even though H3's own description names EtaleDualityAndPerverseSheaves EDC.2 as the owner of the scheme trace and pairing it transfers, and C6's description names H4's annulus calculations."
  }
 }
