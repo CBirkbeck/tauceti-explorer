@@ -1,129 +1,141 @@
-# LINK-tauceti_TauCetiRoadmap_UniversalCovers — partial handoff
+# LINK-tauceti_TauCetiRoadmap_UniversalCovers — partial continuation
 
-**Worker:** ChatGPT Pro — cgp-f522e092da3e  
+**Worker:** ChatGPT Pro — cgp-f3bded93bb21  
 **Issue:** #70  
-**Status:** partial submission; catalogue-wide screening is unfinished. Do not mark this job done or treat this packet as an exhaustive inventory. No Lean implementation is claimed.
+**Date:** 2026-09-17  
+**Status:** partial. Catalogue-wide screening is unfinished. This is neither an exhaustive inventory nor an independent review or Lean implementation claim.
 
-## Claim and files
+## Submission and coordination
 
-The session's `/claim` is issue comment 5696547150. GitHub Actions confirmed this exact session in comment 5696548562. Both comments and the `state:claimed` label were re-read before submission. No competing claim was present. No other job was claimed.
+This continues the checkpoint authored by ChatGPT Pro — cgp-f522e092da3e and merged from PR #381. The orchestrator explicitly made the job available for continuation. The present session claimed it in comment 5697595889; the workflow confirmed this exact session in comment 5697597482. The live issue and comments were checked again on 2026-09-17; no intervening claimant or submission was present. The resumption notice is comment 5713480874.
 
-Authorized files produced:
+The previous continuation could not be delivered: the file-write tool blocked the upload, and posting its handoff then failed with GitHub's secondary rate limit. The files were preserved as a downloadable checkpoint. This recovery prepares the same mathematical continuation for a new isolated branch, `cgp-f3bded93bb21/link-70-recovery-20260917`, based at `dbafc759460581dbd23999a3c112149fedefe2b5`. The issue's submission comment and PR record are authoritative for the subsequent upload and CI outcome; this document does not anticipate a successful check.
 
-- `research/blueprint/links/tauceti_TauCetiRoadmap_UniversalCovers.json`
-- `research/blueprint/handoff/LINK-tauceti_TauCetiRoadmap_UniversalCovers.md`
+Only the authorised link packet and this handoff are changed. No application code, source roadmap, atlas, queue, ledger, reserved identifier or other worker's packet is changed. No git commands are run. The author does not approve, integrate or mark this job done. Do not release a submitted claim merely to take another job.
 
-Submission uses an isolated branch containing the session identifier and a draft PR. The default branch, queue, ledger, reserved IDs, other packets, roadmap documents and application code were not edited. No git commands were run. Integration and any reassignment remain with the maintainer; do not release a submitted claim merely to take another job.
+## Result
 
-## Revisions and provenance
+The packet preserves the earlier **11 outgoing links**, **8 explicit and 3 inferred**: two to AlgebraicTopology, seven to BelyiMaps and two to LieGroups. It preserves three concrete `rescope` proposals, with the associated-cover proposal corrected using the pinned Lean sources below. No additional directed edge is justified by the continuation's bounded readings. No incoming edge has been established; that is not an exhaustive negative result.
 
-Input repository revision: `85fa2e92d171967337d6b9538b533c8861e2b6d9`.
-Submission branch base: `7821d19ab4fd547181beb46287f8968ec64847d1`.
-GitHub's commit comparison between them showed no changes to `data/atlas.json`, the cited `content/` documents, `baseline.json`, or `scripts/check_links.py`. It did show new browser-sized atlas extracts and revised browser instructions; both were read before submission. No existing link directory/output or competing UniversalCovers PR was found at the submission check.
+The `examined` log has ten entries. Inherited readings, full readings and partial readings are distinguished. ConformalMapping, selected ModularForms passages, the HopfRinow extract prefix and the compact-real Spin clauses extend the earlier investigation, but do not complete the mandatory catalogue screen.
 
-Baseline read from `research/blueprint/baseline.json`:
+The main correction is substantive: **generic associated-cover projection, fibre equivalence and monodromy compatibility already have source declarations at the pin**. They are reuse inputs, not new construction gaps. The remaining task is to reconcile the consumer's carrier, action convention and exact requested API with those declarations. Source inspection is not compilation or an axiom audit.
 
-- Mathlib: `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+## Revisions
+
+Original checkpoint input: `85fa2e92d171967337d6b9538b533c8861e2b6d9`. Its submission base was `7821d19ab4fd547181beb46287f8968ec64847d1`.
+
+Continuation source input: `088ac3dcfb573a1e875fcea971ce54526bbe74d3`. Its previous attempted submission base was `be09b0fb85faab7fc6a8646e9f524140cfa0df2e`. The comparison between those two revisions showed the atlas, focal extracts, quoted roadmap documents, baseline and validator unchanged; it also showed new roadmaps and other packets that still need screening.
+
+Recovery branch base: `dbafc759460581dbd23999a3c112149fedefe2b5`. At this revision the main-branch focal packet still has blob `d8d0a060c9bc35b6f9130ffb7c4bbafa1fc6327f`, and the old handoff still has blob `1608f48c4b476f50737d233b23cc710932a490c8`. Thus this recovery is not overwriting a newer focal continuation. It does not assert that every other source or packet is unchanged. The PR check must validate against its full checkout.
+
+Library pins used for the source inspection:
+
 - Tau Ceti: `f790474821cf4256814db967cb154e7af3d0c369`.
-- Baseline file blob: `fdb00afdfae8e5728e070f310f5a880707764bc2`.
+- Mathlib: `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+- Baseline blob: `fdb00afdfae8e5728e070f310f5a880707764bc2`.
+- Original atlas blob: `37f2add06983c206067d1104e0f40a839cc3961a`.
+- Focal browser extract: `research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_UniversalCovers.json`, blob `5afb37ba4e56b5835f7ac5573b55fbbb99eaa6f1` at the continuation input.
 
-The atlas blob is `37f2add06983c206067d1104e0f40a839cc3961a`. The smaller focal extract, read at the submission base, is `research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_UniversalCovers.json`, blob `5afb37ba4e56b5835f7ac5573b55fbbb99eaa6f1`. It confirms all five stage IDs and `stageEdges: []` for the focal roadmap. The atlas's imported upstream-document snapshot is distinct from the library baseline; do not conflate them.
+The source-document snapshot and the library baseline are different objects. Historical roadmap inventories are not evidence of present library absence. The current browser instructions, blueprint protocol, upstream guide and expansion protocol were re-read for recovery.
 
-All four required protocols were read. The updated browser-instructions blob is `75ae064dee2fdbf87c7331475520ce445604788d`. The blueprint protocol blob is `7bfc37011027b62f1976c3ff1fd88fc8c9b83cb3`; upstream guide `a767747585bba9a7c57ff365e02a574f04cfec71`; expansion protocol `c763c69dd1a81f4ded9843c714f8b32c9c4cf854`.
+## Focal inputs and outputs
 
-**Library verification boundary:** no declaration source was independently checked at either library pin. Quotations of roadmap inventories establish intended scope, not actual availability in those libraries. No absence claim or implementation-completion claim is made.
+**Stage 0.** Under path-connectedness, local path-connectedness and semilocal simple connectivity, construct the based universal-cover carrier, projection, local sheets and fundamental-group action; supply the deck-group carrier. Only the fixed-endpoint fibres, not the total space, are discrete. General lifting and quotient-cover interfaces are consumed rather than reconstructed.
 
-## Result and direction
+**Stage 1.** Relate the deck group to the fundamental group with the actual multiplication and action conventions. Keep evaluation and map-level compatibility, not merely an abstract group isomorphism.
 
-The packet contains **11 outgoing links**, **8 explicit and 3 inferred**: two to AlgebraicTopology, seven to BelyiMaps, and two to LieGroups. No incoming link has been established. There are three `rescope` overlap proposals. All endpoints use actual atlas stage IDs, not invented finer-grained IDs; milestone locators in the reasons identify the narrower mathematical contracts.
+**Stage 2.** Use the lifting criterion, construct the pointed cover attached to a subgroup, recover that subgroup, and prove basepoint-change/conjugation formulas. Distinguish pointed covers and actual subgroups from unpointed covers and conjugacy classes. The normalizer quotient and fibre-transitivity statements supply regular-cover classification. The monodromy route needs a functorial associated-cover interface.
 
-The most consequential findings are:
+**Stage 3.** Supply absolute cubical homotopy functoriality, pointed maps and basepoint change; prove invariance under covers in degrees at least two. Homotopies relative to a cube boundary are not the relative homotopy groups of an arbitrary pair.
 
-1. **Belyi 5.5 names the wrong van Kampen supplier.** Its required canonical fundamental-group pushout belongs to AlgebraicTopology Stage 1; UniversalCovers has no van Kampen stage. The correction is a request below, not an illicit non-focal edge in this packet.
-2. **Belyi assumes a deck/opposite-group convention that UniversalCovers has not fixed.** Reconcile the actual maps and action laws before implementing associated covers or centralizer comparisons.
-3. **Belyi 7.1 needs generic cover classification over the punctured disc.** Its earlier triple classification is specific to the thrice-punctured sphere and cannot just be transported to a different base.
+**Stage 4.** Apply the theory to circles, tori and projective spaces, and recognize aspherical K(G,1) spaces from suitable already-given covers. Construction of BG for an arbitrary group is a distinct simplicial-realization target, not supplied by recognition alone.
 
-## Focal stage input/output checklist
+## Pinned source audit and the corrected reuse boundary
 
-- **Stage 0:** under path-connectedness, local path-connectedness and semilocal simple connectivity, construct the based-path quotient universal cover, its projection and local sheets, the fundamental-group action and deck-group carrier. Discrete fibres do not imply a discrete total space. Generic path/homotopy lifting is a library prerequisite named by the roadmap, not newly verified here.
-- **Stage 1:** identify deck transformations with the fundamental group or its opposite, with explicit left/right action and composition conventions. Preserve map-level compatibility, not just an abstract group isomorphism.
-- **Stage 2:** use the lifting criterion; construct the pointed cover of a subgroup, prove recovery of that subgroup and its conjugation law under basepoint change; classify pointed versus unpointed covers; prove normalizer/deck and regularity results. The optional monodromy route requires its own generic associated-cover API.
-- **Stage 3:** supply absolute cubical homotopy functoriality, pointed maps and basepoint change, then invariance of higher homotopy groups under coverings for degrees at least two. Boundary-relative homotopies of cube representatives are not the relative homotopy groups of arbitrary based pairs.
-- **Stage 4:** derive circle/torus/projective-space examples and recognize aspherical `K(G,1)` spaces when a suitable weakly contractible universal cover is already available. It does not construct `BG` for arbitrary groups.
+### Balanced products
 
-## Cross-roadmap requests and precise remaining contracts
+Read `TauCeti/Topology/Covering/BalancedProduct.lean`, lines 1–265, at the Tau Ceti pin; blob `238e68b001cc759c497b30e20f978d5cb498718a`.
 
-### R1. BelyiMaps Layer 5.5 / AlgebraicTopology Stage 1
+The source defines the balanced product as the orbit quotient of E × A under a diagonal left action. `BalancedProduct.proj` descends an invariant map q. `BalancedProduct.isCoveringMap_proj` proves that this projection is a covering when q is an `IsQuotientCoveringMap` and A has discrete topology. This theorem does not impose connectedness on E, X or the resulting associated cover. The file also treats empty A. Its proof is distinct from `isQuotientCoveringMap_mk`, which concerns the map from the product to its quotient. Those two maps must not be conflated.
 
-Replace the UniversalCovers attribution of van Kampen by the groupoid/canonical-pushout supplier in AlgebraicTopology. The consumer needs the **canonical induced map**, its bijectivity and compatibility with the named generators, not a noncanonical abstract equivalence with a free group. Confirm that the connected intersection/basepoint hypotheses and the concrete punctured-plane open cover instantiate that theorem. This requested edge has neither endpoint in UniversalCovers, so it is intentionally not included in this job's links.
+The exchange rule is `mk_smul_left`: moving the first coordinate by g moves the second coordinate by g inverse in the quotient. The later purely algebraic fibre tail was not independently read in this continuation; the applied fibre statement was read in ActionCover instead.
 
-### R2. UniversalCovers Stage 1 / BelyiMaps Layers 6.2 and 6.4
+### The fundamental-group associated cover
 
-Pin the deck multiplication and the fundamental-group multiplication, then state the actual comparison homomorphism. Belyi 6.2 writes a right action and the diagonal action `(u,s) -> (u gamma^-1, gamma s)`, and 6.4 absorbs an opposite group when comparing deck transformations with a centralizer. Do not remove inverses by appealing to the abelian circle example: the thrice-punctured-sphere group is noncommutative. Belyi's assertions about the library's multiplication convention were not independently checked at the pin in this link job.
+Read the full `TauCeti/AlgebraicTopology/UniversalCover/Classification/ActionCover.lean` at the pin; blob `401dfe4658ce1c0569c8e894c50a427e56ff306c`.
 
-### R3. UniversalCovers Stage 2 / BelyiMaps Layer 7.1
+The source supplies `ActionCover`, `actionCoverProj`, `isCoveringMap_actionCoverProj`, the bundled `actionCoveringSpace`, `actionCoverFiberEquiv`, and `monodromy_actionCoverFiberEquiv`. The section assumptions include the three base-space conditions, an action on A and discrete topology on A; no transitivity or nonemptiness of A is imposed. The last theorem identifies monodromy under the fibre equivalence with the given action on A. The file also supplies the corresponding bundled fibre and monodromy statements.
 
-Use the **generic** connected-cover/subgroup classification over the punctured disc, together with its fundamental group `Z`, the index-`e` subgroup calculation, and the positive local power-map model `z -> z^e`, with `e >= 1` and finite fibres. Belyi Layer 6.3 classifies covers of `C minus {0,1}` by triples; its target base cannot simply be changed to the punctured disc. The explicit new edge is marked inferred for this reason. Retain the current Layer 7 atlas ID even though its prose assigns work to an intended successor roadmap.
+This verifies the specific projection/fibre/monodromy inputs, not every possible component, coproduct, functoriality or categorical-equivalence export. Search and read those separately before calling them absent or declaring the Belyi supplier request completely satisfied.
 
-### R4. Generic associated covers
+### Action conventions
 
-Belyi 6.2 already calls this an unresolved UniversalCovers supplier contract. Make the intended allocation explicit in UniversalCovers Stage 2: arbitrary discrete fundamental-group sets, quotient topology, the projection-to-base covering theorem, fibre identification, monodromy with conventions, functoriality, coproducts and orbit/component comparison. Keep the finite numbered/pointed/unnumbered triple specializations in Belyi or its declared successor. The quotient map from the product to the associated cover and the associated-cover projection to the base are different maps; proving the former is a covering does not prove the latter.
+Read `TauCeti/AlgebraicTopology/UniversalCover/Action.lean`, lines 1–145, at the pin; blob `e9c1283bbc2b7d5d19836a592a77ba415ecf06c7`.
 
-### R5. LieGroups Layer 5 ordering
+Its actual left action prepends the inverse loop class. The rules `smul_mk` and `inv_smul_mk` expose that convention. ActionCover uses it together with the balanced-product exchange rule to obtain its monodromy statement without an opposite-group type in that interface. This settles that particular interface. The full deck-group comparison and every downstream Belyi conversion were not read or checked, so it does not settle all opposite-group questions globally.
 
-Reuse the generic topological cover and unique lifting from UniversalCovers, but let LieGroups own the lifted group operations, their laws, transported smooth structure, Lie-algebra comparison and discrete central kernel. For a connected finite-dimensional real Lie group, discharge all base-space hypotheses rather than dropping connectedness. Split the early covering-group construction, which Layer 4's Lie III proof uses, from the later integration/descent refinement, which itself uses Layer 4. A whole-layer ordering would conceal a dependency cycle. A merely topological covering is not a smooth local diffeomorphism for arbitrary independently chosen smooth structures.
+Read `Mathlib/Topology/Covering/Quotient.lean`, lines 1–130, at the Mathlib pin; blob `278603a2b6d3e39b64f3ee9e046c1b70cbb5f8cb`. The actual predicate contains quotient-map, continuous-action, orbit-fibre and local-disjointness data; `map_smul` and the free-action consequence were inspected.
 
-### R6. Absolute versus relative homotopy
+## Cross-roadmap requests
 
-AlgebraicTopology Stage 8 explicitly consumes UniversalCovers' absolute induced-map/basepoint API but repeats parts of that API in its extension to pairs. Keep absolute cubical operations in UniversalCovers Stage 3; keep relative groups of based pairs, their low-degree pointed-set distinctions, connecting maps, Kan comparison and Hurewicz--Whitehead in AlgebraicTopology. This is a local scope split, not a proposed merge of the entire roadmaps.
+### R1. Correct the van Kampen supplier
 
-### R7. FuchsianOrbifolds and other undecided candidates
+At the inspected snapshot, Belyi 5.5 attributes the two-open van Kampen theorem to UniversalCovers. Its canonical fundamental-group pushout is instead in AlgebraicTopology Stage 1. Request the actual induced map, its bijectivity and compatibility with the specified generators, with the connected-intersection and basepoint hypotheses verified for the punctured-plane cover. An abstract noncanonical free-group equivalence is insufficient. This proposed correction has neither endpoint in UniversalCovers, so it is not inserted as an out-of-scope edge in this packet.
 
-The Fuchsian ownership paragraph names UniversalCovers, but a precise extra stage-level dependency has not yet been established. Coarse quotients with elliptic stabilizers are branched, and removing fixed points can destroy simple connectivity. Find the exact torsion-free or deck-group contract before adding an ordinary universal-cover edge. Similarly, an algebraic Spin double cover or an étale fundamental group is not automatically a dependency on ordinary covering spaces.
+### R2. Reconcile deck and associated-cover conventions
 
-## Source reading audit
+Belyi 6.2 and 6.4 assume a right-action/opposite-group presentation. The pinned Action and ActionCover sources expose a working inverse-prepending left-action presentation. Compare the actual maps and prove the required equivariant conversion; do not duplicate the construction or remove inverses by appealing to an abelian circle example. The thrice-punctured-sphere fundamental group is the noncommutative test. The full deck identification remains a source-reading task.
 
-Repository documents were the primary evidence for this **link** job. All quotes in the packet are from documents at the input revision; their exact source/target locators appear in the reasons. Public textbooks cited inside those roadmaps were not independently read here, and this handoff does not certify their theorem locators.
+### R3. Use generic classification over the punctured disc
 
-| Document | Material actually read | Source blob or locator |
-| --- | --- | --- |
-| `content/tau-ceti/UniversalCovers/README.md` | Full README and every stage; re-read Stage 1--4 conventions and exact quotes | `71820e8ece13eff8ccac06fc1a340ced18f6f55e` |
-| `content/tau-ceti/AlgebraicTopology/README.md` | Full README, ownership, Stages 1--8 and reference tail | `f569dfdd78e0f2137f663cd63cd032608090864` |
-| `content/tau-ceti/BelyiMaps/README.md` | Opening ownership/merge boundaries; all Layers 5--7, including prerequisites and API outlines; not the entire long programme | `5c818fb6124600633f4d2e9ccec4ea29ce08fded`; Layers 5.1--5.7, 6.1--6.5, 7.1--7.5 |
-| `content/tau-ceti/FuchsianOrbifolds/README.md` | Full README, standing conventions, Layers 0--6 and reference tail | `94bf71cf339fb3b71fd0bd72b00475ba542675c3` |
-| `content/tau-ceti/RepresentationTheory/LieGroups/README.md` | Standing hypotheses and relevant Lie III/covering portions; complete Layer 5 stage description | Layer 4 / Layer 5 |
-| `content/tau-ceti/RepresentationTheory/SpinRepresentations/README.md` | Introduction and standing conventions; discovered but did not fully inspect later real-form/simple-connectivity stages | Opening section; real-form candidate unfinished |
-| `content/campaign/StableHomotopyKTheory/README.md` | Full campaign README, especially H.1 and H.2; integrated decomposition not yet inspected | `7cdccbd3ab31ffc3d417b6221140662eeeee660d` |
+Belyi 7.1 needs connected finite covers of the punctured disc to be identified with positive power maps. Use UniversalCovers Stage 2, the fundamental group Z, the index-e subgroup calculation and the positively oriented local power-map model, retaining e >= 1 and finite fibres. The triple classification of covers of C minus {0,1} cannot simply be transported to a different base. This is a missing direct roadmap supplier, not a claim that the generic classification is absent from the library. Keep the current Layer 7 atlas endpoint until the orchestrator actually creates a successor.
 
-Indexed repository searches used `UniversalCovers`, `"universal cover"`, `"deck"` and `"fundamental group"`, with result-path inspection and full document fetches for accepted links. Search results were discovery aids and could reflect another revision. The atlas was read/searchable through the Git blob endpoint, but not downloaded as a complete local file. Selected neighbouring/upstream summaries were screened; this is **not** an exhaustive negative search and does not satisfy the issue's full catalogue requirement yet.
+### R4. Associated-cover ownership and reuse
 
-## Resume checklist — unfinished acceptance work
+Keep the generic associated-cover construction in UniversalCovers Stage 2. Reuse the pinned projection, fibre and monodromy declarations identified above. Reconcile the consumer's action convention; then inventory equivariant functoriality, orbit/component comparison, coproducts and the categorical inverse-monodromy statements. Keep finite numbered/pointed/unnumbered triple classifications and branch-point actions in Belyi or its orchestrator-approved successor. The previous formulation of the whole construction as an open gap is superseded by this narrower request.
 
-1. Use the newly available `research/blueprint/atlas/index.json`, `areas/*.json`, `roadmaps/*.json` and `stage-edges.json` instead of fighting the 14 MB contents-API limit. Verify their source against the unchanged atlas and use a complete local checkout or reconstructed complete dataset for global checks.
-2. Complete a documented screen of **every upstream Tau Ceti roadmap**, all same-area roadmaps and neighbouring-area summaries. The seven focused `examined` entries are not the full required catalogue. Same-area work still needs detailed checks of GeometricTopology, HopfRinow, HeegaardFloer and CombinatorialHeegaardFloer, rather than their summary-level screening alone.
-3. Inspect ConformalMapping, the real Spin stages, and the integrated StableHomotopyKTheory decomposition. For `BG`, distinguish construction from UniversalCovers Stage 4's recognition theorem and identify the actual `EG -> BG` proof route before creating an edge.
-4. Resolve discovered campaign candidates at their actual stage contracts: InverseGaloisAndArithmeticFundamentalGroups, ShimuraVarieties, topological/étale comparison in the relevant cohomology roadmaps, and any other hits from a complete alias search. Treat diamond/étale/algebraic covers separately from classical topological covers. Check both inputs and outputs, not just outward uses.
-5. Add only accepted exact pairs with both endpoint quotations, record every additionally read roadmap in `examined`, and check other packets that may have appeared since this checkpoint. Do not turn a search miss into an absence proof.
-6. Re-run the official validator against the complete world and inspect its output. Resolve R1--R7 or preserve them explicitly in the appropriate future blueprints. Request independent mathematical review before integration.
+### R5. Separate early covering Lie groups from later descent
 
-## Validation
+LieGroups should import the topological universal-cover carrier and unique lifting, then own the lifted group operations, their laws, transported smooth structure, covering homomorphism and discrete central kernel. Discharge the base-space hypotheses for connected finite-dimensional real Lie groups. Separate the early covering-group construction used in the Lie III route from later integration/descent that consumes Lie III. A topological covering is not automatically a smooth local diffeomorphism for unrelated preassigned smooth structures.
 
-The official validator source was read: `scripts/check_links.py`, blob `2495f36d368045ae9d52236644d45acc5f8b89b6`. Its checks include known IDs, both endpoint quotes, exact whitespace-normalized quote matching, duplicates, cycles and overlap schema. It does **not** prove mathematical correctness or exhaustive catalogue coverage.
+### R6. Separate absolute and relative homotopy
 
-Local commands run on the actual output:
+UniversalCovers Stage 3 owns the absolute cubical induced-map/basepoint API. AlgebraicTopology Stage 8 imports it and owns homotopy groups of based pairs, connecting maps, the low-degree group/pointed-set distinctions, Kan comparison and Hurewicz–Whitehead. Record the split in finer declarations rather than introduce a whole-roadmap circular dependency.
 
-```text
-python3 scratch/finalise.py
-python3 -m json.tool research/blueprint/links/tauceti_TauCetiRoadmap_UniversalCovers.json
-python3 scratch/check_packet.py
-```
+### R7. Resolve the actual conformal and quotient consumers
 
-The JSON parse and local packet-consistency checks pass: 11 unique focal-outward edges, 8 explicit / 3 inferred, evidence on both sides, three scope proposals, and no cycle within the proposed packet. These are limited checks, not the repository validator.
+ConformalMapping's reflection and boundary layers and UniversalCovers are described as co-suppliers to a modular-lambda application. That does not give a dependency between ConformalMapping and UniversalCovers. The selected current ModularForms passages allocate quotient geometry to FuchsianOrbifolds; they do not justify inventing a new lambda stage from older sibling prose. Find the precise current consumer before adding an edge. Coarse quotients with elliptic stabilizers are branched; removing fixed points need not leave a simply connected source. Keep ordinary covers separate from algebraic, étale, pro-étale and diamond notions.
 
-The official command was **not run locally**, because no complete local atlas/world was obtained. Do not substitute a hand-built subset and call it a full validation:
+### R8. Compact-real Spin simple connectivity needs its proof
+
+SpinRepresentations separates the abstract algebraic double cover from the compact-real universal-cover claim in Layer 7. The latter cannot be justified merely by path-connectedness of a sphere. Require a precise proof, for example a verified sphere-fibration argument with an independently proved starting case and the exact homotopy-sequence inputs. Naming the resulting map a universal cover does not by itself identify a compulsory dependency on the generic path-quotient construction. No new directed edge was accepted from that vocabulary alone.
+
+## Reading scope and remaining acceptance work
+
+The earlier checkpoint read the focal README and all five stages, the full AlgebraicTopology and FuchsianOrbifolds READMEs, Belyi ownership and Layers 5–7, LieGroups conventions and its cover/Lie III passages, the full StableHomotopyKTheory campaign README, and the opening Spin conventions. Its source blobs and scopes remain recorded in the original PR #381 history.
+
+The continuation read the full ConformalMapping README; the focal README again; selected ModularForms opening, ordering, Layer 11 and examples (not the whole programme); Spin Layer 2 and the compact-real Layer 7 clause; and the HopfRinow extract prefix through Layers 0 and 1. The four pinned Lean source scopes above are the added implementation-source evidence. During recovery, the accessible prefixes of the campaign summary catalogue were also screened for leads; they are not counted as full roadmap examinations or exhaustive coverage.
+
+Required continuation:
+
+1. Complete a documented catalogue-wide screen, including every upstream Tau Ceti roadmap, every same-area roadmap and neighbouring-area summaries. Read candidate endpoint stages in full. The ten examined entries are not the required whole catalogue.
+2. Finish the same-area readings: HopfRinow beyond Layer 1, GeometricTopology, HeegaardFloer and CombinatorialHeegaardFloer. Check both incoming needs and outgoing uses of every focal stage.
+3. Read the integrated StableHomotopyKTheory decomposition. Distinguish construction of BG from recognition of a K(G,1); verify an actual EG-to-BG proof route before accepting a cover-based link.
+4. Resolve campaign leads at actual stage contracts, including arithmetic locally symmetric spaces, Shimura varieties, inverse Galois/fundamental groups, and genuine topological/étale comparisons. Screen new roadmap definitions added after the earlier snapshot.
+5. Read all other link packets touching the focal stages and remove duplicates with them or with the recorded stage edges. Complete global cycle checking at the actual submission base. These global checks were not performed locally on a reduced dataset.
+6. Preserve R1–R8 where unresolved. Requests are not proofs of library absence. Obtain the required independent mathematical review before any integration.
+
+## Validation boundary
+
+The prior merged PR #381 ran the official checker in GitHub Actions run 35092120261, job 104780643894, on its then-current full checkout: 11 links, 3 overlaps, 7 examined; zero errors and zero warnings. That result applies to that earlier checkpoint, not automatically to this continuation.
+
+The saved continuation passed JSON parsing and limited local edge-consistency checks. No complete local atlas/world was obtained, and the official full-world command has not been run locally. The browser-sized extracts solve individual-record access; they do not by themselves constitute a downloaded complete validator input. Do not call a hand-built subset full-world validation.
+
+The required official command is:
 
 ```text
 python3 scripts/check_links.py research/blueprint/links/tauceti_TauCetiRoadmap_UniversalCovers.json
 ```
 
-The unchanged `swarm-check.yml` PR workflow invokes that command on changed link files with the full checkout. At the moment this handoff was written, CI had not yet run; inspect the PR's actual check result/log and the submission comment for the later result. A successful structural check still leaves the catalogue-completeness and mathematical-review work above unfinished.
+The existing PR workflow invokes this command using a complete checkout and the pinned library setup. Read its actual check/log after submission and record the result in the issue. A successful structural check establishes neither exhaustive catalogue coverage nor mathematical correctness. No Lean build or axiom audit is claimed.
