@@ -1,0 +1,843 @@
+{
+ "job": "AUDIT-19",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "HabiroCohomologyFoundations": {
+   "summary": "Nothing specific to q-Hodge or Habiro cohomology exists in Mathlib or Tau Ceti. Neither library has λ-rings, δ-rings or prisms, q-derivatives or q-de Rham complexes, animated rings, derived de Rham cohomology, décalage, q-Witt or de Rham–Witt complexes, Habiro-complete modules, or spectra. So HQ.2–HQ.6 and HQ.8 are unbuilt, HQ.1 is partly built only because its q-integer identities already exist, and HQ.7 is acceptance testing. What the libraries already have is generic support, all in Mathlib. The q-integer identities that HQ.1 calls prototype lemmas are there as geometric sums ([n]_q(q−1) = q^n − 1, Φ_p = [p]_q, Φ_p(1) = p). Mathlib also has p-typical Witt vectors with F, V and a ghost map (bijective only when p is invertible), Kähler differentials, underived filtrations, Tor, regular sequences, smooth and étale algebras, condensed and solid modules, and Fontaine's θ with B_dR⁺. HQ.1's local q-crystalline input duplicates PrismaticCohomology PR.6, HQ.2's derived de Rham/filtered/Lη/animation inputs duplicate DD.1–DD.2, AI.1 and EDS E5:animation, and HQ.5-trace restates RefinedTraceMethods RT.4:q-Hodge.",
+   "layers": {
+    "HabiroCohomologyFoundations:HQ.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "q-integers [n]_q = ∑_{i<n} q^i with their interface identities: [n]_q·(q−1) = q^n − 1, [n]_1 = n and [p]_q = Φ_p(q), the generator of the q-prism ideal",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "geom_sum_mul",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Ring/GeomSum.lean",
+         "line": 232,
+         "fit": "more general"
+        },
+        {
+         "name": "Polynomial.cyclotomic_prime",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+         "line": 367,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.eval_one_cyclotomic_prime",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Eval.lean",
+         "line": 33,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.cyclotomic_prime_pow_eq_geom_sum",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+         "line": 509,
+         "fit": "exact"
+        },
+        {
+         "name": "Polynomial.eval_geom_sum",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+         "line": 703,
+         "fit": "related"
+        }
+       ],
+       "note": "There is no separate name for [n]_q, but it is the geometric sum ∑_{i<n} X^i and these are its identities: `geom_sum_mul` holds in every ring, `Polynomial.cyclotomic_prime` identifies Φ_p with ∑_{i<p} X^i for p prime, `Polynomial.eval_one_cyclotomic_prime` gives Φ_p(1) = p, and `cyclotomic_prime_pow_eq_geom_sum` gives [p]_{q^{p^n}} = Φ_{p^{n+1}}. The 'prototype q-integer lemmas' therefore need no new mathematics. Mathlib's Pochhammer file still lists q-factorials, q-binomials and q-Pochhammer symbols as TODO."
+      },
+      {
+       "target": "The q-derivative (Jackson operator) D_q f = (f(qx) − f(x))/((q−1)x) on polynomial algebras, with D_q(x^n) = [n]_q x^{n−1}",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Polynomial.derivative",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Derivative.lean",
+         "line": 46,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.derivative_X_pow",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Derivative.lean",
+         "line": 99,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.comp",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+         "line": 381,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has a q-difference or Jackson derivative operator. Only the q = 1 case exists: the ordinary `Polynomial.derivative` with d(X^n) = n·X^{n−1}. The substitution f(qx) can be written with `Polynomial.comp`, but the division by (q−1)x has not been constructed."
+      },
+      {
+       "target": "The twisted Leibniz rule D_q(fg) = D_q(f)·g(qx) + f·D_q(g) and d∘d = 0 for the framed q-de Rham (q-difference) complex",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has a q-difference complex or a twisted derivation. A grep of both trees for q-derivative, q-difference, Jackson and q-de Rham found nothing."
+      },
+      {
+       "target": "Specialisation of the framed q-de Rham complex at q = 1 to the ordinary algebraic de Rham complex",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "KaehlerDifferential",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Kaehler/Basic.lean",
+         "line": 153,
+         "fit": "related"
+        },
+        {
+         "name": "KaehlerDifferential.polynomialEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Kaehler/Polynomial.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Kähler differentials Ω¹_{B/A} with d: B → Ω¹ and the basis of Ω¹ for polynomial rings, but neither library has an algebraic de Rham complex (exterior powers of Ω¹ with a differential) or a specialisation map from a q-deformation. The only mention of de Rham in either tree besides B_dR is a remark in Mathlib/Data/Fin/Parity.lean."
+      },
+      {
+       "target": "The local q-crystalline site, q-PD envelopes and the p-complete comparison of the framed q-de Rham complex with prismatic cohomology over the q-prism (ℤ_p[[q−1]], [p]_q), imported from PR.6",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PowerSeries",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+         "line": 60,
+         "fit": "related"
+        },
+        {
+         "name": "PadicInt",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+         "line": 62,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.cyclotomic_prime",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+         "line": 367,
+         "fit": "exact"
+        }
+       ],
+       "note": "Neither library has δ-rings, prisms, q-PD pairs or prismatic cohomology. The base ring ℤ_p[[q−1]] can be written as `PowerSeries` over `PadicInt`, and its ideal generator [p]_q = Φ_p(q) exists, but nothing about the prism exists."
+      },
+      {
+       "target": "Global arithmetic gluing over a perfectly covered Λ-ring and its admitted algebras (Wagner Appendix A): combining the p-complete local constructions with rational de Rham data, framing independence through coherent comparison maps, and descent with cocycle identities",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PerfectRing",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Perfect.lean",
+         "line": 44,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library defines λ-rings or Λ-rings (Mathlib/RingTheory/Polynomial/Dickson.lean:115 records that Mathlib does not know what a Lambda ring is), δ-rings, prisms or perfectly covered bases. `PerfectRing` exists only as the characteristic-p notion of a bijective Frobenius."
+      },
+      {
+       "target": "Completed coefficient rings for the gluing, with convergence proofs instead of inverting q − 1",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AdicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 171,
+         "fit": "related"
+        },
+        {
+         "name": "IsAdicComplete",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 56,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+         "line": 60,
+         "fit": "related"
+        }
+       ],
+       "note": "Generic I-adic completion (`AdicCompletion`, `IsAdicComplete`) and formal power series exist. Missing are the specific (q−1)- and p-adically completed coefficient rings used in the gluing and the convergence statements for the glued differentials."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PrismaticCohomology:PR.6",
+       "note": "PR.6 constructs the q-crystalline site, the framed q-de Rham complex, change of framing, cocycle descent and the p-complete comparison over (ℤ_p[[q−1]], ([p]_q)). HQ.1 restates these as its local computations and owns only the global gluing."
+      }
+     ]
+    },
+    "HabiroCohomologyFoundations:HQ.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Animated (simplicial commutative) rings, polynomial resolutions, and derived q-de Rham qdR defined by sifted-colimit extension from polynomial algebras, with resolution independence and the construction before completion",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.SimplicialObject",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicTopology/SimplicialObject/Basic.lean",
+         "line": 52,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.IsSifted",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Limits/Sifted.lean",
+         "line": 56,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Functor.leftKanExtension",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Functor/KanExtension/Basic.lean",
+         "line": 301,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the categorical ingredients (simplicial objects, the class of sifted categories, left Kan extensions) but no animated rings, no polynomial-resolution functor and no derived q-de Rham. A grep for animated found nothing in either tree."
+      },
+      {
+       "target": "Derived base change for qdR under its actual completion hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no qdR, and no derived completion to base change along."
+      },
+      {
+       "target": "Ordinary derived de Rham cohomology with its Hodge filtration and Hodge completion (imported from DD), specialised from qdR with the filtration",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "KaehlerDifferential",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Kaehler/Basic.lean",
+         "line": 153,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.Extension.cotangentComplex",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Extension/Cotangent/Basic.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Kähler differentials and the naive two-term cotangent complex of an extension. Neither library has the derived cotangent complex, derived exterior powers, derived de Rham or a Hodge filtration."
+      },
+      {
+       "target": "Separation of ordinary tensor products from derived tensor products",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TensorProduct",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+         "line": 71,
+         "fit": "exact"
+        },
+        {
+         "name": "CategoryTheory.Tor",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Tor.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "DerivedCategory",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+         "line": 87,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the ordinary `TensorProduct` and `CategoryTheory.Tor`, the left-derived functors of the tensor product in a monoidal abelian category with projective resolutions. Missing is a derived tensor product on `DerivedCategory` or for animated rings and modules."
+      },
+      {
+       "target": "Complete filtered modules over the (q−1)-filtered coefficient ring, their associated graded, completion and filtered tensor products (from EnhancedDerivedSheaves)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsModuleFiltration",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/FilteredAlgebra/Basic.lean",
+         "line": 96,
+         "fit": "related"
+        },
+        {
+         "name": "Ideal.Filtration",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Filtration.lean",
+         "line": 52,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.FilteredObject",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Filtration/Basic.lean",
+         "line": 72,
+         "fit": "related"
+        },
+        {
+         "name": "AdicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 171,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has underived filtrations: `IsModuleFiltration`, I-filtrations with Artin–Rees (`Ideal.Filtration`), the categorical `FilteredObject` with strict morphisms, and I-adic completion. Missing are complete filtered objects in a derived or enhanced category, the associated-graded functor on them, filtered completion and filtered tensor products."
+      },
+      {
+       "target": "The smooth underived q-de Rham complex qΩ versus derived qdR: Wagner Proposition 3.47 comparing qΩ with the q-Hodge completion of qdR and with Lη_{(q−1)} of qHdg",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has qΩ, qdR, q-Hodge completion or décalage."
+      },
+      {
+       "target": "The décalage functor Lη with its torsion corrections, imported from AInfCohomology",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Lη or décalage construction exists in either library; a grep for décalage/decalage found nothing."
+      },
+      {
+       "target": "The derived de Rham specialisation with its filtration, the rational comparison, the separate p-completed rational comparison and the explicit diagram of completions and localisations",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsLocalization",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Localization/Defs.lean",
+         "line": 104,
+         "fit": "related"
+        },
+        {
+         "name": "AdicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 171,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the generic ring-level localisation and adic completion exist; none of the derived comparison squares does."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DerivedDeRhamCohomology:DD.2",
+       "note": "DD.2 constructs derived de Rham from polynomial resolutions with its Hodge filtration, Hodge completion and filtered base change, which HQ.2 names as its q = 1 specialisation and import."
+      },
+      {
+       "layer": "DerivedDeRhamCohomology:DD.1",
+       "note": "DD.1 builds the complete filtered enhanced modules, completed filtered tensor products, graded pieces and Hodge completion that HQ.2 asks to build (attributing them to EnhancedDerivedSheaves)."
+      },
+      {
+       "layer": "AInfCohomology:AI.1",
+       "note": "AI.1 constructs the generic décalage Lη_f with its torsion-removing cohomology formula, which HQ.2 imports for the Lη_{(q−1)} comparison."
+      },
+      {
+       "layer": "EnhancedDerivedSheaves:E5:animation",
+       "note": "E5:animation constructs animated commutative algebras, polynomial resolutions and sifted left Kan extensions, the resolution machinery HQ.2 uses to define qdR."
+      }
+     ]
+    },
+    "HabiroCohomologyFoundations:HQ.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Wagner's q-Hodge filtration (v2 Definition 1.6 / 3.2): a (q−1)-complete descending filtered object with degree-zero q-de Rham identification, filtered specialisation to the Hodge filtration, the rational and p-completed rational comparisons and the higher coherences",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.FilteredObject",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Filtration/Basic.lean",
+         "line": 72,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has q-Hodge filtrations, q-de Rham objects or the Hodge filtration they specialise to; only the abstract `CategoryTheory.FilteredObject` exists."
+      },
+      {
+       "target": "The q-Hodge modification qHdg: the (q−1)-completed colimit of fil⁰ → (q−1)fil¹ → (q−1)²fil² → ⋯",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AdicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 171,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has this construction, nor derived (q−1)-completion of a colimit of filtered pieces."
+      },
+      {
+       "target": "Wagner Theorem 3.11: the functor on chosen q-Hodge-filtered inputs factors through the Habiro-complete category and is symmetric monoidal there, with finite products and base-change maps",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Functor.Monoidal",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Functor.lean",
+         "line": 389,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Functor.Braided",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
+         "line": 531,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has monoidal and braided functors between ordinary categories, but neither library has Habiro-complete modules (HabiroRings HR.2 is absent) or an enhanced symmetric monoidal structure."
+      },
+      {
+       "target": "For each m ≥ 1, the exhaustive ascending filtration on qHdg/(q^m − 1) with graded pieces Σ^{−i} qW_m dR^i (derived m-truncated q-de Rham–Witt objects), with its maps and convergence",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TruncatedWittVector",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Truncated.lean",
+         "line": 62,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has q-de Rham–Witt or de Rham–Witt objects; only degree-zero p-typical truncated Witt vectors exist."
+      },
+      {
+       "target": "Lemma 3.3: no functorial q-Hodge section over all animated algebras, nor over all smooth algebras without localisation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not stated in either library."
+      }
+     ],
+     "duplicates": []
+    },
+    "HabiroCohomologyFoundations:HQ.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The positive-degree q-de Rham–Witt complex: differential, truncation sets, Frobenius and Verschiebung extensions and their relations (q-Witt v5 Definitions 3.1, 3.6, 3.9), without restriction maps",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 221,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.verschiebung",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Verschiebung.lean",
+         "line": 110,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has q-Witt vectors, q-de Rham–Witt complexes, big Witt vectors or truncation sets. Mathlib's F and V exist only on p-typical Witt vectors in degree zero."
+      },
+      {
+       "target": "The ordinary de Rham–Witt complex with its genuine restriction maps (imported from CR.4), and the specialisations of the q-objects to it",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Defs.lean",
+         "line": 52,
+         "fit": "related"
+        },
+        {
+         "name": "TruncatedWittVector",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Truncated.lean",
+         "line": 62,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 221,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.verschiebung",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Verschiebung.lean",
+         "line": 110,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the degree-zero input: p-typical Witt vectors W(R) with Frobenius and Verschiebung, and truncated Witt vectors W_n(R). Missing are the positive-degree de Rham–Witt complexes W_nΩ^i with d, restriction, F, V and dlog, and any specialisation map from q-objects."
+      },
+      {
+       "target": "Wagner q-Hodge v2 Corollary 3.31: the smooth derived-to-underived comparison of q-Witt differential forms, with all shifts",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither side of the comparison exists."
+      },
+      {
+       "target": "Ghost-map injectivity under the actual torsion hypotheses (no definition by inverting ghost coordinates)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.ghostMap",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Basic.lean",
+         "line": 287,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.ghostMap.bijective_of_invertible",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Basic.lean",
+         "line": 336,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib has the p-typical ghost map and proves it bijective when p is invertible in R. Missing are injectivity for p-torsion-free rings and any ghost map for q-Witt vectors."
+      },
+      {
+       "target": "Compatible complexes over each cyclotomic completion, transition comparisons, and arithmetic fracture/descent to the Habiro coefficient ring under the source's completeness and connectivity hypotheses",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AdicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 171,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has cyclotomic completions of ℤ[q], Habiro rings or derived descent along them (HabiroRings HR.2–HR.3 and HabiroCyclotomicCompletions are unbuilt)."
+      },
+      {
+       "target": "Derived commutative-algebra descent only when the input carries the needed multiplicative coherences (no automatic E∞ upgrade)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has E∞-algebras or derived commutative algebras."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HabiroRings:HR.4",
+       "note": "HR.4 owns the degree-zero q-Witt rings qW_m with Frobenius and Verschiebung, the ghost description under torsion hypotheses, and the absence of restriction maps; HQ.4 restates that operator discipline for the positive-degree extension."
+      },
+      {
+       "layer": "CrystallineCohomology:CR.4",
+       "note": "CR.4 constructs the ordinary de Rham–Witt complexes W_nΩ with restriction, F, V and the torsion-qualified inversion of ghost coordinates, which HQ.4 imports and specialises to."
+      }
+     ]
+    },
+    "HabiroCohomologyFoundations:HQ.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Wagner Theorem 4.11: q-Hodge filtrations exist for smooth algebras over a perfectly covered Λ-ring A once every prime p ≤ the relative dimension is inverted",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Algebra.Smooth",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Smooth/Basic.lean",
+         "line": 540,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has smooth algebras (`Algebra.Smooth`), but neither library defines λ-rings or Λ-rings (Mathlib/RingTheory/Polynomial/Dickson.lean:115 records that Mathlib does not know what a Lambda ring is), δ-rings, prisms or perfectly covered bases."
+      },
+      {
+       "target": "Corollary 4.16: partial-operad multiplicativity, with primes up to 2d inverted for products and the r·d bound for r-fold coherence",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has operads or E_n-type coherence data for these functors."
+      },
+      {
+       "target": "Extension to smooth schemes by descent, and perfectness over the Habiro completion of the localised ring for smooth proper schemes",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has Habiro completions or q-Hodge cohomology of schemes."
+      },
+      {
+       "target": "Quasi-regular inputs under condition (R): p-torsion-free, static p-completed derived de Rham, Hodge filtration given by ideals; quotients of étale algebras over perfect Λ-rings by Koszul-regular ideals",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "RingTheory.Sequence.IsRegular",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Regular/RegularSequence.lean",
+         "line": 146,
+         "fit": "related"
+        },
+        {
+         "name": "RingTheory.Sequence.IsWeaklyRegular",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Regular/RegularSequence.lean",
+         "line": 135,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.Etale",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Etale/Basic.lean",
+         "line": 206,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has regular and weakly regular sequences and étale algebras. Neither library has Koszul-regular ideals, derived de Rham cohomology or condition (R)."
+      },
+      {
+       "target": "Theorem 4.22 (regular sequence of powers x_i^{a_i}, a_i ≥ 2, or a spherical E₁-lift), Theorem 4.29's canonical section on its subcategory, and the uniqueness statements with finite-order comparisons or the ℤ_p^×-action",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has spectra or spherical lifts, and none of these theorems is stated."
+      },
+      {
+       "target": "For finite étale number-field inputs: export of the completed cohomology object to HR.6, the q − 1 completion comparison and the Frobenius-glued Taylor maps",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.RingOfIntegers",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/Basic.lean",
+         "line": 104,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.taylor",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Taylor.lean",
+         "line": 38,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has rings of integers and polynomial Taylor expansion, but neither library has the number-field Habiro ring or Frobenius-glued Taylor maps (HabiroNumberFields HB.6 is unbuilt)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HabiroRings:HR.6",
+       "note": "HR.6 states the degree-zero identification of q-Hodge/Habiro cohomology for étale inputs, including the q − 1 completion comparison that HQ.5's number-field paragraph also asks to prove."
+      }
+     ]
+    },
+    "HabiroCohomologyFoundations:HQ.5-trace": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Wagner (ku and q-de Rham) Theorem 1.2 / 4.27: q-Hodge filtrations for a quasi-syntomic ring R with 2 invertible and a connective spherical E₂-lift S_R with S_R ⊗ Hℤ ≃ HR, imported from RT.4:q-Hodge",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has spectra, ku, E₂-rings, quasi-syntomic rings or topological Hochschild homology. A grep for syntomic, Hochschild (other than a group-cohomology TODO) and E∞ found nothing."
+      },
+      {
+       "target": "The separate p = 2 / E₁ refinement under its additional even-resolution hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "RefinedTraceMethods:RT.4:q-Hodge",
+       "note": "RT.4:q-Hodge states the same Wagner Theorem 1.2 / 4.27 under the same hypotheses (quasi-syntomic, 2 invertible, connective spherical E₂-lift) with the same p = 2 / E₁ caveat; HQ.5-trace only imports it."
+      }
+     ]
+    },
+    "HabiroCohomologyFoundations:HQ.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "A precise ring/complex/line-bundle comparison problem between the algebraic q-Hodge construction and Scholze's analytic Habiro framework, stated with explicit domain, coefficient change and expected natural transformation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CondensedMod",
+         "library": "mathlib",
+         "file": "Mathlib/Condensed/Module.lean",
+         "line": 40,
+         "fit": "related"
+        },
+        {
+         "name": "CondensedMod.IsSolid",
+         "library": "mathlib",
+         "file": "Mathlib/Condensed/Solid.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has condensed modules and solid condensed modules, but neither library has analytic rings, analytic stacks or an analytic Habiro stack, so the comparison cannot yet be stated."
+      },
+      {
+       "target": "Proofs of all algebraic specialisations and number-field comparisons of the q-Hodge theory",
+       "library": "absent",
+       "declarations": [],
+       "note": "These are the results of HQ.1–HQ.5, none of which exists."
+      },
+      {
+       "target": "Comparison after an analytic completed localisation, and the relation of the root-of-unity infinitesimal theory to the algebraic q-de Rham–Witt specialisation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      }
+     ],
+     "duplicates": []
+    },
+    "HabiroCohomologyFoundations:HQ.7": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Acceptance examples: a one-variable polynomial ring, the q-integer differential at q = 1, a finite étale number-field ring, a smooth scheme with the required small primes inverted, and a 2-inverted trace input with an explicit spherical lift, each commuting with de Rham specialisation and the p-adic comparison",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Polynomial.derivative",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Derivative.lean",
+         "line": 46,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.derivative_X_pow",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Derivative.lean",
+         "line": 99,
+         "fit": "related"
+        }
+       ],
+       "note": "These are tests of HQ.1–HQ.5. Only the q = 1 end of the second test has library content: the ordinary derivative d(X^n) = n·X^{n−1}."
+      },
+      {
+       "target": "Checks that a filtered object differs from its colimit modification, that derived-limit/Tor corrections are retained, that tensor powers can leave the smooth existence category, and that Hodge-completed and uncompleted theories differ",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Tor",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Tor.lean",
+         "line": 44,
+         "fit": "related"
+        }
+       ],
+       "note": "These are regression checks on unbuilt constructions; only the generic `CategoryTheory.Tor` exists."
+      },
+      {
+       "target": "Executable q-difference signatures on the existing polynomial API (Suggested.lean), with no Prop placeholder or axiom for the q-Hodge conditions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Polynomial.comp",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+         "line": 381,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.derivative",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Derivative.lean",
+         "line": 46,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.cyclotomic_prime",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+         "line": 367,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib's polynomial API (composition, derivative, geometric and cyclotomic sums) supports such signatures, but the q-difference operator itself is not defined (see HQ.1)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HabiroRings:HR.7",
+       "note": "HR.7 is the matching acceptance suite for the coefficient rings; its zero-dimensional cohomology comparison test overlaps HQ.7's finite étale number-field test."
+      }
+     ]
+    },
+    "HabiroCohomologyFoundations:HQ.8": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "A map-level comparison atlas: for each square, the base prism or perfectoid base, the smooth/proper or quasi-syntomic hypotheses, the derived completion ideal, what is inverted, Frobenius linearisation, filtration and Tate/Breuil–Kisin twist",
+       "library": "absent",
+       "declarations": [],
+       "note": "None of the objects in the squares (q-Hodge, derived de Rham, de Rham–Witt, prismatic, AΩ) exists in either library."
+      },
+      {
+       "target": "Commutation of the global arithmetic q-gluing and the q-Hodge modification with the DD, PR.6, CR.4, AInf and CP local comparison maps, on the intersection of their hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither side of any of these squares exists."
+      },
+      {
+       "target": "The q = 1, cyclotomic, crystalline and A_inf specialisations proved through those maps, with information-losing comparisons recorded as base changes or localisations",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 165,
+         "fit": "related"
+        },
+        {
+         "name": "PreTilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 634,
+         "fit": "related"
+        },
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the A_inf-side inputs: Fontaine's θ from W of the tilt (`PreTilt`) and B_dR⁺ for p-adically complete rings. Neither library has A_inf cohomology, crystalline cohomology or any q-de Rham object to specialise."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PrismaticCohomology:PR.6",
+       "note": "PR.6 proves AΩ_R ≃ qΩ_{R/A_inf} ≃ φ_A^*Δ_{R/A_inf} (BS22 Theorem 17.2), the A_inf specialisation of q-de Rham cohomology that HQ.8 lists among its squares."
+      },
+      {
+       "layer": "CohomologyComparisons:CP.1",
+       "note": "CP.1 proves commutativity of the integral comparison diagram (θ, θ̃, Witt, A_cris, μ-inversion, AΩ), the classical squares HQ.8's atlas must commute with."
+      },
+      {
+       "layer": "RefinedTraceMethods:RT.6",
+       "note": "RT.6 builds the trace-to-prismatic comparisons and records the same ordering (RT.6 before HQ.8), so the THH/Nygaard/syntomic squares of HQ.8 are its outputs."
+      }
+     ]
+    }
+   }
+  }
+ }
+}

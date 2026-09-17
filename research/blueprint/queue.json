@@ -37842,11 +37842,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-19.md",
    "timeout": 14400,
-   "state": "running",
+   "state": "done",
    "account": "claude6",
    "lane": 1,
    "startedAt": "2026-09-17T03:53:15Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-17T04:20:12Z",
+   "seconds": 1616,
+   "result": {
+    "judged": 24,
+    "pairs": 24
+   },
+   "note": ""
   },
   {
    "id": "COMPARE-20",
@@ -39783,7 +39790,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-19.md",
    "timeout": 21600,
-   "state": "pending"
+   "state": "running",
+   "account": "claude6",
+   "lane": 1,
+   "startedAt": "2026-09-17T04:20:12Z",
+   "attempts": 1
   },
   {
    "id": "REV-AUDIT-19",
