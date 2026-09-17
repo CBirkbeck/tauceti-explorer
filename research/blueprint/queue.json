@@ -38506,11 +38506,12 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-35.md",
    "timeout": 14400,
-   "state": "running",
-   "account": "claude4",
+   "state": "pending",
+   "account": null,
    "lane": 2,
    "startedAt": "2026-09-17T17:15:34Z",
-   "attempts": 1
+   "attempts": 0,
+   "note": "released after a usage limit on claude4/2 at 2026-09-17T17:33:48Z"
   },
   {
    "id": "COMPARE-36",
@@ -40989,11 +40990,12 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-34.md",
    "timeout": 21600,
-   "state": "running",
-   "account": "claude4",
+   "state": "pending",
+   "account": null,
    "lane": 1,
    "startedAt": "2026-09-17T17:13:45Z",
-   "attempts": 1
+   "attempts": 0,
+   "note": "released after a usage limit on claude4/1 at 2026-09-17T17:31:32Z"
   },
   {
    "id": "REV-AUDIT-34",
