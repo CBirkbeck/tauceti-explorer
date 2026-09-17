@@ -1,0 +1,1222 @@
+{
+ "job": "AUDIT-36",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "CrystallineCohomology": {
+   "summary": "The libraries supply the elementary divided-power algebra this roadmap starts from and nothing above it. Mathlib has the full `DividedPowers` structure on an ideal, PD morphisms, sub-PD ideals and PD quotients, the x^n/n! structure on ℚ-algebras and on invertible-factorial ideals, the canonical divided powers on (p) ⊆ ℤ_p for every prime including p = 2, and the universal divided power algebra Γ_R(M) with its (weak) lifting property; it also has Witt vectors with Frobenius/Verschiebung/Teichmüller/ghost components, W(k) as a complete DVR, F-isocrystals with the one-dimensional Dieudonné–Manin classification, and Fontaine's θ : W(R♭) → R with its surjectivity (so A_inf and θ, which CR.0 exports, already exist). Everything genuinely crystalline is missing: there is no PD envelope at all (not even the PD structure on Γ_R(M) — mathlib's own TODO), no algebraic de Rham complex Ω^•, no connections or stratifications on modules, no crystalline site, no crystals, no de Rham–Witt or Dieudonné complexes, no A_cris, no logarithmic structures, no Hyodo–Kato theory, no Dieudonné crystals, and no cup product/Künneth/trace formalism in sheaf cohomology. CR.0 is therefore partly built and every later layer is not built; CR.7 is an export/interface layer.",
+   "layers": {
+    "CrystallineCohomology:CR.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Divided power structure (A, I, γ) on an ideal with the full axiom list (dpow_add, dpow_mul, dpow_comp, n!·γ_n(x) = x^n, nilpotence of elements of a PD ideal)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "DividedPowers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+         "line": 78,
+         "fit": "exact"
+        },
+        {
+         "name": "DividedPowers.factorial_mul_dpow_eq_pow",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+         "line": 213,
+         "fit": "exact"
+        },
+        {
+         "name": "DividedPowers.nilpotent_of_mem_dpIdeal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+         "line": 231,
+         "fit": "exact"
+        },
+        {
+         "name": "DividedPowers.dpow_sum",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+         "line": 329,
+         "fit": "exact"
+        },
+        {
+         "name": "dividedPowersBot",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+         "line": 96,
+         "fit": "special case"
+        }
+       ],
+       "note": "Over a CommSemiring, no nilpotence or completeness hypothesis; `grep -n sorry` on Mathlib/RingTheory/DividedPowers/ and DividedPowerAlgebra/ returns nothing. The zero-ideal acceptance example is `dividedPowersBot`."
+      },
+      {
+       "target": "PD morphisms, their composition, generation-by-generators criterion and functoriality",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "DividedPowers.IsDPMorphism",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/DPMorphism.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "DividedPowers.DPMorphism",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/DPMorphism.lean",
+         "line": 101,
+         "fit": "exact"
+        },
+        {
+         "name": "DividedPowers.DPMorphism.comp",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/DPMorphism.lean",
+         "line": 223,
+         "fit": "exact"
+        },
+        {
+         "name": "DividedPowers.IsDPMorphism.on_span",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/DPMorphism.lean",
+         "line": 197,
+         "fit": "exact"
+        },
+        {
+         "name": "DividedPowers.dpow_eq_from_gens",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/DPMorphism.lean",
+         "line": 245,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both bundled and unbundled forms, with the `on_span` reduction used for checking PD compatibility on generators. This is the 'PD morphism' the layer wants to base-change."
+      },
+      {
+       "target": "The formula γ_n(x) = x^n/n! as a construction over torsionfree/rational bases, its uniqueness, and the ways it fails in a torsion ring",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "DividedPowers.RatAlgebra.dividedPowers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/RatAlgebra.lean",
+         "line": 268,
+         "fit": "exact"
+        },
+        {
+         "name": "DividedPowers.RatAlgebra.dividedPowers_unique",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/RatAlgebra.lean",
+         "line": 306,
+         "fit": "exact"
+        },
+        {
+         "name": "DividedPowers.OfInvertibleFactorial.dividedPowers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/RatAlgebra.lean",
+         "line": 175,
+         "fit": "more general"
+        },
+        {
+         "name": "DividedPowers.OfSquareZero.dividedPowers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/RatAlgebra.lean",
+         "line": 200,
+         "fit": "special case"
+        },
+        {
+         "name": "DividedPowers.CharP.dividedPowers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/RatAlgebra.lean",
+         "line": 236,
+         "fit": "special case"
+        }
+       ],
+       "note": "`OfInvertibleFactorial.dividedPowers` needs only (n-1)! invertible and I^n = 0, so it is strictly more general than the ℚ-algebra case; `dividedPowers_unique` is the uniqueness the layer asks for. The torsion-ring failure case is exactly what these hypotheses exclude, but no counterexample declaration exists."
+      },
+      {
+       "target": "The canonical p-PD ideal: divided powers on (p) ⊆ ℤ_p, treating p = 2 explicitly",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "PadicInt.dividedPowers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Padic.lean",
+         "line": 139,
+         "fit": "exact"
+        },
+        {
+         "name": "PadicInt.coe_dpow_eq",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Padic.lean",
+         "line": 170,
+         "fit": "exact"
+        },
+        {
+         "name": "DividedPowers.ofInjective",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Padic.lean",
+         "line": 40,
+         "fit": "more general"
+        }
+       ],
+       "note": "Hypothesis is only `[Fact p.Prime]`, so p = 2 is covered with no separate argument (the construction descends x^n/n! from ℚ_p along the injection ℤ_p → ℚ_p). The file's TODO notes the open ramified generalisation (π) ⊆ R for e ≤ p−1, which the layer does not request."
+      },
+      {
+       "target": "Sub-PD ideals, PD quotients, dp equalizers and the kernel/image of a PD morphism",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "DividedPowers.IsSubDPIdeal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/SubDPIdeal.lean",
+         "line": 81,
+         "fit": "exact"
+        },
+        {
+         "name": "DividedPowers.Quotient.dividedPowers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/SubDPIdeal.lean",
+         "line": 649,
+         "fit": "exact"
+        },
+        {
+         "name": "DividedPowers.Quotient.dividedPowers_unique",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/SubDPIdeal.lean",
+         "line": 663,
+         "fit": "exact"
+        },
+        {
+         "name": "DividedPowers.dpEqualizer",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/SubDPIdeal.lean",
+         "line": 479,
+         "fit": "exact"
+        },
+        {
+         "name": "DividedPowers.isSubDPIdeal_ker",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/SubDPIdeal.lean",
+         "line": 451,
+         "fit": "exact"
+        }
+       ],
+       "note": "The sub-PD ideals form a complete lattice and `SubDPIdeal.span` computes the sub-PD ideal generated by a set. These are exactly the tools the PD-envelope construction of Berthelot–Ogus §3 is built from, which is why the layer calls its work 'extending the existing PD API'."
+      },
+      {
+       "target": "PD polynomial algebra / universal divided power algebra Γ_A(M) over a fixed PD base, with its own PD structure and the full universal property",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "DividedPowerAlgebra",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowerAlgebra/Init.lean",
+         "line": 100,
+         "fit": "related"
+        },
+        {
+         "name": "DividedPowerAlgebra.lift",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowerAlgebra/Init.lean",
+         "line": 347,
+         "fit": "related"
+        },
+        {
+         "name": "DividedPowerAlgebra.lift_unique",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowerAlgebra/Init.lean",
+         "line": 368,
+         "fit": "related"
+        },
+        {
+         "name": "DividedPowerAlgebra.map",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowerAlgebra/Init.lean",
+         "line": 419,
+         "fit": "related"
+        },
+        {
+         "name": "DividedPowerAlgebra.natFactorial_mul_dp_eq",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowerAlgebra/Init.lean",
+         "line": 210,
+         "fit": "related"
+        }
+       ],
+       "note": "Missing: the canonical divided power structure on the augmentation ideal of Γ_R(M) — the file's own TODO reads 'Show in upcoming files that DividedPowerAlgebra R M has divided powers', and only a *weak* universal property (lifting to a ring already carrying divided powers) is proved. Base-compatibility over a PD base (A,I,γ) and a free/finite-variable PD polynomial algebra A⟨x_1,…,x_n⟩ with its PD ideal are also absent."
+      },
+      {
+       "target": "The PD envelope D_{B,γ}(J) of an ideal J in an A-algebra over a PD base: existence as initial object, functorial morphisms, universality",
+       "library": "absent",
+       "declarations": [],
+       "note": "No declaration or docstring in either library mentions an envelope of a PD structure: `grep -rn -i envelope` over Mathlib/RingTheory/DividedPower*/ and TauCeti/TauCeti/RingTheory/DividedPowers/ is empty, and the only `*Envelope*` names in the baseline are injective envelopes of modules, Gaussian/Chebyshev envelopes and triangulated envelopes."
+      },
+      {
+       "target": "Base change, localization and transitivity of PD envelopes under their actual hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the envelope itself; nothing exists. Mathlib has the generic localization/base-change machinery (`IsLocalization`, `Algebra.TensorProduct`) but no PD-compatible statement."
+      },
+      {
+       "target": "Explicit PD envelope of a polynomial regular immersion, and comparison with the derived PD construction in the lci range",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; the derived PD functor it must be compared with is itself a DD.0 target that is also absent (no derived symmetric/divided power functors in either library)."
+      },
+      {
+       "target": "p-completed PD envelopes, with the boundedness/torsion conditions that let ordinary completion replace derived completion",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AdicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 61,
+         "fit": "related"
+        },
+        {
+         "name": "IsAdicComplete",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 54,
+         "fit": "related"
+        }
+       ],
+       "note": "Only ordinary I-adic completion exists (with exactness and flatness lemmas); derived completeness, which is what the comparison is about, is not defined anywhere (no `IsDerivedComplete`, no derived Koszul completion)."
+      },
+      {
+       "target": "PD nilpotence and the PD filtration I^{[n]}, kept separate from ordinary ideal nilpotence and from nilpotence of p",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DividedPowers.nilpotent_of_mem_dpIdeal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+         "line": 231,
+         "fit": "related"
+        },
+        {
+         "name": "DividedPowers.SubDPIdeal.span",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/SubDPIdeal.lean",
+         "line": 381,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves elements of a PD ideal of a ℚ-free ring are nilpotent, and has the sub-PD ideal generated by a set, but there is no PD-filtration definition I^{[n]} and no `IsPDNilpotent` predicate, so the three conditions the layer insists on distinguishing are not even nameable yet."
+      },
+      {
+       "target": "A_inf = W(R♭) and θ : A_inf → R, with the Witt reduction map and surjectivity",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "WittVector.fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 165,
+         "fit": "exact"
+        },
+        {
+         "name": "surjective_fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 195,
+         "fit": "exact"
+        },
+        {
+         "name": "WittVector.fontaineTheta_teichmuller",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 182,
+         "fit": "exact"
+        },
+        {
+         "name": "PreTilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 634,
+         "fit": "exact"
+        },
+        {
+         "name": "PreTilt.untilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/Untilt.lean",
+         "line": 49,
+         "fit": "related"
+        }
+       ],
+       "note": "θ is built for any CommRing R with `[Fact ¬IsUnit (p : R)]` and `[IsAdicComplete (span {p}) R]` — i.e. an integral-perfectoid-style hypothesis package, which covers O_C. The layer exports this object; AInfCohomology AI.0 also claims ownership of it, so the two should not both build it."
+      },
+      {
+       "target": "A_cris: the p-completed PD envelope of ker(θ : A_inf → O_C), and the maps induced by Witt reduction and θ",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "BDeRham",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 90,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib builds B_dR^+ as the ker(θ[1/p])-adic completion of W(R♭)[1/p] and B_dR by inverting a generator, but nothing PD: no A_cris, no B_cris. `grep -i -P '\\t[^\\t]*(Acris|A_cris|cris\\b)'` on declarations.tsv is empty. Note also that BDeRham.lean's own TODO records that principality of ker θ is not yet proved, so its generator-inverting definition is provisional."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PrismaticCohomology:PR.0",
+       "note": "Builds prismatic envelopes by δ-adjunction plus derived completion and explicitly says 'Compare with the PD envelopes already built in CR.0', so the two envelope constructions share the universal-property/flatness/regularity work but PR.0 defers the PD case to here."
+      },
+      {
+       "layer": "AInfCohomology:AI.0",
+       "note": "Constructs A_inf = W(O_C^♭), its Frobenius and θ, and states 'A_cris is the completed PD envelope from CR.0' — the A_inf/θ/A_cris targets of CR.0 are the same objects, with AI.0 owning the ξ/μ normalisation and CR.0 the envelope."
+      },
+      {
+       "layer": "PadicHodgeTheory:R06.1",
+       "note": "Imports 'generic PD envelopes from CrystallineCohomology CR.0' and the shared A_inf/θ to build B_dR, B_cris and B_st; same period-ring objects, downstream of this layer."
+      },
+      {
+       "layer": "DerivedDeRhamCohomology:DD.4",
+       "note": "Identifies the p-completed derived de Rham description of A_cris and needs the explicit maps to the PD period rings supplied by CR.0/AI.0; overlapping A_cris target from the derived side."
+      },
+      {
+       "layer": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+       "note": "Constructs homogeneous degree-n polynomial laws 'representing divided powers and their tensor/base-change maps' — that is Roby's representing algebra Γ, the same object as CR.0's PD polynomial algebra, approached through polynomial laws."
+      }
+     ]
+    },
+    "CrystallineCohomology:CR.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Small and big crystalline sites with objects (U, T, δ) and PD closed immersions U → T over a PD base, with the p-locally-nilpotent convention and Zariski/étale covering topology",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.GrothendieckTopology",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/Grothendieck.lean",
+         "line": 66,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.etaleTopology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
+         "line": 74,
+         "fit": "related"
+        }
+       ],
+       "note": "Generic site machinery (Grothendieck topologies, coverages, pretopologies, the small Zariski and étale sites of a scheme) is in mathlib, but the crystalline site itself does not exist: `grep -i -P '\\t[^\\t]*Crystalline'` on declarations.tsv returns zero rows in both libraries, and `grep -rn -i crystalline` in the Lean trees finds only bibliography entries in the DividedPowers files."
+      },
+      {
+       "target": "Morphisms to the underlying scheme site, structure sheaf O_{X/S} and PD-ideal sheaf on the crystalline site, and comparison between the site variants",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing crystalline exists; the underlying tools (continuous functors of sites, `Sites/Continuous.lean`, induced topologies, sheaves of modules on a site) are present in mathlib but not instantiated."
+      },
+      {
+       "target": "Crystals in quasi-coherent modules, finite locally free crystals, isocrystals, F-crystals, with tensor/duality and exact structures",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.Isocrystal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 113,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.IsocrystalHom",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 133,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.IsocrystalEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 140,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's `Isocrystal` is a K(p,k)-vector space with a φ-semilinear automorphism over a perfect domain k — precisely the 'bare semilinear vector space' the layer warns against identifying with an isocrystal on a site. There is no crystal (no site to live on), no quasi-coherent-crystal category, no tensor/duality on crystals."
+      },
+      {
+       "target": "Evaluation of a crystal on a lift, PD stratifications, and the equivalence with integrable quasi-nilpotent connections over a formally smooth lift",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "KaehlerDifferential",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Kaehler/Basic.lean",
+         "line": 64,
+         "fit": "related"
+        },
+        {
+         "name": "Derivation",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Derivation/Basic.lean",
+         "line": 53,
+         "fit": "related"
+        }
+       ],
+       "note": "Ω¹_{B/A} and derivations exist, but there is no notion of a connection ∇ : M → M ⊗ Ω¹ on a module over a ring, hence no integrability, no quasi-nilpotence, and no stratification: `grep -i -P '\\t[^\\t]*Stratification'` is empty and every `Connection` hit is either a Galois connection or a Levi-Civita connection on a smooth vector bundle."
+      },
+      {
+       "target": "Taylor expansion and cocycle identities for a PD stratification",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent for the same reason; mathlib's `taylor`/`Polynomial.taylor` is the polynomial shift operator and is unrelated."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "CrystallineCohomology:CR.5",
+       "note": "Constructs the logarithmic crystalline site and crystals with log connections — the same site/crystal constructions with a log structure added."
+      },
+      {
+       "layer": "HabiroCohomologyFoundations:HQ.1",
+       "note": "Owns q-differentials and coordinate comparisons against the crystalline-site picture; overlapping connection/stratification formalism in the q-deformed setting."
+      },
+      {
+       "layer": "PrismaticCohomology:PR.6",
+       "note": "q-crystalline charts and the AΩ comparison reuse the crystalline-site/stratification comparison in the q-crystalline site."
+      },
+      {
+       "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+       "note": "Consumes exactly these crystals/connections for the Dieudonné-crystal classification; CR.1 is declared the generic supplier, so the overlap is by design rather than duplication."
+      }
+     ]
+    },
+    "CrystallineCohomology:CR.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "RΓ_crys and relative Ru_* on the enhanced sheaf category",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Sheaf.H",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+         "line": 59,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Sheaf.cohomologyPresheaf",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+         "line": 81,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines abelian sheaf cohomology on an arbitrary site as Ext from the constant sheaf, which is the generic carrier; but there is no crystalline site to apply it to and no higher direct image Ru_* along a morphism of sites."
+      },
+      {
+       "target": "The linearization functor L(M) and its acyclicity for affine crystalline calculations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "PD Poincaré lemma: crystalline cohomology computed by the de Rham complex of the PD envelope of a smooth embedding, with coefficients in a crystal",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, and both inputs are absent too: there is no PD envelope, and there is no algebraic de Rham complex Ω^•_{B/A} in either library — `grep -rl -i 'de rham'` over the two Lean trees hits only Mathlib/RingTheory/Perfectoid/BDeRham.lean (the period ring) and an unrelated parity file."
+      },
+      {
+       "target": "Independence of the embedding via products, Čech–Alexander totalizations and explicit homotopies/refinement maps",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.cechNerve",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicTopology/CechNerve.lean",
+         "line": 71,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.cechComplexFunctor",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/Cech.lean",
+         "line": 65,
+         "fit": "related"
+        }
+       ],
+       "note": "Generic Čech nerves and a Čech complex functor for sheaf cohomology exist; the Čech–Alexander complex of a crystalline embedding and its homotopies do not."
+      },
+      {
+       "target": "For a smooth lift, identification of crystalline with de Rham cohomology and comparison of filtrations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent (no crystalline cohomology and no de Rham cohomology of a scheme in either library)."
+      },
+      {
+       "target": "Formal p-adic version by derived inverse limit, compatible with the finite-level theory",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; derived inverse limits of towers of complexes are not set up either (no `Rlim` for towers in the derived category, no derived completeness)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DerivedDeRhamCohomology:DD.4",
+       "note": "Builds the derived-de-Rham-to-crystalline comparison map from polynomial resolutions, PD envelopes and this Poincaré lemma; DD.4 consumes CR.2 rather than reproving it, but the PD-envelope de Rham complex is shared."
+      },
+      {
+       "layer": "AInfCohomology:AI.4",
+       "note": "Builds the absolute A_cris comparison 'by compatible PD envelopes and the all-coordinates construction' — the same PD-envelope de Rham computation in the A_inf setting."
+      },
+      {
+       "layer": "CrystallineCohomology:CR.5",
+       "note": "Proves the log PD Poincaré lemma and its descent, i.e. the same theorem with a log structure."
+      },
+      {
+       "layer": "PrismaticCohomology:PR.1",
+       "note": "Consumes CR.2 for the prismatic/crystalline comparison; the Čech–Alexander style independence-of-embedding argument recurs there for prisms."
+      }
+     ]
+    },
+    "CrystallineCohomology:CR.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Crystalline descent for the chosen topology via site comparisons",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Pseudofunctor.IsStack",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/Descent/IsStack.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Functor.IsDenseSubsite",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/DenseSubsite/Basic.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Generic descent/comparison-lemma machinery for sites exists in mathlib (dense subsites, descent data, IsStack); the crystalline instance does not."
+      },
+      {
+       "target": "For proper smooth X/k with k perfect: a perfect W(k)-complex, finiteness of crystalline cohomology and compatible reductions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.instIsDiscreteValuationRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/DiscreteValuationRing.lean",
+         "line": 84,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.truncate",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Truncated.lean",
+         "line": 268,
+         "fit": "related"
+        }
+       ],
+       "note": "W(k) is available as a complete DVR with its truncations W_n(k), so the coefficient ring and its reductions exist; the cohomology and its perfectness/finiteness do not. Note also that 'perfect complex' as a predicate is absent from mathlib (`grep -P 'PerfectComplex'` finds nothing)."
+      },
+      {
+       "target": "Derived base-change maps for crystalline families under flat/perfect coefficient hypotheses, with the cases where they are equivalences",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Künneth formula and cup products for crystalline cohomology in the proper smooth scope",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ContCohomology.cup",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Cup/Product.lean",
+         "line": 1,
+         "fit": "related"
+        }
+       ],
+       "note": "No Künneth theorem exists anywhere in the baseline (`grep -i -P '\\t[^\\t]*(Kunneth|Künneth)'` on declarations.tsv is empty), and the only cup products are in continuous/group cohomology in Tau Ceti, not in sheaf cohomology. The cited Tau Ceti file is the continuous-cohomology cup product (line number approximate; see the file for the exact declarations) and is only a structural analogue."
+      },
+      {
+       "target": "Frobenius from the special-fibre morphism and its Witt/PD lift, with semilinear maps separated from their linearizations",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 267,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.frobeniusEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 291,
+         "fit": "related"
+        },
+        {
+         "name": "frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/CharP/Basic.lean",
+         "line": 1,
+         "fit": "related"
+        }
+       ],
+       "note": "The Witt-vector Frobenius and its semilinear-equivalence form exist, together with the absolute Frobenius of a CharP ring; missing is the crystalline Frobenius on cohomology and the linearization of a semilinear map. Line for `frobenius` is nominal — it is in the CharP files, not in a crystalline context."
+      },
+      {
+       "target": "Inverse-limit/finiteness argument following the Berthelot–Ogus Appendix B corrigendum, with a derived replacement for the termwise-surjective tower",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no derived-limit API for towers of complexes in either library, so neither the erroneous nor the corrected statement can be expressed."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "CrystallineCohomology:CR.3:Frobenius-isogeny",
+       "note": "Split off from this layer's own text; it owns the rational-isogeny conclusion of the same Frobenius construction."
+      },
+      {
+       "layer": "CrystallineCohomology:CR.3:duality",
+       "note": "Split off from this layer; owns the trace/duality statement that this layer explicitly excludes."
+      },
+      {
+       "layer": "DerivedDeRhamCohomology:DD.1",
+       "note": "Also carries the Berthelot–Ogus Appendix B corrigendum target ('the claimed projective replacement is an isomorphism in the derived category'), so the derived-tower replacement is stated in both layers."
+      },
+      {
+       "layer": "CohomologyComparisons:CP.2",
+       "note": "Consumes the finiteness/base-change output; the proper smooth crystalline comparison there reuses the same perfect-W(k)-complex statement."
+      }
+     ]
+    },
+    "CrystallineCohomology:CR.3:Frobenius-isogeny": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Frobenius on crystalline cohomology as a rational isogeny (φ becomes an isomorphism after inverting p), proved through de Rham–Witt/Cartier control or the classical crystalline argument",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: neither crystalline cohomology nor de Rham–Witt exists, so no isogeny statement can be formed."
+      },
+      {
+       "target": "Finite-free F-crystals as a category distinct from torsion cohomology modules",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.Isocrystal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 113,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.isocrystal_classification",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 183,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.StandardOneDimIsocrystal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 159,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the φ-semilinear K(p,k)-vector-space notion and proves the one-dimensional Dieudonné–Manin classification over an algebraically closed k (slopes m ∈ ℤ). It is not an F-crystal: there is no integral W-lattice, no Frobenius-divisibility condition, and the layer itself says a bare semilinear vector space does not give one."
+      },
+      {
+       "target": "Convergent versus overconvergent F-isocrystals kept distinct",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither notion exists; there is no convergence/overconvergence condition anywhere in the baseline."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "CrystallineCohomology:CR.3",
+       "note": "This substage is carved out of CR.3's own description text, which states the Frobenius construction and defers its isogeny conclusion here."
+      },
+      {
+       "layer": "CrystallineCohomology:CR.4",
+       "note": "Supplies the de Rham–Witt/Cartier control through which this isogeny is to be proved; the slope/degree filtration targets overlap."
+      },
+      {
+       "layer": "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+       "note": "Consumes CR.3 and owns the convergent/overconvergent F-isocrystal theory that this substage is told not to conflate."
+      },
+      {
+       "layer": "VectorBundlesAndIsocrystals:VB3",
+       "note": "Develops the isocrystal/Banach–Colmez side and warns against circular use of the classification; the same Dieudonné–Manin material appears there."
+      }
+     ]
+    },
+    "CrystallineCohomology:CR.3:duality": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The proper smooth crystalline trace map and its normalization in top degree",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no trace map for any sheaf-cohomology theory exists in the baseline."
+      },
+      {
+       "target": "Cup-product perfect pairing in the derived sense, with a derived dual rather than a perfect pairing on each group",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Mathlib has monoidal/dualizable-object machinery in the abstract (`CategoryTheory.Monoidal`), but no cup product on sheaf cohomology and no duality theorem."
+      },
+      {
+       "target": "Compatibility with reduction, the Gysin formalism, the diagonal class and evaluation/coevaluation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Gysin map or diagonal class in either library."
+      },
+      {
+       "target": "Projective-space normalization, functoriality and base change of the trace before CP.6 imports them",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "CrystallineCohomology:CR.3",
+       "note": "Carved out of CR.3's text; CR.3 states explicitly that the trace/duality statement is this successor and not one of its own inputs."
+      },
+      {
+       "layer": "CrystallineCohomology:CR.4",
+       "note": "Ekedahl's de Rham–Witt duality is named here as the complementary acquired route, so CR.4's de Rham–Witt complex is a shared input."
+      },
+      {
+       "layer": "ClassicalAdicEtaleCohomology:H3",
+       "note": "Owns proper support, traces and Poincaré duality for curves in the adic étale setting — a parallel trace/duality package for a different cohomology theory."
+      },
+      {
+       "layer": "EtaleDualityAndPerverseSheaves:EDC.6",
+       "note": "Owns the integral/analytic/diamond comparison of the six operations including duality; the trace-normalisation and diagonal-class formalism recurs there."
+      }
+     ]
+    },
+    "CrystallineCohomology:CR.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Witt complexes W_nΩ^• with restriction R, Frobenius F, Verschiebung V, Teichmüller lift and dlog, and the full relation list",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.verschiebung",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Verschiebung.lean",
+         "line": 82,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 267,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.teichmuller",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
+         "line": 62,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.TruncatedWittVector",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Truncated.lean",
+         "line": 62,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.verschiebung_frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Identities.lean",
+         "line": 106,
+         "fit": "related"
+        }
+       ],
+       "note": "The 'existing Witt-vector carrier' the layer plans to build on is genuinely there: W(R), W_n(R), F, V, Teichmüller, ghost components, FV = p, V F = p on char-p rings. The de Rham–Witt complex itself is absent — `grep -i -P '\\t[^\\t]*DeRhamWitt'` on declarations.tsv returns nothing in either library, and there is no differential-graded Witt object and no dlog."
+      },
+      {
+       "target": "Universal property of Witt complexes, with the graded Frobenius distinguished from the degree-scaled crystalline Frobenius",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Polynomial basic Witt differentials, localization and étale descent of W_nΩ; ghost-coordinate inversion under torsion hypotheses",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.ghostMap",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Basic.lean",
+         "line": 287,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.ghostMap.bijective_of_invertible",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Basic.lean",
+         "line": 336,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.ghostEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Basic.lean",
+         "line": 329,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves the ghost map is bijective exactly when p is invertible, which is the torsion hypothesis the layer wants respected; but there are no basic Witt differentials and no localization/étale-descent statement for a Witt complex."
+      },
+      {
+       "target": "Agreement with the classical de Rham–Witt complex for smooth algebras over a perfect F_p-field",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The BLM model: strict saturated Dieudonné complexes, saturation, V-adic (Nygaard-style) completion, its universal property, and the fixed-point characterization of Lη_p",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. No Dieudonné complex, no saturation functor, and no décalage/Lη operator anywhere in the baseline (that is AInfCohomology AI.1's target and is also absent)."
+      },
+      {
+       "target": "Relative Langer–Zink de Rham–Witt theory for smooth algebras over a base with p nilpotent, plus its relative crystalline comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Finite-level and inverse-limit comparisons with CR.2, slope/degree filtrations and convergence of the associated spectral sequences",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.SpectralSequence",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/SpectralSequence/Basic.lean",
+         "line": 66,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has an abstract spectral-sequence/spectral-object formalism with convergence statements, so the carrier exists; nothing about slopes, degrees or de Rham–Witt does."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HabiroCohomologyFoundations:HQ.4",
+       "note": "Owns the positive-degree q-de Rham–Witt complex and explicitly imports ordinary de Rham–Witt with its restriction maps from CR.4; the F/V relation lists overlap while the restriction-map question separates them."
+      },
+      {
+       "layer": "HabiroRings:HR.4",
+       "note": "Relative q-Witt rings and finite étale lifts duplicate the localization/étale-descent half of this layer in the q-deformed setting."
+      },
+      {
+       "layer": "AInfCohomology:AI.1",
+       "note": "Supplies the generic Lη construction whose fixed points characterise the saturated Dieudonné model, so the Lη_p target is shared."
+      },
+      {
+       "layer": "AInfCohomology:AI.4",
+       "note": "Uses CR.4's Langer–Zink objects for the relative de Rham–Witt comparison; the same universal Witt-complex maps appear on both sides."
+      },
+      {
+       "layer": "KTheoryFiniteLocalFields:L.5",
+       "note": "Witt vectors and residue-characteristic calculations reuse the Witt-complex/de Rham–Witt package for K-theory computations."
+      }
+     ]
+    },
+    "CrystallineCohomology:CR.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Prelog rings and the associated log structure on the étale site, with charts and groupification",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Submonoid.LocalizationMap",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/MonoidLocalization/Basic.lean",
+         "line": 96,
+         "fit": "related"
+        },
+        {
+         "name": "Localization",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/MonoidLocalization/Basic.lean",
+         "line": 268,
+         "fit": "related"
+        }
+       ],
+       "note": "Groupification of a commutative monoid is available (monoid localization at the whole monoid), but there is no prelog ring, no log structure and no chart: `grep -i -P '\\t[^\\t]*(prelog|LogStructure|LogRing)'` on declarations.tsv is empty in both libraries."
+      },
+      {
+       "target": "Integral, fine and saturated monoids, and the distinction between integrality and saturation",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Submonoid.saturation",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Group/Submonoid/Saturation.lean",
+         "line": 41,
+         "fit": "related"
+        },
+        {
+         "name": "AddSubmonoid.saturation",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Group/Submonoid/Saturation.lean",
+         "line": 41,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the saturation of a submonoid of a group (elements with a power in the submonoid), which is the right notion of a saturated monoid once the monoid is embedded in its groupification; but there is no `IsIntegral`/`IsFine`/`IsSaturated` predicate on an abstract commutative monoid, and no finite-generation ('fine') package. Line 41 is nominal — check the file for the exact declaration names."
+      },
+      {
+       "target": "Strict, exact, Kummer and log-smooth morphisms with their base changes, and the chart criteria with torsion-order invertibility conditions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Exactification and the log PD envelope",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; the underlying PD envelope is absent as well (CR.0)."
+      },
+      {
+       "target": "The log crystalline site, crystals with log connections, the log PD Poincaré lemma and its descent",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The source's Cartier-type condition used for the Cartier comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Explicit log differential module and residue maps for the semistable chart O_K[x_1,…,x_d]/(x_1⋯x_r − π), with the monoid map recording π, carried through reduction and completion",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Mathlib's `KaehlerDifferential` gives Ω¹ of such a quotient but there is no log differential module and no residue map."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "CrystallineCohomology:CR.5:log-algebra",
+       "note": "Carved out of this layer's own text: the elementary prelog/log-monoid prefix is the substage, the crystalline half is the parent."
+      },
+      {
+       "layer": "DerivedDeRhamCohomology:DD.6",
+       "note": "Imports this log prefix and builds log cotangent/derived de Rham on the same objects; the log-crystalline comparison map appears in both."
+      },
+      {
+       "layer": "PrismaticCohomology:PR.8",
+       "note": "Logarithmic prismatics needs the same integral/fine/saturated log geometry and a Cartier-type condition, with its own integral log-smooth hypotheses."
+      },
+      {
+       "layer": "HodgeTateAndCanonicalSubgroups:T6:log-sites",
+       "note": "Builds logarithmic adic sites before period sheaves — the same log-site construction on the adic rather than crystalline side."
+      },
+      {
+       "layer": "AInfCohomology:AI.6",
+       "note": "Develops the standard semistable charts and divisorial log structures for A_inf; the semistable-chart target O_K[x]/(x_1⋯x_r − π) is literally shared."
+      }
+     ]
+    },
+    "CrystallineCohomology:CR.5:log-algebra": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Prelog rings (a monoid M with a map M → (A,·)) and the associated log structure",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent in both libraries; there is no monoid-to-multiplicative-monoid-of-a-ring structure bundled as a log/prelog object."
+      },
+      {
+       "target": "Groupification M → M^gp and the integral/fine/saturated hierarchy",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Localization",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/MonoidLocalization/Basic.lean",
+         "line": 268,
+         "fit": "related"
+        },
+        {
+         "name": "Submonoid.saturation",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Group/Submonoid/Saturation.lean",
+         "line": 41,
+         "fit": "related"
+        }
+       ],
+       "note": "Groupification exists as monoid localization; saturation exists for submonoids of a group. Missing: the predicates on an abstract monoid, finite generation as part of 'fine', and every stability statement under the operations log geometry needs."
+      },
+      {
+       "target": "Charts, strict/exact/Kummer morphisms and their base changes on the étale site",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Torsion-order invertibility conditions in the chart criteria",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "CrystallineCohomology:CR.5",
+       "note": "Parent layer; this substage is its elementary algebraic prefix and the two share the whole monoid/log-structure target list."
+      },
+      {
+       "layer": "DerivedDeRhamCohomology:DD.6",
+       "note": "Explicitly imports 'integral/fine/saturated prelog and log geometry from CrystallineCohomology CR.5's early algebraic prefix' — i.e. this substage."
+      },
+      {
+       "layer": "PrismaticCohomology:PR.8",
+       "note": "Requires the same fine/saturated log-monoid layer for log prisms."
+      }
+     ]
+    },
+    "CrystallineCohomology:CR.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Log-crystalline cohomology of the special fibre over the standard log Witt base (ℕ → W(k), 1 ↦ 0), for proper semistable models over a complete mixed-characteristic DVR with perfect residue field",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.instIsDiscreteValuationRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/DiscreteValuationRing.lean",
+         "line": 84,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the coefficient ring W(k) exists. No log-crystalline cohomology, no semistable model, and Tau Ceti's stable-reduction tree (TauCeti/AlgebraicGeometry/Curves/StableReduction/) is about curve models and numerical types, not log-crystalline cohomology."
+      },
+      {
+       "target": "The rational Hyodo–Kato complex, its Frobenius φ and monodromy operator N, with nilpotence in the finite-dimensional range and the relation Nφ = pφN",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `grep -rn -i 'hyodo'` over both Lean trees returns nothing."
+      },
+      {
+       "target": "The Hyodo–Kato-to-log-de-Rham map after the required field extension and choice of uniformizer, and its comparison theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The change-of-uniformizer transformation, with logarithm/exponential and sign normalization derived explicitly",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "A log de Rham–Witt or embedding-system model, with integral descent and the rational steps marked",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent (both de Rham–Witt and log geometry are missing)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "CohomologyComparisons:CP.4",
+       "note": "Uses 'CR.6's actual Hyodo–Kato complex' to construct the B_st comparison and independently verifies Nφ = pφN and the change-of-uniformizer formula, so that pair of targets is stated twice."
+      },
+      {
+       "layer": "AInfCohomology:AI.6",
+       "note": "Proves derived comparisons with log de Rham and Hyodo–Kato/log-crystalline cohomology for semistable formal models — the same comparison from the AΩ side."
+      },
+      {
+       "layer": "PrismaticCohomology:PR.8",
+       "note": "Log-prismatic comparison over semistable models covers overlapping examples; CP.4 is told to compare the two."
+      }
+     ]
+    },
+    "CrystallineCohomology:CR.7": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Export of PD bases, crystals, connections, filtrations, Frobenius and log monodromy to R07's Dieudonné crystal and Grothendieck–Messing construction",
+       "library": "absent",
+       "declarations": [],
+       "note": "This is an interface/re-export task rather than new mathematics, but the objects it exports do not exist: no crystal, no Dieudonné crystal, no Grothendieck–Messing theory in either library."
+      },
+      {
+       "target": "Covariance/contravariance and Tate twists on the constant and multiplicative p-divisible groups",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.CartierDual",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/Basic.lean",
+         "line": 1,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has affine group schemes with Cartier duality, components and semisimplicity, which is the closest existing material; p-divisible groups, their Dieudonné modules and Tate twists are absent. The cited file/line is nominal — see TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/ for the actual declarations."
+      },
+      {
+       "target": "Finite-projective crystalline-coefficient and relative Gauss–Manin interfaces, with base-change/horizontality proved rather than assumed",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Gauss–Manin connection in either library."
+      },
+      {
+       "target": "A complete hypothesis list (base, PD, completion, log, torsion, finiteness) attached to every exported theorem, and a Suggested.lean exercising the existing PD API",
+       "library": "absent",
+       "declarations": [],
+       "note": "Pure bookkeeping: this is the acceptance/interface discipline of the roadmap, not a mathematical target. The 'existing PD API' it exercises is Mathlib/RingTheory/DividedPowers/, which is built."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+       "note": "Owns the Dieudonné-crystal classification and Grothendieck–Messing theory that this layer exports to; the object is the same and R07.2 is the owner."
+      },
+      {
+       "layer": "CrystallineCohomology:CR.1",
+       "note": "Constructs the crystals, connections and filtrations that this layer merely re-exports."
+      },
+      {
+       "layer": "AbelianSchemesAndArithmeticModuli:A4",
+       "note": "Degree-one realizations and deformation theory consume the same Gauss–Manin/crystalline-coefficient interface for abelian schemes."
+      }
+     ]
+    }
+   }
+  }
+ }
+}
