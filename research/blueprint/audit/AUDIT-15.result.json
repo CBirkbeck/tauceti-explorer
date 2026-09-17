@@ -46,7 +46,7 @@
          "fit": "special case"
         }
        ],
-       "note": "TauCeti has a general centre-of-an-affine-group-scheme construction and a derived-subgroup construction (TauCeti/Algebra/AlgebraicGroup/Derived/Basic.lean), and Mathlib computes the centre of GL_n(R) as the scalars and the commutator subgroup of SL_2 over suitable rings. What is missing is the group G at all, hence any description of its centre Res_{F/Q} Gm or of the common derived group of G and G*."
+       "note": "TauCeti has a general centre-of-an-affine-group-scheme construction and a derived-subgroup construction (TauCeti/Algebra/AlgebraicGroup/Derived/Basic.lean), and Mathlib computes the centre of GL_n(R) over any commutative ring as the scalars and proves that SL_2(F) is its own commutator subgroup over a field F containing some a with a != 0 and a^2 != 1. What is missing is the group G at all, hence any description of its centre Res_{F/Q} Gm or of the common derived group of G and G*."
       },
       {
        "target": "The conjugacy domains: the G-class of all independent half-plane choices, the G*-class with common-sign components",
@@ -184,7 +184,7 @@
          "fit": "related"
         }
        ],
-       "note": "The only 'polarization' in the libraries are RootPairing.Polarization (a root-system map) and TauCeti's polarization of a pure Hodge structure; neither is a polarization of an abelian scheme, and no c-polarization by a fractional ideal exists."
+       "note": "The polarizations in the libraries are of other objects: Mathlib's RootPairing.Polarization (a root-system map), Tau Ceti's polarizations of pure Hodge structures (with a Riemann-form example in weight one) and its SpinPolarizationData (a splitting of a quadratic space into isotropic halves). None is a polarization of an abelian scheme, and no c-polarization by a fractional ideal exists."
       },
       {
        "target": "The Hilbert-Blumenthal moduli problem with tame mu_N level and K, K_0, K_1 variants; representability",
@@ -633,9 +633,16 @@
          "file": "Mathlib/AlgebraicGeometry/Geometrically/Irreducible.lean",
          "line": 42,
          "fit": "related"
+        },
+        {
+         "name": "comonadicExtendScalars",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/ModuleCat/Descent.lean",
+         "line": 59,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib has geometric irreducibility of morphisms as a property and an abstract descent-data and stack formalism, and Tau Ceti has Galois descent for vector spaces with a semilinear Galois action; neither library has Galois descent of schemes or of quasi-coherent sheaves, and the variety whose component must be descended does not exist."
+       "note": "Mathlib has geometric irreducibility of morphisms as a property, an abstract descent-data and stack formalism, fpqc descent of several morphism properties, and faithfully flat descent for modules in comonadic form (comonadicExtendScalars, with the Amitsur equalizer Algebra.IsEffective.of_faithfullyFlat); Tau Ceti adds faithfully flat descent for the points of affine group schemes and Galois descent for vector spaces with a semilinear action. Neither library has descent of non-affine schemes, or of a component of a quasi-projective scheme along a field extension, and the variety whose component must be descended does not exist."
       },
       {
        "target": "Nonempty real and finite local open loci via explicit abelian varieties and deformation calculations",
@@ -799,9 +806,16 @@
          "file": "Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
          "line": 94,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.HopfAlgebra.pointsFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/PointsFunctor.lean",
+         "line": 104,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib has abstract double cosets and the finite adele ring, but no adelic points of an algebraic group, no class set of a quaternion order and no algebraic modular forms; grep -rn -i 'algebraic modular form|brandt' finds nothing mathematical."
+       "note": "Mathlib has abstract double cosets and the finite adele ring; adelic points of an algebraic group exist only as abstract groups, through Tau Ceti's functor of points of an affine group scheme (TauCeti.HopfAlgebra.pointsFunctor), with no topology and no double-coset finiteness. There is no class set of a quaternion order and no algebraic modular form; grep -rn -i 'algebraic modular form|brandt' finds nothing mathematical."
       },
       {
        "target": "Finiteness of the class set",
@@ -907,14 +921,6 @@
      ],
      "duplicates": [
       {
-       "layer": "WeightsInEtaleCohomology:R34.5",
-       "note": "R34.5 owns the purity/weight input R18.4 consumes; R18.4 explicitly defers purity to it."
-      },
-      {
-       "layer": "AlgebraicModularFormsAndSerreWeights:R15.1",
-       "note": "R15.1 owns the geometric/analytic comparison of forms with algebraic local systems in the modular-curve case that R18.4 generalises."
-      },
-      {
        "layer": "GL2AutomorphicRepresentationsAndTransfer:R17.3",
        "note": "R17.3 supplies the definite and indefinite Jacquet-Langlands cases that R18.4's comparison of quaternionic realisations states."
       }
@@ -980,10 +986,6 @@
       }
      ],
      "duplicates": [
-      {
-       "layer": "PerfectoidShimuraVarieties:S5",
-       "note": "S5 consumes this geometry directly, as R18.6 notes; the export boundary is shared."
-      },
       {
        "layer": "PotentialModularityAndCompatibleSystems:R23.2",
        "note": "R23.2 consumes the local moduli interpretation R18.6 exports."
@@ -1190,7 +1192,7 @@
      "duplicates": [
       {
        "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier",
-       "note": "This Tau Ceti layer owns projective representations, their factor sets, the central extension built from a factor set and the Schur multiplier for finite groups, and is already built in Tau Ceti: the discrete form of MP.1's central extension built from intertwiner scalars."
+       "note": "This Tau Ceti layer owns projective representations, their factor sets and H^2 classes, twisted group algebras, the central extension built from a factor set, the representation group and the Clifford obstruction for finite groups. Tau Ceti has built most of it (TauCeti.IsProjectiveRep, TauCeti.schurMultiplier, TauCeti.TwistedMonoidAlgebra, linearization over the central extension), though not the representation group or the Clifford obstruction: the discrete form of MP.1's central extension built from intertwiner scalars."
       }
      ]
     },
@@ -1566,10 +1568,6 @@
       {
        "layer": "QSeriesPartitionsAndMockModularForms:QM.1",
        "note": "QM.1 constructs theta/eta functions and Jacobi forms with multiplier systems and half-integral weights, and names MP.7/MP.8 as its inputs; the half-integral multiplier conventions are stated in both."
-      },
-      {
-       "layer": "RankZeroOneBSD:BSD.2",
-       "note": "BSD.2 imports MP.0-8 and proves the BFH/Friedberg-Hoffstein unfolding and twist-series comparison; MP.7 supplies the kernels and BSD.2 the residue/nonvanishing argument."
       }
      ]
     },
@@ -1624,10 +1622,6 @@
       }
      ],
      "duplicates": [
-      {
-       "layer": "RankZeroOneBSD:BSD.2",
-       "note": "BSD.2 imports MP.0-8's genus-two half-integral-weight Eisenstein constructions and cover-specific continuation, and owns only the final residue/positivity step."
-      },
       {
        "layer": "QSeriesPartitionsAndMockModularForms:QM.1",
        "note": "QM.1 also constructs Jacobi forms with weights and indices and cites MP.8 as its owner, so the Jacobi-form definitions are stated twice."
@@ -1771,6 +1765,10 @@
       {
        "layer": "AutomorphicBundles:B0",
        "note": "B0 owns the generic associated-bundle construction for torsors and representations, with tensor/dual/determinant and pullback, and the equivariant-function description of sections; O1 is the analytic-cocycle analogue of the same construction."
+      },
+      {
+       "layer": "PerfectoidSpaces:P9",
+       "note": "P9 constructs the Čech descent datum of a profinite torsor, proves descent for O, O^+ and finite locally free modules, and identifies finite-level character sheaves with the descended sheaf: the character case of O1's coefficient sheaves and their local freeness under descent."
       }
      ]
     },
@@ -2009,9 +2007,16 @@
          "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/UpperTri/ModularForm.lean",
          "line": 117,
          "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.heckeUNat",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/BadPrime/Basic.lean",
+         "line": 54,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib has the abstract Hecke ring of a Hecke triple, and Tau Ceti has a substantial classical Hecke-operator and diamond-operator development for congruence subgroups of SL_2(Z) with q-expansion formulas, including the classical operator U_p on M_k(Gamma_1(N)) for p | N (HeckeRing.GL2.heckeSlashUpperTriModularFormEnd); but none of it is a geometric correspondence with pullback-and-trace, and nothing is over a totally real field or p-adic."
+       "note": "Mathlib has the abstract Hecke ring of a Hecke triple, and Tau Ceti has a substantial classical Hecke-operator and diamond-operator development for congruence subgroups of SL_2(Z) with q-expansion formulas, including the classical operator U_p on M_k(Gamma_1(N)) for a prime p | N (HeckeRing.GL2.heckeUNat, the bad-prime alias of T_p, which at such p is the upper-triangular sum HeckeRing.GL2.heckeSlashUpperTriModularFormEnd); but none of it is a geometric correspondence with pullback-and-trace, and nothing is over a totally real field or p-adic."
       },
       {
        "target": "Banach-module topology at finite wild level and bounded affinoid weight, and the compact restriction theorem for nested affinoids",
@@ -2039,7 +2044,7 @@
          "fit": "related"
         }
        ],
-       "note": "No p-adic completely continuous operator theory and no p-adic U_p exist in either library. Tau Ceti has the classical complex operator U_p on M_k(Gamma_1(N)) for p | N, with a_m(U_p f) = a_{pm}(f) (HeckeRing.GL2.qExpansion_coeff_heckeSlashUpperTri), but not on overconvergent forms, not over a totally real field, and with no compactness or integral-lattice statement."
+       "note": "Mathlib's compact operators and its Fredholm alternative hold over any complete nontrivially normed field, p-adic fields included, but there are no Banach modules over an affinoid algebra, no complete continuity statement for operators on them and no p-adic U_p. Tau Ceti has the classical complex operator U_p on M_k(Gamma_1(N)) for p | N, with a_m(U_p f) = a_{pm}(f) (HeckeRing.GL2.qExpansion_coeff_heckeSlashUpperTri), but not on overconvergent forms, not over a totally real field, and with no compactness or integral-lattice statement."
       },
       {
        "target": "q-expansion comparison with the automorphic-bundle definition",
@@ -2167,7 +2172,7 @@
    }
   },
   "PadicFamilies": {
-   "summary": "Almost none of this roadmap is built, but one layer is a genuine exception. L0a's first paragraph — the Fitting decomposition of a finite module under an endomorphism U into its eventually invertible image and eventually killed kernel — is proved in Mathlib in greater generality, for any endomorphism of a module that is both Artinian and Noetherian (LinearMap.eventually_isCompl_ker_pow_range_pow and LinearMap.isCompl_iSup_ker_pow_iInf_range_pow, sorry-free), together with the bijectivity statements IsArtinian.surjective_of_injective_endomorphism and IsNoetherian.injective_of_surjective_endomorphism and a full IsIdempotentElem API; what is still missing there is the projector e itself as the stable value of U^(n!), its equivariance and naturality, and the whole profinite inverse-limit and exactness package. Everything else is absent: grep over both trees finds no p-adic modular form, ordinary tower, Igusa tower, Hida theory, ordinary projector, modular symbol, eigenvariety, eigencurve, Fredholm hypersurface, orthonormalizable Banach module, p-adic L-function, pseudorepresentation or Selmer complex. The classical substrate is strong — Mathlib's modular forms with the q-expansion map and its injectivity, Eisenstein series, the abstract Hecke ring, and TauCeti's very large classical Hecke-operator, diamond-operator, newform, multiplicity-one and degeneracy-map development, plus Mathlib's Iwasawa-algebra ingredients (abstract measures, Mahler basis, Amice transform) and compact-operator theory — but nothing p-adic-analytic is built on it.",
+   "summary": "Almost none of this roadmap is built, but one layer is a genuine exception. L0a's first paragraph — the Fitting decomposition of a finite module under an endomorphism U into its eventually invertible image and eventually killed kernel — is proved in Mathlib in greater generality, for any endomorphism of a module that is both Artinian and Noetherian (LinearMap.eventually_isCompl_ker_pow_range_pow and LinearMap.isCompl_iSup_ker_pow_iInf_range_pow, sorry-free), together with the bijectivity statements IsArtinian.surjective_of_injective_endomorphism and IsNoetherian.injective_of_surjective_endomorphism and a full IsIdempotentElem API; what is still missing there is the projector e itself as the stable value of U^(n!), its equivariance and naturality, and the whole profinite inverse-limit and exactness package. Everything else is absent: grep over both trees finds no p-adic modular form, ordinary tower, Igusa tower, Hida theory, ordinary projector, modular symbol, eigenvariety, eigencurve, Fredholm hypersurface, orthonormalizable Banach module, p-adic L-function, pseudorepresentation or Selmer complex. The classical substrate is strong: Mathlib's modular forms with the q-expansion map and its injectivity, Eisenstein series and the abstract Hecke ring; Tau Ceti's very large classical Hecke-operator, diamond-operator, newform, multiplicity-one and degeneracy-map development, including U_p at primes dividing the level; and Mathlib's Iwasawa-algebra ingredients (abstract measures, Mahler basis, Amice transform) and compact-operator theory, whose Fredholm alternative holds over p-adic fields. No p-adic family, Fredholm determinant or eigenvariety is built on it.",
    "layers": {
     "PadicFamilies:L0": {
      "verdict": "not built",
@@ -2223,9 +2228,16 @@
          "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Operators.lean",
          "line": 82,
          "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.heckeUNat",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/BadPrime/Basic.lean",
+         "line": 54,
+         "fit": "related"
         }
        ],
-       "note": "The Iwasawa algebra as a space of abstract measures and the classical Hecke algebra of a Hecke triple both exist, and TauCeti has an extensive classical T_n/diamond development; there is no ordinary Hecke algebra, no ordinary projector applied to it, and no control theorem."
+       "note": "The Iwasawa algebra as a space of abstract measures and the classical Hecke algebra of a Hecke triple both exist, and Tau Ceti has an extensive classical T_n/diamond development over C, including the operator U_p on M_k(Gamma_1(N)) for a prime p dividing N (HeckeRing.GL2.heckeUNat, the bad-prime alias of T_p) with the eigenvector criterion a_{pm}(f) = c a_m(f); there is no ordinary Hecke algebra, no ordinary projector applied to it, and no control theorem."
       },
       {
        "target": "The ordinary Eisenstein family and the identification of its q-expansion",
@@ -2251,9 +2263,16 @@
          "file": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
          "line": 102,
          "fit": "related"
+        },
+        {
+         "name": "TauCeti.CuspForm.levelRaise",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Degeneracy.lean",
+         "line": 362,
+         "fit": "related"
         }
        ],
-       "note": "TauCeti has newforms with multiplicity one and strong multiplicity one classically, but there is no family to specialize and no p-stabilization operator."
+       "note": "Tau Ceti has newforms with multiplicity one and strong multiplicity one classically, the level-raising operator V_d (TauCeti.CuspForm.levelRaise) and the classical U_p at primes dividing the level, which are the ingredients of a p-stabilization f(z) - beta f(pz); but no p-stabilization is constructed, its U_p-eigenvalue is not computed, and there is no family to specialize."
       }
      ],
      "duplicates": [
@@ -2264,6 +2283,10 @@
       {
        "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
        "note": "R21.2 imports ordinary families, the ordinary Hecke algebra and Hida control from L0 and adds only the nearly ordinary/Eisenstein statements."
+      },
+      {
+       "layer": "ModularSymbolsPadicLFunctions:L2",
+       "note": "L2 there constructs the p-stabilizations of a newform for a root alpha of X^2 - a_p X + epsilon(p) p^(w-1) and proves their U_p-eigenvalue and coefficient formula: the p-stabilization L0's specialization theorem records."
       }
      ]
     },
@@ -2541,9 +2564,16 @@
          "file": "TauCeti/Analysis/Normed/Operator/Compact/Eigenspace.lean",
          "line": 132,
          "fit": "related"
+        },
+        {
+         "name": "Matrix.charpolyRev",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+         "line": 291,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti proves that 1 - K is Fredholm for a compact operator K on a real or complex Banach space. Over any complete nontrivially normed field, p-adic fields included, Mathlib proves the Fredholm alternative for compact operators (IsCompactOperator.hasEigenvalue_or_mem_resolventSet) and Tau Ceti that each finite stage ker (K - mu)^n of the generalized eigenspace at a nonzero mu is finite-dimensional (IsCompactOperator.finiteDimensional_genEigenspace_nat), the first steps of Serre's p-adic Riesz theory. There is no Fredholm determinant or characteristic power series (grep -rn -i 'fredholm determinant' returns nothing), hence no Fredholm hypersurface."
+       "note": "Tau Ceti proves that 1 - K is Fredholm for a compact operator K on a real or complex Banach space. Over any complete nontrivially normed field, p-adic fields included, Mathlib proves the Fredholm alternative for compact operators (IsCompactOperator.hasEigenvalue_or_mem_resolventSet) and Tau Ceti that each finite stage ker (K - mu)^n of the generalized eigenspace at a nonzero mu is finite-dimensional (IsCompactOperator.finiteDimensional_genEigenspace_nat), the first steps of Serre's p-adic Riesz theory. Mathlib has only the finite-dimensional case of the characteristic power series, the reverse characteristic polynomial det(1 - tM) of a matrix (Matrix.charpolyRev, whose docstring names its infinite-dimensional extension). There is no Fredholm determinant of a compact operator (grep -rn -i 'fredholm determinant' returns nothing), hence no Fredholm hypersurface."
       },
       {
        "target": "Finite-projective slope summands on adapted affinoids and finite Hecke-algebra spectral pieces",
@@ -2566,10 +2596,6 @@
       {
        "layer": "LocallyAnalyticDistributions:L4",
        "note": "L4 there supplies the compact operators and Fredholm determinants L2a's construction runs on."
-      },
-      {
-       "layer": "AutomorphicGaloisRepresentationsPartII:AG2.3",
-       "note": "AG2.3 supplies definite-unitary coefficients, compactness and classical points to this same abstract machine."
       }
      ]
     },
@@ -3071,12 +3097,7 @@
        "note": "Nothing to make effective."
       }
      ],
-     "duplicates": [
-      {
-       "layer": "ExponentialSumsAndCircleMethod:ES.3",
-       "note": "ES.3 owns the circle-method major-arc machinery (singular integrals, local densities, convergence) that QM.2 names as its input; the Hardy-Ramanujan route is the partition instance of it."
-      }
-     ]
+     "duplicates": []
     },
     "QSeriesPartitionsAndMockModularForms:QM.3": {
      "verdict": "not built",
@@ -3221,8 +3242,8 @@
        "note": "QT.7 owns the quantum-modularity statements and the example ledger linking cyclotomic coefficients, WRT values and Bloch regulators, which QM.5 imports and compares by radial limits."
       },
       {
-       "layer": "HabiroNahmSeries:HB.10",
-       "note": "HB.10 owns the explicit q-series/Nahm examples and boundaries that QM.5's radial-limit comparison draws on."
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+       "note": "Layer 8 defines the Eichler integral of a cusp form with its period polynomial and period map (not yet in the Tau Ceti library): the Eichler integrals QM.5 must keep distinct from formal evaluations."
       }
      ]
     },
@@ -3313,7 +3334,7 @@
   "status": "accepted",
   "reviewer": "REV-AUDIT-15",
   "date": "2026-09-17",
-  "checked": 171,
+  "checked": 206,
   "corrections": [
    {
     "layer": "QSeriesPartitionsAndMockModularForms:QM.0",
@@ -3585,8 +3606,8 @@
     "layer": "MetaplecticAutomorphicForms:MP.0",
     "target": "Central character and translation/modulation relations with the chosen Fourier convention",
     "was": "note: Fourier inversion for general characters",
-    "now": "note: inversion only over real inner-product spaces and ZMod N",
-    "why": "Fourier inversion is not available for a general additive character: the inversion theorems are for finite-dimensional real inner-product spaces and for the discrete transform on ZMod N."
+    "now": "note: inversion only over real inner-product spaces and finite groups",
+    "why": "Fourier inversion is not available for a general additive character: the inversion theorems are for finite-dimensional real inner-product spaces and for finite abelian groups."
    },
    {
     "layer": "MetaplecticAutomorphicForms:MP.1",
@@ -3614,7 +3635,7 @@
     "target": "duplicates",
     "was": "not listed",
     "now": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier added",
-    "why": "The owner of the discrete projective-representation and central-extension machinery MP.1 extends."
+    "why": "The owner of the discrete projective-representation and central-extension machinery MP.1 extends. Tau Ceti has built most of that layer (projective representations, factor-set classes, twisted group algebras, linearization over the central extension) but not the representation group or the Clifford obstruction."
    },
    {
     "layer": "MetaplecticAutomorphicForms:MP.2",
@@ -3676,8 +3697,8 @@
     "layer": "HilbertModularVarietiesAndShimuraCurves:H6",
     "target": "Base change over a splitting field, descent of the selected component, geometric irreducibility there",
     "was": "note: Mathlib has Galois descent for quasi-coherent sheaves",
-    "now": "note: no Galois descent of schemes or sheaves",
-    "why": "Mathlib has no Galois descent for quasi-coherent sheaves; it has descent of morphism properties and abstract stacks only."
+    "now": "note: faithfully flat descent for modules only, none for schemes; added comonadicExtendScalars",
+    "why": "The note said Mathlib has Galois descent for quasi-coherent sheaves. Mathlib has faithfully flat descent for modules (comonadicity of extension of scalars, the affine case), fpqc descent of some morphism properties and abstract stacks; neither library can descend a scheme or a component of one along a field extension."
    },
    {
     "layer": "HilbertModularVarietiesAndShimuraCurves:R18.1",
@@ -3804,8 +3825,148 @@
     "was": "summary before review",
     "now": "summary rewritten",
     "why": "Updated for the characters of Z_p, the Fredholm alternative over p-adic fields and the classical U_p, which the substrate list omitted."
+   },
+   {
+    "layer": "PadicFamilies:L0",
+    "target": "Finite generation, finite flatness and control for ordinary cuspidal modules and Hecke algebras over weight Iwasawa algebras",
+    "was": "citation not listed",
+    "now": "added HeckeRing.GL2.heckeUNat",
+    "why": "L0 instantiates the ordinary projector for U_p; the classical U_p at primes dividing the level is a named Tau Ceti operator that neither the citations nor the note mentioned."
+   },
+   {
+    "layer": "PadicFamilies:L0",
+    "target": "Specialization at arithmetic characters to the correct classical ordinary space with nebentypus, p-stabilization and multiplicity",
+    "was": "citation not listed",
+    "now": "added TauCeti.CuspForm.levelRaise",
+    "why": "Absence confirmed, but both ingredients of a p-stabilization (V_p and U_p) exist classically in Tau Ceti; the note only said there is no p-stabilization operator."
+   },
+   {
+    "layer": "PadicFamilies:L2a",
+    "target": "The Fredholm hypersurface of a distinguished compact operator",
+    "was": "citation not listed",
+    "now": "added Matrix.charpolyRev",
+    "why": "Absence confirmed; the Fredholm series det(1 - tU) has its finite-rank case in Mathlib as Matrix.charpolyRev, which the note did not record."
+   },
+   {
+    "layer": "OverconvergentAutomorphicForms:O6",
+    "target": "Tame Hecke and diamond operators and the p-level correspondences including U_p for p | p, defined by pullback, coefficient identification and trace",
+    "was": "citation not listed",
+    "now": "added HeckeRing.GL2.heckeUNat",
+    "why": "Tau Ceti's named U_p is HeckeRing.GL2.heckeUNat; the audit cited only the underlying upper-triangular sum."
+   },
+   {
+    "layer": "OverconvergentAutomorphicForms:O6",
+    "target": "Complete continuity of U_p = prod U_p^{e_p} and the renormalization preserving an integral lattice",
+    "was": "note: no p-adic completely continuous operator theory",
+    "now": "note: p-adic compact operators exist; affinoid Banach modules do not",
+    "why": "The note said there is no p-adic completely continuous operator theory, but Mathlib's compact operators and Fredholm alternative are stated over any complete nontrivially normed field; what is missing is the theory over affinoid algebras."
+   },
+   {
+    "layer": "HilbertModularVarietiesAndShimuraCurves:H1",
+    "target": "c-polarization through an ordered invertible O_F-module c",
+    "was": "note: the only polarizations are RootPairing's and Hodge structures'",
+    "now": "note: lists the other polarizations, including SpinPolarizationData",
+    "why": "The note said the only polarizations in the libraries are the root-pairing and Hodge-structure ones; Tau Ceti also has SpinPolarizationData. The conclusion is unchanged."
+   },
+   {
+    "layer": "HilbertModularVarietiesAndShimuraCurves:R18.3",
+    "target": "Algebraic automorphic forms on the finite double-coset set of a definite quaternion algebra, with weight module and integral coefficients",
+    "was": "citation not listed",
+    "now": "added TauCeti.HopfAlgebra.pointsFunctor",
+    "why": "The note said there are no adelic points of an algebraic group; they exist as abstract groups through Tau Ceti's functor of points, as the corrected MP.4 note already records."
+   },
+   {
+    "layer": "HilbertModularVarietiesAndShimuraCurves:H0",
+    "target": "Derived-group and centre descriptions of G and G*",
+    "was": "note: commutator subgroup of SL_2 over suitable rings",
+    "now": "note: SL_2(F) perfect over fields with a != 0, a^2 != 1",
+    "why": "Matrix.SL2.commutator_eq_top is stated over a field with an element a satisfying a != 0 and a^2 != 1, not over rings."
+   },
+   {
+    "layer": "QSeriesPartitionsAndMockModularForms:QM.2",
+    "target": "duplicates",
+    "was": "ExponentialSumsAndCircleMethod:ES.3 listed",
+    "now": "ExponentialSumsAndCircleMethod:ES.3 removed",
+    "why": "ES.3 constructs singular integrals and p-adic local densities for Waring-type problems. The Hardy-Ramanujan-Rademacher route uses the modular transformation of eta on Farey arcs, Kloosterman-type sums and Bessel functions, none of which ES.3 states, so ES.3 is only QM.2's listed input and the note's claimed overlap is wrong."
+   },
+   {
+    "layer": "QSeriesPartitionsAndMockModularForms:QM.5",
+    "target": "duplicates",
+    "was": "HabiroNahmSeries:HB.10 listed",
+    "now": "HabiroNahmSeries:HB.10 removed",
+    "why": "HB.10 works out Nahm-sum examples and their Habiro-module membership, and says that membership does not prove quantum modularity. It states none of QM.5's targets: partition congruences, traces of singular moduli, quantum modular forms with radial limits, Eichler integrals."
+   },
+   {
+    "layer": "QSeriesPartitionsAndMockModularForms:QM.5",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields added",
+    "why": "Layer 8's injectivity route states the Eichler integral and its period polynomial, the object of QM.5's Eichler-integral target."
+   },
+   {
+    "layer": "PadicFamilies:L0",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "ModularSymbolsPadicLFunctions:L2 added",
+    "why": "L0 asks for specialization 'with nebentypus, p-stabilization and multiplicity recorded', and MSP L2 constructs exactly those p-stabilizations."
+   },
+   {
+    "layer": "PadicFamilies:L2a",
+    "target": "duplicates",
+    "was": "AutomorphicGaloisRepresentationsPartII:AG2.3 listed",
+    "now": "AutomorphicGaloisRepresentationsPartII:AG2.3 removed",
+    "why": "AG2.3 applies the generic eigenvariety machine to definite unitary groups and says it is 'not a duplicate analytic eigenvariety engine'; it supplies inputs to L2a and states none of L2a's gluing targets."
+   },
+   {
+    "layer": "OverconvergentAutomorphicForms:O1",
+    "target": "duplicates",
+    "was": "not listed",
+    "now": "PerfectoidSpaces:P9 added",
+    "why": "O1 builds coefficient sheaves by descent along a torsor and asks for local freeness under descent hypotheses; P9 states both for character coefficients."
+   },
+   {
+    "layer": "MetaplecticAutomorphicForms:MP.7",
+    "target": "duplicates",
+    "was": "RankZeroOneBSD:BSD.2 listed",
+    "now": "RankZeroOneBSD:BSD.2 removed",
+    "why": "MP.7 exports its metaplectic kernels and their identities to BSD.2, which proves the double-Dirichlet-series continuation, residues and nonvanishing. The work is split explicitly, and BSD.2 states none of MP.7's targets."
+   },
+   {
+    "layer": "MetaplecticAutomorphicForms:MP.8",
+    "target": "duplicates",
+    "was": "RankZeroOneBSD:BSD.2 listed",
+    "now": "RankZeroOneBSD:BSD.2 removed",
+    "why": "MP.8 says BSD.2 owns the final twist residue/positivity argument, and BSD.2 imports MP.8's constructions; BSD.2 states none of MP.8's targets."
+   },
+   {
+    "layer": "HilbertModularVarietiesAndShimuraCurves:R18.4",
+    "target": "duplicates",
+    "was": "WeightsInEtaleCohomology:R34.5 listed",
+    "now": "WeightsInEtaleCohomology:R34.5 removed",
+    "why": "R18.4 takes purity from R34 and lists no purity target; R34.5's Weil I and Weil II purity theorems are not R18.4 targets."
+   },
+   {
+    "layer": "HilbertModularVarietiesAndShimuraCurves:R18.4",
+    "target": "duplicates",
+    "was": "AlgebraicModularFormsAndSerreWeights:R15.1 listed",
+    "now": "AlgebraicModularFormsAndSerreWeights:R15.1 removed",
+    "why": "R15.1 constructs the Hodge bundle and geometric modular forms with their GAGA comparison and has no cohomology or local systems, so the overlap the note claims is not in R15.1, which states none of R18.4's targets."
+   },
+   {
+    "layer": "HilbertModularVarietiesAndShimuraCurves:R18.6",
+    "target": "duplicates",
+    "was": "PerfectoidShimuraVarieties:S5 listed",
+    "now": "PerfectoidShimuraVarieties:S5 removed",
+    "why": "S5 compares perfectoid Hilbert towers and consumes R18.6's geometry independently; it does not state R18.6's exports of the KW II varieties, integral modules and local systems."
+   },
+   {
+    "layer": "PadicFamilies",
+    "target": "summary",
+    "was": "summary before second pass",
+    "now": "summary updated",
+    "why": "Updated for the classical U_p and the Fredholm alternative over p-adic fields, both omitted from the substrate list."
    }
   ],
-  "notes": "Re-checked the whole batch against the pinned baseline (mathlib 082e2d3, tauceti f790474): 5 roadmaps, 46 layers, 206 targets, 146 declaration citations naming 110 distinct declarations, and 80 duplicate claims. Mechanical: every citation resolves at its library, file and line; none is private, an axiom or a bare structure field; grep for sorry is clean in every cited file. Two names did not resolve: HarmonicAt is InnerProductSpace.HarmonicAt, and Algebra.IsCentralSimple occurs only inside the module docstring of Algebra/Central/Defs.lean (Mathlib uses Algebra.IsCentral with IsSimpleRing). Presence claims: all 55 targets claiming something is present (5 mathlib, 50 partial) were re-derived from the source, including variable lines and hypotheses. One was wrong: QM.1's theta target was marked mathlib although Mathlib has only the S- and T^2-laws at the generators and neither library has a multiplier system, a half-integral-weight automorphy factor or a Jacobi form; it is now partial, and QM.1, left with no fully present target, is not built. Absence claims: 116 of the 151 absent targets were re-searched independently, by concept, by Mathlib naming convention and by grep of both Lean trees and declarations.tsv, in four concept sweeps whose hits were verified in the source; the other 35 are exports, tests or constructions on objects shown absent, and were checked against those prerequisites. No absent target turned out to be present. The sweeps did find material the notes missed or misdescribed, now recorded: Mathlib's Euler pentagonal number theorem (formal and for |x| < 1) and its general coefficientwise-finiteness theorem for infinite products; the quasimodular law of E2; Tau Ceti's classical U_p (a note said no U_p exists); Tau Ceti's Lagrangian subspaces of a real symplectic space (a note said there are no Lagrangian polarizations); Sp_2m over any commutative algebra, hence over the adeles, as an abstract group (a note said there are no adelic points); Tau Ceti's projective representations with their linearization over a central extension; Mathlib's Fredholm alternative and Tau Ceti's finite-dimensional generalized eigenspaces for compact operators over any complete nontrivially normed field (notes presented the theory as archimedean or Hilbert-space); the description of continuous characters of Z_p; relative normalization of schemes and regular local rings; Tau Ceti's local coefficient systems and its group of totally positive units. A note claiming Mathlib has Galois descent for quasi-coherent sheaves was false and is corrected. Confirmed absent from both libraries: q-Pochhammer symbols and q-binomials (a Mathlib TODO), partition congruences, Kloosterman sums, Bessel functions, Hardy-Ramanujan/Rademacher, Maass forms and the xi operator, mock modular forms and Appell-Lerch sums, quantum modular forms, the modular j-function, vertex algebras and moonshine; the Heisenberg and metaplectic groups, the Weil index and Weil representation, the Hilbert symbol, Schwartz-Bruhat spaces, dual pairs and the theta correspondence, half-integral-weight and Jacobi forms, Whittaker functions, GSp; Hida theory, p-adic and overconvergent modular forms, modular symbols (the Tau Ceti ModularForms layer-8 plan is not built), eigenvarieties and Fredholm series, p-adic L-functions, pseudorepresentations and Galois representations of modular forms, Selmer complexes, Euler systems, (phi, Gamma)-modules, locally analytic and rigid-analytic theory, Hodge-Tate maps, Igusa towers, the Koecher principle; Weil restriction, the Deligne torus, Shimura data, abelian schemes, dual abelian varieties and their polarizations, Weil pairings, Tate modules and p-divisible groups, moduli problems and level structures, normal and regular schemes, formal schemes and blow-ups, Hasse invariants, compactifications, Hilbert modular forms, quaternion orders and Brandt matrices, Jacquet-Langlands, etale cohomology beyond the pro-etale definition, Hecke correspondences, Drinfeld uniformization, Taylor-Wiles patching and modular curves. Duplicates: all 80 original claims resolve to live, visible atlas stages. 72 stand as written and one more stands with a corrected note (PadicFamilies L1 to ModularSymbolsPadicLFunctions L2, whose integral period theorem belongs to that roadmap's L1). Six were removed because the named layer states none of the layer's targets: a layer of the same roadmap (L5 to L0a), Moret-Bailly's theorem (H6 to R23.1), a co-consumer of the weight space (O0 to L2a), a datum layer with no quaternionic datum (R18.1 to D5), a cusp-compactification layer (QM.6 to R12.3) and a deformation-functor layer (L4 to R04.1). One pointed at the wrong Igusa layer and was replaced (O7: IG.2 by HodgeTateAndCanonicalSubgroups T5). 22 were added; the most consequential are ShimuraData D0 and ReductiveGroupsPartII RG2.0a (Weil restriction, Hilbert groups) for H0, AbelianSchemesAndArithmeticModuli A2 and A3 (dual abelian scheme, polarizations, Weil pairing) for H1 and H4, AdicSpacesPartII R2 (Hasse ideal and its blow-ups) for H2, AutomorphicFormsOnReductiveGroups AF.5 and GL2AutomorphicRepresentationsAndTransfer R17.3 (algebraic modular forms, Jacquet-Langlands) for R18.3 and R18.4, AutomorphicGaloisRepresentations R19.6, PhiGammaModulesAndIwasawaCohomology PG.7 and AutomorphicCongruences L3 for PadicFamilies L4, and the built Tau Ceti CFSG presentation of the Monster for QM.6. Verdicts after correction: 43 not built, 2 partly built (QM.0, PadicFamilies L0a), 1 process (R18.6), each consistent with its targets. Three roadmap summaries were rewritten or updated to match."
+  "notes": "Two passes by this reviewer against the pinned baseline (mathlib 082e2d3, tauceti f790474); the second pass re-verified every first-pass correction instead of trusting it. Scope as submitted: 5 roadmaps, 46 layers (all present, none extra), 206 targets, 146 citations of 110 distinct declarations, 80 duplicate claims. Mechanical: every citation resolves at its library, file and line with the right namespace; none is private, an axiom or a bare structure field; no cited file contains sorry or admit. Two names did not resolve: HarmonicAt is InnerProductSpace.HarmonicAt, and Algebra.IsCentralSimple occurs only in a docstring (Mathlib uses Algebra.IsCentral with IsSimpleRing). After correction there are 185 citations of 145 distinct declarations, all re-validated the same way. Presence: all 55 targets claiming something present (5 mathlib and 50 partial as submitted) were re-derived from the source, with variable lines and hypotheses read. One was wrong: QM.1's theta target was marked mathlib, but Mathlib has only the S- and T^2-laws and neither library has a theta multiplier system, a half-integral-weight automorphy factor or a Jacobi form; it is partial, and QM.1 is not built. Absence: all 151 absent targets were rechecked, 116 by fresh concept, naming-convention and grep searches of both trees and declarations.tsv, and 35 conditional or export targets against their prerequisites. None is present. The searches found material the notes denied or omitted, now cited: Mathlib's pentagonal number theorem (in R[[X]] and for |x| < 1) and its general multipliability theorem for power-series products; the quasimodular law of E2; Tau Ceti's real error function; the Fredholm alternative over any complete nontrivially normed field, Tau Ceti's finite-dimensional generalized eigenspaces of compact operators, and Matrix.charpolyRev as the finite-rank characteristic power series; Tau Ceti's classical U_p (HeckeRing.GL2.heckeUNat) and level-raising operator; Lagrangian subspaces of a real symplectic space; Sp_2m and affine group schemes over any commutative algebra, hence adelic points as abstract groups; projective representations and their linearization over a central extension; continuous characters of Z_p; relative normalization of schemes, regular local rings and Zariski-local representability; totally positive units; local coefficient systems; faithfully flat descent for modules. Notes that misdescribed the libraries were corrected, among them a false claim that Mathlib has Galois descent for quasi-coherent sheaves, a claim that no U_p exists, claims that there are no Lagrangian polarizations and no adelic points, and a claim that no p-adic compact-operator theory exists. Duplicates: a claim stands when the named layer itself states one of the layer's targets, or a special case or generalization of one; a layer that only supplies an input or consumes an output is not a duplicate. On that rule 14 of the 80 submitted claims were removed: L5 to L0a (same roadmap), H6 to R23.1 (Moret-Bailly), O0 to L2a (co-consumer), R18.1 to D5 (no quaternionic datum), QM.6 to R12.3, L4 to R04.1, QM.2 to ES.3 (the Hardy-Ramanujan-Rademacher route uses no singular integrals or local densities), QM.5 to HB.10, L2a to AG2.3 (which calls itself not a duplicate eigenvariety engine), MP.7 and MP.8 to BSD.2 (explicitly disjoint steps), R18.4 to R34.5 and R15.1, and R18.6 to S5. One was replaced (O7: IG.2 by HodgeTateAndCanonicalSubgroups T5), one note was corrected (PadicFamilies L1 to ModularSymbolsPadicLFunctions L2), and 25 were added, including ShimuraData D0 and ReductiveGroupsPartII RG2.0a for H0, AbelianSchemesAndArithmeticModuli A2 and A3 for H1 and H4, AdicSpacesPartII R2 for H2, AF.5 and R17.3 for R18.3-R18.4, R19.6, PG.7 and AutomorphicCongruences L3 for PadicFamilies L4, ModularSymbolsPadicLFunctions L2 (p-stabilizations) for L0, PerfectoidSpaces P9 for O1, Tau Ceti's ModularForms layer 8 (modular symbols, Eichler integrals; not built) for PadicFamilies L1 and QM.5, and the built Tau Ceti Monster presentation for QM.6. All 91 remaining claims resolve to live, visible atlas stages; none is retired. Verdicts after correction: 43 not built, 2 partly built (QM.0, PadicFamilies L0a) and 1 process (R18.6), each consistent with its targets. Four roadmap summaries were rewritten or updated."
  }
 }
