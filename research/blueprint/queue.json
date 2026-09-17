@@ -37962,11 +37962,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-22.md",
    "timeout": 14400,
-   "state": "running",
+   "state": "done",
    "account": "claude4",
    "lane": 1,
    "startedAt": "2026-09-17T06:56:38Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-17T07:15:30Z",
+   "seconds": 1132,
+   "result": {
+    "judged": 24,
+    "pairs": 24
+   },
+   "note": ""
   },
   {
    "id": "COMPARE-23",
@@ -37995,7 +38002,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-23.md",
    "timeout": 14400,
-   "state": "pending"
+   "state": "running",
+   "account": "claude4",
+   "lane": 2,
+   "startedAt": "2026-09-17T07:13:58Z",
+   "attempts": 1
   },
   {
    "id": "COMPARE-24",
@@ -39947,8 +39958,12 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-20.md",
    "timeout": 21600,
-   "state": "pending",
-   "avoidAccountOf": "AUDIT-20"
+   "state": "running",
+   "avoidAccountOf": "AUDIT-20",
+   "account": "claude2",
+   "lane": 2,
+   "startedAt": "2026-09-17T07:05:00Z",
+   "attempts": 1
   },
   {
    "id": "AUDIT-21",
@@ -39968,11 +39983,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-21.md",
    "timeout": 21600,
-   "state": "running",
+   "state": "done",
    "account": "claude4",
    "lane": 2,
    "startedAt": "2026-09-17T06:49:00Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-17T07:13:58Z",
+   "seconds": 1498,
+   "result": {
+    "layers": 42,
+    "audited": 42
+   },
+   "note": ""
   },
   {
    "id": "REV-AUDIT-21",
@@ -40015,7 +40037,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-22.md",
    "timeout": 21600,
-   "state": "pending"
+   "state": "running",
+   "account": "claude2",
+   "lane": 1,
+   "startedAt": "2026-09-17T07:05:00Z",
+   "attempts": 1
   },
   {
    "id": "REV-AUDIT-22",
@@ -40058,7 +40084,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-23.md",
    "timeout": 21600,
-   "state": "pending"
+   "state": "running",
+   "account": "claude4",
+   "lane": 1,
+   "startedAt": "2026-09-17T07:15:30Z",
+   "attempts": 1
   },
   {
    "id": "REV-AUDIT-23",

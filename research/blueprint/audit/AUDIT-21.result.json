@@ -307,7 +307,7 @@
          "name": "CategoryTheory.MonoidalCategory",
          "library": "mathlib",
          "file": "Mathlib/CategoryTheory/Monoidal/Category.lean",
-         "line": 106,
+         "line": 162,
          "fit": "related"
         }
        ],
@@ -332,8 +332,8 @@
         {
          "name": "Module.Flat",
          "library": "mathlib",
-         "file": "Mathlib/RingTheory/Flat/Defs.lean",
-         "line": 61,
+         "file": "Mathlib/RingTheory/Flat/Basic.lean",
+         "line": 113,
          "fit": "related"
         }
        ],
@@ -388,14 +388,14 @@
          "name": "CategoryTheory.BraidedCategory",
          "library": "mathlib",
          "file": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
-         "line": 51,
+         "line": 50,
          "fit": "related"
         },
         {
          "name": "CategoryTheory.SymmetricCategory",
          "library": "mathlib",
          "file": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
-         "line": 205,
+         "line": 367,
          "fit": "related"
         }
        ],
@@ -515,7 +515,7 @@
          "name": "TauCeti.DynkinType.simplyConnectedBase",
          "library": "tauceti",
          "file": "TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/Assembly.lean",
-         "line": 88,
+         "line": 94,
          "fit": "related"
         }
        ],
@@ -544,10 +544,10 @@
        "library": "partial",
        "declarations": [
         {
-         "name": "TauCeti.DynkinType.geckChevalleyInvolution",
+         "name": "TauCeti.geckChevalleyInvolution",
          "library": "tauceti",
          "file": "TauCeti/LinearAlgebra/RootSystem/GeckConstruction/ChevalleyInvolution.lean",
-         "line": 118,
+         "line": 378,
          "fit": "related"
         }
        ],
@@ -593,10 +593,10 @@
          "fit": "related"
         },
         {
-         "name": "TauCeti.DoubleCoset.DecompQuotient",
+         "name": "DoubleCoset.DecompQuotient",
          "library": "tauceti",
          "file": "TauCeti/NumberTheory/HeckeRing/Basic.lean",
-         "line": 108,
+         "line": 211,
          "fit": "related"
         }
        ],
@@ -643,6 +643,2316 @@
         }
        ],
        "note": "All three substages are unbuilt; the closest library material is Tau Ceti's Tannakian reconstruction for a known commutative Hopf algebra and its named simply connected root data."
+      }
+     ],
+     "duplicates": []
+    }
+   }
+  },
+  "HeckeStacksAndLocalShtukas": {
+   "summary": "Nothing in this roadmap is built. The objects it constructs - Hecke stacks of modifications of G-bundles on the Fargues-Fontaine curve, local shtuka moduli, their J_b(E) and Weil actions, and the Hecke functors T_V built from Satake sheaves - have no counterpart in either library: 'shtuka' and 'Satake' have zero hits in the declaration index and in both Lean trees, and there is no v-stack, diamond or six-operation formalism to state any of them in. The libraries supply only ambient algebra: Mathlib's condensed sets and modules with the free/forgetful adjunction (the coefficient formalism HS1's continuous action needs), its rigid monoidal categories with exact pairings (the abstract shape of HS4's creation/annihilation identities), its adic completion, and its abstract double-coset Hecke ring; Tau Ceti's profinite and pro-p group theory is the group-theoretic side of HS3's pro-p level subgroups. Everything the roadmap actually states is genuinely missing, and its whole upstream chain (RelativeFarguesFontaine, BunGAndNewtonStrata, GeometricSatakeAndFusion, VStackSheavesAndLisseCategories) is missing with it. The nearest existing work in the atlas is the function-field mirror in GlobalShtukasAndFunctionFieldLanglands GS.1-GS.4, which is itself unbuilt.",
+   "layers": {
+    "HeckeStacksAndLocalShtukas:HS0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The stack of two G-bundles and an isomorphism away from selected divisors, for a finite leg set I",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has G-bundles on the Fargues-Fontaine curve, divisors on it, or any algebraic/v-stack formalism; Mathlib's only 'stack' is CategoryTheory.Pseudofunctor.IsStack, a descent condition on a pseudofunctor."
+      },
+      {
+       "target": "Source, target and leg maps, diagonal/repetition maps, bounded substacks for tuples of dominant cocharacters",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on objects neither library has; dominant cocharacters exist only as root-datum combinatorics in Mathlib's RootPairing and Tau Ceti's root data, with no bounding of modifications."
+      },
+      {
+       "target": "Descent, representability of relative fibres by the bounded Grassmannian, compactifiability/properness/dimension bounds for pushforward",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Grassmannian",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Grassmannian.lean",
+         "line": 68,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's Module.Grassmannian is a functor of submodules with locally free quotient and is not even proved representable (an explicit TODO in the file); it is not the bounded affine Grassmannian."
+      },
+      {
+       "target": "Chains of modifications, composition over disjoint legs and over collisions matching the convolution diagrams",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no convolution of sheaves on v-stacks exists in either library."
+      },
+      {
+       "target": "Compatibility with extension of structure group, central characters and inner forms",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Representation.IsRealForm",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/RealForm.lean",
+         "line": 120,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has forms and Galois descent for representations and algebras (RealForm, GaloisDescent, BrauerGroup), which is the algebraic shadow of inner forms; there is no inner form of a reductive group over a local field and no extension of structure group of a bundle."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.1",
+       "note": "GS.1 constructs bounded global Hecke stacks over powers of a curve with the same source/target/leg structure, in equal characteristic."
+      },
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.2",
+       "note": "GS.2 builds shtuka stacks, modifications and truncations, the function-field counterpart of the correspondence built here."
+      }
+     ]
+    },
+    "HeckeStacksAndLocalShtukas:HS1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Pullback of the Satake sheaf attached to a finite projective representation V of the dual L-group to the Hecke stack",
+       "library": "absent",
+       "declarations": [],
+       "note": "Satake sheaves do not exist in either library, nor does an L-group: grep -i for Satake, LGroup and LanglandsDual in declarations.tsv all return nothing."
+      },
+      {
+       "target": "The Hecke functor T_V by pull-tensor-push, using FS IX.2's partial-support/relative-homology operation where the naive lower shriek is unavailable",
+       "library": "absent",
+       "declarations": [],
+       "note": "No six-operation formalism on v-stacks in either library; Mathlib's sheaf theory has pushforward and pullback on sites but no exceptional functors."
+      },
+      {
+       "target": "Preservation of D_lis, compact objects and ULA objects; scalar-extension compatibility; T_unit = identity; tensor/convolution composition; fusion across finite sets",
+       "library": "absent",
+       "declarations": [],
+       "note": "D_lis, ULA and fusion are all absent. Mathlib does have compact objects in a category (CategoryTheory.Limits.PreservesFilteredColimits / IsCompact-style notions) but not for a category that exists here."
+      },
+      {
+       "target": "A continuous W_E^I action through Drinfeld's lemma and the condensed enriched functor category",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Condensed.freeForgetAdjunction",
+         "library": "mathlib",
+         "file": "Mathlib/Condensed/Module.lean",
+         "line": 56,
+         "fit": "exact"
+        },
+        {
+         "name": "Condensed",
+         "library": "mathlib",
+         "file": "Mathlib/Condensed/Basic.lean",
+         "line": 44,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has condensed sets and condensed R-modules with the free/forgetful adjunction, so the coefficient formalism for a continuous action exists in outline; the Weil group W_E, Drinfeld's lemma and the enriched functor category do not."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.4",
+       "note": "GS.4 proves Drinfeld's lemma in the lisse/finite-rank setting and uses it for partial Frobenius, the same input VS1 supplies here."
+      },
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES0",
+       "note": "ES0 is the declared consumer: it builds excursion operators out of exactly these Hecke functors and their finite-set functoriality."
+      }
+     ]
+    },
+    "HeckeStacksAndLocalShtukas:HS2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The local shtuka functor as the fibre of the Hecke correspondence over E_b, E_b', for b,b' in B(G) and a bounded tuple of modifications",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.Isocrystal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "grep -c -i shtuka in declarations.tsv is 0 and neither Lean tree mentions shtukas; B(G), isocrystals with G-structure and the Kottwitz set are absent. Mathlib's WittVector.Isocrystal is an isocrystal over the fraction field of Witt vectors, that is the GL_n case with no G-structure and no Kottwitz classification, so it is related but not the object here."
+      },
+      {
+       "target": "Retained trivializations with their J_b(E) and J_b'(E) actions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no reductive group over a local field in either library, so no sigma-centralizer J_b."
+      },
+      {
+       "target": "Compact-open level quotients, transition maps, diamond representability/local spatiality and boundedness for compactly supported cohomology",
+       "library": "absent",
+       "declarations": [],
+       "note": "Diamonds are absent from both libraries."
+      },
+      {
+       "target": "Descent to the reflex field of the bound and the resulting Weil action; the tower as an inverse limit of level sheaves after cofinality and descent",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Weil group and no reflex field of a conjugacy class of cocharacters in either library."
+      },
+      {
+       "target": "Comparison with local Shimura moduli in examples",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has Rapoport-Zink spaces or local Shimura varieties."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic",
+       "note": "ES7:equal-characteristic builds the equal-characteristic realization of the same local-shtuka towers, and names HS2 as its input."
+      },
+      {
+       "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+       "note": "ET.6a realizes the two-tower (Drinfeld/Lubin-Tate) cohomology in mixed characteristic and consumes these moduli."
+      }
+     ]
+    },
+    "HeckeStacksAndLocalShtukas:HS3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Compactly supported complexes with Satake coefficients at finite level and the colimit over levels, with commuting J_b(E), J_b'(E) and Weil actions",
+       "library": "absent",
+       "declarations": [],
+       "note": "All three ingredients (Satake coefficients, local shtuka towers, the Weil group) are absent from both libraries."
+      },
+      {
+       "target": "Specified coefficient completion/localization before taking limits",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AdicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 171,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has adic completion of modules and the derived/Artin-Rees theory around it; what is missing is the completion of an enhanced coefficient category, which requires the solid/lisse formalism of VS2-VS3."
+      },
+      {
+       "target": "Compatibility with the Hecke functor on strata via the fibre/base-change map and the smooth-representation comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Smooth representations of p-adic groups do not exist in either library: grep -i for smoothRepresentation/SmoothRep/admissibleRep in declarations.tsv returns nothing."
+      },
+      {
+       "target": "Finiteness, compactness and admissibility from compact Hecke kernels and pro-p compact-induction generators",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.IsProP",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Algebra/Group/Profinite/ProP/Basic.lean",
+         "line": 53,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has a developed theory of profinite and pro-p groups (Sylow, Frattini, maximal pro-p subgroups, index), which is the group-theoretic side of 'pro-p open subgroup'; there is no compact induction of smooth representations and no admissibility notion."
+      },
+      {
+       "target": "Duality, level-change trace/pullback and adjunction compatibilities, with the index invertible in the coefficients",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "VStackSheavesAndLisseCategories:VS5",
+       "note": "VS5 owns the duality and admissibility statements (Bernstein-Zelevinsky and Verdier duality, perfection of K-invariants) that HS3 applies."
+      }
+     ]
+    },
+    "HeckeStacksAndLocalShtukas:HS4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Permutation, creation/annihilation of a pair of dual legs and coevaluation/evaluation identities for the Satake kernels",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.ExactPairing",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.RightRigidCategory",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean",
+         "line": 708,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has rigid monoidal categories with exact pairings, coevaluation and evaluation and the triangle identities, which is the abstract algebra these identities instantiate; the Satake kernels they are to be stated for do not exist."
+      },
+      {
+       "target": "Iterated-modification compatibility and fusion along every finite-set map",
+       "library": "absent",
+       "declarations": [],
+       "note": "Fusion is absent; see GS3:fusion."
+      },
+      {
+       "target": "Export of continuous Weil actions and tensor-generator compatibility",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Weil group in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification",
+       "note": "ES1:finite-ramification is named here as the canonical owner of IX.5.1's uniform wild subgroup for each compact object, which this stage exports to."
+      },
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
+       "note": "ES6:functoriality restates the group-map and Levi compatibilities on the parameter side; HS4 owns only the geometry of IX.6's diagrams."
+      }
+     ]
+    }
+   }
+  },
+  "LanglandsParameterStacks": {
+   "summary": "Nothing in this roadmap is built. The central objects - the Weil group of a local field, nonabelian continuous cocycles valued in a dual group, the cocycle scheme Z^1(W_E/P, Ghat) and its quotient stack, the excursion algebra, the coarse invariant quotient, and Perf of the parameter stack - are all absent: there is no Weil group, no L-group or dual group, no quotient stack, no geometric invariant theory, no derived algebraic geometry and no perfect complexes in either library. The libraries do supply real ambient theory that the roadmap will build on: Mathlib's group cohomology and its continuous version for topological groups, extended in Tau Ceti with inflation-restriction, corestriction, Shapiro and long exact sequences, all in abelian coefficients; Mathlib's decomposition and inertia subgroups of a valuation subring (though higher ramification groups are still an explicit TODO, so wild inertia is not there); free groups and presented groups; flatness and the naive cotangent complex; invariant subrings; and Tau Ceti's absolute Galois group with its Krull topology. Two targets the roadmap treats as a matter of specialization are further away than they look: LP3's Weyl and dual-Weyl modules with good filtrations are not Tau Ceti's char-zero Lie-algebra highest-weight theory, nor its GL_n Schur-Weyl `weylModule`, and LP1's local complete intersection structure cannot even be stated, since no complete-intersection predicate exists in Mathlib.",
+   "layers": {
+    "LanglandsParameterStacks:LP0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The Weil group W_E of a local field with its topology, inertia and wild inertia",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ValuationSubring.inertiaSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/RamificationGroup.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "ValuationSubring.decompositionSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/RamificationGroup.lean",
+         "line": 30,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AbsoluteGaloisGroup",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/Galois/AbsoluteGaloisGroup.lean",
+         "line": 230,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the decomposition and inertia subgroups of a valuation subring, with the explicit TODO 'Define higher ramification groups in lower numbering', so wild inertia is not there; Tau Ceti has the absolute Galois group with its Krull topology and ramification groups for places of a function field, but nothing for local fields. grep -i for WeilGroup and for 'wild inertia'/'tamely ramified' over both Lean trees returns nothing: there is no Weil group anywhere."
+      },
+      {
+       "target": "Nonabelian continuous/condensed 1-cocycles valued in the L-group, with twisted conjugation",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "continuousCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+         "line": 131,
+         "fit": "related"
+        },
+        {
+         "name": "groupCohomology.H1",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/LowDegree.lean",
+         "line": 961,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib and Tau Ceti have a substantial abelian theory: groupCohomology with H0-H2, and continuousCohomology for topological groups acting on topological modules, with Tau Ceti adding inflation, restriction, corestriction, Shapiro, cup products and long exact sequences. All of it is abelian-coefficient. Nonabelian 1-cocycles Z^1(W, Ghat) with twisted conjugation, which is what a parameter is, are absent: grep -i for nonabelian/twistedConjug in declarations.tsv finds nothing relevant."
+      },
+      {
+       "target": "Restriction, scalar extension and sections of the L-group projection; equivalence of the descriptions",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no L-group in either library."
+      },
+      {
+       "target": "The dense discretization W inside W_E/P from tame inertia and Frobenius, and the unique-extension theorem to condensed W_E/P with the topologically unipotent binomial-series argument",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no tame quotient of a Weil group and no topologically unipotent binomial series in either library."
+      },
+      {
+       "target": "The pinned relation sigma^{-1} tau sigma = tau^q and change-of-tame-generator comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+       "note": "That layer is the atlas's owner of the local Weil group itself: the carrier localWeilGroup K as the preimage of Z in Zhat, the Weil topology characterized by inertia being an open subgroup with its profinite topology, and local compactness. LP0 states the same carrier as something it uses, so the construction should come from there rather than be rebuilt."
+      },
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification",
+       "note": "ES1:finite-ramification consumes the same finite-wild-ramification filtration and the uniform wild subgroup for each compact object."
+      },
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.6",
+       "note": "SR.6 also chooses W_F^0 and the normal wild filtration P_F^e and builds cocycle schemes for them, comparing with LP1's Z_ell models."
+      }
+     ]
+    },
+    "LanglandsParameterStacks:LP1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The affine scheme Z^1(W_E/P, Ghat) over Z_ell by finite presentation and equations, its functor of points and independence of W",
+       "library": "absent",
+       "declarations": [],
+       "note": "No cocycle scheme for a nonabelian target exists; neither library has a dual group Ghat, so there is nothing to take cocycles in."
+      },
+      {
+       "target": "Gluing the open-and-closed pieces to Z^1(W_E, Ghat)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Flatness and local complete-intersection structure, with dimension dim G on each finite wild piece",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.Flat",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Flat/Basic.lean",
+         "line": 113,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.Extension.cotangentComplex",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Extension/Cotangent/Basic.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has flatness of modules and algebras and the naive cotangent complex of a presentation, but no local complete intersection predicate at all: grep -i completeIntersection in declarations.tsv returns nothing, so the lci structure cannot even be stated."
+      },
+      {
+       "target": "Twisted conjugation and the quotient stack [Z^1/Ghat], retaining automorphisms",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no quotient stack construction in either library: grep -i quotientStack in declarations.tsv is empty, and Mathlib's IsStack is only a descent condition on a pseudofunctor."
+      },
+      {
+       "target": "Derived affine schemes, fpqc quotient stacks, quasi-coherent modules, perfect complexes and their pullback/descent",
+       "library": "absent",
+       "declarations": [],
+       "note": "Derived algebraic geometry is absent: there are no animated/simplicial rings (grep -i for Animation/Anima/SimplicialRing in declarations.tsv is empty) and no perfect complexes (grep -rn -i 'perfect complex' over both Lean trees returns nothing). Mathlib has quasi-coherent sheaves of modules on a scheme but not on a stack."
+      },
+      {
+       "target": "The derived mapping stack over the finite pinned-action quotient, its tangent complex by cocycle cohomology, and comparison with the classical cocycle scheme",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, together with its prerequisites."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.6",
+       "note": "SR.6 constructs integral finite-wild cocycle schemes over Z[1/p] and explicitly compares them with LP1's Z_ell models; the two are different integral models of the same scheme."
+      },
+      {
+       "layer": "DerivedDeRhamCohomology:DD.0",
+       "note": "DD.0 owns the generic cotangent-complex construction that LP1 imports for its tangent complex."
+      }
+     ]
+    },
+    "LanglandsParameterStacks:LP2:excursion-presentation": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The excursion algebra Exc(W, Ghat) from finite free-group cocycle invariants",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "FreeGroup",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/FreeGroup/Basic.lean",
+         "line": 471,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has free groups with their universal property, which is the indexing side of the construction; the cocycle spaces Z^1(F_n, Ghat), their Ghat-invariant functions and the algebra generated by the resulting excursion data are all absent, since Ghat is."
+      },
+      {
+       "target": "FS VIII.4's universal property of Exc(W, Ghat)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The canonical map to the invariant-coordinate algebra and its being a universal homeomorphism in general coefficients",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, and so is the notion it is stated with: grep -i universalHomeo over declarations.tsv returns nothing, so Mathlib has no universal-homeomorphism morphism property for schemes either."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES0",
+       "note": "ES0 constructs excursion operators from this algebra and proves independence of the representation realizing an invariant function, using exactly this presentation."
+      },
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+       "note": "GS.5 constructs excursion operators indexed by invariant functions and Galois tuples and proves the same relations, in the global function-field setting."
+      }
+     ]
+    },
+    "LanglandsParameterStacks:LP2:semisimple-characters": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "FS VIII.3.8: excursion characters over an algebraically closed L of characteristic different from p determine a unique conjugacy class of continuous semisimple L-parameters",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; neither the excursion algebra nor L-parameters exist in either library."
+      },
+      {
+       "target": "Construction of the representative parameter from compatible invariant evaluations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Simultaneous conjugacy and complete reducibility for the constructed representation",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsSemisimpleModule",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/SimpleModule/Basic.lean",
+         "line": 65,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.complementedLattice_lieSubmodule_of_isKilling",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/HighestWeight/CompleteReducibility.lean",
+         "line": 202,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has semisimplicity of modules and Tau Ceti has complete reducibility for Lie modules in characteristic zero, but neither has Serre's G-complete reducibility for a subgroup of a reductive group, which is what 'semisimple parameter' means here."
+      },
+      {
+       "target": "Independence of the finite-wild and discretization choices",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES5",
+       "note": "ES5 is the declared consumer: it produces the semisimple parameter of an object of D_lis(Bun_G) and uses this uniqueness statement to pin it down."
+      }
+     ]
+    },
+    "LanglandsParameterStacks:LP2:integral-invariants": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The invariant algebra O(Z^1)^Ghat and the affine coarse quotient on each finite-wild piece, with its universal property and change of coefficients",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsInvariantSubring",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Ring/Action/Invariant.lean",
+         "line": 33,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has invariant subrings of a group action and fixed fields, but no geometric invariant theory: there is no ring of invariants of a reductive group scheme acting on an affine scheme, no GIT quotient and no coarse moduli space. grep -i for GIT/geometricInvariant in declarations.tsv returns only 'digit' and 'longitude'."
+      },
+      {
+       "target": "Relation of the coarse quotient to closed semisimple geometric orbits",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no orbit-closure theory for reductive group actions exists in either library."
+      },
+      {
+       "target": "Distinguishing semisimplification from a Weil-Deligne parameter with monodromy",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there are no Weil-Deligne parameters in either library."
+      },
+      {
+       "target": "Presentation of the invariant algebra by all finite free-group cocycle spaces mapping to W, with reindexing and multiplication relations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Transition maps under shrinking P, continuity of evaluations on W_E, and the ell-not-dividing-|pi_1(Ghat)_tors| hypotheses for base change/vanishing/generation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES1:spectral-center",
+       "note": "ES1:spectral-center is the conditional invariant-coordinate map that consumes this isomorphism."
+      },
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.6",
+       "note": "SR.6 proves finiteness of the induced map of coarse quotients and of reduced excursion algebras for the same invariant quotients."
+      }
+     ]
+    },
+    "LanglandsParameterStacks:LP2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Aggregate of LP2:excursion-presentation, LP2:semisimple-characters and LP2:integral-invariants",
+       "library": "absent",
+       "declarations": [],
+       "note": "Every target of the three substages is absent; neither library has a dual group, cocycle schemes, invariant theory of reductive group actions or L-parameters."
+      }
+     ],
+     "duplicates": []
+    },
+    "LanglandsParameterStacks:LP3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Highest-weight modules for a reductive group scheme, Weyl and dual-Weyl modules",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.IsHighestWeightVector",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/HighestWeight/Basic.lean",
+         "line": 122,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.YoungTableau.weylModule",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/WeylModule.lean",
+         "line": 122,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has two related developments, neither of which is the target. Its highest-weight theory (Verma modules, central characters, Freudenthal, complete reducibility) is for Lie algebras over a field with `[CharZero K]` in the variable lines, so it is exactly the case this layer says is not enough. Its `weylModule` is the Schur/Weyl functor image of a Young symmetrizer for GL_n, not the induced module H^0(G/B, L(lambda)) or its Weyl-module dual for a reductive group scheme over Z."
+      },
+      {
+       "target": "Good filtrations, the good-filtration t-structure and the relevant Ext-vanishing criteria",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Triangulated.TStructure",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean",
+         "line": 55,
+         "fit": "related"
+        }
+       ],
+       "note": "grep -i for goodFiltration in declarations.tsv is 0 and neither Lean tree mentions good filtrations or Donkin. Mathlib's TStructure is the abstract triangulated notion only."
+      },
+      {
+       "target": "Stability of good filtrations under tensor, induction and restriction under the FS VIII.5 hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "For a finite group P of order prime to ell acting on a reductive group in characteristic ell: the fixed-point subgroup, smoothness/reductivity of its identity component and the prime-to-ell component-group order",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Tau Ceti has fixed-point subgroups of endomorphisms of abstract groups (TauCeti.fixedSubgroup) and Frobenius fixed points of Hopf-algebra group schemes, but nothing about the fixed-point subgroup scheme of a finite group acting on a reductive group, its smoothness or reductivity."
+      },
+      {
+       "target": "Donkin's subgroup property under the solvability hypothesis, and generation of perfect complexes by restriction",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, and perfect complexes do not exist in either library."
+      },
+      {
+       "target": "Vanishing of higher group cohomology of the cocycle coordinate algebra and base change of invariants (VIII.5.1)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "groupCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean",
+         "line": 186,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has group cohomology of a linear representation with its functoriality and low-degree description; the vanishing asserted here is for the algebraic group cohomology H^i(Ghat, O(Z^1)) of a reductive group scheme acting on a coordinate algebra, which is not the same functor and is not available."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES3",
+       "note": "ES3 is a declared consumer of this integral invariant theory for the integral spectral action."
+      }
+     ]
+    },
+    "LanglandsParameterStacks:LP4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Perf of the finite-wild quotient stack and its action of Rep(Ghat)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Perfect complexes do not exist in either library (grep -rn -i 'perfect complex' over both Lean trees returns nothing), nor does any quotient stack to take them on."
+      },
+      {
+       "target": "Generation of Perf by representation bundles under cones, shifts and retracts",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.ObjectProperty.IsTriangulatedClosed₂",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/Subcategory.lean",
+         "line": 69,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.ObjectProperty.IsStableUnderShift",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/ObjectProperty/Shift.lean",
+         "line": 98,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has triangulated subcategories closed under shifts, cones and (with the idempotent-completeness variant) retracts, which is the abstract shape of a generation statement; the category and the generators are absent."
+      },
+      {
+       "target": "Comparison of Ind-Perf with module objects over the cocycle algebra in Ind-Perf(B Ghat)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Ind-completion of a perfect-complex category and no classifying stack B Ghat."
+      },
+      {
+       "target": "The finite-free-group colimit theorem and its universal property for exact monoidal functors",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Compact-support factorization through one finite-wild piece for each object of a consumer category",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES2",
+       "note": "ES2 proves the universal theorem of FS X.1, that coherent finite-set Hecke data gives an action of Perf of the derived parameter stack; LP4 supplies its algebraic input."
+      }
+     ]
+    }
+   }
+  },
+  "VStackSheavesAndLisseCategories": {
+   "summary": "Five of the six layers are unbuilt and one, VS2, is partly built. The condensed foundation VS2 asks to consume is genuinely in Mathlib and sorry-free: CondensedMod with its free/forgetful adjunction, Condensed.profiniteFree, Condensed.profiniteSolid as a pointwise right Kan extension, Condensed.profiniteSolidification and the CondensedMod.IsSolid predicate, together with exactness of limits and colimits in condensed modules. The layer's warning is also confirmed by the source: IsSolid's own docstring says it is not the correct definition for a general ring and prescribes the Z[X]-restriction-of-scalars fix, and Mathlib still carries TODOs that no profinite free module is yet proved solid. Everything else is missing. There is no v-topology, perfectoid space, diamond or Artin v-stack in either library, no six operations and no exceptional functors, no universal local acyclicity, no hyperbolic localization, no Drinfeld lemma, no solid tensor product or internal Hom, no D_solid or D_lis, no smooth representations of locally pro-p groups, and no Bernstein-Zelevinsky or Verdier duality. What the libraries contribute beyond VS2 is ambient machinery the roadmap will build on rather than targets: Mathlib's sheaves on sites and its IsStack descent condition, pretriangulated categories and t-structures, group cohomology as derived invariants, formal smoothness, and Z_ell; Tau Ceti's pro-p group theory is the group-theoretic side of VS4's level subgroups.",
+   "layers": {
+    "VStackSheavesAndLisseCategories:VS0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Artin v-stacks by representable diagonals and the cohomologically smooth atlas condition (FS IV.1); atlas independence and stability under fibre products",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Pseudofunctor.IsStack",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/Descent/IsStack.lean",
+         "line": 49,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's IsStack is the descent condition on a pseudofunctor over a site; it is not an algebraic or v-stack, has no diagonal or atlas notion, and there is no v-topology, no perfectoid space and no diamond in either library."
+      },
+      {
+       "target": "Smooth-lisse descent of the enhanced coefficient category and extension of the allowed operations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no enhanced (stable infinity-categorical) coefficient category in either library."
+      },
+      {
+       "target": "Pullback, exceptional pullback and their normalization for smooth atlases; comparison with small-v-stack ECD categories",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has exceptional functors f^! or f_!; Mathlib's sheaf operations on a site are pushforward/pullback only."
+      },
+      {
+       "target": "Partial compact-support functors pi-sharp of FS IV.5 for stacks outside the representable ECD class, with independence of presentation, adjunctions and base change",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DiamondSixOperations:S2",
+       "note": "S2 handles compactifiable maps and small v-stacks, and S4 cohomological smoothness; VS0 extends that representable ECD class to Artin v-stacks rather than rebuilding it."
+      },
+      {
+       "layer": "BunGAndNewtonStrata:BG2:smooth-Artin",
+       "note": "BG2:smooth-Artin proves Bun_G is an Artin v-stack using this definition, so the definition has one declared owner and one immediate applier."
+      }
+     ]
+    },
+    "VStackSheavesAndLisseCategories:VS1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Relative local acyclicity and universal local acyclicity with overconvergence, geometric-fibre and constructibility conditions (FS IV.2)",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i 'universally locally acyclic' over both Lean trees returns nothing, and neither library has the etale cohomology of adic spaces in which it would be stated."
+      },
+      {
+       "target": "Base change, composition, descent, tensor and relative-dual properties of ULA with their compactness hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Formal smoothness and the Jacobian criterion of IV.3-IV.4 for relative section functors on Fargues-Fontaine curves; the tangent/cohomology calculation, positive-slope condition and resulting cohomological smoothness",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Algebra.FormallySmooth",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Smooth/Basic.lean",
+         "line": 70,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has formal smoothness of algebras by the infinitesimal lifting criterion, and a Jacobian criterion for smooth ring maps, but the Jacobian criterion here is FS IV.4 for the Banach-Colmez section functor of a bundle on the Fargues-Fontaine curve, and that curve does not exist in either library."
+      },
+      {
+       "target": "Attractor/repeller correspondences, hyperbolic localization and the comparison map of FS IV.6 with equivariance and boundedness",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent from both trees."
+      },
+      {
+       "target": "Drinfeld's lemma IV.7 for the divisor/Weil-action applications, separating partial Frobenius descent from a fundamental-group product claim",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no partial Frobenius and no Weil group in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.4",
+       "note": "GS.4 proves Drinfeld's lemma in the lisse/finite-rank setting for the function-field Hecke-finite application, the same theorem in the equal-characteristic mirror."
+      }
+     ]
+    },
+    "VStackSheavesAndLisseCategories:VS2": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Mathlib's CondensedMod with its free/forgetful adjunction and its profinite free-module and solidification maps",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "CondensedMod",
+         "library": "mathlib",
+         "file": "Mathlib/Condensed/Module.lean",
+         "line": 40,
+         "fit": "exact"
+        },
+        {
+         "name": "Condensed.freeForgetAdjunction",
+         "library": "mathlib",
+         "file": "Mathlib/Condensed/Module.lean",
+         "line": 56,
+         "fit": "exact"
+        },
+        {
+         "name": "Condensed.profiniteFree",
+         "library": "mathlib",
+         "file": "Mathlib/Condensed/Solid.lean",
+         "line": 44,
+         "fit": "exact"
+        },
+        {
+         "name": "Condensed.profiniteSolid",
+         "library": "mathlib",
+         "file": "Mathlib/Condensed/Solid.lean",
+         "line": 48,
+         "fit": "exact"
+        },
+        {
+         "name": "Condensed.profiniteSolidification",
+         "library": "mathlib",
+         "file": "Mathlib/Condensed/Solid.lean",
+         "line": 69,
+         "fit": "exact"
+        }
+       ],
+       "note": "Present and sorry-free exactly as the layer describes. Condensed sets are sheaves on CompHaus for the coherent topology, CondensedMod R their module objects; free/forget is an adjunction, profiniteSolid is the pointwise right Kan extension of the free functor on finite sets along FintypeCat.toProfinite, and profiniteSolidification is the natural map R[S] -> R[S]^solid."
+      },
+      {
+       "target": "Correcting CondensedMod.IsSolid: first the finite-type Z-algebra construction, then general coefficient rings by restriction of scalars",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CondensedMod.IsSolid",
+         "library": "mathlib",
+         "file": "Mathlib/Condensed/Solid.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "CondensedMod.IsSolid exists but its own docstring says 'This is not the correct definition of solid R-modules for a general R' and prescribes precisely the Z[X]-restriction-of-scalars fix the layer asks for. So the predicate is there and the correction is not. Mathlib also records two open TODOs next to it: that ((profiniteSolid Z).obj S).IsSolid and the F_p analogue are unproved, so not a single profinite free module is yet known to be solid."
+      },
+      {
+       "target": "The solidification universal property and derived solid tensor/Hom, with generators and exactness for FS VII.1",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Condensed.hasExactColimitsOfShape",
+         "library": "mathlib",
+         "file": "Mathlib/Condensed/AB.lean",
+         "line": 37,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has AB-style exactness of limits and colimits in condensed modules and a monoidal structure on light condensed modules, but no solid tensor product, no internal Hom of solid modules and no universal property of solidification."
+      },
+      {
+       "target": "Finite/cofiltered limit and completion comparisons with actual topological modules",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; Mathlib relates condensed sets to topological spaces (TopComparison, TopCatAdjunction) but has no comparison of solid modules with topological modules."
+      },
+      {
+       "target": "D_solid(X,Lambda) on a small v-stack over the appropriate cutoffs, four operations and relative homology f-sharp (FS VII.2-VII.3)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there are no v-stacks in either library."
+      },
+      {
+       "target": "Solid projection/base-change identities, comparison with torsion D_et, and the dualizability theorem of VII.4-VII.5",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "HabiroRings:HR.2",
+       "note": "HR.2 names the solid-tensor comparison of this stage as an input it extends in a bounded-below setting, so the solid tensor product has a declared consumer outside this roadmap."
+      }
+     ]
+    },
+    "VStackSheavesAndLisseCategories:VS3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The discrete Z_ell-algebra Lambda read as the condensed extension Z_ell tensor Lambda_disc",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CondensedMod",
+         "library": "mathlib",
+         "file": "Mathlib/Condensed/Module.lean",
+         "line": 40,
+         "fit": "related"
+        },
+        {
+         "name": "PadicInt",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+         "line": 62,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Z_ell as PadicInt with its topology, and condensed modules over a ring, so both factors exist; the condensed tensor product of the two, with the discretization functor, is not constructed."
+      },
+      {
+       "target": "D_lis of an Artin v-stack as the stable subcategory closed under sums generated by f-sharp Lambda for separated, representable, ell-cohomologically smooth f",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there are no Artin v-stacks, no f-sharp, and no stable infinity-categories in either library."
+      },
+      {
+       "target": "The right adjoint of the inclusion, tensor closure, pullback and lisse internal Hom/pushforward",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Comparison of ordinary, adic, solid and lisse coefficients through the fully faithful functors of VII.6",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; none of the four categories exists."
+      },
+      {
+       "target": "Reduction and scalar extension in their established range; the solid/lisse localization for rational coefficients",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdicCoefficientsAndComparisons:L0",
+       "note": "L0 defines D_et(X,Lambda) for an I-adically complete coefficient ring, the adic coefficient category this stage compares with; VS3 imports it rather than rebuilding it."
+      },
+      {
+       "layer": "DiamondEtaleCohomology:C7",
+       "note": "C7 owns constructible and perfect-constructible coefficients on diamonds with their v-descent, which is the small-v-stack layer of the coefficient comparison VS3 extends to Artin v-stacks."
+      }
+     ]
+    },
+    "VStackSheavesAndLisseCategories:VS4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Identification of D_et([*/H],Lambda) with the enhanced derived category of smooth H-representations, for H locally pro-p and prime-to-p torsion Lambda",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.IsProP",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Algebra/Group/Profinite/ProP/Basic.lean",
+         "line": 53,
+         "fit": "related"
+        },
+        {
+         "name": "Rep",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Rep/Basic.lean",
+         "line": 30,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has pro-p groups with their Sylow, Frattini and maximal-pro-p theory and Mathlib has the category Rep k G of linear representations with its derived functors, but smooth representations of a locally pro-p group are not defined in either library (grep -i smoothRepresentation/SmoothRep in declarations.tsv is empty) and D_et([*/H]) does not exist."
+      },
+      {
+       "target": "Both functors by continuous torsor descent; pullback as forgetting the action and invariants as the derived pushforward",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "groupCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean",
+         "line": 186,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's group cohomology is the derived functor of invariants for an abstract group, which is the algebraic half of the statement; the geometric half, descent along a continuous H-torsor of v-sheaves, is absent."
+      },
+      {
+       "target": "Application to J_b(E) and the connected-kernel invariance giving the category for nonbasic Bun_G^b; extension to D_lis in the range of VII.7",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no Bun_G, no Newton stratification and no J_b in either library."
+      },
+      {
+       "target": "Localization triangles and the infinite semiorthogonal decomposition along the HN strata using justified exhaustions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Pretriangulated",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean",
+         "line": 65,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has pretriangulated categories with distinguished triangles, which is the ambient formalism, but no semiorthogonal decompositions and no Harder-Narasimhan stratification of a stack of bundles."
+      },
+      {
+       "target": "Characterization of compact objects by compact restrictions with finite stratum support and by the thick closure of compact induction from pro-p open subgroups",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; compact induction of smooth representations does not exist in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.0",
+       "note": "SR.0-SR.2 own the smooth-representation category and the compact-induction generators that this identification is stated against; the layer says explicitly these are the same objects."
+      },
+      {
+       "layer": "DiamondEtaleCohomology:C9",
+       "note": "C9 proves compact generation and the characterization of compact objects for D_et on diamonds under uniform cohomological-dimension bounds; VS4 restates the same characterization for the Bun_G strata."
+      }
+     ]
+    },
+    "VStackSheavesAndLisseCategories:VS5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Bernstein-Zelevinsky duality on compact Bun_G objects via the partial-support functor, with biduality and the basic-stratum comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; grep -rn -i 'Bernstein' over both Lean trees returns nothing, and there is no Bun_G."
+      },
+      {
+       "target": "Verdier duality on ULA objects",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.ObjectProperty.IsVerdierLeftLocalizing",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/LocalizingSubcategory.lean",
+         "line": 56,
+         "fit": "related"
+        }
+       ],
+       "note": "The only occurrences of 'Verdier' in either library are the left/right Verdier localizing subcategory classes, which are about Verdier quotients of triangulated categories, not about the dualizing-complex duality D = RHom(-, omega); ULA objects are absent too."
+      },
+      {
+       "target": "Equivalence of ULA with perfection of K-invariants on every stratum for every pro-p open K",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; neither ULA, nor perfect complexes, nor K-invariants of smooth representations exist in either library."
+      },
+      {
+       "target": "Scalar-extension and Hecke-use compatibility; admissibility as perfect invariants",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES6:duality",
+       "note": "ES6:duality is the declared consumer of the Bernstein-Zelevinsky and Verdier duality statements built here."
+      },
+      {
+       "layer": "EtaleDualityAndPerverseSheaves:EDC.1",
+       "note": "EDC.1 constructs f^!, the dualizing object, D_X = RHom(-, K_X) and biduality on the scheme side; VS5's Verdier duality on ULA objects is the v-stack instance of the same duality, so the dualizing formalism has an upstream owner."
+      },
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.5",
+       "note": "SR.5 constructs Bernstein-Zelevinsky derivatives and top derivatives for GL_n over the integral coefficient rings; it overlaps the representation-theoretic half of the Bernstein-Zelevinsky duality built here."
+      }
+     ]
+    }
+   }
+  },
+  "tauceti:TauCetiRoadmap/CFSGStatement": {
+   "summary": "This roadmap is substantially built in Tau Ceti, and the whole CFSG directory is sorry-free. I0 is complete: PrimePower, LieTypeIndex with its validity and duplicate predicates, ValidLieTypeIndex, SuzukiReeIndex, GraphTwistedIndex, SporadicName with card_sporadicName = 26 proved by decide, CFSGIndex, the numbered data with rank defined as dynkinType.rank, the algebraic-closure Closure, and all six pinned permutations with their Cartan-matrix invariance. S0 and S1 are complete too: the Relator expression type with its compilation theorem, the GroupPresentation metadata record with the layer's exact fields and no checksum, and all twenty-six transcribed sporadic presentations with their count checks, including the Monster by the Y443 route with Ivanov's central relator appended, exactly as S1 prescribes. The Lie-type lane is built for thirteen of the seventeen constructors. Carriers, Steinberg maps, fixed points and candidate groups exist for A, 2A, B, C, D, 2D, E6, 2E6, E7, E8, F4, G2 and the Suzuki family, on the spin, symplectic, minuscule, Geck and standard-linear carriers the L0 table designates, with the root-datum Steinberg map complete for every valid index. What is genuinely missing: the tripled D4 carrier and hence the 3D4 branch; the short-root G2 and F4 carriers as group schemes with their special isogenies, and hence the Ree and Tits branches (their short-root modules exist only as Lie-algebra representations); the uniform ValidLieTypeIndex.Group; L5 in its entirety, and with it the pinned Chevalley--Demazure group scheme over Z that L0's pinned route and L1's uniqueness theorem cite from the reductive-groups roadmap; and A0's CFSGIndex.Group and ClassificationStatement. One A0 target the document treats as work is already done and more generally than stated: TauCeti.exists_mulEquiv_of_forall_finite_isSimpleGroup_zero is classificationStatement_of_zero for an arbitrary indexed family.",
+   "layers": {
+    "tauceti:TauCetiRoadmap/CFSGStatement#i0-indices-and-mathlib-glue": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "PrimePower, LieTypeIndex, InStandardRange, IsDuplicateRepresentative, Valid, ValidLieTypeIndex",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PrimePower",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 74,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.LieTypeIndex",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 109,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.LieTypeIndex.InStandardRange",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 138,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.LieTypeIndex.IsDuplicateRepresentative",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 168,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValidLieTypeIndex",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 832,
+         "fit": "exact"
+        }
+       ],
+       "note": "All present with parameters carried as data on a seventeen-constructor inductive, exactly as the layer asks, and each predicate is decidable (DecidablePred instances beside each). LieTypeIndex.Valid at Index.lean:190 is InStandardRange and not IsDuplicateRepresentative."
+      },
+      {
+       "target": "UsesHalfFrobenius, SuzukiReeIndex, GraphTwistedIndex as the validated subtypes",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.LieTypeIndex.UsesHalfFrobenius",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 216,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SuzukiReeIndex",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 836,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GraphTwistedIndex",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 840,
+         "fit": "exact"
+        }
+       ],
+       "note": "SuzukiReeIndex and GraphTwistedIndex are the two subtypes of ValidLieTypeIndex cut out by UsesHalfFrobenius and its negation, so the layer's rule that only these may be passed to a half-Frobenius or a diagram permutation is enforced by the types. The layer's warning is also respected: the file proves not_usesHalfFrobenius_of_isTypeE6 and the like, so the predicate is false on the exceptional types."
+      },
+      {
+       "target": "SporadicName with cardinality 26, and CFSGIndex",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.SporadicName",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 1459,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.card_sporadicName",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 1478,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.CFSGIndex",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 1482,
+         "fit": "exact"
+        }
+       ],
+       "note": "card_sporadicName : Fintype.card SporadicName = 26 is proved by decide. CFSGIndex has the four constructors cyclic/alternating/lie/sporadic with the prime and degree-at-least-five proof fields, and no Finite or IsSimpleGroup instance attached."
+      },
+      {
+       "target": "The numbered data read off an index: dynkinType, dynkinType_valid, rank defined as dynkinType.rank, characteristic, characteristic_prime, fieldOrder",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ValidLieTypeIndex.dynkinType",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 961,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValidLieTypeIndex.dynkinType_valid",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 964,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValidLieTypeIndex.rank",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 975,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.LieTypeIndex.characteristic_prime",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 659,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.LieTypeIndex.fieldOrder",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 673,
+         "fit": "exact"
+        }
+       ],
+       "note": "rank is literally `abbrev rank (d : ValidLieTypeIndex) : Nat := d.dynkinType.rank`, so it is not tabulated a second time, as the layer requires. dynkinType lands in the root-systems roadmap's DynkinType."
+      },
+      {
+       "target": "Closure = AlgebraicClosure (ZMod characteristic) with its Field, IsAlgClosed and CharP instances from Mathlib",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ValidLieTypeIndex.Closure",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Closure.lean",
+         "line": 38,
+         "fit": "exact"
+        }
+       ],
+       "note": "Closure.lean defines the abbreviation and then checks by `example ... := inferInstance` that Field, IsAlgClosed and CharP are all inherited, which is exactly the glue the layer asks for."
+      },
+      {
+       "target": "The pinned permutations graphPermA, graphPermD, graphPermE6, trialityPermD4, lengthPermRankTwo, lengthPermF4",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.graphPermA",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/DiagramPermutations.lean",
+         "line": 61,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.graphPermD",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/DiagramPermutations.lean",
+         "line": 66,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.graphPermE6",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/DiagramPermutations.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.trialityPermD4",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/DiagramPermutations.lean",
+         "line": 74,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.lengthPermF4",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/DiagramPermutations.lean",
+         "line": 82,
+         "fit": "exact"
+        }
+       ],
+       "note": "All six are in TauCeti/LinearAlgebra/RootSystem/DiagramPermutations.lean (lengthPermRankTwo at line 78), each with its order lemma (graphPermA_sq, trialityPermD4_pow_three, ...) and its Cartan-matrix invariance (cartanMatrix_A_graphPermA at 227, cartanMatrix_D4_trialityPermD4 at 284)."
+      },
+      {
+       "target": "No second table of long simple roots: the convention stated against DynkinType.IsLongSimpleRoot",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.DynkinType.IsLongSimpleRoot",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/RootLength.lean",
+         "line": 272,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isLongSimpleRoot_lengthPermRankTwo_iff_not_isLongSimpleRoot_B2",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/DiagramPermutations.lean",
+         "line": 291,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isLongSimpleRoot_lengthPermF4_iff_not_isLongSimpleRoot_F4",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/DiagramPermutations.lean",
+         "line": 303,
+         "fit": "exact"
+        }
+       ],
+       "note": "The length-exchanging property of the two length permutations is proved against the upstream predicate rather than tabulated, as the layer requires."
+      },
+      {
+       "target": "Executable examples for the small-field exclusions and the duplicate table",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.LieTypeIndex.Valid",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 190,
+         "fit": "exact"
+        }
+       ],
+       "note": "Index.lean carries worked `example`s at lines 1410-1450 discharged by decide, covering A_1(2) and A_1(4) excluded, twistedA 2 q3 valid, B_2(2) excluded, B_2(3) invalid as a duplicate and C_3(2) excluded."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/CFSGStatement#l0-ambient-groups-with-root-subgroups": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Type A carrier SL_{n+1} = TauCeti.SlStd with its root subgroups, and the pinned graph automorphism for twistedA",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.SlStd.groupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/SpecialLinear/StandardCarrier/Basic.lean",
+         "line": 509,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SlStd.graphAutomorphismPoints",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/SpecialLinear/StandardCarrier/GraphAutomorphism.lean",
+         "line": 562,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TypeALieIndex.AmbientGroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TypeA.lean",
+         "line": 118,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TypeALieIndex.simpleRootSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TypeA.lean",
+         "line": 122,
+         "fit": "exact"
+        }
+       ],
+       "note": "Built and sorry-free: the standard carrier, its all-root subgroup family, the signed-antidiagonal graph automorphism on points, and the index-level AmbientGroup/simpleRootSubgroup the layer names."
+      },
+      {
+       "target": "Type B full-weight spin carrier at every rank, type C symplectic carrier, type D spin carrier with its fork-exchange graph automorphism",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.TypeBSpinCarrier.groupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/Orthogonal/TypeB/SpinCarrier/Basic.lean",
+         "line": 204,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SpStd.groupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/Symplectic/StandardCarrier/Scheme.lean",
+         "line": 76,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TypeDSpinCarrier.groupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/Orthogonal/TypeD/SpinCarrier/Basic.lean",
+         "line": 223,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TypeDDiagramLieIndex.AmbientGroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TypeD.lean",
+         "line": 145,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TypeTwistedDLieIndex.graphAut",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TypeD.lean",
+         "line": 342,
+         "fit": "exact"
+        }
+       ],
+       "note": "All four rows of the carrier table are built, each with AmbientGroup, simpleRootSubgroup and a Frobenius on points, and with finiteness of the Frobenius fixed subgroup proved (finite_fixedSubgroup_frobenius in each SpinCarrier/FixedPoints.lean)."
+      },
+      {
+       "target": "E6 27-dimensional minuscule carrier, doubled minuscule carrier for twistedE6, E7 56-dimensional minuscule carrier",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.E6Minuscule.groupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/E6/Minuscule/GroupScheme.lean",
+         "line": 141,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.E6DoubledMinuscule.groupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/E6/DoubledMinuscule/GroupScheme.lean",
+         "line": 196,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.E7Minuscule.groupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/E7/Minuscule/Carrier.lean",
+         "line": 188,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TypeE6LieIndex.AmbientGroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TypeE6.lean",
+         "line": 108,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TypeE7LieIndex.AmbientGroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TypeE7/Basic.lean",
+         "line": 82,
+         "fit": "exact"
+        }
+       ],
+       "note": "All three exist with their numbered simple root subgroups; the doubled E6 carrier carries its graph automorphism as a signed permutation of the weight basis (E6DoubledMinuscule.GraphAutomorphism.lean), which is the mechanism the layer prescribes."
+      },
+      {
+       "target": "Geck carrier for E8, F4 and G2, with the full-weight span statement that selects exactly those three types",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ValidLieTypeIndex.geckPoints",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/GeckCarrier.lean",
+         "line": 108,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValidLieTypeIndex.GeckGroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/GeckCarrier.lean",
+         "line": 116,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValidLieTypeIndex.geckRootSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/GeckCarrier.lean",
+         "line": 121,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.UnimodularExceptionalIndex.AmbientGroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Unimodular.lean",
+         "line": 160,
+         "fit": "exact"
+        }
+       ],
+       "note": "Built exactly as designed, including DynkinType.span_range_geckWeight_eq_top_iff, which is the proof that the adjoint module is full-weight precisely in E8, F4 and G2 and hence that the Geck carrier is the simply connected form only there."
+      },
+      {
+       "target": "The rank-two type-C carrier for the Suzuki branch, with the B2/C2 node adapter",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.RankTwoBLieIndex.AmbientGroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TypeB/Two.lean",
+         "line": 142,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.RankTwoBLieIndex.carrierNode",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TypeB/Two.lean",
+         "line": 125,
+         "fit": "exact"
+        }
+       ],
+       "note": "carrierNode is exactly the named adapter the layer prescribes, B2 0 |-> C2 1 and B2 1 |-> C2 0, with carrierNode_apply and the proof that it preserves the long/short designation."
+      },
+      {
+       "target": "The tripled D4 carrier (toral closure of 8v + 8s + 8c in GL_24) with triality as a numbered symmetry",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.trialityPermD4",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/DiagramPermutations.lean",
+         "line": 74,
+         "fit": "related"
+        }
+       ],
+       "note": "The diagram permutation exists and its Cartan-matrix invariance is proved, but no tripled D4 carrier exists: grep -i triality over declarations.tsv finds only the index predicate IsTypeTrialityD4, the diagram permutation, and GraphTwistedIndex.diagramPerm_trialityD4. There is no group-level triality and no TypeTrialityD4LieIndex.AmbientGroup."
+      },
+      {
+       "target": "Short-root G2 carrier over F_3 and short-root F4 carrier over F_2 as closed subgroup schemes of GL_7 and GL_26",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.G2ShortRoot.serreRepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/G2/ShortRoot/Basic.lean",
+         "line": 159,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.F4ShortRoot.serreRepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/F4/ShortRoot/Basic.lean",
+         "line": 335,
+         "fit": "related"
+        }
+       ],
+       "note": "Both short-root modules are built at the Lie-algebra level: explicit integral Chevalley matrices on the 7- and 26-element weight diagrams, the Serre relations, the divided squares and the induced representation. What is missing is the group-scheme step, the closed subgroup scheme over the prime field generated by the reduced root subgroups and torus, its ordered weight basis and the identification C used to define the special isogeny."
+      },
+      {
+       "target": "The pinned route: the simply connected Chevalley--Demazure group scheme over Z for every untwisted Dynkin type, its base change and points, and root-subgroup maps x_alpha",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.DynkinType.simplyConnectedRootDatum",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/Assembly.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "The root-systems input the pinned route consumes is built: a named simply connected root datum for every valid DynkinType, with its Bourbaki-numbered base. The reductive-groups Layer 9 output is not: there is no pinned Chevalley--Demazure group scheme over Z in the library. grep -i for chevalleyGroupScheme/ChevalleyDemazure/pinnedGroupScheme in declarations.tsv returns nothing, and the Kostant toral-closure machinery (TauCeti/Algebra/Lie/UniversalEnveloping/Kostant/RootSubgroup/Scheme/ToralClosure) is what the explicit carriers are built from instead."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+       "note": "Layer 9 of the reductive-groups roadmap owns the pinned Chevalley--Demazure group schemes, base change, points and root subgroups that the pinned route here consumes; this layer explicitly says it consumes rather than duplicates them."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+       "note": "Layer 6 of the root-systems roadmap owns DynkinType.simplyConnectedRootDatum and the Bourbaki numbering this layer's Fin indices carry."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/CFSGStatement#l1-ordinary-and-graph-twisted-steinberg-maps": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Frob_q on points, and the Steinberg map as gamma o Frob_q for the graph-twisted families",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ValidLieTypeIndex.datumFrobenius",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Datum/Frobenius.lean",
+         "line": 74,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GraphTwistedIndex.datumSteinberg",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Datum/Steinberg.lean",
+         "line": 123,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ValidLieTypeIndex.datumSteinberg",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Datum/Assembly.lean",
+         "line": 117,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TypeALieIndex.graphAut",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TypeA.lean",
+         "line": 225,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TypeTwistedE6LieIndex.graphAut",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TwistedE6.lean",
+         "line": 277,
+         "fit": "exact"
+        }
+       ],
+       "note": "The root-datum layer is complete for every valid index, and the group-level Frobenius and graph automorphism exist for type A/twistedA, B, C, D/twistedD, E6/twistedE6, E7 and the unimodular exceptionals. Composition order is handled exactly as the table requires: TypeALieIndex.steinberg_eq_graphAut_comp_frobenius at TypeA.lean:319 with the commutation graphAut_comp_frobenius at 310."
+      },
+      {
+       "target": "gamma^2 = 1 for 2A, 2D, 2E6 and gamma^3 = 1 for 3D4, with gamma commuting with Frob_q",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.TypeALieIndex.graphAut_graphAut",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TypeA.lean",
+         "line": 277,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TypeALieIndex.graphAut_frobenius",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TypeA.lean",
+         "line": 301,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GraphTwistedIndex.datumSteinberg_pow_twistOrder_eq_smulId",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Datum/Steinberg.lean",
+         "line": 231,
+         "fit": "exact"
+        }
+       ],
+       "note": "The order and commutation relations are proved at group level for the involutive families (2A, 2D, 2E6) and at root-datum level for all of them via the twist order. The 3D4 case has no group-level gamma, because its carrier does not exist (see L0)."
+      },
+      {
+       "target": "The diagram permutations pinned as Fin data, each proved an automorphism of the Cartan matrix",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.GraphTwistedIndex.diagramPerm",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/GraphTwisted.lean",
+         "line": 105,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.cartanMatrix_A_graphPermA",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/DiagramPermutations.lean",
+         "line": 227,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.cartanMatrix_D_graphPermD",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/DiagramPermutations.lean",
+         "line": 271,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.cartanMatrix_E6_graphPermE6",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/DiagramPermutations.lean",
+         "line": 278,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.cartanMatrix_D4_trialityPermD4",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/DiagramPermutations.lean",
+         "line": 284,
+         "fit": "exact"
+        }
+       ],
+       "note": "diagramPerm is total on GraphTwistedIndex, so the table is exhaustive exactly as the layer requires, and the Suzuki--Ree branches cannot reach it. Every permutation carries its Cartan-matrix invariance, which is the 'proved to be an automorphism of the Cartan matrix' obligation."
+      },
+      {
+       "target": "The defining equations gamma(x_alpha(t)) = x_{gamma alpha}(t) on simple roots and Frob_q(x_alpha(t)) = x_alpha(t^q) on every root",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.TypeALieIndex.graphAut_simpleRootSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TypeA.lean",
+         "line": 256,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TypeALieIndex.frobenius_simpleRootSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TypeA.lean",
+         "line": 211,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TypeTwistedE6LieIndex.steinberg_simpleRootSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TwistedE6.lean",
+         "line": 355,
+         "fit": "exact"
+        }
+       ],
+       "note": "Proved on the numbered simple root subgroups for every family whose carrier exists, and restricted to simple roots exactly as the layer demands. Missing for the 3D4 branch, and the general-root form with the sign epsilon_alpha is recorded only for SlStd's all-root family, not uniformly."
+      },
+      {
+       "target": "Uniqueness of gamma from its action on the pinned simple root subgroups (the isomorphism theorem for pinned groups)",
+       "library": "absent",
+       "declarations": [],
+       "note": "This is cited as a Layer 9 target upstream, and it is not in the library: there is no pinned Chevalley--Demazure group scheme and no isomorphism theorem for pinned groups."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+       "note": "The isomorphism theorem for pinned groups, which gives uniqueness of gamma, is a Layer 9 target cited here rather than reproved."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/CFSGStatement#l2-suzuki--ree-steinberg-maps": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Selecting tau_X for a given SuzukiReeIndex and taking the odd power steinberg(m) = tau_X^{2m+1}",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.SuzukiReeIndex.datumSpecialIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/SpecialIsogeny.lean",
+         "line": 142,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SuzukiReeIndex.datumSteinberg",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/HalfFrobenius.lean",
+         "line": 174,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SuzukiLieIndex.halfFrobenius",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Suzuki/Basic.lean",
+         "line": 111,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SuzukiLieIndex.steinberg",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Suzuki/Basic.lean",
+         "line": 155,
+         "fit": "exact"
+        }
+       ],
+       "note": "The selection and odd power are complete at root-datum level for all four branches (suzuki, reeG2, reeF4, tits), with SuzukiReeIndex.halfExponent and fieldExponent_eq_two_mul_halfExponent_add_one pinning 2m+1. At group level only the Suzuki branch exists, because only the rank-two symplectic carrier has a special isogeny; reeG2, reeF4 and tits have no group-level steinberg."
+      },
+      {
+       "target": "The square relation steinberg(m)^2 = Frob_{p^{2m+1}}, inherited from tau_X^2 = Frob_p",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.SuzukiReeIndex.datumSteinberg_mul_self",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/HalfFrobenius.lean",
+         "line": 203,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SpStd.specialIsogeny_specialIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/Symplectic/StandardCarrier/SpecialIsogeny.lean",
+         "line": 123,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SuzukiLieIndex.steinberg_steinberg",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Suzuki/Basic.lean",
+         "line": 169,
+         "fit": "exact"
+        }
+       ],
+       "note": "Proved at root-datum level for all four branches and at group level for the Suzuki branch. The other three branches wait on their carriers."
+      },
+      {
+       "target": "The identifying action tau_X(x_alpha(t)) = x_{alpha-bar}(t) on long and x_{alpha-bar}(t^p) on short simple roots, with the length map proved to exchange lengths",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.SuzukiReeIndex.lengthPerm",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/SuzukiRee.lean",
+         "line": 81,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SuzukiReeIndex.isLongSimpleRoot_lengthPerm",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/SuzukiRee.lean",
+         "line": 150,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SuzukiReeIndex.rootLength_eq_characteristic_of_isLongSimpleRoot",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/SpecialIsogeny.lean",
+         "line": 326,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SuzukiLieIndex.halfFrobenius_simpleRootSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Suzuki/Basic.lean",
+         "line": 260,
+         "fit": "exact"
+        }
+       ],
+       "note": "lengthPerm is total on SuzukiReeIndex with lengthPerm_suzuki/reeG2/reeF4/tits, isLongSimpleRoot_lengthPerm is the required exchange proof stated against the upstream predicate, and the exponent convention (1 on long, p on short) is SuzukiReeIndex.rootLength with exponent_mul_exponent_lengthPerm proving the two exponents multiply to p. The group-level equations exist only for the Suzuki branch."
+      },
+      {
+       "target": "The special isogeny tau_X of the ambient group, for B2 in characteristic two, G2 in characteristic three and F4 in characteristic two",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Matrix.symplecticSpecialIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Symplectic/SpecialIsogeny.lean",
+         "line": 181,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SpStd.specialIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/Symplectic/StandardCarrier/SpecialIsogeny.lean",
+         "line": 91,
+         "fit": "exact"
+        }
+       ],
+       "note": "Only the B2 (Sp_4, characteristic two) case exists, with the 2x2-minor construction and its root-subgroup equations. The G2 and F4 special isogenies are not in the library; their short-root modules exist as Lie-algebra representations but not as group schemes carrying an isogeny. This is a Layer 9 obligation upstream, which this layer says it consumes."
+      },
+      {
+       "target": "The B2/C2 adapter and the m >= 1 restriction that excludes the solvable Sz(2)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.RankTwoBLieIndex.carrierNode",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TypeB/Two.lean",
+         "line": 125,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SuzukiLieIndex.steinberg_simpleRootSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Suzuki/Basic.lean",
+         "line": 286,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.LieTypeIndex.InStandardRange",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 138,
+         "fit": "exact"
+        }
+       ],
+       "note": "carrierNode is public in TypeB/Two.lean with carrierNode_apply, and its compatibility with the length permutation is used inside Suzuki/Basic.lean to derive the public steinberg_simpleRootSubgroup, which states the branch's equations in the B2 numbering after the adapter, exactly as the layer requires. The small-field exclusion is carried by InStandardRange, whose suzuki branch requires 1 <= m; UnimodularLieIndex.reeG2 and reeF4 likewise take an explicit 1 <= m. Mathlib's separate suzukiGroup construction (PR 42043) is not in the pinned baseline, so nothing here needs to avoid it."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+       "note": "Layer 9 owns the special isogeny tau_X of pinned group schemes, its action on long and short root subgroups and tau_X^2 = Frob_p; this layer selects it and takes the odd power."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/CFSGStatement#l3-fixed-points-and-the-simple-group-candidate": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The fixed subgroup of an endomorphism as F.eqLocus (MonoidHom.id G)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.fixedSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/FixedSubgroup.lean",
+         "line": 69,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.mem_fixedSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/FixedSubgroup.lean",
+         "line": 71,
+         "fit": "exact"
+        }
+       ],
+       "note": "Defined exactly as the layer prescribes, with the API the Suzuki--Ree branches need (fixedSubgroup_le_fixedSubgroup_pow, which places the fixed group of an odd half-Frobenius power inside that of the corresponding Frobenius)."
+      },
+      {
+       "target": "The candidate group [H,H] / Z([H,H]), with the centre taken of the derived subgroup",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.FixedPointCandidate",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/FixedPointCandidate.lean",
+         "line": 60,
+         "fit": "exact"
+        }
+       ],
+       "note": "FixedPointCandidate F is the derived subgroup of fixedSubgroup F modulo the centre of that derived subgroup, in the order the layer specifies, with a congr transport along an isomorphism of the two data."
+      },
+      {
+       "target": "A per-family Group with its Group instance, for every branch of ValidLieTypeIndex.steinberg",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.TypeALieIndex.Group",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TypeA.lean",
+         "line": 344,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TypeCLieIndex.Group",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TypeC.lean",
+         "line": 309,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TypeTwistedDLieIndex.Group",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/TypeD.lean",
+         "line": 452,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.UnimodularExceptionalIndex.Group",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Unimodular.lean",
+         "line": 245,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SuzukiLieIndex.Group",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Suzuki/Basic.lean",
+         "line": 319,
+         "fit": "exact"
+        }
+       ],
+       "note": "Ten per-family Group definitions exist: TypeA (covering A and 2A), TypeB, TypeC, TypeD, TypeTwistedD, TypeE6, TypeTwistedE6, TypeE7, UnimodularExceptional (E8, F4, G2) and Suzuki. Four of the seventeen constructors have none: trialityD4, reeG2, reeF4 and tits, all blocked on their L0/L2 carriers. Worth recording against the layer's closing remark: the (B,N)-pair theory it dismisses as an external Mathlib PR is already in Tau Ceti as TauCeti.TitsSystem with a Bruhat directory, so the related structure theory is present even though, as the layer says, this lane does not depend on it."
+      },
+      {
+       "target": "The uniform ValidLieTypeIndex.Group assembled by cases from the per-family definitions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: grep for TauCeti.ValidLieTypeIndex.(Group|steinberg|AmbientGroup|FixedPoints) in declarations.tsv returns nothing, so the uniform assembly has not been made. It cannot be, until the four missing branches have carriers."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/CFSGStatement#l5-agreement-of-explicit-carriers-with-the-pinned-groups": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "A MulEquiv e from each explicit AmbientGroup to the points of the pinned Chevalley--Demazure group with e(x i t) = x' i t and e(F g) = F'(e g)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No such identification exists for any family. The pinned side does not exist either: there is no pinned Chevalley--Demazure group scheme over Z in the library, so, as the layer itself notes, the signature cannot yet be stated."
+      },
+      {
+       "target": "The pinned side's F' built independently by the L1 or L2 recipe on the pinned carrier",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, for the same reason."
+      },
+      {
+       "target": "Transport of FixedPoints and Group along e by the fixed-point recipe's transport lemmas",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.FixedPointCandidate.congr",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/FixedPointCandidate.lean",
+         "line": 74,
+         "fit": "exact"
+        }
+       ],
+       "note": "The transport machinery is already built: FixedPointCandidate.congr carries the candidate group along an isomorphism intertwining the two endomorphisms, with congr_refl, congr_trans and congr_symm. Only the equivalence e it would be applied to is missing."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+       "note": "This milestone depends entirely on Layer 9 of the reductive-groups roadmap supplying the pinned points; it is separately claimable for exactly that reason."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/CFSGStatement#s0-auditable-presentation-data-and-source-selection": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "The stored Relator expression type with generator, inverse, product, power and commutator constructors",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Relator",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Presentation/Relator.lean",
+         "line": 73,
+         "fit": "exact"
+        }
+       ],
+       "note": "All five constructors are present, with the commutator fixed to Mathlib's convention and a docstring telling a transcriber how to convert a source using the opposite one."
+      },
+      {
+       "target": "The semantic form PresentationWord, the compilation Relator.toWord, and the associated PresentedGroup",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PresentationWord",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Presentation/Relator.lean",
+         "line": 66,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Relator.toWord",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Presentation/Relator.lean",
+         "line": 93,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GroupPresentation.Group",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Presentation/GroupPresentation.lean",
+         "line": 207,
+         "fit": "exact"
+        },
+        {
+         "name": "PresentedGroup",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/PresentedGroup.lean",
+         "line": 39,
+         "fit": "related"
+        }
+       ],
+       "note": "PresentationWord is List (alpha x Bool) with FreeGroup.mk's sign convention, toWord compiles each constructor, and GroupPresentation.Group is PresentedGroup of the relator set built from the compiled words, exactly the definition the layer displays."
+      },
+      {
+       "target": "Relator.toWord_toFreeGroup: the compiled word denotes what the expression denotes",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Relator.toWord_toFreeGroup",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Presentation/Relator.lean",
+         "line": 319,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GroupPresentation.relatorSet_eq_relatorSet_transcribed",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Presentation/GroupPresentation.lean",
+         "line": 201,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both the per-relator statement and its packaged form for a whole presentation are proved, so the step between what a reviewer checks and what is defined is justified, which is what the layer asks for."
+      },
+      {
+       "target": "Metadata: generator names, bibliographic source and locator, generator convention, transcription notes, expected generator and relator counts, with decidable count checks and no checksum",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.GroupPresentation",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Presentation/GroupPresentation.lean",
+         "line": 65,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GroupPresentation.matchesMetadata",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Presentation/GroupPresentation.lean",
+         "line": 214,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GroupPresentation.relatorLetters",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Presentation/GroupPresentation.lean",
+         "line": 117,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GroupPresentation.totalLength",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Presentation/GroupPresentation.lean",
+         "line": 134,
+         "fit": "exact"
+        }
+       ],
+       "note": "Every field the layer lists is a field of the structure, the arity is the length of generatorNames and is not recorded twice, there is deliberately no checksum field (the docstring says so and gives the layer's reason), and matchesMetadata is the decidable two-count check. The file adds relatorLetters and totalLength as a third decidable check against a published presentation length."
+      },
+      {
+       "target": "A 26-row source manifest: name, exact source, locator, generator names and expected counts for each sporadic group, with semi-presentations rejected",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.SporadicName.presentation",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Sporadic/Presentation.lean",
+         "line": 66,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.presentation_matchesMetadata",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Sporadic/Presentation.lean",
+         "line": 100,
+         "fit": "exact"
+        }
+       ],
+       "note": "The manifest is realized as the metadata of the twenty-six presentations themselves: each of the group-specific modules carries source, sourceLocator, generatorNames, generatorConvention, transcriptionNotes and the two expected counts, and presentation_matchesMetadata checks the counts for all 26 names at once. The GroupPresentation docstring states the rule that a source must be a full presentation and not a semi-presentation. Only the manifest's review-status column is bookkeeping rather than mathematics, and that part is process by the layer's own description."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/CFSGStatement#s1-the-twenty-six-sporadic-presentations": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Every SporadicName.presentation branch filled with the complete signed relator words",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.SporadicName.presentation",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Sporadic/Presentation.lean",
+         "line": 66,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SporadicName.Group",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Sporadic/Presentation.lean",
+         "line": 131,
+         "fit": "exact"
+        }
+       ],
+       "note": "A total function on all 26 names, each branch dispatching to an independently transcribed GroupPresentation in its own module (26 files under CFSG/Sporadic/), with no sorry anywhere in the directory."
+      },
+      {
+       "target": "The Monster by the Y443 presentation: 12 generators, Coxeter relations, spider relation and Z = 1, giving 80 relators",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Sporadic.Monster.presentation",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Sporadic/Monster.lean",
+         "line": 187,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.coxeterRelators",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/Presentation/Coxeter.lean",
+         "line": 205,
+         "fit": "exact"
+        }
+       ],
+       "note": "Exactly the construction the layer prescribes and neither substitute it forbids: the twelve-node Y443 diagram, 12 + 11 + 55 = 78 Coxeter relators, the spider word (a b1 c1 a b2 c2 a b3 c3)^10 giving Bray's 79-relator M x 2, and Ivanov's central f312 = (a b3 c3 d3 b1 c1 b2)^9 appended as the 80th to pass to M. The module docstring carries Ivanov's page references for the definition, the centrality lemma and the SS3.9 identification."
+      },
+      {
+       "target": "The Baby Monster by its Y433 presentation and every other branch to the same standard",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Sporadic.BabyMonster.presentation",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Sporadic/BabyMonster.lean",
+         "line": 303,
+         "fit": "exact"
+        }
+       ],
+       "note": "Present, along with the Fischer groups from smaller Y-diagrams with the spider relation and the remaining 23 names; every module records a cited source rather than an ATLAS semi-presentation."
+      },
+      {
+       "target": "The recorded relator count checked against the transcribed list, for every name",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.presentation_matchesMetadata",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Sporadic/Presentation.lean",
+         "line": 100,
+         "fit": "exact"
+        }
+       ],
+       "note": "presentation_matchesMetadata is proved by cases on all 26 names, each discharged by that group's own matchesMetadata lemma, so the generator and relator counts are checked uniformly."
+      },
+      {
+       "target": "No order, finiteness, simplicity or isomorphism assertion for the presented groups",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.SporadicName.Group",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Sporadic/Presentation.lean",
+         "line": 131,
+         "fit": "exact"
+        }
+       ],
+       "note": "Respected: SporadicName.Group is just presentation.Group, and the module docstrings state explicitly that no order, finiteness or simplicity result is asserted. The independent source-to-Lean read-through and the permutation-group cross-check the layer asks for are review artifacts, not Lean targets, and are outside the library by design."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/CFSGStatement#a0-assemble-and-state-cfsg": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "CFSGIndex.Group by cases with its dependent Group instance",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.CFSGIndex",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Index.lean",
+         "line": 1482,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.SporadicName.Group",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/Sporadic/Presentation.lean",
+         "line": 131,
+         "fit": "related"
+        }
+       ],
+       "note": "The index type and three of the four branches' carriers exist (ZMod p, Mathlib's alternatingGroup, and SporadicName.Group), but CFSGIndex.Group itself is not defined anywhere: grep -rn CFSGIndex over the Tau Ceti tree finds only Index.lean's definition and two docstring references saying the assembly is still to come. The Lie branch could not be assembled anyway, since ValidLieTypeIndex.Group does not exist (see L3)."
+      },
+      {
+       "target": "The named ClassificationStatement as an existential over CFSGIndex",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: grep -rn -i classificationStatement over the Tau Ceti tree finds only a docstring in SimpleGroupUniverse.lean saying the theorem will be the specialization of the general one once CFSGIndex.Group is assembled."
+      },
+      {
+       "target": "classificationStatement_of_zero: ClassificationStatement.{0} implies ClassificationStatement.{u}",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.exists_mulEquiv_of_forall_finite_isSimpleGroup_zero",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SimpleGroupUniverse.lean",
+         "line": 52,
+         "fit": "more general"
+        }
+       ],
+       "note": "The mathematical content of this target is already proved, and in more generality than the roadmap states it: for any family C : iota -> Type v of groups, if every finite simple group in Type is isomorphic to some C i then so is every finite simple group in any universe. The proof is the Shrink.{0} argument the layer describes, transporting simplicity along Shrink.mulEquiv. Specializing it to CFSGIndex.Group is all that remains, and that waits on the previous two targets."
       }
      ],
      "duplicates": []
