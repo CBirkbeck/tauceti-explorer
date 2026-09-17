@@ -7,7 +7,7 @@
   "jobId":"LINK-tauceti_TauCetiRoadmap_PolynomialGaloisGroups",
   "issueNumber":30,
   "inputRevision":"dbafc759460581dbd23999a3c112149fedefe2b5",
-  "summary":"Partial, source-checked mapping: eight new outgoing links, six to BelyiMaps and two to the ModularForms coefficient-field certificate interface; five scoped overlaps with ProfiniteCohomology, NumberFieldArithmetic, ClassicalArithmeticCompletion, MordellLawrenceVenkatesh and ModularForms. The sole contracted incoming NFA3→PGG5 edge and two existing overlaps are retained by reference, not duplicated. All eight source stages were read. All 212 snapshot roadmap summaries/scopes and six new-roadmap summaries were screened, with unequal depth recorded in examined. This is not a completed catalogue-wide full-stage search or an implementation claim.",
+  "summary":"Partial, source-checked mapping: six new outgoing links, four to BelyiMaps and two to the ModularForms coefficient-field certificate interface; five scoped overlaps with ProfiniteCohomology, NumberFieldArithmetic, ClassicalArithmeticCompletion, MordellLawrenceVenkatesh and ModularForms. The sole contracted incoming NFA3→PGG5 edge, two existing overlaps, and two concurrent Belyi links submitted in PR #793 are retained by reference, not duplicated. All eight source stages were read. All 212 snapshot roadmap summaries/scopes and six new-roadmap summaries were screened, with unequal depth recorded in examined. This is not a completed catalogue-wide full-stage search or an implementation claim.",
   "baseline":{
     "tauceti":"f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib":"082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -23,16 +23,6 @@
     "auditRead":"REV-AUDIT-05.md read in full (blob 39ae941f9c97562f286ce4681539da65a2387354); relevant PGG records of AUDIT-05.result.json read (blob 2393517bf9d1cf1a2fb5809f44f9734d0d07332a). Audit claims were used for discovery, not as independent evidence of all library presences or absences."
   },
   "links":[
-    {
-      "source":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial",
-      "target":"tauceti:TauCetiRoadmap/BelyiMaps#layer-0-permutation-triples",
-      "confidence":"explicit",
-      "reason":"The full cycle partition, including fixed points, and its conjugacy/transport laws supply the permutation-triple cycle data and relabeling invariance. The named cycle API already exists at the pinned Tau Ceti baseline; this is its roadmap ownership link, not a request to reimplement it. Belyi retains cycleCount, Euler characteristic and genus.",
-      "evidence":[
-        {"stageId":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial","quote":"`fullCycleType` is constant on conjugacy classes, and it commutes\n    with transport along an equivalence `α ≃ β`, that is, with `Equiv.permCongrHom`.","sourcePath":"content/tau-ceti/PolynomialGaloisGroups/README.md","locator":"Layer 0, fullCycleType API"},
-        {"stageId":"tauceti:TauCetiRoadmap/BelyiMaps#layer-0-permutation-triples","quote":"Attach to each component its full cycle partition\n`fullCycleType σ` (PolynomialGaloisGroups Layer 0) and cycle count\n`cycleCount σ := (fullCycleType σ).card`","sourcePath":"content/tau-ceti/BelyiMaps/README.md","locator":"Layer 0.5, cycle data"}
-      ]
-    },
     {
       "source":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial",
       "target":"tauceti:TauCetiRoadmap/BelyiMaps#layer-1-passports-blocks-and-finite-label-semantics",
@@ -61,16 +51,6 @@
       "evidence":[
         {"stageId":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial","quote":"`Multiset.count 1 (fullCycleType σ) = Fintype.card α - σ.support.card`","sourcePath":"content/tau-ceti/PolynomialGaloisGroups/README.md","locator":"Layer 0, count of parts equal to one"},
         {"stageId":"tauceti:TauCetiRoadmap/BelyiMaps#layer-14-lmfdb-assertion-semantics","quote":"Recovering `lambdas` from `triples_cyc` therefore needs padding to a partition of the\ndegree — the database form of Layer 0.5's trap — so the certificate reads ramification data\nfrom `lambdas`, and proves consistency with `triples_cyc` through `fullCycleType`.","sourcePath":"content/tau-ceti/BelyiMaps/README.md","locator":"Layer 14.2, stored cycle notation"}
-      ]
-    },
-    {
-      "source":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates",
-      "target":"tauceti:TauCetiRoadmap/BelyiMaps#layer-1-passports-blocks-and-finite-label-semantics",
-      "confidence":"explicit",
-      "reason":"For degrees 1 through 5 only, the theorem-backed reference subgroups and ambient-conjugacy label predicate supply the passport label semantics, including the zero-based/internal versus one-based/display index. Belyi asks for n <= 11 and cites a nonexistent supplier Layer 7; neither the roadmap nor the pinned label carrier supplies degrees 6–11. That larger-range obligation is request R-LABEL-RANGE, not discharged by this edge.",
-      "evidence":[
-        {"stageId":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates","quote":"The\nfunction `numTransitiveGroups` takes the values `1, 1, 2, 5, 5` in degrees 1 to 5. Index `j`\ndisplays as `nT(j+1)`.","sourcePath":"content/tau-ceti/PolynomialGaloisGroups/README.md","locator":"Layer 6, reference table and label API"},
-        {"stageId":"tauceti:TauCetiRoadmap/BelyiMaps#layer-1-passports-blocks-and-finite-label-semantics","quote":"For `n ≤ 11`, interpret the group component of an LMFDB passport label through\nPolynomialGaloisGroups: the passport's reference subgroup satisfies\n`TransitiveGroupLabel j` for the index `j : TransitiveGroupIndex n` displayed as `nTj+1`.","sourcePath":"content/tau-ceti/BelyiMaps/README.md","locator":"Layer 1.6, label semantics"}
       ]
     },
     {
@@ -378,7 +358,8 @@
   ],
   "existingWork":[
     {"path":"research/blueprint/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json","blob":"122355643f21bbc5a3becc88d6a65110834fff2d","detail":"Existing NFA Layer 3 → PGG Layer 5 full-cycle/factor-degree edge and NFA Layer 7 / PGG Layer 0 normal-closure overlap read and excluded from the new arrays."},
-    {"path":"research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json","blob":"534c837cdd6f3714155b2f68233d961e2d1d8c0a","detail":"Existing SchurWeyl Layer 0 / PGG Layer 0 cycle-partition overlap read and not duplicated."}
+    {"path":"research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json","blob":"534c837cdd6f3714155b2f68233d961e2d1d8c0a","detail":"Existing SchurWeyl Layer 0 / PGG Layer 0 cycle-partition overlap read and not duplicated."},
+    {"path":"research/blueprint/links/tauceti_TauCetiRoadmap_BelyiMaps.json","blob":"c473a8212be8ec7aa32fa87350809d6f5091d052","revision":"318723fb08c95d5436776ef1871ab5038a70d3e1","pullRequest":"https://github.com/CBirkbeck/tauceti-explorer/pull/793","detail":"Concurrent durable submission discovered on the final PR recheck. PGG0→Belyi0 and PGG6→Belyi1 exactly match two proposed edges here; removed those two from this packet, retaining the other four Belyi links. PR #793 was open and unmerged when inspected. Our independent degree-range and disjoint-monodromy findings agree; no changes to that worker’s packet were made.","links":[{"source":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial","target":"tauceti:TauCetiRoadmap/BelyiMaps#layer-0-permutation-triples"},{"source":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates","target":"tauceti:TauCetiRoadmap/BelyiMaps#layer-1-passports-blocks-and-finite-label-semantics"}]}
   ],
   "requests":[
     {"id":"R-LABEL-RANGE","supplier":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates","consumers":["tauceti:TauCetiRoadmap/BelyiMaps#layer-1-passports-blocks-and-finite-label-semantics","tauceti:TauCetiRoadmap/BelyiMaps#layer-14-lmfdb-assertion-semantics"],"need":"Resolve the degree 6–11 reference-family, indexing, conjugacy and parser contracts. At this pin TransitiveGroupIndex n is empty outside 1–5, and the cited PGG Layer 7 is not a recorded stage. Either create a separately assigned higher-degree family/classification contract, or restrict the consumer to the supplied range; do not totalize the parser into a junk label."},
@@ -386,7 +367,7 @@
     {"id":"R-MODULAR-CERTIFICATE-BRIDGE","supplier":"tauceti:TauCetiRoadmap/ModularForms#layer-9-the-lmfdb-invariant-layer","consumers":["tauceti:TauCetiRoadmap/ModularForms#layer-9-the-lmfdb-invariant-layer"],"need":"Given a coefficient-field generator, prove its field/minimal-polynomial/normal-closure comparison before calling PGG polynomial certificates. Prove the monic integral presentation and good-prime hypotheses. Do not identify the entire Hecke characteristic polynomial with that minimal polynomial without a generator/separation theorem."}
   ],
   "gaps":[
-    {"id":"G-FAITHFUL-WREATH","stageId":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-1-permutation-groups-blocks-and-wreath-products","locator":"Layer 1, imprimitivity embedding","detail":"The layer allows abstract G-actions but an injective embedding of G from its permutation action needs FaithfulSMul, or replacement by the image. C3×C4 acting on four points through regular C4 has a two-block system, while order 12 cannot embed into S2 wr S2 of order 8. The block/stabilizer order isomorphism itself does not require faithfulness.","repair":"State the embedding on the faithful permutation image or add faithfulness, and identify its kernel before asserting injectivity."},
+    {"id":"G-FAITHFUL-WREATH","stageId":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-1-permutation-groups-blocks-and-wreath-products","locator":"Layer 1, imprimitivity embedding","detail":"The layer allows abstract G-actions but an injective embedding of G from its permutation action needs FaithfulSMul, or replacement of G by the image. C3×C4 acting on four points through regular C4 has a two-block system, while order 12 cannot embed into S2 wr S2 of order 8. The block/stabilizer order isomorphism itself does not require faithfulness.","repair":"State the embedding on the faithful permutation image or add faithfulness, and identify its kernel before asserting injectivity."},
     {"id":"G-ORDER-30-PROOF","stageId":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates","locator":"Degree-five classification, step 4","detail":"The map S5→S4 from four cosets does not justify the asserted exact kernel order five. This is a gap in the proposed contradiction proof, not a claim that an order-30 subgroup exists.","repair":"The kernel is nontrivial since 120>24, normal in S5, and contained in the supposed order-30 subgroup. The normal-subgroup alternatives 1,A5,S5 then all fail; no exact kernel order is needed."},
     {"id":"G-PHI5-DISCRIMINANT","stageId":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates","locator":"Worked examples, quartic table, x^4+x^3+x^2+x+1 row","detail":"The row says the discriminant is a square. Exact computation gives 125, which is not a rational square. Its cyclic order-four label is consistent with nonsquare discriminant: a 4-cycle is odd.","repair":"Replace the square entry by 125, not a square, and use the nonsquare branch of the quartic table. Source READMEs are outside this job’s write scope."},
     {"id":"G-BELYI-DISJOINT-MONODROMY","stageId":"tauceti:TauCetiRoadmap/BelyiMaps#layer-0-permutation-triples","locator":"Layer 0.6, disjoint-sum construction","detail":"The monodromy of a disjoint sum is the image generated by the paired component generators, generally a subdirect subgroup of the product, not the full product. Two copies of the same connected degree-two cyclic triple yield diagonal C2 of order two, not C2×C2 of order four.","repair":"Use the simultaneous-generator image. Keep additivity of degree, cycle counts and Euler characteristic, which does not require full-product monodromy. No reverse cover-theory dependency on PGG is inferred."},
@@ -422,13 +403,14 @@
     "limitations":"GitHub code search covered indexed default-branch files, not a materialized dump of every frozen stage description. All quoted candidates were reopened at the input commit. The summary/scope screen is complete, but it is not a substitute for the protocol’s full frozen catalogue-wide input/output text search. No complete status is claimed."
   },
   "remainingWork":[
+    "Coordinate with PR #793 at integration: its two PGG-to-Belyi edges are excluded here. Preserve those edges in that packet or explicitly transfer ownership if the submission changes; do not silently lose or duplicate them.",
     "Finish the frozen catalogue-wide stage-description and document input/output search. Prioritize discriminant/root-product, Jordan p-cycle, primitive-action and root-orbit/intermediate-field synonyms not exhausted by the recorded queries; inspect integrated decomposition hits such as ArithmeticStatistics rather than assuming they are irrelevant.",
     "Resolve R-LABEL-RANGE and the generic coefficient-field certificate adapter; record any newly authorized supplier stages without inventing IDs or redefining a retired foundation roadmap.",
     "Send the seven precise source corrections through separately authorized source-roadmap work. This packet changes no source document, declaration or integrated graph.",
     "Recheck all current link packets and the complete stage graph at integration time. Obtain independent review after the catalogue screen is complete; structural validation alone does not accept the mathematics."
   ],
   "validation":{
-    "local":"PASS: python3 scratch/check_packet_structure.py (JSON/schema subset, known captured endpoint IDs, eight unique links, five overlap shapes, 218 unique examined entries, no retired endpoint and proposed-edge acyclicity only). PASS: python3 scratch/check_examples.py (exact discriminant and finite group calculations). Neither is the repository full-world validator.",
+    "local":"PASS: python3 scratch/check_packet_structure.py (JSON/schema subset, known captured endpoint IDs, six unique links, five overlap shapes, 218 unique examined entries, no retired endpoint and proposed-edge acyclicity only). PASS: python3 scratch/check_examples.py (exact discriminant and finite group calculations). Neither is the repository full-world validator.",
     "officialCommand":"python3 scripts/check_links.py research/blueprint/links/tauceti_TauCetiRoadmap_PolynomialGaloisGroups.json",
     "official":"Not run locally; complete atlas not materialized in this runtime. PR workflow result must be read from its actual log.",
     "validatorBlob":"57e02703163a9286d28cf3869b557983be6efc64"
@@ -436,6 +418,7 @@
   "preSubmissionCheck":{
     "mainRevision":"a427e4f19e3c789c29cd7fb9b7650ae6870a00f2",
     "comparison":"Three commits after input; only audits, comparison reports, ledger and queue changed. No quoted source, atlas, baseline, link packet or authorised output path changed. Issue comments still have exactly one successful session-specific claim for this worker; two competitors were rejected.",
+    "concurrentSubmission":"Final PR search found #793. Read its actual packet at 318723fb08c95d5436776ef1871ab5038a70d3e1; removed the two exact duplicate edges. This is a different roadmap/job/output file, not a conflicting claim for #30. Full-world validation of our PR will not include that unmerged branch unless integrated first.",
     "pending":"Recheck the final PR files and inspect the actual check_links.py log; no integration or independent acceptance claimed."
   }
 }
