@@ -9,7 +9,7 @@
      "verdict": "partly built",
      "targets": [
       {
-       "target": "q-integers [n]_q = ∑_{i<n} q^i with their interface identities: [n]_q·(q−1) = q^n − 1, [n]_1 = n and [p]_q = Φ_p(q), the generator of the q-prism ideal",
+       "target": "q-integers [n]_q = ∑_{i<n} q^i with their interface identities: [n]_q·(q−1) = q^n − 1, the value at q = 1, and [p]_q = Φ_p(q), the generator of the q-prism ideal",
        "library": "mathlib",
        "declarations": [
         {
@@ -48,7 +48,7 @@
          "fit": "related"
         }
        ],
-       "note": "There is no separate name for [n]_q, but it is the geometric sum ∑_{i<n} X^i and these are its identities: `geom_sum_mul` holds in every ring, `Polynomial.cyclotomic_prime` identifies Φ_p with ∑_{i<p} X^i for p prime, `Polynomial.eval_one_cyclotomic_prime` gives Φ_p(1) = p, and `cyclotomic_prime_pow_eq_geom_sum` gives [p]_{q^{p^n}} = Φ_{p^{n+1}}. The 'prototype q-integer lemmas' therefore need no new mathematics. Mathlib's Pochhammer file still lists q-factorials, q-binomials and q-Pochhammer symbols as TODO."
+       "note": "There is no separate name for [n]_q, but it is the geometric sum ∑_{i<n} X^i and these are its identities: `geom_sum_mul` holds in every ring, `Polynomial.cyclotomic_prime` identifies Φ_p with ∑_{i<p} X^i for p prime, `Polynomial.eval_one_cyclotomic_prime` gives [p]_1 = Φ_p(1) = p (for general n, [n]_1 = n is `Polynomial.eval_geom_sum` followed by simp), and `cyclotomic_prime_pow_eq_geom_sum` gives [p]_{q^{p^n}} = Φ_{p^{n+1}}. The 'prototype q-integer lemmas' therefore need no new mathematics. Mathlib's Pochhammer file still lists q-factorials, q-binomials and q-Pochhammer symbols as TODO."
       },
       {
        "target": "The q-derivative (Jackson operator) D_q f = (f(qx) − f(x))/((q−1)x) on polynomial algebras, with D_q(x^n) = [n]_q x^{n−1}",
@@ -128,7 +128,7 @@
          "library": "mathlib",
          "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
          "line": 367,
-         "fit": "exact"
+         "fit": "related"
         }
        ],
        "note": "Neither library has δ-rings, prisms, q-PD pairs or prismatic cohomology. The base ring ℤ_p[[q−1]] can be written as `PowerSeries` over `PadicInt`, and its ideal generator [p]_q = Φ_p(q) exists, but nothing about the prism exists."
@@ -765,7 +765,7 @@
          "library": "mathlib",
          "file": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
          "line": 367,
-         "fit": "exact"
+         "fit": "related"
         }
        ],
        "note": "Mathlib's polynomial API (composition, derivative, geometric and cyclotomic sums) supports such signatures, but the q-difference operator itself is not defined (see HQ.1)."
@@ -836,6 +836,2772 @@
        "note": "RT.6 builds the trace-to-prismatic comparisons and records the same ordering (RT.6 before HQ.8), so the THH/Nygaard/syntomic squares of HQ.8 are its outputs."
       }
      ]
+    }
+   }
+  },
+  "LefschetzPencilsAndVanishingCycles": {
+   "summary": "No layer is built: neither library has nearby or vanishing cycles, étale direct images or base change, constructible or lisse sheaves, perverse sheaves, étale fundamental groups of schemes, blow-ups, Veronese embeddings, Bertini, Lefschetz pencils, p-adic Lie groups, tame characters, monodromy filtrations, semistable curves or invariant-cycle theorems. Mathlib supplies the surrounding infrastructure: étale and pro-étale sites, geometric points of the étale site (a conservative family), sheaf cohomology and pro-étale Hⁱ(X, ℤ_ℓ), t-structures, Galois categories, inertia subgroups and the cyclotomic character, and Zariski's lemma for points over finite extensions. Tau Ceti adds generic and special fibres over a DVR, numerical types of special fibres, function-field ramification groups, and generation of Sp by root subgroups. The linear algebra LPV asks to construct is largely in Mathlib already. Transvections come with their fixed spaces (the common fixed space of the local transvections is E^⊥), forms descend to quotients by their kernel with ker(B|_W) = W ∩ W^⊥, quadratic-form nondegeneracy follows Elman–Karpenko–Merkurjev in every characteristic (so the characteristic-2 polar-form distinction is already built), and nilpotent exponentials exist. Still missing are the unipotent logarithm and the monodromy filtration. LPV.0–2 are restated in WeightsInEtaleCohomology R34.3, LPV.3–5 in R34.4, and LPV.4's radical quotient in DWP.3.",
+   "layers": {
+    "LefschetzPencilsAndVanishingCycles:LPV.0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The geometric generic/special-fibre diagram over a henselian trait (η̄, s̄, the normalisation S̄) with the corresponding morphisms of étale sites",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HenselianLocalRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Henselian.lean",
+         "line": 108,
+         "fit": "related"
+        },
+        {
+         "name": "IsDiscreteValuationRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
+         "line": 58,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.genericFiber",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Fibers.lean",
+         "line": 42,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.specialFiber",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Fibers.lean",
+         "line": 54,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.isOpenImmersion_genericFiberι",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Fibers.lean",
+         "line": 135,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has henselian local rings and DVRs. Tau Ceti builds the scheme-level generic fibre (an open immersion over a DVR with its fraction field) and the special fibre (a closed immersion over a local ring). Missing: geometric generic and closed points, strict henselisation, S̄, and the induced morphisms i*, j_* of étale topoi."
+      },
+      {
+       "target": "RΨ_f with its continuous inertia action, via ī*Rj̄_* on the geometric generic fibre or the oriented fibre-product topos X_s ×_s S, the equivalence of the two constructions, and the stalk formula through strict-local Milnor fibres",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.pointSmallEtale",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/EtalePoint.lean",
+         "line": 64,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.isConservativeFamilyOfPoints_pointSmallEtale'",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/EtalePoint.lean",
+         "line": 148,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Sheaf.H",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+         "line": 59,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the small étale and pro-étale sites, geometric points of the small étale site (a conservative family), Ext-based sheaf cohomology and pro-étale ℓ-adic cohomology groups Hⁱ(X, ℤ_ℓ). It has no derived direct or inverse images of étale sheaves, base-change theorems, constructible or lisse sheaves, or Tate twists, and Tau Ceti adds none."
+      },
+      {
+       "target": "The specialisation map and the functorial vanishing-cycle triangle i*K → RΨ_f(j*K) → RΦ_f(K) →",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Pretriangulated",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean",
+         "line": 65,
+         "fit": "related"
+        },
+        {
+         "name": "DerivedCategory",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+         "line": 87,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the abstract language exists: triangulated and derived categories. There is no derived category of étale sheaves on schemes, and no RΨ or RΦ."
+      },
+      {
+       "target": "Compatibility of RΨ with proper pushforward, smooth base change, restriction to opens and finite coefficient change, and bounded constructibility over excellent finite-type traits (SGA 4½ Th. finitude)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has proper or smooth base change for étale cohomology, constructible sheaves or excellent rings (a grep for Excellent, Constructible sheaf and LocallyAcyclic found nothing)."
+      },
+      {
+       "target": "Smoothness or local acyclicity implies RΦ = 0, compared with the earlier local-acyclicity definition",
+       "library": "absent",
+       "declarations": [],
+       "note": "Local acyclicity is not defined in either library."
+      },
+      {
+       "target": "The long exact specialisation sequence with inertia and Galois equivariance",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Field.absoluteGaloisGroup",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
+         "line": 43,
+         "fit": "related"
+        }
+       ],
+       "note": "Absolute Galois groups with the Krull topology exist; the cohomological sequence does not."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "WeightsInEtaleCohomology:R34.3",
+       "note": "R34.3 imports the same nearby/vanishing-cycle functors and specialisation sequence as its own milestone."
+      },
+      {
+       "layer": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+       "note": "H1 defines RΨ = i*Rj*j*F over valuation bases, traits included, with the base-change (Huber 4.2.4) and constructibility (4.2.5) theorems, overlapping LPV.0's base change and constructibility over traits."
+      }
+     ]
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Tame and wild inertia and the tame character t_ℓ: I → ℤ_ℓ(1)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ValuationSubring.inertiaSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/RamificationGroup.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "Ideal.inertia",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/Defs.lean",
+         "line": 154,
+         "fit": "related"
+        },
+        {
+         "name": "cyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 307,
+         "fit": "related"
+        },
+        {
+         "name": "Field.absoluteGaloisGroup",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
+         "line": 43,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.ramificationGroup",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/RamificationGroup.lean",
+         "line": 109,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines inertia subgroups (for a valuation subring or an ideal) and the ℓ-adic cyclotomic character; Tau Ceti has lower ramification groups for finite extensions of function-field places. Missing: wild inertia as the pro-p part of the absolute inertia group, the tame quotient ≅ ∏_{ℓ≠p} ℤ_ℓ(1), and t_ℓ. A grep for tame/wild inertia and tamely ramified found nothing."
+      },
+      {
+       "target": "Comparison of the geometric inertia action on the nearby-cycle complex with the induced action on cohomology",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nearby cycles do not exist (see LPV.0)."
+      },
+      {
+       "target": "The canonical and variation morphisms and their composition identities with T − 1, retaining Tate twists",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "For a unipotent action: the monodromy operator N = log ρ(σ) via the finite logarithm, its nilpotence, independence of the tame generator as N: V → V(−1), and exp(t_ℓ(σ)N) = ρ(σ)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsNilpotent.exp",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Nilpotent/Exp.lean",
+         "line": 55,
+         "fit": "related"
+        },
+        {
+         "name": "IsNilpotent.exp_add_of_commute",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Nilpotent/Exp.lean",
+         "line": 81,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the finite exponential of a nilpotent element in a ℚ-algebra, with exp(a+b) = exp a · exp b for commuting nilpotents. Missing: the logarithm of a unipotent operator, the log–exp inverse identities, and the Galois-representation statements."
+      },
+      {
+       "target": "Grothendieck's quasi-unipotence theorem in the geometric coefficient setting, with finite-extension reduction, wild inertia and continuity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present; a grep for quasi-unipotent and monodromy theorem found nothing."
+      },
+      {
+       "target": "The monodromy (weight) filtration of a nilpotent endomorphism centred at an integer: existence, uniqueness, N lowering it by two, N^r identifying opposite graded pieces with a twist, and functoriality",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has this linear algebra; the only weight filtrations in Tau Ceti belong to mixed Hodge structures and are not built from a nilpotent operator."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticGaloisRepresentations:R01.2",
+       "note": "R01.2 constructs tame characters, proves quasi-unipotence for ℓ ≠ p and builds the monodromy operator with independence of the tame character: the same targets for arithmetic representations."
+      },
+      {
+       "layer": "WeightsInEtaleCohomology:R34.3",
+       "note": "R34.3 imports LPV.1's inertia and monodromy as its own milestone."
+      }
+     ]
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Ordinary quadratic singularities defined by the completed or étale local hypersurface equation and a smooth projective tangent quadric",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MvPowerSeries",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+         "line": 86,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.smoothLocus",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+         "line": 291,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has multivariate power series and the smooth locus of a morphism, but no notion of an ordinary quadratic singularity or a tangent cone."
+      },
+      {
+       "target": "Quadratic-form and local-model equivalences, including the characteristic-2 distinction between a nonsingular quadric and a nondegenerate polar form",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "QuadraticMap.Nondegenerate",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/QuadraticForm/Radical.lean",
+         "line": 115,
+         "fit": "special case"
+        },
+        {
+         "name": "QuadraticMap.radical",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/QuadraticForm/Radical.lean",
+         "line": 35,
+         "fit": "special case"
+        },
+        {
+         "name": "QuadraticMap.nondegenerate_polar_iff",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/QuadraticForm/Radical.lean",
+         "line": 168,
+         "fit": "special case"
+        },
+        {
+         "name": "QuadraticForm.equivalent_weightedSumSquares",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/QuadraticForm/IsometryEquiv.lean",
+         "line": 172,
+         "fit": "related"
+        }
+       ],
+       "note": "The quadratic-form half is in Mathlib. `QuadraticMap.Nondegenerate` follows Elman–Karpenko–Merkurjev II §7 in every characteristic (radical zero and polar radical of rank ≤ 1), and `nondegenerate_polar_iff` identifies it with nondegeneracy of the polar form only when 2 is invertible. Diagonalisation also needs 2 invertible. Missing: the link to smooth projective quadrics and to local equations of singularities."
+      },
+      {
+       "target": "Cohomology of quadrics and the local nearby/vanishing cycles at an ordinary quadratic point: concentration in the middle degree, the rank-one vanishing module with its twist, variation pairing and orientation ambiguity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Mathlib has the small étale and pro-étale sites, geometric points of the small étale site (a conservative family), Ext-based sheaf cohomology and pro-étale ℓ-adic cohomology groups Hⁱ(X, ℤ_ℓ). It has no derived direct or inverse images of étale sheaves, base-change theorems, constructible or lisse sheaves, or Tate twists, and Tau Ceti adds none."
+      },
+      {
+       "target": "For a proper morphism from a regular (n+1)-dimensional trait scheme with one ordinary quadratic singularity in the special fibre: specialisation is an isomorphism outside degrees n, n+1, with the five-term exact sequence there",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "The Picard–Lefschetz formula ρ(σ)x = x + ε_n t_ℓ(σ)⟨x,δ⟩δ for odd n, the quadratic-character reflection formula for even n with p ≠ 2, and the n mod 4 sign table",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LinearEquiv.transvection",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Transvection/Basic.lean",
+         "line": 138,
+         "fit": "related"
+        },
+        {
+         "name": "Module.reflection",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Reflection.lean",
+         "line": 101,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the shape of the operators exists: Mathlib's transvections x ↦ x + f(x)·v (automorphisms when f(v) = 0) and reflections. The geometric formula is not proved."
+      },
+      {
+       "target": "The δ = 0 case (degree-(n+1) skyscraper) and compatibility with finite extension of the trait and with proper global cohomology",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "WeightsInEtaleCohomology:R34.3",
+       "note": "R34.3 imports LPV.2's specialisation sequence and local calculation as its own milestone."
+      }
+     ]
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The dual projective space, incidence variety, conormal and dual variety, axis and pencil parameter line as actual schemes",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.«Proj»",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Scheme.lean",
+         "line": 854,
+         "fit": "related"
+        },
+        {
+         "name": "Projectivization",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Projectivization/Basic.lean",
+         "line": 48,
+         "fit": "related"
+        },
+        {
+         "name": "Module.Grassmannian",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Grassmannian.lean",
+         "line": 68,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Proj of a graded ring, projectivisations of vector spaces (as sets of lines) and the Grassmannian functor of quotients, but no projective space as a scheme with its dual, incidence varieties or dual varieties."
+      },
+      {
+       "target": "Openness of the transversality, smooth-axis and ordinary-singularity conditions, by tangent-space and jet-separation calculations",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.smoothLocus",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+         "line": 291,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the smooth locus of a morphism exists; nothing about jets or the discriminant locus of a linear system."
+      },
+      {
+       "target": "Existence of a Lefschetz pencil after a Veronese re-embedding of degree ≥ 2 for smooth projective geometrically connected X over an algebraically closed field (SGA 7 XVII, Deligne I 5.6–5.7), with dimension/connectivity reductions and low-dimensional or empty-axis cases",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has Veronese embeddings, Bertini theorems or Lefschetz pencils (a grep for Veronese, Bertini and pencil found nothing)."
+      },
+      {
+       "target": "The incidence total space as the blow-up along the smooth codimension-two axis, with smooth total space, projective morphism, and finitely many singular fibres each with one ordinary quadratic singularity",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "reesAlgebra",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/ReesAlgebra.lean",
+         "line": 39,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the Rees algebra of an ideal, but neither library has blow-ups of schemes."
+      },
+      {
+       "target": "Over F_q, a nonempty admissible open has a point over some finite extension; descent of finite-presentation data and the base-extension/Frobenius-power interface of Deligne I §7.1",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "finite_of_finite_type_of_isJacobsonRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Jacobson/Ring.lean",
+         "line": 676,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.isFinite_iff_locallyOfFiniteType_of_jacobsonSpace",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Finite.lean",
+         "line": 178,
+         "fit": "related"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.Hom.closePoints_subset_preimage_closedPoints",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Morphisms/Finite.lean",
+         "line": 209,
+         "fit": "related"
+        }
+       ],
+       "note": "The point-existence ingredients are in Mathlib: Zariski's lemma, and for Jacobson schemes Spec κ(x) → X is finite iff of finite type and closed points map to closed points. So closed points of a finite-type F_q-scheme have finite residue fields. Missing: that consequence stated for F_{q^r}-points, and the spreading-out/descent of the pencil data."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "WeightsInEtaleCohomology:R34.4",
+       "note": "R34.4 imports LPV.3's Veronese/Bertini existence, blow-up/pencil maps and finite-extension descent as its own milestone."
+      },
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.4",
+       "note": "DWP.4 restates the descent and extension of the projective embedding, pencil, singular values and vanishing cycles after a finite extension, which LPV.3 is to export."
+      }
+     ]
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "R^n f_* ℚ_ℓ on U = ℙ¹ − S as a lisse sheaf with its cup-product pairing",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.EllAdicCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the small étale and pro-étale sites, geometric points of the small étale site (a conservative family), Ext-based sheaf cohomology and pro-étale ℓ-adic cohomology groups Hⁱ(X, ℤ_ℓ). It has no derived direct or inverse images of étale sheaves, base-change theorems, constructible or lisse sheaves, or Tate twists, and Tau Ceti adds none."
+      },
+      {
+       "target": "Transport of local vanishing cycles along étale paths; E as their span, with independence of paths as a monodromy-stable subspace",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has étale paths or fundamental groupoids of schemes."
+      },
+      {
+       "target": "Locally constant descriptions of R^i f_* ℚ_ℓ for i ≠ n, and the degree-(n+1) skyscraper sequence when all vanishing cycles vanish",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "E^⊥ and the identification of the common fixed space of the local transvections",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "LinearEquiv.transvection",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Transvection/Basic.lean",
+         "line": 138,
+         "fit": "related"
+        },
+        {
+         "name": "LinearEquiv.mem_fixedSubmodule_transvection_iff",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Transvection/Basic.lean",
+         "line": 209,
+         "fit": "special case"
+        },
+        {
+         "name": "LinearEquiv.ker_le_fixedSubmodule_transvection",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Transvection/Basic.lean",
+         "line": 213,
+         "fit": "special case"
+        },
+        {
+         "name": "LinearMap.BilinForm.orthogonal",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/BilinearForm/Orthogonal.lean",
+         "line": 145,
+         "fit": "related"
+        }
+       ],
+       "note": "The linear algebra is in Mathlib. For a transvection x ↦ x + f(x)·v with f(v) = 0, `mem_fixedSubmodule_transvection_iff` says x is fixed iff f(x)·v = 0; over a field with v ≠ 0 that is ker f = δ^⊥, so the common fixed space of the Picard–Lefschetz transvections is E^⊥. Missing: the geometric local system on which they act."
+      },
+      {
+       "target": "Nondegenerate descent of the cup-product pairing to E/(E ∩ E^⊥), symplectic for odd n and symmetric for even n",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "LinearMap.IsRefl.liftQ₂",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Quotient/Bilinear.lean",
+         "line": 52,
+         "fit": "special case"
+        },
+        {
+         "name": "LinearMap.BilinForm.toLin_restrict_ker_eq_inf_orthogonal",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/BilinearForm/Orthogonal.lean",
+         "line": 223,
+         "fit": "special case"
+        },
+        {
+         "name": "LinearMap.BilinForm.IsAlt",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/BilinearForm/Properties.lean",
+         "line": 236,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib descends a reflexive form to the quotient by any submodule of its kernel (`LinearMap.IsRefl.liftQ₂`) and identifies the kernel of the restriction to W with W ∩ W^⊥. Missing: a stated lemma that the descended form on W/(W ∩ W^⊥) is nondegenerate, and its application to the cohomological E."
+      },
+      {
+       "target": "Leray and restriction/Gysin comparisons through the blow-up and projective-bundle maps for the dimension induction, without assuming Leray degeneration, hard Lefschetz or condition (A)/(LV)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has spectral sequences in étale cohomology, blow-up formulas or Gysin maps."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.3",
+       "note": "DWP.3 again constructs the vanishing local system E, E^⊥, the radical E ∩ E^⊥ and the quotient with its alternating pairing and twist."
+      },
+      {
+       "layer": "WeightsInEtaleCohomology:R34.4",
+       "note": "R34.4 imports the vanishing-cycle radical quotient as its own milestone."
+      },
+      {
+       "layer": "EtaleDualityAndPerverseSheaves:EDC.4",
+       "note": "EDC.4 proves the blow-up and projective-bundle formulas applied to the pencil axis and constructs the orthogonal complements used in LPV.4's dimension induction."
+      }
+     ]
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Conjugacy of the local vanishing cycles up to sign, from irreducibility of the dual variety and fundamental-group/Bertini surjectivity",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has dual varieties, Bertini theorems or étale fundamental groups of schemes."
+      },
+      {
+       "target": "Tame-cover specialisation and Abhyankar's lemma along the smooth codimension-one dual locus, with the algebraic tame fundamental-group comparison",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.GaloisCategory",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Galois/Basic.lean",
+         "line": 412,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.PreGaloisCategory.IsFundamentalGroup",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Galois/IsFundamentalgroup.lean",
+         "line": 232,
+         "fit": "related"
+        },
+        {
+         "name": "CommAlgCat.FiniteEtale",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Etale/Finite.lean",
+         "line": 58,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has abstract Galois categories with fundamental groups and the category of finite étale algebras, but no Galois-category structure on finite étale covers of a scheme, no tame fundamental group and no Abhyankar lemma (grep found none)."
+      },
+      {
+       "target": "Topological generation of the geometric monodromy image by the local transvections, completing E^⊥ = global invariants",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "Absolute irreducibility of V = E/(E ∩ E^⊥) from the transvection generators and their conjugacy",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Representation.IsIrreducible",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Irreducible.lean",
+         "line": 30,
+         "fit": "related"
+        },
+        {
+         "name": "LinearEquiv.transvection",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Transvection/Basic.lean",
+         "line": 138,
+         "fit": "related"
+        }
+       ],
+       "note": "Irreducible representations and transvections are defined, but the irreducibility criterion for a group generated by a conjugacy class of transvections is not proved."
+      },
+      {
+       "target": "ℓ-adic analytic matrix groups: closed subgroups, exponential–logarithm lemmas and the local inverse-function/subgroup argument",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "eventually_mulInvariantExp_log",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Lie/Exponential/LocalInverse.lean",
+         "line": 370,
+         "fit": "related"
+        },
+        {
+         "name": "IsNilpotent.exp",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Nilpotent/Exp.lean",
+         "line": 55,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's Lie-group exponential and local logarithm are for real Lie groups only, and Mathlib's nilpotent exponential is purely algebraic. Neither library has p-adic Lie groups or p-adic analytic exp/log (grep for p-adic Lie and Lazard found nothing)."
+      },
+      {
+       "target": "Deligne I 5.11: an irreducible Lie subalgebra of sp(V) generated by the square-zero operators x ↦ ⟨x,δ⟩δ is sp(V); openness of the compact monodromy image in Sp(V)(ℚ_ℓ) for odd n, with V = 0 separately",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LieAlgebra.Symplectic.sp",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Classical.lean",
+         "line": 159,
+         "fit": "related"
+        },
+        {
+         "name": "LieSubalgebra.lieSpan",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Subalgebra.lean",
+         "line": 624,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.SpStd.points_eq_GLSymplecticFin",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/Symplectic/StandardCarrier/Generation.lean",
+         "line": 151,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the symplectic Lie algebra and Lie spans, and Tau Ceti proves the symplectic group over a field is generated by its root subgroups. The generation theorem for sp(V) and the openness statement are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "WeightsInEtaleCohomology:R34.4",
+       "note": "R34.4 imports LPV.5's irreducible, open symplectic monodromy as its own milestone."
+      }
+     ]
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "t-exactness of nearby cycles for the perverse t-structure in the trait setting, with the ψ[−1] and φ[−1] normalisations derived explicitly",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Triangulated.TStructure",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean",
+         "line": 55,
+         "fit": "related"
+        },
+        {
+         "name": "DerivedCategory.TStructure.t",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/DerivedCategory/TStructure.lean",
+         "line": 34,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has abstract t-structures on triangulated categories and the standard t-structure on a derived category, but neither library has constructible derived categories of schemes or perverse t-structures."
+      },
+      {
+       "target": "Compatibility of nearby cycles with intermediate extension (where its hypotheses apply), duality, finite coefficient extension and normalised adic realisation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has intermediate extension or Verdier duality."
+      },
+      {
+       "target": "For IG.4: the finite-level/filtered-colimit support criterion in the stated enlarged category, and identification of the perverse bounds through the adic/scheme comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IgusaVarietiesAndTorsionConcentration:IG.4",
+       "note": "IG.4 again asks for nearby-cycle t-exactness in the scheme setting and the perverse inequalities on nonconstructible filtered colimits, the application LPV.6 exports."
+      },
+      {
+       "layer": "EtaleDualityAndPerverseSheaves:EDC.5",
+       "note": "EDC.5 describes IG.4's enlarged filtered-colimit support criterion as an extension of its perverse category, the same criterion LPV.6 is to prove."
+      }
+     ]
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Nearby cycles of a proper strictly semistable curve over a henselian trait: the normalisation and node contributions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has semistable or nodal curves (a grep for semistable, nodal curve and dual graph found nothing), nor nearby cycles."
+      },
+      {
+       "target": "The dual graph, specialisation sequence and monodromy operator N of such a curve, computed from LPV.0–2",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.NumericalType",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Basic.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's numerical types (Stacks 0C6Z) record the intersection-matrix combinatorics of a special fibre, with connectedness of the intersection graph. There is no dual graph of an actual curve and no specialisation sequence or N."
+      },
+      {
+       "target": "Compatibility with the component-group/Jacobian/Tate-module description used for modular and Shimura curves",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.NumericalType.Pic",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Picard/Basic.lean",
+         "line": 204,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has Pic(T) of a numerical type, the combinatorial model of a Néron component group. Neither library has Tate modules, Néron models, character groups of tori or the monodromy pairing."
+      },
+      {
+       "target": "For higher-dimensional strict normal-crossing models: the source-qualified nearby-cycle description and weight spectral sequence, with intersection-stratum restriction/Gysin maps",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "Deligne Weil II 3.6.1 (local invariant cycles): for a proper family over the henselisation of k[T] at (T), k algebraically closed, with essentially smooth total space and smooth generic fibre, specialisation onto inertia invariants is surjective, proved by the weight-filtered exact-sequence argument and arithmetic spreading",
+       "library": "absent",
+       "declarations": [],
+       "note": "Mathlib has the small étale and pro-étale sites, geometric points of the small étale site (a conservative family), Ext-based sheaf cohomology and pro-étale ℓ-adic cohomology groups Hⁱ(X, ℤ_ℓ). It has no derived direct or inverse images of étale sheaves, base-change theorems, constructible or lisse sheaves, or Tate twists, and Tau Ceti adds none. Neither library has weights of étale sheaves either."
+      },
+      {
+       "target": "Weil II 6.2.8–6.2.9: the extension to potentially pure complexes, with an explicit arithmetic model over an integral finite-type ℤ[1/ℓ]-base",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "Weil II 6.2.11 (support-bound weak Lefschetz refinement) and 6.2.12 (global invariant cycles) under the dual-support-dimension hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "WeightsInEtaleCohomology:R34.3",
+       "note": "R34.3 imports LPV.7:semistable-curves' normalisation/node calculations as its own milestone."
+      },
+      {
+       "layer": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+       "note": "R11.4 again identifies the toric character group from the dual graph, proves the monodromy pairing and relates the component group to the Néron model: the Jacobian side of LPV.7's semistable-curve compatibility."
+      },
+      {
+       "layer": "ModularCurvesPartII:R13.6",
+       "note": "R13.6 exports the dual graphs and nearby-cycle/character-group inputs for modular curves that LPV.7's semistable-curve export is to be compatible with."
+      }
+     ]
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Deligne Weil II 3.6.1 (local invariant cycles): for a proper family over the henselisation of k[T] at (T), k algebraically closed, with essentially smooth total space and smooth generic fibre, specialisation onto inertia invariants is surjective, proved by the weight-filtered exact-sequence argument and arithmetic spreading",
+       "library": "absent",
+       "declarations": [],
+       "note": "Mathlib has the small étale and pro-étale sites, geometric points of the small étale site (a conservative family), Ext-based sheaf cohomology and pro-étale ℓ-adic cohomology groups Hⁱ(X, ℤ_ℓ). It has no derived direct or inverse images of étale sheaves, base-change theorems, constructible or lisse sheaves, or Tate twists, and Tau Ceti adds none. Neither library has weights of étale sheaves either."
+      },
+      {
+       "target": "Weil II 6.2.8–6.2.9: the extension to potentially pure complexes, with an explicit arithmetic model over an integral finite-type ℤ[1/ℓ]-base",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "Weil II 6.2.11 (support-bound weak Lefschetz refinement) and 6.2.12 (global invariant cycles) under the dual-support-dimension hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "Acceptance: a split nodal curve with nontrivial N, a smooth specialisation with N = 0, invariant-cycle surjectivity, and a marked excluded mixed-characteristic generalisation",
+       "library": "absent",
+       "declarations": [],
+       "note": "These examples depend on the unbuilt constructions above."
+      }
+     ],
+     "duplicates": []
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Nearby cycles of a proper strictly semistable curve over a henselian trait: the normalisation and node contributions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has semistable or nodal curves (a grep for semistable, nodal curve and dual graph found nothing), nor nearby cycles."
+      },
+      {
+       "target": "The dual graph, specialisation sequence and monodromy operator N of such a curve, computed from LPV.0–2",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.NumericalType",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Basic.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's numerical types (Stacks 0C6Z) record the intersection-matrix combinatorics of a special fibre, with connectedness of the intersection graph. There is no dual graph of an actual curve and no specialisation sequence or N."
+      },
+      {
+       "target": "Compatibility with the component-group/Jacobian/Tate-module description used for modular and Shimura curves",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.NumericalType.Pic",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Picard/Basic.lean",
+         "line": 204,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has Pic(T) of a numerical type, the combinatorial model of a Néron component group. Neither library has Tate modules, Néron models, character groups of tori or the monodromy pairing."
+      },
+      {
+       "target": "For higher-dimensional strict normal-crossing models: the source-qualified nearby-cycle description and weight spectral sequence, with intersection-stratum restriction/Gysin maps",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "WeightsInEtaleCohomology:R34.3",
+       "note": "R34.3 imports these normalisation/node nearby-cycle calculations as its own milestone."
+      },
+      {
+       "layer": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+       "note": "R11.4 again constructs the character group from the dual graph, the monodromy pairing and the component-group description that this substage is to be compatible with."
+      },
+      {
+       "layer": "ModularCurvesPartII:R13.6",
+       "note": "R13.6 exports the dual graphs and inputs to nearby-cycle and character-group computations for modular curves."
+      }
+     ]
+    }
+   }
+  },
+  "WeightsInEtaleCohomology": {
+   "summary": "WeightsInEtaleCohomology is an import interface for DeligneWeightsAndPurity and LefschetzPencilsAndVanishingCycles, and none of what it imports exists: neither library has Weil numbers or weights, Tate twists of étale sheaves, Tate modules, the Rosati involution, Weil I or II, hard Lefschetz, Kuga–Sato realisations or the Ramanujan–Deligne bound. The closest library content is Tau Ceti's elliptic-curve work towards the Hasse bound: deg(1 − π_q) = #E(F_q), a_q = q + 1 − #E(F_q), and the t² ≤ 4q endgame, the last still conditional on ℓ-torsion Frobenius matrices that need the unbuilt Weil pairing. Mathlib adds the house of an algebraic number and Kronecker's theorem (all conjugates of absolute value 1 gives a root of unity). R34.3 and R34.4 only import LPV.0–2/LPV.7 and LPV.3–5 and are process. R34.1, R34.2, R34.5 and R34.6 restate DWP.0, DWP.1, DWP.2–9 and DWP.10 respectively; R34.2 also restates WC.5's curve bound.",
+   "layers": {
+    "WeightsInEtaleCohomology:R34.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Weil q-numbers of integer weight (every complex embedding of absolute value q^{w/2}), kept distinct from ι-weights for one chosen embedding, imported from DWP.0",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.house",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/House.lean",
+         "line": 39,
+         "fit": "related"
+        },
+        {
+         "name": "NumberField.Embeddings.pow_eq_one_of_norm_eq_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean",
+         "line": 138,
+         "fit": "special case"
+        },
+        {
+         "name": "NumberField.Embeddings.range_eval_eq_rootSet_minpoly",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library defines Weil numbers or weights of Frobenius eigenvalues; a grep for Weil number found nothing. Mathlib has the house (the maximum absolute value over all complex embeddings) and Kronecker's theorem that an algebraic integer whose conjugates all have absolute value 1 is a root of unity, the weight-0 integral case."
+      },
+      {
+       "target": "Elementary weight calculus: uniqueness of the weight for q > 1, products, duals, tensor powers, Tate twists and finite-field base extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "The representation-convention adapter on the Frobenius action: geometric versus arithmetic Frobenius, with ℚ_ℓ(1) of weight −2 and smooth proper Hⁱ of weight i",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "cyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 307,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the ℓ-adic cyclotomic character, but no Tate twists of étale sheaves, geometric Frobenius or weight conventions."
+      },
+      {
+       "target": "The complex-level upper/lower/pure weight formalism (DWP.8's extension, imported only when used)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has mixed complexes or weights on derived categories."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.0",
+       "note": "DWP.0 defines Weil q-numbers, ι-weights and their product/dual/tensor/twist/base-change rules; R34.1 imports and restates exactly these."
+      }
+     ]
+    },
+    "WeightsInEtaleCohomology:R34.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The Weil bound for curves over finite fields via the Jacobian, |#C(F_{q^r}) − q^r − 1| ≤ 2g·q^{r/2}, with its normalisation checks",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.degree_oneSubFrobeniusIsogeny_eq_pointCount",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Degree.lean",
+         "line": 96,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Matrix.sq_le_four_mul_of_exists_nonneg_pencil_det",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/PencilDiscriminant.lean",
+         "line": 100,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Matrix.sq_le_four_mul_of_exists_nonneg_symplectic_multiplier",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/PencilDiscriminant.lean",
+         "line": 125,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.frobeniusTrace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+         "line": 97,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.genus",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Genus.lean",
+         "line": 189,
+         "fit": "related"
+        }
+       ],
+       "note": "For elliptic curves Tau Ceti proves deg(1 − π_q) = #E(F_q) and has the Hasse endgame t² ≤ 4q, but only under a hypothesis that supplies ℓ-torsion matrices of Frobenius, which needs the unbuilt Weil pairing. So even the genus-one bound is not proved outright. For arbitrary genus Tau Ceti has only the genus of a function field."
+      },
+      {
+       "target": "For a polarised abelian variety over F_q: π†π = [q] under the Rosati involution, and every complex embedding of a Frobenius eigenvalue on the Tate realisation has absolute value √q",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 94,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.frobeniusIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Frobenius/Basic.lean",
+         "line": 106,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has abelian varieties and the Frobenius isogeny of an elliptic curve, but neither library has Tate modules, polarisations, the Rosati involution or its positivity (a grep for Rosati and Tate module found nothing)."
+      },
+      {
+       "target": "Identification of H¹ of a smooth proper geometrically connected curve with the Jacobian's Tate realisation, and the fixed-point trace identity #C(F_q) = q + 1 − tr(F | H¹)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.ncard_setOf_map_frobeniusAlgHom_eq_self",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/FrobeniusFixed.lean",
+         "line": 139,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.frobeniusTrace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+         "line": 97,
+         "fit": "special case"
+        },
+        {
+         "name": "AlgebraicGeometry.Scheme.EllAdicCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "Only special-case shadows exist: for an elliptic curve Tau Ceti defines a_q = q + 1 − #E(F_q) and proves the q-power map fixes exactly #E(F_q) points over an extension. Mathlib has pro-étale ℓ-adic cohomology groups but no trace formula or Jacobian comparison."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.1",
+       "note": "DWP.1 proves the same curve/abelian-variety Weil estimate (Rosati positivity, √q eigenvalues, H¹–Jacobian comparison, all-power point bounds); R34.2 imports it."
+      },
+      {
+       "layer": "WeilConjectures:WC.5",
+       "note": "WC.5 states the same curve bound |N_r − (q^r + 1)| ≤ 2g·q^{r/2} through b₁ = 2g."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+       "note": "EllipticCurves Layer 3 targets the genus-one case of the same bound (Hasse, a_q² ≤ 4q)."
+      }
+     ]
+    },
+    "WeightsInEtaleCohomology:R34.3": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Import of LPV.0–2's nearby/vanishing-cycle functors, inertia and monodromy, and specialisation sequence",
+       "library": "absent",
+       "declarations": [],
+       "note": "An import interface: the imported objects do not exist in either library (see LefschetzPencilsAndVanishingCycles LPV.0–LPV.2)."
+      },
+      {
+       "target": "Import of LPV.7:semistable-curves' normalisation/node calculations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has semistable curves or their nearby cycles."
+      },
+      {
+       "target": "Verification of hypotheses and integral/adic compatibility in the R13/R18 modular and Shimura curve applications, including the nodal-curve convention adapter",
+       "library": "absent",
+       "declarations": [],
+       "note": "Bookkeeping over unbuilt suppliers; the layer states no theorem of its own."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "LefschetzPencilsAndVanishingCycles:LPV.0",
+       "note": "Owner of the nearby/vanishing-cycle functors R34.3 lists as its milestone."
+      },
+      {
+       "layer": "LefschetzPencilsAndVanishingCycles:LPV.1",
+       "note": "Owner of the inertia action and monodromy operator R34.3 imports."
+      },
+      {
+       "layer": "LefschetzPencilsAndVanishingCycles:LPV.2",
+       "note": "Owner of the local quadratic-singularity calculation and specialisation sequence R34.3 imports."
+      },
+      {
+       "layer": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+       "note": "Owner of the normalisation/node calculations for semistable curves R34.3 imports."
+      }
+     ]
+    },
+    "WeightsInEtaleCohomology:R34.4": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Import of LPV.3's Veronese/Bertini pencil existence and blow-up/pencil maps, with the characteristic-2 restrictions and finite-extension descent",
+       "library": "absent",
+       "declarations": [],
+       "note": "An import interface: neither library has Lefschetz pencils, blow-ups or Veronese embeddings (see LPV.3)."
+      },
+      {
+       "target": "Import of LPV.4–5's vanishing-cycle radical quotient and proved irreducible, open symplectic monodromy",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library (see LPV.4–LPV.5)."
+      },
+      {
+       "target": "EDC.2–4's duality, cycle classes and weak Lefschetz as suppliers, with DWP.4's purity induction kept downstream",
+       "library": "absent",
+       "declarations": [],
+       "note": "Bookkeeping over unbuilt suppliers; the layer states no theorem of its own."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "LefschetzPencilsAndVanishingCycles:LPV.3",
+       "note": "Owner of the pencil existence and blow-up geometry R34.4 lists as its milestone."
+      },
+      {
+       "layer": "LefschetzPencilsAndVanishingCycles:LPV.4",
+       "note": "Owner of the global vanishing cycles and radical quotient R34.4 imports."
+      },
+      {
+       "layer": "LefschetzPencilsAndVanishingCycles:LPV.5",
+       "note": "Owner of irreducibility and open symplectic monodromy R34.4 imports."
+      }
+     ]
+    },
+    "WeightsInEtaleCohomology:R34.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Weil I: the fundamental majoration (Theorem 3.2), rationality of the pencil local factors (6.2) and the Riemann hypothesis for smooth projective varieties (DWP.2–4)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has lisse sheaves, weights or any part of Deligne's proof."
+      },
+      {
+       "target": "Weil II: local weights and mixed sheaves, giving the weight bounds for R^i f_! and purity of smooth proper lisse cohomology (DWP.5–8)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "Absolute hard Lefschetz (DWP.9)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "Weights of the actual arithmetic realisations: the weight-two Jacobian and the degree-(k−1) Kuga–Sato/parabolic cohomology of weight-k forms, with projectors, cohomological shifts and the geometric-to-arithmetic Frobenius translation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has Kuga–Sato varieties or the Eichler–Shimura realisation (a grep for Kuga and Eichler–Shimura found nothing)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.2",
+       "note": "Owner of Weil I's fundamental estimate, restated by R34.5."
+      },
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.3",
+       "note": "Owner of pencil local-factor rationality (Weil I 6.2), restated by R34.5."
+      },
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.4",
+       "note": "Owner of the smooth projective Riemann hypothesis, restated by R34.5."
+      },
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.5",
+       "note": "Owner of Weil II local weights, part of the Weil II package R34.5 imports."
+      },
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.6",
+       "note": "Owner of purity for pure local systems on curves, part of the same package."
+      },
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.7",
+       "note": "Owner of the R^i f_! weight bounds and smooth-proper purity that R34.5 names."
+      },
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.8",
+       "note": "Owner of the mixed-complex weight formalism R34.5 imports."
+      },
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.9",
+       "note": "Owner of absolute hard Lefschetz, which R34.5 imports separately."
+      }
+     ]
+    },
+    "WeightsInEtaleCohomology:R34.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Eigenspace purity for the eigenform/Kuga–Sato realisations, i.e. the Ramanujan–Petersson–Deligne bound |a_p| ≤ 2p^{(k−1)/2}",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.EigenformAwayFromLevel.qExpansion_coeff_eq_eigenvalue_mul_coeff_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Coefficient.lean",
+         "line": 76,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's modular-forms library identifies eigenform coefficients with Hecke eigenvalues, but its roadmap explicitly takes the Ramanujan–Deligne bound only as a hypothesis. Neither library proves it."
+      },
+      {
+       "target": "Coefficient-independent bounds for compatible systems and Faltings' finiteness argument",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has compatible systems of ℓ-adic representations."
+      },
+      {
+       "target": "A precise statement of the local monodromy–weight theorem used in each local–global application, with general weight–monodromy not assumed",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "Compatibility of DWP.10's purity exports with the idempotent and Hecke actions on the existing geometric realisations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.10",
+       "note": "DWP.10 exports weight statements for Hecke-stable cohomological subquotients and separates weight from ℓ-compatibility, the same content R34.6 applies to eigenforms."
+      }
+     ]
+    }
+   }
+  },
+  "WeilConjectures": {
+   "summary": "Neither library has the zeta function of a variety over a finite field, étale cohomology with Frobenius, the trace formula, Poincaré duality, purity, Betti comparison, surface intersection theory or crystalline cohomology, so the cohomological spine of WC.1–WC.6 is unbuilt; WC.0 (auditing a private repository) and WC.7 (worked examples and assembly) are process. What exists is the elementary shell. Mathlib has degree-n extensions of finite fields unique up to isomorphism with a cyclic Galois group generated by Frobenius, Möbius inversion, and irreducible polynomials dividing X^{q^n} − X exactly when their degree divides n. It also has Gauss's lemma, formal exp/log, the reversed characteristic polynomial det(1 − TM) with charpoly(A⁻¹) expressed through it, Newton's identities, and the point count |ℙ(k^{n+1})| = ∑ q^i. Tau Ceti adds finitely many places of bounded degree in a function field over a finite field, finiteness of the class group, genus and Riemann–Roch for curves, even dimension of real symplectic spaces, and for elliptic curves deg(1 − π_q) = #E(F_q) with a Hasse endgame still conditional on the Weil pairing. Genuinely missing even at the elementary level: finiteness of X(F_{q^r}) for schemes, the relation N_r = ∑ m·a_m, Fatou's lemma, the q^d-similitude reciprocity, the power-sum converse lemma, and the unconditional Hasse bound. WC.5:surface-alternative restates SF.5, WC.2's determinant step restates EDC.8, and WC.5 restates DWP.1/R34.2.",
+   "layers": {
+    "WeilConjectures:WC.0": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Map the private repository's F008/F009/F010 and B000–B015 packets and its PointCounting/ZetaFunction/Abstract/Statement declarations onto the PR196 owners, separating portable lemmas from realisation debts",
+       "library": "absent",
+       "declarations": [],
+       "note": "An audit of a private repository that is not part of the baseline, so this is bookkeeping rather than mathematics."
+      },
+      {
+       "target": "Fixed endpoint conventions: X → Spec k, geometric base change, coefficient prime, finite extensions, cohomological degree and Frobenius",
+       "library": "absent",
+       "declarations": [],
+       "note": "A specification task. None of the cohomological endpoints exists in either library."
+      },
+      {
+       "target": "Finiteness of X(F_{q^r}) for a separated finite-type k-scheme, proved rather than assumed as a Fintype instance",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.finite_point",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FinitePoint.lean",
+         "line": 53,
+         "fit": "special case"
+        }
+       ],
+       "note": "Tau Ceti proves finiteness only for points of a Weierstrass curve over a finite ring. Neither library proves finiteness of the rational points of a general finite-type scheme over a finite field."
+      },
+      {
+       "target": "Canonical translations between point sets over isomorphic fields, and compatibility with finite-extension towers",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "FiniteField.Extension",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Extension.lean",
+         "line": 48,
+         "fit": "related"
+        },
+        {
+         "name": "FiniteField.algEquivExtension",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Extension.lean",
+         "line": 130,
+         "fit": "special case"
+        },
+        {
+         "name": "FiniteField.Extension.frob",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Extension.lean",
+         "line": 103,
+         "fit": "related"
+        }
+       ],
+       "note": "The field side is in Mathlib: a chosen degree-n extension of a finite field, a (non-unique) isomorphism from any other degree-n extension to it, and its cyclic Galois group generated by Frobenius. Missing: the induced bijections of scheme points and their compatibility in towers."
+      }
+     ],
+     "duplicates": []
+    },
+    "WeilConjectures:WC.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The zeta function Z(X,T) = ∏_{x∈|X|}(1 − T^{deg x})^{−1} = exp(∑_r N_r T^r / r) as an integral power series with constant term 1 (consumed from PR196)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PowerSeries.exp",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Exp.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "PowerSeries.log",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Log.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Place.finite_setOf_degree_le",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/BoundedDegree.lean",
+         "line": 93,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library defines the zeta function of a variety over a finite field or of a function field. Mathlib has formal exp and log of power series; Tau Ceti proves a function field over a finite constant field has finitely many places of each bounded degree, the finiteness behind the curve Euler product."
+      },
+      {
+       "target": "Disjoint-union products, open–closed factorisation and finite-base-extension behaviour of Z",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "N_r = ∑_{m∣r} m·a_m, with a_m the number of closed points of degree m, and its Möbius inversion",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ArithmeticFunction.sum_eq_iff_sum_mul_moebius_eq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
+         "line": 236,
+         "fit": "more general"
+        },
+        {
+         "name": "Irreducible.natDegree_dvd_iff_dvd_X_pow_card_pow_sub_X",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Extension.lean",
+         "line": 181,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Möbius inversion, and for X = 𝔸¹ the key input (an irreducible polynomial over F_q divides X^{q^n} − X iff its degree divides n). Missing: closed points of a scheme with their degrees, and the identity itself, even for 𝔸¹."
+      },
+      {
+       "target": "Rationality of Z over ℚ from the integral point-count series and its cohomological realisation, normalised by coprime numerator and denominator",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Matrix.charpolyRev",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+         "line": 291,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.eval_charpolyRev",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+         "line": 328,
+         "fit": "related"
+        },
+        {
+         "name": "RatFunc",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/RatFunc/Defs.lean",
+         "line": 67,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has étale cohomology of varieties with its Frobenius action, lisse sheaves, the trace formula or Poincaré duality; Mathlib's pro-étale ℓ-adic cohomology groups carry no Frobenius or finiteness theory. The determinant side exists as Mathlib's reversed characteristic polynomial det(1 − T·M), which has constant term 1."
+      },
+      {
+       "target": "Fatou/Gauss lemmas (an integral power series that is rational over ℚ is a quotient of integral polynomials with constant term 1) and the rational-descent lemmas",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Polynomial.IsPrimitive.dvd_iff_fraction_map_dvd_fraction_map",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/GaussLemma.lean",
+         "line": 309,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.Monic.irreducible_iff_irreducible_map_fraction_map",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/GaussLemma.lean",
+         "line": 149,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Gauss's lemma for polynomials over a GCD domain and its fraction field. Fatou's lemma for rational power series is absent: a grep for Fatou finds only the measure-theoretic lemma."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FunctionFieldArithmetic:FA.5",
+       "note": "FA.5 again constructs Euler products by closed-point degree and proves rationality for the zeta function of a curve, the one-dimensional case of WC.1."
+      }
+     ]
+    },
+    "WeilConjectures:WC.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The Frobenius-equivariant Poincaré pairing Hⁱ ⊗ H^{2d−i} → ℚ_ℓ(−d), with geometric Frobenius acting by q^d on the target",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.EllAdicCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has étale cohomology of varieties with its Frobenius action, lisse sheaves, the trace formula or Poincaré duality; Mathlib's pro-étale ℓ-adic cohomology groups carry no Frobenius or finiteness theory."
+      },
+      {
+       "target": "Linear algebra of such a pairing: b_i = b_{2d−i}, invertibility of F, the reciprocal eigenvalue pairing α ↔ q^d/α and the characteristic-polynomial reciprocity identity, without diagonalisability",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Matrix.charpoly_inv",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+         "line": 314,
+         "fit": "special case"
+        },
+        {
+         "name": "Matrix.reverse_charpoly",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+         "line": 293,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.charpoly_transpose",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+         "line": 167,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib relates the characteristic polynomial of A⁻¹ to the reversed characteristic polynomial of A (charpoly(A⁻¹) = (−1)ⁿ det(A)⁻¹ · charpolyRev A) and proves charpoly is transpose-invariant. That is the unscaled reciprocity. Missing: the version with a q^d-similitude from a perfect pairing between two different spaces."
+      },
+      {
+       "target": "The exact functional equation Z(X, 1/(q^d T)) = (−1)^χ Δ T^χ Z(X,T) with Δ² = q^{dχ}, first in ℚ_ℓ(T)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "Descent of the multiplier to ℚ and the ±q^{dχ/2} form with a defined sign",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "Evenness of the middle Betti number in odd middle degree from the alternating pairing in characteristic-zero coefficients, including ℓ = 2",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.SymplecticForm.even_finrank",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Symplectic/ExistsCompatible.lean",
+         "line": 199,
+         "fit": "special case"
+        }
+       ],
+       "note": "Tau Ceti proves that a finite-dimensional real symplectic vector space has even dimension. Missing: the same statement over ℚ_ℓ or any field; Mathlib has no Pfaffian or skew-determinant lemma."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EtaleDualityAndPerverseSheaves:EDC.8",
+       "note": "EDC.8 again exports the Poincaré pairing with its Frobenius similitude and proves the determinant relation between the degree-i and degree-(2d−i) characteristic polynomials, the input step of WC.2."
+      }
+     ]
+    },
+    "WeilConjectures:WC.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Import of DWP.4's proved purity, with no CurveRH or PureCohomology hypothesis",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library proves purity (see DeligneWeightsAndPurity)."
+      },
+      {
+       "target": "Deligne I (1.7) ⇒ (1.6): from a reduced rational presentation, distinct weights prevent cancellation between the P_i, and each P_i is identified by the absolute values of its roots, with multiplicities and explicit complex embeddings",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Matrix.trace_eq_sum_roots_charpoly",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Eigs.lean",
+         "line": 109,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has this weight-separation argument; only generic results relating traces and determinants to roots of the characteristic polynomial exist."
+      },
+      {
+       "target": "Galois stability over ℚ and integrality of each P_i (coefficients in ℤ, constant term 1) by the rational-function/Gauss argument",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Polynomial.IsPrimitive.dvd_iff_fraction_map_dvd_fraction_map",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/GaussLemma.lean",
+         "line": 309,
+         "fit": "related"
+        }
+       ],
+       "note": "Gauss's lemma for polynomials exists; the integrality theorem for the P_i does not."
+      },
+      {
+       "target": "ℓ-independence of each P_i",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "deg P_i = b_i from invertibility of Frobenius",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Matrix.charpoly_natDegree_eq_dim",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+         "line": 116,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.reverse_natDegree",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Reverse.lean",
+         "line": 256,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.reverse_charpoly",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+         "line": 293,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has deg charpoly = dim, reversal of polynomials with its degree, and charpoly.reverse = det(1 − T·M). The step 'det M ≠ 0 implies deg det(1 − T·M) = dim' is not stated, and nothing is tied to cohomology."
+      },
+      {
+       "target": "The final theorem instantiated on the constructed étale realisation, closing the earlier realisation debts",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has étale cohomology of varieties with its Frobenius action, lisse sheaves, the trace formula or Poincaré duality; Mathlib's pro-étale ℓ-adic cohomology groups carry no Frobenius or finiteness theory."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+       "note": "RD.7 again uses purity and disjoint absolute values by degree to identify each characteristic polynomial, not just the alternating product, which is WC.3's (1.7) ⇒ (1.6) separation step applied to crystalline zeta expressions."
+      }
+     ]
+    },
+    "WeilConjectures:WC.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Lisse higher direct images and smooth proper base change for a smooth proper family over a connected base on which ℓ is invertible",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has higher direct images or base-change theorems in étale cohomology."
+      },
+      {
+       "target": "Comparison of the ℓ-adic Betti numbers of a finite-field fibre with the singular Betti numbers of a complex fibre, via an étale transport path and Artin's comparison, recording which objects depend on the path",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicTopology.singularHomologyFunctor",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicTopology/SingularHomology/Basic.lean",
+         "line": 52,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has singular homology of topological spaces, but neither library has analytification of complex varieties or Artin's comparison theorem."
+      },
+      {
+       "target": "Stratification for compact-support comparisons outside the smooth proper case",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "Acceptance: a case with no specified complex fibre, where WC.3 still holds and no complex variety is assigned",
+       "library": "absent",
+       "declarations": [],
+       "note": "A test of the unbuilt comparison."
+      }
+     ],
+     "duplicates": []
+    },
+    "WeilConjectures:WC.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The all-extension estimate |N_r − (1 + q^{dr})| ≤ ∑_{i=1}^{2d−1} b_i q^{ir/2} for smooth projective geometrically connected varieties, from RH via power sums and the triangle inequality, with dimension zero separately",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Matrix.trace_eq_sum_roots_charpoly",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/Charpoly/Eigs.lean",
+         "line": 109,
+         "fit": "related"
+        }
+       ],
+       "note": "Depends on the unbuilt trace formula and RH; neither library states it."
+      },
+      {
+       "target": "For curves: b₁ = 2g and |N_r − (q^r + 1)| ≤ 2g·q^{r/2}",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.degree_oneSubFrobeniusIsogeny_eq_pointCount",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Degree.lean",
+         "line": 96,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Matrix.sq_le_four_mul_of_exists_nonneg_pencil_det",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/PencilDiscriminant.lean",
+         "line": 100,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Matrix.sq_le_four_mul_of_exists_nonneg_symplectic_multiplier",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/PencilDiscriminant.lean",
+         "line": 125,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.genus",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Genus.lean",
+         "line": 189,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the genus-one case has started, in Tau Ceti: deg(1 − π_q) = #E(F_q), plus the endgame t² ≤ 4q conditional on ℓ-torsion Frobenius matrices that need the unbuilt Weil pairing. Tau Ceti has the genus of a function field, but neither library identifies b₁ = 2g or bounds point counts of curves of higher genus."
+      },
+      {
+       "target": "Compatibility with the independent elliptic-curve Hasse bound",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.degree_oneSubFrobeniusIsogeny_eq_pointCount",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Degree.lean",
+         "line": 96,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Matrix.sq_le_four_mul_of_exists_nonneg_pencil_det",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/PencilDiscriminant.lean",
+         "line": 100,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.frobeniusTrace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+         "line": 97,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti defines a_q = q + 1 − #E(F_q) and has the conditional Hasse endgame; the unconditional Hasse bound is not proved."
+      },
+      {
+       "target": "The recurrence for extension-field counts from P₁, and the distinction between the zeta numerator and the characteristic polynomial of F",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MvPolynomial.psum_eq_mul_esymm_sub_sum",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPolynomial/Symmetric/NewtonIdentities.lean",
+         "line": 248,
+         "fit": "related"
+        },
+        {
+         "name": "LinearRecurrence",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/LinearRecurrence.lean",
+         "line": 53,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.Affine.Point.ncard_setOf_map_frobeniusAlgHom_eq_self",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/FrobeniusFixed.lean",
+         "line": 139,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Newton's identities and linear recurrences, and Tau Ceti proves the q-power map fixes exactly #E(F_q) points over an extension. Neither library has the extension-count recurrence #E(F_{q^r}) = q^r + 1 − (α^r + β^r)."
+      },
+      {
+       "target": "The converse finite-spectrum lemma combined with duality to recover RH from bounds for all extensions",
+       "library": "absent",
+       "declarations": [],
+       "note": "See WC.5:power-sum-converse; not present in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "WeightsInEtaleCohomology:R34.2",
+       "note": "R34.2 again states the curve/Jacobian Weil bound and its normalisation checks."
+      },
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.1",
+       "note": "DWP.1 proves the all-power point-count bounds for curves through the Jacobian, the same curve estimate as WC.5."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+       "note": "EllipticCurves Layer 3 owns the Hasse bound that WC.5 is to recover as a compatibility theorem."
+      }
+     ]
+    },
+    "WeilConjectures:WC.5:power-sum-converse": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The rational generating function of the power sums of a finite multiset of complex numbers, ∑_{r≥1} p_r T^r = ∑_i m_i α_i T/(1 − α_i T), with equal roots combined before poles are identified",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MvPolynomial.psum_eq_mul_esymm_sub_sum",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPolynomial/Symmetric/NewtonIdentities.lean",
+         "line": 248,
+         "fit": "related"
+        },
+        {
+         "name": "LinearRecurrence",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/LinearRecurrence.lean",
+         "line": 53,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has power-sum symmetric polynomials with Newton's identities and linear recurrence sequences, but no generating-function identity or pole analysis for power sums."
+      },
+      {
+       "target": "If |p_r| ≤ C·R^r for every r ≥ 1, then every root of nonzero multiplicity has |α_i| ≤ R, despite cancellation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "FormalMultilinearSeries.radius",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Analytic/ConvergenceRadius.lean",
+         "line": 108,
+         "fit": "related"
+        },
+        {
+         "name": "spectrum.pow_nnnorm_pow_one_div_tendsto_nhds_spectralRadius",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Normed/Algebra/GelfandFormula.lean",
+         "line": 122,
+         "fit": "related"
+        }
+       ],
+       "note": "Not present in either library (a grep for power-sum bounds found only symmetric polynomials). Mathlib's radius of convergence and Gelfand's spectral-radius formula are related, but Gelfand bounds norms of powers, not traces, so it does not handle cancellation."
+      },
+      {
+       "target": "Acceptance: equal-modulus roots whose first power sums cancel",
+       "library": "absent",
+       "declarations": [],
+       "note": "A test of the unbuilt lemma."
+      }
+     ],
+     "duplicates": []
+    },
+    "WeilConjectures:WC.5:surface-alternative": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Surface Riemann–Roch, adjunction, the Hodge index theorem and divisor intersections on C × C (imported from SF.5)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.exists_isRiemannRochDivisor",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Differential/CanonicalDivisor.lean",
+         "line": 412,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves Riemann–Roch for function fields of curves only. Neither library has intersection theory on surfaces or the Hodge index theorem (a grep for Hodge index, intersection pairing and adjunction formula found nothing in algebraic geometry)."
+      },
+      {
+       "target": "The diagonal and the graphs of Frobenius powers on C × C, with their self-intersections and intersections with the two fibres",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "Hodge index with the precise sign convention, giving the curve bound for every finite extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "Recovery of the curve RH from these bounds through the power-sum converse and duality",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SchemeAndStackFoundations:SF.5",
+       "note": "SF.5 is to prove the Hodge index theorem for surfaces and to supply the product-of-curves intersection route to Weil bounds, including the graph-of-Frobenius computation; WC.5:surface-alternative states the same application."
+      }
+     ]
+    },
+    "WeilConjectures:WC.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Purity and the assembled conclusions for smooth proper, not necessarily projective, varieties via DWP.7",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has weights of étale cohomology."
+      },
+      {
+       "target": "Compact-support weights for separated finite-type X and mixed sheaves, with the sheaf L-function trace formula",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has compact-support étale cohomology, mixed sheaves or L-functions of sheaves."
+      },
+      {
+       "target": "How missing smoothness or properness changes the allowed weights and pairings",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "Interface to crystalline Frobenius over finite fields: equality of ℓ-adic and crystalline characteristic polynomials as a separate theorem (from RD.7), with no universal crystalline/étale equivalence",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has crystalline or rigid cohomology."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+       "note": "RD.7 proves the equality of rigid/crystalline and ℓ-adic Frobenius characteristic polynomials and exports it to WC.6, the crystalline interface WC.6 describes."
+      },
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.7",
+       "note": "DWP.7 again exports the smooth proper nonprojective purity extension (Weil II 3.3.9) for constant coefficients 'used by WC', the first target of WC.6."
+      }
+     ]
+    },
+    "WeilConjectures:WC.7": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Projective spaces: P_{2i} = 1 − q^i T and P_{2i+1} = 1, with N_r = ∑_{i≤n} q^{ir}",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Projectivization.card_of_finrank",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Projectivization/Cardinality.lean",
+         "line": 105,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib counts points of projectivisations over a finite field, |ℙ(k^{n+1})| = ∑_{i≤n} q^i, which is the point-count side for ℙⁿ as a set of lines. Projective space as a scheme and its cohomological factors are absent."
+      },
+      {
+       "target": "Finite étale schemes with nontrivial component permutation, smooth curves, elliptic curves, and products via Künneth, including the sign for ℙ², negative Euler characteristic in genus > 1 and a nonprime field such as F₄",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CommAlgCat.FiniteEtale",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Etale/Finite.lean",
+         "line": 58,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.degree_oneSubFrobeniusIsogeny_eq_pointCount",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Degree.lean",
+         "line": 96,
+         "fit": "special case"
+        }
+       ],
+       "note": "Worked examples of the unbuilt theory. Only fragments exist: Mathlib's category of finite étale algebras, and Tau Ceti's elliptic-curve point counts via deg(1 − π_q). Neither library has a Künneth formula."
+      },
+      {
+       "target": "Separate rationality, functional-equation, integral-factor/RH, Betti-comparison and general-weight APIs and their assembled theorem, with source/version and dependency-closure records and no uninstantiated Weil-cohomology structure",
+       "library": "absent",
+       "declarations": [],
+       "note": "Final assembly and bookkeeping over the unbuilt WC.1–WC.6."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DeligneWeightsAndPurity:DWP.10",
+       "note": "DWP.10's acceptance examples (ℙⁿ, a smooth proper curve and its Jacobian, a nonsemisimple Frobenius, a nonprojective input via DWP.7) overlap WC.7's worked realisations."
+      }
+     ]
+    }
+   }
+  },
+  "FiniteFieldsAndCharacterSums": {
+   "summary": "Mathlib already contains most of FF.0 and FF.1, which the roadmap describes as things to build. For FF.0 it has classification and cardinality of finite fields, Frobenius generating the cyclic Galois group, subfields by divisibility (with Tau Ceti's uniqueness of the subfield of each order), explicit trace and norm formulas with surjectivity, and the normal basis theorem. For FF.1 it has additive and multiplicative characters with zero extension and the primitive trace character, orthogonality, and Gauss and Jacobi sums with g(χ)g(χ⁻¹) = q, J = gg/g, J·J(χ⁻¹,φ⁻¹) = q and g^n = χ(−1)q∏J. Genuinely missing there: tensor decompositions, certified computable presentations and the Hasse–Davenport relations. FF.2 is unbuilt (no Weil or Deligne bounds, Kloosterman sums or trace functions). FF.3 has only ingredients: unique factorisation, the X^{q^n} − X irreducibility criterion, Tau Ceti's factor-degree certificates, and Hensel for simple roots over ℤ_p; there are no factoring or point-counting algorithms. FF.4 has only truncated Witt vectors (implicit Galois rings), linear codes with generator matrices, and finite abelian Fourier analysis; linearised and permutation polynomials, recurring-sequence correlation, evaluation/BCH/AG codes and finite upper half-planes are absent. FF.5 is a handoff. FF.1's Gauss/Jacobi sums restate CA.1, FF.3's certified factorisation restates CN.1, and FF.4's additive polynomials restate DM.0.",
+   "layers": {
+    "FiniteFieldsAndCharacterSums:FF.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Classification and cardinality of finite fields (reused)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "FiniteField.card",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Basic.lean",
+         "line": 253,
+         "fit": "exact"
+        },
+        {
+         "name": "GaloisField",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/GaloisField.lean",
+         "line": 69,
+         "fit": "exact"
+        },
+        {
+         "name": "GaloisField.card",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/GaloisField.lean",
+         "line": 130,
+         "fit": "exact"
+        },
+        {
+         "name": "FiniteField.algEquivOfCardEq",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/GaloisField.lean",
+         "line": 263,
+         "fit": "exact"
+        },
+        {
+         "name": "GaloisField.algEquivGaloisField",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/GaloisField.lean",
+         "line": 208,
+         "fit": "exact"
+        }
+       ],
+       "note": "Every finite field has prime-power order; GaloisField p n has p^n elements; finite fields of equal cardinality are isomorphic, as fields and as algebras over a common base."
+      },
+      {
+       "target": "Certified presentations F_q ≅ F_p[X]/(f) with checked irreducible f and field isomorphisms carrying explicit inverse maps",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AdjoinRoot.instField",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdjoinRoot.lean",
+         "line": 546,
+         "fit": "related"
+        },
+        {
+         "name": "Field.exists_primitive_element",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/PrimitiveElement.lean",
+         "line": 209,
+         "fit": "more general"
+        },
+        {
+         "name": "FiniteField.algEquivOfCardEq",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/GaloisField.lean",
+         "line": 263,
+         "fit": "related"
+        },
+        {
+         "name": "Irreducible.natDegree_dvd_iff_dvd_X_pow_card_pow_sub_X",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Extension.lean",
+         "line": 181,
+         "fit": "related"
+        }
+       ],
+       "note": "The mathematics is in Mathlib: AdjoinRoot of an irreducible polynomial is a field, finite extensions have primitive elements, fields of equal cardinality are isomorphic, and an irreducible polynomial divides X^{q^n} − X exactly when its degree divides n (the basis of an irreducibility test). Missing: computable, certified presentations with irreducibility certificates and explicitly computed inverse isomorphisms; the library isomorphisms are noncomputable."
+      },
+      {
+       "target": "Absolute and relative Frobenius with explicit exponents, generating the cyclic Galois group",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/CharP/Lemmas.lean",
+         "line": 321,
+         "fit": "exact"
+        },
+        {
+         "name": "FiniteField.frobeniusAlgEquivOfAlgebraic",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Basic.lean",
+         "line": 363,
+         "fit": "exact"
+        },
+        {
+         "name": "FiniteField.orderOf_frobeniusAlgHom",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Basic.lean",
+         "line": 376,
+         "fit": "exact"
+        },
+        {
+         "name": "FiniteField.Extension.exists_frob_pow_eq",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Extension.lean",
+         "line": 120,
+         "fit": "exact"
+        }
+       ],
+       "note": "The p-power Frobenius of any characteristic-p ring, the relative q-power Frobenius as an algebra automorphism of an extension of F_q, its order [L:K], and generation of Gal(L/K) by it."
+      },
+      {
+       "target": "Subfields: F_{p^m} embeds in F_{p^n} iff m ∣ n, with [K:F] embeddings, and uniqueness of the subfield of each admissible order",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "FiniteField.nonempty_algHom_iff_finrank_dvd",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/GaloisField.lean",
+         "line": 330,
+         "fit": "exact"
+        },
+        {
+         "name": "FiniteField.natCard_algHom_of_finrank_dvd",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/GaloisField.lean",
+         "line": 318,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eq_frobeniusFixedSubfield_of_natCard",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/Finite/SepClosedSubfield.lean",
+         "line": 105,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.card_frobeniusFixedSubfield",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/Finite/SepClosedSubfield.lean",
+         "line": 129,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib gives the divisibility criterion and the count of embeddings. Tau Ceti proves that in a separably closed field of characteristic p the subfield with p^n elements is exactly the fixed field of the p^n-power Frobenius, and that this fixed field has p^n elements."
+      },
+      {
+       "target": "Trace and norm with explicit targets: Tr(x) = ∑ x^{q^i}, N(x) = x^{(q^n−1)/(q−1)}, surjectivity and nondegeneracy",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "FiniteField.algebraMap_trace_eq_sum_pow",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Trace.lean",
+         "line": 49,
+         "fit": "exact"
+        },
+        {
+         "name": "FiniteField.algebraMap_norm_eq_pow_sum",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Trace.lean",
+         "line": 69,
+         "fit": "exact"
+        },
+        {
+         "name": "FiniteField.norm_surjective",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/GaloisField.lean",
+         "line": 251,
+         "fit": "exact"
+        },
+        {
+         "name": "Algebra.trace_surjective",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Trace/Basic.lean",
+         "line": 521,
+         "fit": "more general"
+        },
+        {
+         "name": "FiniteField.trace_to_zmod_nondegenerate",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Trace.lean",
+         "line": 37,
+         "fit": "exact"
+        }
+       ],
+       "note": "Explicit Frobenius-orbit formulas for trace and norm, surjectivity of the norm and (for separable extensions, which covers finite fields) of the trace, and nondegeneracy of the trace form to the prime field."
+      },
+      {
+       "target": "Normal bases",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "IsGalois.normalBasis",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Galois/NormalBasis.lean",
+         "line": 120,
+         "fit": "more general"
+        }
+       ],
+       "note": "The normal basis theorem is proved for every finite Galois extension, and extensions of finite fields are Galois by an instance in Mathlib/FieldTheory/Finite/GaloisField.lean."
+      },
+      {
+       "target": "Tensor decompositions F_{q^m} ⊗_{F_q} F_{q^n} ≅ F_{q^{lcm(m,n)}}^{gcd(m,n)}",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Algebra.IsFiniteSplit",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/TotallySplit.lean",
+         "line": 37,
+         "fit": "related"
+        }
+       ],
+       "note": "Not stated in either library. Mathlib only has the general theory of totally split algebras, including that finite étale algebras over a separably closed field split."
+      }
+     ],
+     "duplicates": []
+    },
+    "FiniteFieldsAndCharacterSums:FF.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Additive characters of F_q, including the canonical primitive character through the trace",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "AddChar",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Group/AddChar.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "AddChar.IsPrimitive",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+         "line": 61,
+         "fit": "exact"
+        },
+        {
+         "name": "AddChar.FiniteField.primitiveChar",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+         "line": 212,
+         "fit": "exact"
+        }
+       ],
+       "note": "AddChar on any additive group, primitivity, and a primitive additive character of a finite field built as a primitive character of ZMod p composed with the trace (target of different characteristic)."
+      },
+      {
+       "target": "Multiplicative characters extended by zero, with the trivial-character case separated",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "MulChar",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/MulChar/Basic.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "quadraticChar",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/Basic.lean",
+         "line": 120,
+         "fit": "special case"
+        },
+        {
+         "name": "gaussSum_one_left",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/GaussSum.lean",
+         "line": 126,
+         "fit": "exact"
+        },
+        {
+         "name": "jacobiSum_trivial_trivial",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+         "line": 103,
+         "fit": "exact"
+        }
+       ],
+       "note": "MulChar sends every non-unit to 0 by definition, so zero values are extended uniformly. The quadratic character is a special case. The trivial-character Gauss and Jacobi sums have their own lemmas."
+      },
+      {
+       "target": "Orthogonality relations for additive and multiplicative characters",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "AddChar.sum_eq_ite",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Group/AddChar.lean",
+         "line": 329,
+         "fit": "exact"
+        },
+        {
+         "name": "MulChar.sum_eq_zero_of_ne_one",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/MulChar/Basic.lean",
+         "line": 607,
+         "fit": "exact"
+        },
+        {
+         "name": "AddChar.sum_apply_eq_zero_iff_ne_zero",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
+         "line": 196,
+         "fit": "exact"
+        },
+        {
+         "name": "DirichletCharacter.sum_characters_eq_zero",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Orthogonality.lean",
+         "line": 58,
+         "fit": "special case"
+        }
+       ],
+       "note": "∑ψ = #A·[ψ = 0] (with the ≠ 0 criterion in characteristic zero), ∑χ = 0 for χ ≠ 1, and the dual relation summing over all characters of a finite abelian group. The dual relation for multiplicative characters is stated for Dirichlet characters modulo n, not separately for F_q^× with q not prime."
+      },
+      {
+       "target": "Gauss sums with the norm identity g(χ,ψ)·g(χ⁻¹,ψ⁻¹) = q and g(χ,ψ)² = χ(−1)·q for quadratic χ",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "gaussSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/GaussSum.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "gaussSum_mul_gaussSum_eq_card",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/GaussSum.lean",
+         "line": 188,
+         "fit": "exact"
+        },
+        {
+         "name": "gaussSum_sq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/GaussSum.lean",
+         "line": 222,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated for a nontrivial χ and a primitive ψ on a finite field, with values in any integral domain. For complex-valued characters this gives |g|² = q once χ⁻¹ and ψ⁻¹ are identified with complex conjugates, a step not stated separately."
+      },
+      {
+       "target": "Jacobi sums and their product identities: J(χ,φ) = g(χ)g(φ)/g(χφ), J(χ,φ)·J(χ⁻¹,φ⁻¹) = q, and g(χ)^n = χ(−1)·q·∏ J(χ,χ^i)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "jacobiSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+         "line": 47,
+         "fit": "exact"
+        },
+        {
+         "name": "jacobiSum_eq_gaussSum_mul_gaussSum_div_gaussSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+         "line": 193,
+         "fit": "exact"
+        },
+        {
+         "name": "jacobiSum_mul_jacobiSum_inv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+         "line": 203,
+         "fit": "exact"
+        },
+        {
+         "name": "gaussSum_pow_eq_prod_jacobiSum",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+         "line": 342,
+         "fit": "exact"
+        }
+       ],
+       "note": "All three identities are proved with their nontriviality hypotheses."
+      },
+      {
+       "target": "The Hasse–Davenport lifting relation (Gauss sums of χ∘N_{F_{q^n}/F_q}) and the Hasse–Davenport product formula, if 'norm/product identities' includes them",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has the Hasse–Davenport relations or Stickelberger's theorem (a grep for Davenport and Stickelberger found nothing)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ClassicalArithmeticCompletion:CA.1",
+       "note": "CA.1 again asks to integrate Gauss and Jacobi sums with power residues and quadratic reciprocity, the same Gauss/Jacobi sum targets as FF.1."
+      }
+     ]
+    },
+    "FiniteFieldsAndCharacterSums:FF.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Weil's bound |∑_x ψ(f(x))| ≤ (deg f − 1)√q for polynomial phases that are not Artin–Schreier trivial",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "gaussSum_mul_gaussSum_eq_card",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/GaussSum.lean",
+         "line": 188,
+         "fit": "related"
+        }
+       ],
+       "note": "Not present in either library; a grep for Weil bound and Kloosterman found nothing. Mathlib has only the Gauss-sum evaluation g(χ,ψ)·g(χ⁻¹,ψ⁻¹) = q, the input for the monomial sums ∑ψ(ax^d)."
+      },
+      {
+       "target": "Weil bounds for multiplicative character sums |∑_x χ(f(x))| ≤ (m − 1)√q when f is not an ord(χ)-th power, and for mixed sums",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "jacobiSum_mul_jacobiSum_inv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+         "line": 203,
+         "fit": "special case"
+        },
+        {
+         "name": "quadraticChar_sum_zero",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/Basic.lean",
+         "line": 239,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the special case f = x(1 − x) exists, through Jacobi sums (J·J(χ⁻¹,φ⁻¹) = q), plus the vanishing of the full quadratic-character sum."
+      },
+      {
+       "target": "Bounds for rational-function exponential sums via curves (Kloosterman-type sums)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.degree_oneSubFrobeniusIsogeny_eq_pointCount",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Degree.lean",
+         "line": 96,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Matrix.sq_le_four_mul_of_exists_nonneg_pencil_det",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/PencilDiscriminant.lean",
+         "line": 100,
+         "fit": "related"
+        }
+       ],
+       "note": "No Kloosterman sums or curve-based bounds exist. The nearest curve estimate, Tau Ceti's Hasse bound, is still conditional."
+      },
+      {
+       "target": "Deligne bounds for ℓ-adic trace functions: isolate geometric invariants in top compact-support cohomology, subtract the main term, then a square-root error with conductor dependence",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has ℓ-adic sheaves, trace functions or compact-support cohomology."
+      },
+      {
+       "target": "Degenerate cases tested: Artin–Schreier-trivial phases and multiplicative perfect powers receive no square-root bound",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      }
+     ],
+     "duplicates": []
+    },
+    "FiniteFieldsAndCharacterSums:FF.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Polynomial factorisation algorithms over finite fields (squarefree, distinct-degree and equal-degree/Berlekamp or Cantor–Zassenhaus) with correctness proofs",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "UniqueFactorizationMonoid.normalizedFactors",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/UniqueFactorizationDomain/NormalizedFactors.lean",
+         "line": 35,
+         "fit": "related"
+        },
+        {
+         "name": "Irreducible.natDegree_dvd_iff_dvd_X_pow_card_pow_sub_X",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Extension.lean",
+         "line": 181,
+         "fit": "related"
+        }
+       ],
+       "note": "Unique factorisation in F_q[X] exists non-constructively (normalizedFactors), and so does the divisibility criterion behind distinct-degree factorisation. No factoring algorithm is implemented or verified; a grep for Berlekamp, Zassenhaus and distinct-degree found only a docstring mention."
+      },
+      {
+       "target": "Checked factor products and irreducibility witnesses",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Polynomial.irreducible_of_degree_le_three_of_not_isRoot",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/SpecificDegree.lean",
+         "line": 58,
+         "fit": "special case"
+        },
+        {
+         "name": "Irreducible.natDegree_dvd_iff_dvd_X_pow_card_pow_sub_X",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Extension.lean",
+         "line": 181,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.factorDegrees",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/FactorDegrees.lean",
+         "line": 53,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.factorDegrees_eq_singleton_iff",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Polynomial/FactorDegrees.lean",
+         "line": 144,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the root test for degree ≤ 3 and the X^{q^n} − X criterion. Tau Ceti has the multiset of factor degrees of an integer polynomial modulo p, the criterion 'a single factor degree means irreducible', and worked checks of X⁵ − X − 1 modulo 2 and 5. Missing: a general certificate format and checker (e.g. Rabin's test)."
+      },
+      {
+       "target": "Hensel interfaces",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "hensels_lemma",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Hensel.lean",
+         "line": 461,
+         "fit": "special case"
+        },
+        {
+         "name": "HenselianRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Henselian.lean",
+         "line": 94,
+         "fit": "related"
+        },
+        {
+         "name": "HenselianLocalRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Henselian.lean",
+         "line": 108,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Hensel's lemma for simple roots over ℤ_p and the Henselian-ring classes with their characterisations. Missing: Hensel lifting of coprime factorisations modulo p^k, the form factoring algorithms use."
+      },
+      {
+       "target": "Certified point-counting algorithms, with bit-operation and randomness models stated separately",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "char_dvd_card_solutions",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/ChevalleyWarning.lean",
+         "line": 178,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.pointCount",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+         "line": 69,
+         "fit": "related"
+        }
+       ],
+       "note": "No point-counting algorithm or complexity model exists. Only Chevalley–Warning divisibility and Tau Ceti's (noncomputable) point count of a Weierstrass curve are present."
+      },
+      {
+       "target": "Point counts agreeing with the trace convention, with a provable error bound",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.frobeniusTrace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+         "line": 97,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti defines a_q = q + 1 − #E(F_q) for Weierstrass curves, but no error bound is proved (the Hasse bound is still conditional)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ComputationalNumberTheory:CN.1",
+       "note": "CN.1 again asks to factor polynomials with checked factors and irreducibility proofs, the same certified-factorisation target as FF.3."
+      },
+      {
+       "layer": "ComputationalNumberTheory:CN.3",
+       "note": "CN.3 provides point counts for curves through existing owners, overlapping FF.3's certified point counting."
+      }
+     ]
+    },
+    "FiniteFieldsAndCharacterSums:FF.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Galois rings GR(p^n, r)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TruncatedWittVector",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Truncated.lean",
+         "line": 62,
+         "fit": "related"
+        },
+        {
+         "name": "TruncatedWittVector.zmodEquivTrunc",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Compare.lean",
+         "line": 74,
+         "fit": "special case"
+        },
+        {
+         "name": "TruncatedWittVector.card",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Truncated.lean",
+         "line": 384,
+         "fit": "related"
+        }
+       ],
+       "note": "The rings exist implicitly as truncated Witt vectors W_n(F_{p^r}), with ZMod(p^n) ≃ W_n(F_p) and #W_n(R) = #R^n. Neither library identifies W_n(F_q) as the Galois ring or develops its theory (unique unramified extension of ℤ/p^n, Teichmüller coordinates, automorphisms)."
+      },
+      {
+       "target": "Additive (linearised, q-) polynomials",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Polynomial.expand",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Polynomial/Expand.lean",
+         "line": 40,
+         "fit": "related"
+        },
+        {
+         "name": "frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/CharP/Lemmas.lean",
+         "line": 321,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has a theory of linearised polynomials; only Frobenius and the expansion f(X) ↦ f(X^p) exist."
+      },
+      {
+       "target": "Permutation polynomials of finite fields",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Polynomial.dickson",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/Dickson.lean",
+         "line": 63,
+         "fit": "related"
+        },
+        {
+         "name": "FiniteField.card_image_polynomial_eval",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/Finite/Basic.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "Not present; a grep for permutation polynomial found nothing. Mathlib has Dickson polynomials without their permutation property, and a lower bound on the image size of a polynomial map."
+      },
+      {
+       "target": "Linear recurring sequences over finite fields and their correlation (periods, m-sequences)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LinearRecurrence",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/LinearRecurrence.lean",
+         "line": 53,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's LinearRecurrence gives only the solution space and the geometric-solution criterion; no periods or correlations."
+      },
+      {
+       "target": "Evaluation and residue codes (Reed–Solomon, BCH, algebraic-geometry codes) with encoding maps and dimension/distance bounds, linked to AlgebraicCodingTheory and AlgebraicCurves",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.LinearCode",
+         "library": "tauceti",
+         "file": "TauCeti/InformationTheory/Coding/Basic.lean",
+         "line": 31,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.LinearCode.IsGeneratorMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/InformationTheory/Coding/Matrix.lean",
+         "line": 64,
+         "fit": "related"
+        },
+        {
+         "name": "hammingDist",
+         "library": "mathlib",
+         "file": "Mathlib/InformationTheory/Hamming.lean",
+         "line": 41,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.riemannRochSpace",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has linear codes with generator matrices and Riemann–Roch spaces of function fields, and Mathlib has Hamming distance. There are no evaluation, BCH or AG codes, and no minimum-distance bounds (a grep for Reed–Solomon, BCH codes and Goppa found nothing)."
+      },
+      {
+       "target": "Finite upper half-plane and finite homogeneous-space constructions with chosen group actions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present in either library."
+      },
+      {
+       "target": "Finite harmonic-analysis interfaces with chosen group actions and measures",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ZMod.dft",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/ZMod.lean",
+         "line": 88,
+         "fit": "special case"
+        },
+        {
+         "name": "AddChar.complexBasis",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
+         "line": 125,
+         "fit": "related"
+        },
+        {
+         "name": "AddChar.doubleDualEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
+         "line": 174,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.card_irreducibleCharacters",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Table.lean",
+         "line": 161,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Pontryagin duality and the character basis for finite abelian groups and the discrete Fourier transform on ZMod N; Tau Ceti has character tables of finite groups. Missing: harmonic analysis on finite homogeneous spaces with chosen actions and normalised measures."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DrinfeldModulesAndTModules:DM.0",
+       "note": "DM.0 again constructs additive polynomials as the Ore ring L{τ} of F_q-linear endomorphisms of G_a, FF.4's additive-polynomial target."
+      }
+     ]
+    },
+    "FiniteFieldsAndCharacterSums:FF.5": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Export of character-sum, finite-ring and algorithm certificates to the exponential-sum, local-density and computational owners",
+       "library": "absent",
+       "declarations": [],
+       "note": "A handoff layer over FF.1–FF.4; it states no new theorem."
+      },
+      {
+       "target": "Separation of mathematical correctness from cryptographic hardness hypotheses, with consumers instantiating exact conductor/degree constants",
+       "library": "absent",
+       "declarations": [],
+       "note": "An interface discipline rather than mathematics."
+      }
+     ],
+     "duplicates": []
     }
    }
   }

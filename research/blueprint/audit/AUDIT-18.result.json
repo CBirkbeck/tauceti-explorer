@@ -4126,7 +4126,7 @@
    "summary": "The libraries contain the linear algebra and some analytic and Hodge-theoretic analogues this roadmap would use, but none of its ℓ-adic mathematics: Mathlib has characteristic polynomials, generalized eigenspace decompositions and perfect pairings, and Tau Ceti adds Landau's theorem for nonnegative Dirichlet series, the 3-4-1 positivity inequality for Euler factors, sl₂ decompositions, symplectic cap invariance, mixed Hodge structures with strictness, and elliptic-curve point-count infrastructure (deg(1 − π_q) = #E(F_q), a conditional Hasse bound). Genuinely missing: Weil numbers and weights, Frobenius on abelian varieties, the Rosati involution and Tate modules, the Hasse and Weil bounds, Lefschetz pencils, Chebotarev for function fields, lisse and mixed sheaves, monodromy filtrations and quasi-unipotence, Künneth, Leray and weak Lefschetz, every Weil I and Weil II theorem, geometric semisimplicity and hard Lefschetz.",
    "layers": {
     "DeligneWeightsAndPurity:DWP.0": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Weil q-numbers of integer weight (every complex conjugate of absolute value q^{w/2}) with products, inverses and duals, powers, Tate twists, change q → qⁿ and uniqueness of the weight for q > 1; integrality kept separate",
@@ -4178,52 +4178,46 @@
        "note": "Mathlib proves two uncountable algebraically closed fields of characteristic 0 of the same cardinality are isomorphic and defines the algebraic closure of ℚ_p, but not #Q̄_ℓ = 𝔠, a chosen ι, or any ι-weight."
       },
       {
-       "target": "Eigenvalues of an endomorphism of a finite-dimensional space as roots of its characteristic polynomial over a splitting field, with generalized eigenspaces instead of an eigenbasis",
-       "library": "mathlib",
+       "target": "Weights of an invertible endomorphism of a finite-dimensional space, defined through the roots of its characteristic polynomial over a splitting field using generalized eigenspaces rather than an eigenbasis, with explicit Jordan-block examples",
+       "library": "partial",
        "declarations": [
         {
          "name": "Module.End.hasEigenvalue_iff_isRoot_charpoly",
          "library": "mathlib",
          "file": "Mathlib/LinearAlgebra/Eigenspace/Charpoly.lean",
          "line": 40,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "Module.End.iSup_maxGenEigenspace_eq_top",
          "library": "mathlib",
          "file": "Mathlib/LinearAlgebra/Eigenspace/Triangularizable.lean",
          "line": 75,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "LinearMap.finrank_maxGenEigenspace_eq",
          "library": "mathlib",
          "file": "Mathlib/LinearAlgebra/Eigenspace/Zero.lean",
          "line": 202,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "LinearMap.charpoly_baseChange",
          "library": "mathlib",
          "file": "Mathlib/LinearAlgebra/Charpoly/BaseChange.lean",
          "line": 23,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "Module.End.det_eq_prod_roots_charpoly_of_splits",
          "library": "mathlib",
          "file": "Mathlib/LinearAlgebra/Eigenspace/Charpoly.lean",
          "line": 49,
-         "fit": "exact"
+         "fit": "related"
         }
        ],
-       "note": "Eigenvalues are the roots of the characteristic polynomial, over an algebraically closed field the maximal generalized eigenspaces span V, the dimension of each is the root multiplicity, and the characteristic polynomial commutes with base change."
-      },
-      {
-       "target": "Weights of an invertible endomorphism defined from the (ι-)weights of its eigenvalues, with explicit Jordan-block examples",
-       "library": "absent",
-       "declarations": [],
-       "note": "No weight predicate on endomorphisms exists; it would be a definition on top of the preceding target and the missing Weil-number predicate."
+       "note": "The linear algebra the definition rests on (a declared dependency of the layer) is in Mathlib: eigenvalues are the roots of the characteristic polynomial, over an algebraically closed field the maximal generalized eigenspaces span V with dimensions equal to root multiplicities, and the characteristic polynomial commutes with base change. Missing: the weight predicate on endomorphisms itself, which needs the absent Weil-number and ι-weight notions."
       },
       {
        "target": "Preservation of weights under invariant subspaces, quotients and extensions, via multiplicativity of the characteristic polynomial",
@@ -4510,6 +4504,10 @@
       {
        "layer": "SchemeAndStackFoundations:SF.3",
        "note": "SF.3 requires the identification of the Jacobian Tate module with degree-one étale cohomology, DWP.1's H¹/Jacobian comparison target."
+      },
+      {
+       "layer": "ArithmeticGaloisRepresentations:R01.6",
+       "note": "R01.6 constructs Tate modules of elliptic curves and abelian varieties and proves the good-reduction Frobenius polynomial, overlapping DWP.1's Tate-realization and Frobenius characteristic-polynomial targets."
       }
      ]
     },
@@ -4890,7 +4888,7 @@
      ]
     },
     "DeligneWeightsAndPurity:DWP.5": {
-     "verdict": "partly built",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Punctually ι-pure and ι-mixed lisse and constructible sheaves, their finite weight filtrations and weight classes modulo ℤ, with coefficient-embedding and twist reductions for real weights",
@@ -4942,29 +4940,22 @@
        "note": "Searched monodromy filtration, Jacobson–Morozov, quasi-unipotent, Weil–Deligne: nothing. Only sl₂-triples, the additive Jordan–Chevalley decomposition and unipotence via the characteristic polynomial exist."
       },
       {
-       "target": "Hadamard–de la Vallée-Poussin positivity 3 + 4 cos θ + cos 2θ ≥ 0 in the form of logarithms of Euler factors",
-       "library": "tauceti",
+       "target": "Weil II's generalization of the fundamental estimate to ι-real systems, irreducible constituents and compatible pairings, with the Hadamard–de la Vallée-Poussin positivity argument, the strict initial H¹ weight bound, convergence, poles, multiplicities and weight-integrality detection",
+       "library": "partial",
        "declarations": [
         {
          "name": "TauCeti.LSeries.threeFourOne_re_neg_log_one_sub_nonneg",
          "library": "tauceti",
          "file": "TauCeti/NumberTheory/LSeries/ThreeFourOne.lean",
          "line": 119,
-         "fit": "exact"
-        },
-        {
-         "name": "TauCeti.LSeries.threeFourOneCombination_nonneg",
-         "library": "tauceti",
-         "file": "TauCeti/NumberTheory/LSeries/ThreeFourOne.lean",
-         "line": 110,
-         "fit": "exact"
+         "fit": "related"
         },
         {
          "name": "TauCeti.sum_re_neg_log_one_sub_nonneg",
          "library": "tauceti",
          "file": "TauCeti/Analysis/SpecialFunctions/Trigonometric/NonnegCombination.lean",
          "line": 87,
-         "fit": "more general"
+         "fit": "related"
         },
         {
          "name": "DirichletCharacter.norm_LSeries_product_ge_one",
@@ -4972,14 +4963,7 @@
          "file": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
          "line": 287,
          "fit": "related"
-        }
-       ],
-       "note": "For 0 ≤ a < 1 and |z| ≤ 1, 0 ≤ 3Re(−log(1−a)) + 4Re(−log(1−az)) + Re(−log(1−az²)), with a version for any nonnegative trigonometric combination (Tau Ceti); Mathlib applies the same trick to Dirichlet L-functions and ζ on Re s = 1."
-      },
-      {
-       "target": "Weil II's generalization of the fundamental estimate to ι-real systems and the strict initial H¹ weight bound, with convergence, poles, multiplicities and weight-integrality detection",
-       "library": "absent",
-       "declarations": [
+        },
         {
          "name": "EulerProduct.eulerProduct_completely_multiplicative_hasProd",
          "library": "mathlib",
@@ -4988,7 +4972,7 @@
          "fit": "related"
         }
        ],
-       "note": "Only Euler products over primes for completely multiplicative functions exist; the positivity argument has not been applied to Euler products with factors det(1 − F·t)⁻¹."
+       "note": "Only the positivity input exists: for 0 ≤ a < 1 and |z| ≤ 1, 0 ≤ 3Re(−log(1−a)) + 4Re(−log(1−az)) + Re(−log(1−az²)), with a version for any nonnegative trigonometric combination (Tau Ceti), and Mathlib's application of the same trick to Dirichlet L-functions on Re s = 1, plus Euler products over primes. Missing: the argument for Euler products with factors det(1 − F·t)⁻¹ of ι-real sheaves, the strict H¹ bound and everything sheaf-theoretic."
       }
      ],
      "duplicates": [
