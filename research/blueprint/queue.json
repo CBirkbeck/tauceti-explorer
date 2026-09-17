@@ -1317,7 +1317,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_BelyiMaps.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #32"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_BelyiMaps",
@@ -1350,7 +1351,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_FuchsianOrbifolds.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #33"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_FuchsianOrbifolds",
@@ -1383,7 +1385,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_Completed_ContourIntegration.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #34"
   },
   {
    "id": "REV-LINK-tauceti_Completed_ContourIntegration",
@@ -1685,7 +1688,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_ConformalMapping.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #43"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_ConformalMapping",
@@ -1919,7 +1923,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_HopfRinow.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #50"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_HopfRinow",
@@ -2020,7 +2025,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_OptimalTransport.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #53"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_OptimalTransport",
@@ -2086,7 +2092,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #55"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory",
@@ -38170,12 +38177,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-27.md",
    "timeout": 14400,
-   "state": "running",
+   "state": "done",
    "account": "claude4",
    "lane": 1,
    "startedAt": "2026-09-17T11:23:40Z",
    "attempts": 1,
-   "note": "released after a usage limit on claude6/2 at 2026-09-17T10:12:43Z"
+   "note": "",
+   "finishedAt": "2026-09-17T11:47:25Z",
+   "seconds": 1424,
+   "result": {
+    "judged": 24,
+    "pairs": 24
+   }
   },
   {
    "id": "COMPARE-28",
@@ -38204,7 +38217,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/COMPARE-28.md",
    "timeout": 14400,
-   "state": "pending"
+   "state": "running",
+   "account": "claude4",
+   "lane": 1,
+   "startedAt": "2026-09-17T11:47:25Z",
+   "attempts": 1
   },
   {
    "id": "COMPARE-29",
@@ -40411,12 +40428,20 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-26.md",
    "timeout": 21600,
-   "state": "running",
+   "state": "done",
    "avoidAccountOf": "AUDIT-26",
    "account": "claude4",
    "lane": 2,
    "startedAt": "2026-09-17T11:20:03Z",
-   "attempts": 1
+   "attempts": 1,
+   "finishedAt": "2026-09-17T11:34:49Z",
+   "seconds": 885,
+   "result": {
+    "layers": 38,
+    "audited": 38,
+    "review": "accepted"
+   },
+   "note": ""
   },
   {
    "id": "AUDIT-27",
@@ -40436,12 +40461,18 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-27.md",
    "timeout": 21600,
-   "state": "pending",
-   "account": null,
-   "lane": 1,
-   "startedAt": "2026-09-17T10:09:40Z",
-   "attempts": 0,
-   "note": "released after a usage limit on claude6/1 at 2026-09-17T10:14:32Z"
+   "state": "done",
+   "account": "claude4",
+   "lane": 2,
+   "startedAt": "2026-09-17T11:34:49Z",
+   "attempts": 1,
+   "note": "",
+   "finishedAt": "2026-09-17T12:00:35Z",
+   "seconds": 1546,
+   "result": {
+    "layers": 45,
+    "audited": 45
+   }
   },
   {
    "id": "REV-AUDIT-27",
@@ -40485,7 +40516,11 @@
    "after": [],
    "prompt": "research/blueprint/prompts/AUDIT-28.md",
    "timeout": 21600,
-   "state": "pending"
+   "state": "running",
+   "account": "claude4",
+   "lane": 2,
+   "startedAt": "2026-09-17T12:00:35Z",
+   "attempts": 1
   },
   {
    "id": "REV-AUDIT-28",
