@@ -1,0 +1,2260 @@
+{
+ "job": "AUDIT-31",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "ArithmeticGaloisRepresentations": {
+   "summary": "The libraries have general carriers but none of the arithmetic theory. Mathlib has continuous representations (ContRepresentation, TopRep, with restriction and coinduction), the Krull-topologised absolute Galois group with continuous restriction along field embeddings, the cyclotomic character, arithmetic Frobenius elements, Weierstrass reduction types and point-count local L-factors. Tau Ceti adds integral Galois lattices with the open-kernel and finite-quotient factorisation, continuous Hom representations over normed fields, algebraic exterior and symmetric powers and base change, finite-group character determination in characteristic zero, GL2(F_q) conjugacy and torus structure, abelian varieties with [n] and isogenies, #ker[n] = n^2 for elliptic curves, and infrastructure (but not the theorem) for Chebotarev. Genuinely missing: invariant lattices, residual semisimplification and characteristic-p Brauer-Nesbitt, Weil groups, tame and fundamental characters, Grothendieck monodromy and Weil-Deligne representations, Artin and Swan conductors, finite-subgroup classification of PGL2 and absolute irreducibility, Chebotarev recognition and coefficient descent, polarizations, adequacy and enormous image, and the Tate module with its Weil-pairing determinant and Frobenius polynomial.",
+   "layers": {
+    "ArithmeticGaloisRepresentations:G7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Finite projective coefficient modules with continuous actions as the common carrier, with framed coordinates",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ContRepresentation",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Continuous/Basic.lean",
+         "line": 54,
+         "fit": "more general"
+        }
+       ],
+       "note": "Only the general carrier (continuity of each operator) exists; no finite projective specialisation or framing."
+      },
+      {
+       "target": "Exterior and symmetric powers, tensor induction and restriction of scalars with continuity and characteristic-polynomial identities",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Representation.exteriorPower",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ExteriorPower.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "Representation.symmetricPower",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/SymmetricPower.lean",
+         "line": 47,
+         "fit": "related"
+        }
+       ],
+       "note": "Exterior and symmetric powers exist algebraically only; tensor induction, restriction of scalars of representations, continuity and characteristic-polynomial identities are absent."
+      },
+      {
+       "target": "Polarizations r^c = r^dual tensor mu for CM fields with pairing and multiplier; symmetry sign, determinant constraints, twisting and extension",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.IsCMField.complexConj",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/CMField.lean",
+         "line": 143,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Representation.IsInvariantForm",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/InvariantForm.lean",
+         "line": 149,
+         "fit": "related"
+        }
+       ],
+       "note": "CM fields with complex conjugation and invariant bilinear forms exist; no polarized Galois representation."
+      },
+      {
+       "target": "Oddness of polarized representations via signs at real places",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Adequacy and enormous image (ACC+ Definition 6.2.29) with verification lemmas and coefficient-extension invariance (Lemma 6.2.30)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "groupCohomology.H1",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/GroupCohomology/LowDegree.lean",
+         "line": 961,
+         "fit": "related"
+        }
+       ],
+       "note": "Group cohomology H^0 and H^1 exist, but no adequate or enormous subgroup, regular semisimple element or Taylor-Wiles image condition."
+      },
+      {
+       "target": "Adjoint and trace-zero adjoint representations, the quotient by scalars, and the correction when p divides n",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Representation.linHom",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Basic.lean",
+         "line": 656,
+         "fit": "special case"
+        }
+       ],
+       "note": "linHom rho rho is the adjoint action on End(V); the trace-zero subrepresentation, the quotient by scalars and the p | n analysis are absent."
+      },
+      {
+       "target": "Transfer of polynomial-law data to an actual representation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PolynomialLaw",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PolynomialLaw/Basic.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the basic polynomial-law module; no determinants or reconstruction."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+       "note": "Restates tensor products, duals, symmetric and exterior powers, induction and restriction for rank-n and polarized systems, importing this layer for the representation-level operations."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-1-functorial-constructions-and-tensor-powers",
+       "note": "Owns the algebraic symmetric and exterior power representations, already built in Tau Ceti."
+      }
+     ]
+    },
+    "ArithmeticGaloisRepresentations:R01.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Continuous representations of a profinite group on finite projective coefficient modules of arbitrary rank, with field and finite-free local-ring specialisations",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ContRepresentation",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Continuous/Basic.lean",
+         "line": 54,
+         "fit": "more general"
+        },
+        {
+         "name": "TopRep",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Continuous/TopRep.lean",
+         "line": 31,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.galoisLatticeProperty",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/GaloisLattice/Basic.lean",
+         "line": 39,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib's ContRepresentation is a monoid hom G ->* (V ->L[R] V) over any ring, but it only asks each g to act continuously, not joint continuity in g; Tau Ceti's Galois lattices are finite free Z-modules with open stabilisers. Nothing specialises to finite projective modules over complete local rings or finite extensions of Q_p with joint continuity."
+      },
+      {
+       "target": "Existence of a Galois-stable lattice in a continuous representation over a p-adic field, by compactness",
+       "library": "absent",
+       "declarations": [],
+       "note": "No invariant-lattice or compact-group stable-open-submodule theorem was found in either library."
+      },
+      {
+       "target": "Descent of a continuous representation into GL2 of an algebraic closure of F_p (discrete topology) to a finite coefficient field",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Field.absoluteGaloisGroup.finite_quotient_of_isOpen",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/GaloisLattice/FiniteQuotient.lean",
+         "line": 108,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the finiteness of the quotient by an open subgroup exists; the finite-image and finite-subfield descent argument is absent."
+      },
+      {
+       "target": "Finite Galois factorisation versus continuity for finite coefficients",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Representation.isOpen_ker_of_finite",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/GaloisLattice/FiniteQuotient.lean",
+         "line": 55,
+         "fit": "more general"
+        },
+        {
+         "name": "Field.absoluteGaloisGroup.finite_quotient_of_isOpen",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/GaloisLattice/FiniteQuotient.lean",
+         "line": 108,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GaloisLatticeCat.separableActionFieldRepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/GaloisLattice/SeparableActionField.lean",
+         "line": 134,
+         "fit": "special case"
+        }
+       ],
+       "note": "Tau Ceti proves open stabilisers imply an open kernel for any finite module, and that the action then factors through a finite (separable) Galois quotient, but only packages the factorisation for Z-lattices; the converse and the stated equivalence for finite coefficient rings are not recorded."
+      },
+      {
+       "target": "Reduction of a lattice followed by semisimplification, and independence of the lattice via characteristic polynomials and characteristic-p Brauer-Nesbitt",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Representation.nonempty_equiv_of_character_eq",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Determined.lean",
+         "line": 72,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.nonempty_linearEquiv_of_finrank_linearMap_eq",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Semisimple/Multiplicity.lean",
+         "line": 286,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.simpleClassBasis",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/GrothendieckGroup/SimpleBasis.lean",
+         "line": 268,
+         "fit": "related"
+        }
+       ],
+       "note": "Only finite groups in characteristic zero are determined by characters, plus semisimple-module reconstruction from Hom dimensions and Jordan-Holder coordinates; no text or declaration mentions Brauer-Nesbitt and there is no semisimplification of a reduction."
+      },
+      {
+       "target": "Restriction, induction, duals, twists and coefficient extension with topology on every map",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ContRepresentation.restrict",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Continuous/Basic.lean",
+         "line": 435,
+         "fit": "exact"
+        },
+        {
+         "name": "ContRepresentation.coind",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Continuous/Basic.lean",
+         "line": 547,
+         "fit": "related"
+        },
+        {
+         "name": "ContRepresentation.linHom",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/LinHom.lean",
+         "line": 85,
+         "fit": "related"
+        },
+        {
+         "name": "Representation.baseChange",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/BaseChange.lean",
+         "line": 67,
+         "fit": "related"
+        },
+        {
+         "name": "Representation.dual",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Basic.lean",
+         "line": 671,
+         "fit": "related"
+        }
+       ],
+       "note": "Continuous restriction and coinduction (on continuous functions) are in Mathlib; Tau Ceti's continuous Hom representation over a normed field gives duals with continuity (continuous_linHom); base change, twists by characters and induction exist only algebraically, without topology."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+       "note": "Proves reconstruction of representations over algebraically closed fields up to semisimplification, the determinant form of the Brauer-Nesbitt step here."
+      }
+     ]
+    },
+    "ArithmeticGaloisRepresentations:R01.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Restriction to a decomposition group through a place or an embedding into a local separable closure, with independence of the choice up to conjugacy",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Field.absoluteGaloisGroup.map",
+         "library": "mathlib",
+         "file": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
+         "line": 88,
+         "fit": "special case"
+        },
+        {
+         "name": "Ideal.inertia",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Ideal/Defs.lean",
+         "line": 154,
+         "fit": "related"
+        },
+        {
+         "name": "Ideal.zpowers_eq_stabilizer_of_isArithFrobAt",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/NumberField/Frobenius/DecompositionGroup.lean",
+         "line": 203,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib gives a continuous map of absolute Galois groups from a field embedding (for example K into its completion), explicitly depending on a chosen embedding of algebraic closures; conjugacy independence is not proved. Decomposition and inertia subgroups exist only for finite Galois extensions."
+      },
+      {
+       "target": "Tame characters and fundamental characters of levels one and two",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.teichmuller",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
+         "line": 100,
+         "fit": "related"
+        },
+        {
+         "name": "cyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 307,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library has tame inertia, the tame quotient or the characters sigma -> sigma(pi^(1/m))/pi^(1/m); only the Teichmuller lift and the cyclotomic character exist."
+      },
+      {
+       "target": "Grothendieck quasi-unipotence of inertia for l different from the residue characteristic",
+       "library": "absent",
+       "declarations": [],
+       "note": "No monodromy theorem or quasi-unipotence statement in either library."
+      },
+      {
+       "target": "Monodromy operator and Weil-Deligne representation, independent of the tame character, with rho(F) N rho(F)^-1 = qN for arithmetic Frobenius",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Weil group, Weil-Deligne representation or monodromy operator in either library."
+      },
+      {
+       "target": "Semisimplification and Frobenius semisimplification of a Weil-Deligne representation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.End.exists_isNilpotent_isSemisimple",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/JordanChevalley.lean",
+         "line": 76,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.HopfAlgebra.Point.semisimplePart",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/JordanDecomposition/Basic.lean",
+         "line": 70,
+         "fit": "related"
+        }
+       ],
+       "note": "Only additive Jordan-Chevalley decomposition over perfect fields and multiplicative Jordan decomposition of algebraic-group points exist, the linear algebra behind Frobenius semisimplification."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+       "note": "Constructs inertia, wild inertia, Frobenius lifts and the tame character I_K/P_K = Z^(p')(1) with independence of choices, the tame and fundamental characters asked for here."
+      },
+      {
+       "layer": "LefschetzPencilsAndVanishingCycles:LPV.1",
+       "note": "Constructs the tame character t_l, the monodromy operator N with independence of the tame generator and quasi-unipotence, in the geometric setting."
+      }
+     ]
+    },
+    "ArithmeticGaloisRepresentations:R01.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Artin and Swan conductors from the ramification filtration, independent of the finite quotient and auxiliary choices",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Place.ramificationGroup",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Place/Extension/RamificationGroup.lean",
+         "line": 109,
+         "fit": "related"
+        },
+        {
+         "name": "ValuationSubring.inertiaSubgroup",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/RamificationGroup.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "DirichletCharacter.conductor",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+         "line": 246,
+         "fit": "related"
+        }
+       ],
+       "note": "Lower-numbering ramification groups exist only for places of function fields trivial on a constant field (not p-adic fields), Mathlib's higher ramification groups are a TODO, there is no upper numbering, and the only conductors are those of Dirichlet characters and ring-theoretic conductors."
+      },
+      {
+       "target": "Integrality of the conductors and induction and twist formulas",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Hasse-Arf, Artin character or conductor-discriminant formula."
+      },
+      {
+       "target": "Conductor of an l-adic representation with the monodromy term, and of a residual representation through its finite inertia action; N(rho-bar) as prime-to-p conductor",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there are no Weil-Deligne representations to attach it to."
+      },
+      {
+       "target": "Reduction does not increase the conductor at primes different from p",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Comparison with the conductor of an elliptic curve, including wild contributions at 2 and 3",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.HasMultiplicativeReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 347,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.HasAdditiveReduction",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+         "line": 354,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib classifies good, multiplicative and additive reduction of a minimal Weierstrass model, but defines no conductor exponent, Tate's algorithm or Ogg formula."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+       "note": "Defines conductor exponents of abelian characters of local fields, the one-dimensional case of the Artin conductor."
+      },
+      {
+       "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+       "note": "Proves Artin conductor formulas for rank-two Weil-Deligne parameters in explicit GL2 coordinates."
+      }
+     ]
+    },
+    "ArithmeticGaloisRepresentations:R01.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Finite subgroups of GL2 and PGL2 over finite fields: dihedral and exceptional images, normal subgroups, restriction to cyclotomic fields",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.GL2NonSplitTorus",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/NonSplitTorus.lean",
+         "line": 127,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.conjRepGLFinTwo",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/ConjugacyClasses.lean",
+         "line": 269,
+         "fit": "related"
+        },
+        {
+         "name": "DihedralGroup",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/SpecificGroups/Dihedral.lean",
+         "line": 33,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has GL2(F) conjugacy classes, the Borel and non-split torus, but no Dickson classification of subgroups of PGL2(F_q) and no image analysis."
+      },
+      {
+       "target": "For odd p, an odd irreducible two-dimensional representation over a finite field is absolutely irreducible; the characteristic-two case isolated",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Representation.IsIrreducible",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Irreducible.lean",
+         "line": 30,
+         "fit": "related"
+        }
+       ],
+       "note": "Irreducibility exists but absolute irreducibility, oddness and this lemma do not."
+      },
+      {
+       "target": "Bad-dihedral representations in the source's sense",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "ArithmeticGaloisRepresentations:R01.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Chebotarev recognition: semisimple continuous characteristic-zero or residual representations with equal Frobenius characteristic polynomials are isomorphic, after a common coefficient extension",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.frobeniusPrimeSet",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
+         "line": 93,
+         "fit": "related"
+        },
+        {
+         "name": "Representation.nonempty_equiv_of_character_eq",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Determined.lean",
+         "line": 72,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the Frobenius prime sets and counting weights of the Chebotarev argument but not the density theorem, and character determination only for finite groups in characteristic zero; Brauer-Nesbitt is absent."
+      },
+      {
+       "target": "Coefficient descent of a trace-and-determinant system defined over a subfield when the descent obstruction vanishes",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.GaloisDescent.span_invariants_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/GaloisDescent/Span.lean",
+         "line": 38,
+         "fit": "related"
+        },
+        {
+         "name": "ContRepresentation.frobeniusSchurIndicator_eq_one_iff_isRealizableOverReal",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/FrobeniusSchur/StructureMap.lean",
+         "line": 145,
+         "fit": "related"
+        }
+       ],
+       "note": "Only semilinear Galois descent of vector spaces and the real-realizability criterion for compact groups exist; no Schur-index or Brauer-class obstruction for descending representations."
+      },
+      {
+       "target": "Arithmetic continuity and Frobenius density comparisons for determinant laws and representations",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.Chebotarev.iUnion_frobeniusPrimeSet",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/Chebotarev/FrobeniusPrimeSet.lean",
+         "line": 242,
+         "fit": "related"
+        },
+        {
+         "name": "PolynomialLaw",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PolynomialLaw/Basic.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "Density of Frobenius elements is not proved, and Mathlib's polynomial laws have only their basic module structure (no multiplicative laws or determinants)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IntegralHeckeAndGaloisDeterminants:IHG.4",
+       "note": "Proves uniqueness of determinants from Frobenius density using Chebotarev and continuity, the recognition statement in determinant form."
+      },
+      {
+       "layer": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+       "note": "Proves reconstruction of semisimple representations from determinants over algebraically closed fields."
+      }
+     ]
+    },
+    "ArithmeticGaloisRepresentations:R01.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Tate module as the inverse limit of l-power torsion of an elliptic curve or abelian variety",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Isogeny.card_ker_mulByIntIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/KernelCard.lean",
+         "line": 117,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.mulBy",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
+         "line": 243,
+         "fit": "related"
+        }
+       ],
+       "note": "Only #ker[n] = n^2 over an algebraically closed field with n invertible and the endomorphism [n] of an abelian variety exist; E[n] = (Z/n)^2 and the inverse system are absent."
+      },
+      {
+       "target": "Comparison of the residual representation with the existing pointwise Galois action on torsion points",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.Affine.Point.map",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+         "line": 824,
+         "fit": "related"
+        }
+       ],
+       "note": "Points are functorial along algebra maps (so automorphisms act), but no Galois representation on E[l] is packaged."
+      },
+      {
+       "target": "Rank 2 (2g) and continuity of the l-adic representation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Weil-pairing determinant equal to the cyclotomic character, and oddness over Q",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "cyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 307,
+         "fit": "related"
+        }
+       ],
+       "note": "The Weil pairing is not constructed (Tau Ceti has only divisor-calculus preparation)."
+      },
+      {
+       "target": "Good-reduction Frobenius characteristic polynomial X^2 - a_p X + p on the Tate module",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.frobeniusTrace",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+         "line": 97,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Isogeny.degree_oneSubFrobeniusIsogeny_eq_pointCount",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Degree.lean",
+         "line": 96,
+         "fit": "related"
+        }
+       ],
+       "note": "Only a_q = q + 1 - #E(F_q) and deg(1 - Frobenius) = #E(F_q) exist; the Hasse bound and the action of Frobenius on T_l are absent."
+      },
+      {
+       "target": "Compatibility of Tate modules with isogenies",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Isogenies of abelian varieties and elliptic curves exist, but no induced map on Tate modules."
+      },
+      {
+       "target": "Conductor comparison and local Euler-polynomial interface",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve.localPolynomial",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 43,
+         "fit": "related"
+        },
+        {
+         "name": "WeierstrassCurve.localEulerFactor",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+         "line": 57,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines local polynomials of a Weierstrass curve over a DVR from point counts and reduction type, not from inertia invariants of a Tate module; no conductor and no comparison theorem."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+       "note": "Constructs E[N] = (Z/N)^2, the Weil pairing, the Tate module with its continuous Galois representation and det = cyclotomic character."
+      },
+      {
+       "layer": "AbelianSchemesAndArithmeticModuli:A4",
+       "note": "Constructs the etale Tate module of an abelian scheme and its functorial local system."
+      },
+      {
+       "layer": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+       "note": "Relates Tate modules to conductors and local Euler polynomials via Neron-Ogg-Shafarevich."
+      }
+     ]
+    }
+   }
+  },
+  "AutomorphicGaloisRepresentations": {
+   "summary": "Nothing in this roadmap exists in the libraries. What they have is the analytic and Hecke side of classical modular forms: Tau Ceti's integral Hecke rings acting on cusp forms with nebentypus, newforms with multiplicity one and strong multiplicity one, the identification of Hecke eigenvalues with q-expansion coefficients, and Mathlib's Hecke bound O(n^(k/2)); Mathlib also defines totally real and CM fields and the period rings B_dR^+ and B_dR. Genuinely missing: modular curves and their Jacobians as schemes, Kuga-Sato varieties, etale cohomology with local systems, the Eichler-Shimura relation, Deligne-Serre, Hilbert modular forms and Shimura curves, Weil-Deligne representations and local Langlands, purity, compatible systems, p-adic Hodge theory beyond the ring definitions, determinant laws over Hecke algebras and the modular abelian varieties A_f.",
+   "layers": {
+    "AutomorphicGaloisRepresentations:R19.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Weight-two Galois representation from the cohomology or Tate module of a modular-curve Jacobian",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.Newform",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
+         "line": 102,
+         "fit": "related"
+        }
+       ],
+       "note": "Newforms exist as bundled cusp forms, but modular curves as schemes, their Jacobians and etale cohomology do not."
+      },
+      {
+       "target": "Higher-weight representation from symmetric-power (parabolic) cohomology or Kuga-Sato varieties",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Kuga-Sato variety, local system Sym^(k-2) or parabolic cohomology in either library."
+      },
+      {
+       "target": "Hecke projector and two-dimensional eigenspace, with coefficient fields and integral lattices",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.finrank_cuspFormsNewEigenspace_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/MultiplicityOne.lean",
+         "line": 188,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.heckeRingHomCuspCharSpace",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Nebentypus/Action.lean",
+         "line": 393,
+         "fit": "related"
+        }
+       ],
+       "note": "Multiplicity one on complex cusp forms and the Hecke-ring action exist; the eigenspace in Galois cohomology, coefficient fields and lattices do not."
+      },
+      {
+       "target": "Unramified characteristic polynomial X^2 - a_l X + chi(l) l^(k-1) by the Eichler-Shimura relation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.Newform.qExpansion_coeff_eq_eigenvalue",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Coefficient.lean",
+         "line": 95,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the equality of Hecke eigenvalues with q-expansion coefficients; no Eichler-Shimura congruence relation."
+      },
+      {
+       "target": "Weight-one Artin representation in the Deligne-Serre setting",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ModularityAndLanglandsExtensions:ML.1",
+       "note": "Organizes the Deligne-Serre weight-one Artin representations also constructed here."
+      },
+      {
+       "layer": "ModularCurvesPartII:R14.6",
+       "note": "Supplies the special-fibre Eichler-Shimura relation that this layer proves for the unramified characteristic polynomial."
+      },
+      {
+       "layer": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+       "note": "The rank-n constructions of AG2.2-AG2.4 produce these rank-two representations again; AG2.7 compares its GL2 special case with R19 by uniqueness."
+      }
+     ]
+    },
+    "AutomorphicGaloisRepresentations:R19.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Galois representations of cohomological Hilbert modular forms via Shimura-curve or higher-dimensional cohomology and Jacquet-Langlands transfer",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.IsTotallyReal",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
+         "line": 47,
+         "fit": "related"
+        },
+        {
+         "name": "QuaternionAlgebra.normForm",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Quaternion/NormForm.lean",
+         "line": 72,
+         "fit": "related"
+        }
+       ],
+       "note": "Only totally real fields and quaternion algebras exist; there are no Hilbert modular forms, Shimura curves or Jacquet-Langlands."
+      },
+      {
+       "target": "Parity and auxiliary-place cases, including descent from auxiliary totally real fields",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Uniqueness, continuity, determinant, oddness and irreducibility of the constructed representations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicGaloisRepresentationsPartII:AG2.3",
+       "note": "Its regular polarized branch over totally real fields includes rank-two Hilbert modular representations of regular weight, constructed again with uniqueness and determinants."
+      }
+     ]
+    },
+    "AutomorphicGaloisRepresentations:R19.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Purity of the eigenform representations from the weight theorem (Ramanujan-Petersson)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CuspFormClass.qExpansion_isBigO",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/Bounds.lean",
+         "line": 315,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves only Hecke's bound a_n = O(n^(k/2)); Deligne's bound and Weil purity are absent."
+      },
+      {
+       "target": "Coefficient-independent Frobenius polynomials and the compatible family of a fixed eigenform with its local statements",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Separate definitions of weakly, almost strictly and strictly compatible systems",
+       "library": "absent",
+       "declarations": [],
+       "note": "No compatible-system notion in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+       "note": "Builds compatible systems as actual representations with weak, almost strict and strict local predicates kept separate, the same definitions."
+      },
+      {
+       "layer": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+       "note": "Builds a weakly compatible-system object with common Frobenius polynomials and adds purity separately, in rank n."
+      },
+      {
+       "layer": "WeightsInEtaleCohomology:R34.6",
+       "note": "Deduces eigenspace purity and coefficient-independent bounds for the eigenform realizations."
+      }
+     ]
+    },
+    "AutomorphicGaloisRepresentations:R19.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Compatibility of Frobenius-semisimple Weil-Deligne representations with local Langlands away from p, including monodromy and the Steinberg case",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither Weil-Deligne representations nor a local Langlands correspondence exist."
+      },
+      {
+       "target": "Equality of conductors and bad Euler factors",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.Newform.qExpansion_coeff_prime_pow_add_two",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Coefficient.lean",
+         "line": 114,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the Hecke recursion for newform coefficients exists; no Galois conductor or local factor to compare with."
+      },
+      {
+       "target": "Archimedean and automorphic normalisation conventions through the comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+       "note": "Proves the rank-n good-prime and ramified local-global comparison with Frobenius-semisimplified Weil-Deligne equality retaining N."
+      }
+     ]
+    },
+    "AutomorphicGaloisRepresentations:R19.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "De Rham, crystalline and potentially semistable properties, Hodge-Tate weights and inertial types at the coefficient prime",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "BDeRham",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 90,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines B_dR^+ and B_dR only (theta on B_dR^+ and the DVR property are TODO); no admissible representations, Hodge-Tate weights or comparison theorems."
+      },
+      {
+       "target": "Barsotti-Tate, ordinary and endpoint-weight cases needed for lifting",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Hypotheses of the local-parameter theorem, keeping almost strict systems distinct from strict ones",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicHodgeTheory:R06.5",
+       "note": "Owns the application of the crystalline, de Rham and semistable comparison theorems to modular curves, Kuga-Sato varieties and Shimura curves."
+      },
+      {
+       "layer": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+       "note": "Proves the rank-n de Rham, crystalline and semistable coefficient-prime comparison with Hodge-Tate multisets."
+      }
+     ]
+    },
+    "AutomorphicGaloisRepresentations:R19.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Determinant law from Hecke operators and Frobenius polynomials",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.heckeRingHomCuspCharSpace",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Nebentypus/Action.lean",
+         "line": 393,
+         "fit": "related"
+        },
+        {
+         "name": "PolynomialLaw",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PolynomialLaw/Basic.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "The integral Gamma_0(N) Hecke ring acts on complex cusp forms and Mathlib has basic polynomial laws, but there is no Hecke algebra over Z_l, no determinant law and no Galois side."
+      },
+      {
+       "target": "Continuous representation over the localised completed Hecke algebra under absolute residual irreducibility",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Compatibility with specialisation, determinant, local type and ramification for the map from a universal deformation ring; nilpotent structure versus reduced specialisations",
+       "library": "absent",
+       "declarations": [],
+       "note": "No deformation rings or completed Hecke algebras."
+      },
+      {
+       "target": "V_l(A_f) = direct sum over lambda | l of rho_(f,lambda) for weight two, of total dimension 2[K_f:Q]",
+       "library": "absent",
+       "declarations": [],
+       "note": "No modular abelian varieties A_f and no Tate modules."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IntegralHeckeAndGaloisDeterminants:IHG.4",
+       "note": "Constructs Galois determinants over Hecke algebras by interpolation through finite quotients, with Chebotarev uniqueness."
+      },
+      {
+       "layer": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+       "note": "Proves representability of a determinant by an actual representation over complete local rings under residual absolute irreducibility."
+      },
+      {
+       "layer": "CompletedCohomologyAndLocalGlobalCompatibility:R31.3",
+       "note": "Constructs the Galois determinant and representation over the completed Hecke algebra and the map from the deformation ring, the completed analogue."
+      }
+     ]
+    }
+   }
+  },
+  "AutomorphicGaloisRepresentationsPartII": {
+   "summary": "None of this roadmap exists in Mathlib or Tau Ceti. Distant prerequisites do: Mathlib's untwisted l-adic cohomology of schemes via the pro-etale site, CM and totally real fields, arithmetic Frobenius elements, the cyclotomic character and the period rings B_dR^+ and B_dR; Tau Ceti's classical Hecke rings with Shimura's Theorem 3.20 for GL1 and GL2, Weyl modules (Schur functors), the dominance order on partitions and the adic spectrum Spa. Genuinely missing: automorphic representations of GL_n and their algebraicity and polarization notions, unitary PEL Shimura varieties with Kuga-Sato local systems and commuting Galois-Hecke actions, trace formulas, base change and endoscopy, eigenvarieties, dagger spaces and rigid cohomology, local Langlands and Weil-Deligne representations, p-adic Hodge theory beyond the ring definitions, compatible systems, and lattices with residual comparisons. AG2.1 only aggregates AG2.1a and AG2.1b.",
+   "layers": {
+    "AutomorphicGaloisRepresentationsPartII:AG2.0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Regular algebraic, conjugate self-dual, essentially conjugate self-dual and polarized automorphic representations of GL_n, with multiplier character and coefficient embeddings",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "NumberField.IsCMField",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/NumberField/CMField.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "CM fields exist, but neither library has automorphic representations of GL_n or these algebraicity notions."
+      },
+      {
+       "target": "Rationality of Hecke eigenvalues and finite fields of definition in the proven cohomological cases",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not even the classical statement that modular-form Hecke eigenvalues are algebraic integers was found."
+      },
+      {
+       "target": "Normalization dictionary among algebraic weights, arithmetic and geometric Frobenius, cyclotomic twists, normalized Satake and the integral Hecke polynomial",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GLn.polynomialRingEquivTwo",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/GLn/PolynomialRing/Injective.lean",
+         "line": 684,
+         "fit": "related"
+        },
+        {
+         "name": "cyclotomicCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
+         "line": 307,
+         "fit": "related"
+        },
+        {
+         "name": "AlgHom.IsArithFrobAt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Frobenius.lean",
+         "line": 54,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves the p-local classical Hecke ring of GL_n is a polynomial ring only for n = 1, 2 (Shimura 3.20), with no Satake transform or Hecke polynomial; Mathlib has the pieces for Frobenius and cyclotomic conventions."
+      },
+      {
+       "target": "Agreement of the normalization with rec(pi_v tensor |det|^((1-n)/2)) after local Langlands",
+       "library": "absent",
+       "declarations": [],
+       "note": "No local Langlands correspondence."
+      },
+      {
+       "target": "Acceptance examples: algebraic Hecke characters (n = 1), classical modular forms (n = 2), a unitary similitude coefficient",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.Newform",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
+         "line": 102,
+         "fit": "related"
+        }
+       ],
+       "note": "Newforms exist on the classical side; algebraic Hecke characters and unitary similitude coefficients do not."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+       "note": "States the same integral Hecke polynomial with its Satake, determinant, Tate-twist and Frobenius conversions, checked for n = 1, 2."
+      },
+      {
+       "layer": "AutomorphicFormsOnReductiveGroups:AF.4",
+       "note": "Proves rationality and finite fields of definition for cohomological cuspidal representations and the algebraic-weight normalizations."
+      }
+     ]
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.1": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Aggregate export of the composed geometric-to-automorphic realization of AG2.1a and AG2.1b (no independent construction)",
+       "library": "absent",
+       "declarations": [],
+       "note": "The layer states no mathematics of its own; its content is AG2.1a and AG2.1b, both absent from the libraries."
+      }
+     ],
+     "duplicates": []
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.1a": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Finite-level etale cohomology of compact PEL unitary/similitude Shimura varieties with the algebraic local system from the universal abelian scheme and its Kuga-Sato powers",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Scheme.EllAdicCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines untwisted Z_l-cohomology of a scheme on the pro-etale site only; no Shimura varieties, universal abelian schemes, local systems or Galois action."
+      },
+      {
+       "target": "Algebraic correspondences and projectors realizing the Schur functor, Tate twist, parity, degree and field of definition",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.weylModuleOfShape",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/WeylModule.lean",
+         "line": 417,
+         "fit": "related"
+        }
+       ],
+       "note": "Only Weyl modules (Schur functors of the standard GL_n representation, via Young symmetrizers) exist; no geometric correspondences."
+      },
+      {
+       "target": "Commuting Galois and Hecke actions, finite-dimensionality, continuity and isotypic summands over a coefficient extension",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Raw fixed-point and nearby-cycle trace identities for the auxiliary Shimura test functions, without local Langlands",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Lefschetz-Fujiwara trace formula or nearby cycles."
+      }
+     ],
+     "duplicates": []
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.1b": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Relating virtual characters of the cohomology to the geometric trace formula and separating actual representations from alternating classes",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Purity, weight separation, multiplicity and cancellation arguments on the Shin route (without torsion concentration)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No weights or purity in etale cohomology."
+      },
+      {
+       "target": "Export of the exact semisimple Galois constituent with dimension and Frobenius polynomials",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b",
+       "note": "Expresses the alternating Igusa cohomology by automorphic representations and separates Hecke eigencharacters with virtual multiplicities retained, the same separation step on the Igusa side."
+      }
+     ]
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Identification of the GL_n parameter realized in cohomology via stable unitary base change and endoscopic character identities",
+       "library": "absent",
+       "declarations": [],
+       "note": "No trace formula, base change or endoscopy."
+      },
+      {
+       "target": "Rank and multiplicity formulas, parity and Shin-regularity restrictions, cuspidal versus discrete isobaric parameters",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Representation for each discrete constituent with explicit algebraic twists, and the direct sum with its degree-2n Hecke polynomial",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Recovery of the polarization for essentially conjugate self-dual forms, and compatibility with duals, conjugates, character twists and solvable restriction",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no polarized Galois representations."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+       "note": "Also proves compatibility of rank-n polarized systems with duals, twists and restriction."
+      }
+     ]
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Definite-unitary finite-slope eigenvarieties from locally analytic distributions and Fredholm theory, with classicality and dense classical points",
+       "library": "absent",
+       "declarations": [],
+       "note": "No p-adic Banach modules over affinoids, compact-operator Fredholm theory in the p-adic sense, weight spaces or eigenvarieties (Tau Ceti's Fredholm-operator index theory is not Serre's theory of Fredholm determinants of completely continuous operators, and its Riesz cokernel results need real or complex scalars)."
+      },
+      {
+       "target": "Density of strongly regular geometric points and interpolation of the Galois determinants of AG2.2",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Chenevier-Harris deformation and solvable-descent arguments: reconstruction at the target point, comparison on intersections, effectivity of descent",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "HLTT boundary/Levi realization of a regular algebraic cuspidal GL_n representation inside a GL_2n unitary-similitude construction",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Overconvergent logarithmic de Rham complex with compact-support boundary ideal on dagger spaces, its hypercohomology and comparison with finite-slope overconvergent cusp forms",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.spa",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+         "line": 97,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the adic spectrum Spa(A, A+) as a set of continuous valuations exists; no dagger algebras, rigid cohomology or overconvergent forms."
+      },
+      {
+       "target": "Finite-dimensional slope pieces, independence of neighbourhoods, Hecke action and weight-changing congruences to classical cusp forms",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "p-adic limit of degree-2n Galois determinants and extraction of the two degree-n constituents (HLTT Theorem 7.13, Corollary 7.14)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdicSpacesPartII:F1",
+       "note": "Constructs dagger spaces and logarithmic de Rham complexes with compact-support variants, the analytic part of this layer."
+      }
+     ]
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Good-prime unramifiedness and the full characteristic-polynomial identity with the excluded set and coefficient primes",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Comparison of restrictions to Weil groups with the arbitrary-rank local Langlands construction",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Weil groups or local Langlands."
+      },
+      {
+       "target": "Partial order on nilpotent monodromy types; semisimplification equality versus Frobenius-semisimple Weil-Deligne equality versus a monodromy bound",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.DominanceOrder.partitionPartialOrder",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/Enumerative/Partition/Dominance.lean",
+         "line": 196,
+         "fit": "related"
+        },
+        {
+         "name": "Module.End.exists_isNilpotent_isSemisimple",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/JordanChevalley.lean",
+         "line": 76,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the dominance order on partitions (the combinatorial shadow of the nilpotent-orbit order) and Jordan-Chevalley decomposition exist; no nilpotent orbits of Weil-Deligne representations."
+      },
+      {
+       "target": "Nearby-cycle and weight spectral sequences with monodromy-purity (Caraiani, Taylor-Yoshida) for the polarized branch",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Varma's interpolation of local Hecke actions and nilpotent-orbit bounds for the nonselfdual branch",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicGaloisRepresentations:R19.4",
+       "note": "States the rank-two case: Frobenius-semisimple Weil-Deligne compatibility with local Langlands including monodromy."
+      }
+     ]
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Crystalline, semistable and log-crystalline comparison applied to the geometric construction and passed through deformation and descent",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "BDeRham",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 90,
+         "fit": "related"
+        }
+       ],
+       "note": "Only B_dR^+ and B_dR are defined; no comparison theorems, admissibility or D_cris."
+      },
+      {
+       "target": "Labelled Hodge-Tate multisets from the algebraic highest weight; de Rham, crystalline and semistable/Iwahori variants",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Weakly compatible-system object: coefficient field, finite ramification set, Frobenius polynomials, representations at every coefficient prime, independence of embeddings and semisimple uniqueness",
+       "library": "absent",
+       "declarations": [],
+       "note": "No compatible-system notion."
+      },
+      {
+       "target": "Purity, polarization and coefficient-prime admissibility as separately proved properties of each branch",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicGaloisRepresentations:R19.5",
+       "note": "States the rank-two coefficient-prime de Rham, crystalline and semistable comparison with Hodge weights."
+      },
+      {
+       "layer": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+       "note": "Builds compatible systems as actual representations with common Frobenius polynomials and separate local predicates, the same carrier."
+      }
+     ]
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Continuous invariant lattices after proving a finite coefficient field of realization, compared by residual semisimplification",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Representation.isOpen_ker_of_finite",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/GaloisLattice/FiniteQuotient.lean",
+         "line": 55,
+         "fit": "related"
+        }
+       ],
+       "note": "No invariant-lattice existence, residual semisimplification or Brauer-Nesbitt."
+      },
+      {
+       "target": "Reduction of good-prime polynomials and independence of the associated maximal Hecke ideal",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Residual genericity condition alpha_(i,v) != p alpha_(j,v) at split auxiliary primes, kept distinct from decomposed genericity and from global residual irreducibility",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Typed export packages: good-prime GL_n systems, polarized systems with Hodge and Weil-Deligne comparison, unitary discrete sums, lattice/residual comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "Interface packaging over absent objects."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticGaloisRepresentations:R01.1",
+       "note": "Constructs invariant lattices and proves independence of the residual semisimplification from the lattice."
+      },
+      {
+       "layer": "IgusaVarietiesAndTorsionConcentration:IG.5",
+       "note": "States the same no-ratio-p residual condition at split primes, allowing repeated eigenvalues."
+      }
+     ]
+    }
+   }
+  },
+  "ClassicalSerreModularity": {
+   "summary": "None of the three routes to Serre's conjecture (Khare's level one, Khare-Wintenberger, Dieulefait-Pacetti) has any formal counterpart: neither library has Galois representations attached to modular forms, residual modularity, Serre weights or conductors, compatible systems, modularity lifting, Langlands-Tunnell, Skinner-Wiles, Kisin's dyadic theorem, Schoof's or Fontaine's nonexistence theorems, or good-dihedral primes. The only material the libraries supply is peripheral: Mathlib's Bertrand postulate, explicit Chebyshev bounds and Dirichlet's theorem on primes in progressions (for the prime estimates and auxiliary-prime congruences), Tau Ceti's bundled newforms with strong multiplicity one (the target objects of the classical statement), and Tau Ceti's abelian varieties with dimension. R26.1 is source decomposition rather than mathematics.",
+   "layers": {
+    "ClassicalSerreModularity:R26.1": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Source decomposition of Khare's level-one proof, KW Annals 169 section 5.2, and Bockle's appendix, with suppliers assigned for the local lifting, compatible-system and small-prime lemmas",
+       "library": "absent",
+       "declarations": [],
+       "note": "Bookkeeping over sources; nothing to find in a library."
+      },
+      {
+       "target": "Statement of the level-one Serre theorem for every residual characteristic with its classical Serre weight, and of Khare's Corollary 1.2 with all hypotheses",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.Newform",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
+         "line": 102,
+         "fit": "related"
+        }
+       ],
+       "note": "Newforms exist, but residual Galois representations, residual modularity and Serre weights, needed even to state the theorem, do not."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AlgebraicModularFormsAndSerreWeights:R15.6",
+       "note": "Defines residual modularity and states the classical weight-and-level Serre target used by this statement."
+      },
+      {
+       "layer": "PotentialModularityAndCompatibleSystems:R24.3",
+       "note": "Pins the same KW section 5.2 and Bockle appendix Proposition 1 and Theorem 1 inputs."
+      }
+     ]
+    },
+    "ClassicalSerreModularity:R26.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Construction of each prescribed lift in the level-one argument with its ramification and determinant, placed in a compatible system",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Galois deformations, lifts or compatible systems."
+      },
+      {
+       "target": "Check of the local weight and range of the lifting theorem at every change of characteristic",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Tracking whether the new residual representation is irreducible, reducible or bad-dihedral",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PotentialModularityAndCompatibleSystems:R24.3",
+       "note": "Proves the KW I Theorem 5.1 lift constructions with determinant, weight and ramification, the lifts applied here."
+      },
+      {
+       "layer": "PotentialModularityAndCompatibleSystems:R24.6",
+       "note": "Proves the change-of-prime lemmas for determinant, conductor, type and irreducibility that this layer checks at each step."
+      }
+     ]
+    },
+    "ClassicalSerreModularity:R26.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Weight-reduction and weight-cycle statements of the level-one proof with the auxiliary prime inequalities and congruences",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Analytic and elementary prime estimates and finite exceptional checks for those inequalities",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Nat.exists_prime_lt_and_le_two_mul",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Bertrand.lean",
+         "line": 222,
+         "fit": "related"
+        },
+        {
+         "name": "Chebyshev.theta_ge",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Chebyshev.lean",
+         "line": 498,
+         "fit": "related"
+        },
+        {
+         "name": "Chebyshev.psi_le_const_mul_self",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Chebyshev.lean",
+         "line": 456,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Bertrand's postulate and explicit Chebyshev upper and lower bounds; the sharper Rosser-Schoenfeld-type estimates the source cites and the specific inequalities are absent."
+      },
+      {
+       "target": "Well-founded measure for the recursive calls, with each call to an earlier case",
+       "library": "absent",
+       "declarations": [],
+       "note": "The specific measure and its decrease are absent (general well-founded recursion is of course available)."
+      }
+     ],
+     "duplicates": []
+    },
+    "ClassicalSerreModularity:R26.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Soluble-image branch via Langlands-Tunnell",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Artin representations or Langlands-Tunnell."
+      },
+      {
+       "target": "Residually reducible and cyclotomically reducible branches via Skinner-Wiles",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Bad-dihedral exclusions and local parity arguments",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "ClassicalSerreModularity:R26.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Application of the small-ramification arithmetic exclusions and ordinary calculations to each remaining base case",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Verification of dimension, field of definition and reduction set of abelian-variety realizations before invoking Fontaine or Schoof",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.dim",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 117,
+         "fit": "related"
+        }
+       ],
+       "note": "Abelian varieties and their dimension exist; realizations of residual representations, reduction sets and the Fontaine/Schoof theorems do not."
+      },
+      {
+       "target": "Explicit finite list of exceptional characteristics and weights",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SmallRamificationAndAbelianVarietyBaseCases:R25.6",
+       "note": "Lists every base case used by R26 and R33 with its hypotheses and supplier, the case table required here."
+      }
+     ]
+    },
+    "ClassicalSerreModularity:R26.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Completion of the induction and the level-one Serre theorem at the Serre weight, with twists restored",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.Newform",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
+         "line": 102,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent."
+      },
+      {
+       "target": "Khare's Corollary 1.2 as used in KW I section 8.3",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Derivation of W_1 for locally good-dihedral representations with one prime dividing the odd level",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "ClassicalSerreModularity:R27.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Good-dihedral prime as in KW I Definition 2.1 (inertia character of odd prime-power order, size bound, q = 1 mod 8, congruences at smaller primes)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Residual-image consequences over the range of characteristics used in the induction",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DihedralGroup",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/SpecificGroups/Dihedral.lean",
+         "line": 33,
+         "fit": "related"
+        }
+       ],
+       "note": "No image analysis of residual representations."
+      },
+      {
+       "target": "Existence and preservation of good-dihedral primes from Chebotarev and lifting inputs",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Nat.forall_exists_prime_gt_and_eq_mod",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+         "line": 442,
+         "fit": "related"
+        }
+       ],
+       "note": "Dirichlet's theorem gives primes in the needed residue classes, but Chebotarev and the lifting inputs are absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "ClassicalSerreModularity:R27.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Definitions of L_r and W_r (odd conductor with at most r prime factors, a good-dihedral prime, weight restrictions, p = 2 case)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "KW I Theorem 3.2, W_r implies L_r, following section 8.2 with its prime estimates and applications of Theorems 4.1 and 5.1",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Nat.exists_prime_lt_and_le_two_mul",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Bertrand.lean",
+         "line": 222,
+         "fit": "related"
+        }
+       ],
+       "note": "Only Bertrand-type prime existence is available."
+      },
+      {
+       "target": "Well-founded proof of the internal recursion on weight and characteristic",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "ClassicalSerreModularity:R27.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "KW I Theorem 3.1, L_r implies W_(r+1), including local data when a ramified prime becomes the coefficient prime",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "KW I Theorem 3.3 (W_1) from Khare's corollary",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Two-stage induction on r giving all L_r and W_r",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "ClassicalSerreModularity:R27.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Dyadic refinement from Buzzard 2000 Theorem 2.8 and section 3 and Wiese's weight-one input, keeping Q(i)-induced representations separate",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "D_r with v_2(N) <= r and KW I Theorem 3.4 by level raising (section 8.4)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "KW I Theorem 1.2 (odd characteristic with odd conductor, characteristic two in weight two) with its weight-and-level conclusion and the scalar dyadic case",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "ClassicalSerreModularity:R27.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Hypothesis H of KW I section 9 from Kisin's 2-adic Barsotti-Tate theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "KW I Theorem 9.1: residual p = 2 weight four, then odd characteristic with arbitrary even conductor, with local types, change of prime and soluble/nonsoluble split",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GL2ModularityLifting:R22.6",
+       "note": "Proves Kisin's 2-adic Barsotti-Tate lifting theorem and derives precisely Hypothesis H of KW I section 9."
+      }
+     ]
+    },
+    "ClassicalSerreModularity:R27.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Full classical Serre theorem: a normalised characteristic-zero newform of level N(rho-bar) and weight k(rho-bar), a coefficient prime and an isomorphism with the residual representation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.Newform",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
+         "line": 102,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/StrongMultiplicityOne.lean",
+         "line": 87,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's newforms and strong multiplicity one give the target objects, but no Galois representations, Serre conductor or weight."
+      },
+      {
+       "target": "Determinant/character compatibility and coefficient-field invariance",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Export of the finite-flat weight-two bounded-level consequence used for elliptic curves",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SerreWeightAndLevelOptimisation:R20.6",
+       "note": "Proves the bounded-level weight-two trivial-character consequence used for elliptic curves and the case table for the full classical conclusion."
+      }
+     ]
+    },
+    "ClassicalSerreModularity:R33.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Weak Serre theorem for all odd residual characteristics with soluble and nonsoluble branches",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "First weight change: large coefficient characteristic with Fontaine-Laffaille bound, weight-two lift and compatible system",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Fontaine-Laffaille theory, lifts or compatible systems."
+      },
+      {
+       "target": "Termination of reducible and soluble branches with the modern lifting and soluble Artin theorems, verifying local and image hypotheses at the return transfer",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "ClassicalSerreModularity:R33.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Choice of auxiliary primes with splitting, congruence, size and inertia-order conditions and the prescribed local lift",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Nat.forall_exists_prime_gt_and_eq_mod",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+         "line": 442,
+         "fit": "related"
+        }
+       ],
+       "note": "Only Dirichlet's theorem on primes in progressions exists; Chebotarev splitting conditions and local lifts do not."
+      },
+      {
+       "target": "Good-dihedral image control through the range of coefficient characteristics",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Removal of the other odd ramified primes while keeping the good-dihedral prime",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "ClassicalSerreModularity:R33.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Weight-two dyadic transition: semistable residual weight-four branch, order-three local type and finite-flat weight-two step",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Removal of the auxiliary prime, using Pan's de Rham theorem in the residually reducible branch at a ramified coefficient prime",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PotentialModularityAndCompatibleSystems:R24.6",
+       "note": "Handles the same residually reducible change of prime at a ramified coefficient prime with a de Rham lifting theorem instead of Weil-Deligne compatibility."
+      }
+     ]
+    },
+    "ClassicalSerreModularity:R33.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Residual characteristic five with weights 2 and 4 via the characteristic-three ordinary calculation and Skinner-Wiles",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Weight 6: semistable GL2-type abelian variety in Snowden's form and Schoof's prime-5 theorem, with dimension, reduction and local type verified",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgebraicGeometry.AbelianVariety.dim",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+         "line": 117,
+         "fit": "related"
+        }
+       ],
+       "note": "Abelian varieties exist in Tau Ceti; GL2-type realizations, semistability and Schoof's theorem do not."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+       "note": "Supplies the Snowden-form geometric realizations of the terminal weight-two systems and their reduction checks."
+      }
+     ]
+    },
+    "ClassicalSerreModularity:R33.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Characteristic-two soluble cases via Rohrlich-Tunnell",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Characteristic-two nonsolvable case via the weight-two lift, compatible system and dyadic de Rham theorem, using only the odd-characteristic theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Audit of dependence on the globalisation sources before certifying independence",
+       "library": "absent",
+       "declarations": [],
+       "note": "Dependency audit; not library content."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GL2AutomorphicRepresentationsAndTransfer:R17.6",
+       "note": "Supplies the characteristic-two soluble-projective-image argument with the Rohrlich-Tunnell result."
+      },
+      {
+       "layer": "GL2ModularityLifting:R32.6",
+       "note": "Supplies the dependency audit of globalisations used by the modern route."
+      }
+     ]
+    },
+    "ClassicalSerreModularity:R33.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Classical weight-and-level refinement from the qualitative theorem via the optimisation theorems and the KW dyadic weight-two subtheorem",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.Newform",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
+         "line": 102,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent."
+      },
+      {
+       "target": "The same public Serre theorem as R27, and the elliptic-curve consequence as a corollary",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SerreWeightAndLevelOptimisation:R20.6",
+       "note": "Provides the case table deriving the full classical strong conclusion and proves the bounded-level weight-two consequence for elliptic curves, the same refinement and corollary."
+      }
+     ]
+    }
+   }
+  },
+  "CompletedCohomologyAndLocalGlobalCompatibility": {
+   "summary": "Neither library contains completed cohomology or any piece of the p-adic local-global theory: there are no towers of modular or Shimura curves with their cohomology, no Iwasawa algebras of compact p-adic analytic groups, no admissible Banach or locally algebraic representations, no completed Hecke algebras or deformation rings, no p-adic local Langlands correspondence and no patching. Distant ingredients exist: Mathlib's congruence and arithmetic subgroups, continuous group cohomology, and abstract p-adic measures on Z_p with the Amice transform; Tau Ceti's pro-p groups, classical Hecke rings and newforms. R31.6 is an export and dependency audit rather than new mathematics.",
+   "layers": {
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Completed cohomology of the modular and Shimura-curve towers, specializing the generic construction with its tower and transfer maps",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CongruenceSubgroup.Gamma1",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+         "line": 131,
+         "fit": "related"
+        },
+        {
+         "name": "continuousCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+         "line": 131,
+         "fit": "related"
+        }
+       ],
+       "note": "Congruence subgroups and continuous group cohomology exist, but no cohomology of modular curves, towers in p-power level, or completion."
+      },
+      {
+       "target": "Admissibility and finite generation over the completed group algebra after checking finite-cell and local-group hypotheses",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AbstractMeasure.amiceTransformEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 156,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.IsProP",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Algebra/Group/Profinite/ProP/Basic.lean",
+         "line": 53,
+         "fit": "related"
+        }
+       ],
+       "note": "Only measures on Z_p identified with Z_p[[X]] and pro-p groups exist; no Iwasawa algebra of a compact p-adic analytic group, its Noetherianity or admissible representations."
+      },
+      {
+       "target": "GL2 boundary and non-Eisenstein vanishing results",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "CompletedCohomologyPartII:CC.8",
+       "note": "Identifies the generic completed object with the modular and Hilbert tower models and transports their Galois and Hecke actions, the specialization done here."
+      },
+      {
+       "layer": "ArithmeticLocallySymmetricSpaces:ALS.6",
+       "note": "Assembles the tame and p-power tower API with Hecke actions and tests it on modular curves."
+      }
+     ]
+    },
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Comparison of classical finite-level cohomology with algebraic coefficients and locally algebraic vectors (or the derived construction) in completed cohomology, with degree and vanishing/torsion hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "No locally algebraic or locally analytic vectors and no Hochschild-Serre descent for towers."
+      },
+      {
+       "target": "Comparison with the existing modular-form and newform objects",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.Newform",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
+         "line": 102,
+         "fit": "related"
+        }
+       ],
+       "note": "Newforms exist analytically; there is no Eichler-Shimura isomorphism to cohomology to compare with."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "CompletedCohomologyPartII:CC.6",
+       "note": "Constructs the Hochschild-Serre descent and classical comparison maps for algebraic coefficient systems in general, deferring the GL2 locally algebraic identification to this layer."
+      }
+     ]
+    },
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Completed Hecke algebra with its Galois determinant or representation under the residual hypotheses",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "HeckeRing.GL2.heckeRingHomCuspCharSpace",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Nebentypus/Action.lean",
+         "line": 393,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the classical Hecke ring action on complex cusp forms exists."
+      },
+      {
+       "target": "Commuting action of the local group GL2(Q_p) and the map from the local deformation or pseudodeformation ring",
+       "library": "absent",
+       "declarations": [],
+       "note": "No deformation rings or pseudodeformations."
+      },
+      {
+       "target": "Compatibility with classical specialisations including integral and nilpotent information",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AutomorphicGaloisRepresentations:R19.6",
+       "note": "Constructs the determinant law and continuous representation over the localised completed Hecke algebra with the map from the universal deformation ring."
+      }
+     ]
+    },
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Emerton's Theorem 1.2.1: a nonzero map from B(V_p) tensored with the away-from-p local factors into the V-multiplicity space of completed degree-one cohomology, for promodular V with the residual hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "No p-adic local Langlands functor B, promodular representations or completed cohomology."
+      },
+      {
+       "target": "Injectivity under the exclusion of sums of two characters and self-extensions, and isomorphism under residual p-distinguishedness",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Multiplicity module, central character, completions and the exact localised subspace involved",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Patched completed module (or the equivalent local-global argument) for the selected lifting theorem",
+       "library": "absent",
+       "declarations": [],
+       "note": "No patching in either library."
+      },
+      {
+       "target": "Finite generation, projectivity where stated, support and multiplicity assertions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Transfer of local block and deformation-ring results from p-adic local Langlands with hypotheses checked",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DeformationAndDerivedPatchingAlgebra:R03.5",
+       "note": "Constructs patched modules with existence, finite generation and specialisation in the abstract setting."
+      },
+      {
+       "layer": "DeformationAndDerivedPatchingAlgebra:R03.6",
+       "note": "Proves when a patched module is faithful or supported on specified components, the support assertions required here."
+      }
+     ]
+    },
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.6": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Export of the exact local-global compatibility and support statements used by each branch of the modern lifting theorems, including p = 2 and p = 3",
+       "library": "absent",
+       "declarations": [],
+       "note": "Interface over absent results."
+      },
+      {
+       "target": "Audit of globalisation inputs for dependence on Serre's conjecture, and the restricted independent construction where needed",
+       "library": "absent",
+       "declarations": [],
+       "note": "Dependency audit; the conditional construction is also absent."
+      },
+      {
+       "target": "Hypotheses of Emerton's Theorems 1.2.3-1.2.4 and the Fontaine-Mazur consequence (p > 2, residual irreducibility over Q(zeta_p), de Rham with distinct Hodge-Tate weights)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GL2ModularityLifting:R32.6",
+       "note": "Supplies the same dependency audit locating every globalisation and whether it invokes the general Serre endpoint."
+      }
+     ]
+    }
+   }
+  }
+ }
+}
