@@ -1,0 +1,1525 @@
+{
+ "job": "AUDIT-26",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "NoncommutativeAndEquivariantIwasawa": {
+   "summary": "Neither library contains any noncommutative Iwasawa theory. The available inputs are generic: Mathlib's Ore localization with its universal property and injectivity for non-zero-divisor denominators, Noetherianity of commutative power-series rings, characters of finite-group representations and continuous group cohomology, and Tau Ceti's pro-p groups, K₀ of exact, abelian and triangulated categories, low-degree continuous cohomology with Shapiro's lemma, and the reduced norm of quaternion algebras only. Everything specific is missing: completed group rings of p-adic Lie groups and their noetherianity, the canonical Ore set and S-torsion categories, K₁ and relative K₀ with the localization sequence, characteristic elements, reduced norms and SK₁, Artin evaluation, equivariant Iwasawa complexes, zeta elements, the Kakde and Ritter–Weiss theorems and leading-term descent. NE.0 duplicates PadicMeasuresIwasawaAlgebras L1, NE.4 overlaps IntegralIwasawaTheory I.8 and NE.5 overlaps PeriodsAndSpecialValues PS.5.",
+   "layers": {
+    "NoncommutativeAndEquivariantIwasawa:NE.0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "O[[G]] as the inverse limit over open normal subgroups and coefficient quotients, with its topology and continuous module actions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AbstractMeasure.amiceTransformEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 156,
+         "fit": "related"
+        }
+       ],
+       "note": "No completed group ring exists in either library; for G = ℤ_p only the ℤ_p-linear identification of measures with ℤ_p⟦X⟧ is available."
+      },
+      {
+       "target": "Restriction/induction and augmentation for O[[G]]",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Noetherian and module-finiteness facts for H ◁ G with G/H ≅ ℤ_p under the exact group hypotheses (Lazard/Venjakob)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PowerSeries (instance IsNoetherianRing R⟦X⟧, anonymous)",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Ideal.lean",
+         "line": 196,
+         "fit": "related"
+        }
+       ],
+       "note": "Only Noetherianity of commutative power-series rings is available; compact p-adic Lie groups and their Iwasawa algebras are absent."
+      },
+      {
+       "target": "Acceptance: O[[ℤ_p]] ≅ O[[T]] and finite-level group rings of a concrete nonabelian quotient",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AbstractMeasure.amiceTransformEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 156,
+         "fit": "related"
+        }
+       ],
+       "note": "Finite group rings exist as MonoidAlgebra, but the ring isomorphism with O[[T]] does not."
+      },
+      {
+       "target": "Separate hypotheses: absence of p-torsion, torsion-freeness and pro-p for compact p-adic Lie groups",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.IsProP",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/Algebra/Group/Profinite/ProP/Basic.lean",
+         "line": 53,
+         "fit": "related"
+        },
+        {
+         "name": "IsPGroup",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/PGroup.lean",
+         "line": 26,
+         "fit": "related"
+        }
+       ],
+       "note": "Pro-p groups (every open normal quotient a p-group) and p-groups are defined; compact p-adic Lie groups are not."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PadicMeasuresIwasawaAlgebras:L1",
+       "note": "Constructs R[[G]] = lim (R/I^n)[G/U] for all profinite G, with augmentation, restriction/induction and the continuous-action universal property."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+       "note": "Builds completedGroupAlgebra p Γ = lim_U ℤ_p[Γ/U] with functoriality and the power-series coordinate for Γ ≅ ℤ_p."
+      }
+     ]
+    },
+    "NoncommutativeAndEquivariantIwasawa:NE.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The canonical Ore set S relative to H and its p-saturated variant S*",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not defined; it depends on completed group rings, which do not exist."
+      },
+      {
+       "target": "Both Ore conditions for S and S*, with denominator regularity where used",
+       "library": "absent",
+       "declarations": [],
+       "note": "The CFKSV Ore theorem is absent."
+      },
+      {
+       "target": "Ore localization Λ_S and its universal localization property, given an Ore set",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "OreLocalization.OreSet",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/OreLocalization/OreSet.lean",
+         "line": 52,
+         "fit": "more general"
+        },
+        {
+         "name": "OreLocalization.universalHom",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/OreLocalization/Ring.lean",
+         "line": 133,
+         "fit": "more general"
+        },
+        {
+         "name": "OreLocalization.universalHom_unique",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/OreLocalization/Ring.lean",
+         "line": 167,
+         "fit": "more general"
+        },
+        {
+         "name": "OreLocalization.numeratorHom_inj",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/OreLocalization/Ring.lean",
+         "line": 193,
+         "fit": "more general"
+        }
+       ],
+       "note": "Mathlib constructs R[S⁻¹] for any left Ore set of a (noncommutative) ring, with the ring structure, the universal ring homomorphism and its uniqueness, and injectivity of R → R[S⁻¹] when S consists of left non-zero-divisors."
+      },
+      {
+       "target": "The category of S-torsion modules and perfect complexes, with the finiteness criterion over O[[H]]",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present; the cyclic-quotient and nonabelian acceptance examples are also absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "NoncommutativeAndEquivariantIwasawa:NE.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Localization boundary K₁(Λ_S) → K₀(Λ, Λ_S) with the exact localization sequence, functoriality and a fixed sign convention",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ExactK0",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+         "line": 162,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.TriangulatedK0",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean",
+         "line": 138,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library defines K₁ of a ring or relative K₀; Tau Ceti only has K₀ of exact, abelian and triangulated categories."
+      },
+      {
+       "target": "Classes of perfect S-torsion complexes in relative K₀, additive for exact sequences and mapping cones",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.TriangulatedK0.of_distTriang",
+         "library": "tauceti",
+         "file": "TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean",
+         "line": 153,
+         "fit": "related"
+        }
+       ],
+       "note": "Additivity on distinguished triangles exists for triangulated K₀, but not for relative K₀ of a localization."
+      },
+      {
+       "target": "Characteristic elements as lifts of a relative class, with ambiguity exactly the image of K₁(Λ)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Acceptance: for a commutative one-variable cyclic torsion module, recovery of its characteristic power series up to units",
+       "library": "absent",
+       "declarations": [],
+       "note": "Characteristic power series are not defined either (see PadicMeasuresIwasawaAlgebras L4)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeneralAlgebraicKTheory:K.5",
+       "note": "Defines relative K-theory as a homotopy fibre, including support K-theory for a localisation A → S⁻¹A, of which the relative K₀(Λ,Λ_S) and its boundary here are an instance (NE.2 cites it as input)."
+      }
+     ]
+    },
+    "NoncommutativeAndEquivariantIwasawa:NE.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Twisting and evaluation of localized K₁ at continuous finite-dimensional Artin representations, where the localized map exists",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Representation.character",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Character.lean",
+         "line": 55,
+         "fit": "related"
+        }
+       ],
+       "note": "Characters of representations exist; K₁ evaluation maps do not."
+      },
+      {
+       "target": "Reduced norms on the semisimple total quotient algebra and SK₁ as their kernel",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "QuaternionAlgebra.normForm",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Quaternion/NormForm.lean",
+         "line": 72,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the reduced norm of a quaternion algebra, as a quadratic form, is defined; reduced norms of general semisimple algebras and SK₁ are absent."
+      },
+      {
+       "target": "Functoriality under coefficient extension, and what character evaluations determine (the surviving SK₁ ambiguity)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": []
+    },
+    "NoncommutativeAndEquivariantIwasawa:NE.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Compactly supported and Iwasawa Galois cohomology complexes with G-action and local conditions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "continuousCohomology",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+         "line": 131,
+         "fit": "related"
+        }
+       ],
+       "note": "Continuous group cohomology exists, but not compactly supported or Iwasawa complexes."
+      },
+      {
+       "target": "Derived induction and restriction for these complexes",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ContCohomology.explicitShapiro1",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Shapiro.lean",
+         "line": 372,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.DiscreteCoind",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Coinduced.lean",
+         "line": 329,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves Shapiro's lemma for coinduced discrete modules in degrees 0 and 1 only."
+      },
+      {
+       "target": "Perfectness and S-torsion of the complexes under the selected ramification and cohomological hypotheses",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Archimedean terms and duality tracked before assigning relative K₀ classes",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Poitou–Tate duality in either library."
+      },
+      {
+       "target": "Acceptance: specialization to a cyclotomic abelian extension recovering the existing arithmetic complex",
+       "library": "absent",
+       "declarations": [],
+       "note": "The commutative complex is also absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IntegralIwasawaTheory:I.8",
+       "note": "Constructs the compactly supported Iwasawa complex RΓ_c(O_{F∞,S}, ℤ_p(1)) with perfectness and derived inverse-limit description, the abelian case this layer specializes to."
+      }
+     ]
+    },
+    "NoncommutativeAndEquivariantIwasawa:NE.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "A localized-K₁ zeta element with boundary and Artin-interpolation properties (periods, local factors, exceptional zeros)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Norm, restriction and abelianization maps on K₁ and agreement with commutative determinant formulas",
+       "library": "absent",
+       "declarations": [],
+       "note": "K₁ is not defined."
+      },
+      {
+       "target": "Acceptance: an abelian specialization recovering the normalized p-adic L-function and arithmetic determinant",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PeriodsAndSpecialValues:PS.5",
+       "note": "Formulates zeta-element and equivariant Tamagawa-number statements in relative K-groups and requires commutative specializations to recover the determinant formula."
+      }
+     ]
+    },
+    "NoncommutativeAndEquivariantIwasawa:NE.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Kakde and Ritter–Weiss proofs: integral logarithms and congruences, abelian pseudomeasures, noncommutative patching and the localization boundary calculation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Main conjectures for totally real p-adic Lie extensions with their odd-prime, admissibility and μ = 0 hypotheses, recorded source by source",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present; the requested coverage table is bookkeeping around these theorems."
+      },
+      {
+       "target": "Newer unconditional abelian results via explicit comparison maps, and a separate function-field route",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      }
+     ],
+     "duplicates": []
+    },
+    "NoncommutativeAndEquivariantIwasawa:NE.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Derived specialization and Bockstein/regulator data defining leading terms where evaluations vanish",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Bockstein maps or leading-term constructions in either library."
+      },
+      {
+       "target": "Descent identities under semisimplicity/finiteness hypotheses and the relative K-theory statement exported to special values",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Exceptional zeros and noncommutative Fitting invariants with their orders and denominator ideals",
+       "library": "absent",
+       "declarations": [],
+       "note": "Fitting invariants are not defined."
+      }
+     ],
+     "duplicates": []
+    }
+   }
+  },
+  "PadicMeasuresIwasawaAlgebras": {
+   "summary": "Mathlib already supplies the bounded-measure foundations with ℤ_p coefficients: abstract measures D(X,R) = C(X,R) →L[R] R with Dirac measures, pushforward and a Fubini interchange for profinite spaces, clopen-partition approximation on any profinite space, Mahler's theorem, the ℤ_p-linear Amice transform D(ℤ_p,ℤ_p) ≃ ℤ_p⟦X⟧, Banach–Alaoglu over p-adic fields, and Weierstrass division and preparation with uniqueness over any complete local ring, with O⟦T⟧ Noetherian and factorial and O[T]/(f) ≅ O⟦T⟧/(g) finite free. Tau Ceti adds uniformizer-normalized valuations of local fields and primitive central idempotents of group algebras over algebraically closed fields. Genuinely missing: completed group rings and the convolution algebra, the Amice transform over general O and as an algebra map, φ/ψ and the rest of RJW §3.5, pseudo-measures, rigid weight spaces, the Λ-module structure theorem with characteristic and Fitting ideals and μ/λ, determinant lines, topological Nakayama, and Gorenstein orders with exact duality. L0a duplicates LocallyAnalyticDistributions L3, and L1 duplicates NoncommutativeAndEquivariantIwasawa NE.0 and the completed-group-algebra package of ProfiniteProPGroups Layer 9.",
+   "layers": {
+    "PadicMeasuresIwasawaAlgebras:L0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Continuous scalar extension along isometric embeddings of p-adic fields (of C(X,K), Banach spaces and measures)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has an extension-of-scalars map for AbstractMeasure or for p-adic Banach spaces along K → L."
+      },
+      {
+       "target": "Finite free integral lattices in finite-dimensional K-vector spaces",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Submodule.IsLattice",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/Lattice.lean",
+         "line": 67,
+         "fit": "more general"
+        },
+        {
+         "name": "Submodule.IsLattice.free",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/Lattice.lean",
+         "line": 173,
+         "fit": "more general"
+        },
+        {
+         "name": "Submodule.IsLattice.rank'",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/Lattice.lean",
+         "line": 179,
+         "fit": "more general"
+        }
+       ],
+       "note": "Lattices are finitely generated R-submodules spanning V; over a PID (e.g. O) they are free of rank dim_K V."
+      },
+      {
+       "target": "Relation between the normalized valuation v_p and a uniformizer valuation v_ϖ (v_ϖ = e·v_p)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "IsDedekindDomain.HeightOneSpectrum.valuation_liesOver",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/RamificationInertia/Valuation.lean",
+         "line": 57,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.normalizedValuation",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/NormalizedValuation.lean",
+         "line": 101,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.normalizedValuation_irreducible",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/NormalizedValuation.lean",
+         "line": 295,
+         "fit": "related"
+        },
+        {
+         "name": "Padic.toAdd_normalizedValuation_eq_valuation",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/Padic.lean",
+         "line": 77,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib proves v(x)^e = w(x) for x in K along an extension of Dedekind domains, and Tau Ceti defines the ℤ-valued uniformizer valuation of a local field (equal to v_p on ℚ_p). A ℚ-valued v_p on a finite extension and the formula v_p = v_ϖ/e there are not stated."
+      },
+      {
+       "target": "Completed tensor products of p-adic Banach spaces/modules",
+       "library": "absent",
+       "declarations": [],
+       "note": "No completed (projective) tensor product exists in either library; Tau Ceti's Huber base-change results only treat restricted power series."
+      },
+      {
+       "target": "K-valued bounded measures on a profinite X as the continuous K-linear dual of C(X,K), with its operator norm",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "AbstractMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 40,
+         "fit": "more general"
+        },
+        {
+         "name": "AbstractMeasure.StrongTopology",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Topology.lean",
+         "line": 48,
+         "fit": "exact"
+        },
+        {
+         "name": "ContinuousLinearMap.instCompleteSpace",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Module/Spaces/ContinuousLinearMap.lean",
+         "line": 180,
+         "fit": "more general"
+        }
+       ],
+       "note": "AbstractMeasure X R E := C(X,R) →L[R] E for any topological ring R; for a normed field K continuity is boundedness. The strong topology is only a definition, with completeness coming from the general space of continuous linear maps."
+      },
+      {
+       "target": "The integral lattice of measures taking C(X,O) into O: its description, boundedness and scaling into it",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AbstractMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 40,
+         "fit": "related"
+        }
+       ],
+       "note": "D(X,ℤ_[p]) can be formed directly, but its identification with the unit ball of D(X,ℚ_p) and the scaling statement are not proved."
+      },
+      {
+       "target": "Density of locally constant functions in C(X,K) via finite clopen partitions, for an arbitrary profinite X",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "ContinuousMap.exists_finite_sum_const_mulIndicator_approximation_of_mem_nhds_diagonal",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Separation/DisjointCover.lean",
+         "line": 167,
+         "fit": "exact"
+        },
+        {
+         "name": "ContinuousMap.exists_finite_approximation_of_mem_nhds_diagonal",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Separation/DisjointCover.lean",
+         "line": 140,
+         "fit": "exact"
+        },
+        {
+         "name": "ContinuousMap.exists_disjoint_nonempty_clopen_cover_of_mem_nhds_diagonal",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Separation/DisjointCover.lean",
+         "line": 127,
+         "fit": "exact"
+        },
+        {
+         "name": "TopologicalSpace.IsOpenCover.exists_finite_nonempty_disjoint_clopen_cover",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Separation/DisjointCover.lean",
+         "line": 56,
+         "fit": "exact"
+        }
+       ],
+       "note": "For compact Hausdorff totally disconnected X, every continuous f is approximated within any neighbourhood of the diagonal by a finite sum of clopen indicators (the additive form is exists_finite_sum_const_indicator_approximation_of_mem_nhds_diagonal); stated as approximation rather than as Dense."
+      },
+      {
+       "target": "Integral measures ≅ finitely additive O-valued functions on clopens; K-valued measures ≅ bounded such functions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MeasureTheory.AddContent",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/AddContent.lean",
+         "line": 76,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's AddContent gives G-valued finitely additive set functions on a family of sets, but no comparison with abstract measures on clopens exists."
+      },
+      {
+       "target": "Extension of measures from dense test-function spaces, and uniqueness",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "ContinuousLinearMap.extend",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Module/ContinuousLinearMap/Extend.lean",
+         "line": 29,
+         "fit": "more general"
+        },
+        {
+         "name": "ContinuousLinearMap.extend_unique",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Module/ContinuousLinearMap/Extend.lean",
+         "line": 61,
+         "fit": "more general"
+        },
+        {
+         "name": "ContinuousLinearMap.ext_on",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Module/ContinuousLinearMap/Basic.lean",
+         "line": 250,
+         "fit": "more general"
+        }
+       ],
+       "note": "General extension along dense uniform embeddings into a complete target and uniqueness from a dense span; nothing measure-specific is needed."
+      },
+      {
+       "target": "Operations on measures: scalar extension, pushforward, restriction to a clopen, extension by zero, support and disjoint decomposition",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AbstractMeasure.map",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 101,
+         "fit": "exact"
+        },
+        {
+         "name": "AbstractMeasure.dirac",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 93,
+         "fit": "related"
+        },
+        {
+         "name": "AbstractMeasure.arrowCongrLeft",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 128,
+         "fit": "related"
+        }
+       ],
+       "note": "Pushforward along continuous maps (with map_map, map_dirac) exists; restriction to and extension by zero from clopens, support, disjoint decomposition and scalar extension are missing."
+      },
+      {
+       "target": "Orthonormal-basis theorem for p-adic Banach spaces with norm values in |K^×| (lifting a basis of the lattice modulo ϖ)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "PadicInt.mahlerEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+         "line": 357,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only the Mahler basis of C(ℤ_p,E), an isometry with c₀(ℕ,E), is available; the general theorem of RJW Remark 3.4 is missing."
+      },
+      {
+       "target": "Operator-norm and weak topologies on the dual, completeness, weak compactness of the integral dual and non-compactness in norm",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AbstractMeasure.WeakTopology",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Topology.lean",
+         "line": 40,
+         "fit": "exact"
+        },
+        {
+         "name": "AbstractMeasure.StrongTopology",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Topology.lean",
+         "line": 48,
+         "fit": "exact"
+        },
+        {
+         "name": "WeakDual.isCompact_closedBall",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Normed/Module/WeakDual.lean",
+         "line": 269,
+         "fit": "more general"
+        }
+       ],
+       "note": "Both topologies are defined (not as instances) and Banach–Alaoglu holds over any proper nontrivially normed field, which covers finite extensions of ℚ_p; the identification of the unit ball with integral measures, completeness statements for these topologies, and the non-compactness example are missing."
+      }
+     ],
+     "duplicates": []
+    },
+    "PadicMeasuresIwasawaAlgebras:L0a": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Rigid analytic space representing continuous characters G → A^× on affinoid algebras, for compact abelian p-adic analytic G, with its universal character",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "PadicInt.continuousAddCharEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/AddChar.lean",
+         "line": 103,
+         "fit": "special case"
+        },
+        {
+         "name": "PadicInt.continuousAddCharEquiv_of_norm_mul",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/AddChar.lean",
+         "line": 125,
+         "fit": "special case"
+        }
+       ],
+       "note": "For G = ℤ_p Mathlib identifies continuous characters valued in a complete ultrametric normed ℤ_p-algebra with its topologically nilpotent elements (the open unit disc on points); there is no rigid space, representability or general G."
+      },
+      {
+       "target": "Generic-fibre construction from the completed group ring, finite-character components, polydisc charts, pullback in G and affinoid base change, with the separate p = 2 chart",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.closedPolydisc",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean",
+         "line": 72,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has only closed polydiscs as adic spectra of restricted power series rings; open discs, weight spaces and their charts are absent."
+      },
+      {
+       "target": "Separate domains of integral, rigid and locally analytic characters; factorization through the abelianization for nonabelian G",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Analytic universal-character action on distribution/coefficient modules with radii, continuity and completed coefficient tensors",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on locally analytic distributions and completed tensors, neither of which exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "LocallyAnalyticDistributions:L3",
+       "note": "Also constructs the functor of continuous characters of a compact commutative p-adic analytic group on affinoid algebras, the polydisc identification for ℤ_p^d, the p = 2 components, the universal character and the adic/rigid character spaces."
+      }
+     ]
+    },
+    "PadicMeasuresIwasawaAlgebras:L1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "R[[G]] = lim_(n,U) (R/I^n)[G/U] for a complete adic ring R and profinite G, with its topology",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AbstractMeasure.amiceTransformEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 156,
+         "fit": "related"
+        }
+       ],
+       "note": "No completed group ring exists in either library; for G = ℤ_p Mathlib only has the ℤ_p-linear identification of D(ℤ_p,ℤ_p) with ℤ_p⟦X⟧."
+      },
+      {
+       "target": "Independence of the ideal of definition, functoriality, augmentation, Dirac elements and density of R[G]",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AbstractMeasure.dirac",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 93,
+         "fit": "related"
+        }
+       ],
+       "note": "Dirac measures exist for abstract measures but not in a completed group ring."
+      },
+      {
+       "target": "Universal property for continuous actions on complete separated linearly topologized modules with open G-stable submodules",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "For R = O, the presentation O[[G]] = lim_U O[G/U]",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Convolution by iterated integration and the interchange theorem (first on locally constant functions, then by uniform approximation)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AbstractMeasure.prodMk",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 205,
+         "fit": "related"
+        },
+        {
+         "name": "AbstractMeasure.prodMk'",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 225,
+         "fit": "related"
+        },
+        {
+         "name": "AbstractMeasure.prodMk_eq_prodMk'",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 250,
+         "fit": "exact"
+        },
+        {
+         "name": "ContinuousMap.denseRange_tensorHom",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/UniformSpace/ProdApproximation.lean",
+         "line": 98,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib proves that the two iterated integrals of a function on X × Y agree for profinite X, Y, via density of C(X,R) ⊗ C(Y,R); the convolution product (pushforward along multiplication) and the resulting algebra structure on measures are not defined."
+      },
+      {
+       "target": "Topological O-algebra isomorphism between integral measures and O[[G]], noncommutative in general and commutative for abelian G",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AbstractMeasure.amiceTransformEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 156,
+         "fit": "related"
+        }
+       ],
+       "note": "Missing; the only comparison is the linear Amice equivalence for G = ℤ_p and O = ℤ_p."
+      },
+      {
+       "target": "Restriction/induction and finite-index norm maps on completed group rings, with projection formulas",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present for completed group rings."
+      },
+      {
+       "target": "The inclusion of measures on ℤ_p^× into measures on ℤ_p is linear but not multiplicative for the two convolutions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AbstractMeasure.map",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 101,
+         "fit": "related"
+        }
+       ],
+       "note": "Pushforward along the inclusion exists; the convolution structures needed for the statement do not."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "NoncommutativeAndEquivariantIwasawa:NE.0",
+       "note": "Constructs O[[G]] again as the inverse limit over open normal subgroups and coefficient quotients, with its topology, continuous module actions, restriction/induction and augmentation."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+       "note": "Builds completedGroupAlgebra p Γ = lim_U ℤ_p[Γ/U] as a compact topological ℤ_p-algebra with functoriality, finite-level projections, compact modules and the power-series coordinate."
+      }
+     ]
+    },
+    "PadicMeasuresIwasawaAlgebras:L2": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Mahler's theorem with the coefficient-general Mahler basis and its norm formula",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "PadicInt.hasSum_mahler",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+         "line": 339,
+         "fit": "exact"
+        },
+        {
+         "name": "PadicInt.mahlerEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+         "line": 357,
+         "fit": "exact"
+        },
+        {
+         "name": "PadicInt.norm_mahler_eq",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+         "line": 276,
+         "fit": "exact"
+        },
+        {
+         "name": "PadicInt.dense_span_mahler",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+         "line": 398,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mahler series converge to f for E a complete ultrametric normed ℤ_p-module, and f ↦ (Δ^n f(0)) is an isometric equivalence C(ℤ_p,E) ≃ c₀(ℕ,E)."
+      },
+      {
+       "target": "Amice transform M(ℤ_p,O) ≅ O⟦T⟧, A_μ(T) = Σ μ(binom(x,n)) T^n, with the inverse obtained by summing Mahler coefficients",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AbstractMeasure.amiceTransform",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 75,
+         "fit": "more general"
+        },
+        {
+         "name": "AbstractMeasure.invTransform",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 128,
+         "fit": "special case"
+        },
+        {
+         "name": "AbstractMeasure.amiceTransformEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 156,
+         "fit": "special case"
+        }
+       ],
+       "note": "The transform is defined for any topological ℤ_p-algebra of coefficients, but the equivalence with its inverse is proved only for O = ℤ_p (general coefficients are a TODO in the file)."
+      },
+      {
+       "target": "Multiplicativity for convolution, Dirac transforms, coefficient extraction, injectivity and uniqueness from polynomial moments",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AbstractMeasure.coeff_amiceTransform",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 80,
+         "fit": "exact"
+        },
+        {
+         "name": "AbstractMeasure.injective_amiceTransform",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 91,
+         "fit": "more general"
+        },
+        {
+         "name": "AbstractMeasure.ext_mahler",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+         "line": 55,
+         "fit": "exact"
+        },
+        {
+         "name": "PadicInt.ext_mahler",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+         "line": 409,
+         "fit": "exact"
+        }
+       ],
+       "note": "Coefficient extraction, injectivity (complete ultrametric normed coefficients) and determination by the values on binomial polynomials are proved; multiplicativity and the transform of Dirac measures are missing because convolution is not defined."
+      },
+      {
+       "target": "Extension of the Mahler–Amice theory to ℤ_p^d",
+       "library": "absent",
+       "declarations": [],
+       "note": "Only one variable is treated."
+      },
+      {
+       "target": "Coefficientwise (ϖ,T)-adic topology versus uniform convergence of coefficients",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/PiTopology.lean",
+         "line": 101,
+         "fit": "related"
+        },
+        {
+         "name": "AbstractMeasure.WeakTopology",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Topology.lean",
+         "line": 40,
+         "fit": "related"
+        }
+       ],
+       "note": "The coefficientwise topology on power series and the weak/strong topologies on measures exist separately; no comparison through the Amice transform."
+      },
+      {
+       "target": "RJW §3.5 operators: multiplication by a function, ∂ = (1+T)d/dT, translations, dilations, residue-class projections by roots of unity, φ(T) = (1+T)^p − 1, ψ, ψφ = 1, φψ = restriction to pℤ_p, restriction to units 1 − φψ, and inversion of x on units",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PowerSeries.derivative",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "AbstractMeasure.map",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+         "line": 101,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the formal derivative of power series and pushforward of measures exist; none of the operators is defined on measures or transported through the Amice transform."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "LocallyAnalyticDistributions:L1",
+       "note": "Builds the same restriction, twisting, φ, ψ, differentiation and division-by-x toolbox for distributions and its compatibility with the bounded Amice transform."
+      },
+      {
+       "layer": "PhiGammaModulesAndIwasawaCohomology:PG.4",
+       "note": "Constructs ψ as the normalized left inverse of φ with ψφ = 1 on the power-series coefficient rings and compares it with this layer's ψ."
+      },
+      {
+       "layer": "ColemanPowerSeries:L1",
+       "note": "Proves O[[T]] finite free over φ(O[[T]]) and identifies the normalized trace with ψ, overlapping this layer's construction of ψ."
+      }
+     ]
+    },
+    "PadicMeasuresIwasawaAlgebras:L3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Total quotient ring of the commutative O[[G]] (localization at non-zero-divisors)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "FractionRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Localization/FractionRing.lean",
+         "line": 733,
+         "fit": "more general"
+        }
+       ],
+       "note": "The generic localization at non-zero-divisors exists, but the ring O[[G]] it should be applied to does not."
+      },
+      {
+       "target": "Pseudo-measures λ with ([g] − 1)λ ∈ O[[G]] for all g: module structure and augmentation-ideal description",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Evaluation of pseudo-measures at nontrivial characters by clearing a factor [g] − 1, independent of g",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "For procyclic G: principal augmentation ideal, the existence/uniqueness statements of RJW §§3–4 and change of generator",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present; Tau Ceti's augmentation ideals are those of Hopf algebras and A∞-algebras, not of group rings."
+      },
+      {
+       "target": "ℤ_2^× = {±1} × (1 + 4ℤ_2) treated as a non-procyclic group",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.unitFiltration",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean",
+         "line": 88,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the unit filtration of a local field, but no product decomposition of ℤ_p^× or ℤ_2^×."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DirichletPadicLFunctions:L1",
+       "note": "Divides by [a] − 1 in the total quotient ring and proves regularity and independence of the smoothing parameter for the Kubota–Leopoldt pseudo-measure, a special case of this layer's evaluation theory."
+      },
+      {
+       "layer": "IntegralIwasawaTheory:I.1",
+       "note": "Also constructs ℤ_p[[G∞]] with its total quotient ring for abelian extensions of a totally real field."
+      }
+     ]
+    },
+    "PadicMeasuresIwasawaAlgebras:L4": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Weierstrass division and preparation for O[[T]], with uniqueness",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "PowerSeries.exists_isWeierstrassDivision",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean",
+         "line": 504,
+         "fit": "more general"
+        },
+        {
+         "name": "PowerSeries.IsWeierstrassDivision.unique",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean",
+         "line": 594,
+         "fit": "more general"
+        },
+        {
+         "name": "PowerSeries.exists_isWeierstrassFactorization",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean",
+         "line": 813,
+         "fit": "more general"
+        },
+        {
+         "name": "PowerSeries.IsWeierstrassFactorization.unique",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean",
+         "line": 855,
+         "fit": "more general"
+        }
+       ],
+       "note": "Proved over any complete local ring (IsAdicComplete for the maximal ideal) for series whose reduction is nonzero; this covers any complete DVR O."
+      },
+      {
+       "target": "Continuity of Weierstrass division",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PowerSeries.add_weierstrassDiv",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean",
+         "line": 602,
+         "fit": "related"
+        }
+       ],
+       "note": "Only additivity and scalar compatibility of the quotient and remainder are proved."
+      },
+      {
+       "target": "O[[T]] is Noetherian and factorial",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "PowerSeries (instance IsNoetherianRing R⟦X⟧, anonymous)",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Ideal.lean",
+         "line": 196,
+         "fit": "more general"
+        },
+        {
+         "name": "PowerSeries (instance UniqueFactorizationMonoid R⟦X⟧, anonymous)",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/Ideal.lean",
+         "line": 202,
+         "fit": "more general"
+        }
+       ],
+       "note": "Anonymous instances: R⟦X⟧ is Noetherian for Noetherian R and a UFD for a principal ideal domain R; both apply to a DVR O."
+      },
+      {
+       "target": "O[[T]] is a regular local ring of Krull dimension two",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ringKrullDim_succ_le_ringKrullDim_powerseries",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/KrullDimension/NonZeroDivisors.lean",
+         "line": 118,
+         "fit": "related"
+        },
+        {
+         "name": "IsRegularLocalRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
+         "line": 51,
+         "fit": "related"
+        }
+       ],
+       "note": "Only dim R + 1 ≤ dim R⟦X⟧ is proved, and regularity is only known for local PIDs; the equality dim O[[T]] = 2 and regularity are missing."
+      },
+      {
+       "target": "Finite free remainders: O[[T]]/(g) ≅ O[T]/(f) for the distinguished polynomial f, free of rank deg f",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "PowerSeries.algEquivQuotientWeierstrassDistinguished",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean",
+         "line": 837,
+         "fit": "more general"
+        },
+        {
+         "name": "Polynomial.IsDistinguishedAt.algEquivQuotient",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean",
+         "line": 458,
+         "fit": "more general"
+        },
+        {
+         "name": "Polynomial.Monic.free_quotient",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdjoinRoot.lean",
+         "line": 689,
+         "fit": "more general"
+        }
+       ],
+       "note": "The algebra isomorphism A[X]/(f) ≃ A⟦X⟧/(g) together with freeness of the quotient by a monic polynomial gives the statement."
+      },
+      {
+       "target": "Structure theorem: every finitely generated O[[T]]-module is pseudo-isomorphic to an elementary module; symmetry of pseudo-isomorphism for torsion modules",
+       "library": "absent",
+       "declarations": [],
+       "note": "No pseudo-isomorphisms or elementary modules in either library."
+      },
+      {
+       "target": "Characteristic ideals from lengths at height-one primes, the elementary-divisor comparison, multiplicativity in exact sequences, pseudo-isomorphism invariance, cyclic modules, twisting, inversion, finite flat coefficient extension and change of generator",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.length_quotient_lsmul_ideal_eq_ord",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Length.lean",
+         "line": 228,
+         "fit": "related"
+        },
+        {
+         "name": "Ring.ord",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/OrderOfVanishing/Basic.lean",
+         "line": 36,
+         "fit": "related"
+        }
+       ],
+       "note": "Module lengths and orders of vanishing exist; characteristic ideals do not."
+      },
+      {
+       "target": "μ- and λ-invariants (μ via v_ϖ) and the class-number growth normalization for O = ℤ_p",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Fitting ideals, and finite modules with unit characteristic ideal but non-unit Fitting ideal",
+       "library": "absent",
+       "declarations": [],
+       "note": "Fitting ideals of modules are not defined in either library."
+      },
+      {
+       "target": "Integral character idempotents of O[Δ] for finite abelian Δ of order prime to p after adjoining character values, with componentwise comparisons",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Representation.primitiveCentralIdempotent",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/CentralIdempotent.lean",
+         "line": 303,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Representation.completeOrthogonalIdempotents_primitiveCentralIdempotent",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/IdempotentDecomposition.lean",
+         "line": 221,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.subgroupCharSum",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/MonoidAlgebra/SubgroupCharSum.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.subgroupCharSum_mul_self",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/MonoidAlgebra/SubgroupCharSum.lean",
+         "line": 100,
+         "fit": "related"
+        }
+       ],
+       "note": "Complete orthogonal primitive central idempotents exist only over algebraically closed fields with |G| invertible; character sums Σ χ(h)h with e² = |H|e hold over any commutative semiring. The integral version over O and the componentwise module comparisons are missing."
+      },
+      {
+       "target": "Height-one divisors on O[[ℤ_p^d]]; pseudo-null means codimension at least two",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MvPowerSeries.isNoetherianRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPowerSeries/Equiv.lean",
+         "line": 225,
+         "fit": "related"
+        }
+       ],
+       "note": "Only Noetherianity of power series in finitely many variables is available."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IntegralIwasawaTheory:L2",
+       "note": "Also proves finite-error stabilization under pseudo-isomorphisms and computes coinvariant orders of elementary modules."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+       "note": "Proves the division criterion (T − c) | ψ ⟺ ψ(c) = 0 in ℤ_p[[T]], a special case of this layer's Weierstrass division (general preparation is excluded there)."
+      }
+     ]
+    },
+    "PadicMeasuresIwasawaAlgebras:L5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Determinant lines of bounded complexes of finite projective modules, compatible with quasi-isomorphisms, exact triangles, duals and derived base change",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Invertible",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "exteriorPower.topEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/ExteriorPower.lean",
+         "line": 280,
+         "fit": "related"
+        }
+       ],
+       "note": "Invertible modules and top exterior powers of free modules exist; no determinant functor on complexes."
+      },
+      {
+       "target": "Rational trivialization and the relation between its divisor and alternating characteristic divisors of torsion cohomology",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not present."
+      },
+      {
+       "target": "Perfect complexes and invertible modules as the carrier over non-regular coefficient rings",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Invertible",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "No notion of perfect complex in either library."
+      },
+      {
+       "target": "Exactness of inverse limits for the compact inverse systems used in arithmetic, via Mittag-Leffler or compactness",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Functor.IsMittagLeffler",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/CofilteredSystem.lean",
+         "line": 137,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Functor.isMittagLeffler_of_exists_finite_range",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/CofilteredSystem.lean",
+         "line": 230,
+         "fit": "related"
+        },
+        {
+         "name": "nonempty_sections_of_finite_cofiltered_system",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/CofilteredSystem.lean",
+         "line": 79,
+         "fit": "related"
+        },
+        {
+         "name": "AdicCompletion.map_exact",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Exactness.lean",
+         "line": 184,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib has Mittag-Leffler systems of types, nonempty limits of finite (and compact Hausdorff) cofiltered systems, and exactness of adic completion on finite modules over a Noetherian ring; exactness of limits of compact topological modules is not stated."
+      },
+      {
+       "target": "Topological Nakayama for compact modules and finite generation from a finite residual quotient",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Submodule.eq_bot_of_le_smul_of_le_jacobson_bot",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Nakayama.lean",
+         "line": 118,
+         "fit": "related"
+        }
+       ],
+       "note": "Only algebraic Nakayama for finitely generated modules is available."
+      },
+      {
+       "target": "Specialization exact sequences with Tor terms and finite-error control for coinvariants",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Tor",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Monoidal/Tor.lean",
+         "line": 44,
+         "fit": "related"
+        }
+       ],
+       "note": "Tor exists as a derived functor, without the specialization sequences."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DeformationAndDerivedPatchingAlgebra:P7",
+       "note": "Also builds perfect complexes over complete local O-algebras with derived base change, the Tor specialization spectral sequence, derived Nakayama and derived Mittag–Leffler comparisons."
+      },
+      {
+       "layer": "PeriodsAndSpecialValues:PS.4",
+       "note": "Constructs integral determinant lines of perfect complexes with invariance under quasi-isomorphism and finite-module corrections."
+      },
+      {
+       "layer": "IntegralIwasawaTheory:L2",
+       "note": "Proves compact (topological) Nakayama to deduce finite generation and torsion of Iwasawa modules."
+      }
+     ]
+    },
+    "PadicMeasuresIwasawaAlgebras:L6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Commutative O-orders (finite torsion-free over a complete DVR) with semisimple fraction algebra, including semilocal products",
+       "library": "absent",
+       "declarations": [],
+       "note": "No carrier for orders over a DVR in either library."
+      },
+      {
+       "target": "The O-dual Hom_O(R,O) as an R-module, and Gorenstein order ⟺ the dual is invertible (locally free of rank one)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Invertible",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/PicardGroup.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "LinearMap.exists_isFrobeniusFunctional_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Algebra/Frobenius/Basic.lean",
+         "line": 166,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves the analogue over a field (a Frobenius functional exists iff A ≅ its k-dual); nothing for orders over O."
+      },
+      {
+       "target": "For nonzero a ∈ O the quotient R/aR of a Gorenstein order is self-injective, while arbitrary quotients need not be",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LinearMap.IsFrobeniusFunctional.moduleInjective_self",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Algebra/Frobenius/Basic.lean",
+         "line": 267,
+         "fit": "related"
+        },
+        {
+         "name": "Function.Bijective.moduleInjective_self",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Module/Injective/SelfInjective.lean",
+         "line": 133,
+         "fit": "related"
+        }
+       ],
+       "note": "Self-injectivity is proved only for algebras over a field carrying a perfect associative form; R/aR is an O/aO-algebra, not a field algebra."
+      },
+      {
+       "target": "Exact R-dual on finite modules over zero-dimensional Gorenstein quotients: biduality, annihilator duality, length comparisons and compatibility with coefficient reduction",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Matlis-type duality in either library."
+      },
+      {
+       "target": "Hom_R(−,R), O-linear and derived duals of lattices over positive-dimensional orders, with change-of-rings maps",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Dual",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Dual/Defs.lean",
+         "line": 62,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the generic linear dual exists."
+      },
+      {
+       "target": "Fitting ideals, projective presentations, exterior powers and exterior-bidual base-change/denominator lemmas",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.FinitePresentation",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/FinitePresentation.lean",
+         "line": 67,
+         "fit": "related"
+        },
+        {
+         "name": "exteriorPower.topEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/ExteriorPower.lean",
+         "line": 280,
+         "fit": "related"
+        }
+       ],
+       "note": "Finite presentations and exterior powers exist; Fitting ideals and exterior biduals do not."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "EulerSystemsAndKolyvaginSystems:ES.6",
+       "note": "Constructs exterior biduals with their base-change and coefficient-change hypotheses, overlapping this layer's exterior-bidual lemmas."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+       "note": "Also develops Fitting ideals of modules as a general tool."
+      }
+     ]
+    }
+   }
+  }
+ }
+}
