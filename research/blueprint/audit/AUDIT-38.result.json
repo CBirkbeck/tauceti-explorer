@@ -1,0 +1,839 @@
+{
+ "job": "AUDIT-38",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "PerfectoidQuotients": {
+   "summary": "Nothing prismatic exists in the pinned baseline: `prism`, `δ-ring`, `p-derivation`, `quasisyntomic`, `semiperfectoid`, `perfectoidization` and `Nygaard` all have zero hits in Mathlib's 246k and Tau Ceti's 71k declarations, and neither library even defines a perfectoid ring. What the libraries do supply is the integral prefix of Q0: Mathlib's Witt vectors (Frobenius, Verschiebung, Teichmüller, ghost components, truncation) together with `Perfection`/`PreTilt`, the multiplicative untilt, `WittVector.fontaineTheta : 𝕎 R♭ →+* R` for any p-adically complete R and its surjectivity when Frobenius is surjective on R/p — so A_inf = W(R♭) and θ are available, in greater generality than BS22 assumes, all sorry-free. Also available as generic input: ordinary adic completion, flatness and faithfully flat descent for modules, regular sequences, divided power structures and the two-term cotangent complex. Genuinely missing is everything the roadmap actually plans: the principal generator of ker θ, derived p-adic completion, animated/simplicial commutative rings, δ-rings and prisms, prismatic cohomology and the Hodge–Tate comparison, universal prisms and perfectoidization, André's flatness lemma and the closed-quotient theorem 7.4/5.8.",
+   "layers": {
+    "PerfectoidQuotients:Q0:integral-algebra": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Integral perfectoid ring in the BS22 sense (p-adically complete, Frobenius surjective on R/p, kernel of θ principal)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "surjective_fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 195,
+         "fit": "more general"
+        },
+        {
+         "name": "PreTilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 634,
+         "fit": "related"
+        }
+       ],
+       "note": "Neither library defines a perfectoid ring: `grep -rni perfectoid` over both trees returns only Mathlib/RingTheory/Perfection.lean and the three files of Mathlib/RingTheory/Perfectoid/, and none of them introduces a predicate. Mathlib works instead with the separate hypotheses `[IsAdicComplete (span {(p:R)}) R]` and `Function.Surjective (frobenius (ModP R p) p)`, and its own TODO in BDeRham.lean records that `ker θ` principal for integral perfectoid rings is not yet proved."
+      },
+      {
+       "target": "Comparison of integral perfectoid rings with perfectoid Tate rings, and the integral subrings R°, R⁺",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.IsTateRing",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Basic.lean",
+         "line": 182,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.powerBoundedSubring",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/PowerBounded.lean",
+         "line": 436,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has Tate rings and the power-bounded subring A° (with A°° an ideal of it), so the integral-subring vocabulary exists, but there is no perfectoid Tate ring and hence no comparison; `IsUniform`/`IsStablyUniform` do not exist in either tree."
+      },
+      {
+       "target": "A_inf = W(R♭) with θ : A_inf → R and its explicit description",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 165,
+         "fit": "more general"
+        },
+        {
+         "name": "surjective_fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 195,
+         "fit": "more general"
+        },
+        {
+         "name": "PreTilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 634,
+         "fit": "related"
+        },
+        {
+         "name": "PreTilt.untilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/Untilt.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib builds R♭ = `PreTilt R p` = Perfection(R/p), the multiplicative untilt (sharp) map and `fontaineTheta : 𝕎 R♭ →+* R` for any p-adically complete R, with surjectivity under Frobenius surjectivity on R/p — more general than BS22's hypothesis. Missing: the principal non-zero-divisor generator of ker θ, the (p,[ϖ])-adic topology on A_inf, and the residue map to W(k)."
+      },
+      {
+       "target": "Ordinary, derived p-adic and pseudouniformizer-adic completions kept separate",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AdicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 171,
+         "fit": "related"
+        },
+        {
+         "name": "IsAdicComplete",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 56,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.IsHuberRing.completion",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Completion.lean",
+         "line": 521,
+         "fit": "related"
+        }
+       ],
+       "note": "Ordinary I-adic completion (`AdicCompletion`, `IsAdicComplete`) and the topological completion of a Huber ring exist; derived (p-complete) completion of a module or ring does not — `IsDerivedComplete`/`derivedCompletion` have no hits in either tree."
+      },
+      {
+       "target": "Comparison lemmas for passing from a semiperfectoid quotient to a Tate ring",
+       "library": "absent",
+       "declarations": [],
+       "note": "`semiperfect` matches only `TauCeti.IsSemiperfectRing` (a Jacobson-radical notion in TauCeti/RingTheory/Jacobson/Semiperfect.lean, unrelated), and `semiperfectoid` has zero hits in both trees."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PrismaticCohomology:PR.0",
+       "note": "PR.0 also asks for the equivalence between perfect prisms and integral perfectoid rings 'using the existing integral perfectoid/tilt/A_inf construction', i.e. exactly this prefix."
+      },
+      {
+       "layer": "AInfCohomology:AI.0:integral",
+       "note": "AI.0's integral prefix builds A_inf = W(O_C^♭), Frobenius and θ with its kernel generator, the same A_inf/θ package specialised to O_C."
+      },
+      {
+       "layer": "FarguesFontaineDiamonds:F4",
+       "note": "F4 uses 'Q0's integral perfectoid criteria' for period annuli and restates the primitive kernel of θ as a Cartier divisor."
+      }
+     ]
+    },
+    "PerfectoidQuotients:Q0:animated-application": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "δ-rings (p-derivations), free δ-algebras and Frobenius lifts",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 221,
+         "fit": "related"
+        }
+       ],
+       "note": "`delta-ring`, `δ-ring` and `p-derivation` have zero hits in both trees. Mathlib has Witt-vector Frobenius and the Teichmüller lift, which is the comparison material the layer asks for, but no δ-structure."
+      },
+      {
+       "target": "Distinguished elements, prisms, boundedness, morphisms of prisms, orientations, completed perfection",
+       "library": "absent",
+       "declarations": [],
+       "note": "`prism` has zero hits as a substring anywhere in Mathlib or Tau Ceti (216 008 + 70 802 declarations), so none of these notions exists."
+      },
+      {
+       "target": "Correspondence between perfect prisms and integral perfectoid rings; the perfection theorem BS22 3.9",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Perfection",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 40,
+         "fit": "related"
+        },
+        {
+         "name": "PreTilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 634,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the perfection functor itself (`Perfection`, `PerfectionMap`, `PreTilt`) is available; there is no prism side of the correspondence."
+      },
+      {
+       "target": "Flatness and completion properties of prisms and their envelopes, with regular-sequence and torsion hypotheses",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Flat",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Flat/Basic.lean",
+         "line": 113,
+         "fit": "related"
+        },
+        {
+         "name": "Module.FaithfullyFlat",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
+         "line": 63,
+         "fit": "related"
+        },
+        {
+         "name": "RingTheory.Sequence.IsRegular",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Regular/RegularSequence.lean",
+         "line": 146,
+         "fit": "related"
+        }
+       ],
+       "note": "Generic flatness and regular-sequence API is in Mathlib, but there is no prismatic or divided-power envelope in either tree (`envelope` matches only Karoubi/convex/injective-envelope files)."
+      },
+      {
+       "target": "Existing Witt-vector constructions, with every Frobenius lift compared to them",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "WittVector.frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 221,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.teichmuller",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
+         "line": 93,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.ghostComponent",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Basic.lean",
+         "line": 296,
+         "fit": "exact"
+        },
+        {
+         "name": "WittVector.verschiebung",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Verschiebung.lean",
+         "line": 110,
+         "fit": "exact"
+        },
+        {
+         "name": "WittVector.Isocrystal",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib/RingTheory/WittVector/ has 20 files: Frobenius, Verschiebung, Teichmüller, ghost components, truncated Witt vectors, the DVR structure for a perfect field and F-isocrystals, all sorry-free. This is the one target of the layer the libraries already supply."
+      },
+      {
+       "target": "Simplicial commutative rings / animated rings and commutative algebra objects in a derived ∞-category, with their comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "`simplicial commutative ring`, `Animated` and `AnimatedRing` have zero hits; Mathlib has `SimplicialObject` in a general category but no simplicial commutative algebra, no ∞-categorical commutative algebra objects and so no comparison theorem in characteristic p."
+      },
+      {
+       "target": "Cotangent, derived exterior-power and completion interfaces (DD.0–1)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Algebra.Extension.cotangentComplex",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Extension/Cotangent/Basic.lean",
+         "line": 61,
+         "fit": "related"
+        },
+        {
+         "name": "Algebra.H1Cotangent",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Extension/Cotangent/Basic.lean",
+         "line": 552,
+         "fit": "related"
+        },
+        {
+         "name": "KaehlerDifferential",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Kaehler/Basic.lean",
+         "line": 153,
+         "fit": "related"
+        },
+        {
+         "name": "AdicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 171,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the two-term cotangent complex of an algebra extension with H^1 and base change, and Kähler differentials, but not the full simplicial cotangent complex L_{B/A} nor derived symmetric/exterior/divided powers (`derived exterior` has zero hits)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PrismaticCohomology:PR.0",
+       "note": "The layer text says it imports PR.0's δ-rings, free δ-algebras, distinguished elements, prisms, orientations, completed perfection and the perfect-prism correspondence; PR.0 is the constructing owner."
+      },
+      {
+       "layer": "EnhancedDerivedSheaves:E5",
+       "note": "E5 is the named owner of the simplicial/animated commutative algebra this layer imports."
+      },
+      {
+       "layer": "DerivedDeRhamCohomology:DD.0",
+       "note": "DD.0 owns the cotangent complex and the derived exterior/symmetric power functors named here."
+      }
+     ]
+    },
+    "PerfectoidQuotients:Q0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Integral perfectoid rings in BS22's scope, and their relation to Tate perfectoid rings and integral subrings",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "surjective_fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 195,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Huber.IsTateRing",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Basic.lean",
+         "line": 182,
+         "fit": "related"
+        }
+       ],
+       "note": "No perfectoid ring predicate exists in either library; Tau Ceti supplies Tate rings and pseudouniformizers but nothing perfectoid."
+      },
+      {
+       "target": "A_inf/θ descriptions and the separation of the three completions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 165,
+         "fit": "more general"
+        },
+        {
+         "name": "surjective_fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 195,
+         "fit": "more general"
+        },
+        {
+         "name": "PreTilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 634,
+         "fit": "related"
+        },
+        {
+         "name": "AdicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 171,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's `fontaineTheta` and `PreTilt` give A_inf = W(R♭) → R with surjectivity; only ordinary adic completion exists, derived p-completion does not."
+      },
+      {
+       "target": "δ-rings, prisms, orientations, completed perfection and the perfect-prism/integral-perfectoid correspondence (imported from PR.0)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Zero hits for `prism`/`δ-ring` in both trees."
+      },
+      {
+       "target": "Witt-vector constructions and comparison of Frobenius lifts",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "WittVector.frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 221,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.teichmuller",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
+         "line": 93,
+         "fit": "related"
+        }
+       ],
+       "note": "Complete and sorry-free in Mathlib/RingTheory/WittVector/."
+      },
+      {
+       "target": "Simplicial commutative algebra and the cotangent/derived-exterior-power/completion interfaces",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Algebra.Extension.cotangentComplex",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Extension/Cotangent/Basic.lean",
+         "line": 61,
+         "fit": "related"
+        },
+        {
+         "name": "AdicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 171,
+         "fit": "related"
+        }
+       ],
+       "note": "Two-term cotangent complex and ordinary adic completion only; no animated rings, no derived powers, no derived completion."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PrismaticCohomology:PR.0",
+       "note": "The roadmap summary states Q0's prism suffix now imports PR.0, which is the canonical owner of δ-rings, prisms and envelopes."
+      },
+      {
+       "layer": "AInfCohomology:AI.0",
+       "note": "AI.0 reuses 'the common integral perfectoid ring and Witt-vector definitions' to build A_inf and θ; the same integral prefix."
+      },
+      {
+       "layer": "PerfectoidSpaces:P1",
+       "note": "P1 builds perfectoid Tate rings, R♭ and θ on the Tate side, which Q0 compares with its integral notion."
+      }
+     ]
+    },
+    "PerfectoidQuotients:Q1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Relative prismatic site of a p-completely smooth algebra over a bounded prism, with structure sheaf and flat coverings",
+       "library": "absent",
+       "declarations": [],
+       "note": "No prisms and no prismatic site in either tree; `prismatic` has zero hits."
+      },
+      {
+       "target": "Čech–Alexander envelope models and their cohomology, independence of presentation, Frobenius functoriality",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.cechComplexFunctor",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/SheafCohomology/Cech.lean",
+         "line": 65,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.SimplicialObject.cechNerve",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicTopology/CechNerve.lean",
+         "line": 105,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the generic Čech nerve and Čech complex of a cover exist; there is no Čech–Alexander construction because there are no prismatic envelopes."
+      },
+      {
+       "target": "Prismatic and divided-power (CR.0) envelopes and their flatness properties",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DividedPowers",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+         "line": 78,
+         "fit": "related"
+        },
+        {
+         "name": "DividedPowerAlgebra",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/DividedPowerAlgebra/Init.lean",
+         "line": 100,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has divided power structures, sub-PD-ideals, PD morphisms and the divided power algebra, but no PD envelope of an ideal and no flatness theorem for one."
+      },
+      {
+       "target": "Crystalline and de Rham comparison in the cases used, with polynomial-coordinate calculations",
+       "library": "absent",
+       "declarations": [],
+       "note": "`crystalline` occurs in Mathlib only in Berthelot–Ogus bibliography entries of the DividedPowers files; there is no crystalline site, no de Rham complex of a ring map and no algebraic de Rham cohomology in either tree."
+      },
+      {
+       "target": "BS22 Theorem 6.3 Hodge–Tate comparison with its multiplicative map and Breuil–Kisin twists",
+       "library": "absent",
+       "declarations": [],
+       "note": "`Hodge-Tate` matches only TauCeti's classical Tate Hodge structure ℤ(m) (TauCeti/Geometry/Hodge/Tate/Basic.lean), a different object; `Breuil` has zero hits."
+      },
+      {
+       "target": "Gluing and base-change compatibility of the relative theory",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing to glue: the underlying functor does not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PrismaticCohomology:PR.1",
+       "note": "The layer opens 'This is the named Q1 reexport of PR.1, not a second construction' — PR.1 owns the relative site, Čech–Alexander models and the Hodge–Tate comparison."
+      },
+      {
+       "layer": "CrystallineCohomology:CR.0",
+       "note": "CR.0 owns the PD envelopes and their universal properties that this layer imports."
+      },
+      {
+       "layer": "CrystallineCohomology:CR.2",
+       "note": "CR.2 owns the PD Poincaré lemma and the de Rham computations used for the crystalline comparison."
+      },
+      {
+       "layer": "CohomologyComparisons:CP.1",
+       "note": "CP.1 assembles the same integral derived comparison diagram including the Hodge–Tate comparison."
+      }
+     ]
+    },
+    "PerfectoidQuotients:Q2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Universal prisms of semiperfectoid rings by adjoining, torsion removal and transfinite completion (BS22 7.2)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No prisms exist, so no universal prism; `semiperfectoid` has zero hits."
+      },
+      {
+       "target": "Universal perfectoidization (BS22 7.3) with its universal property",
+       "library": "absent",
+       "declarations": [],
+       "note": "`perfectoidization` has zero hits in either tree."
+      },
+      {
+       "target": "Coherent left Kan extension of the prismatic functor to derived p-complete simplicial commutative algebras (Construction 7.6)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Functor.lan",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Functor/KanExtension/Adjunction.lean",
+         "line": 46,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has left Kan extensions of ordinary functors, but no animated rings and no derived p-completion, so the construction cannot even be stated."
+      },
+      {
+       "target": "Filtered derived Hodge–Tate comparison with graded pieces given by completed derived exterior powers of the cotangent complex",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Algebra.Extension.cotangentComplex",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Extension/Cotangent/Basic.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the two-term cotangent complex of an extension exists; derived exterior powers and the filtration are absent."
+      },
+      {
+       "target": "Base-change, colimit and descent properties of the derived functor",
+       "library": "absent",
+       "declarations": [],
+       "note": "Depends on the absent functor."
+      },
+      {
+       "target": "Discreteness/δ-structure and initial-object statements 7.7–7.10, the idempotent-retract lemma, the regular-quotient calculation and the quasiregular semiperfectoid case",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsIdempotentElem",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Group/Idempotent.lean",
+         "line": 38,
+         "fit": "related"
+        }
+       ],
+       "note": "Idempotents and retracts exist generically; none of these prismatic statements does."
+      },
+      {
+       "target": "Flat base change compatibility needed to descend surjectivity of perfectoidization",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Flat",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Flat/Basic.lean",
+         "line": 113,
+         "fit": "related"
+        },
+        {
+         "name": "Module.FaithfullyFlat",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
+         "line": 63,
+         "fit": "related"
+        }
+       ],
+       "note": "Generic flatness/faithful flatness only."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PrismaticCohomology:PR.2",
+       "note": "The layer explicitly imports PR.2's left Kan extension, filtered Hodge–Tate comparison and 7.7–7.10 statements; PR.2 is the owner."
+      },
+      {
+       "layer": "DerivedDeRhamCohomology:DD.0",
+       "note": "DD.0 owns the cotangent complex and derived exterior powers whose completed versions give the graded pieces here."
+      }
+     ]
+    },
+    "PerfectoidQuotients:Q3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Quasisyntomic and quasiregular semiperfectoid conditions with their cotangent criteria (imported from DD.0/DD.5)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Algebra.Extension.cotangentComplex",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Extension/Cotangent/Basic.lean",
+         "line": 61,
+         "fit": "related"
+        }
+       ],
+       "note": "`quasisyntomic` has zero hits in both trees; only the two-term cotangent complex exists, and the mod-p amplitude condition that defines the class is not formulated."
+      },
+      {
+       "target": "Lifting theorem for quasisyntomic covers to bounded prisms (BS22 7.11)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No prisms, no quasisyntomic covers."
+      },
+      {
+       "target": "Preservation of faithful flatness under completed perfection",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.FaithfullyFlat",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
+         "line": 63,
+         "fit": "related"
+        },
+        {
+         "name": "comonadicExtendScalars",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Category/ModuleCat/Descent.lean",
+         "line": 59,
+         "fit": "related"
+        },
+        {
+         "name": "Perfection",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 40,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has faithfully flat modules and faithfully flat descent for modules, and the perfection functor, but no statement relating them, and no completed perfection."
+      },
+      {
+       "target": "BS22 Theorem 7.14 (André): every integral perfectoid ring has a p-completely faithfully flat perfectoid extension that is absolutely integrally closed",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "IsIntegrallyClosed",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/IntegralClosure/IntegrallyClosed.lean",
+         "line": 74,
+         "fit": "related"
+        }
+       ],
+       "note": "`absolutely integrally closed` has zero hits; only ordinary integral closedness is available. André's flatness lemma is not in either library."
+      },
+      {
+       "target": "Construction by adjoining roots of monic polynomials, lifting, perfecting and transfinite iteration, with completeness/perfectoidness/faithful flatness/size bounds at limit stages",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "AdjoinRoot",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdjoinRoot.lean",
+         "line": 62,
+         "fit": "related"
+        }
+       ],
+       "note": "`AdjoinRoot` for a single polynomial exists; the transfinite construction and its limit-stage estimates do not."
+      },
+      {
+       "target": "Compatible p-power roots of a specified element",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Perfection",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 40,
+         "fit": "related"
+        },
+        {
+         "name": "PerfectionMap",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 396,
+         "fit": "related"
+        }
+       ],
+       "note": "An element of `Perfection R p` is exactly a compatible system of p-power roots, so the bookkeeping notion exists in characteristic p; the mixed-characteristic statement that such a system can be adjoined to an integral perfectoid ring does not."
+      },
+      {
+       "target": "The auxiliary refinements BS22 7.12–7.15",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent with the rest of the prismatic material."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DerivedDeRhamCohomology:DD.5",
+       "note": "DD.5 owns the quasisyntomic site and the elementary compatible-root semiperfectoid covers, and explicitly disclaims Q3's stronger absolutely-integrally-closed theorem."
+      },
+      {
+       "layer": "DerivedDeRhamCohomology:DD.0",
+       "note": "DD.0 defines quasisyntomic maps by p-complete flatness and the mod-p cotangent amplitude condition imported here."
+      },
+      {
+       "layer": "PrismaticCohomology:PR.2",
+       "note": "PR.2 supplies the discreteness calculation for quasiregular semiperfectoid inputs that this stage's construction uses."
+      }
+     ]
+    },
+    "PerfectoidQuotients:Q4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "BS22 Theorem 7.4: surjectivity of perfectoidization for a semiperfectoid quotient",
+       "library": "absent",
+       "declarations": [],
+       "note": "Perfectoidization does not exist in either library."
+      },
+      {
+       "target": "Reduction of the ideal to finitely many generators by a completed filtered colimit, then to a principal ideal",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Ideal.FG",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Finiteness/Defs.lean",
+         "line": 107,
+         "fit": "related"
+        }
+       ],
+       "note": "Generic finite-generation and filtered-colimit API exists; the completed version of the argument does not."
+      },
+      {
+       "target": "Identification of perfectoidization with the completed quotient by all p-power roots of the generator, and its descent",
+       "library": "absent",
+       "declarations": [],
+       "note": "No perfectoidization; nothing to identify."
+      },
+      {
+       "target": "Remark 7.5: for a perfectoid Tate ring R with plus ring R⁺ and an ideal defining a Zariski closed subset, the semiperfectoid completed integral quotient, its perfectoidization and inversion of the pseudouniformizer",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.Pair",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Pair.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.Pair.Hom.isClosedEmbedding_spaComap_quotientHom",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/HuberPair.lean",
+         "line": 149,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has Huber pairs (A,A⁺) and Wedhorn 7.38: the quotient Huber pair induces a closed embedding of adic spectra whose range is the locus of points whose support contains the ideal. That is the topological shadow of the statement; the perfectoid content (completed integral quotient, perfectoidization, inverting ϖ) is absent."
+      },
+      {
+       "target": "Universal property, surjectivity from R, identification of the plus ring as an integral closure, almost surjectivity on integral rings",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.spa_integralClosure",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+         "line": 121,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti knows that replacing the plus ring by its integral closure leaves Spa unchanged, but there is no almost mathematics in either tree, so 'almost surjectivity' cannot be stated."
+      },
+      {
+       "target": "The resulting spectrum is the prescribed Zariski closed subset (ECD Theorem 5.8)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No perfectoid spaces, hence no Zariski closed perfectoid subspaces."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "PerfectoidSpaces:P4",
+       "note": "P4 owns the elementary §5 morphism theory and states that the stronger 'Zariski closed implies strongly Zariski closed' (ECD 5.8) is supplied by Q4; the two layers share the closed-immersion carriers."
+      },
+      {
+       "layer": "PerfectoidSpaces:P8",
+       "note": "P8 combines a tower's closed loci with 'Q4's universal perfectoidization' and controls the same plus ring and integral almost surjection."
+      },
+      {
+       "layer": "PerfectoidShimuraVarieties:S2",
+       "note": "S2 depends on Q4 for the normalized/perfectoidized local models of a Hodge-type embedding."
+      },
+      {
+       "layer": "PerfectoidShimuraVarieties:S4",
+       "note": "S4 also depends on Q4 for the closed-locus perfectoidization inside the Hansen–Johansson descent."
+      }
+     ]
+    }
+   }
+  }
+ }
+}

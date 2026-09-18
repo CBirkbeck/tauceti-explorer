@@ -174,3 +174,5 @@
 2026-09-17T22:06:59Z	claude4/2	COMPARE-37	limit	835	2026-09-18T02:00:00+00:00
 2026-09-18T02:24:26Z	claude4/2	COMPARE-37	done	1165	{"judged": 24, "pairs": 24}
 2026-09-18T02:29:54Z	claude4/1	AUDIT-36	done	1494	{"layers": 42, "audited": 42}
+2026-09-18T02:46:34Z	claude4/1	COMPARE-38	done	1000	{"judged": 21, "pairs": 21}
+2026-09-18T02:54:19Z	claude4/2	AUDIT-37	done	1793	{"layers": 39, "audited": 39}
