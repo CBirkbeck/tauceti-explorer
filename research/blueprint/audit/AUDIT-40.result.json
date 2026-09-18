@@ -1,0 +1,2426 @@
+{
+ "job": "AUDIT-40",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "tauceti:TauCetiRoadmap/PDE": {
+   "summary": "Tau Ceti has built far more of this roadmap than its document records. Lane A's core is done: weak derivatives against Mathlib's `TestFunction` pairing, `W^{k,p}(Ω)` at every order with completeness, `W^{k,p}_0(Ω)`, the Poincaré inequality on `W^{1,p}_0` with explicit constants and a matching counterexample, the `p<n` Sobolev embedding, and Rellich–Kondrachov for `W^{1,p}_0(Ω)` on a bounded domain. Lane D is complete end to end — energy form, Gårding, Lax–Milgram existence and uniqueness, the Fredholm alternative, and the Dirichlet spectrum with an eigenfunction Hilbert basis and the Rayleigh principle — and Lane C's maximum principles (weak, strong, Hopf, comparison, and the `c ≥ 0` and bounded-drift extensions) and the `ℝⁿ` Newtonian fundamental solution with `-ΔG = δ₀` are done too; in Lane B the Hardy–Littlewood maximal function with its weak `(1,1)` and strong `(p,p)` inequalities is proved, and so is the diagonal case of Marcinkiewicz interpolation that the document says is not in any library. What is genuinely missing is the trace operator and the general extension operator, Meyers–Serrin for a general domain, the agreement with Mathlib's Bessel-potential scale, Morrey and the borderline embedding, Poincaré–Wirtinger, Calderón–Zygmund and BMO, the `ℝⁿ` mean-value property and Harnack inequality, Green's functions and Perron's method, the whole of Lane E (elliptic regularity: `H²` estimates, `W^{2,p}`, Schauder, De Giorgi–Nash–Moser), and Lane F apart from the semigroup theory, which the OneParameterSemigroups roadmap has already delivered including Hille–Yosida.",
+   "layers": {
+    "tauceti:TauCetiRoadmap/PDE#milestone-a-1": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "The weak (distributional) derivative of a locally integrable function on an open set, defined against the test-function pairing",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.HasWeakLineDerivOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/WeakDeriv.lean",
+         "line": 200,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.HasWeakFDerivOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/WeakDeriv.lean",
+         "line": 239,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.HasWeakFDerivOn.ae_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/WeakDeriv.lean",
+         "line": 629,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.HasWeakFDerivOn.ae_eq_fderiv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/WeakDeriv.lean",
+         "line": 666,
+         "fit": "related"
+        },
+        {
+         "name": "TestFunction",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Distribution/TestFunction.lean",
+         "line": 67,
+         "fit": "related"
+        }
+       ],
+       "note": "`HasWeakLineDerivOn mu Omega u u' v` is exactly `∫ (∂_v φ) • u = -∫ φ • u'` for every bundled test function `φ ∈ 𝓓(Ω,ℝ)` of Mathlib's `Mathlib/Analysis/Distribution/TestFunction.lean`, with local integrability of `u` and `u'` built into the definition; uniqueness a.e. and agreement with the classical derivative are proved. No sorry in the file."
+      },
+      {
+       "target": "`W^{k,p}(Ω)` with its graph norm, for every order `k` and every `1 ≤ p`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Wkp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Wkp/Basic.lean",
+         "line": 227,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Wkp.instNormedAddCommGroup",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Wkp/Basic.lean",
+         "line": 232,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.W1p",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/W1p/Basic.lean",
+         "line": 349,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Wkp.hasWeakFDerivOn_iteratedGradient",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Wkp/Basic.lean",
+         "line": 389,
+         "fit": "related"
+        }
+       ],
+       "note": "`Wkp mu Omega p k` is the iterated weak-derivative Sobolev space on an open `Omega` in a finite-dimensional real inner product space with an additive Haar measure; `Wkp … 0 = Lᵖ(Ω)` and `Wkp … 1 = W1p`. The definition records the derivative fields and the theorem `hasWeakFDerivOn_iteratedGradient` checks that consecutive fields really are weak derivatives."
+      },
+      {
+       "target": "Completeness of `W^{k,p}(Ω)`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Wkp.instCompleteSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Wkp/Basic.lean",
+         "line": 247,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SobolevStage.instCompleteSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Wkp/Basic.lean",
+         "line": 218,
+         "fit": "related"
+        }
+       ],
+       "note": "Completeness is proved by the closed-graph argument at every order, sorry-free."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-1",
+       "note": "That milestone asks for `W^{k,p}` of maps of surfaces/strips, i.e. the two-dimensional slice of the same weak-derivative Sobolev spaces, and its own text says it should consume this lane rather than duplicate it."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-a-2": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Mollification of weakly differentiable functions (the smoothing step of the density theorem)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.HasWeakFDerivOn.hasFDerivAt_convolution_right",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Mollification.lean",
+         "line": 131,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.W1p.normedBumpL",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/W1p/Mollification.lean",
+         "line": 86,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.W1p.tendsto_normedBumpL",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/W1p/Mollification.lean",
+         "line": 111,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.W1p.contDiffSMul",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/W1p/Multiplication.lean",
+         "line": 119,
+         "fit": "related"
+        }
+       ],
+       "note": "Convolution with a `ContDiffBump` converges to the identity on `W^{1,p}` and turns a weak derivative into a classical one; the Leibniz/cutoff product rule needed for localisation is proved too."
+      },
+      {
+       "target": "Meyers–Serrin `H = W`: `C^∞ ∩ W^{k,p}(Ω)` is dense in `W^{k,p}(Ω)` for an arbitrary open `Ω`",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.W1p.mem_w1p0Submodule_top",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/W1p/Density.lean",
+         "line": 272,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.w1p0Submodule_top_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/W1p/Density.lean",
+         "line": 293,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.W1p.denseRange_ofTestFunctionₗ_top",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/W1p/Density.lean",
+         "line": 297,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only the whole-space case is proved: `W^{1,p}_0(ℝⁿ) = W^{1,p}(ℝⁿ)` for `1 ≤ p < ∞`, i.e. density of test functions on `Ω = ⊤`. Meyers–Serrin for a general open `Ω` (and for order `k > 1`) is explicitly disclaimed in the headers of `Wkp/Zero.lean` and `Mollification.lean`; `grep -rn -i 'meyers\\|serrin'` finds only those roadmap pointers, no theorem."
+      },
+      {
+       "target": "`W^{k,p}_0(Ω)` as the `C_c^∞(Ω)`-closure",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.w1p0Submodule",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/W1p/Zero.lean",
+         "line": 123,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.W1p0",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/W1p/Zero.lean",
+         "line": 147,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.wkp0Submodule",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Wkp/Zero.lean",
+         "line": 324,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Wkp0",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Wkp/Zero.lean",
+         "line": 355,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.wkp0Submodule_one",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Wkp/Zero.lean",
+         "line": 349,
+         "fit": "related"
+        }
+       ],
+       "note": "Defined at every order as the closure of the range of the embedding `C_c^∞(Ω) → W^{k,p}(Ω)`, with no boundedness or boundary regularity hypothesis; `wkp0Submodule_one` checks that order one agrees with `w1p0Submodule`."
+      },
+      {
+       "target": "`W^{1,p}_0(Ω) ≠ W^{1,p}(Ω)` for bounded `Ω` (the warning that the whole-space equality is special)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.W1p.norm_value_le_mul_norm_gradient_of_subset_ball",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Poincare/W1p0.lean",
+         "line": 112,
+         "fit": "related"
+        }
+       ],
+       "note": "The ingredient is there — the Poincaré inequality on `W^{1,p}_0(Ω)` excludes nonzero constants — and the file headers state the consequence, but no theorem in either library asserts `w1p0Submodule mu Omega p ≠ ⊤` for a nonempty bounded `Omega`."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-a-3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "`W^{k,2}(ℝⁿ) = H^{k,2}(ℝⁿ)`: agreement of the weak-derivative scale with Mathlib's Bessel-potential scale",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TemperedDistribution.MemSobolev",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Distribution/Sobolev.lean",
+         "line": 149,
+         "fit": "related"
+        },
+        {
+         "name": "TemperedDistribution.besselPotential",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Distribution/Sobolev.lean",
+         "line": 71,
+         "fit": "related"
+        },
+        {
+         "name": "TemperedDistribution.memSobolev_iff_exists_smulLeftCLM_fourier",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Distribution/Sobolev.lean",
+         "line": 218,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Wkp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Wkp/Basic.lean",
+         "line": 227,
+         "fit": "related"
+        }
+       ],
+       "note": "Both scales exist — Mathlib's `MemSobolev`/`besselPotential` and Tau Ceti's `Wkp` — but nothing connects them: `grep -rn 'memSobolev\\|besselPotential\\|MemSobolev' TauCeti/` returns no hit at all, so the two theories are exactly the unrelated pair the layer warns against."
+      },
+      {
+       "target": "The `1 < p < ∞` integer-order Calderón agreement `W^{k,p}(ℝⁿ) = H^{k,p}(ℝⁿ)`",
+       "library": "absent",
+       "declarations": [],
+       "note": "Not stated anywhere; it needs the Mihlin–Hörmander/Calderón–Zygmund multiplier theory of Lane B.10, which is itself absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-a-4": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Gagliardo–Nirenberg–Sobolev embedding `W^{1,p} ↪ L^{p*}` for `p < n` (consume)",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_eq",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/FunctionalSpaces/SobolevInequality.lean",
+         "line": 597,
+         "fit": "more general"
+        },
+        {
+         "name": "MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_le",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/FunctionalSpaces/SobolevInequality.lean",
+         "line": 653,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.W1p0.sobolevEmbeddingL",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Embedding.lean",
+         "line": 310,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.W1p0.norm_sobolevEmbeddingL_le",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Embedding.lean",
+         "line": 347,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.W1p0.sobolevEmbeddingL_injective",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Embedding.lean",
+         "line": 332,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves GNS for compactly supported `C¹` functions; Tau Ceti transfers it to the closure and bundles `W^{1,p}_0(Ω) →L[ℝ] L^{p⋆}(Ω)`. The transfer is only on `W^{1,p}_0(Ω)`, which is the honest form: the estimate `‖u‖_{p⋆} ≤ C‖∇u‖_p` fails on all of `W^{1,p}(Ω)` (constants)."
+      },
+      {
+       "target": "Morrey embedding `W^{1,p}(Ω) ↪ C^{0,1−n/p}(Ω)` for `p > n`",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'morrey'` over both trees finds only Mathlib's Rademacher file (which credits Morrey's proof of a different theorem) and Tau Ceti's own disclaimer in `Embedding.lean` that the `p > n` regime is not proved here."
+      },
+      {
+       "target": "The borderline `p = n` embedding (BMO / exponential integrability, Trudinger–Moser)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither stated nor proved; BMO itself does not exist in either library (see milestone B.11)."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-a-5": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Poincaré inequality on `W^{1,p}_0(Ω)` for bounded `Ω`, with explicit constant",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.W1p.norm_value_le_mul_norm_gradient_of_subset_slab",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Poincare/W1p0.lean",
+         "line": 92,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.W1p.norm_value_le_mul_norm_gradient_of_subset_ball",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Poincare/W1p0.lean",
+         "line": 112,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eLpNorm_le_eLpNorm_fderiv_of_support_subset_slab",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Poincare/Slab.lean",
+         "line": 283,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.not_exists_eLpNorm_le_const_mul_eLpNorm_fderiv",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Poincare/WholeSpace.lean",
+         "line": 106,
+         "fit": "related"
+        }
+       ],
+       "note": "Proved with the explicit constant `b - a` (the slab width), under the weaker hypothesis that `Ω` is bounded in one direction, so it is more general than the stated bounded-`Ω` form; the ball corollary gives the constant `2R`. The companion counterexample shows no constant works on `ℝⁿ`, so the side condition is known to be load-bearing."
+      },
+      {
+       "target": "Poincaré–Wirtinger inequality (zero mean) with explicit constant dependence",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.enorm_sub_setAverage_le_of_convex",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Poincare/Potential.lean",
+         "line": 257,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.enorm_sub_setAverage_le_of_starConvex",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Poincare/Potential.lean",
+         "line": 216,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.setLIntegral_enorm_sub_le_of_starConvex",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Poincare/Potential.lean",
+         "line": 172,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the pointwise Riesz-potential estimate behind it (Gilbarg–Trudinger Lemma 7.16) is proved: `‖u x - ⨍_S u‖ ≤ D^n/(n μ S) ∫ ‖Du y‖ ‖x-y‖^{1-n}`. The `Lᵖ` bound on the Riesz potential, and hence the Poincaré–Wirtinger inequality itself, is not proved; `Poincare/W1p0.lean` says so explicitly."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-a-6": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Trace operator `W^{1,p}(Ω) → L^p(∂Ω)` for Lipschitz `∂Ω`",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing in either tree: the only hits for a Sobolev trace are the three places where Tau Ceti's files note that they deliberately avoid needing one (`W1p/Zero.lean`, `PDE/DirichletProblem.lean`). Mathlib's `trace` is the linear-algebra/field trace."
+      },
+      {
+       "target": "`ker(trace) = W^{1,p}_0(Ω)`",
+       "library": "absent",
+       "declarations": [],
+       "note": "Cannot be stated without the trace operator; absent."
+      },
+      {
+       "target": "Extension operator `W^{1,p}(Ω) → W^{1,p}(ℝⁿ)`",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.W1p0.extendByZeroL",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/W1p/Extension.lean",
+         "line": 220,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.W1p0.norm_extendByZeroL",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/W1p/Extension.lean",
+         "line": 255,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.W1p0.hasWeakFDerivOn_indicator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/W1p/Extension.lean",
+         "line": 299,
+         "fit": "related"
+        }
+       ],
+       "note": "Only extension by zero out of `W^{1,p}_0(Ω)` is built (an isometry onto its image, needing no boundary regularity). A bounded extension operator defined on all of `W^{1,p}(Ω)` — the statement that actually needs Lipschitz `∂Ω` — is absent."
+      },
+      {
+       "target": "Rellich–Kondrachov: `W^{1,p}(Ω) ↪↪ L^p(Ω)` compact for bounded `Ω`",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.W1p0.isCompactOperator_valueL",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/RellichKondrachov.lean",
+         "line": 141,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.W1p0.isCompactOperator_valueExtendByZeroL",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/RellichKondrachov.lean",
+         "line": 92,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.isCompact_closure_of_comp_add_sub_of_isBounded_of_ae_eq_zero_compl",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Function/Lp/FrechetKolmogorov.lean",
+         "line": 399,
+         "fit": "related"
+        },
+        {
+         "name": "BoundedContinuousFunction.arzela_ascoli",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/ContinuousMap/Bounded/ArzelaAscoli.lean",
+         "line": 109,
+         "fit": "related"
+        }
+       ],
+       "note": "Compactness of `W^{1,p}_0(Ω) → Lᵖ(Ω)` is proved for `1 ≤ p < ∞` and bounded `Ω` with no boundary regularity, via the Fréchet–Kolmogorov criterion, which Tau Ceti also proves. This is the form Lane D consumes; the statement for the full `W^{1,p}(Ω)`, which needs the missing extension operator, is explicitly not claimed."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-1",
+       "note": "Also asks for the trace on Sobolev spaces of maps of surfaces/strips, the two-dimensional case of the trace operator here."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-a-7": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The Hölder space `C^{0,α}` as a Banach space",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.holderNorm",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Holder/Basic.lean",
+         "line": 42,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.holderSubmodule",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Holder/Basic.lean",
+         "line": 45,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.HolderSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Holder/Normed.lean",
+         "line": 54,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.HolderSpace.instNormedAddCommGroup",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Holder/Normed.lean",
+         "line": 173,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.HolderSpace.instCompleteSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Holder/Normed.lean",
+         "line": 266,
+         "fit": "exact"
+        }
+       ],
+       "note": "Bounded continuous globally `α`-Hölder maps with the norm `‖f‖_∞ + [f]_α`, complete when the codomain is; built on Mathlib's `MemHolder`/`nnHolderNorm`."
+      },
+      {
+       "target": "The Hölder space `C^{1,α}` as a Banach space",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.C1HolderSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Holder/One.lean",
+         "line": 71,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.C1HolderSpace.instCompleteSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Holder/One.lean",
+         "line": 351,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.C1HolderSpace.fderivL",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Holder/One.lean",
+         "line": 233,
+         "fit": "related"
+        }
+       ],
+       "note": "Bounded `C¹` maps with bounded globally `α`-Hölder derivative, Banach when the codomain is."
+      },
+      {
+       "target": "The whole scale `C^{k,α}(Ω)` as Banach spaces, in particular `C^{2,α}` (the Schauder target)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.HolderSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Holder/Normed.lean",
+         "line": 54,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.C1HolderSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Holder/One.lean",
+         "line": 71,
+         "fit": "special case"
+        }
+       ],
+       "note": "Only orders `k = 0` and `k = 1` are constructed; there is no `C^{k,α}` for general `k` and in particular no `C^{2,α}`, which is the space the Schauder estimates of Lane E.22 are stated in. The spaces built are also the *global* ones on a metric space rather than domain-relative `C^{k,α}(Ω)` spaces."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#lane-a-function-spaces-on-a-domain-the-universal-prerequisite": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Weak derivatives and `W^{k,p}(Ω)` with completeness (item 1)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.HasWeakFDerivOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/WeakDeriv.lean",
+         "line": 239,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Wkp",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Wkp/Basic.lean",
+         "line": 227,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Wkp.instCompleteSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Wkp/Basic.lean",
+         "line": 247,
+         "fit": "exact"
+        }
+       ],
+       "note": "Fully built on Mathlib's `TestFunction` pairing, exactly as the layer prescribes."
+      },
+      {
+       "target": "Density, Meyers–Serrin and `W^{k,p}_0` (item 2)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.wkp0Submodule",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Wkp/Zero.lean",
+         "line": 324,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.W1p.denseRange_ofTestFunctionₗ_top",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/W1p/Density.lean",
+         "line": 297,
+         "fit": "special case"
+        }
+       ],
+       "note": "`W^{k,p}_0` is defined at every order and density of test functions is proved on `ℝⁿ`; Meyers–Serrin `H = W` for a general domain is not."
+      },
+      {
+       "target": "Agreement with the Bessel-potential scale (item 3)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing in Tau Ceti mentions `memSobolev` or `besselPotential`."
+      },
+      {
+       "target": "Embeddings: GNS, Morrey, borderline (item 4)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_eq",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/FunctionalSpaces/SobolevInequality.lean",
+         "line": 597,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.W1p0.sobolevEmbeddingL",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Embedding.lean",
+         "line": 310,
+         "fit": "exact"
+        }
+       ],
+       "note": "Subcritical `p < n` is done; Morrey `p > n` and the borderline `p = n` are absent."
+      },
+      {
+       "target": "Poincaré and Poincaré–Wirtinger (item 5)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.W1p.norm_value_le_mul_norm_gradient_of_subset_slab",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Poincare/W1p0.lean",
+         "line": 92,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.enorm_sub_setAverage_le_of_convex",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/Poincare/Potential.lean",
+         "line": 257,
+         "fit": "related"
+        }
+       ],
+       "note": "Poincaré on `W^{1,p}_0` is proved with explicit constants and a matching counterexample; Poincaré–Wirtinger stops at the potential estimate."
+      },
+      {
+       "target": "Trace, extension, Rellich (item 6)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.W1p0.isCompactOperator_valueL",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/RellichKondrachov.lean",
+         "line": 141,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.W1p0.extendByZeroL",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/W1p/Extension.lean",
+         "line": 220,
+         "fit": "special case"
+        }
+       ],
+       "note": "Rellich–Kondrachov holds on `W^{1,p}_0(Ω)`; the trace operator and the general extension operator are absent."
+      },
+      {
+       "target": "Hölder spaces `C^{k,α}(Ω)` as Banach spaces (item 7)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.HolderSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Holder/Normed.lean",
+         "line": 54,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.C1HolderSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Holder/One.lean",
+         "line": 71,
+         "fit": "special case"
+        }
+       ],
+       "note": "Orders 0 and 1 only."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f1-the-cauchyriemann-elliptic-package-shared-with-the-pde-roadmap",
+       "note": "That lane needs the two-dimensional slice of exactly this package (`W^{k,p}`, Sobolev multiplication, trace, Calderón–Zygmund) and its own text directs it to consume this lane."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-b-8": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "The Hardy–Littlewood maximal function `Mf`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.maximalFunction",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Integral/MaximalFunction.lean",
+         "line": 125,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.setLAverage_le_maximalFunction",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Integral/MaximalFunction.lean",
+         "line": 134,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.measurable_maximalFunction",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Integral/MaximalFunction.lean",
+         "line": 335,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.maximalFunction_add_le",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Integral/MaximalFunction.lean",
+         "line": 216,
+         "fit": "related"
+        }
+       ],
+       "note": "The centred maximal function `M f x = ⨆ r > 0, ⨍⁻ ball x r ‖f‖ₑ` on a metric measure space, with sublinearity, lower semicontinuity and measurability."
+      },
+      {
+       "target": "The weak `(1,1)` maximal inequality, via Vitali covering",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.mul_measure_lt_maximalFunction_le",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Integral/MaximalFunction.lean",
+         "line": 363,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.measure_lt_maximalFunction_le",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Integral/MaximalFunction.lean",
+         "line": 406,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.mul_measure_le_of_forall_exists_ball",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Integral/MaximalFunction.lean",
+         "line": 254,
+         "fit": "related"
+        }
+       ],
+       "note": "`t * μ {M f > t} ≤ 4^n ∫⁻ ‖f‖ₑ` for an additive Haar measure on a real normed space of dimension `n`, proved from Mathlib's `Vitali.exists_disjoint_subfamily_covering_enlargement_closedBall` exactly as the layer asks."
+      },
+      {
+       "target": "The strong `(p,p)` maximal inequality for `p > 1`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.eLpNorm_maximalFunction_le",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Integral/MaximalFunction.lean",
+         "line": 484,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.lintegral_rpow_maximalFunction_le",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Integral/MaximalFunction.lean",
+         "line": 447,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.maximalFunction_le_eLpNormEssSup",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Integral/MaximalFunction.lean",
+         "line": 171,
+         "fit": "related"
+        }
+       ],
+       "note": "With an explicit constant, obtained by Marcinkiewicz interpolation between the weak `(1,1)` bound and the `L^∞` endpoint."
+      },
+      {
+       "target": "The Lebesgue differentiation theorem as a corollary",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "VitaliFamily.ae_tendsto_average_norm_sub",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Covering/Differentiation.lean",
+         "line": 867,
+         "fit": "more general"
+        },
+        {
+         "name": "VitaliFamily.ae_tendsto_average",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Covering/Differentiation.lean",
+         "line": 885,
+         "fit": "more general"
+        },
+        {
+         "name": "Besicovitch.ae_tendsto_measure_inter_div",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Covering/Besicovitch.lean",
+         "line": 1105,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves Lebesgue differentiation for any Vitali family and any locally integrable `f`, which is more general than the ball form the layer wants as a corollary."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-b-9": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Marcinkiewicz interpolation (weak type to strong type)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.lintegral_rpow_le_of_mul_meas_lt_le_of_le_eLpNormEssSup",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Integral/Marcinkiewicz.lean",
+         "line": 401,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.lintegral_rpow_le_of_mul_meas_ofReal_lt_le",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Integral/Marcinkiewicz.lean",
+         "line": 264,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.mul_meas_ofReal_lt_le_setLIntegral",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Integral/Marcinkiewicz.lean",
+         "line": 304,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the diagonal endpoint case `p₀ = 1, p₁ = ∞` is proved: a sublinear operator of weak type `(1,1)` and bounded on `L^∞` is bounded on every `Lᵖ`, `1 < p < ∞`, with an explicit constant. The general `(p₀,q₀),(p₁,q₁)` Marcinkiewicz theorem (off-diagonal, `q ≠ p`) is not proved."
+      },
+      {
+       "target": "Riesz–Thorin complex interpolation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Complex.HadamardThreeLines.sSupNormIm",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/Hadamard.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent: `grep -rn -i 'riesz.thorin'` over both trees returns nothing. Mathlib has the Hadamard three-lines theorem, the complex-analytic input to Riesz–Thorin, but no interpolation theorem for operators."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-b-10": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The Calderón–Zygmund decomposition of an `L¹` function at height `t`",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'calder\\|zygmund'` over both trees finds only Tau Ceti's roadmap pointers in `MaximalFunction.lean` and `Marcinkiewicz.lean` and a reference to Stein's book title; no decomposition theorem."
+      },
+      {
+       "target": "Calderón–Zygmund singular integral operators with standard kernel bounds, bounded on `Lᵖ` for `1 < p < ∞` and weak-`(1,1)`",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'singular integral'` finds only bibliography entries. No notion of a CZ kernel exists."
+      },
+      {
+       "target": "The Mihlin–Hörmander multiplier theorem",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "SchwartzMap.fourierMultiplierCLM",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Distribution/FourierMultiplier.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the `FourierMultiplier` machinery the layer says to consume, but no boundedness theorem for multipliers satisfying Mihlin–Hörmander derivative bounds; `grep -rn -i 'mihlin'` returns nothing."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-2",
+       "note": "Asks for the Calderón–Zygmund inequality `‖u‖_{W^{1,p}} ≤ C‖∂̄u‖_{L^p}` via the Cauchy kernel, i.e. the two-dimensional ∂̄ case of the same singular-integral bound."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-b-11": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The space `BMO(ℝⁿ)` of functions of bounded mean oscillation",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'bounded mean oscillation'` over both trees returns nothing; the only `BMO` matches are the local hypothesis name `Bmo` in Mathlib's cyclotomic polynomial file."
+      },
+      {
+       "target": "The John–Nirenberg inequality",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'john.nirenberg'` returns nothing."
+      },
+      {
+       "target": "The `L^∞ → BMO` endpoint for Calderón–Zygmund operators",
+       "library": "absent",
+       "declarations": [],
+       "note": "Both sides of the statement are missing."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#lane-b-harmonic-analysis-estimates": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Hardy–Littlewood maximal function and the maximal inequality (item 8)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.maximalFunction",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Integral/MaximalFunction.lean",
+         "line": 125,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.mul_measure_lt_maximalFunction_le",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Integral/MaximalFunction.lean",
+         "line": 363,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eLpNorm_maximalFunction_le",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Integral/MaximalFunction.lean",
+         "line": 484,
+         "fit": "exact"
+        }
+       ],
+       "note": "Fully built, including the Lebesgue differentiation corollary which Mathlib already has in Vitali-family generality."
+      },
+      {
+       "target": "Interpolation: Marcinkiewicz and Riesz–Thorin (item 9)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.lintegral_rpow_le_of_mul_meas_lt_le_of_le_eLpNormEssSup",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Integral/Marcinkiewicz.lean",
+         "line": 401,
+         "fit": "special case"
+        }
+       ],
+       "note": "Contrary to the roadmap text, the diagonal `(1,1)`–`(∞,∞)` case of Marcinkiewicz *is* in Tau Ceti; the general Marcinkiewicz theorem and Riesz–Thorin are not."
+      },
+      {
+       "target": "Calderón–Zygmund decomposition, singular integral operators, Mihlin–Hörmander (item 10)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing at all."
+      },
+      {
+       "target": "BMO and John–Nirenberg (item 11)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing at all."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f1-the-cauchyriemann-elliptic-package-shared-with-the-pde-roadmap",
+       "note": "Its item 2 is the ∂̄ Calderón–Zygmund inequality, the two-dimensional slice of item 10 here."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-c-12": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The mean-value property of harmonic functions on `ℝⁿ` (sphere/ball averages), and its converse characterization",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "InnerProductSpace.HarmonicOnNhd.circleAverage_eq",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/Harmonic/MeanValue.lean",
+         "line": 67,
+         "fit": "special case"
+        },
+        {
+         "name": "InnerProductSpace.HarmonicContOnCl.circleAverage_eq",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/Harmonic/MeanValue.lean",
+         "line": 95,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.harmonicOnNhd_comp_const_add_smul_ball_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Harmonic/Ball.lean",
+         "line": 66,
+         "fit": "related"
+        }
+       ],
+       "note": "Only `n = 2`: Mathlib's mean-value property is for `f : ℂ → F` and uses `circleAverage`. There is no sphere or ball average characterization of `InnerProductSpace.HarmonicOnNhd` on a general finite-dimensional real inner product space, and no converse. Tau Ceti has only the translation/dilation invariance lemmas that such a proof would normalise with."
+      },
+      {
+       "target": "Smoothness (`C^∞`/analyticity) of harmonic functions on `ℝⁿ`",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HarmonicAt.analyticAt",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/Harmonic/Analytic.lean",
+         "line": 143,
+         "fit": "special case"
+        },
+        {
+         "name": "InnerProductSpace.HarmonicOnNhd.exists_analyticOnNhd_ball_re_eq",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/Harmonic/Analytic.lean",
+         "line": 70,
+         "fit": "special case"
+        },
+        {
+         "name": "InnerProductSpace.HarmonicOnNhd.contDiffOn",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/InnerProductSpace/Harmonic/Basic.lean",
+         "line": 53,
+         "fit": "related"
+        }
+       ],
+       "note": "`HarmonicAt.analyticAt` is again the planar case, proved through `Re` of a holomorphic function. In general dimension `HarmonicOnNhd.contDiffOn` only returns the `C²` regularity that is part of the definition of `HarmonicAt`, so the genuine smoothness theorem on `ℝⁿ` is missing."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-c-13": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The weak maximum principle for `Δ` (subharmonic functions bounded by their boundary values)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.le_of_laplacian_nonneg_le_frontier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/WeakMaximumPrinciple.lean",
+         "line": 119,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ge_of_laplacian_nonpos_ge_frontier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/WeakMaximumPrinciple.lean",
+         "line": 148,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_mem_frontier_isMaxOn_of_laplacian_nonneg",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/WeakMaximumPrinciple.lean",
+         "line": 165,
+         "fit": "exact"
+        }
+       ],
+       "note": "Continuous on a compact `K`, `C²` and `0 ≤ Δ f` on `interior K` implies the bound on `K` from any bound on `frontier K`, in any finite-dimensional real inner product space."
+      },
+      {
+       "target": "The strong maximum principle for `Δ`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.eqOn_const_of_laplacian_nonneg_of_isMaxOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/StrongMaximumPrinciple.lean",
+         "line": 174,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eventually_eq_of_laplacian_nonneg_of_isLocalMax",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/StrongMaximumPrinciple.lean",
+         "line": 102,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.eqOn_const_of_harmonicOnNhd_of_isMaxOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Harnack/StrongPrinciple.lean",
+         "line": 181,
+         "fit": "special case"
+        }
+       ],
+       "note": "Proved in every dimension on a preconnected open set, via Hopf's lemma (so without needing a mean-value property); the planar harmonic version is proved separately from Harnack."
+      },
+      {
+       "target": "The Hopf boundary-point lemma",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.fderiv_pos_of_laplacian_nonneg_of_lt_ball_of_le_sphere",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/HopfLemma.lean",
+         "line": 129,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.fderiv_pos_of_laplacian_nonneg_of_lt_closedBall",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/HopfLemma.lean",
+         "line": 340,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.fderiv_pos_of_harmonicOnNhd_of_lt_closedBall",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/HopfLemma.lean",
+         "line": 406,
+         "fit": "special case"
+        }
+       ],
+       "note": "The classical barrier proof, in every dimension, for subharmonic functions on a ball."
+      },
+      {
+       "target": "The comparison principle",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.le_of_laplacian_le_of_le_frontier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/Comparison.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eqOn_of_laplacian_eqOn_of_eqOn_frontier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/Comparison.lean",
+         "line": 88,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eqOn_of_harmonicOnNhd_of_eqOn_frontier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/Comparison.lean",
+         "line": 116,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eqOn_of_laplacian_le_of_le_of_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/StrongMaximumPrinciple.lean",
+         "line": 213,
+         "fit": "related"
+        }
+       ],
+       "note": "Both the weak comparison principle and Dirichlet uniqueness for the Poisson equation, plus the strong comparison principle."
+      },
+      {
+       "target": "The maximum principle for a general elliptic `L` with sign condition `c ≥ 0`",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.le_of_mul_le_laplacian_le_frontier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/ZerothOrderMaximumPrinciple.lean",
+         "line": 75,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.le_of_mul_le_laplacian_add_fderiv_le_frontier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/LowerOrderMaximumPrinciple.lean",
+         "line": 54,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.exists_mem_frontier_isMaxOn_of_laplacian_add_fderiv_pos",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/DriftMaximumPrinciple.lean",
+         "line": 165,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.exists_neg_constant_laplacian_eq_mul_eq_zero_on_frontier_pos",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/SignCondition.lean",
+         "line": 81,
+         "fit": "related"
+        }
+       ],
+       "note": "Proved for `-Δ - b·∇ + c` with bounded drift `b` and `c ≥ 0`, together with the counterexample showing `c ≥ 0` is necessary. The principal part is still the Laplacian: no weak maximum principle is proved for a variable principal coefficient `aⁱʲ(x)`, and there is no strong maximum principle or Hopf lemma for lower-order or variable-coefficient `L`."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-c-14": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The Harnack inequality for nonnegative harmonic functions",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.harnack_inequality_center",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Harnack/Planar.lean",
+         "line": 266,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.harnack_inequality",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Harnack/Planar.lean",
+         "line": 307,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.eq_zero_on_ball_of_harmonicOnNhd_of_nonneg_of_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Harnack/Planar.lean",
+         "line": 328,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.eq_zero_on_of_harmonicOnNhd_of_nonneg_of_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Harnack/StrongPrinciple.lean",
+         "line": 65,
+         "fit": "special case"
+        }
+       ],
+       "note": "Proved only in the plane, on a disk, with the sharp constant `((R+r)/(R-r))²`, by the Poisson-kernel argument (Mathlib's `circleAverage_poissonKernel_smul`). The `ℝⁿ` Harnack inequality for nonnegative harmonic functions is absent — the proof would need the `n`-dimensional Poisson kernel or mean-value property of C.12, neither of which exists."
+      },
+      {
+       "target": "The Harnack inequality for a general elliptic `L`",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; this is the De Giorgi–Nash–Moser-level statement of Lane E.23 and nothing in either library approaches it."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/PDE#milestone-e-23",
+       "note": "E.23 asks for the elliptic Harnack inequality for divergence-form operators with bounded measurable coefficients, the general-`L` half of this milestone."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-c-15": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The fundamental solution / Newtonian potential of `Δ` on `ℝⁿ`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.newtonianKernel",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/FundamentalSolution/Euclidean/Basic.lean",
+         "line": 55,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.laplacian_newtonianKernel",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/FundamentalSolution/Euclidean/Basic.lean",
+         "line": 204,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.integral_laplacian_mul_newtonianKernel",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/FundamentalSolution/Euclidean/DistributionalLaplacian.lean",
+         "line": 261,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.integral_laplacian_mul_newtonianKernel_sub",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/FundamentalSolution/Euclidean/DistributionalLaplacian.lean",
+         "line": 284,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.planarNewtonianKernel",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/FundamentalSolution/Planar.lean",
+         "line": 47,
+         "fit": "special case"
+        }
+       ],
+       "note": "For `n ≥ 3` the normalised kernel `(n(n-2)ω_n)^{-1}‖x‖^{2-n}` is defined and the distributional identity `-ΔG = δ₀` is proved (`∫ Δf · G = -f 0` for compactly supported `C²` `f`), with the pole at an arbitrary point. The planar logarithmic kernel is defined and is harmonic off the pole, but its distributional identity is explicitly left open."
+      },
+      {
+       "target": "The Green's function on the ball/half-space",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i \"green's function\\|greensFunction\\|greenFunction\"` over both trees returns nothing."
+      },
+      {
+       "target": "The Poisson kernel on the ball/half-space",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "InnerProductSpace.HarmonicOnNhd.circleAverage_poissonKernel_smul",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/Harmonic/Poisson.lean",
+         "line": 92,
+         "fit": "special case"
+        },
+        {
+         "name": "InnerProductSpace.HarmonicContOnCl.circleAverage_poissonKernel_smul",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/Harmonic/Poisson.lean",
+         "line": 103,
+         "fit": "special case"
+        },
+        {
+         "name": "InnerProductSpace.continuousOn_herglotz_riesz",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/Harmonic/Poisson.lean",
+         "line": 31,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the planar disk: Mathlib's Poisson/Herglotz–Riesz kernel reproduces a harmonic function on a disk from its boundary values. No `ℝⁿ` ball or half-space Poisson kernel."
+      },
+      {
+       "target": "Perron's method and solvability of the Dirichlet problem `Δu = 0`, `u = g` on `∂Ω`, with barriers at regular boundary points",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. There is no subharmonic-function class (Tau Ceti's 'subharmonic' occurrences are the inline hypothesis `0 ≤ Δ f` in the maximum-principle files), no Perron envelope and no barrier notion. Only uniqueness for the Dirichlet problem is proved (`TauCeti.eqOn_of_harmonicOnNhd_of_eqOn_frontier`), not existence."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#lane-c-maximum-principles-and-potential-theory": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Mean-value property and smoothness of harmonic functions on `ℝⁿ` (item 12)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "InnerProductSpace.HarmonicOnNhd.circleAverage_eq",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/Harmonic/MeanValue.lean",
+         "line": 67,
+         "fit": "special case"
+        },
+        {
+         "name": "HarmonicAt.analyticAt",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/Harmonic/Analytic.lean",
+         "line": 143,
+         "fit": "special case"
+        }
+       ],
+       "note": "The `n = 2` theory the layer says to consume is in Mathlib; the `ℝⁿ` generalisation it asks to build is absent."
+      },
+      {
+       "target": "Weak and strong maximum principles, Hopf lemma, comparison principle (item 13)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.le_of_laplacian_nonneg_le_frontier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/WeakMaximumPrinciple.lean",
+         "line": 119,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eqOn_const_of_laplacian_nonneg_of_isMaxOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/StrongMaximumPrinciple.lean",
+         "line": 174,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.fderiv_pos_of_laplacian_nonneg_of_lt_ball_of_le_sphere",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/HopfLemma.lean",
+         "line": 129,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.le_of_mul_le_laplacian_add_fderiv_le_frontier",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/Laplacian/LowerOrderMaximumPrinciple.lean",
+         "line": 54,
+         "fit": "special case"
+        }
+       ],
+       "note": "Essentially complete for `Δ` and for `-Δ - b·∇ + c` with `c ≥ 0`; only a variable principal coefficient `aⁱʲ` is missing."
+      },
+      {
+       "target": "The Harnack inequality (item 14)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.harnack_inequality",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Harnack/Planar.lean",
+         "line": 307,
+         "fit": "special case"
+        }
+       ],
+       "note": "Planar disk only."
+      },
+      {
+       "target": "Fundamental solution, Green's function, Poisson kernel, Perron's method (item 15)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.integral_laplacian_mul_newtonianKernel",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/FundamentalSolution/Euclidean/DistributionalLaplacian.lean",
+         "line": 261,
+         "fit": "exact"
+        },
+        {
+         "name": "InnerProductSpace.HarmonicOnNhd.circleAverage_poissonKernel_smul",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Complex/Harmonic/Poisson.lean",
+         "line": 92,
+         "fit": "special case"
+        }
+       ],
+       "note": "The Newtonian fundamental solution on `ℝⁿ` (`n ≥ 3`) is done including `-ΔG = δ₀`; Green's function, the `ℝⁿ` Poisson kernel and Perron's method are absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-d-16": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Uniform ellipticity with explicit constants `0 < λ ≤ Λ`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PDE.UniformlyEllipticOn",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Ellipticity/Basic.lean",
+         "line": 442,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.UniformlyEllipticOn.isCoercive_matrixBilinearForm",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Ellipticity/Basic.lean",
+         "line": 571,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.PDE.uniformlyEllipticOn_smul_one",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Ellipticity/Basic.lean",
+         "line": 723,
+         "fit": "related"
+        }
+       ],
+       "note": "`UniformlyEllipticOn Ω a lam Lam` carries the two-sided bound with `λ, Λ` as explicit parameters, exactly the named definition the roadmap asks for."
+      },
+      {
+       "target": "The energy bilinear form `a(u,v) = ∫ aⁱʲ ∂ᵢu ∂ⱼv + bⁱ ∂ᵢu v + c u v` on `H¹(Ω)` and `H¹₀(Ω)`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PDE.energyFormH1",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/EnergyForm/Sobolev.lean",
+         "line": 328,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.energyFormH1L0",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/EnergyForm/Sobolev.lean",
+         "line": 553,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.jetField",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/EnergyForm/Sobolev.lean",
+         "line": 154,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.PDE.energyFormH1_comm_of_isSymm_ae",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/EnergyForm/Sobolev.lean",
+         "line": 395,
+         "fit": "related"
+        }
+       ],
+       "note": "Built on `TauCeti.W1p`/`W1p0` with `p = 2`, with bilinearity and symmetry for symmetric principal coefficients and zero drift."
+      },
+      {
+       "target": "Boundedness of the energy form",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PDE.norm_energyFormH1_le_of_bounds",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/EnergyForm/Sobolev.lean",
+         "line": 511,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.norm_energyFormH1L_le_of_bounds",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/EnergyForm/Sobolev.lean",
+         "line": 536,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.UniformlyEllipticOn.norm_energyFormH1_le",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/EnergyForm/Sobolev.lean",
+         "line": 624,
+         "fit": "exact"
+        }
+       ],
+       "note": "With an explicit constant `Λ + β + γ` from the coefficient bounds."
+      },
+      {
+       "target": "Gårding's inequality `a(u,u) ≥ α‖u‖²_{H¹} − β‖u‖²_{L²}` from uniform ellipticity",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PDE.UniformlyEllipticOn.garding_energyFormH1_self",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/EnergyForm/Sobolev.lean",
+         "line": 644,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.UniformlyEllipticOn.garding_energyFormH1_self_norm",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/EnergyForm/Sobolev.lean",
+         "line": 678,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.UniformlyEllipticOn.mul_norm_sq_le_energyFormH1_self_of_poincare",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/EnergyForm/Sobolev.lean",
+         "line": 704,
+         "fit": "related"
+        }
+       ],
+       "note": "`garding_energyFormH1_self_norm` is literally the roadmap's form `(λ/2)‖u‖²_{H¹} − (λ/2 + β²/2λ)‖u‖²_{L²} ≤ a(u,u)`, for bounded measurable coefficients with `c ≥ 0`."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-d-17": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Lax–Milgram (consume)",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "IsCoercive.continuousLinearEquivOfBilin",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/InnerProductSpace/LaxMilgram.lean",
+         "line": 105,
+         "fit": "exact"
+        },
+        {
+         "name": "IsCoercive.existsUnique_forall_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/InnerProductSpace/LaxMilgram.lean",
+         "line": 152,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib has Lax–Milgram; Tau Ceti adds the variational `∃!` form that the Dirichlet theorem consumes."
+      },
+      {
+       "target": "The weak formulation of the Dirichlet problem and its forcing functional",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PDE.IsWeakSolutionDirichlet",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/DirichletProblem.lean",
+         "line": 165,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.dirichletForcing",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/DirichletProblem.lean",
+         "line": 125,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.norm_dirichletForcing_le",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/DirichletProblem.lean",
+         "line": 150,
+         "fit": "related"
+        }
+       ],
+       "note": "`u ∈ H¹₀(Ω)` with `a(u,v) = ∫_Ω f v` for all `v ∈ H¹₀(Ω)`; the boundary condition is membership in `H¹₀(Ω)`, so no trace operator is needed."
+      },
+      {
+       "target": "Existence and uniqueness of the weak solution when `a` is coercive",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PDE.existsUnique_isWeakSolutionDirichlet",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/DirichletProblem.lean",
+         "line": 248,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.UniformlyEllipticOn.existsUnique_isWeakSolutionDirichlet_of_subset_ball",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/DirichletProblem.lean",
+         "line": 334,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.existsUnique_isWeakSolutionDirichlet_laplacian_of_subset_ball",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/DirichletProblem.lean",
+         "line": 366,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.PDE.isCoercive_energyFormH1L0",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/DirichletProblem.lean",
+         "line": 201,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.PDE.norm_le_of_isWeakSolutionDirichlet",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/DirichletProblem.lean",
+         "line": 183,
+         "fit": "related"
+        }
+       ],
+       "note": "The end-to-end theorem is there, with concrete coercivity hypotheses supplied from uniform ellipticity plus a slab or ball containing `Ω`, and the `-Δu = f` in a ball payoff named separately. Sorry-free."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-d-18": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Compactness of the resolvent from Rellich",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PDE.dirichletMassOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/FredholmAlternative.lean",
+         "line": 74,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.isCompactOperator_dirichletMassOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/FredholmAlternative.lean",
+         "line": 93,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.W1p0.isCompactOperator_valueL",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Sobolev/RellichKondrachov.lean",
+         "line": 141,
+         "fit": "related"
+        }
+       ],
+       "note": "The `L²` mass form represented relative to the coercive energy form is a compact operator on `H¹₀(Ω)` for bounded `Ω`, exactly the Rellich input the layer names."
+      },
+      {
+       "target": "The Fredholm alternative for `Lu = f` (unique solution, or finite-dimensional kernel)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PDE.fredholmAlternative_isWeakSolutionDirichletMassShift",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/FredholmAlternative.lean",
+         "line": 182,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.finiteDimensional_ker_one_sub_smul_dirichletMassOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/FredholmAlternative.lean",
+         "line": 166,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.IsWeakSolutionDirichletMassShift",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/FredholmAlternative.lean",
+         "line": 104,
+         "fit": "related"
+        },
+        {
+         "name": "IsCompactOperator.hasEigenvalue_or_mem_resolventSet",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Normed/Operator/Compact/FredholmAlternative.lean",
+         "line": 164,
+         "fit": "related"
+        }
+       ],
+       "note": "The dichotomy is proved for the mass-shifted weak equation `B(u,v) - κ⟪u,v⟫_{L²} = ⟪f,v⟫_{L²}`, which is the standard reduction of a Gårding form to a coercive one; the homogeneous solution space is finite dimensional. Sorry-free."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-d-19": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Dirichlet eigenvalues and eigenfunctions of `−Δ` (and of a general divergence-form `L`) on a bounded `Ω`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PDE.IsDirichletEigenvalue",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 218,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.PDE.pos_of_isDirichletEigenvalue",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 250,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.le_of_isDirichletEigenvalue_laplacian_of_subset_ball",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 634,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.PDE.pos_of_isDirichletEigenvalue_laplacian_of_subset_ball",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 646,
+         "fit": "special case"
+        }
+       ],
+       "note": "Defined for the general divergence-form operator, hence more general than `−Δ`; every eigenvalue is positive and bounded below by the coercivity constant, with the explicit `1/(2(4R²+1))` bound for a domain in a ball of radius `R`."
+      },
+      {
+       "target": "A compact self-adjoint inverse (Rellich plus Lax–Milgram)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PDE.dirichletSolutionOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 146,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.isCompactOperator_dirichletSolutionOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 175,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.isSymmetric_dirichletSolutionOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 186,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.inner_dirichletSolutionOperator_self_nonneg",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 200,
+         "fit": "related"
+        }
+       ],
+       "note": "The solution operator on `L²(Ω)` is compact for bounded `Ω`, symmetric when the energy form is, and positive."
+      },
+      {
+       "target": "The eigenfunction basis from the spectral theorem for compact self-adjoint operators",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PDE.exists_hilbertBasis_forall_isDirichletEigenvalue",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 533,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.finiteDimensional_eigenspace_dirichletSolutionOperator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 485,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.orthogonalComplement_iSup_eigenspaces_dirichletSolutionOperator_eq_bot",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 497,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.PDE.isDirichletEigenvalue_iff_hasEigenvalue",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 319,
+         "fit": "related"
+        }
+       ],
+       "note": "An orthonormal basis of `L²(Ω)` of Dirichlet eigenfunctions, in which the Dirichlet problem is solved by eigenfunction expansion; eigenspaces are finite dimensional."
+      },
+      {
+       "target": "The variational (Rayleigh) characterization of the first eigenvalue",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PDE.firstDirichletEigenvalue",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 285,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.isDirichletEigenvalue_first",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 332,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.isLeast_rayleighQuotient_firstDirichletEigenvalue",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 436,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.isGreatest_firstDirichletEigenvalue",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 463,
+         "fit": "related"
+        }
+       ],
+       "note": "The first eigenvalue is attained on a nonempty bounded domain and equals the optimal Poincaré constant, matching the roadmap's acceptance criterion. The parenthetical 'Sturm–Liouville / separation-of-variables payoff' is not itself formalised: `grep -rn -i 'sturm.liouville'` finds nothing in either tree."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#lane-d-linear-elliptic-existence-the-energy-method": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Weak formulation, boundedness, Gårding (item 16)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PDE.energyFormH1L0",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/EnergyForm/Sobolev.lean",
+         "line": 553,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.UniformlyEllipticOn.garding_energyFormH1_self_norm",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/EnergyForm/Sobolev.lean",
+         "line": 678,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.UniformlyEllipticOn.norm_energyFormH1_le",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/EnergyForm/Sobolev.lean",
+         "line": 624,
+         "fit": "exact"
+        }
+       ],
+       "note": "All three parts proved for bounded measurable coefficients."
+      },
+      {
+       "target": "Existence and uniqueness in the coercive case (item 17)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PDE.existsUnique_isWeakSolutionDirichlet",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/DirichletProblem.lean",
+         "line": 248,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.existsUnique_isWeakSolutionDirichlet_laplacian_of_subset_ball",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/DirichletProblem.lean",
+         "line": 366,
+         "fit": "special case"
+        }
+       ],
+       "note": "Consumes Mathlib's Lax–Milgram as the layer prescribes."
+      },
+      {
+       "target": "The Fredholm alternative in the non-coercive case (item 18)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PDE.fredholmAlternative_isWeakSolutionDirichletMassShift",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/FredholmAlternative.lean",
+         "line": 182,
+         "fit": "exact"
+        }
+       ],
+       "note": "Uses Rellich to make the mass operator compact, as specified."
+      },
+      {
+       "target": "Spectrum of `−Δ` (item 19)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PDE.exists_hilbertBasis_forall_isDirichletEigenvalue",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 533,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.isLeast_rayleighQuotient_firstDirichletEigenvalue",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Spectrum.lean",
+         "line": 436,
+         "fit": "exact"
+        }
+       ],
+       "note": "Eigenvalues, eigenfunction basis and the Rayleigh principle, for general divergence-form `L` and hence for `−Δ`."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-e-20": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Difference-quotient machinery for weak derivatives",
+       "library": "absent",
+       "declarations": [],
+       "note": "No difference-quotient characterization of Sobolev membership exists; Tau Ceti's `Sobolev/Translation.lean` proves only the one-sided estimate `‖u(·+h) - u‖_p ≤ ‖h‖‖∇u‖_p`, not its converse, which is the tool this milestone needs."
+      },
+      {
+       "target": "Interior `H²` regularity: a weak `H¹` solution with `L²` data is locally `H²`",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent from both trees; nothing relates `IsWeakSolutionDirichlet` to membership in `Wkp … 2`."
+      },
+      {
+       "target": "`Hᵏ` bootstrapping to `C^∞` for smooth coefficients and data",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-e-21": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "`Lᵖ` theory of `D²u` for `Δu = f` (the Calderón–Zygmund `W^{2,p}` estimate)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; it depends on Lane B.10, which is itself absent."
+      },
+      {
+       "target": "`W^{2,p}` estimates for variable continuous/VMO coefficients",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; VMO does not exist in either library (`grep -rn -i 'vmo\\|vanishing mean oscillation'` finds nothing)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-2",
+       "note": "Asks for the Calderón–Zygmund inequality and interior elliptic bootstrapping for the ∂̄ operator, the same estimate in the two-dimensional first-order case."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-e-22": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Interior and global `C^{2,α}` Schauder estimates for `C^{0,α}` coefficients",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.HolderSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Holder/Normed.lean",
+         "line": 54,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.C1HolderSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Holder/One.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. Only the `C^{0,α}` and `C^{1,α}` target spaces exist; `C^{2,α}` does not, and no estimate is proved. `grep -rn -i 'schauder'` finds only Mathlib's Schauder *bases* and Tau Ceti's roadmap pointers."
+      },
+      {
+       "target": "Campanato/Morrey space characterization",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'campanato'` returns nothing in either tree."
+      },
+      {
+       "target": "Classical solvability of the Dirichlet problem in `C^{2,α}`",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; only the weak `H¹₀` solvability of Lane D exists."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-e-23": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Local boundedness of weak solutions of divergence-form equations with bounded measurable coefficients",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `grep -rn -i 'de giorgi\\|moser iteration\\|nash.moser'` over both trees returns nothing."
+      },
+      {
+       "target": "Hölder continuity of weak solutions (De Giorgi–Nash–Moser)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.PDE.IsWeakSolutionDirichlet",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/DirichletProblem.lean",
+         "line": 165,
+         "fit": "related"
+        }
+       ],
+       "note": "The weak-solution predicate exists and the energy form is stated exactly for bounded measurable coefficients, so the statement is expressible, but no regularity theorem is proved."
+      },
+      {
+       "target": "The elliptic Harnack inequality for bounded measurable coefficients",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.harnack_inequality",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/Harnack/Planar.lean",
+         "line": 307,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the planar harmonic Harnack inequality exists; the divergence-form version is absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/PDE#milestone-c-14",
+       "note": "C.14 asks for the Harnack inequality 'then for general elliptic L', which is the same statement as the elliptic Harnack inequality named here."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/PDE#lane-e-elliptic-regularity": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Interior `H²`/`Hᵏ` estimates via difference quotients (item 20)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Calderón–Zygmund `W^{2,p}` estimates (item 21)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, and its Lane B input is absent too."
+      },
+      {
+       "target": "Schauder `C^{2,α}` estimates (item 22)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.C1HolderSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Holder/One.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; even the `C^{2,α}` target space is missing."
+      },
+      {
+       "target": "De Giorgi–Nash–Moser (item 23)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f1-the-cauchyriemann-elliptic-package-shared-with-the-pde-roadmap",
+       "note": "Item 2 of that lane is interior elliptic bootstrapping and boundary regularity for the ∂̄ operator, the two-dimensional first-order counterpart of this lane's regularity theory."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-f-24": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Bochner spaces `L²(0,T;V)` for a Banach space `V`",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Lp",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Function/LpSpace/Basic.lean",
+         "line": 89,
+         "fit": "more general"
+        },
+        {
+         "name": "MeasureTheory.Lp.instCompleteSpace",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Function/LpSpace/Complete.lean",
+         "line": 378,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's `Lp V p μ` is the Bochner `Lᵖ` space for any `NormedAddCommGroup V`, so `L²(0,T;V)` is `Lp V 2 (volume.restrict (Set.Ioc 0 T))` and is complete for complete `V`. What is missing is any dedicated API for the time interval; nothing in either tree is written for it."
+      },
+      {
+       "target": "`H¹(0,T;V*)`, the vector-valued Sobolev space in time",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Tau Ceti's `Wkp` is a scalar-valued space on a domain in a finite-dimensional inner product space; there is no Banach-valued Sobolev space in one time variable."
+      },
+      {
+       "target": "The Gelfand triple `V ↪ H ↪ V*`",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'gelfand triple'` over both trees returns nothing; Mathlib's `Gelfand` material is the commutative-Banach-algebra transform."
+      },
+      {
+       "target": "The integration-by-parts formula and the embedding `L²(V) ∩ H¹(V*) ↪ C([0,T];H)`",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-f-25": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The Galerkin method: finite-dimensional approximation, energy estimates, weak-compactness limit",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeakDual.isCompact_closedBall",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Normed/Module/WeakDual.lean",
+         "line": 269,
+         "fit": "related"
+        },
+        {
+         "name": "IsPicardLindelof.exists_eq_forall_mem_Icc_eq_picard",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/ODE/PicardLindelof.lean",
+         "line": 720,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent: `grep -rn -i 'galerkin'` returns nothing. The two inputs the layer names — Banach–Alaoglu weak compactness and Picard–Lindelöf ODE existence — are both in Mathlib, but nothing is assembled from them."
+      },
+      {
+       "target": "Existence and uniqueness for `∂ₜu + Lu = f`, `u(0) = u₀`",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `grep -rn -i 'parabolic'` over both trees finds only `Matrix.IsParabolic` (2×2 matrices) and unrelated uses."
+      },
+      {
+       "target": "The parabolic maximum principle",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; only elliptic maximum principles exist (Lane C.13)."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/PDE#milestone-f-26": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "C₀-semigroups and their generators",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.StronglyContinuousSemigroup",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Basic.lean",
+         "line": 41,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.hilleYosidaSemigroup_generator",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/HilleYosida/Generation.lean",
+         "line": 178,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.hasGrowthBound_hilleYosidaSemigroup",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/HilleYosida/Generation.lean",
+         "line": 188,
+         "fit": "related"
+        }
+       ],
+       "note": "A large sorry-free development: generators, resolvents, growth bounds, dissipativity, Lumer–Phillips, Stone's theorem, the abstract Cauchy problem."
+      },
+      {
+       "target": "The Hille–Yosida theorem",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.hilleYosida_generation",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/HilleYosida/Generation.lean",
+         "line": 205,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.hilleYosida_generation_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/HilleYosida/Generation.lean",
+         "line": 217,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Semigroups.hilleYosidaSemigroup",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/HilleYosida/Generation.lean",
+         "line": 133,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Semigroups.IsMDissipative.exists_contractionSemigroup_generator_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/LumerPhillips.lean",
+         "line": 86,
+         "fit": "related"
+        }
+       ],
+       "note": "The general `(M, ω)` generation theorem and its characterization, sorry-free; this is the milestone of the OneParameterSemigroups roadmap, which is a declared prerequisite of PDE."
+      },
+      {
+       "target": "The heat semigroup and the heat kernel on `ℝⁿ`, with smoothing estimates",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: `grep -rn -i '\\bheat\\b'` over both trees returns no hit at all. Neither the Gaussian heat kernel as a solution operator nor any smoothing estimate exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/OneParameterSemigroups#milestone-milestone--hilleyosida-generation-theorem",
+       "note": "That milestone is exactly the Hille–Yosida generation theorem asked for here, and it is already built in Tau Ceti."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-a--strongly-continuous-semigroups",
+       "note": "Owns C₀-semigroups, generators and resolvents, the first two targets of this milestone."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/PDE#lane-f-parabolic-and-evolution-equations": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Bochner spaces and the Gelfand triple (item 24)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Lp",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Function/LpSpace/Basic.lean",
+         "line": 89,
+         "fit": "more general"
+        }
+       ],
+       "note": "Mathlib's Banach-valued `Lp` gives `L²(0,T;V)`; `H¹(0,T;V*)`, the triple and the continuity embedding are absent."
+      },
+      {
+       "target": "Linear parabolic existence by Galerkin, and the parabolic maximum principle (item 25)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing at all."
+      },
+      {
+       "target": "Semigroups, Hille–Yosida, the heat semigroup and heat kernel (item 26)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Semigroups.hilleYosida_generation",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Semigroups/Generation/HilleYosida/Generation.lean",
+         "line": 205,
+         "fit": "exact"
+        }
+       ],
+       "note": "Hille–Yosida and the whole C₀-semigroup theory are built in Tau Ceti; the heat semigroup and heat kernel are absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-a--strongly-continuous-semigroups",
+       "note": "Owns the semigroup half of item 26; it is a declared prerequisite roadmap of PDE and is already built."
+      }
+     ]
+    }
+   }
+  }
+ }
+}

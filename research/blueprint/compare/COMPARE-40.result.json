@@ -62,7 +62,8 @@
     "Davenport's lattice-point lemma with error term, cusp contributions and Ekedahl-type uniform tail estimates allowing infinitely many local conditions",
     "Any proved asymptotic count of fields or class-group moment (Davenport-Heilbronn), and the full descent sequence with Sha",
     "The Bhargava-Shankar average Selmer size and the rank consequence; higher moments, random-matrix distributions, function-field analogues",
-    "Imported and unbuilt: HeightsRationalPointsAndObstructions RP.1 (weak Mordell-Weil and descent), SchemeAndStackFoundations SF.3/SF.4 (curves, divisors, Picard; models), SieveMethodsAndPrimePatterns SV.2 (large sieve and bilinear sums), GeometryOfNumbersAndQuadraticArithmetic GN.1 (successive minima, only partly built)"
+    "Imported and unbuilt: HeightsRationalPointsAndObstructions RP.1 (weak Mordell-Weil and descent), SchemeAndStackFoundations SF.3/SF.4 (curves, divisors, Picard; models), SieveMethodsAndPrimePatterns SV.2 (large sieve and bilinear sums), GeometryOfNumbersAndQuadraticArithmetic GN.1 (successive minima, only partly built)",
+    "Its recorded stage closure (75 upstream stages) overstates the need: the perfectoid and p-adic Hodge part of it enters only through ST.4 <- HeightsRationalPointsAndObstructions RP.1 <- ArithmeticGaloisDuality R02.6, so the theory actually required is weak Mordell-Weil and descent, geometry of numbers and the large sieve, not Fontaine theory"
    ]
   },
   "AdditiveCombinatorics": {
@@ -71,7 +72,7 @@
     "Mathlib/Combinatorics/Additive/ - sumsets, Energy.lean (additive energy with the Cauchy-Schwarz bound), PluenneckeRuzsa.lean, RuzsaCovering.lean, FreimanHom.lean, ApproximateSubgroup, Dissociation, DoublingConst",
     "Mathlib's Roth theorem via corners and triangle removal (AP/Three), Behrend's construction, Szemeredi regularity (62 declarations), van der Waerden via Hales-Jewett",
     "Mathlib/Analysis/Fourier/FiniteAbelian and AddChar (206 declarations) for characters of finite abelian groups",
-    "AUDIT-16 (accepted): AC.0 and part of AC.1 partly built, AC.2-AC.5 not built"
+    "AUDIT-16 (accepted): AC.0 and AC.2 partly built, AC.1 and AC.3-AC.5 not built; grep gives zero declarations for Gowers norm, nilsequence, nilmanifold, Bohr set, Freiman's theorem or Balog-Szemeredi-Gowers"
    ],
    "missing": [
     "Balog-Szemeredi-Gowers, Freiman's theorem / PFR, Bohr sets and arithmetic regularity with quantitative density increments",
@@ -155,7 +156,8 @@
     "The tauceti Huber/Spa stack (TauCeti/RingTheory/Huber/, TauCeti/AlgebraicGeometry/AdicSpace/Spa/) - Huber pairs, Spa as a spectral space, rational localisation",
     "Mathlib's WittVector (381 declarations) and Mathlib's perfect-ring API, the raw material for A_inf = W(O_F) and Fontaine's theta",
     "Mathlib's pro-etale topology on schemes and faithfully flat descent as the 1-categorical shadow of the v-topology",
-    "Zero declarations matching perfectoid, untilt in the perfectoid sense, Spd, or diamond in the Scholze sense"
+    "Zero declarations matching perfectoid, untilt in the perfectoid sense, Spd, or diamond in the Scholze sense",
+    "Mathlib/RingTheory/Perfectoid/{Untilt,FontaineTheta,BDeRham}.lean - 389 lines in all, giving PreTilt.untilt and Fontaine's theta for perfect rings but no perfectoid Tate ring, no tilting equivalence and no perfectoid space"
    ],
    "missing": [
     "The whole target object: tauceti AdicSpaces Layer 6 (A_inf with its (p,[pi])-adic topology, Y_F as the analytic locus, rational annuli, Witt Frobenius, X_F = Y_F/phi^Z) is not started, and Layers 3-5 beneath it are incomplete",
@@ -205,7 +207,7 @@
    "targets": "The noncommutative main conjecture: completed group rings O[[G]] for a compact p-adic Lie group, the canonical Ore set and S-torsion categories, the K_1(Lambda_S) to relative K_0 localization sequence with characteristic elements, Artin evaluation with reduced norms and SK_1, equivariant Iwasawa complexes, zeta elements with their interpolation contract, the Kakde and Ritter-Weiss theorems with their exact hypotheses, and leading-term descent.",
    "baselineHas": [
     "Mathlib's Ore localization with its universal property and injectivity for non-zero-divisor denominators (130 declarations), noetherianity of commutative power-series rings",
-    "TauCeti's pro-p groups, K_0 of exact, abelian and triangulated categories, low-degree continuous cohomology with Shapiro's lemma, and the reduced norm of quaternion algebras",
+    "TauCeti's pro-p groups, K_0 of exact, abelian and triangulated categories (TauCeti.AbelianK0/ExactK0), low-degree continuous cohomology with Shapiro's lemma, and quaternion algebras with their Brauer classes; no reducedNorm, K_1 or relative K_0 declaration exists in either library",
     "Mathlib's characters of finite-group representations and continuous group cohomology",
     "AUDIT-26 (accepted): 7 of 8 stages not built; nothing noncommutative-Iwasawa exists"
    ],
@@ -271,6 +273,139 @@
    "farther": "b",
    "strength": "slight",
    "reason": "AdditiveCombinatorics' bottom two stages are largely in Mathlib/Combinatorics/Additive already, and its imports are one sieve/analytic chain; AdicSpacesPartII must first finish tauceti AdicSpaces Layers 3-6 (stalks, Tate acyclicity, adic spaces, the FF curve) and then build formal schemes with formal GAGA, analytification with proper GAGA, admissible generic fibres, Kiehl coherence and traces, the etale/pro-etale sites from AdicEtaleGeometry A1, sousperfectoid families resting on almost mathematics and almost purity (PerfectoidSpaces P0/P3), and dagger geometry - a deeper stack with nothing of it in the baseline."
+  },
+  {
+   "a": "TropicalAndBerkovichArithmetic",
+   "b": "AdicSpacesPartII",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Tropical/Berkovich imports AdicSpacesPartII F0/R0/R1/R2 (formal schemes, analytification, generic fibres) and then has to build a field with zero declarations in either library - Berkovich spectra and the four point types, skeletons and metric graphs, Baker-Norine graph Riemann-Roch, the slope formula, faithful tropicalization and Chambert-Loir measures - on top of semistable reduction and intersection theory (SchemeAndStackFoundations SF.4/SF.5); AdicSpacesPartII's extra quarter (Kiehl coherence, pro-etale sites, sousperfectoid over almost purity, dagger geometry) is hard but is one further storey on a tower the tropical roadmap already has to climb."
+  },
+  {
+   "a": "TropicalAndBerkovichArithmetic",
+   "b": "EnhancedDerivedSheaves",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Tropical/Berkovich is a taller stack (AdicSpaces Layers 3-6, then AdicSpacesPartII F0-R2, then TB.0-TB.7), but EnhancedDerivedSheaves has to formalize essentially all of higher category theory from a Mathlib baseline of about ten SSet.Quasicategory declarations: mapping spaces, dg nerves, stable infinity-categories, coCartesian fibrations and straightening, presentable categories with the adjoint functor theorem, Postnikov completion and replete topoi, symmetric monoidal structures with operadic algebras, Ind-completion, animated rings and the comparison with spectra - a larger body of new theory than Berkovich spaces plus tropical geometry."
+  },
+  {
+   "a": "SmoothRepresentationsOfLocalGroups",
+   "b": "EnhancedDerivedSheaves",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "EnhancedDerivedSheaves is one of SmoothRepresentations' own suppliers: eight of its eleven stages sit inside the latter's upstream closure. Beyond that whole infinity-categorical enhancement SmoothRepresentations must build the smooth category for locally profinite groups, Hecke algebras over rings, Jacquet functors and second adjointness, Bernstein decomposition, Satake, co-Whittaker families, and for SR.6 the Dat-Helm-Kurinczuk-Moss finiteness, whose parameter-space input drags in Bruhat-Tits theory and the whole Fargues-Scholze stack (220 upstream stages across 33 roadmaps)."
+  },
+  {
+   "a": "FarguesFontaineDiamonds",
+   "b": "SmoothRepresentationsOfLocalGroups",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Five of FarguesFontaineDiamonds' six stages lie inside SmoothRepresentations' upstream closure: SR.6 needs LanglandsParameterStacks and the excursion/spectral-action machinery, which needs BunG, geometric Satake and the diamond six operations over the Fargues-Fontaine curve. SmoothRepresentations therefore needs everything the diamond roadmap needs (perfectoid spaces, diamonds, the FF curve) and adds Bruhat-Tits buildings and parahorics, Bernstein theory, Satake and Helm's integral families on top."
+  },
+  {
+   "a": "GlobalShtukasAndFunctionFieldLanglands",
+   "b": "FarguesFontaineDiamonds",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "Global shtukas needs Weil II, perverse sheaves and Verdier duality, algebraic stacks for Bun_G, geometric Satake and both Lafforgue theorems - enormous, but its closure is 78 upstream stages over 14 roadmaps; FarguesFontaineDiamonds cannot even state its targets (Y_F^diamond = S x Spd Q_p) before perfectoid Tate rings, almost mathematics and almost purity, tilting, diamonds and v-stacks, AdicSpacesPartII and tauceti AdicSpaces Layers 3-6 all exist, plus DiamondEtaleCohomology C2 for F5 - 109 upstream stages over 22 roadmaps with nothing perfectoid in either library."
+  },
+  {
+   "a": "KatoEulerSystems",
+   "b": "GlobalShtukasAndFunctionFieldLanglands",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Global shtukas needs Weil II, perverse sheaves, algebraic stacks, geometric Satake and the two Lafforgue theorems - 78 upstream stages over 14 roadmaps; Kato needs 426 upstream stages over 67 roadmaps, including arithmetic modular curves with cusps and compactification, Siegel units, K_2 symbols and motivic/etale K-theory, period rings with syntomic and etale regulators, Galois representations of modular forms, Poitou-Tate, Selmer and Iwasawa cohomology, modular symbols and the p-adic L-function, and the abstract Euler/Kolyvagin-system machinery, before a single zeta class can be defined."
+  },
+  {
+   "a": "KatoEulerSystems",
+   "b": "NoncommutativeAndEquivariantIwasawa",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Both need Iwasawa-theoretic machinery absent from the baseline, but the noncommutative roadmap's imports are completed group rings, relative and localization K-theory, Poitou-Tate and IntegralIwasawaTheory (118 upstream stages); Kato's closure contains that same commutative Iwasawa stack and adds arithmetic modular curves, Siegel units, K_2 symbols, motivic and etale K-theory, p-adic Hodge regulators and modular symbols - 426 upstream stages over 67 roadmaps, the deepest import in this block."
+  },
+  {
+   "a": "NoncommutativeAndEquivariantIwasawa",
+   "b": "TorsionCohomologyInfrastructure",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "The noncommutative Iwasawa roadmap needs O[[G]], the canonical Ore set, K_1 and relative K_0 with characteristic elements, and the classical abelian main conjecture underneath (118 upstream stages); TorsionCohomologyInfrastructure needs 339 upstream stages over 51 roadmaps - perfectoid spaces with almost purity, the Hodge-Tate period map on perfectoid Shimura varieties, arithmetic locally symmetric spaces with Borel-Serre boundary, completed cohomology, automorphic bundles and polarized cuspidal Galois systems - and its closure contains AdicSpacesPartII, EnhancedDerivedSheaves, SmoothRepresentations and FarguesFontaineDiamonds outright."
+  },
+  {
+   "a": "tauceti:TauCetiRoadmap/AdicSpaces",
+   "b": "tauceti:TauCetiRoadmap/Exchangeability",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Exchangeability has its summit theorem proved - deFinetti_RyllNardzewski_equivalence with three independent routes and Layers 0-7 complete - leaving only the Diaconis-Freedman and Aldous-Hoover converses on built machinery; AdicSpaces still has to identify the presentation limit with A_U and build stalks and pre-adic spaces, prove Tate acyclicity through Lemma 7.54 and stable uniformity, construct the category of adic spaces with gluing, and only then A_inf, Y_F and X_F = Y_F/phi^Z - Layers 5 and 6 are untouched."
+  },
+  {
+   "a": "EnhancedDerivedSheaves",
+   "b": "TorsionCohomologyInfrastructure",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Seven of EnhancedDerivedSheaves' eleven stages lie inside TorsionCohomologyInfrastructure's upstream closure, so the whole infinity-categorical enhancement is a prerequisite of the torsion roadmap rather than a competitor; on top of it the latter needs perfectoid spaces and almost purity, the Hodge-Tate period map, integral automorphic bundles, completed cohomology with Borel-Serre boundary, and integral Hecke algebras with Galois determinants - 339 upstream stages over 51 roadmaps, none of it in either library."
+  },
+  {
+   "a": "TorsionCohomologyInfrastructure",
+   "b": "TropicalAndBerkovichArithmetic",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Tropical/Berkovich needs the adic tower up to AdicSpacesPartII R2 plus Berkovich spectra, skeletons, metric graphs and tropicalization - about twenty unbuilt stages over three upstream roadmaps; TorsionCohomologyInfrastructure needs that same adic tower (AdicSpacesPartII F0/R3), and then perfectoid spaces with almost purity, the Hodge-Tate period map on perfectoid Shimura varieties, arithmetic locally symmetric spaces, completed cohomology and integral Hecke/Galois determinants - 339 upstream stages over 51 roadmaps."
+  },
+  {
+   "a": "AdicSpacesPartII",
+   "b": "GlobalShtukasAndFunctionFieldLanglands",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "AdicSpacesPartII must finish tauceti AdicSpaces Layers 3-6 and then build formal schemes and GAGA, analytification, Kiehl coherence, the pro-etale site and sousperfectoid spaces over almost purity - 8 own stages and 17 upstream; global shtukas has to build the whole l-adic six-operation toolkit with Verdier duality and perverse sheaves, Weil I and Weil II, algebraic stacks and Bun_G, the Beilinson-Drinfeld Grassmannian with geometric Satake, shtuka stacks, Drinfeld's lemma and both Lafforgue theorems - 78 upstream stages with every one of its own eight stages not built."
+  },
+  {
+   "a": "SmoothRepresentationsOfLocalGroups",
+   "b": "KatoEulerSystems",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Nine of SmoothRepresentations' eleven stages sit inside Kato's upstream closure, so Kato needs essentially the whole local representation theory as a supplier and then adds arithmetic modular curves with cusps and compactification, Siegel units with their distribution relations, K_2 symbols and motivic/etale K-theory, period rings with syntomic and etale regulators, Selmer and Iwasawa cohomology, modular symbols with the p-adic L-function and the Euler/Kolyvagin-system machinery: 426 upstream stages against 220."
+  },
+  {
+   "a": "FarguesFontaineDiamonds",
+   "b": "ArithmeticStatistics",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "ArithmeticStatistics needs the invariant theory of binary forms and the orbit parametrizations, Davenport's lattice-point lemma with cusp and Ekedahl uniformity, and weak Mordell-Weil with descent - classical theory over a baseline that already has Weil heights with Northcott, Minkowski's theorem and TauCeti's Mordell-Weil with an explicit 2-Selmer group; FarguesFontaineDiamonds cannot state its targets before almost mathematics, perfectoid Tate rings and tilting, almost purity, diamonds and v-stacks, and the adic Fargues-Fontaine curve itself exist, none of which has a single declaration in either library."
+  },
+  {
+   "a": "AdditiveCombinatorics",
+   "b": "NoncommutativeAndEquivariantIwasawa",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "AdditiveCombinatorics is a wide but shallow stack over a real Mathlib base (sumsets, Plunnecke-Ruzsa, additive energy, Roth via triangle removal, Szemeredi regularity) with two upstream roadmaps; the noncommutative Iwasawa roadmap has nothing Iwasawa-theoretic in the baseline at all - no completed group ring, no K_1, no relative K_0, no reduced norm - and must import IntegralIwasawaTheory with the classical abelian main conjecture, localization K-theory and Poitou-Tate before Kakde's congruences and the Ritter-Weiss route can be attempted: 118 upstream stages over 34 roadmaps."
+  },
+  {
+   "a": "AdicSpacesPartII",
+   "b": "tauceti:TauCetiRoadmap/AdicSpaces",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "AdicSpacesPartII is the explicit successor of the tauceti roadmap: it presupposes everything tauceti AdicSpaces still has to build (structure sheaf and stalks, Tate acyclicity, adic spaces and gluing) and then adds Spf and formal schemes with formal GAGA, analytification with proper GAGA, admissible formal models and generic fibres, Kiehl coherence and finite traces, the etale and pro-etale sites from AdicEtaleGeometry A1, sousperfectoid families over almost mathematics and almost purity, and dagger geometry."
+  },
+  {
+   "a": "AdditiveCombinatorics",
+   "b": "TorsionCohomologyInfrastructure",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "AdditiveCombinatorics has a genuinely large missing body - Gowers norms, the nilsequence theory and the Green-Tao-Ziegler inverse theorem, transference and linear equations in primes - but it stacks on Mathlib's existing sumset, Roth and regularity material with only two upstream roadmaps; TorsionCohomologyInfrastructure has zero baseline for every object it names (Shimura variety, perfectoid, completed cohomology, locally symmetric space, Galois determinant) and 339 upstream stages over 51 roadmaps, including perfectoid spaces with almost purity, the Hodge-Tate period map and the endoscopic input to polarized cuspidal systems."
+  },
+  {
+   "a": "ArithmeticStatistics",
+   "b": "GlobalShtukasAndFunctionFieldLanglands",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "ArithmeticStatistics builds orbit parametrizations, lattice-point counting with uniformity and the Bhargava-Shankar average on top of Weil heights, Minkowski and an already-formalized 2-Selmer group; global shtukas has no stage built and no relevant declaration at all (grep for shtuka and Satake is empty, and no finiteness, base change, duality or trace formula is proved for l-adic cohomology), and must first import Verdier duality with perverse sheaves and Weil II and build algebraic stacks, Bun_G, geometric Satake, Drinfeld's lemma and both Lafforgue theorems."
+  },
+  {
+   "a": "FarguesFontaineDiamonds",
+   "b": "NoncommutativeAndEquivariantIwasawa",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "The two towers are comparable in depth, but the noncommutative Iwasawa roadmap can lean on Mathlib's Ore localization, power-series noetherianity, group cohomology and TauCeti's K_0 of exact categories and pro-p groups - 37 of its 118 upstream stages are partly built - whereas FarguesFontaineDiamonds has essentially nothing: perfectoid Tate rings, tilting, almost purity, diamonds, v-stacks and Spd are absent from both libraries, tauceti AdicSpaces Layers 5-6 are untouched, and 90 of its 109 upstream stages are unbuilt or unaudited."
   }
  ]
 }
