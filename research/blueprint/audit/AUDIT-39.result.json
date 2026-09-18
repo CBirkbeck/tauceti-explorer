@@ -1061,6 +1061,928 @@
      ]
     }
    }
+  },
+  "TropicalAndBerkovichArithmetic": {
+   "summary": "Nothing in this roadmap exists in either library, and the gap is unusually clean: 'Berkovich', 'tropicalization' in the geometric sense, 'balancing', 'Baker-Norine', 'Mumford', 'Schottky', 'Tate curve', 'Coleman integration' and 'metrized line bundle' all return zero hits across Mathlib and Tau Ceti. Mathlib's `Tropical` is only the min-plus semiring. What is available is adjacent infrastructure of real use: Tau Ceti's complete adic-spectrum layer (Spa(A,A+) with arbitrary-rank valuative points, rational subsets, analytic points, residue-field valuations, the closed polydisc with its classical points), its models of curves over a DVR with finite DVR extensions, its numerical types (the weighted dual graph with vertex genera, the arithmetic-genus formula, and Pic(T) = coker of the weighted intersection matrix, proved of rank one with finite torsion — the combinatorial Jacobian TB.3 wants), its PL/convex-polyhedron and toric-cone machinery, and the full function-field Riemann-Roch theorem. Genuinely missing is every stage's own content: the Berkovich spectrum and its comparison with Spa, the point-type classification and the skeleton metric, analytification and retraction, the graph Laplacian/specialization/slope formula and Baker-Norine, tropicalization with weights and balancing, faithful tropicalization, model metrics and measures, local heights, and Tate/Mumford uniformization with its integration interfaces.",
+   "layers": {
+    "TropicalAndBerkovichArithmetic:TB.0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The Berkovich spectrum M(A) of a Banach algebra as the set of bounded multiplicative seminorms",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MulRingSeminorm",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Normed/Unbundled/RingSeminorm.lean",
+         "line": 62,
+         "fit": "related"
+        },
+        {
+         "name": "RingSeminorm",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Normed/Unbundled/RingSeminorm.lean",
+         "line": 50,
+         "fit": "related"
+        },
+        {
+         "name": "WeakDual.characterSpace",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Module/Spaces/CharacterSpace.lean",
+         "line": 43,
+         "fit": "related"
+        }
+       ],
+       "note": "The word 'Berkovich' does not occur in either library: `grep -rn -i berkovich` over Mathlib and Tau Ceti returns nothing. Mathlib has the bundled `MulRingSeminorm`/`RingSeminorm` that would be its points, and `WeakDual.characterSpace` is the archimedean Gelfand analogue (continuous unital algebra homs with the weak-* topology), but no nonarchimedean spectrum is formed from them."
+      },
+      {
+       "target": "The topology of M(A) and its compactness",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeakDual.characterSpace",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Module/Spaces/CharacterSpace.lean",
+         "line": 43,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the character space of a topological algebra carries a weak-* topology in Mathlib; there is no seminorm-valued analogue."
+      },
+      {
+       "target": "Completed residue fields at the points of M(A)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.residueFieldValuation",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/ResidueField.lean",
+         "line": 96,
+         "fit": "related"
+        },
+        {
+         "name": "spectralNorm",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Normed/Unbundled/SpectralNorm.lean",
+         "line": 381,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti builds the residue ring and the induced valuation on the residue field of a point of Spa (`residueFieldValuation`), which is the adic counterpart; the Berkovich completed residue field H(x) is absent. Mathlib's `spectralNorm` is the norm on an algebraic extension of a nonarchimedean field, a different object."
+      },
+      {
+       "target": "Gluing affinoids into Berkovich analytic spaces",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Comparison of a strictly affinoid algebra with its Huber adic spectrum by rank-one points / maximal generalizations, with continuity and the quotient topology",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.spa",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+         "line": 97,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.spectralSpace_spa_of_pairOfDefinition",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Spectral.lean",
+         "line": 76,
+         "fit": "related"
+        },
+        {
+         "name": "Valuation.RankOne",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/RankOne.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.IsAnalyticPoint",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Analytic.lean",
+         "line": 69,
+         "fit": "related"
+        }
+       ],
+       "note": "The adic side is fully available in Tau Ceti — `spa` for any Huber pair, its spectrality, the analytic locus — and Mathlib has `Valuation.RankOne`, but no map from Spa to a Berkovich spectrum exists because the target does not exist."
+      },
+      {
+       "target": "Retaining integral-subring and higher-rank information on the adic side",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.spa",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+         "line": 97,
+         "fit": "related"
+        },
+        {
+         "name": "ValuativeRel",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/ValuativeRel/Basic.lean",
+         "line": 73,
+         "fit": "related"
+        },
+        {
+         "name": "Valuation.RankOne",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/RankOne.lean",
+         "line": 57,
+         "fit": "related"
+        }
+       ],
+       "note": "This is a design property that Tau Ceti's development already satisfies: the plus ring is an explicit parameter of `spa` and points are arbitrary-rank valuative relations (`ValuativeRel`), never truncated to rank one. There is nothing to compare it against, though."
+      },
+      {
+       "target": "Acceptance: nonclassical Gauss points on the closed disc",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.closedPolydisc",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean",
+         "line": 72,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.classicalPoint",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean",
+         "line": 148,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.classicalPoint_injective_of_isField",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean",
+         "line": 182,
+         "fit": "related"
+        },
+        {
+         "name": "MvPowerSeries.gaussNorm",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPowerSeries/GaussNorm.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "Polynomial.gaussNorm",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Polynomial/GaussNorm.lean",
+         "line": 54,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti constructs the closed polydisc Spa(A<T>, A<T>°) and its classical (type-1) points and proves distinct tuples give distinct points over a field; Mathlib has the Gauss norm of a polynomial and of a multivariate power series, which is the Gauss point's seminorm. Nobody proves the Gauss point is a non-classical point of a Berkovich disc."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DiamondsAndVStacks:D5",
+       "note": "D5 constructs the Berkovich/maximal-Hausdorff quotient functor of a diamond, which is the same rank-one-points comparison TB.0 asks for, taken in the diamond category."
+      },
+      {
+       "layer": "ArithmeticDynamics:DY.2",
+       "note": "DY.2 states it consumes TB.0 for 'the actual Berkovich analytic carrier', so it depends on rather than duplicates this stage."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+       "note": "The adic half of the comparison — Spa(A,A+), its plus ring, rational subsets, analytic points — is owned by AdicSpaces Layer 2 and is already built in Tau Ceti."
+      }
+     ]
+    },
+    "TropicalAndBerkovichArithmetic:TB.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Classification of the four point types of the Berkovich affine line over an algebraically closed complete field",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.classicalPoint",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean",
+         "line": 148,
+         "fit": "related"
+        }
+       ],
+       "note": "The word 'Berkovich' does not occur in either library: `grep -rn -i berkovich` over Mathlib and Tau Ceti returns nothing. Tau Ceti's `classicalPoint` of the closed polydisc gives the type-1 points in the adic model, with injectivity over a field, and nothing else."
+      },
+      {
+       "target": "Paths and the hyperbolic metric off the classical endpoints",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Skeletons of annuli",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.rationalSubset",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Basic.lean",
+         "line": 134,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has rational subsets of an adic spectrum, from which annuli would be cut out, but no skeleton of anything."
+      },
+      {
+       "target": "Logarithmic modulus equals edge length, with the chosen absolute-value normalization",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Outgoing slopes of log norms of invertible analytic functions and their integrality",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MvPowerSeries.gaussNorm",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/MvPowerSeries/GaussNorm.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.PowerSeries.gaussNorm_mul_of_isRestricted",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/PowerSeries/GaussNorm.lean",
+         "line": 87,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's `MvPowerSeries.gaussNorm` and Tau Ceti's multiplicativity of the Gauss norm on restricted series are the radius-indexed norms whose logarithms the slopes differentiate, but no slope is defined."
+      },
+      {
+       "target": "Descent of the picture over a non-algebraically-closed base",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Acceptance: type IV points from nested discs with empty intersection, without spherical completeness",
+       "library": "absent",
+       "declarations": [],
+       "note": "Spherical completeness is not defined in either library: `grep -rn -i sphericallycomplete` returns nothing."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+       "note": "Layer 5.4 constructs the closed and open unit discs as adic spaces and describes their points; TB.1 wants the same discs and their point classification on the Berkovich side."
+      },
+      {
+       "layer": "ArithmeticDynamics:DY.2",
+       "note": "DY.2's local dynamics needs the same analytic line and its point types as its carrier."
+      }
+     ]
+    },
+    "TropicalAndBerkovichArithmetic:TB.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "A semistable formal model of a smooth proper curve",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Model",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Model/Basic.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Model.IsProper",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Model/Basic.lean",
+         "line": 72,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.FiniteDVRExtension",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/DVRExtension/Basic.lean",
+         "line": 85,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has models of a curve over a DVR: a flat, finitely presented total space with a chosen identification of the generic fibre, properness as a separate predicate, and the category of finite DVR extensions the semistable-reduction theorem produces. It has no semistability/nodality predicate (`grep -rn -i semistable` finds one prose mention only) and no formal models."
+      },
+      {
+       "target": "The dual metric graph of the special fibre with vertex genera",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.NumericalType",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Basic.lean",
+         "line": 113,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType.Adj",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Basic.lean",
+         "line": 153,
+         "fit": "related"
+        }
+       ],
+       "note": "`TauCeti.NumericalType` is exactly the dual graph datum — components with multiplicities, weights, genera and a symmetric intersection matrix whose adjacency relation is required connected (Stacks 0C6Z). What is missing is the metric: no edge lengths, and no construction of a numerical type from an actual model."
+      },
+      {
+       "target": "The retraction of the analytification onto the skeleton",
+       "library": "absent",
+       "declarations": [],
+       "note": "The word 'Berkovich' does not occur in either library: `grep -rn -i berkovich` over Mathlib and Tau Ceti returns nothing. There is no analytification of a curve in either library."
+      },
+      {
+       "target": "Compatibility with refinement and with finite extension of the valued field",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.FiniteDVRExtension",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/DVRExtension/Basic.lean",
+         "line": 85,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.FiniteDVRExtension.Hom",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/DVRExtension/Tower.lean",
+         "line": 46,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType.Equiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Basic.lean",
+         "line": 452,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the category of finite DVR extensions with towers, and reindexing/equivalence invariance of numerical types, but not subdivision-invariance of a metric realisation nor base-change of a skeleton."
+      },
+      {
+       "target": "Existence after the finite extension supplied by semistable reduction",
+       "library": "absent",
+       "declarations": [],
+       "note": "The semistable reduction theorem is not proved; the Tau Ceti StableReduction roadmap still lists it as work."
+      },
+      {
+       "target": "Punctures marked and rays allowed for open curves",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Graph genus plus vertex genera recovers the curve genus",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.NumericalType.arithmeticGenus",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Basic.lean",
+         "line": 299,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType.arithmeticGenus_eq_one_add_sum_genusContribution",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Minimal.lean",
+         "line": 175,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType.two_mul_arithmeticGenus",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Basic.lean",
+         "line": 312,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.genus",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Genus.lean",
+         "line": 189,
+         "fit": "related"
+        }
+       ],
+       "note": "`arithmeticGenus T = 1 + ∑ m_i (w_i (g_i - 1) - a_ii/2)` is defined and its division-free form proved, so the combinatorial side of the formula exists with the vertex-genus terms present. It is not compared with the genus of a generic fibre; Tau Ceti's `genus` is the function-field genus of a curve and no theorem links the two."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+       "note": "That layer defines `HasNodalReduction` and proves semistable reduction after a finite separable extension, with the explicit Stacks 0CDM degree bound — exactly the input TB.2 says it obtains 'after the finite extension supplied by semistable reduction'."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+       "note": "Regular and minimal models over a DVR, the setting of Tau Ceti's `Model` and `NumericalType` code TB.2 would reuse."
+      },
+      {
+       "layer": "SchemeAndStackFoundations:SF.4",
+       "note": "SF.4 (deformations, models and birational geometry) is a declared input of TB.2 and owns the general model theory."
+      },
+      {
+       "layer": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+       "note": "R11.3 covers semistable reduction and uniformisation for abelian varieties, overlapping TB.2's extension-of-the-valued-field statements and TB.7's uniformization."
+      }
+     ]
+    },
+    "TropicalAndBerkovichArithmetic:TB.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Divisors on a metric graph",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Divisor",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+         "line": 43,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has divisors on a function field (formal sums of places with degrees) but no metric graph and hence no divisors on one."
+      },
+      {
+       "target": "Piecewise integral-affine functions on a metric graph",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.IsPLOn",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/PL/Map.lean",
+         "line": 168,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.IsConvexPolyhedron",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Convex/Polyhedron.lean",
+         "line": 56,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.IsPiecewiseAffineOn",
+         "library": "tauceti",
+         "file": "TauCeti/Topology/PL/Map.lean",
+         "line": 85,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has piecewise-affine and PL maps between real topological vector spaces, cell-by-cell over convex polyhedra, with restriction, locality and composition. The integrality of slopes and the metric-graph domain are both absent."
+      },
+      {
+       "target": "The Laplacian of such a function",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "SimpleGraph.lapMatrix",
+         "library": "mathlib",
+         "file": "Mathlib/Combinatorics/SimpleGraph/LapMatrix.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's `SimpleGraph.lapMatrix` is the combinatorial Laplacian matrix of a simple graph, not the measure-valued Laplacian of a PL function on a metric graph; it is the discrete shadow of the right operator."
+      },
+      {
+       "target": "The Jacobian of a metric graph",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.NumericalType.Pic",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Picard/Basic.lean",
+         "line": 204,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType.principalDivisors",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Picard/Basic.lean",
+         "line": 162,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType.weightedIntersection",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Picard/Basic.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType.finrank_pic",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Picard/Rank.lean",
+         "line": 186,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType.finite_torsion",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Picard/Torsion.lean",
+         "line": 57,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti builds `Pic(T)` for a numerical type as the cokernel of the weighted intersection matrix acting on multidegrees — precisely the critical group / discrete Jacobian of the weighted dual graph (Stacks 0C7H) — and proves it has rank one (`finrank_pic`) with finite torsion. This is the combinatorial Jacobian of a weighted graph; the metric-graph (real torus) Jacobian and its relation to divisors of degree zero are absent."
+      },
+      {
+       "target": "The specialization map from divisors on a curve to divisors on the graph",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no graph to specialize to."
+      },
+      {
+       "target": "The slope formula for rational functions",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The graph Riemann-Roch theorem (Baker-Norine)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.exists_isRiemannRochDivisor",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Differential/CanonicalDivisor.lean",
+         "line": 412,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.riemannRochSpace",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Basic.lean",
+         "line": 83,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Divisor.dim",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Basic.lean",
+         "line": 95,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves the *algebraic* Riemann-Roch theorem for function fields in full (`exists_isRiemannRochDivisor`, Stichtenoth 1.5.15, with the canonical class, duality and degree 2g-2). Baker-Norine rank on a graph is a different combinatorial invariant and is not defined; `grep -rn -i 'baker.norine\\|chip.firing\\|sandpile\\|criticalGroup'` returns nothing."
+      },
+      {
+       "target": "The specialization inequality with its degree/rank convention",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Metrized complexes when component-curve information is needed",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.NumericalType",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Basic.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "`NumericalType` carries per-component genera, which is the data a metrized complex records, but there is no metrized complex."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+       "note": "The degree/duality/positivity apparatus for curves over a DVR that TB.3's specialization inequality consumes is owned there, and Tau Ceti's `NumericalType.Pic` was built for it."
+      },
+      {
+       "layer": "TropicalAndBerkovichArithmetic:TB.5",
+       "note": "TB.5 consumes TB.3's skeleton metric and rational functions; the slope formula is shared between the two."
+      }
+     ]
+    },
+    "TropicalAndBerkovichArithmetic:TB.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Tropicalization of a subvariety of an algebraic torus by coordinate valuations",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Tropical",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Tropical/Basic.lean",
+         "line": 63,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's `Tropical R` is only the min-plus semiring on `WithTop R` with its algebraic API (`Mathlib/Algebra/Tropical/`); there is no tropicalization map, no tropical variety and no tropical geometry."
+      },
+      {
+       "target": "Initial degenerations",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'initial degeneration\\|initialForm\\|Newton polytope'` returns nothing in either tree."
+      },
+      {
+       "target": "The appropriate value-group extension",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ValuativeRel",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Valuation/ValuativeRel/Basic.lean",
+         "line": 73,
+         "fit": "related"
+        },
+        {
+         "name": "Valuation.IsEquiv.valueGroupOrderIso",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Valuation/ValueGroupTransport.lean",
+         "line": 52,
+         "fit": "related"
+        },
+        {
+         "name": "Valuation.extendToLocalization_divBy",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Valuation/ExtendToLocalization.lean",
+         "line": 52,
+         "fit": "related"
+        }
+       ],
+       "note": "Value groups of valuations, their transport and extension of valuations to localizations are available (Mathlib's `ValuativeRel` plus Tau Ceti's extension API); the specific divisible-hull extension used in tropical geometry is not singled out."
+      },
+      {
+       "target": "The fundamental theorem of tropical geometry (Kapranov / Bieri-Groves)",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'kapranov\\|bieri'` returns nothing."
+      },
+      {
+       "target": "Polyhedral structure, weights and balancing with irreducibility/equidimensionality conditions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PointedCone",
+         "library": "mathlib",
+         "file": "Mathlib/Geometry/Convex/Cone/Pointed.lean",
+         "line": 34,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.IsConvexPolyhedron",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Convex/Polyhedron.lean",
+         "line": 56,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Toric.IsToricCone",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Algebraic/Cone.lean",
+         "line": 124,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Toric.IsLatticeRational",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Algebraic/Cone.lean",
+         "line": 69,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has `PointedCone` and finite cone duality; Tau Ceti has convex polyhedra and lattice-rational toric cones and fans with subdivisions. None of this is assembled into a weighted balanced polyhedral complex, and the balancing condition is not stated anywhere."
+      },
+      {
+       "target": "Pushforward of tropical cycles with lattice indices and generic degrees",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-6-global-algebraic--analytic-comparison",
+       "note": "The toric-chart and algebraic/analytic comparison apparatus TB.4 needs for its ambient torus overlaps that roadmap, whose cones/fans layer is the source of Tau Ceti's existing `Toric` code."
+      },
+      {
+       "layer": "TropicalAndBerkovichArithmetic:TB.5",
+       "note": "TB.5 is the curve case of the same tropicalization map, with the multiplicity-one criterion."
+      }
+     ]
+    },
+    "TropicalAndBerkovichArithmetic:TB.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Enough rational functions on a finite subgraph of the analytic skeleton",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.exists_isRiemannRochDivisor",
+         "library": "tauceti",
+         "file": "TauCeti/FieldTheory/FunctionField/Differential/CanonicalDivisor.lean",
+         "line": 412,
+         "fit": "related"
+        }
+       ],
+       "note": "The algebraic input (existence of rational functions with prescribed poles) is available through Tau Ceti's Riemann-Roch for function fields, but there is no skeleton to produce them for."
+      },
+      {
+       "target": "An algebraic embedding into a toric chart whose tropicalization preserves the path metric",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Toric.IsToricCone",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Algebraic/Cone.lean",
+         "line": 124,
+         "fit": "related"
+        }
+       ],
+       "note": "Toric cones and fans exist in Tau Ceti; the embedding and tropicalization do not."
+      },
+      {
+       "target": "The multiplicity-one / isometry criterion for faithfulness",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Explicit refinement when a tropicalization contracts an edge or changes the expansion factor",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Separating existence of a faithful tropicalization from a claim about every embedding",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "TropicalAndBerkovichArithmetic:TB.4",
+       "note": "TB.5 is the curve case of TB.4's tropicalization with multiplicities; both need the weights and the lattice indices."
+      },
+      {
+       "layer": "TropicalAndBerkovichArithmetic:TB.3",
+       "note": "The path metric preserved here is TB.3's skeleton metric and its slope formula."
+      }
+     ]
+    },
+    "TropicalAndBerkovichArithmetic:TB.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Metrics on line bundles coming from formal models",
+       "library": "absent",
+       "declarations": [],
+       "note": "There are no formal models and no metrized line bundles in either library; `grep -rn -i 'metrized line bundle\\|model metric'` returns nothing."
+      },
+      {
+       "target": "Model measures weighted by intersection numbers on special-fibre components",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.NumericalType.weightedIntersection",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Picard/Basic.lean",
+         "line": 107,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.NumericalType",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/NumericalType/Basic.lean",
+         "line": 113,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's numerical types carry the intersection numbers that would weight the components (and the weighted matrix a'_ij = a_ij/w_j), but there is no measure on any analytic space."
+      },
+      {
+       "target": "Functoriality and total mass equal to the algebraic degree",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.NumericalType.degree",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Picard/Basic.lean",
+         "line": 294,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the combinatorial total degree ∑ m_j w_j d_j of a multidegree exists."
+      },
+      {
+       "target": "Semipositive metrics by controlled approximation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Local heights with integrability and normalization",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has Weil or Arakelov heights: `grep -iP '\\t[^\\t]*height'` in the index returns only Lie-theoretic `heightMatrix`/`heightLevel` and similar."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ArithmeticDynamics:DY.4",
+       "note": "DY.4 says it consumes TB.6's model metrics, semipositive approximation and local measures for equidistribution; TB.6 explicitly holds back the equidistribution theorem itself."
+      },
+      {
+       "layer": "ArakelovGeometryAndAbelianHeights:R35.2",
+       "note": "Metrized line bundles and their heights in the Arakelov setting overlap TB.6's local analytic objects at the archimedean/nonarchimedean interface."
+      },
+      {
+       "layer": "SchemeAndStackFoundations:SF.5",
+       "note": "SF.5 is a declared input and owns the intersection theory the model measures are weighted by."
+      }
+     ]
+    },
+    "TropicalAndBerkovichArithmetic:TB.7": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Tate uniformization of a totally degenerate curve, with descent and the period lattice",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WeierstrassCurve",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Weierstrass and elliptic curves but no Tate curve: `grep -rn -i 'tate curve\\|TateCurve'` returns nothing in either tree ('Tate' in Tau Ceti means Tate cohomology or Hodge-Tate)."
+      },
+      {
+       "target": "The Schottky / Mumford-curve quotient in its totally degenerate range",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'mumford\\|schottky'` returns nothing in either library."
+      },
+      {
+       "target": "Local Coleman primitives",
+       "library": "absent",
+       "declarations": [],
+       "note": "Coleman integration is absent; the only 'Coleman' strings in Tau Ceti are provenance notes naming an external ChabautyColeman development for formal-group power series."
+      },
+      {
+       "target": "Annular residues and monodromy",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Global path or abelian integrals, kept distinct from the local primitives",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Export of semistable graph corrections and model metrics to height consumers with actual comparison maps",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; neither the graph corrections nor the heights exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+       "note": "That layer owns the Tate curve over a local field (AEC VII, ATAEC IV-V); TB.7's Tate uniformization and q-period acceptance test are the same object."
+      },
+      {
+       "layer": "ModularCurvesPartII:R13.3",
+       "note": "R13.3 builds Tate curves and formal neighbourhoods of cusps, so the Tate-curve construction is owned twice already."
+      },
+      {
+       "layer": "ColemanIntegration:L1",
+       "note": "Frobenius continuation and the construction of Coleman primitives are owned by the ColemanIntegration roadmap; TB.7 only asks for handoffs."
+      },
+      {
+       "layer": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+       "note": "Semistable reduction and (rigid-analytic) uniformisation of abelian varieties overlap TB.7's uniformization and period lattice."
+      }
+     ]
+    }
+   }
   }
  }
 }
