@@ -1,0 +1,457 @@
+{
+ "job": "AUDIT-37",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "FarguesFontaineDiamonds": {
+   "summary": "Nothing in either library knows about diamonds, v-sheaves, Spd, perfectoid spaces or the Fargues–Fontaine curve: a case-insensitive sweep of both Lean trees finds no `Fargues`, no `Spd`, no `v-sheaf`/`vSheaf`, no `A_inf`, and the only `diamond` declarations are the modular-forms diamond operators. What does exist is the raw input the roadmap says it will consume: Mathlib's Witt vectors with Frobenius and Teichmüller, its tilting/perfection package (`PreTilt`, `PreTilt.untilt`), Fontaine's `θ` with surjectivity, and `BDeRhamPlus`/`BDeRham` for a general perfectoid ring; and Tau Ceti's Huber-ring and adic-spectrum theory (`IsHuberRing`, `PairOfDefinition`, `spa`, rational subsets, the analytic locus, localisation topologies, sheaf criteria). Genuinely missing is everything the roadmap actually asks for: A_inf with its `(p,[ϖ])`-adic Huber structure, the open `ᵀY_F = D(p)∩D([ϖ])`, the Frobenius quotient X_F, any category of adic spaces or morphisms between them, diamondification, and the étale-site comparisons. F0–F5 are therefore all unbuilt; the closest formalised material is upstream of F0 rather than inside it.",
+   "layers": {
+    "FarguesFontaineDiamonds:F0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "A_inf = W(𝒪_F) for a characteristic-p perfectoid field F, with its (p,[ϖ])-adic topology, complete Hausdorff Huber-ring structure and Witt Frobenius/Teichmüller",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 221,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.teichmuller",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
+         "line": 93,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.frobeniusEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 286,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.IsHuberRing",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Basic.lean",
+         "line": 154,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.PairOfDefinition",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Basic.lean",
+         "line": 140,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has W(R) for any commutative ring with Frobenius, Teichmüller and (for perfect R) `frobeniusEquiv`, and Tau Ceti has the general Huber-ring/pair-of-definition API; but no file puts a topology on W(𝒪_F), and grep finds no `A_inf`/`Ainf` anywhere in either tree. Completeness and separatedness of the (p,[ϖ])-adic topology, and the statement that A_inf is Huber but not Tate, are unproved."
+      },
+      {
+       "target": "The open locus 𝒴_F = D(p) ∩ D([ϖ]) inside Spa(A_inf, A_inf), its openness, nonemptiness and Frobenius stability",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.spa",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+         "line": 97,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.rationalSubset",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Basic.lean",
+         "line": 134,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.spaAnalytic",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Analytic.lean",
+         "line": 80,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.spaAnalytic_eq_biUnion_rationalSubset",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Analytic.lean",
+         "line": 264,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti builds Spa(A,A⁺) as a set of continuous valuations, rational subsets, and the analytic locus with its finite rational cover — the machinery the layer needs — but the particular locus `v(p[ϖ]) ≠ 0` for A_inf does not exist, and the layer's own warning that it differs from the analytic locus D(p) ∪ D([ϖ]) has no counterpart in the library."
+      },
+      {
+       "target": "The Frobenius quotient X_F = 𝒴_F/φ^ℤ together with q : 𝒴_F → X_F, wandering charts and local chart isomorphisms",
+       "library": "absent",
+       "declarations": [],
+       "note": "No declaration in either tree mentions a Frobenius quotient of an adic spectrum, wandering windows or a quotient adic space; `grep -rn -i wandering` over both trees returns nothing."
+      },
+      {
+       "target": "Interface statements for D6: analytic adic structure over ℤ_p and factorisation of the structure morphism over Spa(ℚ_p,ℤ_p) as a morphism in a category of adic spaces",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.Padic.isHuberRing",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Padic/Field.lean",
+         "line": 108,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.PadicInt.isHuberRing",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Padic/Basic.lean",
+         "line": 118,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.Padic.isTateRing",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Padic/Field.lean",
+         "line": 112,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.PadicInt.not_isTateRing",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Padic/Basic.lean",
+         "line": 123,
+         "fit": "related"
+        }
+       ],
+       "note": "ℚ_p is proved to be a Tate Huber ring with pair of definition (ℤ_p,(p)) and ℤ_p a non-Tate Huber ring, so the base pair exists at ring level. There is no category of adic spaces and no notion of a morphism Spa(A,A⁺) → Spa(B,B⁺) as a locally-ringed-space map; only `comap` on the underlying valuation spectra (Spa/Comap.lean) is available."
+      },
+      {
+       "target": "Transport through the independence-of-ϖ isomorphisms",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is a general `IsPseudoUniformizer` predicate in Tau Ceti (TauCeti/RingTheory/Huber/Basic.lean), but no statement comparing constructions made with two different pseudouniformisers."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+       "note": "§6.1–6.2 of AdicSpaces Layer 6 construct exactly the same objects — A_inf = W(𝒪_F) with pair of definition (A_inf,(p,[ϖ])), 𝒴 = D(p)∩D([ϖ]), the Frobenius windows U_n/V_n and the quotient 𝒳 = 𝒴/φ^ℤ — and F0 explicitly says it consumes them; F0 adds only the interface lemmas needed by D6."
+      },
+      {
+       "layer": "RelativeFarguesFontaine:RF0:integral-Y",
+       "note": "Builds the same integral period space in the relative setting, `𝒴_S = Spa(W_{O_E}(R⁺)) \\ V([ϖ])` with the (π,[ϖ])-adic topology, specialising to F0's fixed-field case when S = Spa(F,𝒪_F) and E = ℚ_p."
+      }
+     ]
+    },
+    "FarguesFontaineDiamonds:F1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The functor of points of 𝒴_F^♢ on characteristic-p perfectoid test objects, i.e. diamondification of an analytic adic space",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library defines Perf, v-sheaves, diamonds or the functor X ↦ X^♢; a case-insensitive grep for `diamond` in the Lean trees returns only `Mathlib/GroupTheory/FreeGroup/Basic.lean` (the diamond lemma) and Tau Ceti's modular-forms diamond operators."
+      },
+      {
+       "target": "Spd(ℚ_p) as the v-sheaf of untilts over ℚ_p, and the representable sheaf S = Spa(F,𝒪_F) on Perf",
+       "library": "absent",
+       "declarations": [],
+       "note": "`grep -rn -i 'Spd'` over both trees finds no such object. There is no site of perfectoid spaces to represent a sheaf on."
+      },
+      {
+       "target": "Identification of continuous maps W(𝒪_F) → 𝒪⁺(T^♯) with maps into the integral tilt, via the universal property of Witt vectors of a perfect ring and Fontaine's θ",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 165,
+         "fit": "related"
+        },
+        {
+         "name": "surjective_fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 195,
+         "fit": "related"
+        },
+        {
+         "name": "PreTilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 634,
+         "fit": "related"
+        },
+        {
+         "name": "PreTilt.untilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/Untilt.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.lift",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Truncated.lean",
+         "line": 437,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the algebraic ingredients: the universal property `WittVector.lift` for p-adically complete targets, `PreTilt` with `untilt`, and `fontaineTheta : 𝕎 R♭ →+* R` with surjectivity under Frobenius-surjectivity of R/p. What is missing is the continuity/boundedness half of the statement — the identification is proved only as a map of untopologised rings, exactly what the layer says is not enough — and there is no notion of an untilt of a perfectoid *space* with its 𝒪⁺."
+      },
+      {
+       "target": "The isomorphism α_F : 𝒴_F^♢ ≃ S × Spd(ℚ_p) of v-sheaves/locally spatial diamonds, with both directions, inverse-ness, and gluing over affinoid covers",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing of this statement can be formed: none of 𝒴_F, (−)^♢, Spd ℚ_p or the v-topology exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "RelativeFarguesFontaine:RF0:integral-Y",
+       "note": "States the same untilt product formula (FS II.1.2, `𝒴_S^♢ ≅ S × Spd(O_E)`) in the relative form; F1 is its E = ℚ_p, S = Spa(F,𝒪_F) specialisation."
+      },
+      {
+       "layer": "DiamondsAndVStacks:D6",
+       "note": "Constructs Spd ℤ_p and Spd(A,A⁺) by marked untilts with v-descent, which is the right-hand factor of F1's bijection."
+      },
+      {
+       "layer": "PerfectoidSpaces:P1",
+       "note": "Owns the classification of marked untilts by primitive degree-one ideals and Fontaine's θ with its kernel, the algebraic engine of F1's bijection."
+      }
+     ]
+    },
+    "FarguesFontaineDiamonds:F2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Frobenius φ_Y on 𝒴_F induced by Witt Frobenius, absolute Frobenius φ_S on S, and the equivariance α_F ∘ φ_Y^♢ = (φ_S × id) ∘ α_F",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 221,
+         "fit": "related"
+        },
+        {
+         "name": "frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/CharP/Lemmas.lean",
+         "line": 321,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.teichmuller",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
+         "line": 93,
+         "fit": "related"
+        }
+       ],
+       "note": "Witt Frobenius and the absolute p-power Frobenius of a characteristic-p ring both exist in Mathlib, including their compatibility with Teichmüller lifts; the induced action on an adic spectrum (by precomposition on valuations) and the equivariance statement do not exist because 𝒴_F does not."
+      },
+      {
+       "target": "The ℤ-action is free with wandering charts, q is locally an isomorphism, and its relation is the disjoint union of Frobenius graphs ∐_{n∈ℤ} 𝒴_F^♢ ≃ 𝒴_F^♢ ×_{X_F^♢} 𝒴_F^♢",
+       "library": "absent",
+       "declarations": [],
+       "note": "No quotient of an adic spectrum by a Frobenius action is constructed anywhere in either tree, so freeness, wandering windows and the groupoid relation have no counterpart."
+      },
+      {
+       "target": "Effectivity of the étale relation after diamondification and the identification β_F : X_F^♢ ≃ (S × Spd ℚ_p)/(φ_S^ℤ × id), over Spd ℚ_p and independent of ϖ",
+       "library": "absent",
+       "declarations": [],
+       "note": "Requires the whole diamond formalism, which is absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "RelativeFarguesFontaine:RF1",
+       "note": "Establishes the q-Frobenius action, wandering annuli and the adic quotient X_S = Y_S/φ^ℤ with descent in the relative setting, and explicitly says its ℚ_p fixed-field specialisation is to be compared with FarguesFontaineDiamonds F1–F3."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+       "note": "§6.2 already owns the Frobenius radius law κ(φ(v)) = p·κ(v), freeness of the ℤ-action, the wandering windows and the quotient space 𝒳; F2 reuses those and adds only the diamond-level statements."
+      }
+     ]
+    },
+    "FarguesFontaineDiamonds:F3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Equivalence of étale sites (X_F)_ét ≃ (X_F^♢)_ét",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither an étale site of an adic space nor the étale site of a diamond exists. Mathlib has étale sites only for schemes (Mathlib/AlgebraicGeometry/Sites/Etale.lean) and the pro-étale site of schemes (Sites/Proetale.lean); neither is the adic-space notion."
+      },
+      {
+       "target": "Equivalence of finite étale categories (X_F)_fét ≃ (X_F^♢)_fét, compatibility with covers, restriction to the wandering charts through α_F and β_F",
+       "library": "absent",
+       "declarations": [],
+       "note": "No finite étale category of adic spaces is defined in Tau Ceti; the AdicSpace tree stops at the structure presheaf and sheaf criteria."
+      },
+      {
+       "target": "Étale sheaf descent along q^♢ including the Frobenius cocycle, as an equivalence of categories with descent data",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Functor.IsCoverDense",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Sites/DenseSubsite/Basic.lean",
+         "line": 95,
+         "fit": "related"
+        }
+       ],
+       "note": "General sheaf-descent machinery exists in Mathlib's `CategoryTheory/Sites/Descent` and `DenseSubsite`, but there is no adic or diamond site on which to instantiate it, and no Frobenius-cocycle statement."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DiamondsAndVStacks:D6",
+       "note": "Owns the general adic-to-diamond étale and finite-étale site comparison (ECD Lemma 15.6); F3 is the instance of that general theorem at X_F, as D6's own test list says."
+      },
+      {
+       "layer": "RelativeFarguesFontaine:RF1",
+       "note": "Includes the diamond formulas for the relative curve and their comparison with FarguesFontaineDiamonds F1–F3."
+      }
+     ]
+    },
+    "FarguesFontaineDiamonds:F4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Sections of 𝒴_F^♢ → S as marked untilts of S over ℚ_p, and the map from an untilt to 𝒴_F",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "PreTilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 634,
+         "fit": "related"
+        },
+        {
+         "name": "PreTilt.untilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/Untilt.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 165,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the ring-level untilt (`PreTilt.untilt`, the sharp map) of a p-adically complete ring, but not marked untilts of a perfectoid space, nor the classification of untilts by primitive degree-one ideals; and 𝒴_F is absent."
+      },
+      {
+       "target": "The primitive kernel of θ as a local equation, and the proof that it cuts out a closed Cartier divisor (not merely principality in the Witt ring)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 165,
+         "fit": "related"
+        },
+        {
+         "name": "surjective_fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 195,
+         "fit": "related"
+        },
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "related"
+        }
+       ],
+       "note": "`fontaineTheta` and its surjectivity are proved, and `BDeRhamPlus` is defined as the adic completion along ker(θ[1/p]); but Mathlib never proves that ker θ is principal generated by a non-zero-divisor (the `BDeRham` docstring says this is only 'mathematically equivalent' and inverts all generators to dodge it), and there is no divisor-theoretic statement. Tau Ceti's Cartier divisors (TauCeti/AlgebraicGeometry/CartierDivisor) are for schemes, not adic spaces."
+      },
+      {
+       "target": "Injectivity and closed image of multiplication by the primitive generator on annular neighbourhoods; identification of the completed quotient with the untilt algebra; the exact sequence of analytic sheaves",
+       "library": "absent",
+       "declarations": [],
+       "note": "No analytic sheaves on an adic annulus over A_inf exist; Tau Ceti's structure presheaf is built only for a general Huber pair and no such exactness statement is present."
+      },
+      {
+       "target": "Perfectoidness of compatible-root base extensions of period annuli, the tilt computation, and the maximum-modulus / Shilov-boundary lower bound for multiplication by the primitive generator",
+       "library": "absent",
+       "declarations": [],
+       "note": "`Perfectoid` as a property of a Tate ring is not defined anywhere in either tree (Mathlib's `RingTheory/Perfectoid/` contains only θ, B_dR and untilt); there is no Shilov boundary or maximum-modulus principle for adic annuli."
+      },
+      {
+       "target": "Descent of the divisor to X_F along Frobenius translates, and dependence only on the Frobenius orbit; Div¹ = Spd ℚ_p/φ^ℤ kept distinct from X_F^♢",
+       "library": "absent",
+       "declarations": [],
+       "note": "Requires the quotient and the diamond formalism, both absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "RelativeFarguesFontaine:RF2:untilts",
+       "note": "States the identical content — marked untilts over E, the primitive kernel of θ, its Cartier divisor on Y_S and X_S, injectivity and closed image of multiplication by a local generator, and Div¹ — in the relative setting."
+      },
+      {
+       "layer": "RelativeFarguesFontaine:RF2:integral-divisors",
+       "note": "Owns Div^d and the degree-d Cartier divisors on 𝒴_S, of which F4's single marked untilt is the degree-one fixed-field case."
+      },
+      {
+       "layer": "PerfectoidQuotients:Q0",
+       "note": "F4 cites it for the integral perfectoid criteria used in the base-extension argument, so the perfectoidness half of F4's analytic input is owned there."
+      }
+     ]
+    },
+    "FarguesFontaineDiamonds:F5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Lift of the étale-site comparison to left-completed derived categories for the allowed coefficients, with compatibility with pullback and tensor",
+       "library": "absent",
+       "declarations": [],
+       "note": "There is no left-completed derived category of a site in Mathlib (no `leftCompletion` of a derived category), and no étale derived category of an adic space or diamond."
+      },
+      {
+       "target": "RΓ((X_F)_ét, A) ≃ RΓ((X_F^♢)_ét, A^♢) in the specified range",
+       "library": "absent",
+       "declarations": [],
+       "note": "Mathlib has global sections of sheaves on an arbitrary site and derived functors in the abstract, but neither of the two sites in the statement exists, so the comparison cannot be stated."
+      },
+      {
+       "target": "Adic coefficients with derived completion and the finite-level comparisons",
+       "library": "absent",
+       "declarations": [],
+       "note": "Derived I-adic completion of a derived category of sheaves does not exist in either tree; Mathlib's `AdicCompletion` is a module-level construction."
+      },
+      {
+       "target": "Geometric hypotheses (properness, smoothness, dualizing complex) for Rf_! / Rf^! on X_F^♢ → Spd ℚ_p",
+       "library": "absent",
+       "declarations": [],
+       "note": "The six operations do not exist for any adic or diamond geometry in either library."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "DiamondEtaleCohomology:C2",
+       "note": "Owns the construction of the left-completed étale derived category D_ét and its hyperdescent; F5 only instantiates it on X_F and is explicitly gated on C2."
+      },
+      {
+       "layer": "AdicCoefficientsAndComparisons:L0",
+       "note": "Owns the adic-coefficient category with derived I-completeness and the finite-level comparisons that F5's second paragraph defers to."
+      }
+     ]
+    }
+   }
+  }
+ }
+}
