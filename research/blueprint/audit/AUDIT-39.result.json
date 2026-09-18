@@ -1,0 +1,1066 @@
+{
+ "job": "AUDIT-39",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "RelativeFarguesFontaine": {
+   "summary": "Nothing in this roadmap is in the libraries. Neither Mathlib nor Tau Ceti has perfectoid spaces, diamonds, v-sheaves or any Fargues-Fontaine curve, and ramified Witt vectors W_{O_E} do not exist at all; Mathlib's Witt theory is p-typical only. What does exist and is genuinely usable is upstream infrastructure: Mathlib's `WittVector` with Frobenius, Teichmuller lifts, p-adic completeness and the W(k)-is-a-DVR theorem; Fontaine's theta with surjectivity; and an absolute `BDeRhamPlus`/`BDeRham` for a single p-adically complete ring (with principality of ker theta, the theta-extension and the DVR property all still open TODOs in that file). On the geometric side Tau Ceti supplies the entire Huber-ring and adic-spectrum layer RF0 presupposes — Huber pairs, Spa(A,A+) with spectrality, rational subsets and their basis/refinement calculus, completed rational localisation A<T/s> with its integrally closed plus ring, and the identification of Spa of that pair with the rational subset — all sorry-free. Genuinely missing is everything the roadmap names: the ramified Witt algebra and its universal property, 𝒴_S and Y_S, the perfectoidness of the charts and their tilt, sheafiness, the phi-quotient X_S, Div^d and B_D, relative B_dR, O(n) and the graded algebra, and Beauville-Laszlo patching in both its linear and Tannakian forms.",
+   "layers": {
+    "RelativeFarguesFontaine:RF0": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Ramified Witt vectors W_{O_E}(R) for a perfect F_q-algebra R and a nonarchimedean local coefficient field E",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Defs.lean",
+         "line": 52,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib has only the p-typical `WittVector p R`, i.e. the case E = Q_p, O_E = Z_p, q = p. There is no O_E-coefficient (ramified) Witt construction anywhere: `grep -rn -i 'ramified witt\\|W_\\{O_E\\}'` over both trees returns nothing."
+      },
+      {
+       "target": "Teichmuller representatives in W_{O_E}(R)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.teichmuller",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
+         "line": 93,
+         "fit": "special case"
+        },
+        {
+         "name": "WittVector.teichmuller_coeff_zero",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
+         "line": 106,
+         "fit": "special case"
+        }
+       ],
+       "note": "`WittVector.teichmuller` is the multiplicative monoid hom R ->* W(R) in the p-typical case only; the O_E-version is absent."
+      },
+      {
+       "target": "Frobenius on W_{O_E}(R) (the q-Frobenius)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 221,
+         "fit": "special case"
+        },
+        {
+         "name": "WittVector.frobeniusEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 286,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib's `WittVector.frobenius` is the p-power Witt Frobenius; `frobeniusEquiv` makes it an isomorphism for a perfect base. The q = p^f Frobenius of a ramified coefficient ring is not constructed."
+      },
+      {
+       "target": "pi-adically complete flat O_E universal property of W_{O_E}",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.isAdicCompleteIdealSpanP",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Complete.lean",
+         "line": 116,
+         "fit": "special case"
+        },
+        {
+         "name": "WittVector.lift",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Truncated.lean",
+         "line": 437,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves p-adic completeness of W(R) for a perfect ring (`isAdicCompleteIdealSpanP`) and a universal property only as the inverse limit of truncated Witt vectors (`WittVector.lift`). The strict-lift universal property (unique pi-adically complete flat O_E-algebra with W/pi = R) is not stated, in either the p-typical or the ramified case."
+      },
+      {
+       "target": "Mixed-characteristic comparison with the completed scalar extension of W(-) over W(F_q)",
+       "library": "absent",
+       "declarations": [],
+       "note": "No comparison W_{O_E}(R) = W(R) ⊗_{W(F_q)} O_E (completed) exists; `WittVector/Compare.lean` only compares W(ZMod p) with Z_p."
+      },
+      {
+       "target": "Equal-characteristic identification W_{O_E}(R) = R[[pi]]",
+       "library": "absent",
+       "declarations": [],
+       "note": "`PowerSeries R` exists in Mathlib but there is no Witt-vector identification with it; the equal-characteristic case of ramified Witt vectors is not formalised."
+      },
+      {
+       "target": "Functoriality, reduction, topology and uniformizer-change comparisons",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.map",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Basic.lean",
+         "line": 253,
+         "fit": "special case"
+        },
+        {
+         "name": "WittVector.ghostMap",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Basic.lean",
+         "line": 287,
+         "fit": "related"
+        }
+       ],
+       "note": "`WittVector.map` gives functoriality and `WittVector.Complete` gives the p-adic topology, both p-typically. Uniformizer-change comparison has no counterpart because there is no uniformizer parameter."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+       "note": "Layer 6.1 of the AdicSpaces roadmap packages W(O_F), Frobenius and Teichmuller lifts with the (p,[varpi])-adic topology; RF0 is the same package for a general coefficient field E."
+      },
+      {
+       "layer": "FarguesFontaineDiamonds:F0",
+       "note": "F0 explicitly imports A_inf = W(O_F) and its (p,[varpi])-adic topology from AdicSpaces Layer 6 rather than rebuilding it; RF0 is the ramified generalisation of exactly that object."
+      },
+      {
+       "layer": "AInfCohomology:AI.0",
+       "note": "AI.0 constructs A_inf = W(O_C^flat) with Frobenius and theta and states it reuses the common Witt-vector definitions; the p-typical part of RF0 is the same construction."
+      },
+      {
+       "layer": "GeometricSatakeAndFusion:GS0:Witt-geometry",
+       "note": "GS0:Witt-geometry says outright it will 'reuse RF0's ramified Witt algebra rather than a second coefficient ring'."
+      }
+     ]
+    },
+    "RelativeFarguesFontaine:RF0:integral-Y": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "W_{O_E}(R^+) with the (pi,[varpi])-adic topology as a Huber ring",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.IsHuberRing",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Basic.lean",
+         "line": 154,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.PairOfDefinition",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Basic.lean",
+         "line": 140,
+         "fit": "related"
+        },
+        {
+         "name": "WittVector.isAdicCompleteIdealSpanP",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Complete.lean",
+         "line": 116,
+         "fit": "special case"
+        }
+       ],
+       "note": "Tau Ceti has the full Huber-ring/pair-of-definition API and Mathlib has W(R) with p-adic completeness, but nobody assembles W(O_F) (let alone W_{O_E}(R^+)) into a Huber ring with the (pi,[varpi])-adic topology; the AdicSpaces roadmap itself lists this as unbuilt Layer 6 work."
+      },
+      {
+       "target": "The integral period space 𝒴_S = Spa(W_{O_E}(R^+)) \\ V([varpi]) over Spa(O_E)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.spa",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+         "line": 97,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.spectralSpace_spa_of_pairOfDefinition",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Spectral.lean",
+         "line": 76,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's `spa` and its spectrality exist for an arbitrary Huber pair, but no instance is formed for a Witt ring and 𝒴 is nowhere defined. Neither library has any perfectoid space, diamond or v-sheaf: the whole Scholze-style carrier is absent (Mathlib's `Mathlib/RingTheory/Perfectoid/` is only FontaineTheta, Untilt and BDeRham, and there is no `IsPerfectoid` predicate)."
+      },
+      {
+       "target": "The rational cover |pi|^n <= |[varpi]| != 0 of 𝒴_S",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.rationalSubset",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Basic.lean",
+         "line": 134,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.isTopologicalBasis_spaRationalFamily",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/Basis.lean",
+         "line": 255,
+         "fit": "related"
+        }
+       ],
+       "note": "The general theory of rational subsets and their basis property is complete in Tau Ceti; the specific annular windows of the period space are not constructed."
+      },
+      {
+       "target": "Completed rational chart rings with integral-closure plus rings",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.toCompletionLoc",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/LocalizationTopology/Completion.lean",
+         "line": 202,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.completedPlusSubring",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/LocalizationTopology/Plus.lean",
+         "line": 140,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.isRingOfIntegralElements_integralClosure_adjoin_plus",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/LocalizationTopology/Plus.lean",
+         "line": 464,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.ValuationSpectrum.spaLocalizationHomeomorph",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Localization/Homeomorph.lean",
+         "line": 137,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti builds A<T/s> as the separated completion of the topological localisation, defines its plus ring as the integral closure of the image of A^+ adjoined the fractions, proves it is a ring of integral elements, and identifies Spa of the pair with the rational subset. This is exactly the general construction the layer needs, but it is never applied to the Witt chart rings and nothing perfectoid is proved about them."
+      },
+      {
+       "target": "FS II.1.1: after O_E -> O_{E_infty} the charts are perfectoid and their tilt glues to the perfected open unit disc over S",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "PreTilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 634,
+         "fit": "related"
+        }
+       ],
+       "note": "There is no perfectoid ring predicate and no tilting equivalence; `PreTilt` is the inverse-limit perfection of R/p and carries none of this."
+      },
+      {
+       "target": "Sheafiness of the charts by the topological direct-summand argument",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.isSheaf_iff_isSheafFor_rationalCover",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/RationalSubset/SheafCriterion.lean",
+         "line": 51,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the reduction of the sheaf condition to rational covers but no sheafiness theorem at all (neither the strongly noetherian nor the stably uniform one), so no direct-summand argument can be run."
+      },
+      {
+       "target": "FS II.1.2: the untilt functor 𝒴_S^diamond = S x Spd(O_E)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has any perfectoid space, diamond or v-sheaf: the whole Scholze-style carrier is absent (Mathlib's `Mathlib/RingTheory/Perfectoid/` is only FontaineTheta, Untilt and BDeRham, and there is no `IsPerfectoid` predicate)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+       "note": "Layer 6.1 defines exactly 𝒴 = Spa(A_inf,A_inf) minus the zero loci, with the (p,[varpi])-adic topology and rational windows, for E = Q_p and a fixed perfectoid field F."
+      },
+      {
+       "layer": "FarguesFontaineDiamonds:F0",
+       "note": "F0 reuses Y_F = D(p) ∩ D([varpi]) and its rational annuli from AdicSpaces Layer 6; RF0:integral-Y is the relative-base, general-E version of the same space."
+      },
+      {
+       "layer": "PerfectoidSpaces:P3",
+       "note": "The perfectoidness of the chart rings after the compatible-root extension is the kind of statement P3 owns; RF0:integral-Y lists P3 as a prerequisite and re-derives the tilt computation for these particular charts."
+      }
+     ]
+    },
+    "RelativeFarguesFontaine:RF0:annuli": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The generic period domain Y_S = 𝒴_S \\ V(pi), the locus where pi[varpi] is invertible",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.spa",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
+         "line": 97,
+         "fit": "related"
+        }
+       ],
+       "note": "No period space of any kind is constructed in either library; `spa` is the generic adic-spectrum constructor only."
+      },
+      {
+       "target": "The annulus rings with their explicit plus subrings",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.toCompletionLoc",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/LocalizationTopology/Completion.lean",
+         "line": 202,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.completedPlusSubring",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/LocalizationTopology/Plus.lean",
+         "line": 140,
+         "fit": "related"
+        }
+       ],
+       "note": "The general completed rational-localisation ring and its integrally closed plus subring exist in Tau Ceti; the interval/annulus rings B^I of the period domain do not (the AdicSpaces roadmap lists them as new Layer 6.3 work)."
+      },
+      {
+       "target": "Complete separated sheafiness of the annulus rings",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.IsStronglyNoetherian",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/StronglyNoetherian.lean",
+         "line": 128,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the strong-noetherianness predicate and the flatness half of Wedhorn 8.28, but the Tate acyclicity/sheafiness conclusion is not proved, and nothing about B^I is."
+      },
+      {
+       "target": "Restriction and completed base change for the annulus rings",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.PairOfDefinition.flat_restrictionRingHomOfSubset",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/LocalizationTopology/Laurent/Flat.lean",
+         "line": 263,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Huber.restrictedMvPowerSeriesBaseChangeEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Restricted/BaseChange.lean",
+         "line": 542,
+         "fit": "related"
+        }
+       ],
+       "note": "Restriction morphisms between rational localisations and the base-change isomorphism M ⊗_A A<X> = M<X> are proved in Tau Ceti in general; the annulus instance is absent. Completed tensor products over a general base are not available."
+      },
+      {
+       "target": "Independence of the pseudouniformiser varpi",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Huber.IsPseudoUniformizer",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Basic.lean",
+         "line": 163,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti defines pseudouniformisers of a Tate ring, but no independence-of-varpi statement for period annuli exists."
+      },
+      {
+       "target": "Sousperfectoid / stably uniform hypotheses for non-noetherian relative annuli",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither `sousperfectoid` nor uniform/stably uniform is defined anywhere: `grep -rn -i 'stably uniform\\|sousperfectoid'` returns nothing in either tree."
+      },
+      {
+       "target": "Fixed-field Q_p comparison identifying the existing rings",
+       "library": "absent",
+       "declarations": [],
+       "note": "There are no existing period rings to compare with."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+       "note": "Layer 6.3 constructs Kedlaya's interval rings B^I, their unit balls and strong noetherianness for E = Q_p; RF0:annuli is the same construction relative and for general E."
+      },
+      {
+       "layer": "PadicHodgeTheory:P7:annulus-foundations",
+       "note": "P7's early analytic coefficient rings are the Robba-style annulus rings over a fixed field; RF0:annuli builds the same rings over a perfectoid base."
+      }
+     ]
+    },
+    "RelativeFarguesFontaine:RF1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Gluing Y_S over perfectoid affinoid covers",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.GlueData",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/GlueData.lean",
+         "line": 51,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's `AlgebraicGeometry.GlueData` glues locally ringed spaces/schemes; there is no adic-space category to glue in, and no perfectoid covers. Neither library has any perfectoid space, diamond or v-sheaf: the whole Scholze-style carrier is absent (Mathlib's `Mathlib/RingTheory/Perfectoid/` is only FontaineTheta, Untilt and BDeRham, and there is no `IsPerfectoid` predicate)."
+      },
+      {
+       "target": "The q-Frobenius action on Y_S and its wandering annuli",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.frobenius",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+         "line": 221,
+         "fit": "special case"
+        }
+       ],
+       "note": "Witt Frobenius exists as a ring map in Mathlib; its action on a period space and the wandering property of annuli are not formalised."
+      },
+      {
+       "target": "The adic quotient X_S = Y_S/phi^Z",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Fargues-Fontaine curve of any kind exists in either library."
+      },
+      {
+       "target": "Descent and pullback along T -> S with compatibility of structure sheaves and valuations",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ValuationSpectrum.residueFieldValuation",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AdicSpace/ResidueField.lean",
+         "line": 96,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has residue-field valuations at points of Spa, which is the kind of datum that must be transported, but no morphism theory of adic spaces and no descent."
+      },
+      {
+       "target": "Diamond formulas for X_S over Perf_{F_q} with a chosen coefficient-field embedding",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has any perfectoid space, diamond or v-sheaf: the whole Scholze-style carrier is absent (Mathlib's `Mathlib/RingTheory/Perfectoid/` is only FontaineTheta, Untilt and BDeRham, and there is no `IsPerfectoid` predicate)."
+      },
+      {
+       "target": "Comparison of the Q_p fixed-field specialisation with FarguesFontaineDiamonds F1-F3",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing on either side of the comparison exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+       "note": "Layer 6.2 and 6.4 construct the wandering windows, the free phi^Z action and the quotient 𝒳 = 𝒴/phi^Z with its quotient sheaf, for E = Q_p."
+      },
+      {
+       "layer": "FarguesFontaineDiamonds:F2",
+       "note": "F2 proves Frobenius equivariance and identifies X_F^diamond as the quotient sheaf; RF1 restates this relatively over a perfectoid base."
+      },
+      {
+       "layer": "FarguesFontaineDiamonds:F3",
+       "note": "RF1 explicitly asks for the comparison of its Q_p specialisation with F1-F3."
+      }
+     ]
+    },
+    "RelativeFarguesFontaine:RF2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Div^d_𝒴 = (Spd O_E)^d/Sigma_d as a v-sheaf, and FS VI.1.1-VI.1.4",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has any perfectoid space, diamond or v-sheaf: the whole Scholze-style carrier is absent (Mathlib's `Mathlib/RingTheory/Perfectoid/` is only FontaineTheta, Untilt and BDeRham, and there is no `IsPerfectoid` predicate)."
+      },
+      {
+       "target": "The completed sheaves B_D^+ and B_D = B_D^+[1/I_D] on a degree-d divisor",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "special case"
+        },
+        {
+         "name": "BDeRham",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 90,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib's `BDeRhamPlus`/`BDeRham` are the absolute rings attached to one p-adically complete ring R with p not a unit, built as the ker(theta)-adic completion of W(R^flat)[1/p]; there is no divisor, no relative version and no degree parameter."
+      },
+      {
+       "target": "Marked untilts over E, the primitive kernel of theta and its Cartier divisor",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 165,
+         "fit": "special case"
+        },
+        {
+         "name": "surjective_fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 195,
+         "fit": "special case"
+        },
+        {
+         "name": "PreTilt.untilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/Untilt.lean",
+         "line": 49,
+         "fit": "related"
+        }
+       ],
+       "note": "Fontaine's theta and its surjectivity are in Mathlib; principality/primitivity of ker theta is an explicit TODO in `Mathlib/RingTheory/Perfectoid/BDeRham.lean`, and there is no divisor."
+      },
+      {
+       "target": "B_dR^+ filtration, residue map, graded pieces and the complete DVR at a geometric untilt",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "special case"
+        }
+       ],
+       "note": "`BDeRham.lean`'s own TODO list records that extending theta to B_dR^+ and showing B_dR^+ is a discrete valuation ring are not done; there is no filtration or residue map."
+      },
+      {
+       "target": "Effective Cartier divisors of degree d, addition, disjoint loci and the symmetric-power comparison",
+       "library": "absent",
+       "declarations": [],
+       "note": "No divisor theory on any period space exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "RelativeFarguesFontaine:RF2:integral-divisors",
+       "note": "This parent stage's text is the concatenation of its two substages; the divisor half is owned by RF2:integral-divisors."
+      },
+      {
+       "layer": "RelativeFarguesFontaine:RF2:untilts",
+       "note": "The untilt and B_dR half of this parent stage's text is owned by RF2:untilts."
+      },
+      {
+       "layer": "PadicHodgeTheory:R06.1",
+       "note": "R06.1 constructs B_dR^+, its filtration and B_dR (plus B_cris, B_st) over a fixed field; RF2 needs the relative sheaf version of the same rings."
+      }
+     ]
+    },
+    "RelativeFarguesFontaine:RF2:integral-divisors": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Div^d_𝒴 = (Spd O_E)^d/Sigma_d as a v-sheaf quotient",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has any perfectoid space, diamond or v-sheaf: the whole Scholze-style carrier is absent (Mathlib's `Mathlib/RingTheory/Perfectoid/` is only FontaineTheta, Untilt and BDeRham, and there is no `IsPerfectoid` predicate). There is no Spd, no v-topology and no v-sheaf quotient."
+      },
+      {
+       "target": "FS VI.1.1: the map Div^d_𝒴 -> relative degree-d closed Cartier divisors on 𝒴_S",
+       "library": "absent",
+       "declarations": [],
+       "note": "No relative Cartier divisors on adic or perfectoid spaces exist in either library."
+      },
+      {
+       "target": "FS VI.1.2-VI.1.3: the geometric degree criterion and affineness of the divisor for affinoid S",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent for the same reason."
+      },
+      {
+       "target": "FS VI.1.4: v-descent for bundles on the divisor and its infinitesimal thickenings",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.SheafOfModules.IsInvertible.isLocallyFree",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/Sheaf/Invertible/Basic.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has abstract sheaves of modules with invertibility/local freeness over an arbitrary site, but no v-site and no descent theorem of this shape."
+      },
+      {
+       "target": "Ordered legs: the divisor equation as a product of primitive Cartier equations, with regularity and closed image at coincident legs",
+       "library": "absent",
+       "declarations": [],
+       "note": "No primitive elements, no Cartier equations."
+      },
+      {
+       "target": "The unordered divisor ideal descended as a line bundle",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.SheafOfModules.IsInvertible.isLocallyFree",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/Sheaf/Invertible/Basic.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the abstract notion of an invertible sheaf of modules exists."
+      },
+      {
+       "target": "B_D^+ and B_D = B_D^+[1/I_D], inverse-limit completeness, gluing, restriction to Div^d_Y",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "special case"
+        },
+        {
+         "name": "BDeRham",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 90,
+         "fit": "special case"
+        },
+        {
+         "name": "AdicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 171,
+         "fit": "related"
+        }
+       ],
+       "note": "The only realisation of this pattern is Mathlib's absolute B_dR^+ = AdicCompletion(ker theta)(W(R^flat)[1/p]) and its localisation; degree, ordering-independence, gluing and restriction are all absent."
+      },
+      {
+       "target": "Div^d_X by Frobenius descent, affine locally on S",
+       "library": "absent",
+       "declarations": [],
+       "note": "No curve X, no Frobenius descent of v-sheaves."
+      },
+      {
+       "target": "The characteristic-p special fibre of the degree-one divisor giving ramified Witt coefficients",
+       "library": "absent",
+       "declarations": [],
+       "note": "Ramified Witt vectors are themselves absent (see RF0)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FarguesFontaineDiamonds:F4",
+       "note": "F4 constructs marked untilts, the primitive kernel of theta as a closed Cartier divisor and Div^1 = Spd Q_p/phi^Z in the fixed-field case; RF2:integral-divisors is the general-E, degree-d, integral version."
+      },
+      {
+       "layer": "GeometricSatakeAndFusion:GS0:loop-geometry",
+       "note": "GS0:loop-geometry takes Div^d_𝒴 and B_D^+ ⊂ B_D from RF2 as inputs and builds L^+G/LG over them; the two stages share the divisor rings."
+      },
+      {
+       "layer": "HeckeStacksAndLocalShtukas:HS0",
+       "note": "HS0 imports RF2:integral-divisors for its leg divisors and formal neighbourhoods."
+      }
+     ]
+    },
+    "RelativeFarguesFontaine:RF2:untilts": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Marked untilts over E and the primitive kernel of theta",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "WittVector.fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 165,
+         "fit": "special case"
+        },
+        {
+         "name": "surjective_fontaineTheta",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+         "line": 195,
+         "fit": "special case"
+        },
+        {
+         "name": "PreTilt.untilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/Untilt.lean",
+         "line": 49,
+         "fit": "related"
+        },
+        {
+         "name": "PreTilt",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfection.lean",
+         "line": 634,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines theta : W(R^flat) -> R and proves it surjective for R p-adically complete with p not a unit, and `PreTilt.untilt` gives the multiplicative section. It does not prove ker theta is principal or primitive of degree one (explicit TODO in BDeRham.lean), and there is no notion of a marked untilt of a perfectoid space."
+      },
+      {
+       "target": "The divisor of the untilt on Y_S and X_S; injectivity and closed image of multiplication by a local generator",
+       "library": "absent",
+       "declarations": [],
+       "note": "No period space, so no divisor and no annular estimate."
+      },
+      {
+       "target": "Div^1 over the unramified coefficient base Spd(E-breve)/phi^Z on Perf_{F_q}",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library has any perfectoid space, diamond or v-sheaf: the whole Scholze-style carrier is absent (Mathlib's `Mathlib/RingTheory/Perfectoid/` is only FontaineTheta, Untilt and BDeRham, and there is no `IsPerfectoid` predicate)."
+      },
+      {
+       "target": "Completion along a divisor: B_dR^+ and its localisation B_dR, independent of the chosen generator",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "special case"
+        },
+        {
+         "name": "BDeRham",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 90,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib's `BDeRhamPlus R p` is the ker(theta)-adic completion of the localisation away from p of W(R^flat), and `BDeRham R p` inverts the generators of ker theta; both are absolute (a single ring R, hypotheses `[Fact ¬IsUnit (p:R)]` and `[IsAdicComplete (span {p}) R]`), with no divisor, no generator-independence statement and no sheaf."
+      },
+      {
+       "target": "Functoriality, residue map, ideal filtration, graded pieces and base-change conditions for B_dR",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "special case"
+        }
+       ],
+       "note": "None of these is proved; the file's TODO list is 'extend theta to B_dR^+', 'B_dR^+ is a DVR', 'ker theta is principal'."
+      },
+      {
+       "target": "At a geometric untilt: the complete discrete valuation ring and its residue field",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "WittVector.isDiscreteValuationRing",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/WittVector/DiscreteValuationRing.lean",
+         "line": 149,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib proves W(k) is a DVR for a perfect field k of characteristic p, which is the special fibre statement, not the B_dR^+ one the layer asks for."
+      },
+      {
+       "target": "Effective Cartier divisors of degree d >= 0, addition, disjoint-divisor loci, finite symmetric-power comparison with multiplicities",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no divisor theory on period spaces."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "FarguesFontaineDiamonds:F4",
+       "note": "F4 is the fixed-field case of exactly this stage: marked untilts, the primitive kernel of theta as a closed Cartier divisor, the annular injectivity/closed-image estimate and Div^1 = Spd Q_p/phi^Z."
+      },
+      {
+       "layer": "PerfectoidSpaces:P1",
+       "note": "P1 owns Fontaine's theta, its surjectivity, the principal non-zero-divisor kernel and the classification of marked untilts by primitive degree-one ideals; RF2:untilts consumes those and adds the divisor and completion."
+      },
+      {
+       "layer": "PadicHodgeTheory:R06.1",
+       "note": "R06.1 constructs B_dR^+, its filtration and B_dR over a fixed field with Galois, Frobenius and monodromy structure; RF2:untilts needs the relative version along a divisor."
+      },
+      {
+       "layer": "AInfCohomology:AI.0",
+       "note": "AI.0 constructs theta, its kernel generator xi, and states B_dR^+ is the kernel-adic completion after inverting p — the same recipe Mathlib's `BDeRhamPlus` implements."
+      }
+     ]
+    },
+    "RelativeFarguesFontaine:RF3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "O(1) by Frobenius descent with the chosen pi-normalization, and O(n)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.SheafOfModules.IsInvertible.isLocallyFree",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/Sheaf/Invertible/Basic.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "No line bundles on a Fargues-Fontaine curve; Tau Ceti's `SheafOfModules.IsInvertible` is the abstract notion over an arbitrary site."
+      },
+      {
+       "target": "Tensor and dual comparisons O(m) ⊗ O(n) = O(m+n), O(n)^∨ = O(-n)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.SheafOfModules.IsInvertible.tensorProduct",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Category/ModuleCat/Sheaf/Invertible/TensorProduct/Closure.lean",
+         "line": 128,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has the tensor product of invertible sheaves of modules abstractly; the twisting sheaves on the curve do not exist."
+      },
+      {
+       "target": "Divisor sections and transition functions for O(n)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The sign conversion between Frobenius eigenvalue and degree",
+       "library": "absent",
+       "declarations": [],
+       "note": "No degree function on bundles over the curve exists."
+      },
+      {
+       "target": "The graded algebra of global sections for affinoid S, its Proj, and the analytic-to-schematic map of locally ringed spaces",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "AlgebraicGeometry.Proj.toLocallyRingedSpace",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/StructureSheaf.lean",
+         "line": 374,
+         "fit": "related"
+        },
+        {
+         "name": "ProjectiveSpectrum",
+         "library": "mathlib",
+         "file": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Topology.lean",
+         "line": 54,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has Proj of an arbitrary graded commutative ring as a scheme, so the target of the comparison map exists in full generality; the graded algebra of sections of O(n) on X_S and the map of locally ringed spaces do not."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "VectorBundlesAndIsocrystals:VB2:ampleness",
+       "note": "VB2:ampleness compares bundles and cohomology on X_S with the Proj curve built here; the two stages share the graded algebra and the comparison map, and RF3 states explicitly that the ampleness/GAGA theorem belongs to VB2."
+      },
+      {
+       "layer": "FarguesFontaineDiamonds:F4",
+       "note": "Partial overlap only: F4 builds the degree-one divisor whose sections give O(1) in the fixed-field case."
+      }
+     ]
+    },
+    "RelativeFarguesFontaine:RF4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Beauville-Laszlo gluing for finite locally free modules along a Cartier divisor",
+       "library": "absent",
+       "declarations": [],
+       "note": "Neither library mentions Beauville-Laszlo or formal glueing: `grep -rn -i 'beauville\\|laszlo\\|formal glue'` returns nothing."
+      },
+      {
+       "target": "The gluing functor is fully faithful and essentially surjective, compatibly with tensor, dual, base change and several disjoint divisors",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Transfer of the gluing to G-torsors by exact tensor functors, independent of the faithful representation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Tannaka.reconstructedPoint",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Reconstruction.lean",
+         "line": 89,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has Tannakian reconstruction for affine group schemes over a field (points from tensor automorphisms of finite comodules); no G-torsor on an adic space and no tensor-functor comparison exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "RelativeFarguesFontaine:RF4:vector-bundles",
+       "note": "The linear half of this parent stage's text is owned by the substage."
+      },
+      {
+       "layer": "RelativeFarguesFontaine:RF4:G-torsors",
+       "note": "The Tannakian half of this parent stage's text is owned by the substage."
+      }
+     ]
+    },
+    "RelativeFarguesFontaine:RF4:vector-bundles": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Beauville-Laszlo gluing: a bundle off D, a bundle on the formal neighbourhood and an isomorphism on the punctured neighbourhood determine a bundle",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Flat",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Flat/Basic.lean",
+         "line": 113,
+         "fit": "related"
+        },
+        {
+         "name": "AdicCompletion",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+         "line": 171,
+         "fit": "related"
+        }
+       ],
+       "note": "The ingredients (flatness, adic completion, finite projective modules) are in Mathlib, but the Beauville-Laszlo patching statement itself appears nowhere in either library."
+      },
+      {
+       "target": "Full faithfulness and essential surjectivity of the gluing functor",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Compatibility with tensor, dual, base change and several disjoint divisors",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Completeness, Cartier and finite-projectivity hypotheses retained for non-noetherian coefficient rings",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Module.Projective",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/Projective.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's finite projective module API is non-noetherian-friendly, but the patching theorem it would feed does not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeometricSatakeAndFusion:GS0:loop-geometry",
+       "note": "Overlapping: GS0's descent of finite projective modules on the completed divisor rings is the same patching statement, taken over Div^d_𝒴."
+      },
+      {
+       "layer": "AInfCohomology:AI.2",
+       "note": "AI.2's finite-free BKF-module classification uses 'the analytic annulus/patching arguments of BMS1 §4' and says explicitly that it reuses the existing Fargues-Fontaine patching carriers rather than rebuilding them."
+      },
+      {
+       "layer": "BunGAndNewtonStrata:BG2:smooth-Artin",
+       "note": "BG2:smooth-Artin consumes the Beauville-Laszlo covering of Bun_G, which is the G-torsor form of this patching."
+      }
+     ]
+    },
+    "RelativeFarguesFontaine:RF4:G-torsors": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Transfer of Beauville-Laszlo gluing to G-torsors via the exact tensor-functor comparison",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Tannaka.reconstructedPoint",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Reconstruction.lean",
+         "line": 89,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti's Tannakian package (reconstruction of algebra-valued points from tensor automorphisms of finite comodules, Milne §9.4) is the closest thing in either library; G-torsors on adic/perfectoid spaces do not exist at all, and the Mathlib `torsor` namespace is `AddTorsor` (affine spaces)."
+      },
+      {
+       "target": "Independence of the chosen faithful representation",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Tannaka.fgPointTensorIsoEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Equivalence.lean",
+         "line": 188,
+         "fit": "related"
+        }
+       ],
+       "note": "The Tannakian equivalence in Tau Ceti is for comodules over a commutative Hopf algebra over a field, not for bundles on a curve."
+      },
+      {
+       "target": "Compatibility with extension of structure group",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.CommHopfAlgCat.fppfQuotientTorsorAction",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Torsor.lean",
+         "line": 293,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has fppf quotient torsors for affine group schemes, which is a genuine torsor formalism, but over Spec of a ring and not over a Fargues-Fontaine curve."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "BunGAndNewtonStrata:BG0",
+       "note": "BG0 constructs G-torsors on the curve and the comparison between geometric etale torsors, etale sheaf torsors and exact tensor functors Rep_E(G) -> bundles, including faithful-representation independence and extension of structure group — the same three targets. RF4:G-torsors states it only transfers the gluing along BG0's comparison."
+      },
+      {
+       "layer": "GeometricSatakeAndFusion:GS0:loop-geometry",
+       "note": "GS0:loop-geometry imports RF4:G-torsors and restates the torsor interpretation of modifications over Div^d."
+      },
+      {
+       "layer": "HeckeStacksAndLocalShtukas:HS0",
+       "note": "HS0 imports RF4:G-torsors for its two-bundle-plus-isomorphism stacks."
+      }
+     ]
+    }
+   }
+  }
+ }
+}
