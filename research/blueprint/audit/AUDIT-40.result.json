@@ -2421,6 +2421,3850 @@
      ]
     }
    }
+  },
+  "tauceti:TauCetiRoadmap/Exchangeability": {
+   "summary": "This roadmap is essentially finished in Tau Ceti, and the summary at its head — that Mathlib does not carry the exchangeability theory — is now out of date about the library as a whole. `TauCeti/Probability/Exchangeability/` and `TauCeti/Probability/DeFinetti/` contain the symmetry predicates and their implication lattice, the path-law bridges, process tails and the strict chain `invariants (shift α) < pathTail α < exchangeableSigma α`, Hewitt–Savage, the product-kernel adapters and both common endings, the whole L² averaging library, reverse martingales with `tendsto_ae_condExp_iInf`, the Koopman/mean-ergodic lane with the projection identified as conditional expectation, and the directing-measure theory: `deFinetti`, `deFinetti_viaL2`, `deFinetti_viaKoopman`, the Ryll-Nardzewski equivalence, a.e. uniqueness of the directing measure, the full-path joint disintegration, empirical-measure convergence in both the topology-free and Polish forms, and the zero-one / ergodic / extreme-point interfaces — all sorry-free, with the roadmap's own milestone names. Layer 8 is largely done too: the finite de Finetti bound with its sampling API, de Finetti for countable index types, the affine barycenter correspondence, and the full Diaconis–Freedman theorem for Markov exchangeability. The one genuine gap is the converse direction of Aldous–Hoover: the array subtree proves that codings are exchangeable and dissociated, but not that every exchangeable array admits such a coding.",
+   "layers": {
+    "tauceti:TauCetiRoadmap/Exchangeability#layer-0-sequence-laws-finite-marginals-and-symmetry-notions": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "The symmetry predicates `Exchangeable`, `FullyExchangeable`, `ExchangeableAt n`, `Contractable`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.Exchangeable",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Basic.lean",
+         "line": 94,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.FullyExchangeable",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Basic.lean",
+         "line": 99,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.ExchangeableAt",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Basic.lean",
+         "line": 88,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.Contractable",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Basic.lean",
+         "line": 105,
+         "fit": "exact"
+        }
+       ],
+       "note": "All four are defined exactly as the layer specifies, in the single `Contractable` API the roadmap commits to; no `Spreadable` duplicate exists."
+      },
+      {
+       "target": "`pathLaw μ X`, prefix projections and prefix cylinders",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.pathLaw",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Basic.lean",
+         "line": 68,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.prefixLaw",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Basic.lean",
+         "line": 63,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.blockLaw",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Basic.lean",
+         "line": 57,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.prefixProj",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Basic.lean",
+         "line": 73,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.map_prefixProj_pathLaw",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Basic.lean",
+         "line": 225,
+         "fit": "related"
+        }
+       ],
+       "note": "Block, prefix and path laws with their projection compatibilities."
+      },
+      {
+       "target": "`measure_eq_of_fin_marginals_eq`: a `ℕ`-prefix wrapper over Mathlib's projective-limit uniqueness",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.measure_eq_of_fin_marginals_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/FiniteMarginals.lean",
+         "line": 88,
+         "fit": "exact"
+        },
+        {
+         "name": "MeasureTheory.IsProjectiveLimit.unique",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Constructions/Projective.lean",
+         "line": 150,
+         "fit": "related"
+        }
+       ],
+       "note": "Exactly the wrapper the layer describes, over Mathlib's `IsProjectiveLimit.unique`, with the `[IsFiniteMeasure μ]` hypothesis the layer prescribes."
+      },
+      {
+       "target": "Finite approximation of infinite permutations and extension of strictly monotone finite selections to permutations",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.exists_strictMono_nat_extending_fin",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PermutationExtension.lean",
+         "line": 83,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.exists_strictMono_nat_extending_fin_eventually_add",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PermutationExtension.lean",
+         "line": 51,
+         "fit": "exact"
+        },
+        {
+         "name": "Finset.exists_perm_eqOn_le_apply",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PermutationExtension.lean",
+         "line": 90,
+         "fit": "exact"
+        }
+       ],
+       "note": "Named `exists_strictMono_nat_extending_fin` / `Finset.exists_perm_eqOn_le_apply` rather than the roadmap's `exists_perm_extending_strictMono`, but the content is the layer's."
+      },
+      {
+       "target": "`contractable_of_exchangeable` and the `Contractable` pushforward API",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.Exchangeable.contractable",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Contractability.lean",
+         "line": 174,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.Contractable.map_single",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Contractability.lean",
+         "line": 61,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.Contractable.map_pair",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Contractability.lean",
+         "line": 67,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.Contractable.comp",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Contractability.lean",
+         "line": 137,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.Contractable.map",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Contractability.lean",
+         "line": 55,
+         "fit": "exact"
+        }
+       ],
+       "note": "The roadmap's `contractable_of_exchangeable` is `Exchangeable.contractable`; the other three names are literal."
+      },
+      {
+       "target": "`exchangeable_iff_fullyExchangeable` and the adjacent-transposition characterization",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.exchangeable_iff_fullyExchangeable",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/FullyExchangeable.lean",
+         "line": 97,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.ExchangeableAt.succ_iff_forall_adjacent_swap",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/AdjacentTranspositions.lean",
+         "line": 75,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.ExchangeableAt.invariantSubmonoid",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/AdjacentTranspositions.lean",
+         "line": 55,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.FullyExchangeable.exchangeableAt",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/FullyExchangeable.lean",
+         "line": 62,
+         "fit": "related"
+        }
+       ],
+       "note": "The adjacent-transposition reduction is stated finite-dimensionally for `ExchangeableAt`, as the layer requires, not for `FullyExchangeable`."
+      },
+      {
+       "target": "Contractability via the monoid of strictly increasing maps `ℕ → ℕ`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.contractable_iff_forall_map_reindex_pathLaw",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Contractability.lean",
+         "line": 193,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.contractable_iff_forall_measurePreserving_reindex",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Contractability.lean",
+         "line": 213,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.contractableLaw_iff_forall_measurePreserving_reindex",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/ContractableLaw.lean",
+         "line": 74,
+         "fit": "related"
+        }
+       ],
+       "note": "Both the process-level and the path-law-level characterizations."
+      },
+      {
+       "target": "Mixtures of i.i.d. laws are exchangeable, and exchangeable laws are stationary",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.MixedIID.exchangeable",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/MixedIID/Implications.lean",
+         "line": 93,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.MixedIIDWith.of_iIndepFun_identDistrib",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/IID.lean",
+         "line": 102,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.Exchangeable.measurePreserving_shift",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Stationary.lean",
+         "line": 73,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.Contractable.measurePreserving_shift_iterate",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Stationary.lean",
+         "line": 37,
+         "fit": "more general"
+        }
+       ],
+       "note": "Stationarity is proved in the sharper form that the path law is shift-invariant, and already for the weaker hypothesis `Contractable`."
+      },
+      {
+       "target": "The implication lattice among `ExchangeableAt n`, `Exchangeable`, `FullyExchangeable`, `Contractable`, `MixedIID`, `ConditionallyIID`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.Exchangeable.exchangeableAt",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Basic.lean",
+         "line": 321,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.mixedIID_of_conditionallyIID",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/ConditionallyIID/Basic.lean",
+         "line": 199,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.mixedIIDWith_of_conditionallyIIDWith",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/ConditionallyIID/Basic.lean",
+         "line": 179,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.conditionallyIID_of_contractable",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/Theorem.lean",
+         "line": 141,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.MixedIID.exchangeable",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/MixedIID/Implications.lean",
+         "line": 93,
+         "fit": "exact"
+        }
+       ],
+       "note": "Every easy arrow is named and the hard arrow `Contractable → ConditionallyIID` is isolated as `conditionallyIID_of_contractable` in `DeFinetti/Theorem.lean`, exactly the layering the roadmap asks for."
+      },
+      {
+       "target": "The process-level ↔ path-law bridges in both directions",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.exchangeable_iff_exchangeableLaw_pathLaw",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Law/Bridge.lean",
+         "line": 59,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.fullyExchangeable_iff_exchangeableLaw_pathLaw",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Law/Bridge.lean",
+         "line": 52,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.contractable_iff_contractableLaw_pathLaw",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Law/Bridge.lean",
+         "line": 85,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.ExchangeableLaw",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Law/Basic.lean",
+         "line": 48,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.ContractableLaw",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/ContractableLaw.lean",
+         "line": 41,
+         "fit": "related"
+        }
+       ],
+       "note": "Both viewpoints exist with `iff` bridges, which is precisely what the layer's API warning demands."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/Exchangeability#layer-1-product-kernels-and-mixtures": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Measurability of the random product kernel `ω ↦ (ν ω)^{⊗ Fin m}`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.MeasureTheory.measurable_probabilityMeasure_pi",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/ProductKernel.lean",
+         "line": 97,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MeasureTheory.measurable_probabilityMeasure_pi_const_toMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/ProductKernel.lean",
+         "line": 140,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MeasureTheory.measurable_infinitePi_const",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/ProductKernel.lean",
+         "line": 208,
+         "fit": "more general"
+        }
+       ],
+       "note": "Both the finite `Fin m` product and the countable power `P ↦ P^{⊗ℕ}` are measurable as maps of probability measures."
+      },
+      {
+       "target": "Measurability of the joint kernel `ω ↦ δ_{ν ω} ⊗ (ν ω)^{⊗m}` and its AE version",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.MeasureTheory.measurable_dirac_prod_probabilityMeasure_pi_const_toMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/ProductKernel.lean",
+         "line": 165,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MeasureTheory.measurable_dirac_prod_infinitePi_const",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/ProductKernel.lean",
+         "line": 222,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MeasureTheory.aemeasurable_probabilityMeasure_pi_toMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/ProductKernel.lean",
+         "line": 125,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MeasureTheory.aemeasurable_probabilityMeasure_pi_const_toMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/ProductKernel.lean",
+         "line": 148,
+         "fit": "exact"
+        }
+       ],
+       "note": "Exactly the measurability the layer says `Measure.bind_apply` needs, in both the measurable and a.e.-measurable forms."
+      },
+      {
+       "target": "Rectangle evaluation and equality-from-rectangles for random product measures",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.MeasureTheory.bind_probabilityMeasure_pi_pi",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/ProductKernel.lean",
+         "line": 297,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MeasureTheory.bind_probabilityMeasure_pi_const_pi",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/ProductKernel.lean",
+         "line": 315,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measure_eq_of_forall_prod_univ_pi",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ConditionalCommonEnding.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MeasureTheory.map_prefixProj_bind_infinitePi_pi",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/ProductKernel.lean",
+         "line": 325,
+         "fit": "related"
+        }
+       ],
+       "note": "Specialised to the random product measures, on top of Mathlib's `isPiSystem_pi`/`generateFrom_pi` as the layer prescribes."
+      },
+      {
+       "target": "`mixedIID_of_mixingRepresentative`: the mixture common ending",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.mixedIID_of_mixingRepresentative",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/CommonEnding.lean",
+         "line": 47,
+         "fit": "exact"
+        }
+       ],
+       "note": "Literal name, with the indicator-product factorization hypothesis over finite injective selections that the layer describes."
+      },
+      {
+       "target": "`conditionallyIID_of_jointRectangles`: the joint-rectangle strengthening",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.conditionallyIID_of_jointRectangles",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ConditionalCommonEnding.lean",
+         "line": 88,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.conditionallyIIDWith_of_measure_inter_blockCylinder_eq_setLIntegral",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ConditionalCommonEnding.lean",
+         "line": 126,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.conditionallyIIDWith_iff_forall_jointRectangles",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ConditionalCommonEnding.lean",
+         "line": 186,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.measure_inter_blockCylinder_eq_setLIntegral",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/JointRectangle.lean",
+         "line": 94,
+         "fit": "related"
+        }
+       ],
+       "note": "The common conditional ending is shared by the L² and Koopman routes exactly as the layer plans; `…_of_measure_inter_blockCylinder_eq_setLIntegral` is the variant the Koopman route calls."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/Exchangeability#layer-2-process-tails-and-path-space-dynamics": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Process-relative tails: `tailFamily`, `tailProcess`, antitonicity and the comparisons",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.tailFamily",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/Tail/Basic.lean",
+         "line": 42,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.tailProcess",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/Tail/Basic.lean",
+         "line": 47,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.tailFamily_antitone",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/Tail/Basic.lean",
+         "line": 88,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.tailProcess_le_tailFamily",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/Tail/Basic.lean",
+         "line": 98,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.tailProcess_le_ambient",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/Tail/Basic.lean",
+         "line": 130,
+         "fit": "exact"
+        }
+       ],
+       "note": "All five milestone names are literal."
+      },
+      {
+       "target": "`tailProcess_eq_iInf_revFiltration`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.tailProcess_eq_iInf_revFiltration",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/Tail/ReverseFiltration.lean",
+         "line": 45,
+         "fit": "exact"
+        },
+        {
+         "name": "MeasureTheory.revFiltration",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Martingale/Reverse.lean",
+         "line": 51,
+         "fit": "related"
+        }
+       ],
+       "note": "Literal; it is what lets the Layer 4 antitone martingale limit be identified with a conditional expectation given the process tail."
+      },
+      {
+       "target": "The path-space shift and its measurable iterates",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.shift",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Basic.lean",
+         "line": 78,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measurable_shift",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Basic.lean",
+         "line": 188,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measurable_shift_iterate",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Shift.lean",
+         "line": 67,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.processShift",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/ProcessShift.lean",
+         "line": 43,
+         "fit": "related"
+        }
+       ],
+       "note": "Both the path-space shift and the process-level shift, with the compatibility `processShift_eq_shift_iterate`."
+      },
+      {
+       "target": "The shift-invariant σ-algebra, consumed from Mathlib rather than re-aliased",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "MeasurableSpace.invariants",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/MeasurableSpace/Invariants.lean",
+         "line": 33,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.invariants_shift_le_pathTail",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Invariant/Tail.lean",
+         "line": 111,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.invariants_shift_le_exchangeableSigma",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Invariant/Tail.lean",
+         "line": 123,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.invariants_shift_lt_pathTail",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Invariant/Tail.lean",
+         "line": 212,
+         "fit": "more general"
+        }
+       ],
+       "note": "Tau Ceti uses `MeasurableSpace.invariants (shift α)` directly and introduces no shift-specialised aliases, exactly as the layer directs; only the genuinely new comparison results are stated."
+      },
+      {
+       "target": "The exchangeable σ-algebra, `exchangeableSigma_le`, and its relation to the tail",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.exchangeableSigma",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Exchangeable/Sigma.lean",
+         "line": 37,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.exchangeableSigma_le",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Exchangeable/Sigma.lean",
+         "line": 61,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.pathTail_le_exchangeableSigma",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Exchangeable/Sigma.lean",
+         "line": 155,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.pathTail_lt_exchangeableSigma",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Exchangeable/TailStrict.lean",
+         "line": 167,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Probability.pathTail",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/Tail/Basic.lean",
+         "line": 138,
+         "fit": "related"
+        }
+       ],
+       "note": "The roadmap's `tail_le_exchangeableSigma` is `pathTail_le_exchangeableSigma`, and Tau Ceti goes further: the strict chain `invariants (shift α) < pathTail α < exchangeableSigma α` is proved over `Bool`, so the layer's warning against identifying the two σ-algebras is discharged by theorem."
+      },
+      {
+       "target": "The measurability target for a directing measure with respect to the tail σ-algebra",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.measurable_tailProcess_directingProbabilityMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/DirectingMeasure/Basic.lean",
+         "line": 132,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measurable_tailProcess_directingMeasure_coe",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/DirectingMeasure/Basic.lean",
+         "line": 86,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measurable_invariants_invariantConditionalProbabilityMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ViaKoopman/InvariantConditionalLaw.lean",
+         "line": 86,
+         "fit": "related"
+        }
+       ],
+       "note": "Both the tail-measurable directing measure of the martingale/L² routes and the invariant-measurable conditional law of the Koopman route."
+      },
+      {
+       "target": "The Hewitt–Savage zero-one law",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.hewittSavage_trivial_of_iIndep",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/HewittSavage.lean",
+         "line": 233,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measure_eq_zero_or_one_of_exchangeableSigma",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/HewittSavage.lean",
+         "line": 178,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.exchangeableSigma_trivial_of_infinitePi",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/HewittSavage.lean",
+         "line": 277,
+         "fit": "related"
+        }
+       ],
+       "note": "Literal name; the symmetric σ-algebra is trivial for an i.i.d. sequence, with the identically-distributed hypothesis carried explicitly as the layer requires."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/Exchangeability#layer-3-l²-averaging-library-and-the-standard-borel-de-finetti-route": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Equality of means/integrals and of pair covariances from equal low-dimensional laws, and the uniform covariance structure of a contractable L² sequence",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.contractable_covariance_structure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/L2/Covariance.lean",
+         "line": 117,
+         "fit": "exact"
+        }
+       ],
+       "note": "Literal milestone name; the one- and two-dimensional transfer lemmas are the supporting results in the same file."
+      },
+      {
+       "target": "Two-window L² bounds for block averages, and long-average versus tail-average bounds",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.Contractable.integral_sq_blockAverage_sub_of_disjoint",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/L2/BlockAverages.lean",
+         "line": 188,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.Contractable.tendsto_integral_sq_prefixAverage_sub_followingAverage",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/L2/LongTailAverages.lean",
+         "line": 92,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.blockAverage",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/BlockAverage.lean",
+         "line": 60,
+         "fit": "related"
+        }
+       ],
+       "note": "Both literal milestone names."
+      },
+      {
+       "target": "L¹ convergence of bounded-observable block averages along eventually injective moving selections",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.weighted_sums_converge_L1",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/L2/Cesaro/Convergence.lean",
+         "line": 324,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.weighted_sums_converge_L1_of_memLp",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/L2/Cesaro/Convergence.lean",
+         "line": 275,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Probability.fixedStart_eventually_injective",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/BlockAverage.lean",
+         "line": 140,
+         "fit": "related"
+        }
+       ],
+       "note": "Literal, with an `MemLp` generalisation."
+      },
+      {
+       "target": "Tail measurability of the limit and its identification with `μ[f ∘ X 0 | tailProcess X]`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.Contractable.tendsto_integral_abs_blockAverage_sub_condExp",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/L2/Cesaro/ToCondExp.lean",
+         "line": 137,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measurable_tailFamily_blockAverage",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/L2/TailMeasurability.lean",
+         "line": 69,
+         "fit": "exact"
+        }
+       ],
+       "note": "Literal milestone names."
+      },
+      {
+       "target": "Identification of the indicator limit with the evaluation of the canonical tail conditional law",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.Contractable.tendsto_integral_abs_blockAverage_indicator_sub_directingMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ViaL2/EmpiricalToDirecting.lean",
+         "line": 52,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.directingMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/DirectingMeasure/Basic.lean",
+         "line": 73,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.Contractable.directingMeasure_ae_eq_condExp_coord",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/DirectingMeasure/Coord.lean",
+         "line": 44,
+         "fit": "related"
+        }
+       ],
+       "note": "Uses the canonical `directingMeasure` (the conditional law of `X 0` given `tailProcess X`) rather than reconstructing a second measure, exactly as the layer insists."
+      },
+      {
+       "target": "Simultaneous L¹ convergence of finite products along disjoint windows, and the tail-conditioned block factorization",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.Contractable.tendsto_integral_abs_prod_blockAverage_indicator_disjointWindow_sub_prod_directingMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ViaL2/WindowProduct.lean",
+         "line": 122,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.Contractable.condExp_blockIndicatorProd_strictMono_tailProcess_ae_eq_prod_directingMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ViaL2/BlockFactorization.lean",
+         "line": 118,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both literal milestone names."
+      },
+      {
+       "target": "`conditionallyIIDWith_directingProbabilityMeasure`, `conditionallyIID_of_contractable_viaL2`, `deFinetti_viaL2` and the Ryll-Nardzewski equivalence",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.Contractable.conditionallyIIDWith_directingProbabilityMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ViaL2/ConditionallyIID.lean",
+         "line": 73,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.conditionallyIID_of_contractable_viaL2",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ViaL2/Theorem.lean",
+         "line": 65,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.deFinetti_viaL2",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ViaL2/Theorem.lean",
+         "line": 74,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.deFinetti_RyllNardzewski_equivalence_viaL2",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ViaL2/Theorem.lean",
+         "line": 84,
+         "fit": "exact"
+        }
+       ],
+       "note": "The route ends at the standard-Borel conditional theorem, not a relabelled real-valued result, and it is independent of the reverse-martingale files at the import level."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/Exchangeability#layer-6-directing-measures-and-de-finetti-representation",
+       "note": "Layer 6 states the same summit (`conditionallyIID_of_contractable`, `deFinetti`, the Ryll-Nardzewski equivalence) by the martingale route; the roadmap keeps the two as deliberately independent proofs with suffixed names."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/Exchangeability#layer-4-reverse-martingales-and-conditional-expectation-limits": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Finite-horizon reversal: `revFiltration`, `revCEFinite`, `revCEFinite_martingale`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "MeasureTheory.revFiltration",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Martingale/Reverse.lean",
+         "line": 51,
+         "fit": "exact"
+        },
+        {
+         "name": "MeasureTheory.revFiltration_apply",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Martingale/Reverse.lean",
+         "line": 73,
+         "fit": "exact"
+        },
+        {
+         "name": "MeasureTheory.revCEFinite_martingale",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Martingale/Reverse.lean",
+         "line": 80,
+         "fit": "exact"
+        }
+       ],
+       "note": "Literal milestone names, in the `MeasureTheory` namespace (they are ordinary martingale theory with no exchangeability, which is where the roadmap says they belong)."
+      },
+      {
+       "target": "The antitone adapter for Mathlib's upcrossing bound",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "MeasureTheory.upcrossings_bdd_uniform",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Martingale/Crossings/Bounds.lean",
+         "line": 247,
+         "fit": "exact"
+        },
+        {
+         "name": "MeasureTheory.lintegral_upcrossings_revCEFinite_bdd",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Martingale/Crossings/Bounds.lean",
+         "line": 90,
+         "fit": "related"
+        },
+        {
+         "name": "MeasureTheory.Submartingale.mul_lintegral_upcrossings_le_lintegral_pos_part",
+         "library": "mathlib",
+         "file": "Mathlib/Probability/Martingale/Upcrossing.lean",
+         "line": 799,
+         "fit": "related"
+        }
+       ],
+       "note": "Literal; only the adapter is new, the crossing counts are Mathlib's as the layer intends."
+      },
+      {
+       "target": "Existence of the a.e. limit of `μ[f | 𝔽 n]` along an antitone filtration",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "MeasureTheory.condExp_exists_ae_limit_antitone",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Martingale/AntitoneLimit.lean",
+         "line": 108,
+         "fit": "exact"
+        },
+        {
+         "name": "MeasureTheory.exists_integrable_tendsto_ae_condExp_of_antitone",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Martingale/AntitoneLimit.lean",
+         "line": 63,
+         "fit": "exact"
+        },
+        {
+         "name": "MeasureTheory.ae_upcrossings_condExp_lt_top",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Martingale/AntitoneLimit.lean",
+         "line": 43,
+         "fit": "related"
+        }
+       ],
+       "note": "Literal milestone name."
+      },
+      {
+       "target": "Identification of the limit: `tendsto_ae_condExp_iInf`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "MeasureTheory.tendsto_ae_condExp_iInf",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Martingale/Convergence.lean",
+         "line": 159,
+         "fit": "exact"
+        },
+        {
+         "name": "MeasureTheory.condExp_iInf_ae_eq_of_tendsto_ae_of_tendsto_eLpNorm",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Martingale/Convergence.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "MeasureTheory.tendsto_ae_and_eLpNorm_condExp_iInf",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Martingale/Convergence.lean",
+         "line": 109,
+         "fit": "related"
+        }
+       ],
+       "note": "The roadmap's target theorem, with exactly its hypotheses (`[IsFiniteMeasure μ]`, antitone `𝔽`, `𝔽 0 ≤ ⊤`, integrable `f`); `ae_limit_is_condexp_iInf` is the file's `condExp_iInf_ae_eq_of_tendsto_ae_of_tendsto_eLpNorm`. It is stated with no exchangeability, as the layer requires."
+      },
+      {
+       "target": "The L¹/Lᵖ convergence forms",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "MeasureTheory.tendsto_eLpNorm_condExp_iInf",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Martingale/Convergence.lean",
+         "line": 177,
+         "fit": "exact"
+        },
+        {
+         "name": "MeasureTheory.tendsto_ae_and_eLpNorm_condExp_iInf",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Martingale/Convergence.lean",
+         "line": 109,
+         "fit": "exact"
+        }
+       ],
+       "note": "The follow-up targets of the layer: `eLpNorm` (hence L¹) convergence of `μ[f | 𝔽 n]` to `μ[f | ⨅ n, 𝔽 n]`."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/Exchangeability#layer-5-koopman-operators-and-invariant-σ-algebras": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "The Koopman/composition operator on `Lᵖ` for `1 ≤ p < ∞`, an isometric embedding",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Lp.compMeasurePreserving",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Function/LpSpace/Basic.lean",
+         "line": 565,
+         "fit": "exact"
+        },
+        {
+         "name": "MeasureTheory.Lp.compMeasurePreservingₗ",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Function/LpSpace/Basic.lean",
+         "line": 629,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.coe_compMeasurePreservingₗᵢ",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Ergodic/FixedSpace.lean",
+         "line": 99,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.coeFn_iterate_compMeasurePreserving",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Ergodic/BirkhoffLp.lean",
+         "line": 44,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib supplies the operator and its isometry; Tau Ceti adds the bridge between the operator-level and pointwise Birkhoff averages. The layer's own instruction is to state it at this generality rather than only on `L²`, and that is what is there."
+      },
+      {
+       "target": "The Markov operator on measurable germs / `L^∞`: positive, unital and (for the deterministic Koopman operator) multiplicative",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.koopmanMarkov",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Ergodic/KoopmanMarkov.lean",
+         "line": 40,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.koopmanMarkov_one",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Ergodic/KoopmanMarkov.lean",
+         "line": 58,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.koopmanMarkov_mul",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Ergodic/KoopmanMarkov.lean",
+         "line": 66,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.coeFn_koopmanMarkov",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Ergodic/KoopmanMarkov.lean",
+         "line": 52,
+         "fit": "related"
+        }
+       ],
+       "note": "`koopmanMarkov_mul` is the multiplicativity the layer singles out as special to composition operators."
+      },
+      {
+       "target": "`fixedSpace`, the mean ergodic projection `metProjection`, and `birkhoffAverage_tendsto_metProjection`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.fixedSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Ergodic/FixedSpace.lean",
+         "line": 41,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.metProjection",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Ergodic/MeanErgodic.lean",
+         "line": 43,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.metProjection_mem_fixedSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Ergodic/MeanErgodic.lean",
+         "line": 48,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.birkhoffAverage_tendsto_metProjection",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Ergodic/MeanErgodic.lean",
+         "line": 91,
+         "fit": "exact"
+        }
+       ],
+       "note": "All four are literal milestone names."
+      },
+      {
+       "target": "Identification of the projection with conditional expectation onto the invariant σ-algebra",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.metProjection_eq_condExpL2",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Ergodic/CondExpProjection.lean",
+         "line": 86,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.metProjection_ae_eq_condExp",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Ergodic/CondExpProjection.lean",
+         "line": 105,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.fixedSpace_eq_lpMeas_invariants",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Ergodic/InvariantSigma.lean",
+         "line": 173,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.aestronglyMeasurable_invariants_iff_comp_ae_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Ergodic/InvariantSigma.lean",
+         "line": 150,
+         "fit": "related"
+        }
+       ],
+       "note": "This is the roadmap's `proj_eq_condexp` / `lpMeas_eq_fixedSubspace` pair, and the file header explicitly flags it as a separate theorem rather than a simp step, exactly the layer's warning."
+      },
+      {
+       "target": "Path-space specialisation: shift preservation from contractability and the shift-invariant conditional law",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.ContractableLaw.measurePreserving_shift",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/ContractableLaw.lean",
+         "line": 123,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.Contractable.measurePreserving_shift_iterate",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Stationary.lean",
+         "line": 37,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.Contractable.map_shift_iterate_pathLaw",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Stationary.lean",
+         "line": 44,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.invariantConditionalProbabilityMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ViaKoopman/InvariantConditionalLaw.lean",
+         "line": 67,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.invariantConditionalProbabilityMeasure_ae_eq_condExp",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ViaKoopman/InvariantConditionalLaw.lean",
+         "line": 106,
+         "fit": "exact"
+        }
+       ],
+       "note": "The roadmap's `pathSpace_shift_preserving_of_contractable` / `measure_map_shift_eq_of_contractable` are `ContractableLaw.measurePreserving_shift` and `Contractable.map_shift_iterate_pathLaw`; `metProjectionShift`/`condexpL2` are covered by the generic `metProjection` results instantiated at the shift."
+      },
+      {
+       "target": "`deFinetti_viaKoopman` and the conditional-i.i.d. transfer",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.deFinetti_viaKoopman",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ViaKoopman/Theorem.lean",
+         "line": 100,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.conditionallyIID_of_contractable_viaKoopman",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ViaKoopman/Theorem.lean",
+         "line": 86,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.ContractableLaw.conditionallyIIDWith_invariantConditionalProbabilityMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ViaKoopman/Theorem.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.ContractableLaw.condExp_indicator_coord_ae_eq_invariantConditionalProbabilityMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ViaKoopman/Decoupling.lean",
+         "line": 155,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.ContractableLaw.measure_inter_blockCylinder_eq_setLIntegral_of_measurableSet_invariants",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ViaKoopman/CylinderMass.lean",
+         "line": 73,
+         "fit": "related"
+        }
+       ],
+       "note": "The Koopman route reaches the summit and is import-independent of the L² route; `conditionallyIID_transfer` is `ConditionallyIIDWith.of_pathLaw`, which carries the path-space statement to an arbitrary sample space."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/Exchangeability#layer-6-directing-measures-and-de-finetti-representation": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Kallenberg's contraction-independence lemma and the future/tail filtration comparison",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.Contractable.condIndep_coord_prefix_tail",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/PrefixDeletion.lean",
+         "line": 215,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.Contractable.condExp_indicator_future_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/CondExpConvergence.lean",
+         "line": 39,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.Contractable.condExp_indicator_tailProcess_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/CondExpConvergence.lean",
+         "line": 48,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.tailProcess_eq_iInf_revFiltration",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/Tail/ReverseFiltration.lean",
+         "line": 45,
+         "fit": "related"
+        }
+       ],
+       "note": "The contraction-independence step and the passage from the future filtration to `tailProcess X` by `tendsto_ae_condExp_iInf` are both proved."
+      },
+      {
+       "target": "Construction of the directing measure from tail conditional laws",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.directingMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/DirectingMeasure/Basic.lean",
+         "line": 73,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.directingProbabilityMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/DirectingMeasure/Basic.lean",
+         "line": 120,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.directingMeasure_ae_eq_condExp",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/DirectingMeasure/Basic.lean",
+         "line": 104,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measurable_directingProbabilityMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/DirectingMeasure/Basic.lean",
+         "line": 140,
+         "fit": "related"
+        }
+       ],
+       "note": "A genuine API, not just an existence proof: the witness is named, bundled as a `ProbabilityMeasure`, and characterised by conditional expectation."
+      },
+      {
+       "target": "Finite-product factorization and the summit theorems `conditionallyIID_of_contractable`, `conditionallyIID_of_exchangeable`, `deFinetti`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.conditionallyIID_of_contractable",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/Theorem.lean",
+         "line": 141,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.conditionallyIID_of_exchangeable",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/Theorem.lean",
+         "line": 151,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.deFinetti",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/Theorem.lean",
+         "line": 160,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.condExp_blockIndicatorProd_prefix_ae_eq_prod_directingMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/BlockFactorization.lean",
+         "line": 206,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.blockLaw_prefix_eq_lintegral_prod_directingMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/BlockFactorization.lean",
+         "line": 224,
+         "fit": "exact"
+        }
+       ],
+       "note": "`deFinetti` concludes `ConditionallyIID` over a nonempty standard Borel state space, the sharp Kallenberg 1.1 form the layer demands as the summit."
+      },
+      {
+       "target": "`deFinetti_equivalence`, `deFinetti_RyllNardzewski_equivalence` and `mixedIID_of_contractable`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.deFinetti_equivalence",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/Theorem.lean",
+         "line": 168,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.deFinetti_RyllNardzewski_equivalence",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/Theorem.lean",
+         "line": 189,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.mixedIID_of_contractable",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/BlockFactorization.lean",
+         "line": 290,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.mixedIID_of_iCondIndepFun_tailProcess",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/BlockFactorization.lean",
+         "line": 188,
+         "fit": "related"
+        }
+       ],
+       "note": "The mixture forms are retained as integrated-out corollaries, never as the summit, exactly as the layer specifies."
+      },
+      {
+       "target": "a.e. uniqueness of the directing measure among `ConditionallyIIDWith` witnesses, and uniqueness of the mixing law",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.conditionallyIID_ae_unique",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/ConditionallyIID/Unique.lean",
+         "line": 257,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.mixedIID_mixingLaw_unique",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/MixedIID/Mixture.lean",
+         "line": 142,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both literal, and the roadmap's warning is respected: the witness-level a.e. uniqueness is stated only for `ConditionallyIIDWith`, while for `MixedIIDWith` only the mixing law `μ.map ν` is shown unique, under `[IsFiniteMeasure μ]`."
+      },
+      {
+       "target": "The full-path joint disintegration `μ.map (ω ↦ (ν ω, X · ω)) = iidMixtureLaw (μ.map ν) id`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.ConditionallyIIDWith.jointPathLaw_eq_iidMixtureLaw",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/ConditionallyIID/PathDisintegration.lean",
+         "line": 97,
+         "fit": "exact"
+        }
+       ],
+       "note": "Literal name and literal statement."
+      },
+      {
+       "target": "Empirical tests and frequencies without a topology on the state space",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.ConditionallyIIDWith.tendsto_integral_empiricalMeasure_ae",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/ConditionallyIID/StrongLaw.lean",
+         "line": 190,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.ConditionallyIIDWith.tendsto_empiricalMeasure_apply_ae_forall",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/ConditionallyIID/StrongLaw.lean",
+         "line": 232,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.deFinetti_tendsto_empiricalMeasure_apply",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/EmpiricalMeasure.lean",
+         "line": 78,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.empiricalMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/EmpiricalMeasure.lean",
+         "line": 128,
+         "fit": "related"
+        }
+       ],
+       "note": "All three requested names exist, including the one-null-set-per-countable-family form."
+      },
+      {
+       "target": "Weak empirical-measure convergence on a Polish state space",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.ConditionallyIIDWith.tendsto_empiricalMeasure_ae",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/ConditionallyIID/WeakConvergence.lean",
+         "line": 75,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.deFinetti_empiricalMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/EmpiricalMeasure.lean",
+         "line": 97,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both literal, with the `[PolishSpace α] [BorelSpace α]` hypotheses the layer prescribes."
+      },
+      {
+       "target": "The mixture-of-product-measures form with the unique law of the directing measure",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.deFinetti_mixture",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/Representation.lean",
+         "line": 65,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.pathLaw_eq_bind_infinitePi_deFinettiMeasure_of_exchangeable",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/CanonicalMixture.lean",
+         "line": 110,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.deFinettiMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/Mixture.lean",
+         "line": 84,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.eq_deFinettiMeasure_of_pathLaw_eq_bind_infinitePi",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/CanonicalMixture.lean",
+         "line": 128,
+         "fit": "related"
+        }
+       ],
+       "note": "`pathLaw μ X = ∫ P^{⊗ℕ} dπ(P)` with a unique `π`."
+      },
+      {
+       "target": "The zero-one, ergodic and extreme interfaces for exchangeable laws",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.exchangeableSigma_trivial_iff_iid",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Law/ZeroOne.lean",
+         "line": 97,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.exchangeableSigma_trivial_iff_ergodicSMul",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Exchangeable/Ergodic.lean",
+         "line": 176,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.exchangeable_extreme_iff_iid",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Law/Extreme.lean",
+         "line": 198,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.infinitePi_mem_extremePoints_exchangeable",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Law/Extreme.lean",
+         "line": 172,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.exists_eq_infinitePi_of_mem_extremePoints",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Law/Extreme.lean",
+         "line": 141,
+         "fit": "related"
+        }
+       ],
+       "note": "All three interfaces are proved with the roadmap's own names, including the `ErgodicSMul` form for the finitely supported permutation action (Mathlib's `ErgodicSMul`), which the layer flags as a genuine API lemma rather than plumbing."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/Exchangeability#layer-3-l²-averaging-library-and-the-standard-borel-de-finetti-route",
+       "note": "Layer 3 reaches the same conditional summit by the L² route; the suffixed `…_viaL2` names are deliberate parallel proofs of the theorems stated here."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/Exchangeability#layer-5-koopman-operators-and-invariant-σ-algebras",
+       "note": "Layer 5 reaches the same summit by the Koopman route (`deFinetti_viaKoopman`)."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/Exchangeability#layer-7-public-api-and-examples": {
+     "verdict": "process",
+     "targets": [
+      {
+       "target": "Curated export modules `TauCeti/Probability/Exchangeability.lean` and `TauCeti/Probability/DeFinetti.lean`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.Exchangeable",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Basic.lean",
+         "line": 94,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.ConditionallyIIDWith",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/ConditionallyIID/Basic.lean",
+         "line": 80,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.MixedIIDWith",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/MixedIID/Basic.lean",
+         "line": 103,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.deFinetti",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/Theorem.lean",
+         "line": 160,
+         "fit": "related"
+        }
+       ],
+       "note": "Both re-export modules exist in the baseline at the suggested paths and declare nothing of their own; a worked example lives at `TauCeti/Examples/Probability/DeFinetti.lean`. This layer is packaging, not mathematics."
+      },
+      {
+       "target": "Every name on the export list",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.deFinetti_equivalence",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/Theorem.lean",
+         "line": 168,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.deFinetti_viaL2",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ViaL2/Theorem.lean",
+         "line": 74,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.deFinetti_viaKoopman",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/ViaKoopman/Theorem.lean",
+         "line": 100,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.conditionallyIID_ae_unique",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/ConditionallyIID/Unique.lean",
+         "line": 257,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.exchangeable_extreme_iff_iid",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Law/Extreme.lean",
+         "line": 198,
+         "fit": "exact"
+        }
+       ],
+       "note": "Each of the roughly thirty identifiers the layer lists was looked up in the baseline index and found, with the route suffixes kept and the unsuffixed `deFinetti` being the martingale route, exactly as the layer directs."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/Exchangeability#layer-8-generalized-exchangeability-and-representation-theorems": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "`empiricalMeasureOfFintype` for a finite population, with evaluation, integration and measurability, and `empiricalMeasure` as its `Fin (n+1)` specialization",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.empiricalMeasureOfFintype",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/EmpiricalMeasure.lean",
+         "line": 54,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.empiricalMeasureOfFintype_apply",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/EmpiricalMeasure.lean",
+         "line": 71,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.integral_empiricalMeasureOfFintype",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/EmpiricalMeasure.lean",
+         "line": 100,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measurable_empiricalMeasureOfFintype",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/EmpiricalMeasure.lean",
+         "line": 115,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.empiricalMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Process/EmpiricalMeasure.lean",
+         "line": 128,
+         "fit": "exact"
+        }
+       ],
+       "note": "One shared finite-sum construction, with the sequence-specific `empiricalMeasure` defined from it, as the layer requires."
+      },
+      {
+       "target": "`sampleWithoutReplacement`, `sampleWithReplacement`, and their identification with the empirical-measure mixture",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.sampleWithoutReplacement",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/SamplingWithoutReplacement.lean",
+         "line": 93,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.sampleWithReplacement",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/FiniteDeFinetti.lean",
+         "line": 98,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.sampleWithReplacement_eq_bind_pi_empiricalMeasureOfFintype",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/FiniteDeFinetti.lean",
+         "line": 104,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.pi_empiricalMeasureOfFintype_eq_map_uniformOn",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/FiniteDeFinetti.lean",
+         "line": 78,
+         "fit": "related"
+        }
+       ],
+       "note": "All literal milestone names."
+      },
+      {
+       "target": "The finite de Finetti bound: two-sided comparison of `prefixLaw μ X m` with `sampleWithReplacement (prefixLaw μ X n)` with error `(m choose 2)/n`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.ExchangeableAt.finiteDeFinetti",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/FiniteDeFinetti.lean",
+         "line": 231,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.sampleWithoutReplacement_le_sampleWithReplacement_add",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/FiniteDeFinetti.lean",
+         "line": 183,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.sampleWithReplacement_le_sampleWithoutReplacement_add",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/FiniteDeFinetti.lean",
+         "line": 204,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.sampleWithoutReplacement_apply_population",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/FiniteDeFinetti.lean",
+         "line": 160,
+         "fit": "related"
+        }
+       ],
+       "note": "Both eventwise inequalities are proved, in the convention-free form the layer demands rather than as a bare total-variation statement."
+      },
+      {
+       "target": "de Finetti for other countable index types",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.conditionallyIID_of_exchangeableFamily",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/CountableIndex.lean",
+         "line": 64,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.conditionallyIID_of_exchangeableFamily_of_equiv_nat",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/CountableIndex.lean",
+         "line": 45,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.MixedIIDWith.exchangeableFamily",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Family.lean",
+         "line": 92,
+         "fit": "related"
+        }
+       ],
+       "note": "The theorem is transported along an equivalence with `ℕ`, giving it for every countably infinite index type."
+      },
+      {
+       "target": "The affine and ergodic decomposition: `p ↦ p^{⊗ℕ}` and the de Finetti barycenter as an affine correspondence, with the components identified as the ergodic ones",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.deFinettiBarycenter",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/Barycenter.lean",
+         "line": 90,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.deFinettiEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/Correspondence.lean",
+         "line": 102,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.deFinettiEquiv_convexComb",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/Correspondence.lean",
+         "line": 182,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.deFinettiBarycenter_mem_extremePoints_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/DeFinetti/Correspondence.lean",
+         "line": 215,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.exchangeableSigma_trivial_iff_ergodicSMul",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/PathSpace/Exchangeable/Ergodic.lean",
+         "line": 176,
+         "fit": "related"
+        }
+       ],
+       "note": "The barycenter, the affine bijection with exchangeable path laws, its restriction to point masses, and the identification of the components with the extreme — equivalently ergodic, by the Layer 6 `ErgodicSMul` interface — laws."
+      },
+      {
+       "target": "Markov exchangeability and the Diaconis–Freedman representation",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.MixedMarkovChainWith",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/MixedMarkovChain.lean",
+         "line": 100,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.MarkovExchangeable.mixedMarkovChain",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Recurrence/RowExchangeable.lean",
+         "line": 423,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.MarkovExchangeable.rowExchangeable_successorProcess",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Recurrence/RowExchangeable.lean",
+         "line": 365,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.mixedMarkovChain_of_rowExchangeable_successorProcess",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/DiaconisFreedman.lean",
+         "line": 180,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.MarkovExchangeable.exists_pathLaw_eq_map_deFinettiBarycenter",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Recurrence/Representation.lean",
+         "line": 132,
+         "fit": "related"
+        }
+       ],
+       "note": "The full Diaconis–Freedman theorem is proved: a recurrent Markov exchangeable process that attains every state is a mixture of Markov chains, together with the excursion-mixture decomposition and the easy converse `MixedMarkovChain.markovExchangeable`."
+      },
+      {
+       "target": "Exchangeable arrays and the Aldous–Hoover representation",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.AldousHoover.noiseMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Arrays/AldousHoover/Basic.lean",
+         "line": 128,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.AldousHoover.separatelyDissociated_separateArray_of_snd",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Arrays/AldousHoover/Dissociated.lean",
+         "line": 98,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.SeparatelyExchangeable.conditionallyIID_arrayRow",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Arrays/DeFinetti.lean",
+         "line": 65,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.jointlyDissociated_iff_ergodicSMul",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Exchangeability/Arrays/Ergodic.lean",
+         "line": 298,
+         "fit": "related"
+        }
+       ],
+       "note": "A large array subtree exists — separate/joint exchangeability, dissociation, the corner-tail zero-one law, de Finetti for the rows and columns of an array, and the *easy* direction of Aldous–Hoover (every measurable coding of the canonical noise is exchangeable, and every global-free coding is dissociated). What is missing is the representation direction itself: the header of `Arrays/AldousHoover/Basic.lean` states that constructing the coding function from an exchangeable array is still to do, and no such theorem exists in the baseline."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9b--exchangeable-graph-laws-and-graphon-mixtures",
+       "note": "That layer proves the graph-law case of the same array representation — exchangeable graph laws are graphon mixtures, with dissociated laws as the extreme points (Diaconis–Janson) — which is the `{0,1}`-valued symmetric-array instance of the Aldous–Hoover target here."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9a--finite-and-joint-graphon-sampling",
+       "note": "Its sampling laws and consistency under label injections restate, for graphs, the finite-population sampling API this layer builds for sequences."
+      }
+     ]
+    }
+   }
+  },
+  "tauceti:TauCetiRoadmap/StandardDistributions": {
+   "summary": "Tau Ceti has built almost all of this roadmap. Layers 0 to 4 are complete and sorry-free: the `HasPDF`/`rnDeriv` connections for Mathlib's six continuous families, the uniform law on an interval with its whole transform API, the missing elementary theory of every existing family (means, variances, exact `integrableExpSet` domains, mgf/cgf/characteristic functions, convolutions, memorylessness, Gaussian central and absolute moments) and the probability generating function with coefficient recovery, the incomplete gamma and beta functions and the error function with the closed-form Gaussian, gamma, beta, binomial-tail and Poisson-tail cdfs, all nine new scalar families of Layer 3 including their boundary branches, and the classical relationships of Layer 4. Layer 5 is complete apart from one item: the Dirichlet chart density is not proved, though the Dirichlet law, its marginals, aggregation and moments are. Layer 6 has the hardest infrastructure done — the symmetric-matrix carrier with `symmetricLebesgue`, the congruence and Cholesky changes of variables, the multivariate Gamma integral — and the whole Gaussian-Gram Wishart family with its transforms and moments; what is genuinely missing there is the nonsingular real-degree density family `nonsingularWishartMeasure`, and with it the Bartlett decomposition and the inverse-Wishart law.",
+   "layers": {
+    "tauceti:TauCetiRoadmap/StandardDistributions#layer-0-connect-existing-densities-and-add-the-uniform-distribution": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Connect Mathlib's continuous families to `HasPDF` through a single `withDensity` helper",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.hasPDF_of_hasLaw_withDensity",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Density.lean",
+         "line": 59,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.hasPDF_of_hasLaw_gammaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/PDFInstances.lean",
+         "line": 114,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.hasPDF_of_hasLaw_gaussianReal",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/PDFInstances.lean",
+         "line": 176,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.hasPDF_of_hasLaw_cauchyMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/PDFInstances.lean",
+         "line": 185,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.pdf_eq_gammaPDF_of_hasLaw_gammaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/PDFInstances.lean",
+         "line": 120,
+         "fit": "exact"
+        }
+       ],
+       "note": "The shared helper exists and all six families (gamma, Gaussian, beta, exponential, Cauchy, Pareto) get `HasPDF` plus the identification of `pdf` with the family's pdf, with the `v ≠ 0` / `γ ≠ 0` nondegeneracy hypotheses the layer prescribes."
+      },
+      {
+       "target": "Identify the Radon–Nikodym derivatives of the five `withDensity` families, and the `γ = 0` Cauchy boundary",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.rnDeriv_gammaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/PDFInstances.lean",
+         "line": 206,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.rnDeriv_betaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/PDFInstances.lean",
+         "line": 212,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.rnDeriv_expMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/PDFInstances.lean",
+         "line": 219,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.rnDeriv_paretoMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/PDFInstances.lean",
+         "line": 226,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.rnDeriv_cauchyMeasure_zero_scale",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/PDFInstances.lean",
+         "line": 254,
+         "fit": "exact"
+        }
+       ],
+       "note": "All five are proved, together with the degenerate `cauchyMeasure x₀ 0 = dirac x₀` case; the Gaussian one is taken from Mathlib's `rnDeriv_gaussianReal` as the layer directs."
+      },
+      {
+       "target": "The uniform measure on an interval as `cond volume (Ioc a b)`, with pdf, cdf, mean, variance, mgf, cgf, characteristic function, affine identity and `pdf.IsUniform` bridge",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.uniformMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Uniform.lean",
+         "line": 103,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.cdf_uniformMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Uniform.lean",
+         "line": 257,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.variance_id_uniformMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Uniform.lean",
+         "line": 294,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.charFun_uniformMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Uniform.lean",
+         "line": 416,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.map_uniformMeasure_affine",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Uniform.lean",
+         "line": 479,
+         "fit": "exact"
+        }
+       ],
+       "note": "`Uniform.lean` carries the whole list, including `uniformPDFReal`, `hasPDF_of_hasLaw_uniformMeasure`, `rnDeriv_uniformMeasure`, `integral_id_uniformMeasure` `= (a+b)/2`, `integrableExpSet_id_uniformMeasure = univ`, the `t = 0` splits of the mgf/cgf/charFun, and `isUniform_of_hasLaw_uniformMeasure`, defined by `cond` exactly so that bridge is definitional."
+      },
+      {
+       "target": "Parameter measurability for Mathlib's existing families, including `Measurable fun r : ℝ≥0 => poissonMeasure r`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.measurable_gammaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Measurability.lean",
+         "line": 144,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measurable_poissonMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Measurability.lean",
+         "line": 195,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measurable_gaussianReal",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Measurability.lean",
+         "line": 173,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measurable_binomial",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Measurability.lean",
+         "line": 223,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measurable_uniformMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Uniform.lean",
+         "line": 512,
+         "fit": "exact"
+        }
+       ],
+       "note": "`Distributions/Measurability.lean` proves it uniformly from joint measurability of the pdfs for the `withDensity` families and separately for the discrete ones; the Poisson case is the one the Layer 4 Gamma-mixed Poisson kernel needs."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/StandardDistributions#layer-1-complete-the-elementary-theory-of-existing-distributions": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Bernoulli and binomial: mean, variance, mgf, cgf, characteristic function, convolution and the i.i.d.-Bernoulli-sum law",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "ProbabilityTheory.integral_of_hasLaw_binomial",
+         "library": "mathlib",
+         "file": "Mathlib/Probability/Distributions/Binomial.lean",
+         "line": 186,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.variance_of_hasLaw_binomial",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Binomial/Basic.lean",
+         "line": 206,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.mgf_id_map_cast_binomial",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Binomial/Basic.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.charFun_map_cast_binomial",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Binomial/Basic.lean",
+         "line": 96,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.binomial_conv_binomial",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Binomial/Basic.lean",
+         "line": 126,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib supplies the mean; Tau Ceti's `Binomial/Basic.lean` supplies the variance, transforms and the native convolution `binomial n p ∗ binomial m p = binomial (n+m) p`."
+      },
+      {
+       "target": "Geometric: the `p = 0` Dirac boundary, mean, variance, exact mgf domain, mgf, cgf, characteristic function, cumulative mass and memorylessness",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.integrableExpSet_id_map_cast_geometricMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Geometric.lean",
+         "line": 80,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.mgf_id_map_cast_geometricMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Geometric.lean",
+         "line": 87,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.variance_id_map_cast_geometricMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Geometric.lean",
+         "line": 156,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.geometricMeasure_memoryless",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Geometric.lean",
+         "line": 228,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.geometricMeasure_real_Iic",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Geometric.lean",
+         "line": 197,
+         "fit": "exact"
+        }
+       ],
+       "note": "`Geometric.lean` carries both branches: every transform is proved for `p ≠ 0` and again at `p = 0`, and memorylessness appears both in the division-free form and as `geometricMeasure_cond_Ici`."
+      },
+      {
+       "target": "Poisson: mean, variance, `integrableExpSet = univ`, mgf, cgf",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.integral_id_map_cast_poissonMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Poisson/Basic.lean",
+         "line": 75,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.variance_id_map_cast_poissonMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Poisson/Basic.lean",
+         "line": 117,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.integrableExpSet_id_map_cast_poissonMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Poisson/Basic.lean",
+         "line": 60,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.mgf_id_map_cast_poissonMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Poisson/Basic.lean",
+         "line": 34,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.cgf_id_map_cast_poissonMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Poisson/Basic.lean",
+         "line": 68,
+         "fit": "exact"
+        }
+       ],
+       "note": "On the cast law `(poissonMeasure r).map Nat.cast`, exactly as the layer specifies; the cdf comes from the Layer 2 tail identity."
+      },
+      {
+       "target": "Exponential: mean, variance, exact mgf domain `Iio r`, mgf, cgf, characteristic function, memorylessness, and the minimum of two independent exponentials",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.mgf_id_expMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Exponential.lean",
+         "line": 290,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.memoryless_expMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Exponential.lean",
+         "line": 346,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.hasLaw_min_expMeasure_of_indepFun",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Exponential.lean",
+         "line": 361,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.integrableExpSet_id_expMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Exponential.lean",
+         "line": 266,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.variance_id_expMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Exponential.lean",
+         "line": 216,
+         "fit": "exact"
+        }
+       ],
+       "note": "The roadmap's `map_min_expMeasure` is `hasLaw_min_expMeasure_of_indepFun`, in the `HasLaw`/`IndepFun` form the layer asks for."
+      },
+      {
+       "target": "Gamma: mean, variance, exact mgf domain, mgf, characteristic function, convolution and the scaling law",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.mgf_id_gammaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gamma/Basic.lean",
+         "line": 376,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.charFun_gammaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gamma/CharFun.lean",
+         "line": 86,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.gammaMeasure_conv_gammaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gamma/Basic.lean",
+         "line": 439,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.gammaMeasure_map_const_mul",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gamma/Basic.lean",
+         "line": 494,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.variance_id_gammaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gamma/Basic.lean",
+         "line": 406,
+         "fit": "exact"
+        }
+       ],
+       "note": "All six items, with the principal `Complex.cpow` in the characteristic function; the roadmap's `map_const_mul_gammaMeasure` is `gammaMeasure_map_const_mul`."
+      },
+      {
+       "target": "Beta: mean, variance, raw moments in terms of `Real.Gamma`, and `integrableExpSet = univ`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.integral_id_betaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Beta/Basic.lean",
+         "line": 143,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.variance_id_betaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Beta/Basic.lean",
+         "line": 153,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.integral_pow_betaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Beta/Basic.lean",
+         "line": 86,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.integrableExpSet_id_betaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Beta/Basic.lean",
+         "line": 171,
+         "fit": "exact"
+        }
+       ],
+       "note": "Exactly the four targets; no mgf/characteristic-function formula is claimed, as the layer directs."
+      },
+      {
+       "target": "Cauchy: characteristic function, cdf, `integrableExpSet = {0}`, non-integrability, the `γ = 0` Dirac formulas, and stability of the family under averaging",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.charFun_cauchyMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Cauchy.lean",
+         "line": 406,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.cdf_cauchyMeasure_of_scale_ne_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Cauchy.lean",
+         "line": 124,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.integrableExpSet_id_cauchyMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Cauchy.lean",
+         "line": 293,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.not_integrable_id_cauchyMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Cauchy.lean",
+         "line": 226,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hasLaw_average_of_iIndepFun_cauchyMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Cauchy.lean",
+         "line": 423,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both branches are done, and the sample-mean stability theorem is stated for `X : Fin n → Ω → ℝ` with `iIndepFun` and a common law, as specified."
+      },
+      {
+       "target": "Pareto: mean and variance in their exact parameter ranges with matching non-integrability, cdf, and `integrableExpSet = Iic 0`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "ProbabilityTheory.integral_id_paretoMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Pareto.lean",
+         "line": 144,
+         "fit": "exact"
+        },
+        {
+         "name": "ProbabilityTheory.variance_id_paretoMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Pareto.lean",
+         "line": 182,
+         "fit": "exact"
+        },
+        {
+         "name": "ProbabilityTheory.cdf_paretoMeasure_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Pareto.lean",
+         "line": 200,
+         "fit": "exact"
+        },
+        {
+         "name": "ProbabilityTheory.integrableExpSet_id_paretoMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Pareto.lean",
+         "line": 268,
+         "fit": "exact"
+        },
+        {
+         "name": "ProbabilityTheory.not_integrable_id_paretoMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Pareto.lean",
+         "line": 158,
+         "fit": "exact"
+        }
+       ],
+       "note": "Tau Ceti extends Mathlib's `Pareto` file in the `ProbabilityTheory` namespace, with the `1 < r` / `r ≤ 1` and `2 < r` / `r ≤ 2` splits the layer requires."
+      },
+      {
+       "target": "Real Gaussian: even central moments, vanishing odd central moments, and the absolute central moments",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.centralMoment_id_two_mul_gaussianReal",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Moments.lean",
+         "line": 118,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.centralMoment_id_two_mul_add_one_gaussianReal",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Moments.lean",
+         "line": 139,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.integral_abs_sub_pow_gaussianReal",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Moments.lean",
+         "line": 76,
+         "fit": "exact"
+        }
+       ],
+       "note": "The roadmap's `centralMoment_two_mul_gaussianReal` is `centralMoment_id_two_mul_gaussianReal`; the absolute-moment formula with `Real.Gamma ((n+1)/2) / √π` is `integral_abs_sub_pow_gaussianReal`."
+      },
+      {
+       "target": "Probability generating functions: `pgf`, the mgf bridge, multiplicativity over independent sums, the four family formulas, coefficient recovery and `measure_eq_of_pgf_eqOn`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.pgf",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/GeneratingFunction.lean",
+         "line": 87,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.pgf_bernoulliMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/GeneratingFunction.lean",
+         "line": 378,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.pgf_poissonMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/GeneratingFunction.lean",
+         "line": 397,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.iteratedDeriv_pgf_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/GeneratingFunction.lean",
+         "line": 307,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measure_eq_of_pgf_eqOn",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/GeneratingFunction.lean",
+         "line": 344,
+         "fit": "exact"
+        }
+       ],
+       "note": "`GeneratingFunction.lean` fills the named Mathlib undergraduate gap, including the binomial and geometric pgfs and the negative-binomial one in `NegativeBinomial/Basic.lean`; multiplicativity is stated with the `|t| ≤ 1` and integrability hypotheses the layer insists on rather than unrestricted."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/StandardDistributions#layer-2-incomplete-special-functions-and-closed-form-cdfs": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Lower incomplete gamma and the regularized gamma function, with convergence, continuity, monotonicity, the recurrence, the limit at infinity and the derivative",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.lowerIncompleteGamma",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/IncompleteGamma.lean",
+         "line": 110,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.regularizedGamma",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/IncompleteGamma.lean",
+         "line": 115,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.lowerIncompleteGamma_eq_integral",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/IncompleteGamma.lean",
+         "line": 119,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.regularizedGamma_eq_div",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/IncompleteGamma.lean",
+         "line": 145,
+         "fit": "related"
+        }
+       ],
+       "note": "Defined with the roadmap's exact `if 0 < s then … else 0` convention in `Analysis/SpecialFunctions/IncompleteGamma.lean`, with the analytic API in the same file."
+      },
+      {
+       "target": "The regularized incomplete beta function with its boundary conventions, reflection formula and unit-step recurrence",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.regularizedIncompleteBeta",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/IncompleteBeta.lean",
+         "line": 82,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.regularizedIncompleteBeta_def_of_pos",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/IncompleteBeta.lean",
+         "line": 94,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.regularizedIncompleteBeta_zero_left",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/IncompleteBeta.lean",
+         "line": 115,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.regularizedIncompleteBeta_def_of_mem_Icc",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/IncompleteBeta.lean",
+         "line": 106,
+         "fit": "related"
+        }
+       ],
+       "note": "Including the deliberate `regularizedIncompleteBeta 0 b x = 1` convention for `0 < b`, `0 ≤ x` that makes the `m = 0` binomial tail work without a case split."
+      },
+      {
+       "target": "The real error function `Real.erf` and `Real.erfc`, with oddness, monotonicity, limits, derivative and the link to `regularizedGamma (1/2)`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Real.erf",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Erf.lean",
+         "line": 51,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Real.erfc",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Erf.lean",
+         "line": 54,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Real.erfc_neg",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Erf.lean",
+         "line": 83,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Real.erfc_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/Erf.lean",
+         "line": 68,
+         "fit": "related"
+        }
+       ],
+       "note": "In `Analysis/SpecialFunctions/Erf.lean`, following the naming of the Mathlib PR the layer cites."
+      },
+      {
+       "target": "Closed-form cdfs: Gaussian (both branches), gamma, beta, the binomial tail and the Poisson tail",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.cdf_gaussianReal_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Cdf.lean",
+         "line": 113,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.cdf_gaussianReal_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Cdf.lean",
+         "line": 126,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.cdf_gammaMeasure_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gamma/Cdf.lean",
+         "line": 105,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.cdf_betaMeasure_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Beta/Cdf.lean",
+         "line": 132,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.binomial_tail_eq_regularizedIncompleteBeta",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Binomial/Tail.lean",
+         "line": 126,
+         "fit": "exact"
+        }
+       ],
+       "note": "All five, plus `poissonMeasure_tail_eq_regularizedGamma`, with the literal roadmap names."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/StandardDistributions#layer-3-new-scalar-families": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Laplace: definition, `b ≤ 0` zero branch, mean, variance, cdf, exact mgf domain, mgf, cgf, characteristic function",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.laplaceMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Laplace.lean",
+         "line": 198,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.laplaceMeasure_of_nonpos",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Laplace.lean",
+         "line": 208,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.charFun_laplaceMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Laplace.lean",
+         "line": 708,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.cdf_laplaceMeasure_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Laplace.lean",
+         "line": 334,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.variance_id_laplaceMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Laplace.lean",
+         "line": 481,
+         "fit": "exact"
+        }
+       ],
+       "note": "The whole shared API is present in `Distributions/Laplace.lean`."
+      },
+      {
+       "target": "Log-normal: pushforward definition, density, cdf, `integrableExpSet = Iic 0`, the `v = 0` Dirac branch and the raw moments",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.logNormalMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/LogNormal.lean",
+         "line": 103,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.logNormalMeasure_map_exp",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/LogNormal.lean",
+         "line": 107,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.logNormalMeasure_zero_var",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/LogNormal.lean",
+         "line": 118,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.integral_pow_logNormalMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/LogNormal.lean",
+         "line": 300,
+         "fit": "exact"
+        }
+       ],
+       "note": "Defined as `(gaussianReal μ v).map exp`, with the density derived rather than assumed, as the layer requires."
+      },
+      {
+       "target": "Weibull: definition, density, cdf, moments, variance and the three mgf regimes",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.weibullMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Weibull/Basic.lean",
+         "line": 86,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.variance_id_weibullMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Weibull/Basic.lean",
+         "line": 602,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.hasSum_mgf_id_weibullMeasure_of_one_lt",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Weibull/Transforms.lean",
+         "line": 306,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.mgf_id_weibullMeasure_one",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Weibull/Transforms.lean",
+         "line": 372,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.cdf_weibullMeasure_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Weibull/Basic.lean",
+         "line": 435,
+         "fit": "exact"
+        }
+       ],
+       "note": "The `1 < k` regime is proved as a convergent series, the `k = 1` regime as the exponential mgf, and `Weibull/Transforms.lean` separates the three cases exactly as the layer demands."
+      },
+      {
+       "target": "Chi-squared: the three-branch definition, the gamma bridge, the full transform API, the `k = 0` Dirac branch and additivity",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.chiSquaredMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/ChiSquared.lean",
+         "line": 186,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.chiSquaredMeasure_eq_gammaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/ChiSquared.lean",
+         "line": 190,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.charFun_chiSquaredMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/ChiSquared.lean",
+         "line": 338,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.chiSquaredMeasure_two",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/ChiSquared.lean",
+         "line": 417,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.chiSquaredMeasure_conv_chiSquaredMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/ChiSquared.lean",
+         "line": 366,
+         "fit": "exact"
+        }
+       ],
+       "note": "`chiSquaredMeasure_two` is the layer's own completion check `chiSquaredMeasure 2 = expMeasure (1/2)`."
+      },
+      {
+       "target": "Inverse-gamma: definition as the pushforward under inversion, density, cdf, mean and variance in their ranges with matching non-integrability, and `integrableExpSet = Iic 0`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.inverseGammaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/InverseGamma.lean",
+         "line": 68,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.cdf_inverseGammaMeasure_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/InverseGamma.lean",
+         "line": 454,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.integral_id_inverseGammaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/InverseGamma.lean",
+         "line": 357,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.variance_id_inverseGammaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/InverseGamma.lean",
+         "line": 384,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.integrableExpSet_id_inverseGammaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/InverseGamma.lean",
+         "line": 442,
+         "fit": "exact"
+        }
+       ],
+       "note": "All items, including the `0 < a ≤ 1` and `0 < a ≤ 2` non-integrability statements."
+      },
+      {
+       "target": "Student's t: definition, mean/variance in their ranges with matching non-integrability, the cdf in terms of the regularized incomplete beta, and `integrableExpSet = {0}`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.studentTMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/StudentT/Basic.lean",
+         "line": 187,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.integral_id_studentTMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/StudentT/Moments.lean",
+         "line": 227,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.not_integrable_sq_studentTMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/StudentT/Moments.lean",
+         "line": 404,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.cdf_studentTMeasure_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/StudentT/Cdf.lean",
+         "line": 157,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.studentTMeasure_one",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/StudentT/Basic.lean",
+         "line": 317,
+         "fit": "related"
+        }
+       ],
+       "note": "`studentTMeasure_one` is the layer's completion check `studentTMeasure 1 = cauchyMeasure 0 1`."
+      },
+      {
+       "target": "Fisher's F: definition, mean/variance in their ranges with matching non-integrability, cdf, and `integrableExpSet = Iic 0`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.fisherSnedecorMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/FisherSnedecor/Basic.lean",
+         "line": 94,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.cdf_fisherSnedecorMeasure_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/FisherSnedecor/Basic.lean",
+         "line": 539,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.integral_id_fisherSnedecorMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/FisherSnedecor/Moments.lean",
+         "line": 351,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.variance_id_fisherSnedecorMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/FisherSnedecor/Moments.lean",
+         "line": 390,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.integrableExpSet_id_fisherSnedecorMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/FisherSnedecor/Moments.lean",
+         "line": 240,
+         "fit": "exact"
+        }
+       ],
+       "note": "Complete, with the `2 < n` / `n ≤ 2` and `4 < n` / `n ≤ 4` splits."
+      },
+      {
+       "target": "Negative binomial: definition with the `p = 1` and `r = 0` boundaries, convolution, pgf, the cast-law transforms, and the cumulative-mass formula",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.negativeBinomialMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/NegativeBinomial/Basic.lean",
+         "line": 66,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.negativeBinomialMeasure_conv_negativeBinomialMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/NegativeBinomial/Basic.lean",
+         "line": 360,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.pgf_negativeBinomialMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/NegativeBinomial/Basic.lean",
+         "line": 327,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.charFun_map_cast_negativeBinomialMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/NegativeBinomial/Transforms.lean",
+         "line": 219,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.negativeBinomialMeasure_real_Iic",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/NegativeBinomial/Cdf.lean",
+         "line": 54,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both branches are carried throughout: `NegativeBinomial/Transforms.lean` proves each transform for `0 < r` and again at `r = 0`, and the cumulative mass is the regularized incomplete beta as specified."
+      },
+      {
+       "target": "Hypergeometric: definition, support and mass formulas, mean and variance with the `N = 0` and `N = 1` boundaries, cumulative mass, transforms, the `K ↔ n` symmetry and the binomial limit",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.hypergeometricMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Hypergeometric/Basic.lean",
+         "line": 93,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.hypergeometricMeasure_comm",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Hypergeometric/Symmetry.lean",
+         "line": 39,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.tendsto_hypergeometricMeasure_real_singleton",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Hypergeometric/Limit.lean",
+         "line": 46,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.mgf_id_map_cast_hypergeometricMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Hypergeometric/Basic.lean",
+         "line": 642,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.variance_id_map_cast_hypergeometricMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Hypergeometric/Basic.lean",
+         "line": 568,
+         "fit": "exact"
+        }
+       ],
+       "note": "The roadmap's `hypergeometricMeasure N K n = hypergeometricMeasure N n K` is `hypergeometricMeasure_comm`, and the binomial limit is `tendsto_hypergeometricMeasure_real_singleton`."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/StandardDistributions#layer-4-relationships-among-distributions": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Squares of Gaussian variables: `(gaussianReal 0 1).map (·^2) = chiSquaredMeasure 1` and the sum of `k` i.i.d. squares",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.gaussianReal_map_sq",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/ChiSquared.lean",
+         "line": 67,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.iIndepFun.hasLaw_sum_sq_gaussian",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/ChiSquared.lean",
+         "line": 176,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.map_sum_sq_pi_gaussianReal",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/ChiSquared.lean",
+         "line": 194,
+         "fit": "related"
+        }
+       ],
+       "note": "The roadmap's `map_sq_gaussianReal` is `gaussianReal_map_sq`; the empty-sum `k = 0` case is covered by `chiSquaredMeasure_zero`."
+      },
+      {
+       "target": "Ratios: Student's t from a Gaussian over a chi-squared, Fisher's F from two chi-squareds, and Cauchy from a Gaussian ratio",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.hasLaw_studentT_of_gaussian_chiSquared",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/StudentT/ChiSquared.lean",
+         "line": 182,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.hasLaw_fisherSnedecor_of_chiSquared",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/FisherSnedecor/ChiSquared.lean",
+         "line": 127,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.hasLaw_ratio_gaussian_cauchy",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Cauchy.lean",
+         "line": 118,
+         "fit": "exact"
+        }
+       ],
+       "note": "All three literal milestone names, in `HasLaw`/`IndepFun` form."
+      },
+      {
+       "target": "The joint Beta–Gamma product-pushforward theorem for independent gamma variables",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.map_div_add_prod_gammaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gamma/Beta.lean",
+         "line": 311,
+         "fit": "exact"
+        }
+       ],
+       "note": "Literal; the zero-denominator branch is handled as the layer requires."
+      },
+      {
+       "target": "Sums and differences: Laplace from an exponential difference, negative binomial from a geometric sum, gamma from an exponential sum",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.IndepFun.hasLaw_sub_expMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Sums.lean",
+         "line": 58,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.iIndepFun.hasLaw_sum_geometricMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Sums.lean",
+         "line": 112,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.iIndepFun.hasLaw_sum_expMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Sums.lean",
+         "line": 152,
+         "fit": "exact"
+        }
+       ],
+       "note": "All three in `Distributions/Sums.lean`, under the roadmap's hypotheses."
+      },
+      {
+       "target": "The Gamma-mixed Poisson law",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.bind_gammaMeasure_poissonMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gamma/Poisson.lean",
+         "line": 132,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.integral_poissonMass_gammaMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gamma/Poisson.lean",
+         "line": 87,
+         "fit": "related"
+        }
+       ],
+       "note": "Literal name, consuming the Layer 0 measurability of `r ↦ poissonMeasure r`."
+      },
+      {
+       "target": "Finite minima and maxima: the cdf formulas for `max` and `min` of an i.i.d. family",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.cdf_max_iid",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Relations.lean",
+         "line": 190,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.cdf_min_iid",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Relations.lean",
+         "line": 203,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measureReal_setOf_max_le_iid",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Relations.lean",
+         "line": 151,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measureReal_setOf_min_le_iid",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Relations.lean",
+         "line": 173,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.hasLaw_min_iid_expMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Relations.lean",
+         "line": 217,
+         "fit": "related"
+        }
+       ],
+       "note": "`Relations.lean` gives both the ambient-measure and pushforward-cdf forms, with `[Fintype ι] [Nonempty ι]` so no empty-family default appears."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/StandardDistributions#layer-5-multivariate-distributions": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "`covMatrix`, its value on a multivariate Gaussian, the Bochner mean, and the link to Mathlib's `covarianceBilin`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.covMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Moments/Covariance.lean",
+         "line": 49,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.covMatrix_multivariateGaussian",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Multivariate.lean",
+         "line": 55,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.covarianceBilin_eq_covMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Moments/Covariance.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.covariance_inner_matrix_multivariateGaussian",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Multivariate.lean",
+         "line": 73,
+         "fit": "related"
+        }
+       ],
+       "note": "The `MemLp id 2 μ` hypothesis is kept in the `covarianceBilin` bridge, as the layer insists."
+      },
+      {
+       "target": "The multivariate Gaussian density: `HasPDF`, the explicit density for positive-definite `S`, and singularity otherwise",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.multivariateGaussianPDFReal",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Density.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hasPDF_of_hasLaw_multivariateGaussian",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Density.lean",
+         "line": 209,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.rnDeriv_multivariateGaussian",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Density.lean",
+         "line": 222,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.mutuallySingular_multivariateGaussian_volume",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Density.lean",
+         "line": 230,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.multivariateGaussian_eq_withDensity",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Density.lean",
+         "line": 166,
+         "fit": "related"
+        }
+       ],
+       "note": "Derived from the product Gaussian by an affine change of variables, as the layer prescribes, and the non-positive-definite singularity is proved."
+      },
+      {
+       "target": "Affine maps of Gaussian laws, the directional `integrableExpSet`/mgf, and the Gaussian quadratic-form mgf with its exact domain",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.map_affine_multivariateGaussian",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Affine.lean",
+         "line": 91,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.mgf_inner_multivariateGaussian",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Transforms.lean",
+         "line": 98,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.mem_integrableExpSet_inner_toEuclideanLin_multivariateGaussian_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/QuadraticForm.lean",
+         "line": 113,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.mgf_inner_toEuclideanLin_multivariateGaussian",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/QuadraticForm.lean",
+         "line": 156,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.cgf_inner_toEuclideanLin_multivariateGaussian",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/QuadraticForm.lean",
+         "line": 166,
+         "fit": "exact"
+        }
+       ],
+       "note": "The quadratic-form domain theorem is stated exactly as the `PosDef` condition on `1 - (2t)•(√S Θ √S)`, and the mgf as the `rpow` of the determinant, which is what the Layer 6 Wishart transforms consume."
+      },
+      {
+       "target": "Conditional Gaussian laws: `gaussianCondKernel`, the Schur-complement `condDistrib` formula, and block independence iff `S₁₂ = 0`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "EuclideanSpace.gaussianCondKernel",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Conditional.lean",
+         "line": 175,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.condDistrib_multivariateGaussian",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Conditional.lean",
+         "line": 443,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.indepFun_sumEquivProd_multivariateGaussian_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Multivariate.lean",
+         "line": 116,
+         "fit": "exact"
+        },
+        {
+         "name": "EuclideanSpace.isMarkovKernel_gaussianCondKernel",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Conditional.lean",
+         "line": 200,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.gaussianCondKernel_eq_map_residual",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Gaussian/Conditional.lean",
+         "line": 399,
+         "fit": "related"
+        }
+       ],
+       "note": "On the `Sum`-indexed carrier with the `Sum.inl`/`Sum.inr` submatrix blocks, as specified."
+      },
+      {
+       "target": "The multinomial distribution: mass and support, coordinate marginals, aggregation, mean, covariance, characteristic function and the directional mgf",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.multinomialMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Multinomial/Basic.lean",
+         "line": 100,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.map_eval_multinomialMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Multinomial/Marginal.lean",
+         "line": 162,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.map_funOnFinite_map_multinomialMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Multinomial/Aggregation.lean",
+         "line": 98,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.covMatrix_map_multinomialToEuclidean_multinomialMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Multinomial/Moments.lean",
+         "line": 227,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.charFun_map_multinomialToEuclidean_multinomialMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Multinomial/Transforms.lean",
+         "line": 126,
+         "fit": "exact"
+        }
+       ],
+       "note": "Parametrised by `stdSimplex ℝ≥0 ι` so no invalid branch exists, with `multinomialToEuclidean`, the `covarianceBilin` corollary and `mgf_inner_multinomial` all present."
+      },
+      {
+       "target": "The Dirichlet distribution: definition from normalised gammas, support in the simplex, aggregation, the Beta marginals, mean, variance, covariance and `integrableExpSet = univ`",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Probability.dirichletMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Dirichlet/Basic.lean",
+         "line": 114,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.map_eval_dirichletMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Dirichlet/Marginal.lean",
+         "line": 103,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.map_eval_zero_dirichletMeasure_fin_two",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Dirichlet/Marginal.lean",
+         "line": 115,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.covMatrix_dirichletMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Dirichlet/Moments.lean",
+         "line": 196,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.integrableExpSet_inner_dirichletMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Dirichlet/Moments.lean",
+         "line": 230,
+         "fit": "exact"
+        }
+       ],
+       "note": "Including the `card ι = 1` Dirac case (`dirichletMeasure_eq_dirac_of_card_eq_one`), the null zero-sum branch, and the surjective fibre-sum aggregation `map_euclideanFiberSum_dirichletMeasure`."
+      },
+      {
+       "target": "The Dirichlet chart density on `J = {i // i ≠ i₀}`: `dirichletMeasure a` as the pushforward, along the simplex reconstruction map, of product `volume` with the explicit `rpow` density",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. `TauCeti/Probability/Distributions/Dirichlet/` has Basic, Marginal, Aggregation, Measurability and Moments and no density file; `grep -rn -i 'dirichletPDF|dirichletDensity|withDensity'` over that directory returns nothing, and no declaration in the baseline states a density for `dirichletMeasure` in any chart."
+      },
+      {
+       "target": "Parameter measurability for the multivariate Gaussian, multinomial and Dirichlet families",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "ProbabilityTheory.measurable_multivariateGaussian",
+         "library": "mathlib",
+         "file": "Mathlib/Probability/Distributions/Gaussian/Multivariate.lean",
+         "line": 269,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measurable_multinomialMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Multinomial/Measurability.lean",
+         "line": 64,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Probability.measurable_dirichletMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Dirichlet/Measurability.lean",
+         "line": 79,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib proves `Measurable (multivariateGaussian (ι := ι)).uncurry`, which is the coordinate-free form of the requested statement; Tau Ceti supplies the other two."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/StandardDistributions#layer-6-symmetric-matrices-and-wishart-distributions": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The symmetric-matrix carrier with the Frobenius inner product, the coordinate equivalence, `symmetricLebesgue`, its Haar instance and the Frobenius-volume comparison",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "Matrix.frobeniusInnerProductSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/Matrix/Frobenius.lean",
+         "line": 46,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.upperTriangle",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/SymmetricMatrix/Basic.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.symmetricCoordinates",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/SymmetricMatrix/Basic.lean",
+         "line": 227,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.volume_symmetricMatrix_eq_smul_symmetricLebesgue",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/SymmetricMatrix/Lebesgue.lean",
+         "line": 197,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.symmetricLebesgue_zero",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/SymmetricMatrix/Lebesgue.lean",
+         "line": 205,
+         "fit": "exact"
+        }
+       ],
+       "note": "`MeasureTheory/Measure/SymmetricMatrix/` carries the whole item, on Mathlib's `selfAdjoint.submodule` carrier as the layer requires, with the `rpow 2 (p(p-1)/4)` comparison factor."
+      },
+      {
+       "target": "`symmetricLebesgue_setOf_det_eq_zero` and the congruence change of variables",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.symmetricLebesgue_setOf_det_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/SymmetricMatrix/Determinant.lean",
+         "line": 85,
+         "fit": "exact"
+        },
+        {
+         "name": "Matrix.symmetricCongruenceLinearMap",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/SymmetricMatrix/Congruence.lean",
+         "line": 56,
+         "fit": "exact"
+        },
+        {
+         "name": "Matrix.GeneralLinearGroup.map_symmetricCongruence_symmetricLebesgue",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/SymmetricMatrix/Congruence.lean",
+         "line": 357,
+         "fit": "exact"
+        },
+        {
+         "name": "Matrix.det_symmetricCongruenceLinearMap_mul",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/SymmetricMatrix/Congruence.lean",
+         "line": 243,
+         "fit": "related"
+        }
+       ],
+       "note": "The singular matrices are null and the congruence pushforward scales `symmetricLebesgue` by `|det C|^{-(p+1)}`, exactly the two statements the later items consume."
+      },
+      {
+       "target": "Cholesky decomposition as an equivalence, homeomorphism and measurable equivalence, with the Jacobian and the induced change of variables on the positive-definite cone",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.choleskyEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/Cholesky/Equiv.lean",
+         "line": 58,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.choleskyHomeomorph",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/Cholesky/Topology.lean",
+         "line": 133,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.choleskyMeasurableEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/Cholesky/Topology.lean",
+         "line": 166,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.abs_det_fderiv_choleskyReconstructionCoordinates",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/Cholesky/Jacobian.lean",
+         "line": 289,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.map_cholesky_symmetricLebesgue",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Measure/SymmetricMatrix/Cholesky.lean",
+         "line": 304,
+         "fit": "exact"
+        }
+       ],
+       "note": "Built from Mathlib's `LDL.lower`/`LDL.diag`, with the Jacobian `2^p ∏ (L i i)^(p - i)` in the diagonal/strict-lower coordinates the layer fixes."
+      },
+      {
+       "target": "The multivariate Gamma function and its positive-cone integral identity",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.multivariateGamma",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/MultivariateGamma/Basic.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.multivariateGamma_one",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/MultivariateGamma/Basic.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.integral_posDef_multivariateGamma",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/MultivariateGamma/Integral.lean",
+         "line": 149,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.integral_posDef_multivariateGamma_zero",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/MultivariateGamma/Integral.lean",
+         "line": 64,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.lintegral_posDef_multivariateGamma",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/MultivariateGamma/Integral.lean",
+         "line": 90,
+         "fit": "related"
+        }
+       ],
+       "note": "With the real `rpow` exponent and the `p = 0` case proved separately, exactly as specified; `multivariateGamma_one` is the layer's completion check."
+      },
+      {
+       "target": "The natural-degree Gaussian-Gram Wishart family: definition, probability measure, congruence, convolution, rank bound, singularity, transforms and moments",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.wishartGramMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Wishart/Basic.lean",
+         "line": 160,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.hasLaw_wishartGram_gaussian",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Wishart/Basic.lean",
+         "line": 199,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.wishartGramMeasure_conv_wishartGramMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Wishart/Basic.lean",
+         "line": 351,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.mem_integrableExpSet_trace_mul_wishartGramMeasure_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Wishart/Transforms.lean",
+         "line": 111,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.mutuallySingular_wishartGramMeasure_symmetricLebesgue",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Wishart/Basic.lean",
+         "line": 319,
+         "fit": "exact"
+        }
+       ],
+       "note": "This half of item 4 is complete, including `mgf_trace_mul_wishartGramMeasure`, `cgf_trace_mul_wishartGramMeasure`, the mean and entrywise covariance from the trace mgf, the `Fin 1` chi-squared identification, and `measurable_wishartGramMeasure` (item 7 for this family)."
+      },
+      {
+       "target": "The nonsingular real-degree Wishart density family `nonsingularWishartMeasure`, its transforms, characteristic function, congruence and agreement with the Gaussian-Gram family",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.wishartGramMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Wishart/Basic.lean",
+         "line": 160,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.integral_posDef_multivariateGamma",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/SpecialFunctions/MultivariateGamma/Integral.lean",
+         "line": 149,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent: `grep -rn -i 'nonsingularwishart'` over the whole Tau Ceti tree returns nothing, and `Probability/Distributions/Wishart/` contains only Basic, Measurability, Moments and Transforms, all about `wishartGramMeasure`. Every ingredient the density needs — `symmetricLebesgue`, the Cholesky change of variables and `multivariateGamma` — is in place, so this is the missing definition rather than missing analysis."
+      },
+      {
+       "target": "The Bartlett decomposition of the Cholesky factor of a standard Wishart matrix",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.choleskyMeasurableEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/Cholesky/Topology.lean",
+         "line": 166,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Probability.chiSquaredMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/ChiSquared.lean",
+         "line": 186,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent: `grep -rn -i 'bartlett'` returns nothing. It is stated in terms of `nonsingularWishartMeasure`, which does not exist yet."
+      },
+      {
+       "target": "The inverse-Wishart distribution, the inversion change of variables on the cone, its density and its mean",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: `grep -rn -i 'inversewishart'` returns nothing, and there is no `map_inv_symmetricLebesgue` recording the pushforward of `(symmetricLebesgue p).restrict PosDef` under matrix inversion."
+      },
+      {
+       "target": "Parameter measurability for the three Wishart families",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.measurable_wishartGramMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Wishart/Measurability.lean",
+         "line": 76,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.measurable_wishartGramMeasure_fixedDegree",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Wishart/Measurability.lean",
+         "line": 51,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.measurable_wishartGramMeasure_selfAdjoint",
+         "library": "tauceti",
+         "file": "TauCeti/Probability/Distributions/Wishart/Measurability.lean",
+         "line": 85,
+         "fit": "exact"
+        }
+       ],
+       "note": "Proved for `wishartGramMeasure`, including the corollary with the scale in the self-adjoint submodule that the layer asks for; the corresponding statements for `nonsingularWishartMeasure` and `inverseWishartMeasure` cannot exist because those families do not."
+      }
+     ],
+     "duplicates": []
+    }
+   }
   }
  }
 }

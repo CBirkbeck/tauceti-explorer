@@ -1,0 +1,1595 @@
+{
+ "job": "AUDIT-41",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369; mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "ReductiveGroupsPartII": {
+   "summary": "Neither library contains any Bruhat–Tits theory: a whole-tree grep for `Bruhat-Tits`, `apartment`, `parahoric`, `Iwahori`, `affine root` and `building` turns up only a docstring aside in Mathlib/Algebra/Module/Lattice.lean and the Iwahori–Hecke quadratic relation in a knot-theory file. What the libraries do supply are the ingredients: Mathlib's local-compactness theory of complete discretely valued fields with finite residue field (Mathlib/Topology/Algebra/Valued/LocallyCompact.lean), the topological group GL_n(R) over a topological ring, elementary divisors over a PID, abstract root pairings with their flip (dual) and Weyl groups, and Tau Ceti's abstract Tits system with the Bruhat decomposition of a BN-pair, its split root data and root subgroup schemes for GL_n/SL_n/Sp_2n, and the identification of the R-points of the GL_n group scheme with GL_n(R). Genuinely missing is everything the roadmap actually owns: the topology on X(E) of a finite-type E-scheme, Weil restriction of affine schemes and the Deligne torus, relative roots and valued root data, buildings, parahoric and congruence group schemes, the Iwasawa/Cartan/Iwahori–Bruhat decompositions for G(E), and the pinned dual group over ℤ with its L-group. Only two of the roadmap's stated targets — the GL_n integral-points check in RG2.0 and the dual root datum input to RG2.5 — are already available.",
+   "layers": {
+    "ReductiveGroupsPartII:RG2.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Topology on X(E) for a finite-type E-scheme built from affine charts, with chart independence, functoriality and compatibility with products and closed/open immersions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.Toric.affinePointTopology",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Analytic/AffinePoint.lean",
+         "line": 197,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Toric.affinePointTopology_eq",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Analytic/AffinePoint.lean",
+         "line": 256,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Toric.AffineSemigroupComplexPoint.continuous_comap",
+         "library": "tauceti",
+         "file": "TauCeti/Geometry/Toric/Analytic/AffinePoint.lean",
+         "line": 343,
+         "fit": "related"
+        }
+       ],
+       "note": "No general construction of a topology on the E-points of a scheme exists in either tree. The closest analogue is Tau Ceti's monomial-embedding topology on the *complex* points of an affine semigroup scheme, which does prove exactly the chart-independence and functoriality pattern this target asks for, but only over ℂ and only for monoid algebras."
+      },
+      {
+       "target": "Local compactness and Hausdorffness of X(E) for separated finite-type X over a nonarchimedean local field E",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Valued.integer.properSpace_iff_completeSpace_and_isDiscreteValuationRing_integer_and_finite_residueField",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Valued/LocallyCompact.lean",
+         "line": 338,
+         "fit": "related"
+        },
+        {
+         "name": "Valued.integer.compactSpace_iff_completeSpace_and_isDiscreteValuationRing_and_finite_residueField",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Valued/LocallyCompact.lean",
+         "line": 315,
+         "fit": "related"
+        },
+        {
+         "name": "ProperSpace.of_locallyCompactSpace",
+         "library": "mathlib",
+         "file": "Mathlib/Analysis/Normed/Module/FiniteDimension.lean",
+         "line": 483,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib characterises when a rank-one valued field is locally compact (complete + discrete valuation + finite residue field) and transfers properness to finite-dimensional spaces over it, so the base case E and E^n is available; the statement for the points of a separated finite-type scheme is not, because the topology itself is not defined."
+      },
+      {
+       "target": "Topological group axioms for G(E), G a finite-type affine E-group scheme",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Units.isClosedEmbedding_embedProduct",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Group/Units.lean",
+         "line": 106,
+         "fit": "special case"
+        },
+        {
+         "name": "Matrix.GeneralLinearGroup.continuous_det",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Group/Matrix.lean",
+         "line": 60,
+         "fit": "special case"
+        },
+        {
+         "name": "Continuous.generalLinearGroup_map",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Group/Matrix.lean",
+         "line": 41,
+         "fit": "special case"
+        }
+       ],
+       "note": "Mathlib makes the unit group of any topological monoid a topological group and develops GL_n(R) over a topological ring, which covers G = GL_n and its closed subgroups once they carry the subspace topology; there is no statement for a general affine group scheme's E-points."
+      },
+      {
+       "target": "Compactness of the integral points of an affine O_E-model",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Submonoid.units_isCompact",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Group/Units.lean",
+         "line": 133,
+         "fit": "special case"
+        },
+        {
+         "name": "Valued.integer.compactSpace_iff_completeSpace_and_isDiscreteValuationRing_and_finite_residueField",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/Algebra/Valued/LocallyCompact.lean",
+         "line": 315,
+         "fit": "related"
+        }
+       ],
+       "note": "Units of a compact T1 topological monoid form a compact space, which gives GL_n(O_E) compact once O_E is known compact; the general statement for the O_E-points of an affine flat finite-type O_E-model is absent."
+      },
+      {
+       "target": "Congruence kernels give a neighbourhood basis of 1 in G(O_E) for a smooth model",
+       "library": "absent",
+       "declarations": [],
+       "note": "No congruence-subgroup filtration of the integral points of a group scheme exists in either tree; `congruence` in declarations.tsv matches only linear congruences, J-holomorphic congruence lemmas and Gram/quadratic-form congruence, and the classical modular Γ₀/Γ₁ subgroups, none of which are this."
+      },
+      {
+       "target": "For GL_n, the integral points are GL_n(O_E) — invertible over O_E, not merely integral with nonzero determinant",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.GeneralLinear.pointsMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/GeneralLinear/FunctorOfPoints.lean",
+         "line": 232,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.GeneralLinear.pointsNatIso",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/GeneralLinear/FunctorOfPoints.lean",
+         "line": 357,
+         "fit": "more general"
+        },
+        {
+         "name": "Matrix.isUnit_iff_isUnit_det",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean",
+         "line": 127,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti identifies the A-points of the GL_n coordinate Hopf algebra R[X_ij][det⁻¹] with Matrix.GeneralLinearGroup (Fin n) A naturally in A, for every commutative R-algebra A and with no nontriviality hypothesis; taking A = O_E is exactly the check this target asks for, and Mathlib's isUnit_iff_isUnit_det supplies the 'det must be a unit, not merely nonzero' half. The file has no sorry."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "AdelicAlgebraicGroups:AA.0",
+       "note": "AA.0 builds the restricted-product topology and its local compactness on top of the local topological groups this layer produces; it re-proves continuity of multiplication/inversion and local compactness in the restricted-product setting rather than for X(E)."
+      },
+      {
+       "layer": "AdelicAlgebraicGroups:AA.1",
+       "note": "AA.1 constructs adelic points and their functoriality, taking the local topological point spaces from RG2.0."
+      },
+      {
+       "layer": "ShimuraData:D0",
+       "note": "D0 is titled 'Restriction of scalars and topological points' and applies the topological-points interface to the Deligne torus and Hilbert groups; it explicitly names RG2.0a/AA.0–AA.1 as its suppliers."
+      }
+     ]
+    },
+    "ReductiveGroupsPartII:RG2.0a": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Weil restriction (restriction of scalars) of an affine finite-type scheme along a finite locally free base map, defined by the functor T ↦ Hom_{S'}(T ×_S S', X)",
+       "library": "absent",
+       "declarations": [],
+       "note": "grep -rn -i for 'weil restriction', 'restriction of scalars', 'weilRestriction' and 'restrictionOfScalars' over both trees returns only module-theoretic restriction of scalars (Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean, Submodule.restrictScalars, TauCeti/Algebra/Category/CommAlgCat/RestrictScalars.lean), which is the left adjoint on modules and not the Weil restriction of schemes."
+      },
+      {
+       "target": "Representing algebra on a free affine chart; universal property, basis independence, descent across trivialisations, preservation of finite type and finite presentation",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing in either tree constructs the coordinate ring of a Weil restriction. tauceti:TauCetiRoadmap/ModularCurves layer 0 discusses what Weil restriction does and does not represent, but as roadmap prose, not as Lean."
+      },
+      {
+       "target": "Adjunction, evaluation map, products, composition and base-change isomorphisms with coherence",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent for the same reason: the functor itself does not exist."
+      },
+      {
+       "target": "Transport of group laws; splitting-field product description for a finite separable extension; descent of smoothness, connectedness, reductivity and the torus property",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.torusCommHopfAlgProperty.of_baseChange",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Torus/Splitting.lean",
+         "line": 51,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.torusCommHopfAlgProperty.of_baseChange_iso_coordinateRing",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Torus/Splitting.lean",
+         "line": 90,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti can recognise a torus from a splitting field (a finite-type commutative Hopf algebra that becomes a split torus over an algebraic extension is a torus), which is the descent half of this target; but there is no Weil restriction to descend along, and no statement that Res_{L/k} of a reductive group is reductive."
+      },
+      {
+       "target": "The Deligne torus S = Res_{ℂ/ℝ} G_m with S(ℝ) = ℂ^×, S_ℂ = G_m × G_m with conjugation exchanging the factors, and its norm and weight maps and character lattice",
+       "library": "absent",
+       "declarations": [],
+       "note": "'Deligne torus' and 'norm torus' have zero hits in either tree; the split torus G_m and its character lattice exist in TauCeti/Algebra/AlgebraicGroup/SplitTorus/, but S itself does not."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ShimuraData:D0",
+       "note": "D0 applies finite-separable Weil restriction to the Deligne torus and the Hilbert groups; its text names RG2.0a as the owner of the construction, so the overlap is consumption rather than duplication."
+      },
+      {
+       "layer": "ShimuraData:D1",
+       "note": "D1 states the same Deligne-torus targets — construct S, its diagonal and norm maps, its complex splitting with the specified conjugation, and its character lattice — as this layer's final paragraph."
+      },
+      {
+       "layer": "AbelianSchemesAndArithmeticModuli:A6",
+       "note": "A6 owns Weil restriction of non-affine abelian schemes (T_ℓ(Res_{L/K} A) ≅ Ind T_ℓ(A) and the k[ε] tangent-bundle example); complementary to, not covered by, the affine theorem here."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
+       "note": "0G explicitly contrasts Weil restriction with the relative Grassmannian of subgroup schemes it builds, so it needs the same representability statement as an input."
+      },
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
+       "note": "ES6 constructs nonabelian Shapiro for G = Res_{E'/E} G' and so consumes the same finite-separable Weil restriction of reductive groups."
+      }
+     ]
+    },
+    "ReductiveGroupsPartII:RG2.1": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Relative roots of G with respect to a maximal E-split torus, and the relative Weyl group",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.SplitTorus.coordinateRoot",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/SplitTorus/RootDatum/Basic.lean",
+         "line": 114,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GeneralLinear.diagonalRootDatum",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Root/Datum.lean",
+         "line": 119,
+         "fit": "related"
+        },
+        {
+         "name": "RootPairing.weylGroup",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/RootSystem/WeylGroup.lean",
+         "line": 56,
+         "fit": "related"
+        }
+       ],
+       "note": "Split (absolute) root data and abstract root pairings with Weyl groups are present in both libraries, but 'maximal split torus', 'relative root', 'anisotropic kernel' and 'quasi-split' have zero hits in either tree; the relative theory over a non-algebraically-closed field is not started."
+      },
+      {
+       "target": "Root subgroups and their valuation filtrations indexed by the actual valuation sets, including nonsplit root groups",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.SpecialLinear.rootSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/SpecialLinear/RootSubgroup.lean",
+         "line": 227,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.Symplectic.rootSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Symplectic/RootSubgroup.lean",
+         "line": 464,
+         "fit": "related"
+        }
+       ],
+       "note": "Root subgroup schemes exist for the split classical groups and for the Kostant ℤ-form, with Chevalley commutator relations; none of them carries a valuation filtration, and there is no nonsplit or multipliable-root case."
+      },
+      {
+       "target": "Multipliable roots (the non-reduced relative root system)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "RootPairing.IsReduced",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/RootSystem/Reduced.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's root pairings allow non-reduced systems and Tau Ceti has TauCeti/LinearAlgebra/RootSystem/Reduced.lean, so the abstract combinatorics of BC-type systems is available, but the group-theoretic multipliable root groups U_{(a)} ⊃ U_{2a} are not."
+      },
+      {
+       "target": "Commutator estimates, conjugation by the torus, compatibility under unramified extension",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.SpecialLinear.commutatorElement_rootSubgroupPoints",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/SpecialLinear/ChevalleyRelations.lean",
+         "line": 102,
+         "fit": "related"
+        }
+       ],
+       "note": "Chevalley commutator relations are proved for split SL_n/Sp_2n/GL_n root subgroups, but there is no valuation-indexed estimate [U_{a,r}, U_{b,s}] ⊆ ∏ U_{ia+jb, ir+js} and no unramified-descent statement."
+      },
+      {
+       "target": "The affine root system and the apartment attached to a valued root datum",
+       "library": "absent",
+       "declarations": [],
+       "note": "'affine root system' and 'affine Weyl group' occur only in a Kronecker-quiver docstring and a Mathlib Lie-loop docstring; TauCeti/LinearAlgebra/RootSystem/AffineDynkinType concerns affine Dynkin *diagrams* (positive-semidefinite Cartan matrices), not affine roots as functions on an apartment."
+      }
+     ],
+     "duplicates": []
+    },
+    "ReductiveGroupsPartII:RG2.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Gluing of apartments by the Bruhat–Tits equivalence relation; well-defined affine transition maps",
+       "library": "absent",
+       "declarations": [],
+       "note": "No building theory of any kind in either tree."
+      },
+      {
+       "target": "The building axioms and the G(E)-action on the building",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; the only occurrence of 'Bruhat-Tits' in either library is a remark in Mathlib/Algebra/Module/Lattice.lean that homothety classes of lattices in K² over a DVR give the vertices of the Bruhat–Tits tree."
+      },
+      {
+       "target": "Apartment existence for pairs of points; reduced versus enlarged building",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Facets, closure order, fixers, compactness modulo centre",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Fixed-point theorem for bounded subgroups",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, and so is its usual ambient hypothesis: 'CAT(0)', 'nonpositive curvature' and 'Busemann' have zero hits in either tree, so there is no complete-nonpositively-curved fixed-point theorem to specialise."
+      },
+      {
+       "target": "The GL_n building from homothety classes of norms/lattice chains, and the SL_2 tree",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Submodule.IsLattice",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/Lattice.lean",
+         "line": 67,
+         "fit": "related"
+        },
+        {
+         "name": "Submodule.IsLattice.free",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/Lattice.lean",
+         "line": 173,
+         "fit": "related"
+        },
+        {
+         "name": "Submodule.IsLattice.inf",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Module/Lattice.lean",
+         "line": 196,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib defines lattices in a module over the fraction field, proves they are free of the right rank and closed under intersection, and its module docstring names this as the vertex set of the Bruhat–Tits tree of GL_2(K); the homothety quotient, the simplicial structure, the norms and the tree itself are not constructed."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeometricSatakeAndFusion:GS0:loop-geometry",
+       "note": "GS0 needs affine-flag and Demazure ingredients and says parahoric models are supplied by ReductiveGroupsPartII, so it consumes rather than duplicates RG2.2–RG2.3."
+      }
+     ]
+    },
+    "ReductiveGroupsPartII:RG2.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "For a facet, the smooth affine O_E-group scheme with connected special fibre and prescribed root-group charts",
+       "library": "absent",
+       "declarations": [],
+       "note": "'parahoric' has zero hits in either tree; no integral model of a reductive group attached to a facet exists."
+      },
+      {
+       "target": "Characterisation by integral points, generic fibre G, connected reductive quotient of the special fibre, pro-unipotent radical and reduction map",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.reductiveCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Reductive/Basic.lean",
+         "line": 70,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.HopfIdeal.IsUnipotentRadicalCandidate",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Unipotent/Radical/Basic.lean",
+         "line": 74,
+         "fit": "related"
+        }
+       ],
+       "note": "Reductivity and the unipotent radical exist over a field in Tau Ceti, so the special-fibre quotient would have a target to land in; the integral model, the reduction map and the pro-unipotent radical do not exist."
+      },
+      {
+       "target": "Pro-p congruence subgroups and their compact openness",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; see RG2.0's congruence-kernel target."
+      },
+      {
+       "target": "Compatibility for nested facets and unramified base change; connected parahoric vs fixer group scheme vs hyperspecial model",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeometricSatakeAndFusion:GS0",
+       "note": "GS0 names parahoric models as supplied by ReductiveGroupsPartII."
+      },
+      {
+       "layer": "HilbertModularVarietiesAndShimuraCurves:H4",
+       "note": "H4 constructs Iwahori and Γ₀(pⁿ) levels as subgroup-scheme conditions on the moduli problem; the same Iwahori level subgroup appears, but H4 defines it by level structures on abelian schemes rather than as a parahoric model."
+      }
+     ]
+    },
+    "ReductiveGroupsPartII:RG2.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Iwasawa decomposition G(E) = P(E)·K for a special maximal compact K",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent in the p-adic setting. Mathlib's MulAction.IwasawaStructure (Mathlib/GroupTheory/GroupAction/Iwasawa.lean) is an unrelated simplicity criterion, not the KAN/PK decomposition."
+      },
+      {
+       "target": "Cartan decomposition G(E) = K · X_*(A)^+ · K with the correct relative cocharacter lattice and dominance condition",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Submodule.smithNormalForm",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/FreeModule/PID.lean",
+         "line": 533,
+         "fit": "related"
+        },
+        {
+         "name": "Submodule.exists_smith_normal_form_of_le",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/FreeModule/PID.lean",
+         "line": 487,
+         "fit": "related"
+        },
+        {
+         "name": "Matrix.exists_smith_normal_form_of_det_ne_zero",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/SmithNormalForm.lean",
+         "line": 743,
+         "fit": "related"
+        }
+       ],
+       "note": "The elementary-divisor theorem over a PID (hence over O_E) is the content of the Cartan decomposition for GL_n, but it is stated for submodules/bases and integer matrices, not as a double-coset decomposition GL_n(O)\\GL_n(E)/GL_n(O) ≅ dominant cocharacters, and nothing covers a general connected reductive G."
+      },
+      {
+       "target": "Iwahori–Bruhat decomposition with stabilisers",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.TitsSystem",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/TitsSystem/Basic.lean",
+         "line": 48,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.TitsSystem.bruhatCells_eq_univ",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/TitsSystem/Bruhat/Basic.lean",
+         "line": 374,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.TitsSystem.doubleCosetMk_surjective",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/TitsSystem/Bruhat/Basic.lean",
+         "line": 404,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti proves, sorry-free, that in any Tits system the Bruhat cells B n B cover G and that N → B\\G/B is surjective, plus the rank-one multiplication law; this is exactly the abstract half of the Iwahori–Bruhat decomposition. What is missing is the construction of the affine Tits system (I, N) inside G(E), hence the identification of the index set with the affine Weyl group and the stabiliser statements."
+      },
+      {
+       "target": "Finiteness of compact-open double coset decompositions and index formulas",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there are no compact open subgroups of a p-adic group in either tree to decompose."
+      },
+      {
+       "target": "Rank-one and nonsplit examples showing the split simply connected formula is not universal",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions",
+       "note": "Layer 9 there states the Cartan and Iwasawa decompositions and KAK, but for a real reductive Lie group with maximal compact K and a Cartan involution; it is the archimedean counterpart, not the same theorem, and it shares no statement with the p-adic case beyond the name."
+      },
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.4",
+       "note": "SR.4 (Satake) consumes exactly the Cartan decomposition and the compact-open double coset finiteness this layer proves."
+      }
+     ]
+    },
+    "ReductiveGroupsPartII:RG2.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The dual root datum of the root datum of G",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "RootPairing.flip",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/RootSystem/Defs.lean",
+         "line": 127,
+         "fit": "more general"
+        },
+        {
+         "name": "RootPairing.flipEquiv",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/RootSystem/Defs.lean",
+         "line": 142,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.DynkinType.dual",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/Duality.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "RootPairing.Base.cartanMatrix_flip",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/Flip.lean",
+         "line": 72,
+         "fit": "related"
+        }
+       ],
+       "note": "Interchanging roots and coroots is Mathlib's RootPairing.flip, over any commutative ring and for any root pairing; Tau Ceti computes the induced permutation of Dynkin types (B_n ↔ C_n) with the node relabelling for F₄ and G₂. This is the combinatorial input of the layer, already present in more generality than asked."
+      },
+      {
+       "target": "A pinned split group scheme over ℤ realising the dual root datum",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.kostantRootSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/Kostant/RootSubgroup/Scheme/Basic.lean",
+         "line": 102,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti is building the Chevalley–Demazure machinery (Kostant ℤ-form root subgroup schemes with base change and a toral closure), which is the intended route to a split group scheme over ℤ, but no existence theorem 'for every root datum there is a pinned split reductive ℤ-group' is proved, and no dual group is constructed from a datum."
+      },
+      {
+       "target": "The continuous finite-image action on the pinning induced by the E-form of G",
+       "library": "absent",
+       "declarations": [],
+       "note": "'pinning'/'pinned' as a group-theoretic datum has no declaration in either tree (the only matches are Geck-construction diagram symmetries and English prose)."
+      },
+      {
+       "target": "The semidirect L-group with projection and action law, change-of-pinning equivalence, Levi inclusions",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "SemidirectProduct",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/SemidirectProduct.lean",
+         "line": 46,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the abstract semidirect product is available; there is no L-group, no Langlands dual, and no Levi inclusion of dual groups."
+      },
+      {
+       "target": "Compatibility with products, central isogenies, restriction of scalars and the split torus/GL_n examples",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.GroupScheme.IsIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/GroupScheme/CentralIsogeny/Basic.lean",
+         "line": 161,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.RootPairingIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/Isogeny/Basic.lean",
+         "line": 105,
+         "fit": "related"
+        }
+       ],
+       "note": "Central isogenies of group schemes exist in Tau Ceti and root-datum isogenies exist in TauCeti/LinearAlgebra/RootSystem/Isogeny, so the source side of these compatibilities is present; the dual-side statements are not, and restriction of scalars does not exist at all (see RG2.0a)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+       "note": "GS4 reconstructs the dual group Tannakianly and then identifies it with 'the pinned dual', so it uses this layer's pinned dual group over ℤ and its Weil action as the comparison target."
+      },
+      {
+       "layer": "LanglandsParameterStacks:LP0",
+       "note": "LP0 constructs sections of the L-group projection and twisted conjugation, taking the L-group and its projection from RG2.5."
+      }
+     ]
+    }
+   }
+  },
+  "SmoothRepresentationsOfLocalGroups": {
+   "summary": "Tau Ceti already has the smoothness definition and the discrete/smooth dictionary that SR.0 starts from — TauCeti.IsSmoothDiscrete (open point stabilisers on a discrete module) for an arbitrary topological group, its equivalence with joint continuity, and an equivalence of categories with discrete G-modules — and both libraries have a sorry-free integral double-coset Hecke ring over an arbitrary coefficient semiring (Mathlib's HeckeRing/Defs.lean plus Tau Ceti's Multiplication/Associativity/Commutativity/Degree files), which is the integral-double-coset half of SR.1. Mathlib supplies further raw material: Haar measure and the modular character of a locally compact group, LocallyConstant functions, abstract induction with its adjunction, the invariants submodule, and Jacobson density / the double centralizer theorem. Everything specific to p-adic groups is missing: there is no convolution algebra of compactly supported locally constant functions, no idempotents e_U, no module-category equivalence, no smooth or compact induction, no Jacquet functor, no second adjointness, no admissibility or uniform admissibility, no Bernstein decomposition or centre, no Satake transform (the string `Satake` does not occur in either tree), and no Bernstein–Zelevinsky derivatives or Whittaker functionals. The abelian structure on the smooth subcategory, the smooth-vectors functor, and the exhaustion V = ⋃_U V^U for locally profinite G are also still missing, the last existing only in the profinite special case.",
+   "layers": {
+    "SmoothRepresentationsOfLocalGroups:SR.0": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Definition of a smooth representation: an algebraic action in which every vector has open stabiliser",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsSmoothDiscrete",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 254,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.SmoothDiscreteTopRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 537,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.not_isSmoothDiscrete_ofDiscreteModule_units_zmod",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 733,
+         "fit": "related"
+        }
+       ],
+       "note": "TauCeti.IsSmoothDiscrete says exactly that the underlying module is discrete and every point stabiliser {g | ρ g x = x} is open, for an arbitrary topological group G (variables at SmoothDiscrete.lean:319–320 need only [Group G] [TopologicalSpace G] [IsTopologicalGroup G]), so it is not restricted to profinite G. It is packaged as a property of objects of Mathlib's TopRep R G rather than of a bare Representation R G V; the file is sorry-free."
+      },
+      {
+       "target": "Closure of smooth representations under subobjects, quotients, sums and filtered colimits; kernels, cokernels, and the abelian category structure",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Rep",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Rep/Basic.lean",
+         "line": 30,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Abelian",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Abelian/Basic.lean",
+         "line": 112,
+         "fit": "related"
+        }
+       ],
+       "note": "The full representation category Rep k G is abelian in Mathlib (anonymous instance at Mathlib/RepresentationTheory/Rep/Basic.lean:567, `Abelian (Rep k G) := abelianOfEquivalence (RepToAction k G)`), but nothing gives the smooth subcategory kernels, cokernels or an abelian structure: TauCeti.SmoothDiscreteTopRep is only an ObjectProperty.FullSubcategory, and grep for `Abelian` across TauCeti/RepresentationTheory/Homological/ContCohomology returns nothing."
+      },
+      {
+       "target": "Smooth vectors of an arbitrary representation, and the adjunction with the inclusion of the smooth category",
+       "library": "absent",
+       "declarations": [],
+       "note": "No smoothing functor V ↦ V^∞ = ⋃_U V^U exists; grep -rn for `smoothVectors`/`smoothPart` over both trees returns nothing, and the only occurrences of `open stabilizer` are in docstrings of Galois-lattice and character-lattice files."
+      },
+      {
+       "target": "For a discrete module, smoothness is equivalent to joint continuity of the action map G × V → V",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.isSmoothDiscrete_iff_continuousSMul",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 324,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isSmoothDiscrete_iff_discreteTopology_and_isContinuous",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 345,
+         "fit": "related"
+        }
+       ],
+       "note": "isSmoothDiscrete_iff_continuousSMul is precisely this equivalence, for any topological group; the companion lemma identifies the predicate with Mathlib's Action.IsContinuous plus discreteness, so it is the same notion as DiscreteContAction, not a second one. Proved without sorry."
+      },
+      {
+       "target": "U-invariants as a submodule, with functoriality, restriction and the union description V = ⋃_U V^U over compact open U",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Representation.invariants",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Invariants.lean",
+         "line": 74,
+         "fit": "more general"
+        },
+        {
+         "name": "Representation.le_comap_invariants",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Invariants.lean",
+         "line": 151,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.iSup_fixedPoints_openNormal_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Discrete.lean",
+         "line": 180,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.directed_fixedPoints_addSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Invariants.lean",
+         "line": 125,
+         "fit": "related"
+        }
+       ],
+       "note": "The invariants submodule and its comap functoriality are Mathlib's; the exhaustion ⨆_U M^U = ⊤ is proved in Tau Ceti but only for G compact and totally disconnected (the section hypotheses at Discrete.lean:173–177 are [CompactSpace G] [TotallyDisconnectedSpace G]), i.e. for profinite G and open normal U, not for a locally profinite group and arbitrary compact open U."
+      },
+      {
+       "target": "Admissibility: finite generation of V^U for every compact open U, with stronger finiteness conditions separated",
+       "library": "absent",
+       "declarations": [],
+       "note": "No admissibility predicate for smooth representations exists in either tree; `admissible` matches nothing in declarations.tsv outside p-adic-Hodge `IsAdmissible`-style names, which are a different notion."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+       "note": "R16.1 specialises this smooth-representation category, its Haar measures and its finite-level function spaces to GL₂ and explicitly names SR.0 as the sole owner of the generic definitions."
+      },
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES0",
+       "note": "ES0 builds the algebra of natural endomorphisms of the identity on 'SR.0's category', so it imports rather than restates the abelian carrier."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+       "note": "That layer states the same targets for profinite G: the definition IsSmoothDiscrete, its equivalence with continuity of the action, closure under products/subobjects/quotients/restriction, and the equivalence with discrete G-modules. Tau Ceti has discharged the definition, the equivalence and restriction, but not the other closure properties; SR.0 is the extension of the same dictionary to locally profinite groups."
+      },
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+       "note": "The unqualified SR.0 export is by construction the same text as SR.0:abelian-category; the two stage ids carry identical target lists."
+      }
+     ]
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Definition of a smooth representation: an algebraic action in which every vector has open stabiliser",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsSmoothDiscrete",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 254,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.SmoothDiscreteTopRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 537,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.not_isSmoothDiscrete_ofDiscreteModule_units_zmod",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 733,
+         "fit": "related"
+        }
+       ],
+       "note": "TauCeti.IsSmoothDiscrete says exactly that the underlying module is discrete and every point stabiliser {g | ρ g x = x} is open, for an arbitrary topological group G (variables at SmoothDiscrete.lean:319–320 need only [Group G] [TopologicalSpace G] [IsTopologicalGroup G]), so it is not restricted to profinite G. It is packaged as a property of objects of Mathlib's TopRep R G rather than of a bare Representation R G V; the file is sorry-free."
+      },
+      {
+       "target": "Closure of smooth representations under subobjects, quotients, sums and filtered colimits; kernels, cokernels, and the abelian category structure",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Rep",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Rep/Basic.lean",
+         "line": 30,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Abelian",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Abelian/Basic.lean",
+         "line": 112,
+         "fit": "related"
+        }
+       ],
+       "note": "The full representation category Rep k G is abelian in Mathlib (anonymous instance at Mathlib/RepresentationTheory/Rep/Basic.lean:567, `Abelian (Rep k G) := abelianOfEquivalence (RepToAction k G)`), but nothing gives the smooth subcategory kernels, cokernels or an abelian structure: TauCeti.SmoothDiscreteTopRep is only an ObjectProperty.FullSubcategory, and grep for `Abelian` across TauCeti/RepresentationTheory/Homological/ContCohomology returns nothing."
+      },
+      {
+       "target": "Smooth vectors of an arbitrary representation, and the adjunction with the inclusion of the smooth category",
+       "library": "absent",
+       "declarations": [],
+       "note": "No smoothing functor V ↦ V^∞ = ⋃_U V^U exists; grep -rn for `smoothVectors`/`smoothPart` over both trees returns nothing, and the only occurrences of `open stabilizer` are in docstrings of Galois-lattice and character-lattice files."
+      },
+      {
+       "target": "For a discrete module, smoothness is equivalent to joint continuity of the action map G × V → V",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.isSmoothDiscrete_iff_continuousSMul",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 324,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isSmoothDiscrete_iff_discreteTopology_and_isContinuous",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+         "line": 345,
+         "fit": "related"
+        }
+       ],
+       "note": "isSmoothDiscrete_iff_continuousSMul is precisely this equivalence, for any topological group; the companion lemma identifies the predicate with Mathlib's Action.IsContinuous plus discreteness, so it is the same notion as DiscreteContAction, not a second one. Proved without sorry."
+      },
+      {
+       "target": "U-invariants as a submodule, with functoriality, restriction and the union description V = ⋃_U V^U over compact open U",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Representation.invariants",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Invariants.lean",
+         "line": 74,
+         "fit": "more general"
+        },
+        {
+         "name": "Representation.le_comap_invariants",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Invariants.lean",
+         "line": 151,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.iSup_fixedPoints_openNormal_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Discrete.lean",
+         "line": 180,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.directed_fixedPoints_addSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Homological/ContCohomology/Invariants.lean",
+         "line": 125,
+         "fit": "related"
+        }
+       ],
+       "note": "The invariants submodule and its comap functoriality are Mathlib's; the exhaustion ⨆_U M^U = ⊤ is proved in Tau Ceti but only for G compact and totally disconnected (the section hypotheses at Discrete.lean:173–177 are [CompactSpace G] [TotallyDisconnectedSpace G]), i.e. for profinite G and open normal U, not for a locally profinite group and arbitrary compact open U."
+      },
+      {
+       "target": "Admissibility: finite generation of V^U for every compact open U, with stronger finiteness conditions separated",
+       "library": "absent",
+       "declarations": [],
+       "note": "No admissibility predicate for smooth representations exists in either tree; `admissible` matches nothing in declarations.tsv outside p-adic-Hodge `IsAdmissible`-style names, which are a different notion."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+       "note": "R16.1 specialises this smooth-representation category, its Haar measures and its finite-level function spaces to GL₂ and explicitly names SR.0 as the sole owner of the generic definitions."
+      },
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES0",
+       "note": "ES0 builds the algebra of natural endomorphisms of the identity on 'SR.0's category', so it imports rather than restates the abelian carrier."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+       "note": "That layer states the same targets for profinite G: the definition IsSmoothDiscrete, its equivalence with continuity of the action, closure under products/subobjects/quotients/restriction, and the equivalence with discrete G-modules. Tau Ceti has discharged the definition, the equivalence and restriction, but not the other closure properties; SR.0 is the extension of the same dictionary to locally profinite groups."
+      },
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.0",
+       "note": "Same description: SR.0 unqualified is defined in the roadmap to mean this early abelian-category construction."
+      }
+     ]
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The enhanced derived category of the abelian category of smooth representations, built on EnhancedDerivedSheaves:E1",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "DerivedCategory",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+         "line": 87,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Pretriangulated",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean",
+         "line": 65,
+         "fit": "related"
+        },
+        {
+         "name": "HomotopyCategory",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Homology/HomotopyCategory.lean",
+         "line": 46,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the derived category of an abelian category together with the triangulated machinery, so the generic construction exists; but the abelian category of smooth representations that it would be applied to does not (see SR.0), and no dg/∞-enhancement of the kind EnhancedDerivedSheaves:E1 is meant to supply is present in either tree."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.0",
+       "note": "Shares the section text; this stage is the late derived enhancement of the same carrier."
+      },
+      {
+       "layer": "VStackSheavesAndLisseCategories:VS4",
+       "note": "VS4 consumes the enhanced smooth category and so needs the same enhancement."
+      }
+     ]
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.1": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Compactly supported locally constant A-valued functions on G, and their convolution using finite sums over open cosets with A-valued volumes",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LocallyConstant",
+         "library": "mathlib",
+         "file": "Mathlib/Topology/LocallyConstant/Basic.lean",
+         "line": 203,
+         "fit": "related"
+        },
+        {
+         "name": "MeasureTheory.Measure.haarMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Haar/Basic.lean",
+         "line": 521,
+         "fit": "related"
+        }
+       ],
+       "note": "LocallyConstant functions and Haar measure on a locally compact group are both in Mathlib, but there is no compactly supported locally constant function space and no convolution product on it; grep for a convolution algebra turns up only coalgebra convolution and L²-convolution on a compact group (TauCeti/RepresentationTheory/Compact/Convolution.lean)."
+      },
+      {
+       "target": "Associativity, support bounds, the opposite involution and independence of subdivisions for the convolution",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HeckeCosetModule.mul",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/Multiplication.lean",
+         "line": 95,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeCosetModule.mul_assoc",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/Associativity.lean",
+         "line": 457,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeCosetModule.instRingHeckeRing",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/Associativity.lean",
+         "line": 485,
+         "fit": "related"
+        }
+       ],
+       "note": "Associativity of the double-coset convolution, and the ring structure on the Hecke ring 𝕋 Δ H R over an arbitrary semiring, are proved sorry-free in Tau Ceti; what is missing is the same statement for the function-space model with measure-valued volumes, and the opposite involution."
+      },
+      {
+       "target": "Normalized idempotents e_U, defined exactly when the volume/index denominators are units in A",
+       "library": "absent",
+       "declarations": [],
+       "note": "No idempotent attached to a compact open subgroup exists in either tree; the Hecke-ring development has a unit (HeckeRing/One.lean) but no e_U with vol(U)⁻¹."
+      },
+      {
+       "target": "Equivalence between smooth representations and nondegenerate modules over the locally unital Hecke algebra, under a cofinal family of compact opens of invertible pro-order",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no locally unital algebra, no nondegenerate-module notion for one, and no such equivalence."
+      },
+      {
+       "target": "Identification of e_U corners with U-biinvariant Hecke algebras",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "HeckeCosetModule",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
+         "line": 183,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
+         "line": 189,
+         "fit": "related"
+        }
+       ],
+       "note": "The biinvariant objects themselves exist — HeckeCosetModule Δ H₁ H₂ Z is the module of H₁-H₂-double cosets and 𝕋 Δ H Z its diagonal ring — but nothing identifies them as corners e_U H e_U of an ambient algebra, since that algebra does not exist."
+      },
+      {
+       "target": "Integral double-coset operators built from finite correspondences, where averaging is unavailable",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "IsHeckeTriple",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
+         "line": 75,
+         "fit": "more general"
+        },
+        {
+         "name": "HeckeCoset",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
+         "line": 157,
+         "fit": "more general"
+        },
+        {
+         "name": "HeckeCosetModule.structureConstants",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/Multiplication.lean",
+         "line": 56,
+         "fit": "more general"
+        },
+        {
+         "name": "HeckeCosetModule.single_mul_single",
+         "library": "tauceti",
+         "file": "TauCeti/NumberTheory/HeckeRing/Multiplication.lean",
+         "line": 124,
+         "fit": "more general"
+        }
+       ],
+       "note": "Mathlib defines the Hecke triple (commensurability plus Δ ≤ commensurator H₂, so double cosets are finite unions of left cosets) and the double-coset module over any coefficient ring; Tau Ceti defines the product by Shimura's multiplicities [D₁][D₂] = Σ m(D₁,D₂;D)[D] over an arbitrary semiring R and proves associativity and the ring instance, with no averaging or invertibility hypothesis. That is exactly the integral double-coset operator algebra this target asks for, in greater generality than 'compact open in a p-adic group'. All three files are sorry-free."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+       "note": "That layer owns the classical double-coset Hecke algebra for GL₂ Hecke pairs, which is the construction already in the libraries and the one SR.1 says it will follow rather than duplicate."
+      },
+      {
+       "layer": "IntegralHeckeAndGaloisDeterminants:IHG.2",
+       "note": "IHG.2 constructs Hecke algebras acting on complexes; it uses the same double-coset operators over a coefficient ring."
+      },
+      {
+       "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+       "note": "R16.1 says the generic convolution algebra has SR.1 as its sole owner and only specialises it to GL₂."
+      }
+     ]
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.2": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Smooth induction from a closed subgroup, and compact induction with support compact modulo the subgroup",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Representation.ind",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Induced.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "Rep.coinvariantsFunctor",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Coinvariants.lean",
+         "line": 349,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib induces along a group homomorphism as (k[H] ⊗ A)_G with no topology anywhere; there is no smoothness or support condition, so neither smooth nor compact induction is available."
+      },
+      {
+       "target": "Frobenius reciprocity with the correct adjoint direction and hypotheses",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Rep.indResAdjunction",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Induced.lean",
+         "line": 155,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.frobenius_reciprocity",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Induction/FrobeniusReciprocity.lean",
+         "line": 151,
+         "fit": "related"
+        }
+       ],
+       "note": "The ind ⊣ res adjunction holds in Mathlib for abstract groups and Tau Ceti has the finite-group character form; neither is the smooth statement, where the adjoint direction depends on whether induction is smooth or compact."
+      },
+      {
+       "target": "Induction in stages and Mackey filtrations",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Rep.indFunctorCompIso",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Induction/Transitivity.lean",
+         "line": 213,
+         "fit": "related"
+        },
+        {
+         "name": "Rep.mackeyDirectSumFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Induction/Mackey/Decomposition.lean",
+         "line": 154,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has transitivity of induction and the Mackey decomposition for finite-index/finite-group situations; the smooth Mackey filtration by double cosets in a locally profinite group, with its topological convergence issues, is absent."
+      },
+      {
+       "target": "For P = MN, unnormalized induction and N-coinvariants (the unnormalized Jacquet functor)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Rep.coinvariantsFunctor",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Coinvariants.lean",
+         "line": 349,
+         "fit": "related"
+        }
+       ],
+       "note": "Coinvariants of a representation exist as a functor in Mathlib, but with no smoothness and no unipotent radical of a parabolic to take them along."
+      },
+      {
+       "target": "Normalized induction and Jacquet functors using a specified square root of the modulus character",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MeasureTheory.Measure.modularCharacter",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Group/ModularCharacter.lean",
+         "line": 130,
+         "fit": "related"
+        },
+        {
+         "name": "MeasureTheory.Measure.map_right_mul_eq_modularCharacterFun_smul",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Group/ModularCharacter.lean",
+         "line": 93,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has the modular character of a locally compact group as a homomorphism G →* ℝ≥0, independent of the Haar measure chosen, which is the δ_P this target normalizes by; the square root, the normalized functors and their properties are absent."
+      },
+      {
+       "target": "Exactness of the Jacquet functor in the valid coefficient regime, compatibility with duals for admissible representations, and the geometric lemma with double-coset indexing",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; grep for `Jacquet` over both trees returns nothing, and there is no admissibility notion to state the duality compatibility against."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+       "note": "R16.2 imports induction, admissibility, contragredients, Satake, derivatives and Whittaker functors from SR.2–SR.5 and specialises them to GL₂."
+      },
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES7:parabolic",
+       "note": "ES7:parabolic needs the dictionary between unnormalized parabolic induction and SR.1–SR.2's normalized induction, including the square-root modulus twist."
+      },
+      {
+       "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+       "note": "ET.6 develops segment/Langlands-quotient theory for GL_m from the same induction functors."
+      }
+     ]
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.2a": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Unit and counit of the second adjunction i_P ⊣ r_{opposite P} for complex smooth representations of a p-adic reductive group",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: neither i_P nor r_P exists (see SR.2), so no adjunction between them can be stated."
+      },
+      {
+       "target": "Stabilization for sufficiently contracting elements and the canonical pairing",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no contracting-element or Jacquet-module stabilization statement in either tree."
+      },
+      {
+       "target": "Both triangle identities with the opposite parabolic and square-root normalization explicit",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Adjunction",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Adjunction/Basic.lean",
+         "line": 108,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the general notion of an adjunction with its triangle identities exists."
+      },
+      {
+       "target": "The natural Hom isomorphism and compatibility with admissible contragredients",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; smooth contragredients and admissibility are themselves missing."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.6",
+       "note": "SR.6 proves second adjointness again over every Z[1/p]-algebra following Dat–Helm–Kurinczuk–Moss Corollary 1.3; SR.2a is the separate characteristic-zero Bernstein route, deliberately kept independent."
+      }
+     ]
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.3": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Finite-dimensionality of V^U for irreducible smooth complex representations of G(E) (admissibility of irreducibles)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no admissibility notion and no irreducible smooth representation theory for p-adic groups exists."
+      },
+      {
+       "target": "Finite length of parabolic induction of finite-length admissibles",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Simple",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Simple.lean",
+         "line": 54,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; only generic finite-length/Jordan–Hölder machinery for abelian categories exists in Mathlib."
+      },
+      {
+       "target": "Smooth contragredient duality",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; Mathlib's Rep dual is the full linear dual with no smoothness condition."
+      },
+      {
+       "target": "Matrix-coefficient criteria for supercuspidality and temperedness",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ContRepresentation.matrixCoeff",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/MatrixCoefficient.lean",
+         "line": 73,
+         "fit": "related"
+        }
+       ],
+       "note": "Matrix coefficients of continuous representations exist in Tau Ceti (for the compact-group Peter–Weyl development); `supercuspidal` and `tempered` have no hits in either tree."
+      },
+      {
+       "target": "Subquotient description by supercuspidal support",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The Bernstein decomposition and the Bernstein centre as natural endomorphisms of the identity, with its action on every object",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CategoryTheory.Functor.id",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Functor/Basic.lean",
+         "line": 82,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; only the generic identity functor and natural transformations exist, not the centre of a smooth representation category."
+      },
+      {
+       "target": "Invariance under inner isomorphisms and compatibility with products",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES0:classical-center",
+       "note": "ES0:classical-center compares the degree-zero centre of the enhanced category with SR.3's classical Bernstein-block description; the Bernstein centre is stated in both, with SR.3 as the owner."
+      },
+      {
+       "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+       "note": "R16.2 specialises admissibility, contragredients and the principal-series/supercuspidal classification to GL₂."
+      },
+      {
+       "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+       "note": "ET.6 develops supercuspidal/type and segment theory for GL_m, overlapping SR.3's supercuspidal support."
+      }
+     ]
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.3a": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "A bound B(G,U) with dim_C V^U ≤ B(G,U) for every irreducible smooth complex V, uniform in V",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; uniform admissibility is not stated anywhere in either tree."
+      },
+      {
+       "target": "Hecke-algebra decomposition and quantitative bounds for finitely generated commutative subalgebras",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Burnside's theorem applied to obtain uniform admissibility",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Module.Finite.toModuleEnd_moduleEnd_surjective",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/SimpleModule/Basic.lean",
+         "line": 572,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.toModuleEnd_moduleEnd_bijective",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Semisimple/DoubleCentralizer.lean",
+         "line": 116,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.algEquivEndEndOfIsSimpleRing",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Semisimple/DoubleCentralizer.lean",
+         "line": 227,
+         "fit": "related"
+        }
+       ],
+       "note": "The Jacobson density theorem is in Mathlib and Tau Ceti sharpens it to the double centralizer bijection, which is the Burnside-type input; the application to Hecke modules and the resulting bound is absent."
+      },
+      {
+       "target": "Finite-type block/corner algebras, the finite collection of inertial supports visible at U, the central algebra action and coefficient specialization",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; inertial support does not exist."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.3",
+       "note": "SR.3 states admissibility of irreducibles and the Bernstein centre; SR.3a is the earlier, uniform-in-V strengthening that must not use SR.3's centre."
+      },
+      {
+       "layer": "AutomorphicSpectralTheory:AS.4",
+       "note": "AS.4 consumes the uniform bound at fixed group and level for spectral finiteness."
+      }
+     ]
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.4": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The Satake transform for unramified G and a hyperspecial K",
+       "library": "absent",
+       "declarations": [],
+       "note": "The string `Satake` occurs nowhere in either library; grep -rn over TauCeti/ and Mathlib/ returns no hit. Hyperspecial subgroups are themselves missing (see ReductiveGroupsPartII RG2.3)."
+      },
+      {
+       "target": "Isomorphism of the spherical Hecke algebra with the Weyl-invariant algebra on the dual torus, retaining the relative Weyl group and Frobenius action",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "RootPairing.weylGroup",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/RootSystem/WeylGroup.lean",
+         "line": 56,
+         "fit": "related"
+        },
+        {
+         "name": "HeckeRing",
+         "library": "mathlib",
+         "file": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
+         "line": 189,
+         "fit": "related"
+        }
+       ],
+       "note": "Both sides of the isomorphism have partial ingredients (the abstract double-coset Hecke ring, and Weyl groups of root pairings) but neither the spherical algebra of a p-adic group nor the invariant algebra of the dual torus is constructed, and no transform between them exists."
+      },
+      {
+       "target": "Coefficients and q-half normalization; the integral unnormalized form recorded separately",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Identification of Hecke eigencharacters with unramified semisimple parameters",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Explicit verification for split tori and GL_n, and the normalization dictionary",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+       "note": "IHG.3 fixes the GL_n unramified Hecke polynomial P_v(X) = Σ (−1)^i q^{i(i−1)/2} T_{v,i} X^{n−i} and relates it to 'the chosen normalized Satake transform', so it consumes SR.4's normalization dictionary and states the GL_n case of the same transform."
+      },
+      {
+       "layer": "AutomorphicLFunctionsAndLocalFactors:AL.4",
+       "note": "AL.4 defines the Euler polynomial from the Satake semisimple conjugacy class for a representation of the L-group; it needs SR.4's eigencharacter/parameter identification."
+      },
+      {
+       "layer": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison",
+       "note": "GS4's classical comparison is explicitly a downstream comparison with this classical Satake construction, not an input to it."
+      }
+     ]
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.5": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Bernstein–Zelevinsky derivatives and top derivatives for GL_n over ℓ≠p coefficient rings",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `Bernstein-Zelevinsky` and `derivative` in this sense have no hits in either tree."
+      },
+      {
+       "target": "Whittaker functionals, their base change and exactness statements",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; the only `Whittaker` in either library is the Whittaker–Watson bibliography entry in Mathlib/MeasureTheory/Integral/IntervalIntegral/MeanValue.lean."
+      },
+      {
+       "target": "Co-Whittaker modules with finite-generation/admissibility and fibrewise genericity, and their uniqueness/dominance relations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Integral Bernstein-centre action on co-Whittaker modules",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Compactly induced generic projectives on blocks and the comparison used for interpolation in families",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+       "note": "R16.2 imports derivatives and Whittaker functors from SR.5 and specialises them to GL₂, where it also proves the conductor/newvector theorem."
+      },
+      {
+       "layer": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+       "note": "AL.3's Rankin–Selberg local factors use the same Whittaker models."
+      }
+     ]
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.6": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Finite generation of the Hecke algebras over a finitely generated centre for noetherian Z_ℓ-algebras, ℓ≠p (DHKM Theorems 1.1–1.2)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; the smooth Hecke algebras themselves do not exist (see SR.1)."
+      },
+      {
+       "target": "Second adjointness over every Z[1/p]-algebra with the δ_P-twisted right adjoint (DHKM Corollary 1.3)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; see SR.2a."
+      },
+      {
+       "target": "Integral finite-wild cocycle schemes for a pinned dual group over Z[1/p] with finite Weil action, and comparison with LP.1's Z_ℓ models",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no dual group, no Weil group action on one and no cocycle scheme in either tree."
+      },
+      {
+       "target": "DHKM Theorem 1.7: evaluation at a Frobenius lift gives a finite morphism of invariant quotients",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "DHKM Corollary 1.8: finiteness of the coarse-quotient map and of the map of reduced excursion algebras for a Weil-stable closed reductive subgroup",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; excursion algebras do not exist."
+      },
+      {
+       "target": "Frobenius integrality and invariant-quotient arguments (§2) and the passage to the centre (§3), with reduction and the embedding of the integral centre into its characteristic-zero counterpart",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "MulAction.fixedPoints",
+         "library": "mathlib",
+         "file": "Mathlib/GroupTheory/GroupAction/Defs.lean",
+         "line": 116,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; only generic invariant-theory notions exist, and there is no geometric invariant quotient of a reductive group acting on a cocycle scheme."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "SmoothRepresentationsOfLocalGroups:SR.2a",
+       "note": "SR.2a proves second adjointness over ℂ by Bernstein's route; SR.6 reproves it over Z[1/p]-algebras following DHKM, so the two state overlapping theorems with different coefficients and proofs."
+      },
+      {
+       "layer": "LanglandsParameterStacks:LP1",
+       "note": "LP1 owns the Z_ℓ parameter models that SR.6's integral cocycle schemes are compared with."
+      },
+      {
+       "layer": "ExcursionOperatorsAndSpectralAction:ES1",
+       "note": "ES1's spectral centre and finite ramification are the excursion-side statements SR.6's Corollary 1.8 is about."
+      }
+     ]
+    }
+   }
+  }
+ }
+}
