@@ -1,0 +1,212 @@
+{
+  "family": "RS-01",
+  "roadmaps": {
+    "AInfCohomology": {
+      "action": "keep",
+      "reason": "Keep the independent integral AΩ construction, BKF linear algebra, geometric specializations and semistable/Kisin applications. The generic §4.2 supplier lemmas currently recorded in CP.5 are owned here at AI.5, without moving the separate AI.2 classification. All ten stage identities and the early integral/rational comparison split remain."
+    },
+    "CohomologyComparisons": {
+      "action": "keep",
+      "reason": "Keep a comparison-and-compatibility roadmap, not a second construction of its inputs. Narrow CP.0 and CP.5 only as specified; retain all seven stages and all actual geometric, filtered, semistable, integral and multiplicative comparison proofs. Add the missing CP.3 input for the late filtered part of CP.2."
+    },
+    "CrystallineCohomology": {
+      "action": "keep",
+      "reason": "Keep PD envelopes, crystalline/log-crystalline sites, ordinary and relative de Rham–Witt, Hyodo–Kato theory, finiteness and source-qualified duality. Derived/prismatic constructions have different universal properties; their comparisons cannot replace this roadmap. All eleven stages remain."
+    },
+    "DerivedDeRhamCohomology": {
+      "action": "keep",
+      "reason": "Keep the full cotangent/derived-power, derived-completion, derived-de-Rham, Cartier and quasisyntomic foundations, including the log extension. Ordinary two-term library algebra is reused, not mistaken for the full derived theory. All seven stages remain."
+    },
+    "PadicHodgeTheory": {
+      "action": "keep",
+      "reason": "Keep period rings, period functors/admissibility, monodromy and analytic foundations, early relative period sheaves and later geometric/arithmetic applications. Import the CP comparison maps, without feeding those later theorems into their early sheaf constructions. All ten stages remain."
+    },
+    "PerfectoidQuotients": {
+      "action": "keep",
+      "reason": "Keep the independent integral prefix and the closed-perfectoid-quotient application. Q0’s prism suffix and Q1 explicitly import PR.0/PR.1, while Q2–Q4 retain universal perfectoidization, stronger Andre flatness and actual surjectivity. No late prismatic comparison or v-descent is added to the early proof route. All seven stages remain."
+    },
+    "PrismaticCohomology": {
+      "action": "keep",
+      "reason": "Keep actual delta/prism algebra, relative and derived prismatic theories, Nygaard/twists, etale/absolute/q-crystalline/F-crystal/log variants and their source-qualified comparisons. Theories with equivalent realizations are not duplicate constructions. All nine stages and the independent early quotient route remain."
+    }
+  },
+  "layers": {
+    "AInfCohomology:AI.0:integral": {
+      "action": "keep",
+      "reason": "Own the O_C-specialized integral coefficient structures and their structural proofs, using the generic Q0:integral-algebra/library carriers and the CR.0 PD envelope. Do not reconstruct rational period rings here or give this early stage its late period-comparison return as an input."
+    },
+    "AInfCohomology:AI.0:period-comparison": {
+      "action": "keep",
+      "reason": "Own the comparison between the integral coefficient presentations and the supplied arithmetic/rational period-ring presentations, including the specified normalization identifications. R06.1 supplies actual rational ring constructions and its period-ring-level arithmetic-model comparison. This later stage compares those imported maps with the specified integral theta/PD/twist structures; it does not reprove R06.1’s arithmetic-model theorem. CP.0 imports this compatibility but retains its geometric and cohomological diagrams."
+    },
+    "AInfCohomology:AI.5": {
+      "action": "keep",
+      "reason": "Own the perfect proper A_inf-cohomology object, its BKF structure and the generic BMS §4.2 torsion/specialization/finiteness/freeness and adjacent-degree base-change package. Preserve the exact hypotheses of the reviewed CP.5 supplier nodes when assigning their construction ownership here. AI.2 continues to own its separate finite-free BKF/Fargues classification; CP.5 owns the geometric applications."
+    },
+    "CrystallineCohomology:CR.0": {
+      "action": "keep",
+      "reason": "Own ordinary PD envelopes and the shared completed A_cris envelope and its canonical PD coefficient maps; import generic divided-power carriers and DD.1 completion, preserving ordinary-versus-derived hypotheses. Derived de Rham and prismatic comparisons remain separate later theorems."
+    },
+    "PadicHodgeTheory:R06.1": {
+      "action": "keep",
+      "reason": "Own rational period rings, filtration/monodromy/Galois structures, their canonical structure maps and the period-ring-level comparison with the arithmetic construction, built from the shared integral coefficients and PD envelope. Reuse the existing pinned BDeRhamPlus/BDeRham carriers. AI.0:period-comparison subsequently compares these imported maps with its integral theta/PD/twist structures; it is not a second proof of this stage’s arithmetic-model comparison and is not an input of this stage. CP.0 is not an input either."
+    },
+    "CohomologyComparisons:CP.0": {
+      "action": "narrow",
+      "keeps": "Keep the comparison functors for formal schemes, special fibres, generic fibres and their sites; algebraic/formal proper-cohomology comparison, compatible geometric points and the O_C-versus-residue-field base-change comparison. Keep the normalization dictionary as actual identifications among imported maps, with theta/tilde-theta, xi/tilde-xi/mu, Witt reduction, Breuil–Kisin uniformizer and Frobenius/HT-sign conventions visible. Retain the geometric/cohomological commutativity proofs, Tate/Breuil–Kisin/filtration twist comparisons, and compatibility of scalar extension with semilinear linearization. All hypotheses and acceptance cases remain. Import the integral coefficient structures from AI.0:integral, the PD A_cris envelope/maps from CR.0, the rational period-ring structure maps from R06.1, and their coefficient-presentation comparison from AI.0:period-comparison, rather than constructing or proving those four packages again. The normalization dictionary is not an arbitrary package satisfying the desired comparison theorem.",
+      "suppliedBy": [
+        "AInfCohomology:AI.0:integral",
+        "CrystallineCohomology:CR.0",
+        "PadicHodgeTheory:R06.1",
+        "AInfCohomology:AI.0:period-comparison"
+      ],
+      "reason": "The flagged coefficient duplication is construction versus assembly, not grounds to remove CP.0’s geometric targets. Make the existing owner split enforceable and give all three recorded consumers CP.1, CP.2 and CP.3 direct links to each supplier. Preserve existing imports and reviewed dictionary nodes as provenance/import adapters; do not silently delete their hypotheses, proofs, tests or recorded gaps."
+    },
+    "CohomologyComparisons:CP.5": {
+      "action": "narrow",
+      "keeps": "Keep the actual geometric applications: every stated all-n torsion-length inequality, the mod-p dimension comparison, the supported direction of torsion-freeness, and the distinction between one-degree lattice inclusion and recovery requiring the exact additional adjacent-degree hypotheses. Keep the identifications of the actual etale/crystalline/A_inf realizations, integral reconstruction and canonicality claims only in their proved scope, semistable/model restrictions, and normalization comparisons with the R07 Fontaine–Laffaille/Breuil–Kisin objects and the R06.4 interface. Import the generic BMS §4.2 A_inf-module and complex specialization, finiteness/freeness and adjacent-degree base-change lemmas from AI.5 instead of reproving them. Preserve the reviewed source statements, proofs, acceptance examples and gap annotations as supplier records or aliases; retain the separate AI.2 BKF/Fargues classification at its existing owner. Do not upgrade a length inequality to a subquotient theorem, reverse the torsion-freeness implication, or remove degree i+1 from the recovery theorem.",
+      "suppliedBy": [
+        "AInfCohomology:AI.5"
+      ],
+      "reason": "The integrated partial comparison decomposition already labels these generic §4.2 lemmas as AI.5 supplier material pending re-homing. Assign one construction owner without deleting the geometric §14 applications or changing the AI.2 classification. CP.6 is the only recorded consumer of CP.5 and receives the direct replacement AI.5 input."
+    },
+    "CohomologyComparisons:CP.2": {
+      "action": "keep",
+      "reason": "Retain rational crystalline assembly, section-dependent crystalline base change, Galois/Frobenius compatibility and admissibility consequences. Add CP.3 only for the later filtered comparison: the reviewed CP.2 proof explicitly uses the canonical B_dR^+ deformation and comparison agreement from CP.3. There is no reverse CP.2 -> CP.3 link and no claim that an unfiltered B_cris isomorphism alone identifies the Hodge filtration. Preserve the distinction between a fixed residue-field section and a genuinely canonical DVR specialization."
+    }
+  },
+  "links": [
+    {
+      "source": "AInfCohomology:AI.0:integral",
+      "target": "CohomologyComparisons:CP.0",
+      "reason": "Owner input: import integral coefficient structures and normalization primitives. The consumer retains its actual comparison proof and source hypotheses."
+    },
+    {
+      "source": "AInfCohomology:AI.0:integral",
+      "target": "CohomologyComparisons:CP.1",
+      "reason": "Direct replacement for the portion no longer constructed in CP.0: import integral coefficient structures and normalization primitives. The consumer retains its actual comparison proof and source hypotheses."
+    },
+    {
+      "source": "AInfCohomology:AI.0:integral",
+      "target": "CohomologyComparisons:CP.2",
+      "reason": "Direct replacement for the portion no longer constructed in CP.0: import integral coefficient structures and normalization primitives. The consumer retains its actual comparison proof and source hypotheses."
+    },
+    {
+      "source": "AInfCohomology:AI.0:integral",
+      "target": "CohomologyComparisons:CP.3",
+      "reason": "Direct replacement for the portion no longer constructed in CP.0: import integral coefficient structures and normalization primitives. The consumer retains its actual comparison proof and source hypotheses."
+    },
+    {
+      "source": "CrystallineCohomology:CR.0",
+      "target": "CohomologyComparisons:CP.0",
+      "reason": "Owner input: import the PD A_cris envelope and its canonical coefficient maps. The consumer retains its actual comparison proof and source hypotheses."
+    },
+    {
+      "source": "CrystallineCohomology:CR.0",
+      "target": "CohomologyComparisons:CP.1",
+      "reason": "Direct replacement for the portion no longer constructed in CP.0: import the PD A_cris envelope and its canonical coefficient maps. The consumer retains its actual comparison proof and source hypotheses."
+    },
+    {
+      "source": "CrystallineCohomology:CR.0",
+      "target": "CohomologyComparisons:CP.2",
+      "reason": "Direct replacement for the portion no longer constructed in CP.0: import the PD A_cris envelope and its canonical coefficient maps. The consumer retains its actual comparison proof and source hypotheses."
+    },
+    {
+      "source": "CrystallineCohomology:CR.0",
+      "target": "CohomologyComparisons:CP.3",
+      "reason": "Direct replacement for the portion no longer constructed in CP.0: import the PD A_cris envelope and its canonical coefficient maps. The consumer retains its actual comparison proof and source hypotheses."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.1",
+      "target": "CohomologyComparisons:CP.0",
+      "reason": "Owner input: import rational period rings and canonical structure maps. The consumer retains its actual comparison proof and source hypotheses."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.1",
+      "target": "CohomologyComparisons:CP.1",
+      "reason": "Direct replacement for the portion no longer constructed in CP.0: import rational period rings and canonical structure maps. The consumer retains its actual comparison proof and source hypotheses."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.1",
+      "target": "CohomologyComparisons:CP.2",
+      "reason": "Direct replacement for the portion no longer constructed in CP.0: import rational period rings and canonical structure maps. The consumer retains its actual comparison proof and source hypotheses."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.1",
+      "target": "CohomologyComparisons:CP.3",
+      "reason": "Direct replacement for the portion no longer constructed in CP.0: import rational period rings and canonical structure maps. The consumer retains its actual comparison proof and source hypotheses."
+    },
+    {
+      "source": "AInfCohomology:AI.0:period-comparison",
+      "target": "CohomologyComparisons:CP.0",
+      "reason": "Owner input: import the late coefficient-presentation comparison. The consumer retains its actual comparison proof and source hypotheses."
+    },
+    {
+      "source": "AInfCohomology:AI.0:period-comparison",
+      "target": "CohomologyComparisons:CP.1",
+      "reason": "Direct replacement for the portion no longer constructed in CP.0: import the late coefficient-presentation comparison. The consumer retains its actual comparison proof and source hypotheses."
+    },
+    {
+      "source": "AInfCohomology:AI.0:period-comparison",
+      "target": "CohomologyComparisons:CP.2",
+      "reason": "Direct replacement for the portion no longer constructed in CP.0: import the late coefficient-presentation comparison. The consumer retains its actual comparison proof and source hypotheses."
+    },
+    {
+      "source": "AInfCohomology:AI.0:period-comparison",
+      "target": "CohomologyComparisons:CP.3",
+      "reason": "Direct replacement for the portion no longer constructed in CP.0: import the late coefficient-presentation comparison. The consumer retains its actual comparison proof and source hypotheses."
+    },
+    {
+      "source": "AInfCohomology:AI.5",
+      "target": "CohomologyComparisons:CP.5",
+      "reason": "Retain the supplier link for the generic A_inf torsion/specialization and adjacent-degree linear algebra. The geometric application and its exact hypotheses are not supplied merely by naming this link."
+    },
+    {
+      "source": "AInfCohomology:AI.5",
+      "target": "CohomologyComparisons:CP.6",
+      "reason": "Direct replacement input from the unique owner of the generic A_inf torsion/specialization and adjacent-degree linear algebra. The geometric application and its exact hypotheses are not supplied merely by naming this link."
+    },
+    {
+      "source": "CohomologyComparisons:CP.3",
+      "target": "CohomologyComparisons:CP.2",
+      "reason": "New explicit input to the late filtered crystalline comparison: the reviewed CP.2 construction uses CP.3’s canonical B_dR^+ deformation/comparison and its agreement with de Rham realization. Keep the unfiltered crystalline construction distinct; do not add the reverse edge."
+    }
+  ],
+  "owners": [
+    {
+      "target": "The O_C-specialized integral A_inf coefficients, theta/tilde-theta, xi/tilde-xi/mu, Witt reduction and Breuil–Kisin twist structures with their structural proofs; generic perfectoid/Witt carriers remain imported.",
+      "owner": "AInfCohomology:AI.0:integral",
+      "formerly": [
+        "CohomologyComparisons:CP.0"
+      ]
+    },
+    {
+      "target": "The shared PD-envelope construction of A_cris, its source-qualified completion and canonical PD coefficient maps; this is not the derived-de-Rham or prismatic comparison theorem.",
+      "owner": "CrystallineCohomology:CR.0",
+      "formerly": [
+        "CohomologyComparisons:CP.0"
+      ]
+    },
+    {
+      "target": "Rational period-ring constructions, their canonical structure maps, filtration/period-ring structures and period-ring-level arithmetic-model comparison, reusing the existing BDeRhamPlus/BDeRham carriers; this excludes the late comparison between coefficient presentations.",
+      "owner": "PadicHodgeTheory:R06.1",
+      "formerly": [
+        "CohomologyComparisons:CP.0"
+      ]
+    },
+    {
+      "target": "Compatibility of the imported arithmetic/rational period-ring maps with the specified integral theta/PD/twist structures. This is not a second proof of R06.1’s period-ring-level arithmetic-model comparison, not the coefficient constructions themselves and not CP.0’s geometric/cohomological comparison diagrams.",
+      "owner": "AInfCohomology:AI.0:period-comparison",
+      "formerly": [
+        "CohomologyComparisons:CP.0"
+      ]
+    },
+    {
+      "target": "The generic BMS §4.2 A_inf-module/complex specialization, torsion-length, finite-presentation/freeness and adjacent-degree base-change lemmas already tagged AI.5 supplier material in the partial CP decomposition. This excludes AI.2’s separate BKF/Fargues classification and CP.5’s geometric §14 applications.",
+      "owner": "AInfCohomology:AI.5",
+      "formerly": [
+        "CohomologyComparisons:CP.5"
+      ]
+    }
+  ]
+}
