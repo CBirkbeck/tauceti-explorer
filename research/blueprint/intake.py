@@ -2,14 +2,26 @@
 """Take in pull requests from external (browser) workers.
 
   python3 research/blueprint/intake.py list
-  python3 research/blueprint/intake.py merge <pr> [--yes] [--complete]
+  python3 research/blueprint/intake.py merge <pr> [--yes] [--complete] [--auto]
+  python3 research/blueprint/intake.py mark <pr> opened|reopened|closed [merged]
+  python3 research/blueprint/intake.py check-files <path> [...]
 
 A submission is merged only when every changed file lies in a swarm output
 path, contains no local filesystem path, is valid JSON where it is JSON, and
-the pull request's checks have passed (or none apply). After the merge the
-job's issue is released for continuation unless the submitted files say the
-work is complete, in which case the sync completes the job and its review
-follows.
+the pull request's checks have passed (or none apply). With --auto (the "Swarm
+intake" workflow) it must also be a ready pull request from this repository
+for one known, unfinished job, touch only that job's deliverables and handoff
+note, and, for a review, come from a worker who did not do the work under
+review. Anything else is left to the maintainer, with a comment saying why.
+
+After the merge the job is complete when its deliverables on main cover the
+whole job (issues.deliverables_complete); the sync then finishes it and its
+review follows. Otherwise the merge is a checkpoint: the issue is released so
+the next worker continues from the merged files and the handoff note.
+
+`mark` keeps the issue in step with the pull request: opening it marks the job
+submitted, so nobody else claims it while it waits; closing it unmerged makes
+the job available again. `check-files` applies the file rules to a checkout.
 """
 from __future__ import annotations
 
@@ -17,10 +29,21 @@ import json
 import re
 import subprocess
 import sys
+from pathlib import Path
 
-ALLOWED = re.compile(r"^research/(blueprint/(packets|readmes|suggested|restructure|reviews|links|handoff|roadmaps|plans|classify)/[^/]+|expansion/naming/(?:NAME|PLANETS)-\d+\.result\.json)$")
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from issues import STATE_LABELS, deliverables_complete, ready  # noqa: E402
+
+ALLOWED = re.compile(r"^research/(blueprint/(packets|readmes|suggested|restructure|reviews|links|handoff|roadmaps|plans|classify|audit|compare)/[^/]+"
+                     r"|expansion/reviews/[^/]+|expansion/naming/(?:NAME|PLANETS)-\d+\.result\.json)$")
 PRIVATE = re.compile(r"/Users/|/private/|/home/[a-z]+/|mcu22seu")
+TOKEN = re.compile(r"[A-Za-z0-9_.-]+")
+ISSUE = re.compile(r"\b(?:refs|references|closes|fixes|resolves|issue)\s*#(\d+)", re.I)
+CLAIM = re.compile(r"^Claimed for (.+?) by @")
+BOT = "github-actions[bot]"
 REPO = "CBirkbeck/tauceti-explorer"
+ROOT = Path(__file__).resolve().parents[2]
+BP = ROOT / "research" / "blueprint"
 
 
 def gh(*args):
@@ -30,62 +53,154 @@ def gh(*args):
     return result.stdout
 
 
-def inspect(number):
-    data = json.loads(gh("pr", "view", str(number), "--json", "number,title,body,files,headRefName,headRefOid,isDraft,statusCheckRollup,state"))
-    problems = []
-    for item in data["files"]:
-        path = item["path"]
-        if not ALLOWED.match(path):
-            problems.append(f"file outside swarm output paths: {path}")
+def own_files(job):
+    return set(job.get("outputs", [])) | {f"research/blueprint/handoff/{job['id']}.md"}
+
+
+def job_for(files, text, jobs):
+    """The job whose deliverables (or handoff note) the pull request adds; when
+    files are shared (a review edits an audit in place), the job the description
+    names, then one that is ready. Without such files, the job the text names."""
+    by_id = {job["id"]: job for job in jobs}
+    named = [token.rstrip(".-") for token in TOKEN.findall(text or "")]
+    named = [jid for jid in named if jid in by_id]
+    hits = {}
+    for job in jobs:
+        count = sum(1 for path in files if path in own_files(job))
+        if count:
+            hits[job["id"]] = count
+
+    def rank(jid):
+        job = by_id[jid]
+        live = job.get("state") in ("pending", "external")
+        return (hits[jid], jid in named, live and ready(job, by_id), live)
+    if hits:
+        return by_id[max(hits, key=rank)]
+    return by_id[named[0]] if named else None
+
+
+def issue_for(job, mapping, text):
+    if job and job["id"] in mapping:
+        return mapping[job["id"]]
+    found = ISSUE.search(text or "")
+    return int(found.group(1)) if found else None
+
+
+def claimants(comments):
+    """Session ids from the claim bot's replies ("Claimed for <agent> — <session> by @...")."""
+    sessions = set()
+    for comment in comments:
+        if (comment.get("user") or {}).get("login") != BOT:
             continue
-        text = subprocess.run(["gh", "api", f"repos/{REPO}/contents/{path}?ref={data['headRefOid']}", "-H", "Accept: application/vnd.github.raw"],
-                              capture_output=True, text=True).stdout
-        if PRIVATE.search(text):
-            problems.append(f"local path in {path}")
-        if path.endswith(".json"):
-            try:
-                json.loads(text)
-            except json.JSONDecodeError as exc:
-                problems.append(f"invalid JSON in {path}: {exc}")
+        found = CLAIM.match(comment.get("body") or "")
+        if found:
+            sessions.add(found.group(1).split(" — ")[-1].strip())
+    return sessions
+
+
+def auto_refusals(job, files, draft, reviewer_sessions, author_sessions):
+    """Why an automatic merge must leave this pull request to the maintainer."""
+    if job is None:
+        return ["no job found for the submission"]
+    found = []
+    if draft:
+        found.append("the pull request is a draft")
+    if job.get("state") == "done":
+        found.append(f"{job['id']} is already done")
+    elif job.get("state") in ("superseded", "failed"):
+        found.append(f"{job['id']} is {job['state']}")
+    own = own_files(job)
+    found += [f"{path} is not a deliverable of {job['id']}" for path in files if path not in own]
+    if job["kind"] == "review":
+        target = (job.get("after") or ["the work under review"])[0]
+        found += [f"the reviewer {session} also did {target}" for session in sorted(reviewer_sessions & author_sessions)]
+    return found
+
+
+def file_problems(path, text):
+    if not ALLOWED.match(path):
+        return [f"file outside swarm output paths: {path}"]
+    problems = []
+    if PRIVATE.search(text):
+        problems.append(f"local path in {path}")
+    if path.endswith(".json"):
+        try:
+            json.loads(text)
+        except json.JSONDecodeError as exc:
+            problems.append(f"invalid JSON in {path}: {exc}")
+    return problems
+
+
+def load_queue():
+    jobs = json.loads((BP / "queue.json").read_text())["jobs"]
+    mapping = json.loads((BP / "issues.json").read_text())
+    return jobs, mapping
+
+
+def comments(issue):
+    return json.loads(gh("api", "--paginate", f"repos/{REPO}/issues/{issue}/comments?per_page=100")) if issue else []
+
+
+def inspect(number, jobs, mapping, auto=False):
+    data = json.loads(gh("pr", "view", str(number), "--json",
+                         "number,title,body,files,headRefName,headRefOid,isDraft,isCrossRepository,statusCheckRollup,state"))
+    files = [item["path"] for item in data["files"]]
+    problems = []
+    for path in files:
+        text = "" if not ALLOWED.match(path) else subprocess.run(
+            ["gh", "api", f"repos/{REPO}/contents/{path}?ref={data['headRefOid']}", "-H", "Accept: application/vnd.github.raw"],
+            capture_output=True, text=True).stdout
+        problems += file_problems(path, text)
     checks = [c.get("conclusion") or c.get("status") for c in data.get("statusCheckRollup") or []]
     if any(c not in ("SUCCESS", "SKIPPED", "NEUTRAL") for c in checks):
         problems.append(f"checks not passed: {checks}")
-    job = re.search(r"\b((?:REV-)?(?:BP|LINK|DESIGN|ASM|CLASSIFY|NAME|PLAN)-[A-Za-z0-9_.~-]+)", data["title"] + " " + data["body"])
-    issue = re.search(r"#(\d+)", data["title"] + " " + data["body"])
-    complete = False
-    for item in data["files"]:
-        if item["path"].endswith(".json") and ("/links/" in item["path"] or "/packets/" in item["path"]):
-            text = subprocess.run(["gh", "api", f"repos/{REPO}/contents/{item['path']}?ref={data['headRefOid']}", "-H", "Accept: application/vnd.github.raw"],
-                                  capture_output=True, text=True).stdout
-            try:
-                complete = json.loads(text).get("status") in ("complete", "closed")
-            except json.JSONDecodeError:
-                pass
-    return data, problems, (job.group(1) if job else None), (int(issue.group(1)) if issue else None), complete
+    text = data["title"] + "\n" + (data["body"] or "")
+    job = job_for(files, text, jobs)
+    issue = issue_for(job, mapping, text)
+    if auto:
+        if data.get("isCrossRepository"):
+            problems.append("the pull request comes from a fork")
+        reviewer, author = set(), set()
+        if job and job["kind"] == "review" and job.get("after"):
+            reviewer, author = claimants(comments(issue)), claimants(comments(mapping.get(job["after"][0])))
+        problems += auto_refusals(job, files, data["isDraft"], reviewer, author)
+    return data, files, problems, job, issue
 
 
-def main():
-    if len(sys.argv) < 2:
-        print(__doc__); return
-    if sys.argv[1] == "list":
-        for pr in json.loads(gh("pr", "list", "--state", "open", "--limit", "100", "--json", "number,title")):
-            data, problems, job, issue, complete = inspect(pr["number"])
-            print(f"#{pr['number']} job={job} issue=#{issue} complete={complete} problems={problems or 'none'} :: {pr['title'][:70]}")
+def set_issue_state(issue, wanted, note):
+    labels = [label["name"] for label in json.loads(gh("issue", "view", str(issue), "--json", "labels"))["labels"]]
+    args = ["issue", "edit", str(issue), "--add-label", wanted]
+    for name in labels:
+        if name in STATE_LABELS and name != wanted:
+            args += ["--remove-label", name]
+    gh(*args)
+    gh("issue", "comment", str(issue), "--body", note)
+
+
+def merge(number, argv):
+    auto = "--auto" in argv
+    jobs, mapping = load_queue()
+    data, files, problems, job, issue = inspect(number, jobs, mapping, auto)
+    print(f"#{number} job={job and job['id']} issue=#{issue} files={files}")
+    if auto and problems == ["the pull request is a draft"]:
+        print("a draft; the intake waits until it is ready for review")
         return
-    number = int(sys.argv[2])
-    data, problems, job, issue, complete = inspect(number)
-    print(f"#{number} job={job} issue=#{issue} complete={complete} files={[f['path'] for f in data['files']]}")
     if problems:
+        if auto and "--yes" in argv:
+            note = ("Swarm intake: left for the maintainer, because " + "; ".join(problems) + ". "
+                    "Nothing was merged. If the submission is for a job, name the job's issue with \"Refs #N\" and "
+                    "change only that job's deliverables and handoff note.")
+            earlier = [c["body"] for c in comments(number)]
+            if note not in earlier:
+                gh("pr", "comment", str(number), "--body", note)
         raise SystemExit("not merged: " + "; ".join(problems))
-    if "--yes" not in sys.argv:
+    if "--yes" not in argv:
         print("dry run; pass --yes to merge")
         return
-    if "--complete" in sys.argv and not complete:
-        # Orchestrator decision: a full submission whose file predates the status field.
-        complete = True
-        mark_complete = [f["path"] for f in data["files"] if f["path"].endswith(".json") and "/links/" in f["path"]]
-    else:
-        mark_complete = []
+    mark_complete = []
+    if "--complete" in argv:
+        # Orchestrator decision: a full link map whose file predates the status field.
+        mark_complete = [path for path in files if path.endswith(".json") and "/links/" in path]
     if data["isDraft"]:
         gh("pr", "ready", str(number))
     gh("pr", "merge", str(number), "--squash", "--delete-branch")
@@ -93,37 +208,90 @@ def main():
     # the issue stays open until the job is reviewed and integrated.
     if issue and json.loads(gh("issue", "view", str(issue), "--json", "state"))["state"] == "CLOSED":
         gh("issue", "reopen", str(issue))
+    subprocess.run(["git", "pull", "--rebase", "--autostash", "-q"], cwd=ROOT, check=True)
     if mark_complete:
-        import pathlib
-        repo = pathlib.Path(__file__).resolve().parents[2]
-        subprocess.run(["git", "pull", "--rebase", "--autostash", "-q"], cwd=repo, check=True)
         for path in mark_complete:
-            target = repo / path
+            target = ROOT / path
             packet = json.loads(target.read_text())
             packet = {"roadmapId": packet.get("roadmapId"), "protocol": packet.get("protocol"), "status": "complete",
                       **{k: v for k, v in packet.items() if k not in ("roadmapId", "protocol", "status")}}
             target.write_text(json.dumps(packet, indent=1, ensure_ascii=False) + "\n")
-            subprocess.run(["git", "add", path], cwd=repo, check=True)
+            subprocess.run(["git", "add", path], cwd=ROOT, check=True)
         subprocess.run(["git", "commit", "-q", "-m",
                         f"Record #{number}'s link map as a complete submission\n\nThe worker's file predates the status field; the orchestrator judged the "
-                        f"submission complete for independent review.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\n"
-                        f"Claude-Session: https://claude.ai/code/session_01LyKFDWpehc4bVvmBWzVFPQ\n"], cwd=repo, check=True)
-        subprocess.run(["git", "push", "-q"], cwd=repo, check=True)
-    note = ("Orchestrator: merged as a checkpoint; the job stays open for continuation from the merged files and handoff note."
-            if not complete else "Orchestrator: merged; the job is complete and goes to independent review.")
+                        f"submission complete for independent review.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\n"],
+                       cwd=ROOT, check=True)
+        subprocess.run(["git", "push", "-q"], cwd=ROOT, check=True)
+    complete = bool(job) and deliverables_complete(job, ROOT)
+    if complete:
+        note = f"Swarm intake: merged. {job['id']} is complete; the sync records it and its independent review follows."
+    else:
+        note = "Swarm intake: merged as a checkpoint; the job stays open for continuation from the merged files and the handoff note."
     gh("pr", "comment", str(number), "--body", note)
     if issue and not complete:
-        labels = json.loads(gh("issue", "view", str(issue), "--json", "labels"))["labels"]
-        names = [label["name"] for label in labels]
-        args = ["issue", "edit", str(issue), "--add-label", "state:available"]
-        for name in names:
-            if name.startswith("state:") and name != "state:available":
-                args += ["--remove-label", name]
-        gh(*args)
-        gh("issue", "comment", str(issue), "--body",
-           f"Orchestrator: checkpoint from #{number} merged. This job is available again; the next worker continues from the merged files and the handoff note.")
-    print("merged", number)
+        set_issue_state(issue, "state:available",
+                        f"Swarm intake: checkpoint from #{number} merged. This job is available again; the next worker "
+                        "continues from the merged files and the handoff note.")
+    print("merged", number, "complete" if complete else "checkpoint")
+
+
+def mark(number, action, merged):
+    """Opening a pull request marks its job submitted; closing it unmerged releases it."""
+    jobs, mapping = load_queue()
+    data = json.loads(gh("pr", "view", str(number), "--json", "title,body,files"))
+    job = job_for([item["path"] for item in data["files"]], data["title"] + "\n" + (data["body"] or ""), jobs)
+    issue = issue_for(job, mapping, data["title"] + "\n" + (data["body"] or ""))
+    if not issue:
+        print(f"#{number}: no job issue found")
+        return
+    current = json.loads(gh("issue", "view", str(issue), "--json", "labels,state,labels"))
+    labels = [label["name"] for label in current["labels"]]
+    if "swarm" not in labels or current["state"] != "OPEN":
+        print(f"#{number}: issue #{issue} is not an open swarm issue")
+        return
+    if action in ("opened", "reopened") and ("state:available" in labels or "state:claimed" in labels):
+        set_issue_state(issue, "state:submitted",
+                        f"Submitted in #{number}. The job is nobody else's to claim while the pull request is open; it is "
+                        "merged automatically once its checks pass, and released again if it is closed unmerged.")
+        print(f"#{number}: issue #{issue} submitted")
+    elif action == "closed" and merged != "true" and "state:submitted" in labels and not (job and job.get("state") == "done"):
+        set_issue_state(issue, "state:available", f"#{number} was closed without merging, so the job is available again.")
+        print(f"#{number}: issue #{issue} released")
+
+
+def check_files(paths):
+    problems = []
+    for path in paths:
+        target = ROOT / path
+        problems += file_problems(path, target.read_text(encoding="utf-8", errors="replace") if target.exists() else "")
+    for problem in problems:
+        print("ERROR", problem)
+    print(f"{len(paths)} file(s), {len(problems)} problem(s)")
+    return 1 if problems else 0
+
+
+def main():
+    if len(sys.argv) < 2:
+        print(__doc__)
+        return 2
+    command = sys.argv[1]
+    if command == "list":
+        jobs, mapping = load_queue()
+        for pr in json.loads(gh("pr", "list", "--state", "open", "--limit", "100", "--json", "number,title")):
+            _, _, problems, job, issue = inspect(pr["number"], jobs, mapping, auto=True)
+            print(f"#{pr['number']} job={job and job['id']} issue=#{issue} problems={problems or 'none'} :: {pr['title'][:70]}")
+        return 0
+    if command == "merge":
+        merge(int(sys.argv[2]), sys.argv[3:])
+        return 0
+    if command == "mark":
+        mark(int(sys.argv[2]), sys.argv[3], sys.argv[4] if len(sys.argv) > 4 else "false")
+        return 0
+    if command == "check-files":
+        return check_files(sys.argv[2:])
+    print(__doc__)
+    return 2
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
