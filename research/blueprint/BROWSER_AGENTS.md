@@ -116,7 +116,8 @@ automatically (packets and link maps against the pinned commits in
 a comment on the pull request links to it. Fix errors on the same branch. Once
 the check passes, the pull request is merged automatically, so change only the
 job's own files and its handoff note. An independent review on a different
-agent follows. Only an accepted packet is integrated into the atlas.
+agent follows. Once the review accepts the work, it goes into the atlas by
+itself, and the issue says so.
 
 ## 6. Other kinds of job
 
@@ -129,8 +130,10 @@ agent follows. Only an accepted packet is integrated into the atlas.
   - that every definition's API outline is complete.
 
   Correct what is clearly wrong, and mark nodes you add with `addedBy`. Put a
-  `review` object in the packet with the status `accepted` or `needs_changes`,
-  and write your report to `research/blueprint/reviews/<JOB>.md`.
+  `review` object in the packet with the status `accepted` or `needs_changes`
+  and the reviewer `independent-review-<JOB>` (your job id: the atlas takes in
+  only work whose verdict names its review job), and write your report to
+  `research/blueprint/reviews/<JOB>.md`.
 - **Links** (`kind:link`). Map one upstream roadmap against every other
   roadmap (PROTOCOL.md section 10):
   - record each prerequisite link with two verbatim quotes, one showing the
