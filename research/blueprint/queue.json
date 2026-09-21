@@ -465,7 +465,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BURUNGALE-TIAN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1048"
   },
   {
    "id": "REV-PAPER-BURUNGALE-TIAN-26",
@@ -498,7 +499,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YUAN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1050"
   },
   {
    "id": "REV-PAPER-YUAN-26",
@@ -597,7 +599,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CIUBOTARU-HARRIS-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1057"
   },
   {
    "id": "REV-PAPER-CIUBOTARU-HARRIS-26",
@@ -630,7 +633,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1059"
   },
   {
    "id": "REV-PAPER-BHARGAVA-25",
@@ -1026,7 +1030,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FU-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1083"
   },
   {
    "id": "REV-PAPER-FU-24",
@@ -1125,7 +1130,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DASGUPTA-KAKDE-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1089"
   },
   {
    "id": "REV-PAPER-DASGUPTA-KAKDE-23",
@@ -1620,7 +1626,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BENNETT-SIKSEK-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1119"
   },
   {
    "id": "REV-PAPER-BENNETT-SIKSEK-20",
@@ -1785,7 +1792,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-COUVEIGNES-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1129"
   },
   {
    "id": "REV-PAPER-COUVEIGNES-20",
@@ -1983,7 +1991,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-TSIMERMAN-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1141"
   },
   {
    "id": "REV-PAPER-TSIMERMAN-18",
