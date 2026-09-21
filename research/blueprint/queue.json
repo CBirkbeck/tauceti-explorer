@@ -1940,7 +1940,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MOK-PILA-TSIMERMAN-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1137"
   },
   {
    "id": "REV-PAPER-MOK-PILA-TSIMERMAN-19",
@@ -2006,8 +2007,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-TSIMERMAN-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1141"
+   "state": "pending",
+   "note": "released on GitHub issue #1141"
   },
   {
    "id": "REV-PAPER-TSIMERMAN-18",
