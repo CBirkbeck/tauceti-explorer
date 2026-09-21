@@ -1823,7 +1823,8 @@
    ],
    "avoidAccountOf": "PAPER-COUVEIGNES-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-COUVEIGNES-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1130"
   },
   {
    "id": "PAPER-KHAYUTIN-19",
