@@ -1632,8 +1632,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BENNETT-SIKSEK-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1119"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1119",
+   "finishedAt": "2026-09-21T19:31:57Z"
   },
   {
    "id": "REV-PAPER-BENNETT-SIKSEK-20",
