@@ -7655,8 +7655,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_EllipticCurves",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #81"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #81",
+   "finishedAt": "2026-09-21T18:04:39Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_AdicSpaces",
@@ -7698,8 +7699,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_AdicSpaces",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_AdicSpaces.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #82"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #82",
+   "finishedAt": "2026-09-21T18:04:42Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
@@ -9002,8 +9004,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_Multiquadratic",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #118"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #118",
+   "finishedAt": "2026-09-21T18:04:45Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
@@ -9463,8 +9466,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #131"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #131",
+   "finishedAt": "2026-09-21T18:04:48Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
@@ -9572,8 +9576,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #134"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #134",
+   "finishedAt": "2026-09-21T18:04:52Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
