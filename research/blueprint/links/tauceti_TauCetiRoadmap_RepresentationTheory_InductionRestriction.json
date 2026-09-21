@@ -1,0 +1,218 @@
+{
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+  "protocol": "links-v1",
+  "status": "partial",
+  "summary": "Seven proposed links (three into this roadmap, four out) and three scoped rescoping recommendations. The target and CharacterTheory were read in full; exact endpoints were checked for all proposed links. Catalogue coverage and the global sibling-packet audit remain incomplete, so this is a resumable partial source-text submission, not approval or a library implementation claim.",
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-0-class-functions-and-their-pairing",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-2-induced-characters-and-frobenius-reciprocity",
+      "reason": "Reuse the class-function carrier and bilinear characterPairing for the compatibility lemma with the scalar product in Frobenius reciprocity. The common complex specialization is unambiguous; extending every ancillary theorem to an arbitrary splitting field needs a separate comparison. The Hermitian interpretation is only the complex virtual-character refinement. Do not infer characteristic-zero multiplicity detection from a field-valued pairing in positive characteristic.",
+      "confidence": "explicit",
+      "evidence": [
+        {"stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-0-class-functions-and-their-pairing", "quote": "**The character pairing** `characterPairing f₁ f₂ = (Nat.card G)⁻¹ • ∑ g, f₁ g * f₂ g⁻¹`"},
+        {"stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-2-induced-characters-and-frobenius-reciprocity", "quote": "[character-theory roadmap](../CharacterTheory/README.md)'s `characterPairing`"}
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
+      "reason": "Use VirtualCharacter G over C as the existing additive lattice for the character-map image of the Grothendieck representation ring. InductionRestriction retains the ring construction, tensor-product closure, character-map identification, restriction ring map and induction module map. This is a shared-carrier dependency, not an identification of virtual characters with actual representations or with a positive-characteristic trace image.",
+      "confidence": "explicit",
+      "evidence": [
+        {"stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality", "quote": "**The virtual-character lattice.** `VirtualCharacter G`, the `ℤ`-span of the irreducible characters\n  inside `ClassFunction ℂ G`, with the **integer-valued** pairing on it."},
+        {"stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction", "quote": "family; it connects to the [character-theory roadmap](../CharacterTheory/README.md), whose\n`VirtualCharacter G` is the additive group underlying the ring built here."}
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-1-simple-modules-schur-and-isotypic-components",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-5-clifford-theory-over-a-normal-subgroup",
+      "reason": "Selected reuse for the counted isotypic-component/simple-constituent dictionary: specialize the generic module API to k[N] acting on the finite-dimensional semisimple restriction to a normal subgroup N of a finite group G. In the common algebraically closed nonmodular field regime, transport through the representation/group-algebra equivalence. InductionRestriction still proves that transport, the natural-number Hom multiplicity comparison, the conjugation action, inertia groups and Clifford correspondence. The generic dictionary is not the whole Clifford theorem, nor a claim that existing isotypic objects must be rebuilt.",
+      "confidence": "inferred",
+      "evidence": [
+        {"stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-1-simple-modules-schur-and-isotypic-components", "quote": "Consume `isotypicComponents` and its finiteness; build\n  the equivalence between `isotypicComponents R M` and **isomorphism classes of simple submodules of `M`**."},
+        {"stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-5-clifford-theory-over-a-normal-subgroup", "quote": "every finite-dimensional representation decomposes as a\n  finite direct sum of irreducibles; its **isotypic components** and their **multiplicities**, with\n  multiplicity equal to `finrank` of the relevant `Hom` space"}
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-2-induced-characters-and-frobenius-reciprocity",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-8-frobenius-groups-and-frobeniuss-theorem",
+      "reason": "Supply the induced-character formula and class-function induction for finite G and a Frobenius complement H, over C. CharacterTheory must still prove the T.I.-set norm isometry for functions supported on H minus the identity, the coherent exceptional-character correspondence and that the resulting kernel is a normal subgroup. The ordinary Frobenius-reciprocity formula does not itself supply that isometry or the kernel theorem.",
+      "confidence": "explicit",
+      "evidence": [
+        {"stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-2-induced-characters-and-frobenius-reciprocity", "quote": "The induced-character formula (primary form: coset-representative sum, no division)."},
+        {"stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-8-frobenius-groups-and-frobeniuss-theorem", "quote": "and the induced-character formula of the\n  [induction-restriction roadmap](../InductionRestriction/README.md)"}
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-2-induced-characters-and-frobenius-reciprocity",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-9-the-representation-theory-of-gl₂𝔽_q",
+      "reason": "Specialize finite-dimensional induction and its coset-character formula to the Borel subgroup of GL_2(F_q), with complex representation coefficients. The index/rank comparison supplies the q+1 principal-series dimension after the consumer computes the Borel index. CharacterTheory retains the conjugacy classes, irreducibility and constituent classification, character-value calculations and non-split-torus/cuspidal construction with a supplied quadratic extension. No finite-field coefficient representation is being substituted for a complex character.",
+      "confidence": "explicit",
+      "evidence": [
+        {"stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-2-induced-characters-and-frobenius-reciprocity", "quote": "The induced-character formula (primary form: coset-representative sum, no division)."},
+        {"stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-9-the-representation-theory-of-gl₂𝔽_q", "quote": "it consumes `Representation.ind` and the\ninduced-character formula of the [induction-restriction roadmap](../InductionRestriction/README.md)."}
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-4-the-arithmetic-of-character-values",
+      "reason": "Supply only the separately specified cyclotomic splitting-field application: for finite G of exponent e, every irreducible complex representation has a model over Q(zeta_e). CharacterTheory keeps its earlier character-value integrality and power-map Galois-action arguments independent of this application, and the Dixon-Schneider algorithm is not made dependent on it. The supplier explicitly retains Schur-index and descent proof obligations; the preceding virtual Brauer identity alone is insufficient.",
+      "confidence": "explicit",
+      "evidence": [
+        {"stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction", "quote": "`ℚ(ζ_e)`, `e = Monoid.exponent G`, is a\n  **splitting field** for `G`: every irreducible `ℂ`-representation is realizable over `ℚ(ζ_e)`."},
+        {"stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-4-the-arithmetic-of-character-values", "quote": "**Application, off the critical path - Brauer and Burnside.** `ℚ(ζ_e)` is a **splitting field**\n  (Brauer): every irreducible `ℂ`-representation is realizable over `ℚ(ζ_e)`."}
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
+      "target": "PotentialModularityAndCompatibleSystems:R24.5",
+      "reason": "Supply the finite-group characteristic-zero integral Brauer-induction identity used in the compatible-system descent argument. This is only its virtual-character step. The consumer must identify the finite quotient and required subgroup/character family, justify any sharper one-dimensional-character form, transfer coefficients and continuous induction, and prove that the resulting class is an actual two-dimensional representation with a common coefficient field and the advertised compatibility. Do not direct this existence-theorem dependency to the independent R24.5:operations substage.",
+      "confidence": "inferred",
+      "evidence": [
+        {"stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction", "quote": "Every character is a `ℤ`-linear combination of characters induced from\n  **elementary** subgroups: the map `⊕_{E elementary} R(E) → R(G)` is **surjective**."},
+        {"stageId": "PotentialModularityAndCompatibleSystems:R24.5", "quote": "Use potential modularity, solvable base change/descent and character induction to construct a system over the original field with the prescribed member. Prove independence of choices and existence of genuine two-dimensional representations; a virtual linear combination from Brauer induction is not itself such a representation."}
+      ]
+    }
+  ],
+  "overlaps": [
+    {
+      "stages": ["tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality", "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction"],
+      "detail": "Both stages describe the integral virtual-character object. CharacterTheory defines the additive lattice inside complex class functions; InductionRestriction constructs its Grothendieck-ring realization and multiplicative/induction operations.",
+      "recommendation": "rescope",
+      "proposal": "Retain one additive carrier with CharacterTheory, and prove one character-map identification with the Grothendieck ring in InductionRestriction. Add multiplication and its compatibility on that carrier rather than a competing virtual-character definition. Keep actual-character positivity/realizability separate from membership in the lattice."
+    },
+    {
+      "stages": ["tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction", "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-4-the-arithmetic-of-character-values"],
+      "detail": "Both stages list cyclotomic splitting as a target, but the induction roadmap explicitly offers its proof as a distinct sublayer. CharacterTheory Layer 4 also contains earlier arithmetic outputs that must not wait for splitting.",
+      "recommendation": "rescope",
+      "proposal": "Keep the splitting-field proof and the necessary Schur-index/descent development with InductionRestriction; CharacterTheory consumes the application. Separate the late splitting application from its early value-integrality and Galois-action targets before refining dependencies. Do not add a reverse whole-Layer-4 edge merely to supply early arithmetic, and do not merge the two roadmaps."
+    },
+    {
+      "stages": ["tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-1-simple-modules-schur-and-isotypic-components", "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-5-clifford-theory-over-a-normal-subgroup"],
+      "detail": "The counted isotypic-component/simple-constituent dictionary is shared. Clifford theory adds a finite-group normal-subgroup action, multiplicities and the inertia correspondence, which the general module dictionary does not establish.",
+      "recommendation": "rescope",
+      "proposal": "Place the generic isotypic-component dictionary in the semisimple-module owner and consume it through an explicit representation/group-algebra comparison. Isolate the early representation-level decomposition/Hom-multiplicity API from the later Clifford correspondence: Layer 4 consumes the former, while the latter consumes Layer 4. Preserve natural-number multiplicities in positive characteristic."
+    }
+  ],
+  "examined": [
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction","result":"links","note":"Complete target README and all target stages read; inputs/outputs recorded. Links and overlaps are partial catalogue results, not an implementation audit."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory","result":"links","note":"Complete README and all proposed endpoint stages read. Two incoming interfaces to induction, three outgoing interfaces to character theory, and two scoped overlaps."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras","result":"links","note":"README lines 90-210 and complete Layer 1 endpoint read; atlas candidate stages inspected. Counted-isotypic reuse and overlap only. Existing sibling links inspected for duplicates."},
+    {"roadmapId":"PotentialModularityAndCompatibleSystems","result":"links","note":"Complete README and the R24.5 endpoint read. Only the virtual Brauer-induction step is supplied; arithmetic realization and sharper source requirements remain with the consumer."},
+    {"roadmapId":"ArithmeticGaloisRepresentations","result":"none","note":"Complete README read. Finite-group projective factor sets do not supply the finite GL2/PGL2 classification, continuous coefficient descent, residual Brauer-Nesbitt or tensor induction. No exact new edge justified in this pass."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteCohomology","result":"none","note":"Scope/ownership and canonical-carrier discussion, README lines 1-115, read; change-of-groups search hits screened. Candidate continuous/algebraic comparison stages have not been fully audited. No claim that profinite H2 is required by finite-group Layer 7."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl","result":"none","note":"Summary screened; complete links/overlaps sections of its existing packet read. Its IR Layer 2 to SchurWeyl Layer 1 Young-subgroup link is already recorded and is not repeated here. Remaining stage comparison is pending."},
+    {"roadmapId":"AInfCohomology","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AbelianSchemesAndArithmeticModuli","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AdditiveCombinatorics","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AdelicAlgebraicGroups","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AdicCoefficientsAndComparisons","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AdicEtaleGeometry","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AdicSpacesPartII","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AlgebraicModularFormsAndSerreWeights","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AlgebraicModuliForArithmeticGeometry","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AnabelianGeometryAndNonabelianChabauty","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AnalyticNumberTheory","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"ArakelovGeometryAndAbelianHeights","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"ArithmeticDynamics","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"ArithmeticGaloisDuality","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"ArithmeticKTheory","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"ArithmeticLocallySymmetricSpaces","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"ArithmeticQuantumTopology","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"ArithmeticStatistics","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AutomorphicBundles","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AutomorphicCongruences","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AutomorphicFormsOnReductiveGroups","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AutomorphicGaloisRepresentations","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AutomorphicGaloisRepresentationsPartII","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AutomorphicLFunctionsAndLocalFactors","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AutomorphicPadicLFunctions","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"AutomorphicSpectralTheory","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"BorelRegulators","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"BunGAndNewtonStrata","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"ClassicalAdicEtaleCohomology","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"ClassicalArithmeticCompletion","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"ClassicalSerreModularity","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"CohomologyComparisons","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"ColemanIntegration","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"ColemanPowerSeries","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"CompletedCohomologyAndLocalGlobalCompatibility","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"CompletedCohomologyPartII","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"ComplexComparisonPartII","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"ComplexMultiplicationAndExplicitReciprocity","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"ComputationalNumberTheory","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"CrystallineCohomology","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"DeformationAndDerivedPatchingAlgebra","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"DeligneWeightsAndPurity","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"VStackSheavesAndLisseCategories","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"VectorBundlesAndIsocrystals","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"WeightsInEtaleCohomology","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"WeilConjectures","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:Completed/ContourIntegration","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:Completed/EffectiveBounds","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:Completed/OrthogonalL2Bases","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ClassFieldTheory","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ConformalMapping","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/Exchangeability","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/GeometricTopology","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/HeegaardFloer","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/JacobianChallenge","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ModularForms","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/Multiquadratic","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/OneParameterSemigroups","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/OptimalTransport","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/PDE","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/ReductiveGroups","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/UniversalCovers","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."},
+    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations","result":"none","note":"Summary screen only; full object/stage search remains pending. No absence claim."}
+  ],
+  "provenance": {
+    "jobId": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_InductionRestriction",
+    "issue": 60,
+    "worker": "ChatGPT Pro — cgp-5348e0ef2b68",
+    "sessionId": "cgp-5348e0ef2b68",
+    "inputRevision": "088ac3dcfb573a1e875fcea971ce54526bbe74d3",
+    "baseline": {"mathlib":"082e2d37e8b0463410cdb532e111cd43d5a66174","tauceti":"f790474821cf4256814db967cb154e7af3d0c369"},
+    "baselineDeclarationAudit": "not performed; declarations mentioned in input READMEs are not certified by this packet",
+    "targetReadmeBlob": "591cf0455be8ca4143176565e5d69d1c8f13b424",
+    "targetExtractBlob": "685e317f89e2a399076e33822b94b98d98770c45",
+    "preSubmissionMain": "be09b0fb85faab7fc6a8646e9f524140cfa0df2e",
+    "inputChangeCheck": "API compare: mathematical source READMEs, target extract, baseline and validator unchanged; new sibling links and five Habiro-related roadmap packets not yet included in the global coverage audit."
+  },
+  "existingLinksNotRepeated": [
+    {
+      "packet": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json",
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-2-induced-characters-and-frobenius-reciprocity",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-1-young-subgroups-and-the-permutation-modules-mλ",
+      "note": "Existing link section read at input revision; retain, do not duplicate. This is not an independent approval of that packet."
+    }
+  ],
+  "inputClarifications": [
+    {"id":"IR-LINK-C1","location":"InductionRestriction Layers 2 and 5, constituent detection","issue":"A field-valued trace pairing need not detect constituents in positive characteristic, even in a semisimple category.","check":"For G trivial over F_p, V=F_p^p is a nonzero sum of trivial simples but has identically zero character.","request":"Keep Hom dimensions and multiplicities in natural numbers. Restrict character-detection claims to characteristic zero, or supply a genuinely adequate strengthened hypothesis; nonmodular group order alone is insufficient."},
+    {"id":"IR-LINK-C2","location":"InductionRestriction Layer 7, factor-set equivalence sentence","issue":"The sentence identifying projective equivalence with cohomologous factor sets is too strong; the following qualification in the same stage is correct.","check":"Over C, the two-dimensional trivial representation of C2 and 1 direct sum sign both have factor set 1. Their induced PGL2 actions are respectively trivial and nontrivial, hence are not equivalent.","request":"State the coboundary equivalence for choices of lifts/factor sets and cocycle classes, not a classification of projective representations. Keep the category of representations with a fixed factor class separate."},
+    {"id":"IR-LINK-C3","location":"InductionRestriction Layers 4 and 5, internal ordering","issue":"Layer 4 uses the decomposition/Hom-multiplicity API housed in the prerequisite paragraph of Layer 5, but the Clifford correspondence in Layer 5 uses Layer 4.","request":"Separate the early generic and representation-level decomposition API from the Clifford-correspondence endpoint in a later authorized blueprint. No new stage identifiers or source edits are made in this link packet."},
+    {"id":"IR-LINK-C4","location":"InductionRestriction Layer 6 and PotentialModularityAndCompatibleSystems R24.5","issue":"A virtual Brauer identity does not supply field-of-definition descent or positivity/realization as a genuine two-dimensional representation.","request":"Transcribe the precise subgroup and one-dimensional-character refinement required by the compatible-system source; identify the finite quotient and coefficient/continuity bridges. Retain Schur-index/descent as separate obligations for cyclotomic splitting."}
+  ],
+  "remainingWork": [
+    "Finish the mandatory all-upstream and same/neighboring-area catalogue screen, using the atlas index, area extracts and new roadmap packets. The examined list reports actual reading only; none means no asserted new link at that reading depth.",
+    "Follow the Mackey/induction candidates in ProfiniteCohomology Layers 6, 7 and 10, SmoothRepresentationsOfLocalGroups SR.2, and CompletedCohomologyPartII; distinguish continuous support/exactness/comparison theorems from algebraic formulas.",
+    "Complete the SchurWeyl and remaining finite-group/character-ring/projective-representation candidate-stage reads, including general K-theory versus representation-ring interfaces. Do not add edges from a shared word such as Brauer or Clifford.",
+    "Inspect every relevant sibling link packet and new research/blueprint/roadmaps packet, and recheck global duplicate and cycle constraints against the current input. The target extract had no touching recorded stage edges; targeted code searches are not an exhaustive index.",
+    "Run the repository check_links.py validator on a complete checkout or inspect the actual PR check result; source-text validation is not mathematical approval. Obtain independent review after completion."
+  ],
+  "validation": {
+    "local": "JSON/schema, counts, ownership, evidence coverage and packet-internal acyclicity checked by the session scratch preflight; not the repository validator.",
+    "repositoryValidator": "Not run locally: full atlas and sibling-packet world are not mounted. The existing PR workflow runs scripts/check_links.py for a changed link packet; its actual result must be reported separately.",
+    "mathematicalStatus": "Source-text dependency plan with explicit qualifications; no Lean implementation and no external reference proof audit."
+  }
+}
