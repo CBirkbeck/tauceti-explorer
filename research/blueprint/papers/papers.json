@@ -560,6 +560,1078 @@
    "link": "https://annals.math.princeton.edu/2016/184-2/p06",
    "note": "Galois cohomology, endoscopy and local Langlands.",
    "batch": 1
+  },
+  {
+   "id": "PAPER-WEI-26",
+   "short": "Wei (2026): Algebraic relations among special gamma values and the Chowla–Selberg phenomenon over function fields",
+   "citation": "Wei, \"Algebraic relations among special gamma values and the Chowla–Selberg phenomenon over function fields\", Inventiones Mathematicae (2026)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/244-3",
+   "note": "Function-field arithmetic; special values.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26",
+   "short": "Howe–Klevdal (2026): Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/244-2",
+   "note": "p-adic Hodge theory; functional transcendence.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26",
+   "short": "Gille–Parimala (2026): A local-global principle for twisted flag varieties",
+   "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/244-2",
+   "note": "Rational points; algebraic groups; local–global principles.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BOXER-PILLONI-26",
+   "short": "Boxer–Pilloni (2026): Higher Hida theory for Siegel modular forms",
+   "citation": "Boxer–Pilloni, \"Higher Hida theory for Siegel modular forms\", Inventiones Mathematicae (2026)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/244-1",
+   "note": "p-adic automorphic forms; coherent cohomology.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-MAO-WAN-ZHANG-26",
+   "short": "Mao–Wan–Zhang (2026): Relative Langlands duality for some strongly tempered spherical varieties",
+   "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/243-3",
+   "note": "Automorphic periods; relative Langlands.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
+   "short": "Alpöge–Bhargava–Shnidman (2026): Rank stability in quadratic extensions and Hilbert's tenth problem for the ring of integers of a number field",
+   "citation": "Alpöge–Bhargava–Shnidman, \"Rank stability in quadratic extensions and Hilbert's tenth problem for the ring of integers of a number field\", Inventiones Mathematicae (2026)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/243-3",
+   "note": "Elliptic curves; Diophantine undecidability.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-GLEASON-LIM-XU-26",
+   "short": "Gleason–Lim–Xu (2026): The connected components of affine Deligne–Lusztig varieties",
+   "citation": "Gleason–Lim–Xu, \"The connected components of affine Deligne–Lusztig varieties\", Inventiones Mathematicae (2026)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/243-2",
+   "note": "Affine Deligne–Lusztig varieties; Shimura geometry.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-KLEVDAL-PATRIKIS-25",
+   "short": "Klevdal–Patrikis (2025): Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties",
+   "citation": "Klevdal–Patrikis, \"Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties\", Inventiones Mathematicae (2025)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/242-1",
+   "note": "Shimura varieties; compatible systems.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-ABDURRAHMAN-VENKATESH-25",
+   "short": "Abdurrahman–Venkatesh (2025): Symplectic L-functions and symplectic Reidemeister torsion (mod squares)",
+   "citation": "Abdurrahman–Venkatesh, \"Symplectic L-functions and symplectic Reidemeister torsion (mod squares)\", Inventiones Mathematicae (2025)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/241-3",
+   "note": "L-functions; arithmetic topology.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BINDA-KATO-VEZZANI-25",
+   "short": "Binda–Kato–Vezzani (2025): On the p-adic weight-monodromy conjecture for complete intersections in toric varieties",
+   "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/241-2",
+   "note": "p-adic cohomology; weight–monodromy.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-ABE-25",
+   "short": "Abe (2025): On the Serre conjecture for Artin characters in the geometric case",
+   "citation": "Abe, \"On the Serre conjecture for Artin characters in the geometric case\", Inventiones Mathematicae (2025)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/241-2",
+   "note": "Ramification; Artin characters.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-MARTIN-25",
+   "short": "Martin (2025): A new proof of Chen's theorem for Markoff graphs",
+   "citation": "Martin, \"A new proof of Chen's theorem for Markoff graphs\", Inventiones Mathematicae (2025)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/241-2",
+   "note": "Markoff arithmetic; strong approximation.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-YANG-ZHAO-25",
+   "short": "Yang–Zhao (2025): Cohomological Milnor formula and Saito's conjecture on characteristic classes",
+   "citation": "Yang–Zhao, \"Cohomological Milnor formula and Saito's conjecture on characteristic classes\", Inventiones Mathematicae (2025)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/240-1",
+   "note": "Étale cohomology; ramification; characteristic classes.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-HEUER-25",
+   "short": "Heuer (2025): A p-adic Simpson correspondence for smooth proper rigid varieties",
+   "citation": "Heuer, \"A p-adic Simpson correspondence for smooth proper rigid varieties\", Inventiones Mathematicae (2025)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/240-1",
+   "note": "Nonabelian p-adic Hodge theory.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-IYENGAR-KHARE-MANNING-24",
+   "short": "Iyengar–Khare–Manning (2024): Congruence modules and the Wiles-Lenstra-Diamond numerical criterion in higher codimensions",
+   "citation": "Iyengar–Khare–Manning, \"Congruence modules and the Wiles-Lenstra-Diamond numerical criterion in higher codimensions\", Inventiones Mathematicae (2024)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/238-3",
+   "note": "Deformation rings; congruences; modularity machinery.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "short": "Liu–Wood–Zureick-Brown (2024): A predicted distribution for Galois groups of maximal unramified extensions",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/237-1",
+   "note": "Unramified extensions; arithmetic statistics.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-GUO-REINECKE-24",
+   "short": "Guo–Reinecke (2024): A prismatic approach to crystalline local systems",
+   "citation": "Guo–Reinecke, \"A prismatic approach to crystalline local systems\", Inventiones Mathematicae (2024)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/236-1",
+   "note": "Prismatic cohomology; crystalline representations.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-DISEGNI-LIU-24",
+   "short": "Disegni–Liu (2024): A p-adic arithmetic inner product formula",
+   "citation": "Disegni–Liu, \"A p-adic arithmetic inner product formula\", Inventiones Mathematicae (2024)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/236-1",
+   "note": "Arithmetic theta lifts; p-adic L-functions.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24",
+   "short": "Feng–Yun–Zhang (2024): Higher Siegel–Weil formula for unitary groups: the non-singular terms",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/235-2",
+   "note": "Shtukas; cycles; automorphic forms.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BRESCIANI-24",
+   "short": "Bresciani (2024): On the birational section conjecture with strong birationality assumptions",
+   "citation": "Bresciani, \"On the birational section conjecture with strong birationality assumptions\", Inventiones Mathematicae (2024)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/235-1",
+   "note": "Anabelian geometry; section conjectures.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-CARO-PASTEN-23",
+   "short": "Caro–Pasten (2023): A Chabauty–Coleman bound for surfaces",
+   "citation": "Caro–Pasten, \"A Chabauty–Coleman bound for surfaces\", Inventiones Mathematicae (2023)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/234-3",
+   "note": "Rational points; p-adic integration.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-HE-LI-SHI-ETAL-23",
+   "short": "He–Li–Shi–Yang (2023): A proof of Kudla-Rapoport conjecture for Krämer models",
+   "citation": "He–Li–Shi–Yang, \"A proof of Kudla-Rapoport conjecture for Krämer models\", Inventiones Mathematicae (2023)",
+   "link": "https://www.math.columbia.edu/~chaoli/",
+   "note": "Arithmetic intersections; local densities.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BRIGHT-NEWTON-23",
+   "short": "Bright–Newton (2023): Evaluating the wild Brauer group",
+   "citation": "Bright–Newton, \"Evaluating the wild Brauer group\", Inventiones Mathematicae (2023)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/234-2",
+   "note": "Brauer groups; ramification; rational points.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BREUIL-ETAL-23",
+   "short": "Breuil et al. (2023): Gelfand–Kirillov dimension and mod p cohomology for GL_2",
+   "citation": "Breuil et al., \"Gelfand–Kirillov dimension and mod p cohomology for GL_2\", Inventiones Mathematicae (2023)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/234-1",
+   "note": "Mod-p Langlands; automorphic cohomology.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-NAKAMURA-23",
+   "short": "Nakamura (2023): Zeta morphisms for rank two universal deformations",
+   "citation": "Nakamura, \"Zeta morphisms for rank two universal deformations\", Inventiones Mathematicae (2023)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/234-1",
+   "note": "Galois deformation theory; Euler systems.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-LI-23",
+   "short": "Yingkun Li (2023): Algebraicity of higher Green functions at a CM point",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/234-1",
+   "note": "CM values; automorphic Green functions.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "short": "Bary-Soroker–Koukoulopoulos–Kozma (2023): Irreducibility of random polynomials: general measures",
+   "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/233-3",
+   "note": "Arithmetic statistics; irreducibility.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23",
+   "short": "Gan–Savin (2023): Howe duality and dichotomy for exceptional theta correspondences",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/232-1",
+   "note": "Local representation theory; theta correspondence.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-QIAN-23",
+   "short": "Qian (2023): Potential automorphy for GL_n",
+   "citation": "Qian, \"Potential automorphy for GL_n\", Inventiones Mathematicae (2023)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/231-3",
+   "note": "Galois representations; potential automorphy.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "short": "Le–Le Hung–Levin–Morra (2023): Local models for Galois deformation rings and applications",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/231-3",
+   "note": "Galois deformation rings; local models.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "short": "Skorobogatov–Sofos (2023): Schinzel Hypothesis on average and rational points",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/231-2",
+   "note": "Rational points; fibrations; arithmetic statistics.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-TSUZUKI-23",
+   "short": "Tsuzuki (2023): Minimal slope conjecture of F-isocrystals",
+   "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/231-1",
+   "note": "p-adic coefficient objects; slopes.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-DISEGNI-22",
+   "short": "Disegni (2022): The universal p-adic Gross–Zagier formula",
+   "citation": "Disegni, \"The universal p-adic Gross–Zagier formula\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/230-2",
+   "note": "Heights; Heegner points; p-adic L-functions.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-LIU-WANG-22",
+   "short": "Ruochuan Liu–Guozhen Wang (2022): Topological cyclic homology of local fields",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/230-2",
+   "note": "Local fields; arithmetic K-theory.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-FENG-GALATIUS-VENKATESH-22",
+   "short": "Feng–Galatius–Venkatesh (2022): The Galois action on symplectic K-theory",
+   "citation": "Feng–Galatius–Venkatesh, \"The Galois action on symplectic K-theory\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/230-1",
+   "note": "Galois actions; arithmetic K-theory.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "short": "Anglès–Ngo Dac–Tavares Ribeiro (2022): A class formula for admissible Anderson modules",
+   "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/229-2",
+   "note": "Function-field arithmetic; class formulas.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22",
+   "short": "Xie–Yuan (2022): Geometric Bogomolov conjecture in arbitrary characteristics",
+   "citation": "Xie–Yuan, \"Geometric Bogomolov conjecture in arbitrary characteristics\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/229-2",
+   "note": "Heights; abelian varieties; Bogomolov.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-GHOSH-SARNAK-22",
+   "short": "Ghosh–Sarnak (2022): Integral points on Markoff type cubic surfaces",
+   "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/229-2",
+   "note": "Integral points; local–global questions.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BHARGAVA-SHANKAR-WANG-22",
+   "short": "Bhargava–Shankar–Wang (2022): Squarefree values of polynomial discriminants I",
+   "citation": "Bhargava–Shankar–Wang, \"Squarefree values of polynomial discriminants I\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/228-3",
+   "note": "Discriminants; arithmetic statistics.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-MAULIK-SHANKAR-TANG-22",
+   "short": "Maulik–Shankar–Tang (2022): Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture",
+   "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/228-3",
+   "note": "K3 surfaces; reduction; Shimura geometry.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-LI-ZHANG-22",
+   "short": "Chao Li–Wei Zhang (2022): On the arithmetic Siegel-Weil formula for GSpin Shimura varieties",
+   "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
+   "link": "https://www.math.columbia.edu/~chaoli/",
+   "note": "Arithmetic cycles; Shimura varieties.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-LIU-ETAL-22",
+   "short": "Liu et al. (2022): On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives",
+   "citation": "Liu et al., \"On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/228-1",
+   "note": "Motives; Selmer groups; L-values.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
+   "short": "Fakhruddin–Khare–Patrikis (2022): Lifting and automorphy of reducible mod p Galois representations over global fields",
+   "citation": "Fakhruddin–Khare–Patrikis, \"Lifting and automorphy of reducible mod p Galois representations over global fields\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/228-1",
+   "note": "Galois representations; lifting; automorphy.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-XU-ZHU-22",
+   "short": "Xu–Zhu (2022): Bessel F-isocrystals for reductive groups",
+   "citation": "Xu–Zhu, \"Bessel F-isocrystals for reductive groups\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/227-3",
+   "note": "F-isocrystals; reductive groups.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-CASTELLA-ETAL-22",
+   "short": "Castella et al. (2022): On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes",
+   "citation": "Castella et al., \"On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes\", Inventiones Mathematicae (2022)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/227-2",
+   "note": "Elliptic curves; Iwasawa theory.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BRUINIER-EHLEN-YANG-21",
+   "short": "Bruinier–Ehlen–Yang (2021): CM values of higher automorphic Green functions for orthogonal groups",
+   "citation": "Bruinier–Ehlen–Yang, \"CM values of higher automorphic Green functions for orthogonal groups\", Inventiones Mathematicae (2021)",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/225-3",
+   "note": "CM values; arithmetic intersections.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-21",
+   "short": "Clausen–Mathew (2021): Hyperdescent and étale K-theory",
+   "citation": "Clausen–Mathew, \"Hyperdescent and étale K-theory\", Inventiones Mathematicae (2021)",
+   "link": "https://math.uchicago.edu/~amathew/",
+   "note": "Étale descent; arithmetic K-theory.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "short": "Groechenig–Wyss–Ziegler (2020): Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration",
+   "citation": "Groechenig–Wyss–Ziegler, \"Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration\", Inventiones Mathematicae (2020)",
+   "link": "https://link.springer.com/article/10.1007/s00222-020-00957-8",
+   "note": "p-adic integration; finite-field point counts.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
+   "short": "Colmez–Dospinescu–Nizioł (2020): Cohomology of p-adic Stein spaces",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomology of p-adic Stein spaces\", Inventiones Mathematicae (2020)",
+   "link": "https://webusers.imj-prg.fr/~wieslawa.niziol/",
+   "note": "p-adic analytic geometry; cohomology.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BENOIST-WITTENBERG-20",
+   "short": "Benoist–Wittenberg (2020): On the integral Hodge conjecture for real varieties, I",
+   "citation": "Benoist–Wittenberg, \"On the integral Hodge conjecture for real varieties, I\", Inventiones Mathematicae (2020)",
+   "link": "https://www.math.univ-paris13.fr/~wittenberg/",
+   "note": "Real arithmetic geometry; algebraic cycles.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-CALEGARI-GERAGHTY-18",
+   "short": "Calegari–Geraghty (2018): Modularity lifting beyond the Taylor-Wiles method",
+   "citation": "Calegari–Geraghty, \"Modularity lifting beyond the Taylor-Wiles method\", Inventiones Mathematicae (2018)",
+   "link": "https://math.uchicago.edu/~fcale/research.html",
+   "note": "Modularity lifting; derived patching.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-17",
+   "short": "Bhatt–Scholze (2017): Projectivity of the Witt vector affine Grassmannian",
+   "citation": "Bhatt–Scholze, \"Projectivity of the Witt vector affine Grassmannian\", Inventiones Mathematicae (2017)",
+   "link": "https://people.mpim-bonn.mpg.de/scholze/papers.html",
+   "note": "Mixed-characteristic geometry; affine Grassmannians.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-LIU-ZHU-17",
+   "short": "Ruochuan Liu–Xinwen Zhu (2017): Rigidity and a Riemann–Hilbert correspondence for p-adic local systems",
+   "citation": "Ruochuan Liu–Xinwen Zhu, \"Rigidity and a Riemann–Hilbert correspondence for p-adic local systems\", Inventiones Mathematicae (2017)",
+   "link": "https://link.springer.com/article/10.1007/s00222-016-0671-7",
+   "note": "p-adic local systems; Hodge theory.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-COLMEZ-NIZIOL-17",
+   "short": "Colmez–Nizioł (2017): Syntomic complexes and p-adic nearby cycles",
+   "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
+   "link": "https://webusers.imj-prg.fr/~wieslawa.niziol/",
+   "note": "Syntomic cohomology; comparison theorems.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-COLMEZ-NIZIOL-25",
+   "short": "Colmez–Nizioł (2025): On the cohomology of p-adic analytic spaces, II: The C_st-conjecture",
+   "citation": "Colmez–Nizioł, \"On the cohomology of p-adic analytic spaces, II: The C_st-conjecture\", Duke Mathematical Journal (2025)",
+   "link": "https://webusers.imj-prg.fr/~wieslawa.niziol/",
+   "note": "p-adic Hodge theory; analytic cohomology.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24",
+   "short": "Farb–Kisin–Wolfson (2024): Essential dimension via prismatic cohomology",
+   "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
+   "link": "https://people.math.harvard.edu/~kisin/preprints.html",
+   "note": "Essential dimension; prismatic methods.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23",
+   "short": "Harpaz–Wittenberg (2023): The Massey vanishing conjecture for number fields",
+   "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
+   "link": "https://www.math.univ-paris13.fr/~wittenberg/",
+   "note": "Galois cohomology of number fields.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22",
+   "short": "Antieau–Mathew–Morrow–Nikolaus (2022): On the Beilinson fiber square",
+   "citation": "Antieau–Mathew–Morrow–Nikolaus, \"On the Beilinson fiber square\", Duke Mathematical Journal (2022)",
+   "link": "https://math.uchicago.edu/~amathew/",
+   "note": "Arithmetic K-theory; cyclic homology.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "short": "Kisin–Madapusi Pera–Shin (2022): Honda-Tate theory for Shimura varieties",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "link": "https://people.math.harvard.edu/~kisin/preprints.html",
+   "note": "Shimura varieties over finite fields.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-FRESAN-SABBAH-YU-22",
+   "short": "Fresán–Sabbah–Yu (2022): Hodge theory of Kloosterman connections",
+   "citation": "Fresán–Sabbah–Yu, \"Hodge theory of Kloosterman connections\", Duke Mathematical Journal (2022)",
+   "link": "https://arxiv.org/abs/1810.06454",
+   "note": "Exponential motives; Kloosterman connections.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-KOYMANS-MILOVIC-21",
+   "short": "Koymans–Milovic (2021): Joint distribution of spins",
+   "citation": "Koymans–Milovic, \"Joint distribution of spins\", Duke Mathematical Journal (2021)",
+   "link": "https://webspace.science.uu.nl/~koyma001/publications.html",
+   "note": "Arithmetic statistics; reciprocity phenomena.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BHATT-MATHEW-21",
+   "short": "Bhatt–Mathew (2021): The arc-topology",
+   "citation": "Bhatt–Mathew, \"The arc-topology\", Duke Mathematical Journal (2021)",
+   "link": "https://math.uchicago.edu/~amathew/",
+   "note": "Descent and foundations of arithmetic geometry.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-21",
+   "short": "Colmez–Dospinescu–Nizioł (2021): Integral p-adic étale cohomology of Drinfeld symmetric spaces",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Integral p-adic étale cohomology of Drinfeld symmetric spaces\", Duke Mathematical Journal (2021)",
+   "link": "https://webusers.imj-prg.fr/~wieslawa.niziol/",
+   "note": "Drinfeld spaces; integral cohomology.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-CALEGARI-GERAGHTY-20",
+   "short": "Calegari–Geraghty (2020): Modularity lifting for non-regular symplectic representations",
+   "citation": "Calegari–Geraghty, \"Modularity lifting for non-regular symplectic representations\", Duke Mathematical Journal (2020)",
+   "link": "https://math.uchicago.edu/~fcale/research.html",
+   "note": "Modularity lifting; symplectic Galois representations.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-PILLONI-20",
+   "short": "Pilloni (2020): Higher coherent cohomology and p-adic modular forms of singular weights",
+   "citation": "Pilloni, \"Higher coherent cohomology and p-adic modular forms of singular weights\", Duke Mathematical Journal (2020)",
+   "link": "https://projecteuclid.org/journals/duke-mathematical-journal/volume-169/issue-9/Higher-coherent-cohomology-and-p--adic-modular-forms-of/10.1215/00127094-2019-0075.full",
+   "note": "p-adic modular forms; coherent cohomology.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19",
+   "short": "Česnavičius (2019): Purity for the Brauer group",
+   "citation": "Česnavičius, \"Purity for the Brauer group\", Duke Mathematical Journal (2019)",
+   "link": "https://webusers.imj-prg.fr/~kestutis.cesnavicius/",
+   "note": "Brauer groups; purity.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-WOOD-19",
+   "short": "Melanie Matchett Wood (2019): Nonabelian Cohen–Lenstra moments",
+   "citation": "Melanie Matchett Wood, \"Nonabelian Cohen–Lenstra moments\", Duke Mathematical Journal (2019)",
+   "link": "https://people.math.harvard.edu/~mmwood/Publications/",
+   "note": "Class-group and unramified-extension statistics.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-LIPNOWSKI-TSIMERMAN-18",
+   "short": "Lipnowski–Tsimerman (2018): How large is A_g(F_q)?",
+   "citation": "Lipnowski–Tsimerman, \"How large is A_g(F_q)?\", Duke Mathematical Journal (2018)",
+   "link": "https://www.math.toronto.edu/jacobt/",
+   "note": "Counting abelian varieties over finite fields.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17",
+   "short": "Shende–Tsimerman (2017): Equidistribution in Bun_2(P^1)",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "link": "https://www.math.toronto.edu/jacobt/",
+   "note": "Bundles over finite fields; equidistribution.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17",
+   "short": "Clozel–Thorne (2017): Level-raising and symmetric power functoriality, III",
+   "citation": "Clozel–Thorne, \"Level-raising and symmetric power functoriality, III\", Duke Mathematical Journal (2017)",
+   "link": "https://www.maths.cam.ac.uk/person/jat58?page=3",
+   "note": "Automorphy; level raising; functoriality.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-DEMARCO-MAVRAKI-YE-26",
+   "short": "DeMarco–Mavraki–Ye (2026): Bounded geometry for PCF-special subvarieties",
+   "citation": "DeMarco–Mavraki–Ye, \"Bounded geometry for PCF-special subvarieties\", Forum of Mathematics, Pi (2026)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/listing?aggs%5BproductJournalArticleTopic%5D%5Bfilters%5D=D9FE9DA61495B9129119121E83F5C56B",
+   "note": "Arithmetic dynamics; special subvarieties.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-HANSEN-26",
+   "short": "Hansen (2026): Excursion operators and the stable Bernstein center",
+   "citation": "Hansen, \"Excursion operators and the stable Bernstein center\", Forum of Mathematics, Pi (2026)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/D7BB6DF57326F5ED06ABCA47A3819432",
+   "note": "Local Langlands; excursion operators.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-KISIN-PAPPAS-ZHOU-26",
+   "short": "Kisin–Pappas–Zhou (2026): Integral models of Shimura varieties with parahoric level structure, II",
+   "citation": "Kisin–Pappas–Zhou, \"Integral models of Shimura varieties with parahoric level structure, II\", Forum of Mathematics, Pi (2026)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/D7BB6DF57326F5ED06ABCA47A3819432",
+   "note": "Integral Shimura varieties.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-PASKUNAS-QUAST-26",
+   "short": "Paškūnas–Quast (2026): On local Galois deformation rings: generalised reductive groups",
+   "citation": "Paškūnas–Quast, \"On local Galois deformation rings: generalised reductive groups\", Forum of Mathematics, Pi (2026)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/D7BB6DF57326F5ED06ABCA47A3819432",
+   "note": "Galois deformation theory.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "short": "Boxer–Calegari–Gee–Newton–Thorne (2025): The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/A7437561531A68DB41E0D4DF3EE3A83E",
+   "note": "Bianchi modular forms; automorphy; equidistribution.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
+   "short": "Beuzart-Plessis–Chaudouard (2025): The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods",
+   "citation": "Beuzart-Plessis–Chaudouard, \"The global Gan-Gross-Prasad conjecture for unitary groups. II. From Eisenstein series to Bessel periods\", Forum of Mathematics, Pi (2025)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/A7437561531A68DB41E0D4DF3EE3A83E",
+   "note": "Automorphic periods; relative Langlands.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BHARGAVA-SHANKAR-WANG-25",
+   "short": "Bhargava–Shankar–Wang (2025): Squarefree values of polynomial discriminants II",
+   "citation": "Bhargava–Shankar–Wang, \"Squarefree values of polynomial discriminants II\", Forum of Mathematics, Pi (2025)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/A7437561531A68DB41E0D4DF3EE3A83E",
+   "note": "Discriminants; arithmetic statistics.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "short": "Lemke Oliver–Wang–Wood (2025): The average size of 3-torsion in class groups of 2-extensions",
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/A7437561531A68DB41E0D4DF3EE3A83E",
+   "note": "Class groups; number-field statistics.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-FENG-24",
+   "short": "Feng (2024): Smith theory and cyclic base change functoriality",
+   "citation": "Feng, \"Smith theory and cyclic base change functoriality\", Forum of Mathematics, Pi (2024)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/F8892C4B042F5A303D4C4571F67D5E34",
+   "note": "Mod-p automorphic forms; base change.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "short": "Gan–Harris–Sawin–Beuzart-Plessis (2024): Local parameters of supercuspidal representations",
+   "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/F8892C4B042F5A303D4C4571F67D5E34",
+   "note": "Local Langlands parameters.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24",
+   "short": "Im–Kim–Le–Ngo Dac–Pham (2024): Zagier–Hoffman's Conjectures in Positive Characteristic",
+   "citation": "Im–Kim–Le–Ngo Dac–Pham, \"Zagier–Hoffman's Conjectures in Positive Characteristic\", Forum of Mathematics, Pi (2024)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/F8892C4B042F5A303D4C4571F67D5E34?pageNum=2",
+   "note": "Function-field multiple zeta values.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-VANHOFTEN-24",
+   "short": "van Hoften (2024): Mod p points on Shimura varieties of parahoric level",
+   "citation": "van Hoften, \"Mod p points on Shimura varieties of parahoric level\", Forum of Mathematics, Pi (2024)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/F8892C4B042F5A303D4C4571F67D5E34?pageNum=2",
+   "note": "Reduction of Shimura varieties.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24",
+   "short": "Canning–Larson–Payne (2024): Extensions of tautological rings and motivic structures in the cohomology of the moduli spaces of stable curves",
+   "citation": "Canning–Larson–Payne, \"Extensions of tautological rings and motivic structures in the cohomology of the moduli spaces of stable curves\", Forum of Mathematics, Pi (2024)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/F8892C4B042F5A303D4C4571F67D5E34?pageNum=2",
+   "note": "Moduli of curves; motives; arithmetic cohomology.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BHATT-MATHEW-23",
+   "short": "Bhatt–Mathew (2023): Syntomic complexes and p-adic étale Tate twists",
+   "citation": "Bhatt–Mathew, \"Syntomic complexes and p-adic étale Tate twists\", Forum of Mathematics, Pi (2023)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/90D8AB5A81D5A4AA0B008C3B0CFC8878",
+   "note": "Syntomic cohomology; p-adic étale cohomology.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-ANSCHUTZ-LEBRAS-23",
+   "short": "Anschütz–Le Bras (2023): Prismatic Dieudonné Theory",
+   "citation": "Anschütz–Le Bras, \"Prismatic Dieudonné Theory\", Forum of Mathematics, Pi (2023)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/90D8AB5A81D5A4AA0B008C3B0CFC8878",
+   "note": "p-divisible groups; prismatic cohomology. It has a 2025 erratum (https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/prismatic-dieudonne-theory-erratum/1F715490BDF25C6C76688B5385893F01), which repairs the proof of an intermediate proposition; the authors state the results are unaffected.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-HACON-WITASZEK-23",
+   "short": "Hacon–Witaszek (2023): On the relative minimal model program for fourfolds in positive and mixed characteristic",
+   "citation": "Hacon–Witaszek, \"On the relative minimal model program for fourfolds in positive and mixed characteristic\", Forum of Mathematics, Pi (2023)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/90D8AB5A81D5A4AA0B008C3B0CFC8878",
+   "note": "Birational geometry over arithmetic bases.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
+   "short": "Colmez–Dospinescu–Nizioł (2023): Factorisation de la cohomologie étale p-adique de la tour de Drinfeld",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Factorisation de la cohomologie étale p-adique de la tour de Drinfeld\", Forum of Mathematics, Pi (2023)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/90D8AB5A81D5A4AA0B008C3B0CFC8878",
+   "note": "Drinfeld towers; p-adic Langlands.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-DOR-23",
+   "short": "Dor (2023): Exotic Monoidal Structures and Abstractly Automorphic Representations for GL(2)",
+   "citation": "Dor, \"Exotic Monoidal Structures and Abstractly Automorphic Representations for GL(2)\", Forum of Mathematics, Pi (2023)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/90D8AB5A81D5A4AA0B008C3B0CFC8878",
+   "note": "Automorphic representations.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-ICHINO-PRASANNA-23",
+   "short": "Ichino–Prasanna (2023): Hodge classes and the Jacquet–Langlands correspondence",
+   "citation": "Ichino–Prasanna, \"Hodge classes and the Jacquet–Langlands correspondence\", Forum of Mathematics, Pi (2023)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/90D8AB5A81D5A4AA0B008C3B0CFC8878?pageNum=2",
+   "note": "Algebraic cycles; automorphic motives.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23-B",
+   "short": "Gan–Savin (2023): The Local Langlands Conjecture for G_2",
+   "citation": "Gan–Savin, \"The Local Langlands Conjecture for G_2\", Forum of Mathematics, Pi (2023)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/90D8AB5A81D5A4AA0B008C3B0CFC8878?pageNum=2",
+   "note": "Local Langlands for exceptional groups.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-CHANG-CHEN-MISHIBA-23",
+   "short": "Chang–Chen–Mishiba (2023): On Thakur's basis conjecture for multiple zeta values in positive characteristic",
+   "citation": "Chang–Chen–Mishiba, \"On Thakur's basis conjecture for multiple zeta values in positive characteristic\", Forum of Mathematics, Pi (2023)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/90D8AB5A81D5A4AA0B008C3B0CFC8878?pageNum=2",
+   "note": "Function-field special values.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23",
+   "short": "Böckle–Iyengar–Paškūnas (2023): On local Galois deformation rings",
+   "citation": "Böckle–Iyengar–Paškūnas, \"On local Galois deformation rings\", Forum of Mathematics, Pi (2023)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/90D8AB5A81D5A4AA0B008C3B0CFC8878?pageNum=2",
+   "note": "Local Galois deformation theory.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-LI-LIU-22",
+   "short": "Chao Li–Yifeng Liu (2022): Chow groups and L-derivatives of automorphic motives for unitary groups, II",
+   "citation": "Chao Li–Yifeng Liu, \"Chow groups and L-derivatives of automorphic motives for unitary groups, II\", Forum of Mathematics, Pi (2022)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/10698C1D3340FD1019F9361A62AAEA70",
+   "note": "Algebraic cycles; automorphic motives.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BINYAMINI-22",
+   "short": "Binyamini (2022): Point counting for foliations over number fields",
+   "citation": "Binyamini, \"Point counting for foliations over number fields\", Forum of Mathematics, Pi (2022)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/10698C1D3340FD1019F9361A62AAEA70",
+   "note": "Diophantine geometry; point counting.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22",
+   "short": "Česnavičius (2022): Grothendieck–Serre in the quasi-split unramified case",
+   "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
+   "link": "https://webusers.imj-prg.fr/~kestutis.cesnavicius/",
+   "note": "Torsors; reductive groups over arithmetic rings.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
+   "short": "Hansen–Kaletha–Weinstein (2022): On the Kottwitz conjecture for local shtuka spaces",
+   "citation": "Hansen–Kaletha–Weinstein, \"On the Kottwitz conjecture for local shtuka spaces\", Forum of Mathematics, Pi (2022)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/10698C1D3340FD1019F9361A62AAEA70",
+   "note": "Local shtukas; local Langlands.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
+   "short": "Ananth Shankar–Arul Shankar–Tang–Tayou (2022): Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields",
+   "citation": "Ananth Shankar–Arul Shankar–Tang–Tayou, \"Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields\", Forum of Mathematics, Pi (2022)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/10698C1D3340FD1019F9361A62AAEA70?pageNum=2",
+   "note": "K3 surfaces; reduction; Picard ranks.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-ATOBE-KONDO-YASUDA-22",
+   "short": "Atobe–Kondo–Yasuda (2022): Local newforms for the general linear groups over a non-archimedean local field",
+   "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/10698C1D3340FD1019F9361A62AAEA70?pageNum=2",
+   "note": "Local fields; newform theory.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-HE-21",
+   "short": "He (2021): Cordial elements and dimensions of affine Deligne–Lusztig varieties",
+   "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/A0F34FDF4105CBC68BD961812700E85E",
+   "note": "Affine Deligne–Lusztig geometry.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-EISCHEN-HARRIS-LI-ETAL-20",
+   "short": "Eischen–Harris–Li–Skinner (2020): p-adic L-functions for unitary groups",
+   "citation": "Eischen–Harris–Li–Skinner, \"p-adic L-functions for unitary groups\", Forum of Mathematics, Pi (2020)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/85BC64C1D182D4DE7F91091602ED00B0",
+   "note": "Automorphic forms; p-adic L-functions.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20",
+   "short": "Le–Le Hung–Levin–Morra (2020): Serre weights and Breuil's lattice conjecture in dimension three",
+   "citation": "Le–Le Hung–Levin–Morra, \"Serre weights and Breuil's lattice conjecture in dimension three\", Forum of Mathematics, Pi (2020)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/85BC64C1D182D4DE7F91091602ED00B0",
+   "note": "Mod-p Langlands; Serre weights.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-VENKATESH-19",
+   "short": "Venkatesh (2019): Derived Hecke algebra and cohomology of arithmetic groups",
+   "citation": "Venkatesh, \"Derived Hecke algebra and cohomology of arithmetic groups\", Forum of Mathematics, Pi (2019)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/BADF0B03E07822811271129A9C7BEDED",
+   "note": "Arithmetic groups; Hecke algebras; motives.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-HE-18",
+   "short": "He (2018): Cocenters of p-adic groups, I: Newton decomposition",
+   "citation": "He, \"Cocenters of p-adic groups, I: Newton decomposition\", Forum of Mathematics, Pi (2018)",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/01F1E9B6DCF4D2EE542DC17AC8197077",
+   "note": "Representation theory of p-adic groups.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-MERKURJEV-SCAVIA-26",
+   "short": "Merkurjev–Scavia (2026): Galois representations modulo p that do not lift modulo p^2",
+   "citation": "Merkurjev–Scavia, \"Galois representations modulo p that do not lift modulo p^2\", Journal of the American Mathematical Society (2026)",
+   "link": "https://www.math.univ-paris13.fr/~scavia/",
+   "note": "Galois representations; lifting obstructions.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-SCHOLZE-26",
+   "short": "Scholze (2026): Berkovich Motives",
+   "citation": "Scholze, \"Berkovich Motives\", Journal of the American Mathematical Society (2026)",
+   "link": "https://people.mpim-bonn.mpg.de/scholze/papers.html",
+   "note": "Nonarchimedean geometry; motives.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-25",
+   "short": "Boxer–Calegari–Gee (2025): Cuspidal cohomology classes for GL_n(Z)",
+   "citation": "Boxer–Calegari–Gee, \"Cuspidal cohomology classes for GL_n(Z)\", Journal of the American Mathematical Society (2025)",
+   "link": "https://math.uchicago.edu/~fcale/research.html",
+   "note": "Arithmetic groups; automorphic cohomology.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-CALEGARI-DIMITROV-TANG-25",
+   "short": "Calegari–Dimitrov–Tang (2025): The unbounded denominators conjecture",
+   "citation": "Calegari–Dimitrov–Tang, \"The unbounded denominators conjecture\", Journal of the American Mathematical Society (2025)",
+   "link": "https://math.uchicago.edu/~fcale/research.html",
+   "note": "Modular forms; arithmetic of Fourier coefficients.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-LI-ZHANG-22-B",
+   "short": "Chao Li–Wei Zhang (2022): Kudla-Rapoport cycles and derivatives of local densities",
+   "citation": "Chao Li–Wei Zhang, \"Kudla-Rapoport cycles and derivatives of local densities\", Journal of the American Mathematical Society (2022)",
+   "link": "https://www.math.columbia.edu/~chaoli/",
+   "note": "Arithmetic intersections; local representation densities.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21",
+   "short": "Clausen–Mathew–Morrow (2021): K-theory and topological cyclic homology of henselian pairs",
+   "citation": "Clausen–Mathew–Morrow, \"K-theory and topological cyclic homology of henselian pairs\", Journal of the American Mathematical Society (2021)",
+   "link": "https://math.uchicago.edu/~amathew/",
+   "note": "Henselian arithmetic; K-theory.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "short": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao (2020): Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves",
+   "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
+   "link": "https://www.math.toronto.edu/jacobt/",
+   "note": "Class groups; integral points.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
+   "short": "Bakker–Klingler–Tsimerman (2020): Tame topology of arithmetic quotients and algebraicity of Hodge loci",
+   "citation": "Bakker–Klingler–Tsimerman, \"Tame topology of arithmetic quotients and algebraicity of Hodge loci\", Journal of the American Mathematical Society (2020)",
+   "link": "https://www.math.toronto.edu/jacobt/",
+   "note": "Arithmetic quotients; Hodge loci; transcendence methods.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
+   "short": "Colmez–Dospinescu–Nizioł (2020): Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1\", Journal of the American Mathematical Society (2020)",
+   "link": "https://webusers.imj-prg.fr/~wieslawa.niziol/",
+   "note": "Drinfeld towers; p-adic Langlands.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-20",
+   "short": "Harpaz–Wittenberg (2020): Zéro-cycles sur les espaces homogènes et problème de Galois inverse",
+   "citation": "Harpaz–Wittenberg, \"Zéro-cycles sur les espaces homogènes et problème de Galois inverse\", Journal of the American Mathematical Society (2020)",
+   "link": "https://www.math.univ-paris13.fr/~wittenberg/",
+   "note": "Zero-cycles; homogeneous spaces; inverse Galois.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "short": "Groechenig–Wyss–Ziegler (2020): Geometric stabilisation via p-adic integration",
+   "citation": "Groechenig–Wyss–Ziegler, \"Geometric stabilisation via p-adic integration\", Journal of the American Mathematical Society (2020)",
+   "link": "https://www.ams.org/journals/jams/2020-33-03/S0894-0347-2020-00948-1/viewer/",
+   "note": "p-adic integration; endoscopy; fundamental lemma.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-ABE-18",
+   "short": "Abe (2018): Langlands correspondence for isocrystals and the existence of crystalline companions for curves",
+   "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
+   "link": "https://www.ams.org/jams/2018-31-04/S0894-0347-2018-00898-7/",
+   "note": "Function-field Langlands; crystalline companions.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-LAFFORGUE-18",
+   "short": "Vincent Lafforgue (2018): Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale",
+   "citation": "Vincent Lafforgue, \"Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale\", Journal of the American Mathematical Society (2018)",
+   "link": "https://www.ams.org/journals/jams/2018-31-03/S0894-0347-2018-00897-5/viewer/",
+   "note": "Shtukas; global function-field Langlands.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-KISIN-17",
+   "short": "Kisin (2017): Mod p points on Shimura varieties of abelian type",
+   "citation": "Kisin, \"Mod p points on Shimura varieties of abelian type\", Journal of the American Mathematical Society (2017)",
+   "link": "https://people.math.harvard.edu/~kisin/preprints.html",
+   "note": "Shimura varieties; reduction modulo p.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BHARGAVA-GROSS-WANG-17",
+   "short": "Bhargava–Gross–Wang (2017): A positive proportion of locally soluble hyperelliptic curves over Q have no point over any odd degree extension",
+   "citation": "Bhargava–Gross–Wang, \"A positive proportion of locally soluble hyperelliptic curves over Q have no point over any odd degree extension\", Journal of the American Mathematical Society (2017)",
+   "link": "https://collaborate.princeton.edu/en/publications/a-positive-proportion-of-locally-soluble-hyperelliptic-curves-ove/",
+   "note": "Curves; local–global failure; arithmetic statistics.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-GAO-GE-KUHNE-26",
+   "short": "Gao–Ge–Kühne (2026): The Uniform Mordell–Lang Conjecture",
+   "citation": "Gao–Ge–Kühne, \"The Uniform Mordell–Lang Conjecture\", Publications Mathématiques de l'IHÉS (2026)",
+   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2026__143_/",
+   "note": "Uniformity in Diophantine geometry.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-DING-25",
+   "short": "Ding (2025): p-Adic Hodge parameters in the crystabelline representations of GL_n",
+   "citation": "Ding, \"p-Adic Hodge parameters in the crystabelline representations of GL_n\", Publications Mathématiques de l'IHÉS (2025)",
+   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2025__142_/",
+   "note": "p-adic Langlands; Hodge parameters.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-RICHARD-YAFAEV-25",
+   "short": "Richard–Yafaev (2025): Generalised André-Pink-Zannier conjecture for Shimura varieties of Abelian type",
+   "citation": "Richard–Yafaev, \"Generalised André-Pink-Zannier conjecture for Shimura varieties of Abelian type\", Publications Mathématiques de l'IHÉS (2025)",
+   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2025__141_/",
+   "note": "Shimura varieties; unlikely intersections.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BHATT-ETAL-23",
+   "short": "Bhatt et al. (2023): Globally +-regular varieties and the minimal model program for threefolds in mixed characteristic",
+   "citation": "Bhatt et al., \"Globally +-regular varieties and the minimal model program for threefolds in mixed characteristic\", Publications Mathématiques de l'IHÉS (2023)",
+   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2023__138_/",
+   "note": "Mixed-characteristic birational geometry.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22",
+   "short": "Beuzart-Plessis–Chaudouard–Zydor (2022): The global Gan-Gross-Prasad conjecture for unitary groups: the endoscopic case",
+   "citation": "Beuzart-Plessis–Chaudouard–Zydor, \"The global Gan-Gross-Prasad conjecture for unitary groups: the endoscopic case\", Publications Mathématiques de l'IHÉS (2022)",
+   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2022__135_/",
+   "note": "Automorphic periods; endoscopy.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-NEWTON-THORNE-21",
+   "short": "Newton–Thorne (2021): Symmetric power functoriality for holomorphic modular forms",
+   "citation": "Newton–Thorne, \"Symmetric power functoriality for holomorphic modular forms\", Publications Mathématiques de l'IHÉS (2021)",
+   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2021__134_/",
+   "note": "Modular forms; functoriality.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-NEWTON-THORNE-21-B",
+   "short": "Newton–Thorne (2021): Symmetric power functoriality for holomorphic modular forms, II",
+   "citation": "Newton–Thorne, \"Symmetric power functoriality for holomorphic modular forms, II\", Publications Mathématiques de l'IHÉS (2021)",
+   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2021__134_/",
+   "note": "Modular forms; functoriality.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-CHENEVIER-TAIBI-20",
+   "short": "Chenevier–Taïbi (2020): Discrete series multiplicities for classical groups over Z and level 1 algebraic cusp forms",
+   "citation": "Chenevier–Taïbi, \"Discrete series multiplicities for classical groups over Z and level 1 algebraic cusp forms\", Publications Mathématiques de l'IHÉS (2020)",
+   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2020__131_/",
+   "note": "Arithmetic automorphic forms; multiplicities.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BENOIST-19",
+   "short": "Benoist (2019): The period-index problem for real surfaces",
+   "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
+   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2019__130_/",
+   "note": "Brauer groups; real arithmetic geometry.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19",
+   "short": "Breuil–Hellmann–Schraen (2019): A local model for the trianguline variety and applications",
+   "citation": "Breuil–Hellmann–Schraen, \"A local model for the trianguline variety and applications\", Publications Mathématiques de l'IHÉS (2019)",
+   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2019__130_/",
+   "note": "Trianguline representations; eigenvarieties.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-19",
+   "short": "Bhatt–Morrow–Scholze (2019): Topological Hochschild homology and integral p-adic Hodge theory",
+   "citation": "Bhatt–Morrow–Scholze, \"Topological Hochschild homology and integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2019)",
+   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2019__129_/",
+   "note": "Integral p-adic Hodge theory; THH.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-KISIN-PAPPAS-18",
+   "short": "Kisin–Pappas (2018): Integral models of Shimura varieties with parahoric level structure",
+   "citation": "Kisin–Pappas, \"Integral models of Shimura varieties with parahoric level structure\", Publications Mathématiques de l'IHÉS (2018)",
+   "link": "https://www.numdam.org/volume/PMIHES_2018__128_/",
+   "note": "Integral Shimura varieties.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18",
+   "short": "Bhatt–Morrow–Scholze (2018): Integral p-adic Hodge theory",
+   "citation": "Bhatt–Morrow–Scholze, \"Integral p-adic Hodge theory\", Publications Mathématiques de l'IHÉS (2018)",
+   "link": "https://www.numdam.org/volume/PMIHES_2018__128_/",
+   "note": "Integral comparison theorems; perfectoid methods.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-ANDRE-18",
+   "short": "André (2018): Le lemme d'Abhyankar perfectoïde",
+   "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
+   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/",
+   "note": "Perfectoid geometry; ramification.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-ESNAULT-GROECHENIG-20",
+   "short": "Esnault–Groechenig (2020): Rigid connections and F-isocrystals",
+   "citation": "Esnault–Groechenig, \"Rigid connections and F-isocrystals\", Acta Mathematica (2020)",
+   "link": "https://archive.ymsc.tsinghua.edu.cn/pacm_journal?journal=Acta+Mathematica&volume=225&year=2020",
+   "note": "Arithmetic of rigid connections; p-adic coefficient objects.",
+   "batch": 2
+  },
+  {
+   "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+   "short": "Böckle–Harris–Khare–Thorne (2019): Ĝ-local systems on smooth projective curves are potentially automorphic",
+   "citation": "Böckle–Harris–Khare–Thorne, \"Ĝ-local systems on smooth projective curves are potentially automorphic\", Acta Mathematica (2019)",
+   "link": "https://www.maths.cam.ac.uk/person/jat58?page=2",
+   "note": "Function-field Galois representations; potential automorphy.",
+   "batch": 2
   }
  ],
  "guides": [
@@ -662,7 +1734,8 @@
   }
  ],
  "batches": {
-  "1": "Annals of Mathematics, issues from January 2016 to September 2026, algebraic number theory and arithmetic geometry read inclusively (the maintainer's classification, 21 September 2026). Four of its papers were routed earlier and are among the guides: Pan (2026), Betts–Stix (2025), Skinner (2020) and Balakrishnan–Dogra–Müller–Tuitman–Vonk (2019)."
+  "1": "Annals of Mathematics, issues from January 2016 to September 2026, algebraic number theory and arithmetic geometry read inclusively (the maintainer's classification, 21 September 2026). Four of its papers were routed earlier and are among the guides: Pan (2026), Betts–Stix (2025), Skinner (2020) and Balakrishnan–Dogra–Müller–Tuitman–Vonk (2019).",
+  "2": "Six journals (Inventiones, Duke, Forum of Mathematics Pi, JAMS, Publications de l'IHÉS, Acta), issues from 21 September 2016 to 21 September 2026, the same scope as batch 1: the maintainer's working catalogue, not exhaustive (Duke, JAMS, earlier Inventiones and recent Acta are incomplete). Three of its papers were already covered and are not queued: Lawrence–Venkatesh (DESIGN-LV), Boxer–Calegari–Gee–Pilloni 2021 (DESIGN-BCGP18) and Pan's first paper (the foundation of DESIGN-PAN)."
  },
  "held": [
   {
@@ -772,6 +1845,72 @@
    "link": "https://annals.math.princeton.edu/2017/186-1/p06",
    "note": "Rational and algebraic points on definable sets; Diophantine geometry/model theory interface.",
    "batch": 1
+  },
+  {
+   "short": "Benoist (2025): Étale cohomology of algebraic varieties over Stein compacta",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/240-2",
+   "note": "Inventiones Mathematicae. General comparison/descent geometry rather than primarily arithmetic geometry.",
+   "batch": 2
+  },
+  {
+   "short": "Bakker–Brunebarbe–Tsimerman (2023): o-minimal GAGA and a conjecture of Griffiths",
+   "link": "https://link.springer.com/journal/222/volumes-and-issues/232-1",
+   "note": "Inventiones Mathematicae. General Hodge theory and tame complex geometry, with arithmetic applications.",
+   "batch": 2
+  },
+  {
+   "short": "Bhatt (2018): On the direct summand conjecture and its derived variant",
+   "link": "https://link.springer.com/article/10.1007/s00222-017-0768-7",
+   "note": "Inventiones Mathematicae. Mixed-characteristic commutative algebra using arithmetic-geometric methods.",
+   "batch": 2
+  },
+  {
+   "short": "Česnavičius (2021): Macaulayfication of Noetherian schemes",
+   "link": "https://webusers.imj-prg.fr/~kestutis.cesnavicius/",
+   "note": "Duke Mathematical Journal. General scheme-theoretic foundations.",
+   "batch": 2
+  },
+  {
+   "short": "Eriksson–Freixas i Montplet–Mourougane (2022): On genus one mirror symmetry in higher dimensions and the BCOV conjectures",
+   "link": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/10698C1D3340FD1019F9361A62AAEA70",
+   "note": "Forum of Mathematics, Pi. Primarily mirror symmetry, although arithmetic Riemann–Roch is important to the work.",
+   "batch": 2
+  },
+  {
+   "short": "Land–Mathew–Meier–Tamme (2024): Purity in chromatically localized K-theory",
+   "link": "https://math.uchicago.edu/~amathew/",
+   "note": "Journal of the American Mathematical Society. Primarily algebraic K-theory and chromatic homotopy theory.",
+   "batch": 2
+  },
+  {
+   "short": "Melanie Matchett Wood (2017): The distribution of sandpile groups of random graphs",
+   "link": "https://people.math.harvard.edu/~mmwood/Publications/",
+   "note": "Journal of the American Mathematical Society. Closely connected to Cohen–Lenstra statistics, but the principal objects are random graphs.",
+   "batch": 2
+  },
+  {
+   "short": "André (2018): La conjecture du facteur direct",
+   "link": "https://pmihes.centre-mersenne.org/volume/PMIHES_2018__127_/",
+   "note": "Publications Mathématiques de l'IHÉS. Principally commutative algebra; foundational perfectoid methods.",
+   "batch": 2
+  },
+  {
+   "short": "Nelson–Venkatesh (2021): The orbit method and analysis of automorphic forms",
+   "link": "https://archive.ymsc.tsinghua.edu.cn/pacm_journal?journal=Acta+Mathematica&volume=226&year=2021",
+   "note": "Acta Mathematica. Analytic automorphic representation theory rather than primarily ANT/AG.",
+   "batch": 2
+  },
+  {
+   "short": "Nikolaus–Scholze (2018): On topological cyclic homology",
+   "link": "https://people.mpim-bonn.mpg.de/scholze/papers.html",
+   "note": "Acta Mathematica. General homotopy-theoretic foundations with major arithmetic applications.",
+   "batch": 2
+  },
+  {
+   "short": "Koymans–Pagano: On Stevenhagen's conjecture",
+   "link": "https://webspace.science.uu.nl/~koyma001/publications.html",
+   "note": "Acta Mathematica. Directly relevant, but its Acta issue date was not established securely enough for the catalogue.",
+   "batch": 2
   }
  ]
 }

@@ -28,7 +28,7 @@ BP = REPO / "research" / "blueprint"
 GITHUB = "https://github.com/CBirkbeck/tauceti-explorer"
 BLOB = GITHUB + "/blob/main/"
 KIND_TITLE = {"blueprint": "Blueprint", "design": "New roadmap", "link": "Links", "review": "Review", "assembly": "Assembly",
-              "restructure": "Restructure", "paper": "Paper",
+              "restructure": "Restructure", "paper": "Paper", "redteam": "Red team", "fix": "Fix",
               "plan": "Plan", "classify": "Classification", "naming": "Planet names", "status": "Status mapping"}
 
 
@@ -133,6 +133,24 @@ def body(job, jobs, roadmaps, stages):
                   "- **A route for everything missing:** a source of an existing roadmap's layers, a Part II of an existing roadmap, or a new roadmap, each Part II or new roadmap with the brief its design job will follow (PROTOCOL.md section 16). Build on what exists; never duplicate (section 15).",
                   "- **A report** explaining the routes to a human reader, and the prerequisite papers the atlas does not cover yet.",
                   "", "After an independent review, the accepted routes become blueprint sources and design jobs when the queue is next generated."]
+    if job["kind"] == "redteam" and job["id"].startswith("RT-AREA-"):
+        lines += ["", "### What this issue delivers",
+                  "- **What the area is missing:** definitions and key theorems that these roadmaps' targets, or the papers routed to them, need but no layer plans and the libraries lack, each with the roadmap and layer that should own it, or a proposed Part II or new roadmap.",
+                  "- **Duplication and broken dependencies:** mathematics planned twice, layers whose prerequisites are wrong or missing, and targets out of date with the literature (PROTOCOL.md section 17).",
+                  "- **Each finding precise and evidenced:** where, what, the evidence (a source locator with a quotation, or a declaration read at the pinned commit), the fix, and its severity.",
+                  "- **What you read**, even when you find nothing: a clean result is evidence too.",
+                  "", "An independent verifier checks every finding; confirmed findings of high or medium severity become a fix job."]
+    elif job["kind"] == "redteam":
+        lines += ["", "### What this issue delivers",
+                  "- **An attack on accepted work:** errors (false or misstated statements, wrong library claims, wrong owners, routes or prerequisites), omissions (definitions and key theorems the sources need that nothing plans) and duplication (PROTOCOL.md section 17).",
+                  "- **Each finding precise and evidenced:** where, what, the evidence (a source locator with a quotation, or a declaration read at the pinned commit), the fix, and its severity.",
+                  "- **What you checked**, even when you find nothing: a clean result is evidence too.",
+                  "", "An independent verifier checks every finding; confirmed findings of high or medium severity become a fix job."]
+    if job["kind"] == "fix":
+        lines += ["", "### What this issue delivers",
+                  "- **Every confirmed finding fixed** in the files it names, each file still valid under its checker (PROTOCOL.md section 17).",
+                  "- **Missing mathematics put where it belongs:** a node or a `requests` entry in the owning packet, or a note for the maintainer when it needs a new roadmap.",
+                  "- **A fixes report:** for each finding, what changed, or why not."]
     if job["kind"] in ("blueprint", "design"):
         lines += ["", "### What this issue delivers",
                   "- **Built on existing roadmaps, never duplicating them:** import what another roadmap plans, and extend it as a Part II where you need more (PROTOCOL.md section 15).",
@@ -142,7 +160,9 @@ def body(job, jobs, roadmaps, stages):
                   "- **A suggested Lean file** in upstream's `Suggested.lean` form: signatures, API lemmas and unit tests as `example`s, all proved by `sorry` (section 13).",
                   "- **The atlas's planets for these layers:** the key definitions and named theorems, at most six per layer, named from the source (section 14). Sub-layers can be proposed in `restructure`.",
                   "- **A handoff note:** what is closed, what remains, and whether the Lean file compiled."]
-    if job.get("avoidAccountOf"):
+    if job.get("independentOf"):
+        lines += ["", "Must be done by an agent that did none of " + ", ".join(f"`{other}`" for other in job["independentOf"]) + "."]
+    elif job.get("avoidAccountOf"):
         lines += ["", f"Must be done by a different agent from the one that did `{job['avoidAccountOf']}`."]
     reserved = json.loads((BP / "reserved-ids.json").read_text()) if (BP / "reserved-ids.json").exists() else {}
     mine = [nid for nid, v in reserved.items() if v.get("job") == job["id"]]
@@ -210,6 +230,10 @@ def title(job, roadmaps):
         return f"[Restructure] {job.get('name') or jid}"
     if job["kind"] == "paper":
         return f"[Paper] {job.get('name') or jid}"[:240]
+    if job["kind"] == "redteam":
+        return f"[Red team] {job.get('name') or jid}"[:240]
+    if job["kind"] == "fix":
+        return f"[Fix] Red-team findings on the {job.get('name') or jid}"[:240]
     if job["kind"] == "design" and job.get("name"):
         return f"[New roadmap] {job['name']}"[:240]
     if job["kind"] == "review":
@@ -218,6 +242,8 @@ def title(job, roadmaps):
             return f"[Review] Restructure: {job.get('name') or target}"
         if target.startswith("PAPER-"):
             return f"[Review] Paper: {job.get('name') or target}"[:240]
+        if target.startswith("RT-"):
+            return f"[Review] Red-team findings on the {job.get('name') or target}"[:240]
         if target.startswith("DESIGN-") and job.get("name"):
             return f"[Review] New roadmap: {job['name']}"[:240]
         if target.startswith("LINK-"):
@@ -382,7 +408,7 @@ def deliverables_complete(job, root=REPO):
             covered = {entry.get("roadmapId") for entry in result}
             return (set(job.get("roadmapIds") or []) <= covered
                     and not any(entry.get("assessmentStatus") == "partial" for entry in result))
-        if job["kind"] in ("link", "paper"):
+        if job["kind"] in ("link", "paper", "redteam"):
             return json.loads(paths[0].read_text()).get("status") == "complete"
         if job["kind"] == "audit":
             listed = {layer["id"] for roadmap in json.loads((bp / "audit" / f"{job['id']}.json").read_text())["roadmaps"] for layer in roadmap["layers"]}

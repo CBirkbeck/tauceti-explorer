@@ -117,9 +117,11 @@ def eligible(job, jobs, account, workers=""):
     for log in job.get("waitForLogs", []):
         if not log_has_exit(log.replace("{WORKERS}", workers)):
             return False
-    other = job.get("avoidAccountOf")
-    if other and jobs.get(other, {}).get("account") == account:
-        return False
+    # A review is never done by the account that did its target, nor a red team
+    # by the account that did or reviewed the work it attacks.
+    for other in [job.get("avoidAccountOf")] + list(job.get("independentOf") or []):
+        if other and jobs.get(other, {}).get("account") == account:
+            return False
     if job.get("notBefore") and now() < dt.datetime.fromisoformat(job["notBefore"].replace("Z", "+00:00")):
         return False
     return True

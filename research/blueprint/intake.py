@@ -38,7 +38,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from issues import STATE_LABELS, deliverables_complete, ready  # noqa: E402
 
-ALLOWED = re.compile(r"^research/(blueprint/(packets|readmes|suggested|restructure|reviews|links|handoff|roadmaps|plans|classify|audit|compare|papers)/[^/]+"
+ALLOWED = re.compile(r"^research/(blueprint/(packets|readmes|suggested|restructure|reviews|links|handoff|roadmaps|plans|classify|audit|compare|papers|redteam)/[^/]+"
                      r"|expansion/reviews/[^/]+|expansion/naming/(?:NAME|PLANETS)-\d+\.result\.json)$")
 PRIVATE = re.compile(r"/Users/|/private/|/home/[a-z]+/|mcu22seu")
 TOKEN = re.compile(r"[A-Za-z0-9_.-]+")
@@ -119,10 +119,16 @@ def auto_refusals(job, files, draft, reviewer_sessions, author_sessions, already
         found.append(f"{job['id']}'s deliverables on main are already complete")
     own = own_files(job)
     found += [f"{path} is not a deliverable of {job['id']}" for path in files if path not in own]
-    if job["kind"] == "review":
-        target = (job.get("after") or ["the work under review"])[0]
-        found += [f"the reviewer {session} also did {target}" for session in sorted(reviewer_sessions & author_sessions)]
+    others = independent_of(job)
+    if others:
+        role = "reviewer" if job["kind"] == "review" else "red teamer" if job["kind"] == "redteam" else "worker"
+        found += [f"the {role} {session} also did {' or '.join(others)}" for session in sorted(reviewer_sessions & author_sessions)]
     return found
+
+
+def independent_of(job):
+    """The jobs whose workers may not do this one: a review's target; a red team's target and its review."""
+    return job.get("independentOf") or ((job.get("after") or [])[:1] if job["kind"] == "review" else [])
 
 
 def latest_checks(rollup):
@@ -189,8 +195,11 @@ def inspect(number, jobs, mapping, auto=False):
         if data.get("isCrossRepository"):
             problems.append("the pull request comes from a fork")
         reviewer, author = set(), set()
-        if job and job["kind"] == "review" and job.get("after"):
-            reviewer, author = claimants(comments(issue)), claimants(comments(mapping.get(job["after"][0])))
+        if job and independent_of(job):
+            reviewer = claimants(comments(issue))
+            for other in independent_of(job):
+                if mapping.get(other):
+                    author |= claimants(comments(mapping[other]))
         complete = bool(job) and deliverables_complete(job, ROOT)
         problems += auto_refusals(job, files, data["isDraft"], reviewer, author, already_complete=complete)
     return data, files, problems, job, issue

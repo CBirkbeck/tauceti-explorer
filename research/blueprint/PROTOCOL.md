@@ -584,3 +584,63 @@ Accepted routes are applied when the queue is next generated. A `source` route
 adds the paper to the named roadmap's blueprint instructions; a `part-ii` or
 `new` route becomes a design job, `DESIGN-<roadmap id>`, whose instructions are
 its brief, with its own review.
+
+## 17. Red team
+
+Accepted work (finished and independently reviewed) is attacked by a red team
+whose job is to break it. A red team did not write or review what it attacks.
+There are two kinds of red-team job:
+
+- `RT-<job id>` attacks one accepted deliverable: a library audit, a
+  restructuring proposal, a link map, a paper extraction, a new roadmap or a
+  blueprint packet.
+- `RT-AREA-<area id>` attacks one area of the atlas as a whole: everything its
+  roadmaps plan, the restructuring proposals that touch it and the papers
+  routed to it, looking for what nothing plans and for what is planned twice.
+  An area of more than eight roadmaps is split into parts of at most eight,
+  `RT-AREA-<area id>-<n>`, grouped by the links between them; each part reads
+  its own roadmaps in depth and the other parts' layers for duplication.
+
+A red team is queued for each deliverable once it and its review are done, so
+new red-team jobs appear as work is accepted.
+
+A red team hunts for **errors** (a statement that is false or not the source's,
+a wrong hypothesis or locator, a library claim that does not hold at the pinned
+commit, a wrong owner, route or prerequisite, a cycle), **omissions** (the
+definitions, constructions and key theorems the sources use or prove that the
+work leaves out; for an audit, targets marked missing that the libraries have,
+or marked built that they lack) and **duplication** (mathematics planned here
+that another roadmap owns). It writes
+`research/blueprint/redteam/RT-<x>.result.json` and a report,
+`research/blueprint/redteam/RT-<x>.md`:
+
+```json
+{"redteam": "RT-<x>", "protocol": "redteam-v1", "status": "partial | complete", "target": "<job id or area:<id>>",
+ "summary": "...", "checked": ["what was checked, e.g. every declaration the audit cites, at the pinned commit"],
+ "findings": [{"id": "RT-<x>/<n>", "kind": "missing | error | duplicate | library-claim | other",
+   "severity": "high | medium | low", "where": "<file, stage id, node id or item id>",
+   "claim": "what is wrong or missing, precisely",
+   "evidence": "a source locator with a quotation, or a declaration read at the pinned commit",
+   "fix": "the correction, stated so that a worker can apply it"}]}
+```
+
+Severity is high when the finding changes what gets built or makes a
+statement false, medium for a real gap or error of limited effect, and low for
+presentation. `checked` is never empty: a red team that finds nothing still
+says what it looked at, so that a clean result means something.
+
+An independent verifier checks every finding at its evidence and writes
+`research/blueprint/redteam/RT-<x>.review.json`:
+
+```json
+{"redteam": "RT-<x>", "findings": [{"finding": "RT-<x>/<n>", "verdict": "confirmed | rejected", "reason": "..."}]}
+```
+
+Confirmed findings of high or medium severity become a fix job,
+`FIX-RT-<x>`, when the queue is next generated. The fixer applies each fix to
+the files it names, keeps every file valid under its checker, adds missing
+mathematics where the finding says it belongs (a node or a `requests` entry in
+the owning packet, or a note for the maintainer when it needs a new roadmap),
+and writes `research/blueprint/redteam/RT-<x>.fixes.md`: what was changed for
+each finding, or why not. A fix to an audit is merged into the library audit by
+the orchestrator.
