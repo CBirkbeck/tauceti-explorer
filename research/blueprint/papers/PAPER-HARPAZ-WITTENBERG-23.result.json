@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-HARPAZ-WITTENBERG-23",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "The Massey vanishing conjecture for number fields",
     "authors": "Yonatan Harpaz and Olivier Wittenberg",
@@ -23,7 +23,301 @@
     "sha256": "d95100ebd7210600873351ffbe1f3f1dc0fd3f36b815ca70286884801afc546f",
     "accessed": "2026-09-21"
   },
-  "summary": "Complete reading of the 33-page author final and fine-grained extraction of ordinary and rank-one twisted number-field Massey vanishing, homogeneous splitting varieties, unramified Brauer computations and the Z/8 counterexample. The library supplies matrix and low-degree cohomology carriers; upstream DGAInfinity owns generic Massey products. Seven source routes and two Part II continuations import those suppliers. Two explicit unrouted gaps remain: the omitted δ≠0 example and the unrestricted continuity assertion in Lemma 5.5. The two omitted length-six examples are supplied by explicit matrix and Brauer-class arguments. The finite-module application is repaired, as are representative and sign/index conventions.",
+  "summary": "Complete extraction of the ordinary and rank-one twisted number-field Massey vanishing theorems and the Z/8 counterexample, preserving the prior 139-item checkpoint's explicit corrections and length-six examples. The continuation supplies an order512 finite-group/SL_513 witness for Remark3.4, proves its nonzero Brauer edge obstruction, and replaces the unrestricted Lemma5.5 discrete-Hom assertion with a pointwise-topology continuous-cochain theorem. It also corrects the literal outer-exponent normalization at p=2 and separates an existing transvection API from the missing UT interface. All 156 items are classified; every missing item has one route, using existing generic suppliers and two application-specific Part II briefs.",
+  "prerequisites": [
+    {
+      "citation": "Harpaz–Wittenberg, Zéro-cycles sur les espaces homogènes et problème de Galois inverse (2020), Théorème B and Definition 6.4",
+      "link": "https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf",
+      "why": "Outer-action supersolvable homogeneous-space Brauer–Manin sufficiency; theorem statement read in author PDF p.3. Full proof decomposition belongs to the homogeneous-space continuation, not assumed covered by generic descent."
+    },
+    {
+      "citation": "Pál–Schlank, The Brauer–Manin obstruction to the local–global principle for the embedding problem, §9 Definition9.3, Lemmas9.4,9.8–9.9, Theorem9.6",
+      "link": "https://arxiv.org/abs/1602.04998",
+      "why": "Actual splitting variety and rational-orbit/weak-solution bijection, beyond the abstract embedding-problem vocabulary. Continuation read the construction and proof of the fundamental-extension and low-row spectral-sequence comparison on pp.28–31; acquired https://arxiv.org/pdf/1602.04998 on 2026-09-21, SHA-256 68c6fde00be95abbcfda9da21b18df8d216dd7c1cfaacf7088b3cfed4ef02d83. This closes the geometric identification needed for the explicit δ computation, not a claim to have read all of this prerequisite."
+    },
+    {
+      "citation": "Lucchini Arteche, Groupe de Brauer non ramifié des espaces homogènes à stabilisateur fini (2014), Theorem 4.15",
+      "link": "https://doi.org/10.1016/j.jalgebra.2014.03.040",
+      "why": "Rational-point twisted-norm formula imported in Proposition 3.3; the source paper proves its generic-point extension. Exact norm convention must remain part of the design proof tree."
+    },
+    {
+      "citation": "Bogomolov, The Brauer group of quotient spaces of linear representations (1987/1988)",
+      "link": "https://doi.org/10.1070/IM1988v030n03ABEH001024",
+      "why": "Comparison of geometric unramified Brauer group with the bicyclic restriction kernel."
+    },
+    {
+      "citation": "Michailov, Bogomolov multipliers for unitriangular groups (2015), Theorem 3.1",
+      "link": "https://arxiv.org/abs/1308.3408",
+      "why": "Vanishing for UT²; author preprint theorem and indexing read on p.5. Avoid its off-by-one lower-central endpoint."
+    },
+    {
+      "citation": "Guillot–Mináč–Topaz with Wittenberg appendix, Four-fold Massey products in Galois cohomology (2018), Example A.15",
+      "link": "https://www.math.univ-paris13.fr/~wittenberg/massey.pdf",
+      "why": "Explicit 34,2,17,34 undefined-product obstruction; inspected Appendix p.35, including the exceptional place 17."
+    },
+    {
+      "citation": "Artin–Tate, Class field theory (2009), Chapter Ten, Theorem 1",
+      "link": "https://doi.org/10.1090/chel/366",
+      "why": "Grunwald–Wang bound Sha¹(K,μ_m)=0 or C2. Upstream ClassFieldTheory explicitly excludes this extension."
+    },
+    {
+      "citation": "Colliot-Thélène–Poonen, Algebraic families of nonzero elements of Shafarevich–Tate groups (2000), Lemma 2.6",
+      "link": "https://doi.org/10.1090/S0894-0347-99-00315-X",
+      "why": "H³(k,kbar×)=0 for the function field of a curve over a number field in Remark 3.1; distinct from number-field duality."
+    },
+    {
+      "citation": "Koch, Galois theory of p-extensions, Theorem 9.1",
+      "link": "https://doi.org/10.1007/978-3-662-04967-9",
+      "why": "Characteristic-p cohomological-dimension input in Proposition 5.3; do not infer it from mixed-characteristic local duality."
+    },
+    {
+      "citation": "Gille–Szamuely, Central Simple Algebras and Galois Cohomology (2006), §6.3 pp.147–150 and §6.8 pp.171–176",
+      "link": "https://www.math.ens.psl.eu/~benoist/refs/Gille-Szamuely.pdf",
+      "why": "Read the Witt decomposition and finite-coefficient residue/cup proofs used to complete Remark3.4, including Propositions6.3.1/6.3.4, Corollary6.3.7, Lemma6.8.4 and Corollary6.8.8. Acquired2026-09-21, SHA-2563697582f57a11547addeb8d5d63764d788b9d670e2bd76bd7401b9f3994f1e63. This is an additional proof source for the omitted example; generic residue interfaces route to R02.2, not a new private theory or the finite-bottom higher-local-field definition."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-23/24"
+      ],
+      "reason": "Finite torsor descent and quotient prerequisites use the existing general descent owner."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-23/40",
+        "PAPER-HARPAZ-WITTENBERG-23/152",
+        "PAPER-HARPAZ-WITTENBERG-23/155"
+      ],
+      "reason": "The scheme-theoretic Hochschild–Serre edge sequence and naturality specialize its sites/cohomology scope; group-only Hochschild–Serre is a different supplier. Include the natural comparison of splitting-variety and fundamental-group Hochschild–Serre edge maps, not just an abstract Brauer-group isomorphism. Keep the separately sourced curve-function-field H³ vanishing input visible."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.4"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-23/30"
+      ],
+      "reason": "Characteristic-zero smooth compactification is within the existing birational-geometry stage; preserve its characteristic restriction."
+    },
+    {
+      "route": "source",
+      "roadmap": "HeightsRationalPointsAndObstructions",
+      "stages": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-23/29",
+        "PAPER-HARPAZ-WITTENBERG-23/31",
+        "PAPER-HARPAZ-WITTENBERG-23/38",
+        "PAPER-HARPAZ-WITTENBERG-23/61"
+      ],
+      "reason": "Source precision for algebraic/unramified Brauer subgroups and pairing. Define B_ω in the quotient Br_1/Br_0, prove finite support on the full product for unramified classes, and import actual local invariants/global reciprocity."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticGaloisDuality",
+      "stages": [
+        "ArithmeticGaloisDuality:R02.2"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-23/58",
+        "PAPER-HARPAZ-WITTENBERG-23/148",
+        "PAPER-HARPAZ-WITTENBERG-23/149",
+        "PAPER-HARPAZ-WITTENBERG-23/150"
+      ],
+      "reason": "Finite-extension restriction/corestriction descent with prime-to-p injectivity is already owned here. The same existing continuous Hochschild–Serre owner supplies the mixed transgression and generic Laurent-field residue/Witt sequences used in Remark3.4; these retain invertible-coefficient and perfect-field hypotheses, importing canonical cochains and Kummer theory."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticGaloisDuality",
+      "stages": [
+        "ArithmeticGaloisDuality:R02.4"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-23/120",
+        "PAPER-HARPAZ-WITTENBERG-23/121",
+        "PAPER-HARPAZ-WITTENBERG-23/154"
+      ],
+      "reason": "Global Sha duality and coefficient naturality use its finite Poitou–Tate scope; retain modified real-place conventions."
+    },
+    {
+      "route": "source",
+      "roadmap": "InverseGaloisAndArithmeticFundamentalGroups",
+      "stages": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.4"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-23/122",
+        "PAPER-HARPAZ-WITTENBERG-23/123",
+        "PAPER-HARPAZ-WITTENBERG-23/124",
+        "PAPER-HARPAZ-WITTENBERG-23/126",
+        "PAPER-HARPAZ-WITTENBERG-23/130",
+        "PAPER-HARPAZ-WITTENBERG-23/136"
+      ],
+      "reason": "The selected cyclic degree-eight lifts and exact Grunwald–Wang consequence extend its abelian-kernel and local-prescription work. Import profinite embedding vocabulary and class field theory, not duplicate them."
+    },
+    {
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "roadmap": "ProfiniteCohomologyPartIIMasseyGalois",
+      "title": "Continuous cohomology of profinite groups, Part II: Massey products and Galois lifting",
+      "area": "algebraicnt",
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-23/14",
+        "PAPER-HARPAZ-WITTENBERG-23/15",
+        "PAPER-HARPAZ-WITTENBERG-23/16",
+        "PAPER-HARPAZ-WITTENBERG-23/17",
+        "PAPER-HARPAZ-WITTENBERG-23/19",
+        "PAPER-HARPAZ-WITTENBERG-23/20",
+        "PAPER-HARPAZ-WITTENBERG-23/21",
+        "PAPER-HARPAZ-WITTENBERG-23/22",
+        "PAPER-HARPAZ-WITTENBERG-23/42",
+        "PAPER-HARPAZ-WITTENBERG-23/44",
+        "PAPER-HARPAZ-WITTENBERG-23/50",
+        "PAPER-HARPAZ-WITTENBERG-23/52",
+        "PAPER-HARPAZ-WITTENBERG-23/54",
+        "PAPER-HARPAZ-WITTENBERG-23/55",
+        "PAPER-HARPAZ-WITTENBERG-23/59",
+        "PAPER-HARPAZ-WITTENBERG-23/63",
+        "PAPER-HARPAZ-WITTENBERG-23/64",
+        "PAPER-HARPAZ-WITTENBERG-23/65",
+        "PAPER-HARPAZ-WITTENBERG-23/66",
+        "PAPER-HARPAZ-WITTENBERG-23/68",
+        "PAPER-HARPAZ-WITTENBERG-23/69",
+        "PAPER-HARPAZ-WITTENBERG-23/70",
+        "PAPER-HARPAZ-WITTENBERG-23/71",
+        "PAPER-HARPAZ-WITTENBERG-23/73",
+        "PAPER-HARPAZ-WITTENBERG-23/74",
+        "PAPER-HARPAZ-WITTENBERG-23/78",
+        "PAPER-HARPAZ-WITTENBERG-23/79",
+        "PAPER-HARPAZ-WITTENBERG-23/80",
+        "PAPER-HARPAZ-WITTENBERG-23/82",
+        "PAPER-HARPAZ-WITTENBERG-23/83",
+        "PAPER-HARPAZ-WITTENBERG-23/84",
+        "PAPER-HARPAZ-WITTENBERG-23/85",
+        "PAPER-HARPAZ-WITTENBERG-23/86",
+        "PAPER-HARPAZ-WITTENBERG-23/87",
+        "PAPER-HARPAZ-WITTENBERG-23/88",
+        "PAPER-HARPAZ-WITTENBERG-23/89",
+        "PAPER-HARPAZ-WITTENBERG-23/90",
+        "PAPER-HARPAZ-WITTENBERG-23/91",
+        "PAPER-HARPAZ-WITTENBERG-23/92",
+        "PAPER-HARPAZ-WITTENBERG-23/96",
+        "PAPER-HARPAZ-WITTENBERG-23/97",
+        "PAPER-HARPAZ-WITTENBERG-23/98",
+        "PAPER-HARPAZ-WITTENBERG-23/99",
+        "PAPER-HARPAZ-WITTENBERG-23/100",
+        "PAPER-HARPAZ-WITTENBERG-23/102",
+        "PAPER-HARPAZ-WITTENBERG-23/104",
+        "PAPER-HARPAZ-WITTENBERG-23/105",
+        "PAPER-HARPAZ-WITTENBERG-23/106",
+        "PAPER-HARPAZ-WITTENBERG-23/107",
+        "PAPER-HARPAZ-WITTENBERG-23/108",
+        "PAPER-HARPAZ-WITTENBERG-23/109",
+        "PAPER-HARPAZ-WITTENBERG-23/110",
+        "PAPER-HARPAZ-WITTENBERG-23/111",
+        "PAPER-HARPAZ-WITTENBERG-23/112",
+        "PAPER-HARPAZ-WITTENBERG-23/113",
+        "PAPER-HARPAZ-WITTENBERG-23/116",
+        "PAPER-HARPAZ-WITTENBERG-23/117",
+        "PAPER-HARPAZ-WITTENBERG-23/118",
+        "PAPER-HARPAZ-WITTENBERG-23/119",
+        "PAPER-HARPAZ-WITTENBERG-23/125",
+        "PAPER-HARPAZ-WITTENBERG-23/127",
+        "PAPER-HARPAZ-WITTENBERG-23/128",
+        "PAPER-HARPAZ-WITTENBERG-23/129",
+        "PAPER-HARPAZ-WITTENBERG-23/131",
+        "PAPER-HARPAZ-WITTENBERG-23/132",
+        "PAPER-HARPAZ-WITTENBERG-23/133",
+        "PAPER-HARPAZ-WITTENBERG-23/134",
+        "PAPER-HARPAZ-WITTENBERG-23/135",
+        "PAPER-HARPAZ-WITTENBERG-23/137",
+        "PAPER-HARPAZ-WITTENBERG-23/138",
+        "PAPER-HARPAZ-WITTENBERG-23/76",
+        "PAPER-HARPAZ-WITTENBERG-23/144",
+        "PAPER-HARPAZ-WITTENBERG-23/145",
+        "PAPER-HARPAZ-WITTENBERG-23/146"
+      ],
+      "reason": "Higher Galois lifting and explicit unitriangular cohomology are additional layers beyond upstream ProfiniteCohomology. Generic DGA Massey products already belong to DGAInfinity Layer 8; this continuation imports them.",
+      "brief": "Prove, for every number field k, prime p and n≥3, that every defined n-fold product of H¹(k,F_p) classes contains zero. Prove the rank-one twisted version for N_i one-dimensional Galois F_p-modules, M_ij=Hom(N_j,N_i), and the μ_p^⊗n specialization. Finally construct existentially three H¹(Q,Z/8) classes whose triple product is defined but excludes zero. Import Continuous cohomology of profinite groups (tauceti:TauCetiRoadmap/ProfiniteCohomology), DG and A∞ algebra/category infrastructure (tauceti:TauCetiRoadmap/DGAInfinity, Layers 1 and 8), Profinite and pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups, Layer 5), Global Galois duality and compact coefficients (ArithmeticGaloisDuality), Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory), Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups, IG.4), and Heights, rational points and obstructions, Part II: homogeneous Massey varieties (HeightsRationalPointsPartIIHomogeneousMassey). Use the existing upper-unitriangular carrier and filtration, adding exact commutator equalities, B/B_0 action calculations, outer exponent only for n≤6, fixed conjugacy generation, refined local lifting and finite-C splitting-torsor cup formula with explicit sign. Compare continuous cochains and abstract finite-group extensions through the canonical carrier. The twisted correspondence fixes adjacent cochains; derive class-level existence by conjugation. Include real-place lifting, the internal-sum corner convention for P, and the p=3 matrix correction. The Z/8 chain must construct the twisted modules, Wang class, dual Sha nonsurjectivity, γ, middle character and local/global lift obstruction, not assume the conclusion. Every definition needs entry/quotient/functorial APIs and three discriminating tests. Import the topology-aware splitting-torsor correction from ArithmeticGaloisDuality R02.1, rather than creating another non-discrete cohomology theory. Include the explicit five-dimensional Q=C2×C4×C2 action, cyclically trivial β and auxiliary γ from the Remark3.4 completion. Generic existing suppliers are not new axioms. Interpret Lemma4.7 as factorization of powering through (Z/p)×: under Definition3.2's least-divisor convention the outer exponent is1 at p=2, not2. Reuse existing transvection identities and add only UT membership/factorization."
+    },
+    {
+      "route": "part-ii",
+      "parent": "HeightsRationalPointsAndObstructions",
+      "roadmap": "HeightsRationalPointsPartIIHomogeneousMassey",
+      "title": "Heights, rational points and obstructions, Part II: homogeneous Massey varieties",
+      "area": "algebraicnt",
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-23/25",
+        "PAPER-HARPAZ-WITTENBERG-23/26",
+        "PAPER-HARPAZ-WITTENBERG-23/27",
+        "PAPER-HARPAZ-WITTENBERG-23/28",
+        "PAPER-HARPAZ-WITTENBERG-23/33",
+        "PAPER-HARPAZ-WITTENBERG-23/34",
+        "PAPER-HARPAZ-WITTENBERG-23/35",
+        "PAPER-HARPAZ-WITTENBERG-23/36",
+        "PAPER-HARPAZ-WITTENBERG-23/37",
+        "PAPER-HARPAZ-WITTENBERG-23/39",
+        "PAPER-HARPAZ-WITTENBERG-23/41",
+        "PAPER-HARPAZ-WITTENBERG-23/43",
+        "PAPER-HARPAZ-WITTENBERG-23/45",
+        "PAPER-HARPAZ-WITTENBERG-23/47",
+        "PAPER-HARPAZ-WITTENBERG-23/48",
+        "PAPER-HARPAZ-WITTENBERG-23/49",
+        "PAPER-HARPAZ-WITTENBERG-23/51",
+        "PAPER-HARPAZ-WITTENBERG-23/53",
+        "PAPER-HARPAZ-WITTENBERG-23/56",
+        "PAPER-HARPAZ-WITTENBERG-23/57",
+        "PAPER-HARPAZ-WITTENBERG-23/60",
+        "PAPER-HARPAZ-WITTENBERG-23/62",
+        "PAPER-HARPAZ-WITTENBERG-23/67",
+        "PAPER-HARPAZ-WITTENBERG-23/72",
+        "PAPER-HARPAZ-WITTENBERG-23/75",
+        "PAPER-HARPAZ-WITTENBERG-23/93",
+        "PAPER-HARPAZ-WITTENBERG-23/94",
+        "PAPER-HARPAZ-WITTENBERG-23/95",
+        "PAPER-HARPAZ-WITTENBERG-23/101",
+        "PAPER-HARPAZ-WITTENBERG-23/103",
+        "PAPER-HARPAZ-WITTENBERG-23/114",
+        "PAPER-HARPAZ-WITTENBERG-23/115",
+        "PAPER-HARPAZ-WITTENBERG-23/77",
+        "PAPER-HARPAZ-WITTENBERG-23/46",
+        "PAPER-HARPAZ-WITTENBERG-23/147",
+        "PAPER-HARPAZ-WITTENBERG-23/151",
+        "PAPER-HARPAZ-WITTENBERG-23/153"
+      ],
+      "reason": "The explicit finite-stabilizer splitting varieties, outer-action supersolvability and unramified Brauer formula add substantial layers beyond RP.2–RP.3; generic pairing and descent remain in those owners.",
+      "brief": "Construct V=(SL_(|U|+1)×T_α)/U and the auxiliary W with stabilizer P; prove weak solutions modulo kernel conjugacy correspond to SL-orbits of rational points. For characteristic-zero homogeneous spaces under semisimple simply connected groups with finite stabilizer H, compute Br_1,nr/Br_0 by Proposition 3.3 with BOTH δβ=0 and every conjugacy-power test, using the correct character/cyclotomic actions. Import HW20 Théorème B with outer-action-stable supersolvable filtration and derive V(k) iff a Br_nr-orthogonal full family of local points exists. For the Massey stabilizer prove geometric Br_nr=0, boundary-module restriction zero for n≤6, all Brauer classes pull back to constants on W, and the local-family orthogonality argument. Compute Br_nr(V)=Br_0(V) for n=3, and Br_nr/Br_0=B_ω for n=4,5, including the 34,2,17,34 undefined-product obstruction. Import Heights, rational points and obstructions (HeightsRationalPointsAndObstructions, RP.2–RP.3), Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations, SF.1,SF.2,SF.4), Continuous cohomology of profinite groups (tauceti:TauCetiRoadmap/ProfiniteCohomology), Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory), Global Galois duality and compact coefficients (ArithmeticGaloisDuality), and the finite-matrix/cohomology portions of ProfiniteCohomologyPartIIMasseyGalois. The dependency order is finite matrix/cohomology interfaces → geometric/Brauer continuation → final arithmetic Massey theorems; avoid a stage-level cycle despite reciprocal roadmap imports. HW20, PS16, LA14 and Bogomolov require their complete proof decompositions. Keep geometric bars, quotient constants and finite splitting-field choices explicit. B_ω means locally constant Brauer classes modulo Br_0, not merely constant evaluation functions. Include the explicit p=2,n=6,σ=e_01+e_12+e_56 example and its coordinate-functional Brauer class from this extraction; include the explicit Remark3.4 completion: the order512 extension E=B×_(γ cup ζ)Q, V=(SL_513×Spec L)/E over C((x))((y))((z)), cyclically trivial β, and δβ equal to the nonzero image of (x)cup(y)cup(z). Import the extension transgression and Laurent-field residue/Witt sequences from ArithmeticGaloisDuality R02.2 and the natural étale edge comparison from SF.2. Keep the Kummer-injectivity step via 2-divisibility of Br(k); residue nonvanishing in μ_2 alone is insufficient."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticGaloisDuality",
+      "stages": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-23/139",
+        "PAPER-HARPAZ-WITTENBERG-23/140",
+        "PAPER-HARPAZ-WITTENBERG-23/141",
+        "PAPER-HARPAZ-WITTENBERG-23/142",
+        "PAPER-HARPAZ-WITTENBERG-23/143"
+      ],
+      "reason": "Its document explicitly owns the non-discrete-coefficient extension of upstream ProfiniteCohomology. Add the bounded pointwise-Hom/splitting-torsor interface and exact continuous-cochain formula, reusing TauCeti's topological H¹ and algebraic homAction. Preserve the counterexample to indiscriminate discretization, compare finite C with existing InternalHom, and do not claim a discrete-derived-functor Ext interpretation for arbitrary Hom_pt."
+    }
+  ],
   "items": [
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/1",
@@ -211,7 +505,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "API: constructor, additive parameter law, inverse, commutator formulas with index cases, ordered factorization Tests: e_ij(t)e_ij(s)=e_ij(t+s); [e_ij(a),e_jk(b)]=e_ik(ab) for i<j<k with xyx^-1y^-1 convention; disjoint row-column transvections commute."
+      "note": "API: constructor, additive parameter law, inverse, commutator formulas with index cases, ordered factorization Tests: e_ij(t)e_ij(s)=e_ij(t+s); [e_ij(a),e_jk(b)]=e_ik(ab) for i<j<k with xyx^-1y^-1 convention; disjoint row-column transvections commute. Reuse TauCeti.transvectionUnit, transvectionUnit_add, transvectionUnit_inv and commutatorElement_transvectionUnit (item156). The missing portion is the upper-unitriangular membership/interface and its chosen ordered factorization, not these already proved generic matrix identities."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/15",
@@ -505,7 +799,7 @@
       "id": "PAPER-HARPAZ-WITTENBERG-23/40",
       "kind": "theorem",
       "name": "Hochschild–Serre algebraic Brauer edge sequence",
-      "statement": "There is an exact sequence Br(k)→Br_1(V)→H¹(k,Pic(V_kbar)) --δ→ H³(k,kbar×), with the canonical edge map and functoriality in V.",
+      "statement": "For characteristic-zero k, semisimple simply connected G and a homogeneous G-variety V with finite geometric stabilizer, the constant-geometric-unit hypothesis holds and gives the exact sequence Br(k)→Br_1(V)→H¹(k,Pic(V_kbar)) --δ→ H³(k,kbar×), with canonical edge map and functoriality in V.",
       "locator": "§3 (3.1) p.8",
       "status": "planned",
       "library": [],
@@ -517,13 +811,13 @@
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/41",
       "kind": "theorem",
-      "name": "Conditions killing the edge obstruction",
-      "statement": "The δ in (3.1) is zero if V(k)≠∅, if V has a zero-cycle of degree one (restriction/corestriction), or if H³(k,kbar×)=0; number fields and function fields of curves over number fields satisfy the cited H³ vanishing.",
+      "name": "A rational point kills the edge obstruction",
+      "statement": "For the homogeneous space V of the Brauer edge sequence, V(k)≠∅ implies δ=0: pullback along a rational point splits the structural map on H³, so the edge differential into it is zero.",
       "locator": "§3 Remark 3.1 p.9",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Split the three sufficient conditions in design; the function-field case is the separate CTP00 Lemma 2.6 input."
+      "note": "The other sufficient conditions of Remark3.1 are split into items153–155; vanishing of the entire H³ target makes δ=0 immediately."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/42",
@@ -534,7 +828,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "API: power action on conjugacy classes, divisor-factor predicate, minimality, abelian special case Tests: an abelian H has outer exponent equal to exponent; inner conjugation does not alter the power class; e divides d."
+      "note": "API: power action on conjugacy classes, divisor-factor predicate, minimality and transport under group isomorphisms. Tests: C2 has outer exponent1 under the literal definition; C4 has outer exponent4; C6 has outer exponent3. Correction: an abelian group's outer exponent need not equal its exponent (the reduction on unit groups can already be an isomorphism after removing a single factor2)."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/43",
@@ -573,12 +867,12 @@
       "id": "PAPER-HARPAZ-WITTENBERG-23/46",
       "kind": "theorem",
       "name": "Nonzero edge obstruction can survive all conjugacy tests",
-      "statement": "Remark 3.4 asserts an example over C((x))((y))((z)), with finite abelian stabilizer, where a β satisfies the conjugacy-power tests but δβ≠0. The paper supplies no explicit variety, module or cocycle.",
+      "statement": "Over k=C((x))((y))((z)), let B=F_2^5 with basis a,b,c,d,e and Q=C2(s)×C4(t)×C2(r), acting by s=1+N_s,t=1+N_t,r=1, where N_s(b)=d+e,N_s(c)=e,N_t(a)=d,N_t(b)=d+e and other basis images are zero. Put β(q)=(q_s+q_t mod 2)b*, γ(s)=a,γ(t)=b+c,γ(r)=0, ζ(q)=q_r, f=γ cup ζ, and E=B×_f Q. For L=k(sqrt x,fourthroot y,sqrt z) and V=(SL_513×Spec L)/E, the class β∈H¹(Gal(L/k),B*) satisfies every conjugacy-power test of Proposition 3.3, but δ_V(inf β) is the nonzero image of (x) cup (y) cup (z) in H³(k,G_m). Thus ker δ cannot be omitted, even with abelian stabilizer.",
       "locator": "§3 Remark 3.4 p.10",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "G1: extraction retained but unrouted pending an explicit witness and checked δ calculation; do not remove δ from Proposition 3.3."
+      "note": "Explicit independent completion of Remark 3.4, not a witness supplied by the paper. Items 144–152 and the report give the module, cocycles, quotient, mixed-cochain transgression, étale comparison and nonvanishing proof. In particular nonzero H³(μ_2) alone would not establish its image in H³(G_m): Witt decomposition makes Br(k) 2-divisible, so Kummer gives injectivity."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/47",
@@ -783,13 +1077,13 @@
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/65",
       "kind": "theorem",
-      "name": "Small-rank outer exponent",
-      "statement": "For 2≤n≤6, the outer exponent of U¹ is p. Besides exponent bounds, handle p=3,n=6 by conjugating M^4 to M, and p=2,n=4,5,6 by a block involution conjugating M^-1 to M.",
+      "name": "Corrected small-rank outer-exponent bound",
+      "statement": "For 2≤n≤6, the power action on conjugacy classes of U¹=UT_(n+1)(F_p)′ factors through (Z/p)×. Consequently its outer exponent as literally defined in Definition3.2 divides p: it is p for odd p and1 for p=2. Handle p=3,n=6 by conjugating M^4 to M; for p=2,n=4,5,6, a block involution conjugates M^-1 to M.",
       "locator": "§4 Lemma 4.7 pp.13–14",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Do not extend to every n: Remark 4.8 expressly leaves that open. In the p=3 case the exponent bound says divides 9, not by itself that it is divisible by 9."
+      "note": "The printed claim 'equal to p' needs normalization at p=2: (Z/2)×=(Z/1)× is trivial, so the least divisor is1 whenever the whole power action is trivial. Already n=2,p=2 gives U¹=C2. The proof establishes the factorization needed in every downstream argument; no result relies on exact equality at2. Do not extend the bound to arbitrary n (Remark4.8). For p=3,n=6, Lemma4.6 gives exponent dividing9, not by itself divisibility by9."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/66",
@@ -1516,7 +1810,7 @@
       "id": "PAPER-HARPAZ-WITTENBERG-23/131",
       "kind": "construction",
       "name": "Invariant Sha coordinates over L",
-      "statement": "Because the underlying C-action becomes trivial over L, Sha¹(L,character U¹) and Sha¹(L,character P) become triples and quadruples of Sha¹(L,μ_8). Their C-invariant tuples obey the entrywise Galois actions and transvection relations printed on p.30; the forgetful map deletes coordinate 12.",
+      "statement": "Over L of item126, write W=Sha¹(L,μ_8)⊂L×/L×8 multiplicatively and s=e_01,t=e_23∈C. Sha¹(L,character U¹)^C consists of triples (a02,a03,a13)∈W³ with s(a13)=a03 a13, s(a02)=a02, s(a03)=a03, t(a02)=a02 a03^-1, t(a03)=a03, t(a13)=a13. Sha¹(L,character P)^C consists of quadruples (a02,a03,a12,a13)∈W⁴ with s(a1j)=a0j a1j and s(a0j)=a0j for j=2,3, and t(ai2)=ai2 ai3^-1 and t(ai3)=ai3 for i=0,1. The restriction map deletes coordinate12.",
       "locator": "§7 p.30",
       "status": "missing",
       "library": [],
@@ -1609,268 +1903,199 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "G4: unrouted unrestricted source assertion. The finite-C statement used in the proof is corrected and routed separately; a general replacement needs a coefficient topology or continuous splitting-torsor hypotheses. This does not refute Proposition 5.3 or the main theorem."
-    }
-  ],
-  "prerequisites": [
-    {
-      "citation": "Harpaz–Wittenberg, Zéro-cycles sur les espaces homogènes et problème de Galois inverse (2020), Théorème B and Definition 6.4",
-      "link": "https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf",
-      "why": "Outer-action supersolvable homogeneous-space Brauer–Manin sufficiency; theorem statement read in author PDF p.3. Full proof decomposition belongs to the homogeneous-space continuation, not assumed covered by generic descent."
+      "note": "Disposition of the unrestricted printed statement: false with discrete Hom. Retain this counterexample and replace the assertion by items 140–143 using pointwise Hom topology. Finite-C items 82–83 remain valid and cover all paper applications. The corrected general statement belongs to the existing non-discrete-coefficient owner, not a second cohomology roadmap."
     },
     {
-      "citation": "Pál–Schlank, The Brauer–Manin obstruction to the local–global principle for the embedding problem, Theorem 9.6",
-      "link": "https://arxiv.org/abs/1602.04998",
-      "why": "Actual splitting variety and rational-orbit/weak-solution bijection, beyond the abstract embedding-problem vocabulary."
+      "id": "PAPER-HARPAZ-WITTENBERG-23/140",
+      "kind": "definition",
+      "name": "Pointwise internal Hom for discrete modules",
+      "statement": "For continuous discrete abelian Γ-modules C,A, let Hom_pt(C,A) be the additive homomorphisms C→A with topology induced from A^C (pointwise convergence) and conjugation action (g·u)(c)=g u(g^-1 c). Evaluation Hom_pt(C,A)×C→A is jointly continuous and equivariant, and the conjugation action is jointly continuous.",
+      "locator": "§5 Lemma 5.5, topology-aware replacement of the unrestricted statement",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Reuse the algebraic TauCeti.homAction and its continuous_homAction_coe; do not change TauCeti.InternalHom's unconditional discrete instance. Its finite-source specialization already exists. PointwiseConvergenceCLM has NormedField hypotheses and is not the general abelian-group carrier. API: induced topology, coordinatewise continuity criterion, conjugation/evaluation, finite-source comparison. Tests: finite C gives the discrete topology; C=⊕F_2,A=F_2 gives the nondiscrete product F_2^N; the shear cocycle of item139 is continuous coordinatewise."
     },
     {
-      "citation": "Lucchini Arteche, Groupe de Brauer non ramifié des espaces homogènes à stabilisateur fini (2014), Theorem 4.15",
-      "link": "https://doi.org/10.1016/j.jalgebra.2014.03.040",
-      "why": "Rational-point twisted-norm formula imported in Proposition 3.3; the source paper proves its generic-point extension. Exact norm convention must remain part of the design proof tree."
+      "id": "PAPER-HARPAZ-WITTENBERG-23/141",
+      "kind": "construction",
+      "name": "Pointwise splitting torsor and its continuous class",
+      "statement": "For an exact sequence 0→A→B→C→0 of continuous discrete abelian Γ-modules admitting an abelian-group section, the sections form a continuous affine Hom_pt(C,A)-torsor. A section s gives the continuous cocycle γ(g)=gsg^-1-s; replacing s by s+u changes γ by d⁰u. Its H¹ class is zero iff there is an equivariant abelian-group section.",
+      "locator": "§5 Lemma 5.5, corrected general construction",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: subspace of Hom_pt(C,B), translation homeomorphism after a chosen section, cocycle and change-of-section laws, equivariant-zero criterion. Tests: equivariant s gives zero cocycle; a non-equivariant abelian splitting need not give zero class; the product-C2 shear example defines a continuous pointwise class although the discrete-Hom class is invalid. Reuse the existing topological-coefficient explicit H¹ carrier."
     },
     {
-      "citation": "Bogomolov, The Brauer group of quotient spaces of linear representations (1987/1988)",
-      "link": "https://doi.org/10.1070/IM1988v030n03ABEH001024",
-      "why": "Comparison of geometric unramified Brauer group with the bicyclic restriction kernel."
+      "id": "PAPER-HARPAZ-WITTENBERG-23/142",
+      "kind": "theorem",
+      "name": "General continuous connecting formula with pointwise Hom",
+      "statement": "In item141, for every m≥0 and continuous m-cocycle c with values in C, the cochain s∘c is continuous and d(s∘c)(g0,…,gm)=γ(g0)(g0 c(g1,…,gm)). Therefore the usual discrete-coefficient connecting map satisfies ∂[c]=[γ cup c], with evaluation Hom_pt(C,A)×C→A and continuous cochains on Hom_pt. No identification with Ext in the discrete-module category for Hom_pt is asserted.",
+      "locator": "§5 Lemma 5.5, direct inhomogeneous-cochain correction",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Exactness of the cochain sequence follows by lifting every cochain through the continuous homomorphic section. Differentiation cancels all terms except the first action term. Joint continuity of evaluation proves that the displayed cup is continuous. Canonical comparison in discrete coefficients is imported, not rebuilt."
     },
     {
-      "citation": "Michailov, Bogomolov multipliers for unitriangular groups (2015), Theorem 3.1",
-      "link": "https://arxiv.org/abs/1308.3408",
-      "why": "Vanishing for UT²; author preprint theorem and indexing read on p.5. Avoid its off-by-one lower-central endpoint."
+      "id": "PAPER-HARPAZ-WITTENBERG-23/143",
+      "kind": "theorem",
+      "name": "Finitely generated source recovers the discrete formula",
+      "statement": "If C in item141 is finitely generated as an abelian group, evaluation on finitely many generators isolates zero in Hom_pt(C,A); hence its topology is discrete. The corrected class and connecting formula therefore hold with discrete Hom, in particular for finite C as in every application of Lemma 5.5 in the paper.",
+      "locator": "§5 Lemma 5.5, scope and finite-source comparison",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Finite generation is sufficient, not necessary. This conclusion does not assert a continuous discrete action on arbitrary Hom(C,A). The finite-source comparison preserves the conjugation action, evaluation and γ-first cup convention."
     },
     {
-      "citation": "Guillot–Mináč–Topaz with Wittenberg appendix, Four-fold Massey products in Galois cohomology (2018), Example A.15",
-      "link": "https://www.math.univ-paris13.fr/~wittenberg/massey.pdf",
-      "why": "Explicit 34,2,17,34 undefined-product obstruction; inspected Appendix p.35, including the exceptional place 17."
+      "id": "PAPER-HARPAZ-WITTENBERG-23/144",
+      "kind": "construction",
+      "name": "Five-dimensional obstruction module",
+      "statement": "Let B=F_2 a⊕F_2 b⊕F_2 c⊕F_2 d⊕F_2 e. On Q=C2(s)×C4(t)×C2(r) let r act trivially, s=1+N_s,t=1+N_t with N_s(b)=d+e,N_s(c)=e,N_t(a)=d,N_t(b)=d+e and all other basis images zero. These endomorphisms have square zero and zero pairwise products, so define the claimed action.",
+      "locator": "§3 Remark 3.4 completion; action derived from §4 (4.2)/§6 Example 6.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: basis/action matrices, commuting-involution relations, contragredient action and fixed-space evaluation. Tests: s(b)=b+d+e; t(a)=a+d; r and t² act trivially although t has order four in Q."
     },
     {
-      "citation": "Artin–Tate, Class field theory (2009), Chapter Ten, Theorem 1",
-      "link": "https://doi.org/10.1090/chel/366",
-      "why": "Grunwald–Wang bound Sha¹(K,μ_m)=0 or C2. Upstream ClassFieldTheory explicitly excludes this extension."
+      "id": "PAPER-HARPAZ-WITTENBERG-23/145",
+      "kind": "theorem",
+      "name": "A cyclically trivial nonzero dual class",
+      "statement": "For item144, b* is invariant and β(q)=(q_s+q_t mod2)b* is a 1-cocycle. It is a coboundary on every cyclic subgroup: for parity (1,0), β=(s-1)d*; for (0,1), β=(t-1)e*; for (0,0) or (1,1), β=0. It is not a global coboundary.",
+      "locator": "§3 Remark 3.4 completion",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "For m with d*,e* coefficients p,q, (s-1)m=(p+q)b*+qc* and (t-1)m=pa*+(p+q)b*. Requiring both equal b* forces q=0,p=1 and contradicts the a* coefficient. The cyclic test is exactly annihilation of B^g for the abelian stabilizer."
     },
     {
-      "citation": "Colliot-Thélène–Poonen, Algebraic families of nonzero elements of Shafarevich–Tate groups (2000), Lemma 2.6",
-      "link": "https://doi.org/10.1090/S0894-0347-99-00315-X",
-      "why": "H³(k,kbar×)=0 for the function field of a curve over a number field in Remark 3.1; distinct from number-field duality."
+      "id": "PAPER-HARPAZ-WITTENBERG-23/146",
+      "kind": "construction",
+      "name": "Auxiliary cocycle on the quartic quotient",
+      "statement": "On the Q-module B of item144 define γ(s)=a,γ(t)=b+c,γ(r)=0 and extend by γ(uv)=γ(u)+uγ(v). This is well-defined: N_s(b+c)=d=N_t(a), the s-norm of a is zero and the t-fourth norm of b+c is zero. Explicitly γ(s^i t^j r^l)=ia+s^i Σ_(h<j)t^h(b+c). Its b-coordinate is j mod2 and γ(t²)=d+e.",
+      "locator": "§3 Remark 3.4 completion",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: normal-form formula, cocycle equation, generator values, projection to b-coordinate. Tests: γ(t²) is nonzero despite trivial t² action; γ(s²)=0; replacing C4(t) by C2(t) violates the relation, so the quartic quotient is essential."
     },
     {
-      "citation": "Koch, Galois theory of p-extensions, Theorem 9.1",
-      "link": "https://doi.org/10.1007/978-3-662-04967-9",
-      "why": "Characteristic-p cohomological-dimension input in Proposition 5.3; do not infer it from mixed-characteristic local duality."
-    }
-  ],
-  "routes": [
-    {
-      "route": "source",
-      "roadmap": "SchemeAndStackFoundations",
-      "stages": [
-        "SchemeAndStackFoundations:SF.1"
-      ],
-      "items": [
-        "PAPER-HARPAZ-WITTENBERG-23/24"
-      ],
-      "reason": "Finite torsor descent and quotient prerequisites use the existing general descent owner."
+      "id": "PAPER-HARPAZ-WITTENBERG-23/147",
+      "kind": "construction",
+      "name": "Order-512 extension and its splitting variety",
+      "statement": "Let ζ:Q→F_2 be the r-coordinate and f(q,q′)=γ(q)ζ(q′). It is a normalized B-valued 2-cocycle. Define E=B×_f Q by (v,q)(w,q′)=(v+q w+f(q,q′),qq′); then 1→B→E→Q→1 has |E|=512. Over k=C((x))((y))((z)), L=k(sqrt x,fourthroot y,sqrt z) has Galois group Q. The augmented regular representation embeds E in SL_513, and V=(SL_513×Spec L)/E is the finite-embedding-problem splitting variety with geometric stabilizer B.",
+      "locator": "§3 Remark 3.4 completion; Pál–Schlank Definition9.3/Lemma9.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: multiplication/inverse/projections, normalized factor-set comparison, field-torsor quotient and geometric stabilizer. Tests: f(q,1)=f(1,q)=0; quotient has order16 and kernel order32; V(L) is nonempty without asserting V(k) is nonempty. Use the existing factor-set carrier and the splitting-variety constructions of items25–26, not private duplicates."
     },
     {
-      "route": "source",
-      "roadmap": "SchemeAndStackFoundations",
-      "stages": [
-        "SchemeAndStackFoundations:SF.2"
-      ],
-      "items": [
-        "PAPER-HARPAZ-WITTENBERG-23/40"
-      ],
-      "reason": "The scheme-theoretic Hochschild–Serre edge sequence and naturality specialize its sites/cohomology scope; group-only Hochschild–Serre is a different supplier."
+      "id": "PAPER-HARPAZ-WITTENBERG-23/148",
+      "kind": "theorem",
+      "name": "Explicit mixed-cochain transgression",
+      "statement": "For the extension in item147 and β of item145, the cochain c((v,q),(w,q′))=β(q)(q w) with values F_2 satisfies dc=infl(β cup f). Its mixed component is β and its restriction to B×B is zero, so d₂^{1,1}[β]=[β cup f] for the extension Hochschild–Serre sequence, up to the harmless mod2 sign. Here (β cup f)(q,q′,q″)=(q_s+q_t mod2)(q′_t mod2)q″_r.",
+      "locator": "§3 Remark 3.4 completion; direct cochain calculation",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The same calculation applies to the pullback extension of Γ_k. Write h(q)=floor(q_t/2) mod2; dh(q,q′)=(q_t mod2)(q′_t mod2), so subtracting d(h cup ζ) reduces β cup f to χ_x cup χ_y cup χ_z. Coefficients map to μ_2 by ε↦(-1)^ε."
     },
     {
-      "route": "source",
-      "roadmap": "SchemeAndStackFoundations",
-      "stages": [
-        "SchemeAndStackFoundations:SF.4"
-      ],
-      "items": [
-        "PAPER-HARPAZ-WITTENBERG-23/30"
-      ],
-      "reason": "Characteristic-zero smooth compactification is within the existing birational-geometry stage; preserve its characteristic restriction."
+      "id": "PAPER-HARPAZ-WITTENBERG-23/149",
+      "kind": "theorem",
+      "name": "Witt decomposition for Laurent-series Brauer groups",
+      "statement": "For a perfect field F, the residue map gives a split exact sequence 0→Br(F)→Br(F((t)))→H¹(F,Q/Z)→0, split by χ↦(χ,t). For F_j=C((t_1))…((t_j)), coherent roots of unity and the Kummer valuation decomposition give H¹(F_j,Q/Z)≅(Q/Z)^j; hence Br(F_3)≅(Q/Z)^3 and is 2-divisible.",
+      "locator": "Input to §3 Remark3.4 completion; Gille–Szamuely (2006) Propositions6.3.1,6.3.4, Corollary6.3.7 and Remark6.3.8, pp.147–150",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Supply the generic field-cohomological residue through the existing Hochschild–Serre owner R02.2. Do not treat C((x))((y))((z)) as an n-local field with finite last residue field under HL.0. Principal units are n-divisible in characteristic zero by Hensel; the valuation gives one Z/n coordinate at each step."
     },
     {
-      "route": "source",
-      "roadmap": "HeightsRationalPointsAndObstructions",
-      "stages": [
-        "HeightsRationalPointsAndObstructions:RP.2"
-      ],
-      "items": [
-        "PAPER-HARPAZ-WITTENBERG-23/29",
-        "PAPER-HARPAZ-WITTENBERG-23/31",
-        "PAPER-HARPAZ-WITTENBERG-23/38",
-        "PAPER-HARPAZ-WITTENBERG-23/61"
-      ],
-      "reason": "Source precision for algebraic/unramified Brauer subgroups and pairing. Define B_ω in the quotient Br_1/Br_0, prove finite support on the full product for unramified classes, and import actual local invariants/global reciprocity."
+      "id": "PAPER-HARPAZ-WITTENBERG-23/150",
+      "kind": "construction",
+      "name": "Finite-coefficient Laurent residue and cup compatibility",
+      "statement": "For m invertible in F and i,j>0, construct ∂_t:H^i(F((t)),μ_m^⊗j)→H^(i-1)(F,μ_m^⊗(j-1)). It sends the Kummer class of t to1 and satisfies ∂((t) cup inf b)=b with the indicated twists. Inflation and residue form the split short exact sequence of Gille–Szamuely Corollary6.8.8.",
+      "locator": "Input to §3 Remark3.4 completion; Gille–Szamuely Construction6.8.5, Lemma6.8.4 and Corollary6.8.8, pp.173–176",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: residue, inflation kernel, uniformizer cup section, coefficient twists and naturality. Tests: a residue-field unit has residue zero in degree1; a uniformizer has residue1; repeated residues of (x) cup(y) cup(z) over the three Laurent variables give1 in F_2. Import canonical continuous cochains and Kummer theory; do not invoke the norm-residue isomorphism merely to prove this example."
     },
     {
-      "route": "source",
-      "roadmap": "ArithmeticGaloisDuality",
-      "stages": [
-        "ArithmeticGaloisDuality:R02.2"
-      ],
-      "items": [
-        "PAPER-HARPAZ-WITTENBERG-23/58"
-      ],
-      "reason": "Finite-extension restriction/corestriction descent with prime-to-p injectivity is already owned here."
+      "id": "PAPER-HARPAZ-WITTENBERG-23/151",
+      "kind": "theorem",
+      "name": "The triple symbol survives in H3 of Gm",
+      "statement": "Over k=C((x))((y))((z)), identify μ_2^⊗3 with μ_2 using -1. Iterating ∂_z,∂_y,∂_x sends (x) cup(y) cup(z) to1∈F_2, hence this H³(k,μ_2) class is nonzero. Since Br(k) is 2-divisible by item149, the Kummer long exact sequence makes H³(k,μ_2)→H³(k,G_m) injective. Its image is therefore nonzero.",
+      "locator": "§3 Remark3.4 completion from items149–150",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Both steps are required: nonzero in finite coefficients alone does not imply nonzero after changing to G_m. No number-field H³ vanishing or higher-local-field finite-residue duality applies."
     },
     {
-      "route": "source",
-      "roadmap": "ArithmeticGaloisDuality",
-      "stages": [
-        "ArithmeticGaloisDuality:R02.4"
-      ],
-      "items": [
-        "PAPER-HARPAZ-WITTENBERG-23/120",
-        "PAPER-HARPAZ-WITTENBERG-23/121"
-      ],
-      "reason": "Global Sha duality and coefficient naturality use its finite Poitou–Tate scope; retain modified real-place conventions."
+      "id": "PAPER-HARPAZ-WITTENBERG-23/152",
+      "kind": "theorem",
+      "name": "Splitting-variety and extension edge maps agree",
+      "statement": "In characteristic zero, for a finite embedding problem 1→B→E→Q→1 and a Q-torsor, let V be its SL splitting variety. Its étale fundamental extension is Γ_k×_Q E; comparison from group cohomology to étale cohomology identifies H⁰(Vbar,G_m)=kbar× and Pic(Vbar)=Hom(B,kbar×). The resulting map of Hochschild–Serre sequences identifies the Brauer obstruction δ:H¹(k,Pic Vbar)→H³(k,G_m) with the group d₂^{1,1}.",
+      "locator": "Input to §3 Remark3.4 completion; Pál–Schlank Definition9.3, Lemma9.4, Definition9.7, Lemmas9.8–9.9, pp.28–31",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Only the geometric rows q=0,1 and their natural comparison are required for this d₂. For Vbar=SL_N/B, units of SL_N are constants and Pic(SL_N)=0; the finite-cover sequence identifies Pic with the character group. Do not infer the comparison merely from an abstract isomorphism of Brauer groups."
     },
     {
-      "route": "source",
-      "roadmap": "InverseGaloisAndArithmeticFundamentalGroups",
-      "stages": [
-        "InverseGaloisAndArithmeticFundamentalGroups:IG.4"
-      ],
-      "items": [
-        "PAPER-HARPAZ-WITTENBERG-23/122",
-        "PAPER-HARPAZ-WITTENBERG-23/123",
-        "PAPER-HARPAZ-WITTENBERG-23/124",
-        "PAPER-HARPAZ-WITTENBERG-23/126",
-        "PAPER-HARPAZ-WITTENBERG-23/130",
-        "PAPER-HARPAZ-WITTENBERG-23/136"
-      ],
-      "reason": "The selected cyclic degree-eight lifts and exact Grunwald–Wang consequence extend its abelian-kernel and local-prescription work. Import profinite embedding vocabulary and class field theory, not duplicate them."
+      "id": "PAPER-HARPAZ-WITTENBERG-23/153",
+      "kind": "theorem",
+      "name": "A degree-one zero-cycle kills the edge obstruction",
+      "statement": "If the homogeneous V of item40 has a zero-cycle Σ n_i[P_i] of degree Σ n_i[k(P_i):k]=1, then δ=0. Restriction to each k(P_i) kills δ by the rational-point case, and corestriction gives [k(P_i):k]δ=0; take the displayed integral combination.",
+      "locator": "§3 Remark3.1 p.9; source cites CTS21 Remark5.4.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The argument uses signed integral coefficients and finite extensions; an effective rational point is not required."
     },
     {
-      "route": "part-ii",
-      "parent": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
-      "roadmap": "ProfiniteCohomologyPartIIMasseyGalois",
-      "title": "Continuous cohomology of profinite groups, Part II: Massey products and Galois lifting",
-      "area": "algebraicnt",
-      "items": [
-        "PAPER-HARPAZ-WITTENBERG-23/14",
-        "PAPER-HARPAZ-WITTENBERG-23/15",
-        "PAPER-HARPAZ-WITTENBERG-23/16",
-        "PAPER-HARPAZ-WITTENBERG-23/17",
-        "PAPER-HARPAZ-WITTENBERG-23/19",
-        "PAPER-HARPAZ-WITTENBERG-23/20",
-        "PAPER-HARPAZ-WITTENBERG-23/21",
-        "PAPER-HARPAZ-WITTENBERG-23/22",
-        "PAPER-HARPAZ-WITTENBERG-23/42",
-        "PAPER-HARPAZ-WITTENBERG-23/44",
-        "PAPER-HARPAZ-WITTENBERG-23/50",
-        "PAPER-HARPAZ-WITTENBERG-23/52",
-        "PAPER-HARPAZ-WITTENBERG-23/54",
-        "PAPER-HARPAZ-WITTENBERG-23/55",
-        "PAPER-HARPAZ-WITTENBERG-23/59",
-        "PAPER-HARPAZ-WITTENBERG-23/63",
-        "PAPER-HARPAZ-WITTENBERG-23/64",
-        "PAPER-HARPAZ-WITTENBERG-23/65",
-        "PAPER-HARPAZ-WITTENBERG-23/66",
-        "PAPER-HARPAZ-WITTENBERG-23/68",
-        "PAPER-HARPAZ-WITTENBERG-23/69",
-        "PAPER-HARPAZ-WITTENBERG-23/70",
-        "PAPER-HARPAZ-WITTENBERG-23/71",
-        "PAPER-HARPAZ-WITTENBERG-23/73",
-        "PAPER-HARPAZ-WITTENBERG-23/74",
-        "PAPER-HARPAZ-WITTENBERG-23/78",
-        "PAPER-HARPAZ-WITTENBERG-23/79",
-        "PAPER-HARPAZ-WITTENBERG-23/80",
-        "PAPER-HARPAZ-WITTENBERG-23/82",
-        "PAPER-HARPAZ-WITTENBERG-23/83",
-        "PAPER-HARPAZ-WITTENBERG-23/84",
-        "PAPER-HARPAZ-WITTENBERG-23/85",
-        "PAPER-HARPAZ-WITTENBERG-23/86",
-        "PAPER-HARPAZ-WITTENBERG-23/87",
-        "PAPER-HARPAZ-WITTENBERG-23/88",
-        "PAPER-HARPAZ-WITTENBERG-23/89",
-        "PAPER-HARPAZ-WITTENBERG-23/90",
-        "PAPER-HARPAZ-WITTENBERG-23/91",
-        "PAPER-HARPAZ-WITTENBERG-23/92",
-        "PAPER-HARPAZ-WITTENBERG-23/96",
-        "PAPER-HARPAZ-WITTENBERG-23/97",
-        "PAPER-HARPAZ-WITTENBERG-23/98",
-        "PAPER-HARPAZ-WITTENBERG-23/99",
-        "PAPER-HARPAZ-WITTENBERG-23/100",
-        "PAPER-HARPAZ-WITTENBERG-23/102",
-        "PAPER-HARPAZ-WITTENBERG-23/104",
-        "PAPER-HARPAZ-WITTENBERG-23/105",
-        "PAPER-HARPAZ-WITTENBERG-23/106",
-        "PAPER-HARPAZ-WITTENBERG-23/107",
-        "PAPER-HARPAZ-WITTENBERG-23/108",
-        "PAPER-HARPAZ-WITTENBERG-23/109",
-        "PAPER-HARPAZ-WITTENBERG-23/110",
-        "PAPER-HARPAZ-WITTENBERG-23/111",
-        "PAPER-HARPAZ-WITTENBERG-23/112",
-        "PAPER-HARPAZ-WITTENBERG-23/113",
-        "PAPER-HARPAZ-WITTENBERG-23/116",
-        "PAPER-HARPAZ-WITTENBERG-23/117",
-        "PAPER-HARPAZ-WITTENBERG-23/118",
-        "PAPER-HARPAZ-WITTENBERG-23/119",
-        "PAPER-HARPAZ-WITTENBERG-23/125",
-        "PAPER-HARPAZ-WITTENBERG-23/127",
-        "PAPER-HARPAZ-WITTENBERG-23/128",
-        "PAPER-HARPAZ-WITTENBERG-23/129",
-        "PAPER-HARPAZ-WITTENBERG-23/131",
-        "PAPER-HARPAZ-WITTENBERG-23/132",
-        "PAPER-HARPAZ-WITTENBERG-23/133",
-        "PAPER-HARPAZ-WITTENBERG-23/134",
-        "PAPER-HARPAZ-WITTENBERG-23/135",
-        "PAPER-HARPAZ-WITTENBERG-23/137",
-        "PAPER-HARPAZ-WITTENBERG-23/138",
-        "PAPER-HARPAZ-WITTENBERG-23/76"
-      ],
-      "reason": "Higher Galois lifting and explicit unitriangular cohomology are additional layers beyond upstream ProfiniteCohomology. Generic DGA Massey products already belong to DGAInfinity Layer 8; this continuation imports them.",
-      "brief": "Prove, for every number field k, prime p and n≥3, that every defined n-fold product of H¹(k,F_p) classes contains zero. Prove the rank-one twisted version for N_i one-dimensional Galois F_p-modules, M_ij=Hom(N_j,N_i), and the μ_p^⊗n specialization. Finally construct existentially three H¹(Q,Z/8) classes whose triple product is defined but excludes zero. Import Continuous cohomology of profinite groups (tauceti:TauCetiRoadmap/ProfiniteCohomology), DG and A∞ algebra/category infrastructure (tauceti:TauCetiRoadmap/DGAInfinity, Layers 1 and 8), Profinite and pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups, Layer 5), Global Galois duality and compact coefficients (ArithmeticGaloisDuality), Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory), Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups, IG.4), and Heights, rational points and obstructions, Part II: homogeneous Massey varieties (HeightsRationalPointsPartIIHomogeneousMassey). Use the existing upper-unitriangular carrier and filtration, adding exact commutator equalities, B/B_0 action calculations, outer exponent only for n≤6, fixed conjugacy generation, refined local lifting and finite-C splitting-torsor cup formula with explicit sign. Compare continuous cochains and abstract finite-group extensions through the canonical carrier. The twisted correspondence fixes adjacent cochains; derive class-level existence by conjugation. Include real-place lifting, the internal-sum corner convention for P, and the p=3 matrix correction. The Z/8 chain must construct the twisted modules, Wang class, dual Sha nonsurjectivity, γ, middle character and local/global lift obstruction, not assume the conclusion. Every definition needs entry/quotient/functorial APIs and three discriminating tests. Generic existing suppliers and the two unresolved items are not new axioms."
+      "id": "PAPER-HARPAZ-WITTENBERG-23/154",
+      "kind": "theorem",
+      "name": "Number-field third multiplicative cohomology vanishes",
+      "statement": "For a number field k, H³(k,kbar×)=0. Thus δ in item40 vanishes over number fields, including fields with real places.",
+      "locator": "§3 Remark3.1 p.9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Import the global arithmetic-cohomology input with real-place conventions; do not infer it from a blanket cd₂(k)=2 statement for real number fields."
     },
     {
-      "route": "part-ii",
-      "parent": "HeightsRationalPointsAndObstructions",
-      "roadmap": "HeightsRationalPointsPartIIHomogeneousMassey",
-      "title": "Heights, rational points and obstructions, Part II: homogeneous Massey varieties",
-      "area": "algebraicnt",
-      "items": [
-        "PAPER-HARPAZ-WITTENBERG-23/25",
-        "PAPER-HARPAZ-WITTENBERG-23/26",
-        "PAPER-HARPAZ-WITTENBERG-23/27",
-        "PAPER-HARPAZ-WITTENBERG-23/28",
-        "PAPER-HARPAZ-WITTENBERG-23/33",
-        "PAPER-HARPAZ-WITTENBERG-23/34",
-        "PAPER-HARPAZ-WITTENBERG-23/35",
-        "PAPER-HARPAZ-WITTENBERG-23/36",
-        "PAPER-HARPAZ-WITTENBERG-23/37",
-        "PAPER-HARPAZ-WITTENBERG-23/39",
-        "PAPER-HARPAZ-WITTENBERG-23/41",
-        "PAPER-HARPAZ-WITTENBERG-23/43",
-        "PAPER-HARPAZ-WITTENBERG-23/45",
-        "PAPER-HARPAZ-WITTENBERG-23/47",
-        "PAPER-HARPAZ-WITTENBERG-23/48",
-        "PAPER-HARPAZ-WITTENBERG-23/49",
-        "PAPER-HARPAZ-WITTENBERG-23/51",
-        "PAPER-HARPAZ-WITTENBERG-23/53",
-        "PAPER-HARPAZ-WITTENBERG-23/56",
-        "PAPER-HARPAZ-WITTENBERG-23/57",
-        "PAPER-HARPAZ-WITTENBERG-23/60",
-        "PAPER-HARPAZ-WITTENBERG-23/62",
-        "PAPER-HARPAZ-WITTENBERG-23/67",
-        "PAPER-HARPAZ-WITTENBERG-23/72",
-        "PAPER-HARPAZ-WITTENBERG-23/75",
-        "PAPER-HARPAZ-WITTENBERG-23/93",
-        "PAPER-HARPAZ-WITTENBERG-23/94",
-        "PAPER-HARPAZ-WITTENBERG-23/95",
-        "PAPER-HARPAZ-WITTENBERG-23/101",
-        "PAPER-HARPAZ-WITTENBERG-23/103",
-        "PAPER-HARPAZ-WITTENBERG-23/114",
-        "PAPER-HARPAZ-WITTENBERG-23/115",
-        "PAPER-HARPAZ-WITTENBERG-23/77"
+      "id": "PAPER-HARPAZ-WITTENBERG-23/155",
+      "kind": "theorem",
+      "name": "Curve-function-field third multiplicative cohomology vanishes",
+      "statement": "If k is the function field of a curve over a number field, then H³(k,kbar×)=0; hence the Brauer edge differential of item40 vanishes over k.",
+      "locator": "§3 Remark3.1 p.9; CTP00 Lemma2.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This separate function-field theorem is not a consequence of the number-field case alone. The prerequisite register retains CTP00 for its proof decomposition."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-23/156",
+      "kind": "construction",
+      "name": "Existing transvections and their parameter identities",
+      "statement": "For a finite index type and commutative ring R, TauCeti.transvectionUnit(hij,t) is the invertible matrix 1+t E_ij for i≠j. Parameters add, inversion negates the parameter, and for distinct i,j,l the xyx^-1y^-1 commutator of transvections (i,j,a) and (j,l,b) is (i,l,ab).",
+      "locator": "§2 elementary generators; pinned Transvection.lean lines138,164,170,242",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.transvectionUnit",
+        "tauceti:TauCeti.transvectionUnit_add",
+        "tauceti:TauCeti.transvectionUnit_inv",
+        "tauceti:TauCeti.commutatorElement_transvectionUnit"
       ],
-      "reason": "The explicit finite-stabilizer splitting varieties, outer-action supersolvability and unramified Brauer formula add substantial layers beyond RP.2–RP.3; generic pairing and descent remain in those owners.",
-      "brief": "Construct V=(SL_(|U|+1)×T_α)/U and the auxiliary W with stabilizer P; prove weak solutions modulo kernel conjugacy correspond to SL-orbits of rational points. For characteristic-zero homogeneous spaces under semisimple simply connected groups with finite stabilizer H, compute Br_1,nr/Br_0 by Proposition 3.3 with BOTH δβ=0 and every conjugacy-power test, using the correct character/cyclotomic actions. Import HW20 Théorème B with outer-action-stable supersolvable filtration and derive V(k) iff a Br_nr-orthogonal full family of local points exists. For the Massey stabilizer prove geometric Br_nr=0, boundary-module restriction zero for n≤6, all Brauer classes pull back to constants on W, and the local-family orthogonality argument. Compute Br_nr(V)=Br_0(V) for n=3, and Br_nr/Br_0=B_ω for n=4,5, including the 34,2,17,34 undefined-product obstruction. Import Heights, rational points and obstructions (HeightsRationalPointsAndObstructions, RP.2–RP.3), Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations, SF.1,SF.2,SF.4), Continuous cohomology of profinite groups (tauceti:TauCetiRoadmap/ProfiniteCohomology), Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory), Global Galois duality and compact coefficients (ArithmeticGaloisDuality), and the finite-matrix/cohomology portions of ProfiniteCohomologyPartIIMasseyGalois. The dependency order is finite matrix/cohomology interfaces → geometric/Brauer continuation → final arithmetic Massey theorems; avoid a stage-level cycle despite reciprocal roadmap imports. HW20, PS16, LA14 and Bogomolov require their complete proof decompositions. Keep geometric bars, quotient constants and finite splitting-field choices explicit. B_ω means locally constant Brauer classes modulo Br_0, not merely constant evaluation functions. Include the explicit p=2,n=6,σ=e_01+e_12+e_56 example and its coordinate-functional Brauer class from this extraction; do not promote the unspecified Remark 3.4 example to a proved leaf."
+      "planned": [],
+      "note": "API: existing GL constructor, matrix coercion, additive parameter law, inverse and chain commutator. Tests: parameter0 is identity; parameters a,-a multiply to identity; the chained commutator has parameter ab, not ba or -ab. Item14 adds the UT membership/factorization interface only."
     }
   ]
 }
