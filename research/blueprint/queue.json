@@ -1593,7 +1593,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1117"
   },
   {
    "id": "REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
