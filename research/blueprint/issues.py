@@ -182,6 +182,8 @@ def title(job, roadmaps):
     if job["kind"] == "classify":
         count = len(job.get("roadmapIds") or [])
         return f"[Classification] Batch {jid.split('-')[-1]}: subject classes and distance from Mathlib for {count} roadmaps"
+    if job["kind"] == "naming" and job.get("name"):
+        return f"[Planet names] {job['name']}"
     if job["kind"] == "naming":
         jobs_file = BP.parent / "expansion" / "naming" / "JOBS.json"
         area = ""

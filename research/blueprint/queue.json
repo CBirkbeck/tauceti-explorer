@@ -14914,6 +14914,452 @@
    "state": "pending"
   },
   {
+   "id": "PLANETS-01",
+   "kind": "naming",
+   "priority": 1,
+   "order": 201,
+   "name": "Contour integration and the Hungerbühler–Wasem generalized residue theorem and 11 more roadmaps",
+   "roadmapIds": [
+    "tauceti:Completed/ContourIntegration",
+    "tauceti:Completed/EffectiveBounds",
+    "tauceti:Completed/IntegralLattices",
+    "tauceti:Completed/OrthogonalL2Bases",
+    "tauceti:TauCetiRoadmap/AdicSpaces",
+    "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+    "tauceti:TauCetiRoadmap/BelyiMaps",
+    "tauceti:TauCetiRoadmap/CFSGStatement"
+   ],
+   "outputs": [
+    "research/expansion/naming/PLANETS-01.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PLANETS-01.md",
+   "state": "pending"
+  },
+  {
+   "id": "PLANETS-02",
+   "kind": "naming",
+   "priority": 1,
+   "order": 202,
+   "name": "The Chebotarev density theorem and 9 more roadmaps",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Chebotarev",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+    "tauceti:TauCetiRoadmap/ConformalMapping",
+    "tauceti:TauCetiRoadmap/DGAInfinity",
+    "tauceti:TauCetiRoadmap/DenseGraphLimits",
+    "tauceti:TauCetiRoadmap/EllipticCurves",
+    "tauceti:TauCetiRoadmap/Exchangeability",
+    "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+    "tauceti:TauCetiRoadmap/GeometricTopology"
+   ],
+   "outputs": [
+    "research/expansion/naming/PLANETS-02.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PLANETS-02.md",
+   "state": "pending"
+  },
+  {
+   "id": "PLANETS-03",
+   "kind": "naming",
+   "priority": 1,
+   "order": 203,
+   "name": "Global number fields, ray classes, adeles, and Hecke characters and 7 more roadmaps",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GlobalNumberFields",
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+    "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+    "tauceti:TauCetiRoadmap/HeegaardFloer",
+    "tauceti:TauCetiRoadmap/HodgeStructures",
+    "tauceti:TauCetiRoadmap/HopfRinow",
+    "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification"
+   ],
+   "outputs": [
+    "research/expansion/naming/PLANETS-03.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PLANETS-03.md",
+   "state": "pending"
+  },
+  {
+   "id": "PLANETS-04",
+   "kind": "naming",
+   "priority": 1,
+   "order": 204,
+   "name": "Modular curves, following Katz–Mazur and 5 more roadmaps",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ModularCurves",
+    "tauceti:TauCetiRoadmap/ModularForms",
+    "tauceti:TauCetiRoadmap/Multiquadratic",
+    "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+    "tauceti:TauCetiRoadmap/OptimalTransport"
+   ],
+   "outputs": [
+    "research/expansion/naming/PLANETS-04.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PLANETS-04.md",
+   "state": "pending"
+  },
+  {
+   "id": "PLANETS-05",
+   "kind": "naming",
+   "priority": 1,
+   "order": 205,
+   "name": "Partial differential equations and 6 more roadmaps",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/PDE",
+    "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+    "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa"
+   ],
+   "outputs": [
+    "research/expansion/naming/PLANETS-05.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PLANETS-05.md",
+   "state": "pending"
+  },
+  {
+   "id": "PLANETS-06",
+   "kind": "naming",
+   "priority": 1,
+   "order": 206,
+   "name": "Character theory of finite groups, and computing character tables and 10 more roadmaps",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+   ],
+   "outputs": [
+    "research/expansion/naming/PLANETS-06.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PLANETS-06.md",
+   "state": "pending"
+  },
+  {
+   "id": "PLANETS-07",
+   "kind": "naming",
+   "priority": 1,
+   "order": 207,
+   "name": "Stable, periodic, and curved homological algebra and 11 more roadmaps",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+    "tauceti:TauCetiRoadmap/StableReduction",
+    "tauceti:TauCetiRoadmap/StandardDistributions",
+    "tauceti:TauCetiRoadmap/UniversalCovers",
+    "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+    "AInfCohomology",
+    "AbelianSchemesAndArithmeticModuli",
+    "AdditiveCombinatorics",
+    "AdelicAlgebraicGroups",
+    "AdicCoefficientsAndComparisons",
+    "AdicEtaleGeometry",
+    "AdicSpacesPartII"
+   ],
+   "outputs": [
+    "research/expansion/naming/PLANETS-07.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PLANETS-07.md",
+   "state": "pending"
+  },
+  {
+   "id": "PLANETS-08",
+   "kind": "naming",
+   "priority": 1,
+   "order": 208,
+   "name": "Algebraic modular forms, reduction and Serre weights and 19 more roadmaps",
+   "roadmapIds": [
+    "AlgebraicModularFormsAndSerreWeights",
+    "AlgebraicModuliForArithmeticGeometry",
+    "AnabelianGeometryAndNonabelianChabauty",
+    "AnalyticNumberTheory",
+    "ArakelovGeometryAndAbelianHeights",
+    "ArithmeticDynamics",
+    "ArithmeticGaloisDuality",
+    "ArithmeticGaloisRepresentations",
+    "ArithmeticKTheory",
+    "ArithmeticLocallySymmetricSpaces",
+    "ArithmeticQuantumTopology",
+    "ArithmeticStatistics",
+    "AutomorphicBundles",
+    "AutomorphicCongruences",
+    "AutomorphicFormsOnReductiveGroups",
+    "AutomorphicGaloisRepresentations",
+    "AutomorphicGaloisRepresentationsPartII",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "AutomorphicPadicLFunctions",
+    "AutomorphicSpectralTheory"
+   ],
+   "outputs": [
+    "research/expansion/naming/PLANETS-08.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PLANETS-08.md",
+   "state": "pending"
+  },
+  {
+   "id": "PLANETS-09",
+   "kind": "naming",
+   "priority": 1,
+   "order": 209,
+   "name": "Stable arithmetic cohomology and Borel regulators and 15 more roadmaps",
+   "roadmapIds": [
+    "BorelRegulators",
+    "BunGAndNewtonStrata",
+    "ClassicalAdicEtaleCohomology",
+    "ClassicalArithmeticCompletion",
+    "ClassicalSerreModularity",
+    "CohomologyComparisons",
+    "ColemanIntegration",
+    "ColemanPowerSeries",
+    "CompletedCohomologyAndLocalGlobalCompatibility",
+    "CompletedCohomologyPartII",
+    "ComplexComparisonPartII",
+    "ComplexMultiplicationAndExplicitReciprocity",
+    "ComputationalNumberTheory",
+    "CrystallineCohomology",
+    "DeformationAndDerivedPatchingAlgebra",
+    "DeligneWeightsAndPurity"
+   ],
+   "outputs": [
+    "research/expansion/naming/PLANETS-09.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PLANETS-09.md",
+   "state": "pending"
+  },
+  {
+   "id": "PLANETS-10",
+   "kind": "naming",
+   "priority": 1,
+   "order": 210,
+   "name": "Derived de Rham cohomology and its algebraic foundations and 15 more roadmaps",
+   "roadmapIds": [
+    "DerivedDeRhamCohomology",
+    "DiamondEtaleCohomology",
+    "DiamondSixOperations",
+    "DiamondsAndVStacks",
+    "DiophantineApproximationAndTranscendence",
+    "DirichletPadicLFunctions",
+    "EffectiveDiophantineMethods",
+    "EllipticCurveModularity",
+    "EllipticKTheory",
+    "EllipticRegulators",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "EnhancedDerivedSheaves",
+    "EtaleDualityAndPerverseSheaves",
+    "EulerSystemsAndKolyvaginSystems",
+    "EulerSystemsCyclotomicMainConjecture",
+    "ExcursionOperatorsAndSpectralAction"
+   ],
+   "outputs": [
+    "research/expansion/naming/PLANETS-10.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PLANETS-10.md",
+   "state": "pending"
+  },
+  {
+   "id": "PLANETS-11",
+   "kind": "naming",
+   "priority": 1,
+   "order": 211,
+   "name": "Exponential sums, decoupling and the circle method and 16 more roadmaps",
+   "roadmapIds": [
+    "ExponentialSumsAndCircleMethod",
+    "FaltingsFinitenessAndIsogenyTheorems",
+    "FarguesFontaineDiamonds",
+    "FiniteFieldsAndCharacterSums",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "GL2ModularityLifting",
+    "GeneralAlgebraicKTheory",
+    "GeneralizedHeegnerCycles",
+    "GeometricSatakeAndFusion",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "GlobalGaloisDeformations",
+    "GrossZagierAndArithmeticHeights",
+    "HabiroCohomologyFoundations",
+    "HabiroCyclotomicCompletions",
+    "HabiroNahmSeries",
+    "HabiroNumberFields"
+   ],
+   "outputs": [
+    "research/expansion/naming/PLANETS-11.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PLANETS-11.md",
+   "state": "pending"
+  },
+  {
+   "id": "PLANETS-12",
+   "kind": "naming",
+   "priority": 1,
+   "order": 212,
+   "name": "Habiro rings: relative arithmetic constructions and cohomological coefficients and 16 more roadmaps",
+   "roadmapIds": [
+    "HabiroRings",
+    "HeckeStacksAndLocalShtukas",
+    "HeegnerPointEulerSystems",
+    "HeightsRationalPointsAndObstructions",
+    "HilbertModularVarietiesAndShimuraCurves",
+    "HodgeTateAndCanonicalSubgroups",
+    "IgusaVarietiesAndTorsionConcentration",
+    "IntegralHeckeAndGaloisDeterminants",
+    "IntegralIwasawaTheory",
+    "InverseGaloisAndArithmeticFundamentalGroups",
+    "K2SymbolsBrauer",
+    "K3BlochGroups",
+    "KTheoryFiniteLocalFields",
+    "KTheoryLowDegrees",
+    "KatoEulerSystems",
+    "LanglandsParameterStacks",
+    "LefschetzPencilsAndVanishingCycles"
+   ],
+   "outputs": [
+    "research/expansion/naming/PLANETS-12.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PLANETS-12.md",
+   "state": "pending"
+  },
+  {
+   "id": "PLANETS-13",
+   "kind": "naming",
+   "priority": 1,
+   "order": 213,
+   "name": "Local Galois deformation rings and their components and 18 more roadmaps",
+   "roadmapIds": [
+    "LocalGaloisDeformationRings",
+    "LocallyAnalyticDistributions",
+    "LogicAndDefinabilityInNumberTheory",
+    "MetaplecticAutomorphicForms",
+    "ModularCurvesPartII",
+    "ModularIwasawaMainConjectures",
+    "ModularSymbolsPadicLFunctions",
+    "ModularityAndLanglandsExtensions",
+    "MotivesAndAlgebraicCycles",
+    "MotivicEtaleKTheory",
+    "NeronModelsAndSemistableAbelianVarieties",
+    "NoncommutativeAndEquivariantIwasawa",
+    "OrdinaryAutomorphicFormsAndModularityLifting",
+    "OverconvergentAutomorphicForms",
+    "PELModuli",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "PadicFamilies",
+    "PadicHodgeRegulators",
+    "PadicHodgeTheory"
+   ],
+   "outputs": [
+    "research/expansion/naming/PLANETS-13.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PLANETS-13.md",
+   "state": "pending"
+  },
+  {
+   "id": "PLANETS-14",
+   "kind": "naming",
+   "priority": 1,
+   "order": 214,
+   "name": "P-adic local Langlands for GL₂(Q_p) and 14 more roadmaps",
+   "roadmapIds": [
+    "PadicLocalLanglandsForGL2Qp",
+    "PadicMeasuresIwasawaAlgebras",
+    "PerfectoidQuotients",
+    "PerfectoidShimuraVarieties",
+    "PerfectoidSpaces",
+    "PeriodsAndSpecialValues",
+    "PhiGammaModulesAndIwasawaCohomology",
+    "Polylogarithms",
+    "PotentialAutomorphyInfrastructure",
+    "PotentialModularityAndCompatibleSystems",
+    "PrismaticCohomology",
+    "ProbabilisticAndMetricNumberTheory",
+    "QSeriesPartitionsAndMockModularForms",
+    "RankZeroOneBSD",
+    "ReductiveGroupsPartII"
+   ],
+   "outputs": [
+    "research/expansion/naming/PLANETS-14.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PLANETS-14.md",
+   "state": "pending"
+  },
+  {
+   "id": "PLANETS-15",
+   "kind": "naming",
+   "priority": 1,
+   "order": 215,
+   "name": "Hochschild, cyclotomic and refined trace methods and 17 more roadmaps",
+   "roadmapIds": [
+    "RefinedTraceMethods",
+    "RelativeFarguesFontaine",
+    "SchemeAndStackFoundations",
+    "SchemeKTheoryOperations",
+    "SelmerIwasawaCohomology",
+    "SerreWeightAndLevelOptimisation",
+    "ShimuraCompactifications",
+    "ShimuraData",
+    "ShimuraVarieties",
+    "SieveMethodsAndPrimePatterns",
+    "SmallRamificationAndAbelianVarietyBaseCases",
+    "SmoothRepresentationsOfLocalGroups",
+    "SpecialValuesBirchTate",
+    "StableHomotopyKTheory",
+    "TorsionCohomologyInfrastructure",
+    "TropicalAndBerkovichArithmetic",
+    "VStackSheavesAndLisseCategories",
+    "VectorBundlesAndIsocrystals"
+   ],
+   "outputs": [
+    "research/expansion/naming/PLANETS-15.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PLANETS-15.md",
+   "state": "pending"
+  },
+  {
+   "id": "PLANETS-16",
+   "kind": "naming",
+   "priority": 1,
+   "order": 216,
+   "name": "Weights and purity in étale cohomology and 1 more roadmap",
+   "roadmapIds": [
+    "WeightsInEtaleCohomology",
+    "WeilConjectures"
+   ],
+   "outputs": [
+    "research/expansion/naming/PLANETS-16.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PLANETS-16.md",
+   "state": "pending"
+  },
+  {
    "id": "NAME-01",
    "kind": "naming",
    "priority": 4,
