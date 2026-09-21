@@ -1,0 +1,171 @@
+{
+  "family": "RS-11",
+  "roadmaps": {
+    "AutomorphicCongruences": {
+      "action": "keep",
+      "reason": "Keep the independent automorphic, congruence, zeta-morphism and source-specific descent constructions. Their SU/FW, CLW and Wan-Fujiwara geometries have different hypotheses; the BCS aggregate is not a second proof owner."
+    },
+    "ModularIwasawaMainConjectures": {
+      "action": "keep",
+      "reason": "Keep the common theorem/formulation and comparison layer, the ordinary two-bound assembly and the LLZ signed consequences. Import the already owned FW pointwise/family and BCS proof endpoints, preserving all hypotheses and all additional normalization and specialization work."
+    }
+  },
+  "layers": {
+    "AutomorphicCongruences:L0": {
+      "action": "keep",
+      "reason": "Keep source-specific congruence-to-Selmer classes, local-condition verification, height-one length bounds and oriented divisibilities. Generic extension algebra and Selmer change-of-condition machinery remain imported, not a second construction."
+    },
+    "AutomorphicCongruences:L1": {
+      "action": "keep",
+      "reason": "Own the SU U(2,2) congruence/Selmer reverse bound and the FW ordinary period refinement on the actual lattice and analytic function. Import shared L2 ingredients where the selected proof needs them. The full ordinary equality is assembled with the independently proved Kato bound in ModularIwasawaMainConjectures L1; a source theorem label does not make L1 a second owner of that assembly."
+    },
+    "AutomorphicCongruences:L2": {
+      "action": "keep",
+      "reason": "Keep the distinct U(3,1) FW construction, Beilinson-Flach classes, Yager/exponential and integral period comparisons, height-one exceptions and source-specific hypothesis checks. Its two-variable congruence input is not the late universal-family or BCS cyclotomic theorem."
+    },
+    "AutomorphicCongruences:L2s": {
+      "action": "keep",
+      "reason": "Keep CLW semi-ordinary GU(3,1) control, boundary sequence, Klingen/Fourier-Jacobi construction and localized divisibility with its separate integrality and p-inverted strengthening. Do not replace this branch by ordinary SU or an unrestricted nonordinary equality."
+    },
+    "AutomorphicCongruences:L3": {
+      "action": "keep",
+      "reason": "Own the actual Nakamura universal zeta morphism, its determinant line, source-qualified deformation/local-global input and specialization to Kato classes. Its existence, density and specialization statements do not assume the universal main conjecture later proved in L4."
+    },
+    "AutomorphicCongruences:L4": {
+      "action": "keep",
+      "reason": "Own the FW height-one integrality/descent proof and the resulting source-qualified pointwise and universal-family main-conjecture theorems. Include their theorem-specific specialization/correction proof once, over the stated regular coefficient subring. Import the ordinary equality from ModularIwasawaMainConjectures L1 for the ordinary classical seed when its hypotheses match; the crystalline seed uses the independently established L2 route. Never import the later L2 or L4 endpoints of that main-conjecture roadmap to prove this result. Retain the nonordinary/bad-reduction and integral/nilpotent/Tor distinctions."
+    },
+    "AutomorphicCongruences:L5": {
+      "action": "keep",
+      "reason": "Keep as the aggregate of L5w, L5a and L5b, with their existing dependency order and source-specific outputs. The aggregate is not an additional proof owner. Its cyclotomic endpoint is supplied by L5b, not proved again here."
+    },
+    "AutomorphicCongruences:L5a": {
+      "action": "keep",
+      "reason": "Keep the early two-variable product-divisibility, Rankin/Katz, local-control, period/lattice and mu-comparison work using L5w. Correct the source-label error: in the inspected BCS v2, the early product bound is Proposition 5.2.1 with its preceding comparison inputs, not Theorem 4.2.1. The latter belongs to the separate anticyclotomic proof in HE.8b. This is a locator correction, not deletion of the stated two-variable mathematics or a new HE.8b-to-L5a prerequisite."
+    },
+    "AutomorphicCongruences:L5b": {
+      "action": "keep",
+      "reason": "Own the BCS cyclotomic descent and factor-separation proof, including both the rational endpoint and the source-qualified integral strengthening. Import KatoEulerSystems L4 for the independent bounds, and verify their hypotheses for each required twist on the same lattice and period normalization. Retain the existing HE.8b comparison dependency without claiming that the final cyclotomic theorem proves that earlier anticyclotomic input. The rank-one-image condition is an explicit input here, not a theorem imported backwards from ModularIwasawaMainConjectures L3. Keep every control, local-factor and coefficient comparison."
+    },
+    "AutomorphicCongruences:L5w": {
+      "action": "keep",
+      "reason": "Keep the Hilbert/quartic-CM Wan-Fujiwara construction and its hypothesis-bearing theorem, minimal-lift/freeness, Gorenstein and period comparisons. Export its quartic-CM input for the two-variable specialization constructed in L5a; the reference to that specialization does not make the early supplier depend on the completed L5a or L5b result. Generic Hilbert Hida and deformation machinery remain imports."
+    },
+    "ModularIwasawaMainConjectures:L0": {
+      "action": "keep",
+      "reason": "Keep the common ordinary, cohomological/determinant and signed formulations and their map-level comparisons on the actual representation and lattice, with Euler/Tamagawa, involution, image-of-Coleman and Tor terms. Finiteness/torsion require the chosen theorem hypotheses; neither is part of a Selmer definition."
+    },
+    "ModularIwasawaMainConjectures:L1": {
+      "action": "keep",
+      "reason": "Own the ordinary FW 1.6 equality assembled from KatoEulerSystems L4 and the SU/FW reverse bound of AutomorphicCongruences L1-L2, together with the integral-period and cohomological/ordinary formulation comparisons. Retain the full ordinary, residual, auxiliary-prime, weight, tame-level and coefficient hypotheses; do not reproduce the congruence geometry here."
+    },
+    "ModularIwasawaMainConjectures:L2": {
+      "action": "narrow",
+      "suppliedBy": [
+        "AutomorphicCongruences:L4"
+      ],
+      "keeps": "Import the source-qualified FW pointwise integral cohomological theorem from AutomorphicCongruences L4 rather than repeat its construction/descent proof. Retain the complete FW 1.7 hypothesis interface: p>2, absolute residual irreducibility, the specified local exclusion at p, auxiliary ramified-prime character/extension condition, even weight and actual half-weight twist, tame level and coefficient conventions. Prove the dictionary to the common representation/lattice and L0 formulations, and derive ordinary or crystalline signed consequences only on the intersection of the supplier and regulator hypotheses. No unrestricted scalar p-adic L-function or full leading-term statement is inferred.",
+      "reason": "The same pointwise theorem is already an explicit endpoint of C.L4. The convention and consequence comparisons here remain genuine mathematics and all old targets remain available through the named import."
+    },
+    "ModularIwasawaMainConjectures:L3": {
+      "action": "narrow",
+      "suppliedBy": [
+        "AutomorphicCongruences:L5b"
+      ],
+      "keeps": "Import both branches of BCS 1.1.2 from AutomorphicCongruences L5b: torsion and equality over Lambda[1/p] for an elliptic curve over Q at a good ordinary p>3 with irreducible E[p], and the integral equality under the stated rank-one-image condition. Retain construction/comparison of the curve p-adic L-function through the existing modular-form owner, the actual modularity or supplied-parametrization dependency, canonical-period and Tate-lattice identifications, and transportation of the two equalities through those maps. Keep residual irreducibility, residual surjectivity and the rank-one condition distinct. Do not repeat the quadratic descent, auxiliary-field selection, Kato-bound or factor-separation proof.",
+      "reason": "C.L5b explicitly supplies this cyclotomic theorem, while C.L5 only aggregates it. The curve/form and integral-normalization comparisons are not supplied merely by naming that theorem and remain here."
+    },
+    "ModularIwasawaMainConjectures:L4": {
+      "action": "narrow",
+      "suppliedBy": [
+        "AutomorphicCongruences:L4"
+      ],
+      "keeps": "Import the FW universal-family main-conjecture proof and its theorem-specific control from AutomorphicCongruences L4, using the zeta morphism supplied by C.L3. Retain its presentation on the common determinant/representation interface over the specified regular Lambda isomorphic to O[[X1,X2,X3]], and prove the additional derived specialization and comparison maps used by this roadmap with all Euler, local-condition and Tor corrections. Generic base-change machinery and the source theorem control are imports, not reconstructed here. Retain the entire separate LLZ signed comparison: apply the pointwise theorem only under both hypothesis sets, retain the image-of-Coleman term, prove the permitted basis-adjusted simplification up to the stated pseudo-null correction and the separate comparison with conventional plus/minus choices. No equality over every singular deformation ring or every supersingular branch is added.",
+      "reason": "Only the duplicated FW family proof moves to an import. The signed LLZ consequences, correction terms, convention comparisons and qualified family applications do not disappear."
+    },
+    "ModularIwasawaMainConjectures:L5": {
+      "action": "keep",
+      "reason": "Keep Euler-factor, coefficient and mu comparisons, verified ordinary/higher-weight/crystalline examples and the stated conjectural generalizations as propositions. Use the preceding named results rather than treating a conjecture or a tested example as a new unconditional theorem."
+    },
+    "ModularIwasawaMainConjectures:L6": {
+      "action": "keep",
+      "reason": "Keep the late map-level interface to the separately proved anticyclotomic, Eisenstein, supersingular and corrected multiplicative branches, including the completed coefficient extension, BDP square convention, local-condition and integral comparisons and source concordance. Its suppliers remain HE.8b, BSD.6a and BSD.7a; no supplier consumes this reexport to prove itself."
+    }
+  },
+  "links": [
+    {
+      "source": "AutomorphicCongruences:L4",
+      "target": "ModularIwasawaMainConjectures:L3",
+      "reason": "Repair the immediate consumer of narrowed I.L2: expose the underlying FW pointwise theorem formerly repeated there. This supplies only that imported branch, not a substitute for the distinct BCS hypotheses or proof."
+    },
+    {
+      "source": "AutomorphicCongruences:L5b",
+      "target": "ModularIwasawaMainConjectures:L4",
+      "reason": "Repair the immediate consumer of narrowed I.L3: keep the actual BCS rational/integral endpoint available for its specialization comparisons after the duplicated proof is imported."
+    },
+    {
+      "source": "AutomorphicCongruences:L4",
+      "target": "ModularIwasawaMainConjectures:L5",
+      "reason": "Repair the immediate consumer of narrowed I.L4: supply the proved FW family theorem for its coefficient/Euler-factor and example consequences; signed comparisons still come from I.L4."
+    },
+    {
+      "source": "AutomorphicCongruences:L4",
+      "target": "ModularIwasawaMainConjectures:L6",
+      "reason": "Repair the immediate consumer of narrowed I.L4: supply the FW theorem used by the common interface, without replacing the separately owned anticyclotomic, Eisenstein or supersingular branches."
+    },
+    {
+      "source": "KatoEulerSystems:L4",
+      "target": "ModularIwasawaMainConjectures:L1",
+      "reason": "Supply the independently constructed Kato cohomological/ordinary bound and nonvanishing for the ordinary equality assembly; C.L1 supplies the other bound on identified integral objects."
+    },
+    {
+      "source": "KatoEulerSystems:L4",
+      "target": "AutomorphicCongruences:L5b",
+      "reason": "Supply the independent Kato bounds for each factor in the BCS cyclotomic descent. Verify rational/integral and twist hypotheses before separating the factors; a product bound alone is not an equality for one factor."
+    },
+    {
+      "source": "ModularIwasawaMainConjectures:L1",
+      "target": "AutomorphicCongruences:L4",
+      "reason": "Supply the proved ordinary equality to the ordinary classical seed of the FW descent argument only after matching the source hypotheses and twists. This is the early ordinary stage, not the later pointwise or family endpoint."
+    }
+  ],
+  "owners": [
+    {
+      "target": "SU/FW ordinary congruence reverse divisibility, including the source-specific integral-period refinement",
+      "owner": "AutomorphicCongruences:L1",
+      "formerly": [
+        "ModularIwasawaMainConjectures:L1"
+      ]
+    },
+    {
+      "target": "FW pointwise integral cohomological main-conjecture proof in the specified residual and local range",
+      "owner": "AutomorphicCongruences:L4",
+      "formerly": [
+        "ModularIwasawaMainConjectures:L2"
+      ]
+    },
+    {
+      "target": "FW universal-family main-conjecture proof over the regular coefficient subring, with its theorem-specific control",
+      "owner": "AutomorphicCongruences:L4",
+      "formerly": [
+        "ModularIwasawaMainConjectures:L4"
+      ]
+    },
+    {
+      "target": "BCS cyclotomic torsion and rational main-conjecture equality, proved by the source-qualified descent and factor comparison",
+      "owner": "AutomorphicCongruences:L5b",
+      "formerly": [
+        "AutomorphicCongruences:L5",
+        "ModularIwasawaMainConjectures:L3"
+      ]
+    },
+    {
+      "target": "BCS integral cyclotomic strengthening under the rank-one-image condition on the actual Tate lattice",
+      "owner": "AutomorphicCongruences:L5b",
+      "formerly": [
+        "AutomorphicCongruences:L5",
+        "ModularIwasawaMainConjectures:L3"
+      ]
+    }
+  ]
+}
