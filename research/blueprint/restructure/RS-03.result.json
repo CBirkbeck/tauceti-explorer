@@ -1,0 +1,195 @@
+{
+  "family": "RS-03",
+  "roadmaps": {
+    "AdditiveCombinatorics": {"action":"keep","reason":"Keep the higher-order additive and prime-pattern programme. Existing additive energy and cyclic Fourier results are inputs, not new targets; finite-field inverse theorems and cyclic/nilsequence results remain distinct."},
+    "ClassicalArithmeticCompletion": {"action":"keep","reason":"Keep the elementary arithmetic completion programme, retaining its genuine higher-reciprocity, general-normal-form, special-algebraic-number and integral-Galois-module gaps. Do not re-prove the audited arithmetic baseline."},
+    "ComputationalNumberTheory": {"action":"keep","reason":"Keep generic exact computation and certificate infrastructure. Specialized field and Diophantine algorithms are consumed through the owners recorded below; an executable certificate is not identical to its mathematical existence theorem."},
+    "DiophantineApproximationAndTranscendence": {"action":"keep","reason":"Keep approximation, transcendence and equation-bound theorems. Ineffective finiteness, effective lower bounds and certified enumeration are separate targets, not one merged layer."},
+    "EffectiveDiophantineMethods": {"action":"keep","reason":"Keep certified solution methods as an application programme over CN, DT and geometric owners. General lattice, logarithm, Selmer and existing elliptic descent foundations are imports."},
+    "ExponentialSumsAndCircleMethod": {"action":"keep","reason":"Keep analytic exponential-sum, torus-integration and circle-method targets. Finite Fourier inversion and finite-complexity prime-pattern counting do not replace these analytic statements."},
+    "FiniteFieldsAndCharacterSums": {"action":"keep","reason":"Keep the finite-field and finite-ring programme, including specialized presentations, sum estimates and algorithms. Import built character identities and geometric estimates rather than making another proof owner."},
+    "HeightsRationalPointsAndObstructions": {"action":"keep","reason":"Keep the general rational-point and obstruction programme. It is not a second elliptic-curves roadmap: its new targets involve line bundles, general abelian varieties, geometric torsors and Brauer-Manin obstructions. Elliptic and general abstract Selmer inputs remain with the protected anchor."}
+  },
+  "layers": {
+    "AdditiveCombinatorics:AC.0": {
+      "action":"narrow",
+      "keeps":"The additive-combinatorics-facing API and normalization/comparison theorems for arbitrary finite abelian groups; retain all original energy, convolution and Plunnecke-Ruzsa consequences as imported theorems. Prove only the generality and compatibility missing from the audited cyclic/additive baseline.",
+      "suppliedBy":["UPSTREAM:Mathlib audited cyclic Fourier, additive energy and Plunnecke-Ruzsa baseline (AUDIT-06; canonical audit pins)"],
+      "reason":"The audit is partial, not a license either to rebuild built energy theory or to call arbitrary finite-abelian Fourier theory complete."
+    },
+    "ClassicalArithmeticCompletion:CA.1": {
+      "action":"narrow",
+      "keeps":"Higher reciprocity and power-residue/Hilbert-symbol extensions, including the place 2, infinite places and ramification conventions; retain quadratic reciprocity and Gauss/Jacobi specializations by import and explicit comparison.",
+      "suppliedBy":["UPSTREAM:Mathlib audited arithmetic baseline (AUDIT-18; pin 082e2d37e8b0463410cdb532e111cd43d5a66174)","FiniteFieldsAndCharacterSums:FF.1"],
+      "reason":"Field-character normalization has one home in FF.1; already-built quadratic reciprocity is not new work. Higher reciprocity is not reduced to finite-field identities."
+    },
+    "ClassicalArithmeticCompletion:CA.3": {
+      "action":"narrow",
+      "keeps":"The general Smith/Hermite and rational canonical normal-form gaps, with reconstruction, divisibility and termination certificates, plus the stated integer-valued-polynomial and irreducibility refinements not supplied by the audit. Existing resultant, discriminant and special-case normal-form results remain imported prerequisites.",
+      "suppliedBy":["UPSTREAM:Mathlib audited arithmetic baseline (AUDIT-18; pin 082e2d37e8b0463410cdb532e111cd43d5a66174)"],
+      "reason":"CA.3 owns missing mathematical matrix normal-form contracts; CN.0 owns presentation and complexity interfaces, not a second normal-form theorem."
+    },
+    "ClassicalArithmeticCompletion:CA.4": {
+      "action":"keep",
+      "reason":"Keep the original elementary proof routes, including their effective special cases. DT.4 and ED.2/ED.3 handle general bounds and certified advanced searches, not replacement proofs of the elementary statements. These are comparisons rather than circular foundational imports."
+    },
+    "ClassicalArithmeticCompletion:CA.5": {
+      "action":"narrow",
+      "keeps":"Comparisons between quadratic/cyclotomic presentations, intrinsic integral bases, units, ideals and class groups, and the interpretation of certified matrix/algorithm outputs in those invariants. Preserve every field-invariant application through imports.",
+      "suppliedBy":["UPSTREAM:Mathlib and Tau Ceti intrinsic number-field invariants (AUDIT-18; canonical audit pins)","ComputationalNumberTheory:CN.2"],
+      "reason":"Intrinsic existence and structure are upstream; CN.2 owns certified computation and completeness. CA.5 retains the arithmetic comparison statements."
+    },
+    "ClassicalArithmeticCompletion:CA.6": {
+      "action":"narrow",
+      "keeps":"Pisot/Salem, the scoped lower bounds and dynamical-height comparisons from the original layer, with precise Mahler-measure/house/absolute-height conventions. Retain built Mahler, Kronecker and Northcott statements by import; Lehmer remains conjectural.",
+      "suppliedBy":["UPSTREAM:Mathlib absolute heights and Northcott baseline (AUDIT-18; pin 082e2d37e8b0463410cdb532e111cd43d5a66174)"],
+      "reason":"A general height API is not a second special-algebraic-number theorem programme."
+    },
+    "ComputationalNumberTheory:CN.0": {
+      "action":"narrow",
+      "keeps":"Generic exact-presentation/refinement contracts, certificate checking, bit-cost and randomized/deterministic distinctions, including comparison maps to intrinsic carriers. Consume matrix normal forms from CA.3; specialized finite-field constructors remain FF.0.",
+      "suppliedBy":["ClassicalArithmeticCompletion:CA.3","FiniteFieldsAndCharacterSums:FF.0"],
+      "reason":"Abstract exact carriers and specialized constructor algorithms are different outputs. FF.0 is a supplier interface, not a new dependency on the whole later factorization chain."
+    },
+    "ComputationalNumberTheory:CN.1": {
+      "action":"narrow",
+      "keeps":"Primality and integer/rational polynomial certificate orchestration, product and irreducibility checks, and the original deterministic versus probabilistic complexity statements. Consume finite-field factorization rather than implementing its theory twice. Existing upstream primality and mod-p criteria remain imports.",
+      "suppliedBy":["FiniteFieldsAndCharacterSums:FF.3","UPSTREAM:Mathlib audited arithmetic baseline (AUDIT-18; pin 082e2d37e8b0463410cdb532e111cd43d5a66174)"],
+      "reason":"FF.3 owns the specialized finite-field algorithm; CN.1 owns assembly and verification for its computational input models."
+    },
+    "ComputationalNumberTheory:CN.3": {
+      "action":"narrow",
+      "keeps":"Exact modular-symbol/Hecke and q-expansion computational adapters, certified point-count/isogeny adapters and arithmetic computation interfaces. Reuse existing curve algorithms and certified general descent outputs; retain level, weight, character, bad-prime, precision and Sturm hypotheses in every equality certificate.",
+      "suppliedBy":["FiniteFieldsAndCharacterSums:FF.3","EffectiveDiophantineMethods:ED.3","tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-and-the-formal-group-aec-iii4-iii6-iii7-iv","tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1","tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii","tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4","UPSTREAM:TauCetiRoadmap/ModularForms Hecke and Sturm contracts (content/tau-ceti/ModularForms/README.md)"],
+      "reason":"The elliptic anchor already includes explicit isogeny and descent algorithms, not just abstract existence. CN.3 retains their certified computational integration, not a second proof owner."
+    },
+    "FiniteFieldsAndCharacterSums:FF.0": {
+      "action":"narrow",
+      "keeps":"Specialized finite-field presentations, Frobenius/subfield/trace/norm and normal-basis construction/comparison certificates, tensor-product descriptions and the original finite-field input models. Import already-built field classification and existence results.",
+      "suppliedBy":["UPSTREAM:Mathlib finite-field structure and character identities (canonical library-coverage audit)"],
+      "reason":"Finite-field normal bases and integral Galois modules over number-field rings of integers are not the same target; CA.7 remains intact."
+    },
+    "FiniteFieldsAndCharacterSums:FF.1": {
+      "action":"narrow",
+      "keeps":"Trace-based additive characters, multiplicative-character and Gauss/Jacobi comparison interfaces in the stated finite-field generality; exact trivial-character and normalization cases. Import built identities and use AC.0 for any missing general finite-abelian Fourier interface.",
+      "suppliedBy":["UPSTREAM:Mathlib finite-field structure and character identities (canonical library-coverage audit)","AdditiveCombinatorics:AC.0"],
+      "reason":"One generic finite-abelian Fourier interface suffices; field-specific trace, norm and reciprocity comparisons remain genuine work."
+    },
+    "FiniteFieldsAndCharacterSums:FF.3": {
+      "action":"narrow",
+      "keeps":"The stated certified finite-field factorization, Hensel lifting and point-counting algorithms with reconstruction, termination and complexity contracts. Import elliptic trace/Hasse/zeta statements for elliptic point-count certificates rather than proving them again.",
+      "suppliedBy":["tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"],
+      "reason":"An efficient algorithm and its completeness/complexity certificates are not already supplied by an exact abstract point-count identity."
+    },
+    "FiniteFieldsAndCharacterSums:FF.5": {
+      "action":"narrow",
+      "keeps":"Specialized application and normalization handoffs for finite-field sum estimates, computational inputs and local-density uses, including all original coding/sequence/cryptographic examples. Import estimates and generic certificate discipline; do not infer computational hardness from mathematical correctness.",
+      "suppliedBy":["FiniteFieldsAndCharacterSums:FF.2","ComputationalNumberTheory:CN.5"],
+      "reason":"Retains comparison and application targets, not duplicate analytic estimates or duplicate generic certificate schemas."
+    },
+    "DiophantineApproximationAndTranscendence:DT.0": {
+      "action":"narrow",
+      "keeps":"Continued fractions, approximation exponents, Dirichlet/geometry-of-numbers arguments and the comparison of their quantitative conventions to normalized absolute heights. Import the already-built height/product-formula/Northcott foundation.",
+      "suppliedBy":["UPSTREAM:Mathlib absolute heights and Northcott baseline (AUDIT-18; pin 082e2d37e8b0463410cdb532e111cd43d5a66174)"],
+      "reason":"Approximation estimates survive; only the duplicated absolute-height foundation is assigned upstream."
+    },
+    "EffectiveDiophantineMethods:ED.0": {
+      "action":"narrow",
+      "keeps":"Diophantine-facing algebraic-number isolating interval/disc and valuation adapters on CN.0 exact carriers, with explicit finite precision and checking contracts. Analytic logarithm and propagated analytic-error evaluation stays in ED.2 via CN.4, not in this foundational stage.",
+      "suppliedBy":["ComputationalNumberTheory:CN.0"],
+      "reason":"Respects the existing separation of exact input construction and analytic bound evaluation; no CN.4 to ED.0 dependency is introduced."
+    },
+    "EffectiveDiophantineMethods:ED.1": {
+      "action":"narrow",
+      "keeps":"The stated bounded short/closest-vector search, reduction and exclusion certificates needed by Diophantine methods, consuming verified LLL/Gram-Schmidt, termination and approximation contracts.",
+      "suppliedBy":["GeometryOfNumbersAndQuadraticArithmetic:GN.5"],
+      "reason":"Generic LLL has one owner. ED.1 proves that its outputs certify the required bounded search or exclusion statement, not that LLL solves unrestricted closest-vector problems."
+    },
+    "EffectiveDiophantineMethods:ED.2": {
+      "action":"narrow",
+      "keeps":"Certified evaluation of imported explicit bounds, lattice reduction and exhaustive residual enumeration for Thue, Thue-Mahler, S-unit and scoped exponential equations. Specify input hypotheses, nonvanishing, all precision/error budgets and the proof that no solution lies outside the finite search region.",
+      "suppliedBy":["DiophantineApproximationAndTranscendence:DT.3","DiophantineApproximationAndTranscendence:DT.4","ComputationalNumberTheory:CN.4","EffectiveDiophantineMethods:ED.1"],
+      "reason":"DT.3 supplies logarithmic-form lower bounds; DT.4 supplies equation-specific search bounds. Neither supplies ED.2 numerical certification and exhaustive search."
+    },
+    "EffectiveDiophantineMethods:ED.3": {
+      "action":"narrow",
+      "keeps":"Certified local-image computations, saturation and rank certificates, and stated isogeny/descent algorithm extensions for the supported arithmetic input classes. Reuse elliptic two-descent and abstract Selmer machinery; certify all required primes and do not replace a rank upper bound by a list of independent points.",
+      "suppliedBy":["HeightsRationalPointsAndObstructions:RP.1","tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii","tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"],
+      "reason":"The protected anchor owns existing elliptic algorithms and the abstract Selmer framework. ED.3 owns added certified arithmetic procedures, which CN.3 consumes."
+    },
+    "EffectiveDiophantineMethods:ED.6": {
+      "action":"narrow",
+      "keeps":"The original worked Thue, S-unit, elliptic and higher-genus examples, plus certified uses of the NC.5 nonabelian/quadratic Chabauty output. Instantiate CN.5 certificate schemas and preserve all completeness and conditionality labels.",
+      "suppliedBy":["ComputationalNumberTheory:CN.5","NonabelianChabautyAndQuadraticChabauty:NC.5"],
+      "reason":"A generic benchmark/schema and a proved Diophantine example are distinct deliverables; the example retains its own mathematical acceptance test."
+    },
+    "HeightsRationalPointsAndObstructions:RP.0": {
+      "action":"narrow",
+      "keeps":"The divisor/line-bundle height machine, tensor and pullback functoriality, general-abelian-variety canonical/local heights, and comparison with the imported normalized absolute and elliptic canonical heights. Keep the original Northcott applications through import.",
+      "suppliedBy":["UPSTREAM:Mathlib absolute heights and Northcott baseline (AUDIT-18; pin 082e2d37e8b0463410cdb532e111cd43d5a66174)","tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii"],
+      "reason":"Elliptic canonical height is protected anchor work. The general height machine remains new; its specialization must explicitly resolve the factor-of-two convention."
+    },
+    "HeightsRationalPointsAndObstructions:RP.1": {
+      "action":"narrow",
+      "keeps":"General-abelian-variety Kummer/isogeny and descent geometry, including fppf treatment when needed, finite-quotient/height arguments for finite generation and comparison to existing elliptic results. Instantiate the anchor abstract Selmer-structure API instead of defining another one.",
+      "suppliedBy":["tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii","tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"],
+      "reason":"Layer 7 of the anchor is already stated for general discrete Galois modules; only genuinely new abelian-variety and geometric/fppf inputs stay here."
+    },
+    "HeightsRationalPointsAndObstructions:RP.3": {
+      "action":"narrow",
+      "keeps":"Geometric torsors, twists, descent and etale-Brauer-Manin comparisons from the original stage. Keep unpointed/genus-one torsor geometry separate from pointed elliptic-curve forms and compare them explicitly where applicable.",
+      "suppliedBy":["tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5","tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"],
+      "reason":"The pointed-elliptic H1(Aut(E,O)) classification and the Weil-Chatelet cohomological interface are imported, not mistaken for general torsor geometry."
+    }
+  },
+  "links": [
+    {"source":"FiniteFieldsAndCharacterSums:FF.1","target":"ClassicalArithmeticCompletion:CA.1","reason":"Import finite-field character and Gauss/Jacobi conventions for residue-symbol comparisons."},
+    {"source":"AdditiveCombinatorics:AC.0","target":"FiniteFieldsAndCharacterSums:FF.1","reason":"Specialize the general finite-abelian Fourier comparison to additive finite fields."},
+    {"source":"ComputationalNumberTheory:CN.2","target":"ClassicalArithmeticCompletion:CA.5","reason":"Interpret certified basis, unit and class-group outputs in intrinsic field invariants."},
+    {"source":"FiniteFieldsAndCharacterSums:FF.3","target":"ComputationalNumberTheory:CN.3","reason":"Consume verified finite-field point-counting/factorization outputs in arithmetic computation adapters."},
+    {"source":"EffectiveDiophantineMethods:ED.3","target":"ComputationalNumberTheory:CN.3","reason":"Use the certified descent/local-image/saturation service instead of a second algorithm implementation."},
+    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-and-the-formal-group-aec-iii4-iii6-iii7-iv","target":"ComputationalNumberTheory:CN.3","reason":"Import the existing elliptic isogeny and explicit formula contracts."},
+    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1","target":"FiniteFieldsAndCharacterSums:FF.3","reason":"Use elliptic point-count/trace/Hasse correctness when certifying elliptic algorithms."},
+    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1","target":"ComputationalNumberTheory:CN.3","reason":"Preserve the abstract elliptic trace and point-count normalization at adapter boundaries."},
+    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii","target":"ComputationalNumberTheory:CN.3","reason":"Import existing elliptic descent and Mordell-Weil algorithm contracts."},
+    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4","target":"ComputationalNumberTheory:CN.3","reason":"Retain the existing Selmer and local-condition framework at computational boundaries."},
+    {"source":"ComputationalNumberTheory:CN.5","target":"FiniteFieldsAndCharacterSums:FF.5","reason":"Instantiate the generic certificate schema for finite-field application handoffs."},
+    {"source":"DiophantineApproximationAndTranscendence:DT.4","target":"EffectiveDiophantineMethods:ED.2","reason":"Import equation-specific explicit search-region bounds, not only their logarithmic lower-bound input."},
+    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii","target":"EffectiveDiophantineMethods:ED.3","reason":"Reuse the existing elliptic two-descent and rank-bound algorithm before adding certification."},
+    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4","target":"EffectiveDiophantineMethods:ED.3","reason":"Use the existing Selmer/local-condition interface in certified arithmetic descent."},
+    {"source":"ComputationalNumberTheory:CN.5","target":"EffectiveDiophantineMethods:ED.6","reason":"Instantiate generic checkable certificate schemas for the worked Diophantine examples."},
+    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii","target":"HeightsRationalPointsAndObstructions:RP.0","reason":"Compare the general height machine to the protected elliptic normalization."},
+    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii","target":"HeightsRationalPointsAndObstructions:RP.1","reason":"Import elliptic finite-generation and descent cases rather than duplicating their proofs."},
+    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4","target":"HeightsRationalPointsAndObstructions:RP.1","reason":"Import general discrete-module Selmer structures; add only geometric and fppf realization."},
+    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5","target":"HeightsRationalPointsAndObstructions:RP.3","reason":"Identify the pointed elliptic twist subcase without replacing general torsor geometry."},
+    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4","target":"HeightsRationalPointsAndObstructions:RP.3","reason":"Use the existing Weil-Chatelet cohomological interface for elliptic torsor comparisons."},
+    {"source":"FiniteFieldsAndCharacterSums:FF.0","target":"ComputationalNumberTheory:CN.0","reason":"Use specialized finite-field constructor and comparison contracts in the generic exact-presentation interface; keep generic complexity and checking theory here."}
+  ],
+  "owners": [
+    {"target":"Audited elementary arithmetic, quadratic reciprocity and existing special-case normal forms","owner":"UPSTREAM:Mathlib audited arithmetic baseline (AUDIT-18; pin 082e2d37e8b0463410cdb532e111cd43d5a66174)","formerly":["ClassicalArithmeticCompletion:CA.0","ClassicalArithmeticCompletion:CA.1","ClassicalArithmeticCompletion:CA.3","ClassicalArithmeticCompletion:CA.4","ComputationalNumberTheory:CN.1"]},
+    {"target":"Missing general matrix normal-form reconstruction and divisibility contracts","owner":"ClassicalArithmeticCompletion:CA.3","formerly":["ClassicalArithmeticCompletion:CA.3","ComputationalNumberTheory:CN.0"]},
+    {"target":"Intrinsic number-field basis, unit and class-group structure","owner":"UPSTREAM:Mathlib and Tau Ceti intrinsic number-field invariants (AUDIT-18; canonical audit pins)","formerly":["ClassicalArithmeticCompletion:CA.5","ComputationalNumberTheory:CN.2"]},
+    {"target":"Certified number-field basis/order/unit/class algorithms and completeness","owner":"ComputationalNumberTheory:CN.2","formerly":["ClassicalArithmeticCompletion:CA.5","ComputationalNumberTheory:CN.2"]},
+    {"target":"Normalized absolute-height and Northcott foundation","owner":"UPSTREAM:Mathlib absolute heights and Northcott baseline (AUDIT-18; pin 082e2d37e8b0463410cdb532e111cd43d5a66174)","formerly":["ClassicalArithmeticCompletion:CA.6","DiophantineApproximationAndTranscendence:DT.0","HeightsRationalPointsAndObstructions:RP.0"]},
+    {"target":"Built additive energy, Plunnecke-Ruzsa and audited cyclic Fourier results","owner":"UPSTREAM:Mathlib audited cyclic Fourier, additive energy and Plunnecke-Ruzsa baseline (AUDIT-06; canonical audit pins)","formerly":["AdditiveCombinatorics:AC.0","FiniteFieldsAndCharacterSums:FF.1"]},
+    {"target":"Missing arbitrary finite-abelian Fourier normalization/comparison interface","owner":"AdditiveCombinatorics:AC.0","formerly":["AdditiveCombinatorics:AC.0","FiniteFieldsAndCharacterSums:FF.1"]},
+    {"target":"Specialized finite-field presentations and normal-basis construction contracts","owner":"FiniteFieldsAndCharacterSums:FF.0","formerly":["FiniteFieldsAndCharacterSums:FF.0","ComputationalNumberTheory:CN.0"]},
+    {"target":"Finite-field character and Gauss/Jacobi normalization/comparison interfaces","owner":"FiniteFieldsAndCharacterSums:FF.1","formerly":["FiniteFieldsAndCharacterSums:FF.1","ClassicalArithmeticCompletion:CA.1"]},
+    {"target":"Certified finite-field factorization, Hensel and point-counting algorithms","owner":"FiniteFieldsAndCharacterSums:FF.3","formerly":["FiniteFieldsAndCharacterSums:FF.3","ComputationalNumberTheory:CN.1","ComputationalNumberTheory:CN.3"]},
+    {"target":"General Weil/Deligne finite-field sum estimate handoff","owner":"FiniteFieldsAndCharacterSums:FF.2","formerly":["FiniteFieldsAndCharacterSums:FF.2","FiniteFieldsAndCharacterSums:FF.5","ExponentialSumsAndCircleMethod:ES.0"]},
+    {"target":"Generic exact-presentation and checking/complexity contracts","owner":"ComputationalNumberTheory:CN.0","formerly":["ComputationalNumberTheory:CN.0","EffectiveDiophantineMethods:ED.0"]},
+    {"target":"Generic validated analytic arithmetic and precision propagation","owner":"ComputationalNumberTheory:CN.4","formerly":["ComputationalNumberTheory:CN.4","EffectiveDiophantineMethods:ED.2"]},
+    {"target":"Verified lattice-reduction/LLL foundation","owner":"GeometryOfNumbersAndQuadraticArithmetic:GN.5","formerly":["EffectiveDiophantineMethods:ED.1"]},
+    {"target":"Logarithmic-form lower-bound theorems, with explicit hypotheses","owner":"DiophantineApproximationAndTranscendence:DT.3","formerly":["DiophantineApproximationAndTranscendence:DT.3","EffectiveDiophantineMethods:ED.2"]},
+    {"target":"Equation-specific explicit bounds from logarithmic-form estimates","owner":"DiophantineApproximationAndTranscendence:DT.4","formerly":["DiophantineApproximationAndTranscendence:DT.4","EffectiveDiophantineMethods:ED.2"]},
+    {"target":"Certified reduction and exhaustive residual solution enumeration","owner":"EffectiveDiophantineMethods:ED.2","formerly":["DiophantineApproximationAndTranscendence:DT.4","EffectiveDiophantineMethods:ED.2"]},
+    {"target":"New certified local-image, saturation and descent procedures","owner":"EffectiveDiophantineMethods:ED.3","formerly":["EffectiveDiophantineMethods:ED.3","ComputationalNumberTheory:CN.3"]},
+    {"target":"Generic machine-checkable certificate schema and reproducibility rules","owner":"ComputationalNumberTheory:CN.5","formerly":["ComputationalNumberTheory:CN.5","FiniteFieldsAndCharacterSums:FF.5","EffectiveDiophantineMethods:ED.6"]},
+    {"target":"Existing elliptic isogeny and explicit algorithm theory","owner":"tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-and-the-formal-group-aec-iii4-iii6-iii7-iv","formerly":["ComputationalNumberTheory:CN.3"]},
+    {"target":"Elliptic finite-field point count, Frobenius trace and Hasse normalization","owner":"tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1","formerly":["FiniteFieldsAndCharacterSums:FF.3","ComputationalNumberTheory:CN.3"]},
+    {"target":"Existing elliptic canonical heights, Mordell-Weil and two-descent algorithms","owner":"tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii","formerly":["HeightsRationalPointsAndObstructions:RP.0","HeightsRationalPointsAndObstructions:RP.1","EffectiveDiophantineMethods:ED.3","ComputationalNumberTheory:CN.3"]},
+    {"target":"Abstract Selmer structures on discrete Galois modules","owner":"tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4","formerly":["HeightsRationalPointsAndObstructions:RP.1","EffectiveDiophantineMethods:ED.3","ComputationalNumberTheory:CN.3"]},
+    {"target":"Pointed elliptic twist classification","owner":"tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5","formerly":["HeightsRationalPointsAndObstructions:RP.3"]},
+    {"target":"Modular Hecke and Sturm theorem inputs","owner":"UPSTREAM:TauCetiRoadmap/ModularForms Hecke and Sturm contracts (content/tau-ceti/ModularForms/README.md)","formerly":["ComputationalNumberTheory:CN.3"]}
+  ]
+}
