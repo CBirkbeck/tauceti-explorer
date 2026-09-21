@@ -1,0 +1,17 @@
+{
+  "paper": "PAPER-MARTIN-25",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "ClassicalArithmeticCompletion CA.4 owns \"classical Diophantine equations ... elementary descent\". The Markoff equation over Z, the Vieta involutions, positivity of the other root, strict descent to (1,1,1), the Markoff tree and the reduction map modulo p (items 1–13) are a concrete source in that direction. Neither pinned library has any of them, and no accepted restructure changes CA.4."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "No layer owns group actions on the Markoff surface modulo p, Penner weights, the Chen divisibility theorem, the Bourgain–Gamburd–Sarnak giant-orbit and exceptional-prime theorems, or strong approximation for Markoff triples. A catalogue-wide search for Markoff, Bourgain–Gamburd and strong approximation finds only unrelated group-theoretic strong approximation. ArithmeticDynamics DY.0–DY.6 treat iterated, mostly polarized, morphisms, so affine Vieta-group dynamics are new layers in its direction, and a Part II is the right mechanism. The brief states the corrected theorem exactly (p ≠ 3, with the eight-vertex p = 3 cube as a regression test) and keeps the BGS group Γ distinct from the Vieta-only graph. Accepted after one correction in place: the area \"diophantine\" is an atlas group name, not a galaxy id of data/galaxies.json, and is now \"arithmeticgeometry\" (MSC 11D and 37P)."
+    }
+  ],
+  "notes": "Independent review by Claude Code (session cc-fb70e5). This session did no part of the extraction. The publisher PDF could not be retrieved here (the Springer link returns an HTML paywall page), so the statements were checked against the arXiv source of 2502.15960 (the only arXiv version, 21 February 2025, SHA-256 of the e-print 2efa0416…974c), whose Conjecture, BGS theorem, Chen theorem and §2 proof correspond to the published Conjecture 1.1, Theorems 1.2–1.4 and (2.1)–(2.5) cited by the extraction. Items 1–54 match the source. The extraction's correction of the printed scope was re-derived: over F_3 the equation reduces to x1²+x2²+x3² = 0, whose nonzero solutions are the eight triples in {±1}³, and each Vieta move flips one sign, giving one eight-vertex component, so 3 ∤ #C. Over F_2 the four nonzero solutions form one component. The proof requires p > 3 (it divides by 2 and 3). All six library citations were confirmed at Mathlib 082e2d3 (Fintype.sum_equiv is the additive form of Fintype.prod_equiv). One correction in place: route 2's area. python3 scripts/check_paper.py reports ok."
+}
