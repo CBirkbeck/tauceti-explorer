@@ -6205,8 +6205,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MERKURJEV-SCAVIA-26.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1408"
+   "state": "external",
+   "note": "claimed on GitHub issue #1408"
   },
   {
    "id": "REV-PAPER-MERKURJEV-SCAVIA-26",
@@ -6504,8 +6504,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HARPAZ-WITTENBERG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1426"
+   "state": "pending",
+   "note": "released on GitHub issue #1426"
   },
   {
    "id": "REV-PAPER-HARPAZ-WITTENBERG-20",
