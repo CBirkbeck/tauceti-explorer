@@ -1999,8 +1999,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-TSIMERMAN-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1141"
+   "state": "pending",
+   "note": "released on GitHub issue #1141"
   },
   {
    "id": "REV-PAPER-TSIMERMAN-18",
@@ -6401,8 +6401,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1420"
+   "state": "external",
+   "note": "claimed on GitHub issue #1420"
   },
   {
    "id": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
