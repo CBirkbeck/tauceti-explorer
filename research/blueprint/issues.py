@@ -224,19 +224,17 @@ def labels_for(job, roadmaps, by_id):
     return out
 
 
-def merged_labels(current, job, roadmaps, by_id):
-    """The issue's labels with only its state label brought up to date."""
-    state = next(label for label in labels_for(job, roadmaps, by_id) if label.startswith("state:"))
-    return [label for label in current if not label.startswith("state:")] + [state]
-
-
-def refresh_payload(job, current, text, roadmaps, by_id):
-    """The one request that brings an open issue up to date: a superseded job's
-    issue closes as not planned and says why; any other gets a fresh body and state."""
+def refresh_payload(job, current_body, text):
+    """The one request that brings an open issue up to date, or None if it is.
+    A superseded job's issue closes as not planned and says why; any other gets a
+    fresh body. State labels are left to sync: claims live on GitHub until a sync
+    brings them into the queue, so a state computed here could undo a claim."""
     if job.get("state") == "superseded":
         return {"state": "closed", "state_reason": "not_planned",
                 "body": f"**Superseded.** {job.get('note') or 'This job is no longer planned.'}\n\n{text}"}
-    return {"body": text, "labels": merged_labels(current, job, roadmaps, by_id)}
+    if (current_body or "").strip() == text.strip():
+        return None
+    return {"body": text}
 
 
 def main():
@@ -304,10 +302,13 @@ def main():
     if args.command == "refresh":
         # One request per issue sets its body and its state label together, so a
         # full refresh stays within GitHub's limit of about 500 edits an hour.
-        listing = subprocess.run(["gh", "issue", "list", "--label", "swarm", "--state", "open", "--limit", "2000", "--json", "number,labels"],
+        listing = subprocess.run(["gh", "issue", "list", "--label", "swarm", "--state", "open", "--limit", "2000", "--json", "number,body"],
                                  capture_output=True, text=True, cwd=REPO)
-        open_issues = {item["number"]: [label["name"] for label in item["labels"]] for item in json.loads(listing.stdout or "[]")}
+        if listing.returncode != 0:
+            raise SystemExit("gh issue list failed: " + listing.stderr[:200])
+        open_issues = {item["number"]: item["body"] for item in json.loads(listing.stdout)}
         repo = GITHUB.split("github.com/")[1]
+        unchanged = 0
         for job in jobs:
             number = mapping.get(job["id"])
             if not number or number not in open_issues:
@@ -315,23 +316,47 @@ def main():
             text = body(job, jobs, roadmaps, stages)
             if re.search(r"/Users/|/private/|/home/|mcu22seu", text):
                 print("skipped (private path)", job["id"]); continue
-            payload = json.dumps(refresh_payload(job, open_issues[number], text, roadmaps, by_id))
+            payload = refresh_payload(job, open_issues[number], text)
+            if payload is None:
+                unchanged += 1
+                continue
             result = subprocess.run(["gh", "api", "-X", "PATCH", f"repos/{repo}/issues/{number}", "--input", "-", "--silent"],
-                                    input=payload, capture_output=True, text=True, cwd=REPO)
+                                    input=json.dumps(payload), capture_output=True, text=True, cwd=REPO)
             print("refreshed" if result.returncode == 0 else "failed", job["id"], number, result.stderr.strip()[:120], flush=True)
             time.sleep(args.pace)
+        print(f"refresh: {unchanged} issue(s) already up to date")
 
 
 STATE_LABELS = ("state:available", "state:blocked", "state:claimed", "state:running", "state:submitted", "state:done")
 CLOSE_WHEN_DONE = {"review", "classify", "naming", "status", "assembly", "plan"}
 
 
-def deliverables_complete(job):
-    """Every output exists and, for batch jobs, covers every item of the batch."""
-    paths = [REPO / path for path in job.get("outputs", [])]
+DECOMPOSED = ("source_decomposed", "closed")
+
+
+def deliverables_complete(job, root=REPO):
+    """Every output exists and covers the whole job: for a batch, every item of the
+    batch; for a plan, every layer in scope decomposed from its sources; for a link
+    map, the status "complete". Anything less is a checkpoint."""
+    bp = root / "research" / "blueprint"
+    paths = [root / path for path in job.get("outputs", [])]
     if not paths or not all(path.exists() for path in paths):
         return False
     try:
+        if job["kind"] in ("blueprint", "design"):
+            packet_path = next((path for path in paths if path.parent.name == "packets"), None)
+            if packet_path is None:
+                return True
+            packet = json.loads(packet_path.read_text())
+            if packet.get("status") == "closed":
+                return True
+            scope = job.get("scope") or packet.get("scope")
+            if not scope and job["kind"] == "design":
+                roadmap = json.loads(paths[0].read_text())
+                scope = [f"{roadmap.get('id')}:{stage.get('key')}" for stage in roadmap.get("stages", [])]
+            covered = {entry.get("stageId"): entry.get("status") for entry in packet.get("coverage", [])}
+            scope = scope or list(covered)
+            return bool(scope) and all(covered.get(sid) in DECOMPOSED for sid in scope)
         if job["kind"] == "classify":
             result = json.loads(paths[0].read_text())
             covered = {entry.get("roadmapId") for entry in result}
@@ -340,23 +365,48 @@ def deliverables_complete(job):
         if job["kind"] == "link":
             return json.loads(paths[0].read_text()).get("status") == "complete"
         if job["kind"] == "audit":
-            listed = {layer["id"] for roadmap in json.loads((BP / "audit" / f"{job['id']}.json").read_text())["roadmaps"] for layer in roadmap["layers"]}
+            listed = {layer["id"] for roadmap in json.loads((bp / "audit" / f"{job['id']}.json").read_text())["roadmaps"] for layer in roadmap["layers"]}
             present = {lid for roadmap in json.loads(paths[0].read_text()).get("roadmaps", {}).values() for lid in roadmap.get("layers", {})}
             return listed <= present
         if job["kind"] == "compare":
-            listed = json.loads((BP / "compare" / f"{job['id']}.json").read_text())["pairs"]
+            listed = json.loads((bp / "compare" / f"{job['id']}.json").read_text())["pairs"]
             answered = {(item.get("a"), item.get("b")) for item in json.loads(paths[0].read_text()).get("judgements", [])}
             return all((pair["a"], pair["b"]) in answered for pair in listed)
         if job["kind"] == "naming":
-            wanted = {entry["id"] for entry in json.loads((REPO / "research" / "expansion" / "naming" / f"{job['id']}.json").read_text())}
+            wanted = {entry["id"] for entry in json.loads((root / "research" / "expansion" / "naming" / f"{job['id']}.json").read_text())}
             return wanted <= {entry.get("id") for entry in json.loads(paths[0].read_text())}
         if job["kind"] == "status":
-            wanted = {stage["id"] for roadmap in json.loads((REPO / "research" / "expansion" / "status" / f"{job['id']}.json").read_text())
+            wanted = {stage["id"] for roadmap in json.loads((root / "research" / "expansion" / "status" / f"{job['id']}.json").read_text())
                       for stage in roadmap["stages"]}
             return wanted <= {entry.get("stageId") for entry in json.loads(paths[0].read_text())}
     except (OSError, ValueError, KeyError, TypeError):
         return False
     return True
+
+
+def transition(job, labels, complete, is_ready):
+    """A job's queue state and issue state label, from the queue and GitHub.
+
+    A claim or an open pull request on GitHub makes the job external, so the local
+    swarm skips it. Deliverables on main that cover the whole job finish it, whoever
+    held the claim: workers may release a claim once their pull request is open.
+    A released claim makes the job pending again. Local work is left alone."""
+    state = job.get("state")
+    if state in ("pending", "external") and complete:
+        state = "done"
+    elif state == "pending" and ("state:claimed" in labels or "state:submitted" in labels):
+        state = "external"
+    elif state == "external" and "state:available" in labels:
+        state = "pending"
+    if state == "done":
+        return state, "state:done" if (job["kind"] in CLOSE_WHEN_DONE or job.get("integrated")) else "state:submitted"
+    if state == "external":
+        return state, "state:submitted" if "state:submitted" in labels else "state:claimed"
+    if state == "pending":
+        return state, "state:available" if is_ready else "state:blocked"
+    if state == "running":
+        return state, "state:running"
+    return state, None
 
 
 def set_state(number, wanted, current):
@@ -387,26 +437,15 @@ def sync(mapping):
             if not item:
                 continue
             labels = [label["name"] for label in item["labels"]]
-            state = job.get("state")
-            if "state:claimed" in labels and state == "pending":
-                job["state"] = "external"; job["note"] = f"claimed on GitHub issue #{number}"; changed_queue += 1
-                continue
-            # An external worker's submission has landed on main when every
-            # deliverable exists; the job then counts as done, so its review runs.
-            if state == "external" and deliverables_complete(job):
-                job["state"] = "done"; job["note"] = f"deliverables arrived from the external worker on issue #{number}"
-                job["finishedAt"] = __import__("datetime").datetime.now(__import__("datetime").timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-                changed_queue += 1
-                state = "done"
-            if state == "external" and "state:available" in labels:
-                job["state"] = "pending"; job["note"] = f"released on GitHub issue #{number}"; changed_queue += 1
-                state = "pending"
-            wanted = {"pending": "state:available" if ready(job, by_id) else "state:blocked",
-                      "running": "state:running", "external": "state:claimed"}.get(state)
-            if state == "done":
-                wanted = "state:done" if (job["kind"] in CLOSE_WHEN_DONE or job.get("integrated")) else "state:submitted"
-            if state in ("failed", "superseded"):
-                wanted = None
+            complete = job.get("state") in ("pending", "external") and deliverables_complete(job)
+            state, wanted = transition(job, labels, complete, ready(job, by_id))
+            if state != job.get("state"):
+                job["state"] = state; changed_queue += 1
+                job["note"] = {"external": f"claimed on GitHub issue #{number}",
+                               "done": f"deliverables arrived from an external worker on issue #{number}",
+                               "pending": f"released on GitHub issue #{number}"}.get(state, job.get("note"))
+                if state == "done":
+                    job["finishedAt"] = __import__("datetime").datetime.now(__import__("datetime").timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
             if wanted and wanted not in labels:
                 edits += set_state(number, wanted, labels)
             if wanted == "state:done" and item["state"] == "OPEN":
