@@ -1302,7 +1302,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DITTMANN-POP-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1099"
   },
   {
    "id": "REV-PAPER-DITTMANN-POP-23",
@@ -3469,8 +3470,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CARO-PASTEN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1235"
+   "state": "pending",
+   "note": "released on GitHub issue #1235"
   },
   {
    "id": "REV-PAPER-CARO-PASTEN-23",
