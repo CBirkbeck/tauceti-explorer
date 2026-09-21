@@ -1,16 +1,18 @@
 # PAPER-COUVEIGNES-20 — Enumerating number fields
 
-**Checkpoint, not a completed extraction audit.** Issue #1129. Agent: ChatGPT. Session: `chatgpt-couveignes-20260921-c7e4`. Date: 2026-09-21.
+Complete paper extraction and routing proposal. Issue #1129. Agent: Codex. Session: `codex-a71f92`. Date: 2026-09-21.
 
-The accompanying `PAPER-COUVEIGNES-20.result.json` contains 42 items: four baseline-library items, two already planned items, and 36 provisionally missing interfaces. Each of those 36 has exactly one proposed route. “Missing” in this checkpoint does **not** certify global absence from the pinned libraries: the unresolved exact-declaration and ownership checks are identified below and in the handoff. These results should not be integrated as an accepted, complete paper extraction yet.
+This continues the partial checkpoint merged through PR #1213, preserving its 42 item IDs and adding seven explicit inputs. The result has 49 items: 10 library, 2 planned and 37 missing. Every missing item has exactly one route. “Complete” describes the extraction and ownership screen under PROTOCOL §16; it does not mean that the proposed roadmaps exist, that their blueprints are closed, that the routes are independently accepted, or that any new theorem is formalized.
 
 ## Source and scope
 
-The source read was the published eleven-page paper, Jean-Marc Couveignes, *Enumerating number fields*, Annals of Mathematics 192 (2020), no. 2, 487–497, DOI `10.4007/annals.2020.192.2.4` [C]. Sections 1–4 and the references were read through browser PDF extraction, with page images used for mathematical notation. The original PDF bytes were not obtained in the worker's scratch directory: container download/clone attempts failed DNS resolution. Consequently `source.sha256` is deliberately null. The arXiv identifier `1907.13617` is bibliographic information, not a claim that all versions were compared.
+I downloaded the published eleven-page Annals paper and read all of pp. 487–497, including every proof and the references. Its SHA-256 is `8d63bd3a14f0d61f421695f1d93559d18fb674240c6dee872c23bf5902e1a104`; this closes the inherited download/provenance gap. The arXiv identifier is bibliographic, not a claim to have compared all versions.
 
-For the interpolation input, Theorem 1.1 and its exception list were read in Brambilla–Ottaviani, arXiv `math/0701409v2` [BO]. Its full proof has not been extracted. Siegel's second-minimum theorem, Martinet's orthogonal-lattice corollary and Fulton's isolated-intersection bound are recorded with the statements actually needed, but their original proofs have not yet been independently read. These are explicit source-closure tasks, not hidden assumptions of a completed formalization.
+For the interpolation input I downloaded Brambilla–Ottaviani, arXiv `math/0701409v2`, and read Sections 1–6, pp. 1–19: the theorem, exceptions, plane case, residual/trace argument, cubics, curvilinear lemma and differential-Horace induction. SHA-256: `7d3dd9e6268431f4be53740bbf57ebf46d9a76b13c3472d6911d7f6deb530aa7`. The historical Section 7 is not part of that reading claim.
 
-The extraction concerns the proof of the component-model and counting theorems. Historical bounds and conjectures discussed in the introduction are context, not prerequisites of this proof. In particular it does not create projects to prove the introductory Schmidt, Ellenberg–Venkatesh or Malle statements merely because the paper discusses them.
+Fulton's publisher-hosted Chapter 13 opening, p. 210, was checked: its refined Bézout bound explicitly includes all irreducible components even without properness of the entire intersection. The full book proof is not provided by that preview. Martinet Corollary 1.3.5 and Siegel Lecture III, §4, Theorem 16 were checked as citations and used statements in Couveignes, not independently read in the original books. Their exact obligations and owners remain explicit below and in the JSON. An extraction job identifies these inputs; it does not silently certify unread auxiliary proofs.
+
+Historical Schmidt and Ellenberg–Venkatesh bounds, Malle's conjecture, and comparisons in the introduction are context, not inputs of this proof. No separate project to prove each introductory statement is proposed.
 
 ## What the paper proves
 
@@ -94,41 +96,92 @@ The localized quotient at this determinant is finite etale over `Q`; the surject
 
 Take the least positive `r` with `n(r+1) <= binom(2r,r)` and set `d=r`. The elementary central-binomial and Catalan-ratio estimates give, eventually, `r >= 5`, `r <= 3 log(n)` and `M <= 4n(r+1)`. Small degrees must be separated from this eventual statement, rather than applying `d >= 5` to the degree-one test case. [C, Section 4]
 
-There are exactly `(2 floor(B)+1)^(rM)` bounded coefficient lists of height `B`. The isolated-point form of Bezout gives at most `d^r` common zeros with nonzero Jacobian for each list, even when other components of the common zero scheme are positive dimensional. A proper-complete-intersection equality would be the wrong input. Admissible field components map surjectively to field isomorphism classes; an injective selection of one equation list per field is unnecessary. Substituting `delta <= H^(1/n)` and `rM = O(n (log n)^2)` gives Theorem 2. [C, p. 496; Fulton, Chapter 13, exact auxiliary locator pending]
+There are exactly `(2 floor(B)+1)^(rM)` bounded coefficient lists of height `B`. The isolated-point form of Bezout gives at most `d^r` common zeros with nonzero Jacobian for each list, even when other components of the common zero scheme are positive dimensional. A proper-complete-intersection equality would be the wrong input. Admissible field components map surjectively to field isomorphism classes; an injective selection of one equation list per field is unnecessary. Substituting `delta <= H^(1/n)` and `rM = O(n (log n)^2)` gives Theorem 2. [C, p. 496; Fulton, Chapter 13 opening, p. 210; full auxiliary proof remains an SF.5 obligation]
 
-## Library baseline and proposed ownership
+## Pinned baseline: what must not be rebuilt
 
-The pins are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The statements used as positive baseline citations were opened at those commits, not merely found by a name search.
+Mathlib: `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+Tau Ceti: `f790474821cf4256814db967cb154e7af3d0c369`.
 
-In `Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean`, `NumberField.discr` and `discr_ne_zero` supply the signed invariant. Here `delta` is notation; no declaration called `rootDiscr` is asserted at the pin. In `CanonicalEmbedding/Basic.lean`, the checked interfaces include `canonicalEmbedding.norm_le_iff`, `mixedEmbedding.finrank`, `mixedEmbedding.latticeBasis`, `mixedEmbedding.norm_eq_norm` and `mixedEmbedding.fundamentalDomain_integerLattice`. Its anonymous `IsZLattice` instance is consumed without inventing a declaration name. `det_matrixToStdBasis` supplies the complex-coordinate determinant `(2^-1 * I)^s`, but the complete canonical-measure comparison remains an audit task.
+I opened the declarations used in the positive classifications. Ten local source files were compared byte-for-byte with raw upstream files at those commits; all matched. These are the three NumberField discriminant/embedding files, ZLattice/Covolume, MvPolynomial/SchwartzZippel, RingTheory/MvPolynomial/Basic, Smooth/StandardSmooth, Smooth/StandardSmoothCotangent, Etale/Field, and Tau Ceti's EffectiveBounds/HermiteCount/Basic.
 
-The merged reviewed `data/library-coverage.json` was read through blob `5e708cfc74a51b10e62149113872fe4e00eb5846`, including the GN.0 and GN.1 entries. GN.0 is already built; GN.1 is partly built, and explicitly lacks successive minima and Minkowski's second theorem at the pins. Thus the paper imports `GeometryOfNumbersAndQuadraticArithmetic:GN.1`; it must not create a second proof owner.
-
-Tau Ceti already proves `NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le` in `TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean`. Its count is over bounded-discriminant subfields of a fixed ambient field, bounded through coefficient and degree bounds. The existing `tauceti:Completed/EffectiveBounds` roadmap is therefore the correct parent for a continuation, not a blank slate.
-
-The four proposed routes are:
-
-| Route | Owner | Boundary |
+| Input | Checked declaration/interface | Boundary |
 | --- | --- | --- |
-| Source | GeometryOfNumbersAndQuadraticArithmetic, GN.0–GN.1 | Only unbuilt lattice-volume consequences and normalized interfaces after exact overlap checks; existing GN.0 is not replanned. |
-| Source | SchemeAndStackFoundations, SF.0 and SF.5 | Generic Jacobian-open component extraction and isolated Bezout, respectively. |
-| New, provisional | GenericDoublePointInterpolation | Characteristic-zero double-point restriction and the exception-free Alexander–Hirschowitz input, importing existing polynomial and scheme foundations. |
-| Part II | Effective Bounds, Part II: compact models and degree-sensitive field counts | The arithmetic assembly from short integers through simultaneous equations to the degree-sensitive bound. |
+| Signed and root discriminant | `NumberField.discr`, `discr_ne_zero`, `discr_eq_discr_of_algEquiv`; `NumberField.rootDiscr` | The checkpoint was wrong to deny a root-discriminant declaration: Basic.lean 74–86 defines exactly the required real power. |
+| Archimedean lattice and gauges | `canonicalEmbedding.norm_le_iff`; `mixedEmbedding.finrank`, `latticeBasis`, `fundamentalDomain_integerLattice`, `norm_eq_norm` | The multiplicative field-norm function is not the sup norm or coefficient Euclidean norm. The IsZLattice instance is anonymous. |
+| Product-measure covolume | `mixedEmbedding.covolume_integerLattice`, `volume_fundamentalDomain_latticeBasis` | Value is $2^{-s}\sqrt{\lvert d_K\rvert}$, not the paper's $\sqrt{\lvert d_K\rvert}$. Multiply the measure by $2^s$. Even `euclidean.volumePreserving_toMixed` uses the unweighted metric. |
+| Determinant/index | `ZLattice.covolume_eq_det_mul_measureReal`, `covolume_eq_measure_fundamentalDomain`, `covolume_div_covolume_eq_relIndex` | Transport to orthonormal coordinates of the actual span; smaller full lattice means larger covolume. This does not itself prove the primitive-orthogonal equality. |
+| Bounded polynomial module | `MvPolynomial.restrictTotalDegree`, `mem_restrictTotalDegree`, `basisRestrictSupport` | Carrier, basis and finite generation exist. The finite binomial count, metric and homogeneous-section identification remain a comparison package, not a new polynomial ring. |
+| Integer-grid input | `MvPolynomial.schwartz_zippel_totalDegree` | The actual maximal minor has total degree at most $dn(r+1)$. On a grid of $dn(r+1)+1$ points in each coordinate, the zero fraction is strictly less than one. |
+| Jacobian/étale infrastructure | `Algebra.SubmersivePresentation.isStandardSmoothOfRelativeDimension` and `IsStandardSmoothOfRelativeDimension` | The dimension-zero-to-Etale instance in StandardSmoothCotangent.lean is anonymous. Construct the concrete localized quotient presentation; do not assume the required instance without doing so. |
+| Finite étale structure | `Algebra.Etale.iff_exists_algEquiv_prod` | Already proves finite products of finite separable extensions, including the empty product. The particular surjective evaluation/component identification remains to connect. |
 
-`ArithmeticStatistics:ST.0` already plans the unweighted family-count carrier and is an import, not a new carrier in the continuation. Both new-route briefs in the JSON identify their final statements, imports and exclusions. General elementary lemmas provisionally placed beside their immediate consumers must be removed from new work when a pinned declaration already supplies them.
+The per-variable grid statement extracted from the paper is stronger than the total-degree library statement. It remains a source item, but the proposed design should use the existing total-degree theorem for this paper's determinant instead of building an unnecessary general lemma first. Pullback through the invertible embedding matrix is linear, so total degree does not increase. A determinant with $n(r+1)$ rows and entries of degree at most $d$ has degree at most $dn(r+1)$.
 
-## Validation, tests and remaining work
+Minkowski's first theorem is present; the reviewed GN.1 audit and source searches do not supply the second theorem with independent-vector product bounds. The latter is already planned at GN.1 and is not routed to a competing project.
 
-The packet supplies planning API and regression-test notes, including real/imaginary measure examples, a merely independent integral family, a nontrivial transpose-image index, a multiple-component equation, the empty Jacobian-open of `x^2`, and the small-degree cutoff. These are **planned tests**, not executed Lean examples. No Lean file is required by this paper-routing issue, and none was compiled.
+The primitive-orthogonal covolume equality was not found in the integral-lattice or real-lattice APIs. The completed IntegralLattices development includes rational carriers, duals, discriminant forms, finite-module perpendiculars, orthogonal sums and gluing. These do not by themselves identify Euclidean covolumes of saturated complementary sublattices. A direct proof extends a primitive basis to a unimodular integral basis, uses the complementary dual basis, and compares Gram determinants. For example $\mathbb Z(1,1)$ and $\mathbb Z(1,-1)$ both have covolume $\sqrt2$; replacing the former by $2\mathbb Z(1,1)$ breaks equality. This is a small GN.0 addition, not a re-plan of IntegralLattices.
 
-A local candidate JSON was parsed and checked for 42 unique item identifiers and exactly one route for each of its 36 missing items. That local candidate and the connector-uploaded JSON were serialized separately; this limited integrity check is not a byte-for-byte or full-catalogue validation of the submitted file. The repository's `scripts/check_paper.py` was read, but no successful invocation against a complete local checkout is claimed here. Any subsequently observed CI result must be reported separately and does not close the mathematical/source gaps.
+Likewise the generic Gram determinant upper bound is separated as `hadamard-gram`. Searches of matrix, determinant, Gram, inner-product and measure APIs did not locate that exact bound. The file named Hadamard concerns the entrywise matrix product, not the determinant inequality. Existing Gram positivity and Gram–Schmidt infrastructure is reusable; no guessed determinant-bound declaration is cited.
 
-Before promotion to `complete`, resolve `G-PROVENANCE`, `G-BASELINE`, `G-OWNERS`, `G-SOURCES` and `G-CHECKS` in the JSON. In particular, finish the complete packet/link/new-roadmap overlap search; read the integrated ArithmeticStatistics decomposition; complete a second nearby upstream roadmap read; and replace provisional absence claims with exact positive declarations or defensible missing interfaces. `EffectiveBounds` was read completely; `NumberFieldArithmetic` and `IntegralLattices` were read only in relevant portions. The generic interpolation ownership is a proposal pending those checks, not an accepted new roadmap.
+These absence classifications mean that the specified combined statement was not located after the recorded source/audit search. They do not assert that its elementary substeps lack library support. Several consumer bridges are deliberately short consequences of existing facts.
+
+## Ownership screen and four routes
+
+The screen used all atlas stage descriptions, accepted decomposition inventory, draft packet and new-roadmap inventory, relevant link maps and reviewed coverage. The six registered new-roadmap definitions do not contain generic double-point interpolation or compact number-field component models. No new owner was inferred from thematic similarity alone.
+
+I read two nearby upstream documents completely: `content/tau-ceti/Completed/EffectiveBounds/README.md` (178 lines) and `content/tau-ceti/Completed/IntegralLattices/README.md` (430 lines). I also read the full GN and ArithmeticStatistics campaign READMEs, relevant SF.0/SF.5 and R09.1/R09.2 descriptions, and the reviewed GN.0/GN.1, SF.0/SF.5, ST.0/ST.2/ST.3 and all EffectiveBounds/IntegralLattices coverage targets. The accepted ArithmeticStatistics decomposition's coverage, gaps, ST.3 node, source and review records were checked: it concerns binary quartic/Selmer counts and quoted low-degree predecessors, not Couveignes's compact models. It explicitly leaves general field counting undecomposed.
+
+The current accepted RS-07 proposal preserves ST.0's arithmetic-family/discriminant/equivalence interface and distinguishes ST.3's selected asymptotics/moments from analytic per-field inputs. Its Davenport supplier at GN.4 is not the Minkowski second theorem used here. This proposal does not remove ST.0 as a supplier. The EffectiveBounds link map supplies unit-square indices to Multiquadratic; IntegralLattices' seven relevant links concern coding/gluing, not the new primitive-orthogonal Euclidean comparison. No retired FoundationsAndLibraryIntegration stage is used as a supplier.
+
+The atlas snapshot was checked forward from `3a9e9d7877bad538bc4e0ed202e88b8bc0fef8f0` through `a740e11431256af2d2108be5a1a73a27095da3be` to `ba0bc2ee5af0c420e4afe987cc286394addab9a3`: the mathematical atlas/README/audit records relevant here did not change; accepted-restructure promotion and refreshed link records were considered separately.
+
+1. **GN source addition (four items).** GN.0/GN.1 receive the primitive-orthogonal covolume equality, ordered-product estimate, intrinsic ball-volume lower bound and Gram determinant bound. Existing covolume/measure/index infrastructure stays baseline. The genuine second theorem is already a GN.1 import.
+2. **SF source addition (two items).** SF.0 receives the concrete Jacobian-open presentation/component comparison. SF.5 receives isolated-point Bézout, with no global proper-intersection assumption. Abstract étale and finite-product theory stays baseline.
+3. **GenericDoublePointInterpolation (five items).** A new algebraic-geometry roadmap supplies the bounded-degree/homogeneous-section comparison, double points, first-jet matrix, generic Alexander–Hirschowitz consequence and small grid interface. R09.1/2's projective/Hilbert/Quot foundations are inputs when the proof uses them, not competing interpolation theorems. ArithmeticDynamics' periodic-point equations are also not this generic interpolation endpoint.
+4. **EffectiveBoundsCompactModels (26 items).** Extend **Effective arithmetic bounds and geometry of numbers** (`tauceti:Completed/EffectiveBounds`) as its Part II, starting after its effective Hermite–Minkowski theorem. The Part II owns arithmetic assembly, not a second lattice or scheme foundation. Its full title and `algebraicnt` galaxy ID are corrected from the checkpoint. The interpolation project uses `algebraicgeometry`.
+
+Tau Ceti's `NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le` was read in HermiteCount/Basic.lean 172ff: it bounds finite-degree subfields of a fixed extension $A/\mathbb Q$ by $(2C+1)^{D+1}D$, where $C,D$ depend on a discriminant cutoff. It is neither an exact-degree isomorphism-class carrier nor Couveignes's exponent. It supplies a useful finiteness input after a comparison, not the new theorem. ST.0 owns the unweighted class carrier; ST.3 may consume the Part II bound without becoming a prerequisite of its model construction.
+
+## Interpolation proof obligations are visible
+
+The $d\ge5$ hypothesis avoids every exception in BO Theorem 1.1, but does not eliminate the low-degree base cases of its proof. Sections 4–6 use residual/trace restriction sequences and Hilbert-function semicontinuity. Theorem 5.1 reduces cubics by codimension-three specialization; Propositions 5.2–5.4 include explicit finite-dimensional rank computations. Lemma 6.1 reduces independence to curvilinear subschemes; Theorem 6.4 handles the rounded dimension counts through differential-Horace degeneration. Its final quartic starting cases include the $\mathbb P^5$, degree-four, 21-point configuration.
+
+The proposed design must give verified exact rank certificates for the computer-check instructions, and the actual scheme-theoretic specialization/semicontinuity inputs. Reading those instructions is not running or verifying the computations. This is why the main source can be fully extracted while the future interpolation blueprint is not yet closed. No computation, formal proof, or source closure is falsely reported.
+
+For the orthogonal-covolume and isolated-Bézout additions, the JSON records the exact source statements, what was read, and what the later supplier decomposition must acquire/prove. The source-route classification does not pretend that a book title is a Lean theorem.
+
+## API and regression requirements
+
+The JSON notes give the construction APIs. The following precise checks are part of the downstream design, not executed Lean tests:
+
+- For $K=\mathbb Q$, root discriminant and integer-lattice covolume are one. For $K=\mathbb Q(i)$, the product-measure covolume is one, the canonical covolume is two, and the two-dimensional sup ball is a disc with canonical area $2\pi$.
+- A short independent family need not be an integral basis: $1,2i$ is a rational basis consisting of Gaussian integers but has index two in $\mathbb Z[i]$.
+- The coefficient space has dimensions $d+1$ for one variable, one for degree zero, and six for two variables of degree at most two. A rectangular per-variable bound would incorrectly give nine in the last case.
+- A single double point in $\mathbb A^r$ has length $r+1$. Two coincident points do not give length $2(r+1)$; the distinctness condition cannot be removed.
+- Three distinct collinear points in $\mathbb A^2$ admit full degree-five first-jet rank. Four distinct collinear points do not: values and tangential derivatives impose eight conditions on a univariate polynomial space of dimension six, despite the ambient capacity inequality $4(2+1)\le21$. The generic theorem must not say every distinct configuration works.
+- In one variable, generic first jets recover Hermite interpolation whenever $2n\le d+1$.
+- The full-rank map $\mathbb Z^2\to\mathbb Z$, $(a,b)\mapsto2a$, has transpose image $2\mathbb Z(1,0)$ of index two in the orthogonal complement lattice. Covolume equality with that image would be wrong.
+- The primitive complementary lines generated by $(1,1)$ and $(1,-1)$ have equal intrinsic covolumes. Ambient two-dimensional measure of either line is zero and is the wrong measure.
+- With $n\ge1,r\ge1,M\ge n(r+1)$, the retained number $q=M+1-2n$ satisfies $q\ge r$, since $q-r\ge(n-1)(r-1)$. Its codimension is exactly $n-1$, not $n$.
+- For $E=x(x-1)$ over $\mathbb Q$, the Jacobian-open algebra is $\mathbb Q\times\mathbb Q$; a chosen field component is not the whole algebra. For $E=x^2$, the Jacobian-open is empty.
+- A surjection from admissible components onto field classes is sufficient for counting. Duplicate models must not be assumed absent.
+- The least $r$ at $n=1$ is one; applying the eventual $r\ge5$ or $r\le3\log n$ assertions there is invalid.
+
+## Validation and handoff
+
+The repository's `scripts/check_paper.py` is the structural check. The additional scratch checker verifies preserved IDs, unique single routes for every missing item, no routed library items, existing stage/roadmap IDs, valid galaxy IDs, exact Part II parent-title prefix, no duplicate new owner, and coverage of every library citation in the baseline manifest. Simple arithmetic checks exercise the capacity/truncation and eventual binomial bounds. Neither check establishes a mathematical proof.
+
+No Lean file is required by a paper-v1 job and none was written or compiled. Only the result JSON, this report and this job's handoff are submitted. Source PDFs and diagnostic scripts remain scratch files. Independent paper review is still required; no route or roadmap is manually promoted.
 
 ## Sources
 
-[C] Jean-Marc Couveignes, *Enumerating number fields*, Annals of Mathematics 192 (2020), no. 2, 487–497. Published paper read, accessed 2026-09-21. [Publication](https://annals.math.princeton.edu/2020/192-2/p04), [published PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v192-n2-p04-s.pdf). DOI `10.4007/annals.2020.192.2.4`.
+[C] Jean-Marc Couveignes, *Enumerating number fields*, Annals of Mathematics 192 (2020), no. 2, 487–497. DOI `10.4007/annals.2020.192.2.4`. [Publisher](https://annals.math.princeton.edu/2020/192-2/p04), [published PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v192-n2-p04-s.pdf). Accessed 2026-09-21.
 
-[BO] Maria Chiara Brambilla and Giorgio Ottaviani, *On the Alexander–Hirschowitz theorem*, J. Pure Appl. Algebra 212 (2008), 1229–1251. [Public version](https://arxiv.org/abs/math/0701409), v2, Theorem 1.1 and exception list checked 2026-09-21; full proof not yet extracted.
+[BO] Maria Chiara Brambilla and Giorgio Ottaviani, *On the Alexander–Hirschowitz theorem*, JPAA 212 (2008), 1229–1251. [arXiv v2](https://arxiv.org/abs/math/0701409v2). Sections 1–6 read; access and checksum above.
 
-Auxiliary original proofs still to acquire/read: Siegel, *Lectures on the Geometry of Numbers*, Lecture III, Section 4, Theorem 16; Martinet, *Perfect Lattices in Euclidean Spaces*, Corollary 1.3.5; Fulton, *Intersection Theory*, second edition, Chapter 13. Bibliographic links and exact required statements are recorded in the JSON prerequisites.
+[M] Jacques Martinet, *Perfect Lattices in Euclidean Spaces* (2003), Corollary 1.3.5. [DOI](https://doi.org/10.1007/978-3-662-05167-2). Original proof not independently read; Couveignes's use and a proof route are recorded.
+
+[F] William Fulton, *Intersection Theory*, second edition (1998), Chapter 13, pp. 210–234. [Publisher's chapter opening](https://link.springer.com/chapter/10.1007/978-1-4612-1700-8_13). The p. 210 refined-Bézout statement was read, not the full subscription chapter.
+
+[S] C. L. Siegel, *Lectures on the Geometry of Numbers*, Lecture III, §4, Theorem 16. [DOI](https://doi.org/10.1007/978-3-662-08287-4). Already-planned GN.1 supplier; original proof not independently read.
