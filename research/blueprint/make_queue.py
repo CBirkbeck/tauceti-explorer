@@ -415,6 +415,16 @@ def confirmed_findings(rt):
     return [f for f in result.get("findings", []) if f.get("id") in confirmed and f.get("severity") in ("high", "medium")]
 
 
+def restructuring_note(rs):
+    """What a family member's blueprint takes from its family's restructuring (PROTOCOL.md section 15)."""
+    return (f"\nThis roadmap belongs to the restructured family {rs}. Its proposal, research/blueprint/restructure/{rs}.result.json "
+            f"(explained in research/blueprint/restructure/{rs}.md), is binding once its review accepts it, which happens before this "
+            "job starts: take the title and base it gives this roadmap; plan a layer it narrows only as far as its `keeps` states; "
+            "plan nothing for a layer it drops, and give that layer coverage status `closed` with a note naming the layers that now "
+            "supply it; and import what it gives other owners through the links it records. If its review has not accepted it, "
+            "work with the current structure and say so in the handoff note.\n")
+
+
 def added_sources(rid):
     papers = ADDED_SOURCES.get(rid)
     if not papers:
@@ -685,7 +695,16 @@ def main():
     bp_jobs_of = defaultdict(list)
     parts_of = defaultdict(list)
 
+    # The families of overlapping roadmaps, restructured before they are blueprinted.
+    family_of = {}
+    for path in sorted((BP / "restructure").glob("RS-[0-9][0-9].json")):
+        family = json.loads(path.read_text())
+        for member in family["members"]:
+            family_of[member["id"]] = family["id"]
+
     def add_blueprint(rid, priority, order, extra="", after=()):
+        if rid in family_of:
+            extra = restructuring_note(family_of[rid]) + extra
         groups = parts_for(rid)
         title = roadmaps[rid]["title"]
         for i, group in enumerate(groups):

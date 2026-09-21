@@ -311,7 +311,8 @@ roadmaps of that group are.
   its roadmap document and, for a new roadmap, its definition, and later edits
   wait for the next accepted review. Work that would break the atlas build is
   refused, and the workers are told why on their issue. `data/promotions.json`
-  records both.
+  records both. Accepted restructuring proposals (section 15) go live the same
+  way, into `data/restructure/`.
 - In the atlas, a promoted blueprint replaces the roadmap's earlier
   decomposition for the layers it covers, and progress denominators are
   unchanged. Its planets (section 14) orbit their layers; every declaration is
@@ -528,9 +529,15 @@ The proposal follows these rules:
 - An extension starts exactly where the roadmap it extends stops.
 - A layer the proposal does not list keeps its place unchanged.
 
-An independent reviewer checks the proposal against the roadmap documents. The
-orchestrator applies an accepted proposal to the atlas, and the blueprint jobs
-of the family's roadmaps start after that.
+An independent reviewer checks the proposal against the roadmap documents. An
+accepted proposal goes into the atlas by itself (section 8): an extended roadmap
+takes its Part II title and builds on its base, a narrowed layer states what it
+keeps and who supplies the rest, a dropped layer leaves the map, and the links
+join the atlas. The blueprint jobs of the family's roadmaps start once the
+proposal is accepted, and follow it: a narrowed layer is planned only as far as
+it keeps, and a dropped layer gets coverage `closed` with no nodes and a note
+naming its suppliers (the checker allows this for layers an accepted proposal
+drops).
 
 ## 16. Papers: extraction and routing
 
