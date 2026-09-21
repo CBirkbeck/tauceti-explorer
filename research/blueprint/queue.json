@@ -1033,8 +1033,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FU-24.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1083"
+   "state": "external",
+   "note": "claimed on GitHub issue #1083"
   },
   {
    "id": "REV-PAPER-FU-24",
@@ -1100,8 +1100,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SCHROER-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1087"
+   "state": "pending",
+   "note": "released on GitHub issue #1087"
   },
   {
    "id": "REV-PAPER-SCHROER-23",
@@ -5053,7 +5053,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SHENDE-TSIMERMAN-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1334"
   },
   {
    "id": "REV-PAPER-SHENDE-TSIMERMAN-17",
