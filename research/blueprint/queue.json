@@ -1100,7 +1100,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SCHROER-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1087"
   },
   {
    "id": "REV-PAPER-SCHROER-23",
@@ -2864,8 +2865,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GILLE-PARIMALA-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1197"
+   "state": "pending",
+   "note": "released on GitHub issue #1197"
   },
   {
    "id": "REV-PAPER-GILLE-PARIMALA-26",
@@ -6405,8 +6406,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1420"
+   "state": "external",
+   "note": "claimed on GitHub issue #1420"
   },
   {
    "id": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
