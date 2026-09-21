@@ -1,0 +1,561 @@
+{
+  "family": "RS-28",
+  "roadmaps": {
+    "HigherLocalFieldsAndHigherClassFieldTheory": {
+      "action": "extend",
+      "extends": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+      "title": "Class field theory, Part II: higher local fields and higher reciprocity",
+      "reason": "Begin with the ordinary local and number-field class-field-theory exports, retaining all eight stable HL layers. Add residue towers and higher topology, higher local/global reciprocity, and the equal-characteristic p-primary existence omitted by the base. The base is the first roadmap prerequisite; the function-field global branch is imported from FA.4."
+    }
+  },
+  "layers": {
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.0": {
+      "action": "narrow",
+      "keeps": "Retain the n-local residue-tower structure, finite final residue field, explicit equal- and mixed-characteristic towers, higher topology and sequential/pro-ind models and their source-qualified continuity/comparison theorems. Package F_q((u))((t)) and Q_p((t)) with both residue steps and uniformizers from existing one-step valued Laurent series; compare the one-local endpoint with the canonical local-field structure. Do not reconstruct ordinary local fields or their finite-extension valuation API. No local compactness or joint continuity is inferred for a higher topology.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions"
+      ],
+      "reason": "LocalFieldsRamification Layer 0 owns the one-local-field substrate; HL.0 adds towers and their higher topologies. The retired FoundationsAndLibraryIntegration:LI.4 is not a supplier."
+    },
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.1": {
+      "action": "narrow",
+      "keeps": "Retain the assembly of the imported all-degree Milnor groups and residue/norm maps along a chosen residue tower; prove the tower-specific comparison diagrams and parameter-order sign tests. Own the chosen topological Milnor quotient, its exact closed/divisible subgroup, induced maps and well-definedness/continuity in the chosen framework. Retain the constant-unit/uniformizer iterated-residue computation. Import, rather than reconstruct, the graded Steinberg quotient, individual tame/higher residue maps, Bass–Tate transfers, transitivity, projection formulas and algebraic norm/residue compatibility.",
+      "suppliedBy": [
+        "K2SymbolsBrauer:T.2:symbols",
+        "K2SymbolsBrauer:T.3:symbols",
+        "K2SymbolsBrauer:T.3:localization-comparison",
+        "K2SymbolsBrauer:T.4"
+      ],
+      "reason": "The explicit K2 roadmap already states the all-degree algebraic theory; HL.1 adds higher-field topology and iteration/comparison on a residue tower."
+    },
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.2": {
+      "action": "narrow",
+      "keeps": "Retain higher-field invariant maps, their degrees and Tate twists, higher-field cohomological-dimension calculations and finite-coefficient duality in each specified characteristic regime. Use the imported continuous cohomology, all-degree change-of-groups/cup-product API and dimension definitions. Retain local Artin–Schreier–Witt/logarithmic coefficient interfaces and wild pairings not supplied by the cited regimes, built on CR.4 ordinary de Rham–Witt and the M.5d differential theorem. Import ordinary local invariants and the local duality statements actually provided by CFT Layer 5; prove n=1 comparison on precisely their common hypotheses. Retain the equal-characteristic two-dimensional residue-pairing test. Do not infer a wild theorem from roots-of-unity Kummer theory or equate nondegeneracy with topological perfectness.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+        "CrystallineCohomology:CR.4",
+        "MotivicEtaleKTheory:M.5d"
+      ],
+      "reason": "CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery, CR.4 owns ordinary de Rham–Witt, and M.5d owns its norm-residue/differential comparison. Higher-field invariants and wild duality remain here."
+    },
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.3": {
+      "action": "narrow",
+      "keeps": "Retain higher-dimensional Milnor-K reciprocity, finite-extension norm functoriality, finite abelian norm-subgroup correspondence, and the exact source-qualified kernel/completion theorem. At n=1 use the existing finite and absolute local Artin maps and arithmetic Frobenius normalization, with a map-level comparison under K_1^M(F)=F^×. Import the full mixed-characteristic correspondence and the equal-characteristic prime-to-p correspondence from CFT Layer 8. Own the missing equal-characteristic p-primary local existence, its combination into the full correspondence, and injectivity/completion results for the same existing Artin map, using HL.2 wild coefficients. Retain the two-dimensional unramified constant-field Frobenius and norm-index test; never identify a raw Milnor group with the profinite Galois target solely from density.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence"
+      ],
+      "reason": "The anchor constructs one-dimensional reciprocity in all characteristics, but excludes equal-characteristic p-primary existence and injectivity. Only the latter and the higher-dimensional theory are new."
+    },
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.4": {
+      "action": "narrow",
+      "keeps": "Retain higher-field explicit reciprocity formulas, characteristic-qualified Witt/residue pairings, mixed-characteristic formulas with their actual ramification hypotheses, higher ramification/Milnor-K filtration comparisons and differential-residue/trace normalization tests. Import the algebraic degree-two tame symbol, ordinary local-field ramification filtrations and Herbrand convention, and ordinary local K2 Hilbert-symbol/structure comparisons only in their stated scope. Own the higher-field composites and comparisons with HL.3; evaluate both the tame symbol and an Artin–Schreier–Witt example over F_q((u))((t)).",
+      "suppliedBy": [
+        "K2SymbolsBrauer:T.3:symbols",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+        "KTheoryFiniteLocalFields:L.3"
+      ],
+      "reason": "The existing tame-symbol and ordinary ramification owners provide the building blocks, not a higher-field explicit reciprocity formula."
+    },
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.5": {
+      "action": "narrow",
+      "keeps": "Retain Parshin flags on a specified regular arithmetic scheme, successive henselization/completion with all branches, higher restricted-product conditions, functoriality, local residue compatibility and the higher idelic/cycle-complex input. Keep separately sourced singular extensions as targets with their own hypotheses. Own the comparison with imported ordinary ideles in dimension one and the regular-surface flag/residue example; do not construct ordinary number-field or function-field ideles again. The arithmetic dimension-one comparison must include the appropriate archimedean/boundary data, or explicitly compare a finite-idele factor.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+        "FunctionFieldArithmetic:FA.2"
+      ],
+      "reason": "GlobalNumberFields Layer 6 owns ordinary number-field ideles; FunctionFieldArithmetic FA.2 owns ordinary function-field ideles. HL.5 owns higher flag constructions and their comparisons."
+    },
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.6": {
+      "action": "narrow",
+      "keeps": "Retain higher-dimensional reciprocity maps and relations on arithmetic schemes, comparison with the appropriate abelian etale fundamental group, separately stated tame/wild and proper/open variants, Kato complexes with boundary-square-zero, and source-qualified cohomological Hasse principles. Own dimension-one comparison diagrams with CFT number-field reciprocity and its correspondence, and separately with FunctionFieldArithmetic global function-field reciprocity. Specify the unramified/boundary and archimedean conditions for the scheme in each comparison; the full number-field idele class group is not automatically the reciprocity group of Spec O_K. Do not reprove ordinary global reciprocity or claim a general Hasse principle without its dimension, base, regularity and coefficient restrictions.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+        "FunctionFieldArithmetic:FA.4"
+      ],
+      "reason": "The two dimension-one global branches have distinct owners. The anchor is a number-field roadmap, whereas FA.4 supplies curves over finite fields; higher-global reciprocity remains HL.6."
+    },
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.7": {
+      "action": "keep",
+      "reason": "Retain the actual residue/corestriction and reciprocity comparison maps to Brauer obstructions, arithmetic duality and motivic cohomology, the complete two-dimensional field/surface examples and explicitly conditional formulations for unproved extensions. Reuse HL.0 and HL.5 examples and the HL.1–6 maps; this is mathematical comparison work, not a second construction or a dispensable process layer."
+    }
+  },
+  "links": [
+    {
+      "source": "CrystallineCohomology:CR.4",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery, CR.4 owns ordinary de Rham–Witt, and M.5d owns its norm-residue/differential comparison. Higher-field invariants and wild duality remain here."
+    },
+    {
+      "source": "CrystallineCohomology:CR.4",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+      "reason": "Preserve the imported part of the HL.2 interface used by HL.3; the surviving HL.2 to HL.3 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "FunctionFieldArithmetic:FA.2",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5",
+      "reason": "Imported prerequisite: GlobalNumberFields Layer 6 owns ordinary number-field ideles; FunctionFieldArithmetic FA.2 owns ordinary function-field ideles. HL.5 owns higher flag constructions and their comparisons."
+    },
+    {
+      "source": "FunctionFieldArithmetic:FA.2",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
+      "reason": "Preserve the imported part of the HL.5 interface used by HL.6; the surviving HL.5 to HL.6 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "FunctionFieldArithmetic:FA.4",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
+      "reason": "Imported prerequisite: The two dimension-one global branches have distinct owners. The anchor is a number-field roadmap, whereas FA.4 supplies curves over finite fields; higher-global reciprocity remains HL.6."
+    },
+    {
+      "source": "FunctionFieldArithmetic:FA.4",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.7",
+      "reason": "Preserve the imported part of the HL.6 interface used by HL.7; the surviving HL.6 to HL.7 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+      "target": "FunctionFieldArithmetic:FA.4",
+      "reason": "FA.4 specializes ordinary local reciprocity before its independent global construction. Import the anchor local map and existing correspondence, with HL.3 supplying precisely the missing equal-characteristic p-primary existence/injectivity; FA.4 owns the specialization comparison and global theory."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.2:symbols",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1",
+      "reason": "Imported prerequisite: The explicit K2 roadmap already states the all-degree algebraic theory; HL.1 adds higher-field topology and iteration/comparison on a residue tower."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.2:symbols",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+      "reason": "Preserve the imported part of the HL.1 interface used by HL.2; the surviving HL.1 to HL.2 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.2:symbols",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5",
+      "reason": "Preserve the imported part of the HL.1 interface used by HL.5; the surviving HL.1 to HL.5 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:localization-comparison",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1",
+      "reason": "Imported prerequisite: The explicit K2 roadmap already states the all-degree algebraic theory; HL.1 adds higher-field topology and iteration/comparison on a residue tower."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:localization-comparison",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+      "reason": "Preserve the imported part of the HL.1 interface used by HL.2; the surviving HL.1 to HL.2 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:localization-comparison",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5",
+      "reason": "Preserve the imported part of the HL.1 interface used by HL.5; the surviving HL.1 to HL.5 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:symbols",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1",
+      "reason": "Imported prerequisite: The explicit K2 roadmap already states the all-degree algebraic theory; HL.1 adds higher-field topology and iteration/comparison on a residue tower."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:symbols",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+      "reason": "Preserve the imported part of the HL.1 interface used by HL.2; the surviving HL.1 to HL.2 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:symbols",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.4",
+      "reason": "Imported prerequisite: The existing tame-symbol and ordinary ramification owners provide the building blocks, not a higher-field explicit reciprocity formula."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:symbols",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5",
+      "reason": "Preserve the imported part of the HL.1 interface used by HL.5; the surviving HL.1 to HL.5 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.3:symbols",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.7",
+      "reason": "Preserve the imported part of the HL.4 interface used by HL.7; the surviving HL.4 to HL.7 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.4",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1",
+      "reason": "Imported prerequisite: The explicit K2 roadmap already states the all-degree algebraic theory; HL.1 adds higher-field topology and iteration/comparison on a residue tower."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.4",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+      "reason": "Preserve the imported part of the HL.1 interface used by HL.2; the surviving HL.1 to HL.2 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "K2SymbolsBrauer:T.4",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5",
+      "reason": "Preserve the imported part of the HL.1 interface used by HL.5; the surviving HL.1 to HL.5 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "KTheoryFiniteLocalFields:L.3",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.4",
+      "reason": "Imported prerequisite: The existing tame-symbol and ordinary ramification owners provide the building blocks, not a higher-field explicit reciprocity formula."
+    },
+    {
+      "source": "KTheoryFiniteLocalFields:L.3",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.7",
+      "reason": "Preserve the imported part of the HL.4 interface used by HL.7; the surviving HL.4 to HL.7 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "MotivicEtaleKTheory:M.5d",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery, CR.4 owns ordinary de Rham–Witt, and M.5d owns its norm-residue/differential comparison. Higher-field invariants and wild duality remain here."
+    },
+    {
+      "source": "MotivicEtaleKTheory:M.5d",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+      "reason": "Preserve the imported part of the HL.2 interface used by HL.3; the surviving HL.2 to HL.3 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
+      "reason": "Imported prerequisite: The two dimension-one global branches have distinct owners. The anchor is a number-field roadmap, whereas FA.4 supplies curves over finite fields; higher-global reciprocity remains HL.6."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.7",
+      "reason": "Preserve the imported part of the HL.6 interface used by HL.7; the surviving HL.6 to HL.7 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
+      "reason": "Imported prerequisite: The two dimension-one global branches have distinct owners. The anchor is a number-field roadmap, whereas FA.4 supplies curves over finite fields; higher-global reciprocity remains HL.6."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.7",
+      "reason": "Preserve the imported part of the HL.6 interface used by HL.7; the surviving HL.6 to HL.7 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
+      "reason": "Imported prerequisite: The two dimension-one global branches have distinct owners. The anchor is a number-field roadmap, whereas FA.4 supplies curves over finite fields; higher-global reciprocity remains HL.6."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.7",
+      "reason": "Preserve the imported part of the HL.6 interface used by HL.7; the surviving HL.6 to HL.7 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery, CR.4 owns ordinary de Rham–Witt, and M.5d owns its norm-residue/differential comparison. Higher-field invariants and wild duality remain here."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+      "reason": "Preserve the imported part of the HL.2 interface used by HL.3; the surviving HL.2 to HL.3 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+      "target": "FunctionFieldArithmetic:FA.4",
+      "reason": "FA.4 specializes ordinary local reciprocity before its independent global construction. Import the anchor local map and existing correspondence, with HL.3 supplying precisely the missing equal-characteristic p-primary existence/injectivity; FA.4 owns the specialization comparison and global theory."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+      "reason": "Imported prerequisite: The anchor constructs one-dimensional reciprocity in all characteristics, but excludes equal-characteristic p-primary existence and injectivity. Only the latter and the higher-dimensional theory are new."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.4",
+      "reason": "Preserve the imported part of the HL.3 interface used by HL.4; the surviving HL.3 to HL.4 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
+      "reason": "Preserve the imported part of the HL.3 interface used by HL.6; the surviving HL.3 to HL.6 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "target": "FunctionFieldArithmetic:FA.4",
+      "reason": "FA.4 specializes ordinary local reciprocity before its independent global construction. Import the anchor local map and existing correspondence, with HL.3 supplying precisely the missing equal-characteristic p-primary existence/injectivity; FA.4 owns the specialization comparison and global theory."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+      "reason": "Imported prerequisite: The anchor constructs one-dimensional reciprocity in all characteristics, but excludes equal-characteristic p-primary existence and injectivity. Only the latter and the higher-dimensional theory are new."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.4",
+      "reason": "Preserve the imported part of the HL.3 interface used by HL.4; the surviving HL.3 to HL.4 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
+      "reason": "Preserve the imported part of the HL.3 interface used by HL.6; the surviving HL.3 to HL.6 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
+      "target": "FunctionFieldArithmetic:FA.4",
+      "reason": "FA.4 specializes ordinary local reciprocity before its independent global construction. Import the anchor local map and existing correspondence, with HL.3 supplying precisely the missing equal-characteristic p-primary existence/injectivity; FA.4 owns the specialization comparison and global theory."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+      "reason": "Imported prerequisite: The anchor constructs one-dimensional reciprocity in all characteristics, but excludes equal-characteristic p-primary existence and injectivity. Only the latter and the higher-dimensional theory are new."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.4",
+      "reason": "Preserve the imported part of the HL.3 interface used by HL.4; the surviving HL.3 to HL.4 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
+      "reason": "Preserve the imported part of the HL.3 interface used by HL.6; the surviving HL.3 to HL.6 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5",
+      "reason": "Imported prerequisite: GlobalNumberFields Layer 6 owns ordinary number-field ideles; FunctionFieldArithmetic FA.2 owns ordinary function-field ideles. HL.5 owns higher flag constructions and their comparisons."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
+      "reason": "Preserve the imported part of the HL.5 interface used by HL.6; the surviving HL.5 to HL.6 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0",
+      "reason": "Imported prerequisite: LocalFieldsRamification Layer 0 owns the one-local-field substrate; HL.0 adds towers and their higher topologies. The retired FoundationsAndLibraryIntegration:LI.4 is not a supplier."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1",
+      "reason": "Preserve the imported part of the HL.0 interface used by HL.1; the surviving HL.0 to HL.1 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.4",
+      "reason": "Imported prerequisite: The existing tame-symbol and ordinary ramification owners provide the building blocks, not a higher-field explicit reciprocity formula."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.7",
+      "reason": "Preserve the imported part of the HL.4 interface used by HL.7; the surviving HL.4 to HL.7 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery, CR.4 owns ordinary de Rham–Witt, and M.5d owns its norm-residue/differential comparison. Higher-field invariants and wild duality remain here."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+      "reason": "Preserve the imported part of the HL.2 interface used by HL.3; the surviving HL.2 to HL.3 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery, CR.4 owns ordinary de Rham–Witt, and M.5d owns its norm-residue/differential comparison. Higher-field invariants and wild duality remain here."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+      "reason": "Preserve the imported part of the HL.2 interface used by HL.3; the surviving HL.2 to HL.3 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery, CR.4 owns ordinary de Rham–Witt, and M.5d owns its norm-residue/differential comparison. Higher-field invariants and wild duality remain here."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+      "reason": "Preserve the imported part of the HL.2 interface used by HL.3; the surviving HL.2 to HL.3 edge still supplies the new higher-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+      "reason": "Imported prerequisite: CFT Layer 5 owns its one-dimensional invariant/duality results; ProfiniteCohomology owns the generic cohomology machinery, CR.4 owns ordinary de Rham–Witt, and M.5d owns its norm-residue/differential comparison. Higher-field invariants and wild duality remain here."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+      "reason": "Preserve the imported part of the HL.2 interface used by HL.3; the surviving HL.2 to HL.3 edge still supplies the new higher-field comparison."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Ordinary one-local fields and finite-extension valuation structures",
+      "owner": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.0"
+      ]
+    },
+    {
+      "target": "All-degree algebraic Milnor K-groups and their Steinberg presentation",
+      "owner": "K2SymbolsBrauer:T.2:symbols",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.1"
+      ]
+    },
+    {
+      "target": "Individual discrete-valuation degree-two tame symbol with its sign convention",
+      "owner": "K2SymbolsBrauer:T.3:symbols",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.1",
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.4"
+      ]
+    },
+    {
+      "target": "Higher algebraic residue maps and norm/residue projection comparisons",
+      "owner": "K2SymbolsBrauer:T.3:localization-comparison",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.1"
+      ]
+    },
+    {
+      "target": "Bass–Tate Milnor transfers and their transitivity",
+      "owner": "K2SymbolsBrauer:T.4",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.1"
+      ]
+    },
+    {
+      "target": "Generic continuous cohomology carrier and functoriality",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.2"
+      ]
+    },
+    {
+      "target": "Generic all-degree continuous cohomological restriction and corestriction",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.2"
+      ]
+    },
+    {
+      "target": "Generic cohomological-dimension definitions",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.2"
+      ]
+    },
+    {
+      "target": "Generic all-degree continuous cup products and projection formula",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.2"
+      ]
+    },
+    {
+      "target": "Ordinary local Brauer invariant and evaluation-pairing duality in the scopes of CFT Layer 5",
+      "owner": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.2"
+      ]
+    },
+    {
+      "target": "Ordinary and relative de Rham–Witt complexes with Frobenius, Verschiebung and dlog",
+      "owner": "CrystallineCohomology:CR.4",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.2"
+      ]
+    },
+    {
+      "target": "Prime-power norm-residue and characteristic-p differential comparison in the scope of M.5d",
+      "owner": "MotivicEtaleKTheory:M.5d",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.2"
+      ]
+    },
+    {
+      "target": "Finite ordinary local reciprocity and arithmetic Frobenius normalization",
+      "owner": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+        "FunctionFieldArithmetic:FA.4"
+      ]
+    },
+    {
+      "target": "Absolute ordinary local Artin map with finite restrictions and norm-kernel description",
+      "owner": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+        "FunctionFieldArithmetic:FA.4"
+      ]
+    },
+    {
+      "target": "Full mixed-characteristic and prime-to-p equal-characteristic local existence/correspondence",
+      "owner": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+        "FunctionFieldArithmetic:FA.4"
+      ]
+    },
+    {
+      "target": "Equal-characteristic p-primary local existence and resulting injectivity/completion of the existing Artin map",
+      "owner": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+      "formerly": [
+        "FunctionFieldArithmetic:FA.4"
+      ]
+    },
+    {
+      "target": "Ordinary local ramification filtrations and Herbrand indexing",
+      "owner": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.4"
+      ]
+    },
+    {
+      "target": "Ordinary local K2 Hilbert-symbol/structure comparisons in the scope of L.3",
+      "owner": "KTheoryFiniteLocalFields:L.3",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.4"
+      ]
+    },
+    {
+      "target": "Ordinary number-field ideles and idele-class carriers",
+      "owner": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.5"
+      ]
+    },
+    {
+      "target": "Ordinary function-field adeles and ideles",
+      "owner": "FunctionFieldArithmetic:FA.2",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.5"
+      ]
+    },
+    {
+      "target": "Number-field sum of local invariants and Brauer sequence",
+      "owner": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.6"
+      ]
+    },
+    {
+      "target": "Number-field global Artin reciprocity",
+      "owner": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.6"
+      ]
+    },
+    {
+      "target": "Number-field abelian norm-subgroup correspondence and norm index",
+      "owner": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.6"
+      ]
+    },
+    {
+      "target": "Global reciprocity and norm-subgroup correspondence for curves over finite fields",
+      "owner": "FunctionFieldArithmetic:FA.4",
+      "formerly": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.6"
+      ]
+    }
+  ]
+}
