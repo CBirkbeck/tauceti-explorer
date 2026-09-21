@@ -1,255 +1,1837 @@
 {
-"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
-"protocol":"links-v1",
-"summary":"Screened all 211 other atlas roadmaps, including all 59 other upstream entries, and the newly added MordellLawrenceVenkatesh roadmap. Retained 21 outgoing stage contracts across eight partner roadmaps; no incoming contract was established. The affine-diagram contract is already in the Zigzag packet, and the numbered spin-weight contract is already in PR #529; neither is duplicated. The Zigzag finite/affine overlap is likewise referenced rather than repeated. Seven new overlap proposals address general weight lattices, GL_n central data, general quiver reflections, nonreduced chambers, triality ownership, ADE lattice calculations and Euler-form conventions. No roadmap merge is recommended. Evidence names roadmap contracts, not verified implementations.",
-"provenance":{"jobId":"LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems","issue":64,"worker":"ChatGPT Pro — cgp-3dc7b31740c5","sessionId":"cgp-3dc7b31740c5","inputRevision":"49f74b4d2bace99a76ceff4ac2199a3384c83c57","downloadedSnapshot":"7821d19ab4fd547181beb46287f8968ec64847d1","atlasBlob":"37f2add06983c206067d1104e0f40a839cc3961a","upstreamRoadmapRevision":"faa5423b925964415cc926802ab206567719d3f4","libraryBaseline":{"tauceti":"f790474821cf4256814db967cb154e7af3d0c369","mathlib":"082e2d37e8b0463410cdb532e111cd43d5a66174","created":"2026-09-16T09:50:49Z"},"libraryAssessment":"Not undertaken. Declaration names in evidence are roadmap commitments, not claims verified at the pinned library baseline.","confidencePolicy":"The job-specific METHOD 3 is used: explicit when a text names the other roadmap/stage; inferred for a matched but unnamed output/use. Both endpoint passages are supplied in every case.","submissionInputRevision":"1338883fe31f3b357dd91b7d5916e76e3b950c81","refreshArtifact":{"workflowRun":35093449521,"artifact":10445750299,"snapshot":"1338883fe31f3b357dd91b7d5916e76e3b950c81"},"validatorBlob":"88135efe5a74ef82e088f3fa3189893e27a7867a","protocolBlob":"41099c03ea64d701d05b1277a83141ef9d4868db"},
-"links": [
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","target":"tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ","reason":"The explicit Chevalley–Demazure lane uses the named simply connected integral root datum with its fixed simple-root numbering. This is a construction-level prerequisite: the existence/uniqueness classification in RootSystems Layer 5 is not a substitute. ReductiveGroups still owns the group scheme, root subgroup maps, pinnings, base change and special isogenies.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","quote":"`DynkinType.simplyConnectedRootDatum t ht`, a `RootDatum` over\n  `ℤ` with roots indexed by `Fin t.numRoots` and both lattices pinned to `Fin t.rank → ℤ`","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 377-378"},{"stageId":"tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ","quote":"The\nroot data it starts from are `DynkinType.simplyConnectedRootDatum` in\n[the root-systems roadmap](../RepresentationTheory/RootSystems/README.md).","sourcePath":"content/tau-ceti/ReductiveGroups/README.md","locator":"lines 243-245"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification","target":"tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon","reason":"The finite reduced crystallographic classification supplies the Dynkin-type classification of the irreducible absolute root-system factors used in the semisimple-group classification. It does not classify group schemes by itself: root data, central isogeny forms and the group-side existence/isomorphism theorem remain with ReductiveGroups. No extension to nonreduced relative root systems or arbitrary bases is inferred.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification","quote":"every irreducible reduced crystallographic finite root system is isomorphic\n  (as a `RootPairing`) to the root system of a **unique valid** `DynkinType t`","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 352-353"},{"stageId":"tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon","quote":"classification of semisimple groups by Dynkin diagrams; central isogenies and the\n  isogeny theorem; Chevalley existence.","sourcePath":"content/tau-ceti/ReductiveGroups/README.md","locator":"lines 222-223"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange","target":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification","reason":"Gabriel’s ADE positive-root parametrization explicitly consumes the finite positive-root set. Layer 1 also supplies ordinary simple-root lowering and height induction. It does not supply the additional sink-admissible lowering of a chosen quiver orientation: that extra assertion remains in QuiverRepresentations Layer 5 and must not be treated as proved by arbitrary simple-root lowering.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange","quote":"`posRoots b = {i | b.IsPos i}`","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 224-224"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification","quote":"Consume `posRoots` from\n  [root systems](../RootSystems/README.md).","sourcePath":"content/tau-ceti/RepresentationTheory/QuiverRepresentations/README.md","locator":"lines 379-380"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification","target":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification","reason":"The finite-type Cartan-matrix classification and its simply-laced A/D/E sublist supply the graph/root-system side of Gabriel’s dichotomy. The consumer must identify the symmetrized Tits form with the correctly reindexed Cartan matrix and prove the representation-theoretic equivalence; a Cartan classification alone is not Gabriel’s theorem. This uses an integral/rational root realization, not a root system over the arbitrary representation field.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification","quote":"An indecomposable finite-type Cartan matrix\n  reindexes, up to a single simultaneous row/column relabelling, to `DynkinType.cartanMatrix t` for a\n  **unique valid** `t`.","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 336-338"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification","quote":"State the graph condition through the Cartan matrix and\n  [root systems](../RootSystems/README.md)' Dynkin data","sourcePath":"content/tau-ceti/RepresentationTheory/QuiverRepresentations/README.md","locator":"lines 357-358"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification","target":"tauceti:TauCetiRoadmap/CFSGStatement#i0-indices-and-mathlib-glue","reason":"I0 constructs Lie-type indices using DynkinType, its validity predicate and rank. The dependency is only the enumeration/matrix prefix of Layer 5, not the later classification proof: neither the index type nor the explicit carrier lane should wait for the Cartan–Killing summit.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification","quote":"`DynkinType.rank : DynkinType → ℕ`, the validity predicate `DynkinType.Valid` (the rank ranges)","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 324-324"},{"stageId":"tauceti:TauCetiRoadmap/CFSGStatement#i0-indices-and-mathlib-glue","quote":"`ValidLieTypeIndex.dynkinType` names the underlying\nuntwisted diagram as the root-systems roadmap's `DynkinType`, `dynkinType_valid` proves it valid, and\n`.rank` is then *defined* as `d.dynkinType.rank` rather than tabulated again","sourcePath":"content/tau-ceti/CFSGStatement/README.md","locator":"lines 274-276"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","target":"tauceti:TauCetiRoadmap/CFSGStatement#i0-indices-and-mathlib-glue","reason":"I0 defines graph and length-exchanging permutations on the upstream Bourbaki-labelled indices, and deliberately imports the long-root predicate rather than maintaining an independent exponent table. Only the numbered data are consumed; I0 does not need the group scheme or its automorphisms.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","quote":"Add\n  `DynkinType.IsLongSimpleRoot` so downstream length-exchanging maps have something to refer to.","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 372-373"},{"stageId":"tauceti:TauCetiRoadmap/CFSGStatement#i0-indices-and-mathlib-glue","quote":"There is deliberately no table of exceptional exponents:\nwhich simple roots are long is `DynkinType.IsLongSimpleRoot` upstream","sourcePath":"content/tau-ceti/CFSGStatement/README.md","locator":"lines 283-284"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","target":"tauceti:TauCetiRoadmap/CFSGStatement#l0-ambient-groups-with-root-subgroups","reason":"The pinned Chevalley–Demazure carrier route starts from the named integral datum and base, with literal Fin carriers and Bourbaki labels. Choosing an arbitrary realization from an existence theorem is not this contract. L0 and ReductiveGroups Layer 9 still own all group-side constructions and comparisons, including the explicit-carrier alternative. This does not assert that reducing a RootPairing modulo p preserves its characteristic-zero root-system predicates.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","quote":"`DynkinType.simplyConnectedRootDatum t ht`, a `RootDatum` over\n  `ℤ` with roots indexed by `Fin t.numRoots` and both lattices pinned to `Fin t.rank → ℤ`","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 377-378"},{"stageId":"tauceti:TauCetiRoadmap/CFSGStatement#l0-ambient-groups-with-root-subgroups","quote":"`DynkinType.simplyConnectedRootDatum` and `DynkinType.simplyConnectedBase`, reached through\n  `ValidLieTypeIndex.dynkinType` and `dynkinType_valid`, together with the Bourbaki numbering their\n  `Fin` indices carry (root systems Layer 6)","sourcePath":"content/tau-ceti/CFSGStatement/README.md","locator":"lines 324-326"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","target":"tauceti:TauCetiRoadmap/CFSGStatement#l1-ordinary-and-graph-twisted-steinberg-maps","reason":"The fixed Bourbaki-indexed Cartan matrix is the reference against which L1 proves that its A/D/E6 and D4-triality permutations are diagram automorphisms. RootSystems supplies the numbered matrix, not the graph automorphism theorem or the lift to a pinned group. I0 supplies the permutations; L1 proves their matrix compatibility and consumes the group-side lift from ReductiveGroups Layer 9.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","quote":"`DynkinType.cartanMatrix` is indexed by the Bourbaki labels, with\n  Bourbaki node `i` at `Fin` index `i - 1`, and `cartanMatrix t i j = ⟨α_i, α_j^∨⟩`.","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 366-367"},{"stageId":"tauceti:TauCetiRoadmap/CFSGStatement#l1-ordinary-and-graph-twisted-steinberg-maps","quote":"Each permutation must be proved to be an automorphism of the corresponding Cartan matrix.","sourcePath":"content/tau-ceti/CFSGStatement/README.md","locator":"lines 520-520"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","target":"tauceti:TauCetiRoadmap/CFSGStatement#l2-suzuki--ree-steinberg-maps","reason":"L2 attaches the exponents 1 and p to numbered long and short simple roots using the single upstream predicate. Its B2/C2 carrier-node adapter must preserve those lengths; the special-isogeny permutation exchanges them. RootSystems supplies the designation, not the special isogeny or its square-Frobenius proof, which remain in ReductiveGroups Layer 9.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","quote":"Add\n  `DynkinType.IsLongSimpleRoot` so downstream length-exchanging maps have something to refer to.","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 372-373"},{"stageId":"tauceti:TauCetiRoadmap/CFSGStatement#l2-suzuki--ree-steinberg-maps","quote":"`DynkinType.IsLongSimpleRoot` in the\nroot-systems roadmap pins it, and the convention above is stated against that predicate","sourcePath":"content/tau-ceti/CFSGStatement/README.md","locator":"lines 582-583"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange","target":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ","reason":"The finite positive-root set indexes the nilradicals and the nonnegative root multiplicities defining the Kostant partition function. The consumer still proves finiteness of the partition count and the PBW/Verma weight-multiplicity theorem. The ordinary PBW unit over arbitrary fields is independent of this finite crystallographic characteristic-zero specialization.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange","quote":"`posRoots b` is finite (`[Finite ι]`).","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 227-227"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ","quote":"Define `kostantPartition base ν = P(ν)`, the number of ways to\n  write `ν` as a sum of positive roots with multiplicity, **here** in Layer 3 as a combinatorial object\n  attached to the positive roots","sourcePath":"content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md","locator":"lines 437-439"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange","target":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles","reason":"The Weyl-orbit convex-hull argument uses finiteness of W. Apply the supplier to the finite reduced crystallographic root system on its spanning root space. Finiteness of W alone does not make a bounded set of weights finite: integrability, the integral weight lattice, its discrete real realization and the convex-hull bound remain consumer proof obligations.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange","quote":"`Finite P.weylGroup` for finite `ι` (`finite_weylGroup`).","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 241-241"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles","quote":"The weight support of `L(λ)` is then stable under the whole Weyl group\n      and bounded inside the convex hull of `W·λ` (a finite downward root cone), hence **finite**.","sourcePath":"content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md","locator":"lines 463-464"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange","target":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas","reason":"For the stated combinatorial proof of the Weyl denominator identity, a simple reflection permutes the positive factors other than its own root. This supplies the root-combinatorial step in alternation; the integral character algebra, rho, exponent identities and Verma argument are not supplied by the root-combinatorics layer.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange","quote":"A simple reflection `sᵢ`\n  permutes the positive roots other than `αᵢ`","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 230-231"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas","quote":"the highest-weight/Verma route, defining Verma characters, proving the Weyl denominator\n  identity combinatorially, and concluding by Weyl alternation.","sourcePath":"content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md","locator":"lines 520-521"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system","target":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas","reason":"Generation of the actual Weyl group by simple reflections promotes the simple-reflection denominator calculation to Weyl alternation. The Coxeter identification also provides the compatible length/inversion API if the sign is computed by length. The character formula itself and any comparison of that sign with a determinant remain in LieHighestWeight; no BGG-resolution route is imported.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system","quote":"`⊤ = Subgroup.closure (range fun i : b.support => weylGroup.ofIdx P i)`\n  as subgroups of `P.weylGroup`: every reflection is a product of simple reflections.","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 257-258"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas","quote":"proving the Weyl denominator\n  identity combinatorially, and concluding by Weyl alternation.","sourcePath":"content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md","locator":"lines 520-521"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element","target":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations","reason":"To separate dominant integral weights by dot orbits, apply regular dominant-orbit uniqueness to lambda+rho and mu+rho. LieHighestWeight must first own rho and prove its simple-coroot values are 1, and compare its integral/rational weight space with a real root-space realization. This is not an embedding of an arbitrary algebraically closed coefficient field into R. Only the supplier’s interior-point statement is used, not an unproved extension to boundary points.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element","quote":"if `x` is interior and `w • x` is again dominant then `w • x = x`\n  (`eq_of_mem_dominantChamber_interior`)","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 310-311"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations","quote":"On dominant integral weights `λ ↦ χ_λ` is\n  injective (distinct dominant weights lie in distinct dot orbits, by the orbit theorem above)","sourcePath":"content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md","locator":"lines 596-597"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system","target":"tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification","reason":"The type-A worked instance of the Weyl/Coxeter identification supplies the permutation Weyl group with adjacent simple reflections. For GL_n the semisimple root type is A_(n-1), not A_n. ClassicalGroups still constructs the normalizer/torus identification and retains the central character; a root-space Weyl identification does not construct the full GL_n character lattice.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system","quote":"`P.weylGroup ≃* Equiv.Perm (Fin (n+1))`, with simple reflections\n  the adjacent transpositions","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 397-398"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification","quote":"The dominance order and the `GLₙ` Weyl group `Sₙ` acting on `ℤⁿ` are\n  the specialization of [`../RootSystems`](../RootSystems/README.md)'s Weyl group.","sourcePath":"content/tau-ceti/RepresentationTheory/ClassicalGroups/README.md","locator":"lines 251-252"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element","target":"tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification","reason":"The simple-coroot inequalities defining the dominant cone become lambda_i >= lambda_(i+1) in type A. This edge supplies the cone definition and its real root-space geometry only. The consumer constructs the integral coordinate comparison and the independent central direction; it must not apply a real ordered-field theorem directly to an unordered complex Cartan dual or infer a complete GL_n root datum from a semisimple one.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element","quote":"`dominantChamber b = {x : M | ∀ i ∈ b.support, 0 ≤ P.coroot' i x}`","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 302-302"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification","quote":"`DominantWeight n`, the weakly decreasing `λ : Fin n → ℤ` (`λ i ≥ λ (i+1)`)","sourcePath":"content/tau-ceti/RepresentationTheory/ClassicalGroups/README.md","locator":"lines 249-249"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification","target":"tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification","reason":"The explicit classical root models identify the A_(n-1), B, C and D root-system specializations. This uses the realization/matrix part, not a blanket requirement to finish all exceptional classification first. ClassicalGroups owns the comparison to matrix-group tori, isogeny-form character lattices and the separate O_n/SO_n extension problem. Low-rank coincidences must be matched to DynkinType.Valid instead of forcing invalid types into the classification.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification","quote":"`Aₙ` inside the\n  sum-zero hyperplane of `ℚ^{n+1}`, `Bₙ`/`Cₙ`/`Dₙ` as the classical short/long-root systems","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 345-346"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification","quote":"`SLₙ` (dominant weights modulo `(1,…,1)`), the type `Aₙ₋₁`\n  specialization from [`../RootSystems`](../RootSystems/README.md)","sourcePath":"content/tau-ceti/RepresentationTheory/ClassicalGroups/README.md","locator":"lines 263-264"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange","target":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration","reason":"The abstract finite Weyl group and positive-root set enter the normalizer-quotient comparison and the finite Weyl-density product. For a reductive group use the semisimple root span when invoking the supplier’s spanning hypothesis; central torus directions are handled by LieGroups. Maximal-torus existence/conjugacy, N(T)/T identification, integration and measure normalization are separate consumer obligations.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange","quote":"`Finite P.weylGroup` for finite `ι` (`finite_weylGroup`).","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 241-241"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration","quote":"In the reductive case it is isomorphic to the abstract\n  `RootPairing.weylGroup` of [../RootSystems](../RootSystems/README.md) (`N(T)/T ≃ W(root system)`), the\n  identification being a stated milestone.","sourcePath":"content/tau-ceti/RepresentationTheory/LieGroups/README.md","locator":"lines 381-383"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system","target":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat","reason":"The Coxeter length on the same Weyl group and its inversion-count identity supply the combinatorial dimension appearing in the Schubert-cell formula. LieGroups must transport along its group/root-system Weyl identification and construct the cells and their root-coordinate parametrizations; the root theorem alone gives neither Bruhat decomposition nor the cell dimension theorem.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system","quote":"`cs.length w = (inversions b w).ncard`","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 271-271"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat","quote":"the **Schubert cells** `BwB/B` of `G_ℂ/B` (a cell of complex dimension\n  `ℓ(w)`)","sourcePath":"content/tau-ceti/RepresentationTheory/LieGroups/README.md","locator":"lines 420-421"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","target":"tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms","reason":"The numbered ADE Cartan matrices and fundamental-weight coordinates fix the Gram matrices, discriminant representatives and E8 relabelling used in the lattice tests. IntegralLattices constructs the actual root lattice (the Z-span of the simple roots), not the entire ambient character/weight lattice. It owns the rational bilinear form with roots of norm 2, half-norm discriminant forms, quotient calculations and D8+ isometry. This data dependency must not be reversed into a dependence of root-system realization on downstream discriminant classification.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","quote":"`DynkinType.cartanMatrix` is indexed by the Bourbaki labels, with\n  Bourbaki node `i` at `Fin` index `i - 1`","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 366-367"},{"stageId":"tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms","quote":"Cross-check exceptional node labels and inverse-Cartan entries against Bourbaki's ADE plates and\nTau Ceti's numbering.","sourcePath":"content/tau-ceti/Completed/IntegralLattices/README.md","locator":"lines 379-380"}]},
-{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification","target":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-5-the-fundamental-representations-of-bₗ-and-dₗ","reason":"The explicit B_l and D_l root models are the abstract comparison targets for the Cartan built from bivectors. SpinRepresentations owns the identification with its concrete so(V), the weight computation and differentiation of the double cover; highest-weight irreducibility comes from LieHighestWeight. The validity ranges B_l (l>=2), D_l (l>=4) require separate low-rank treatment, not deletion of DynkinType.Valid.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification","quote":"`Bₙ`/`Cₙ`/`Dₙ` as the classical short/long-root systems","sourcePath":"content/tau-ceti/RepresentationTheory/RootSystems/README.md","locator":"lines 346-346"},{"stageId":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-5-the-fundamental-representations-of-bₗ-and-dₗ","quote":"identify its roots\n  with the abstract `Bₗ`/`Dₗ` root system of [the root-systems roadmap](../RootSystems/README.md)","sourcePath":"content/tau-ceti/RepresentationTheory/SpinRepresentations/README.md","locator":"lines 435-436"}]}
-],
-"overlaps": [
-{"stages":["tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-1-cartan-subalgebras-and-the-root-space-decomposition","tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-2-weights-of-a-module-and-their-integrality"],"detail":"RootSystems’ scope excludes the general root/weight/coroot/coweight lattices, fundamental weights, dominant integral weights and rho, assigning them to LieHighestWeight. LieHighestWeight’s conventions and Layers 1–2 instead assign the abstract lattice X to RootSystems. Layer 6’s concrete simply connected coordinate lattices do not resolve that general ownership contradiction.","recommendation":"rescope","proposal":"Keep RootSystems Layer 6 responsible for named finite-type integral data. Add an early, explicitly LieHighestWeight-owned general lattice unit: define Q and P in the rational weight space and their duals, prove Weyl stability and simple-coroot integrality, construct fundamental weights and rho with rho(alpha_i^vee)=1, and prove the real-realization comparison. Add a separate comparison to Layer 6’s coordinates. Correct both readmes’ import claims. Do not make RootSystems’ finite-type data depend back on highest-weight representation classification."},
-{"stages":["tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification","tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification"],"detail":"Both discuss classical root data, but the finite semisimple types do not supply GL_n’s central character lattice. ClassicalGroups currently names a GL_n root datum from RootSystems even though that provider is not in RootSystems’ stated scope.","recommendation":"rescope","proposal":"ClassicalGroups Layer 3 owns the diagonal-torus datum X=Z^n, roots e_i-e_j, Weyl permutations and central-character comparison. Compare its semisimple quotient with the pinned A_(n-1) model and its restriction to SL_n with weights modulo the diagonal vector. Reuse RootSystems for finite-type matrices and chamber inequalities; keep connected SO/Sp and disconnected O representation problems separate. Coordinate the general lattice unit with LieHighestWeight rather than duplicating it."},
-{"stages":["tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange","tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system","tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors","tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification"],"detail":"Both develop reflections and positive-root arguments, but QuiverRepresentations Layer 4 covers arbitrary finite acyclic quivers while RootSystems Layers 1–2 are finite reduced crystallographic. Moreover an arbitrary height-lowering simple reflection is not a sink-admissible lowering for a fixed orientation.","recommendation":"rescope","proposal":"Keep kernel/cokernel reflection functors and dimension-vector reflection formulas in QuiverRepresentations without a finite-type assumption. Add an explicitly finite-ADE comparison unit using the existing root-system Coxeter action. Put the sink-admissible descent/sequence lemma in QuiverRepresentations Layer 5. General Kac–Moody or indefinite Coxeter realizations require a separate supplier; do not claim RootSystems supplies them."},
-{"stages":["tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element","tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions"],"detail":"Both use positive chambers, but the consumer explicitly allows nonreduced restricted root systems and the supplier explicitly assumes reducedness. Neither text currently states the comparison that would justify an unconditional chamber edge.","recommendation":"rescope","proposal":"Add a LieGroups-owned comparison from a possibly nonreduced restricted system to an appropriate reduced subsystem, proving equality of reflecting hyperplanes, Weyl action and chamber cones, before applying RootSystems Layer 4. Keep restricted-root multiplicities and the KAK theorem in LieGroups. Also supply closed-chamber uniqueness where boundary points are used: the provider’s listed interior-point statements alone do not establish its stronger advertised boundary conclusion."},
-{"stages":["tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-8-triality-for-spin₈","tauceti:TauCetiRoadmap/CFSGStatement#i0-indices-and-mathlib-glue","tauceti:TauCetiRoadmap/CFSGStatement#l1-ordinary-and-graph-twisted-steinberg-maps"],"detail":"SpinRepresentations asks RootSystems for an order-three D4 graph automorphism, but RootSystems Layer 6 promises numbered data, not that automorphism. CFSG I0 names the concrete permutation and L1 already owns its Cartan-matrix check. Duplicating those checks under another numbering would create avoidable disagreement.","recommendation":"rescope","proposal":"Extract a reusable root-data-level unit, owned with RootSystems’ numbered data: the Fin-4 cycle (0 2 3), its exact order, Cartan preservation and its lift to the named simply connected root datum, with fundamental-weight action. Make CFSG I0/L1 and Spin Layer 8 consume that single unit. Group-scheme lifting stays in ReductiveGroups Layer 9; comparison to the Clifford spin carrier stays in Spin. Until this request is accepted, do not mark RootSystems-to-Spin-triality as an existing complete provider edge. Coordinate this with the already submitted Spin/CFSG triality rescope in PR #529; this adds the explicit RootSystems and I0 ownership boundary, not a second implementation."},
-{"stages":["tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification","tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms"],"detail":"The root-system realization and lattice acceptance calculations both use ADE coordinates, especially E8. RootSystems’ E8 coordinate construction and IntegralLattices’ D8+ gluing/isometry must not be made mutually prerequisite.","recommendation":"keep","proposal":"Use one explicit numbered coordinate/Cartan-data interface at the RootSystems boundary. Its primitive E8 coordinate/root checks must not use the downstream discriminant-form classification. IntegralLattices owns full integral submodules, duals, half-norm forms, D8+ gluing and the explicit Gram isometry. Where completed lattice code already supplies primitive coordinates, verify its pinned declaration and extract only that independent prefix, rather than adding a reverse dependency on the whole lattice stage."},
-{"stages":["tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification","tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent"],"detail":"The oriented-E8 acceptance example compares a symmetrized Ext-Euler matrix with a root-system Gram matrix. The composition-factor Cartan matrix and nonsymmetric Euler matrix are not themselves root-system Cartan matrices. This example does not make generic K0/Ext-Euler theory depend on finite-type classification.","recommendation":"keep","proposal":"Keep categorical Ext-Euler descent in GrothendieckEulerForms and quiver dimension-vector formulas in QuiverRepresentations. Pin a separate E8 example comparison with the existing numbered root Gram matrix; check E=I-A and E+E^T=2I-(A+A^T), with the left-module transpose convention. Do not introduce a root-classification dependency on the general Euler-form stage just to run this acceptance example."}
-],
-"examined": [
-{"roadmapId":"AInfCohomology","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"AbelianSchemesAndArithmeticModuli","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"AdditiveCombinatorics","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"AdelicAlgebraicGroups","result":"none","note":"Read all stages. AA.3 uses relative positive chambers for rational parabolics; the exact group/relative-root supplier is ReductiveGroups/PartII, not a direct application of the reduced absolute RootSystems chamber theorem."},
-{"roadmapId":"AdicCoefficientsAndComparisons","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"AdicEtaleGeometry","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"AdicSpacesPartII","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"AlgebraicModularFormsAndSerreWeights","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"AlgebraicModuliForArithmeticGeometry","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"AnabelianGeometryAndNonabelianChabauty","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"AnalyticNumberTheory","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ArakelovGeometryAndAbelianHeights","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ArithmeticDynamics","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ArithmeticGaloisDuality","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ArithmeticGaloisRepresentations","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ArithmeticKTheory","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ArithmeticLocallySymmetricSpaces","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ArithmeticQuantumTopology","result":"none","note":"Screened ribbon/quantum-group and braid passages. Ribbon braiding and quantum sl2 are not the reduced-word lift theorem for a Coxeter system; no direct contract found."},
-{"roadmapId":"ArithmeticStatistics","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"AutomorphicBundles","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"AutomorphicCongruences","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"AutomorphicFormsOnReductiveGroups","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"AutomorphicGaloisRepresentations","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"AutomorphicGaloisRepresentationsPartII","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"AutomorphicLFunctionsAndLocalFactors","result":"none","note":"Schwartz–Bruhat and unramified L-group passages use analysis and the reductive-group suppliers, not Coxeter Bruhat order."},
-{"roadmapId":"AutomorphicPadicLFunctions","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"AutomorphicSpectralTheory","result":"none","note":"Relative Weyl groups and parabolic chambers are mediated by the reductive/adelic structure owners. No direct absolute finite-root contract established in this screen."},
-{"roadmapId":"BorelRegulators","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"BunGAndNewtonStrata","result":"none","note":"Uses upstream ReductiveGroups for algebraic root data and PartII for local structure. General nonsplit G and its Newton data are not supplied by the finite simply connected datum alone."},
-{"roadmapId":"ClassicalAdicEtaleCohomology","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ClassicalArithmeticCompletion","result":"none","note":"Polynomial root-data matches concern ordinary polynomial arithmetic, not RootPairing or Dynkin data."},
-{"roadmapId":"ClassicalSerreModularity","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"CohomologyComparisons","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ColemanIntegration","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ColemanPowerSeries","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"CompletedCohomologyAndLocalGlobalCompatibility","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"CompletedCohomologyPartII","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ComplexComparisonPartII","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ComplexMultiplicationAndExplicitReciprocity","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ComputationalNumberTheory","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"CrystallineCohomology","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"DeformationAndDerivedPatchingAlgebra","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"DeligneWeightsAndPurity","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"DerivedDeRhamCohomology","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"DiamondEtaleCohomology","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"DiamondSixOperations","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"DiamondsAndVStacks","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"DiophantineApproximationAndTranscendence","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"DirichletPadicLFunctions","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"DrinfeldModulesAndTModules","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"EffectiveDiophantineMethods","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"EllipticCurveModularity","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"EllipticKTheory","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"EllipticRegulators","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"EndoscopicTransferAndUnitaryTraceComparison","result":"none","note":"Coxeter-number and Weyl-order bounds occur in ET.3. RootSystems does not promise the required Coxeter-number/exponent interface; route its precise root-data bound through the group owner rather than invent a supplier."},
-{"roadmapId":"EnhancedDerivedSheaves","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"EtaleDualityAndPerverseSheaves","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"EulerSystemsAndKolyvaginSystems","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"EulerSystemsCyclotomicMainConjecture","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ExcursionOperatorsAndSpectralAction","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ExponentialSumsAndCircleMethod","result":"none","note":"Weyl differencing and exponential-sum bounds are not Weyl-group contracts."},
-{"roadmapId":"FaltingsFinitenessAndIsogenyTheorems","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"FarguesFontaineDiamonds","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"FiniteFieldsAndCharacterSums","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"FiniteFlatGroupsAndIntegralPadicHodgeTheory","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"FoundationsAndLibraryIntegration","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"FunctionFieldArithmetic","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"GL2AutomorphicRepresentationsAndTransfer","result":"none","note":"Schwartz–Bruhat and representation-transfer uses do not establish a direct root-combinatorial edge."},
-{"roadmapId":"GL2ModularityLifting","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"GeneralAlgebraicKTheory","result":"none","note":"Matsumoto is the K2 field-presentation theorem, not Coxeter reduced-word equivalence. No link on the shared name."},
-{"roadmapId":"GeneralizedHeegnerCycles","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"GeometricSatakeAndFusion","result":"none","note":"Dual-group reconstruction uses general reductive root data and the PartII supplier. Finite simply connected named data alone do not supply its arbitrary-group integral duality contract."},
-{"roadmapId":"GeometryOfNumbersAndQuadraticArithmetic","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"GlobalGaloisDeformations","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"GlobalShtukasAndFunctionFieldLanglands","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"GrossZagierAndArithmeticHeights","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"HabiroCohomologyFoundations","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"HabiroCyclotomicCompletions","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"HabiroNahmSeries","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"HabiroNumberFields","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"HabiroRings","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"HeckeStacksAndLocalShtukas","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"HeegnerPointEulerSystems","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"HeightsRationalPointsAndObstructions","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"HigherLocalFieldsAndHigherClassFieldTheory","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"HilbertModularVarietiesAndShimuraCurves","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"HodgeTateAndCanonicalSubgroups","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"IgusaVarietiesAndTorsionConcentration","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"IntegralHeckeAndGaloisDeterminants","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"IntegralIwasawaTheory","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"InverseGaloisAndArithmeticFundamentalGroups","result":"none","note":"Braid/Nielsen-class actions concern Hurwitz moves and descent, not a stated use of Coxeter Matsumoto. No dependency established."},
-{"roadmapId":"K2SymbolsBrauer","result":"none","note":"Matsumoto concerns Milnor/Steinberg K2 and its presentation; it is not the RootSystems theorem."},
-{"roadmapId":"K3BlochGroups","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"KTheoryFiniteLocalFields","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"KTheoryLowDegrees","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"KatoEulerSystems","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"LanglandsParameterStacks","result":"none","note":"Integral Weyl modules and good filtrations require group/representation suppliers; characteristic-zero root combinatorics is not a proof of these integral filtrations."},
-{"roadmapId":"LefschetzPencilsAndVanishingCycles","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"LocalGaloisDeformationRings","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"LocallyAnalyticDistributions","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"LogicAndDefinabilityInNumberTheory","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"MetaplecticAutomorphicForms","result":"none","note":"Schwartz–Bruhat/Weil representation passages concern oscillator analysis, not a Weyl-group foundation edge."},
-{"roadmapId":"ModularCurvesPartII","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ModularIwasawaMainConjectures","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ModularSymbolsPadicLFunctions","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ModularityAndLanglandsExtensions","result":"none","note":"The Weyl criterion is an equidistribution criterion, not Weyl-group theory."},
-{"roadmapId":"MotivesAndAlgebraicCycles","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"MotivicEtaleKTheory","result":"none","note":"Its Matsumoto/Tate comparison is in K-theory; no Coxeter dependency."},
-{"roadmapId":"NeronModelsAndSemistableAbelianVarieties","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"NoncommutativeAndEquivariantIwasawa","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"OrdinaryAutomorphicFormsAndModularityLifting","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"OverconvergentAutomorphicForms","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"PELModuli","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"PadicDifferentialEquationsAndRigidCohomology","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"PadicFamilies","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"PadicHodgeRegulators","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"PadicHodgeTheory","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"PadicLocalLanglandsForGL2Qp","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"PadicMeasuresIwasawaAlgebras","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"PerfectoidQuotients","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"PerfectoidShimuraVarieties","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"PerfectoidSpaces","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"PeriodsAndSpecialValues","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"PhiGammaModulesAndIwasawaCohomology","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"Polylogarithms","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"PotentialAutomorphyInfrastructure","result":"none","note":"Integral algebraic coefficients and Weyl/dual-Weyl modules need representation-theoretic integral suppliers. No exact direct contract from the finite char-zero RootSystems layers found."},
-{"roadmapId":"PotentialModularityAndCompatibleSystems","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"PrismaticCohomology","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ProbabilisticAndMetricNumberTheory","result":"none","note":"Weyl criterion/equidistribution is unrelated to the Weyl-group contracts."},
-{"roadmapId":"QSeriesPartitionsAndMockModularForms","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"RankZeroOneBSD","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ReductiveGroupsPartII","result":"none","note":"Read every stage. RG2.1 explicitly keeps absolute roots with ReductiveGroups and includes multipliable relative roots; buildings, parahorics and integral duality remain PartII, not RootSystems."},
-{"roadmapId":"RefinedTraceMethods","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"RelativeFarguesFontaine","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"SchemeAndStackFoundations","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"SchemeKTheoryOperations","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"SelmerIwasawaCohomology","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"SerreWeightAndLevelOptimisation","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ShimuraCompactifications","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ShimuraData","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"ShimuraVarieties","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"SieveMethodsAndPrimePatterns","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"SmallRamificationAndAbelianVarietyBaseCases","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"SmoothRepresentationsOfLocalGroups","result":"none","note":"Relative Satake/Weyl/Frobenius inputs are from local reductive structure; no direct finite absolute root-data edge established."},
-{"roadmapId":"SpecialValuesBirchTate","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"StableHomotopyKTheory","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"TorsionCohomologyInfrastructure","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"TropicalAndBerkovichArithmetic","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"VStackSheavesAndLisseCategories","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"VectorBundlesAndIsocrystals","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"WeightsInEtaleCohomology","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"WeilConjectures","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:Completed/ContourIntegration","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:Completed/EffectiveBounds","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:Completed/IntegralLattices","result":"links","note":"Read full ADE/discriminant/gluing Layer 5 and conventions. Numbered ADE data is used without identifying the root lattice with the weight lattice; prevent a reverse E8-realization cycle."},
-{"roadmapId":"tauceti:Completed/OrthogonalL2Bases","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/AdicSpaces","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCodingTheory","result":"none","note":"The code-to-discriminant-module interface is mediated by IntegralLattices; no direct root-classification prerequisite established."},
-{"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCurves","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicTopology","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/AnalyticToricGeometry","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/BelyiMaps","result":"none","note":"The S3 action verifies three relations on permutation triples directly. That use of Coxeter relations and the unrelated polynomial simple-root passages do not require the new Weyl presentation or Matsumoto layer."},
-{"roadmapId":"tauceti:TauCetiRoadmap/CFSGStatement","result":"links","note":"Read I0 and L0–L3/L5 with carrier conventions. Five direct numbered-data/index links; preserve ReductiveGroups ownership of schemes/isogenies and the separate explicit-carrier comparisons. Triality reuse is a rescope request."},
-{"roadmapId":"tauceti:TauCetiRoadmap/Chebotarev","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ClassFieldTheory","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer","result":"none","note":"Braid closures/grid moves are shared with GeometricTopology, not with a stated Coxeter reduced-word lift contract."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ConformalMapping","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/DGAInfinity","result":"none","note":"Explicitly excludes named root/lattice applications. Symmetric/Koszul braiding is not Coxeter braid combinatorics."},
-{"roadmapId":"tauceti:TauCetiRoadmap/DenseGraphLimits","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/EllipticCurves","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/Exchangeability","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/FuchsianOrbifolds","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/GeometricTopology","result":"none","note":"Artin braid groups and Markov/Reidemeister moves concern knot presentations; no direct Coxeter-generation or reduced-word dependency established."},
-{"roadmapId":"tauceti:TauCetiRoadmap/GlobalNumberFields","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/GrothendieckEulerForms","result":"overlap","note":"Read Layer 5 in full and E8/Cartan examples. Keep the root-Gram comparison separate from categorical Cartan/Ext-Euler theory; overlap recorded, no generic-classification edge."},
-{"roadmapId":"tauceti:TauCetiRoadmap/HeegaardFloer","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/HodgeStructures","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/HopfRinow","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/JacobianChallenge","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/LocalFieldsRamification","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ModularCurves","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ModularForms","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/Multiquadratic","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/NumberFieldArithmetic","result":"none","note":"The simple-root match is a root of a reduced polynomial in a ramification example, not a simple root of a root system."},
-{"roadmapId":"tauceti:TauCetiRoadmap/OneParameterSemigroups","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/OptimalTransport","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/PDE","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups","result":"none","note":"Root enumerations and resolvent root data are polynomial data, not root data in the reductive-group sense."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteCohomology","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteProPGroups","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ReductiveGroups","result":"links","note":"Complete document read. Named integral data feeds Layer 9; finite-type classification feeds only the root-system factors of Layer 8. Central isogeny forms and general group schemes remain here."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory","result":"none","note":"Read index and scope. It points to the actual supplier/consumer roadmaps but owns no stage endpoints; no artificial edge to the index."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa","result":"none","note":"Its Weyl complete-reducibility dependency is explicitly on LieHighestWeight. Root combinatorics is mediated there; the positive-characteristic PBW lane must not inherit RootSystems’ char-zero assumptions."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups","result":"links","note":"Read full Layer 3 and conventions. Three root-model/Weyl/chamber links; GL_n’s central character datum is a separate missing ownership comparison."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups","result":"none","note":"The SU2 Weyl formula is expressly proved by hand; abstract compact-group Peter–Weyl does not require root classification. General maximal-torus theory is owned by LieGroups."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction","result":"none","note":"The braiding is monoidal representation-category structure, not a Coxeter braid relation. No direct root-system contract."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups","result":"links","note":"Read Layers 6–9. Finite abstract Weyl comparison and Coxeter cell length are direct; nonreduced restricted chambers require a comparison request, not an unconditional edge."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight","result":"links","note":"Read conventions and complete Layers 0–9. Five direct positive-root, finite-Weyl, generation and regular-chamber contracts. General lattice/rho ownership is contradictory and separately flagged, not fabricated as an import."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations","result":"links","note":"Complete document read. Positive roots and finite ADE classification feed Gabriel Layer 5. Arbitrary-quiver reflection functors and sink-admissible lowering retain their own hypotheses and owner."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl","result":"none","note":"Young/Specht and Brauer-generator relations are checked within their own constructions. Schur–Weyl naming and braid relations do not by themselves require RootSystems Layer 3."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations","result":"links","note":"Read full Layers 5 and 8. B/D model and numbered-weight data feed Layer 5; the D4 graph-automorphism provider claimed by Layer 8 is not actually stated in RootSystems and is flagged. The RootSystems6 -> Spin5 arrow is already in PR #529; only the separate classical-realization contract is added here. The triality rescope must be coordinated with that PR."},
-{"roadmapId":"tauceti:TauCetiRoadmap/StablePeriodicCurved","result":"none","note":"Explicitly excludes affine-root quotient/ADE applications; the Weyl-action reference does not supply a stage-level dependency."},
-{"roadmapId":"tauceti:TauCetiRoadmap/StableReduction","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/StandardDistributions","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/UniversalCovers","result":"none","note":"Summary/search: no exact stage contract found."},
-{"roadmapId":"tauceti:TauCetiRoadmap/ZigzagPreprojective","result":"links","note":"Read full Layers 0 and 8. Finite Bourbaki data feeds affine deletion checks; affine marks/radicals and braid-complex actions stay here, not in finite-root classification. The matching link and overlap are already recorded in the live Zigzag packet and are omitted here to avoid duplication."},
-{"roadmapId":"MordellLawrenceVenkatesh","result":"none","note":"New at submission refresh: read its scope and stage descriptions, especially LV.0/LV.9. These consume symplectic group structure from ReductiveGroups, not a direct RootSystems stage. Its scope explicitly excludes the later LV sections on reductive-group combinatorics; no dependency inferred from the word symplectic."}
-],
-"coverage":{"roadmapsInAtlas":212,"otherRoadmapsScreened":211,"upstreamRoadmapsScreened":59,"method":"Read every catalogue title and summary; search every complete roadmap document and stage description for object names and synonyms; inspect matching contexts and read both complete stage descriptions for every retained link or overlap. Read RootSystems, ReductiveGroups and QuiverRepresentations documents in full. This is a contract audit, not proof or implementation verification.","searchFamilies":["root systems/root data/RootPairing/RootDatum","Coxeter/Matsumoto/strong exchange","Dynkin/Cartan matrices/Cartan–Killing/Bourbaki numbering","Weyl group/longest element","coroot/simple or positive roots/dominant chambers","braid/Bruhat","ADE/root and weight lattices/fundamental weights/reflection groups/IsLongSimpleRoot"],"keywordCandidatesIncludingTarget":45,"inputGraph":"1968 stages and 3508 recorded stage edges; no recorded stage edge incident to RootSystems at the audited snapshot. Existing roadmap-level arrows were not mistaken for stage edges.","noIncomingLink":"No cross-roadmap incoming stage contract was established. Foundational library imports are not converted into speculative roadmap edges; generic weight-lattice ownership is recorded as a rescope request instead.","additionalRoadmapsScreened":["MordellLawrenceVenkatesh"],"otherPacketsChecked":["tauceti_TauCetiRoadmap_ZigzagPreprojective.json","tauceti_TauCetiRoadmap_StandardDistributions.json","tauceti_TauCetiRoadmap_UniversalCovers.json"],"newLinks":21,"newOverlaps":7,"pendingSubmissionChecked":{"pullRequest":529,"head":"854ab41d74aff64f80a2e67ab260331dafdf805a","scope":"Read all 18 edge records and the relevant overlaps; exact graph projection included in a supplemental cycle/duplicate check. Not a review or approval of that submission."}},
-"status":"complete",
-"alreadyRecorded":[{"packet":"research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json","inputRevision":"1338883fe31f3b357dd91b7d5916e76e3b950c81","links":[{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","target":"tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-0-affine-simply-laced-diagrams-doubled-graphs-relation-quotients-and-grading-descent"}],"overlapStages":[["tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification","tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-0-affine-simply-laced-diagrams-doubled-graphs-relation-quotients-and-grading-descent"]],"note":"Independently identified in this audit, then omitted from the new-link and overlap arrays because the live Zigzag packet already records the same contract and finite/affine boundary. No change to that worker’s files."},{"packet":"research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json","pullRequest":529,"inputRevision":"854ab41d74aff64f80a2e67ab260331dafdf805a","packetBlob":"cbe898782abf01ecd30fed0acfed9bc42eb1ee37","links":[{"source":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data","target":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-5-the-fundamental-representations-of-bₗ-and-dₗ"}],"note":"The shared numbered B/D data contract is omitted here. PR 529 also records the data-only RootSystems6 -> Spin8 contract, explicitly not the missing order-three automorphism theorem. Its Spin/CFSG triality rescope agrees with the expanded RootSystems/CFSG request here; do not open duplicate ownership requests. The PR is submitted, not integrated or independently approved."}]
+  "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+  "protocol": "links-v1",
+  "summary": "Independent review retains 19 nonduplicate outgoing links and seven qualified overlaps. Two mathematically accepted Gabriel inputs are kept in the QuiverRepresentations packet and referenced here. Corrected root-lattice, closed-chamber and triality requests to reuse pinned library declarations. All six own stages were spot-checked across 218 roadmaps and 2,007 stages; 217 partner records now include the five additions since the original screen. No new dependency or whole-roadmap merge is proposed.",
+  "provenance": {
+    "jobId": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
+    "issue": 64,
+    "worker": "ChatGPT Pro — cgp-3dc7b31740c5",
+    "sessionId": "cgp-3dc7b31740c5",
+    "inputRevision": "49f74b4d2bace99a76ceff4ac2199a3384c83c57",
+    "downloadedSnapshot": "7821d19ab4fd547181beb46287f8968ec64847d1",
+    "atlasBlob": "37f2add06983c206067d1104e0f40a839cc3961a",
+    "upstreamRoadmapRevision": "faa5423b925964415cc926802ab206567719d3f4",
+    "libraryBaseline": {
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "created": "2026-09-16T09:50:49Z"
+    },
+    "libraryAssessment": "Not undertaken. Declaration names in evidence are roadmap commitments, not claims verified at the pinned library baseline.",
+    "confidencePolicy": "The job-specific METHOD 3 is used: explicit when a text names the other roadmap/stage; inferred for a matched but unnamed output/use. Both endpoint passages are supplied in every case.",
+    "submissionInputRevision": "1338883fe31f3b357dd91b7d5916e76e3b950c81",
+    "refreshArtifact": {
+      "workflowRun": 35093449521,
+      "artifact": 10445750299,
+      "snapshot": "1338883fe31f3b357dd91b7d5916e76e3b950c81"
+    },
+    "validatorBlob": "88135efe5a74ef82e088f3fa3189893e27a7867a",
+    "protocolBlob": "41099c03ea64d701d05b1277a83141ef9d4868db"
+  },
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+      "target": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+      "reason": "The explicit Chevalley–Demazure lane uses the named simply connected integral root datum with its fixed simple-root numbering. This is a construction-level prerequisite: the existence/uniqueness classification in RootSystems Layer 5 is not a substitute. ReductiveGroups still owns the group scheme, root subgroup maps, pinnings, base change and special isogenies.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+          "quote": "`DynkinType.simplyConnectedRootDatum t ht`, a `RootDatum` over\n  `ℤ` with roots indexed by `Fin t.numRoots` and both lattices pinned to `Fin t.rank → ℤ`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 377-378",
+          "startLine": 377,
+          "endLine": 378
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+          "quote": "The\nroot data it starts from are `DynkinType.simplyConnectedRootDatum` in\n[the root-systems roadmap](../RepresentationTheory/RootSystems/README.md).",
+          "sourcePath": "content/tau-ceti/ReductiveGroups/README.md",
+          "locator": "lines 243-245",
+          "startLine": 243,
+          "endLine": 245
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+      "target": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon",
+      "reason": "The finite reduced crystallographic classification supplies the Dynkin-type classification of the irreducible absolute root-system factors used in the semisimple-group classification. It does not classify group schemes by itself: root data, central isogeny forms and the group-side existence/isomorphism theorem remain with ReductiveGroups. No extension to nonreduced relative root systems or arbitrary bases is inferred.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+          "quote": "every irreducible reduced crystallographic finite root system is isomorphic\n  (as a `RootPairing`) to the root system of a **unique valid** `DynkinType t`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 352-353",
+          "startLine": 352,
+          "endLine": 353
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon",
+          "quote": "classification of semisimple groups by Dynkin diagrams; central isogenies and the\n  isogeny theorem; Chevalley existence.",
+          "sourcePath": "content/tau-ceti/ReductiveGroups/README.md",
+          "locator": "lines 222-223",
+          "startLine": 222,
+          "endLine": 223
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+      "target": "tauceti:TauCetiRoadmap/CFSGStatement#i0-indices-and-mathlib-glue",
+      "reason": "I0 constructs Lie-type indices using DynkinType, its validity predicate and rank. The dependency is only the enumeration/matrix prefix of Layer 5, not the later classification proof: neither the index type nor the explicit carrier lane should wait for the Cartan–Killing summit.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+          "quote": "`DynkinType.rank : DynkinType → ℕ`, the validity predicate `DynkinType.Valid` (the rank ranges)",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 324-324",
+          "startLine": 324,
+          "endLine": 324
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/CFSGStatement#i0-indices-and-mathlib-glue",
+          "quote": "`ValidLieTypeIndex.dynkinType` names the underlying\nuntwisted diagram as the root-systems roadmap's `DynkinType`, `dynkinType_valid` proves it valid, and\n`.rank` is then *defined* as `d.dynkinType.rank` rather than tabulated again",
+          "sourcePath": "content/tau-ceti/CFSGStatement/README.md",
+          "locator": "lines 274-276",
+          "startLine": 274,
+          "endLine": 276
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+      "target": "tauceti:TauCetiRoadmap/CFSGStatement#i0-indices-and-mathlib-glue",
+      "reason": "I0 defines graph and length-exchanging permutations on the upstream Bourbaki-labelled indices, and deliberately imports the long-root predicate rather than maintaining an independent exponent table. Only the numbered data are consumed; I0 does not need the group scheme or its automorphisms.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+          "quote": "Add\n  `DynkinType.IsLongSimpleRoot` so downstream length-exchanging maps have something to refer to.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 372-373",
+          "startLine": 372,
+          "endLine": 373
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/CFSGStatement#i0-indices-and-mathlib-glue",
+          "quote": "There is deliberately no table of exceptional exponents:\nwhich simple roots are long is `DynkinType.IsLongSimpleRoot` upstream",
+          "sourcePath": "content/tau-ceti/CFSGStatement/README.md",
+          "locator": "lines 283-284",
+          "startLine": 283,
+          "endLine": 284
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+      "target": "tauceti:TauCetiRoadmap/CFSGStatement#l0-ambient-groups-with-root-subgroups",
+      "reason": "The pinned Chevalley–Demazure carrier route starts from the named integral datum and base, with literal Fin carriers and Bourbaki labels. Choosing an arbitrary realization from an existence theorem is not this contract. L0 and ReductiveGroups Layer 9 still own all group-side constructions and comparisons, including the explicit-carrier alternative. This does not assert that reducing a RootPairing modulo p preserves its characteristic-zero root-system predicates.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+          "quote": "`DynkinType.simplyConnectedRootDatum t ht`, a `RootDatum` over\n  `ℤ` with roots indexed by `Fin t.numRoots` and both lattices pinned to `Fin t.rank → ℤ`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 377-378",
+          "startLine": 377,
+          "endLine": 378
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/CFSGStatement#l0-ambient-groups-with-root-subgroups",
+          "quote": "`DynkinType.simplyConnectedRootDatum` and `DynkinType.simplyConnectedBase`, reached through\n  `ValidLieTypeIndex.dynkinType` and `dynkinType_valid`, together with the Bourbaki numbering their\n  `Fin` indices carry (root systems Layer 6)",
+          "sourcePath": "content/tau-ceti/CFSGStatement/README.md",
+          "locator": "lines 324-326",
+          "startLine": 324,
+          "endLine": 326
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+      "target": "tauceti:TauCetiRoadmap/CFSGStatement#l1-ordinary-and-graph-twisted-steinberg-maps",
+      "reason": "The fixed Bourbaki Cartan matrix supplies the reference for the numbered diagram permutations used in L1. At the programme pin TauCeti/LinearAlgebra/RootSystem/DiagramPermutations.lean already supplies the A/D/E6/D4 matrix-preservation checks; the generic diagramAut construction lifts a preserving permutation to the named integral root datum. Reuse these results rather than re-proving the checks in CFSG. Group-scheme lifting, Frobenius compatibility and the actual Steinberg map remain group-side obligations; the root-data theorem alone does not supply them.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+          "quote": "`DynkinType.cartanMatrix` is indexed by the Bourbaki labels, with\n  Bourbaki node `i` at `Fin` index `i - 1`, and `cartanMatrix t i j = ⟨α_i, α_j^∨⟩`.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 366-367",
+          "startLine": 366,
+          "endLine": 367
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/CFSGStatement#l1-ordinary-and-graph-twisted-steinberg-maps",
+          "quote": "Each permutation must be proved to be an automorphism of the corresponding Cartan matrix.",
+          "sourcePath": "content/tau-ceti/CFSGStatement/README.md",
+          "locator": "lines 520-520",
+          "startLine": 520,
+          "endLine": 520
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+      "target": "tauceti:TauCetiRoadmap/CFSGStatement#l2-suzuki--ree-steinberg-maps",
+      "reason": "L2 attaches the exponents 1 and p to numbered long and short simple roots using the single upstream predicate. Its B2/C2 carrier-node adapter must preserve those lengths; the special-isogeny permutation exchanges them. RootSystems supplies the designation, not the special isogeny or its square-Frobenius proof, which remain in ReductiveGroups Layer 9.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+          "quote": "Add\n  `DynkinType.IsLongSimpleRoot` so downstream length-exchanging maps have something to refer to.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 372-373",
+          "startLine": 372,
+          "endLine": 373
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/CFSGStatement#l2-suzuki--ree-steinberg-maps",
+          "quote": "`DynkinType.IsLongSimpleRoot` in the\nroot-systems roadmap pins it, and the convention above is stated against that predicate",
+          "sourcePath": "content/tau-ceti/CFSGStatement/README.md",
+          "locator": "lines 582-583",
+          "startLine": 582,
+          "endLine": 583
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+      "reason": "The finite positive-root set indexes the nilradicals and the nonnegative root multiplicities defining the Kostant partition function. The consumer still proves finiteness of the partition count and the PBW/Verma weight-multiplicity theorem. The ordinary PBW unit over arbitrary fields is independent of this finite crystallographic characteristic-zero specialization.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange",
+          "quote": "`posRoots b` is finite (`[Finite ι]`).",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 227-227",
+          "startLine": 227,
+          "endLine": 227
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+          "quote": "Define `kostantPartition base ν = P(ν)`, the number of ways to\n  write `ν` as a sum of positive roots with multiplicity, **here** in Layer 3 as a combinatorial object\n  attached to the positive roots",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+          "locator": "lines 437-439",
+          "startLine": 437,
+          "endLine": 439
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
+      "reason": "The Weyl-orbit convex-hull argument uses finiteness of W. Apply the supplier to the finite reduced crystallographic root system on its spanning root space. Finiteness of W alone does not make a bounded set of weights finite: integrability, the integral weight lattice, its discrete real realization and the convex-hull bound remain consumer proof obligations.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange",
+          "quote": "`Finite P.weylGroup` for finite `ι` (`finite_weylGroup`).",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 241-241",
+          "startLine": 241,
+          "endLine": 241
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
+          "quote": "The weight support of `L(λ)` is then stable under the whole Weyl group\n      and bounded inside the convex hull of `W·λ` (a finite downward root cone), hence **finite**.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+          "locator": "lines 463-464",
+          "startLine": 463,
+          "endLine": 464
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
+      "reason": "For the stated combinatorial proof of the Weyl denominator identity, a simple reflection permutes the positive factors other than its own root. This supplies the root-combinatorial step in alternation; the integral character algebra, rho, exponent identities and Verma argument are not supplied by the root-combinatorics layer.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange",
+          "quote": "A simple reflection `sᵢ`\n  permutes the positive roots other than `αᵢ`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 230-231",
+          "startLine": 230,
+          "endLine": 231
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
+          "quote": "the highest-weight/Verma route, defining Verma characters, proving the Weyl denominator\n  identity combinatorially, and concluding by Weyl alternation.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+          "locator": "lines 520-521",
+          "startLine": 520,
+          "endLine": 521
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
+      "reason": "Generation of the actual Weyl group by simple reflections promotes the simple-reflection denominator calculation to Weyl alternation. The Coxeter identification also provides the compatible length/inversion API if the sign is computed by length. The character formula itself and any comparison of that sign with a determinant remain in LieHighestWeight; no BGG-resolution route is imported.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system",
+          "quote": "`⊤ = Subgroup.closure (range fun i : b.support => weylGroup.ofIdx P i)`\n  as subgroups of `P.weylGroup`: every reflection is a product of simple reflections.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 257-258",
+          "startLine": 257,
+          "endLine": 258
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
+          "quote": "proving the Weyl denominator\n  identity combinatorially, and concluding by Weyl alternation.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+          "locator": "lines 520-521",
+          "startLine": 520,
+          "endLine": 521
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations",
+      "reason": "To separate dominant integral weights by dot orbits, apply dominant-orbit uniqueness to lambda+rho and mu+rho. LieHighestWeight still needs rho, its simple-coroot values, and the rational/real realization comparison; an arbitrary algebraically closed coefficient field is not embedded in R. The original interior-point argument is valid, and the programme pin also supplies closed-chamber uniqueness in TauCeti/LinearAlgebra/RootSystem/FundamentalDomain.lean. Do not re-plan that already available stronger theorem.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element",
+          "quote": "if `x` is interior and `w • x` is again dominant then `w • x = x`\n  (`eq_of_mem_dominantChamber_interior`)",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 310-311",
+          "startLine": 310,
+          "endLine": 311
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations",
+          "quote": "On dominant integral weights `λ ↦ χ_λ` is\n  injective (distinct dominant weights lie in distinct dot orbits, by the orbit theorem above)",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+          "locator": "lines 596-597",
+          "startLine": 596,
+          "endLine": 597
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification",
+      "reason": "The type-A worked instance of the Weyl/Coxeter identification supplies the permutation Weyl group with adjacent simple reflections. For GL_n the semisimple root type is A_(n-1), not A_n. ClassicalGroups still constructs the normalizer/torus identification and retains the central character; a root-space Weyl identification does not construct the full GL_n character lattice.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system",
+          "quote": "`P.weylGroup ≃* Equiv.Perm (Fin (n+1))`, with simple reflections\n  the adjacent transpositions",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 397-398",
+          "startLine": 397,
+          "endLine": 398
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification",
+          "quote": "The dominance order and the `GLₙ` Weyl group `Sₙ` acting on `ℤⁿ` are\n  the specialization of [`../RootSystems`](../RootSystems/README.md)'s Weyl group.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/ClassicalGroups/README.md",
+          "locator": "lines 251-252",
+          "startLine": 251,
+          "endLine": 252
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification",
+      "reason": "The simple-coroot inequalities defining the dominant cone become lambda_i >= lambda_(i+1) in type A. This edge supplies the cone definition and its real root-space geometry only. The consumer constructs the integral coordinate comparison and the independent central direction; it must not apply a real ordered-field theorem directly to an unordered complex Cartan dual or infer a complete GL_n root datum from a semisimple one.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element",
+          "quote": "`dominantChamber b = {x : M | ∀ i ∈ b.support, 0 ≤ P.coroot' i x}`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 302-302",
+          "startLine": 302,
+          "endLine": 302
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification",
+          "quote": "`DominantWeight n`, the weakly decreasing `λ : Fin n → ℤ` (`λ i ≥ λ (i+1)`)",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/ClassicalGroups/README.md",
+          "locator": "lines 249-249",
+          "startLine": 249,
+          "endLine": 249
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification",
+      "reason": "The explicit classical root models identify the A_(n-1), B, C and D root-system specializations. This uses the realization/matrix part, not a blanket requirement to finish all exceptional classification first. ClassicalGroups owns the comparison to matrix-group tori, isogeny-form character lattices and the separate O_n/SO_n extension problem. Low-rank coincidences must be matched to DynkinType.Valid instead of forcing invalid types into the classification.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+          "quote": "`Aₙ` inside the\n  sum-zero hyperplane of `ℚ^{n+1}`, `Bₙ`/`Cₙ`/`Dₙ` as the classical short/long-root systems",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 345-346",
+          "startLine": 345,
+          "endLine": 346
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification",
+          "quote": "`SLₙ` (dominant weights modulo `(1,…,1)`), the type `Aₙ₋₁`\n  specialization from [`../RootSystems`](../RootSystems/README.md)",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/ClassicalGroups/README.md",
+          "locator": "lines 263-264",
+          "startLine": 263,
+          "endLine": 264
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration",
+      "reason": "The abstract finite Weyl group and positive-root set enter the normalizer-quotient comparison and the finite Weyl-density product. For a reductive group use the semisimple root span when invoking the supplier’s spanning hypothesis; central torus directions are handled by LieGroups. Maximal-torus existence/conjugacy, N(T)/T identification, integration and measure normalization are separate consumer obligations.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange",
+          "quote": "`Finite P.weylGroup` for finite `ι` (`finite_weylGroup`).",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 241-241",
+          "startLine": 241,
+          "endLine": 241
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration",
+          "quote": "In the reductive case it is isomorphic to the abstract\n  `RootPairing.weylGroup` of [../RootSystems](../RootSystems/README.md) (`N(T)/T ≃ W(root system)`), the\n  identification being a stated milestone.",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 381-383",
+          "startLine": 381,
+          "endLine": 383
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat",
+      "reason": "The Coxeter length on the same Weyl group and its inversion-count identity supply the combinatorial dimension appearing in the Schubert-cell formula. LieGroups must transport along its group/root-system Weyl identification and construct the cells and their root-coordinate parametrizations; the root theorem alone gives neither Bruhat decomposition nor the cell dimension theorem.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system",
+          "quote": "`cs.length w = (inversions b w).ncard`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 271-271",
+          "startLine": 271,
+          "endLine": 271
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat",
+          "quote": "the **Schubert cells** `BwB/B` of `G_ℂ/B` (a cell of complex dimension\n  `ℓ(w)`)",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/LieGroups/README.md",
+          "locator": "lines 420-421",
+          "startLine": 420,
+          "endLine": 421
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+      "target": "tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms",
+      "reason": "The numbered ADE Cartan matrices and fundamental-weight coordinates fix the Gram matrices, discriminant representatives and E8 relabelling used in the lattice tests. IntegralLattices constructs the actual root lattice (the Z-span of the simple roots), not the entire ambient character/weight lattice. It owns the rational bilinear form with roots of norm 2, half-norm discriminant forms, quotient calculations and D8+ isometry. This data dependency must not be reversed into a dependence of root-system realization on downstream discriminant classification.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+          "quote": "`DynkinType.cartanMatrix` is indexed by the Bourbaki labels, with\n  Bourbaki node `i` at `Fin` index `i - 1`",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 366-367",
+          "startLine": 366,
+          "endLine": 367
+        },
+        {
+          "stageId": "tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms",
+          "quote": "Cross-check exceptional node labels and inverse-Cartan entries against Bourbaki's ADE plates and\nTau Ceti's numbering.",
+          "sourcePath": "content/tau-ceti/Completed/IntegralLattices/README.md",
+          "locator": "lines 379-380",
+          "startLine": 379,
+          "endLine": 380
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-5-the-fundamental-representations-of-bₗ-and-dₗ",
+      "reason": "The explicit B_l and D_l root models are the abstract comparison targets for the Cartan built from bivectors. SpinRepresentations owns the identification with its concrete so(V), the weight computation and differentiation of the double cover; highest-weight irreducibility comes from LieHighestWeight. The validity ranges B_l (l>=2), D_l (l>=4) require separate low-rank treatment, not deletion of DynkinType.Valid.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+          "quote": "`Bₙ`/`Cₙ`/`Dₙ` as the classical short/long-root systems",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/RootSystems/README.md",
+          "locator": "lines 346-346",
+          "startLine": 346,
+          "endLine": 346
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-5-the-fundamental-representations-of-bₗ-and-dₗ",
+          "quote": "identify its roots\n  with the abstract `Bₗ`/`Dₗ` root system of [the root-systems roadmap](../RootSystems/README.md)",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/SpinRepresentations/README.md",
+          "locator": "lines 435-436",
+          "startLine": 435,
+          "endLine": 436
+        }
+      ]
+    }
+  ],
+  "overlaps": [
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-1-cartan-subalgebras-and-the-root-space-decomposition",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-2-weights-of-a-module-and-their-integrality"
+      ],
+      "detail": "RootSystems’ scope excludes the general root/weight/coroot/coweight lattices, fundamental weights, dominant integral weights and rho, assigning them to LieHighestWeight. LieHighestWeight’s conventions and Layers 1–2 instead assign the abstract lattice X to RootSystems. Layer 6’s concrete simply connected coordinate lattices do not resolve that general ownership contradiction.",
+      "recommendation": "rescope",
+      "proposal": "Keep the named finite-type coordinate data with RootSystems and the general highest-weight lattice dictionary with LieHighestWeight, correcting the mutual README import claims. Reuse Mathlib RootPairing.rootSpan and corootSpan at Z and Base.toWeightBasisInt (and the flipped version) instead of defining root/coroot lattices again. The latter is a basis of the root lattice, not a basis of fundamental weights. Audit the remaining weight/coweight, fundamental-weight, rho and real-realization interfaces declaration by declaration before assigning missing comparison work. Compare with the already pinned finite-type coordinate datum; no return dependency on representation classification."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification"
+      ],
+      "detail": "Both discuss classical root data, but the finite semisimple types do not supply GL_n’s central character lattice. ClassicalGroups currently names a GL_n root datum from RootSystems even though that provider is not in RootSystems’ stated scope.",
+      "recommendation": "rescope",
+      "proposal": "ClassicalGroups Layer 3 owns the diagonal-torus datum X=Z^n, roots e_i-e_j, Weyl permutations and central-character comparison. Compare its semisimple quotient with the pinned A_(n-1) model and its restriction to SL_n with weights modulo the diagonal vector. Reuse RootSystems for finite-type matrices and chamber inequalities; keep connected SO/Sp and disconnected O representation problems separate. Coordinate the general lattice unit with LieHighestWeight rather than duplicating it."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification"
+      ],
+      "detail": "Both develop reflections and positive-root arguments, but QuiverRepresentations Layer 4 covers arbitrary finite acyclic quivers while RootSystems Layers 1–2 are finite reduced crystallographic. Moreover an arbitrary height-lowering simple reflection is not a sink-admissible lowering for a fixed orientation.",
+      "recommendation": "rescope",
+      "proposal": "Keep kernel/cokernel reflection functors and dimension-vector reflection formulas in QuiverRepresentations without a finite-type assumption. Add an explicitly finite-ADE comparison unit using the existing root-system Coxeter action. Put the sink-admissible descent/sequence lemma in QuiverRepresentations Layer 5. General Kac–Moody or indefinite Coxeter realizations require a separate supplier; do not claim RootSystems supplies them."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions"
+      ],
+      "detail": "Both use positive chambers, but the consumer explicitly allows nonreduced restricted root systems and the supplier explicitly assumes reducedness. Neither text currently states the comparison that would justify an unconditional chamber edge.",
+      "recommendation": "rescope",
+      "proposal": "Keep the LieGroups-owned comparison from a possibly nonreduced restricted system to a reduced subsystem, with matching hyperplanes, Weyl action and chamber cones, separate from root multiplicities and KAK. Closed-boundary uniqueness itself is already available at the programme pin: TauCeti.eq_of_mem_orbit_of_mem_dominantChamber and existsUnique_mem_orbit_inter_dominantChamber in FundamentalDomain.lean. Import them after establishing the reduced-system comparison and their finite/crystallographic/reduced hypotheses (including the flipped pairing); do not build another uniqueness theorem or infer the comparison from the word chamber."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-8-triality-for-spin₈",
+        "tauceti:TauCetiRoadmap/CFSGStatement#i0-indices-and-mathlib-glue",
+        "tauceti:TauCetiRoadmap/CFSGStatement#l1-ordinary-and-graph-twisted-steinberg-maps"
+      ],
+      "detail": "The source README does not list the complete D4 diagram-automorphism theorem, but the programme pin already supplies the numbered three-cycle, exact order three, Cartan preservation and a general lift to the pinned simply connected integral datum. The historical extraction request is therefore stale at the root-data level. CFSG and Spin must share this existing interface; group-level comparison remains separate.",
+      "recommendation": "rescope",
+      "proposal": "Reuse TauCeti.trialityPermD4, orderOf_trialityPermD4 and cartanMatrix_D4_trialityPermD4 from DiagramPermutations.lean. Apply DynkinType.diagramAut to that diagram symmetry; diagramAut_weightMap gives the fundamental-weight coordinate action, diagramAut_pow_eq_one gives the cube relation, and diagramAut_eq_one_iff plus the nontrivial three-cycle proves nontriviality (hence exact order three). These are pinned library imports, not a new extraction job. The lift to a pinned group scheme and transport to the Clifford Spin carrier remain their owners’ separate obligations. The data-only RootSystems6 -> Spin8 link already exists in the Spin packet and is not duplicated or edited by this review."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+        "tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms"
+      ],
+      "detail": "The root-system realization and lattice acceptance calculations both use ADE coordinates, especially E8. RootSystems’ E8 coordinate construction and IntegralLattices’ D8+ gluing/isometry must not be made mutually prerequisite.",
+      "recommendation": "keep",
+      "proposal": "Use one explicit numbered coordinate/Cartan-data interface at the RootSystems boundary. Its primitive E8 coordinate/root checks must not use the downstream discriminant-form classification. IntegralLattices owns full integral submodules, duals, half-norm forms, D8+ gluing and the explicit Gram isometry. Where completed lattice code already supplies primitive coordinates, verify its pinned declaration and extract only that independent prefix, rather than adding a reverse dependency on the whole lattice stage. The programme pin already contains DynkinType.simplyConnectedRootDatum and its numbered base in SimplyConnectedRootDatum/Assembly.lean; consume the verified named datum rather than scheduling another coordinate carrier. A separate discriminant/gluing implementation is not asserted present by that check."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent"
+      ],
+      "detail": "The oriented-E8 acceptance example compares a symmetrized Ext-Euler matrix with a root-system Gram matrix. The composition-factor Cartan matrix and nonsymmetric Euler matrix are not themselves root-system Cartan matrices. This example does not make generic K0/Ext-Euler theory depend on finite-type classification.",
+      "recommendation": "keep",
+      "proposal": "Keep categorical Ext-Euler descent in GrothendieckEulerForms and quiver dimension-vector formulas in QuiverRepresentations. Pin a separate E8 example comparison with the existing numbered root Gram matrix; check E=I-A and E+E^T=2I-(A+A^T), with the left-module transpose convention. Do not introduce a root-classification dependency on the general Euler-form stage just to run this acceptance example."
+    }
+  ],
+  "examined": [
+    {
+      "roadmapId": "AInfCohomology",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "AbelianSchemesAndArithmeticModuli",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "AdditiveCombinatorics",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "AdelicAlgebraicGroups",
+      "result": "none",
+      "note": "Read all stages. AA.3 uses relative positive chambers for rational parabolics; the exact group/relative-root supplier is ReductiveGroups/PartII, not a direct application of the reduced absolute RootSystems chamber theorem."
+    },
+    {
+      "roadmapId": "AdicCoefficientsAndComparisons",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "AdicEtaleGeometry",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "AdicSpacesPartII",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "AlgebraicModularFormsAndSerreWeights",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "AnalyticNumberTheory",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ArakelovGeometryAndAbelianHeights",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ArithmeticDynamics",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisDuality",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisRepresentations",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ArithmeticKTheory",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ArithmeticLocallySymmetricSpaces",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ArithmeticQuantumTopology",
+      "result": "none",
+      "note": "Screened ribbon/quantum-group and braid passages. Ribbon braiding and quantum sl2 are not the reduced-word lift theorem for a Coxeter system; no direct contract found."
+    },
+    {
+      "roadmapId": "ArithmeticStatistics",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "AutomorphicBundles",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "AutomorphicCongruences",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "AutomorphicFormsOnReductiveGroups",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentations",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+      "result": "none",
+      "note": "Schwartz–Bruhat and unramified L-group passages use analysis and the reductive-group suppliers, not Coxeter Bruhat order."
+    },
+    {
+      "roadmapId": "AutomorphicPadicLFunctions",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "AutomorphicSpectralTheory",
+      "result": "none",
+      "note": "Relative Weyl groups and parabolic chambers are mediated by the reductive/adelic structure owners. No direct absolute finite-root contract established in this screen."
+    },
+    {
+      "roadmapId": "BorelRegulators",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "BunGAndNewtonStrata",
+      "result": "none",
+      "note": "Uses upstream ReductiveGroups for algebraic root data and PartII for local structure. General nonsplit G and its Newton data are not supplied by the finite simply connected datum alone."
+    },
+    {
+      "roadmapId": "ClassicalAdicEtaleCohomology",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ClassicalArithmeticCompletion",
+      "result": "none",
+      "note": "Polynomial root-data matches concern ordinary polynomial arithmetic, not RootPairing or Dynkin data."
+    },
+    {
+      "roadmapId": "ClassicalSerreModularity",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "CohomologyComparisons",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ColemanIntegration",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ColemanPowerSeries",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "CompletedCohomologyPartII",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ComplexComparisonPartII",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ComplexMultiplicationAndExplicitReciprocity",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ComputationalNumberTheory",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "CrystallineCohomology",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "DeligneWeightsAndPurity",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "DerivedDeRhamCohomology",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "DiamondEtaleCohomology",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "DiamondSixOperations",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "DiamondsAndVStacks",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "DiophantineApproximationAndTranscendence",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "DirichletPadicLFunctions",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "DrinfeldModulesAndTModules",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "EffectiveDiophantineMethods",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "EllipticCurveModularity",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "EllipticKTheory",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "EllipticRegulators",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+      "result": "none",
+      "note": "Coxeter-number and Weyl-order bounds occur in ET.3. RootSystems does not promise the required Coxeter-number/exponent interface; route its precise root-data bound through the group owner rather than invent a supplier."
+    },
+    {
+      "roadmapId": "EnhancedDerivedSheaves",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "EtaleDualityAndPerverseSheaves",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "EulerSystemsAndKolyvaginSystems",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ExcursionOperatorsAndSpectralAction",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ExponentialSumsAndCircleMethod",
+      "result": "none",
+      "note": "Weyl differencing and exponential-sum bounds are not Weyl-group contracts."
+    },
+    {
+      "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "FarguesFontaineDiamonds",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "FiniteFieldsAndCharacterSums",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "FoundationsAndLibraryIntegration",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "FunctionFieldArithmetic",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+      "result": "none",
+      "note": "Schwartz–Bruhat and representation-transfer uses do not establish a direct root-combinatorial edge."
+    },
+    {
+      "roadmapId": "GL2ModularityLifting",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "GeneralAlgebraicKTheory",
+      "result": "none",
+      "note": "Matsumoto is the K2 field-presentation theorem, not Coxeter reduced-word equivalence. No link on the shared name."
+    },
+    {
+      "roadmapId": "GeneralizedHeegnerCycles",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "GeometricSatakeAndFusion",
+      "result": "none",
+      "note": "Dual-group reconstruction uses general reductive root data and the PartII supplier. Finite simply connected named data alone do not supply its arbitrary-group integral duality contract."
+    },
+    {
+      "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "GlobalGaloisDeformations",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "GrossZagierAndArithmeticHeights",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "HabiroCohomologyFoundations",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "HabiroCyclotomicCompletions",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "HabiroNahmSeries",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "HabiroNumberFields",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "HabiroRings",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "HeckeStacksAndLocalShtukas",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "HeegnerPointEulerSystems",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "HeightsRationalPointsAndObstructions",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "HodgeTateAndCanonicalSubgroups",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "IgusaVarietiesAndTorsionConcentration",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "IntegralIwasawaTheory",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+      "result": "none",
+      "note": "Braid/Nielsen-class actions concern Hurwitz moves and descent, not a stated use of Coxeter Matsumoto. No dependency established."
+    },
+    {
+      "roadmapId": "K2SymbolsBrauer",
+      "result": "none",
+      "note": "Matsumoto concerns Milnor/Steinberg K2 and its presentation; it is not the RootSystems theorem."
+    },
+    {
+      "roadmapId": "K3BlochGroups",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "KTheoryFiniteLocalFields",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "KTheoryLowDegrees",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "KatoEulerSystems",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "LanglandsParameterStacks",
+      "result": "none",
+      "note": "Integral Weyl modules and good filtrations require group/representation suppliers; characteristic-zero root combinatorics is not a proof of these integral filtrations."
+    },
+    {
+      "roadmapId": "LefschetzPencilsAndVanishingCycles",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "LocalGaloisDeformationRings",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "LocallyAnalyticDistributions",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "LogicAndDefinabilityInNumberTheory",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "MetaplecticAutomorphicForms",
+      "result": "none",
+      "note": "Schwartz–Bruhat/Weil representation passages concern oscillator analysis, not a Weyl-group foundation edge."
+    },
+    {
+      "roadmapId": "ModularCurvesPartII",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ModularIwasawaMainConjectures",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ModularSymbolsPadicLFunctions",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ModularityAndLanglandsExtensions",
+      "result": "none",
+      "note": "The Weyl criterion is an equidistribution criterion, not Weyl-group theory."
+    },
+    {
+      "roadmapId": "MotivesAndAlgebraicCycles",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "MotivicEtaleKTheory",
+      "result": "none",
+      "note": "Its Matsumoto/Tate comparison is in K-theory; no Coxeter dependency."
+    },
+    {
+      "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "OverconvergentAutomorphicForms",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "PELModuli",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "PadicFamilies",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "PadicHodgeRegulators",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "PadicHodgeTheory",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "PadicLocalLanglandsForGL2Qp",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "PadicMeasuresIwasawaAlgebras",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "PerfectoidQuotients",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "PerfectoidShimuraVarieties",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "PerfectoidSpaces",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "PeriodsAndSpecialValues",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "Polylogarithms",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "PotentialAutomorphyInfrastructure",
+      "result": "none",
+      "note": "Integral algebraic coefficients and Weyl/dual-Weyl modules need representation-theoretic integral suppliers. No exact direct contract from the finite char-zero RootSystems layers found."
+    },
+    {
+      "roadmapId": "PotentialModularityAndCompatibleSystems",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "PrismaticCohomology",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ProbabilisticAndMetricNumberTheory",
+      "result": "none",
+      "note": "Weyl criterion/equidistribution is unrelated to the Weyl-group contracts."
+    },
+    {
+      "roadmapId": "QSeriesPartitionsAndMockModularForms",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "RankZeroOneBSD",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ReductiveGroupsPartII",
+      "result": "none",
+      "note": "Read every stage. RG2.1 explicitly keeps absolute roots with ReductiveGroups and includes multipliable relative roots; buildings, parahorics and integral duality remain PartII, not RootSystems."
+    },
+    {
+      "roadmapId": "RefinedTraceMethods",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "RelativeFarguesFontaine",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "SchemeAndStackFoundations",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "SchemeKTheoryOperations",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "SelmerIwasawaCohomology",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "SerreWeightAndLevelOptimisation",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ShimuraCompactifications",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ShimuraData",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "ShimuraVarieties",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "SieveMethodsAndPrimePatterns",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "SmoothRepresentationsOfLocalGroups",
+      "result": "none",
+      "note": "Relative Satake/Weyl/Frobenius inputs are from local reductive structure; no direct finite absolute root-data edge established."
+    },
+    {
+      "roadmapId": "SpecialValuesBirchTate",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "StableHomotopyKTheory",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "TorsionCohomologyInfrastructure",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "TropicalAndBerkovichArithmetic",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "VStackSheavesAndLisseCategories",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "VectorBundlesAndIsocrystals",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "WeightsInEtaleCohomology",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "WeilConjectures",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:Completed/ContourIntegration",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:Completed/EffectiveBounds",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:Completed/IntegralLattices",
+      "result": "links",
+      "note": "Read full ADE/discriminant/gluing Layer 5 and conventions. Numbered ADE data is used without identifying the root lattice with the weight lattice; prevent a reverse E8-realization cycle."
+    },
+    {
+      "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+      "result": "none",
+      "note": "The code-to-discriminant-module interface is mediated by IntegralLattices; no direct root-classification prerequisite established."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+      "result": "none",
+      "note": "The S3 action verifies three relations on permutation triples directly. That use of Coxeter relations and the unrelated polynomial simple-root passages do not require the new Weyl presentation or Matsumoto layer."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+      "result": "links",
+      "note": "Read I0 and L0–L3/L5 with carrier conventions. Five direct numbered-data/index links; preserve ReductiveGroups ownership of schemes/isogenies and the separate explicit-carrier comparisons. Triality reuse is a rescope request."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+      "result": "none",
+      "note": "Braid closures/grid moves are shared with GeometricTopology, not with a stated Coxeter reduced-word lift contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+      "result": "none",
+      "note": "Explicitly excludes named root/lattice applications. Symmetric/Koszul braiding is not Coxeter braid combinatorics."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+      "result": "none",
+      "note": "Artin braid groups and Markov/Reidemeister moves concern knot presentations; no direct Coxeter-generation or reduced-word dependency established."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+      "result": "overlap",
+      "note": "Read Layer 5 in full and E8/Cartan examples. Keep the root-Gram comparison separate from categorical Cartan/Ext-Euler theory; overlap recorded, no generic-classification edge."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+      "result": "none",
+      "note": "The simple-root match is a root of a reduced polynomial in a ramification example, not a simple root of a root system."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+      "result": "none",
+      "note": "Root enumerations and resolvent root data are polynomial data, not root data in the reductive-group sense."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "result": "links",
+      "note": "Complete document read. Named integral data feeds Layer 9; finite-type classification feeds only the root-system factors of Layer 8. Central isogeny forms and general group schemes remain here."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory",
+      "result": "none",
+      "note": "Read index and scope. It points to the actual supplier/consumer roadmaps but owns no stage endpoints; no artificial edge to the index."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+      "result": "none",
+      "note": "Its Weyl complete-reducibility dependency is explicitly on LieHighestWeight. Root combinatorics is mediated there; the positive-characteristic PBW lane must not inherit RootSystems’ char-zero assumptions."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+      "result": "links",
+      "note": "Read full Layer 3 and conventions. Three root-model/Weyl/chamber links; GL_n’s central character datum is a separate missing ownership comparison."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "result": "none",
+      "note": "The SU2 Weyl formula is expressly proved by hand; abstract compact-group Peter–Weyl does not require root classification. General maximal-torus theory is owned by LieGroups."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+      "result": "none",
+      "note": "The braiding is monoidal representation-category structure, not a Coxeter braid relation. No direct root-system contract."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+      "result": "links",
+      "note": "Read Layers 6–9. Finite abstract Weyl comparison and Coxeter cell length are direct; nonreduced restricted chambers require a comparison request, not an unconditional edge."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+      "result": "links",
+      "note": "Read conventions and complete Layers 0–9. Five direct positive-root, finite-Weyl, generation and regular-chamber contracts. General lattice/rho ownership is contradictory and separately flagged, not fabricated as an import."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+      "result": "links",
+      "note": "Complete document read. Positive roots and finite ADE classification feed Gabriel Layer 5. Arbitrary-quiver reflection functors and sink-admissible lowering retain their own hypotheses and owner. Review: both retained mathematical inputs are now already recorded in the QuiverRepresentations packet; local duplicate copies removed."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+      "result": "none",
+      "note": "Young/Specht and Brauer-generator relations are checked within their own constructions. Schur–Weyl naming and braid relations do not by themselves require RootSystems Layer 3."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+      "result": "links",
+      "note": "Read full Layers 5 and 8. B/D model and numbered-weight data feed Layer 5; the D4 graph-automorphism provider claimed by Layer 8 is not actually stated in RootSystems and is flagged. The RootSystems6 -> Spin5 arrow is already in PR #529; only the separate classical-realization contract is added here. The triality rescope must be coordinated with that PR. Review pin check supersedes the missing-root-data-automorphism request: the numbered permutation, Cartan preservation and integral-datum lift already exist. Root/group/Clifford-carrier comparisons remain distinct."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+      "result": "none",
+      "note": "Explicitly excludes affine-root quotient/ADE applications; the Weyl-action reference does not supply a stage-level dependency."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+      "result": "none",
+      "note": "Summary/search: no exact stage contract found."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+      "result": "links",
+      "note": "Read full Layers 0 and 8. Finite Bourbaki data feeds affine deletion checks; affine marks/radicals and braid-complex actions stay here, not in finite-root classification. The matching link and overlap are already recorded in the live Zigzag packet and are omitted here to avoid duplication."
+    },
+    {
+      "roadmapId": "MordellLawrenceVenkatesh",
+      "result": "none",
+      "note": "New at submission refresh: read its scope and stage descriptions, especially LV.0/LV.9. These consume symplectic group structure from ReductiveGroups, not a direct RootSystems stage. Its scope explicitly excludes the later LV sections on reductive-group combinatorics; no dependency inferred from the word symplectic."
+    },
+    {
+      "roadmapId": "AnalyticHabiroStack",
+      "result": "none",
+      "note": "Independent review read the summary and searched stage descriptions; no exact root-system supplier/consumer contract found. Analytic roots of unity, stacks and Witt vectors do not themselves require the finite Dynkin classification.",
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems"
+    },
+    {
+      "roadmapId": "SolidAnalyticRings",
+      "result": "none",
+      "note": "Independent review read the summary and searched stage descriptions; no exact root-system supplier/consumer contract found. Analytic roots of unity, stacks and Witt vectors do not themselves require the finite Dynkin classification.",
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems"
+    },
+    {
+      "roadmapId": "AnalyticStacks",
+      "result": "none",
+      "note": "Independent review read the summary and searched stage descriptions; no exact root-system supplier/consumer contract found. Analytic roots of unity, stacks and Witt vectors do not themselves require the finite Dynkin classification.",
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems"
+    },
+    {
+      "roadmapId": "RingStacksAndTransmutation",
+      "result": "none",
+      "note": "Independent review read the summary and searched stage descriptions; no exact root-system supplier/consumer contract found. Analytic roots of unity, stacks and Witt vectors do not themselves require the finite Dynkin classification.",
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems"
+    },
+    {
+      "roadmapId": "QWittVectors",
+      "result": "none",
+      "note": "Independent review read the summary and searched stage descriptions; no exact root-system supplier/consumer contract found. Analytic roots of unity, stacks and Witt vectors do not themselves require the finite Dynkin classification.",
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems"
+    }
+  ],
+  "coverage": {
+    "roadmapsInAtlas": 212,
+    "otherRoadmapsScreened": 211,
+    "upstreamRoadmapsScreened": 59,
+    "method": "Read every catalogue title and summary; search every complete roadmap document and stage description for object names and synonyms; inspect matching contexts and read both complete stage descriptions for every retained link or overlap. Read RootSystems, ReductiveGroups and QuiverRepresentations documents in full. This is a contract audit, not proof or implementation verification.",
+    "searchFamilies": [
+      "root systems/root data/RootPairing/RootDatum",
+      "Coxeter/Matsumoto/strong exchange",
+      "Dynkin/Cartan matrices/Cartan–Killing/Bourbaki numbering",
+      "Weyl group/longest element",
+      "coroot/simple or positive roots/dominant chambers",
+      "braid/Bruhat",
+      "ADE/root and weight lattices/fundamental weights/reflection groups/IsLongSimpleRoot"
+    ],
+    "keywordCandidatesIncludingTarget": 45,
+    "inputGraph": "1968 stages and 3508 recorded stage edges; no recorded stage edge incident to RootSystems at the audited snapshot. Existing roadmap-level arrows were not mistaken for stage edges.",
+    "noIncomingLink": "No cross-roadmap incoming stage contract was established. Foundational library imports are not converted into speculative roadmap edges; generic weight-lattice ownership is recorded as a rescope request instead.",
+    "additionalRoadmapsScreened": [
+      "MordellLawrenceVenkatesh"
+    ],
+    "otherPacketsChecked": [
+      "tauceti_TauCetiRoadmap_ZigzagPreprojective.json",
+      "tauceti_TauCetiRoadmap_StandardDistributions.json",
+      "tauceti_TauCetiRoadmap_UniversalCovers.json"
+    ],
+    "newLinks": 21,
+    "newOverlaps": 7,
+    "pendingSubmissionChecked": {
+      "pullRequest": 529,
+      "head": "854ab41d74aff64f80a2e67ab260331dafdf805a",
+      "scope": "Read all 18 edge records and the relevant overlaps; exact graph projection included in a supplemental cycle/duplicate check. Not a review or approval of that submission."
+    }
+  },
+  "status": "complete",
+  "alreadyRecorded": [
+    {
+      "packet": "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json",
+      "inputRevision": "1338883fe31f3b357dd91b7d5916e76e3b950c81",
+      "links": [
+        {
+          "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+          "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-0-affine-simply-laced-diagrams-doubled-graphs-relation-quotients-and-grading-descent"
+        }
+      ],
+      "overlapStages": [
+        [
+          "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+          "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+          "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-0-affine-simply-laced-diagrams-doubled-graphs-relation-quotients-and-grading-descent"
+        ]
+      ],
+      "note": "Independently identified in this audit, then omitted from the new-link and overlap arrays because the live Zigzag packet already records the same contract and finite/affine boundary. No change to that worker’s files."
+    },
+    {
+      "packet": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json",
+      "pullRequest": 529,
+      "inputRevision": "854ab41d74aff64f80a2e67ab260331dafdf805a",
+      "packetBlob": "cbe898782abf01ecd30fed0acfed9bc42eb1ee37",
+      "links": [
+        {
+          "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+          "target": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-5-the-fundamental-representations-of-bₗ-and-dₗ"
+        }
+      ],
+      "note": "The shared numbered B/D data contract is omitted here. PR 529 also records the data-only RootSystems6 -> Spin8 contract, explicitly not the missing order-three automorphism theorem. Its Spin/CFSG triality rescope agrees with the expanded RootSystems/CFSG request here; do not open duplicate ownership requests. The PR is submitted, not integrated or independently approved.",
+      "reviewQualification": "Historical note describes the original source-text comparison. Direct checks at the programme library pin now establish the root-data diagram automorphism; see corrected triality overlap and reviewBaseline. Group-side lifting is not established by that fact."
+    },
+    {
+      "packet": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json",
+      "inputRevision": "e1d520110a3a3950d6011b1c762e0161f6f25e9b",
+      "links": [
+        {
+          "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange",
+          "target": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification"
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+          "target": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification"
+        }
+      ],
+      "note": "Independent review found both Gabriel inputs now recorded in this packet. Their mathematics is accepted; remove only the duplicate copies from this packet.",
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems"
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
+    "date": "2026-09-21",
+    "notes": "Codex — codex-c83e7a independently reviewed ChatGPT Pro — cgp-3dc7b31740c5’s packet. Read the complete source README and all 28 distinct endpoint stages, checked all 21 original links and seven overlaps, and verified all 42 original excerpts/locators. Retained their mathematical contracts; removed two duplicate Gabriel arrows already in the current QuiverRepresentations packet. Direct pinned-library checks correct stale construction requests for root/coroot lattice carriers, closed-chamber uniqueness and the D4 diagram lift. The existing group-side and restricted-root comparisons remain obligations. Historical provenance/coverage remains original; reviewSpotCheck and reviewBaseline record this review.",
+    "removed": [
+      {
+        "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange",
+        "target": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification",
+        "reason": "Duplicate of the same positive-root/classification contract in the current QuiverRepresentations packet; mathematically accepted and retained there.",
+        "retainedIn": [
+          "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json"
+        ]
+      },
+      {
+        "source": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+        "target": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification",
+        "reason": "Duplicate of the same positive-root/classification contract in the current QuiverRepresentations packet; mathematically accepted and retained there.",
+        "retainedIn": [
+          "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json"
+        ]
+      }
+    ],
+    "added": []
+  },
+  "reviewSpotCheck": {
+    "inputRevision": "e1d520110a3a3950d6011b1c762e0161f6f25e9b",
+    "roadmaps": 218,
+    "stages": 2007,
+    "layers": [
+      "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange",
+      "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system",
+      "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-3-the-missing-coxeter-combinatorics-root-system-free",
+      "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element",
+      "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+      "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data"
+    ],
+    "method": "Searched all stage titles/descriptions for root systems/data, Coxeter, Matsumoto, exchange, Dynkin, Cartan, Bourbaki, Weyl, coroots, chambers, positive roots, reduced words, braid, Bruhat, ADE, lattice and fundamental weights. Read all six own layers and 22 other original endpoint stages, eleven further candidate stage descriptions and the five new-roadmap summaries. This is a completeness spot check, not a fresh full-document catalogue audit.",
+    "additionalCandidates": [
+      "ReductiveGroups 7",
+      "ReductiveGroupsPartII RG2.1/RG2.2/RG2.4/RG2.5",
+      "GeometricSatakeAndFusion GS4 and GS4:integral-dual-group",
+      "LanglandsParameterStacks LP3",
+      "EndoscopicTransferAndUnitaryTraceComparison ET.3",
+      "MetaplecticAutomorphicForms MP.0",
+      "SpinRepresentations 9"
+    ],
+    "result": "No additional exact independent link established. Relative/multipliable or affine roots, whole reductive-group reconstruction, Coxeter-number bounds and monoidal braidings are not supplied merely by matching finite-root vocabulary. Spin 9 already receives its root-decomposition contract through LieHighestWeight 1. Existing Zigzag and Spin numbered-data links are not duplicated."
+  },
+  "reviewBaseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "reviewedAudit": "data/library-coverage.json has no entries owned by this RootSystems roadmap; no built/absent verdict is inferred from that omission.",
+    "sources": [
+      {
+        "file": "Mathlib/LinearAlgebra/RootSystem/IsValuedIn.lean",
+        "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/IsValuedIn.lean",
+        "sha256": "446a94315e187517a72c3cdd5d56c66091b5a523e8878808e3fac553aec37e1b",
+        "bytes": 15778
+      },
+      {
+        "file": "Mathlib/LinearAlgebra/RootSystem/Base.lean",
+        "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/Base.lean",
+        "sha256": "496902733973c72b49a1fe75cb6b995a4d6a181951dd09c4c597a4c039471292",
+        "bytes": 32861
+      },
+      {
+        "file": "TauCeti/LinearAlgebra/RootSystem/FundamentalDomain.lean",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/FundamentalDomain.lean",
+        "sha256": "a36f5af3959fe3d0b5c7bab4af5db00741c42b2764ae34f8158d3f4d11e92582",
+        "bytes": 12801
+      },
+      {
+        "file": "TauCeti/LinearAlgebra/RootSystem/DiagramPermutations.lean",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/DiagramPermutations.lean",
+        "sha256": "6ca9fb6aaab473c59a0636eed62d7c192356734c333f7fda2d154cd0efea6b08",
+        "bytes": 19900
+      },
+      {
+        "file": "TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/DiagramAutomorphism.lean",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/DiagramAutomorphism.lean",
+        "sha256": "d3ccab3027d8ac00e58f35c6eb93bb92bb56cfe6b94028e0f71234c1ecfe5805",
+        "bytes": 21329
+      },
+      {
+        "file": "TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/Assembly.lean",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/Assembly.lean",
+        "sha256": "c414dd8e9f9b2068d42289c2354eb8f3aa86b3eafd66d8fa39d91c9f1ffee004",
+        "bytes": 25214
+      }
+    ],
+    "declarationsRead": [
+      "RootPairing.rootSpan, corootSpan",
+      "RootPairing.Base.toWeightBasisInt, coe_toWeightBasisInt_apply",
+      "TauCeti.eq_of_mem_orbit_of_mem_dominantChamber, existsUnique_mem_orbit_inter_dominantChamber",
+      "TauCeti.trialityPermD4, orderOf_trialityPermD4, cartanMatrix_D4_trialityPermD4",
+      "TauCeti.DynkinType.diagramAut, diagramAut_weightMap, diagramAut_eq_one_iff, diagramAut_pow_eq_one",
+      "TauCeti.DynkinType.simplyConnectedRootDatum, simplyConnectedBase"
+    ],
+    "limits": "Inspected these declarations and their surrounding variable hypotheses directly. Broader filename/name discovery is not a declaration-level audit; no blanket completion/absence claim or Lean build is made."
+  }
 }
