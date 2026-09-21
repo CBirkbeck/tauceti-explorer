@@ -1153,8 +1153,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_GlobalQuadraticForms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #27"
+   "state": "pending",
+   "note": "partial checkpoint merged by intake; available for continuation"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_GlobalQuadraticForms",
@@ -1255,8 +1255,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_PolynomialGaloisGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #30"
+   "state": "pending",
+   "note": "partial checkpoint merged by intake; available for continuation"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_PolynomialGaloisGroups",
@@ -1322,8 +1322,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_BelyiMaps.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #32"
+   "state": "pending",
+   "note": "partial checkpoint merged by intake; available for continuation"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_BelyiMaps",
@@ -1459,8 +1459,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_Completed_IntegralLattices.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #36"
+   "state": "pending",
+   "note": "partial checkpoint merged by intake; available for continuation"
   },
   {
    "id": "REV-LINK-tauceti_Completed_IntegralLattices",
@@ -1800,8 +1800,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_Exchangeability.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #46"
+   "state": "pending",
+   "note": "partial checkpoint merged by intake; available for continuation"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_Exchangeability",
@@ -2280,8 +2280,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_InductionRestriction.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #60"
+   "state": "pending",
+   "note": "partial checkpoint merged by intake; available for continuation"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_InductionRestriction",
@@ -2592,8 +2592,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_StandardDistributions.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #69"
+   "state": "pending",
+   "note": "partial checkpoint merged by intake; available for continuation"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_StandardDistributions",
@@ -2626,8 +2626,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_UniversalCovers.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #70"
+   "state": "pending",
+   "note": "partial checkpoint merged by intake; available for continuation"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_UniversalCovers",
