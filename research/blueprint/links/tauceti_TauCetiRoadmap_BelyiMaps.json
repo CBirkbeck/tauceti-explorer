@@ -1,0 +1,132 @@
+{
+  "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+  "protocol": "links-v1",
+  "status": "partial",
+  "summary": "Six prerequisite-to-Belyi links checked at dbafc759460581dbd23999a3c112149fedefe2b5: generic cycle partitions and restricted degree-1-through-5 labels; three character-theory interfaces; and the canonical based van Kampen supplier. No outbound link or new overlap is asserted. Existing UniversalCovers links and its associated-cover ownership recommendation are not duplicated. The required catalogue-wide search is unfinished; the handoff contains the all-stage input/output ledger, exact coverage limits, source locators, a counterexample, and the remaining work. No Lean declaration availability or implementation claim is made.",
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-0-permutation-triples",
+      "reason": "Belyi 0.5 consumes the generic fullCycleType of a permutation of a finite type, including fixed points and conjugacy/transport invariance. Reuse PolynomialGaloisGroups 0 rather than a second partition definition. This dependency is the finite permutation API, not the polynomial separability or splitting-field hypotheses of other parts of that supplier stage. Belyi still owns its transposition merge/split lemma and combinatorial Euler-characteristic argument.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial",
+          "quote": "`fullCycleType` is constant on conjugacy classes, and it commutes\n    with transport along an equivalence `α ≃ β`, that is, with `Equiv.permCongrHom`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-0-permutation-triples",
+          "quote": "*Prerequisites:* PolynomialGaloisGroups Layer 0 `fullCycleType`; Mathlib"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-1-passports-blocks-and-finite-label-semantics",
+      "reason": "The conjugacy-invariant referenceSubgroup/TransitiveGroupLabel interface supplies Belyi 1.6 group-label semantics ONLY for the proved reference degrees 1 through 5. The consumer asks for n <= 11, whereas this supplier explicitly limits its theorem-backed table and classification to n <= 5. This edge records the valid restricted dependency, NOT discharge of the whole consumer. Narrow the consumer to 1 <= n <= 5 or request a separately owned, proved degree-6-through-11 label dictionary. Do not use a nonexistent supplier Layer 7.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates",
+          "quote": "These rows specify the proved representatives for degrees at most five."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-1-passports-blocks-and-finite-label-semantics",
+          "quote": "For `n ≤ 11`, interpret the group component of an LMFDB passport label through\nPolynomialGaloisGroups:"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-1-the-group-algebra-its-center-and-structure-constants",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-3-finite-enumeration-and-character-theoretic-counts",
+      "reason": "For a finite group G, CharacterTheory 1 supplies representative-independent class-algebra structure constants. Belyi 3.2(2) converts the z*y*x=1 triple count to |Cinf| times structureConstant C1 C0 (Cinf inverse). Preserve the inverse class and reversed C1,C0 order. This supplies raw class-triple counts, not generation, simultaneous-conjugacy or passport counts; those refinements remain in Belyi 3.3-3.4.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-1-the-group-algebra-its-center-and-structure-constants",
+          "quote": "`aᵢⱼₖ = #{(x,y) : x ∈ Cᵢ, y ∈ Cⱼ, x*y = gₖ}`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-3-finite-enumeration-and-character-theoretic-counts",
+          "quote": "from representative-independence of `structureConstant`."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-3-finite-enumeration-and-character-theoretic-counts",
+      "reason": "Belyi 3.2(3) uses the irreducible-character basis and weighted column orthogonality from CharacterTheory 3 to invert the central-character equations for structure constants. Instantiate the supplier over C for the complex identity with the natural count cast in; retain class-size weights and inverse-class conventions. An executable character-table algorithm is not required for this noncomputable identity.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality",
+          "quote": "`∑ᵢ χᵢ(g_C) χᵢ(g_{C'}⁻¹) = if C = C' then |G|/|C| else 0`."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-3-finite-enumeration-and-character-theoretic-counts",
+          "quote": "orthogonality `char_column_orthogonality`, and the conversion"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-4-the-arithmetic-of-character-values",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-3-finite-enumeration-and-character-theoretic-counts",
+      "reason": "Belyi 3.2(3) needs the algebra-homomorphism centralCharacter and its normalization on class sums from CharacterTheory 4. Specialize to ordinary irreducible complex characters of a finite group, so the division by chi(1) has its nonzero degree hypothesis. Together with class-sum multiplication and column orthogonality this yields the Frobenius product-one formula; Brauer splitting and Burnside applications are not prerequisites for that formula.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-4-the-arithmetic-of-character-values",
+          "quote": "`ωᵪ(Kⱼ) = |Cⱼ| · χ(gⱼ) / χ(1)`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-3-finite-enumeration-and-character-theoretic-counts",
+          "quote": "`ω_χ(K_j) = |C_j| · χ(g_j) / χ(1)` (CharacterTheory Layer 4)."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+      "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group",
+      "reason": "AlgebraicTopology Stage 1 supplies the natural two-open pushout and its based corollary. Belyi 5.5-5.6 needs it for open A,B covering X, with a basepoint in their path-connected intersection; simply connected intersection then reduces the amalgamated product to a free product. Export the canonical map induced by the two inclusions, its bijectivity, and agreement of the resulting equivalence with that map. A bare existence of a group isomorphism is insufficient to compute peripheral generators. The focal text assigns this contract to UniversalCovers, whose document does not supply van Kampen: redirect that request to AlgebraicTopology rather than adding a second generic proof.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+          "quote": "Derive the two-open-set pushout theorem and the based theorem when the two opens and their\n   intersection are path connected and contain the basepoint."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group",
+          "quote": "`vanKampenEquiv.toMonoidHom = vanKampenLift`"
+        }
+      ]
+    }
+  ],
+  "overlaps": [],
+  "examined": [
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+      "result": "links",
+      "note": "Focal document and all fifteen layers read; stage input/output ledger preserved in the handoff. This is not a complete cross-catalogue audit."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+      "result": "links",
+      "note": "Read roadmap material and atlas stages, especially generic permutation API in Layer 0 and the full Layer 6 reference-label/classification contract. Added two inbound edges; the degree-6-through-11 label obligation remains unsupported by this supplier. No library baseline audit."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+      "result": "links",
+      "note": "Read the upstream conventions and relevant group-algebra/character-theory layers plus their atlas descriptions. Added separate Layer 1, 3 and 4 interfaces to Belyi 3.2. The general-field theory is specialized to C; no baseline declaration existence claims."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+      "result": "links",
+      "note": "Read the roadmap and its Stage 1 groupoid/pushout contract. Canonical based van Kampen is the matching supplier, with explicit inclusion-map compatibility requested in the handoff; other topology stages have not been exhaustively matched."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+      "result": "none",
+      "note": "Read covering-space roadmap and existing link packet. It already records the Belyi covering/classification links and generic associated-cover ownership overlap, so no duplicate is added. It does not supply the focal canonical van Kampen request. Result none means no additional edge in this packet, not no relationship."
+    }
+  ]
+}
