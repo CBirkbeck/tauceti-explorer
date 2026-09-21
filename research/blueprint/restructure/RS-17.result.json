@@ -1,0 +1,2200 @@
+{
+  "family": "RS-17",
+  "roadmaps": {
+    "DeligneWeightsAndPurity": {
+      "action": "keep",
+      "reason": "Canonical independent Weil I proof and later Weil II weights/absolute hard Lefschetz, consuming geometric suppliers rather than reconstructing them. Not a continuation of a single earlier roadmap."
+    },
+    "LefschetzPencilsAndVanishingCycles": {
+      "action": "keep",
+      "reason": "Canonical trait cycles and pencil geometry; the early geometric spine, semistable-curve branch and later invariant-cycle branch remain explicitly separate. No merge with the purity consumer."
+    },
+    "WeightsInEtaleCohomology": {
+      "action": "extend",
+      "extends": "DeligneWeightsAndPurity",
+      "title": "Deligne weights, purity and the Weil bounds, Part II: Arithmetic cohomology and eigenform applications",
+      "reason": "First roadmap prerequisite must be DeligneWeightsAndPurity. Its generic weight/Hecke-subquotient exports end where actual arithmetic coefficient, projector, degree and local-comparison verification begins here. Preserve R34.1–4 as supplier-indexed adapter prefixes, available from the stated early DWP/LPV exports; the Part II label imposes no full-Weil-II prerequisite on the Faltings or semistable-curve lanes. The introduction must state this boundary and the first prerequisite explicitly."
+    },
+    "WeilConjectures": {
+      "action": "keep",
+      "reason": "Complementary cohomological zeta assembly, factor descent, functional equation, all-power tests and independent surface comparison. Its rationality/functional-equation prefix precedes general purity, so making the whole roadmap a sequel to DWP would reverse that dependency. PR196 remains the unchanged owner of zeta/trace objects; it is a named external supplier, not an invented atlas roadmap."
+    }
+  },
+  "layers": {
+    "DeligneWeightsAndPurity:DWP.0": {
+      "action": "keep",
+      "reason": "Retain the complete existing target, hypotheses, acceptance tests, source/proof gaps and stable identifiers; shared results are imported through the explicit owner links."
+    },
+    "DeligneWeightsAndPurity:DWP.1": {
+      "action": "narrow",
+      "keeps": "The independent curve/abelian Weil estimate: apply the imported polarization, Rosati positivity and Tate/H1 realization to Frobenius–Verschiebung, prove all-conjugates sqrt(q) bounds and all-power curve counts with component permutations. Prove compatibility with the genus-one Hasse theorem, not a second Hasse proof. Retain Tate-versus-dual conventions, no Tate-isogeny shortcut and no DWP.4 dependency.",
+      "suppliedBy": [
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "UPSTREAM:CohomologicalPointCounting:TraceFormula:8",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+        "ArithmeticGaloisRepresentations:R01.6"
+      ],
+      "reason": "Abelian/Picard infrastructure, finite-level Jacobian comparison and the elliptic special case already have owners."
+    },
+    "DeligneWeightsAndPurity:DWP.10": {
+      "action": "narrow",
+      "keeps": "Generic weight transport to actual Hecke-stable subquotients, tensor/dual/coefficient operations and source-qualified semistable weighted applications; require a supplied compatible realization before any ell-independence assertion. Import numeric point-count inequalities and canonical zeta-factor descent, not another proof. Retain the weight-facing acceptance suite (Tate, quadratic conjugates, Jordan block, G_m ordinary/compact supports, nodes, curves/Jacobians, projective space and nonprojective proper input).",
+      "suppliedBy": [
+        "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+        "WeilConjectures:WC.5",
+        "WeilConjectures:WC.3"
+      ],
+      "reason": "Point-count inequalities belong to WC.5; generic weight transport does not construct the arithmetic projectors that R34.5–6 must verify."
+    },
+    "DeligneWeightsAndPurity:DWP.2": {
+      "action": "narrow",
+      "keeps": "Weil I 3.2 with its fixed Q_l model, nonzero alternating sheaf, OPEN symplectic geometric monodromy and rational local factors; pair-contraction coinvariants over Q_l by a proved characteristic-zero/descent bridge from the complex invariant-theory supplier, not a scalar-extension assertion about openness. Retain positive local coefficients, coefficientwise formal-power-series radius/pole lemmas 3.3–3.6, H2_c specialization, limits and coarse 3.8–3.9 estimates. Import existing sheaf L-functions, smooth duality, complex Brauer/Sp invariant theory and any genuinely applicable Dirichlet Landau theorem; establish every comparison hypothesis.",
+      "suppliedBy": [
+        "UPSTREAM:CohomologicalPointCounting:TraceFormula:14",
+        "EtaleDualityAndPerverseSheaves:EDC.2",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-9-schur-weyl-duality-for-the-orthogonal-and-symplectic-groups-the-brauer-algebra",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity"
+      ],
+      "reason": "ADS.8 is a Dirichlet-series theorem, not the power-series radius lemma; SW.9 is complex, not automatically Q_l. These scope bridges remain new work here."
+    },
+    "DeligneWeightsAndPurity:DWP.3": {
+      "action": "narrow",
+      "keeps": "Weil I 6.2 rationality of pencil local factors: instantiate the actual radical quotient and open Q_l monodromy; handle zero quotient, constant terms, finite eigenvalue families, powers and multiplicities without assuming RH. Import finite-cover function-field Chebotarev with its constant-field degree congruences; prove the additional compact l-adic/Haar-null exceptional-locus bridge needed by the rationality argument.",
+      "suppliedBy": [
+        "LefschetzPencilsAndVanishingCycles:LPV.3",
+        "LefschetzPencilsAndVanishingCycles:LPV.4",
+        "LefschetzPencilsAndVanishingCycles:LPV.5",
+        "FunctionFieldArithmetic:FA.5"
+      ],
+      "reason": "LPV owns the geometric objects/monodromy; FA.5 owns finite-cover Chebotarev. Topological density alone does not supply the exceptional-set density-zero step."
+    },
+    "DeligneWeightsAndPurity:DWP.4": {
+      "action": "narrow",
+      "keeps": "Weil I 7.1 half-unit induction and its three Leray terms, radicals/zero vanishing cycles, Kunneth tensor-power amplification with error 1/(2k), all-conjugates limit, weak-Lefschetz propagation and component/base-field bookkeeping. Import finite-extension pencil construction/descent and the actual blowup/Leray comparisons. Export smooth-PROJECTIVE 1.7 independently of DWP.7–9 and EDC.7.",
+      "suppliedBy": [
+        "LefschetzPencilsAndVanishingCycles:LPV.3",
+        "LefschetzPencilsAndVanishingCycles:LPV.4",
+        "EtaleDualityAndPerverseSheaves:EDC.4"
+      ],
+      "reason": "Geometry is supplied early; weight induction is not a second construction of the pencil. Integral degree factors and ell-independence remain WC.3."
+    },
+    "DeligneWeightsAndPurity:DWP.5": {
+      "action": "narrow",
+      "keeps": "Weil/etale sheaf pure and mixed predicates, finite filtrations, real iota-weights modulo Z, rank-one real-weight twists distinct from Tate twists, local equal-characteristic curve monodromy-weight theorem and j_* boundary estimates. Import weight-number linear algebra and the geometric N/monodromy filtration. Retain generalized majoration, its source-qualified Hadamard–de la Vallee-Poussin analytic step, strict H1 improvement and integer-weight rounding; import only ADS.8.2's exact finite 3-4-1 positivity input.",
+      "suppliedBy": [
+        "DeligneWeightsAndPurity:DWP.0",
+        "LefschetzPencilsAndVanishingCycles:LPV.1",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity"
+      ],
+      "reason": "The filtration itself is not re-proved here; neither arithmetic quasi-unipotence nor an abstract positivity lemma proves local weights or Rf! bounds."
+    },
+    "DeligneWeightsAndPurity:DWP.6": {
+      "action": "keep",
+      "reason": "Retain the complete existing target, hypotheses, acceptance tests, source/proof gaps and stable identifiers; shared results are imported through the explicit owner links."
+    },
+    "DeligneWeightsAndPurity:DWP.7": {
+      "action": "narrow",
+      "keeps": "Weil II 3.3.1 devissages and finite-type-over-Z source scope (ell invertible and required f! hypotheses), including its finite-field/Weil-sheaf and real-iota-weight variants; Hc upper, smooth-lisse H lower, pure image Hc→H, smooth proper nonprojective purity, separately sourced integrality lower bounds and valuation triangles. Import the early sheaf definitions and curve purity. Preserve 3.3.11's exact dualizing-object hypothesis and all source gaps; 3.3.9's integral/ell-independent factor argument imports WC.3's algebraic lemma, not WC.6.",
+      "suppliedBy": [
+        "DeligneWeightsAndPurity:DWP.5",
+        "DeligneWeightsAndPurity:DWP.6",
+        "EtaleDualityAndPerverseSheaves:EDC.1",
+        "EtaleDualityAndPerverseSheaves:EDC.2",
+        "WeilConjectures:WC.3"
+      ],
+      "reason": "The existing DWP.7 definitions node is early DWP.5 material; its source scope must survive relocation. Smooth proper is stronger than the projective DWP.4 export."
+    },
+    "DeligneWeightsAndPurity:DWP.8": {
+      "action": "keep",
+      "reason": "Retain the complete existing target, hypotheses, acceptance tests, source/proof gaps and stable identifiers; shared results are imported through the explicit owner links."
+    },
+    "DeligneWeightsAndPurity:DWP.9": {
+      "action": "narrow",
+      "keeps": "Absolute hard Lefschetz for actual cup product with an ample class, primitive decomposition and pairings, odd Betti parity, spreading-out and the 6.2.13 potentially-pure complex extension with both support inequalities. Import 6.2.8–6.2.12 and early cycle/weak-Lefschetz constructions; retain all source-specific model/coefficient hypotheses. Do not assume EDC.7, arithmetic Frobenius semisimplicity or standard conjectures.",
+      "suppliedBy": [
+        "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+        "EtaleDualityAndPerverseSheaves:EDC.3",
+        "EtaleDualityAndPerverseSheaves:EDC.4"
+      ],
+      "reason": "Late invariant cycles supply absolute HL; EDC.7 then consumes it for relative HL. Reversing that arrow is circular."
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.0": {
+      "action": "keep",
+      "reason": "Retain the complete existing target, hypotheses, acceptance tests, source/proof gaps and stable identifiers; shared results are imported through the explicit owner links."
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.1": {
+      "action": "narrow",
+      "keeps": "Trait-geometric variation/can-var, tame inertia on actual nearby cycles, finite logarithm and exp(tN), geometric quasi-unipotence with precise geometric hypotheses, independence/comparison of N and its canonical monodromy filtration. Import the common tame-character/arithmetic Weil–Deligne carrier and its finite-residue-field representation theorem only where applicable; convert arithmetic versus geometric Frobenius explicitly.",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "reason": "R01.2's arithmetic theorem is not quasi-unipotence of every representation over an algebraically closed residue field. The geometric theorem and filtration stay here."
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.2": {
+      "action": "keep",
+      "reason": "Retain the complete existing target, hypotheses, acceptance tests, source/proof gaps and stable identifiers; shared results are imported through the explicit owner links."
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.3": {
+      "action": "keep",
+      "reason": "Retain the complete existing target, hypotheses, acceptance tests, source/proof gaps and stable identifiers; shared results are imported through the explicit owner links."
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.4": {
+      "action": "narrow",
+      "keeps": "Actual pencil R^n f_* local systems, transport of vanishing cycles, E and E-perp, radicals and induced nondegenerate quotient, local invariant calculation, constant nonmiddle terms and delta=0 skyscraper, and the pencil-specific Leray/restriction/Gysin comparison maps. Import general projective-bundle and smooth-center blowup formulas with their twists.",
+      "suppliedBy": [
+        "EtaleDualityAndPerverseSheaves:EDC.4"
+      ],
+      "reason": "General blowup theory is EDC.4; neither global invariants nor direct-sum nondegeneracy are available from local transvections alone."
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.5": {
+      "action": "keep",
+      "reason": "Retain the complete existing target, hypotheses, acceptance tests, source/proof gaps and stable identifiers; shared results are imported through the explicit owner links."
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.6": {
+      "action": "narrow",
+      "keeps": "Nearby/vanishing-cycle t-exactness with exact fibre-versus-total-space shifts, its duality/coefficient compatibilities, and the source-qualified filtered-colimit stalk/costalk support criterion needed by IG.4. Import the early constructible perverse category, intermediate extension and admissible comparison operations; retain proof of the nonconstructible extension rather than declaring all Ind-objects constructible.",
+      "suppliedBy": [
+        "EtaleDualityAndPerverseSheaves:EDC.5",
+        "EtaleDualityAndPerverseSheaves:EDC.6"
+      ],
+      "reason": "EDC.5 constructs the category; LPV.6 proves the cycle/support extension; IG.4 retains the geometric boundary, dimension and localization application."
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.7": {
+      "action": "narrow",
+      "keeps": "Stable aggregate/navigation contract with distinct early semistable and late invariant-cycle exports, including every old comparison target and acceptance test. It owns no second proof of either child. Consumers asking only for curve monodromy import the early child, never the whole late aggregate.",
+      "suppliedBy": [
+        "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+        "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles"
+      ],
+      "reason": "The two existing substage IDs are the actual owners. R34.3 and modular/p-adic consumers must not acquire DWP.7–9 accidentally."
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles": {
+      "action": "keep",
+      "reason": "Retain the complete existing target, hypotheses, acceptance tests, source/proof gaps and stable identifiers; shared results are imported through the explicit owner links."
+    },
+    "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves": {
+      "action": "narrow",
+      "keeps": "Nearby cycles for proper strictly semistable curves: normalization/node cohomology, graph contribution, actual N and pairing, component-Jacobian/Tate comparisons and independence/compatibilities. Import the geometric nodal charts, normalization/conductor and graph from StableReduction. Import Neron generalized-Jacobian character/monodromy pairing and prove agreement with the cycle calculation. Retain explicitly sourced higher-dimensional SNC nearby-cycle/spectral-sequence extension, without asserting universal semistable reduction or degeneration.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "NeronModelsAndSemistableAbelianVarieties:R11.4"
+      ],
+      "reason": "The geometry and Jacobian degeneration API are not reconstructed. R13.6 supplies a particular model on application, not a prerequisite for the generic LPV proof."
+    },
+    "WeightsInEtaleCohomology:R34.1": {
+      "action": "narrow",
+      "keeps": "Arithmetic/geometric Frobenius, dual/Tate/embedding normalization and representation-to-sheaf adapters using the imported definitions. Early numerical API uses DWP.0 alone; the sheaf extension uses DWP.5 and the mixed-COMPLEX suffix uses DWP.8 only. Retain uniqueness, all-embeddings versus chosen-embedding tests and comparison obligations.",
+      "suppliedBy": [
+        "DeligneWeightsAndPurity:DWP.0",
+        "DeligneWeightsAndPurity:DWP.5",
+        "DeligneWeightsAndPurity:DWP.8"
+      ],
+      "reason": "No second Weil-number or mixed-sheaf carrier. Phase-scoped links do not force late DWP.8 onto early numerical clients."
+    },
+    "WeightsInEtaleCohomology:R34.2": {
+      "action": "narrow",
+      "keeps": "Finite-field curve/abelian weight adapter for arithmetic Tate modules: verify good-reduction/Frobenius conventions, H1 versus Tate dual, all-power bounds and genus-one agreement. Export this early result to Faltings without full Weil II/decomposition.",
+      "suppliedBy": [
+        "DeligneWeightsAndPurity:DWP.1",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
+      ],
+      "reason": "Use the independent DWP.1 proof and unchanged elliptic Hasse owner."
+    },
+    "WeightsInEtaleCohomology:R34.3": {
+      "action": "narrow",
+      "keeps": "Arithmetic degeneration adapter: identify each actual model/trait, specialization and inertia maps, twists and N, and apply the semistable-curve/SNC theorem only with its source hypotheses. Preserve interfaces to modular-curve bad fibres, p-adic geometric comparison and polarized local–global applications; distinguish mixed-characteristic comparisons from the generic trait theorem.",
+      "suppliedBy": [
+        "LefschetzPencilsAndVanishingCycles:LPV.0",
+        "LefschetzPencilsAndVanishingCycles:LPV.1",
+        "LefschetzPencilsAndVanishingCycles:LPV.2",
+        "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves"
+      ],
+      "reason": "The generic cycles and local calculations belong to LPV. No LPV.7:invariant-cycles, DWP.9 or general weight–monodromy theorem is an implicit prerequisite."
+    },
+    "WeightsInEtaleCohomology:R34.4": {
+      "action": "narrow",
+      "keeps": "Pencil hypothesis and normalization adapter for subsequent arithmetic cohomology: verify geometric/base-field descent, actual radical quotient, dimension parity and characteristic-2 restrictions, zero quotient and open monodromy over the original Q_l model.",
+      "suppliedBy": [
+        "LefschetzPencilsAndVanishingCycles:LPV.3",
+        "LefschetzPencilsAndVanishingCycles:LPV.4",
+        "LefschetzPencilsAndVanishingCycles:LPV.5",
+        "EtaleDualityAndPerverseSheaves:EDC.4"
+      ],
+      "reason": "Import pencil construction and monodromy; do not prove another Bertini, blowup or Lie-algebra theorem."
+    },
+    "WeightsInEtaleCohomology:R34.5": {
+      "action": "narrow",
+      "keeps": "Actual arithmetic realization of the imported Weil I/II and absolute-HL results: identify Kuga–Sato or weight-two Jacobian cohomology, cohomological degree, algebraic correspondence/projector, coefficient field, twist/parity and Hecke/Galois actions; prove preservation of the supplied purity hypotheses. Retain its existing source records as import/proof references, not competing proofs of DWP.7–8. EDC.7 may be used only in a separately hypothesis-checked late application, never in the early proof spine.",
+      "suppliedBy": [
+        "DeligneWeightsAndPurity:DWP.2",
+        "DeligneWeightsAndPurity:DWP.3",
+        "DeligneWeightsAndPurity:DWP.4",
+        "DeligneWeightsAndPurity:DWP.5",
+        "DeligneWeightsAndPurity:DWP.6",
+        "DeligneWeightsAndPurity:DWP.7",
+        "DeligneWeightsAndPurity:DWP.8",
+        "DeligneWeightsAndPurity:DWP.9",
+        "DeligneWeightsAndPurity:DWP.0"
+      ],
+      "reason": "Generic weights are DWP; genuine arithmetic realization work prevents retirement of this roadmap."
+    },
+    "WeightsInEtaleCohomology:R34.6": {
+      "action": "narrow",
+      "keeps": "Eigenform/local-global export with the actual eigensummand/projector and all good-prime/ramification/coefficient hypotheses checked. Apply generic subquotient weight transport; prove a compatible family/comparison separately before ell-independent conclusions and keep local weight–monodromy restricted to the proved theorem range.",
+      "suppliedBy": [
+        "DeligneWeightsAndPurity:DWP.10",
+        "WeightsInEtaleCohomology:R34.5"
+      ],
+      "reason": "DWP.10 supplies generic transport, not arithmetic realization or an unrestricted monodromy-purity theorem."
+    },
+    "WeilConjectures:WC.0": {
+      "action": "narrow",
+      "keeps": "Source/private-project audit and adapters identifying the actual finite rational-point/closed-point tower and continuous geometric Frobenius on the imported realization. Retain field-extension and convention tests and private-project gap ledger.",
+      "suppliedBy": [
+        "UPSTREAM:CohomologicalPointCounting:FrobeniusGeometry",
+        "UPSTREAM:CohomologicalPointCounting:EllAdicRealization"
+      ],
+      "reason": "PR196 owns the underlying point/Frobenius and realization carriers; the stage is not only process bookkeeping."
+    },
+    "WeilConjectures:WC.1": {
+      "action": "narrow",
+      "keeps": "Identify the already-defined point-count zeta, closed-point Euler product and cohomological determinant formula with the WC notation; retain explicit N_r=sum_{m|r} m a_m/Mobius inverse, operator/coefficients/compact-support conventions and the missing rational descent over Q plus integral formal-series compatibility. Reuse PR196 Layer 13's orbit combinatorics rather than a second zeta object.",
+      "suppliedBy": [
+        "UPSTREAM:CohomologicalPointCounting:TraceFormula"
+      ],
+      "reason": "PR196 owns general zeta/trace rationality; the exact rational-to-integral descent API and arithmetic comparison still need proof."
+    },
+    "WeilConjectures:WC.2": {
+      "action": "narrow",
+      "keeps": "Assemble the signed zeta functional equation from the actual graded Poincare/Frobenius pairing. Retain the middle determinant, Delta^2=q^(d chi), parity, integral/rational descent and justification before writing fractional powers of q, including ell=2 and dimension-zero tests. Import generic reciprocal-spectrum algebra and the geometric determinant relation.",
+      "suppliedBy": [
+        "DeligneWeightsAndPurity:DWP.0",
+        "EtaleDualityAndPerverseSheaves:EDC.8",
+        "EtaleDualityAndPerverseSheaves:EDC.2"
+      ],
+      "reason": "An unspecified sign or RH/semisimplicity assumption cannot replace this assembly."
+    },
+    "WeilConjectures:WC.3": {
+      "action": "narrow",
+      "keeps": "Weil I 1.7→1.6: from all-conjugates smooth-projective purity derive separation of factors by weight, Galois stability, multiplicities, rational/integral Pi in Z[T] and ell-independence from the common rational zeta function. Export the algebraic separation/descent lemma for any supplied degreewise pure realization, including later proper and crystalline applications.",
+      "suppliedBy": [
+        "DeligneWeightsAndPurity:DWP.4",
+        "DeligneWeightsAndPurity:DWP.0"
+      ],
+      "reason": "DWP.4 proves RH; this stage owns extraction of individual factors, not another RH proof."
+    },
+    "WeilConjectures:WC.4": {
+      "action": "narrow",
+      "keeps": "Betti-number comparison through a supplied smooth proper connected family with the required finite-field and complex fibres, chosen transport and independence of its numerical result. Import Artin comparison and smooth-proper base change, prove their composition fits the supplied family; never assert every variety lifts.",
+      "suppliedBy": [
+        "UPSTREAM:CohomologicalPointCounting:ComplexComparison",
+        "UPSTREAM:CohomologicalPointCounting:EtaleBaseChange"
+      ],
+      "reason": "The generic comparison theorem is upstream; the valid-family verification remains here."
+    },
+    "WeilConjectures:WC.5": {
+      "action": "narrow",
+      "keeps": "All-power higher-dimensional point-count error estimates and recurrence recovery from canonical Pi, with geometric connectedness/component permutations, dimension-zero cases and explicit Betti constants. Import the already-proved curve/Jacobian and elliptic bounds as compatibility cases and the independent power-sum converse; retain every numerical test.",
+      "suppliedBy": [
+        "DeligneWeightsAndPurity:DWP.1",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+        "WeilConjectures:WC.5:power-sum-converse"
+      ],
+      "reason": "One curve estimate owner, with a separately retained surface proof route. Point-count inequalities are canonical here rather than DWP.10."
+    },
+    "WeilConjectures:WC.5:power-sum-converse": {
+      "action": "keep",
+      "reason": "Retain the complete existing target, hypotheses, acceptance tests, source/proof gaps and stable identifiers; shared results are imported through the explicit owner links."
+    },
+    "WeilConjectures:WC.5:surface-alternative": {
+      "action": "narrow",
+      "keeps": "Independent surface-route comparison for smooth projective curves: apply SF.5's Hodge-index/Riemann–Roch/adjunction and graph–diagonal computations to all Frobenius powers, feed the resulting bound to the independent power-sum converse, and identify the resulting zeta numerator/functional equation with WC.1–2. Preserve the independent proof and its tests; do not require DWP.1, DWP.4 or WC.3/5 to establish it.",
+      "suppliedBy": [
+        "SchemeAndStackFoundations:SF.5",
+        "WeilConjectures:WC.5:power-sum-converse",
+        "WeilConjectures:WC.1",
+        "WeilConjectures:WC.2"
+      ],
+      "reason": "SF.5 owns the surface intersection argument; this child owns its zeta/spectral comparison and does not replace the early Rosati route."
+    },
+    "WeilConjectures:WC.6": {
+      "action": "narrow",
+      "keeps": "Assembly for smooth proper nonprojective and mixed/compact-support zeta inputs, using the precise DWP.7 scope; retain agreement of integral degree factors from the generic WC.3 extraction lemma. Import RD.7's rational rigid–crystalline/ell-adic Frobenius comparison, checking q=p^f iteration, not a characteristic-zero de Rham comparison. Preserve its global L-function limitations and valuation tests.",
+      "suppliedBy": [
+        "DeligneWeightsAndPurity:DWP.7",
+        "WeilConjectures:WC.3",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.7"
+      ],
+      "reason": "DWP owns weights, WC.3 factor extraction, RD.7 finite-field crystalline comparison; WC.6 owns their hypothesis-checked combination."
+    },
+    "WeilConjectures:WC.7": {
+      "action": "narrow",
+      "keeps": "Zeta-facing worked realizations: projective space, finite etale permutation factors, curves/elliptic curves/products, Kunneth, signed functional equations, negative Euler characteristic and all-power recurrence/pole tests. Reuse PR196 cohomology/point-count examples and DWP.10's weight-side Jordan/Tate/nonprojective tests through explicit agreement, while retaining distinct zeta and weight assertions.",
+      "suppliedBy": [
+        "DeligneWeightsAndPurity:DWP.10",
+        "UPSTREAM:CohomologicalPointCounting:TraceFormula"
+      ],
+      "reason": "An example shared by two APIs remains a comparison test, not a duplicated construction or a deleted acceptance criterion."
+    }
+  },
+  "links": [
+    {
+      "source": "AbelianSchemesAndArithmeticModuli:A2",
+      "target": "DeligneWeightsAndPurity:DWP.1",
+      "reason": "Canonical supplier for the narrowed DWP.1 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Relative dual/Picard/polarization construction and evaluation pairings. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "AbelianSchemesAndArithmeticModuli:A2",
+      "target": "DeligneWeightsAndPurity:DWP.3",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.1; DeligneWeightsAndPurity:DWP.1 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "AbelianSchemesAndArithmeticModuli:A2",
+      "target": "FunctionFieldArithmetic:FA.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.1; DeligneWeightsAndPurity:DWP.1 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "AbelianSchemesAndArithmeticModuli:A2",
+      "target": "WeightsInEtaleCohomology:R34.2",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.1; DeligneWeightsAndPurity:DWP.1 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "AbelianSchemesAndArithmeticModuli:A6",
+      "target": "DeligneWeightsAndPurity:DWP.1",
+      "reason": "Canonical supplier for the narrowed DWP.1 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Rosati positivity and polarized-isogeny degree formulas. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "AbelianSchemesAndArithmeticModuli:A6",
+      "target": "DeligneWeightsAndPurity:DWP.3",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.1; DeligneWeightsAndPurity:DWP.1 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "AbelianSchemesAndArithmeticModuli:A6",
+      "target": "FunctionFieldArithmetic:FA.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.1; DeligneWeightsAndPurity:DWP.1 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "AbelianSchemesAndArithmeticModuli:A6",
+      "target": "WeightsInEtaleCohomology:R34.2",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.1; DeligneWeightsAndPurity:DWP.1 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.2",
+      "target": "ClassicalAdicEtaleCohomology:H1",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.1; LefschetzPencilsAndVanishingCycles:LPV.1 retains its own application/adapter and original edge. Only common tame-character/Weil–Deligne arithmetic data in its local-field scope; LPV supplies geometric quasi-unipotence and N."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.2",
+      "target": "DeligneWeightsAndPurity:DWP.4",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.1; LefschetzPencilsAndVanishingCycles:LPV.1 retains its own application/adapter and original edge. Only common tame-character/Weil–Deligne arithmetic data in its local-field scope; LPV supplies geometric quasi-unipotence and N."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.2",
+      "target": "DeligneWeightsAndPurity:DWP.5",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.1; LefschetzPencilsAndVanishingCycles:LPV.1 retains its own application/adapter and original edge. Only common tame-character/Weil–Deligne arithmetic data in its local-field scope; LPV supplies geometric quasi-unipotence and N."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.2",
+      "target": "DeligneWeightsAndPurity:DWP.6",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.1; LefschetzPencilsAndVanishingCycles:LPV.1 retains its own application/adapter and original edge. Only common tame-character/Weil–Deligne arithmetic data in its local-field scope; LPV supplies geometric quasi-unipotence and N."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.2",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.1",
+      "reason": "Canonical supplier for the narrowed LPV.1 interface. Only common tame-character/Weil–Deligne arithmetic data in its local-field scope; LPV supplies geometric quasi-unipotence and N. One-owner handoff: Arithmetic tame-character/Weil–Deligne carrier and arithmetic quasi-unipotence under its local-field hypotheses. Only common tame-character/Weil–Deligne arithmetic data in its local-field scope; LPV supplies geometric quasi-unipotence and N."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.2",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.2",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.1; LefschetzPencilsAndVanishingCycles:LPV.1 retains its own application/adapter and original edge. Only common tame-character/Weil–Deligne arithmetic data in its local-field scope; LPV supplies geometric quasi-unipotence and N."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.2",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.6",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.1; LefschetzPencilsAndVanishingCycles:LPV.1 retains its own application/adapter and original edge. Only common tame-character/Weil–Deligne arithmetic data in its local-field scope; LPV supplies geometric quasi-unipotence and N."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.2",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.1; LefschetzPencilsAndVanishingCycles:LPV.1 retains its own application/adapter and original edge. Only common tame-character/Weil–Deligne arithmetic data in its local-field scope; LPV supplies geometric quasi-unipotence and N."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.2",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.1; LefschetzPencilsAndVanishingCycles:LPV.1 retains its own application/adapter and original edge. Only common tame-character/Weil–Deligne arithmetic data in its local-field scope; LPV supplies geometric quasi-unipotence and N."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.2",
+      "target": "WeightsInEtaleCohomology:R34.3",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.1; LefschetzPencilsAndVanishingCycles:LPV.1 retains its own application/adapter and original edge. Only common tame-character/Weil–Deligne arithmetic data in its local-field scope; LPV supplies geometric quasi-unipotence and N."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.6",
+      "target": "DeligneWeightsAndPurity:DWP.1",
+      "reason": "Canonical supplier for the narrowed DWP.1 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Arithmetic Galois/Tate-module convention, continuity and good-reduction comparison beyond the shared finite-level geometric construction. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.6",
+      "target": "DeligneWeightsAndPurity:DWP.3",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.1; DeligneWeightsAndPurity:DWP.1 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.6",
+      "target": "FunctionFieldArithmetic:FA.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.1; DeligneWeightsAndPurity:DWP.1 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.6",
+      "target": "WeightsInEtaleCohomology:R34.2",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.1; DeligneWeightsAndPurity:DWP.1 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions. One-owner handoff: Arithmetic Galois/Tate-module convention, continuity and good-reduction comparison beyond the shared finite-level geometric construction. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.0",
+      "target": "AutomorphicGaloisRepresentations:R19.1",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.0",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.0",
+      "target": "DeligneWeightsAndPurity:DWP.5",
+      "reason": "Canonical supplier for the narrowed DWP.5 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Weil-number/iota-weight definitions and Frobenius-equivariant reciprocal-spectrum linear algebra (no eigenbasis or arithmetic semisimplicity). Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.0",
+      "target": "DeligneWeightsAndPurity:DWP.6",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.5; DeligneWeightsAndPurity:DWP.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.0",
+      "target": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.2; WeilConjectures:WC.2 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.0",
+      "target": "FiniteFieldsAndCharacterSums:FF.2",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.3; WeilConjectures:WC.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.0",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.4",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.0",
+      "target": "WeightsInEtaleCohomology:R34.1",
+      "reason": "Canonical supplier for the narrowed R34.1 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Weil-number/iota-weight definitions and Frobenius-equivariant reciprocal-spectrum linear algebra (no eigenbasis or arithmetic semisimplicity). Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.0",
+      "target": "WeightsInEtaleCohomology:R34.5",
+      "reason": "Canonical supplier for the narrowed R34.5 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Weil-number/iota-weight definitions and Frobenius-equivariant reciprocal-spectrum linear algebra (no eigenbasis or arithmetic semisimplicity). Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.0",
+      "target": "WeightsInEtaleCohomology:R34.6",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.0",
+      "target": "WeilConjectures:WC.2",
+      "reason": "Canonical supplier for the narrowed WC.2 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Weil-number/iota-weight definitions and Frobenius-equivariant reciprocal-spectrum linear algebra (no eigenbasis or arithmetic semisimplicity). Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.0",
+      "target": "WeilConjectures:WC.3",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.2; WeilConjectures:WC.2 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions. Canonical supplier for the narrowed WC.3 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.0",
+      "target": "WeilConjectures:WC.4",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.3; WeilConjectures:WC.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.0",
+      "target": "WeilConjectures:WC.5",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.3; WeilConjectures:WC.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.0",
+      "target": "WeilConjectures:WC.5:surface-alternative",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.2; WeilConjectures:WC.2 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.0",
+      "target": "WeilConjectures:WC.6",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.3; WeilConjectures:WC.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.1",
+      "target": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.2; WeightsInEtaleCohomology:R34.2 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.1",
+      "target": "FunctionFieldArithmetic:FA.5",
+      "reason": "Independent curve Weil bound for cover counting; this remains before DWP.3's rationality argument."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.1",
+      "target": "WeightsInEtaleCohomology:R34.2",
+      "reason": "Canonical supplier for the narrowed R34.2 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Curve and abelian all-conjugates Weil estimate and all-power curve point-bound contract; the surface child retains an independent proof comparison, not an import of this proof. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.1",
+      "target": "WeilConjectures:WC.5",
+      "reason": "Canonical supplier for the narrowed WC.5 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Curve and abelian all-conjugates Weil estimate and all-power curve point-bound contract; the surface child retains an independent proof comparison, not an import of this proof. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.1",
+      "target": "WeilConjectures:WC.7",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.5; WeilConjectures:WC.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.10",
+      "target": "WeightsInEtaleCohomology:R34.6",
+      "reason": "Canonical supplier for the narrowed R34.6 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Generic Hecke-stable subquotient weight transport and source-qualified arithmetic weight export contract; actual eigenform realization is R34.5–6. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.10",
+      "target": "WeilConjectures:WC.7",
+      "reason": "Canonical supplier for the narrowed WC.7 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. Reuse the weight-facing acceptance constructions and keep distinct zeta-facing assertions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.2",
+      "target": "AutomorphicGaloisRepresentations:R19.1",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.2",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.2",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.4",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.2",
+      "target": "WeightsInEtaleCohomology:R34.5",
+      "reason": "Canonical supplier for the narrowed R34.5 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Weil I fundamental estimate, positive-power-series lemmas and coarse curve cohomology bounds with their exact Q_l/open-image/rational-factor hypotheses. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.2",
+      "target": "WeightsInEtaleCohomology:R34.6",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.3",
+      "target": "AutomorphicGaloisRepresentations:R19.1",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.3",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.3",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.4",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.3",
+      "target": "WeightsInEtaleCohomology:R34.5",
+      "reason": "Canonical supplier for the narrowed R34.5 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Weil I 6.2 pencil local-factor rationality, using the geometric quotient and finite-cover Chebotarev. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.3",
+      "target": "WeightsInEtaleCohomology:R34.6",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.4",
+      "target": "AutomorphicGaloisRepresentations:R19.1",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.4",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.4",
+      "target": "FiniteFieldsAndCharacterSums:FF.2",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.3; WeilConjectures:WC.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.4",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.4",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.4",
+      "target": "WeightsInEtaleCohomology:R34.5",
+      "reason": "Canonical supplier for the narrowed R34.5 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Smooth-projective Weil I RH from dimension induction and tensor-power amplification, before Weil II or hard Lefschetz. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.4",
+      "target": "WeightsInEtaleCohomology:R34.6",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.4",
+      "target": "WeilConjectures:WC.3",
+      "reason": "Canonical supplier for the narrowed WC.3 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Smooth-projective Weil I RH from dimension induction and tensor-power amplification, before Weil II or hard Lefschetz. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.4",
+      "target": "WeilConjectures:WC.4",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.3; WeilConjectures:WC.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.4",
+      "target": "WeilConjectures:WC.5",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.3; WeilConjectures:WC.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.4",
+      "target": "WeilConjectures:WC.6",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.3; WeilConjectures:WC.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.5",
+      "target": "AutomorphicGaloisRepresentations:R19.1",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.5",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.5",
+      "target": "DeligneWeightsAndPurity:DWP.10",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.5",
+      "target": "DeligneWeightsAndPurity:DWP.7",
+      "reason": "Canonical supplier for the narrowed DWP.7 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Sheaf pure/mixed definitions and Weil II local-curve monodromy-weight/generalized-majoration theorem. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.5",
+      "target": "DeligneWeightsAndPurity:DWP.8",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.5",
+      "target": "DeligneWeightsAndPurity:DWP.9",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.5",
+      "target": "EtaleDualityAndPerverseSheaves:EDC.7",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.5",
+      "target": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.5",
+      "target": "FiniteFieldsAndCharacterSums:FF.2",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.5",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.6",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.5",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.4",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.5",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.5",
+      "target": "WeightsInEtaleCohomology:R34.1",
+      "reason": "Canonical supplier for the narrowed R34.1 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Sheaf pure/mixed definitions and Weil II local-curve monodromy-weight/generalized-majoration theorem. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.5",
+      "target": "WeightsInEtaleCohomology:R34.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions. Canonical supplier for the narrowed R34.5 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Sheaf pure/mixed definitions and Weil II local-curve monodromy-weight/generalized-majoration theorem. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.5",
+      "target": "WeightsInEtaleCohomology:R34.6",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.5",
+      "target": "WeilConjectures:WC.6",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.6",
+      "target": "AutomorphicGaloisRepresentations:R19.1",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.6",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.6",
+      "target": "DeligneWeightsAndPurity:DWP.10",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.6",
+      "target": "DeligneWeightsAndPurity:DWP.7",
+      "reason": "Canonical supplier for the narrowed DWP.7 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.6",
+      "target": "DeligneWeightsAndPurity:DWP.8",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.6",
+      "target": "DeligneWeightsAndPurity:DWP.9",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.6",
+      "target": "EtaleDualityAndPerverseSheaves:EDC.7",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.6",
+      "target": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.6",
+      "target": "FiniteFieldsAndCharacterSums:FF.2",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.6",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.6",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.6",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.4",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.6",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.6",
+      "target": "WeightsInEtaleCohomology:R34.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions. Canonical supplier for the narrowed R34.5 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Sharp purity for cohomology of pure local systems on curves (Weil II 3.2.3), not the coarse Weil I estimate. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.6",
+      "target": "WeightsInEtaleCohomology:R34.6",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.6",
+      "target": "WeilConjectures:WC.6",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.7",
+      "target": "AutomorphicGaloisRepresentations:R19.1",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.7",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.7",
+      "target": "FiniteFieldsAndCharacterSums:FF.2",
+      "reason": "One-owner handoff: Weil II Rf! upper weights, cohomological upper/lower bounds, integral refinements, pure image, valuation triangles and proper-smooth purity with source-qualified scope. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.7",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.4",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.7",
+      "target": "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+      "reason": "Smooth proper NONPROJECTIVE branch needs Weil II 3.3.9; DWP.4 remains sufficient only for the smooth-projective branch. Preserve the existing projective input and distinguish these branches."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.7",
+      "target": "WeightsInEtaleCohomology:R34.5",
+      "reason": "Canonical supplier for the narrowed R34.5 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Weil II Rf! upper weights, cohomological upper/lower bounds, integral refinements, pure image, valuation triangles and proper-smooth purity with source-qualified scope. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.7",
+      "target": "WeightsInEtaleCohomology:R34.6",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.7",
+      "target": "WeilConjectures:WC.6",
+      "reason": "Canonical supplier for the narrowed WC.6 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Weil II Rf! upper weights, cohomological upper/lower bounds, integral refinements, pure image, valuation triangles and proper-smooth purity with source-qualified scope. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.7",
+      "target": "WeilConjectures:WC.7",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.6; WeilConjectures:WC.6 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.8",
+      "target": "AutomorphicGaloisRepresentations:R19.1",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Mixed-complex/strict-filtration suffix only; do not delay an early numerical or curve-only client until this suffix."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.8",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Mixed-complex/strict-filtration suffix only; do not delay an early numerical or curve-only client until this suffix."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.8",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.4",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Mixed-complex/strict-filtration suffix only; do not delay an early numerical or curve-only client until this suffix."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.8",
+      "target": "WeightsInEtaleCohomology:R34.1",
+      "reason": "Canonical supplier for the narrowed R34.1 interface. Mixed-complex/strict-filtration suffix only; do not delay an early numerical or curve-only client until this suffix. One-owner handoff: Mixed-complex upper/lower-weight formalism, strict mixed-sheaf filtration and geometric semisimplicity on the stated normal base. Mixed-complex/strict-filtration suffix only; do not delay an early numerical or curve-only client until this suffix."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.8",
+      "target": "WeightsInEtaleCohomology:R34.5",
+      "reason": "Canonical supplier for the narrowed R34.5 interface. Mixed-complex/strict-filtration suffix only; do not delay an early numerical or curve-only client until this suffix. One-owner handoff: Mixed-complex upper/lower-weight formalism, strict mixed-sheaf filtration and geometric semisimplicity on the stated normal base. Mixed-complex/strict-filtration suffix only; do not delay an early numerical or curve-only client until this suffix."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.8",
+      "target": "WeightsInEtaleCohomology:R34.6",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Mixed-complex/strict-filtration suffix only; do not delay an early numerical or curve-only client until this suffix."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.9",
+      "target": "AutomorphicGaloisRepresentations:R19.1",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.9",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.9",
+      "target": "EtaleDualityAndPerverseSheaves:EDC.7",
+      "reason": "One-owner handoff: Absolute hard Lefschetz and 6.2.13 complex extension, proved before the perverse relative theorem. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.9",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.4",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.9",
+      "target": "WeightsInEtaleCohomology:R34.5",
+      "reason": "Canonical supplier for the narrowed R34.5 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Absolute hard Lefschetz and 6.2.13 complex extension, proved before the perverse relative theorem. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "DeligneWeightsAndPurity:DWP.9",
+      "target": "WeightsInEtaleCohomology:R34.6",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.5; WeightsInEtaleCohomology:R34.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.1",
+      "target": "DeligneWeightsAndPurity:DWP.10",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.1",
+      "target": "DeligneWeightsAndPurity:DWP.7",
+      "reason": "Canonical supplier for the narrowed DWP.7 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.1",
+      "target": "DeligneWeightsAndPurity:DWP.8",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.1",
+      "target": "DeligneWeightsAndPurity:DWP.9",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.1",
+      "target": "EtaleDualityAndPerverseSheaves:EDC.7",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.1",
+      "target": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.1",
+      "target": "FiniteFieldsAndCharacterSums:FF.2",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.1",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.6",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.1",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.1",
+      "target": "WeightsInEtaleCohomology:R34.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.1",
+      "target": "WeilConjectures:WC.6",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "DeligneWeightsAndPurity:DWP.10",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "DeligneWeightsAndPurity:DWP.2",
+      "reason": "Canonical supplier for the narrowed DWP.2 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "DeligneWeightsAndPurity:DWP.3",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.2; DeligneWeightsAndPurity:DWP.2 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "DeligneWeightsAndPurity:DWP.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.2; DeligneWeightsAndPurity:DWP.2 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "DeligneWeightsAndPurity:DWP.7",
+      "reason": "Canonical supplier for the narrowed DWP.7 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "DeligneWeightsAndPurity:DWP.8",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "DeligneWeightsAndPurity:DWP.9",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "EtaleDualityAndPerverseSheaves:EDC.7",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions. Direct handoff of the imported part of WeilConjectures:WC.2; WeilConjectures:WC.2 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "FiniteFieldsAndCharacterSums:FF.2",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.6",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "WeightsInEtaleCohomology:R34.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "WeilConjectures:WC.2",
+      "reason": "Canonical supplier for the narrowed WC.2 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "WeilConjectures:WC.3",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.2; WeilConjectures:WC.2 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "WeilConjectures:WC.5:surface-alternative",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.2; WeilConjectures:WC.2 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.2",
+      "target": "WeilConjectures:WC.6",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.3",
+      "target": "DeligneWeightsAndPurity:DWP.10",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.9; DeligneWeightsAndPurity:DWP.9 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.3",
+      "target": "DeligneWeightsAndPurity:DWP.9",
+      "reason": "Canonical supplier for the narrowed DWP.9 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.3",
+      "target": "EtaleDualityAndPerverseSheaves:EDC.7",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.9; DeligneWeightsAndPurity:DWP.9 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.3",
+      "target": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.9; DeligneWeightsAndPurity:DWP.9 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.3",
+      "target": "WeightsInEtaleCohomology:R34.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.9; DeligneWeightsAndPurity:DWP.9 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.4",
+      "target": "DeligneWeightsAndPurity:DWP.10",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.4; DeligneWeightsAndPurity:DWP.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions. Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.9; DeligneWeightsAndPurity:DWP.9 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.4",
+      "target": "DeligneWeightsAndPurity:DWP.3",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.4; LefschetzPencilsAndVanishingCycles:LPV.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.4",
+      "target": "DeligneWeightsAndPurity:DWP.4",
+      "reason": "Canonical supplier for the narrowed DWP.4 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.4; LefschetzPencilsAndVanishingCycles:LPV.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions. One-owner handoff: General projective-bundle and smooth-center blowup cohomology, weak Lefschetz and maps with twists. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.4",
+      "target": "DeligneWeightsAndPurity:DWP.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.4; DeligneWeightsAndPurity:DWP.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.4",
+      "target": "DeligneWeightsAndPurity:DWP.6",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.4; LefschetzPencilsAndVanishingCycles:LPV.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.4",
+      "target": "DeligneWeightsAndPurity:DWP.9",
+      "reason": "Canonical supplier for the narrowed DWP.9 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.4",
+      "target": "EtaleDualityAndPerverseSheaves:EDC.7",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.9; DeligneWeightsAndPurity:DWP.9 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.4",
+      "target": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.9; DeligneWeightsAndPurity:DWP.9 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.4",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.4",
+      "reason": "Canonical supplier for the narrowed LPV.4 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: General projective-bundle and smooth-center blowup cohomology, weak Lefschetz and maps with twists. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.4",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.5",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.4; LefschetzPencilsAndVanishingCycles:LPV.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.4",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.4; LefschetzPencilsAndVanishingCycles:LPV.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.4",
+      "target": "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.4; DeligneWeightsAndPurity:DWP.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.4",
+      "target": "WeightsInEtaleCohomology:R34.4",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.4; LefschetzPencilsAndVanishingCycles:LPV.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions. Canonical supplier for the narrowed R34.4 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: General projective-bundle and smooth-center blowup cohomology, weak Lefschetz and maps with twists. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.4",
+      "target": "WeightsInEtaleCohomology:R34.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.4; DeligneWeightsAndPurity:DWP.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions. Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.9; DeligneWeightsAndPurity:DWP.9 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.4",
+      "target": "WeilConjectures:WC.3",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.4; DeligneWeightsAndPurity:DWP.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.5",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.6; LefschetzPencilsAndVanishingCycles:LPV.6 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.5",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "reason": "Compatible with the separately submitted RS-19 removal of ET.2a:duality-perversity: preserve its early scheme/perverse/cycle comparison import directly at the surviving ET.5 consumer. This is not an import of EDC.7, IG.4–7 or a proof of the stronger contracting-boundary Igusa theorem."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.5",
+      "target": "IgusaVarietiesAndTorsionConcentration:IG.4",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.6; LefschetzPencilsAndVanishingCycles:LPV.6 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.5",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.6",
+      "reason": "Canonical supplier for the narrowed LPV.6 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Early constructible middle perversity/recollement/intermediate extension, not the enlarged nonconstructible support criterion. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.6",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.6; LefschetzPencilsAndVanishingCycles:LPV.6 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.6",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "reason": "Compatible with the separately submitted RS-19 removal of ET.2a:duality-perversity: preserve its early scheme/perverse/cycle comparison import directly at the surviving ET.5 consumer. This is not an import of EDC.7, IG.4–7 or a proof of the stronger contracting-boundary Igusa theorem."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.6",
+      "target": "IgusaVarietiesAndTorsionConcentration:IG.4",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.6; LefschetzPencilsAndVanishingCycles:LPV.6 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.6",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.6",
+      "reason": "Canonical supplier for the narrowed LPV.6 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.8",
+      "target": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.2; WeilConjectures:WC.2 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.8",
+      "target": "WeilConjectures:WC.2",
+      "reason": "Canonical supplier for the narrowed WC.2 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Actual graded Poincare/Frobenius pairing and geometric reciprocal characteristic-polynomial/determinant relation. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.8",
+      "target": "WeilConjectures:WC.3",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.2; WeilConjectures:WC.2 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.8",
+      "target": "WeilConjectures:WC.5:surface-alternative",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.2; WeilConjectures:WC.2 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "FunctionFieldArithmetic:FA.5",
+      "target": "DeligneWeightsAndPurity:DWP.3",
+      "reason": "Canonical supplier for the narrowed DWP.3 interface. Finite-cover Chebotarev including constant-field congruences; DWP.3 separately proves its compact l-adic exceptional-set extension. One-owner handoff: Finite-cover function-field Chebotarev with constant-field congruences and stated error parameters; DWP.3 adds compact l-adic exceptional-set passage. Finite-cover Chebotarev including constant-field congruences; DWP.3 separately proves its compact l-adic exceptional-set extension."
+    },
+    {
+      "source": "FunctionFieldArithmetic:FA.5",
+      "target": "DeligneWeightsAndPurity:DWP.4",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.3; DeligneWeightsAndPurity:DWP.3 retains its own application/adapter and original edge. Finite-cover Chebotarev including constant-field congruences; DWP.3 separately proves its compact l-adic exceptional-set extension."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.3; WeightsInEtaleCohomology:R34.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "reason": "Identify SGA7 trait Rpsi with Huber 3.5.17, with actual map and inertia equivariance; Huber's word vanishing here denotes Rpsi, not Rphi."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "target": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "reason": "One-owner handoff: Trait nearby/vanishing functors, strict-local stalk formula, specialization sequence and proper/smooth comparisons; Huber's valuation extension retains its additional scope. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "target": "ModularCurvesPartII:R13.6",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.3; WeightsInEtaleCohomology:R34.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "target": "PadicHodgeTheory:R06.5",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.3; WeightsInEtaleCohomology:R34.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "target": "WeightsInEtaleCohomology:R34.3",
+      "reason": "Canonical supplier for the narrowed R34.3 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Trait nearby/vanishing functors, strict-local stalk formula, specialization sequence and proper/smooth comparisons; Huber's valuation extension retains its additional scope. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.1",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.3; WeightsInEtaleCohomology:R34.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.1",
+      "target": "DeligneWeightsAndPurity:DWP.5",
+      "reason": "Canonical supplier for the narrowed DWP.5 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Trait-geometric N, can/var, geometric quasi-unipotence and the canonical linear-algebra monodromy filtration; weight purity is a later theorem. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.1",
+      "target": "DeligneWeightsAndPurity:DWP.6",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.5; DeligneWeightsAndPurity:DWP.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.1",
+      "target": "ModularCurvesPartII:R13.6",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.3; WeightsInEtaleCohomology:R34.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.1",
+      "target": "PadicHodgeTheory:R06.5",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.3; WeightsInEtaleCohomology:R34.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.1",
+      "target": "WeightsInEtaleCohomology:R34.3",
+      "reason": "Canonical supplier for the narrowed R34.3 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Trait-geometric N, can/var, geometric quasi-unipotence and the canonical linear-algebra monodromy filtration; weight purity is a later theorem. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.2",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.3; WeightsInEtaleCohomology:R34.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.2",
+      "target": "ModularCurvesPartII:R13.6",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.3; WeightsInEtaleCohomology:R34.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.2",
+      "target": "PadicHodgeTheory:R06.5",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.3; WeightsInEtaleCohomology:R34.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.2",
+      "target": "WeightsInEtaleCohomology:R34.3",
+      "reason": "Canonical supplier for the narrowed R34.3 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Ordinary quadratic singularity vanishing cycles and parity/characteristic-qualified Picard–Lefschetz local formulas. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.3",
+      "target": "DeligneWeightsAndPurity:DWP.10",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.4; DeligneWeightsAndPurity:DWP.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.3",
+      "target": "DeligneWeightsAndPurity:DWP.3",
+      "reason": "Canonical supplier for the narrowed DWP.3 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.3",
+      "target": "DeligneWeightsAndPurity:DWP.4",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.3; DeligneWeightsAndPurity:DWP.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions. Canonical supplier for the narrowed DWP.4 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Veronese/Bertini pencil, blowup geometry and descent after a finite extension of the ground field. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.3",
+      "target": "DeligneWeightsAndPurity:DWP.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.4; DeligneWeightsAndPurity:DWP.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.3",
+      "target": "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.4; DeligneWeightsAndPurity:DWP.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.3",
+      "target": "WeightsInEtaleCohomology:R34.4",
+      "reason": "Canonical supplier for the narrowed R34.4 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Veronese/Bertini pencil, blowup geometry and descent after a finite extension of the ground field. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.3",
+      "target": "WeightsInEtaleCohomology:R34.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.4; DeligneWeightsAndPurity:DWP.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.3",
+      "target": "WeilConjectures:WC.3",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.4; DeligneWeightsAndPurity:DWP.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.4",
+      "target": "DeligneWeightsAndPurity:DWP.10",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.4; DeligneWeightsAndPurity:DWP.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.4",
+      "target": "DeligneWeightsAndPurity:DWP.3",
+      "reason": "Canonical supplier for the narrowed DWP.3 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Actual pencil vanishing-cycle system E, E-perp, radical quotient and pencil-specific Leray/Gysin comparisons before weights. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.4",
+      "target": "DeligneWeightsAndPurity:DWP.4",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.3; DeligneWeightsAndPurity:DWP.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions. Canonical supplier for the narrowed DWP.4 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Actual pencil vanishing-cycle system E, E-perp, radical quotient and pencil-specific Leray/Gysin comparisons before weights. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.4",
+      "target": "DeligneWeightsAndPurity:DWP.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.4; DeligneWeightsAndPurity:DWP.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.4",
+      "target": "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.4; DeligneWeightsAndPurity:DWP.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.4",
+      "target": "WeightsInEtaleCohomology:R34.4",
+      "reason": "Canonical supplier for the narrowed R34.4 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Actual pencil vanishing-cycle system E, E-perp, radical quotient and pencil-specific Leray/Gysin comparisons before weights. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.4",
+      "target": "WeightsInEtaleCohomology:R34.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.4; DeligneWeightsAndPurity:DWP.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.4",
+      "target": "WeilConjectures:WC.3",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.4; DeligneWeightsAndPurity:DWP.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.5",
+      "target": "DeligneWeightsAndPurity:DWP.3",
+      "reason": "Canonical supplier for the narrowed DWP.3 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Conjugacy/generation, irreducibility and OPEN symplectic Q_l monodromy of the pencil radical quotient. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.5",
+      "target": "DeligneWeightsAndPurity:DWP.4",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.3; DeligneWeightsAndPurity:DWP.3 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.5",
+      "target": "WeightsInEtaleCohomology:R34.4",
+      "reason": "Canonical supplier for the narrowed R34.4 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Conjugacy/generation, irreducibility and OPEN symplectic Q_l monodromy of the pencil radical quotient. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.6",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "reason": "Compatible with the separately submitted RS-19 removal of ET.2a:duality-perversity: preserve its early scheme/perverse/cycle comparison import directly at the surviving ET.5 consumer. This is not an import of EDC.7, IG.4–7 or a proof of the stronger contracting-boundary Igusa theorem."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.6",
+      "target": "IgusaVarietiesAndTorsionConcentration:IG.4",
+      "reason": "One-owner handoff: Nearby-cycle t-exactness and the specific filtered-colimit support-inequality extension consumed by IG.4. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "target": "DeligneWeightsAndPurity:DWP.10",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.9; DeligneWeightsAndPurity:DWP.9 retains its own application/adapter and original edge. Late potentially-pure invariant-cycle/support-bound contract only, after DWP.7–8 and before DWP.9."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "target": "DeligneWeightsAndPurity:DWP.9",
+      "reason": "Canonical supplier for the narrowed DWP.9 interface. Late potentially-pure invariant-cycle/support-bound contract only, after DWP.7–8 and before DWP.9. One-owner handoff: Late potentially-pure invariant-cycle and two-sided support-bound weak-Lefschetz results (Weil II 3.6, 6.2.8–6.2.12), not the preceding semistable calculation. Late potentially-pure invariant-cycle/support-bound contract only, after DWP.7–8 and before DWP.9."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "target": "EtaleDualityAndPerverseSheaves:EDC.7",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.9; DeligneWeightsAndPurity:DWP.9 retains its own application/adapter and original edge. Late potentially-pure invariant-cycle/support-bound contract only, after DWP.7–8 and before DWP.9."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "target": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.9; DeligneWeightsAndPurity:DWP.9 retains its own application/adapter and original edge. Late potentially-pure invariant-cycle/support-bound contract only, after DWP.7–8 and before DWP.9."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7",
+      "reason": "Canonical supplier for the narrowed LPV.7 interface. Late potentially-pure invariant-cycle/support-bound contract only, after DWP.7–8 and before DWP.9. One-owner handoff: Late potentially-pure invariant-cycle and two-sided support-bound weak-Lefschetz results (Weil II 3.6, 6.2.8–6.2.12), not the preceding semistable calculation. Late potentially-pure invariant-cycle/support-bound contract only, after DWP.7–8 and before DWP.9."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "target": "WeightsInEtaleCohomology:R34.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.9; DeligneWeightsAndPurity:DWP.9 retains its own application/adapter and original edge. Late potentially-pure invariant-cycle/support-bound contract only, after DWP.7–8 and before DWP.9."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.3; WeightsInEtaleCohomology:R34.3 retains its own application/adapter and original edge. Early semistable-curve/SNC contract with actual model and source hypotheses, never the late invariant-cycle theorem."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+      "target": "DeligneWeightsAndPurity:DWP.10",
+      "reason": "Canonical supplier for the narrowed DWP.10 interface. Early semistable-curve/SNC contract with actual model and source hypotheses, never the late invariant-cycle theorem. One-owner handoff: Semistable-curve nearby cohomology, N and comparison with graph/Jacobian descriptions; the generic proof is independent of particular modular models. Early semistable-curve/SNC contract with actual model and source hypotheses, never the late invariant-cycle theorem."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7",
+      "reason": "Canonical supplier for the narrowed LPV.7 interface. Early semistable-curve/SNC contract with actual model and source hypotheses, never the late invariant-cycle theorem."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+      "target": "ModularCurvesPartII:R13.6",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.3; WeightsInEtaleCohomology:R34.3 retains its own application/adapter and original edge. Early semistable-curve/SNC contract with actual model and source hypotheses, never the late invariant-cycle theorem. One-owner handoff: Semistable-curve nearby cohomology, N and comparison with graph/Jacobian descriptions; the generic proof is independent of particular modular models. Early semistable-curve/SNC contract with actual model and source hypotheses, never the late invariant-cycle theorem."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+      "target": "PadicHodgeTheory:R06.5",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.3; WeightsInEtaleCohomology:R34.3 retains its own application/adapter and original edge. Early semistable-curve/SNC contract with actual model and source hypotheses, never the late invariant-cycle theorem."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+      "target": "WeightsInEtaleCohomology:R34.3",
+      "reason": "Canonical supplier for the narrowed R34.3 interface. Early semistable-curve/SNC contract with actual model and source hypotheses, never the late invariant-cycle theorem. One-owner handoff: Semistable-curve nearby cohomology, N and comparison with graph/Jacobian descriptions; the generic proof is independent of particular modular models. Early semistable-curve/SNC contract with actual model and source hypotheses, never the late invariant-cycle theorem."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+      "target": "WeightsInEtaleCohomology:R34.6",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.10; DeligneWeightsAndPurity:DWP.10 retains its own application/adapter and original edge. Early semistable-curve/SNC contract with actual model and source hypotheses, never the late invariant-cycle theorem."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+      "target": "DeligneWeightsAndPurity:DWP.10",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves; LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves retains its own application/adapter and original edge. Neron/generalized-Jacobian character/monodromy pairing with regularity hypotheses; LPV supplies its nearby-cycle comparison."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves; LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves retains its own application/adapter and original edge. Neron/generalized-Jacobian character/monodromy pairing with regularity hypotheses; LPV supplies its nearby-cycle comparison. One-owner handoff: Generalized Jacobian, toric character group, monodromy pairing and Neron component-group construction under regularity hypotheses. Neron/generalized-Jacobian character/monodromy pairing with regularity hypotheses; LPV supplies its nearby-cycle comparison."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+      "reason": "Canonical supplier for the narrowed LPV.7:semistable-curves interface. Neron/generalized-Jacobian character/monodromy pairing with regularity hypotheses; LPV supplies its nearby-cycle comparison. One-owner handoff: Generalized Jacobian, toric character group, monodromy pairing and Neron component-group construction under regularity hypotheses. Neron/generalized-Jacobian character/monodromy pairing with regularity hypotheses; LPV supplies its nearby-cycle comparison."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+      "target": "WeightsInEtaleCohomology:R34.3",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves; LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves retains its own application/adapter and original edge. Neron/generalized-Jacobian character/monodromy pairing with regularity hypotheses; LPV supplies its nearby-cycle comparison."
+    },
+    {
+      "source": "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+      "target": "WeilConjectures:WC.6",
+      "reason": "Canonical supplier for the narrowed WC.6 interface. Source-qualified finite-field rigid/crystalline comparison with the q=p^f Frobenius iterate. One-owner handoff: Finite-field rational rigid–crystalline/ell-adic characteristic-factor comparison with the f-th iterate of p-Frobenius. Source-qualified finite-field rigid/crystalline comparison with the q=p^f Frobenius iterate."
+    },
+    {
+      "source": "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+      "target": "WeilConjectures:WC.7",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.6; WeilConjectures:WC.6 retains its own application/adapter and original edge. Source-qualified finite-field rigid/crystalline comparison with the q=p^f Frobenius iterate."
+    },
+    {
+      "source": "SchemeAndStackFoundations:SF.5",
+      "target": "WeilConjectures:WC.5:surface-alternative",
+      "reason": "Canonical supplier for the narrowed WC.5:surface-alternative interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Hodge-index/surface Riemann–Roch/adjunction and graph–diagonal intersection proof for product-of-curves bounds, beyond the elementary fixed-point identity of PR196. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity",
+      "target": "DeligneWeightsAndPurity:DWP.2",
+      "reason": "Canonical supplier for the narrowed DWP.2 interface. Only its Dirichlet Landau theorem when the actual-abscissa hypotheses are verified, or its finite 3-4-1 positivity; power-series radius and sheaf analytic bridges stay DWP. One-owner handoff: Nonnegative Dirichlet-series Landau singularity at the actual finite abscissa and finite 3-4-1 positivity; not the power-series coefficientwise radius theorem. Only its Dirichlet Landau theorem when the actual-abscissa hypotheses are verified, or its finite 3-4-1 positivity; power-series radius and sheaf analytic bridges stay DWP."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity",
+      "target": "DeligneWeightsAndPurity:DWP.3",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.2; DeligneWeightsAndPurity:DWP.2 retains its own application/adapter and original edge. Only its Dirichlet Landau theorem when the actual-abscissa hypotheses are verified, or its finite 3-4-1 positivity; power-series radius and sheaf analytic bridges stay DWP."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity",
+      "target": "DeligneWeightsAndPurity:DWP.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.2; DeligneWeightsAndPurity:DWP.2 retains its own application/adapter and original edge. Only its Dirichlet Landau theorem when the actual-abscissa hypotheses are verified, or its finite 3-4-1 positivity; power-series radius and sheaf analytic bridges stay DWP. Canonical supplier for the narrowed DWP.5 interface. Only its Dirichlet Landau theorem when the actual-abscissa hypotheses are verified, or its finite 3-4-1 positivity; power-series radius and sheaf analytic bridges stay DWP. One-owner handoff: Nonnegative Dirichlet-series Landau singularity at the actual finite abscissa and finite 3-4-1 positivity; not the power-series coefficientwise radius theorem. Only its Dirichlet Landau theorem when the actual-abscissa hypotheses are verified, or its finite 3-4-1 positivity; power-series radius and sheaf analytic bridges stay DWP."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity",
+      "target": "DeligneWeightsAndPurity:DWP.6",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.5; DeligneWeightsAndPurity:DWP.5 retains its own application/adapter and original edge. Only its Dirichlet Landau theorem when the actual-abscissa hypotheses are verified, or its finite 3-4-1 positivity; power-series radius and sheaf analytic bridges stay DWP."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+      "target": "DeligneWeightsAndPurity:DWP.1",
+      "reason": "Canonical supplier for the narrowed DWP.1 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Genus-one Hasse bound, recovered compatibly by the higher-genus/general-abelian theory. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+      "target": "DeligneWeightsAndPurity:DWP.3",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.1; DeligneWeightsAndPurity:DWP.1 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+      "target": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+      "reason": "Direct handoff of the imported part of WeightsInEtaleCohomology:R34.2; WeightsInEtaleCohomology:R34.2 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+      "target": "FunctionFieldArithmetic:FA.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.1; DeligneWeightsAndPurity:DWP.1 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+      "target": "WeightsInEtaleCohomology:R34.2",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.1; DeligneWeightsAndPurity:DWP.1 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions. Canonical supplier for the narrowed R34.2 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Genus-one Hasse bound, recovered compatibly by the higher-genus/general-abelian theory. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+      "target": "WeilConjectures:WC.5",
+      "reason": "Canonical supplier for the narrowed WC.5 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Genus-one Hasse bound, recovered compatibly by the higher-genus/general-abelian theory. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+      "target": "WeilConjectures:WC.7",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.5; WeilConjectures:WC.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-9-schur-weyl-duality-for-the-orthogonal-and-symplectic-groups-the-brauer-algebra",
+      "target": "DeligneWeightsAndPurity:DWP.2",
+      "reason": "Canonical supplier for the narrowed DWP.2 interface. Only complex form-symplectic invariant theory; DWP.2 still proves the Q_l comparison/coinvariant bridge. Openness is never extended blindly. One-owner handoff: Complex form-symplectic Brauer/invariant-theory commutant; the Q_l descent/coinvariant bridge is DWP.2 work, not an upstream theorem. Only complex form-symplectic invariant theory; DWP.2 still proves the Q_l comparison/coinvariant bridge. Openness is never extended blindly."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-9-schur-weyl-duality-for-the-orthogonal-and-symplectic-groups-the-brauer-algebra",
+      "target": "DeligneWeightsAndPurity:DWP.3",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.2; DeligneWeightsAndPurity:DWP.2 retains its own application/adapter and original edge. Only complex form-symplectic invariant theory; DWP.2 still proves the Q_l comparison/coinvariant bridge. Openness is never extended blindly."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-9-schur-weyl-duality-for-the-orthogonal-and-symplectic-groups-the-brauer-algebra",
+      "target": "DeligneWeightsAndPurity:DWP.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.2; DeligneWeightsAndPurity:DWP.2 retains its own application/adapter and original edge. Only complex form-symplectic invariant theory; DWP.2 still proves the Q_l comparison/coinvariant bridge. Openness is never extended blindly."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "DeligneWeightsAndPurity:DWP.10",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves; LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves retains its own application/adapter and original edge. Nodal chart/normalization/graph geometry, not etale nearby-cycle or weight theory."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves; LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves retains its own application/adapter and original edge. Nodal chart/normalization/graph geometry, not etale nearby-cycle or weight theory. One-owner handoff: Nodal local charts, normalization/conductor and geometric dual graph of proper nodal curves, including loop and genus conventions. Nodal chart/normalization/graph geometry, not etale nearby-cycle or weight theory."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+      "reason": "Canonical supplier for the narrowed LPV.7:semistable-curves interface. Nodal chart/normalization/graph geometry, not etale nearby-cycle or weight theory. One-owner handoff: Nodal local charts, normalization/conductor and geometric dual graph of proper nodal curves, including loop and genus conventions. Nodal chart/normalization/graph geometry, not etale nearby-cycle or weight theory."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "WeightsInEtaleCohomology:R34.3",
+      "reason": "Direct handoff of the imported part of LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves; LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves retains its own application/adapter and original edge. Nodal chart/normalization/graph geometry, not etale nearby-cycle or weight theory."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:ComplexComparison",
+      "target": "WeilConjectures:WC.4",
+      "reason": "Canonical supplier for the narrowed WC.4 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:ComplexComparison",
+      "target": "WeilConjectures:WC.7",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.4; WeilConjectures:WC.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:EllAdicRealization",
+      "target": "WeilConjectures:WC.0",
+      "reason": "Canonical supplier for the narrowed WC.0 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:EllAdicRealization",
+      "target": "WeilConjectures:WC.1",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.0; WeilConjectures:WC.0 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:EtaleBaseChange",
+      "target": "WeilConjectures:WC.4",
+      "reason": "Canonical supplier for the narrowed WC.4 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:EtaleBaseChange",
+      "target": "WeilConjectures:WC.7",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.4; WeilConjectures:WC.4 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:FrobeniusGeometry",
+      "target": "WeilConjectures:WC.0",
+      "reason": "Canonical supplier for the narrowed WC.0 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:FrobeniusGeometry",
+      "target": "WeilConjectures:WC.1",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.0; WeilConjectures:WC.0 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:TraceFormula",
+      "target": "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.1; WeilConjectures:WC.1 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:TraceFormula",
+      "target": "WeilConjectures:WC.1",
+      "reason": "Canonical supplier for the narrowed WC.1 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:TraceFormula",
+      "target": "WeilConjectures:WC.2",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.1; WeilConjectures:WC.1 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:TraceFormula",
+      "target": "WeilConjectures:WC.3",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.1; WeilConjectures:WC.1 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:TraceFormula",
+      "target": "WeilConjectures:WC.5:surface-alternative",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.1; WeilConjectures:WC.1 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:TraceFormula",
+      "target": "WeilConjectures:WC.7",
+      "reason": "Canonical supplier for the narrowed WC.7 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:TraceFormula:13",
+      "target": "FunctionFieldArithmetic:FA.5",
+      "reason": "One-owner handoff: General Hasse–Weil zeta object, orbit-to-closed-point Euler product and cohomological rationality before weights; FA.5 retains its independent Riemann–Roch and Artin ramification route. PR196 Layer 13 point-count zeta and orbit Euler product, not a second definition."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:TraceFormula:13",
+      "target": "WeilConjectures:WC.1",
+      "reason": "One-owner handoff: General Hasse–Weil zeta object, orbit-to-closed-point Euler product and cohomological rationality before weights; FA.5 retains its independent Riemann–Roch and Artin ramification route. PR196 Layer 13 point-count zeta and orbit Euler product, not a second definition."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:TraceFormula:14",
+      "target": "DeligneWeightsAndPurity:DWP.2",
+      "reason": "Canonical supplier for the narrowed DWP.2 interface. PR196 Layer 14 actual sheaf L-functions/trace identity with correct local degrees. One-owner handoff: Sheaf Euler factors, all-power trace formula, determinant/L-function identity and generic rationality. PR196 Layer 14 actual sheaf L-functions/trace identity with correct local degrees."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:TraceFormula:14",
+      "target": "DeligneWeightsAndPurity:DWP.3",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.2; DeligneWeightsAndPurity:DWP.2 retains its own application/adapter and original edge. PR196 Layer 14 actual sheaf L-functions/trace identity with correct local degrees."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:TraceFormula:14",
+      "target": "DeligneWeightsAndPurity:DWP.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.2; DeligneWeightsAndPurity:DWP.2 retains its own application/adapter and original edge. PR196 Layer 14 actual sheaf L-functions/trace identity with correct local degrees."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:TraceFormula:8",
+      "target": "ArithmeticGaloisRepresentations:R01.6",
+      "reason": "One-owner handoff: Prime-to-characteristic abelian torsion/Tate modules and finite-level curve H1–Jacobian dual comparison required for the curve trace base case; arithmetic continuity/good-reduction enhancements stay R01.6. PR196 Layer 8 finite-level torsion/Tate/H1 and fixed-point base case; retain arithmetic enhancements locally."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:TraceFormula:8",
+      "target": "DeligneWeightsAndPurity:DWP.1",
+      "reason": "Canonical supplier for the narrowed DWP.1 interface. PR196 Layer 8 finite-level torsion/Tate/H1 and fixed-point base case; retain arithmetic enhancements locally. One-owner handoff: Prime-to-characteristic abelian torsion/Tate modules and finite-level curve H1–Jacobian dual comparison required for the curve trace base case; arithmetic continuity/good-reduction enhancements stay R01.6. PR196 Layer 8 finite-level torsion/Tate/H1 and fixed-point base case; retain arithmetic enhancements locally."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:TraceFormula:8",
+      "target": "DeligneWeightsAndPurity:DWP.3",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.1; DeligneWeightsAndPurity:DWP.1 retains its own application/adapter and original edge. PR196 Layer 8 finite-level torsion/Tate/H1 and fixed-point base case; retain arithmetic enhancements locally."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:TraceFormula:8",
+      "target": "FunctionFieldArithmetic:FA.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.1; DeligneWeightsAndPurity:DWP.1 retains its own application/adapter and original edge. PR196 Layer 8 finite-level torsion/Tate/H1 and fixed-point base case; retain arithmetic enhancements locally."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:TraceFormula:8",
+      "target": "SchemeAndStackFoundations:SF.3",
+      "reason": "One-owner handoff: Prime-to-characteristic abelian torsion/Tate modules and finite-level curve H1–Jacobian dual comparison required for the curve trace base case; arithmetic continuity/good-reduction enhancements stay R01.6. PR196 Layer 8 finite-level torsion/Tate/H1 and fixed-point base case; retain arithmetic enhancements locally."
+    },
+    {
+      "source": "UPSTREAM:CohomologicalPointCounting:TraceFormula:8",
+      "target": "WeightsInEtaleCohomology:R34.2",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.1; DeligneWeightsAndPurity:DWP.1 retains its own application/adapter and original edge. PR196 Layer 8 finite-level torsion/Tate/H1 and fixed-point base case; retain arithmetic enhancements locally. One-owner handoff: Prime-to-characteristic abelian torsion/Tate modules and finite-level curve H1–Jacobian dual comparison required for the curve trace base case; arithmetic continuity/good-reduction enhancements stay R01.6. PR196 Layer 8 finite-level torsion/Tate/H1 and fixed-point base case; retain arithmetic enhancements locally."
+    },
+    {
+      "source": "WeightsInEtaleCohomology:R34.5",
+      "target": "WeightsInEtaleCohomology:R34.6",
+      "reason": "Canonical supplier for the narrowed R34.6 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "WeilConjectures:WC.1",
+      "target": "FunctionFieldArithmetic:FA.5",
+      "reason": "One-owner handoff: WC-specific rational/integral zeta descent and comparison API used by the function-field realization. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "WeilConjectures:WC.1",
+      "target": "WeilConjectures:WC.5:surface-alternative",
+      "reason": "Canonical supplier for the narrowed WC.5:surface-alternative interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "WeilConjectures:WC.2",
+      "target": "WeilConjectures:WC.5:surface-alternative",
+      "reason": "Canonical supplier for the narrowed WC.5:surface-alternative interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps."
+    },
+    {
+      "source": "WeilConjectures:WC.3",
+      "target": "DeligneWeightsAndPurity:DWP.10",
+      "reason": "Canonical supplier for the narrowed DWP.10 interface. Algebraic degree-factor separation/descent for an already supplied pure realization; do not import the WC.6 assembly. Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Algebraic degree-factor separation/descent for an already supplied pure realization; do not import the WC.6 assembly."
+    },
+    {
+      "source": "WeilConjectures:WC.3",
+      "target": "DeligneWeightsAndPurity:DWP.7",
+      "reason": "Canonical supplier for the narrowed DWP.7 interface. Algebraic degree-factor separation/descent for an already supplied pure realization; do not import the WC.6 assembly."
+    },
+    {
+      "source": "WeilConjectures:WC.3",
+      "target": "DeligneWeightsAndPurity:DWP.8",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Algebraic degree-factor separation/descent for an already supplied pure realization; do not import the WC.6 assembly."
+    },
+    {
+      "source": "WeilConjectures:WC.3",
+      "target": "DeligneWeightsAndPurity:DWP.9",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Algebraic degree-factor separation/descent for an already supplied pure realization; do not import the WC.6 assembly."
+    },
+    {
+      "source": "WeilConjectures:WC.3",
+      "target": "EtaleDualityAndPerverseSheaves:EDC.7",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Algebraic degree-factor separation/descent for an already supplied pure realization; do not import the WC.6 assembly."
+    },
+    {
+      "source": "WeilConjectures:WC.3",
+      "target": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Algebraic degree-factor separation/descent for an already supplied pure realization; do not import the WC.6 assembly."
+    },
+    {
+      "source": "WeilConjectures:WC.3",
+      "target": "FiniteFieldsAndCharacterSums:FF.2",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Algebraic degree-factor separation/descent for an already supplied pure realization; do not import the WC.6 assembly."
+    },
+    {
+      "source": "WeilConjectures:WC.3",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.6",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Algebraic degree-factor separation/descent for an already supplied pure realization; do not import the WC.6 assembly."
+    },
+    {
+      "source": "WeilConjectures:WC.3",
+      "target": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Algebraic degree-factor separation/descent for an already supplied pure realization; do not import the WC.6 assembly."
+    },
+    {
+      "source": "WeilConjectures:WC.3",
+      "target": "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+      "reason": "One-owner handoff: Factor separation and descent from a common rational zeta function and degreewise all-conjugates purity; crystalline comparison retains its own hypotheses. Algebraic degree-factor separation/descent for an already supplied pure realization; do not import the WC.6 assembly."
+    },
+    {
+      "source": "WeilConjectures:WC.3",
+      "target": "WeightsInEtaleCohomology:R34.5",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Algebraic degree-factor separation/descent for an already supplied pure realization; do not import the WC.6 assembly."
+    },
+    {
+      "source": "WeilConjectures:WC.3",
+      "target": "WeightsInEtaleCohomology:R34.6",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.10; DeligneWeightsAndPurity:DWP.10 retains its own application/adapter and original edge. Algebraic degree-factor separation/descent for an already supplied pure realization; do not import the WC.6 assembly."
+    },
+    {
+      "source": "WeilConjectures:WC.3",
+      "target": "WeilConjectures:WC.6",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.7; DeligneWeightsAndPurity:DWP.7 retains its own application/adapter and original edge. Algebraic degree-factor separation/descent for an already supplied pure realization; do not import the WC.6 assembly. Canonical supplier for the narrowed WC.6 interface. Algebraic degree-factor separation/descent for an already supplied pure realization; do not import the WC.6 assembly. One-owner handoff: Factor separation and descent from a common rational zeta function and degreewise all-conjugates purity; crystalline comparison retains its own hypotheses. Algebraic degree-factor separation/descent for an already supplied pure realization; do not import the WC.6 assembly."
+    },
+    {
+      "source": "WeilConjectures:WC.3",
+      "target": "WeilConjectures:WC.7",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.6; WeilConjectures:WC.6 retains its own application/adapter and original edge. Algebraic degree-factor separation/descent for an already supplied pure realization; do not import the WC.6 assembly."
+    },
+    {
+      "source": "WeilConjectures:WC.5",
+      "target": "DeligneWeightsAndPurity:DWP.10",
+      "reason": "Canonical supplier for the narrowed DWP.10 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Higher-dimensional all-power point-count error inequalities and recurrence normalization. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "WeilConjectures:WC.5",
+      "target": "WeightsInEtaleCohomology:R34.6",
+      "reason": "Direct handoff of the imported part of DeligneWeightsAndPurity:DWP.10; DeligneWeightsAndPurity:DWP.10 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    },
+    {
+      "source": "WeilConjectures:WC.5:power-sum-converse",
+      "target": "WeilConjectures:WC.5",
+      "reason": "Canonical supplier for the narrowed WC.5 interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Independent finite complex power-sum converse with all positive powers and multiplicities retained. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "WeilConjectures:WC.5:power-sum-converse",
+      "target": "WeilConjectures:WC.5:surface-alternative",
+      "reason": "Canonical supplier for the narrowed WC.5:surface-alternative interface. Use the supplier's exact original hypotheses, objects and comparison maps; retain the consumer-specific work stated in keeps. One-owner handoff: Independent finite complex power-sum converse with all positive powers and multiplicities retained. Keep the recipient's application/comparison target and its exact hypotheses."
+    },
+    {
+      "source": "WeilConjectures:WC.5:power-sum-converse",
+      "target": "WeilConjectures:WC.7",
+      "reason": "Direct handoff of the imported part of WeilConjectures:WC.5; WeilConjectures:WC.5 retains its own application/adapter and original edge. Only that part is inherited, with the supplier's hypotheses; this is not a theorem asserting all of the consumer's conclusions."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Weil-number/iota-weight definitions and Frobenius-equivariant reciprocal-spectrum linear algebra (no eigenbasis or arithmetic semisimplicity)",
+      "owner": "DeligneWeightsAndPurity:DWP.0",
+      "formerly": [
+        "WeightsInEtaleCohomology:R34.1",
+        "WeilConjectures:WC.2",
+        "DeligneWeightsAndPurity:DWP.5",
+        "WeightsInEtaleCohomology:R34.5"
+      ]
+    },
+    {
+      "target": "Curve and abelian all-conjugates Weil estimate and all-power curve point-bound contract; the surface child retains an independent proof comparison, not an import of this proof",
+      "owner": "DeligneWeightsAndPurity:DWP.1",
+      "formerly": [
+        "WeightsInEtaleCohomology:R34.2",
+        "WeilConjectures:WC.5",
+        "WeilConjectures:WC.5:surface-alternative"
+      ]
+    },
+    {
+      "target": "Genus-one Hasse bound, recovered compatibly by the higher-genus/general-abelian theory",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+      "formerly": [
+        "DeligneWeightsAndPurity:DWP.1",
+        "WeightsInEtaleCohomology:R34.2",
+        "WeilConjectures:WC.5"
+      ]
+    },
+    {
+      "target": "Relative dual/Picard/polarization construction and evaluation pairings",
+      "owner": "AbelianSchemesAndArithmeticModuli:A2",
+      "formerly": [
+        "DeligneWeightsAndPurity:DWP.1"
+      ]
+    },
+    {
+      "target": "Rosati positivity and polarized-isogeny degree formulas",
+      "owner": "AbelianSchemesAndArithmeticModuli:A6",
+      "formerly": [
+        "DeligneWeightsAndPurity:DWP.1"
+      ]
+    },
+    {
+      "target": "Prime-to-characteristic abelian torsion/Tate modules and finite-level curve H1–Jacobian dual comparison required for the curve trace base case; arithmetic continuity/good-reduction enhancements stay R01.6",
+      "owner": "UPSTREAM:CohomologicalPointCounting:TraceFormula:8",
+      "formerly": [
+        "DeligneWeightsAndPurity:DWP.1",
+        "WeightsInEtaleCohomology:R34.2",
+        "SchemeAndStackFoundations:SF.3",
+        "ArithmeticGaloisRepresentations:R01.6"
+      ]
+    },
+    {
+      "target": "Arithmetic Galois/Tate-module convention, continuity and good-reduction comparison beyond the shared finite-level geometric construction",
+      "owner": "ArithmeticGaloisRepresentations:R01.6",
+      "formerly": [
+        "DeligneWeightsAndPurity:DWP.1",
+        "WeightsInEtaleCohomology:R34.2"
+      ]
+    },
+    {
+      "target": "Sheaf Euler factors, all-power trace formula, determinant/L-function identity and generic rationality",
+      "owner": "UPSTREAM:CohomologicalPointCounting:TraceFormula:14",
+      "formerly": [
+        "DeligneWeightsAndPurity:DWP.2"
+      ]
+    },
+    {
+      "target": "Complex form-symplectic Brauer/invariant-theory commutant; the Q_l descent/coinvariant bridge is DWP.2 work, not an upstream theorem",
+      "owner": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-9-schur-weyl-duality-for-the-orthogonal-and-symplectic-groups-the-brauer-algebra",
+      "formerly": [
+        "DeligneWeightsAndPurity:DWP.2"
+      ]
+    },
+    {
+      "target": "Nonnegative Dirichlet-series Landau singularity at the actual finite abscissa and finite 3-4-1 positivity; not the power-series coefficientwise radius theorem",
+      "owner": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity",
+      "formerly": [
+        "DeligneWeightsAndPurity:DWP.2",
+        "DeligneWeightsAndPurity:DWP.5"
+      ]
+    },
+    {
+      "target": "Weil I fundamental estimate, positive-power-series lemmas and coarse curve cohomology bounds with their exact Q_l/open-image/rational-factor hypotheses",
+      "owner": "DeligneWeightsAndPurity:DWP.2",
+      "formerly": [
+        "WeightsInEtaleCohomology:R34.5"
+      ]
+    },
+    {
+      "target": "Actual pencil vanishing-cycle system E, E-perp, radical quotient and pencil-specific Leray/Gysin comparisons before weights",
+      "owner": "LefschetzPencilsAndVanishingCycles:LPV.4",
+      "formerly": [
+        "DeligneWeightsAndPurity:DWP.3",
+        "DeligneWeightsAndPurity:DWP.4",
+        "WeightsInEtaleCohomology:R34.4"
+      ]
+    },
+    {
+      "target": "Conjugacy/generation, irreducibility and OPEN symplectic Q_l monodromy of the pencil radical quotient",
+      "owner": "LefschetzPencilsAndVanishingCycles:LPV.5",
+      "formerly": [
+        "DeligneWeightsAndPurity:DWP.3",
+        "WeightsInEtaleCohomology:R34.4"
+      ]
+    },
+    {
+      "target": "Finite-cover function-field Chebotarev with constant-field congruences and stated error parameters; DWP.3 adds compact l-adic exceptional-set passage",
+      "owner": "FunctionFieldArithmetic:FA.5",
+      "formerly": [
+        "DeligneWeightsAndPurity:DWP.3"
+      ]
+    },
+    {
+      "target": "Weil I 6.2 pencil local-factor rationality, using the geometric quotient and finite-cover Chebotarev",
+      "owner": "DeligneWeightsAndPurity:DWP.3",
+      "formerly": [
+        "WeightsInEtaleCohomology:R34.5"
+      ]
+    },
+    {
+      "target": "Veronese/Bertini pencil, blowup geometry and descent after a finite extension of the ground field",
+      "owner": "LefschetzPencilsAndVanishingCycles:LPV.3",
+      "formerly": [
+        "DeligneWeightsAndPurity:DWP.4",
+        "WeightsInEtaleCohomology:R34.4"
+      ]
+    },
+    {
+      "target": "General projective-bundle and smooth-center blowup cohomology, weak Lefschetz and maps with twists",
+      "owner": "EtaleDualityAndPerverseSheaves:EDC.4",
+      "formerly": [
+        "LefschetzPencilsAndVanishingCycles:LPV.4",
+        "DeligneWeightsAndPurity:DWP.4",
+        "WeightsInEtaleCohomology:R34.4"
+      ]
+    },
+    {
+      "target": "Smooth-projective Weil I RH from dimension induction and tensor-power amplification, before Weil II or hard Lefschetz",
+      "owner": "DeligneWeightsAndPurity:DWP.4",
+      "formerly": [
+        "WeightsInEtaleCohomology:R34.5",
+        "WeilConjectures:WC.3"
+      ]
+    },
+    {
+      "target": "Arithmetic tame-character/Weil–Deligne carrier and arithmetic quasi-unipotence under its local-field hypotheses",
+      "owner": "ArithmeticGaloisRepresentations:R01.2",
+      "formerly": [
+        "LefschetzPencilsAndVanishingCycles:LPV.1"
+      ]
+    },
+    {
+      "target": "Trait-geometric N, can/var, geometric quasi-unipotence and the canonical linear-algebra monodromy filtration; weight purity is a later theorem",
+      "owner": "LefschetzPencilsAndVanishingCycles:LPV.1",
+      "formerly": [
+        "DeligneWeightsAndPurity:DWP.5",
+        "WeightsInEtaleCohomology:R34.3"
+      ]
+    },
+    {
+      "target": "Sheaf pure/mixed definitions and Weil II local-curve monodromy-weight/generalized-majoration theorem",
+      "owner": "DeligneWeightsAndPurity:DWP.5",
+      "formerly": [
+        "WeightsInEtaleCohomology:R34.1",
+        "WeightsInEtaleCohomology:R34.5",
+        "DeligneWeightsAndPurity:DWP.7"
+      ]
+    },
+    {
+      "target": "Sharp purity for cohomology of pure local systems on curves (Weil II 3.2.3), not the coarse Weil I estimate",
+      "owner": "DeligneWeightsAndPurity:DWP.6",
+      "formerly": [
+        "WeightsInEtaleCohomology:R34.5"
+      ]
+    },
+    {
+      "target": "Weil II Rf! upper weights, cohomological upper/lower bounds, integral refinements, pure image, valuation triangles and proper-smooth purity with source-qualified scope",
+      "owner": "DeligneWeightsAndPurity:DWP.7",
+      "formerly": [
+        "WeightsInEtaleCohomology:R34.5",
+        "WeilConjectures:WC.6",
+        "FiniteFieldsAndCharacterSums:FF.2"
+      ]
+    },
+    {
+      "target": "Mixed-complex upper/lower-weight formalism, strict mixed-sheaf filtration and geometric semisimplicity on the stated normal base",
+      "owner": "DeligneWeightsAndPurity:DWP.8",
+      "formerly": [
+        "WeightsInEtaleCohomology:R34.1",
+        "WeightsInEtaleCohomology:R34.5"
+      ]
+    },
+    {
+      "target": "Late potentially-pure invariant-cycle and two-sided support-bound weak-Lefschetz results (Weil II 3.6, 6.2.8–6.2.12), not the preceding semistable calculation",
+      "owner": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+      "formerly": [
+        "DeligneWeightsAndPurity:DWP.9",
+        "LefschetzPencilsAndVanishingCycles:LPV.7"
+      ]
+    },
+    {
+      "target": "Absolute hard Lefschetz and 6.2.13 complex extension, proved before the perverse relative theorem",
+      "owner": "DeligneWeightsAndPurity:DWP.9",
+      "formerly": [
+        "WeightsInEtaleCohomology:R34.5",
+        "EtaleDualityAndPerverseSheaves:EDC.7"
+      ]
+    },
+    {
+      "target": "Generic Hecke-stable subquotient weight transport and source-qualified arithmetic weight export contract; actual eigenform realization is R34.5–6",
+      "owner": "DeligneWeightsAndPurity:DWP.10",
+      "formerly": [
+        "WeightsInEtaleCohomology:R34.6"
+      ]
+    },
+    {
+      "target": "Trait nearby/vanishing functors, strict-local stalk formula, specialization sequence and proper/smooth comparisons; Huber's valuation extension retains its additional scope",
+      "owner": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "formerly": [
+        "WeightsInEtaleCohomology:R34.3",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles"
+      ]
+    },
+    {
+      "target": "Ordinary quadratic singularity vanishing cycles and parity/characteristic-qualified Picard–Lefschetz local formulas",
+      "owner": "LefschetzPencilsAndVanishingCycles:LPV.2",
+      "formerly": [
+        "WeightsInEtaleCohomology:R34.3"
+      ]
+    },
+    {
+      "target": "Semistable-curve nearby cohomology, N and comparison with graph/Jacobian descriptions; the generic proof is independent of particular modular models",
+      "owner": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+      "formerly": [
+        "LefschetzPencilsAndVanishingCycles:LPV.7",
+        "WeightsInEtaleCohomology:R34.3",
+        "DeligneWeightsAndPurity:DWP.10",
+        "ModularCurvesPartII:R13.6"
+      ]
+    },
+    {
+      "target": "Nodal local charts, normalization/conductor and geometric dual graph of proper nodal curves, including loop and genus conventions",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "formerly": [
+        "LefschetzPencilsAndVanishingCycles:LPV.7",
+        "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves"
+      ]
+    },
+    {
+      "target": "Generalized Jacobian, toric character group, monodromy pairing and Neron component-group construction under regularity hypotheses",
+      "owner": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+      "formerly": [
+        "LefschetzPencilsAndVanishingCycles:LPV.7",
+        "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves"
+      ]
+    },
+    {
+      "target": "Early constructible middle perversity/recollement/intermediate extension, not the enlarged nonconstructible support criterion",
+      "owner": "EtaleDualityAndPerverseSheaves:EDC.5",
+      "formerly": [
+        "LefschetzPencilsAndVanishingCycles:LPV.6"
+      ]
+    },
+    {
+      "target": "Nearby-cycle t-exactness and the specific filtered-colimit support-inequality extension consumed by IG.4",
+      "owner": "LefschetzPencilsAndVanishingCycles:LPV.6",
+      "formerly": [
+        "IgusaVarietiesAndTorsionConcentration:IG.4",
+        "EtaleDualityAndPerverseSheaves:EDC.5"
+      ]
+    },
+    {
+      "target": "Geometric Frobenius/rational-point tower and continuous adic realization carriers",
+      "owner": "UPSTREAM:CohomologicalPointCounting:FrobeniusGeometry",
+      "formerly": [
+        "WeilConjectures:WC.0"
+      ]
+    },
+    {
+      "target": "General Hasse–Weil zeta object, orbit-to-closed-point Euler product and cohomological rationality before weights; FA.5 retains its independent Riemann–Roch and Artin ramification route",
+      "owner": "UPSTREAM:CohomologicalPointCounting:TraceFormula:13",
+      "formerly": [
+        "WeilConjectures:WC.1",
+        "FunctionFieldArithmetic:FA.5"
+      ]
+    },
+    {
+      "target": "WC-specific rational/integral zeta descent and comparison API used by the function-field realization",
+      "owner": "WeilConjectures:WC.1",
+      "formerly": [
+        "FunctionFieldArithmetic:FA.5"
+      ]
+    },
+    {
+      "target": "Actual graded Poincare/Frobenius pairing and geometric reciprocal characteristic-polynomial/determinant relation",
+      "owner": "EtaleDualityAndPerverseSheaves:EDC.8",
+      "formerly": [
+        "WeilConjectures:WC.2"
+      ]
+    },
+    {
+      "target": "Factor separation and descent from a common rational zeta function and degreewise all-conjugates purity; crystalline comparison retains its own hypotheses",
+      "owner": "WeilConjectures:WC.3",
+      "formerly": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+        "WeilConjectures:WC.6"
+      ]
+    },
+    {
+      "target": "Higher-dimensional all-power point-count error inequalities and recurrence normalization",
+      "owner": "WeilConjectures:WC.5",
+      "formerly": [
+        "DeligneWeightsAndPurity:DWP.10"
+      ]
+    },
+    {
+      "target": "Independent finite complex power-sum converse with all positive powers and multiplicities retained",
+      "owner": "WeilConjectures:WC.5:power-sum-converse",
+      "formerly": [
+        "WeilConjectures:WC.5",
+        "WeilConjectures:WC.5:surface-alternative"
+      ]
+    },
+    {
+      "target": "Hodge-index/surface Riemann–Roch/adjunction and graph–diagonal intersection proof for product-of-curves bounds, beyond the elementary fixed-point identity of PR196",
+      "owner": "SchemeAndStackFoundations:SF.5",
+      "formerly": [
+        "WeilConjectures:WC.5:surface-alternative"
+      ]
+    },
+    {
+      "target": "Finite-field rational rigid–crystalline/ell-adic characteristic-factor comparison with the f-th iterate of p-Frobenius",
+      "owner": "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+      "formerly": [
+        "WeilConjectures:WC.6"
+      ]
+    },
+    {
+      "target": "Weight-facing projective/curve/Jordan/Tate/nonprojective acceptance constructions; WC.7 keeps distinct zeta-facing comparison assertions",
+      "owner": "DeligneWeightsAndPurity:DWP.10",
+      "formerly": [
+        "WeilConjectures:WC.7"
+      ]
+    }
+  ]
+}
