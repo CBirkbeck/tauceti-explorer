@@ -90,31 +90,5 @@
   }
  },
  "purpose": "Work promoted into the atlas by scripts/promote.py: each source file, the data files it became, and the review that accepted it; and work refused, with the reason. A file goes live again only after a new accepted review.",
- "refused": {
-  "research/blueprint/links/tauceti_TauCetiRoadmap_AdicSpaces.json": {
-   "at": "2026-09-21T18:04:58Z",
-   "reason": "Invalid reviewed link: tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations -> SolidAnalyticRings:SA.3",
-   "review": "9e04af17059da165"
-  },
-  "research/blueprint/links/tauceti_TauCetiRoadmap_EllipticCurves.json": {
-   "at": "2026-09-21T18:04:58Z",
-   "reason": "Unknown endpoint in reviewed roadmap links: UPSTREAM:ECD:SCH_BC -> AdicCoefficientsAndComparisons:L2",
-   "review": "9c96cb4c14c10829"
-  },
-  "research/blueprint/links/tauceti_TauCetiRoadmap_Multiquadratic.json": {
-   "at": "2026-09-21T18:04:58Z",
-   "reason": "Unknown endpoint in reviewed roadmap links: UPSTREAM:ECD:SCH_BC -> AdicCoefficientsAndComparisons:L2",
-   "review": "1744fd549f243e7f"
-  },
-  "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json": {
-   "at": "2026-09-21T18:04:58Z",
-   "reason": "Unknown endpoint in reviewed roadmap links: UPSTREAM:ECD:SCH_BC -> AdicCoefficientsAndComparisons:L2",
-   "review": "2bc33a6fbcd98b93"
-  },
-  "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json": {
-   "at": "2026-09-21T18:04:58Z",
-   "reason": "Unknown endpoint in reviewed roadmap links: UPSTREAM:ECD:SCH_BC -> AdicCoefficientsAndComparisons:L2",
-   "review": "df87a9d8764e1076"
-  }
- }
+ "refused": {}
 }
