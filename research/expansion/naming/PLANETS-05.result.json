@@ -1,0 +1,1765 @@
+[
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#lane-a-function-spaces-on-a-domain-the-universal-prerequisite::landmark:almost-everything-downstream-waits-on-this-okecm2",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Workflow priority instruction without a mathematical object or result."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#lane-b-harmonic-analysis-estimates::landmark:estimate-engine-for-calderon-zygmund-regul-ego20r",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Supplier and planning instructions for the harmonic-analysis lane."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#lane-c-maximum-principles-and-potential-theory::landmark:classical-constant-coefficient-theory-13uue3r",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "General scope and difficulty description of the potential-theory lane."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#lane-e-elliptic-regularity::landmark:deepest-lane-and-the-route-from-weak-to-cl-g6likc",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Narrative description of the role and difficulty of elliptic regularity."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-a-4::landmark:embeddings-fqh6b7",
+    "decision": "name",
+    "label": "Morrey embedding",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-a-5::landmark:poincare-p0jyei",
+    "decision": "name",
+    "label": "Poincaré–Wirtinger",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-a-6::landmark:trace-extension-rellich-cnkx9q",
+    "decision": "name",
+    "label": "Rellich–Kondrachov compactness",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-b-10::landmark:calderon-zygmund-1twts96",
+    "decision": "name",
+    "label": "Calderón–Zygmund decomposition",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-b-11::landmark:bmo-and-john-nirenberg-7j35e",
+    "decision": "name",
+    "label": "John–Nirenberg inequality",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-b-8::landmark:hardy-littlewood-maximal-function-6pgyu8",
+    "decision": "name",
+    "label": "Hardy–Littlewood maximal inequality",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-b-9::landmark:interpolation-x5pnzx",
+    "decision": "name",
+    "label": "Riesz–Thorin interpolation",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-c-12::landmark:mean-value-property-and-smoothness-of-harm-zvadd4",
+    "decision": "name",
+    "label": "Harmonic mean-value characterization",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-c-13::landmark:weak-and-strong-maximum-principles-1bjxo9y",
+    "decision": "name",
+    "label": "Elliptic weak and strong maximum principles",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-c-14::landmark:harnack-inequality-17j32si",
+    "decision": "name",
+    "label": "Harnack inequality for elliptic L",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-c-15::landmark:fundamental-solution-newtonian-potential-7rbwvx",
+    "decision": "name",
+    "label": "Newtonian potential of Δ",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-d-16::landmark:weak-formulation-18vnwzp",
+    "decision": "name",
+    "label": "Energy bilinear form",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-d-17::landmark:existence-uniqueness-coercive-case-1ymnir4",
+    "decision": "name",
+    "label": "Coercive Dirichlet existence and uniqueness",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-d-18::landmark:fredholm-alternative-non-coercive-case-5b27y8",
+    "decision": "name",
+    "label": "Non-coercive Fredholm alternative",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-d-19::landmark:spectrum-of-puup6j",
+    "decision": "name",
+    "label": "Dirichlet eigenfunction basis",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-e-20::landmark:interior-h2-hk-estimates-qo0k6s",
+    "decision": "name",
+    "label": "Interior estimates via difference quotients",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-e-22::landmark:schauder-estimates-p2dgc9",
+    "decision": "name",
+    "label": "Interior and global Schauder estimates",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-e-23::landmark:de-giorgi-nash-moser-16zit4v",
+    "decision": "name",
+    "label": "De Giorgi–Nash–Moser Hölder continuity",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-f-24::landmark:bochner-spaces-and-the-gelfand-triple-1lfpkik",
+    "decision": "name",
+    "label": "Gelfand triple",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-f-25::landmark:linear-parabolic-existence-1he2jfb",
+    "decision": "name",
+    "label": "Galerkin method",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PDE#milestone-f-26::landmark:semigroups-10ks4cr",
+    "decision": "name",
+    "label": "Heat semigroup",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial::landmark:degree-bookkeeping-yo7pjh",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Degree and cardinality bookkeeping for the polynomial permutation representation."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial::landmark:fullcycletype-with-its-basic-zqdfxy",
+    "decision": "name",
+    "label": "fullCycleType",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial::landmark:transitivity-and-irreducibility-cbta80",
+    "decision": "keep",
+    "label": "Transitivity and irreducibility",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-1-permutation-groups-blocks-and-wreath-products::landmark:block-stabilizer-correspondence-35x60e",
+    "decision": "name",
+    "label": "Block-stabilizer order isomorphism",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-1-permutation-groups-blocks-and-wreath-products::landmark:general-wreath-products-with-their-basic-1u08jz4",
+    "decision": "name",
+    "label": "General wreath products",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-1-permutation-groups-blocks-and-wreath-products::landmark:imprimitivity-gives-a-wreath-embedding-yrcjgo",
+    "decision": "name",
+    "label": "Imprimitive wreath embedding",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-1-permutation-groups-blocks-and-wreath-products::landmark:two-extremal-cases-hm6txq",
+    "decision": "name",
+    "label": "Primitive actions of block stabilizers",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-2-the-dictionary-between-galois-theory-and-permutations::landmark:2-transitivity-w00fwo",
+    "decision": "name",
+    "label": "Irreducibility and 2-transitivity",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-2-the-dictionary-between-galois-theory-and-permutations::landmark:blocks-and-intermediate-fields-b97afs",
+    "decision": "name",
+    "label": "Block–intermediate-field correspondence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-2-the-dictionary-between-galois-theory-and-permutations::landmark:primitivity-and-intermediate-fields-1ilw8l6",
+    "decision": "keep",
+    "label": "Primitivity and intermediate fields",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-2-the-dictionary-between-galois-theory-and-permutations::landmark:stabilizers-are-relative-galois-groups-1dr2hxy",
+    "decision": "name",
+    "label": "Root stabilizer as relative Galois group",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-3-the-discriminant-and-the-alternating-group::landmark:discriminant-quadratic-extension-with-its-1k00jad",
+    "decision": "name",
+    "label": "Discriminant quadratic extension",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-3-the-discriminant-and-the-alternating-group::landmark:root-product-formula-1n998jh",
+    "decision": "name",
+    "label": "Discriminant root-product formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-3-the-discriminant-and-the-alternating-group::landmark:square-root-of-the-discriminant-lrqtl",
+    "decision": "name",
+    "label": "Discriminant test",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-4-resolvents::landmark:specialization-at-a-polynomial-over-any-co-qkhdcx",
+    "decision": "name",
+    "label": "Resolvent specialization",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-4-resolvents::landmark:static-resolvent-specifications-with-their-uullbp",
+    "decision": "name",
+    "label": "Resolvent specification",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-5-frobenius-specialization::landmark:factor-degrees-are-frobenius-orbit-sizes-18hzsi6",
+    "decision": "name",
+    "label": "Factor degrees as Frobenius orbit sizes",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-5-frobenius-specialization::landmark:factordegrees-with-its-basic-11949tb",
+    "decision": "name",
+    "label": "Factor-degree multiset",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-5-frobenius-specialization::landmark:good-primes-for-a-polynomial-and-for-a-res-1edmqhh",
+    "decision": "name",
+    "label": "Good primes for polynomials and resolvents",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates::landmark:classification-theorems-7obpvm",
+    "decision": "name",
+    "label": "Transitive subgroup classification in n ≤ 5",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates::landmark:hasgaloislabel-with-its-k5dca",
+    "decision": "name",
+    "label": "HasGaloisLabel",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-6-transitive-subgroups-of-sₙ-for-n--5-and-the-label-predicates::landmark:label-1wf4cn1",
+    "decision": "name",
+    "label": "TransitiveGroupLabel",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-9-sₙ-as-a-galois-group-over-ℚ::landmark:alternating-examples-as-an-exact-list-rtbkth",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "A finite list of worked alternating-group examples used as acceptance tests."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-9-sₙ-as-a-galois-group-over-ℚ::landmark:for-every-n-1-there-is-an-explicit-monic-f-x6aj1h",
+    "decision": "name",
+    "label": "Full symmetric Galois groups over ℚ",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-9-sₙ-as-a-galois-group-over-ℚ::landmark:full-symmetric-predicate-ti6kof",
+    "decision": "name",
+    "label": "Full-symmetric Galois group predicate",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections::landmark:coefficient-theory-and-the-two-topological-4dlr2x",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "An introductory description of the coefficient theory and later dependencies."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections::landmark:constructions-1fj1zil",
+    "decision": "name",
+    "label": "Invariant quotient module",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections::landmark:continuous-sections-of-profinite-quotients-x6vpct",
+    "decision": "keep",
+    "label": "Continuous sections of profinite quotients",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections::landmark:openness-1themcu",
+    "decision": "name",
+    "label": "Openness of point stabilizers",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality::landmark:carrier-named-once-1bbwsdx",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Carrier abbreviation and instructions to record existing continuous-cohomology declarations."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality::landmark:categorical-dictionary-on-that-subcategory-1sriikj",
+    "decision": "name",
+    "label": "Smooth discrete-module equivalence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality::landmark:for-a-continuous-homomorphism-h-t-g-and-a--95v8tp",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Instructions to consume existing compatible-pair functoriality and remove obsolete prototypes."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality::landmark:smooth-discrete-objects-12w2xuq",
+    "decision": "keep",
+    "label": "Smooth discrete objects",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees::landmark:filtered-coefficient-colimits-1w7p07f",
+    "decision": "name",
+    "label": "Filtered-colimit preservation in cohomology",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees::landmark:long-exact-sequence-in-every-degree-10xtadl",
+    "decision": "name",
+    "label": "All-degree long exact sequence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension::landmark:devissage-15cgz14",
+    "decision": "name",
+    "label": "Cohomological dimension dévissage",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension::landmark:first-values-ld0oe1",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Initial values and worked examples illustrating the cohomological-dimension invariants."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension::landmark:subgroups-1r4frod",
+    "decision": "name",
+    "label": "Closed-subgroup cohomological dimension bound",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension::landmark:types-and-definitions-11idrix",
+    "decision": "name",
+    "label": "Ordinary and strict cohomological dimension",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees::landmark:cochain-product-eual6z",
+    "decision": "name",
+    "label": "Cochain cup product",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees::landmark:coefficient-pairing-fzaaca",
+    "decision": "name",
+    "label": "Continuous equivariant coefficient pairing",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees::landmark:leibniz-identity-t5efo",
+    "decision": "keep",
+    "label": "Leibniz identity",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees::landmark:pairing-on-the-resolution-vg4e3f",
+    "decision": "name",
+    "label": "Alexander–Whitney resolution pairing",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-13-the-evens-norm::landmark:four-characterizing-identities-1fb2zjb",
+    "decision": "name",
+    "label": "Evens norm polarization identity",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-13-the-evens-norm::landmark:multiplicative-transfer-on-2-cohomology-fo-1i6td2e",
+    "decision": "name",
+    "label": "mod-2 Evens norm",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-13-the-evens-norm::landmark:specialization-to-index-2-and-degree-1-and-1uoeyji",
+    "decision": "name",
+    "label": "Index-two Evens norm graph-cocycle comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality::landmark:compatible-pair-functoriality-1ywr9ur",
+    "decision": "name",
+    "label": "Compatible-pair cohomology pullback",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality::landmark:complex-12c6chj",
+    "decision": "name",
+    "label": "Low-degree continuous cochain complex",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality::landmark:conjugation-1bg8zlg",
+    "decision": "name",
+    "label": "Inner-automorphism triviality on cohomology",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality::landmark:three-instances-in-all-three-degrees-b99ed2",
+    "decision": "name",
+    "label": "Low-degree restriction and inflation",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms::landmark:category-of-the-comparison-hcf4le",
+    "decision": "name",
+    "label": "Discrete compact-open function spaces",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms::landmark:continuous-against-discrete-ngi12s",
+    "decision": "name",
+    "label": "Discrete-group cohomology comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms::landmark:inhomogeneous-against-canonical-for-profin-yzxuk6",
+    "decision": "name",
+    "label": "Low-degree profinite cohomology comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms::landmark:transport-113o52q",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Operation-by-operation transport compatibility for the retained comparison isomorphisms."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description::landmark:coefficient-colimits-1fvjztc",
+    "decision": "name",
+    "label": "Low-degree coefficient-colimit commutation",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description::landmark:colimit-theorem-1h03c76",
+    "decision": "name",
+    "label": "Finite-quotient colimit theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description::landmark:first-consequences-1x6i2bp",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Immediate consequences of the retained finite-quotient colimit description."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description::landmark:system-kack2k",
+    "decision": "name",
+    "label": "Finite-quotient cohomology system",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences::landmark:exactness-of-cochains-1jnvqv8",
+    "decision": "keep",
+    "label": "Exactness of cochains",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences::landmark:inflation-restriction-226b1m",
+    "decision": "name",
+    "label": "Inflation–restriction exact sequence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences::landmark:long-exact-sequence-1i9mjx",
+    "decision": "name",
+    "label": "Long exact sequence through degree 2",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences::landmark:short-exact-sequence-as-data-m2qpsb",
+    "decision": "name",
+    "label": "Discrete short exact sequence",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups::landmark:corestriction-in-degrees-0-1-2-1gu0dbs",
+    "decision": "keep",
+    "label": "Corestriction in degrees 0, 1, 2",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups::landmark:identities-10zzn97",
+    "decision": "name",
+    "label": "Corestriction–restriction index identity",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups::landmark:mackey-double-coset-formula-1ybcgul",
+    "decision": "keep",
+    "label": "Mackey double-coset formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups::landmark:transversal-calculus-vtxjre",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Auxiliary transversal identities used to build the retained corestriction maps."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma::landmark:acyclicity-and-dimension-shifting-xh7o4c",
+    "decision": "name",
+    "label": "Low-degree dimension shifting",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma::landmark:coinduced-module-1qi3lqr",
+    "decision": "name",
+    "label": "Locally constant coinduced module",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma::landmark:open-subgroups-and-the-algebraic-compariso-1rhd7ry",
+    "decision": "name",
+    "label": "Open-subgroup induction–coinduction isomorphism",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma::landmark:shapiro-s-lemma-1gh2ckz",
+    "decision": "name",
+    "label": "Shapiro's lemma in degrees 0, 1, 2",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees::landmark:associativity-lyw5mz",
+    "decision": "name",
+    "label": "Low-degree cup product associativity",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees::landmark:compatibilities-zlbvaj",
+    "decision": "name",
+    "label": "Low-degree cup projection formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees::landmark:graded-commutativity-w45a0d",
+    "decision": "name",
+    "label": "Low-degree graded commutativity",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees::landmark:six-low-degree-shapes-1igomv6",
+    "decision": "name",
+    "label": "Explicit cup products in p + q ≤ 2",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory::landmark:coefficient-field-and-the-invariant-units-d9qpb7",
+    "decision": "name",
+    "label": "Invariant-units equivalence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory::landmark:finite-level-galois-dictionary-16n755y",
+    "decision": "name",
+    "label": "Finite-level Galois correspondence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory::landmark:group-fixed-once-1l1as97",
+    "decision": "name",
+    "label": "Absolute Galois group of K",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory::landmark:kummer-coefficient-module-mmapy3",
+    "decision": "keep",
+    "label": "Kummer coefficient module",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations::landmark:closed-and-open-subgroups-dkoc0i",
+    "decision": "name",
+    "label": "Open and closed finite-index subgroups",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations::landmark:instance-chain-l1qcxv",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Glue instances for separation axioms, rather than a central profinite construction."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations::landmark:inverse-limits-unbundled-1i504pe",
+    "decision": "name",
+    "label": "Inverse-limit description of profinite groups",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations::landmark:quotients-by-closed-normal-subgroups-xds0bz",
+    "decision": "name",
+    "label": "Profinite quotient by a closed normal subgroup",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index::landmark:index-1chtu17",
+    "decision": "name",
+    "label": "Supernatural Lagrange formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index::landmark:index-of-a-closed-subgroup-szst56",
+    "decision": "name",
+    "label": "Supernatural index",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index::landmark:supernatural-numbers-yame07",
+    "decision": "keep",
+    "label": "Supernatural numbers",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-10-free-pro-c-groups-on-profinite-spaces::landmark:bases-and-rank-3xhedu",
+    "decision": "name",
+    "label": "Convergent bases and rank",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-10-free-pro-c-groups-on-profinite-spaces::landmark:f-c-x-on-a-pointed-profinite-space-with-a--1hxdsce",
+    "decision": "name",
+    "label": "Free pro-C group on a pointed profinite space",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-10-free-pro-c-groups-on-profinite-spaces::landmark:presentations-at-arbitrary-rank-zdby7d",
+    "decision": "name",
+    "label": "pro-p presentations at arbitrary rank",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-10-free-pro-c-groups-on-profinite-spaces::landmark:serre-s-theorem-in-full-generality-ritl2i",
+    "decision": "name",
+    "label": "Serre's free pro-p group theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory::landmark:conjugacy-and-the-poset-1x7qkgz",
+    "decision": "name",
+    "label": "Conjugacy of profinite p-Sylow subgroups",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory::landmark:existence-rz2gyb",
+    "decision": "name",
+    "label": "Existence of profinite p-Sylow subgroups",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory::landmark:functoriality-17tmtd2",
+    "decision": "name",
+    "label": "p-Sylow subgroups under continuous surjections",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory::landmark:ispropsylow-p-p-says-that-p-is-closed-is-p-gb9w7o",
+    "decision": "name",
+    "label": "Profinite p-Sylow subgroup",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation::landmark:isprop-1k88jwo",
+    "decision": "name",
+    "label": "pro-p groups as limits of finite p-groups",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation::landmark:maximal-pro-p-quotient-1c7pnm5",
+    "decision": "name",
+    "label": "Maximal pro-p quotient of G",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation::landmark:open-subgroups-of-each-index-and-countabil-116agx9",
+    "decision": "name",
+    "label": "Finiteness of open subgroups of each index",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation::landmark:topological-generation-and-rank-19cbcrn",
+    "decision": "keep",
+    "label": "Topological generation and rank",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets::landmark:basics-ugswyy",
+    "decision": "name",
+    "label": "Rank of free pro-p groups on finite sets",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets::landmark:class-c-as-a-structure-khddm4",
+    "decision": "name",
+    "label": "FiniteGroupClass",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets::landmark:rank-one-and-p-ia0eyl",
+    "decision": "name",
+    "label": "Rank-one free pro-p group as ℤ_p",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets::landmark:universal-property-1s2loy3",
+    "decision": "name",
+    "label": "Free pro-C universal property",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations::landmark:coefficient-object-k4css5",
+    "decision": "name",
+    "label": "Trivial 𝔽_p coefficient module",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations::landmark:multiplication-pairing-and-the-cup-square-18b0gpg",
+    "decision": "name",
+    "label": "Degree-one 𝔽_p cup pairing",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations::landmark:non-vacuity-with-the-map-named-p5skc6",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Nontriviality check on a worked presented group, used as an acceptance example."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations::landmark:presented-pro-p-groups-sj0n75",
+    "decision": "keep",
+    "label": "Presented pro-p groups",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups::landmark:devissage-15cgz14",
+    "decision": "name",
+    "label": "pro-p cohomological dévissage",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups::landmark:free-implies-cd-1-odt4ee",
+    "decision": "name",
+    "label": "Free pro-p cohomological dimension ≤ 1",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups::landmark:trivial-filtration-theorem-1a20r3",
+    "decision": "name",
+    "label": "Trivial filtration of finite p-primary modules",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups::landmark:vanishing-in-one-degree-gives-vanishing-ab-vpc0w2",
+    "decision": "name",
+    "label": "Vanishing above degree 2 from H²",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation::landmark:abelianization-structure-theorem-cs6f86",
+    "decision": "name",
+    "label": "Demushkin abelianization structure theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation::landmark:first-examples-and-non-examples-1xi34ae",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Worked examples and non-examples testing the Demushkin definition."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation::landmark:predicate-1i3410e",
+    "decision": "name",
+    "label": "Demushkin group",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation::landmark:prescription-property-ra55uu",
+    "decision": "name",
+    "label": "Prescription property of a character",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-8-the-central-tower-comparison-method-and-finite-quotient-determinacy::landmark:against-the-bracket-and-the-dyadic-failure-1qm52op",
+    "decision": "name",
+    "label": "Dyadic graded-power correction identities",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-8-the-central-tower-comparison-method-and-finite-quotient-determinacy::landmark:j-the-basis-modification-maps-1xvkst9",
+    "decision": "name",
+    "label": "Basis-modification maps δ_j",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-8-the-central-tower-comparison-method-and-finite-quotient-determinacy::landmark:openness-and-cofinality-1wspulj",
+    "decision": "name",
+    "label": "Lower p-series openness and cofinality",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-8-the-central-tower-comparison-method-and-finite-quotient-determinacy::landmark:tails-t-j-1gnaujd",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Auxiliary tail subspace used in the dyadic span identities of the classification proof."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs::landmark:alternating-skew-symmetric-symmetric-1w1nkux",
+    "decision": "name",
+    "label": "Alternating bilinear form",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs::landmark:basics-ugswyy",
+    "decision": "name",
+    "label": "Bilinear form radicals",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs::landmark:characteristic-two-nonalternating-13dp98e",
+    "decision": "name",
+    "label": "Nonalternating symmetric normal form over 𝔽₂",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs::landmark:symplectic-normal-form-1hth7hn",
+    "decision": "keep",
+    "label": "Symplectic normal form",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-the-classification-of-demushkin-groups::landmark:character-values-in-normal-form-9l3fxi",
+    "decision": "keep",
+    "label": "Character values in normal form",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-the-classification-of-demushkin-groups::landmark:cup-form-normal-forms-f119q8",
+    "decision": "keep",
+    "label": "Cup-form normal forms",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-the-classification-of-demushkin-groups::landmark:marked-classification-1kz8m97",
+    "decision": "name",
+    "label": "Marked Demushkin classification",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-the-classification-of-demushkin-groups::landmark:successive-approximation-argument-n0uq1v",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Successive-approximation proof of the relator normal forms used in the retained marked classification."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6a-the-local-field-substrate-consumed::landmark:isnonarchimedeanlocalfield-valuativerel-k--123sqbk",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Inventory of existing Mathlib prerequisites, rather than a new mathematical landmark."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6a-the-local-field-substrate-consumed::landmark:local-fields-ramification-layer-0-1pww8h6",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Cross-reference to normalized valuations and ramification owned by the local-fields roadmap."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6a-the-local-field-substrate-consumed::landmark:local-fields-ramification-layer-1-1osuo7b",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Cross-reference to unit filtrations and Teichmüller representatives owned by the local-fields roadmap."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6a-the-local-field-substrate-consumed::landmark:local-fields-ramification-layer-2-171vrws",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Cross-reference to the norm-group results owned by the local-fields roadmap."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6b-the-quadratic-defect::landmark:carrier-1nozfg7",
+    "decision": "name",
+    "label": "Quadratic defect fractional ideal",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6b-the-quadratic-defect::landmark:fractionalideal-fractionalideal-spansingle-1l9fhug",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Inventory of existing fractional-ideal prerequisites."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6b-the-quadratic-defect::landmark:layer-6a-1qwh7m7",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to earlier square and norm theorems."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6b-the-quadratic-defect::landmark:local-fields-ramification-layers-0-and-1-c5jl35",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the local-fields valuation and unit theory."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant::landmark:layer-2-hfdy20",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the four-fold splitting criterion in Layer 2."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant::landmark:layer-3-rymxp",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the binary quaternion lemma and chain induction in Layer 3."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant::landmark:local-fields-ramification-layers-0-and-1-c5jl35",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to valuation and unit results owned by the local-fields roadmap."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries::landmark:layer-1-hf4hk3",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the Witt theory already planned in Layer 1."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries::landmark:layer-3-rymxp",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the discriminant already planned in Layer 3."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries::landmark:layer-6a-1qwh7m7",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the earlier square-class count and unramified norm theorem."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries::landmark:layer-6c-aqsft5",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the Hilbert symbol and local Hasse invariant in Layer 6C."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6e-the-two-hasse-invariants-agree-and-both-are-the-invariant-map::landmark:layer-5-hepnyf",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the quaternion and Hasse invariants in Layer 5."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6e-the-two-hasse-invariants-agree-and-both-are-the-invariant-map::landmark:layer-6c-aqsft5",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the local Hasse invariant in Layer 6C."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6e-the-two-hasse-invariants-agree-and-both-are-the-invariant-map::landmark:layer-6d-ar1wb2",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the unique quaternion division algebra in Layer 6D."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6e-the-two-hasse-invariants-agree-and-both-are-the-invariant-map::landmark:layer-7b-wolgg3",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the 2-torsion comparison in Layer 7B."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7a-the-mod-2-operations-consumed-and-the-μ₂-adapters::landmark:profinite-cohomology-layer-10-i7ecp9",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported corestriction API owned by the profinite-cohomology roadmap."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7a-the-mod-2-operations-consumed-and-the-μ₂-adapters::landmark:profinite-cohomology-layer-12-h39mxf",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported cup-pairing API owned by the profinite-cohomology roadmap."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7a-the-mod-2-operations-consumed-and-the-μ₂-adapters::landmark:profinite-cohomology-layer-9-e9y46x",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported Kummer API owned by the profinite-cohomology roadmap."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7a-the-mod-2-operations-consumed-and-the-μ₂-adapters::landmark:profinite-cohomology-layers-1-and-9-1c5tiou",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported Galois coefficient carriers owned by the profinite-cohomology roadmap."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²::landmark:layer-5-hepnyf",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to quaternion bilinearity in Layer 5."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²::landmark:layer-7a-wouwy0",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to coefficient carriers and the comparison map in Layer 7A."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²::landmark:profinite-cohomology-layer-12-h39mxf",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported cup-product results owned by the profinite-cohomology roadmap."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²::landmark:ssa-layer-6-1e22gm7",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported Brauer-group and splitting-field results owned by another roadmap."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7c-the-cup-norm-theorem::landmark:cup-norm-theorem-1ybzerc",
+    "decision": "name",
+    "label": "Kummer cup-norm theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7c-the-cup-norm-theorem::landmark:other-four-descriptions-each-a-named-theor-10lkbzt",
+    "decision": "name",
+    "label": "Five-fold cup-vanishing criterion",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7c-the-cup-norm-theorem::landmark:square-class-dictionary-kx-kx-2-h1-g-k-2-i-1pqsdiu",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the square-class dictionary in Layer 7A."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence::landmark:representation-and-value-sets-gah1w1",
+    "decision": "keep",
+    "label": "Representation and value sets",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence::landmark:square-class-interop-571gai",
+    "decision": "name",
+    "label": "Multiplicative square-class group",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence::landmark:tau-ceti-1w0j6wm",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Inventory of existing Tau Ceti square-class prerequisites."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence::landmark:weightedsumsquares-quadraticmap-equivalent-630m28",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Inventory of existing Mathlib quadratic-map prerequisites."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory::landmark:hyperbolic-plane-dhojzo",
+    "decision": "name",
+    "label": "Hyperbolic plane ⟨1, −1⟩",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory::landmark:layer-0-ij61ty",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the representation criterion and binary normal forms in Layer 0."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory::landmark:quadraticmap-prod-quadraticmap-nondegenera-1rj36b5",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Inventory of existing Mathlib prerequisites, despite its layer-title label."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory::landmark:witt-decomposition-o3e93i",
+    "decision": "keep",
+    "label": "Witt decomposition",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion::landmark:layer-0-ij61ty",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the binary normal forms in Layer 0."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion::landmark:layer-1-hf4hk3",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the hyperbolic plane and isotropic splitting in Layer 1."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion::landmark:norm-form-6ev39b",
+    "decision": "name",
+    "label": "Quaternion norm form",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion::landmark:quaternionalgebra-star-mul-star-eq-coe-qua-7tfcle",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Inventory of existing Mathlib algebra prerequisites, despite its layer-title label."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group::landmark:dimension-and-dimension-mod-2-gwpl1c",
+    "decision": "keep",
+    "label": "Dimension and dimension mod 2",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group::landmark:discr-basisrepr-matrix-det-zmod-2-11uc6iu",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Inventory of existing Mathlib discriminant and determinant prerequisites."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group::landmark:layer-0-ij61ty",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the descent principle and binary equivalence in Layer 0."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group::landmark:layer-2-hfdy20",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the symbol relations and norm form in Layer 2."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal::landmark:layer-1-hf4hk3",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to Witt decomposition and cancellation in Layer 1."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal::landmark:layer-2-hfdy20",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the norm form and splitting criterion in Layer 2."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal::landmark:layer-3-rymxp",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the discriminant and dimension invariants in Layer 3."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal::landmark:w-k-and-w-k-r4ki67",
+    "decision": "name",
+    "label": "Witt–Grothendieck and Witt rings",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-5-the-brauer-valued-invariants::landmark:csa-isbrauerequivalent-brauergroup-algebra-fc223t",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Inventory of existing Mathlib central-simple algebra, Brauer-group, and Clifford prerequisites."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-5-the-brauer-valued-invariants::landmark:layer-2-hfdy20",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the symbol relations and split-or-division theorem in Layer 2."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-5-the-brauer-valued-invariants::landmark:ssa-layer-4-1wxhqs9",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported tensor-product results owned by the semisimple-algebra roadmap."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-5-the-brauer-valued-invariants::landmark:ssa-layer-6-1e22gm7",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported Brauer-group structure owned by the semisimple-algebra roadmap."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field::landmark:scope-k-is-a-nonarchimedean-local-field-of-4dkgng",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Standing hypotheses for the local-field section, rather than a mathematical landmark."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-8-stiefel-whitney-classes::landmark:layer-0-ij61ty",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to the descent principle in Layer 0."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-8-stiefel-whitney-classes::landmark:layer-3-rymxp",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to discriminant and chain-induction results in Layer 3."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-8-stiefel-whitney-classes::landmark:layer-7a-wouwy0",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to Kummer coefficients and the comparison map in Layer 7A."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-8-stiefel-whitney-classes::landmark:profinite-cohomology-layer-12-h39mxf",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported cup-product results owned by the profinite-cohomology roadmap."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-9-transfer-and-the-relative-stiefel-whitney-formula::landmark:layer-1-hf4hk3",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to quadratic-form and Witt-ring theory in earlier layers."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-9-transfer-and-the-relative-stiefel-whitney-formula::landmark:layer-7a-wouwy0",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Prerequisite reference to coefficient carriers and Kummer classes in Layer 7A."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-9-transfer-and-the-relative-stiefel-whitney-formula::landmark:linearmap-compquadraticmap-algebra-trace-a-dsy7gn",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Inventory of existing Mathlib trace-form prerequisites, despite its layer-title label."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-9-transfer-and-the-relative-stiefel-whitney-formula::landmark:tau-ceti-1w0j6wm",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Import reference to the existing Tau Ceti trace development."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary::landmark:anti-equivalence-140g7w0",
+    "decision": "name",
+    "label": "Affine group scheme–Hopf anti-equivalence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary::landmark:base-change-qjw5k0",
+    "decision": "name",
+    "label": "Base change of Hopf algebras",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary::landmark:r-points-as-a-group-gkm2p5",
+    "decision": "name",
+    "label": "Convolution group of R-points",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules::landmark:comodules-1h0eay8",
+    "decision": "keep",
+    "label": "Comodules",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules::landmark:dictionary-1ez7oz9",
+    "decision": "name",
+    "label": "Representation–comodule equivalence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules::landmark:faithfulness-done-right-7hlw65",
+    "decision": "name",
+    "label": "Faithful representation as a closed immersion",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules::landmark:finite-dimensional-subcoalgebras-1s13v1b",
+    "decision": "name",
+    "label": "Fundamental theorem of comodules",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation::landmark:smoothness-and-dimension-tools-v6pjli",
+    "decision": "name",
+    "label": "Smoothness criterion via Lie(G)",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation::landmark:tangent-space-at-the-identity-lie-g-1jfj52x",
+    "decision": "name",
+    "label": "Tangent space at the identity",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components::landmark:hopf-ideals-closed-subgroup-schemes-16vsms5",
+    "decision": "name",
+    "label": "Hopf ideal–closed subgroup anti-equivalence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components::landmark:identity-component-g-and-component-group-0-j1mb5a",
+    "decision": "keep",
+    "label": "Identity component G° and component group π₀(G)",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components::landmark:normality-and-quotients-vwv25t",
+    "decision": "name",
+    "label": "fppf sheaf quotient G/H",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori::landmark:diagonalizable-groups-and-groups-of-multip-o5tlbp",
+    "decision": "name",
+    "label": "Diagonalizable group anti-equivalence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori::landmark:jordan-decomposition-o9krg0",
+    "decision": "keep",
+    "label": "Jordan decomposition",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori::landmark:tori-1d1e06p",
+    "decision": "keep",
+    "label": "Tori",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-5-solvable-and-unipotent-groups-the-unipotent-radical::landmark:lie-kolchin-1axqin0",
+    "decision": "keep",
+    "label": "Lie–Kolchin",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-5-solvable-and-unipotent-groups-the-unipotent-radical::landmark:unipotent-groups-38m9qv",
+    "decision": "keep",
+    "label": "Unipotent groups",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups::landmark:alternative-characterization-linearly-redu-18yngza",
+    "decision": "name",
+    "label": "Linearly reductive groups",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups::landmark:reductive-1cixehu",
+    "decision": "name",
+    "label": "Reductive groups",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory::landmark:borel-subgroups-maximal-tori-lj70nk",
+    "decision": "keep",
+    "label": "Borel subgroups, maximal tori",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory::landmark:bruhat-decomposition-lb8v72",
+    "decision": "keep",
+    "label": "Bruhat decomposition",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory::landmark:root-datum-y8kqaa",
+    "decision": "keep",
+    "label": "Root datum",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon::landmark:isomorphism-and-existence-theorems-split-r-6o82ny",
+    "decision": "name",
+    "label": "Split reductive group classification",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon::landmark:relative-theory-over-a-base-xcbxwg",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Unspecified future generalizations without a definite construction or theorem."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ::landmark:base-change-qjw5k0",
+    "decision": "name",
+    "label": "Base change of pinned group schemes",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ::landmark:chevalley-demazure-construction-1508gv7",
+    "decision": "keep",
+    "label": "Chevalley–Demazure construction",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ::landmark:pinnings-xnpdtv",
+    "decision": "keep",
+    "label": "Pinnings",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ::landmark:split-reductive-group-schemes-over-a-base-a6ckj7",
+    "decision": "keep",
+    "label": "Split reductive group schemes over a base",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-0-representations-and-finite-enveloping-targets::landmark:direct-sums-separate-finitely-many-directi-gwe578",
+    "decision": "name",
+    "label": "Kernel of a finite direct sum of representations",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-0-representations-and-finite-enveloping-targets::landmark:faithfulness-dictionary-9xmsvv",
+    "decision": "name",
+    "label": "Faithfulness and injectivity equivalence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-0-representations-and-finite-enveloping-targets::landmark:finite-target-reduction-p0a82t",
+    "decision": "keep",
+    "label": "Finite-target reduction",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-0-representations-and-finite-enveloping-targets::landmark:left-regular-representation-ndvkqu",
+    "decision": "keep",
+    "label": "Left-regular representation",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-1-the-pbw-consequences-ado-uses::landmark:canonical-embedding-4bj684",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported canonical-embedding theorem owned by the highest-weight roadmap's PBW project."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-1-the-pbw-consequences-ado-uses::landmark:domain-and-noetherian-corollaries-1xsx7vq",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported domain and Noetherian results owned by the highest-weight roadmap's PBW project."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-1-the-pbw-consequences-ado-uses::landmark:functoriality-17tmtd2",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported enveloping-algebra functoriality owned by the highest-weight roadmap's PBW project."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-1-the-pbw-consequences-ado-uses::landmark:pbw-filtration-and-ordered-monomials-c6ioxz",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported PBW filtration and basis owned by the highest-weight roadmap."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-2-augmentation-weighted-pbw-truncations-and-the-nilpotent-engine::landmark:augmentation-9leqlh",
+    "decision": "name",
+    "label": "Augmentation of U(L)",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-2-augmentation-weighted-pbw-truncations-and-the-nilpotent-engine::landmark:nilpotent-action-33skqu",
+    "decision": "name",
+    "label": "Faithful nilpotent weighted-quotient action",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-2-augmentation-weighted-pbw-truncations-and-the-nilpotent-engine::landmark:powers-and-brackets-1uffdeb",
+    "decision": "name",
+    "label": "Iterated brackets in augmentation-ideal powers",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-2-augmentation-weighted-pbw-truncations-and-the-nilpotent-engine::landmark:weighted-truncation-for-nilpotent-algebras-uyzy40",
+    "decision": "keep",
+    "label": "Weighted truncation for nilpotent algebras",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-3-derivations-of-enveloping-algebras-and-stable-cofinite-ideals::landmark:lift-lie-derivations-1qcjf6w",
+    "decision": "name",
+    "label": "Lift of Lie derivations to U(S)",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-3-derivations-of-enveloping-algebras-and-stable-cofinite-ideals::landmark:nilradical-under-derivations-3f9z06",
+    "decision": "name",
+    "label": "Characteristic-zero nilradical invariance",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-3-derivations-of-enveloping-algebras-and-stable-cofinite-ideals::landmark:noncommutative-derivations-1mokbxw",
+    "decision": "keep",
+    "label": "Noncommutative derivations",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-3-derivations-of-enveloping-algebras-and-stable-cofinite-ideals::landmark:scalar-extension-and-descent-nel7eb",
+    "decision": "name",
+    "label": "Characteristic-zero nilradical base change",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-4-extending-nilrepresentations-across-split-ideal-extensions::landmark:kernel-control-cc2ecd",
+    "decision": "name",
+    "label": "Kernel control for extended nilrepresentations",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-4-extending-nilrepresentations-across-split-ideal-extensions::landmark:multiplication-plus-derivation-action-1a633ui",
+    "decision": "keep",
+    "label": "Multiplication-plus-derivation action",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-4-extending-nilrepresentations-across-split-ideal-extensions::landmark:nilpotence-control-1jvv9dd",
+    "decision": "name",
+    "label": "Nilrepresentation extension theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-4-extending-nilrepresentations-across-split-ideal-extensions::landmark:representation-law-2h6clk",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Commutator checks establishing the preceding action, rather than a separate key result."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-5-assemble-ado-in-characteristic-zero::landmark:faithful-nilrepresentation-of-the-center-13p3yp3",
+    "decision": "name",
+    "label": "Faithful square-zero center representation",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-5-assemble-ado-in-characteristic-zero::landmark:flag-passes-through-the-nilradical-15eisnx",
+    "decision": "name",
+    "label": "Codimension-one flag through the nilradical",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-5-assemble-ado-in-characteristic-zero::landmark:levi-decomposition-quotient-induction-ewqidc",
+    "decision": "name",
+    "label": "Levi decomposition",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-5-assemble-ado-in-characteristic-zero::landmark:levi-decomposition-split-the-two-minimal-r-8dlio2",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Case analysis inside the Levi decomposition proof, already represented by that theorem."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-6-central-p-polynomials-and-module-finiteness::landmark:adjoint-nilpotent-specialization-ibxk8z",
+    "decision": "name",
+    "label": "Central p-powers for nilpotent ad x",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-6-central-p-polynomials-and-module-finiteness::landmark:central-p-polynomials-1sygtvk",
+    "decision": "keep",
+    "label": "Central p-polynomials",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-6-central-p-polynomials-and-module-finiteness::landmark:finite-central-generating-family-1uv5xyj",
+    "decision": "name",
+    "label": "Module-finiteness over central p-polynomials",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-6-central-p-polynomials-and-module-finiteness::landmark:frobenius-commutator-identity-1qf3f6f",
+    "decision": "keep",
+    "label": "Frobenius commutator identity",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-7-the-generalized-krull-intersection-and-finite-quotients::landmark:commutative-input-is-ideal-mem-iinf-smul-p-nbzpem",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Instruction to apply an existing Mathlib theorem and discharge its hypotheses."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-7-the-generalized-krull-intersection-and-finite-quotients::landmark:finite-dimensional-quotient-1binbkr",
+    "decision": "name",
+    "label": "Finite-dimensional central-ideal quotients",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-7-the-generalized-krull-intersection-and-finite-quotients::landmark:separate-l-at-a-finite-stage-1ctvjxr",
+    "decision": "name",
+    "label": "Finite-stage separation of L",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-7-the-generalized-krull-intersection-and-finite-quotients::landmark:torsion-free-domain-corollary-mwekko",
+    "decision": "name",
+    "label": "Zero intersection of (UC)ⁿ",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-8-assemble-the-positive-characteristic-theorem::landmark:choose-n-with-uc-n-l-0-and-let-a-u-l-uc-n-73qpil",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Auxiliary choice of the quotient used in the next representation theorem."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-8-assemble-the-positive-characteristic-theorem::landmark:if-ad-x-is-nilpotent-layer-6-gives-x-p-e-c-eygq00",
+    "decision": "name",
+    "label": "Hochschild theorem in positive characteristic",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-8-assemble-the-positive-characteristic-theorem::landmark:independence-from-the-selected-basis-and-c-1ljr9z3",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Choice-independence requirement for the preceding theorem, rather than a separate landmark."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-9-the-arbitrary-field-summit-and-consumers::landmark:characteristic-dispatch-rxlyja",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Characteristic-case and instance plumbing, explicitly separated from the mathematics."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-9-the-arbitrary-field-summit-and-consumers::landmark:hochschild-s-strengthened-theorem-1irx9ez",
+    "decision": "keep",
+    "label": "Hochschild's strengthened theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-9-the-arbitrary-field-summit-and-consumers::landmark:lie-s-third-theorem-1yare8y",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Consumer-interface instruction exporting a specialization, rather than Lie's third theorem itself."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-9-the-arbitrary-field-summit-and-consumers::landmark:matrix-form-17n057m",
+    "decision": "name",
+    "label": "Faithful matrix representation",
+    "kind": "theorem"
+  }
+]
