@@ -2864,7 +2864,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GILLE-PARIMALA-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1197"
   },
   {
    "id": "REV-PAPER-GILLE-PARIMALA-26",
@@ -6205,8 +6206,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MERKURJEV-SCAVIA-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1408"
+   "state": "pending",
+   "note": "released on GitHub issue #1408"
   },
   {
    "id": "REV-PAPER-MERKURJEV-SCAVIA-26",
