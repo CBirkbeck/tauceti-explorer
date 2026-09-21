@@ -25,7 +25,7 @@
     },
     "RankZeroOneBSD:BSD.1": {
       "action": "narrow",
-      "keeps": "Quadratic restriction/trace and twist comparisons on the existing point and torsion-quotient types; rational eigenspace/rank splitting; the specialized integral lattice index; odd-primary finite-level Selmer/Sha comparisons and explicit 2-primary kernels/cokernels; ramified-place differential, component and period comparisons; and descent of whole-Sha finiteness using a finite restriction kernel. Import general Mordell-Weil, height/regulator APIs, Selmer/Sha/Kummer carriers, local Tamagawa data, periods and Cassels invariance rather than rebuilding them.",
+      "keeps": "Quadratic restriction/trace and twist comparisons on the existing point and torsion-quotient types; rational eigenspace/rank splitting; the specialized integral lattice index; odd-primary finite-level Selmer/Sha comparisons and explicit 2-primary kernels/cokernels; ramified-place differential, component and period comparisons; and descent of whole-Sha finiteness using a finite restriction kernel. Import general Mordell-Weil, height/regulator APIs, Selmer/Sha/Kummer carriers, local Tamagawa data, periods and Cassels invariance rather than rebuilding them. The Layer 7 real-period/arithmetic-quotient import is for E/Q; the necessary quadratic-field and ramified-place period comparisons remain here with the existing geometric and GZ inputs.",
       "suppliedBy": [
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
@@ -49,7 +49,7 @@
     },
     "RankZeroOneBSD:BSD.5": {
       "action": "narrow",
-      "keeps": "Rationality and positivity of the actual normalized leading term in ranks zero and one; the specialized Heegner-point height/index comparison with torsion and Q/K factors; the Ribet-Takahashi character-group/parametrization-degree calculation; and a nonzero rational BSD defect with its valuation formula. Derive isogeny invariance of that rational defect by composing the imported arithmetic-quotient and actual analytic-leading-term invariances with the normalization adapters. Do not reprove Cassels, general isogeny Euler-factor/continuation invariance, the height/regulator and basis-independence API, or source-wide height/period rescaling.",
+      "keeps": "Rationality and positivity of the actual normalized leading term in ranks zero and one; the specialized Heegner-point height/index comparison with torsion and Q/K factors; the Ribet-Takahashi character-group/parametrization-degree calculation; and a nonzero rational BSD defect with its valuation formula. Derive isogeny invariance of that rational defect by composing the imported arithmetic-quotient and actual analytic-leading-term invariances with the normalization adapters. Do not reprove Cassels, general isogeny Euler-factor/continuation invariance, the height/regulator and basis-independence API, or source-wide height/period rescaling. Compare the pinned halved-polar pairing with the source pairing before identifying regulators or defect valuations; no convention-dependent power of two may be suppressed.",
       "suppliedBy": [
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
@@ -209,6 +209,316 @@
       "source": "RankZeroOneBSD:BSD.8",
       "target": "PeriodsAndSpecialValues:PS.6",
       "reason": "Preserve the scoped BSD assembly export, including all unresolved exceptional-prime gates."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.0",
+      "target": "RankZeroOneBSD:BSD.2",
+      "reason": "Make the README's BSD.0 prerequisite explicit for BSD.2; retain the specialized BSD output in addition to its imported foundations."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.0",
+      "target": "RankZeroOneBSD:BSD.9",
+      "reason": "Make the README's BSD.0 prerequisite explicit for BSD.9; retain the specialized BSD output in addition to its imported foundations."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.1",
+      "target": "RankZeroOneBSD:BSD.3",
+      "reason": "Make the README's BSD.1 prerequisite explicit for BSD.3; retain the specialized BSD output in addition to its imported foundations."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.1",
+      "target": "RankZeroOneBSD:BSD.4",
+      "reason": "Make the README's BSD.1 prerequisite explicit for BSD.4; retain the specialized BSD output in addition to its imported foundations."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.1",
+      "target": "RankZeroOneBSD:BSD.6a",
+      "reason": "Make the README's BSD.1 prerequisite explicit for BSD.6a; retain the specialized BSD output in addition to its imported foundations."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.1",
+      "target": "RankZeroOneBSD:BSD.9",
+      "reason": "Make the README's BSD.1 prerequisite explicit for BSD.9; retain the specialized BSD output in addition to its imported foundations."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.5",
+      "target": "RankZeroOneBSD:BSD.6",
+      "reason": "Make the README's BSD.5 prerequisite explicit for BSD.6; retain the specialized BSD output in addition to its imported foundations."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.5",
+      "target": "RankZeroOneBSD:BSD.6a",
+      "reason": "Make the README's BSD.5 prerequisite explicit for BSD.6a; retain the specialized BSD output in addition to its imported foundations."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.5",
+      "target": "RankZeroOneBSD:BSD.7",
+      "reason": "Make the README's BSD.5 prerequisite explicit for BSD.7; retain the specialized BSD output in addition to its imported foundations."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.5",
+      "target": "RankZeroOneBSD:BSD.7a",
+      "reason": "Make the README's BSD.5 prerequisite explicit for BSD.7a; retain the specialized BSD output in addition to its imported foundations."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.5",
+      "target": "RankZeroOneBSD:BSD.8",
+      "reason": "Make the README's BSD.5 prerequisite explicit for BSD.8; retain the specialized BSD output in addition to its imported foundations."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.5",
+      "target": "RankZeroOneBSD:BSD.9",
+      "reason": "Make the README's BSD.5 prerequisite explicit for BSD.9; retain the specialized BSD output in addition to its imported foundations."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+      "target": "RankZeroOneBSD:BSD.2",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.0: import the existing quadratic-twist and point/Galois comparison; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "EllipticCurveModularity:R29.3",
+      "target": "RankZeroOneBSD:BSD.2",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.0: import rationality of the actual newform's full coefficient field; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "EllipticCurveModularity:R29.6",
+      "target": "RankZeroOneBSD:BSD.2",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.0: import the actual curve/newform L-function equality, continuation and functional equation; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+      "target": "RankZeroOneBSD:BSD.3",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.0: import the existing quadratic-twist and point/Galois comparison; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "EllipticCurveModularity:R29.3",
+      "target": "RankZeroOneBSD:BSD.3",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.0: import rationality of the actual newform's full coefficient field; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "EllipticCurveModularity:R29.6",
+      "target": "RankZeroOneBSD:BSD.3",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.0: import the actual curve/newform L-function equality, continuation and functional equation; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+      "target": "RankZeroOneBSD:BSD.4",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.0: import the existing quadratic-twist and point/Galois comparison; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "EllipticCurveModularity:R29.3",
+      "target": "RankZeroOneBSD:BSD.4",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.0: import rationality of the actual newform's full coefficient field; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "EllipticCurveModularity:R29.6",
+      "target": "RankZeroOneBSD:BSD.4",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.0: import the actual curve/newform L-function equality, continuation and functional equation; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+      "target": "RankZeroOneBSD:BSD.5",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.0: import the existing quadratic-twist and point/Galois comparison; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "EllipticCurveModularity:R29.3",
+      "target": "RankZeroOneBSD:BSD.5",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.0: import rationality of the actual newform's full coefficient field; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "EllipticCurveModularity:R29.6",
+      "target": "RankZeroOneBSD:BSD.5",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.0: import the actual curve/newform L-function equality, continuation and functional equation; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+      "target": "RankZeroOneBSD:BSD.9",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.0: import the existing quadratic-twist and point/Galois comparison; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "EllipticCurveModularity:R29.3",
+      "target": "RankZeroOneBSD:BSD.9",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.0: import rationality of the actual newform's full coefficient field; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "EllipticCurveModularity:R29.6",
+      "target": "RankZeroOneBSD:BSD.9",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.0: import the actual curve/newform L-function equality, continuation and functional equation; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "target": "RankZeroOneBSD:BSD.3",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import local reduction, differential and Tamagawa data; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+      "target": "RankZeroOneBSD:BSD.3",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import Mordell-Weil, torsion and the existing height/regulator lattice; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "target": "RankZeroOneBSD:BSD.3",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import general Selmer/Sha/Kummer interfaces and the rational real-period/arithmetic-quotient conventions, with whole-Sha finiteness explicit; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.0",
+      "target": "RankZeroOneBSD:BSD.3",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import the explicit source height/pairing/period normalization bridge and rank-dependent determinant scaling; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "target": "RankZeroOneBSD:BSD.4",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import local reduction, differential and Tamagawa data; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+      "target": "RankZeroOneBSD:BSD.4",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import Mordell-Weil, torsion and the existing height/regulator lattice; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "target": "RankZeroOneBSD:BSD.4",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import general Selmer/Sha/Kummer interfaces and the rational real-period/arithmetic-quotient conventions, with whole-Sha finiteness explicit; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.0",
+      "target": "RankZeroOneBSD:BSD.4",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import the explicit source height/pairing/period normalization bridge and rank-dependent determinant scaling; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "target": "RankZeroOneBSD:BSD.5",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import local reduction, differential and Tamagawa data; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "target": "RankZeroOneBSD:BSD.6a",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import local reduction, differential and Tamagawa data; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+      "target": "RankZeroOneBSD:BSD.6a",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import the existing quadratic-twist and point/Galois comparison; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+      "target": "RankZeroOneBSD:BSD.6a",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import Mordell-Weil, torsion and the existing height/regulator lattice; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "target": "RankZeroOneBSD:BSD.6a",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import general Selmer/Sha/Kummer interfaces and the rational real-period/arithmetic-quotient conventions, with whole-Sha finiteness explicit; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.0",
+      "target": "RankZeroOneBSD:BSD.6a",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import the explicit source height/pairing/period normalization bridge and rank-dependent determinant scaling; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "target": "RankZeroOneBSD:BSD.9",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import local reduction, differential and Tamagawa data; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+      "target": "RankZeroOneBSD:BSD.6",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.5: import Mordell-Weil, torsion and the existing height/regulator lattice; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "target": "RankZeroOneBSD:BSD.6",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.5: import general Selmer/Sha/Kummer interfaces and the rational real-period/arithmetic-quotient conventions, with whole-Sha finiteness explicit; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.0",
+      "target": "RankZeroOneBSD:BSD.6",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.5: import the explicit source height/pairing/period normalization bridge and rank-dependent determinant scaling; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.1",
+      "target": "RankZeroOneBSD:BSD.6",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.5: import the specialized quadratic rank, lattice-index, Selmer/Sha and period comparisons; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+      "target": "RankZeroOneBSD:BSD.7",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.5: import Mordell-Weil, torsion and the existing height/regulator lattice; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "target": "RankZeroOneBSD:BSD.7",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.5: import general Selmer/Sha/Kummer interfaces and the rational real-period/arithmetic-quotient conventions, with whole-Sha finiteness explicit; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.0",
+      "target": "RankZeroOneBSD:BSD.7",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.5: import the explicit source height/pairing/period normalization bridge and rank-dependent determinant scaling; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.1",
+      "target": "RankZeroOneBSD:BSD.7",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.5: import the specialized quadratic rank, lattice-index, Selmer/Sha and period comparisons; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.0",
+      "target": "RankZeroOneBSD:BSD.8",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.5: import the explicit source height/pairing/period normalization bridge and rank-dependent determinant scaling; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.1",
+      "target": "RankZeroOneBSD:BSD.8",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.5: import the specialized quadratic rank, lattice-index, Selmer/Sha and period comparisons; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+      "target": "RankZeroOneBSD:BSD.7a",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.5: import Mordell-Weil, torsion and the existing height/regulator lattice; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "target": "RankZeroOneBSD:BSD.7a",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.5: import general Selmer/Sha/Kummer interfaces and the rational real-period/arithmetic-quotient conventions, with whole-Sha finiteness explicit; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.0",
+      "target": "RankZeroOneBSD:BSD.7a",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.5: import the explicit source height/pairing/period normalization bridge and rank-dependent determinant scaling; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.1",
+      "target": "RankZeroOneBSD:BSD.7a",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.5: import the specialized quadratic rank, lattice-index, Selmer/Sha and period comparisons; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+      "target": "RankZeroOneBSD:BSD.6",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import the existing quadratic-twist and point/Galois comparison; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "target": "RankZeroOneBSD:BSD.7",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import local reduction, differential and Tamagawa data; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+      "target": "RankZeroOneBSD:BSD.7",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import the existing quadratic-twist and point/Galois comparison; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+      "target": "RankZeroOneBSD:BSD.8",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import the existing quadratic-twist and point/Galois comparison; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "target": "RankZeroOneBSD:BSD.7a",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import local reduction, differential and Tamagawa data; keep the specialized BSD comparison or proof as a separate prerequisite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+      "target": "RankZeroOneBSD:BSD.7a",
+      "reason": "Consumer handoff after narrowing RankZeroOneBSD:BSD.1: import the existing quadratic-twist and point/Galois comparison; keep the specialized BSD comparison or proof as a separate prerequisite."
     }
   ],
   "owners": [
@@ -251,7 +561,7 @@
       ]
     },
     {
-      "target": "Full-component real period and arithmetic BSD quotient with whole-Sha finiteness explicit",
+      "target": "Full-component real period and arithmetic BSD quotient for E/Q, with whole-Sha finiteness explicit (not general-number-field periods)",
       "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
       "formerly": [
         "RankZeroOneBSD:BSD.1",
@@ -298,5 +608,16 @@
         "RankZeroOneBSD:BSD.9"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-30",
+    "date": "2026-09-21",
+    "notes": "Independently read the complete member and immutable anchor, checked all twelve stage targets, reviewed AUDIT-27 coverage records and pinned Lean declarations, traced the three external consumer stages, and corrected missing consumer handoffs and scope/normalization wording. No theorem hypotheses, branch owners, endpoint certificates or acceptance tests were removed. Accepted as a structural decision, not proof closure.",
+    "corrections": [
+      "Completed supplier-to-consumer handoffs for every narrowed stage, including dependencies stated in the README but absent from the extracted edges; preserved all existing BSD proof/export edges.",
+      "Made the anchor's real-period/arithmetic-BSD-quotient ownership explicitly E/Q rather than a general-number-field period construction.",
+      "Made the pinned height/pairing-to-source regulator comparison explicit in BSD.5's retained scope, keeping finite-index calculations and every rank-dependent factor."
+    ]
+  }
 }
