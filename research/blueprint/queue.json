@@ -3294,7 +3294,8 @@
    ],
    "avoidAccountOf": "RS-07",
    "prompt": "research/blueprint/prompts/REV-RS-07.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #813"
   },
   {
    "id": "RS-08",
@@ -3326,8 +3327,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-08.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #816"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #816",
+   "finishedAt": "2026-09-21T14:56:21Z"
   },
   {
    "id": "REV-RS-08",
@@ -3528,7 +3530,8 @@
    ],
    "avoidAccountOf": "RS-12",
    "prompt": "research/blueprint/prompts/REV-RS-12.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #823"
   },
   {
    "id": "RS-13",
@@ -4408,7 +4411,8 @@
    ],
    "avoidAccountOf": "RS-33",
    "prompt": "research/blueprint/prompts/REV-RS-33.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #865"
   },
   {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--P7",
