@@ -226,6 +226,26 @@ Write research/blueprint/reviews/{JOB}.md with your findings and questions for t
 RULES: edit only the proposal, your report and scratch files. Do not run git. No private paths in the repository.
 Finish with a summary under 200 words."""
 
+PLANETS_TEMPLATE = """You are a mathematical editor for the Tau Ceti Atlas. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it). Save progress often, so partial work survives.
+
+TASK: the planets of the atlas are the key definitions, named theorems and central constructions of each roadmap layer. The planets listed in {INPUT} were extracted mechanically from the roadmap texts and the source decompositions, and most of their names are sentence fragments or source locators ("FS VI.1.5-VI.1.9: loop groups, the local Hecke stack and ..."). Decide which deserve to be planets, and give those a proper name: the standard name of the object or result where the text uses one (for example "Potential automorphy theorem", "Geometric Satake equivalence", "Pre-Bloch group"), otherwise a short noun phrase.
+
+Each entry has: id, label (the current name), kind, excerpt (the passage; may be empty), star and starId (its layer), roadmap and roadmapId, curated (false here) and refinement (true when the planet is a node of a reviewed source decomposition).
+
+For EVERY entry decide exactly one of:
+ (a) "keep": the current label already names a key definition, named theorem or central construction well: a noun phrase of at most 48 characters, with no verb, no source locator (FS VI.1.5, Theorem 3.2, p. 138), no bookkeeping vocabulary, and not identical to its layer's title.
+ (b) "name": the passage is about such an object or result but the label is poor. Give a noun phrase of at most 48 characters, built only from words and symbols that occur in the excerpt, the current label, or the layer's own title and description (research/blueprint/atlas/roadmaps/<file>.json holds them; the file name is the roadmap id with ':' and '/' replaced by '_'). Prefer the name the text itself gives the result ("the potential automorphy theorem", "Serre's conjecture"). Strip locators: "FS VI.1.5-VI.1.9: loop groups, the local Hecke stack and the Beilinson-Drinfeld Grassmannian" becomes "Beilinson–Drinfeld Grassmannian". Never introduce mathematics the passage does not state, never guess a name or attribution the text does not give, and never turn a conjecture into a theorem or a special case into the general one.
+ (c) "drop": not a key definition, named theorem or central construction. This covers instructions and workflow, acceptance checks, examples used as tests, scope caveats and warnings, bookkeeping about owners, suppliers or documents, cross-references between layers ("R5 uses P0-P3 to construct ..."), and fragments whose object cannot be identified. Give a one-line reason.
+ Set "kind" to "definition", "theorem" or "construction" as appropriate, otherwise null.
+
+Judgement: a layer keeps its few most important planets, usually two to six. When in doubt between "name" and "drop" for a minor item, drop it: the passage stays readable in the layer's text, and a poor planet misleads every reader of the map.
+
+RULES: names within one layer (same starId) must be distinct. Capitalise only the first word and proper names, and do not capitalise a name whose first token is notation (p-adic, n-local). Write en dashes as "–" (Riemann–Roch), keep the passage's notation (GL2, Bun_G as written), and use no trailing punctuation, no quotation marks and none of the characters \\ $ {{ }} ^. Function words (in, on, of, for, and, over, with, from, into, under, via, the, a, an, its) are exempt from the passage-vocabulary rule. Check every new label with python3 (len(label) <= 48).
+
+OUTPUT: {OUTPUT}, a JSON array of objects {{"id": ..., "decision": "keep" | "name" | "drop", "label": <string or null>, "kind": <"definition" | "theorem" | "construction" | null>, "reason": <string, for drop>}} covering every input id exactly once. Rewrite the whole file after every 50 entries, validate it with python3 -c "import json;json.load(open('{OUTPUT}'))", and check that its id set equals the input's. Then run `python3 scripts/merge_landmark_names.py {OUTPUT}` (without --apply) and fix every rejected entry. Edit no other file in the repository, do not run git, and never write private absolute paths into the repository.
+
+Finish by printing the counts of keep, name and drop decisions, five renamed entries (old -> new), and five dropped entries with their reasons."""
+
 HABIRO_FAMILY = {"HabiroNumberFields", "HabiroRings", "HabiroCyclotomicCompletions", "HabiroNahmSeries",
                  "HabiroCohomologyFoundations", "ArithmeticQuantumTopology"}
 
@@ -635,7 +655,15 @@ def main():
                                         PARTLEAN=", ".join(p[3] for p in parts), README=readme, SUGGESTED=suggested)
         add({"id": job_id, "kind": "assembly", "priority": 2, "order": 5000, "roadmapIds": [rid], "outputs": [readme, suggested],
              "after": ["REV-" + p[0][3:] for p in parts]}, text)
-    # Priority 4: planet naming.
+    # Priority 1: name the planets drawn today (research/expansion/naming/PLANETS.json).
+    planets_index = BP.parent / "expansion" / "naming" / "PLANETS.json"
+    for number, batch in enumerate(json.loads(planets_index.read_text())["jobs"] if planets_index.exists() else [], 1):
+        job_id = batch["id"]
+        output = f"research/expansion/naming/{job_id}.result.json"
+        add({"id": job_id, "kind": "naming", "priority": 1, "order": 200 + number, "name": batch["name"],
+             "roadmapIds": batch["roadmaps"], "outputs": [output], "after": []},
+            PLANETS_TEMPLATE.format(**fill, JOB=job_id, INPUT=f"research/expansion/naming/{job_id}.json", OUTPUT=output))
+    # Priority 4: planet naming (the first batches, superseded by the PLANETS jobs above).
     for n in range(1, 15):
         add({"id": f"NAME-{n:02d}", "kind": "naming", "priority": 4, "order": n,
              "prompt": f"research/expansion/prompts/NAME-{n:02d}.md",

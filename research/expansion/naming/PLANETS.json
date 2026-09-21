@@ -1,0 +1,323 @@
+{
+ "purpose": "Planet-naming batches over the planets drawn on 21 September 2026 without a curated name (landmarks and source refinements), grouped by roadmap.",
+ "jobs": [
+  {
+   "id": "PLANETS-01",
+   "name": "Contour integration and the Hungerbühler–Wasem generalized residue theorem and 11 more roadmaps",
+   "planets": 291,
+   "roadmaps": [
+    "tauceti:Completed/ContourIntegration",
+    "tauceti:Completed/EffectiveBounds",
+    "tauceti:Completed/IntegralLattices",
+    "tauceti:Completed/OrthogonalL2Bases",
+    "tauceti:TauCetiRoadmap/AdicSpaces",
+    "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+    "tauceti:TauCetiRoadmap/BelyiMaps",
+    "tauceti:TauCetiRoadmap/CFSGStatement"
+   ]
+  },
+  {
+   "id": "PLANETS-02",
+   "name": "The Chebotarev density theorem and 9 more roadmaps",
+   "planets": 293,
+   "roadmaps": [
+    "tauceti:TauCetiRoadmap/Chebotarev",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+    "tauceti:TauCetiRoadmap/ConformalMapping",
+    "tauceti:TauCetiRoadmap/DGAInfinity",
+    "tauceti:TauCetiRoadmap/DenseGraphLimits",
+    "tauceti:TauCetiRoadmap/EllipticCurves",
+    "tauceti:TauCetiRoadmap/Exchangeability",
+    "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+    "tauceti:TauCetiRoadmap/GeometricTopology"
+   ]
+  },
+  {
+   "id": "PLANETS-03",
+   "name": "Global number fields, ray classes, adeles, and Hecke characters and 7 more roadmaps",
+   "planets": 170,
+   "roadmaps": [
+    "tauceti:TauCetiRoadmap/GlobalNumberFields",
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+    "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+    "tauceti:TauCetiRoadmap/HeegaardFloer",
+    "tauceti:TauCetiRoadmap/HodgeStructures",
+    "tauceti:TauCetiRoadmap/HopfRinow",
+    "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification"
+   ]
+  },
+  {
+   "id": "PLANETS-04",
+   "name": "Modular curves, following Katz–Mazur and 5 more roadmaps",
+   "planets": 293,
+   "roadmaps": [
+    "tauceti:TauCetiRoadmap/ModularCurves",
+    "tauceti:TauCetiRoadmap/ModularForms",
+    "tauceti:TauCetiRoadmap/Multiquadratic",
+    "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+    "tauceti:TauCetiRoadmap/OptimalTransport"
+   ]
+  },
+  {
+   "id": "PLANETS-05",
+   "name": "Partial differential equations and 6 more roadmaps",
+   "planets": 280,
+   "roadmaps": [
+    "tauceti:TauCetiRoadmap/PDE",
+    "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+    "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa"
+   ]
+  },
+  {
+   "id": "PLANETS-06",
+   "name": "Character theory of finite groups, and computing character tables and 10 more roadmaps",
+   "planets": 293,
+   "roadmaps": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+   ]
+  },
+  {
+   "id": "PLANETS-07",
+   "name": "Stable, periodic, and curved homological algebra and 11 more roadmaps",
+   "planets": 287,
+   "roadmaps": [
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+    "tauceti:TauCetiRoadmap/StableReduction",
+    "tauceti:TauCetiRoadmap/StandardDistributions",
+    "tauceti:TauCetiRoadmap/UniversalCovers",
+    "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+    "AInfCohomology",
+    "AbelianSchemesAndArithmeticModuli",
+    "AdditiveCombinatorics",
+    "AdelicAlgebraicGroups",
+    "AdicCoefficientsAndComparisons",
+    "AdicEtaleGeometry",
+    "AdicSpacesPartII"
+   ]
+  },
+  {
+   "id": "PLANETS-08",
+   "name": "Algebraic modular forms, reduction and Serre weights and 19 more roadmaps",
+   "planets": 295,
+   "roadmaps": [
+    "AlgebraicModularFormsAndSerreWeights",
+    "AlgebraicModuliForArithmeticGeometry",
+    "AnabelianGeometryAndNonabelianChabauty",
+    "AnalyticNumberTheory",
+    "ArakelovGeometryAndAbelianHeights",
+    "ArithmeticDynamics",
+    "ArithmeticGaloisDuality",
+    "ArithmeticGaloisRepresentations",
+    "ArithmeticKTheory",
+    "ArithmeticLocallySymmetricSpaces",
+    "ArithmeticQuantumTopology",
+    "ArithmeticStatistics",
+    "AutomorphicBundles",
+    "AutomorphicCongruences",
+    "AutomorphicFormsOnReductiveGroups",
+    "AutomorphicGaloisRepresentations",
+    "AutomorphicGaloisRepresentationsPartII",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "AutomorphicPadicLFunctions",
+    "AutomorphicSpectralTheory"
+   ]
+  },
+  {
+   "id": "PLANETS-09",
+   "name": "Stable arithmetic cohomology and Borel regulators and 15 more roadmaps",
+   "planets": 297,
+   "roadmaps": [
+    "BorelRegulators",
+    "BunGAndNewtonStrata",
+    "ClassicalAdicEtaleCohomology",
+    "ClassicalArithmeticCompletion",
+    "ClassicalSerreModularity",
+    "CohomologyComparisons",
+    "ColemanIntegration",
+    "ColemanPowerSeries",
+    "CompletedCohomologyAndLocalGlobalCompatibility",
+    "CompletedCohomologyPartII",
+    "ComplexComparisonPartII",
+    "ComplexMultiplicationAndExplicitReciprocity",
+    "ComputationalNumberTheory",
+    "CrystallineCohomology",
+    "DeformationAndDerivedPatchingAlgebra",
+    "DeligneWeightsAndPurity"
+   ]
+  },
+  {
+   "id": "PLANETS-10",
+   "name": "Derived de Rham cohomology and its algebraic foundations and 15 more roadmaps",
+   "planets": 293,
+   "roadmaps": [
+    "DerivedDeRhamCohomology",
+    "DiamondEtaleCohomology",
+    "DiamondSixOperations",
+    "DiamondsAndVStacks",
+    "DiophantineApproximationAndTranscendence",
+    "DirichletPadicLFunctions",
+    "EffectiveDiophantineMethods",
+    "EllipticCurveModularity",
+    "EllipticKTheory",
+    "EllipticRegulators",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "EnhancedDerivedSheaves",
+    "EtaleDualityAndPerverseSheaves",
+    "EulerSystemsAndKolyvaginSystems",
+    "EulerSystemsCyclotomicMainConjecture",
+    "ExcursionOperatorsAndSpectralAction"
+   ]
+  },
+  {
+   "id": "PLANETS-11",
+   "name": "Exponential sums, decoupling and the circle method and 16 more roadmaps",
+   "planets": 298,
+   "roadmaps": [
+    "ExponentialSumsAndCircleMethod",
+    "FaltingsFinitenessAndIsogenyTheorems",
+    "FarguesFontaineDiamonds",
+    "FiniteFieldsAndCharacterSums",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "GL2ModularityLifting",
+    "GeneralAlgebraicKTheory",
+    "GeneralizedHeegnerCycles",
+    "GeometricSatakeAndFusion",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "GlobalGaloisDeformations",
+    "GrossZagierAndArithmeticHeights",
+    "HabiroCohomologyFoundations",
+    "HabiroCyclotomicCompletions",
+    "HabiroNahmSeries",
+    "HabiroNumberFields"
+   ]
+  },
+  {
+   "id": "PLANETS-12",
+   "name": "Habiro rings: relative arithmetic constructions and cohomological coefficients and 16 more roadmaps",
+   "planets": 298,
+   "roadmaps": [
+    "HabiroRings",
+    "HeckeStacksAndLocalShtukas",
+    "HeegnerPointEulerSystems",
+    "HeightsRationalPointsAndObstructions",
+    "HilbertModularVarietiesAndShimuraCurves",
+    "HodgeTateAndCanonicalSubgroups",
+    "IgusaVarietiesAndTorsionConcentration",
+    "IntegralHeckeAndGaloisDeterminants",
+    "IntegralIwasawaTheory",
+    "InverseGaloisAndArithmeticFundamentalGroups",
+    "K2SymbolsBrauer",
+    "K3BlochGroups",
+    "KTheoryFiniteLocalFields",
+    "KTheoryLowDegrees",
+    "KatoEulerSystems",
+    "LanglandsParameterStacks",
+    "LefschetzPencilsAndVanishingCycles"
+   ]
+  },
+  {
+   "id": "PLANETS-13",
+   "name": "Local Galois deformation rings and their components and 18 more roadmaps",
+   "planets": 296,
+   "roadmaps": [
+    "LocalGaloisDeformationRings",
+    "LocallyAnalyticDistributions",
+    "LogicAndDefinabilityInNumberTheory",
+    "MetaplecticAutomorphicForms",
+    "ModularCurvesPartII",
+    "ModularIwasawaMainConjectures",
+    "ModularSymbolsPadicLFunctions",
+    "ModularityAndLanglandsExtensions",
+    "MotivesAndAlgebraicCycles",
+    "MotivicEtaleKTheory",
+    "NeronModelsAndSemistableAbelianVarieties",
+    "NoncommutativeAndEquivariantIwasawa",
+    "OrdinaryAutomorphicFormsAndModularityLifting",
+    "OverconvergentAutomorphicForms",
+    "PELModuli",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "PadicFamilies",
+    "PadicHodgeRegulators",
+    "PadicHodgeTheory"
+   ]
+  },
+  {
+   "id": "PLANETS-14",
+   "name": "P-adic local Langlands for GL₂(Q_p) and 14 more roadmaps",
+   "planets": 287,
+   "roadmaps": [
+    "PadicLocalLanglandsForGL2Qp",
+    "PadicMeasuresIwasawaAlgebras",
+    "PerfectoidQuotients",
+    "PerfectoidShimuraVarieties",
+    "PerfectoidSpaces",
+    "PeriodsAndSpecialValues",
+    "PhiGammaModulesAndIwasawaCohomology",
+    "Polylogarithms",
+    "PotentialAutomorphyInfrastructure",
+    "PotentialModularityAndCompatibleSystems",
+    "PrismaticCohomology",
+    "ProbabilisticAndMetricNumberTheory",
+    "QSeriesPartitionsAndMockModularForms",
+    "RankZeroOneBSD",
+    "ReductiveGroupsPartII"
+   ]
+  },
+  {
+   "id": "PLANETS-15",
+   "name": "Hochschild, cyclotomic and refined trace methods and 17 more roadmaps",
+   "planets": 297,
+   "roadmaps": [
+    "RefinedTraceMethods",
+    "RelativeFarguesFontaine",
+    "SchemeAndStackFoundations",
+    "SchemeKTheoryOperations",
+    "SelmerIwasawaCohomology",
+    "SerreWeightAndLevelOptimisation",
+    "ShimuraCompactifications",
+    "ShimuraData",
+    "ShimuraVarieties",
+    "SieveMethodsAndPrimePatterns",
+    "SmallRamificationAndAbelianVarietyBaseCases",
+    "SmoothRepresentationsOfLocalGroups",
+    "SpecialValuesBirchTate",
+    "StableHomotopyKTheory",
+    "TorsionCohomologyInfrastructure",
+    "TropicalAndBerkovichArithmetic",
+    "VStackSheavesAndLisseCategories",
+    "VectorBundlesAndIsocrystals"
+   ]
+  },
+  {
+   "id": "PLANETS-16",
+   "name": "Weights and purity in étale cohomology and 1 more roadmap",
+   "planets": 22,
+   "roadmaps": [
+    "WeightsInEtaleCohomology",
+    "WeilConjectures"
+   ]
+  }
+ ]
+}

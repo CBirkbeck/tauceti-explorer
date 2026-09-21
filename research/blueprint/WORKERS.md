@@ -28,10 +28,14 @@ are in [PROTOCOL.md](PROTOCOL.md), section 15.
    than always taking the lowest issue number:
    1. `kind:restructure`: restructure a family of overlapping roadmaps. Most
       blueprints wait for these.
-   2. `kind:review`, when its input exists: an independent check of another
+   2. `kind:naming`: name the planets of a batch of roadmaps, so that the atlas
+      shows key definitions and named theorems ("Potential automorphy
+      theorem"), not source locators or sentence fragments. These jobs are
+      quick, and they improve the map at once.
+   3. `kind:review`, when its input exists: an independent check of another
       worker's job. Never review your own work.
-   3. `kind:blueprint`: plan one proposed roadmap, or one part of a large one.
-   4. `kind:link` and `kind:design`.
+   4. `kind:blueprint`: plan one proposed roadmap, or one part of a large one.
+   5. `kind:link` and `kind:design`.
 3. Read the whole issue: its "What this issue delivers" section, and the full
    instructions inside it.
 
