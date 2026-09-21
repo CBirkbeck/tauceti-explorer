@@ -1,0 +1,1820 @@
+{
+  "paper": "PAPER-BRESCIANI-24",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "source": {
+    "title": "On the birational section conjecture with strong birationality assumptions",
+    "authors": "Giulio Bresciani",
+    "venue": "Inventiones mathematicae 235 (2024), 129–150",
+    "doi": "10.1007/s00222-023-01220-6",
+    "arxiv": "2108.13397",
+    "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf",
+    "sha256": "77c20bc77743abd3cabedbe6259a4bd686cb94823481bce724c3517b1c30e148",
+    "readDate": "2026-09-21",
+    "version": "Published open-access PDF, 22 pages, published online 26 September 2023; entire paper read. arXiv v3 downloaded as secondary provenance but not used as the main text.",
+    "readSections": [
+      "Entire published pp.129–150: introduction, §§2–7, Lemmas1–26, TheoremsA–C, all proofs, footnote1, acknowledgements and references."
+    ]
+  },
+  "summary": "Published paper read completely; 135-item partial extraction with foundation routes and three Part II briefs. A concrete counterexample refutes the printed affine-parabolic cuspidality sentence on p.141, leaving its reduction steps unresolved without claiming the main theorem false. Arbitrary-extension gerbe base change is corrected to [6] A.23, Lemma26 cusp wording is clarified, and integral/all-prime Faltings comparison is not confused with the existing rational target. Three items remain unrouted for exactness, parabolic repair and unpointed-gerbe comparison. Further source/ownership closure is recorded in the handoff; no formalization is claimed.",
+  "items": [
+    {
+      "id": "PAPER-BRESCIANI-24/1",
+      "kind": "definition",
+      "name": "Curve and smooth completion",
+      "statement": "A curve is a smooth geometrically connected curve over a characteristic-zero field k; barX is its smooth proper completion. Hyperbolic means 2g(barX)-2+deg(barX\\X)>0.",
+      "locator": "Published paper §1, pp.129–133",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "note": "Planning API and tests: Track geometric connectedness, genus, boundary and base change; test P1, Gm, and P1 minus three points."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/2",
+      "kind": "definition",
+      "name": "Galois section class",
+      "statement": "S_X/k is the set of continuous right inverses of π1(X)→Gal(k), modulo conjugation by π1(X_bar k).",
+      "locator": "Published paper §1 p.129",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "note": "Planning API and tests: Representatives, quotient invariance, pushforward and base change; test the rational-point section and a tangential section."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/3",
+      "kind": "construction",
+      "name": "Geometric sections",
+      "statement": "A point x∈X(k) induces a section class by functoriality; a section is geometric when it belongs to this image.",
+      "locator": "Published paper §1 p.129",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "note": "Planning API and tests: Naturality and conjugacy independence; test X=Spec k and two distinct points on a hyperbolic curve."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/4",
+      "kind": "definition",
+      "name": "Cuspidal packet",
+      "statement": "For x∈(barX\\X)(k), the packet P_X,x is the image of sections of its local decomposition-group extension in S_X/k; a section is cuspidal if it lies in one of these packets.",
+      "locator": "Published paper §1 pp.129–130; §7 Lemma 26",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Use a henselian punctured neighborhood, inertia and tangential splittings; distinguish the cusp from a choice of section in its packet; test the three cusps of P1 minus three points."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/5",
+      "kind": "definition",
+      "name": "Birational section",
+      "statement": "S_k(X)/k consists of continuous sections Gal(k(X))→Gal(k), modulo geometric-kernel conjugacy. A cuspidal birational section factors through a decomposition group over a k-rational point of barX.",
+      "locator": "Published paper §1 p.130",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Generic-to-open restriction and packets; a rational point inside X still gives a cuspidal FUNCTION-FIELD section."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/6",
+      "kind": "definition",
+      "name": "Birationally liftable section",
+      "statement": "A section s∈S_X/k is b.l. precisely when it is in the image S_k(X)/k→S_X/k.",
+      "locator": "Published paper §1 p.130",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Witness and restriction API; use this definition, which differs from Stix book Definition 266. Do not replace lifting by a local condition."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/7",
+      "kind": "definition",
+      "name": "t-birationally liftable section",
+      "statement": "A section s∈S_X/k is t-b.l. precisely when s_k(t) is b.l. over the rational-function extension k(t).",
+      "locator": "Published paper §1 p.130",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Base-change witness and renaming variable; test rational-point and cuspidal sections. Never infer transcendental base change of arbitrary birational sections."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/8",
+      "kind": "definition",
+      "name": "Section conjecture proposition",
+      "statement": "For every hyperbolic curve over every field finitely generated over Q, every Galois section is geometric or cuspidal.",
+      "locator": "Published paper §1 p.129",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.6"
+      ],
+      "note": "Planning API and tests: A named proposition, with no proof assumption in unconditional endpoints; preserve field and hyperbolicity quantifiers."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/9",
+      "kind": "definition",
+      "name": "Birational section conjecture proposition",
+      "statement": "For every smooth geometrically connected curve over every field finitely generated over Q, every birational section is cuspidal.",
+      "locator": "Published paper §1 p.130",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Quantify over curves and fields; distinguish the conjecture from the t-b.l. theorem."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/10",
+      "kind": "definition",
+      "name": "Cuspidalization conjecture proposition",
+      "statement": "For every hyperbolic X over a field finitely generated over Q and every nonempty open U⊆X, the restriction S_U/k→S_X/k is surjective.",
+      "locator": "Published paper §1 p.131",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Universal open-subset quantifier; test composition of restrictions. This is a conjecture, not an available lifting theorem."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/11",
+      "kind": "definition",
+      "name": "Nonintegrality places",
+      "statement": "For a birational section z of a smooth projective curve over a number field and nonempty open U with an integral model outside finite S, N_U is the set of places where its associated local point fails to lie in U(O_v).",
+      "locator": "Published paper §1 pp.130–131",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Model changes alter N_U only by finitely many places; distinguish infinitude, positive Dirichlet density, and density zero."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/12",
+      "kind": "theorem",
+      "name": "Nonintegrality independence",
+      "statement": "The set N_U is independent of the chosen finite-type integral model up to finitely many places; thus its Dirichlet-density question is independent of that model.",
+      "locator": "Published paper §1 p.131",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Spread the two models over a common open arithmetic base."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/13",
+      "kind": "theorem",
+      "name": "Stix density alternative",
+      "statement": "For a b.l. section of a hyperbolic curve over a number field, either its associated adelic point is integral on a set of finite places of Dirichlet density one or the section is cuspidal.",
+      "locator": "Published paper §1 p.131; Lemmas 16,20 cite [21] Theorem B",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read Stix arXiv:1203.3236v3 p.1 Theorem B. Density one does not mean all but finitely many places."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/14",
+      "kind": "theorem",
+      "name": "Stix totally real or imaginary quadratic input",
+      "statement": "For a hyperbolic curve over a totally real or imaginary quadratic number field, every birationally adelic noncuspidal section is geometric.",
+      "locator": "Published paper §1 p.131, [21] Theorem A",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Exact source theorem read at Stix p.1. Bresciani’s claim that some N_U is infinite uses this plus deleting an associated rational point; it is not an unconditional all-number-field result."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/15",
+      "kind": "definition",
+      "name": "Birationally adelic section",
+      "statement": "For a hyperbolic X over a number field with function field K, a section s∈S_X/k is birationally adelic if it has a birational lift z∈S_K/k such that for EVERY nonempty open U⊆X, the induced section on U is either adelic for U/k or cuspidal. An adelic section is a Selmer section whose associated modified adelic point lies in U(A_k)_bullet (integral outside finitely many places, with connected components at infinity).",
+      "locator": "Published paper §1 p.131, input [21] Theorem A",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: retain existence of ONE birational lift working for all opens and the per-open disjunction; distinguish density-one integrality from adelic integrality. Stix arXiv:1203.3236v3 §2.2.2–§2.2.3 p.4 read."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/16",
+      "kind": "definition",
+      "name": "Curve family",
+      "statement": "X→V is a family of curves when X=barX\\D, barX→V is smooth proper with geometrically connected one-dimensional fibers, and D is a relative divisor finite étale over V.",
+      "locator": "Published paper §1 p.132; Lemma 1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Base change, empty boundary and fiber; test constant punctured P1 families and a boundary collision that fails étaleness."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/17",
+      "kind": "definition",
+      "name": "Relative π1 section",
+      "statement": "For a family X→V over an affine curve, a π1 section is a continuous splitting π1(V)→π1(X), modulo conjugation by the geometric-fiber group.",
+      "locator": "Published paper §1 p.132",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Specialization at v∈V(k), conjugacy independence and shrinking V; test a constant section of a product."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/18",
+      "kind": "construction",
+      "name": "Profinite completion of an abelian group",
+      "statement": "For abelian A, Ahat=lim over positive n of A/nA, with transition maps for divisibility. For multiplicative groups use A/A^n.",
+      "locator": "Published paper §1 p.133 notation",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Projection, induced maps, separatedness hypotheses and compatibility with valuation; compare Zhat and completion of k*. Infinite direct sums do not become unrestricted products."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/19",
+      "kind": "definition",
+      "name": "fpqc and fppf sites",
+      "statement": "The fpqc topology is generated by jointly surjective quasi-compact flat covering families; fppf uses flat locally finitely presented covers.",
+      "locator": "Published paper §2 p.133",
+      "status": "library",
+      "library": [
+        "mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/AlgebraicGeometry/Sites/Fpqc.lean, AlgebraicGeometry.Scheme.fpqcTopology, fppfTopology, fppfTopology_le_fpqcTopology (lines 53–83)."
+      ],
+      "planned": [],
+      "note": "Planning API and tests: Use existing sites and inclusion; test fppf≤fpqc. Do not construct new sites for torsors."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/20",
+      "kind": "definition",
+      "name": "Stack descent framework",
+      "statement": "A category-valued pseudofunctor on a site is a stack if it is a prestack and descent data for covering sieves are effective.",
+      "locator": "Published paper §2 p.133, ambient language",
+      "status": "library",
+      "library": [
+        "mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/CategoryTheory/Sites/Descent/IsStack.lean, CategoryTheory.Pseudofunctor.IsStack and isEquivalence_toDescentData (lines 49–73)."
+      ],
+      "planned": [],
+      "note": "Planning API and tests: Reuse IsStack and effective descent equivalence; test a trivial cover. This does not claim a geometric gerbe implementation."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/21",
+      "kind": "definition",
+      "name": "Finite and profinite étale gerbes",
+      "statement": "A finite étale gerbe over k is an étale gerbe with finite geometric automorphism groups; a profinite étale gerbe is a cofiltered 2-limit of such gerbes.",
+      "locator": "Published paper §2 p.133; Lemma 2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Isomorphism groupoids, neutralizations, band and finite-stage presentation; test BG for a finite constant group and inverse limits."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/22",
+      "kind": "construction",
+      "name": "Classifying stack of a group scheme",
+      "statement": "B_kG assigns to a k-scheme S the groupoid of fpqc G_S-torsors. For finite-type G the fppf topology suffices; retain fpqc for profinite G.",
+      "locator": "Published paper §2 p.133",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Pullback, trivial torsor, automorphism group, equivalence under group-scheme isomorphism; test μ_n and Zhat(1)."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/23",
+      "kind": "construction",
+      "name": "Étale fundamental gerbe",
+      "statement": "For the geometrically connected schemes in the paper, X→Π_X/k is universal for maps from X to finite étale stacks, and Π_X/k is a profinite étale gerbe.",
+      "locator": "Published paper §2 p.133",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Universal equivalence on Hom groupoids, functoriality, comparison to IG.0’s finite-cover fiber functor; test Spec k, A1 and Gm."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/24",
+      "kind": "theorem",
+      "name": "Sections as gerbe points",
+      "statement": "The isomorphism classes of Π_X/k(k) identify with S_X/k, compatibly with rational points, functoriality and conjugacy.",
+      "locator": "Published paper §2 p.133",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use the actual groupoid comparison, not equality of bare cardinalities."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/25",
+      "kind": "construction",
+      "name": "Pointed fundamental group scheme",
+      "statement": "Given x∈X(k), descend the continuous Gal(k)-action on π1(X_bar k,x) to an étale profinite group scheme π1(X,x). There is a neutralization Π_X/k≃B_kπ1(X,x).",
+      "locator": "Published paper §2 p.133",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Track choice of x and twisting by its torsor; test trivial torsor and a change of rational point."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/26",
+      "kind": "theorem",
+      "name": "Fundamental gerbe base change",
+      "statement": "In characteristic zero, for a geometrically connected concentrated fibered category X and any extension k′/k, Π_(X_k′)/k′≃Π_X/k×k k′. In particular this applies to the paper’s curves and k(t).",
+      "locator": "Published paper §2 p.133 and p.135, citation [6] A.18",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "CORRECTED LOCATOR: [6] published Proposition A.23, p.264, read; A.18 p.262 only proves algebraic separable extensions. Concentration and char 0 are retained."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/27",
+      "kind": "theorem",
+      "name": "Family homotopy exact sequence",
+      "statement": "Let k have characteristic zero, A be a localization of a one-dimensional regular finite-type k-domain, C=Spec A, and X→C a family of curves. For a geometric fiber F, 1→π1(F)→π1(X)→π1(C)→1 is exact.",
+      "locator": "Published paper Lemma 1 pp.134–135",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proof uses complex affine-curve π2=0, exactness of profinite completion for the specified curve groups, descent to C, and limits of finite étale covers. Do not generalize to arbitrary proper bases."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/28",
+      "kind": "theorem",
+      "name": "Complex affine-curve asphericity input",
+      "statement": "A smooth connected affine complex curve has π2=0; the topological fiber sequence for a smooth curve family therefore gives injectivity on π1 of the fiber.",
+      "locator": "Published paper Lemma 1 proof p.134",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Generic topological comparison input requires exact SGA/Riemann-existence supplier; source decomposition of [2] Proposition 5 and [12] Proposition 3.7 remains a prerequisite, not an assumption."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/29",
+      "kind": "theorem",
+      "name": "Completion exactness input for curve families",
+      "statement": "For the topological curve-family extension used in Lemma 1, profinite completion preserves the displayed short exact sequence.",
+      "locator": "Published paper Lemma 1 p.134, [2] Proposition 5 and [12] Proposition 3.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "SOURCE GAP: full hypotheses of the combined completion theorem have not yet been checked in the originals. Do not assert that profinite completion preserves arbitrary short exact sequences. The 19 October 2007 author version of Grunewald–Jaikin-Zapirain–Zalesskii has surface-group goodness in Proposition3.6, not the published3.7 locator. Its Lemma3.3 and pp.8–9 were read, but Anderson Proposition5 and version mapping still require verification."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/30",
+      "kind": "theorem",
+      "name": "Limit of finite étale covers",
+      "statement": "For C a localization of a finite-type regular affine curve, finite étale covers descend to an open neighborhood U, giving π1(C)≃lim_U π1(U); the analogous assertion holds for the spread-out family.",
+      "locator": "Published paper Lemma 1 proof p.134",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Record filtered descent and eventual equality of morphisms; constant left term identifies the inverse-limit extension."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/31",
+      "kind": "construction",
+      "name": "Relative fundamental gerbe",
+      "statement": "Π_X/C is the 2-fiber product C×_(Π_C/k)Π_X/k, with its natural map X→Π_X/C over C.",
+      "locator": "Published paper §2.1 pp.134–135",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: 2-cartesian universal property, sections and base change; test constant families."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/32",
+      "kind": "theorem",
+      "name": "Relative fiber comparison",
+      "statement": "Under Lemma 1 hypotheses, for every field extension k′/k and c:Spec k′→C, Π_(X_c)/k′→Π_X/C×_C Spec k′ is an isomorphism.",
+      "locator": "Published paper §2.1 p.135",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Requires /26’s arbitrary-extension base change and /27’s full exactness, not just right exactness."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/33",
+      "kind": "theorem",
+      "name": "Proper étale relative-gerbe presentation",
+      "statement": "Π_X/C→C is a cofiltered limit of proper étale relative gerbes Φ_i→C.",
+      "locator": "Published paper Lemma 2 p.135",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Present source and target by finite étale gerbes with locally full transition maps and set Φ_i=Ψ_i×_(Ξ_i)C."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/34",
+      "kind": "definition",
+      "name": "Locally full morphism of gerbes",
+      "statement": "A morphism of gerbes is locally full when its induced maps of sheaves of isomorphisms are epimorphisms; on neutral geometric fibers this is surjectivity of the homomorphism of band groups.",
+      "locator": "Published paper Lemma 2 p.135, [4] Definition 3.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Composition, base change and refinement; test BG→BH induced by a surjective finite group homomorphism."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/35",
+      "kind": "theorem",
+      "name": "Finite gerbe presentation and relative-gerbe criterion",
+      "statement": "Profinite gerbes admit presentations by finite gerbes with locally full projections; a locally full map of finite étale gerbes is a proper étale relative gerbe.",
+      "locator": "Published paper Lemma 2 p.135, [4] Propositions 3.9,3.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Exact general hypotheses of [4] need further primary-source checking; current claim restricted to the finite étale characteristic-zero use."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/36",
+      "kind": "construction",
+      "name": "Finite root stack of a DVR",
+      "statement": "For DVR R with uniformizer π, the nth root stack of its closed divisor classifies triples (L,s,α:L^n≃O) with α(s^n)=π; it is [Spec R[t]/(t^n−π)/μ_n].",
+      "locator": "Published paper §3 p.135; [8] §3 pp.3–4 read",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Prove independence of uniformizer, transition maps when n divides m, generic isomorphism and reduced closed fiber Bμ_n. Test n=1."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/37",
+      "kind": "construction",
+      "name": "Infinite root stack and specializing circle",
+      "statement": "The infinite root stack is lim_n root_n(Spec R). Its reduced closed fiber S_c^1 is noncanonically B_k Zhat(1); its k-point isomorphism classes are noncanonically H1(k,Zhat(1))=completed k*.",
+      "locator": "Published paper §3 pp.135–136",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Distinguish stack from set of isomorphism classes and choice-free object from chosen neutralization; test a change of uniformizer."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/38",
+      "kind": "definition",
+      "name": "Constant gerbe morphism",
+      "statement": "A morphism Y→X of fibered categories over k is constant if it factors through Spec k.",
+      "locator": "Published paper §3 p.136",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Factorization witnesses and invariance under equivalence; test a trivial group homomorphism and a nontrivial map Bμ_n→Bμ_n."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/39",
+      "kind": "theorem",
+      "name": "Tame stack valuative input",
+      "statement": "For a tame proper morphism of algebraic stacks X→Y, a DVR R with fraction field K, and a compatible generic lift Spec K→X over Spec R→Y, there is a unique positive n and a representable lift root_n(Spec R)→X; the lift is unique up to a unique compatible isomorphism.",
+      "locator": "Published paper Proposition 3 input [8] Theorem 3.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Primary arXiv:2210.03406v1 pp.3–4 read. The representability condition is essential for uniqueness of n; no residue-field extension is needed."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/40",
+      "kind": "theorem",
+      "name": "Extension to infinite root stack",
+      "statement": "For the curve family and closed point of Proposition 3, a generic section z extends uniquely up to a unique compatible isomorphism from Spec K to the infinite root stack of the local DVR.",
+      "locator": "Published paper Proposition 3 p.136",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Apply the proper tame criterion at each finite gerbe stage and pass to the limit; uniqueness is relative to the specified generic datum."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/41",
+      "kind": "construction",
+      "name": "Specializing loop",
+      "statement": "The specializing loop γ_z(c):S_c^1→Π_(X_c)/k(c) is the restriction of the infinite-root-stack extension of z to the reduced closed fiber.",
+      "locator": "Published paper Proposition 3 p.136",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Functoriality, finite-level compatibility and base change; test Gm and valuation-zero versus nonzero sections."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/42",
+      "kind": "theorem",
+      "name": "Unramified extension criterion",
+      "statement": "The generic section extends over Spec R if and only if its specializing loop is constant.",
+      "locator": "Published paper Proposition 3 p.136",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Retain R and the relative gerbe from the proposition; use the fixed generic datum in uniqueness."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/43",
+      "kind": "definition",
+      "name": "Possibly nonunique specialization",
+      "statement": "A specialization of z at c is a section class in the essential image of γ_z(c) evaluated on k(c)-points.",
+      "locator": "Published paper Definition 4 p.136",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Existence, pushforward and field-base-change compatibility; specialize the chosen trivial torsor after a neutralization."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/44",
+      "kind": "theorem",
+      "name": "Existence and one-way uniqueness",
+      "statement": "Specializations always exist. If the specializing loop is constant then the specialization is unique.",
+      "locator": "Published paper Definition 4 p.136",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Split from the false converse; existence uses rational points of S_c^1 after a uniformizer choice."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/45",
+      "kind": "theorem",
+      "name": "Automorphism criterion for constancy",
+      "statement": "For a chosen s∈S_c^1(k(c)), γ_z(c) is constant iff Aut(s)=Zhat(1)→Aut(γ_z(c)(s)) is trivial. Consequently constancy can be checked after algebraic closure of the constant field.",
+      "locator": "Published paper §3 p.136 after Definition 4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Retain descent compatibility; triviality of geometric band map is stronger than cardinality-one image on rational points."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/46",
+      "kind": "construction",
+      "name": "Henselian specialization by a uniformizer",
+      "statement": "Choose compatible roots of a uniformizer in the henselization R^h. They split Gal(K^h)→Gal(k), and composing that splitting with a generic section and specialization π1(X_Rh)≃π1(X_k) yields a specialization.",
+      "locator": "Published paper Remark 5 pp.136–137",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Track root choices, decomposition subgroup and inertia I≃Zhat(1); recover the gerbe construction. Characteristic zero of both fields excludes wild inertia here."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/47",
+      "kind": "construction",
+      "name": "Ramification map and nonabelian H1 image",
+      "statement": "A chosen specialization makes I→π1(X_bar k) Galois equivariant; the set of specializations is its image on nonabelian Galois H1. An unramified section has trivial ramification map.",
+      "locator": "Published paper Remark 5 p.137",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Twisting action, conjugacy independence and map on torsors; compare constant-loop and unramified notions without assuming injectivity of H1 maps."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/48",
+      "kind": "theorem",
+      "name": "Gm fundamental gerbe and Kummer description",
+      "statement": "The section 1 identifies Π_Gm/R with B_R Zhat(1); its R- and K-point classes are completed R* and completed K* respectively.",
+      "locator": "Published paper Example 6 p.137",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The compact-coefficient Kummer comparison and torsor interpretation are explicit missing adapters."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/49",
+      "kind": "construction",
+      "name": "Completed valuation",
+      "statement": "A DVR valuation v:K*→Z induces v:completed K*→Zhat. Its kernel is the image of completed R*; the split decomposition K*=R*×π^Z gives the proof.",
+      "locator": "Published paper Example 6 p.137",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Evaluation on a uniformizer, compatibility with ramification index and independence of the splitting for v; test v(π)=1."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/50",
+      "kind": "theorem",
+      "name": "Gm loop criterion",
+      "statement": "For a generic Gm section z∈completed K*, its specializing loop is constant iff v(z)=0.",
+      "locator": "Published paper Example 6 p.137",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Uses completed valuation and the extension criterion; no positive-characteristic assertion."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/51",
+      "kind": "theorem",
+      "name": "Unique specialization does not imply constant loop",
+      "statement": "For R=C[x]_(x), the generic Gm section represented by x has nonconstant loop because v(x)=1, but has a unique specialization because H1(C,Zhat(1)) is trivial.",
+      "locator": "Published paper §3 p.137 after Example 6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Required negative unit test for the specialization API."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/52",
+      "kind": "theorem",
+      "name": "Finite local image forces a constant torus loop",
+      "statement": "Let T/k be a torus and ν:k*→Z a surjective valuation. If γ:B_k Zhat(1)→Π_T/k has finitely many isomorphism classes in the image on kν-points of its k-points, then γ is constant.",
+      "locator": "Published paper Lemma 7 pp.137–138",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Split T over a finite extension k′; the completed valuation surjects onto Zhat. Ramification index r≠0 and torsion-freeness force rf=0⇒f=0."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/53",
+      "kind": "theorem",
+      "name": "Finite local image forces a constant curve loop",
+      "statement": "Let k be a number field, ν a finite place, X/k a curve. If γ:B_k Zhat(1)→Π_X/k has finite image on kν-isomorphism classes of its k-points, then γ is constant.",
+      "locator": "Published paper Lemma 8 p.138",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Pass to finite étale cover detecting nontriviality in abelianization; use generalized Jacobian, weight separation, Mattuck and Lemma 7."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/54",
+      "kind": "theorem",
+      "name": "Finite-cover abelian detection",
+      "statement": "A nontrivial continuous homomorphism Zhat→π1(X_bar k) can be detected nontrivially in the abelianization after passing to a suitable finite étale neighborhood (and necessary neutralization).",
+      "locator": "Published paper Lemma 8 proof p.138",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proof leaf: choose a finite quotient detecting an element and pull back a cyclic subgroup; retain arithmetic/Galois stability, rather than using an arbitrary geometric cover without descent."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/55",
+      "kind": "theorem",
+      "name": "Finite fibers under finite étale covers",
+      "statement": "For a finite étale morphism Y→X, the map of section classes has finite fibers, so finite-image conditions survive passage to a suitable section neighborhood.",
+      "locator": "Published paper Lemma 8 proof p.138",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use cosets of the finite-index fundamental subgroup; isolate any finite constant-field extension needed."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/56",
+      "kind": "construction",
+      "name": "Semiabelian Jacobian and Albanese torsor",
+      "statement": "For a smooth open curve X with completion and reduced boundary, construct its generalized Jacobian J, an extension 1→T→J→A→1 with A the proper Jacobian, together with the degree-one Albanese torsor when no rational base point is given.",
+      "locator": "Published paper Lemma 8 p.138",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Keep torsor and group distinct; test proper curves T=0, Gm with J=Gm, and a curve without a rational point."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/57",
+      "kind": "construction",
+      "name": "Tate module of a semiabelian variety",
+      "statement": "For J as above, TJ=lim_n J[n] on geometric points with its profinite Galois action; 0→TT→TJ→TA→0 is the torsion-limit extension.",
+      "locator": "Published paper Lemma 8 p.138",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Compare all-prime and primewise modules, base change, exactness and π1(J_bar k); test Gm giving Zhat(1)."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/58",
+      "kind": "theorem",
+      "name": "Abelianized fundamental gerbe comparison",
+      "statement": "The abelianized geometric fundamental group of X identifies with TJ. After a chosen rational section neutralizes the gerbes, Π_X/k^ab and Π_J/k are equivalent as classifying gerbes of the corresponding Tate module.",
+      "locator": "Published paper Lemma 8 p.138",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "SOURCE-SENSITIVITY: without neutralization an Albanese torsor replaces a canonical identification with a pointed Jacobian. Construct the comparison with the loop-provided section; never silently choose x∈X(k). UNRESOLVED: confirm the unpointed Albanese-gerbe comparison and its descent before routing this item as an unconditional construction."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/59",
+      "kind": "theorem",
+      "name": "Weight vanishing for abelian Tate modules",
+      "statement": "For an abelian variety A over a number field, every Galois-equivariant homomorphism Zhat(1)→TA is zero.",
+      "locator": "Published paper Lemma 8 p.138; input [7] Lemma 3.3 read",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use primewise weight −2 versus −1 at good finite places and injectivity into rational Tate modules; import actual purity results, not merely a weight label."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/60",
+      "kind": "definition",
+      "name": "Abelian variety carrier",
+      "statement": "An abelian variety is a proper geometrically integral group scheme over a field; smoothness and commutativity are derived in the pinned implementation.",
+      "locator": "Published paper Lemma 8 p.138",
+      "status": "library",
+      "library": [
+        "tauceti: f790474821cf4256814db967cb154e7af3d0c369: TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean, TauCeti.AlgebraicGeometry.AbelianVariety (line 94)."
+      ],
+      "planned": [],
+      "note": "Planning API and tests: Reuse carrier, zero, multiplication and base change; test the zero object and an elliptic curve."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/61",
+      "kind": "construction",
+      "name": "Abelian Tate modules and torsion",
+      "statement": "Construct A[n] and T_l A as the compatible torsion system, with Galois action and functoriality.",
+      "locator": "Published paper Lemma 8 p.138",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "AbelianSchemesAndArithmeticModuli:A4"
+      ],
+      "note": "Planning API and tests: Do not replace torsion group schemes in characteristic p by geometric points; here the base field has characteristic zero."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/62",
+      "kind": "theorem",
+      "name": "Mattuck finite torsion input",
+      "statement": "If K is a finite extension of Q_p and A/K is an abelian variety, A(K) has an open subgroup isomorphic as a topological group to the additive group O_K^dim A; in particular A(K)_tors is finite.",
+      "locator": "Published paper Lemma 8 p.138, [15]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Mattuck’s original Theorem7 p.114 read in the university-hosted scan: it applies to complete ultrametric characteristic-zero k and gives an analytically isomorphic/homeomorphic copy of O_k^d, of finite index when k is locally compact. The present input is the finite-extension-of-Qp case. Its torsion injects into the finite quotient because O_K^d is torsion-free. Full proof decomposition remains design work."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/63",
+      "kind": "theorem",
+      "name": "Vanishing inverse torsion and H1 injection",
+      "statement": "For 0→TT→TJ→TA→0 over a p-adic local field, finite torsion of A(K) implies lim_n A[n](K)=0, hence H1(K,TT)→H1(K,TJ) is injective.",
+      "locator": "Published paper Lemma 8 p.138",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use compact-coefficient low-degree exactness with transition maps; finiteness of each A[n](K) alone is insufficient."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/64",
+      "kind": "theorem",
+      "name": "Étale divisor through a closed special-fiber point",
+      "statement": "For a characteristic-zero DVR R, a curve family X/R and a closed point p∈X_k, there exists a nonempty divisor D⊂X, finite étale over R, containing p.",
+      "locator": "Published paper Lemma 9 pp.139–140",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proof: generic projection of a projective completion avoiding boundary and ramification at geometric points over p; reduce to P1, lift the minimal separable polynomial and choose an unramified section. No henselian assumption."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/65",
+      "kind": "construction",
+      "name": "Projection used to build the étale divisor",
+      "statement": "Choose a codimension-two linear center disjoint from barX_k, transverse hyperplane fibers through all geometric points over p and avoiding the boundary. Lift its two linear equations to R to get a finite morphism barX→P1_R, étale over a neighborhood of the image of p.",
+      "locator": "Published paper Lemma 9 proof pp.139–140",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Track properness, regularity, flatness and purity of branch locus; test non-rational p as well as rational p."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/66",
+      "kind": "theorem",
+      "name": "Separable residue polynomial lifting",
+      "statement": "A monic lift q∈R[t] of a monic separable irreducible qbar∈k[t] defines a finite étale local R-algebra R′=R[t]/q whose residue field is k[t]/qbar; R′ is a DVR.",
+      "locator": "Published paper Lemma 9 proof p.140",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Choose a MONIC lift: the source’s words any lifting are used with degree preserved. Unit discriminant and the unique closed fiber prove étaleness/locality."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/67",
+      "kind": "theorem",
+      "name": "Cofinal étale boundary divisors",
+      "statement": "For a curve family X/R there is a directed system of finite étale divisors D_i such that the complement of their union in X_k consists only of the generic point.",
+      "locator": "Published paper Corollary 10 p.140",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Apply Lemma9 successively to the family with the PREVIOUS finite étale divisor removed, so new divisors are disjoint from earlier ones; a finite disjoint union remains finite étale. Arbitrary finite unions of intersecting étale divisors need not be étale. The resulting limit of opens has closed fiber Spec k(X_k)."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/68",
+      "kind": "theorem",
+      "name": "Specialization preserves birational lifting",
+      "statement": "Every specialization of a b.l. generic section of a characteristic-zero DVR curve family is b.l.",
+      "locator": "Published paper Lemma 11 pp.140–141",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lift through the inverse system X\\D_i and its specializing loops to the function field of the closed fiber."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/69",
+      "kind": "theorem",
+      "name": "t-b.l. implies b.l.",
+      "statement": "Every t-b.l. section of a curve over a characteristic-zero field is b.l.",
+      "locator": "Published paper Corollary 12 p.141",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use R=k[t]_(t) and Lemma 11; no claim of the converse."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/70",
+      "kind": "theorem",
+      "name": "Specialization preserves t-birational lifting",
+      "statement": "Every specialization of a t-b.l. generic section is t-b.l.",
+      "locator": "Published paper Lemma 13 p.141",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use the DVR at the generic point of A1_k⊂A1_R, with fraction K(t) and residue k(t), then Lemma 11."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/71",
+      "kind": "theorem",
+      "name": "Dominant pushforward preserves b.l.",
+      "statement": "For a dominant map of curves f:Y→X, a b.l. section s of Y has b.l. image f(s).",
+      "locator": "Published paper Lemma 14 p.141",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Induced inclusion of function fields and section restriction."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/72",
+      "kind": "theorem",
+      "name": "Finite étale pullback detects b.l.",
+      "statement": "For finite étale f:Y→X and a section s of Y, if f(s) is b.l., then s is b.l.",
+      "locator": "Published paper Lemma 14 p.141",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use Gal(k(Y))=π1(Y)×_(π1(X))Gal(k(X)); this does not say that every X-section lifts to Y."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/73",
+      "kind": "theorem",
+      "name": "Dominant pushforward preserves t-b.l.",
+      "statement": "For dominant f:Y→X, a t-b.l. section of Y has t-b.l. image.",
+      "locator": "Published paper Corollary 15 p.141",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Base change Lemma 14 to k(t)."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/74",
+      "kind": "theorem",
+      "name": "Finite étale pullback detects t-b.l.",
+      "statement": "For finite étale f:Y→X and a section s of Y, f(s) t-b.l. implies s t-b.l.",
+      "locator": "Published paper Corollary 15 p.141",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Base change and fiber-product Galois identity; requires a section already on Y."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/75",
+      "kind": "definition",
+      "name": "Parabolic curve",
+      "statement": "X is parabolic when barX has genus zero and deg(barX\\X)≤2.",
+      "locator": "Published paper §4 p.141",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Boundary degree over k, not number of k-rational punctures; test P1, A1, Gm and a nonsplit degree-two boundary."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/76",
+      "kind": "theorem",
+      "name": "Proper genus-zero sections",
+      "statement": "For a proper genus-zero curve X there is a unique section class, and it is geometric iff X≃P1 over k.",
+      "locator": "Published paper §4 p.141",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The unique abstract section need not be geometric for a nonsplit conic; use as a negative test."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/77",
+      "kind": "theorem",
+      "name": "Printed affine-parabolic cuspidality claim — counterexample recorded",
+      "statement": "SOURCE CLAIM, NOT A VALID THEOREM AS PRINTED: every Galois section of an affine parabolic curve is cuspidal. For k=Q and X=P1 minus the degree-two closed point defined by T²−2, X is affine parabolic and 0∈X(Q) supplies a geometric section, whereas (barX\\X)(Q) is empty, so no section is cuspidal under §1’s definition.",
+      "locator": "Published paper §4 p.141, [18] Theorem A",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Unrouted correctness gap. Published p.141 was visually checked. Schmidt arXiv:1503.08108v1 TheoremA p.2 only yields splitting/rational points for the Brauer–Severi completion; it does not make the deleted degree-two point rational. The counterexample concerns this preliminary sentence, not a claimed disproof of TheoremA. Repair the parabolic steps in Lemma16 and the t-b.l.⇒quasi-t-b.l. assertion before declaring source closure."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/78",
+      "kind": "theorem",
+      "name": "Local points of b.l. sections",
+      "statement": "For a curve over a number field and a b.l. section s, at every finite place ν there is xν∈barX(kν) inducing its local geometric or cuspidal section; for nonparabolic X, xν is unique.",
+      "locator": "Published paper §4 p.141, Koenigsmann [13], Stix [21] Proposition 1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Separate existence from uniqueness in design; do not claim this supplies a global rational point."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/79",
+      "kind": "theorem",
+      "name": "p-adic birational section theorem input",
+      "statement": "For a finite extension K/Q_p and a smooth projective geometrically integral curve X/K, a section Gal(K(X))→Gal(K) comes from a K-rational valuation point.",
+      "locator": "Published paper §1 p.130; §4 p.141, [13]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Koenigsmann original theorem is a prerequisite for the local existence assertion; no claim that ordinary sections of arbitrary p-adic curves are all geometric."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/80",
+      "kind": "theorem",
+      "name": "Local point-section injectivity",
+      "statement": "For a smooth proper curve of positive genus over a p-adic local field, its rational-point-to-section map is injective; passing to an étale neighborhood yields uniqueness of the local point in the nonparabolic case.",
+      "locator": "Published paper §4 p.141, [20] Proposition 75",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The genus restriction matters; P1 is the counterexample."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/81",
+      "kind": "theorem",
+      "name": "Lifting t-b.l. sections to opens over number fields",
+      "statement": "For a curve X over a number field, nonempty open U⊆X and t-b.l. section s, there is a t-b.l. section of U mapping to s.",
+      "locator": "Published paper Lemma 16 pp.141–142",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Begin with a b.l. lift over k(t), use Stix density and Lemma 8 at every closed point, extend over A1 and descend along Π_A1/k=Spec k. The printed blanket parabolic reduction has the explicit /77 counterexample; the general-curve proof remains a checkpoint gap until that branch is repaired."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/82",
+      "kind": "theorem",
+      "name": "Density-one places intersect a splitting condition",
+      "statement": "For a number field extension k′/k, finite places ν admitting an embedding k′→kν have positive Dirichlet density; hence such a ν can be chosen in any density-one set.",
+      "locator": "Published paper Lemma 16 proof p.142",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+      ],
+      "note": "Use completely split primes of a Galois closure, via upstream Chebotarev; no new density theorem here."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/83",
+      "kind": "theorem",
+      "name": "Local-to-global extension of a profinite gerbe map",
+      "statement": "For a normal curve V/k and a profinite étale gerbe Φ/k, if a map Spec k(V)→Φ extends to Spec O_V,v at every closed point, it extends over V, uniquely relative to the generic map.",
+      "locator": "Published paper Lemma 16 p.142 and Theorem C p.149, [5] Corollary A.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read [5] arXiv:1904.00789v2 p.27: A.3 requires stabilization of maximal opens. Here every finite-stage maximal open is all V by A.2(ii), so that condition is proved."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/84",
+      "kind": "theorem",
+      "name": "Fundamental gerbe of the affine line",
+      "statement": "For a characteristic-zero field k, Π_A1/k≃Spec k, so maps A1→a profinite étale gerbe factor through a k-section.",
+      "locator": "Published paper Lemma 16 p.142",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use geometric simple connectedness and the rational point; do not transport to characteristic p."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/85",
+      "kind": "definition",
+      "name": "Diagonal puncture and pro-open curve",
+      "statement": "Let δ:Spec k(t)→A1_k be the generic point considered over k(t). The pro-open scheme Spec k(A1)×_k Spec k(t) with its diagonal point deleted is the limit of U_k(t)\\{δ} over nonempty k-opens U⊆A1.",
+      "locator": "Published paper Proposition 17 pp.142–144",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Distinguish k(y)⊗k k(t) from the field k(t)(y); deleting δ is meaningful before passing to the total function field."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/86",
+      "kind": "theorem",
+      "name": "Rationality from a diagonal-deleted lift",
+      "statement": "Let k be a number field, ν finite, U=A1\\{1,2}, s a b.l. section, and xν its associated local point. If s_k(t) lifts to a section of Spec k(A1)×_k Spec k(t)\\{δ}, then xν∈P1(k).",
+      "locator": "Published paper Proposition 17 pp.142–144",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The hypothesis is implied by t-b.l.; retain the stronger-than-an-open-lift pro-open object."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/87",
+      "kind": "theorem",
+      "name": "Diagonal-family specializations lift birationally",
+      "statement": "For the lift r in Proposition 17 and any c∈U(k) distinct from xν, every specialization r_c on U\\{c} is b.l. and maps to s.",
+      "locator": "Published paper Proposition 17 Step 1 pp.142–143",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use W=(Spec O_c×_k Spec O_c)\\Δ as a projective limit of curve families, with closed fiber Spec k(t)."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/88",
+      "kind": "theorem",
+      "name": "Constancy away from the local point",
+      "statement": "For such c, the local image of every specialization r_c is the same point xν; Lemma 8 forces the specializing loop at c to be constant. The argument persists after every finite constant-field extension.",
+      "locator": "Published paper Proposition 17 Step 1 p.143",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Exclude c=xν and all boundary points; this controls non-rational closed points after finite extension."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/89",
+      "kind": "construction",
+      "name": "Moving-coordinate Kummer section",
+      "statement": "The automorphism y↦t−y sends δ to zero and transports r to a section on A1_k(t)\\{0,t−1,t−2}; its Gm image is z∈completed k(t)*.",
+      "locator": "Published paper Proposition 17 Step 2 p.143",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Evaluation at a specialization gives c−xη; test the signs and images of 1,2,δ."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/90",
+      "kind": "theorem",
+      "name": "Restricted completed factorization",
+      "statement": "Every z∈completed k(t)* has unique data λ∈completed k* and exponents e_c∈Zhat at monic irreducible q_c, with for every n only finitely many e_c nonzero modulo n, and z=λ∏q_c^e_c.",
+      "locator": "Published paper Proposition 17 p.143 and footnote 1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The completion embeds in, but is not the entire unrestricted product. Constant exponent 1 at every c is a negative test; derive from k(t)*≃k*×⊕_c Z."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/91",
+      "kind": "theorem",
+      "name": "Support of the moving-coordinate section",
+      "statement": "For the z of Proposition 17, all e_c vanish except at 1,2 and (if algebraic) the closed point of xν. Thus z=λ q^e(t−1)^e1(t−2)^e2, taking q=1,e=0 when xν is transcendental.",
+      "locator": "Published paper Proposition 17 Step 2 p.143",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Uses the Gm valuation criterion after finite extensions; q is the monic minimal polynomial, not a polynomial for an arbitrary completion point."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/92",
+      "kind": "theorem",
+      "name": "Specialization valuation identity",
+      "statement": "Over a finite K/k splitting q and a place η above ν, for c∈K excluding 1,2 and roots of q, λ q(c)^e(c−1)^e1(c−2)^e2=c−xη in completed Kη*. Hence η(λ)+eη(q(c))−η(c−xη)+e1η(c−1)+e2η(c−2)=0 in Zhat.",
+      "locator": "Published paper Proposition 17 Step 3 p.143",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Respect completion-valued λ and the chosen extension of local points."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/93",
+      "kind": "theorem",
+      "name": "Elimination of boundary exponents",
+      "statement": "Applying the valuation identity along K-points approaching 1 and 2, with all other factors nonzero there, gives e1=e2=0.",
+      "locator": "Published paper Proposition 17 p.144",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Differences of unbounded integral valuations are nonzero integers; multiplication by any such integer is injective on Zhat."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/94",
+      "kind": "theorem",
+      "name": "Algebraicity and degree-one conclusion",
+      "statement": "With e1=e2=0, density of K in Kη rules out q=1. Approaching xη forces e=1; approaching another distinct root of separable q contradicts the identity. Thus deg q=1.",
+      "locator": "Published paper Proposition 17 p.144",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Characteristic zero supplies separability; approaching a transcendental local point is valid even though that point is not in K."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/95",
+      "kind": "definition",
+      "name": "Quasi-t-birational lifting",
+      "statement": "A section s of X is quasi-t-b.l. if some nonempty open U⊆X has a b.l. lift s′ and a dominant map U→Y to a nonparabolic curve such that the image of s′ is t-b.l.",
+      "locator": "Published paper Definition 18 p.144",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Store all witnesses; transport under dominant maps only with valid nonparabolic target witnesses; test t-b.l. nonparabolic curves via identity."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/96",
+      "kind": "theorem",
+      "name": "t-b.l. sections are quasi-t-b.l.",
+      "statement": "Every t-b.l. section is quasi-t-b.l., using the nonparabolic reduction when needed.",
+      "locator": "Published paper After Definition 18 p.144",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Do not use the identity map to a parabolic target; the special parabolic cases must be discharged. The printed blanket parabolic reduction has the explicit /77 counterexample; the general-curve proof remains a checkpoint gap until that branch is repaired."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/97",
+      "kind": "theorem",
+      "name": "Open lifting for quasi-t-b.l. sections",
+      "statement": "A quasi-t-b.l. section lifts to a quasi-t-b.l. section of every nonempty open subset.",
+      "locator": "Published paper After Definition 18 p.144",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Restrict the birational witness and the dominant map; no number-field assumption needed."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/98",
+      "kind": "theorem",
+      "name": "Specialization after shrinking for quasi-t-b.l. sections",
+      "statement": "For C a curve, a family X→C and a quasi-t-b.l. generic section, there is a nonempty open U⊆C such that all specializations over U are quasi-t-b.l.",
+      "locator": "Published paper Lemma 19 p.145",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Spread the witnessing nonparabolic family and quasi-finite map, then use Lemmas 11 and 13."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/99",
+      "kind": "theorem",
+      "name": "Number-field quasi-t reduction",
+      "statement": "If every t-b.l. section of every curve over a fixed number field k is geometric or cuspidal, then the same holds for quasi-t-b.l. sections over k.",
+      "locator": "Published paper Lemma 20 p.145",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The common image point y on the target forces local points into f^-1(y); apply Stix to a b.l. lift on the complement."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/100",
+      "kind": "theorem",
+      "name": "Tamagawa empty-point neighborhood",
+      "statement": "For hyperbolic X/k with k finitely generated over Q, a section neither geometric nor cuspidal lifts to a finite étale Y→X with genus≥2 and barY(k)=∅.",
+      "locator": "Published paper Proposition 21 p.145, [22] Proposition 2.8(iv)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Keep the statement as printed; original Tamagawa proof and exact compactness/finiteness leaves remain a named prerequisite."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/101",
+      "kind": "theorem",
+      "name": "Reduction from finitely generated fields to number fields",
+      "statement": "If t-b.l. sections over all number fields are geometric or cuspidal, then quasi-t-b.l. sections over all fields finitely generated over Q are geometric or cuspidal.",
+      "locator": "Published paper Proposition 22 pp.145–146",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Induct on transcendence degree; use a finite cover mapping to a constant elliptic curve, finite-extension descent, generic section extension, and coherence."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/102",
+      "kind": "construction",
+      "name": "Finite cover mapping to a constant elliptic curve",
+      "statement": "For a smooth projective curve X/k and an elliptic curve E over a subfield h, finite maps X→P1 and E_k→P1 yield, after selecting a component and a finite constant extension, a smooth finite cover Y→X with a finite map Y→E_k.",
+      "locator": "Published paper Proposition 22 pp.145–146",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Normalize fiber product, shrink to an étale map for lifting, track geometric connectedness after extension; test a constant X."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/103",
+      "kind": "definition",
+      "name": "Fundamental full faithfulness",
+      "statement": "A variety/DM stack is fundamentally fully faithful when its rational-point functor to its fundamental gerbe is fully faithful over every finitely generated field extension in the cited convention.",
+      "locator": "Published paper Proposition 22 input [6] Lemma 6.5 and Theorem 7.2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Record quantifiers and centralizer triviality, not just injectivity on isomorphism classes. Proper genus≥2 curves satisfy the needed form."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/104",
+      "kind": "theorem",
+      "name": "Descent of geometric sections",
+      "statement": "For a separated fundamentally fully faithful finite-type DM stack in the characteristic-zero setting of [6], if a k-section becomes geometric over a finitely generated extension k′/k, it is geometric over k.",
+      "locator": "Published paper Proposition 22 p.146, [6] Lemma 6.5",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Published [6] p.244 and arXiv pp.14–15 read; for the application X is a smooth proper genus≥2 curve. Do not assume the section conjecture to get fundamental full faithfulness."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/105",
+      "kind": "theorem",
+      "name": "Fundamental full faithfulness for proper curves",
+      "statement": "Smooth proper curves of genus at least one over fields finitely generated over Q satisfy the fundamental-full-faithfulness assertion used in [6] Theorem 7.2; in particular genus≥2 curves do.",
+      "locator": "Published paper Proposition 22 input [6] Theorem 7.2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read theorem’s proper-orbicurve χ≤0 criterion at published p.245. The extraction uses only the scheme case."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/106",
+      "kind": "theorem",
+      "name": "Generic section extension for projective families",
+      "statement": "Let C be affine over a field finitely generated over Q and X→C smooth projective with geometrically connected fibers whose geometric π1 has no abelian torsion. Every generic section extends uniquely over C.",
+      "locator": "Published paper Proposition 22 p.146, [7] Corollary 3.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "[7] arXiv:1911.03234v3 p.7 read. Every open subgroup must have torsion-free abelianization; this is true for smooth projective curves, not a consequence of abstract profiniteness."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/107",
+      "kind": "definition",
+      "name": "No abelian torsion",
+      "statement": "A profinite group G has no abelian torsion when for every open subgroup H⊆G the abelianization H^ab is torsion-free.",
+      "locator": "Published paper Proposition 22 input [7] Definition 3.1 p.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Closed/open subgroup distinction; test geometric fundamental groups of smooth projective curves via Jacobians, and a finite cyclic counterexample."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/108",
+      "kind": "definition",
+      "name": "Coherence of a curve family",
+      "statement": "A family X→C is coherent if every pointwise geometric quasi-section over a quasi-finite curve C′→C has geometric generic fiber; pointwise means at every point over every finite constant-field extension.",
+      "locator": "Published paper Proposition 22 input [7] Definition 4.1 pp.7–8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Base change of quasi-sections and all finite-extension specializations; checking only C(k) is insufficient."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/109",
+      "kind": "theorem",
+      "name": "Coherence from a constant abelian target",
+      "statement": "A smooth proper genus≥2 curve family over an affine curve C/h, with h finitely generated over Q, is coherent if its generic fiber has a nonconstant map to an abelian variety defined over h.",
+      "locator": "Published paper Proposition 22 input [7] Corollary 4.9 p.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read [7] pp.7–10 including Prop4.6 and Lemmas4.7–4.8. This special case uses Faltings and Hilbert irreducibility; it does not invoke the conditional Bombieri–Lang branch."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/110",
+      "kind": "theorem",
+      "name": "Faltings Tate-module comparison input",
+      "statement": "For abelian varieties over a field finitely generated over Q, the primewise Tate-module realization identifies Hom(A,B)⊗Z_l with Galois-equivariant Hom(T_l A,T_l B); its all-prime completion supplies the Hom used in the coherence proof.",
+      "locator": "Published paper Proposition 22 input [7] Proposition 4.6 p.9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "[7] Proposition4.6 uses INTEGRAL/all-prime completed Hom over a finitely generated field. R28.4 explicitly plans the rational Q_l comparison; it is not evidence that the integral statement is already planned. Add the saturation/integral comparison and the finitely-generated-field version as named source obligations in that same Tate-isogeny layer, with A3 torsion and specialization inputs."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/111",
+      "kind": "theorem",
+      "name": "Theorem A forward direction",
+      "statement": "For every smooth geometrically connected curve X over k finitely generated over Q, every geometric or cuspidal section is t-b.l.",
+      "locator": "Published paper Theorem A pp.130,146",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use local decomposition splittings and base change; include the proper genus-zero branch."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/112",
+      "kind": "theorem",
+      "name": "Theorem A reverse direction",
+      "statement": "For every such X/k, every t-b.l. section is geometric or cuspidal.",
+      "locator": "Published paper Theorem A pp.130,146",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Reduce to number fields via Proposition22, apply Tamagawa, lift to suitable affine opens, and choose a coordinate of a local point outside k. Proposition17 gives a contradiction. The printed blanket parabolic reduction has the explicit /77 counterexample; the general-curve proof remains a checkpoint gap until that branch is repaired."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/113",
+      "kind": "theorem",
+      "name": "Countable open-lifting implies birational lifting",
+      "statement": "For a curve over a countable field, if S_V/k→S_U/k is surjective for every pair of nonempty opens V⊆U⊆X, then every section of every U is b.l.",
+      "locator": "Published paper Lemma 23 p.146",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Countability gives a cofinal sequence and compatible choices; this is not the assertion that arbitrary inverse systems of nonempty sets have nonempty limit."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/114",
+      "kind": "theorem",
+      "name": "Birational lifting implies all open-lifting maps surjective",
+      "statement": "For a curve over a countable field, if every section of every nonempty open U⊆X is b.l., then every S_V/k→S_U/k is surjective.",
+      "locator": "Published paper Lemma 23 p.146",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This direction does not need countability; restrict a function-field lift to V."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/115",
+      "kind": "theorem",
+      "name": "Sections of the function field as an inverse limit",
+      "statement": "S_k(X)/k identifies with the inverse limit of S_U/k over nonempty opens U⊆X in the source’s section topology/conjugacy convention.",
+      "locator": "Published paper Lemma 23 and Lemma 26, [20] Lemma 259",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Generic cover descent alone does not justify interchanging quotient and inverse limit; use the actual section-space result."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/116",
+      "kind": "theorem",
+      "name": "Cuspidalization equivalence",
+      "statement": "The global cuspidalization conjecture is equivalent to every Galois section of every hyperbolic curve over every field finitely generated over Q being b.l.",
+      "locator": "Published paper Corollary 24 p.147",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Uses countability and quantification over all opens."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/117",
+      "kind": "theorem",
+      "name": "Theorem B equivalence for all finitely generated extensions",
+      "statement": "For hyperbolic X/k with k finitely generated over Q, the following are equivalent: (i) for every finitely generated K/k every section of X_K is geometric or cuspidal; (ii) for every such K every section of X_K is b.l.",
+      "locator": "Published paper Theorem B p.147",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Apply (ii) at K(t) to get t-b.l. over K; omitting the extension quantifier invalidates the argument."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/118",
+      "kind": "theorem",
+      "name": "Section and cuspidalization conjectures are equivalent",
+      "statement": "The global section conjecture is equivalent to the global cuspidalization conjecture.",
+      "locator": "Published paper Theorem B consequence p.147",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "An equivalence of conjectures is proved; neither conjecture is asserted true."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/119",
+      "kind": "definition",
+      "name": "Hilbertian fields and thin subsets",
+      "statement": "Use Hilbertian fields and thin sets in the sense required for finite étale covers of nonempty opens V⊆A1: the image of a connected cover of degree>1 is thin, finite unions are thin and V(k) is not thin.",
+      "locator": "Published paper Lemma 25 pp.147–148",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "note": "Planning API and tests: Test a degree-one cover and a nonsplit quadratic cover; import the general field/irreducibility owner."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/120",
+      "kind": "theorem",
+      "name": "Hilbertian finite-cover section criterion",
+      "statement": "If k is Hilbertian, V⊆A1 is nonempty open and W→V is finite étale with W(k)→V(k) surjective, then W→V has a section.",
+      "locator": "Published paper Lemma 25 p.147",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "A finite union of thin images cannot cover V(k); some connected component has degree one."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/121",
+      "kind": "construction",
+      "name": "Relative section isomorphism torsor",
+      "statement": "If Π_X/V=lim_i Φ_i with Φ_i proper étale gerbes and s1,s2 sections, then Isom(s1,s2)=lim_i(V×_(Φ_i)V); each finite-stage fiber product is finite étale over V.",
+      "locator": "Published paper Lemma 25 p.147",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Use 2-fiber products along s1,s2; test identical sections and a nontrivial finite torsor."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/122",
+      "kind": "theorem",
+      "name": "Compact inverse-limit nonemptiness",
+      "statement": "A cofiltered inverse system of nonempty compact Hausdorff spaces has nonempty limit; in particular this holds for finite nonempty sets with discrete topology.",
+      "locator": "Published paper Lemma 25 pp.147–148",
+      "status": "library",
+      "library": [
+        "mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/Topology/Category/TopCat/Limits/Konig.lean, TopCat.nonempty_limitCone_of_compact_t2_cofiltered_system (line 126)."
+      ],
+      "planned": [],
+      "note": "Pinned theorem read; its use on the finite sets of sections Isom_i(V) is valid."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/123",
+      "kind": "theorem",
+      "name": "Hilbertian specialization determines a section",
+      "statement": "Let k be Hilbertian, V⊆A1 nonempty open and X→V a family of curves. Two relative fundamental-gerbe sections with isomorphic specializations at every v∈V(k) are isomorphic.",
+      "locator": "Published paper Lemma 25 pp.147–148",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Gerbe proof uses finite étale isomorphism covers and compactness. Group proof uses nonthin geometric sections and finite-kernel conjugators. No statement for an arbitrary base with too few rational points."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/124",
+      "kind": "theorem",
+      "name": "Nonthin geometric sections generate π1",
+      "statement": "For a nonthin S⊆V(k), chosen geometric section images r_v(Gal(k)), v∈S, topologically generate π1(V).",
+      "locator": "Published paper Lemma 25 pp.147–148",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "An open subgroup containing all images would define a connected cover whose image contains S; Hilbert irreducibility forces degree one."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/125",
+      "kind": "construction",
+      "name": "Finite-kernel approximations of the family extension",
+      "statement": "Write π1(X) as the inverse limit of extensions G_i→π1(V) with finite kernels H_i obtained by pulling finite quotients back along π1(V); π1(F)=lim_i H_i.",
+      "locator": "Published paper Lemma 25 group proof pp.147–148",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Planning API and tests: Use image of N_i in π1(V) when writing the quotient; compare conjugators at all finite stages."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/126",
+      "kind": "theorem",
+      "name": "Cuspidal packet injectivity and distinctness",
+      "statement": "Let U/k be a smooth hyperbolic curve in characteristic zero. Assume injectivity of the section map for proper genus≥2 curves over finite extensions of k. Then a cuspidal section determines its cusp uniquely, the local packet map is injective, and cuspidal and geometric sections are disjoint.",
+      "locator": "Published paper Lemma 26 and Theorem C cite [19] Theorem 17(2)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read author 2012 PDF p.8 Theorem17(1)–(3). The published proof’s uniqueness-of-cusp citation is part (1); part (2) controls the packet. Retain the proper injectivity hypothesis."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/127",
+      "kind": "theorem",
+      "name": "Birational-conjecture reformulation",
+      "statement": "The birational section conjecture over fields finitely generated over Q is equivalent to every b.l. section of every curve over those fields being geometric or cuspidal.",
+      "locator": "Published paper Lemma 26 p.148",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Correct compressed proof wording: images on opens containing the associated rational point can be GEOMETRIC. Pass to the cofinal opens omitting that point before using cuspidal packets and their inverse limit."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/128",
+      "kind": "theorem",
+      "name": "Number-field reduction for the ordinary birational conjecture",
+      "statement": "If the birational section conjecture holds for curves over all number fields, it holds over all fields finitely generated over Q.",
+      "locator": "Published paper §1 p.130; Theorem C p.149, [17] Theorem C",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Saïdi–Tyler arXiv:1909.12099v3 pp.1–5 read, TheoremC on p.4: the all-number-field hypothesis implies the all-finitely-generated-field conclusion without a Shafarevich–Tate finiteness hypothesis. The words geometric birational section there mean Bresciani’s cuspidal birational section. Do not import the conditional TheoremsA/B instead."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/129",
+      "kind": "theorem",
+      "name": "Theorem C forward direction",
+      "statement": "Assume the birational section conjecture. For every number field k, z∈S_k(P1)/k and nonempty open U⊆P1, there is nonempty open V⊆U and a π1 section r of (U×V)\\Δ→V with r_v=ι_(U\\{v})(z) for every v∈V(k).",
+      "locator": "Published paper Theorem C pp.148–149",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "If the rational point p associated to z is in U use V=U\\{p} and its graph. If p is a cusp use packet injectivity, constant loops and extension over U."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/130",
+      "kind": "theorem",
+      "name": "Theorem C reverse direction",
+      "statement": "If the diagonal-family lifting assertion in the preceding item holds for every number field, every birational P1 section and every nonempty open U, then the birational section conjecture holds over all fields finitely generated over Q.",
+      "locator": "Published paper Theorem C p.149",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use Saïdi–Tyler, the coordinate reduction and Lemma25 to make all open lifts compatible, then Proposition17."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/131",
+      "kind": "theorem",
+      "name": "Uniqueness and compatibility of diagonal-family lifts",
+      "statement": "For fixed k,z,U,V in Theorem C with V affine, at most one relative π1 section has the prescribed specializations; shrinking U,V gives compatible sections after common restriction.",
+      "locator": "Published paper §1 p.132; Theorem C p.149",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemma25 also identifies its image in U×V with the constant base-change section. For P1 itself first shrink V to an affine open."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/132",
+      "kind": "theorem",
+      "name": "Geometric and cuspidal lift through the diagonal complement",
+      "statement": "A point p∈U(k) gives a geometric section of (U×(U\\{p}))\\Δ; if p∈(P1\\U)(k), its cuspidal packet restricts compatibly along U\\{v} for every v∈U(k).",
+      "locator": "Published paper Theorem C pp.148–149",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Do not equate packets to singletons: uniqueness is of the lift of the SPECIFIED packet section."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/133",
+      "kind": "theorem",
+      "name": "Schmidt’s actual Brauer–Severi input",
+      "statement": "Over characteristic-zero k, if X is a Brauer–Severi variety and U is an open subvariety of the complement of a twisted hyperplane arrangement which admits a homotopy rational point, then X splits and U has a k-rational point.",
+      "locator": "Schmidt arXiv:1503.08108v1, TheoremA p.2; invoked at Bresciani p.141",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Source statement read. A section and a homotopy rational point agree in the K(π,1) affine-curve case. Splitting X says nothing about every boundary component being rational; /77 therefore remains unresolved."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/134",
+      "kind": "definition",
+      "name": "Semiabelian scheme",
+      "statement": "A semiabelian scheme is an extension of an abelian scheme by a torus, with its exact sequence and base change retained.",
+      "locator": "Bresciani Lemma8 p.138; generic carrier supplier",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "ShimuraCompactifications:C4"
+      ],
+      "note": "Planning API and tests: toric/abelian projections, base change and split product; compare T=0 and A=0. Use the existing general owner, before the curve-specific generalized Jacobian."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/135",
+      "kind": "theorem",
+      "name": "Mattuck torsion consequence",
+      "statement": "For a finite extension K/Qp and an abelian variety A/K, the subgroup of torsion elements in A(K) is finite.",
+      "locator": "Bresciani Lemma8 p.138; Mattuck Theorem7 p.114",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The open subgroup furnished by /62 is torsion-free and finite index; restriction of the quotient map to torsion is injective."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Bresciani–Vistoli, An arithmetic valuative criterion for proper maps of tame algebraic stacks",
+      "link": "https://arxiv.org/abs/2210.03406v1",
+      "why": "Theorem3.1 and root-stack definitions pp.3–4 read; full proof decomposition required by SF.1."
+    },
+    {
+      "citation": "Bresciani, Some implications between Grothendieck’s anabelian conjectures, Algebraic Geometry8(2021),231–267",
+      "link": "https://algebraicgeometry.nl/2021-2/2021-2-005.pdf",
+      "why": "Published Lemma6.5, Theorem7.2 beginning, PropositionsA.18 and A.23 read; arbitrary base change is A.23. Full gerbe construction and neutralization dependencies remain to decompose."
+    },
+    {
+      "citation": "Bresciani, Essential dimension and pro-finite group schemes",
+      "link": "https://arxiv.org/abs/1904.00789v2",
+      "why": "AppendixA.2–A.5 pp.27–28 read, including the stabilization hypothesis in CorollaryA.3. The full generic extension machinery is not supplied by an existing accepted blueprint."
+    },
+    {
+      "citation": "Bresciani, On the section conjecture over fields of finite type",
+      "link": "https://arxiv.org/abs/1911.03234v3",
+      "why": "Read pp.7–10: no-abelian-torsion, generic extension, coherence, constant-abelian coherence and finite pullback. This is the 2023 version actually cited, not an unverified substitution of the 2025 publication."
+    },
+    {
+      "citation": "Borne–Vistoli, Fundamental gerbes, Algebra & Number Theory13(2019),531–576",
+      "link": "https://doi.org/10.2140/ant.2019.13.531",
+      "why": "Definition3.4 and Propositions3.9–3.10 are used by Lemma2; exact general statements need primary-source verification. General gerbes route to SF.1."
+    },
+    {
+      "citation": "Stix, On the birational section conjecture with local conditions, Invent.math.199(2015),239–265",
+      "link": "https://arxiv.org/abs/1203.3236v3",
+      "why": "Read Stix pp.1–5: TheoremsA/B, section neighborhoods, Proposition1 local points and §2.2.2–2.2.3 adelic/birationally adelic definitions. The density proof still needs blueprint decomposition."
+    },
+    {
+      "citation": "Stix, On cuspidal sections of algebraic fundamental groups (2012)",
+      "link": "https://www.math.uni-frankfurt.de/~stix/research/preprints/STIXcuspsec20120802homepage.pdf",
+      "why": "Theorem17(1)–(3), p.8, read with its proper-curve section-injectivity hypothesis. Needed for packet disjointness and injectivity."
+    },
+    {
+      "citation": "Stix, Rational Points and Arithmetic of Fundamental Groups, LNM2054(2013)",
+      "link": "https://doi.org/10.1007/978-3-642-30674-7",
+      "why": "Proposition75, ramified specialization, Lemma259 and birational conventions require exact original reading; citing Bresciani alone does not complete those proof inputs."
+    },
+    {
+      "citation": "Koenigsmann, On the section conjecture in anabelian geometry (2005)",
+      "link": "https://doi.org/10.1515/crll.2005.2005.588.221",
+      "why": "p-adic birational section theorem supplies local points, not the global section conjecture; original source acquisition remains."
+    },
+    {
+      "citation": "Mattuck, Abelian varieties over p-adic ground fields, Ann.Math.62(1955),92–119",
+      "link": "https://people.dm.unipi.it/lombardo/NonAbelianChabauty/Mat55.pdf",
+      "why": "Original scan acquired; Theorem7 p.114 read. The finite-index torsion-free subgroup proves finite torsion. Full analytic proof and its general ownership are the proposed local-points Part II work."
+    },
+    {
+      "citation": "Saïdi–Tyler, On the birational section conjecture over finitely generated fields, ANT15(2021),435–460",
+      "link": "https://arxiv.org/abs/1909.12099v3",
+      "why": "Author pp.1–5 read; TheoremC p.4 has the unconditional reduction from all number fields, distinct from conditional TheoremsA/B. Full proof remains a design prerequisite."
+    },
+    {
+      "citation": "Tamagawa, The Grothendieck conjecture for affine curves, Compos.Math.109(1997),135–194",
+      "link": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/1992BA14A2D63FA076DB39A34EC45E83/S0010437X97000614a.pdf/grothendieck_conjecture_for_affine_curves.pdf",
+      "why": "Proposition2.8(iv) supplies the empty-rational-point neighborhood. Exact source version/hypotheses remain to verify."
+    },
+    {
+      "citation": "Schmidt, Homotopy rational points of Brauer–Severi varieties",
+      "link": "https://arxiv.org/abs/1503.08108",
+      "why": "TheoremA pp.1–2 read. It proves splitting and rational points, not the blanket cuspidality sentence at Bresciani p.141; the nonsplit boundary counterexample is recorded in /77."
+    },
+    {
+      "citation": "Anderson, Exactness properties of profinite completion functors, Topology13(1974),229–239; Grunewald–Jaikin-Zapirain–Zalesskii, Cohomological goodness and the profinite completion of Bianchi groups, Duke144(2008),53–72",
+      "link": "https://mat.unb.br/~pz/arquivos/apf11.pdf",
+      "why": "Grunewald–Jaikin-Zapirain–Zalesskii author version 19Oct2007 Lemma3.3 and surface-group goodness Proposition3.6 pp.6,8–9 read. Published numbering differs (Bresciani cites3.7). Anderson Proposition5, DOI10.1016/0040-9383(74)90016-0, has not been acquired; full exactness hypotheses are an explicit gap."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "items": [
+        "PAPER-BRESCIANI-24/21",
+        "PAPER-BRESCIANI-24/22",
+        "PAPER-BRESCIANI-24/34",
+        "PAPER-BRESCIANI-24/35",
+        "PAPER-BRESCIANI-24/36",
+        "PAPER-BRESCIANI-24/37",
+        "PAPER-BRESCIANI-24/38",
+        "PAPER-BRESCIANI-24/39",
+        "PAPER-BRESCIANI-24/83",
+        "PAPER-BRESCIANI-24/121"
+      ],
+      "reason": "Gerbes, quotient/classifying stacks, root stacks and proper tame valuative/extension criteria fit the existing general stack/descent layer; they must not be private anabelian constructions. Existing IsStack and fpqc/fppf sites are imported."
+    },
+    {
+      "route": "source",
+      "roadmap": "InverseGaloisAndArithmeticFundamentalGroups",
+      "stages": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
+      ],
+      "items": [
+        "PAPER-BRESCIANI-24/16",
+        "PAPER-BRESCIANI-24/17",
+        "PAPER-BRESCIANI-24/23",
+        "PAPER-BRESCIANI-24/24",
+        "PAPER-BRESCIANI-24/25",
+        "PAPER-BRESCIANI-24/26",
+        "PAPER-BRESCIANI-24/27",
+        "PAPER-BRESCIANI-24/28",
+        "PAPER-BRESCIANI-24/30",
+        "PAPER-BRESCIANI-24/31",
+        "PAPER-BRESCIANI-24/32",
+        "PAPER-BRESCIANI-24/33",
+        "PAPER-BRESCIANI-24/84",
+        "PAPER-BRESCIANI-24/125"
+      ],
+      "reason": "The arithmetic fundamental-group owner supplies the gerbe presentation of the same finite-cover theory, family exactness, relative gerbes and specialization foundations. Char0 and affine/localized-curve base restrictions are retained; this adds sources inside existing layers."
+    },
+    {
+      "route": "source",
+      "roadmap": "InverseGaloisAndArithmeticFundamentalGroups",
+      "stages": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "items": [
+        "PAPER-BRESCIANI-24/120",
+        "PAPER-BRESCIANI-24/124"
+      ],
+      "reason": "Finite-cover criteria and nonthin-point arguments are direct specializations of the existing Hilbert-irreducibility layer."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticGaloisDuality",
+      "stages": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "items": [
+        "PAPER-BRESCIANI-24/18",
+        "PAPER-BRESCIANI-24/48",
+        "PAPER-BRESCIANI-24/49",
+        "PAPER-BRESCIANI-24/63",
+        "PAPER-BRESCIANI-24/90"
+      ],
+      "reason": "Compact/all-prime coefficient comparison, Kummer inverse limits, completed units, valuations and exactness belong to the existing topological-coefficient extension; the discrete upstream cohomology is imported."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "items": [
+        "PAPER-BRESCIANI-24/64",
+        "PAPER-BRESCIANI-24/65",
+        "PAPER-BRESCIANI-24/66",
+        "PAPER-BRESCIANI-24/67",
+        "PAPER-BRESCIANI-24/102"
+      ],
+      "reason": "The finite étale divisor and projection lemmas are curve/divisor geometry in the existing curve integration layer. Import the upstream AlgebraicCurves and JacobianChallenge constructions; do not re-plan them."
+    },
+    {
+      "route": "part-ii",
+      "parent": "AnabelianGeometryAndNonabelianChabauty",
+      "roadmap": "AnabelianGeometryAndNonabelianChabautyPartIIBirationalSections",
+      "title": "Anabelian geometry and nonabelian Chabauty, Part II: birational lifting and Galois-section specialization",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-BRESCIANI-24/4",
+        "PAPER-BRESCIANI-24/5",
+        "PAPER-BRESCIANI-24/6",
+        "PAPER-BRESCIANI-24/7",
+        "PAPER-BRESCIANI-24/9",
+        "PAPER-BRESCIANI-24/10",
+        "PAPER-BRESCIANI-24/11",
+        "PAPER-BRESCIANI-24/12",
+        "PAPER-BRESCIANI-24/13",
+        "PAPER-BRESCIANI-24/14",
+        "PAPER-BRESCIANI-24/15",
+        "PAPER-BRESCIANI-24/40",
+        "PAPER-BRESCIANI-24/41",
+        "PAPER-BRESCIANI-24/42",
+        "PAPER-BRESCIANI-24/43",
+        "PAPER-BRESCIANI-24/44",
+        "PAPER-BRESCIANI-24/45",
+        "PAPER-BRESCIANI-24/46",
+        "PAPER-BRESCIANI-24/47",
+        "PAPER-BRESCIANI-24/50",
+        "PAPER-BRESCIANI-24/51",
+        "PAPER-BRESCIANI-24/52",
+        "PAPER-BRESCIANI-24/53",
+        "PAPER-BRESCIANI-24/54",
+        "PAPER-BRESCIANI-24/55",
+        "PAPER-BRESCIANI-24/68",
+        "PAPER-BRESCIANI-24/69",
+        "PAPER-BRESCIANI-24/70",
+        "PAPER-BRESCIANI-24/71",
+        "PAPER-BRESCIANI-24/72",
+        "PAPER-BRESCIANI-24/73",
+        "PAPER-BRESCIANI-24/74",
+        "PAPER-BRESCIANI-24/75",
+        "PAPER-BRESCIANI-24/76",
+        "PAPER-BRESCIANI-24/78",
+        "PAPER-BRESCIANI-24/79",
+        "PAPER-BRESCIANI-24/80",
+        "PAPER-BRESCIANI-24/81",
+        "PAPER-BRESCIANI-24/85",
+        "PAPER-BRESCIANI-24/86",
+        "PAPER-BRESCIANI-24/87",
+        "PAPER-BRESCIANI-24/88",
+        "PAPER-BRESCIANI-24/89",
+        "PAPER-BRESCIANI-24/91",
+        "PAPER-BRESCIANI-24/92",
+        "PAPER-BRESCIANI-24/93",
+        "PAPER-BRESCIANI-24/94",
+        "PAPER-BRESCIANI-24/95",
+        "PAPER-BRESCIANI-24/96",
+        "PAPER-BRESCIANI-24/97",
+        "PAPER-BRESCIANI-24/98",
+        "PAPER-BRESCIANI-24/99",
+        "PAPER-BRESCIANI-24/100",
+        "PAPER-BRESCIANI-24/101",
+        "PAPER-BRESCIANI-24/103",
+        "PAPER-BRESCIANI-24/104",
+        "PAPER-BRESCIANI-24/105",
+        "PAPER-BRESCIANI-24/106",
+        "PAPER-BRESCIANI-24/107",
+        "PAPER-BRESCIANI-24/108",
+        "PAPER-BRESCIANI-24/109",
+        "PAPER-BRESCIANI-24/111",
+        "PAPER-BRESCIANI-24/112",
+        "PAPER-BRESCIANI-24/113",
+        "PAPER-BRESCIANI-24/114",
+        "PAPER-BRESCIANI-24/115",
+        "PAPER-BRESCIANI-24/116",
+        "PAPER-BRESCIANI-24/117",
+        "PAPER-BRESCIANI-24/118",
+        "PAPER-BRESCIANI-24/123",
+        "PAPER-BRESCIANI-24/126",
+        "PAPER-BRESCIANI-24/127",
+        "PAPER-BRESCIANI-24/128",
+        "PAPER-BRESCIANI-24/129",
+        "PAPER-BRESCIANI-24/130",
+        "PAPER-BRESCIANI-24/131",
+        "PAPER-BRESCIANI-24/132",
+        "PAPER-BRESCIANI-24/133"
+      ],
+      "brief": "Extend Anabelian geometry and nonabelian Chabauty (AnabelianGeometryAndNonabelianChabauty), separately from the Betts–Stix p-adic-period-mapping extension. Own birational/t-birational/quasi-t-birational section conditions, ramified specializing loops and the three proved endpoints of Bresciani, Invent. math.235 (2024),129–150. For X/k smooth geometrically connected and k finitely generated over Q prove: a section is geometric or cuspidal iff its base change to k(t) lifts birationally (Theorem A). For fixed hyperbolic X/k prove equivalence of geometric-or-cuspidal and birational lifting AFTER EVERY finitely generated extension K/k (Theorem B), and deduce the equivalence, not truth, of the global section and cuspidalization conjectures. Prove Theorem C exactly: the ordinary birational section conjecture is equivalent to existence, for every number field k, birational section z of k(P1)/k and nonempty open U⊆P1, of a nonempty open V⊆U and relative π1 section of (U×V)\\Δ→V whose v-specialization is the prescribed image of z on U\\{v} for every v∈V(k).\n\nBuild Lemmas1–26 and their proof leaves in source order, with generic foundation ownership below, then Proposition17's stronger pro-open diagonal lifting criterion and its completed-unit valuation proof, the number-field open-lifting Lemma16, quasi-t-b.l. reduction, Tamagawa neighborhoods and the coherence input. Do not substitute the rational-function field for Spec k(y)×k Spec k(t) with the diagonal deleted. Track restricted completed products, nonrational closed points, finite places, residue characteristic zero and the nonparabolic reductions. A specialization is an essential-image class and need not be unique; the C[x]_(x), z=x example must reject the converse to constant-loop⇒unique specialization. For Hilbertian uniqueness keep finite-kernel conjugacy limits, not arbitrary choices of conjugators.\n\nImport path torsors/sections from the parent NC.0; finite covers, homotopy exactness and relative fundamental gerbes from Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups IG.0–IG.2); gerbes, root stacks, tame valuative criteria and extension gluing from Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations SF.1), with local curve geometry from SF.3; compact cohomology/Kummer completions from Global Galois duality and compact coefficients (ArithmeticGaloisDuality R02.1); generalized Jacobians/Albanese torsors from the proposed JacobianChallenge Part II; local torsion from the proposed AbelianSchemesAndArithmeticModuli Part II. Import existing Chebotarev and Faltings Hom suppliers by verified stage IDs. General finite cofiltered-limit compactness and stack/site carriers already exist in Mathlib. No private replacements of these suppliers.\n\nPrerequisite papers are work to decompose, not axioms: Bresciani–Vistoli valuative criterion, Bresciani's gerbe/base-change and coherence papers, Stix local density and cuspidal packets/book, Koenigsmann, Tamagawa and Saïdi–Tyler. Use [6] Proposition A.23 for arbitrary extension, not A.18. In Lemma26 first omit the associated point before calling open-curve images cuspidal. Design must resolve the checkpoint gaps before declaring source closure. Give each definition its listed evaluation/functoriality API and tests, and a suggested Lean file on the canonical carriers; no Lean construction is claimed in this paper extraction.\n\nCorrectness gate: the published p.141 assertion that all affine-parabolic sections are cuspidal is false for P1_Q minus the closed point T²−2, which has geometric sections and no rational cusp. This does not refute the main theorem, but the claimed trivial reduction in Lemma16 and the quasi-t-b.l. step must be supplied by a valid argument. Do not turn the printed false sentence into a Lean theorem. The generalized-Jacobian torsor neutralization comparison (/58) remains an unrouted source gap; consume it only once verified.",
+      "reason": "NC.1 is source-qualified Mochizuki reconstruction and NC.2–NC.5 are unipotent/Chabauty branches. These full profinite birational-lifting, specialization and conjecture-equivalence theorems need new layers in the parent direction. Betts–Stix imports period maps and is a separate sibling, not a supplier of these theorems."
+    },
+    {
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/JacobianChallenge",
+      "roadmap": "JacobianChallengePartIIGeneralizedAlbanese",
+      "title": "The Jacobian challenge, Part II: generalized Jacobians and Albanese torsors",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-BRESCIANI-24/56",
+        "PAPER-BRESCIANI-24/57",
+        "PAPER-BRESCIANI-24/59"
+      ],
+      "brief": "Extend the upstream Jacobian challenge (tauceti:TauCetiRoadmap/JacobianChallenge) beyond its pointed smooth proper v1. Construct the generalized Jacobian of a smooth open curve with reduced boundary, its torus extension of the proper Jacobian, and the degree-one Albanese torsor without assuming a rational point. Prove geometric π1 abelianization = the full Tate module, torsor/fundamental-gerbe comparison and compatibility with neutralization by a given Galois section. Prove the number-field vanishing Hom_Gk(Zhat(1),TA)=0 from actual degree-one purity, with integral-to-rational comparison. Import upstream JacobianChallenge proper Jacobians/Abel–Jacobi and AlgebraicCurves, SchemeAndStackFoundations SF.1–SF.3, AbelianSchemesAndArithmeticModuli A3–A4 Tate modules, and ShimuraCompactifications C4 general semiabelian extensions. Do not duplicate NeronModelsAndSemistableAbelianVarieties R11.4, whose generalized Jacobians are for nodal degeneration fibers. Unit tests: proper boundary empty, Gm, a nonsplit torus boundary, and a curve without a rational point. The neutralization in Bresciani Lemma8 is supplied by the image of the trivial BZhat(1)-torsor; do not claim a canonical pointed Jacobian gerbe before that choice. Cover the same construction used in Bresciani 1911.03234 Proposition4.6, so the two consumers share one implementation. Every definition needs functoriality/base-change API and a suggested Lean file. Resolve the torsor comparison from primary sources before proof execution.",
+      "reason": "The upstream README expressly excludes the unpointed Albanese/Pic1 torsor v2; affine generalized Jacobians also extend its smooth proper scope. Nodal Néron-model Picard theory is a distinct construction, to be compared rather than silently substituted."
+    },
+    {
+      "route": "part-ii",
+      "parent": "AbelianSchemesAndArithmeticModuli",
+      "roadmap": "AbelianSchemesAndArithmeticModuliPartIILocalPoints",
+      "title": "Abelian schemes and arithmetic moduli, Part II: p-adic local points and finite torsion",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-BRESCIANI-24/62",
+        "PAPER-BRESCIANI-24/135"
+      ],
+      "brief": "Extend Abelian schemes and arithmetic moduli (AbelianSchemesAndArithmeticModuli) with the local analytic theorem required by Bresciani Lemma8: for a finite extension K/Qp and abelian variety A/K, construct the K-adic topology and an open subgroup of A(K) isomorphic to the additive group O_K^dim A; deduce finiteness of A(K)_tors by compactness and finite index. Use Mattuck, Ann.Math.62(1955),92–119, Theorem7 on p.114, whose statement was read in the original scan. It gives the subgroup over any complete ultrametric characteristic-zero field, with finite index under local compactness. The present endpoint is the finite-extension-of-Qp case. Decompose the full proof before execution. Import the existing TauCeti.AlgebraicGeometry.AbelianVariety carrier, AbelianSchemesAndArithmeticModuli A1/A3/A4, local fields and general p-adic analytic charts/formal logarithms from their owners; do not reprove semistable reduction or claim a global logarithm isomorphism. Export lim_n A[n](K)=0 to ArithmeticGaloisDuality R02.1 for the TT→TJ H1 injection. Test an elliptic curve and zero-dimensional abelian variety; keep p=2 and arbitrary reduction. Full dependency-owner audit of analytic logarithms remains a design preparation task.",
+      "reason": "A1–A6 contain schemes, torsion, degree-one realizations and complex uniformization, but no Mattuck local-point theorem. R11.3 handles degeneration/Raynaud uniformization, which is not this small-open-subgroup statement. A local analytic continuation avoids hiding a generic theorem in the anabelian proof."
+    },
+    {
+      "route": "source",
+      "roadmap": "FaltingsFinitenessAndIsogenyTheorems",
+      "stages": [
+        "FaltingsFinitenessAndIsogenyTheorems:R28.4"
+      ],
+      "items": [
+        "PAPER-BRESCIANI-24/110"
+      ],
+      "reason": "The integral and all-prime Hom comparison used in the coherence proof refines the existing rational Tate-isogeny layer. Rational comparison alone must not be relabeled as the stronger input; specify integral saturation and finitely-generated-field scope."
+    }
+  ]
+}
