@@ -537,7 +537,7 @@
      ]
     },
     "ReductiveGroupsPartII:RG2.5": {
-     "verdict": "not built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "The dual root datum of the root datum of G",
@@ -1586,6 +1586,3591 @@
       {
        "layer": "ExcursionOperatorsAndSpectralAction:ES1",
        "note": "ES1's spectral centre and finite ramification are the excursion-side statements SR.6's Corollary 1.8 is about."
+      }
+     ]
+    }
+   }
+  },
+  "tauceti:TauCetiRoadmap/ReductiveGroups": {
+   "summary": "This is Tau Ceti's own library roadmap, and the library has built most of Layers 0–6 in the TauCeti/Algebra/AlgebraicGroup tree, sorry-free (only nine files in the whole TauCeti tree contain `sorry`, none of them here). Present in full: the convolution group of points and its functor, the anti-equivalence between commutative Hopf algebras and affine group schemes with the corepresentability third leg and Hopf base change; comodules with their monoidal category, the fundamental theorem of coalgebras, matrix coefficients, faithful = closed immersion, the embedding theorem G ↪ GL_n and Tannakian reconstruction; the Lie algebra with the adjoint action, differentials, Lie subalgebras of closed subgroups and the dimension tools; Hopf ideals, normality, fppf quotient sheaves, the identity component and the finite étale component group; Jordan decomposition, diagonalizable groups with their anti-equivalence, tori and the character–cocharacter perfect pairing; geometric unipotence and the construction of the unipotent and solvable radicals; and reductive/semisimple/simply connected/adjoint with central isogenies. Genuinely missing: representability of a general quotient G/H (Matsushima), the geometric half of Lie–Kolchin (that the derived subgroup of a connected solvable group is unipotent), the characteristic-zero converse 'reductive ⇒ linearly reductive' and the characteristic-p torus criterion, conjugacy of Borel subgroups and maximal tori, the root datum of a split pair (G, T) with its coroots and Weyl group, the Galois action on the absolute root datum, the relative root system, the construction of a Tits system inside a reductive group, the whole of Layer 8's isomorphism/existence/classification theorems, and — in Layer 9 — the general definition of a pinned split reductive group scheme, the Chevalley–Demazure construction for an arbitrary root datum, the pinned isomorphism theorem, and the short-root G₂/F₄ and tripled D₄ carriers.",
+   "layers": {
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "R-points of a Hopf algebra as a group under convolution, with counit as identity and f ∘ S as inverse, functorial in R",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.AlgHom.instGroup",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/FunctorOfPoints.lean",
+         "line": 108,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.AlgHom.convInv_apply",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/FunctorOfPoints.lean",
+         "line": 101,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.HopfAlgebra.pointsFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/PointsFunctor.lean",
+         "line": 104,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.AlgHom.mapValue",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/FunctorOfPoints.lean",
+         "line": 141,
+         "fit": "exact"
+        }
+       ],
+       "note": "The convolution group structure is proved for an arbitrary (not necessarily commutative) Hopf algebra H over R and any commutative R-algebra value, which is more than the layer asks; pointsFunctor packages it as CommAlgCat R ⥤ GrpCat."
+      },
+      {
+       "target": "Γ(G) is an R-Hopf algebra for an affine group scheme G over Spec R, and Spec A is a group object for a commutative Hopf algebra A",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.hopfAlgebraGamma",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Basic.lean",
+         "line": 89,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.affineGroupSchemeProperty",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Basic.lean",
+         "line": 45,
+         "fit": "related"
+        }
+       ],
+       "note": "hopfAlgebraGamma is the Γ-direction for a plain-typed base ring and an arbitrary structure morphism; the Spec-direction is Mathlib's AlgebraicGeometry.instGrpObjSpecAsOverSpec, which the file records as needing no Tau Ceti declaration."
+      },
+      {
+       "target": "The anti-equivalence (CommHopfAlg k)ᵒᵖ ≌ AffGrpSch k, with finite type/smoothness kept as predicates",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.commHopfAlgCatOpEquivAffineGroupSchemeCat",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Equivalence.lean",
+         "line": 40,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.objectProperty_inverseImage_commHopfAlgCatOpEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Equivalence.lean",
+         "line": 81,
+         "fit": "exact"
+        }
+       ],
+       "note": "Built over an arbitrary commutative base ring S from Mathlib's hopfSpec, its full faithfulness and its essential-image characterisation; object properties transport across it, so finiteness conditions stay predicates as the layer requires."
+      },
+      {
+       "target": "The third equivalence with representable group functors",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.HopfAlgebra.pointsCorepresentableBy",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/CommHopfAlgCat/Yoneda.lean",
+         "line": 173,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.groupYonedaPointsFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/CommHopfAlgCat/Yoneda.lean",
+         "line": 279,
+         "fit": "exact"
+        }
+       ],
+       "note": "The points functor is corepresented by the coordinate algebra, the contravariant points functor is fully faithful, and its essential image is exactly the group-valued functors with corepresentable underlying functor — the layer's third equivalence."
+      },
+      {
+       "target": "Base change: K ⊗[k] A as a Hopf algebra over K, with the induced comparison on points",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.CommHopfAlgCat.baseChange",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/CommHopfAlgCat/BaseChange.lean",
+         "line": 63,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.baseChangeFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/CommHopfAlgCat/BaseChange.lean",
+         "line": 99,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.baseChangePointsMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/CommHopfAlgCat/BaseChange.lean",
+         "line": 174,
+         "fit": "exact"
+        }
+       ],
+       "note": "Scalar extension is packaged functorially with the point equivalence (K ⊗[k] H →ₐ[K] A) ≃* (H →ₐ[k] A), which is what the layer needs for geometric notions after base change to k̄."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Comodules over a coalgebra/Hopf algebra, comodule morphisms, the rigid monoidal category of finite-dimensional comodules, tensor products, duals, the regular representation",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ComoduleCat",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Coalgebra/Comodule/Cat.lean",
+         "line": 52,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FGPointRepresentationCat.instMonoidalCategory",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Monoidal.lean",
+         "line": 58,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FGPointRepresentationCat.instSymmetricCategory",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Monoidal.lean",
+         "line": 64,
+         "fit": "exact"
+        }
+       ],
+       "note": "The comodule category, the finite-dimensional point-representation category with its symmetric monoidal structure, duals (Comodule/Dual.lean) and the regular comodule (Comodule/Regular.lean) are all present."
+      },
+      {
+       "target": "The fundamental theorem of comodules: every element lies in a finite-dimensional subcoalgebra and every comodule is the union of its finite-dimensional subcomodules",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Subcoalgebra.exists_finiteDimensional_subcoalgebra_mem",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Coalgebra/Subcoalgebra/Finite.lean",
+         "line": 232,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Subcoalgebra.exists_finite_subcoalgebra_mem",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Coalgebra/Subcoalgebra/Finite.lean",
+         "line": 171,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.Subcomodule",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Coalgebra/Subcomodule/Basic.lean",
+         "line": 71,
+         "fit": "related"
+        }
+       ],
+       "note": "The elementwise fundamental theorem of coalgebras is proved over a principal ideal domain as well as over a field, so it is available in the generality the embedding theorem needs."
+      },
+      {
+       "target": "The dictionary representation of G ⇆ A-comodule, and matrix coefficients",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.PointRepresentationCat",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Cat.lean",
+         "line": 47,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Comodule.matrixCoefficientSubalgebra",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Coalgebra/Comodule/MatrixCoefficient/Adjoin.lean",
+         "line": 208,
+         "fit": "exact"
+        }
+       ],
+       "note": "Representations of the point group and comodules are identified as categories, and the matrix-coefficient subalgebra is developed with its finiteness."
+      },
+      {
+       "target": "Faithfulness as a closed immersion G → GL(V), equivalent to the matrix coefficients generating A",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Comodule.IsFaithful",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Faithful/Basic.lean",
+         "line": 221,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Comodule.isClosedImmersion_coordinateGroupSchemeHom_iff_of_bases",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Faithful/Basic.lean",
+         "line": 249,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Comodule.coordinateBialgHom_surjective_iff_matrixCoefficientSubalgebra_prod_dual_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Faithful/Basic.lean",
+         "line": 193,
+         "fit": "exact"
+        }
+       ],
+       "note": "The file explicitly discharges the roadmap's 'faithfulness done right' item, and gets the subtlety right: the criterion uses the matrix coefficients together with their antipode images, since for 𝔾ₘ the coefficient T alone does not generate k[T, T⁻¹]."
+      },
+      {
+       "target": "The embedding theorem: every affine group scheme of finite type has a faithful finite-dimensional representation, i.e. a closed immersion into some GL_n",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.AffineGroupSchemeCat.exists_isClosedImmersion_generalLinear",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Embedding.lean",
+         "line": 213,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Comodule.exists_coordinateBialgHom_surjective",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Embedding.lean",
+         "line": 118,
+         "fit": "exact"
+        }
+       ],
+       "note": "Proved over a field via the fundamental theorem of coalgebras, exactly the route the layer prescribes rather than bare Noetherianity."
+      },
+      {
+       "target": "Tannakian reconstruction: recover G from its tensor category of representations",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Tannaka.fgPointTensorIsoEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Equivalence.lean",
+         "line": 188,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Tannaka.reconstructedPoint",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Reconstruction.lean",
+         "line": 89,
+         "fit": "exact"
+        }
+       ],
+       "note": "Points of the group are identified with tensor automorphisms of scalar extension on finite-dimensional comodules, for each value algebra, with naturality in the value algebra in Tannaka/GroupFunctor.lean."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products",
+       "note": "Only a marginal overlap: that layer's Wedderburn/central-simple material is the module-theoretic side used in complete-reducibility arguments, not the comodule dictionary."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Tangent space at the identity, Lie(G), and the differential of a homomorphism",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.HopfIdeal.quotientLieHom",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/HopfIdeal/Tangent.lean",
+         "line": 63,
+         "fit": "exact"
+        },
+        {
+         "name": "Derivation.finrank_eq_finrank_cotangentSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Tangent/Dimension.lean",
+         "line": 65,
+         "fit": "related"
+        }
+       ],
+       "note": "The Lie algebra is the module of counit-valued derivations, with the Lie structure in Tangent/Lie/, the differential as a Lie morphism in Tangent/Lie/Map.lean, and the cotangent model."
+      },
+      {
+       "target": "The Lie algebra of a closed subgroup as a Lie subalgebra",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.HopfIdeal.lieSubalgebra",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/HopfIdeal/Tangent.lean",
+         "line": 91,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.HopfIdeal.mem_lieSubalgebra_iff",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/HopfIdeal/Tangent.lean",
+         "line": 189,
+         "fit": "exact"
+        }
+       ],
+       "note": "The differential of a closed-subgroup inclusion is injective with image the derivations vanishing on the Hopf ideal; the file names this as the Layer 2 target."
+      },
+      {
+       "target": "The adjoint action Ad : G → GL(Lie G)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "Derivation.adDerivation",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Tangent/Adjoint.lean",
+         "line": 116,
+         "fit": "exact"
+        },
+        {
+         "name": "Derivation.adRepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Tangent/Adjoint.lean",
+         "line": 174,
+         "fit": "exact"
+        }
+       ],
+       "note": "Conjugation in the convolution semiring restricted to derivations, packaged as a representation of the B-points on the B-valued tangent vectors, one value algebra at a time; the adjoint comodule is in Tangent/Representation.lean."
+      },
+      {
+       "target": "Smoothness and dimension tools via Lie(G): dimension of kernels and the smoothness criterion",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.HopfIdeal.eq_of_le_of_finrank_quotientLie_le",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/HopfIdeal/Smooth/Dimension.lean",
+         "line": 65,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.smoothCommHopfAlgProperty_iff_isReduced_of_isAlgClosed",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Smooth/AlgebraicallyClosed.lean",
+         "line": 116,
+         "fit": "exact"
+        },
+        {
+         "name": "Derivation.finrank_tangent_baseChange",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Tangent/Dimension.lean",
+         "line": 91,
+         "fit": "related"
+        }
+       ],
+       "note": "The dimension tool the later layers actually use is that an inclusion of smooth connected closed subgroups with no gain in Lie dimension is an equality; the smoothness criterion is Cartier's smooth ⟺ geometrically reduced over an algebraically closed field."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Hopf ideals ↔ closed subgroup schemes, the quotient Hopf algebra A/I, the anti-equivalence, and kernels",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.HopfIdeal",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/HopfAlgebra/HopfIdeal/Basic.lean",
+         "line": 265,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.kernelHopfIdeal",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/HopfIdeal/Quotient/Kernel/Basic.lean",
+         "line": 59,
+         "fit": "exact"
+        }
+       ],
+       "note": "The HopfIdeal structure (ideal with Δ(I) ⊆ I⊗A + A⊗I, ε(I) = 0, S(I) ⊆ I) lives in TauCeti/Algebra/HopfAlgebra/HopfIdeal/, and the AlgebraicGroup/HopfIdeal/ subtree develops quotients, the categorical comparison, kernels and the augmentation identification."
+      },
+      {
+       "target": "Normality as stability of the Hopf ideal under the adjoint coaction, and the conjugation/adjoint morphism at Hopf level",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.HopfIdeal.IsNormal",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/HopfIdeal/Normal/Basic.lean",
+         "line": 68,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.HopfAlgebra.conjugationAlgHom",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Hopf/Conjugation.lean",
+         "line": 68,
+         "fit": "exact"
+        }
+       ],
+       "note": "Normality is available with base change, images, common kernels and products."
+      },
+      {
+       "target": "The quotient G/H as an fppf sheaf, with representability as a theorem with hypotheses (Matsushima for H reductive)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.CommHopfAlgCat.fppfQuotientSheaf",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Basic.lean",
+         "line": 136,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.fppfQuotientHomEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Basic.lean",
+         "line": 188,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteTypeCommHopfAlgCat.componentGroupFppfSheafIsoSheafifiedSchemePoints",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Connected/ComponentGroup/FiniteEtale.lean",
+         "line": 95,
+         "fit": "special case"
+        }
+       ],
+       "note": "The fppf quotient sheaf with its universal property is constructed, and the quotient by the identity component is shown representable by the constant component group scheme; but the file states plainly that 'no representability is asserted' in general, and `Matsushima` has zero hits in either tree, so the affineness criterion for H reductive is absent."
+      },
+      {
+       "target": "Short exact sequences of affine group schemes",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.CommHopfAlgCat.kernelHopfIdeal",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/HopfIdeal/Quotient/Kernel/Basic.lean",
+         "line": 59,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.fppfQuotientProjection",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Basic.lean",
+         "line": 156,
+         "fit": "related"
+        }
+       ],
+       "note": "Kernels, images and the quotient projection exist separately, but there is no packaged short-exact-sequence notion for affine group schemes and no exactness theorem relating the three."
+      },
+      {
+       "target": "Identity component G° and component group π₀(G), with geometric connectedness and finite étaleness of π₀ under smoothness",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.FiniteTypeCommHopfAlgCat.componentGroupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Connected/ComponentGroup/FiniteEtale.lean",
+         "line": 54,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteTypeCommHopfAlgCat.etale_componentGroupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Connected/ComponentGroup/FiniteEtale.lean",
+         "line": 78,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteTypeCommHopfAlgCat.isFinite_componentGroupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Connected/ComponentGroup/FiniteEtale.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.geometricallyConnectedCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Connected/CommHopfAlgCat.lean",
+         "line": 59,
+         "fit": "exact"
+        }
+       ],
+       "note": "Geometric connectedness is defined by absence of nontrivial idempotents after base change to the algebraic closure, as the layer asks; the component group is the constant group scheme on π₀(Spec H) over an algebraically closed field, proved finite and étale."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Multiplicative Jordan decomposition of points into semisimple and unipotent parts, functorial under representations",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.HopfAlgebra.Point.jordanDecomposition",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/JordanDecomposition/Basic.lean",
+         "line": 98,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.HopfAlgebra.Point.semisimplePart",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/JordanDecomposition/Basic.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.HopfAlgebra.Point.isSemisimple_isUnipotent_unique",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Representation/JordanDecomposition/Basic.lean",
+         "line": 225,
+         "fit": "exact"
+        }
+       ],
+       "note": "Constructed for K-valued points over a perfect extension field via Tannakian reconstruction, so the two parts stay inside the group rather than in each ambient GL_n; naturality is in JordanDecomposition/Naturality.lean."
+      },
+      {
+       "target": "Diagonalizable groups and groups of multiplicative type: the anti-equivalence M ↦ D(M) = Spec k[M] between finitely generated abelian groups and diagonalizable groups",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.DiagonalizableGroup.essImage_schemeFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/DiagonalizableGroup/Equivalence.lean",
+         "line": 90,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.DiagonalizableGroup.diagonalizableGroupSchemeProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/DiagonalizableGroup/Equivalence.lean",
+         "line": 66,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.multiplicativeTypeCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/MultiplicativeType/Basic.lean",
+         "line": 61,
+         "fit": "exact"
+        }
+       ],
+       "note": "The contravariant equivalence from FGCommGrpCatᵒᵖ is constructed, with the character lattice, closed subgroups, weights and Frobenius developed alongside; groups of multiplicative type have their own subtree."
+      },
+      {
+       "target": "μ_n = D(ℤ/n), 𝔾_m = D(ℤ), and the non-smooth example μ_p in characteristic p",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.RootsOfUnityGroup.coordinateRing_not_isReduced",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/GroupAlgebra/NotReduced.lean",
+         "line": 74,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.RootsOfUnityGroup.pointsMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Basic.lean",
+         "line": 124,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.MultiplicativeGroup.pointsMulEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/MultiplicativeGroup/Basic.lean",
+         "line": 153,
+         "fit": "exact"
+        }
+       ],
+       "note": "μ_n and 𝔾_m are constructed with their points; the non-smoothness of μ_p is the non-reducedness of its coordinate ring, which combines with smooth ⟺ reduced over an algebraically closed field to give the stated example."
+      },
+      {
+       "target": "Tori, split and non-split, with the character lattice X*(T), the cocharacter lattice X_*(T) and their perfect pairing",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.torusCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Torus/Basic.lean",
+         "line": 107,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SplitTorus.latticePairing",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/SplitTorus/Cocharacter.lean",
+         "line": 200,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SplitTorus.instLatticePairingIsPerfPair",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/SplitTorus/Cocharacter.lean",
+         "line": 222,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.torusCommHopfAlgProperty.of_baseChange",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Torus/Splitting.lean",
+         "line": 51,
+         "fit": "exact"
+        }
+       ],
+       "note": "Non-split tori are recognised from a splitting field, and the character/cocharacter lattices with their Galois action and invariant perfect pairing are in MultiplicativeType/GaloisModule.lean; the perfect pairing instance is proved for split tori."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-5-solvable-and-unipotent-groups-the-unipotent-radical": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The geometric definition of unipotence (ρ_g − id nilpotent in every finite-dimensional representation) and the embedding of a smooth connected unipotent group in U_n",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.geometricallyUnipotentPointsCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Unipotent/Basic.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.geometricallyUnipotentPointsCommHopfAlgProperty_iff_forall_isNilpotent_endOfPoint_sub_one",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Unipotent/Basic.lean",
+         "line": 97,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.smoothUnipotentCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Unipotent/Basic.lean",
+         "line": 135,
+         "fit": "exact"
+        }
+       ],
+       "note": "The definition is exactly the comodule-level one the layer insists on (nilpotence of ρ_g − 1 on every finite-dimensional comodule), avoiding the vacuous reduced-ring version; the embedding into upper unitriangular matrices is Unipotent/Embedding.lean and UpperUnitriangular/."
+      },
+      {
+       "target": "Lie–Kolchin: a connected solvable group is trigonalizable",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Comodule.exists_basis_coefficientMatrix_isUpperTriangular_of_geometricallyUnipotent_derived",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Solvable/LieKolchin.lean",
+         "line": 249,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.Comodule.hasNonzeroWeightVector_of_geometricallyUnipotent_derived",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Solvable/LieKolchin.lean",
+         "line": 188,
+         "fit": "special case"
+        }
+       ],
+       "note": "Tau Ceti proves the representation-theoretic half: if the derived subgroup has only unipotent points then every nonzero finite-dimensional comodule has a weight vector and is upper-triangularizable. Its own docstring records the missing step: 'the derived subgroup of a connected solvable affine group is unipotent'. So Lie–Kolchin as stated is not yet available."
+      },
+      {
+       "target": "Solvable groups",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.geometricallySolvablePointsCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Solvable/Basic.lean",
+         "line": 63,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.isSolvable_points_iff_derived",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Solvable/Derived.lean",
+         "line": 110,
+         "fit": "exact"
+        }
+       ],
+       "note": "Solvability of the point group, its behaviour under base change, extensions, normal products and semidirect products, and its reduction to the derived subgroup are all proved."
+      },
+      {
+       "target": "The unipotent radical R_u(G): the maximal connected normal unipotent closed subgroup, with the distinction between the k-unipotent radical and the geometric one over imperfect fields",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.FiniteTypeCommHopfAlgCat.unipotentRadicalDefiningIdeal",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Unipotent/Radical/Construction.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.HopfIdeal.IsUnipotentRadicalCandidate.le_of_finrank_maximal",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Unipotent/Radical/Maximal.lean",
+         "line": 55,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.FiniteTypeCommHopfAlgCat.solvableRadicalDefiningIdeal",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Solvable/Radical/Construction.lean",
+         "line": 70,
+         "fit": "exact"
+        }
+       ],
+       "note": "Constructed by the maximal-Lie-dimension argument plus product closure, with a choice-free universal property; the construction file states explicitly that over a nonperfect field this is the k-unipotent radical and makes no claim that it commutes with base change to k̄, which is the caveat the layer flags."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Reductive: smooth, connected, with trivial geometric unipotent radical; semisimple: trivial radical",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.reductiveCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Reductive/Basic.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.semisimpleCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Semisimple/Basic.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.geometricNormalSubgroupFreeCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Radical/Basic.lean",
+         "line": 56,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both predicates are defined through a shared geometric normal-subgroup-freeness construction, so they are available without choosing a maximal subgroup; the semisimple definition correctly requires smoothness of the candidate subgroup."
+      },
+      {
+       "target": "The radical R(G), the centre Z(G), the derived group G_der",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.FiniteTypeCommHopfAlgCat.solvableRadicalDefiningIdeal",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Solvable/Radical/Construction.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.centerDefiningIdeal",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Center/Basic.lean",
+         "line": 305,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.derivedDefiningIdeal",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Derived/Basic.lean",
+         "line": 72,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.derivedGroupScheme",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Derived/Basic.lean",
+         "line": 102,
+         "fit": "exact"
+        }
+       ],
+       "note": "All three are constructed as Hopf ideals with their base-change, functoriality, smoothness and connectedness properties; the centre is scheme-theoretic, detecting infinitesimal centres rather than only rational points."
+      },
+      {
+       "target": "Central isogenies, and the simply connected and adjoint forms",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.CommHopfAlgCat.IsCentralIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Isogeny/Basic.lean",
+         "line": 76,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.simplyConnectedSemisimpleCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/SimplyConnected/Basic.lean",
+         "line": 67,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.adjointSemisimpleAffineGroupSchemeProperty",
+         "library": "tauceti",
+         "file": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Adjoint.lean",
+         "line": 62,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.CommHopfAlgCat.isCentralIsogeny_iff_isCentralIsogeny_hopfSpec_map",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Isogeny/Basic.lean",
+         "line": 123,
+         "fit": "exact"
+        }
+       ],
+       "note": "Isogenies are finite faithfully flat coordinate morphisms with central kernel, defined over an arbitrary base and bridged to the scheme side; simple connectivity and adjointness are the expected properties of semisimple groups. No existence statement (that every semisimple group has a simply connected cover) is proved."
+      },
+      {
+       "target": "Linearly reductive as an alternative characterization, with the characteristic-zero equivalence reductive ⇔ linearly reductive and the characteristic-p statement that a connected linearly reductive group over an algebraically closed field is a torus",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.linearlyReductiveCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/LinearlyReductive.lean",
+         "line": 57,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.linearlyReductiveCommHopfAlgProperty_monoidAlgebra",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/LinearlyReductive.lean",
+         "line": 79,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.HopfAlgebra.counitBialgEquivOfIsLinearlyReductiveOfForallIsUnipotentPoint",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Unipotent/LinearlyReductive.lean",
+         "line": 203,
+         "fit": "related"
+        }
+       ],
+       "note": "Linear reductivity is defined and one direction of the Layer 6 comparison is proved — a smooth geometrically connected finite-type group whose geometric fibre is linearly reductive is reductive, via triviality of normal unipotent subgroups — and a diagonalizable group is linearly reductive. The characteristic-zero converse is stated in the source file as 'a separate development' and is not proved, and the characteristic-p criterion (connected linearly reductive ⟺ torus) is only quoted in a docstring."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ReductiveGroupsPartII:RG2.3",
+       "note": "RG2.3 needs the connected reductive quotient of a parahoric's special fibre, which is a consumer of this layer's reductivity predicate over a field."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Borel subgroups and maximal tori, and their conjugacy",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.HopfIdeal.exists_geometricBorel",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Borel/Existence.lean",
+         "line": 112,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.HopfIdeal.IsMaximalTorus",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Torus/Maximal.lean",
+         "line": 50,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.HopfIdeal.exists_isMaximalTorus",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Torus/Existence.lean",
+         "line": 99,
+         "fit": "exact"
+        }
+       ],
+       "note": "Existence of a Borel subgroup over the algebraic closure and of maximal tori is proved by the maximal-Lie-dimension argument; both source files say explicitly that 'no conjugacy statement is proved here', so the conjugacy half of this target is missing."
+      },
+      {
+       "target": "Parabolic subgroups and the Levi decomposition",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Cocharacter.parabolicFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Dynamic/Functor.lean",
+         "line": 93,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Cocharacter.leviFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Dynamic/Functor.lean",
+         "line": 100,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Cocharacter.unipotentFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Dynamic/Functor.lean",
+         "line": 107,
+         "fit": "exact"
+        }
+       ],
+       "note": "The dynamic method the layer names as the preferred parallel route is fully developed: P(λ), Z(λ), U(λ) on the functor of points, the limit retraction, and the semidirect-product Levi decomposition U(λ) ⋊ Z(λ) ≃ P(λ) at every value algebra."
+      },
+      {
+       "target": "The root datum (X*(T), Φ, X_*(T), Φ^∨) of (G, T) with its Weyl group, in the split case",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "Derivation.adjointWeightSpace",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Tangent/RootSpace.lean",
+         "line": 95,
+         "fit": "related"
+        },
+        {
+         "name": "Derivation.nontrivialAdjointWeights",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Tangent/RootSpace.lean",
+         "line": 196,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GeneralLinear.diagonalRootDatum",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Root/Datum.lean",
+         "line": 119,
+         "fit": "special case"
+        },
+        {
+         "name": "RootPairing.weylGroup",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/RootSystem/WeylGroup.lean",
+         "line": 56,
+         "fit": "related"
+        }
+       ],
+       "note": "The roots of a split pair are available as the nontrivial weights of the adjoint representation restricted along a diagonalizable subgroup, and the file says so in as many words; but there is no construction of the coroots of a general split pair and hence no root datum of (G, T), only the explicit diagonal root datum of GL_n and the abstract root pairings of Mathlib and TauCeti/LinearAlgebra/RootSystem."
+      },
+      {
+       "target": "The absolute root datum with Galois action, and the relative root system for non-split groups",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.MultiplicativeTypeCommHopfAlgCat.stabilizer_cocharacterLattice_isOpen",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/MultiplicativeType/GaloisModule.lean",
+         "line": 88,
+         "fit": "related"
+        }
+       ],
+       "note": "The Galois action on the character and cocharacter lattices of a torus exists, which is the lattice half; there is no Galois action on a root datum, and 'relative root' has zero hits in either tree."
+      },
+      {
+       "target": "Bruhat decomposition and BN-pairs / Tits systems",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.TitsSystem",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/TitsSystem/Basic.lean",
+         "line": 48,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TitsSystem.bruhatCells_eq_univ",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/TitsSystem/Bruhat/Basic.lean",
+         "line": 374,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.TitsSystem.doubleCosetMk_surjective",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/TitsSystem/Bruhat/Basic.lean",
+         "line": 404,
+         "fit": "exact"
+        }
+       ],
+       "note": "The abstract theory is done: a Tits system with its axioms, the Bruhat cells covering the group, surjectivity of N → B\\G/B, the rank-one multiplication law and subword expansion, all sorry-free. What is missing is the construction of a Tits system inside a reductive group from its Borel and torus normaliser, which is what the layer asks for."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "ReductiveGroupsPartII:RG2.1",
+       "note": "RG2.1 owns the relative roots and valued root data over a local field, which is the relative half named here; the two layers state the same relative root system, with RG2.1 adding the valuation."
+      },
+      {
+       "layer": "ReductiveGroupsPartII:RG2.4",
+       "note": "RG2.4 proves the Bruhat and Iwahori–Bruhat decompositions for G(E); this layer owns the abstract BN-pair theory they specialise."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The isomorphism theorem: split reductive groups are classified by their root data",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; there is no root datum of a general split pair to classify by (see Layer 7), and no isomorphism theorem is stated anywhere."
+      },
+      {
+       "target": "Classification of semisimple groups by Dynkin diagrams",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.HasCartanType",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/DynkinType.lean",
+         "line": 416,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.DynkinType.Valid",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/DynkinType.lean",
+         "line": 156,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.HasCartanType.existsUnique_of_valid",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/Classification.lean",
+         "line": 579,
+         "fit": "related"
+        }
+       ],
+       "note": "The Cartan–Killing classification is developed on the root-system side (a base has at most one valid Dynkin type, with the B/C and D₃ coincidences handled), but nothing attaches a Dynkin diagram to a semisimple group or classifies groups by it."
+      },
+      {
+       "target": "Central isogenies and the isogeny theorem",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.CommHopfAlgCat.IsCentralIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Isogeny/Basic.lean",
+         "line": 76,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.RootPairingIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/Isogeny/Basic.lean",
+         "line": 105,
+         "fit": "related"
+        }
+       ],
+       "note": "Both sides exist — central isogenies of group schemes and isogenies of root pairings — but the isogeny theorem relating them is not proved."
+      },
+      {
+       "target": "Chevalley existence: every root datum is realised by a split reductive group",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. Layer 9 constructs pieces of the Chevalley–Demazure machinery over ℤ, but no existence theorem for an arbitrary root datum is proved; grep for 'Chevalley existence' matches only a docstring of Lie/Sl2/Associative.lean saying a pinned group is wanted rather than an existence theorem."
+      },
+      {
+       "target": "Relative theory over a base and pseudo-reductive groups (Conrad–Gabber–Prasad)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; 'pseudo-reductive'/'pseudoreductive' occurs only as a bibliography entry in the dynamic-method files, and there is no reductive group scheme over a general base."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+       "note": "Layer 9 explicitly carves the split-over-ℤ case out of this layer's Chevalley existence, and says the existence theorem here cannot be Classical.choose-d into a carrier."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Split reductive group schemes over a base (at least over ℤ), with the split maximal torus as data",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.weightTorusRepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/Kostant/RootSubgroup/Scheme/Torus.lean",
+         "line": 115,
+         "fit": "related"
+        }
+       ],
+       "note": "No definition of a split reductive group scheme over a base exists; what exists is the weight torus 𝔾ₘ^κ ⟶ GL_n of an explicit Kostant carrier, which supplies the torus for each individual carrier but not the general notion."
+      },
+      {
+       "target": "Pinnings (G, T, B, {X_α}) as data",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.kostantRootSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/Kostant/RootSubgroup/Scheme/Basic.lean",
+         "line": 102,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.SlStd.torusPoints_conj_rootSubgroupParam_root_simpleIndex",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/SpecialLinear/StandardCarrier/RootDatum.lean",
+         "line": 140,
+         "fit": "related"
+        }
+       ],
+       "note": "Every explicit carrier carries its pinning equations t(s) x_i(u) t(s)⁻¹ = x_{α_i}(s) u, and a Borel is identified for SL (UpperTriangular.lean); but there is no bundled `Pinning` structure and the data is repeated per carrier."
+      },
+      {
+       "target": "The Chevalley–Demazure construction: for each root datum, an explicitly constructed split reductive group scheme over ℤ via a Chevalley basis and the Kostant ℤ-form",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.DynkinType.simplyConnectedRootDatum",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/Assembly.lean",
+         "line": 79,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.kostantRootSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/Kostant/RootSubgroup/Scheme/Basic.lean",
+         "line": 102,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.kostantRootSubgroupPoints",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/Kostant/RootSubgroup/Basic.lean",
+         "line": 76,
+         "fit": "related"
+        }
+       ],
+       "note": "The starting root data exist for every Dynkin type, the Kostant ℤ-form of the enveloping algebra and its root subgroup group schemes over ℤ are constructed with base change, closed immersion, tangent and relation files, and the toral closure of a module is built; what is not there is the assembly of these into a single split reductive group scheme attached to an arbitrary root datum."
+      },
+      {
+       "target": "Base change along ℤ → k and compatibility of the pinning with it",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.kostantGeneratedBaseChangeIso",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/Kostant/RootSubgroup/Scheme/BaseChange.lean",
+         "line": 115,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.kostantRootSubgroupBaseChangeGeneratedCoordinateMap",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/Kostant/RootSubgroup/Scheme/BaseChange.lean",
+         "line": 142,
+         "fit": "exact"
+        }
+       ],
+       "note": "Base change of the generated subgroup scheme and of the root subgroup coordinate maps is proved, and the toral-closure carriers have their own BaseChange and GeneralLinearBaseChange files."
+      },
+      {
+       "target": "Root subgroup maps x_α : 𝔾_a → G with the Chevalley commutator relations and the pinning equations",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.kostantRootSubgroupCoordinateMap",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/Kostant/RootSubgroup/Scheme/Basic.lean",
+         "line": 80,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SpecialLinear.commutatorElement_rootSubgroupPoints",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/SpecialLinear/ChevalleyRelations.lean",
+         "line": 102,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Symplectic.commutatorElement_differenceShortRootSubgroupPoints_positiveLongRootSubgroupPoints",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Symplectic/ChevalleyRelations.lean",
+         "line": 73,
+         "fit": "exact"
+        }
+       ],
+       "note": "Root subgroup maps and the Chevalley commutator relations are proved both for the Kostant construction (Scheme/Relations, MultiplyLacedRelations) and for the classical carriers SL_n, GL_n and Sp_2n."
+      },
+      {
+       "target": "Points over an algebraically closed field as a group, functorially in the field, with the q-power Frobenius",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.kostantElementaryFrobenius",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/Kostant/RootSubgroup/Elementary/Basic.lean",
+         "line": 350,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GeneralLinear.pointsMulEquiv_iterateFrobeniusPoints",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/Frobenius/GeneralLinear.lean",
+         "line": 151,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.kostantElementarySteinberg",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/Kostant/RootSubgroup/Steinberg.lean",
+         "line": 166,
+         "fit": "exact"
+        }
+       ],
+       "note": "The q-power Frobenius on the elementary group and the Steinberg composite γ ∘ Frob_q are constructed with their defining equations on root subgroups; the Steinberg file is explicit that identifying the fixed points with a finite group of Lie type needs the pinned ambient data that does not yet exist."
+      },
+      {
+       "target": "The isomorphism theorem for pinned groups: an isomorphism of root data lifts uniquely to an isomorphism of pinned group schemes",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, and the library says so: Kostant/RootSubgroup/NumberedSymmetry.lean records that it is not the isomorphism theorem for pinned groups and that no uniqueness statement is claimed."
+      },
+      {
+       "target": "Special isogenies in characteristics two and three for B₂/C₂ and F₄ (p = 2) and G₂ (p = 3), with τ² = Frob_p and the action on long and short root subgroups",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.SpStd.specialIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/Symplectic/StandardCarrier/SpecialIsogeny.lean",
+         "line": 91,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SpStd.specialIsogeny_specialIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/Symplectic/StandardCarrier/SpecialIsogeny.lean",
+         "line": 123,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.SuzukiReeIndex.datumSpecialIsogeny",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/SpecificGroups/CFSG/SpecialIsogeny.lean",
+         "line": 142,
+         "fit": "related"
+        }
+       ],
+       "note": "The rank-two symplectic case is done, with the square relation and the action on the four simple root subgroups, and the root-datum-level special isogeny is selected for every Suzuki–Ree index with its convention checked; the G₂ and F₄ group-scheme maps are not there — TauCeti/Algebra/Lie/G2/ShortRoot and F4/ShortRoot contain only the integral Lie-algebra representations (7- and 26-dimensional)."
+      },
+      {
+       "target": "Explicit carriers with numbered symmetries: the short-root G₂ and F₄ carriers and the tripled D₄ (triality) carrier",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.G2ShortRoot.serreRepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/G2/ShortRoot/Basic.lean",
+         "line": 159,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.E6DoubledMinuscule.weightTorus_conj_rootSubgroup_root_simpleIndex",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/E6/DoubledMinuscule/RootDatum.lean",
+         "line": 65,
+         "fit": "related"
+        }
+       ],
+       "note": "The doubled E₆ carrier with its graph automorphism exists and is the model the layer points at, and the G₂/F₄ short-root modules exist as integral Lie-algebra representations; the toral-closure group-scheme carriers inside GL₇, GL₂₆ and GL₂₄, and the tripled D₄ carrier with triality, do not ('triality' has no hits in the Lie tree)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/CFSGStatement#l0-ambient-groups-with-root-subgroups",
+       "note": "The CFSG statement roadmap's L0 is the consumer this layer exists for; it states the same ambient pinned groups with root subgroups and the same explicit carriers, which is why the roadmap warns against a bare existence theorem."
+      },
+      {
+       "layer": "ReductiveGroupsPartII:RG2.5",
+       "note": "RG2.5 needs a pinned split group scheme over ℤ for the dual group; this layer is the construction it would use, on the other side of the duality."
+      }
+     ]
+    }
+   }
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa": {
+   "summary": "Neither library proves Ado's theorem or Iwasawa's: `Ado` has no hit in either tree, and there is no faithful finite-dimensional representation theorem for an abstract finite-dimensional Lie algebra. What is present is a large part of the substrate. Mathlib supplies LieModule.IsFaithful with its dictionary lemmas, Algebra.lmul_injective, the universal enveloping algebra with its universal property, LieDerivation, LieAlgebra.SemiDirectSum, the solvable radical, maxNilpotentIdeal (the largest ideal acting nilpotently, not the roadmap's nil L), Engel's theorem, Lie's theorem for triangularizable modules, Lie base change and — exactly as Layer 7 asks — the Krull intersection theorem Ideal.mem_iInf_smul_pow_eq_bot_iff. Tau Ceti supplies the PBW filtration, its associated graded algebra and comparison map, the spanning half of the ordered-monomial theorem, the Casimir element, and Weyl's complete reducibility over an algebraically closed field of characteristic zero. Genuinely missing: the full PBW basis (linear independence) and hence injectivity of ι for a general Lie algebra, U(L) as a domain and as a Noetherian ring, the augmentation ideal of U(L) and the weighted truncation, noncommutative derivations and the lifting of a LieDerivation to U(L), nil L and its behaviour under derivations, Levi decomposition, central p-polynomials and module-finiteness over them, and every assembled theorem of Layers 5, 8 and 9.",
+   "layers": {
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-0-representations-and-finite-enveloping-targets": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Faithfulness dictionary: injectivity of ρ, triviality of its kernel and LieModule.IsFaithful are equivalent, with constructors both ways",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "LieModule.IsFaithful",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/OfAssociative.lean",
+         "line": 227,
+         "fit": "exact"
+        },
+        {
+         "name": "LieModule.isFaithful_iff'",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/OfAssociative.lean",
+         "line": 246,
+         "fit": "exact"
+        },
+        {
+         "name": "LieModule.toEnd_eq_zero_iff",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/OfAssociative.lean",
+         "line": 241,
+         "fit": "exact"
+        }
+       ],
+       "note": "IsFaithful is defined as injectivity of toEnd and carries the mk_iff form plus isFaithful_iff' (x acts as 0 ⇒ x = 0) and toEnd_eq_zero_iff, i.e. the three equivalent forms the layer asks for, with the subalgebra instance as one of the constructors."
+      },
+      {
+       "target": "Left-regular representation: Algebra.lmul is injective, so an injective Lie map L → A into a finite-dimensional associative algebra gives a faithful finite-dimensional representation",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Algebra.lmul",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Algebra/Bilinear.lean",
+         "line": 143,
+         "fit": "exact"
+        },
+        {
+         "name": "Algebra.lmul_injective",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Algebra/Bilinear.lean",
+         "line": 154,
+         "fit": "exact"
+        },
+        {
+         "name": "LieRing.ofAssociativeRing",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/OfAssociative.lean",
+         "line": 50,
+         "fit": "related"
+        }
+       ],
+       "note": "Left multiplication is an injective algebra map A →ₐ End R A for any unital algebra, and the commutator Lie structure on an associative algebra is Mathlib's; the composite statement is one line from these but is not itself recorded."
+      },
+      {
+       "target": "Finite-target reduction: q : U(L) →ₐ A with q ∘ ι injective gives Ado's representation, and conversely a faithful finite-dimensional representation extends to U(L) → End V; the equivalence",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "UniversalEnvelopingAlgebra.lift",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/UniversalEnveloping.lean",
+         "line": 92,
+         "fit": "related"
+        },
+        {
+         "name": "UniversalEnvelopingAlgebra.ι",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/UniversalEnveloping.lean",
+         "line": 80,
+         "fit": "related"
+        }
+       ],
+       "note": "The universal property (lift) and the canonical map ι exist, so the 'conversely' half is immediate; the packaged equivalence and the forward reduction are not stated."
+      },
+      {
+       "target": "Direct sums separate finitely many directions: the kernel of a finite direct sum of representations is the intersection of the kernels",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LieHom.ker",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Ideal.lean",
+         "line": 253,
+         "fit": "related"
+        }
+       ],
+       "note": "Kernels of Lie homomorphisms exist, but there is no statement computing the kernel of a direct sum of Lie representations as an intersection, and no assembly of finitely many representations into a faithful one."
+      },
+      {
+       "target": "The nilradical nil L = sSup of nilpotent Lie ideals, its nilpotence for Noetherian L, and its basic theory (I nilpotent ↔ I ≤ nil L, automorphism-invariance, Z(L) ≤ nil L ≤ radical, x ∈ nil L → ad x nilpotent, maxNilpotentIdeal ≤ nil L strictly, nil L = ⊤ ↔ L nilpotent)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "LieAlgebra.maxNilpotentIdeal",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Nilpotent.lean",
+         "line": 958,
+         "fit": "related"
+        },
+        {
+         "name": "LieAlgebra.LieIdeal.isNilpotent_iff_le_maxNilpotentIdeal",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Nilpotent.lean",
+         "line": 964,
+         "fit": "related"
+        },
+        {
+         "name": "LieAlgebra.maxNilpotentIdeal_le_radical",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Nilpotent.lean",
+         "line": 971,
+         "fit": "related"
+        },
+        {
+         "name": "LieAlgebra.center_le_maxNilpotentIdeal",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Nilpotent.lean",
+         "line": 968,
+         "fit": "related"
+        },
+        {
+         "name": "LieAlgebra.radical",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Solvable.lean",
+         "line": 365,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib's maxNilpotentIdeal is the supremum of ideals nilpotent as L-modules, with exactly the analogous API (nilpotence for Noetherian L, the ≤-characterisation, centre ≤ it ≤ radical, = ⊤ for nilpotent L); but that is the smaller object the roadmap calls maxNilpotentIdeal and distinguishes from nil L, the supremum of ideals nilpotent as Lie algebras. nil L itself, and the strictness witness for ⟨x,y⟩ with [x,y] = y, are absent, and TauCeti/Algebra/Lie/Nilradical.lean does not exist."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-1-the-pbw-consequences-ado-uses": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Injectivity of UniversalEnvelopingAlgebra.ι over a field",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.ι_injective",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/Abelian.lean",
+         "line": 225,
+         "fit": "special case"
+        }
+       ],
+       "note": "Proved only for abelian L, via the comparison with the symmetric algebra; the file's own docstring says that for a general Lie algebra injectivity is a corollary of PBW, which is not yet available."
+      },
+      {
+       "target": "The PBW degree filtration with its multiplicativity, the associated-graded equivalence with SymmetricAlgebra K L, and the ordered-monomial basis attached to a basis of L",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.pbwFiltration",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/PBW/Basic.lean",
+         "line": 77,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.pbwAssociatedGradedMap",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/PBW/AssociatedGraded.lean",
+         "line": 213,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.span_orderedPBWMonomials_eq_pbwFiltration",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/PBW/Ordered.lean",
+         "line": 118,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.pbwAssociatedGradedCommRing",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/PBW/AssociatedGraded.lean",
+         "line": 208,
+         "fit": "related"
+        }
+       ],
+       "note": "The filtration, its multiplicativity, the commutativity of the associated graded ring and the comparison map from the symmetric algebra are built, and ordered monomials are proved to span each filtration step; but the source file states that 'linear independence, and hence the full PBW basis, still requires the symmetric-algebra comparison', so the theorem itself is not there."
+      },
+      {
+       "target": "Functoriality: compatibility of induced enveloping-algebra maps with the filtration and the associated graded, with ordered-monomial spanning for subalgebras, surjections, quotients and direct sums",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.map_pbwFiltration_le",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/PBW/Functoriality.lean",
+         "line": 66,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.map_injective_of_leftInverse",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/Functoriality.lean",
+         "line": 155,
+         "fit": "related"
+        }
+       ],
+       "note": "PBW/Functoriality.lean carries the filtration compatibility of induced maps; the associated-graded compatibility and the derived spanning statements for subalgebras and direct sums are not all present."
+      },
+      {
+       "target": "For finite-dimensional L, U(L) has no zero divisors and is left and right Noetherian",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent: grep for IsDomain/Noetherian across TauCeti/Algebra/Lie/UniversalEnveloping returns only an unrelated ℤ-module Noetherian instance, and both statements need the PBW basis that is not yet proved."
+      },
+      {
+       "target": "Finite spanning from central monic relations: bounded PBW monomials span U(L) over a central commutative subalgebra R, packaged as module-finiteness",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; this is the module-finiteness theorem Layer 6 consumes and nothing like it exists."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+       "note": "The roadmap says in as many words that PBW is owned by the highest-weight roadmap and that this layer only records the supplier contract; layer 3 there states the same enveloping-algebra and PBW targets."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-2-augmentation-weighted-pbw-truncations-and-the-nilpotent-engine": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The augmentation ε : U(L) →ₐ K, its kernel U⁺(L) as a two-sided ideal, and its universal property",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "UniversalEnvelopingAlgebra.lift",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/UniversalEnveloping.lean",
+         "line": 92,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent. The augmentation could be obtained from lift applied to the zero Lie map, but no declaration does so; TauCeti/RepresentationTheory/Augmentation.lean is the augmentation of a group algebra, a different object."
+      },
+      {
+       "target": "A length-n iterated bracket lands in (U⁺(L))^n, with the indexing convention tested on the Heisenberg algebra",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Weighted PBW truncation for nilpotent L: the span of ordered monomials of weight ≥ N is a two-sided ideal and the quotient is a finite-dimensional algebra in which ι(L) stays injective",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.orderedPBWMonomials",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/PBW/Ordered.lean",
+         "line": 64,
+         "fit": "related"
+        }
+       ],
+       "note": "Ordered monomials exist and their spanning property is proved, but there is no lower-central-series weighting, no weighted ideal and no finite-dimensional truncation."
+      },
+      {
+       "target": "Nilpotent action: left multiplication on the weighted quotient is a faithful representation in which every x : L acts nilpotently (Birkhoff's characteristic-free form)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-3-derivations-of-enveloping-algebras-and-stable-cofinite-ideals": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Noncommutative derivations of a possibly noncommutative K-algebra, with composition, commutator, descent to stable quotients and the Lie structure",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Derivation",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Derivation/Basic.lean",
+         "line": 45,
+         "fit": "related"
+        },
+        {
+         "name": "LieDerivation",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Derivation/Basic.lean",
+         "line": 45,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib has derivations valued in a module over a commutative algebra, and Lie derivations, but not a derivation of a noncommutative associative algebra into itself; grep for a noncommutative derivation structure in Tau Ceti returns nothing."
+      },
+      {
+       "target": "Lifting a LieDerivation of S to a derivation Dᵁ of U(S), with Dᵁ(ι x) = ι (D x), uniqueness, linearity, bracket compatibility and naturality",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Base change of nil and radical to K̄ in characteristic zero, extension of a LieDerivation along it, and the linear range-membership descent",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "LieAlgebra.ExtendScalars.instBaseLieAlgebra",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/BaseChange.lean",
+         "line": 112,
+         "fit": "related"
+        },
+        {
+         "name": "LieAlgebra.killingCompl_top_le_radical",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/CartanCriterion.lean",
+         "line": 245,
+         "fit": "related"
+        }
+       ],
+       "note": "Base change of Lie algebras exists and Cartan's criterion is the structural precedent the layer cites, but there is no statement that the radical or a nilradical commutes with base change, and no derivation extension."
+      },
+      {
+       "target": "Over characteristic zero, D(radical K L) ≤ nil L for every derivation, hence D(nil L) ≤ nil L and nil I = nil L ⊓ I for every ideal I",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent, and nil L itself does not exist (see Layer 0)."
+      },
+      {
+       "target": "Cofinite kernels of extended representations of a solvable S, and nilpotence of σ(x) versus nilpotence of ι(x) modulo the kernel",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The nilradical-generated ideal is nilpotent modulo I: choose m with Q^m = 0, i.e. B^m ≤ I, using Engel for the left-multiplication action of nil S and PBW straightening",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LieAlgebra.isEngelian_of_isNoetherian",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Engel.lean",
+         "line": 222,
+         "fit": "related"
+        },
+        {
+         "name": "LieModule.isNilpotent_iff_forall",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Engel.lean",
+         "line": 264,
+         "fit": "related"
+        }
+       ],
+       "note": "Engel's theorem is available in Mathlib in the form needed as an input; the construction of B, Q and the exponent m is absent."
+      },
+      {
+       "target": "Dᵁ(U(S)) ≤ B and Dᵁ(B^m) ≤ B^m; cofiniteness of B^m by the noncentral monic-relation argument; nilpotence survives, giving the derivation-stable cofinite refinement J ≤ I",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; every ingredient (lifted derivations, B, the monic relations) is missing."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-4-extending-nilrepresentations-across-split-ideal-extensions": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Internal split data (S an ideal, H a subalgebra, IsCompl on the underlying submodules) produces ψ : H →ₗ⁅K⁆ LieDerivation K S S and an equivalence L ≃ S ⋊⁅ψ⁆ H",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "LieAlgebra.SemiDirectSum",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/SemiDirect.lean",
+         "line": 39,
+         "fit": "related"
+        },
+        {
+         "name": "LieDerivation",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Derivation/Basic.lean",
+         "line": 45,
+         "fit": "related"
+        }
+       ],
+       "note": "The external form — the semidirect sum of Lie algebras along a map into LieDerivation — is exactly Mathlib's LieAlgebra.SemiDirectSum, so the target type exists; the theorem producing it from internal ideal-plus-complement data is not proved."
+      },
+      {
+       "target": "The multiplication-plus-derivation action of S ⊕ H on U(S)/J, and the commutator identities making it a Lie homomorphism",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; U(S)/J is the Layer 3 object that does not exist."
+      },
+      {
+       "target": "Kernel control ker ρ ∩ S ≤ ker σ",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Nilpotence control under either nil L = nil S or L nilpotent (Fulton–Harris Proposition E.5)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Functoriality under equivalences of split extensions and of starting representations",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-5-assemble-ado-in-characteristic-zero": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "A faithful nilrepresentation of the centre by commuting square-zero endomorphisms",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The codimension-one flag Z(L) ⊂ … ⊂ N ⊂ … ⊂ R through the nilradical, with [L,R] ≤ N and nil T = N for N ≤ T ≤ R",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LieAlgebra.radical",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Solvable.lean",
+         "line": 365,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; the solvable radical exists but nil L does not, so neither the flag nor [L,R] ≤ N can be stated."
+      },
+      {
+       "target": "Levi decomposition proved without Ado, by quotient induction and the two minimal-radical cases, packaged as Nonempty (L ≃ R ⋊ S)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LieAlgebra.SemiDirectSum",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/SemiDirect.lean",
+         "line": 39,
+         "fit": "related"
+        },
+        {
+         "name": "LieAlgebra.IsSemisimple",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Semisimple/Defs.lean",
+         "line": 105,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent: `Levi` matches nothing in the Lie trees of either library (the only hits are the algebraic-group weight-Levi files for GL_n)."
+      },
+      {
+       "target": "Weyl complete reducibility over an arbitrary characteristic-zero field, by scalar extension and descent",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.exists_isCompl_of_isKilling",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/HighestWeight/CompleteReducibility.lean",
+         "line": 194,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.exists_isInternal_isIrreducible_of_isKilling",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/HighestWeight/CompleteReducibility.lean",
+         "line": 210,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.HasInvariantOutsideIrreducible.exists_isCompl",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/CompleteReducibility.lean",
+         "line": 447,
+         "fit": "more general"
+        }
+       ],
+       "note": "Weyl's theorem is proved in Tau Ceti for a finite-dimensional Lie algebra with nondegenerate Killing form over an algebraically closed field of characteristic zero, and the formal reduction from the Casimir input holds over an arbitrary field; the descent to a non-algebraically-closed characteristic-zero field, which is what this layer names as its supplier, is not proved."
+      },
+      {
+       "target": "Iterating kernel control along the flag and across the Levi complement, then adding ad to get adoCharZero",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; `adoCharZero` does not exist."
+      },
+      {
+       "target": "Hochschild's characteristic-zero strengthening: the nilpotent-extension lemma, nilpotence of the semisimple component (with the ⁅s,t⁆ = s step by the Killing form), the radical criterion, and exists_faithful_preserving_ad_nilpotence_charZero",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "LieModule.exists_forall_lie_eq_smul",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Weights/Linear.lean",
+         "line": 224,
+         "fit": "related"
+        },
+        {
+         "name": "LieAlgebra.IsKilling",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Killing.lean",
+         "line": 51,
+         "fit": "related"
+        }
+       ],
+       "note": "Lie's theorem is available for triangularizable modules (the splitting hypothesis the layer flags) and the Killing form with its nondegeneracy class is in Mathlib, but none of the five milestones is proved."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-5-complete-reducibility-weyls-theorem",
+       "note": "That layer owns Weyl's complete reducibility, which this layer consumes and needs in its arbitrary-characteristic-zero form; Tau Ceti has already discharged the algebraically closed case there."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-6-central-p-polynomials-and-module-finiteness": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "The Frobenius commutator identity ad(a^(p^e)) = ad(a)^(p^e) in characteristic p, with the binomial and iterated-commutator API",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Commute.add_pow_prime_pow_eq",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/CharP/Lemmas.lean",
+         "line": 47,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; the freshman's dream is available in Mathlib but the adjoint-power identity in an associative algebra is not, and there is no restricted-Lie-algebra p-map in either tree."
+      },
+      {
+       "target": "Central p-polynomials c_x = x^(p^e) + Σ aᵢ x^(p^i) in Z(U(L)) ∩ U⁺(L), with naturality under field extension and surjective Lie maps",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "The adjoint-nilpotent specialization: ad x nilpotent gives e with x^(p^e) central",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "A finite central generating family R = K[c₁,…,c_d], Noetherian, with U(L) a finite R-module",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; it would consume Layer 1's central monic-relation module-finiteness theorem, which is itself missing."
+      },
+      {
+       "target": "The full central ideal UC generated by C = Z(U(L)) ∩ U⁺(L), and UC = J • ⊤ with (UC)^n = J^n • ⊤",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-7-the-generalized-krull-intersection-and-finite-quotients": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The commutative Krull intersection theorem in the stated generality",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Ideal.mem_iInf_smul_pow_eq_bot_iff",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Filtration.lean",
+         "line": 392,
+         "fit": "exact"
+        }
+       ],
+       "note": "Exactly the declaration the layer names, in exactly the generality it asks for: R commutative Noetherian, M a finite R-module, x ∈ ⨅ i, J^i • ⊤ ↔ ∃ r : J, r • x = x. The layer says not to restate or reprove it, and it is present without sorry."
+      },
+      {
+       "target": "Discharging its hypotheses for M = U(L) over the central subalgebra R (R Noetherian, Module.Finite R (U L))",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; this is Layer 6's output, which does not exist."
+      },
+      {
+       "target": "Torsion-free/domain corollary giving ⋂ₙ J^n • ⊤ = 0 and hence ⋂ₙ (UC)^n = 0",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; it needs U(L) to be a domain (Layer 1, missing) and the augmentation (Layer 2, missing)."
+      },
+      {
+       "target": "Separating L at a finite stage: a finite-dimensional subspace meeting a filtered intersection with zero intersection meets one stage in zero",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent as a reusable lemma."
+      },
+      {
+       "target": "Finite-dimensionality of U(L)/(UC)^n with an explicit finite spanning set",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-8-assemble-the-positive-characteristic-theorem": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Choice of n with (UC)^n ∩ L = 0 and the finite-dimensional quotient A = U(L)/(UC)^n",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Faithfulness of the left-regular representation on A via Layer 0's reduction",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "Algebra.lmul_injective",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Algebra/Bilinear.lean",
+         "line": 154,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the generic left-regular injectivity is available."
+      },
+      {
+       "target": "exists_faithful_preserving_ad_nilpotence_charP and adoCharP",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; neither name, nor any positive-characteristic Ado statement, exists in either tree."
+      },
+      {
+       "target": "Independence of the theorem from the chosen basis and central generating family",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa#layer-9-the-arbitrary-field-summit-and-consumers": {
+     "verdict": "not built",
+     "targets": [
+      {
+       "target": "Characteristic dispatch on ringChar K between the characteristic-zero and characteristic-p strengthened theorems",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "CharP.charP_to_charZero",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/CharP/Defs.lean",
+         "line": 108,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent; only the generic characteristic instance plumbing exists, and neither branch's theorem is available."
+      },
+      {
+       "target": "Hochschild's strengthened theorem over an arbitrary field, and the bare adoIwasawa theorem plus the faithful nilrepresentation theorem for nilpotent L",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent. This is the summit of the roadmap and it is entirely missing; `Ado` and `Iwasawa` have no hits in either library's Lie theory."
+      },
+      {
+       "target": "Matrix form: transport ρ to an injective L →ₗ⁅K⁆ Matrix (Fin n) (Fin n) K, and equivalence of the matrix and endomorphism formulations",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "lieEquivMatrix'",
+         "library": "mathlib",
+         "file": "Mathlib/Algebra/Lie/Matrix.lean",
+         "line": 46,
+         "fit": "related"
+        }
+       ],
+       "note": "Mathlib's Lie equivalence between End K (n → K) and matrices supplies the transport once a representation exists; the theorem itself is absent."
+      },
+      {
+       "target": "The real specialization exported for the Lie-groups roadmap (Lie's third theorem interface)",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      },
+      {
+       "target": "Residual finite-dimensionality at degree one: the canonical copy of L in U(L) is separated by a finite-dimensional algebra quotient",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories",
+       "note": "Layer 4 there proves Lie's third theorem and the equivalence of categories, which is the named consumer of the real specialization this layer exports."
+      }
+     ]
+    }
+   }
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory": {
+   "summary": "Tau Ceti has built almost all of this roadmap, sorry-free, in TauCeti/RepresentationTheory/CharacterTable/ and the supporting Induction/ tree: class functions with their conjugacy-class indexing and the nondegenerate character pairing; class sums as a basis of the centre of k[G] with computable structure constants and their integrality; Artin–Wedderburn with the centre splitting and #irreducibles = #classes; the orthonormal basis of irreducible characters, primitive central idempotents, the virtual-character lattice, the character table with second (column) orthogonality and labelled uniqueness; the arithmetic of character values including cyclotomic integrality, central-character integrality, χ(1) ∣ |G|, the Galois power action and Burnside's p^a q^b theorem; the Dixon–Schneider specification with its class-multiplication matrices and eigenrow characterisation; an executable Burnside–Dixon–Schneider solver with certified primes for D₄, D₃, Q₈, C₃, S₄ and A₄ and an unconditional soundness theorem; the Frobenius–Schur indicator with the full trichotomy, real realizability and the involution count; and Frobenius's theorem with its T.I. isometry and exceptional characters. What is genuinely missing is small and specific: Brauer's theorem that ℚ(ζ_e) is a splitting field, the verified coefficient bound that would make the Dixon search provably complete (the library flags this explicitly as unverified), and, in Layer 9, the cuspidal series GL2Cuspidal and the assembled GL₂(𝔽_q) character table — the conjugacy classification, the linear, Steinberg and principal-series rows and their values are there.",
+   "layers": {
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-0-class-functions-and-their-pairing": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "ClassFunction k G as a submodule of G → k, containing every character",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFunction",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassFunction.lean",
+         "line": 51,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFunction.ofCharacter",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassFunction.lean",
+         "line": 271,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFunction.ofFDRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassFunction.lean",
+         "line": 290,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both the Representation-level and FDRep-level characters are packaged as class functions, with eq_of_isConj as the membership criterion."
+      },
+      {
+       "target": "ClassFunction k G ≃ₗ (ConjClasses G → k), hence finrank = Nat.card (ConjClasses G) for finite G",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFunction.equivConjClasses",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassFunction.lean",
+         "line": 183,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFunction.finrank_eq_card_conjClasses",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassFunction.lean",
+         "line": 258,
+         "fit": "exact"
+        }
+       ],
+       "note": "Exactly the statement that makes the character table square."
+      },
+      {
+       "target": "The character pairing (Nat.card G)⁻¹ • ∑ g, f₁ g * f₂ g⁻¹: bilinear, symmetric, nondegenerate, with the conjugation relation over ℂ and orthonormality of irreducible characters",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFunction.characterPairing",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Pairing.lean",
+         "line": 57,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFunction.characterPairing_isSymm",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Pairing.lean",
+         "line": 97,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFunction.characterPairing_nondegenerate",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Pairing.lean",
+         "line": 148,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.characterPairing_ofCharacter_irreducibleRepresentation_orthonormal",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Table.lean",
+         "line": 346,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.conj_apply_of_mem_virtualCharacters",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/VirtualCharacter.lean",
+         "line": 184,
+         "fit": "exact"
+        }
+       ],
+       "note": "Nondegeneracy and symmetry are proved for the bilinear pairing, the f(g⁻¹) = conj (f g) relation for virtual characters is separate as the layer asks, and char_orthonormal appears as orthonormality of the irreducible characters for characterPairing."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-1-the-group-algebra-its-center-and-structure-constants": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "The class sum classSum k C = ∑_{g ∈ C} g as a computable def",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.classSum",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/Basic.lean",
+         "line": 31,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.classSum_mem_center",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/Basic.lean",
+         "line": 107,
+         "fit": "exact"
+        }
+       ],
+       "note": "Defined on Fintype/DecidableEq data and proved central."
+      },
+      {
+       "target": "The class sums form a basis of the centre of k[G], so finrank Z(k[G]) = Nat.card (ConjClasses G) and the centre is commutative",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.classSumBasis",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/Basis.lean",
+         "line": 141,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.finrank_center_monoidAlgebra",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/Basis.lean",
+         "line": 177,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.centerEquivConjClasses",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/Basis.lean",
+         "line": 111,
+         "fit": "exact"
+        }
+       ],
+       "note": "The centre is free on the class sums, with the dimension count the character table needs."
+      },
+      {
+       "target": "Structure constants a_{ijk} as a computable ℕ-valued function, with classSum Cᵢ * classSum Cⱼ = ∑ₖ aᵢⱼₖ • classSum Cₖ and the coercion lemmas",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.structureConstant",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/StructureConstants.lean",
+         "line": 64,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.classSum_mul",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/StructureConstants.lean",
+         "line": 87,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.classSumCenter_mul",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/StructureConstants.lean",
+         "line": 110,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.structureConstant_comm",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/StructureConstants.lean",
+         "line": 132,
+         "fit": "exact"
+        }
+       ],
+       "note": "Representative-independence is built into the definition through the fibre equivalence, and the defining identity is proved both in k[G] and in the centre."
+      },
+      {
+       "target": "The integral class centre: each class sum is integral over ℤ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.isIntegral_classSum",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/Integral.lean",
+         "line": 48,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isIntegral_classSumCenter",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/Integral.lean",
+         "line": 59,
+         "fit": "exact"
+        }
+       ],
+       "note": "Integrality is proved for the class sum both in k[G] and in the centre, which is what the central-character integrality argument of Layer 4 consumes."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-2-wedderburn-irreducible-indexing-and-the-count": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "k[G] ≅ ∏ᵢ Mat_{nᵢ}(k) over an algebraically closed k with char ∤ |G|, and ∑ nᵢ² = |G|",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.exists_algEquiv_pi_matrix",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Wedderburn.lean",
+         "line": 127,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.sum_sq_eq_card_of_algEquiv_pi_matrix",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Wedderburn.lean",
+         "line": 67,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.sum_characterDegree_sq_eq_card",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Table.lean",
+         "line": 249,
+         "fit": "exact"
+        }
+       ],
+       "note": "Composed from Maschke and Mathlib's Artin–Wedderburn over an algebraically closed field, exactly as the layer prescribes."
+      },
+      {
+       "target": "Irreducible-indexing infrastructure: a type of isomorphism classes of simple k[G]-modules with character and degree, and the equivalence with the Wedderburn block index",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.irreducibleCharacters",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Table.lean",
+         "line": 108,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.irreducibleRepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Table.lean",
+         "line": 207,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.blockRepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/BlockRepresentation.lean",
+         "line": 91,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_equiv_blockRepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/IrreducibleClassification.lean",
+         "line": 158,
+         "fit": "exact"
+        }
+       ],
+       "note": "Indexing is by the irreducible characters (with characterDegree and irreducibleRepresentation), and the block ⇆ simple-module dictionary is IrreducibleClassification.lean; the roadmap's abstract `Irreps k G` type is realised concretely rather than as a fresh type, which is a presentational difference only."
+      },
+      {
+       "target": "The centre splits: Z(k[G]) ≃ₐ (Irreps → k) by central characters, so central characters separate points",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.centerMonoidAlgebraAlgEquivPi",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Wedderburn.lean",
+         "line": 79,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eq_of_centralCharacter_eq",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Eigenrow.lean",
+         "line": 214,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.centralCharacter_irreducibleRepresentation_injective",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Eigenrow.lean",
+         "line": 166,
+         "fit": "exact"
+        }
+       ],
+       "note": "The sharp separation form Layer 5 needs is proved."
+      },
+      {
+       "target": "#irreducibles = #conjugacy classes",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.card_irreducibleCharacters",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Table.lean",
+         "line": 161,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.natCard_eq_card_conjClasses",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/IrreducibleClassification.lean",
+         "line": 90,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.card_eq_card_conjClasses_of_algEquiv_pi_matrix",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Wedderburn.lean",
+         "line": 108,
+         "fit": "exact"
+        }
+       ],
+       "note": "Proved by combining the centre splitting with Layer 1's dimension count, as the layer directs."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products",
+       "note": "The semisimple-algebras roadmap owns the block ⇆ simple-module dictionary this layer may consume; the roadmap text says it is not a prerequisite for the Wedderburn step itself."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Completeness: the irreducible characters are an orthonormal basis of ClassFunction k G",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFunction.basisOfIrreducibleCharacters",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Completeness.lean",
+         "line": 98,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFunction.span_range_ofCharacter_eq_top",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Completeness.lean",
+         "line": 117,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.basisIrreducibleCharacter",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Table.lean",
+         "line": 320,
+         "fit": "exact"
+        }
+       ],
+       "note": "Spanning, linear independence (Independence.lean) and the resulting basis are all present."
+      },
+      {
+       "target": "Primitive central idempotents, their class-sum expansion, orthogonality eᵢeⱼ = δᵢⱼeᵢ, ∑ eᵢ = 1, and the Wedderburn projector property",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Representation.characterSum",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/CentralIdempotent.lean",
+         "line": 126,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Representation.characterSumCenter_eq_sum_classSumCenter",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/CentralIdempotent.lean",
+         "line": 159,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Representation.orthogonalIdempotents_primitiveCentralIdempotent",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/IdempotentDecomposition.lean",
+         "line": 116,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Representation.sum_primitiveCentralIdempotent",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/IdempotentDecomposition.lean",
+         "line": 187,
+         "fit": "exact"
+        }
+       ],
+       "note": "Constructed as (χ(1)/|G|) • ∑_g χ(g⁻¹) • g with the class-sum expansion, orthogonality, completeness of the family and injectivity."
+      },
+      {
+       "target": "The virtual-character lattice VirtualCharacter G with its integer-valued pairing",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.virtualCharacters",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/VirtualCharacter.lean",
+         "line": 102,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.mul_mem_virtualCharacters",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/VirtualCharacter.lean",
+         "line": 128,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.one_mem_virtualCharacters",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/VirtualCharacter.lean",
+         "line": 147,
+         "fit": "exact"
+        }
+       ],
+       "note": "The ℤ-span of the irreducible characters is built as a ring (closed under products, containing 1) inside the class functions, which is the arena Layer 4's Galois action uses."
+      },
+      {
+       "target": "The character table as a square matrix with first column the degrees and ∑ nᵢ² = |G|",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.characterTable",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Table.lean",
+         "line": 292,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.characterTable_one",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Table.lean",
+         "line": 311,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.characterDegree_dvd_card",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Table.lean",
+         "line": 275,
+         "fit": "exact"
+        }
+       ],
+       "note": "Well-definedness on representatives comes from the class-function packaging."
+      },
+      {
+       "target": "Second (column) orthogonality with the class-size weights",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.sum_characterTable_mul_characterTable_inv",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Table.lean",
+         "line": 394,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.card_conjClass_mul_sum_characterTable_mul_characterTable_inv",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Table.lean",
+         "line": 382,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFunction.card_conjClass_mul_sum_char_mul_char_inv",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Completeness.lean",
+         "line": 167,
+         "fit": "exact"
+        }
+       ],
+       "note": "Derived from completeness of the class-function basis, with the |G|/|C| weight, exactly as the layer requires rather than by a rescaling argument."
+      },
+      {
+       "target": "Labelled uniqueness: the table is determined up to a permutation of rows only",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.characterTable_unique_rows",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Specification.lean",
+         "line": 306,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated with columns indexed by the actual conjugacy classes, as the layer insists."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-4-the-arithmetic-of-character-values": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Diagonalizability of ρ g and the description of χ(g) as a sum of e-th roots of unity",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Representation.isSemisimple_of_pow_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Values.lean",
+         "line": 130,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Representation.exists_multiset_rootsOfUnity_char_eq_sum",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Values.lean",
+         "line": 119,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both arenas of the layer are present: semisimplicity over a general k with char ∤ |G|, and the root-of-unity sum where X^e − 1 splits."
+      },
+      {
+       "target": "Character values are cyclotomic integers: IsIntegral ℤ (χ g) and membership in ℤ[ζ_e]",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Representation.isIntegral_char",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Values.lean",
+         "line": 139,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Representation.char_mem_adjoin_of_isPrimitiveRoot",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Values.lean",
+         "line": 181,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated over ℂ as the layer directs, not over an arbitrary field."
+      },
+      {
+       "target": "Central characters as algebra homomorphisms Z(k[G]) → k with ω_χ(Kⱼ) = |Cⱼ|χ(gⱼ)/χ(1), and integrality of ω_χ on class sums",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Representation.centralCharacter",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/CentralCharacter.lean",
+         "line": 91,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Representation.centralCharacter_classSumCenter",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/CentralCharacter.lean",
+         "line": 174,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Representation.centralCharacter_classSumCenter_mul_character_one",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/CentralCharacter.lean",
+         "line": 165,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isIntegral_classSumCenter",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/Integral.lean",
+         "line": 59,
+         "fit": "exact"
+        }
+       ],
+       "note": "The formula and the integrality route through the integral class centre are both present."
+      },
+      {
+       "target": "χ(1) ∣ |G|",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Representation.finrank_dvd_card",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Degree.lean",
+         "line": 119,
+         "fit": "exact"
+        },
+        {
+         "name": "FDRep.finrank_dvd_card",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Degree.lean",
+         "line": 143,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Representation.finrank_mul_sum_centralCharacter_eq_card",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Degree.lean",
+         "line": 83,
+         "fit": "exact"
+        }
+       ],
+       "note": "Proved by the algebraic-integer plus Galois-invariance argument the layer describes."
+      },
+      {
+       "target": "The Galois action of (ZMod e)ˣ on virtual characters by (σ_k · χ)(g) = χ(g^k), permuting the irreducibles, with the field of values",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Representation.map_character_eq_character_pow",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Galois.lean",
+         "line": 92,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Representation.map_ofCharacter_eq_powMap",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Galois.lean",
+         "line": 119,
+         "fit": "exact"
+        },
+        {
+         "name": "FDRep.character_pow_eq_character_of_coprime",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Galois.lean",
+         "line": 174,
+         "fit": "exact"
+        }
+       ],
+       "note": "That Galois acts by the power maps — the statement Layer 6's lift needs — is proved here, at both the Representation and FDRep levels."
+      },
+      {
+       "target": "Brauer: ℚ(ζ_e) is a splitting field, i.e. every irreducible ℂ-representation is realizable over it",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFunction.indVirtualCharacters_eq_virtualCharacters_iff",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Induction/Ideal.lean",
+         "line": 290,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.ClassFunction.indVirtualCharacters",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Induction/Ideal.lean",
+         "line": 102,
+         "fit": "related"
+        }
+       ],
+       "note": "Tau Ceti has reduced Brauer's induction theorem to the single membership 1 ∈ V_G and has Artin's theorem (Induction/Artin/), but neither Brauer's induction theorem nor the splitting-field consequence is proved. The layer marks this as an application off the critical path."
+      },
+      {
+       "target": "Burnside's p^a q^b theorem, via central-character integrality and the vanishing lemma",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.isSolvable_of_card_eq_prime_pow_mul_prime_pow",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Solvable.lean",
+         "line": 288,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isSolvable_of_card_dvd_prime_pow_mul_prime_pow",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Solvable.lean",
+         "line": 282,
+         "fit": "more general"
+        },
+        {
+         "name": "Representation.char_eq_zero_or_norm_char_eq_finrank",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Vanishing.lean",
+         "line": 129,
+         "fit": "exact"
+        }
+       ],
+       "note": "The full theorem is proved, together with the vanishing lemma it rests on, and in the sharper divisibility form as well."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-5-the-dixon-schneider-characterization-the-specification": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "The coordinate identity ω_χ(Kᵢ)ω_χ(Kⱼ) = ∑ₖ aᵢⱼᵏ ω_χ(Kₖ)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.classSumCenter_mul",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/StructureConstants.lean",
+         "line": 110,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.centralCharacterRow_mul",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Specification.lean",
+         "line": 126,
+         "fit": "exact"
+        }
+       ],
+       "note": "Proved before the eigenvector theorem, as the layer asks."
+      },
+      {
+       "target": "Class-multiplication matrices with a pinned convention, their commutativity, and the eigenrow characterisation of central characters",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.classMultMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/MultiplicationMatrix.lean",
+         "line": 85,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.classMultMatrix_commute",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/MultiplicationMatrix.lean",
+         "line": 115,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.classMultMatrix_mulVec",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/ClassSum/MultiplicationMatrix.lean",
+         "line": 142,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.centralCharacterTable",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Eigenrow.lean",
+         "line": 241,
+         "fit": "exact"
+        }
+       ],
+       "note": "The matrices, their commutativity (from commutativity of the centre) and injectivity are proved, and the central-character rows are the common eigenrows; the convention is pinned in the API rather than in prose."
+      },
+      {
+       "target": "Normalization at the identity class and degree recovery d_χ² = |G| / ∑ⱼ |Cⱼ|⁻¹ ω(Kⱼ)ω(Kⱼ⁻¹), with the conversion between the central table Ω and the ordinary table X",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Representation.finrank_sq_eq_card_div_classRowNorm",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Recovery.lean",
+         "line": 177,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Representation.character_eq_finrank_mul_centralCharacter_div",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Recovery.lean",
+         "line": 114,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.characterTable_eq_div",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Eigenrow.lean",
+         "line": 409,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.classRowNorm",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Recovery.lean",
+         "line": 88,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both directions of the Ω ⇆ X conversion are present, with the centralCharacterRow normalized at the identity class."
+      },
+      {
+       "target": "IsCharacterTableSpec G X, the theorem that characterTable G satisfies it, and labelled uniqueness",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsCharacterTableSpec",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Specification.lean",
+         "line": 169,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isCharacterTableSpec_characterTable",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Specification.lean",
+         "line": 185,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.characterTable_unique_rows",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Specification.lean",
+         "line": 306,
+         "fit": "exact"
+        }
+       ],
+       "note": "The specification, its satisfaction by the real table and uniqueness up to row permutation are all proved, which is exactly what makes Layer 6's output 'the' table."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-6-the-executable-burnside-dixon-schneider-algorithm-the-summit": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Exact cyclotomic arithmetic: the computable ring ℤ[X]/Φ_e with +, *, DecidableEq, an embedding into ℂ and reduction to ZMod p",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Cyclotomic",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Cyclotomic/Basic.lean",
+         "line": 46,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Cyclotomic.coeffs",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Cyclotomic/Basic.lean",
+         "line": 54,
+         "fit": "exact"
+        }
+       ],
+       "note": "Built as coefficient vectors on the power basis, with the lift and residue machinery in CharacterTable/Dixon/Lift.lean."
+      },
+      {
+       "target": "Executable class data with an equivalence to ConjClasses G and an executable structureConstant",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassData",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Dixon/ClassData/Basic.lean",
+         "line": 97,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassData.modularClassMatrix",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Dixon/ClassData/EigenvectorSearch.lean",
+         "line": 80,
+         "fit": "exact"
+        }
+       ],
+       "note": "ClassData with its worked instances for cyclic, dihedral, quaternion, symmetric-four and alternating-four groups."
+      },
+      {
+       "target": "Computable finite-field linear algebra: kernelBasis by verified Gaussian elimination and eigenvalueSearch",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.kernelBasis",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/Echelon/KernelBasis.lean",
+         "line": 359,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.span_kernelBasis",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/Echelon/KernelBasis.lean",
+         "line": 396,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.linearIndepOn_kernelBasis",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/Echelon/KernelBasis.lean",
+         "line": 383,
+         "fit": "exact"
+        }
+       ],
+       "note": "The kernel basis is built from a verified echelon form with span and independence proofs; the layer called this 'the one linear-algebra gap on the critical path' and it is closed."
+      },
+      {
+       "target": "Certified Dixon prime data and IsGoodDixonPrime, with certified primes for the worked examples and the separate existence theorem",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsGoodDixonPrime",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Dixon/Prime.lean",
+         "line": 91,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_isGoodDixonPrime",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Dixon/Prime.lean",
+         "line": 218,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.dihedralGroupFourDixonPrimeData",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Dixon/Dihedral.lean",
+         "line": 47,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.quaternionGroupTwoDixonPrimeData",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Dixon/Quaternion.lean",
+         "line": 44,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both halves are done: explicit certified data for D₄, D₃, Q₈, C₃ and A₄, and the separate (noncomputable) existence theorem the layer asked to keep out of any #eval."
+      },
+      {
+       "target": "The good-prime structure theorem: Z(𝔽_p[G]) ≃ₐ 𝔽_p^r with exactly r algebra homomorphisms",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.centerAlgEquivPi",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/FiniteField.lean",
+         "line": 172,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassData.card_centralCharacterSearch_of_isGoodDixonPrime",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Dixon/ClassData/CentralCharacterCount.lean",
+         "line": 126,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassData.centralCharacterSearch_eq_rowsOfMap_of_isGoodDixonPrime",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Dixon/ClassData/CentralCharacterCount.lean",
+         "line": 152,
+         "fit": "exact"
+        }
+       ],
+       "note": "Proved in FiniteField.lean for the centre over a finite field and specialised at a good Dixon prime, with the count of modular central characters."
+      },
+      {
+       "target": "The eigenvector search over ZMod p refining to one-dimensional common eigenspaces, output the reduced central table",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassData.IsModularEigenrow",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Dixon/ClassData/EigenvectorSearch.lean",
+         "line": 100,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassData.centralCharacterSearch",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Dixon/ClassData/EigenvectorSearch.lean",
+         "line": 240,
+         "fit": "exact"
+        }
+       ],
+       "note": "The modular eigenrow predicate and the search are implemented and related to the algebra homomorphisms."
+      },
+      {
+       "target": "The structured cyclotomic lift liftCyclotomic from the residue tuple over (ZMod e)ˣ plus a bounded-coefficient certificate, with uniqueness",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.DixonPrimeData.lift_conjugateResidues",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Dixon/Lift.lean",
+         "line": 60,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.DixonPrimeData.eq_of_conjugateResidues_eq",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Dixon/Lift.lean",
+         "line": 70,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.DixonPrimeData.lift_eq_of_conjugateResidues_eq",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Dixon/Lift.lean",
+         "line": 84,
+         "fit": "exact"
+        }
+       ],
+       "note": "The lift and its uniqueness are proved conditionally on the coordinate bound |c| ≤ ⌊√|G|⌋; the file states in as many words that whether the coordinates the algorithm reconstructs really satisfy that bound 'is unverified, it is proved nowhere in this repository'. So the certificate is a hypothesis rather than a theorem."
+      },
+      {
+       "target": "The assembled solver characterTableDixon G with a certificate, and the summit theorem that its image in ℂ is the character table",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassData.dixonCyclotomicCharacterTable?",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Dixon/Cyclotomic/Solver.lean",
+         "line": 214,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassData.isCharacterTableSpec_of_dixonCyclotomicCharacterTable?_eq_some",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Dixon/Cyclotomic/Solver.lean",
+         "line": 248,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassData.dixonRationalCharacterTable?",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Dixon/Rational/Solver.lean",
+         "line": 222,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassData.IsExactCharacterTableSpec",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/Dixon/ExactChecker.lean",
+         "line": 63,
+         "fit": "exact"
+        }
+       ],
+       "note": "The solver exists in both the rational and the exact-cyclotomic staging, returns an Option, and its soundness — every returned table satisfies IsCharacterTableSpec after embedding into ℂ, hence is the character table by Layer 5's uniqueness — is unconditional. What is missing is completeness: that at a good Dixon prime the search succeeds, which needs the unverified coefficient bound above. The staged examples reach A₄; A₅ is not among them."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-7-the-frobenius-schur-indicator-and-realquaternionic-type": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "The Frobenius–Schur indicator |G|⁻¹ ∑_g χ(g²) at the Representation and FDRep levels, and their agreement",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Representation.frobeniusSchurIndicator",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/FrobeniusSchur/Basic.lean",
+         "line": 105,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Representation.frobeniusSchurIndicator_eq_sub_finrank_invariants",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/FrobeniusSchur/Basic.lean",
+         "line": 144,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Representation.frobeniusSchurIndicator_eq_intCast",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/FrobeniusSchur/Basic.lean",
+         "line": 197,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib has no Frobenius–Schur indicator, and the layer says so; Tau Ceti builds it, with its expression as a difference of invariant dimensions."
+      },
+      {
+       "target": "Symmetric and exterior squares of a representation with the character formulas χ_{Sym²}(g) = ½(χ(g)² + χ(g²)) and χ_{Λ²}(g) = ½(χ(g)² − χ(g²))",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "Representation.char_symmetricSquare",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Tensor/Square.lean",
+         "line": 371,
+         "fit": "exact"
+        },
+        {
+         "name": "Representation.char_exteriorSquare",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Tensor/Square.lean",
+         "line": 377,
+         "fit": "exact"
+        },
+        {
+         "name": "Representation.char_symmetricSquare_sub_char_exteriorSquare",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Tensor/Square.lean",
+         "line": 350,
+         "fit": "exact"
+        }
+       ],
+       "note": "Built as the layer asks, with the doubled forms available for characteristic-free use."
+      },
+      {
+       "target": "Invariant bilinear forms as the G-invariants of V* ⊗ V*, splitting into symmetric and alternating with the multiplicity computation",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.Representation.finrank_invariantForms",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/FrobeniusSchur/Trichotomy.lean",
+         "line": 215,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Representation.ofSymmetricSquareDual_mem_symmetricInvariantForms",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/FrobeniusSchur/Trichotomy.lean",
+         "line": 137,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Representation.ofExteriorSquareDual_mem_alternatingInvariantForms",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/FrobeniusSchur/Trichotomy.lean",
+         "line": 154,
+         "fit": "exact"
+        }
+       ],
+       "note": "The invariant-form space is computed and split into its symmetric and alternating parts with their dimensions."
+      },
+      {
+       "target": "The trichotomy ν₂(χ) ∈ {+1, 0, −1} with the orthogonal/symplectic/complex characterisation",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.frobeniusSchurIndicatorRow_eq_one_or_eq_zero_or_eq_neg_one",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/FrobeniusSchur/InvolutionCount.lean",
+         "line": 226,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Representation.frobeniusSchurIndicator_eq_one_iff",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/FrobeniusSchur/Trichotomy.lean",
+         "line": 412,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Representation.frobeniusSchurIndicator_eq_neg_one_iff",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/FrobeniusSchur/Trichotomy.lean",
+         "line": 428,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Representation.frobeniusSchurIndicator_eq_zero_iff",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/FrobeniusSchur/Trichotomy.lean",
+         "line": 443,
+         "fit": "exact"
+        }
+       ],
+       "note": "The three cases and their form-theoretic characterisations are proved for irreducible complex representations."
+      },
+      {
+       "target": "Realizability over ℝ: the predicate IsRealForm and the theorem that ν₂ = 1 makes ρ realizable over ℝ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "Representation.frobeniusSchurIndicator_eq_one_iff_isRealizableOverReal",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/FrobeniusSchur/Realizability.lean",
+         "line": 83,
+         "fit": "exact"
+        },
+        {
+         "name": "Representation.isRealizableOverReal_of_frobeniusSchurIndicator_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/FrobeniusSchur/Realizability.lean",
+         "line": 68,
+         "fit": "exact"
+        },
+        {
+         "name": "Representation.IsRealForm.frobeniusSchurIndicator_eq_one",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/FrobeniusSchur/RealForm.lean",
+         "line": 93,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both directions are proved, so the stronger target the layer separated out is also discharged."
+      },
+      {
+       "target": "The involution-counting formula #{g : g² = x} = ∑_χ ν₂(χ) χ(x)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFunction.card_squareRoot_eq_sum_frobeniusSchurIndicator",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/FrobeniusSchur/InvolutionCount.lean",
+         "line": 178,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ClassFunction.squareRootCount",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/FrobeniusSchur/InvolutionCount.lean",
+         "line": 105,
+         "fit": "exact"
+        }
+       ],
+       "note": "The degree-weighted form is proved; the unweighted count is kept separate as the layer requires."
+      },
+      {
+       "target": "Real classes and the equality of the number of real-valued irreducible characters with the number of real conjugacy classes",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.card_realValued_eq_card_realClasses",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/RealClasses.lean",
+         "line": 267,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.card_inversionInvariant_eq_card_realClasses",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/RealClasses.lean",
+         "line": 252,
+         "fit": "exact"
+        }
+       ],
+       "note": "Proved through the inversion-invariance count."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-8-frobenius-groups-and-frobeniuss-theorem": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "The Frobenius complement: a proper nontrivial trivial-intersection (malnormal) subgroup",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsFrobeniusComplement",
+         "library": "tauceti",
+         "file": "TauCeti/GroupTheory/TrivialIntersection.lean",
+         "line": 282,
+         "fit": "exact"
+        }
+       ],
+       "note": "Defined exactly as proper, nontrivial and meeting each distinct conjugate trivially."
+      },
+      {
+       "target": "The Frobenius kernel as a set, bundled as a normal subgroup complementing H, so G = N ⋊ H",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.frobeniusKernelSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/FrobeniusGroup.lean",
+         "line": 219,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.frobeniusKernelSubgroup_normal",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/FrobeniusGroup.lean",
+         "line": 229,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.frobeniusKernel_isComplement'",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/FrobeniusGroup.lean",
+         "line": 242,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.coe_frobeniusKernelSubgroup",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/FrobeniusGroup.lean",
+         "line": 224,
+         "fit": "exact"
+        }
+       ],
+       "note": "Frobenius's theorem is proved with the bundled subgroup and the exact names the layer prescribes."
+      },
+      {
+       "target": "The T.I.-set machinery: IsTISet and the induction isometry for class functions supported on H#",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.isometry_ind_of_isTISet",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Induction/TrivialIntersection.lean",
+         "line": 159,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.characterPairing_ind_ind_of_isTISet",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Induction/TrivialIntersection.lean",
+         "line": 143,
+         "fit": "exact"
+        }
+       ],
+       "note": "The load-bearing norm-preservation lemma is proved in the stated form, not the weaker tautology."
+      },
+      {
+       "target": "The exceptional-character correspondence and the class function cutting out N",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ClassFunction.indExtend",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Induction/ExceptionalCharacter.lean",
+         "line": 117,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eq_one_of_forall_irreducibleCharacter_eq",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/FrobeniusGroup.lean",
+         "line": 104,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_normal_coe_eq_frobeniusKernel",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/FrobeniusGroup.lean",
+         "line": 151,
+         "fit": "exact"
+        }
+       ],
+       "note": "The exceptional characters and the normality of the resulting kernel are both proved."
+      },
+      {
+       "target": "Consequences: |H| ∣ |N| − 1",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.frobeniusKernelSubgroup_ne_top",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/FrobeniusGroup.lean",
+         "line": 248,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.frobeniusKernelSubgroup_ne_bot",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/FrobeniusGroup.lean",
+         "line": 257,
+         "fit": "related"
+        }
+       ],
+       "note": "The divisibility |H| ∣ |N| − 1 follows from the complement structure, which is proved; the layer marks Thompson's nilpotence as a downstream target that it does not prove, and it is indeed absent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
+       "note": "That layer owns the induced-character formula and the virtual-character ring this layer's T.I. isometry consumes."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-9-the-representation-theory-of-gl₂𝔽_q": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "The conjugacy classes of GL₂(𝔽_q) in four families, with representatives, centralizer orders, class sizes and the count q² − 1",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.card_conjClasses_GL2",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/ConjugacyClasses.lean",
+         "line": 342,
+         "fit": "exact"
+        },
+        {
+         "name": "Matrix.card_GL_field",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Card.lean",
+         "line": 99,
+         "fit": "exact"
+        }
+       ],
+       "note": "The class count q² − 1 is proved in Tau Ceti's GL₂ conjugacy-class file (with the normal-form classification in NormalForm.lean), and the group order is Mathlib's."
+      },
+      {
+       "target": "The Borel and the principal series Ind_B(α ⊗ β) of dimension q + 1, irreducible iff α ≠ β, with Ind_B(αβ) ≅ Ind_B(βα)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.GL2PrincipalSeries",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/GL2/PrincipalSeries/Basic.lean",
+         "line": 228,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.character_one_GL2PrincipalSeries",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/GL2/PrincipalSeries/Basic.lean",
+         "line": 245,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.simple_GL2PrincipalSeries_iff",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/GL2/PrincipalSeries/Irreducible.lean",
+         "line": 269,
+         "fit": "exact"
+        }
+       ],
+       "note": "Constructed with the dimension formula and the irreducibility criterion; the Borel is TauCeti's GL2Borel."
+      },
+      {
+       "target": "The boundary: the linear characters α ∘ det and the Steinberg constituent of dimension q",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.GL2Linear",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/GL2/Linear.lean",
+         "line": 92,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GL2Steinberg",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/GL2/Steinberg.lean",
+         "line": 107,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.finrank_GL2Steinberg",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/GL2/Steinberg.lean",
+         "line": 130,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.simple_GL2Steinberg",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/GL2/Boundary.lean",
+         "line": 100,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.character_GL2PrincipalSeries_self_eq_add",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/GL2/Boundary.lean",
+         "line": 74,
+         "fit": "exact"
+        }
+       ],
+       "note": "The length-two decomposition at α = β, the Steinberg representation, its dimension q and its irreducibility (with twists) are all proved."
+      },
+      {
+       "target": "The cuspidal (discrete series) representations GL2Cuspidal F E θ of dimension q − 1, with θ ∼ θ^q giving the same one",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.GL2NonSplitTorus",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/NonSplitTorus.lean",
+         "line": 127,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GL2NonSplitTorus.indClassFun_scalar",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/GL2/EllipticInduction.lean",
+         "line": 111,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GL2NonSplitTorus.indClassFun_jordanGL",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/GL2/EllipticInduction.lean",
+         "line": 141,
+         "fit": "related"
+        }
+       ],
+       "note": "The non-split torus and the class function induced from a character of it are constructed, with its values on the four class families; but `GL2Cuspidal` has no hit in declarations.tsv, so the cuspidal representation itself, its dimension q − 1 and the θ ∼ θ^q parametrisation are not yet there."
+      },
+      {
+       "target": "Explicit character values of the linear, Steinberg, principal-series and cuspidal rows on each of the four class families",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.character_GL2Steinberg_scalar",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/GL2/CharacterValues.lean",
+         "line": 83,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.character_GL2Steinberg_diagGL",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/GL2/CharacterValues.lean",
+         "line": 92,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.character_GL2Steinberg_jordanGL",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/GL2/CharacterValues.lean",
+         "line": 100,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.character_GL2Steinberg_gl2NonSplitTorusHom",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/CharacterTable/GL2/CharacterValues.lean",
+         "line": 112,
+         "fit": "exact"
+        }
+       ],
+       "note": "The linear, Steinberg and principal-series rows have their values on all four families; the cuspidal row does not exist yet."
+      },
+      {
+       "target": "The tally (q−1)·1² + (q−1)·q² + ½(q−1)(q−2)(q+1)² + ½q(q−1)(q−1)² = |GL₂(𝔽_q)| and the assembled (q²−1) × (q²−1) table",
+       "library": "absent",
+       "declarations": [],
+       "note": "Absent; no assembled GL₂ character table and no completeness tally exist, and the degenerate q = 2 case is not separately treated."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-0-the-functorial-core----transitivity-and-the-projection-formula",
+       "note": "This layer consumes Representation.ind and the induced-character formula owned by the induction–restriction roadmap."
       }
      ]
     }

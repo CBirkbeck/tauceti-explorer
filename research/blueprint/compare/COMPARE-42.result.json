@@ -1,0 +1,399 @@
+{
+ "job": "COMPARE-42",
+ "notes": {
+  "tauceti:Completed/EffectiveBounds": {
+   "targets": "Effective, explicit geometry-of-numbers estimates for number fields: |d_F| <= |disc b| from a basis of integers, an explicit ideal count #{N(I)<=X} <= X^2 2^n, a class-number bound h_F <= |d_F| 4^n, the unit-square index [O^x:(O^x)^2] <= 2^n, the summit effective Hermite-Minkowski count of number fields of bounded discriminant, and effective regulator/unit-lattice volume bounds.",
+   "baselineHas": [
+    "TauCeti NumberTheory/EffectiveBounds/ (9 files, 0 sorries): NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le (HermiteCount/Basic.lean:172) is the Layer-2 summit",
+    "NumberField.card_ideal_absNorm_le (IdealCount/Basic.lean:399), NumberField.classNumber_le_bound (ClassNumber/Basic.lean:81), NumberField.units_sq_index_le (UnitSquares/Basic.lean:62)",
+    "TauCeti.GeometryOfNumbers.ncard_inter_box_two_le_pow_mul_ncard_inter_box_one (GeometryOfNumbers/Doubling.lean:343) - the Layer-0 measure-free engine",
+    "Mathlib NumberField.abs_discr_ge, NumberField.finite_of_discr_bdd, NumberField.exists_ideal_in_class_of_norm_le, NumberField.Units.regulator"
+   ],
+   "missing": [
+    "Layer 3: explicit lower bounds on the regulator in positive unit rank (only regulator_eq_one_of_rank_eq_zero exists)",
+    "a bridge from the box/doubling engine to Mathlib's IsZLattice/covolume API",
+    "(long horizon, not a stated main target) Brauer-Siegel with explicit constants",
+    "nothing is taken from other roadmaps: the roadmap has no prerequisites and no atlas stage-edges"
+   ]
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory": {
+   "targets": "Assemble Mathlib's character-as-trace into a usable theory of the character table and compute one: class functions and their pairing, class sums and structure constants, Wedderburn indexing and #Irr = #ConjClasses, the table with second orthogonality, arithmetic of character values (chi(1) | |G|, Galois action, Burnside p^a q^b), the Dixon-Schneider specification, an executable Burnside-Dixon-Schneider solver proved against it, the Frobenius-Schur indicator, Frobenius's theorem, and the character table of GL2(F_q).",
+   "baselineHas": [
+    "TauCeti RepresentationTheory/CharacterTable/ (75 files, 0 sorries): TauCeti.characterTable (Table.lean:292), TauCeti.IsCharacterTableSpec (Specification.lean:169)",
+    "TauCeti.ClassData.dixonCyclotomicCharacterTable? with isCharacterTableSpec_of_...eq_some (Dixon/Cyclotomic/Solver.lean:214,248) - the executable summit",
+    "TauCeti.isSolvable_of_card_eq_prime_pow_mul_prime_pow (Solvable.lean:288) and TauCeti.frobeniusKernel_isComplement' (RepresentationTheory/FrobeniusGroup.lean:242)",
+    "TauCeti.card_conjClasses_GL2, TauCeti.character_GL2Steinberg, GL2/PrincipalSeries/CharacterValues.lean, FrobeniusSchur/Trichotomy.lean and Realizability.lean"
+   ],
+   "missing": [
+    "Layer 9: the cuspidal (discrete-series) representations of GL2(F_q) - only the induced class function from the non-split torus is computed; no GL2Cuspidal and no assembled (q^2-1) x (q^2-1) table with orthonormal rows",
+    "Layer 4 application: Brauer's theorem that Q(zeta_e) is a splitting field",
+    "existence of a good Dixon prime in general (the roadmap defers it); Layers 0-8 are otherwise complete",
+    "nothing is taken from other roadmaps beyond the sibling Tau Ceti induction/semisimple-algebra work, which is already in the library"
+   ]
+  },
+  "DiophantineApproximationAndTranscendence": {
+   "targets": "Heights and approximation exponents; Liouville and Roth; Schmidt's subspace theorem with S-unit and decomposable-form equations; Lindemann-Weierstrass, Gelfond-Schneider and Baker-type lower bounds for linear forms in logarithms; effective bounds for Thue/Thue-Mahler/S-unit/exponential equations; Mahler and E/G-function methods and functional transcendence.",
+   "baselineHas": [
+    "Height.mulHeight and Height.mulHeight_1 with the product formula, NumberField.InfinitePlace/FinitePlace (Mathlib NumberTheory/Height/, NumberField/)",
+    "Real.exists_int_int_abs_mul_sub_le and GenContFract convergents (Mathlib DiophantineApproximation), Liouville.transcendental and LiouvilleWith",
+    "Int.Matrix.exists_ne_zero_int_vec_norm_le - Siegel's lemma (Mathlib/NumberTheory/SiegelsLemma.lean:155) - and Polynomial.mahlerMeasure",
+    "LindemannWeierstrass.exp_polynomial_approx (the analytic part only); Tau Ceti Set.unit_fg for finite generation of S-units"
+   ],
+   "missing": [
+    "DT.1: Thue's theorem and Roth's theorem (auxiliary polynomials, index estimates, Roth's lemma)",
+    "DT.2: Schmidt's subspace theorem and Schlickewei's nonarchimedean form, S-unit and decomposable-form equations",
+    "DT.3: Lindemann-Weierstrass proper (hence transcendence of e and pi), Gelfond-Schneider, Baker-Wustholz and Matveev bounds, p-adic logarithms",
+    "DT.4-DT.5: effective Thue/Thue-Mahler/superelliptic/exponential bounds, Mahler's method, Siegel-Shidlovskii for E/G-functions, Ax-Schanuel",
+    "from other roadmaps: only GeometryOfNumbersAndQuadraticArithmetic GN.1/GN.5 (simultaneous Dirichlet approximation, lattice reduction) - 6 upstream stages in 2 roadmaps"
+   ]
+  },
+  "K2SymbolsBrauer": {
+   "targets": "Steinberg groups and classical K2 as a universal central extension; Steinberg symbols, Milnor K-theory and Matsumoto's theorem; tame symbols and residues with the localisation comparison; Bass-Tate, Milnor transfers and Weil reciprocity on a proper regular curve; tame kernels with K2(Z) = Z/2, K2(F_q) = 0 and K2(Q); Dennis-Stein symbols; the Galois/Hilbert symbol comparison and global reciprocity.",
+   "baselineHas": [
+    "TauCeti.ExactK0 / TauCeti.TriangulatedK0 (CategoryTheory/GrothendieckGroup/) - algebraic K-theory stops at K0",
+    "groupHomology.H2 and Mathlib's GroupExtension / TauCeti.FactorSet.cohomologyClass for the universal-central-extension substrate",
+    "TauCeti.Divisor.eval_eq_prod_normResidue and TauCeti.Place.finite_setOf_ord_ne_zero (FunctionField/Divisor/) - the divisor-evaluation apparatus behind Weil reciprocity",
+    "TauCeti.kummerMap and TauCeti.ContCohomology.explicitCup11 for the T.7 Galois-symbol target; Mathlib TensorAlgebra, Valuation unit parts"
+   ],
+   "missing": [
+    "every stated target: St(A), stabilisation and centrality, K2 = ker(St -> E), K2 = H2(E(A),Z), Matsumoto, tame symbols, Bass-Tate, Weil reciprocity, the tame-kernel localisation sequence and K2(Z)",
+    "upstream KTheoryLowDegrees U.1-U.2/Z.1: K0 and K1 of a ring with the Bass machinery",
+    "upstream StableHomotopyKTheory H.1-H.5: spectra, infinite loop spaces and delooping (nothing of this exists in either library)",
+    "upstream GeneralAlgebraicKTheory K.1-K.7: plus and Q constructions, localisation, devissage, additivity, products",
+    "upstream ArithmeticGaloisDuality R02.1-R02.4 and MotivicEtaleKTheory M.1-M.3 (local/global duality, Tate's degree-two theorem) for T.7"
+   ]
+  },
+  "SchemeAndStackFoundations": {
+   "targets": "General algebraic-geometry foundations before arithmetic specialisation: schemes and morphism properties; fpqc/fppf descent, algebraic spaces and algebraic stacks; Zariski/etale/fppf/pro-etale sites with sheaf cohomology, base change and compact supports; curves, divisors, Picard objects and Jacobians; deformations, formal schemes, algebraization, models, alterations; Chow groups, Chern classes, refined Gysin maps, Grothendieck-Riemann-Roch and the Hodge index theorem; comparison interfaces to crystalline/analytic/l-adic owners.",
+   "baselineHas": [
+    "AlgebraicGeometry.Scheme with Spec, gluing, fibre products and the Flat/Smooth/Etale/IsProper/IsSeparated morphism properties with base change (Mathlib AlgebraicGeometry/)",
+    "AlgebraicGeometry.Scheme.fpqcTopology / etaleTopology / smallEtaleTopology and CategoryTheory.Pseudofunctor.IsStack with descent data",
+    "TauCeti.riemannRochSpace, TauCeti.genus and TauCeti.Divisor (function-field Riemann-Roch, divisors, line bundles, models over a DVR)",
+    "AlgebraicGeometry.AlgebraicCycle with proper pushforward; Algebra.Extension.cotangentComplex and Algebra.FormallySmooth"
+   ],
+   "missing": [
+    "SF.1: effective fpqc/fppf descent of quasi-coherent sheaves, algebraic spaces, algebraic (Artin/DM) stacks with atlases, coarse vs fine moduli",
+    "SF.2: the localisation sequence and extension by zero, proper and smooth base change, compactly supported etale cohomology",
+    "SF.3: sheaf-theoretic Riemann-Roch and Serre duality, Picard schemes, Jacobians and the Tate-module identification",
+    "SF.4: formal schemes, Grothendieck existence, Neron models, de Jong alterations and semistable reduction",
+    "SF.5-SF.6: Chow groups and rational equivalence, Chern classes, refined Gysin maps and intersection products, Grothendieck-Riemann-Roch, the Hodge index theorem, cycle-class and trace comparisons",
+    "takes nothing from other roadmaps: its atlas closure has zero upstream stages"
+   ]
+  },
+  "PerfectoidQuotients": {
+   "targets": "BS22 section 7 in the scope ECD needs: integral perfectoid rings and perfect prisms; prismatic cohomology of smooth algebras with the Hodge-Tate comparison; derived prismatic cohomology and universal prisms for semiperfectoid rings; quasisyntomic covers and Andre's flatness lemma; surjectivity of perfectoidization and closed perfectoid quotients (ECD Theorem 5.8).",
+   "baselineHas": [
+    "WittVector.fontaineTheta and surjective_fontaineTheta (Mathlib/RingTheory/Perfectoid/FontaineTheta.lean) - A_inf = W(R^flat) with theta",
+    "Perfection / PreTilt and PreTilt.untilt (Mathlib/RingTheory/Perfection.lean, Perfectoid/Untilt.lean)",
+    "Algebra.Extension.cotangentComplex, Algebra.H1Cotangent and DividedPowers / DividedPowerAlgebra",
+    "TauCeti.Huber.IsTateRing, TauCeti.Huber.powerBoundedSubring and AdicCompletion for the Tate-ring/completion prefix"
+   ],
+   "missing": [
+    "no perfectoid ring is even defined in either library: `prism`, `delta-ring`, `quasisyntomic`, `semiperfectoid`, `perfectoidization` all have zero declarations",
+    "Q0: integral perfectoid rings, the principal generator of ker theta, derived p-adic completion; delta-rings, prisms, orientations, completed perfection and the perfect-prism correspondence (imported from PrismaticCohomology PR.0)",
+    "Q1-Q2: the prismatic site, Cech-Alexander models, the BS22 6.3 Hodge-Tate comparison with Breuil-Kisin twists, and the left Kan extension to animated rings (PR.1-PR.2) - which needs simplicial commutative/animated rings from EnhancedDerivedSheaves E5, absent",
+    "Q3-Q4: quasisyntomic lifting 7.11, Andre's flatness lemma 7.14, and Theorem 7.4 surjectivity of perfectoidization with the Zariski-closed-subset application",
+    "from other roadmaps: PerfectoidSpaces P0-P4 (perfectoid rings and spaces, tilting), DerivedDeRhamCohomology DD.0-DD.5, CrystallineCohomology CR.0-CR.2, and AdicEtaleGeometry A0-A1"
+   ]
+  },
+  "SchemeKTheoryOperations": {
+   "targets": "K- and G-theory of schemes from perfect complexes: an enhanced model of perfect complexes, K(X)/G(X) with derived pullback and proper pushforward, support K-theory with the localisation fibre sequence and devissage, Zariski/Nisnevich descent with coniveau and Gersten, homotopy invariance with the projective-bundle, fundamental and blow-up theorems, products with lambda- and Adams operations, Chern classes and Grothendieck-Riemann-Roch.",
+   "baselineHas": [
+    "TauCeti.TriangulatedK0 and TauCeti.ExactK0 with TauCeti.cartanMap / cartanEquiv (degree-zero affine Cartan map only)",
+    "AlgebraicGeometry.Scheme.Modules with pullbackPushforwardAdjunction, SheafOfModules.IsLocallyFree, AlgebraicGeometry.tilde",
+    "Mathlib DerivedCategory and QuasIso with TauCeti's DG enrichment of complexes (TauCeti.linearHomComplexEnrichedCategory)",
+    "AlgebraicGeometry.AlgebraicCycle with pushforward and TauCeti Weil divisors on regular curves; CategoryTheory.GrothendieckTopology.MayerVietorisSquare"
+   ],
+   "missing": [
+    "S.1-S.2: perfect complexes on a scheme, their locality and essential smallness, an enhanced model, and K(X)/G(X) themselves with derived pullback and proper pushforward - no K-theory of schemes exists",
+    "S.3-S.5: support K-theory and the localisation fibre sequence, devissage, Nisnevich descent, the coniveau exact couple and Gersten, homotopy invariance, the projective-bundle/fundamental/blow-up theorems and KH",
+    "S.6-S.7: lambda- and Adams operations from a genuine higher K-theory construction, Chern classes and the Chern character, the gamma-filtration, the splitting principle, deformation to the normal cone and GRR",
+    "upstream KTheoryLowDegrees and GeneralAlgebraicKTheory K.1-K.7 (K0/K1, plus and Q constructions, localisation, products) and StableHomotopyKTheory H.1-H.5 (spectra and delooping)",
+    "upstream K2SymbolsBrauer T.1-T.6: Steinberg groups, Milnor K-theory, Matsumoto, tame symbols and tame kernels"
+   ]
+  },
+  "AdicEtaleGeometry": {
+   "targets": "The analytic adic geometry ECD needs to define diamonds: completed tensor products and fibre products of Huber pairs; finite etale and etale morphisms of analytic adic spaces with their small etale and pro-etale sites; separatedness, properness, smooth charts, analytification and formal models; the nonnoetherian affinoid etale approximation of ECD 6.4(iv); and the analytic presentations used for diamondification.",
+   "baselineHas": [
+    "TauCeti RingTheory/Huber/ (69 files) and AlgebraicGeometry/AdicSpace/ (38 files): TauCeti.Huber.Pair, TauCeti.ValuationSpectrum.spa (Spa/Basic.lean:97)",
+    "TauCeti.ValuationSpectrum.rationalSubset with the refinement calculus and TauCeti.ValuationSpectrum.isSheaf_iff_isSheafFor_rationalCover (SheafCriterion.lean:51)",
+    "TauCeti.ValuationSpectrum.spaAnalytic (the analytic locus with Tate charts) and TauCeti.ValuationSpectrum.closedPolydisc",
+    "TauCeti.Huber.IsTopologicallyFiniteType / IsStronglyNoetherian and the rational-localisation universal property and flatness"
+   ],
+   "missing": [
+    "A0-A2: there is no adic-space object at all, no structure sheaf identified with O_X, no completed tensor product or fibre product, no finite etale/etale morphisms of adic spaces, no small etale or pro-etale site, no analytic Kaehler differentials or Jacobian criterion, no analytification, no formal schemes or admissible formal models",
+    "A3: the Kedlaya-Liu pseudocoherent module theory with strict exactness and acyclic gluing, the closed embedding into a relative ball with its conormal description, quantitative nonarchimedean implicit-function lemmas and the finite-stage approximation (the special-case replacement for Fargues-Scholze IV.4.19)",
+    "A4: uniform completion with etale-category invariance, the tower of finite etale torsors and perfectoidness of its completion, and the local perfectoid presentation of ECD section 15",
+    "from other roadmaps: all of PerfectoidQuotients Q0-Q4 (prisms, prismatic cohomology, Andre's flatness lemma, perfectoidization) and PerfectoidSpaces P0-P6 (perfectoid rings, tilting, almost mathematics) - neither library defines a perfectoid ring",
+    "also EnhancedDerivedSheaves E0-E5 (derived infinity-categories and animated rings), DerivedDeRhamCohomology DD.0-DD.5 and CrystallineCohomology CR.0-CR.2"
+   ]
+  },
+  "HigherLocalFieldsAndHigherClassFieldTheory": {
+   "targets": "Higher local fields and higher-dimensional class field theory: n-local fields with their higher topology; Milnor K-groups in all degrees with residues, norms and topological quotients; higher Galois duality with logarithmic de Rham-Witt/Artin-Schreier-Witt coefficients; the higher local reciprocity map and existence theorem; explicit higher symbols and ramification filtrations; Parshin chains and higher adeles on regular arithmetic schemes; higher global reciprocity with Kato complexes.",
+   "baselineHas": [
+    "LaurentSeries.valued with completeness and the power-series integers / residue field (Mathlib/RingTheory/LaurentSeries.lean:504) - the one-step ingredient for F_q((u))((t))",
+    "IsNonarchimedeanLocalField (the n = 1 case) and IsDedekindDomain.FiniteAdeleRing / RestrictedProduct",
+    "continuousCohomology with TauCeti.kummerMap and TauCeti.ContCohomology.explicitCup11 (low-degree continuous cohomology)",
+    "TauCeti.unitFiltration (LocalField/UnitFiltration/) and TauCeti.Place.ramificationGroup; Mathlib WittVector"
+   ],
+   "missing": [
+    "HL.0-HL.4: the n-local field definition and higher topology, Milnor K-groups in all degrees with iterated residues, norms and topological quotients, higher duality with de Rham-Witt coefficients, the reciprocity homomorphism and existence theorem, explicit higher symbols and ramification filtrations - every one of these is absent",
+    "HL.5-HL.7: Parshin chains with successive henselization, higher adeles, higher global reciprocity, Kato complexes and cohomological Hasse principles",
+    "from SchemeAndStackFoundations: all of SF.0-SF.5, i.e. algebraic stacks, the etale six operations with base change, formal geometry and alterations, and the whole of intersection theory with GRR (HL.5 requires SF.5, HL.6 requires SF.2)",
+    "from K2SymbolsBrauer T.1-T.3 and SchemeKTheoryOperations S.1-S.6: Steinberg/Milnor K-theory, tame symbols and the whole of scheme K-theory with Adams operations",
+    "from MotivicEtaleKTheory M.4-M.5d: motivic cohomology and the norm-residue tranche, which HL.2 needs to identify symbol cup-products"
+   ]
+  },
+  "AdicCoefficientsAndComparisons": {
+   "targets": "ECD sections 26-27: adic coefficient categories D_et(X,Lambda) with the full six operations and the limit description; the scheme-to-v-sheaf functor in characteristic p and over a complete DVR; the qcqs (nonnoetherian) Nagata compactification and scheme Rf_!; the characteristic-p and mixed-characteristic proper-support comparisons 27.1-27.5; de Jong's alterations with local purity; and the constructible direct-image comparison and full faithfulness 27.6-27.7.",
+   "baselineHas": [
+    "AlgebraicGeometry.Scheme.nonempty_of_isLimit and exists_pi_app_comp_eq_of_locallyOfFinitePresentation (AffineTransitionLimit.lean) - part of noetherian approximation",
+    "AlgebraicGeometry.Scheme.smallEtaleTopology / proetaleTopology with AlgebraicGeometry.Scheme.EllAdicCohomology, and AlgebraicGeometry.Scheme.Hom.image / normalization",
+    "TauCeti.ValuationSpectrum.spa and TauCeti.ValuationSpectrum.spa_integralClosure for the affine v-sheaf construction; Mathlib PreTilt.untilt and WittVector.fontaineTheta for marked untilts",
+    "IsAdicComplete / AdicCompletion and RingTheory.Sequence.IsRegular; TauCeti.Model and TauCeti.NumericalType for stable reduction packaging"
+   ],
+   "missing": [
+    "L0: derived I-completeness, D_et(X,Lambda) for adic Lambda, ECD 26.2 presentability, completed tensor products, and the six operations for the whole coefficient system",
+    "L1: the small v-sheaf of a scheme, the etale/pro-etale comparison of sites, and the mixed-characteristic marked-untilt version",
+    "L2: etale and cohomological continuity under limits, nonnoetherian Nagata compactification, and scheme Rf_! with its base-change and projection formulas",
+    "L3-L4: the comparison pullback and ECD 27.1-27.5, including the Spa O[[x]] test space and the algebraic/analytic proper base-change comparison",
+    "L5-L6: de Jong's alteration theorems 4.1 and 6.5 with flattening by blowup, stable/semistable reduction of curve families, proper hypercovers and cohomological descent, local purity and nearby cycles, then ECD 27.6-27.7",
+    "from other roadmaps: all of AdicEtaleGeometry A0-A4 and PerfectoidQuotients Q0-Q4 and PerfectoidSpaces P0-P6, plus DiamondsAndVStacks D0-D6, DiamondEtaleCohomology C0-C9, DiamondSixOperations S0-S5, ClassicalAdicEtaleCohomology H0-H5 and EtaleDualityAndPerverseSheaves"
+   ]
+  },
+  "AlgebraicModularFormsAndSerreWeights": {
+   "targets": "Geometric modular forms over a coefficient ring and in characteristic p, compared with the analytic theory: the Hodge bundle and cusp divisor with GAGA comparison; the q-expansion principle and integral Hecke theory; the Hasse invariant, Frobenius/Verschiebung and the theta operator; Serre's local weight recipe k(rho-bar) with the Edixhoven comparison; the Deligne-Serre lifting lemma; and the definitions used to state Serre's conjecture.",
+   "baselineHas": [
+    "ModularForm.qExpansion_injective and UpperHalfPlane.qExpansion with Mathlib's ModularForm/CuspForm, slash actions, cusps and level-one dimension formulas",
+    "TauCeti NumberTheory/ModularForms/ and HeckeRing/GL2/: Hecke operators with nebentypus, newforms, Atkin-Lehner, multiplicity one (HeckeRing.GL2.finrank_cuspFormsNewEigenspace_eq_one), the Sturm bound",
+    "TauCeti.FiniteLocallyFreeBicommutativeHopfAlgCat.cartierDuality and the finite locally free commutative group schemes with Cartier duality that the local recipe needs",
+    "cyclotomicCharacter with TauCeti.kummerMap into continuous H^1(G_K, mu_n); Mathlib's going-down and DVR lifting behind Deligne-Serre"
+   ],
+   "missing": [
+    "R15.1-R15.3: modular curves as schemes/stacks with a Hodge bundle and cusp divisor, geometric forms and their base change, GAGA, the integral q-expansion principle, the Hasse invariant, theta operator and Igusa curves - none of the algebraic side exists",
+    "R15.4: Serre's piecewise weight recipe as an exhaustive local case table, tame inertia characters, the extension-sensitive reducible cases, and the p = 2 finite-flat dichotomy",
+    "R15.5-R15.6: the Deligne-Serre eigenvalue-lifting lemma and residual modularity with N(rho-bar), k(rho-bar)",
+    "from ModularCurvesPartII R12-R14: compactified modular curves, Hodge bundles and correspondences (15 upstream stages)",
+    "from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07 and AutomorphicGaloisRepresentations R19: integral p-adic Hodge theory and the Galois representations attached to eigenforms; the closure also pulls in the etale-cohomology, Deligne-weights and perfectoid/diamond towers (226 upstream stages in 44 roadmaps)"
+   ]
+  },
+  "ComplexMultiplicationAndExplicitReciprocity": {
+   "targets": "Explicit class fields from complex multiplication: orders in CM fields with proper ideals, CM types and reflex norms; the elliptic curve of a lattice and the ideal action; the general CM reciprocity theorem imported from ShimuraVarieties; class polynomials and ring/ray class fields; algebraic Hecke characters attached to CM abelian varieties; Shimura-Taniyama reduction, isogeny graphs and certified class-polynomial computation.",
+   "baselineHas": [
+    "ClassGroup (defined for any domain, so Pic(O) of a nonmaximal order) and the conductor of a monogenic order; NumberField.IsCMField with complex conjugation",
+    "PeriodPair.weierstrassP with g2, g3 and the differential equation (Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean)",
+    "NumberField.artinSymbol and TauCeti.GlobalNumberFields.RayClassGroup with genus theory for quadratic fields (no general reciprocity law)",
+    "TauCeti.AlgebraicGeometry.AbelianVariety and TauCeti.Isogeny.Hom with degrees and kernels; WeierstrassCurve.j and the modular discriminant"
+   ],
+   "missing": [
+    "CM.0-CM.1: CM types and reflex norms, proper invertible ideals of an order with finiteness of Pic(O), the uniformisation C/Lambda = E(C) and the ideal action as isogenies",
+    "CM.2-CM.3: the main theorem of complex multiplication in ideal/idele/torsion form, class polynomials with integrality of singular moduli, ring class fields and ray-class variants with level functions",
+    "CM.4-CM.6: algebraic Hecke characters with infinity type and conductor, the Tate-module comparison, the Shimura-Taniyama formula, isogeny graphs and certified computation",
+    "from ShimuraVarieties V5: canonical models and the constructed CM reciprocity - with ShimuraData, PELModuli, ShimuraCompactifications and AbelianSchemesAndArithmeticModuli beneath it",
+    "from ModularCurvesPartII, NeronModelsAndSemistableAbelianVarieties R11.5, ArithmeticGaloisRepresentations R01.6 and AutomorphicGaloisRepresentations R19.3; the closure reaches 282 upstream stages in 50 roadmaps, including the whole etale-cohomology and perfectoid/p-adic-Hodge tower"
+   ]
+  },
+  "SmallRamificationAndAbelianVarietyBaseCases": {
+   "targets": "The arithmetic nonexistence theorems that initialise or terminate Serre's conjecture: explicit local and global discriminant bounds with certified numerics; Tate's and Serre's nonexistence of odd irreducible mod-2 and mod-3 representations unramified outside the residual prime; Fontaine's theorem that no positive-dimensional abelian variety over Q has good reduction everywhere; Schoof's semistable small-prime theorem; the GL2-type ordinary terminal cases; and a complete base-case table.",
+   "baselineHas": [
+    "NumberField.abs_discr_ge and NumberField.finite_of_discr_bdd with root discriminants (Mathlib NumberField/Discriminant/Basic.lean)",
+    "NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le - Tau Ceti's effective Hermite count, the explicit form R25.1 wants",
+    "pow_sub_one_dvd_differentIdeal and dvd_differentIdeal_iff (Mathlib DedekindDomain/Different.lean) for the tame different exponent",
+    "TauCeti.AlgebraicGeometry.AbelianVariety and TauCeti.FiniteLocallyFreeBicommutativeHopfAlgCat.cartierDuality as carriers"
+   ],
+   "missing": [
+    "R25.1: wild local different bounds and Odlyzko-type analytic discriminant lower bounds with certified numerical inequalities",
+    "R25.2-R25.4: the Tate and Serre mod-2/mod-3 nonexistence theorems with soluble and nonsoluble images, Fontaine's everywhere-good-reduction theorem in all dimensions, and Schoof's semistable theorem with the finite flat group-scheme classification over Z[1/p]",
+    "R25.5-R25.6: the geometric realisation of weight-two compatible systems, crystalline-to-ordinary calculations at terminal weights, and the base-case table",
+    "neither library has global Galois representations with ramification conditions, reduction of abelian varieties, or ramification theory of finite flat group schemes",
+    "from other roadmaps: all of AlgebraicModularFormsAndSerreWeights, plus ArithmeticGaloisRepresentations R01, FiniteFlatGroupsAndIntegralPadicHodgeTheory R07, NeronModelsAndSemistableAbelianVarieties R11, OrdinaryAutomorphicFormsAndModularityLifting R21, PotentialModularityAndCompatibleSystems R24 and FaltingsFinitenessAndIsogenyTheorems R28 - 399 upstream stages in 67 roadmaps"
+   ]
+  },
+  "PeriodsAndSpecialValues": {
+   "targets": "Comparison periods and special values across motives: Betti/de Rham period matrices and determinant lines; critical values and Deligne-type algebraicity; formal periods and the Nori period torsor; regulator determinants and leading terms; integral fundamental lines with local corrections; equivariant Tamagawa-number statements; BSD and Bloch-Kato assembly; certified numerical enclosures; Picard-Fuchs equations and arithmetic mirror symmetry; multiple zeta values and mixed-Tate periods.",
+   "baselineHas": [
+    "TauCeti.Hodge.HodgeStructureOn with Hodge pieces, conjugation, Tate twists, polarizations and Deligne splitting (TauCeti/Geometry/Hodge/) - one level below realizations",
+    "Mathlib's analytic special-value theory: DirichletCharacter.rootNumber, completedLFunction_one_sub, riemannZeta_neg_nat_eq_bernoulli, ModularForm.Lambda",
+    "NumberField.Units.regulator with regulator_eq_det and the Dirichlet class number formula; WeierstrassCurve.Affine.regulator and localEulerFactor",
+    "Module.Basis.det and exteriorPower.topEquiv for determinant lines; Submodule.card_eq_card_quotient_mul_card for finite-module bookkeeping"
+   ],
+   "missing": [
+    "no motive, no Betti or de Rham realization, no period torsor, no motivic cohomology, no determinant/fundamental-line formalism, no Fitting ideals, no Tamagawa numbers, no Sha and no multiple zeta values exist in either library - not one layer is even partly built",
+    "PS.0-PS.2: realization comparison matrices, completed motivic L-functions from Weil-Deligne data, the formal period algebra and Nori torsor with its evaluation map",
+    "PS.3-PS.6: rational motivic cohomology with Deligne/Beilinson regulators, integral determinant lines of perfect cohomology complexes, ETNC zeta elements in relative K-groups, and BSD/Bloch-Kato adapters",
+    "PS.7-PS.9: certified interval enclosures for periods, Gauss-Manin/Picard-Fuchs with mirror maps and Frobenius models, and the shuffle/stuffle double-shuffle theory with the mixed-Tate motivic fundamental group",
+    "from other roadmaps: MotivesAndAlgebraicCycles, MotivicEtaleKTheory, BorelRegulators, EllipticRegulators, Polylogarithms, RankZeroOneBSD, NoncommutativeAndEquivariantIwasawa, AutomorphicLFunctionsAndLocalFactors, CrystallineCohomology and ArithmeticGaloisDuality - 640 upstream stages in 103 roadmaps, the largest closure in the block"
+   ]
+  }
+ },
+ "judgements": [
+  {
+   "a": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+   "b": "tauceti:Completed/EffectiveBounds",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "Both are essentially in the library: EffectiveBounds has Layers 0-2 sorry-free (NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le, card_ideal_absNorm_le) and lacks only effective regulator lower bounds in positive unit rank, whereas CharacterTheory still owes the cuspidal series of GL2(F_q) and the assembled (q^2-1)-row table - only the induced class function from the non-split torus is built, there is no GL2Cuspidal - plus Brauer's Q(zeta_e)-splitting theorem."
+  },
+  {
+   "a": "DiophantineApproximationAndTranscendence",
+   "b": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "CharacterTheory has Layers 0-8 built sorry-free in Tau Ceti, including the executable Dixon-Schneider solver proved against IsCharacterTableSpec, Burnside p^a q^b and Frobenius's theorem, with only the GL2 cuspidal series outstanding; Diophantine still needs Roth, Schmidt's subspace theorem, Lindemann-Weierstrass proper, Gelfond-Schneider and Baker-Wustholz/Matveev bounds, none of which exists."
+  },
+  {
+   "a": "DiophantineApproximationAndTranscendence",
+   "b": "K2SymbolsBrauer",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Diophantine's DT.0 and half of DT.1 are already in Mathlib (Weil heights with the product formula, Dirichlet approximation, Liouville, Siegel's lemma, Mahler measure), and what remains - Roth, the subspace theorem, Baker bounds - is deep but shallowly stacked; K2 has nothing at all (Tau Ceti's K-theory stops at K0) and must first build K0/K1, spectra and Quillen's higher K-theory before St(A), Matsumoto, tame symbols and Weil reciprocity, then arithmetic duality and Tate's theorem for T.7."
+  },
+  {
+   "a": "K2SymbolsBrauer",
+   "b": "AlgebraicModularFormsAndSerreWeights",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "K2 needs one tower - K0/K1, spectra, Quillen K-theory, then Steinberg groups, Milnor K-theory and tame kernels (23 upstream stages in 7 roadmaps); Serre weights needs modular curves as schemes with Hodge bundles and GAGA, characteristic-p operations, Serre's local weight recipe and Deligne-Serre lifting on top of ModularCurvesPartII, integral p-adic Hodge theory and the Galois representations of R19 (226 upstream stages in 44 roadmaps)."
+  },
+  {
+   "a": "AlgebraicModularFormsAndSerreWeights",
+   "b": "SchemeAndStackFoundations",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Scheme foundations has no upstream at all and its base layer is largely in Mathlib (Scheme, Spec, fibre products, the flat/smooth/etale/proper morphism properties, the fpqc and etale sites); Serre weights needs all of that geometry and then the whole arithmetic tower above it - compactified modular curves and Hodge bundles from R12-R14, integral p-adic Hodge theory from R07 and the eigenform Galois representations of R19 - before the Hasse invariant, theta operator and k(rho-bar) recipe can even be stated."
+  },
+  {
+   "a": "ComplexMultiplicationAndExplicitReciprocity",
+   "b": "SchemeAndStackFoundations",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Scheme foundations builds stacks, the etale six operations, Jacobians, formal geometry and intersection theory from a base Mathlib already half-supplies, with zero imported stages; CM imports ShimuraVarieties V5's canonical models and CM reciprocity, abelian schemes and arithmetic moduli, Neron models and the R19 Galois representations, and on top of that must still construct CM types and reflex norms, class polynomials, ring class fields, Hecke characters and Shimura-Taniyama - 282 upstream stages in 50 roadmaps."
+  },
+  {
+   "a": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "b": "ComplexMultiplicationAndExplicitReciprocity",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Higher local fields needs the scheme/stack foundations through intersection theory, scheme K-theory S.1-S.6 and the norm-residue tranche beneath its own eight higher-CFT stages - 30 upstream stages in 8 roadmaps; CM needs the entire Shimura-variety programme (canonical models, PEL moduli, compactifications), abelian schemes, Neron models and automorphic Galois representations, 282 upstream stages in 50 roadmaps, before its own CM types, class polynomials and Hecke characters."
+  },
+  {
+   "a": "AdicEtaleGeometry",
+   "b": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Adic etale geometry needs the perfectoid and prismatic tower (perfectoid rings and tilting, delta-rings and prisms, the Hodge-Tate comparison, perfectoidization) plus etale sites and the KL16 approximation of A3, but nothing else; higher local fields needs two comparably large towers that adic etale geometry does not - all of SF.0-SF.5 including algebraic stacks, the etale six operations and Fulton intersection theory with GRR, and scheme K-theory S.1-S.6 with the MotivicEtaleKTheory norm-residue tranche - before its own eight stages of Milnor K-theory, higher duality, reciprocity and Parshin chains."
+  },
+  {
+   "a": "SchemeKTheoryOperations",
+   "b": "AdicEtaleGeometry",
+   "farther": "b",
+   "strength": "slight",
+   "reason": "The two are close: each carries 28 upstream stages at the same graph depth, and scheme K-theory's own S.1-S.7 (perfect complexes, K/G-theory, localisation, Gersten, Adams operations, GRR) is the larger own-roadmap programme; but its tower is classical and starts from Tau Ceti's existing K0 (TriangulatedK0, cartanMap) and Mathlib's DerivedCategory, whereas adic etale geometry's tower has no base whatever - neither library defines a perfectoid ring, a prism or an animated ring - and it must build prismatic cohomology with the Hodge-Tate comparison and Andre's flatness lemma before A3's pseudocoherent finite-stage approximation."
+  },
+  {
+   "a": "SchemeKTheoryOperations",
+   "b": "SmallRamificationAndAbelianVarietyBaseCases",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Scheme K-theory needs one coherent tower (K0/K1, spectra, Quillen K-theory, K2, then S.1-S.7); the Serre base cases need Odlyzko-type certified discriminant bounds, the Tate/Serre nonexistence theorems, Fontaine's and Schoof's theorems on abelian varieties with restricted reduction, and crystalline-to-ordinary terminal cases, resting on R01, R07, R11, R21, R24 and R28 - 399 upstream stages in 67 roadmaps."
+  },
+  {
+   "a": "AdicCoefficientsAndComparisons",
+   "b": "SmallRamificationAndAbelianVarietyBaseCases",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Adic coefficients needs the diamond programme, the perfectoid/prismatic tower and de Jong alterations - 83 upstream stages in 20 roadmaps; the Serre base cases need that same p-adic Hodge tower transitively plus the modular-curve, Neron-model, modularity-lifting and potential-modularity roadmaps, 399 upstream stages in 67 roadmaps, before Fontaine's and Schoof's theorems can be stated."
+  },
+  {
+   "a": "PerfectoidQuotients",
+   "b": "AdicCoefficientsAndComparisons",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Adic coefficients imports all seven PerfectoidQuotients stages (Q0-Q4) and all of AdicEtaleGeometry on top of them, then adds the diamond six operations, diamond and classical adic etale cohomology, etale duality, nonnoetherian Nagata compactification with scheme Rf_!, and de Jong's alterations before ECD 27.1-27.7."
+  },
+  {
+   "a": "PeriodsAndSpecialValues",
+   "b": "PerfectoidQuotients",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "PerfectoidQuotients is BS22 section 7 on a prismatic and perfectoid base - 23 upstream stages in 7 roadmaps; Periods needs motives with Betti/de Rham realizations, motivic cohomology and regulators, integral fundamental lines, ETNC and BSD assembly, mixed-Tate periods and Picard-Fuchs families, and its closure (640 upstream stages in 103 roadmaps) contains PerfectoidQuotients outright."
+  },
+  {
+   "a": "SchemeKTheoryOperations",
+   "b": "PeriodsAndSpecialValues",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Periods imports scheme K-theory S.1-S.6 wholesale (it needs the Chern character and Adams operations for regulators) and then adds motives, period torsors, Beilinson regulators, determinant lines, ETNC and multiple zeta values, with the largest closure in the block."
+  },
+  {
+   "a": "SchemeAndStackFoundations",
+   "b": "K2SymbolsBrauer",
+   "farther": "a",
+   "strength": "slight",
+   "reason": "K2 is entirely absent and stacks deeply (spectra and Quillen K-theory beneath Steinberg groups, Matsumoto, tame symbols and Tate's theorem), but its total volume is one subject; scheme foundations, though its SF.0 layer is largely in Mathlib and it imports nothing, must still build algebraic spaces and algebraic stacks, the etale localisation sequence with proper and smooth base change and compact supports, Picard schemes and Jacobians, formal schemes with Grothendieck existence, Neron models and de Jong alterations, and the whole of Chow groups, Chern classes, refined Gysin maps, GRR and the Hodge index theorem."
+  },
+  {
+   "a": "AdicCoefficientsAndComparisons",
+   "b": "PeriodsAndSpecialValues",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Periods' closure contains six of adic coefficients' seven stages and adds everything motivic - realizations, motivic cohomology and regulators, fundamental lines, ETNC, BSD assembly and mixed-Tate periods - 640 upstream stages in 103 roadmaps against 83 in 20."
+  },
+  {
+   "a": "PerfectoidQuotients",
+   "b": "SmallRamificationAndAbelianVarietyBaseCases",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "The Serre base cases import all of PerfectoidQuotients transitively (through the p-adic Hodge and finite-flat-group-scheme roadmaps) and then need Odlyzko-type certified bounds, Tate/Serre nonexistence, Fontaine's and Schoof's theorems on abelian varieties, and the modularity-lifting and potential-modularity towers."
+  },
+  {
+   "a": "DiophantineApproximationAndTranscendence",
+   "b": "AlgebraicModularFormsAndSerreWeights",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Diophantine sits on heights, places and Siegel's lemma that Mathlib already has and imports only two roadmaps; Serre weights has nothing of its algebraic side in either library - no modular curve as a scheme, no Hodge bundle, no characteristic-p form, no k(rho-bar) - and imports compactified modular curves, integral p-adic Hodge theory and eigenform Galois representations."
+  },
+  {
+   "a": "AdicEtaleGeometry",
+   "b": "ComplexMultiplicationAndExplicitReciprocity",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "CM's closure contains all five AdicEtaleGeometry stages and the whole perfectoid tower beneath them, and adds the Shimura-variety canonical models, abelian schemes and arithmetic moduli, modular curves, Neron models and automorphic Galois representations before its own CM types, class polynomials, ring class fields and Hecke characters."
+  },
+  {
+   "a": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "b": "SchemeKTheoryOperations",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Higher local fields imports scheme K-theory S.1-S.6 outright, and adds beneath it all of SF.0-SF.5 (algebraic stacks, the etale six operations, formal geometry and alterations, intersection theory with GRR) and the MotivicEtaleKTheory norm-residue tranche, then its own eight stages: n-local fields with higher topology, Milnor K in all degrees, higher duality with de Rham-Witt coefficients, higher reciprocity, Parshin chains and Kato complexes."
+  },
+  {
+   "a": "DiophantineApproximationAndTranscendence",
+   "b": "SchemeAndStackFoundations",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "Diophantine's basic objects - Weil heights, places, continued fractions, Siegel's lemma - are in Mathlib, and its missing theorems (Roth, the subspace theorem, Baker bounds) are deep but stack only a few layers; scheme foundations must build algebraic spaces and stacks, the etale six operations with proper and smooth base change, Jacobians, formal geometry, Neron models, alterations and the whole of intersection theory with GRR and the Hodge index theorem, in six dependent layers."
+  },
+  {
+   "a": "AdicCoefficientsAndComparisons",
+   "b": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "Higher local fields needs the scheme/stack and K-theory towers plus the norm-residue tranche under its eight higher-CFT stages (30 upstream stages in 8 roadmaps); adic coefficients needs the perfectoid and prismatic tower, all of AdicEtaleGeometry, the diamond programme (D0-D6, C0-C9, S0-S5), classical adic etale cohomology and etale duality, and then its own de Jong alterations, nonnoetherian Nagata compactification and ECD 27.1-27.7 - 83 upstream stages in 20 roadmaps at a markedly greater depth."
+  },
+  {
+   "a": "SmallRamificationAndAbelianVarietyBaseCases",
+   "b": "AlgebraicModularFormsAndSerreWeights",
+   "farther": "a",
+   "strength": "clear",
+   "reason": "The Serre base cases import all six AlgebraicModularForms stages and then add Odlyzko-type certified discriminant bounds, the Tate/Serre mod-2 and mod-3 nonexistence theorems, Fontaine's everywhere-good-reduction theorem in all dimensions, Schoof's semistable theorem with the finite flat group-scheme classification, and the ordinary/potential-modularity terminal cases (399 upstream stages against 226)."
+  },
+  {
+   "a": "K2SymbolsBrauer",
+   "b": "ComplexMultiplicationAndExplicitReciprocity",
+   "farther": "b",
+   "strength": "clear",
+   "reason": "K2 needs K0/K1, spectra and Quillen K-theory beneath Steinberg groups, Matsumoto, tame symbols and tame kernels - one subject, 23 upstream stages; CM needs the main theorem of complex multiplication imported from ShimuraVarieties' canonical models, plus abelian schemes and moduli, Neron models, modular curves and Galois representations, before class polynomials, ring class fields and algebraic Hecke characters."
+  }
+ ]
+}
