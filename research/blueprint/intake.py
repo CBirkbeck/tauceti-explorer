@@ -125,10 +125,22 @@ def auto_refusals(job, files, draft, reviewer_sessions, author_sessions, already
     return found
 
 
+def latest_checks(rollup):
+    """The latest run of each check. A pull request run again on the same commit
+    keeps its earlier runs in the rollup; only the latest says anything."""
+    latest = {}
+    for check in rollup or []:
+        key = (check.get("workflowName") or "", check.get("name") or check.get("context") or "")
+        when = check.get("startedAt") or check.get("createdAt") or ""
+        if key not in latest or when >= (latest[key].get("startedAt") or latest[key].get("createdAt") or ""):
+            latest[key] = check
+    return list(latest.values())
+
+
 def swarm_checked(pr):
-    """The submission check ran on the pull request's latest commit and passed."""
+    """The submission check's latest run on the pull request's latest commit passed."""
     return any(check.get("workflowName") == CHECK and check.get("conclusion") == "SUCCESS"
-               for check in pr.get("statusCheckRollup") or [])
+               for check in latest_checks(pr.get("statusCheckRollup")))
 
 
 def file_problems(path, text):
@@ -165,7 +177,7 @@ def inspect(number, jobs, mapping, auto=False):
             ["gh", "api", f"repos/{REPO}/contents/{path}?ref={data['headRefOid']}", "-H", "Accept: application/vnd.github.raw"],
             capture_output=True, text=True).stdout
         problems += file_problems(path, text)
-    checks = [c.get("conclusion") or c.get("state") or c.get("status") for c in data.get("statusCheckRollup") or []]
+    checks = [c.get("conclusion") or c.get("state") or c.get("status") for c in latest_checks(data.get("statusCheckRollup"))]
     if any(c not in ("SUCCESS", "SKIPPED", "NEUTRAL") + PENDING for c in checks):
         problems.append(f"checks not passed: {checks}")
     elif any(c in PENDING for c in checks):
@@ -272,12 +284,25 @@ def sweep(argv):
             print(f"#{pr['number']}: {exc}")
 
 
+def mark_state(action, merged, pr_state, labels, job_done):
+    """The state label a pull request event gives its job's issue, or None.
+    Each event acts only if the pull request is still as the event left it, so
+    a close and a reopen in quick succession cannot undo each other."""
+    if action in ("opened", "reopened") and pr_state == "OPEN":
+        if "state:available" in labels or "state:claimed" in labels:
+            return "state:submitted"
+    if action == "closed" and not merged and pr_state == "CLOSED" and "state:submitted" in labels and not job_done:
+        return "state:available"
+    return None
+
+
 def mark(number, action, merged):
     """Opening a pull request marks its job submitted; closing it unmerged releases it."""
     jobs, mapping = load_queue()
-    data = json.loads(gh("pr", "view", str(number), "--json", "title,body,files"))
-    job = job_for([item["path"] for item in data["files"]], data["title"] + "\n" + (data["body"] or ""), jobs)
-    issue = issue_for(job, mapping, data["title"] + "\n" + (data["body"] or ""))
+    data = json.loads(gh("pr", "view", str(number), "--json", "title,body,files,state"))
+    text = data["title"] + "\n" + (data["body"] or "")
+    job = job_for([item["path"] for item in data["files"]], text, jobs)
+    issue = issue_for(job, mapping, text)
     if not issue:
         print(f"#{number}: no job issue found")
         return
@@ -286,14 +311,14 @@ def mark(number, action, merged):
     if "swarm" not in labels or current["state"] != "OPEN":
         print(f"#{number}: issue #{issue} is not an open swarm issue")
         return
-    if action in ("opened", "reopened") and ("state:available" in labels or "state:claimed" in labels):
-        set_issue_state(issue, "state:submitted",
-                        f"Submitted in #{number}. The job is nobody else's to claim while the pull request is open; it is "
-                        "merged automatically once its checks pass, and released again if it is closed unmerged.")
-        print(f"#{number}: issue #{issue} submitted")
-    elif action == "closed" and merged != "true" and "state:submitted" in labels and not (job and job.get("state") == "done"):
-        set_issue_state(issue, "state:available", f"#{number} was closed without merging, so the job is available again.")
-        print(f"#{number}: issue #{issue} released")
+    done = bool(job) and (job.get("state") == "done" or deliverables_complete(job, ROOT))
+    wanted = mark_state(action, merged == "true", data["state"], labels, done)
+    if wanted == "state:submitted":
+        set_issue_state(issue, wanted, f"Submitted in #{number}. The job is nobody else's to claim while the pull request is open; it is "
+                                       "merged automatically once its check passes, and released again if it is closed unmerged.")
+    elif wanted == "state:available":
+        set_issue_state(issue, wanted, f"#{number} was closed without merging, so the job is available again.")
+    print(f"#{number}: issue #{issue} {wanted or 'unchanged'}")
 
 
 def check_files(paths):
