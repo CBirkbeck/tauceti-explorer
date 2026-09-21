@@ -15333,7 +15333,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-10.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #890"
   },
   {
    "id": "PLANETS-11",
