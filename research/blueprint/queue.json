@@ -6200,7 +6200,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MERKURJEV-SCAVIA-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1408"
   },
   {
    "id": "REV-PAPER-MERKURJEV-SCAVIA-26",
