@@ -1,7 +1,8 @@
 {
   "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
   "protocol": "links-v1",
-  "summary": "Partial submission: 11 outward prerequisite links (8 explicit, 3 inferred) to AlgebraicTopology, BelyiMaps and LieGroups; no inward links established. Three concrete scope splits concern generic associated covers, covering Lie groups and absolute versus relative homotopy. The handoff records the misplaced van Kampen prerequisite, opposite-action convention and punctured-disc classification gap. Catalogue-wide screening remains incomplete; this is not an exhaustive link inventory or an integration-ready completion.",
+  "status": "partial",
+  "summary": "Continuation of merged checkpoint #381: preserve its 11 outward links (8 explicit, 3 inferred) and three rescope proposals. Extend the documented reading to ConformalMapping, selected ModularForms and HopfRinow passages, and the compact-real Spin clauses. No extra directed edge is justified by those bounded readings. Pinned source inspection supplies the associated-cover projection, fibre equivalence and monodromy compatibility: reuse them rather than rebuild them. Catalogue-wide coverage, global duplicate checking and independent mathematical review remain unfinished. The 2026-09-17 recovery submits work whose earlier upload failed; it does not claim exhaustive coverage or implementation completion.",
   "links": [
     {
       "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti",
@@ -9,14 +10,8 @@
       "reason": "Stage 0.4 supplies the deck-transformation group and its action by homeomorphisms. AlgebraicTopology Stage 5.3 uses that action to form the sum of induced chain maps for a regular finite cover. AlgebraicTopology's ownership section expressly assigns the deck-group construction to UniversalCovers; transfer, its coefficient hypotheses and Cartan--Leray remain AlgebraicTopology's work. This does not make the entire homology programme depend on subgroup classification.",
       "confidence": "explicit",
       "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti",
-          "quote": "**Deck transformation group** (from #40135): `Deck p` as a `Subgroup (E ≃ₜ E)` for\n   `p : E → X`, with the upstream `MulAction (X ≃ₜ X) X` / `FaithfulSMul` /\n   `ContinuousConstSMul` instances; subgroup transfer gives `Deck p` its `Group`,\n   `MulAction E`, `FaithfulSMul E`, `ContinuousConstSMul E`."
-        },
-        {
-          "stageId": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
-          "quote": "For a regular cover with finite\n   deck group `G`, also prove `transfer p_* = sum_(g in G) g_*` and identify the quotient chain\n   complex `C_*(E;R)_G` naturally with `C_*(B;R)`."
-        }
+        {"stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti", "quote": "**Deck transformation group** (from #40135): `Deck p` as a `Subgroup (E ≃ₜ E)` for\n   `p : E → X`, with the upstream `MulAction (X ≃ₜ X) X` / `FaithfulSMul` /\n   `ContinuousConstSMul` instances; subgroup transfer gives `Deck p` its `Group`,\n   `MulAction E`, `FaithfulSMul E`, `ContinuousConstSMul E`."},
+        {"stageId": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent", "quote": "For a regular cover with finite\n   deck group `G`, also prove `transfer p_* = sum_(g in G) g_*` and identify the quotient chain\n   complex `C_*(E;R)_G` naturally with `C_*(B;R)`."}
       ]
     },
     {
@@ -25,14 +20,8 @@
       "reason": "Stage 3.9 supplies the absolute higher-homotopy induced-map and basepoint-change API explicitly consumed by AlgebraicTopology Stage 8. Relative homotopy of based pairs, its low-degree group/pointed-set distinctions, Kan comparison and Hurewicz--Whitehead remain in AlgebraicTopology. Relative homotopies on the boundary of a cube are not by themselves the relative homotopy groups of arbitrary pairs.",
       "confidence": "explicit",
       "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy",
-          "quote": "**`π_n` API:** functoriality (`π_n` of a continuous map), pointed maps, the\n    boundary-relative homotopy API on `Ω^N`, (pre)connectedness of cubes and cube\n    boundaries for `n ≥ 2`, and basepoint-change isomorphisms."
-        },
-        {
-          "stageId": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
-          "quote": "This stage consumes Stages 2--4, the universal-covers roadmap's induced-map and basepoint API,\nand geometric topology's smooth-triangulation result for the manifold corollaries."
-        }
+        {"stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy", "quote": "**`π_n` API:** functoriality (`π_n` of a continuous map), pointed maps, the\n    boundary-relative homotopy API on `Ω^N`, (pre)connectedness of cubes and cube\n    boundaries for `n ≥ 2`, and basepoint-change isomorphisms."},
+        {"stageId": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead", "quote": "This stage consumes Stages 2--4, the universal-covers roadmap's induced-map and basepoint API,\nand geometric topology's smooth-triangulation result for the manifold corollaries."}
       ]
     },
     {
@@ -41,14 +30,8 @@
       "reason": "Belyi 5.1 must discharge the supplier's actual hypothesis classes for the thrice-punctured sphere before its later covering classification can be instantiated. UniversalCovers Stage 0.2 fixes those classes and the based universal-cover carrier. In particular, prove path-connectedness of this particular punctured plane; an arbitrary open subset of C is not necessarily connected.",
       "confidence": "explicit",
       "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti",
-          "quote": "**The based-path space and the cover** (from #38292), under\n   `[PathConnectedSpace X] [LocPathConnectedSpace X] [SemilocallySimplyConnectedSpace X]`:"
-        },
-        {
-          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group",
-          "quote": "*Prerequisites:* Mathlib `Complex`, `LocPathConnectedSpace`, `OnePoint`,\n`Convex.isPathConnected`; UniversalCovers milestone 2's hypothesis classes."
-        }
+        {"stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti", "quote": "**The based-path space and the cover** (from #38292), under\n   `[PathConnectedSpace X] [LocPathConnectedSpace X] [SemilocallySimplyConnectedSpace X]`:"},
+        {"stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group", "quote": "*Prerequisites:* Mathlib `Complex`, `LocPathConnectedSpace`, `OnePoint`,\n`Convex.isPathConnected`; UniversalCovers milestone 2's hypothesis classes."}
       ]
     },
     {
@@ -57,14 +40,8 @@
       "reason": "Belyi 5.4 explicitly uses the deck/fundamental-group identification to compute pi_1 of the punctured plane from the exponential covering. Transport Stage 1's based universal-cover statement to that simply connected covering using Stage 0's universal lifting comparison; supply the induced identification on the chosen positive loop. The winding-number comparison and punctured-convex-domain deformation retractions remain Belyi's responsibility. The opposite-group convention must not be silently discarded merely because this example is abelian.",
       "confidence": "explicit",
       "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-1-close-out-the-universal-cover",
-          "quote": "⚠ Convention check first: depending on the chosen left/right action and deck-map\n   composition order, the correct statement may be\n   `Deck(proj) ≃* (FundamentalGroup X x₀)ᵐᵒᵖ`. Pin the convention before stating the\n   target."
-        },
-        {
-          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group",
-          "quote": "`ℂ`\n  is convex, hence simply connected; so UniversalCovers' quotient-covering identification\n  applies and `π₁` is the acting group."
-        }
+        {"stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-1-close-out-the-universal-cover", "quote": "⚠ Convention check first: depending on the chosen left/right action and deck-map\n   composition order, the correct statement may be\n   `Deck(proj) ≃* (FundamentalGroup X x₀)ᵐᵒᵖ`. Pin the convention before stating the\n   target."},
+        {"stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group", "quote": "`ℂ`\n  is convex, hence simply connected; so UniversalCovers' quotient-covering identification\n  applies and `π₁` is the acting group."}
       ]
     },
     {
@@ -73,46 +50,28 @@
       "reason": "Belyi 5.7 explicitly requests the basepoint-change API accompanying UniversalCovers milestone 7. Supply actual path-induced fundamental-group isomorphisms and the change-of-path conjugation law from the standing basepoint policy, not just a theorem about conjugacy classes of recovered subgroups. Belyi then proves the peripheral conjugacy-class statement; it cannot claim path-independent peripheral elements.",
       "confidence": "explicit",
       "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
-          "quote": "build the API for basepoint change along a path, conjugation of\nsubgroups under basepoint change, and isomorphism of covers over `X`."
-        },
-        {
-          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group",
-          "quote": "*Prerequisites:* Layers 5.2, 5.6; UniversalCovers milestone 7's basepoint-change API."
-        }
+        {"stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence", "quote": "build the API for basepoint change along a path, conjugation of\nsubgroups under basepoint change, and isomorphism of covers over `X`."},
+        {"stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group", "quote": "*Prerequisites:* Layers 5.2, 5.6; UniversalCovers milestone 7's basepoint-change API."}
       ]
     },
     {
       "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti",
       "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples",
-      "reason": "Belyi 6.2 constructs an associated cover from the universal-cover carrier, its free deck action and its local sheets; 6.3--6.4 use the generic Deck carrier. All three base-space hypotheses remain necessary for this construction. The quotient map from the product to the associated cover and the projection of the associated cover to X are distinct: the latter covering theorem still requires Belyi 6.2's equivariant sheet computation unless that generic construction is reassigned as proposed in the overlap record.",
+      "reason": "Belyi 6.2 consumes the universal-cover carrier, its free action and local sheets in the associated-cover construction; 6.3--6.4 also use the generic Deck carrier. Keep the three base-space hypotheses when instantiating UniversalCover, and distinguish the product-to-quotient map from the associated-cover projection to X. Continuation source inspection at the recorded Tau Ceti pin found BalancedProduct.isCoveringMap_proj and UniversalCover.isCoveringMap_actionCoverProj, so the consumer should instantiate those existing projection theorems, not reprove their sheet argument. Matching Belyi's right-action convention to the pinned left inverse-loop action is still an explicit integration obligation.",
       "confidence": "explicit",
       "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti",
-          "quote": "`UniversalCover x₀` as `BasedPath x₀` modulo endpoint-preserving homotopy, with the\n     quotient topology, plus `proj` and the sheet decomposition;\n   - `IsCoveringMap proj`, `PathConnectedSpace`, `SimplyConnectedSpace (UniversalCover x₀)`,\n     and the universal lifting property `existsUnique_continuousMap_lifts`."
-        },
-        {
-          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples",
-          "quote": "*Prerequisites:* Layers 5.3, 5.6; UniversalCovers milestones 3, 4, 5; Mathlib\n`IsQuotientCoveringMap`, `MulAction`, `LocPathConnectedSpace`."
-        }
+        {"stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti", "quote": "`UniversalCover x₀` as `BasedPath x₀` modulo endpoint-preserving homotopy, with the\n     quotient topology, plus `proj` and the sheet decomposition;\n   - `IsCoveringMap proj`, `PathConnectedSpace`, `SimplyConnectedSpace (UniversalCover x₀)`,\n     and the universal lifting property `existsUnique_continuousMap_lifts`."},
+        {"stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples", "quote": "*Prerequisites:* Layers 5.3, 5.6; UniversalCovers milestones 3, 4, 5; Mathlib\n`IsQuotientCoveringMap`, `MulAction`, `LocPathConnectedSpace`."}
       ]
     },
     {
       "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-1-close-out-the-universal-cover",
       "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples",
-      "reason": "Belyi 6.2 uses a right deck action and the diagonal left action (u,s) -> (u gamma^-1, gamma s); 6.4 absorbs the opposite group in the deck-to-centralizer comparison. These constructions require Stage 1's map-level identification with an explicit convention. The supplier currently leaves that convention open while Belyi assumes the opposite-group version; reconciliation is an outstanding supplier contract, not evidence that the map has already been implemented.",
+      "reason": "Belyi 6.2 uses a right deck action and the diagonal left action (u,s) -> (u gamma^-1, gamma s); 6.4 absorbs the opposite group in the deck-to-centralizer comparison. These constructions require Stage 1's map-level identification with an explicit convention. The roadmap leaves that convention open, but the pinned Action.lean defines the fundamental-group left action by prepending the inverse loop, and ActionCover.lean proves equivariance for its diagonal balanced product. The remaining task is to reconcile Belyi's written convention with those actual maps and the Deck comparison; do not infer a new opposite-group identification from an abstract group isomorphism alone.",
       "confidence": "explicit",
       "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-1-close-out-the-universal-cover",
-          "quote": "⚠ Convention check first: depending on the chosen left/right action and deck-map\n   composition order, the correct statement may be\n   `Deck(proj) ≃* (FundamentalGroup X x₀)ᵐᵒᵖ`. Pin the convention before stating the\n   target."
-        },
-        {
-          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples",
-          "quote": "**The action, pinned.** UniversalCovers milestone 5 identifies the deck group with\n`(π₁)ᵐᵒᵖ`, so `π₁` acts on `Ũ` on the **right**:"
-        }
+        {"stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-1-close-out-the-universal-cover", "quote": "⚠ Convention check first: depending on the chosen left/right action and deck-map\n   composition order, the correct statement may be\n   `Deck(proj) ≃* (FundamentalGroup X x₀)ᵐᵒᵖ`. Pin the convention before stating the\n   target."},
+        {"stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples", "quote": "**The action, pinned.** UniversalCovers milestone 5 identifies the deck group with\n`(π₁)ᵐᵒᵖ`, so `π₁` acts on `Ũ` on the **right**:"}
       ]
     },
     {
@@ -121,30 +80,18 @@
       "reason": "Belyi 6.3 composes its marked-triple classification with the generic pointed-cover/subgroup classification. Its 6.4--6.5 also consume the normalizer/deck and regular-cover results. Preserve index = degree, pointed versus unpointed quotients, subgroup conjugation orbits, and all base-space hypotheses; a numbered fibre is strictly more data than one marked point.",
       "confidence": "explicit",
       "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
-          "quote": "**pointed** connected covers of `(X, x₀)` (with chosen lift `e₀`) ↔ **subgroups** of\n     `π₁(X, x₀)`;\n   - **unpointed** connected covers ↔ **conjugacy classes** of subgroups."
-        },
-        {
-          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples",
-          "quote": "The further identification with **subgroups of `π₁(U, b)` of index `n`** — pointed\n   connected covers ↔ subgroups, and unpointed ↔ conjugacy classes of subgroups — is\n   UniversalCovers milestone 8 and is **not restated here**; this roadmap composes with it\n   rather than reproving it."
-        }
+        {"stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence", "quote": "**pointed** connected covers of `(X, x₀)` (with chosen lift `e₀`) ↔ **subgroups** of\n     `π₁(X, x₀)`;\n   - **unpointed** connected covers ↔ **conjugacy classes** of subgroups."},
+        {"stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples", "quote": "The further identification with **subgroups of `π₁(U, b)` of index `n`** — pointed\n   connected covers ↔ subgroups, and unpointed ↔ conjugacy classes of subgroups — is\n   UniversalCovers milestone 8 and is **not restated here**; this roadmap composes with it\n   rather than reproving it."}
       ]
     },
     {
       "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
       "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-7-compactification-and-topological-branched-covers",
-      "reason": "Belyi 7.1 needs generic connected finite-cover classification over the punctured disc, followed by pi_1(D*) = Z and the index-e subgroup calculation. Belyi 6.3's specific triple classification over C minus {0,1} cannot merely be transported to D*, since the bases have different fundamental groups. Use UniversalCovers Stage 2 directly, together with the local power-map model and its monodromy. This is an inferred missing direct supplier, not a claim that the written Belyi prerequisite list is already sufficient. Layer 7 remains at its current atlas ID despite the prose assigning it to a future analytic successor.",
+      "reason": "Belyi 7.1 needs generic connected finite-cover classification over the punctured disc, followed by pi_1(D*) = Z and the index-e subgroup calculation. Belyi 6.3's specific triple classification over C minus {0,1} cannot merely be transported to D*, since the bases have different fundamental groups. Use UniversalCovers Stage 2 directly, together with the local power-map model and its monodromy. This is an inferred missing direct supplier, not a claim that the written Belyi prerequisite list is already sufficient or that generic classification is absent from the library. Layer 7 remains at its current atlas ID despite the prose assigning it to a future analytic successor.",
       "confidence": "inferred",
       "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
-          "quote": "*Alternative lens:* phrase the classification of connected covers via transitive\n     `π₁(X)`-sets / the monodromy functor"
-        },
-        {
-          "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-7-compactification-and-topological-branched-covers",
-          "quote": "Every connected covering map onto the punctured disc `𝔻* = {z | 0 < |z| < 1}` with finite\nfiber of cardinality `e ≥ 1` is isomorphic over `𝔻*` to the restriction of `z ↦ z^e`."
-        }
+        {"stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence", "quote": "*Alternative lens:* phrase the classification of connected covers via transitive\n     `π₁(X)`-sets / the monodromy functor"},
+        {"stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-7-compactification-and-topological-branched-covers", "quote": "Every connected covering map onto the punctured disc `𝔻* = {z | 0 < |z| < 1}` with finite\nfiber of cardinality `e ≥ 1` is isomorphic over `𝔻*` to the restriction of `z ↦ z^e`."}
       ]
     },
     {
@@ -153,14 +100,8 @@
       "reason": "The topological half of LieGroups Layer 5 needs the based simply connected covering and unique lifting supplied by UniversalCovers Stage 0. For a connected finite-dimensional real smooth Lie group, use the identity as basepoint and prove path-connectedness, local path-connectedness and semilocal simple connectivity from the manifold hypotheses. LieGroups must still lift the group operations, prove their laws and transport the smooth structure; a topological covering is not automatically a smooth local diffeomorphism for arbitrary preassigned smooth structures.",
       "confidence": "inferred",
       "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti",
-          "quote": "`UniversalCover x₀` as `BasedPath x₀` modulo endpoint-preserving homotopy, with the\n     quotient topology, plus `proj` and the sheet decomposition;\n   - `IsCoveringMap proj`, `PathConnectedSpace`, `SimplyConnectedSpace (UniversalCover x₀)`,\n     and the universal lifting property `existsUnique_continuousMap_lifts`."
-        },
-        {
-          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra",
-          "quote": "**Simply-connected covers.** Every **connected** Lie group `G` has a **universal cover** `G̃` that is a\n  simply-connected Lie group with a **covering homomorphism** `p : G̃ →* G` (`IsCoveringMap p`),"
-        }
+        {"stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti", "quote": "`UniversalCover x₀` as `BasedPath x₀` modulo endpoint-preserving homotopy, with the\n     quotient topology, plus `proj` and the sheet decomposition;\n   - `IsCoveringMap proj`, `PathConnectedSpace`, `SimplyConnectedSpace (UniversalCover x₀)`,\n     and the universal lifting property `existsUnique_continuousMap_lifts`."},
+        {"stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra", "quote": "**Simply-connected covers.** Every **connected** Lie group `G` has a **universal cover** `G̃` that is a\n  simply-connected Lie group with a **covering homomorphism** `p : G̃ →* G` (`IsCoveringMap p`),"}
       ]
     },
     {
@@ -169,98 +110,76 @@
       "reason": "LieGroups Layer 5 identifies the discrete kernel of its covering homomorphism with pi_1(G). The deck/fundamental-group identification supplies the topological comparison after LieGroups identifies deck transformations with translations by the kernel. Prove centrality using the lifted connected group structure, and fix the opposite-group conversion at the map level. UniversalCovers alone does not prove the Lie-group or central-kernel assertions.",
       "confidence": "inferred",
       "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-1-close-out-the-universal-cover",
-          "quote": "⚠ Convention check first: depending on the chosen left/right action and deck-map\n   composition order, the correct statement may be\n   `Deck(proj) ≃* (FundamentalGroup X x₀)ᵐᵒᵖ`. Pin the convention before stating the\n   target."
-        },
-        {
-          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra",
-          "quote": "The kernel `ker p` is a discrete central subgroup isomorphic to `π₁(G)`."
-        }
+        {"stageId": "tauceti:TauCetiRoadmap/UniversalCovers#stage-1-close-out-the-universal-cover", "quote": "⚠ Convention check first: depending on the chosen left/right action and deck-map\n   composition order, the correct statement may be\n   `Deck(proj) ≃* (FundamentalGroup X x₀)ᵐᵒᵖ`. Pin the convention before stating the\n   target."},
+        {"stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra", "quote": "The kernel `ker p` is a discrete central subgroup isomorphic to `π₁(G)`."}
       ]
     }
   ],
   "overlaps": [
     {
-      "stages": [
-        "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
-        "tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples"
-      ],
-      "detail": "UniversalCovers Stage 2 lists pi_1-set classification as an alternative route; Belyi 6.2 specifies its generic inverse-monodromy associated-cover construction and already labels it an unresolved UniversalCovers supplier contract. Both texts therefore touch the same generic mathematics, but its exact owning stage and API still need reconciliation.",
+      "stages": ["tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence", "tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples"],
+      "detail": "UniversalCovers Stage 2 lists pi_1-set classification as an alternative route; Belyi 6.2 specifies the same generic inverse-monodromy associated-cover construction. At the recorded Tau Ceti pin, the balanced-product carrier, its projection-covering theorem, fibre equivalence and monodromy compatibility already have source declarations. The overlap is now chiefly roadmap ownership, consumer reconciliation and any additional functorial/component contracts, not a missing object-level construction.",
       "recommendation": "rescope",
-      "proposal": "Make the supplier split already intended by Belyi explicit: UniversalCovers owns the generic associated-cover functor with its topology, projection-covering theorem, fibre equivalence, monodromy calculation, equivariant functoriality and orbit/component comparison. Keep finite numbered/pointed/unnumbered triple classifications and branch-point actions in Belyi or its declared successor. Preserve the distinction between product-to-quotient and associated-cover-to-base covering maps; the former does not prove the latter."
+      "proposal": "Keep generic associated covers under UniversalCovers, and reuse TauCeti.BalancedProduct.isCoveringMap_proj plus TauCeti.UniversalCover.isCoveringMap_actionCoverProj, actionCoverFiberEquiv and monodromy_actionCoverFiberEquiv at the recorded pin. Reconcile the actual left inverse-loop action with Belyi's written right action before transporting its finite numbered/pointed/unnumbered triple classifications. Keep branch-point actions in Belyi or its declared successor. Equivariant functoriality, coproducts and orbit/component comparison remain unverified in this continuation; do not call them absent or rebuild them without searching their sources. The product quotient and projection to the base remain distinct maps."
     },
     {
-      "stages": [
-        "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti",
-        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra"
-      ],
+      "stages": ["tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti", "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra"],
       "detail": "LieGroups Layer 5 lists construction of the underlying universal covering space alongside its new group law and smooth structure; the generic topological construction is already the scope of UniversalCovers Stage 0.",
       "recommendation": "rescope",
       "proposal": "Import the UniversalCovers carrier and lifting property rather than build a second path quotient. Keep the lifted group operations, smooth covering homomorphism, Lie-algebra comparison and central-kernel calculation in LieGroups. Separate the early cover construction, needed by Layer 4's Lie III proof, from the later descent refinement that uses Layer 4; the current whole-layer dependency would otherwise conceal a cycle."
     },
     {
-      "stages": [
-        "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead"
-      ],
+      "stages": ["tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy", "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead"],
       "detail": "Both texts list pointed maps, functoriality and basepoint change for cubical homotopy groups. AlgebraicTopology expressly consumes that absolute API but also repeats it in Stage 8.1 while extending to pairs.",
       "recommendation": "rescope",
       "proposal": "Keep the absolute cubical induced-map, basepoint-change and boundary-relative representative API in UniversalCovers Stage 3. AlgebraicTopology Stage 8 imports it and owns relative homotopy groups of based pairs, connecting maps, Kan comparison and Hurewicz--Whitehead. Record this split in declaration-level dependencies rather than making the entire roadmaps depend on one another."
     }
   ],
   "examined": [
-    {
-      "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
-      "result": "links",
-      "note": "Focal README and all five stage descriptions read in full; inputs/outputs saved in scratch. No implementation-status assertion inferred from its inventory."
-    },
-    {
-      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
-      "result": "links",
-      "note": "Full README read, including ownership, all Stages 1--8 and reference tail. Exact Stage 5 and Stage 8 contracts matched; absolute/relative API overlap recorded. This is a scope check, not verification of every cited external theorem."
-    },
-    {
-      "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
-      "result": "links",
-      "note": "Read ownership/merge boundaries and all of Layers 5, 6 and 7, not the full 4,600-line programme. Seven direct links and the associated-cover overlap; van Kampen ownership correction requested separately."
-    },
-    {
-      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
-      "result": "links",
-      "note": "Read standing hypotheses and the cover/Lie III portions, including the full Layer 5. Two inferred links and a generic-cover scope split; no claim of a full Lie-theory review."
-    },
-    {
-      "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
-      "result": "none",
-      "note": "Full README read, including ownership, conventions, all Layers 0--6 and reference tail. The global text names UniversalCovers, but its stage-level quotient constructions also name Mathlib/complex-manifold suppliers. No precise additional edge accepted yet: elliptic coarse quotients are branched, and the free locus need not be simply connected. A torsion-free/deck specialization needs a precise owner contract; none is not a proof of absence."
-    },
-    {
-      "roadmapId": "StableHomotopyKTheory",
-      "result": "none",
-      "note": "Full campaign README read. H.1 constructs BG as K(G,1), while UniversalCovers Stage 4 only recognizes such spaces given a suitable cover. The README does not pin an EG-cover proof route; no mandatory direct link asserted. Existing source decomposition remains to inspect."
-    },
-    {
-      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
-      "result": "none",
-      "note": "Read introduction and standing conventions; search found separate real/topological and complex/algebraic simple-connectivity clauses. No direct dependency accepted from the algebraic double-cover vocabulary. Real-form stages remain to inspect."
-    }
+    {"roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers", "result": "links", "note": "Focal README and all five stage descriptions read in full in the inherited checkpoint; continuation re-read the full README. Its historical inventory is not treated as the current library baseline. The separate pinned source checks have the narrower scopes recorded in provenance."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology", "result": "links", "note": "Inherited checkpoint: full README including ownership, Stages 1--8 and reference tail. Exact Stage 5 and Stage 8 contracts matched. This continuation preserves the edges and evidence; it is not an independent re-review."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps", "result": "links", "note": "Inherited checkpoint: ownership/merge boundaries and all Layers 5--7, not the full long programme. Seven links and the associated-cover overlap retained. Continuation narrows the generic-cover gap through pinned source statements; it does not claim the whole Belyi programme was re-read."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups", "result": "links", "note": "Inherited checkpoint: standing hypotheses and cover/Lie III portions, including full Layer 5. Two inferred links and a generic-cover scope split retained. Neither a full Lie-theory review nor independent review is claimed."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds", "result": "none", "note": "Inherited checkpoint: full README, conventions and Layers 0--6. No precise extra stage edge accepted: elliptic coarse quotients are branched and a free locus need not be simply connected. Selected ModularForms text assigns quotient ownership here; an actual lambda/deck consumer remains to identify."},
+    {"roadmapId": "StableHomotopyKTheory", "result": "none", "note": "Inherited checkpoint: full campaign README. H.1 constructs BG as K(G,1), whereas UniversalCovers Stage 4 recognizes spaces from a suitable given cover. The integrated decomposition and a definite EG-cover proof route remain to inspect. None is not a proof of absence."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations", "result": "none", "note": "Continuation read Layer 2 and the compact-real connectivity clause in Layer 7 with opening conventions. Algebraic double covers are not topological simple-connectivity theorems. The compact case needs a precise proof rather than path-connectedness of spheres alone; see R8. No compulsory generic universal-cover edge is inferred from naming the result a universal cover."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping", "result": "none", "note": "Full README read in the continuation, including L0--L6 and sibling relations. UniversalCovers and reflection/boundary correspondence are co-suppliers to a cited modular-lambda application, not suppliers to each other. Analytic monodromy vocabulary alone gives no dependency. Reconcile the historical ModularForms description with actual consumer stages."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/ModularForms", "result": "none", "note": "Continuation read lines 1--110 and 1250--1480: opening ownership/import graph and selected ordering, Layer 11 and acceptance passages, not the full programme. The visible ordering runs through Layer 11 and assigns quotient/degree geometry to FuchsianOrbifolds. It does not justify inventing a Layer 12 lambda endpoint from sibling prose."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/HopfRinow", "result": "none", "note": "Continuation read the accessible extract prefix: summary and all of Layers 0 and 1, concerning distance, Levi-Civita connection, geodesic flow and the local inverse-function theorem. No direct cover dependency accepted from those passages. Later layers remain a required same-area reading."}
   ],
   "coverageStatus": "partial",
   "provenance": {
-    "worker": "ChatGPT Pro — cgp-f522e092da3e",
+    "worker": "ChatGPT Pro — cgp-f3bded93bb21",
     "jobId": "LINK-tauceti_TauCetiRoadmap_UniversalCovers",
     "issue": 70,
-    "inputRevision": "85fa2e92d171967337d6b9538b533c8861e2b6d9",
-    "atlasBlob": "37f2add06983c206067d1104e0f40a839cc3961a",
-    "baseline": {
-      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
-      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+    "inputRevision": "088ac3dcfb573a1e875fcea971ce54526bbe74d3",
+    "recoveryDate": "2026-09-17",
+    "recoveryBaseRevision": "dbafc759460581dbd23999a3c112149fedefe2b5",
+    "submissionBranch": "cgp-f3bded93bb21/link-70-recovery-20260917",
+    "baseline": {"tauceti": "f790474821cf4256814db967cb154e7af3d0c369", "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174"},
+    "previousCheckpoint": {
+      "worker": "ChatGPT Pro — cgp-f522e092da3e",
+      "pullRequest": 381,
+      "inputRevision": "85fa2e92d171967337d6b9538b533c8861e2b6d9",
+      "packetBlob": "d8d0a060c9bc35b6f9130ffb7c4bbafa1fc6327f",
+      "handoffBlob": "1608f48c4b476f50737d233b23cc710932a490c8",
+      "sourceAudit": "Inherited reading scopes remain distinguished from continuation work; this is not the independent review."
     },
-    "libraryVerification": "No declaration-source verification performed; quoted roadmap inventories are not adopted as library-baseline facts.",
-    "submissionBaseRevision": "7821d19ab4fd547181beb46287f8968ec64847d1",
-    "inputRecheck": "GitHub compare from inputRevision to submissionBaseRevision showed the atlas, baseline, cited content documents and check_links.py unchanged. Browser instructions and new browser-sized atlas extracts were read at submissionBaseRevision.",
-    "browserInstructionsBlob": "75ae064dee2fdbf87c7331475520ce445604788d",
-    "focalAtlasExtractBlob": "5afb37ba4e56b5835f7ac5573b55fbbb99eaa6f1"
+    "focalAtlasExtractBlob": "5afb37ba4e56b5835f7ac5573b55fbbb99eaa6f1",
+    "libraryVerification": "Statements inspected at explicit library pins. No Lean build, axiom audit or implementation-completion claim. Search misses are not baseline absence proofs.",
+    "baselineSources": [
+      {"repository": "TauCetiProject/TauCeti", "path": "TauCeti/Topology/Covering/BalancedProduct.lean", "blob": "238e68b001cc759c497b30e20f978d5cb498718a", "read": "lines 1--265: definitions and hypotheses, mk_smul_left, isQuotientCoveringMap_mk and isCoveringMap_proj with proof; fibre tail not independently read"},
+      {"repository": "TauCetiProject/TauCeti", "path": "TauCeti/AlgebraicTopology/UniversalCover/Classification/ActionCover.lean", "blob": "401dfe4658ce1c0569c8e894c50a427e56ff306c", "read": "full file, including projection, fibre equivalence, monodromy compatibility and bundled versions, with section hypotheses and proofs"},
+      {"repository": "TauCetiProject/TauCeti", "path": "TauCeti/AlgebraicTopology/UniversalCover/Action.lean", "blob": "e9c1283bbc2b7d5d19836a592a77ba415ecf06c7", "read": "lines 1--145: inverse-prepending action, smul_mk, inv_smul_mk and action instances; later monodromy_basepointLift theorem not independently read"},
+      {"repository": "leanprover-community/mathlib4", "path": "Mathlib/Topology/Covering/Quotient.lean", "blob": "278603a2b6d3e39b64f3ee9e046c1b70cbb5f8cb", "read": "lines 1--130: IsQuotientCoveringMap fields, map_smul and free-action consequence"}
+    ],
+    "previousAttempt": {
+      "baseRevision": "be09b0fb85faab7fc6a8646e9f524140cfa0df2e",
+      "branch": "cgp-f3bded93bb21/link-universal-covers-70-continuation",
+      "outcome": "Branch creation succeeded, but the file write was blocked and the handoff comment failed with HTTP 403 secondary rate limit. No continuation PR or CI run was created. Files were preserved locally."
+    },
+    "recoveryCheck": "At recoveryBaseRevision the focal main-branch packet and handoff still had the previousCheckpoint blob hashes. No newer focal work is overwritten. Current issue/comments and all four rules documents were re-read. Other source documents, new roadmap definitions and other packets have not been globally rechecked against this base; the historical source input is retained explicitly.",
+    "claim": {"comment": 5697595889, "workflowConfirmation": 5697597482, "resumptionComment": 5713480874},
+    "validation": "The saved continuation passed JSON parsing and limited local edge-consistency checks. The official full-world validator has not run locally. The PR workflow result must be read after this upload and reported in the issue; no success is anticipated here. The earlier successful run 35092120261 belongs to PR #381, not to this continuation. Structural checks do not certify coverage or mathematics."
   }
 }
