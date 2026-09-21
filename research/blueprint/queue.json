@@ -914,8 +914,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_AdicSpaces",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_AdicSpaces.md",
-   "state": "pending",
-   "note": "stale claim released"
+   "state": "external",
+   "note": "claimed on GitHub issue #82"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
@@ -3989,7 +3989,8 @@
    ],
    "avoidAccountOf": "RS-20",
    "prompt": "research/blueprint/prompts/REV-RS-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #839"
   },
   {
    "id": "RS-21",
