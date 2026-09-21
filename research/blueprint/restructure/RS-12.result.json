@@ -15,7 +15,7 @@
   "layers": {
     "AutomorphicGaloisRepresentations:R19.1": {
       "action": "keep",
-      "reason": "Keep the actual classical geometric constructions: weight-two Jacobian components, higher-weight parabolic/symmetric-power or Kuga-Sato cohomology, projectors, dimension, coefficient fields and stable lattices, arithmetic dual/twist and geometric Eichler-Shimura polynomial. Keep Deligne-Serre weight one separately. Higher-rank regular algebraic existence neither supplies that weight-one case nor replaces these realizations. Generic representation/lattice machinery remains R01.1; prove its geometric application here."
+      "reason": "Keep the actual classical geometric constructions: weight-two Jacobian components, higher-weight parabolic/symmetric-power or Kuga-Sato cohomology, projectors, dimension, coefficient fields and stable lattices, arithmetic dual/twist and geometric Eichler-Shimura polynomial. Keep Deligne-Serre weight one separately. Higher-rank regular algebraic existence neither supplies that weight-one case nor replaces these realizations. Generic representation/lattice machinery remains R01.1; prove its geometric application here. During integration preserve the report's required correction to the inherited geometric-construction node: its universal one-subgroup assertion in characteristic p is false for ordinary elliptic curves. Keep finite representability and the Eichler-Shimura construction, but replace that fibre-count subclaim by a sourced ordinary/supersingular distinction; the nonsingular curve y^2=x^3+3x+2 over F_5 already has a reduced subgroup of order 5 distinct from its Frobenius kernel. This review does not mark the inherited partial decomposition complete."
     },
     "AutomorphicGaloisRepresentations:R19.2": {
       "action": "keep",
@@ -76,7 +76,7 @@
     },
     "AutomorphicGaloisRepresentationsPartII:AG2.5": {
       "action": "narrow",
-      "keeps": "Keep all good-prime and ramified comparisons outside the exact R19.4 overlap, in arbitrary rank and CM/totally-real branches, including new rank-two cases. Keep the late rec-normalization comparison, monodromy partial order, polarized nearby-cycle/purity upgrades and nonselfdual Varma interpolation/bound. On the classical/Hilbert overlap import R19.4 full Weil-Deligne equality and transport it through the representation comparison. Distinguish underlying semisimplification, full Frobenius-semisimplification retaining N, and a monodromy bound; the weaker branch is never silently strengthened.",
+      "keeps": "Keep all good-prime and ramified comparisons outside the exact R19.4 overlap, in arbitrary rank and CM/totally-real branches, including new rank-two cases. Keep the late rec-normalization comparison, monodromy partial order, polarized nearby-cycle/purity upgrades and nonselfdual Varma interpolation/bound. On the classical/Hilbert overlap import R19.4 full Weil-Deligne equality and transport it through the representation comparison. Distinguish underlying semisimplification, full Frobenius-semisimplification retaining N, and a monodromy bound; the weaker branch is never silently strengthened. Correct the acceptance example in the current Part II README: use an irreducible ramified principal series with N=0, and separately a Steinberg twist with nonzero rank-one N. Ramification of the Weil characters is not nilpotent monodromy; retain both tests rather than dropping the ramified example.",
       "suppliedBy": [
         "AutomorphicGaloisRepresentations:R19.4"
       ],
@@ -384,5 +384,16 @@
       "owner": "AutomorphicGaloisRepresentationsPartII:AG2.7",
       "formerly": []
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-RS-12",
+    "date": "2026-09-21",
+    "notes": "Independent review by ChatGPT Pro, session cp-7b4e91 (proposal author session cg-6b83f1). Checked both full member documents, all sixteen stage descriptions, the ten family leads, twenty ownership scopes, supplier contracts, all twenty direct external consumers, the reviewed partial decompositions and the complete atlas stage graph at 9d79cd8f47dad84d63319b99ce6910a8d41c7721. The thirty links are valid and add no cycle; forwarding of all four narrowed interfaces is complete. Corrected the impossible principal-series monodromy acceptance test and made the inherited characteristic-p fibre-count correction explicit. The extension frontier remains unresolved: AG2.0 and AG2.1a are retained inside Part II while supplying the declared base through ET.6 -> R16.3 -> R16.6 -> R19.1. The report acknowledges this, but a stage-scoped exception does not by itself implement Protocol 15's requirement that an extension start where its base stops. Do not insert a reverse edge, which creates a cycle. The orchestrator must choose and record a genuine shared-foundation/extension boundary (or revise the relevant over-broad dependency after a source audit) before acceptance. Review report: research/blueprint/reviews/REV-RS-12.md. No upstream document, atlas, implementation status or inherited source-gap status was changed.",
+    "corrections": [
+      "AG2.5 keeps: replace the current README's ramified principal-series/nonzero-monodromy example with two separate checks: irreducible ramified principal series has N=0; a Steinberg twist has nonzero rank-one N.",
+      "R19.1 reason: explicitly preserve the required correction of the inherited universal characteristic-p fibre count, with the independently checked F_5 counterexample; finite representability and geometric Eichler-Shimura remain targets.",
+      "Added this review object with needs_changes. The unresolved extension-frontier issue is reported, not silently fixed by a cyclic prerequisite or an unreviewed cross-family move."
+    ]
+  }
 }
