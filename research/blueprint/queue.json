@@ -1598,8 +1598,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1117",
-   "finishedAt": "2026-09-21T17:18:00Z"
+   "finishedAt": "2026-09-21T17:18:00Z",
+   "note": "deliverables arrived from an external worker on issue #1117"
   },
   {
    "id": "REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
@@ -7270,7 +7270,10 @@
     "MordellLawrenceVenkatesh"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DESIGN-LV.md"
+    "research/blueprint/reviews/REV-DESIGN-LV.md",
+    "research/blueprint/roadmaps/MordellLawrenceVenkatesh.json",
+    "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+    "research/blueprint/suggested/MordellLawrenceVenkatesh.lean"
    ],
    "after": [
     "DESIGN-LV"
@@ -7309,7 +7312,10 @@
     "ZagierConjecturePolylogarithms"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DESIGN-ZAGIER.md"
+    "research/blueprint/reviews/REV-DESIGN-ZAGIER.md",
+    "research/blueprint/roadmaps/ZagierConjecturePolylogarithms.json",
+    "research/blueprint/packets/ZagierConjecturePolylogarithms.json",
+    "research/blueprint/suggested/ZagierConjecturePolylogarithms.lean"
    ],
    "after": [
     "DESIGN-ZAGIER"
@@ -7347,7 +7353,10 @@
     "AbelianSurfacesPotentialModularity"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DESIGN-BCGP18.md"
+    "research/blueprint/reviews/REV-DESIGN-BCGP18.md",
+    "research/blueprint/roadmaps/AbelianSurfacesPotentialModularity.json",
+    "research/blueprint/packets/AbelianSurfacesPotentialModularity.json",
+    "research/blueprint/suggested/AbelianSurfacesPotentialModularity.lean"
    ],
    "after": [
     "DESIGN-BCGP18"
@@ -7387,7 +7396,10 @@
     "AbelianSurfacesModularity"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DESIGN-BCGP25.md"
+    "research/blueprint/reviews/REV-DESIGN-BCGP25.md",
+    "research/blueprint/roadmaps/AbelianSurfacesModularity.json",
+    "research/blueprint/packets/AbelianSurfacesModularity.json",
+    "research/blueprint/suggested/AbelianSurfacesModularity.lean"
    ],
    "after": [
     "DESIGN-BCGP25"
@@ -7425,7 +7437,10 @@
     "LocallyAnalyticCompletedCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DESIGN-PAN.md"
+    "research/blueprint/reviews/REV-DESIGN-PAN.md",
+    "research/blueprint/roadmaps/LocallyAnalyticCompletedCohomology.json",
+    "research/blueprint/packets/LocallyAnalyticCompletedCohomology.json",
+    "research/blueprint/suggested/LocallyAnalyticCompletedCohomology.lean"
    ],
    "after": [
     "DESIGN-PAN"
@@ -7463,7 +7478,10 @@
     "RankOneConverse"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DESIGN-SKINNER.md"
+    "research/blueprint/reviews/REV-DESIGN-SKINNER.md",
+    "research/blueprint/roadmaps/RankOneConverse.json",
+    "research/blueprint/packets/RankOneConverse.json",
+    "research/blueprint/suggested/RankOneConverse.lean"
    ],
    "after": [
     "DESIGN-SKINNER"
@@ -7501,7 +7519,10 @@
     "GaloisSectionsPadicPeriodMaps"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DESIGN-BETTS-STIX.md"
+    "research/blueprint/reviews/REV-DESIGN-BETTS-STIX.md",
+    "research/blueprint/roadmaps/GaloisSectionsPadicPeriodMaps.json",
+    "research/blueprint/packets/GaloisSectionsPadicPeriodMaps.json",
+    "research/blueprint/suggested/GaloisSectionsPadicPeriodMaps.lean"
    ],
    "after": [
     "DESIGN-BETTS-STIX"
@@ -7543,7 +7564,8 @@
     "tauceti:TauCetiRoadmap/ModularCurves"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ModularCurves.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_ModularCurves"
@@ -7577,7 +7599,8 @@
     "tauceti:TauCetiRoadmap/ModularForms"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ModularForms.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ModularForms.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ModularForms.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_ModularForms"
@@ -7618,7 +7641,8 @@
     "tauceti:TauCetiRoadmap/EllipticCurves"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_EllipticCurves.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_EllipticCurves"
@@ -7660,7 +7684,8 @@
     "tauceti:TauCetiRoadmap/AdicSpaces"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_AdicSpaces.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_AdicSpaces.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_AdicSpaces.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_AdicSpaces"
@@ -7702,7 +7727,8 @@
     "tauceti:TauCetiRoadmap/AlgebraicCurves"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCurves.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_AlgebraicCurves"
@@ -7736,7 +7762,8 @@
     "tauceti:TauCetiRoadmap/GlobalNumberFields"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_GlobalNumberFields.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_GlobalNumberFields.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_GlobalNumberFields.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_GlobalNumberFields"
@@ -7777,7 +7804,8 @@
     "tauceti:TauCetiRoadmap/NumberFieldArithmetic"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic"
@@ -7818,7 +7846,8 @@
     "tauceti:TauCetiRoadmap/LocalFieldsRamification"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_LocalFieldsRamification.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification"
@@ -7859,7 +7888,8 @@
     "tauceti:TauCetiRoadmap/ClassFieldTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ClassFieldTheory.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_ClassFieldTheory"
@@ -7894,7 +7924,8 @@
     "tauceti:TauCetiRoadmap/Chebotarev"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_Chebotarev.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_Chebotarev.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_Chebotarev.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_Chebotarev"
@@ -7928,7 +7959,8 @@
     "tauceti:TauCetiRoadmap/JacobianChallenge"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_JacobianChallenge.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_JacobianChallenge.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_JacobianChallenge.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_JacobianChallenge"
@@ -7963,7 +7995,8 @@
     "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries"
@@ -7997,7 +8030,8 @@
     "tauceti:TauCetiRoadmap/HodgeStructures"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_HodgeStructures.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_HodgeStructures.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_HodgeStructures.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_HodgeStructures"
@@ -8035,7 +8069,8 @@
     "tauceti:TauCetiRoadmap/ProfiniteCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ProfiniteCohomology.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ProfiniteCohomology.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ProfiniteCohomology.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_ProfiniteCohomology"
@@ -8076,7 +8111,8 @@
     "tauceti:TauCetiRoadmap/ProfiniteProPGroups"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups"
@@ -8110,7 +8146,8 @@
     "tauceti:TauCetiRoadmap/GlobalQuadraticForms"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_GlobalQuadraticForms.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_GlobalQuadraticForms.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_GlobalQuadraticForms.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_GlobalQuadraticForms"
@@ -8144,7 +8181,8 @@
     "tauceti:TauCetiRoadmap/QuadraticFormInvariants"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_QuadraticFormInvariants.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_QuadraticFormInvariants.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_QuadraticFormInvariants.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_QuadraticFormInvariants"
@@ -8178,7 +8216,8 @@
     "tauceti:TauCetiRoadmap/StableReduction"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_StableReduction.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_StableReduction.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_StableReduction.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_StableReduction"
@@ -8212,7 +8251,8 @@
     "tauceti:TauCetiRoadmap/PolynomialGaloisGroups"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_PolynomialGaloisGroups.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_PolynomialGaloisGroups.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_PolynomialGaloisGroups.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_PolynomialGaloisGroups"
@@ -8245,7 +8285,8 @@
     "tauceti:TauCetiRoadmap/ReductiveGroups"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ReductiveGroups.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ReductiveGroups.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ReductiveGroups.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_ReductiveGroups"
@@ -8279,7 +8320,8 @@
     "tauceti:TauCetiRoadmap/BelyiMaps"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_BelyiMaps.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_BelyiMaps.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_BelyiMaps.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_BelyiMaps"
@@ -8313,7 +8355,8 @@
     "tauceti:TauCetiRoadmap/FuchsianOrbifolds"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_FuchsianOrbifolds.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_FuchsianOrbifolds.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_FuchsianOrbifolds.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_FuchsianOrbifolds"
@@ -8347,7 +8390,8 @@
     "tauceti:Completed/ContourIntegration"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_Completed_ContourIntegration.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_Completed_ContourIntegration.md",
+    "research/blueprint/links/tauceti_Completed_ContourIntegration.json"
    ],
    "after": [
     "LINK-tauceti_Completed_ContourIntegration"
@@ -8382,7 +8426,8 @@
     "tauceti:Completed/EffectiveBounds"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_Completed_EffectiveBounds.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_Completed_EffectiveBounds.md",
+    "research/blueprint/links/tauceti_Completed_EffectiveBounds.json"
    ],
    "after": [
     "LINK-tauceti_Completed_EffectiveBounds"
@@ -8416,7 +8461,8 @@
     "tauceti:Completed/IntegralLattices"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_Completed_IntegralLattices.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_Completed_IntegralLattices.md",
+    "research/blueprint/links/tauceti_Completed_IntegralLattices.json"
    ],
    "after": [
     "LINK-tauceti_Completed_IntegralLattices"
@@ -8451,7 +8497,8 @@
     "tauceti:Completed/OrthogonalL2Bases"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_Completed_OrthogonalL2Bases.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_Completed_OrthogonalL2Bases.md",
+    "research/blueprint/links/tauceti_Completed_OrthogonalL2Bases.json"
    ],
    "after": [
     "LINK-tauceti_Completed_OrthogonalL2Bases"
@@ -8486,7 +8533,8 @@
     "tauceti:TauCetiRoadmap/AlgebraicCodingTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCodingTheory.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory"
@@ -8519,7 +8567,8 @@
     "tauceti:TauCetiRoadmap/AlgebraicTopology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_AlgebraicTopology.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_AlgebraicTopology.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicTopology.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_AlgebraicTopology"
@@ -8553,7 +8602,8 @@
     "tauceti:TauCetiRoadmap/AnalyticToricGeometry"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_AnalyticToricGeometry.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_AnalyticToricGeometry.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_AnalyticToricGeometry.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_AnalyticToricGeometry"
@@ -8587,7 +8637,8 @@
     "tauceti:TauCetiRoadmap/CFSGStatement"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_CFSGStatement.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_CFSGStatement.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_CFSGStatement.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_CFSGStatement"
@@ -8621,7 +8672,8 @@
     "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_CombinatorialHeegaardFloer.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_CombinatorialHeegaardFloer.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_CombinatorialHeegaardFloer.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_CombinatorialHeegaardFloer"
@@ -8655,7 +8707,8 @@
     "tauceti:TauCetiRoadmap/ConformalMapping"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ConformalMapping.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ConformalMapping.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ConformalMapping.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_ConformalMapping"
@@ -8689,7 +8742,8 @@
     "tauceti:TauCetiRoadmap/DGAInfinity"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_DGAInfinity.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_DGAInfinity.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_DGAInfinity.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_DGAInfinity"
@@ -8723,7 +8777,8 @@
     "tauceti:TauCetiRoadmap/DenseGraphLimits"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_DenseGraphLimits.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_DenseGraphLimits.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_DenseGraphLimits.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_DenseGraphLimits"
@@ -8757,7 +8812,8 @@
     "tauceti:TauCetiRoadmap/Exchangeability"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_Exchangeability.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_Exchangeability.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_Exchangeability.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_Exchangeability"
@@ -8790,7 +8846,8 @@
     "tauceti:TauCetiRoadmap/GeometricTopology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_GeometricTopology.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_GeometricTopology.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_GeometricTopology.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_GeometricTopology"
@@ -8825,7 +8882,8 @@
     "tauceti:TauCetiRoadmap/GrothendieckEulerForms"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms"
@@ -8859,7 +8917,8 @@
     "tauceti:TauCetiRoadmap/HeegaardFloer"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_HeegaardFloer.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_HeegaardFloer.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_HeegaardFloer.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_HeegaardFloer"
@@ -8893,7 +8952,8 @@
     "tauceti:TauCetiRoadmap/HopfRinow"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_HopfRinow.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_HopfRinow.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_HopfRinow.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_HopfRinow"
@@ -8928,7 +8988,8 @@
     "tauceti:TauCetiRoadmap/Multiquadratic"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_Multiquadratic.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_Multiquadratic"
@@ -8964,7 +9025,8 @@
     "tauceti:TauCetiRoadmap/OneParameterSemigroups"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_OneParameterSemigroups.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups"
@@ -8998,7 +9060,8 @@
     "tauceti:TauCetiRoadmap/OptimalTransport"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_OptimalTransport.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_OptimalTransport.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_OptimalTransport.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_OptimalTransport"
@@ -9032,7 +9095,8 @@
     "tauceti:TauCetiRoadmap/PDE"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_PDE.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_PDE.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_PDE.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_PDE"
@@ -9067,7 +9131,8 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_RepresentationTheory"
@@ -9101,7 +9166,8 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_AdoIwasawa.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_AdoIwasawa.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_AdoIwasawa.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_AdoIwasawa"
@@ -9135,7 +9201,8 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_CharacterTheory.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_CharacterTheory.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_CharacterTheory.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_CharacterTheory"
@@ -9170,7 +9237,8 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups"
@@ -9204,7 +9272,8 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_CompactGroups.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_CompactGroups.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_CompactGroups.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_CompactGroups"
@@ -9238,7 +9307,8 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_InductionRestriction.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_InductionRestriction.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_InductionRestriction.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_InductionRestriction"
@@ -9273,7 +9343,8 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups"
@@ -9307,7 +9378,8 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieHighestWeight.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieHighestWeight.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_LieHighestWeight.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieHighestWeight"
@@ -9341,7 +9413,8 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations"
@@ -9376,7 +9449,8 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems"
@@ -9412,7 +9486,8 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl"
@@ -9447,7 +9522,8 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras"
@@ -9482,7 +9558,8 @@
     "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations"
@@ -9518,7 +9595,8 @@
     "tauceti:TauCetiRoadmap/StablePeriodicCurved"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved"
@@ -9552,7 +9630,8 @@
     "tauceti:TauCetiRoadmap/StandardDistributions"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_StandardDistributions.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_StandardDistributions.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_StandardDistributions.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_StandardDistributions"
@@ -9586,7 +9665,8 @@
     "tauceti:TauCetiRoadmap/UniversalCovers"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_UniversalCovers.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_UniversalCovers.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_UniversalCovers.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_UniversalCovers"
@@ -9621,7 +9701,8 @@
     "tauceti:TauCetiRoadmap/ZigzagPreprojective"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md"
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
    ],
    "after": [
     "LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective"
@@ -9666,7 +9747,9 @@
     "K3BlochGroups"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-K3BlochGroups.md"
+    "research/blueprint/reviews/REV-K3BlochGroups.md",
+    "research/blueprint/packets/K3BlochGroups.json",
+    "research/blueprint/suggested/K3BlochGroups.lean"
    ],
    "after": [
     "BP-K3BlochGroups"
@@ -9711,7 +9794,9 @@
     "Polylogarithms"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-Polylogarithms.md"
+    "research/blueprint/reviews/REV-Polylogarithms.md",
+    "research/blueprint/packets/Polylogarithms.json",
+    "research/blueprint/suggested/Polylogarithms.lean"
    ],
    "after": [
     "BP-Polylogarithms"
@@ -9759,7 +9844,9 @@
     "BorelRegulators"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-BorelRegulators.md"
+    "research/blueprint/reviews/REV-BorelRegulators.md",
+    "research/blueprint/packets/BorelRegulators.json",
+    "research/blueprint/suggested/BorelRegulators.lean"
    ],
    "after": [
     "BP-BorelRegulators"
@@ -9840,7 +9927,8 @@
     "PrismaticCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-01.md"
+    "research/blueprint/reviews/REV-RS-01.md",
+    "research/blueprint/restructure/RS-01.result.json"
    ],
    "after": [
     "RS-01"
@@ -9884,7 +9972,8 @@
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-02.md"
+    "research/blueprint/reviews/REV-RS-02.md",
+    "research/blueprint/restructure/RS-02.result.json"
    ],
    "after": [
     "RS-02"
@@ -9939,7 +10028,8 @@
     "HeightsRationalPointsAndObstructions"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-03.md"
+    "research/blueprint/reviews/REV-RS-03.md",
+    "research/blueprint/restructure/RS-03.result.json"
    ],
    "after": [
     "RS-03"
@@ -9998,7 +10088,8 @@
     "ShimuraVarieties"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-04.md"
+    "research/blueprint/reviews/REV-RS-04.md",
+    "research/blueprint/restructure/RS-04.result.json"
    ],
    "after": [
     "RS-04"
@@ -10056,7 +10147,8 @@
     "VStackSheavesAndLisseCategories"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-05.md"
+    "research/blueprint/reviews/REV-RS-05.md",
+    "research/blueprint/restructure/RS-05.result.json"
    ],
    "after": [
     "RS-05"
@@ -10112,7 +10204,8 @@
     "SmallRamificationAndAbelianVarietyBaseCases"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-06.md"
+    "research/blueprint/reviews/REV-RS-06.md",
+    "research/blueprint/restructure/RS-06.result.json"
    ],
    "after": [
     "RS-06"
@@ -10158,7 +10251,8 @@
     "SieveMethodsAndPrimePatterns"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-07.md"
+    "research/blueprint/reviews/REV-RS-07.md",
+    "research/blueprint/restructure/RS-07.result.json"
    ],
    "after": [
     "RS-07"
@@ -10222,7 +10316,8 @@
     "SelmerIwasawaCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-08.md"
+    "research/blueprint/reviews/REV-RS-08.md",
+    "research/blueprint/restructure/RS-08.result.json"
    ],
    "after": [
     "RS-08"
@@ -10265,7 +10360,8 @@
     "CompletedCohomologyPartII"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-09.md"
+    "research/blueprint/reviews/REV-RS-09.md",
+    "research/blueprint/restructure/RS-09.result.json"
    ],
    "after": [
     "RS-09"
@@ -10313,7 +10409,8 @@
     "HabiroRings"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-10.md"
+    "research/blueprint/reviews/REV-RS-10.md",
+    "research/blueprint/restructure/RS-10.result.json"
    ],
    "after": [
     "RS-10"
@@ -10354,7 +10451,8 @@
     "ModularIwasawaMainConjectures"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-11.md"
+    "research/blueprint/reviews/REV-RS-11.md",
+    "research/blueprint/restructure/RS-11.result.json"
    ],
    "after": [
     "RS-11"
@@ -10396,7 +10494,8 @@
     "AutomorphicGaloisRepresentationsPartII"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-12.md"
+    "research/blueprint/reviews/REV-RS-12.md",
+    "research/blueprint/restructure/RS-12.result.json"
    ],
    "after": [
     "RS-12"
@@ -10438,7 +10537,8 @@
     "PeriodsAndSpecialValues"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-13.md"
+    "research/blueprint/reviews/REV-RS-13.md",
+    "research/blueprint/restructure/RS-13.result.json"
    ],
    "after": [
     "RS-13"
@@ -10479,7 +10579,8 @@
     "DirichletPadicLFunctions"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-14.md"
+    "research/blueprint/reviews/REV-RS-14.md",
+    "research/blueprint/restructure/RS-14.result.json"
    ],
    "after": [
     "RS-14"
@@ -10520,7 +10621,8 @@
     "VectorBundlesAndIsocrystals"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-15.md"
+    "research/blueprint/reviews/REV-RS-15.md",
+    "research/blueprint/restructure/RS-15.result.json"
    ],
    "after": [
     "RS-15"
@@ -10566,7 +10668,8 @@
     "PadicMeasuresIwasawaAlgebras"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-16.md"
+    "research/blueprint/reviews/REV-RS-16.md",
+    "research/blueprint/restructure/RS-16.result.json"
    ],
    "after": [
     "RS-16"
@@ -10611,7 +10714,8 @@
     "WeilConjectures"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-17.md"
+    "research/blueprint/reviews/REV-RS-17.md",
+    "research/blueprint/restructure/RS-17.result.json"
    ],
    "after": [
     "RS-17"
@@ -10654,7 +10758,8 @@
     "SchemeKTheoryOperations"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-18.md"
+    "research/blueprint/reviews/REV-RS-18.md",
+    "research/blueprint/restructure/RS-18.result.json"
    ],
    "after": [
     "RS-18"
@@ -10695,7 +10800,8 @@
     "EtaleDualityAndPerverseSheaves"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-19.md"
+    "research/blueprint/reviews/REV-RS-19.md",
+    "research/blueprint/restructure/RS-19.result.json"
    ],
    "after": [
     "RS-19"
@@ -10738,7 +10844,8 @@
     "RelativeFarguesFontaine"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-20.md"
+    "research/blueprint/reviews/REV-RS-20.md",
+    "research/blueprint/restructure/RS-20.result.json"
    ],
    "after": [
     "RS-20"
@@ -10782,7 +10889,8 @@
     "SmoothRepresentationsOfLocalGroups"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-21.md"
+    "research/blueprint/reviews/REV-RS-21.md",
+    "research/blueprint/restructure/RS-21.result.json"
    ],
    "after": [
     "RS-21"
@@ -10824,7 +10932,8 @@
     "HeckeStacksAndLocalShtukas"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-22.md"
+    "research/blueprint/reviews/REV-RS-22.md",
+    "research/blueprint/restructure/RS-22.result.json"
    ],
    "after": [
     "RS-22"
@@ -10865,7 +10974,8 @@
     "PELModuli"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-23.md"
+    "research/blueprint/reviews/REV-RS-23.md",
+    "research/blueprint/restructure/RS-23.result.json"
    ],
    "after": [
     "RS-23"
@@ -10907,7 +11017,8 @@
     "TorsionCohomologyInfrastructure"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-24.md"
+    "research/blueprint/reviews/REV-RS-24.md",
+    "research/blueprint/restructure/RS-24.result.json"
    ],
    "after": [
     "RS-24"
@@ -10951,7 +11062,8 @@
     "SchemeAndStackFoundations"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-25.md"
+    "research/blueprint/reviews/REV-RS-25.md",
+    "research/blueprint/restructure/RS-25.result.json"
    ],
    "after": [
     "RS-25"
@@ -10994,7 +11106,8 @@
     "PhiGammaModulesAndIwasawaCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-26.md"
+    "research/blueprint/reviews/REV-RS-26.md",
+    "research/blueprint/restructure/RS-26.result.json"
    ],
    "after": [
     "RS-26"
@@ -11036,7 +11149,8 @@
     "AlgebraicModuliForArithmeticGeometry"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-27.md"
+    "research/blueprint/reviews/REV-RS-27.md",
+    "research/blueprint/restructure/RS-27.result.json"
    ],
    "after": [
     "RS-27"
@@ -11077,7 +11191,8 @@
     "HigherLocalFieldsAndHigherClassFieldTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-28.md"
+    "research/blueprint/reviews/REV-RS-28.md",
+    "research/blueprint/restructure/RS-28.result.json"
    ],
    "after": [
     "RS-28"
@@ -11119,7 +11234,8 @@
     "InverseGaloisAndArithmeticFundamentalGroups"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-29.md"
+    "research/blueprint/reviews/REV-RS-29.md",
+    "research/blueprint/restructure/RS-29.result.json"
    ],
    "after": [
     "RS-29"
@@ -11161,7 +11277,8 @@
     "RankZeroOneBSD"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-30.md"
+    "research/blueprint/reviews/REV-RS-30.md",
+    "research/blueprint/restructure/RS-30.result.json"
    ],
    "after": [
     "RS-30"
@@ -11203,7 +11320,8 @@
     "ReductiveGroupsPartII"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-31.md"
+    "research/blueprint/reviews/REV-RS-31.md",
+    "research/blueprint/restructure/RS-31.result.json"
    ],
    "after": [
     "RS-31"
@@ -11245,7 +11363,8 @@
     "ShimuraCompactifications"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-32.md"
+    "research/blueprint/reviews/REV-RS-32.md",
+    "research/blueprint/restructure/RS-32.result.json"
    ],
    "after": [
     "RS-32"
@@ -11287,7 +11406,8 @@
     "StableHomotopyKTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RS-33.md"
+    "research/blueprint/reviews/REV-RS-33.md",
+    "research/blueprint/restructure/RS-33.result.json"
    ],
    "after": [
     "RS-33"
@@ -11336,7 +11456,9 @@
     "DeformationAndDerivedPatchingAlgebra"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DeformationAndDerivedPatchingAlgebra--P7.md"
+    "research/blueprint/reviews/REV-DeformationAndDerivedPatchingAlgebra--P7.md",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7.json",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7.lean"
    ],
    "after": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7"
@@ -11377,7 +11499,9 @@
     "DeformationAndDerivedPatchingAlgebra"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DeformationAndDerivedPatchingAlgebra--R03.6.md"
+    "research/blueprint/reviews/REV-DeformationAndDerivedPatchingAlgebra--R03.6.md",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.6.json",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--R03.6.lean"
    ],
    "after": [
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
@@ -11420,7 +11544,9 @@
     "FoundationsAndLibraryIntegration"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-FoundationsAndLibraryIntegration.md"
+    "research/blueprint/reviews/REV-FoundationsAndLibraryIntegration.md",
+    "research/blueprint/packets/FoundationsAndLibraryIntegration.json",
+    "research/blueprint/suggested/FoundationsAndLibraryIntegration.lean"
    ],
    "after": [
     "BP-FoundationsAndLibraryIntegration"
@@ -11468,7 +11594,9 @@
     "HabiroCyclotomicCompletions"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-HabiroCyclotomicCompletions.md"
+    "research/blueprint/reviews/REV-HabiroCyclotomicCompletions.md",
+    "research/blueprint/packets/HabiroCyclotomicCompletions.json",
+    "research/blueprint/suggested/HabiroCyclotomicCompletions.lean"
    ],
    "after": [
     "BP-HabiroCyclotomicCompletions"
@@ -11516,7 +11644,9 @@
     "PadicMeasuresIwasawaAlgebras"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PadicMeasuresIwasawaAlgebras.md"
+    "research/blueprint/reviews/REV-PadicMeasuresIwasawaAlgebras.md",
+    "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+    "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean"
    ],
    "after": [
     "BP-PadicMeasuresIwasawaAlgebras"
@@ -11563,7 +11693,9 @@
     "LocallyAnalyticDistributions"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LocallyAnalyticDistributions.md"
+    "research/blueprint/reviews/REV-LocallyAnalyticDistributions.md",
+    "research/blueprint/packets/LocallyAnalyticDistributions.json",
+    "research/blueprint/suggested/LocallyAnalyticDistributions.lean"
    ],
    "after": [
     "BP-LocallyAnalyticDistributions"
@@ -11612,7 +11744,9 @@
     "SchemeAndStackFoundations"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-SchemeAndStackFoundations.md"
+    "research/blueprint/reviews/REV-SchemeAndStackFoundations.md",
+    "research/blueprint/packets/SchemeAndStackFoundations.json",
+    "research/blueprint/suggested/SchemeAndStackFoundations.lean"
    ],
    "after": [
     "BP-SchemeAndStackFoundations"
@@ -11660,7 +11794,9 @@
     "AInfCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AInfCohomology--AI.0.md"
+    "research/blueprint/reviews/REV-AInfCohomology--AI.0.md",
+    "research/blueprint/packets/AInfCohomology--AI.0.json",
+    "research/blueprint/suggested/AInfCohomology--AI.0.lean"
    ],
    "after": [
     "BP-AInfCohomology--AI.0"
@@ -11702,7 +11838,9 @@
     "AInfCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AInfCohomology--AI.6.md"
+    "research/blueprint/reviews/REV-AInfCohomology--AI.6.md",
+    "research/blueprint/packets/AInfCohomology--AI.6.json",
+    "research/blueprint/suggested/AInfCohomology--AI.6.lean"
    ],
    "after": [
     "BP-AInfCohomology--AI.6"
@@ -11749,7 +11887,9 @@
     "AbelianSchemesAndArithmeticModuli"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AbelianSchemesAndArithmeticModuli.md"
+    "research/blueprint/reviews/REV-AbelianSchemesAndArithmeticModuli.md",
+    "research/blueprint/packets/AbelianSchemesAndArithmeticModuli.json",
+    "research/blueprint/suggested/AbelianSchemesAndArithmeticModuli.lean"
    ],
    "after": [
     "BP-AbelianSchemesAndArithmeticModuli"
@@ -11795,7 +11935,9 @@
     "AdelicAlgebraicGroups"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AdelicAlgebraicGroups.md"
+    "research/blueprint/reviews/REV-AdelicAlgebraicGroups.md",
+    "research/blueprint/packets/AdelicAlgebraicGroups.json",
+    "research/blueprint/suggested/AdelicAlgebraicGroups.lean"
    ],
    "after": [
     "BP-AdelicAlgebraicGroups"
@@ -11840,7 +11982,9 @@
     "AdicCoefficientsAndComparisons"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AdicCoefficientsAndComparisons.md"
+    "research/blueprint/reviews/REV-AdicCoefficientsAndComparisons.md",
+    "research/blueprint/packets/AdicCoefficientsAndComparisons.json",
+    "research/blueprint/suggested/AdicCoefficientsAndComparisons.lean"
    ],
    "after": [
     "BP-AdicCoefficientsAndComparisons"
@@ -11885,7 +12029,9 @@
     "AdicEtaleGeometry"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AdicEtaleGeometry.md"
+    "research/blueprint/reviews/REV-AdicEtaleGeometry.md",
+    "research/blueprint/packets/AdicEtaleGeometry.json",
+    "research/blueprint/suggested/AdicEtaleGeometry.lean"
    ],
    "after": [
     "BP-AdicEtaleGeometry"
@@ -11936,7 +12082,9 @@
     "AdicSpacesPartII"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AdicSpacesPartII.md"
+    "research/blueprint/reviews/REV-AdicSpacesPartII.md",
+    "research/blueprint/packets/AdicSpacesPartII.json",
+    "research/blueprint/suggested/AdicSpacesPartII.lean"
    ],
    "after": [
     "BP-AdicSpacesPartII"
@@ -11982,7 +12130,9 @@
     "AlgebraicModularFormsAndSerreWeights"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AlgebraicModularFormsAndSerreWeights.md"
+    "research/blueprint/reviews/REV-AlgebraicModularFormsAndSerreWeights.md",
+    "research/blueprint/packets/AlgebraicModularFormsAndSerreWeights.json",
+    "research/blueprint/suggested/AlgebraicModularFormsAndSerreWeights.lean"
    ],
    "after": [
     "BP-AlgebraicModularFormsAndSerreWeights"
@@ -12030,7 +12180,9 @@
     "AlgebraicModuliForArithmeticGeometry"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AlgebraicModuliForArithmeticGeometry--A0-extension.md"
+    "research/blueprint/reviews/REV-AlgebraicModuliForArithmeticGeometry--A0-extension.md",
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--A0-extension.json",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--A0-extension.lean"
    ],
    "after": [
     "BP-AlgebraicModuliForArithmeticGeometry--A0-extension"
@@ -12074,7 +12226,9 @@
     "AlgebraicModuliForArithmeticGeometry"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AlgebraicModuliForArithmeticGeometry--R09.7a.md"
+    "research/blueprint/reviews/REV-AlgebraicModuliForArithmeticGeometry--R09.7a.md",
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7a.json",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.7a.lean"
    ],
    "after": [
     "BP-AlgebraicModuliForArithmeticGeometry--R09.7a"
@@ -12120,7 +12274,9 @@
     "ArakelovGeometryAndAbelianHeights"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ArakelovGeometryAndAbelianHeights.md"
+    "research/blueprint/reviews/REV-ArakelovGeometryAndAbelianHeights.md",
+    "research/blueprint/packets/ArakelovGeometryAndAbelianHeights.json",
+    "research/blueprint/suggested/ArakelovGeometryAndAbelianHeights.lean"
    ],
    "after": [
     "BP-ArakelovGeometryAndAbelianHeights"
@@ -12168,7 +12324,9 @@
     "ArithmeticGaloisDuality"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ArithmeticGaloisDuality.md"
+    "research/blueprint/reviews/REV-ArithmeticGaloisDuality.md",
+    "research/blueprint/packets/ArithmeticGaloisDuality.json",
+    "research/blueprint/suggested/ArithmeticGaloisDuality.lean"
    ],
    "after": [
     "BP-ArithmeticGaloisDuality"
@@ -12213,7 +12371,9 @@
     "ArithmeticGaloisRepresentations"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ArithmeticGaloisRepresentations.md"
+    "research/blueprint/reviews/REV-ArithmeticGaloisRepresentations.md",
+    "research/blueprint/packets/ArithmeticGaloisRepresentations.json",
+    "research/blueprint/suggested/ArithmeticGaloisRepresentations.lean"
    ],
    "after": [
     "BP-ArithmeticGaloisRepresentations"
@@ -12259,7 +12419,9 @@
     "ArithmeticKTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ArithmeticKTheory--N.1.md"
+    "research/blueprint/reviews/REV-ArithmeticKTheory--N.1.md",
+    "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+    "research/blueprint/suggested/ArithmeticKTheory--N.1.lean"
    ],
    "after": [
     "BP-ArithmeticKTheory--N.1"
@@ -12299,7 +12461,9 @@
     "ArithmeticKTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ArithmeticKTheory--N.7.md"
+    "research/blueprint/reviews/REV-ArithmeticKTheory--N.7.md",
+    "research/blueprint/packets/ArithmeticKTheory--N.7.json",
+    "research/blueprint/suggested/ArithmeticKTheory--N.7.lean"
    ],
    "after": [
     "BP-ArithmeticKTheory--N.7"
@@ -12347,7 +12511,9 @@
     "ArithmeticLocallySymmetricSpaces"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ArithmeticLocallySymmetricSpaces.md"
+    "research/blueprint/reviews/REV-ArithmeticLocallySymmetricSpaces.md",
+    "research/blueprint/packets/ArithmeticLocallySymmetricSpaces.json",
+    "research/blueprint/suggested/ArithmeticLocallySymmetricSpaces.lean"
    ],
    "after": [
     "BP-ArithmeticLocallySymmetricSpaces"
@@ -12393,7 +12559,9 @@
     "AutomorphicBundles"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AutomorphicBundles--B0.md"
+    "research/blueprint/reviews/REV-AutomorphicBundles--B0.md",
+    "research/blueprint/packets/AutomorphicBundles--B0.json",
+    "research/blueprint/suggested/AutomorphicBundles--B0.lean"
    ],
    "after": [
     "BP-AutomorphicBundles--B0"
@@ -12432,7 +12600,9 @@
     "AutomorphicBundles"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AutomorphicBundles--B5.md"
+    "research/blueprint/reviews/REV-AutomorphicBundles--B5.md",
+    "research/blueprint/packets/AutomorphicBundles--B5.json",
+    "research/blueprint/suggested/AutomorphicBundles--B5.lean"
    ],
    "after": [
     "BP-AutomorphicBundles--B5"
@@ -12484,7 +12654,9 @@
     "AutomorphicCongruences"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AutomorphicCongruences--L0.md"
+    "research/blueprint/reviews/REV-AutomorphicCongruences--L0.md",
+    "research/blueprint/packets/AutomorphicCongruences--L0.json",
+    "research/blueprint/suggested/AutomorphicCongruences--L0.lean"
    ],
    "after": [
     "BP-AutomorphicCongruences--L0"
@@ -12530,7 +12702,9 @@
     "AutomorphicCongruences"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AutomorphicCongruences--L5b.md"
+    "research/blueprint/reviews/REV-AutomorphicCongruences--L5b.md",
+    "research/blueprint/packets/AutomorphicCongruences--L5b.json",
+    "research/blueprint/suggested/AutomorphicCongruences--L5b.lean"
    ],
    "after": [
     "BP-AutomorphicCongruences--L5b"
@@ -12577,7 +12751,9 @@
     "AutomorphicFormsOnReductiveGroups"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AutomorphicFormsOnReductiveGroups.md"
+    "research/blueprint/reviews/REV-AutomorphicFormsOnReductiveGroups.md",
+    "research/blueprint/packets/AutomorphicFormsOnReductiveGroups.json",
+    "research/blueprint/suggested/AutomorphicFormsOnReductiveGroups.lean"
    ],
    "after": [
     "BP-AutomorphicFormsOnReductiveGroups"
@@ -12623,7 +12799,9 @@
     "AutomorphicGaloisRepresentations"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AutomorphicGaloisRepresentations.md"
+    "research/blueprint/reviews/REV-AutomorphicGaloisRepresentations.md",
+    "research/blueprint/packets/AutomorphicGaloisRepresentations.json",
+    "research/blueprint/suggested/AutomorphicGaloisRepresentations.lean"
    ],
    "after": [
     "BP-AutomorphicGaloisRepresentations"
@@ -12673,7 +12851,9 @@
     "AutomorphicGaloisRepresentationsPartII"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AutomorphicGaloisRepresentationsPartII--AG2.0.md"
+    "research/blueprint/reviews/REV-AutomorphicGaloisRepresentationsPartII--AG2.0.md",
+    "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.0.json",
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.0.lean"
    ],
    "after": [
     "BP-AutomorphicGaloisRepresentationsPartII--AG2.0"
@@ -12717,7 +12897,9 @@
     "AutomorphicGaloisRepresentationsPartII"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AutomorphicGaloisRepresentationsPartII--AG2.6.md"
+    "research/blueprint/reviews/REV-AutomorphicGaloisRepresentationsPartII--AG2.6.md",
+    "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.6.json",
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.6.lean"
    ],
    "after": [
     "BP-AutomorphicGaloisRepresentationsPartII--AG2.6"
@@ -12763,7 +12945,9 @@
     "AutomorphicLFunctionsAndLocalFactors"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AutomorphicLFunctionsAndLocalFactors.md"
+    "research/blueprint/reviews/REV-AutomorphicLFunctionsAndLocalFactors.md",
+    "research/blueprint/packets/AutomorphicLFunctionsAndLocalFactors.json",
+    "research/blueprint/suggested/AutomorphicLFunctionsAndLocalFactors.lean"
    ],
    "after": [
     "BP-AutomorphicLFunctionsAndLocalFactors"
@@ -12814,7 +12998,9 @@
     "AutomorphicPadicLFunctions"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AutomorphicPadicLFunctions.md"
+    "research/blueprint/reviews/REV-AutomorphicPadicLFunctions.md",
+    "research/blueprint/packets/AutomorphicPadicLFunctions.json",
+    "research/blueprint/suggested/AutomorphicPadicLFunctions.lean"
    ],
    "after": [
     "BP-AutomorphicPadicLFunctions"
@@ -12861,7 +13047,9 @@
     "AutomorphicSpectralTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AutomorphicSpectralTheory.md"
+    "research/blueprint/reviews/REV-AutomorphicSpectralTheory.md",
+    "research/blueprint/packets/AutomorphicSpectralTheory.json",
+    "research/blueprint/suggested/AutomorphicSpectralTheory.lean"
    ],
    "after": [
     "BP-AutomorphicSpectralTheory"
@@ -12908,7 +13096,9 @@
     "BunGAndNewtonStrata"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-BunGAndNewtonStrata.md"
+    "research/blueprint/reviews/REV-BunGAndNewtonStrata.md",
+    "research/blueprint/packets/BunGAndNewtonStrata.json",
+    "research/blueprint/suggested/BunGAndNewtonStrata.lean"
    ],
    "after": [
     "BP-BunGAndNewtonStrata"
@@ -12956,7 +13146,9 @@
     "ClassicalAdicEtaleCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ClassicalAdicEtaleCohomology--H0.md"
+    "research/blueprint/reviews/REV-ClassicalAdicEtaleCohomology--H0.md",
+    "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+    "research/blueprint/suggested/ClassicalAdicEtaleCohomology--H0.lean"
    ],
    "after": [
     "BP-ClassicalAdicEtaleCohomology--H0"
@@ -12998,7 +13190,9 @@
     "ClassicalAdicEtaleCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ClassicalAdicEtaleCohomology--H4.md"
+    "research/blueprint/reviews/REV-ClassicalAdicEtaleCohomology--H4.md",
+    "research/blueprint/packets/ClassicalAdicEtaleCohomology--H4.json",
+    "research/blueprint/suggested/ClassicalAdicEtaleCohomology--H4.lean"
    ],
    "after": [
     "BP-ClassicalAdicEtaleCohomology--H4"
@@ -13046,7 +13240,9 @@
     "ClassicalSerreModularity"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ClassicalSerreModularity--R26.1.md"
+    "research/blueprint/reviews/REV-ClassicalSerreModularity--R26.1.md",
+    "research/blueprint/packets/ClassicalSerreModularity--R26.1.json",
+    "research/blueprint/suggested/ClassicalSerreModularity--R26.1.lean"
    ],
    "after": [
     "BP-ClassicalSerreModularity--R26.1"
@@ -13094,7 +13290,9 @@
     "ClassicalSerreModularity"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ClassicalSerreModularity--R27.3.md"
+    "research/blueprint/reviews/REV-ClassicalSerreModularity--R27.3.md",
+    "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
+    "research/blueprint/suggested/ClassicalSerreModularity--R27.3.lean"
    ],
    "after": [
     "BP-ClassicalSerreModularity--R27.3"
@@ -13136,7 +13334,9 @@
     "ClassicalSerreModularity"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ClassicalSerreModularity--R33.5.md"
+    "research/blueprint/reviews/REV-ClassicalSerreModularity--R33.5.md",
+    "research/blueprint/packets/ClassicalSerreModularity--R33.5.json",
+    "research/blueprint/suggested/ClassicalSerreModularity--R33.5.lean"
    ],
    "after": [
     "BP-ClassicalSerreModularity--R33.5"
@@ -13183,7 +13383,9 @@
     "CohomologyComparisons"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-CohomologyComparisons.md"
+    "research/blueprint/reviews/REV-CohomologyComparisons.md",
+    "research/blueprint/packets/CohomologyComparisons.json",
+    "research/blueprint/suggested/CohomologyComparisons.lean"
    ],
    "after": [
     "BP-CohomologyComparisons"
@@ -13227,7 +13429,9 @@
     "ColemanIntegration"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ColemanIntegration.md"
+    "research/blueprint/reviews/REV-ColemanIntegration.md",
+    "research/blueprint/packets/ColemanIntegration.json",
+    "research/blueprint/suggested/ColemanIntegration.lean"
    ],
    "after": [
     "BP-ColemanIntegration"
@@ -13274,7 +13478,9 @@
     "ColemanPowerSeries"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ColemanPowerSeries.md"
+    "research/blueprint/reviews/REV-ColemanPowerSeries.md",
+    "research/blueprint/packets/ColemanPowerSeries.json",
+    "research/blueprint/suggested/ColemanPowerSeries.lean"
    ],
    "after": [
     "BP-ColemanPowerSeries"
@@ -13318,7 +13524,9 @@
     "CompletedCohomologyAndLocalGlobalCompatibility"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-CompletedCohomologyAndLocalGlobalCompatibility.md"
+    "research/blueprint/reviews/REV-CompletedCohomologyAndLocalGlobalCompatibility.md",
+    "research/blueprint/packets/CompletedCohomologyAndLocalGlobalCompatibility.json",
+    "research/blueprint/suggested/CompletedCohomologyAndLocalGlobalCompatibility.lean"
    ],
    "after": [
     "BP-CompletedCohomologyAndLocalGlobalCompatibility"
@@ -13370,7 +13578,9 @@
     "CompletedCohomologyPartII"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-CompletedCohomologyPartII--CC.0.md"
+    "research/blueprint/reviews/REV-CompletedCohomologyPartII--CC.0.md",
+    "research/blueprint/packets/CompletedCohomologyPartII--CC.0.json",
+    "research/blueprint/suggested/CompletedCohomologyPartII--CC.0.lean"
    ],
    "after": [
     "BP-CompletedCohomologyPartII--CC.0"
@@ -13415,7 +13625,9 @@
     "CompletedCohomologyPartII"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-CompletedCohomologyPartII--CC.8.md"
+    "research/blueprint/reviews/REV-CompletedCohomologyPartII--CC.8.md",
+    "research/blueprint/packets/CompletedCohomologyPartII--CC.8.json",
+    "research/blueprint/suggested/CompletedCohomologyPartII--CC.8.lean"
    ],
    "after": [
     "BP-CompletedCohomologyPartII--CC.8"
@@ -13460,7 +13672,9 @@
     "ComplexComparisonPartII"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ComplexComparisonPartII.md"
+    "research/blueprint/reviews/REV-ComplexComparisonPartII.md",
+    "research/blueprint/packets/ComplexComparisonPartII.json",
+    "research/blueprint/suggested/ComplexComparisonPartII.lean"
    ],
    "after": [
     "BP-ComplexComparisonPartII"
@@ -13507,7 +13721,9 @@
     "CrystallineCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-CrystallineCohomology--CR.0.md"
+    "research/blueprint/reviews/REV-CrystallineCohomology--CR.0.md",
+    "research/blueprint/packets/CrystallineCohomology--CR.0.json",
+    "research/blueprint/suggested/CrystallineCohomology--CR.0.lean"
    ],
    "after": [
     "BP-CrystallineCohomology--CR.0"
@@ -13551,7 +13767,9 @@
     "CrystallineCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-CrystallineCohomology--CR.5.md"
+    "research/blueprint/reviews/REV-CrystallineCohomology--CR.5.md",
+    "research/blueprint/packets/CrystallineCohomology--CR.5.json",
+    "research/blueprint/suggested/CrystallineCohomology--CR.5.lean"
    ],
    "after": [
     "BP-CrystallineCohomology--CR.5"
@@ -13599,7 +13817,9 @@
     "DeligneWeightsAndPurity"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DeligneWeightsAndPurity--DWP.0.md"
+    "research/blueprint/reviews/REV-DeligneWeightsAndPurity--DWP.0.md",
+    "research/blueprint/packets/DeligneWeightsAndPurity--DWP.0.json",
+    "research/blueprint/suggested/DeligneWeightsAndPurity--DWP.0.lean"
    ],
    "after": [
     "BP-DeligneWeightsAndPurity--DWP.0"
@@ -13642,7 +13862,9 @@
     "DeligneWeightsAndPurity"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DeligneWeightsAndPurity--DWP.7.md"
+    "research/blueprint/reviews/REV-DeligneWeightsAndPurity--DWP.7.md",
+    "research/blueprint/packets/DeligneWeightsAndPurity--DWP.7.json",
+    "research/blueprint/suggested/DeligneWeightsAndPurity--DWP.7.lean"
    ],
    "after": [
     "BP-DeligneWeightsAndPurity--DWP.7"
@@ -13689,7 +13911,9 @@
     "DerivedDeRhamCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DerivedDeRhamCohomology.md"
+    "research/blueprint/reviews/REV-DerivedDeRhamCohomology.md",
+    "research/blueprint/packets/DerivedDeRhamCohomology.json",
+    "research/blueprint/suggested/DerivedDeRhamCohomology.lean"
    ],
    "after": [
     "BP-DerivedDeRhamCohomology"
@@ -13737,7 +13961,9 @@
     "DiamondEtaleCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DiamondEtaleCohomology--C0.md"
+    "research/blueprint/reviews/REV-DiamondEtaleCohomology--C0.md",
+    "research/blueprint/packets/DiamondEtaleCohomology--C0.json",
+    "research/blueprint/suggested/DiamondEtaleCohomology--C0.lean"
    ],
    "after": [
     "BP-DiamondEtaleCohomology--C0"
@@ -13779,7 +14005,9 @@
     "DiamondEtaleCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DiamondEtaleCohomology--C8.md"
+    "research/blueprint/reviews/REV-DiamondEtaleCohomology--C8.md",
+    "research/blueprint/packets/DiamondEtaleCohomology--C8.json",
+    "research/blueprint/suggested/DiamondEtaleCohomology--C8.lean"
    ],
    "after": [
     "BP-DiamondEtaleCohomology--C8"
@@ -13826,7 +14054,9 @@
     "DiamondSixOperations"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DiamondSixOperations.md"
+    "research/blueprint/reviews/REV-DiamondSixOperations.md",
+    "research/blueprint/packets/DiamondSixOperations.json",
+    "research/blueprint/suggested/DiamondSixOperations.lean"
    ],
    "after": [
     "BP-DiamondSixOperations"
@@ -13873,7 +14103,9 @@
     "DiamondsAndVStacks"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DiamondsAndVStacks.md"
+    "research/blueprint/reviews/REV-DiamondsAndVStacks.md",
+    "research/blueprint/packets/DiamondsAndVStacks.json",
+    "research/blueprint/suggested/DiamondsAndVStacks.lean"
    ],
    "after": [
     "BP-DiamondsAndVStacks"
@@ -13921,7 +14153,9 @@
     "DirichletPadicLFunctions"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DirichletPadicLFunctions.md"
+    "research/blueprint/reviews/REV-DirichletPadicLFunctions.md",
+    "research/blueprint/packets/DirichletPadicLFunctions.json",
+    "research/blueprint/suggested/DirichletPadicLFunctions.lean"
    ],
    "after": [
     "BP-DirichletPadicLFunctions"
@@ -13967,7 +14201,9 @@
     "EllipticCurveModularity"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-EllipticCurveModularity.md"
+    "research/blueprint/reviews/REV-EllipticCurveModularity.md",
+    "research/blueprint/packets/EllipticCurveModularity.json",
+    "research/blueprint/suggested/EllipticCurveModularity.lean"
    ],
    "after": [
     "BP-EllipticCurveModularity"
@@ -14015,7 +14251,9 @@
     "EllipticKTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-EllipticKTheory.md"
+    "research/blueprint/reviews/REV-EllipticKTheory.md",
+    "research/blueprint/packets/EllipticKTheory.json",
+    "research/blueprint/suggested/EllipticKTheory.lean"
    ],
    "after": [
     "BP-EllipticKTheory"
@@ -14061,7 +14299,9 @@
     "EllipticRegulators"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-EllipticRegulators.md"
+    "research/blueprint/reviews/REV-EllipticRegulators.md",
+    "research/blueprint/packets/EllipticRegulators.json",
+    "research/blueprint/suggested/EllipticRegulators.lean"
    ],
    "after": [
     "BP-EllipticRegulators"
@@ -14109,7 +14349,9 @@
     "EndoscopicTransferAndUnitaryTraceComparison"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.0.md"
+    "research/blueprint/reviews/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.0.md",
+    "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.0.json",
+    "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.0.lean"
    ],
    "after": [
     "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.0"
@@ -14156,7 +14398,9 @@
     "EndoscopicTransferAndUnitaryTraceComparison"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4.md"
+    "research/blueprint/reviews/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4.md",
+    "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.4.json",
+    "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.4.lean"
    ],
    "after": [
     "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4"
@@ -14199,7 +14443,9 @@
     "EnhancedDerivedSheaves"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-EnhancedDerivedSheaves--E0.md"
+    "research/blueprint/reviews/REV-EnhancedDerivedSheaves--E0.md",
+    "research/blueprint/packets/EnhancedDerivedSheaves--E0.json",
+    "research/blueprint/suggested/EnhancedDerivedSheaves--E0.lean"
    ],
    "after": [
     "BP-EnhancedDerivedSheaves--E0"
@@ -14243,7 +14489,9 @@
     "EnhancedDerivedSheaves"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-EnhancedDerivedSheaves--E5.md"
+    "research/blueprint/reviews/REV-EnhancedDerivedSheaves--E5.md",
+    "research/blueprint/packets/EnhancedDerivedSheaves--E5.json",
+    "research/blueprint/suggested/EnhancedDerivedSheaves--E5.lean"
    ],
    "after": [
     "BP-EnhancedDerivedSheaves--E5"
@@ -14291,7 +14539,9 @@
     "EtaleDualityAndPerverseSheaves"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-EtaleDualityAndPerverseSheaves--EDC.0.md"
+    "research/blueprint/reviews/REV-EtaleDualityAndPerverseSheaves--EDC.0.md",
+    "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.0.json",
+    "research/blueprint/suggested/EtaleDualityAndPerverseSheaves--EDC.0.lean"
    ],
    "after": [
     "BP-EtaleDualityAndPerverseSheaves--EDC.0"
@@ -14336,7 +14586,9 @@
     "EtaleDualityAndPerverseSheaves"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-EtaleDualityAndPerverseSheaves--EDC.4.md"
+    "research/blueprint/reviews/REV-EtaleDualityAndPerverseSheaves--EDC.4.md",
+    "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.4.json",
+    "research/blueprint/suggested/EtaleDualityAndPerverseSheaves--EDC.4.lean"
    ],
    "after": [
     "BP-EtaleDualityAndPerverseSheaves--EDC.4"
@@ -14386,7 +14638,9 @@
     "EulerSystemsAndKolyvaginSystems"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-EulerSystemsAndKolyvaginSystems--ES.0.md"
+    "research/blueprint/reviews/REV-EulerSystemsAndKolyvaginSystems--ES.0.md",
+    "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
+    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems--ES.0.lean"
    ],
    "after": [
     "BP-EulerSystemsAndKolyvaginSystems--ES.0"
@@ -14429,7 +14683,9 @@
     "EulerSystemsAndKolyvaginSystems"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-EulerSystemsAndKolyvaginSystems--ES.8.md"
+    "research/blueprint/reviews/REV-EulerSystemsAndKolyvaginSystems--ES.8.md",
+    "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.8.json",
+    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems--ES.8.lean"
    ],
    "after": [
     "BP-EulerSystemsAndKolyvaginSystems--ES.8"
@@ -14474,7 +14730,9 @@
     "EulerSystemsCyclotomicMainConjecture"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-EulerSystemsCyclotomicMainConjecture.md"
+    "research/blueprint/reviews/REV-EulerSystemsCyclotomicMainConjecture.md",
+    "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
+    "research/blueprint/suggested/EulerSystemsCyclotomicMainConjecture.lean"
    ],
    "after": [
     "BP-EulerSystemsCyclotomicMainConjecture"
@@ -14520,7 +14778,9 @@
     "ExcursionOperatorsAndSpectralAction"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ExcursionOperatorsAndSpectralAction--ES0.md"
+    "research/blueprint/reviews/REV-ExcursionOperatorsAndSpectralAction--ES0.md",
+    "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES0.json",
+    "research/blueprint/suggested/ExcursionOperatorsAndSpectralAction--ES0.lean"
    ],
    "after": [
     "BP-ExcursionOperatorsAndSpectralAction--ES0"
@@ -14562,7 +14822,9 @@
     "ExcursionOperatorsAndSpectralAction"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ExcursionOperatorsAndSpectralAction--ES5.md"
+    "research/blueprint/reviews/REV-ExcursionOperatorsAndSpectralAction--ES5.md",
+    "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+    "research/blueprint/suggested/ExcursionOperatorsAndSpectralAction--ES5.lean"
    ],
    "after": [
     "BP-ExcursionOperatorsAndSpectralAction--ES5"
@@ -14605,7 +14867,9 @@
     "ExcursionOperatorsAndSpectralAction"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ExcursionOperatorsAndSpectralAction--ES7.md"
+    "research/blueprint/reviews/REV-ExcursionOperatorsAndSpectralAction--ES7.md",
+    "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+    "research/blueprint/suggested/ExcursionOperatorsAndSpectralAction--ES7.lean"
    ],
    "after": [
     "BP-ExcursionOperatorsAndSpectralAction--ES7"
@@ -14651,7 +14915,9 @@
     "FaltingsFinitenessAndIsogenyTheorems"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-FaltingsFinitenessAndIsogenyTheorems.md"
+    "research/blueprint/reviews/REV-FaltingsFinitenessAndIsogenyTheorems.md",
+    "research/blueprint/packets/FaltingsFinitenessAndIsogenyTheorems.json",
+    "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean"
    ],
    "after": [
     "BP-FaltingsFinitenessAndIsogenyTheorems"
@@ -14697,7 +14963,9 @@
     "FarguesFontaineDiamonds"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-FarguesFontaineDiamonds.md"
+    "research/blueprint/reviews/REV-FarguesFontaineDiamonds.md",
+    "research/blueprint/packets/FarguesFontaineDiamonds.json",
+    "research/blueprint/suggested/FarguesFontaineDiamonds.lean"
    ],
    "after": [
     "BP-FarguesFontaineDiamonds"
@@ -14743,7 +15011,9 @@
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory.md"
+    "research/blueprint/reviews/REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory.md",
+    "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
+    "research/blueprint/suggested/FiniteFlatGroupsAndIntegralPadicHodgeTheory.lean"
    ],
    "after": [
     "BP-FiniteFlatGroupsAndIntegralPadicHodgeTheory"
@@ -14794,7 +15064,9 @@
     "FunctionFieldArithmetic"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-FunctionFieldArithmetic.md"
+    "research/blueprint/reviews/REV-FunctionFieldArithmetic.md",
+    "research/blueprint/packets/FunctionFieldArithmetic.json",
+    "research/blueprint/suggested/FunctionFieldArithmetic.lean"
    ],
    "after": [
     "BP-FunctionFieldArithmetic"
@@ -14842,7 +15114,9 @@
     "GL2AutomorphicRepresentationsAndTransfer"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-GL2AutomorphicRepresentationsAndTransfer--R16.1.md"
+    "research/blueprint/reviews/REV-GL2AutomorphicRepresentationsAndTransfer--R16.1.md",
+    "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R16.1.json",
+    "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R16.1.lean"
    ],
    "after": [
     "BP-GL2AutomorphicRepresentationsAndTransfer--R16.1"
@@ -14886,7 +15160,9 @@
     "GL2AutomorphicRepresentationsAndTransfer"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-GL2AutomorphicRepresentationsAndTransfer--R17.3.md"
+    "research/blueprint/reviews/REV-GL2AutomorphicRepresentationsAndTransfer--R17.3.md",
+    "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.3.json",
+    "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R17.3.lean"
    ],
    "after": [
     "BP-GL2AutomorphicRepresentationsAndTransfer--R17.3"
@@ -14937,7 +15213,9 @@
     "GL2ModularityLifting"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-GL2ModularityLifting--R22.1.md"
+    "research/blueprint/reviews/REV-GL2ModularityLifting--R22.1.md",
+    "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+    "research/blueprint/suggested/GL2ModularityLifting--R22.1.lean"
    ],
    "after": [
     "BP-GL2ModularityLifting--R22.1"
@@ -14984,7 +15262,9 @@
     "GL2ModularityLifting"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-GL2ModularityLifting--R32.3.md"
+    "research/blueprint/reviews/REV-GL2ModularityLifting--R32.3.md",
+    "research/blueprint/packets/GL2ModularityLifting--R32.3.json",
+    "research/blueprint/suggested/GL2ModularityLifting--R32.3.lean"
    ],
    "after": [
     "BP-GL2ModularityLifting--R32.3"
@@ -15030,7 +15310,9 @@
     "GeneralAlgebraicKTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-GeneralAlgebraicKTheory--K.1.md"
+    "research/blueprint/reviews/REV-GeneralAlgebraicKTheory--K.1.md",
+    "research/blueprint/packets/GeneralAlgebraicKTheory--K.1.json",
+    "research/blueprint/suggested/GeneralAlgebraicKTheory--K.1.lean"
    ],
    "after": [
     "BP-GeneralAlgebraicKTheory--K.1"
@@ -15070,7 +15352,9 @@
     "GeneralAlgebraicKTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-GeneralAlgebraicKTheory--K.6.md"
+    "research/blueprint/reviews/REV-GeneralAlgebraicKTheory--K.6.md",
+    "research/blueprint/packets/GeneralAlgebraicKTheory--K.6.json",
+    "research/blueprint/suggested/GeneralAlgebraicKTheory--K.6.lean"
    ],
    "after": [
     "BP-GeneralAlgebraicKTheory--K.6"
@@ -15116,7 +15400,9 @@
     "GeneralizedHeegnerCycles"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-GeneralizedHeegnerCycles--GH.0.md"
+    "research/blueprint/reviews/REV-GeneralizedHeegnerCycles--GH.0.md",
+    "research/blueprint/packets/GeneralizedHeegnerCycles--GH.0.json",
+    "research/blueprint/suggested/GeneralizedHeegnerCycles--GH.0.lean"
    ],
    "after": [
     "BP-GeneralizedHeegnerCycles--GH.0"
@@ -15155,7 +15441,9 @@
     "GeneralizedHeegnerCycles"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-GeneralizedHeegnerCycles--GH.8.md"
+    "research/blueprint/reviews/REV-GeneralizedHeegnerCycles--GH.8.md",
+    "research/blueprint/packets/GeneralizedHeegnerCycles--GH.8.json",
+    "research/blueprint/suggested/GeneralizedHeegnerCycles--GH.8.lean"
    ],
    "after": [
     "BP-GeneralizedHeegnerCycles--GH.8"
@@ -15201,7 +15489,9 @@
     "GeometricSatakeAndFusion"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-GeometricSatakeAndFusion--GS0.md"
+    "research/blueprint/reviews/REV-GeometricSatakeAndFusion--GS0.md",
+    "research/blueprint/packets/GeometricSatakeAndFusion--GS0.json",
+    "research/blueprint/suggested/GeometricSatakeAndFusion--GS0.lean"
    ],
    "after": [
     "BP-GeometricSatakeAndFusion--GS0"
@@ -15245,7 +15535,9 @@
     "GeometricSatakeAndFusion"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-GeometricSatakeAndFusion--GS3.md"
+    "research/blueprint/reviews/REV-GeometricSatakeAndFusion--GS3.md",
+    "research/blueprint/packets/GeometricSatakeAndFusion--GS3.json",
+    "research/blueprint/suggested/GeometricSatakeAndFusion--GS3.lean"
    ],
    "after": [
     "BP-GeometricSatakeAndFusion--GS3"
@@ -15296,7 +15588,9 @@
     "GlobalGaloisDeformations"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-GlobalGaloisDeformations.md"
+    "research/blueprint/reviews/REV-GlobalGaloisDeformations.md",
+    "research/blueprint/packets/GlobalGaloisDeformations.json",
+    "research/blueprint/suggested/GlobalGaloisDeformations.lean"
    ],
    "after": [
     "BP-GlobalGaloisDeformations"
@@ -15344,7 +15638,9 @@
     "GrossZagierAndArithmeticHeights"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-GrossZagierAndArithmeticHeights--GZ.0.md"
+    "research/blueprint/reviews/REV-GrossZagierAndArithmeticHeights--GZ.0.md",
+    "research/blueprint/packets/GrossZagierAndArithmeticHeights--GZ.0.json",
+    "research/blueprint/suggested/GrossZagierAndArithmeticHeights--GZ.0.lean"
    ],
    "after": [
     "BP-GrossZagierAndArithmeticHeights--GZ.0"
@@ -15386,7 +15682,9 @@
     "GrossZagierAndArithmeticHeights"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-GrossZagierAndArithmeticHeights--GZ.8.md"
+    "research/blueprint/reviews/REV-GrossZagierAndArithmeticHeights--GZ.8.md",
+    "research/blueprint/packets/GrossZagierAndArithmeticHeights--GZ.8.json",
+    "research/blueprint/suggested/GrossZagierAndArithmeticHeights--GZ.8.lean"
    ],
    "after": [
     "BP-GrossZagierAndArithmeticHeights--GZ.8"
@@ -15437,7 +15735,9 @@
     "HabiroCohomologyFoundations"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-HabiroCohomologyFoundations--HQ.1.md"
+    "research/blueprint/reviews/REV-HabiroCohomologyFoundations--HQ.1.md",
+    "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+    "research/blueprint/suggested/HabiroCohomologyFoundations--HQ.1.lean"
    ],
    "after": [
     "BP-HabiroCohomologyFoundations--HQ.1"
@@ -15481,7 +15781,9 @@
     "HabiroCohomologyFoundations"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-HabiroCohomologyFoundations--HQ.8.md"
+    "research/blueprint/reviews/REV-HabiroCohomologyFoundations--HQ.8.md",
+    "research/blueprint/packets/HabiroCohomologyFoundations--HQ.8.json",
+    "research/blueprint/suggested/HabiroCohomologyFoundations--HQ.8.lean"
    ],
    "after": [
     "BP-HabiroCohomologyFoundations--HQ.8"
@@ -15528,7 +15830,9 @@
     "HabiroNumberFields"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-HabiroNumberFields.md"
+    "research/blueprint/reviews/REV-HabiroNumberFields.md",
+    "research/blueprint/packets/HabiroNumberFields.json",
+    "research/blueprint/suggested/HabiroNumberFields.lean"
    ],
    "after": [
     "BP-HabiroNumberFields"
@@ -15579,7 +15883,9 @@
     "HabiroRings"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-HabiroRings.md"
+    "research/blueprint/reviews/REV-HabiroRings.md",
+    "research/blueprint/packets/HabiroRings.json",
+    "research/blueprint/suggested/HabiroRings.lean"
    ],
    "after": [
     "BP-HabiroRings"
@@ -15624,7 +15930,9 @@
     "HeckeStacksAndLocalShtukas"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-HeckeStacksAndLocalShtukas.md"
+    "research/blueprint/reviews/REV-HeckeStacksAndLocalShtukas.md",
+    "research/blueprint/packets/HeckeStacksAndLocalShtukas.json",
+    "research/blueprint/suggested/HeckeStacksAndLocalShtukas.lean"
    ],
    "after": [
     "BP-HeckeStacksAndLocalShtukas"
@@ -15672,7 +15980,9 @@
     "HeegnerPointEulerSystems"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-HeegnerPointEulerSystems--HE.0.md"
+    "research/blueprint/reviews/REV-HeegnerPointEulerSystems--HE.0.md",
+    "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
+    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean"
    ],
    "after": [
     "BP-HeegnerPointEulerSystems--HE.0"
@@ -15716,7 +16026,9 @@
     "HeegnerPointEulerSystems"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-HeegnerPointEulerSystems--HE.7s.md"
+    "research/blueprint/reviews/REV-HeegnerPointEulerSystems--HE.7s.md",
+    "research/blueprint/packets/HeegnerPointEulerSystems--HE.7s.json",
+    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.7s.lean"
    ],
    "after": [
     "BP-HeegnerPointEulerSystems--HE.7s"
@@ -15764,7 +16076,9 @@
     "HilbertModularVarietiesAndShimuraCurves"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-HilbertModularVarietiesAndShimuraCurves--H0.md"
+    "research/blueprint/reviews/REV-HilbertModularVarietiesAndShimuraCurves--H0.md",
+    "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json",
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean"
    ],
    "after": [
     "BP-HilbertModularVarietiesAndShimuraCurves--H0"
@@ -15809,7 +16123,9 @@
     "HilbertModularVarietiesAndShimuraCurves"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-HilbertModularVarietiesAndShimuraCurves--R18.2.md"
+    "research/blueprint/reviews/REV-HilbertModularVarietiesAndShimuraCurves--R18.2.md",
+    "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.2.json",
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.2.lean"
    ],
    "after": [
     "BP-HilbertModularVarietiesAndShimuraCurves--R18.2"
@@ -15853,7 +16169,9 @@
     "HodgeTateAndCanonicalSubgroups"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-HodgeTateAndCanonicalSubgroups--T0.md"
+    "research/blueprint/reviews/REV-HodgeTateAndCanonicalSubgroups--T0.md",
+    "research/blueprint/packets/HodgeTateAndCanonicalSubgroups--T0.json",
+    "research/blueprint/suggested/HodgeTateAndCanonicalSubgroups--T0.lean"
    ],
    "after": [
     "BP-HodgeTateAndCanonicalSubgroups--T0"
@@ -15894,7 +16212,9 @@
     "HodgeTateAndCanonicalSubgroups"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-HodgeTateAndCanonicalSubgroups--T6.md"
+    "research/blueprint/reviews/REV-HodgeTateAndCanonicalSubgroups--T6.md",
+    "research/blueprint/packets/HodgeTateAndCanonicalSubgroups--T6.json",
+    "research/blueprint/suggested/HodgeTateAndCanonicalSubgroups--T6.lean"
    ],
    "after": [
     "BP-HodgeTateAndCanonicalSubgroups--T6"
@@ -15940,7 +16260,9 @@
     "IgusaVarietiesAndTorsionConcentration"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-IgusaVarietiesAndTorsionConcentration.md"
+    "research/blueprint/reviews/REV-IgusaVarietiesAndTorsionConcentration.md",
+    "research/blueprint/packets/IgusaVarietiesAndTorsionConcentration.json",
+    "research/blueprint/suggested/IgusaVarietiesAndTorsionConcentration.lean"
    ],
    "after": [
     "BP-IgusaVarietiesAndTorsionConcentration"
@@ -15987,7 +16309,9 @@
     "IntegralHeckeAndGaloisDeterminants"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-IntegralHeckeAndGaloisDeterminants.md"
+    "research/blueprint/reviews/REV-IntegralHeckeAndGaloisDeterminants.md",
+    "research/blueprint/packets/IntegralHeckeAndGaloisDeterminants.json",
+    "research/blueprint/suggested/IntegralHeckeAndGaloisDeterminants.lean"
    ],
    "after": [
     "BP-IntegralHeckeAndGaloisDeterminants"
@@ -16037,7 +16361,9 @@
     "IntegralIwasawaTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-IntegralIwasawaTheory--I.1.md"
+    "research/blueprint/reviews/REV-IntegralIwasawaTheory--I.1.md",
+    "research/blueprint/packets/IntegralIwasawaTheory--I.1.json",
+    "research/blueprint/suggested/IntegralIwasawaTheory--I.1.lean"
    ],
    "after": [
     "BP-IntegralIwasawaTheory--I.1"
@@ -16086,7 +16412,9 @@
     "IntegralIwasawaTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-IntegralIwasawaTheory--I.8.md"
+    "research/blueprint/reviews/REV-IntegralIwasawaTheory--I.8.md",
+    "research/blueprint/packets/IntegralIwasawaTheory--I.8.json",
+    "research/blueprint/suggested/IntegralIwasawaTheory--I.8.lean"
    ],
    "after": [
     "BP-IntegralIwasawaTheory--I.8"
@@ -16130,7 +16458,9 @@
     "K2SymbolsBrauer"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-K2SymbolsBrauer--T.1.md"
+    "research/blueprint/reviews/REV-K2SymbolsBrauer--T.1.md",
+    "research/blueprint/packets/K2SymbolsBrauer--T.1.json",
+    "research/blueprint/suggested/K2SymbolsBrauer--T.1.lean"
    ],
    "after": [
     "BP-K2SymbolsBrauer--T.1"
@@ -16175,7 +16505,9 @@
     "K2SymbolsBrauer"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-K2SymbolsBrauer--T.3.md"
+    "research/blueprint/reviews/REV-K2SymbolsBrauer--T.3.md",
+    "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+    "research/blueprint/suggested/K2SymbolsBrauer--T.3.lean"
    ],
    "after": [
     "BP-K2SymbolsBrauer--T.3"
@@ -16220,7 +16552,9 @@
     "KTheoryFiniteLocalFields"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-KTheoryFiniteLocalFields.md"
+    "research/blueprint/reviews/REV-KTheoryFiniteLocalFields.md",
+    "research/blueprint/packets/KTheoryFiniteLocalFields.json",
+    "research/blueprint/suggested/KTheoryFiniteLocalFields.lean"
    ],
    "after": [
     "BP-KTheoryFiniteLocalFields"
@@ -16268,7 +16602,9 @@
     "KTheoryLowDegrees"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-KTheoryLowDegrees--U.1.md"
+    "research/blueprint/reviews/REV-KTheoryLowDegrees--U.1.md",
+    "research/blueprint/packets/KTheoryLowDegrees--U.1.json",
+    "research/blueprint/suggested/KTheoryLowDegrees--U.1.lean"
    ],
    "after": [
     "BP-KTheoryLowDegrees--U.1"
@@ -16312,7 +16648,9 @@
     "KTheoryLowDegrees"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-KTheoryLowDegrees--Z.3.md"
+    "research/blueprint/reviews/REV-KTheoryLowDegrees--Z.3.md",
+    "research/blueprint/packets/KTheoryLowDegrees--Z.3.json",
+    "research/blueprint/suggested/KTheoryLowDegrees--Z.3.lean"
    ],
    "after": [
     "BP-KTheoryLowDegrees--Z.3"
@@ -16355,7 +16693,9 @@
     "KatoEulerSystems"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-KatoEulerSystems.md"
+    "research/blueprint/reviews/REV-KatoEulerSystems.md",
+    "research/blueprint/packets/KatoEulerSystems.json",
+    "research/blueprint/suggested/KatoEulerSystems.lean"
    ],
    "after": [
     "BP-KatoEulerSystems"
@@ -16401,7 +16741,9 @@
     "LanglandsParameterStacks"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LanglandsParameterStacks.md"
+    "research/blueprint/reviews/REV-LanglandsParameterStacks.md",
+    "research/blueprint/packets/LanglandsParameterStacks.json",
+    "research/blueprint/suggested/LanglandsParameterStacks.lean"
    ],
    "after": [
     "BP-LanglandsParameterStacks"
@@ -16448,7 +16790,9 @@
     "LefschetzPencilsAndVanishingCycles"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LefschetzPencilsAndVanishingCycles--LPV.0.md"
+    "research/blueprint/reviews/REV-LefschetzPencilsAndVanishingCycles--LPV.0.md",
+    "research/blueprint/packets/LefschetzPencilsAndVanishingCycles--LPV.0.json",
+    "research/blueprint/suggested/LefschetzPencilsAndVanishingCycles--LPV.0.lean"
    ],
    "after": [
     "BP-LefschetzPencilsAndVanishingCycles--LPV.0"
@@ -16491,7 +16835,9 @@
     "LefschetzPencilsAndVanishingCycles"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LefschetzPencilsAndVanishingCycles--LPV.7.md"
+    "research/blueprint/reviews/REV-LefschetzPencilsAndVanishingCycles--LPV.7.md",
+    "research/blueprint/packets/LefschetzPencilsAndVanishingCycles--LPV.7.json",
+    "research/blueprint/suggested/LefschetzPencilsAndVanishingCycles--LPV.7.lean"
    ],
    "after": [
     "BP-LefschetzPencilsAndVanishingCycles--LPV.7"
@@ -16542,7 +16888,9 @@
     "LocalGaloisDeformationRings"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LocalGaloisDeformationRings.md"
+    "research/blueprint/reviews/REV-LocalGaloisDeformationRings.md",
+    "research/blueprint/packets/LocalGaloisDeformationRings.json",
+    "research/blueprint/suggested/LocalGaloisDeformationRings.lean"
    ],
    "after": [
     "BP-LocalGaloisDeformationRings"
@@ -16588,7 +16936,9 @@
     "MetaplecticAutomorphicForms"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-MetaplecticAutomorphicForms--MP.0.md"
+    "research/blueprint/reviews/REV-MetaplecticAutomorphicForms--MP.0.md",
+    "research/blueprint/packets/MetaplecticAutomorphicForms--MP.0.json",
+    "research/blueprint/suggested/MetaplecticAutomorphicForms--MP.0.lean"
    ],
    "after": [
     "BP-MetaplecticAutomorphicForms--MP.0"
@@ -16627,7 +16977,9 @@
     "MetaplecticAutomorphicForms"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-MetaplecticAutomorphicForms--MP.8.md"
+    "research/blueprint/reviews/REV-MetaplecticAutomorphicForms--MP.8.md",
+    "research/blueprint/packets/MetaplecticAutomorphicForms--MP.8.json",
+    "research/blueprint/suggested/MetaplecticAutomorphicForms--MP.8.lean"
    ],
    "after": [
     "BP-MetaplecticAutomorphicForms--MP.8"
@@ -16675,7 +17027,9 @@
     "ModularCurvesPartII"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ModularCurvesPartII--R12.1.md"
+    "research/blueprint/reviews/REV-ModularCurvesPartII--R12.1.md",
+    "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
+    "research/blueprint/suggested/ModularCurvesPartII--R12.1.lean"
    ],
    "after": [
     "BP-ModularCurvesPartII--R12.1"
@@ -16723,7 +17077,9 @@
     "ModularCurvesPartII"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ModularCurvesPartII--R13.3.md"
+    "research/blueprint/reviews/REV-ModularCurvesPartII--R13.3.md",
+    "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+    "research/blueprint/suggested/ModularCurvesPartII--R13.3.lean"
    ],
    "after": [
     "BP-ModularCurvesPartII--R13.3"
@@ -16767,7 +17123,9 @@
     "ModularCurvesPartII"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ModularCurvesPartII--R14.3.md"
+    "research/blueprint/reviews/REV-ModularCurvesPartII--R14.3.md",
+    "research/blueprint/packets/ModularCurvesPartII--R14.3.json",
+    "research/blueprint/suggested/ModularCurvesPartII--R14.3.lean"
    ],
    "after": [
     "BP-ModularCurvesPartII--R14.3"
@@ -16814,7 +17172,9 @@
     "ModularIwasawaMainConjectures"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ModularIwasawaMainConjectures.md"
+    "research/blueprint/reviews/REV-ModularIwasawaMainConjectures.md",
+    "research/blueprint/packets/ModularIwasawaMainConjectures.json",
+    "research/blueprint/suggested/ModularIwasawaMainConjectures.lean"
    ],
    "after": [
     "BP-ModularIwasawaMainConjectures"
@@ -16862,7 +17222,9 @@
     "ModularSymbolsPadicLFunctions"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ModularSymbolsPadicLFunctions.md"
+    "research/blueprint/reviews/REV-ModularSymbolsPadicLFunctions.md",
+    "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
+    "research/blueprint/suggested/ModularSymbolsPadicLFunctions.lean"
    ],
    "after": [
     "BP-ModularSymbolsPadicLFunctions"
@@ -16912,7 +17274,9 @@
     "MotivicEtaleKTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-MotivicEtaleKTheory--M.1.md"
+    "research/blueprint/reviews/REV-MotivicEtaleKTheory--M.1.md",
+    "research/blueprint/packets/MotivicEtaleKTheory--M.1.json",
+    "research/blueprint/suggested/MotivicEtaleKTheory--M.1.lean"
    ],
    "after": [
     "BP-MotivicEtaleKTheory--M.1"
@@ -16960,7 +17324,9 @@
     "MotivicEtaleKTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-MotivicEtaleKTheory--M.5d.md"
+    "research/blueprint/reviews/REV-MotivicEtaleKTheory--M.5d.md",
+    "research/blueprint/packets/MotivicEtaleKTheory--M.5d.json",
+    "research/blueprint/suggested/MotivicEtaleKTheory--M.5d.lean"
    ],
    "after": [
     "BP-MotivicEtaleKTheory--M.5d"
@@ -17006,7 +17372,9 @@
     "NeronModelsAndSemistableAbelianVarieties"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-NeronModelsAndSemistableAbelianVarieties.md"
+    "research/blueprint/reviews/REV-NeronModelsAndSemistableAbelianVarieties.md",
+    "research/blueprint/packets/NeronModelsAndSemistableAbelianVarieties.json",
+    "research/blueprint/suggested/NeronModelsAndSemistableAbelianVarieties.lean"
    ],
    "after": [
     "BP-NeronModelsAndSemistableAbelianVarieties"
@@ -17056,7 +17424,9 @@
     "OrdinaryAutomorphicFormsAndModularityLifting"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-OrdinaryAutomorphicFormsAndModularityLifting.md"
+    "research/blueprint/reviews/REV-OrdinaryAutomorphicFormsAndModularityLifting.md",
+    "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
+    "research/blueprint/suggested/OrdinaryAutomorphicFormsAndModularityLifting.lean"
    ],
    "after": [
     "BP-OrdinaryAutomorphicFormsAndModularityLifting"
@@ -17103,7 +17473,9 @@
     "PELModuli"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PELModuli.md"
+    "research/blueprint/reviews/REV-PELModuli.md",
+    "research/blueprint/packets/PELModuli.json",
+    "research/blueprint/suggested/PELModuli.lean"
    ],
    "after": [
     "BP-PELModuli"
@@ -17151,7 +17523,9 @@
     "PadicDifferentialEquationsAndRigidCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PadicDifferentialEquationsAndRigidCohomology.md"
+    "research/blueprint/reviews/REV-PadicDifferentialEquationsAndRigidCohomology.md",
+    "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+    "research/blueprint/suggested/PadicDifferentialEquationsAndRigidCohomology.lean"
    ],
    "after": [
     "BP-PadicDifferentialEquationsAndRigidCohomology"
@@ -17202,7 +17576,9 @@
     "PadicFamilies"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PadicFamilies.md"
+    "research/blueprint/reviews/REV-PadicFamilies.md",
+    "research/blueprint/packets/PadicFamilies.json",
+    "research/blueprint/suggested/PadicFamilies.lean"
    ],
    "after": [
     "BP-PadicFamilies"
@@ -17253,7 +17629,9 @@
     "PadicHodgeRegulators"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PadicHodgeRegulators--D.1.md"
+    "research/blueprint/reviews/REV-PadicHodgeRegulators--D.1.md",
+    "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+    "research/blueprint/suggested/PadicHodgeRegulators--D.1.lean"
    ],
    "after": [
     "BP-PadicHodgeRegulators--D.1"
@@ -17298,7 +17676,9 @@
     "PadicHodgeRegulators"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PadicHodgeRegulators--L3.md"
+    "research/blueprint/reviews/REV-PadicHodgeRegulators--L3.md",
+    "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+    "research/blueprint/suggested/PadicHodgeRegulators--L3.lean"
    ],
    "after": [
     "BP-PadicHodgeRegulators--L3"
@@ -17346,7 +17726,9 @@
     "PadicHodgeTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PadicHodgeTheory--P7.md"
+    "research/blueprint/reviews/REV-PadicHodgeTheory--P7.md",
+    "research/blueprint/packets/PadicHodgeTheory--P7.json",
+    "research/blueprint/suggested/PadicHodgeTheory--P7.lean"
    ],
    "after": [
     "BP-PadicHodgeTheory--P7"
@@ -17388,7 +17770,9 @@
     "PadicHodgeTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PadicHodgeTheory--R06.5.md"
+    "research/blueprint/reviews/REV-PadicHodgeTheory--R06.5.md",
+    "research/blueprint/packets/PadicHodgeTheory--R06.5.json",
+    "research/blueprint/suggested/PadicHodgeTheory--R06.5.lean"
    ],
    "after": [
     "BP-PadicHodgeTheory--R06.5"
@@ -17434,7 +17818,9 @@
     "PadicLocalLanglandsForGL2Qp"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PadicLocalLanglandsForGL2Qp.md"
+    "research/blueprint/reviews/REV-PadicLocalLanglandsForGL2Qp.md",
+    "research/blueprint/packets/PadicLocalLanglandsForGL2Qp.json",
+    "research/blueprint/suggested/PadicLocalLanglandsForGL2Qp.lean"
    ],
    "after": [
     "BP-PadicLocalLanglandsForGL2Qp"
@@ -17481,7 +17867,9 @@
     "PerfectoidQuotients"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PerfectoidQuotients.md"
+    "research/blueprint/reviews/REV-PerfectoidQuotients.md",
+    "research/blueprint/packets/PerfectoidQuotients.json",
+    "research/blueprint/suggested/PerfectoidQuotients.lean"
    ],
    "after": [
     "BP-PerfectoidQuotients"
@@ -17529,7 +17917,9 @@
     "PerfectoidShimuraVarieties"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PerfectoidShimuraVarieties.md"
+    "research/blueprint/reviews/REV-PerfectoidShimuraVarieties.md",
+    "research/blueprint/packets/PerfectoidShimuraVarieties.json",
+    "research/blueprint/suggested/PerfectoidShimuraVarieties.lean"
    ],
    "after": [
     "BP-PerfectoidShimuraVarieties"
@@ -17577,7 +17967,9 @@
     "PerfectoidSpaces"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PerfectoidSpaces--P0.md"
+    "research/blueprint/reviews/REV-PerfectoidSpaces--P0.md",
+    "research/blueprint/packets/PerfectoidSpaces--P0.json",
+    "research/blueprint/suggested/PerfectoidSpaces--P0.lean"
    ],
    "after": [
     "BP-PerfectoidSpaces--P0"
@@ -17619,7 +18011,9 @@
     "PerfectoidSpaces"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PerfectoidSpaces--P8.md"
+    "research/blueprint/reviews/REV-PerfectoidSpaces--P8.md",
+    "research/blueprint/packets/PerfectoidSpaces--P8.json",
+    "research/blueprint/suggested/PerfectoidSpaces--P8.lean"
    ],
    "after": [
     "BP-PerfectoidSpaces--P8"
@@ -17670,7 +18064,9 @@
     "PhiGammaModulesAndIwasawaCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PhiGammaModulesAndIwasawaCohomology.md"
+    "research/blueprint/reviews/REV-PhiGammaModulesAndIwasawaCohomology.md",
+    "research/blueprint/packets/PhiGammaModulesAndIwasawaCohomology.json",
+    "research/blueprint/suggested/PhiGammaModulesAndIwasawaCohomology.lean"
    ],
    "after": [
     "BP-PhiGammaModulesAndIwasawaCohomology"
@@ -17719,7 +18115,9 @@
     "PotentialModularityAndCompatibleSystems"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PotentialModularityAndCompatibleSystems--R23.1.md"
+    "research/blueprint/reviews/REV-PotentialModularityAndCompatibleSystems--R23.1.md",
+    "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R23.1.json",
+    "research/blueprint/suggested/PotentialModularityAndCompatibleSystems--R23.1.lean"
    ],
    "after": [
     "BP-PotentialModularityAndCompatibleSystems--R23.1"
@@ -17765,7 +18163,9 @@
     "PotentialModularityAndCompatibleSystems"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PotentialModularityAndCompatibleSystems--R24.3.md"
+    "research/blueprint/reviews/REV-PotentialModularityAndCompatibleSystems--R24.3.md",
+    "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R24.3.json",
+    "research/blueprint/suggested/PotentialModularityAndCompatibleSystems--R24.3.lean"
    ],
    "after": [
     "BP-PotentialModularityAndCompatibleSystems--R24.3"
@@ -17813,7 +18213,9 @@
     "PrismaticCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PrismaticCohomology--PR.0.md"
+    "research/blueprint/reviews/REV-PrismaticCohomology--PR.0.md",
+    "research/blueprint/packets/PrismaticCohomology--PR.0.json",
+    "research/blueprint/suggested/PrismaticCohomology--PR.0.lean"
    ],
    "after": [
     "BP-PrismaticCohomology--PR.0"
@@ -17854,7 +18256,9 @@
     "PrismaticCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PrismaticCohomology--PR.8.md"
+    "research/blueprint/reviews/REV-PrismaticCohomology--PR.8.md",
+    "research/blueprint/packets/PrismaticCohomology--PR.8.json",
+    "research/blueprint/suggested/PrismaticCohomology--PR.8.lean"
    ],
    "after": [
     "BP-PrismaticCohomology--PR.8"
@@ -17902,7 +18306,9 @@
     "RankZeroOneBSD"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RankZeroOneBSD--BSD.0.md"
+    "research/blueprint/reviews/REV-RankZeroOneBSD--BSD.0.md",
+    "research/blueprint/packets/RankZeroOneBSD--BSD.0.json",
+    "research/blueprint/suggested/RankZeroOneBSD--BSD.0.lean"
    ],
    "after": [
     "BP-RankZeroOneBSD--BSD.0"
@@ -17946,7 +18352,9 @@
     "RankZeroOneBSD"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RankZeroOneBSD--BSD.7.md"
+    "research/blueprint/reviews/REV-RankZeroOneBSD--BSD.7.md",
+    "research/blueprint/packets/RankZeroOneBSD--BSD.7.json",
+    "research/blueprint/suggested/RankZeroOneBSD--BSD.7.lean"
    ],
    "after": [
     "BP-RankZeroOneBSD--BSD.7"
@@ -17993,7 +18401,9 @@
     "ReductiveGroupsPartII"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ReductiveGroupsPartII.md"
+    "research/blueprint/reviews/REV-ReductiveGroupsPartII.md",
+    "research/blueprint/packets/ReductiveGroupsPartII.json",
+    "research/blueprint/suggested/ReductiveGroupsPartII.lean"
    ],
    "after": [
     "BP-ReductiveGroupsPartII"
@@ -18039,7 +18449,9 @@
     "RefinedTraceMethods"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RefinedTraceMethods--RT.1.md"
+    "research/blueprint/reviews/REV-RefinedTraceMethods--RT.1.md",
+    "research/blueprint/packets/RefinedTraceMethods--RT.1.json",
+    "research/blueprint/suggested/RefinedTraceMethods--RT.1.lean"
    ],
    "after": [
     "BP-RefinedTraceMethods--RT.1"
@@ -18079,7 +18491,9 @@
     "RefinedTraceMethods"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RefinedTraceMethods--RT.5.md"
+    "research/blueprint/reviews/REV-RefinedTraceMethods--RT.5.md",
+    "research/blueprint/packets/RefinedTraceMethods--RT.5.json",
+    "research/blueprint/suggested/RefinedTraceMethods--RT.5.lean"
    ],
    "after": [
     "BP-RefinedTraceMethods--RT.5"
@@ -18127,7 +18541,9 @@
     "RelativeFarguesFontaine"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RelativeFarguesFontaine--RF0.md"
+    "research/blueprint/reviews/REV-RelativeFarguesFontaine--RF0.md",
+    "research/blueprint/packets/RelativeFarguesFontaine--RF0.json",
+    "research/blueprint/suggested/RelativeFarguesFontaine--RF0.lean"
    ],
    "after": [
     "BP-RelativeFarguesFontaine--RF0"
@@ -18170,7 +18586,9 @@
     "RelativeFarguesFontaine"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-RelativeFarguesFontaine--RF4.md"
+    "research/blueprint/reviews/REV-RelativeFarguesFontaine--RF4.md",
+    "research/blueprint/packets/RelativeFarguesFontaine--RF4.json",
+    "research/blueprint/suggested/RelativeFarguesFontaine--RF4.lean"
    ],
    "after": [
     "BP-RelativeFarguesFontaine--RF4"
@@ -18217,7 +18635,9 @@
     "SchemeKTheoryOperations"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-SchemeKTheoryOperations.md"
+    "research/blueprint/reviews/REV-SchemeKTheoryOperations.md",
+    "research/blueprint/packets/SchemeKTheoryOperations.json",
+    "research/blueprint/suggested/SchemeKTheoryOperations.lean"
    ],
    "after": [
     "BP-SchemeKTheoryOperations"
@@ -18264,7 +18684,9 @@
     "SelmerIwasawaCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-SelmerIwasawaCohomology.md"
+    "research/blueprint/reviews/REV-SelmerIwasawaCohomology.md",
+    "research/blueprint/packets/SelmerIwasawaCohomology.json",
+    "research/blueprint/suggested/SelmerIwasawaCohomology.lean"
    ],
    "after": [
     "BP-SelmerIwasawaCohomology"
@@ -18310,7 +18732,9 @@
     "SerreWeightAndLevelOptimisation"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-SerreWeightAndLevelOptimisation.md"
+    "research/blueprint/reviews/REV-SerreWeightAndLevelOptimisation.md",
+    "research/blueprint/packets/SerreWeightAndLevelOptimisation.json",
+    "research/blueprint/suggested/SerreWeightAndLevelOptimisation.lean"
    ],
    "after": [
     "BP-SerreWeightAndLevelOptimisation"
@@ -18358,7 +18782,9 @@
     "ShimuraCompactifications"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ShimuraCompactifications--C0.md"
+    "research/blueprint/reviews/REV-ShimuraCompactifications--C0.md",
+    "research/blueprint/packets/ShimuraCompactifications--C0.json",
+    "research/blueprint/suggested/ShimuraCompactifications--C0.lean"
    ],
    "after": [
     "BP-ShimuraCompactifications--C0"
@@ -18399,7 +18825,9 @@
     "ShimuraCompactifications"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ShimuraCompactifications--C6.md"
+    "research/blueprint/reviews/REV-ShimuraCompactifications--C6.md",
+    "research/blueprint/packets/ShimuraCompactifications--C6.json",
+    "research/blueprint/suggested/ShimuraCompactifications--C6.lean"
    ],
    "after": [
     "BP-ShimuraCompactifications--C6"
@@ -18443,7 +18871,9 @@
     "ShimuraData"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ShimuraData.md"
+    "research/blueprint/reviews/REV-ShimuraData.md",
+    "research/blueprint/packets/ShimuraData.json",
+    "research/blueprint/suggested/ShimuraData.lean"
    ],
    "after": [
     "BP-ShimuraData"
@@ -18491,7 +18921,9 @@
     "ShimuraVarieties"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ShimuraVarieties--V0.md"
+    "research/blueprint/reviews/REV-ShimuraVarieties--V0.md",
+    "research/blueprint/packets/ShimuraVarieties--V0.json",
+    "research/blueprint/suggested/ShimuraVarieties--V0.lean"
    ],
    "after": [
     "BP-ShimuraVarieties--V0"
@@ -18533,7 +18965,9 @@
     "ShimuraVarieties"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ShimuraVarieties--V8.md"
+    "research/blueprint/reviews/REV-ShimuraVarieties--V8.md",
+    "research/blueprint/packets/ShimuraVarieties--V8.json",
+    "research/blueprint/suggested/ShimuraVarieties--V8.lean"
    ],
    "after": [
     "BP-ShimuraVarieties--V8"
@@ -18579,7 +19013,9 @@
     "SmallRamificationAndAbelianVarietyBaseCases"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-SmallRamificationAndAbelianVarietyBaseCases.md"
+    "research/blueprint/reviews/REV-SmallRamificationAndAbelianVarietyBaseCases.md",
+    "research/blueprint/packets/SmallRamificationAndAbelianVarietyBaseCases.json",
+    "research/blueprint/suggested/SmallRamificationAndAbelianVarietyBaseCases.lean"
    ],
    "after": [
     "BP-SmallRamificationAndAbelianVarietyBaseCases"
@@ -18627,7 +19063,9 @@
     "SmoothRepresentationsOfLocalGroups"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-SmoothRepresentationsOfLocalGroups--SR.0.md"
+    "research/blueprint/reviews/REV-SmoothRepresentationsOfLocalGroups--SR.0.md",
+    "research/blueprint/packets/SmoothRepresentationsOfLocalGroups--SR.0.json",
+    "research/blueprint/suggested/SmoothRepresentationsOfLocalGroups--SR.0.lean"
    ],
    "after": [
     "BP-SmoothRepresentationsOfLocalGroups--SR.0"
@@ -18670,7 +19108,9 @@
     "SmoothRepresentationsOfLocalGroups"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-SmoothRepresentationsOfLocalGroups--SR.4.md"
+    "research/blueprint/reviews/REV-SmoothRepresentationsOfLocalGroups--SR.4.md",
+    "research/blueprint/packets/SmoothRepresentationsOfLocalGroups--SR.4.json",
+    "research/blueprint/suggested/SmoothRepresentationsOfLocalGroups--SR.4.lean"
    ],
    "after": [
     "BP-SmoothRepresentationsOfLocalGroups--SR.4"
@@ -18716,7 +19156,9 @@
     "SpecialValuesBirchTate"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-SpecialValuesBirchTate.md"
+    "research/blueprint/reviews/REV-SpecialValuesBirchTate.md",
+    "research/blueprint/packets/SpecialValuesBirchTate.json",
+    "research/blueprint/suggested/SpecialValuesBirchTate.lean"
    ],
    "after": [
     "BP-SpecialValuesBirchTate"
@@ -18764,7 +19206,9 @@
     "StableHomotopyKTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-StableHomotopyKTheory.md"
+    "research/blueprint/reviews/REV-StableHomotopyKTheory.md",
+    "research/blueprint/packets/StableHomotopyKTheory.json",
+    "research/blueprint/suggested/StableHomotopyKTheory.lean"
    ],
    "after": [
     "BP-StableHomotopyKTheory"
@@ -18809,7 +19253,9 @@
     "TorsionCohomologyInfrastructure"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-TorsionCohomologyInfrastructure.md"
+    "research/blueprint/reviews/REV-TorsionCohomologyInfrastructure.md",
+    "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
+    "research/blueprint/suggested/TorsionCohomologyInfrastructure.lean"
    ],
    "after": [
     "BP-TorsionCohomologyInfrastructure"
@@ -18855,7 +19301,9 @@
     "VStackSheavesAndLisseCategories"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-VStackSheavesAndLisseCategories.md"
+    "research/blueprint/reviews/REV-VStackSheavesAndLisseCategories.md",
+    "research/blueprint/packets/VStackSheavesAndLisseCategories.json",
+    "research/blueprint/suggested/VStackSheavesAndLisseCategories.lean"
    ],
    "after": [
     "BP-VStackSheavesAndLisseCategories"
@@ -18900,7 +19348,9 @@
     "VectorBundlesAndIsocrystals"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-VectorBundlesAndIsocrystals--VB0.md"
+    "research/blueprint/reviews/REV-VectorBundlesAndIsocrystals--VB0.md",
+    "research/blueprint/packets/VectorBundlesAndIsocrystals--VB0.json",
+    "research/blueprint/suggested/VectorBundlesAndIsocrystals--VB0.lean"
    ],
    "after": [
     "BP-VectorBundlesAndIsocrystals--VB0"
@@ -18945,7 +19395,9 @@
     "VectorBundlesAndIsocrystals"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-VectorBundlesAndIsocrystals--VB3.md"
+    "research/blueprint/reviews/REV-VectorBundlesAndIsocrystals--VB3.md",
+    "research/blueprint/packets/VectorBundlesAndIsocrystals--VB3.json",
+    "research/blueprint/suggested/VectorBundlesAndIsocrystals--VB3.lean"
    ],
    "after": [
     "BP-VectorBundlesAndIsocrystals--VB3"
@@ -18991,7 +19443,9 @@
     "WeightsInEtaleCohomology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-WeightsInEtaleCohomology.md"
+    "research/blueprint/reviews/REV-WeightsInEtaleCohomology.md",
+    "research/blueprint/packets/WeightsInEtaleCohomology.json",
+    "research/blueprint/suggested/WeightsInEtaleCohomology.lean"
    ],
    "after": [
     "BP-WeightsInEtaleCohomology"
@@ -19042,7 +19496,9 @@
     "WeilConjectures"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-WeilConjectures--WC.0.md"
+    "research/blueprint/reviews/REV-WeilConjectures--WC.0.md",
+    "research/blueprint/packets/WeilConjectures--WC.0.json",
+    "research/blueprint/suggested/WeilConjectures--WC.0.lean"
    ],
    "after": [
     "BP-WeilConjectures--WC.0"
@@ -19087,7 +19543,9 @@
     "WeilConjectures"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-WeilConjectures--WC.6.md"
+    "research/blueprint/reviews/REV-WeilConjectures--WC.6.md",
+    "research/blueprint/packets/WeilConjectures--WC.6.json",
+    "research/blueprint/suggested/WeilConjectures--WC.6.lean"
    ],
    "after": [
     "BP-WeilConjectures--WC.6"
@@ -19146,7 +19604,9 @@
     "ComplexMultiplicationAndExplicitReciprocity"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ComplexMultiplicationAndExplicitReciprocity.md"
+    "research/blueprint/reviews/REV-ComplexMultiplicationAndExplicitReciprocity.md",
+    "research/blueprint/packets/ComplexMultiplicationAndExplicitReciprocity.json",
+    "research/blueprint/suggested/ComplexMultiplicationAndExplicitReciprocity.lean"
    ],
    "after": [
     "BP-ComplexMultiplicationAndExplicitReciprocity"
@@ -19195,7 +19655,9 @@
     "DrinfeldModulesAndTModules"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DrinfeldModulesAndTModules--DM.0.md"
+    "research/blueprint/reviews/REV-DrinfeldModulesAndTModules--DM.0.md",
+    "research/blueprint/packets/DrinfeldModulesAndTModules--DM.0.json",
+    "research/blueprint/suggested/DrinfeldModulesAndTModules--DM.0.lean"
    ],
    "after": [
     "BP-DrinfeldModulesAndTModules--DM.0"
@@ -19237,7 +19699,9 @@
     "DrinfeldModulesAndTModules"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DrinfeldModulesAndTModules--DM.8.md"
+    "research/blueprint/reviews/REV-DrinfeldModulesAndTModules--DM.8.md",
+    "research/blueprint/packets/DrinfeldModulesAndTModules--DM.8.json",
+    "research/blueprint/suggested/DrinfeldModulesAndTModules--DM.8.lean"
    ],
    "after": [
     "BP-DrinfeldModulesAndTModules--DM.8"
@@ -19292,7 +19756,9 @@
     "GlobalShtukasAndFunctionFieldLanglands"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-GlobalShtukasAndFunctionFieldLanglands.md"
+    "research/blueprint/reviews/REV-GlobalShtukasAndFunctionFieldLanglands.md",
+    "research/blueprint/packets/GlobalShtukasAndFunctionFieldLanglands.json",
+    "research/blueprint/suggested/GlobalShtukasAndFunctionFieldLanglands.lean"
    ],
    "after": [
     "BP-GlobalShtukasAndFunctionFieldLanglands"
@@ -19343,7 +19809,9 @@
     "HabiroNahmSeries"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-HabiroNahmSeries.md"
+    "research/blueprint/reviews/REV-HabiroNahmSeries.md",
+    "research/blueprint/packets/HabiroNahmSeries.json",
+    "research/blueprint/suggested/HabiroNahmSeries.lean"
    ],
    "after": [
     "BP-HabiroNahmSeries"
@@ -19398,7 +19866,9 @@
     "HigherLocalFieldsAndHigherClassFieldTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-HigherLocalFieldsAndHigherClassFieldTheory.md"
+    "research/blueprint/reviews/REV-HigherLocalFieldsAndHigherClassFieldTheory.md",
+    "research/blueprint/packets/HigherLocalFieldsAndHigherClassFieldTheory.json",
+    "research/blueprint/suggested/HigherLocalFieldsAndHigherClassFieldTheory.lean"
    ],
    "after": [
     "BP-HigherLocalFieldsAndHigherClassFieldTheory"
@@ -19451,7 +19921,9 @@
     "InverseGaloisAndArithmeticFundamentalGroups"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-InverseGaloisAndArithmeticFundamentalGroups.md"
+    "research/blueprint/reviews/REV-InverseGaloisAndArithmeticFundamentalGroups.md",
+    "research/blueprint/packets/InverseGaloisAndArithmeticFundamentalGroups.json",
+    "research/blueprint/suggested/InverseGaloisAndArithmeticFundamentalGroups.lean"
    ],
    "after": [
     "BP-InverseGaloisAndArithmeticFundamentalGroups"
@@ -19503,7 +19975,9 @@
     "MotivesAndAlgebraicCycles"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-MotivesAndAlgebraicCycles.md"
+    "research/blueprint/reviews/REV-MotivesAndAlgebraicCycles.md",
+    "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+    "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean"
    ],
    "after": [
     "BP-MotivesAndAlgebraicCycles"
@@ -19557,7 +20031,9 @@
     "NoncommutativeAndEquivariantIwasawa"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-NoncommutativeAndEquivariantIwasawa.md"
+    "research/blueprint/reviews/REV-NoncommutativeAndEquivariantIwasawa.md",
+    "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+    "research/blueprint/suggested/NoncommutativeAndEquivariantIwasawa.lean"
    ],
    "after": [
     "BP-NoncommutativeAndEquivariantIwasawa"
@@ -19619,7 +20095,9 @@
     "OverconvergentAutomorphicForms"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-OverconvergentAutomorphicForms--O0.md"
+    "research/blueprint/reviews/REV-OverconvergentAutomorphicForms--O0.md",
+    "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
+    "research/blueprint/suggested/OverconvergentAutomorphicForms--O0.lean"
    ],
    "after": [
     "BP-OverconvergentAutomorphicForms--O0"
@@ -19674,7 +20152,9 @@
     "OverconvergentAutomorphicForms"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-OverconvergentAutomorphicForms--O8.md"
+    "research/blueprint/reviews/REV-OverconvergentAutomorphicForms--O8.md",
+    "research/blueprint/packets/OverconvergentAutomorphicForms--O8.json",
+    "research/blueprint/suggested/OverconvergentAutomorphicForms--O8.lean"
    ],
    "after": [
     "BP-OverconvergentAutomorphicForms--O8"
@@ -19736,7 +20216,9 @@
     "PotentialAutomorphyInfrastructure"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PotentialAutomorphyInfrastructure.md"
+    "research/blueprint/reviews/REV-PotentialAutomorphyInfrastructure.md",
+    "research/blueprint/packets/PotentialAutomorphyInfrastructure.json",
+    "research/blueprint/suggested/PotentialAutomorphyInfrastructure.lean"
    ],
    "after": [
     "BP-PotentialAutomorphyInfrastructure"
@@ -19786,7 +20268,9 @@
     "TropicalAndBerkovichArithmetic"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-TropicalAndBerkovichArithmetic.md"
+    "research/blueprint/reviews/REV-TropicalAndBerkovichArithmetic.md",
+    "research/blueprint/packets/TropicalAndBerkovichArithmetic.json",
+    "research/blueprint/suggested/TropicalAndBerkovichArithmetic.lean"
    ],
    "after": [
     "BP-TropicalAndBerkovichArithmetic"
@@ -19839,7 +20323,9 @@
     "AnabelianGeometryAndNonabelianChabauty"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AnabelianGeometryAndNonabelianChabauty.md"
+    "research/blueprint/reviews/REV-AnabelianGeometryAndNonabelianChabauty.md",
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean"
    ],
    "after": [
     "BP-AnabelianGeometryAndNonabelianChabauty"
@@ -19893,7 +20379,9 @@
     "AnalyticNumberTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AnalyticNumberTheory--AN.0.md"
+    "research/blueprint/reviews/REV-AnalyticNumberTheory--AN.0.md",
+    "research/blueprint/packets/AnalyticNumberTheory--AN.0.json",
+    "research/blueprint/suggested/AnalyticNumberTheory--AN.0.lean"
    ],
    "after": [
     "BP-AnalyticNumberTheory--AN.0"
@@ -19941,7 +20429,9 @@
     "AnalyticNumberTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AnalyticNumberTheory--AN.8.md"
+    "research/blueprint/reviews/REV-AnalyticNumberTheory--AN.8.md",
+    "research/blueprint/packets/AnalyticNumberTheory--AN.8.json",
+    "research/blueprint/suggested/AnalyticNumberTheory--AN.8.lean"
    ],
    "after": [
     "BP-AnalyticNumberTheory--AN.8"
@@ -19991,7 +20481,9 @@
     "ArithmeticDynamics"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ArithmeticDynamics.md"
+    "research/blueprint/reviews/REV-ArithmeticDynamics.md",
+    "research/blueprint/packets/ArithmeticDynamics.json",
+    "research/blueprint/suggested/ArithmeticDynamics.lean"
    ],
    "after": [
     "BP-ArithmeticDynamics"
@@ -20045,7 +20537,9 @@
     "ArithmeticQuantumTopology"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ArithmeticQuantumTopology.md"
+    "research/blueprint/reviews/REV-ArithmeticQuantumTopology.md",
+    "research/blueprint/packets/ArithmeticQuantumTopology.json",
+    "research/blueprint/suggested/ArithmeticQuantumTopology.lean"
    ],
    "after": [
     "BP-ArithmeticQuantumTopology"
@@ -20097,7 +20591,9 @@
     "ClassicalArithmeticCompletion"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion.md"
+    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion.lean"
    ],
    "after": [
     "BP-ClassicalArithmeticCompletion"
@@ -20149,7 +20645,9 @@
     "ComputationalNumberTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ComputationalNumberTheory.md"
+    "research/blueprint/reviews/REV-ComputationalNumberTheory.md",
+    "research/blueprint/packets/ComputationalNumberTheory.json",
+    "research/blueprint/suggested/ComputationalNumberTheory.lean"
    ],
    "after": [
     "BP-ComputationalNumberTheory"
@@ -20197,7 +20695,9 @@
     "DiophantineApproximationAndTranscendence"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-DiophantineApproximationAndTranscendence.md"
+    "research/blueprint/reviews/REV-DiophantineApproximationAndTranscendence.md",
+    "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+    "research/blueprint/suggested/DiophantineApproximationAndTranscendence.lean"
    ],
    "after": [
     "BP-DiophantineApproximationAndTranscendence"
@@ -20248,7 +20748,9 @@
     "EffectiveDiophantineMethods"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-EffectiveDiophantineMethods.md"
+    "research/blueprint/reviews/REV-EffectiveDiophantineMethods.md",
+    "research/blueprint/packets/EffectiveDiophantineMethods.json",
+    "research/blueprint/suggested/EffectiveDiophantineMethods.lean"
    ],
    "after": [
     "BP-EffectiveDiophantineMethods"
@@ -20300,7 +20802,9 @@
     "FiniteFieldsAndCharacterSums"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-FiniteFieldsAndCharacterSums.md"
+    "research/blueprint/reviews/REV-FiniteFieldsAndCharacterSums.md",
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums.lean"
    ],
    "after": [
     "BP-FiniteFieldsAndCharacterSums"
@@ -20349,7 +20853,9 @@
     "GeometryOfNumbersAndQuadraticArithmetic"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-GeometryOfNumbersAndQuadraticArithmetic.md"
+    "research/blueprint/reviews/REV-GeometryOfNumbersAndQuadraticArithmetic.md",
+    "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json",
+    "research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic.lean"
    ],
    "after": [
     "BP-GeometryOfNumbersAndQuadraticArithmetic"
@@ -20404,7 +20910,9 @@
     "HeightsRationalPointsAndObstructions"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-HeightsRationalPointsAndObstructions.md"
+    "research/blueprint/reviews/REV-HeightsRationalPointsAndObstructions.md",
+    "research/blueprint/packets/HeightsRationalPointsAndObstructions.json",
+    "research/blueprint/suggested/HeightsRationalPointsAndObstructions.lean"
    ],
    "after": [
     "BP-HeightsRationalPointsAndObstructions"
@@ -20453,7 +20961,9 @@
     "LogicAndDefinabilityInNumberTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-LogicAndDefinabilityInNumberTheory.md"
+    "research/blueprint/reviews/REV-LogicAndDefinabilityInNumberTheory.md",
+    "research/blueprint/packets/LogicAndDefinabilityInNumberTheory.json",
+    "research/blueprint/suggested/LogicAndDefinabilityInNumberTheory.lean"
    ],
    "after": [
     "BP-LogicAndDefinabilityInNumberTheory"
@@ -20503,7 +21013,9 @@
     "ModularityAndLanglandsExtensions"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ModularityAndLanglandsExtensions.md"
+    "research/blueprint/reviews/REV-ModularityAndLanglandsExtensions.md",
+    "research/blueprint/packets/ModularityAndLanglandsExtensions.json",
+    "research/blueprint/suggested/ModularityAndLanglandsExtensions.lean"
    ],
    "after": [
     "BP-ModularityAndLanglandsExtensions"
@@ -20571,7 +21083,9 @@
     "PeriodsAndSpecialValues"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PeriodsAndSpecialValues--PS.0.md"
+    "research/blueprint/reviews/REV-PeriodsAndSpecialValues--PS.0.md",
+    "research/blueprint/packets/PeriodsAndSpecialValues--PS.0.json",
+    "research/blueprint/suggested/PeriodsAndSpecialValues--PS.0.lean"
    ],
    "after": [
     "BP-PeriodsAndSpecialValues--PS.0"
@@ -20633,7 +21147,9 @@
     "PeriodsAndSpecialValues"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-PeriodsAndSpecialValues--PS.8.md"
+    "research/blueprint/reviews/REV-PeriodsAndSpecialValues--PS.8.md",
+    "research/blueprint/packets/PeriodsAndSpecialValues--PS.8.json",
+    "research/blueprint/suggested/PeriodsAndSpecialValues--PS.8.lean"
    ],
    "after": [
     "BP-PeriodsAndSpecialValues--PS.8"
@@ -20682,7 +21198,9 @@
     "SieveMethodsAndPrimePatterns"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-SieveMethodsAndPrimePatterns.md"
+    "research/blueprint/reviews/REV-SieveMethodsAndPrimePatterns.md",
+    "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+    "research/blueprint/suggested/SieveMethodsAndPrimePatterns.lean"
    ],
    "after": [
     "BP-SieveMethodsAndPrimePatterns"
@@ -20732,7 +21250,9 @@
     "AdditiveCombinatorics"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-AdditiveCombinatorics.md"
+    "research/blueprint/reviews/REV-AdditiveCombinatorics.md",
+    "research/blueprint/packets/AdditiveCombinatorics.json",
+    "research/blueprint/suggested/AdditiveCombinatorics.lean"
    ],
    "after": [
     "BP-AdditiveCombinatorics"
@@ -20785,7 +21305,9 @@
     "ArithmeticStatistics"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ArithmeticStatistics.md"
+    "research/blueprint/reviews/REV-ArithmeticStatistics.md",
+    "research/blueprint/packets/ArithmeticStatistics.json",
+    "research/blueprint/suggested/ArithmeticStatistics.lean"
    ],
    "after": [
     "BP-ArithmeticStatistics"
@@ -20837,7 +21359,9 @@
     "ExponentialSumsAndCircleMethod"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ExponentialSumsAndCircleMethod.md"
+    "research/blueprint/reviews/REV-ExponentialSumsAndCircleMethod.md",
+    "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
+    "research/blueprint/suggested/ExponentialSumsAndCircleMethod.lean"
    ],
    "after": [
     "BP-ExponentialSumsAndCircleMethod"
@@ -20886,7 +21410,9 @@
     "ProbabilisticAndMetricNumberTheory"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-ProbabilisticAndMetricNumberTheory.md"
+    "research/blueprint/reviews/REV-ProbabilisticAndMetricNumberTheory.md",
+    "research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json",
+    "research/blueprint/suggested/ProbabilisticAndMetricNumberTheory.lean"
    ],
    "after": [
     "BP-ProbabilisticAndMetricNumberTheory"
@@ -20942,7 +21468,9 @@
     "QSeriesPartitionsAndMockModularForms"
    ],
    "outputs": [
-    "research/blueprint/reviews/REV-QSeriesPartitionsAndMockModularForms.md"
+    "research/blueprint/reviews/REV-QSeriesPartitionsAndMockModularForms.md",
+    "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+    "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean"
    ],
    "after": [
     "BP-QSeriesPartitionsAndMockModularForms"

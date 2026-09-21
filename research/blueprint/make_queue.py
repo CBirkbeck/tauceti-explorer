@@ -708,7 +708,7 @@ def main():
             review_id = "REV-" + job_id[3:]
             rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_id, TARGETS=f"the blueprint packet {output} and its suggested Lean file {suggested} (roadmap {rid}, stages: {', '.join(s['id'] for s in group)})")
             add({"id": review_id, "kind": "review", "priority": 2, "order": order * 100 + i,
-                 "roadmapIds": [rid], "outputs": [f"research/blueprint/reviews/{review_id}.md"],
+                 "roadmapIds": [rid], "outputs": [f"research/blueprint/reviews/{review_id}.md", output, suggested],
                  "after": [job_id], "avoidAccountOf": job_id}, rtext)
 
     # Priority 0: status mapping, already specified.
@@ -783,8 +783,8 @@ def main():
         review_id = "REV-" + job_id
         rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_id, TARGETS=f"the new roadmap definition research/blueprint/roadmaps/{rid}.json, its blueprint packet {output} and its suggested Lean file {suggested}")
         add({"id": review_id, "kind": "review", "priority": 2, "order": 1, "roadmapIds": [rid], **({"name": name} if name else {}),
-             "outputs": [f"research/blueprint/reviews/{review_id}.md"], "after": [job_id], "avoidAccountOf": job_id,
-             "timeout": 8 * 3600}, rtext)
+             "outputs": [f"research/blueprint/reviews/{review_id}.md", f"research/blueprint/roadmaps/{rid}.json", output, suggested],
+             "after": [job_id], "avoidAccountOf": job_id, "timeout": 8 * 3600}, rtext)
     upstream = [rid for rid in roadmaps if rid.startswith("tauceti:")]
     upstream.sort(key=lambda r: (LINK_PRIORITY.index(r) if r in LINK_PRIORITY else 100, r))
     for position, rid in enumerate(upstream):
@@ -796,7 +796,7 @@ def main():
         review_id = f"REV-LINK-{file_id(rid)}"
         rtext = LINK_REVIEW_TEMPLATE.format(**fill, JOB=review_id, ROADMAP=rid, TARGET=output)
         add({"id": review_id, "kind": "review", "priority": 2, "order": 10 + position, "roadmapIds": [rid],
-             "outputs": [f"research/blueprint/reviews/{review_id}.md"], "after": [job_id], "avoidAccountOf": job_id}, rtext)
+             "outputs": [f"research/blueprint/reviews/{review_id}.md", output], "after": [job_id], "avoidAccountOf": job_id}, rtext)
     owned = defaultdict(list)
     for rid_node, (job, statement) in RESERVED.items():
         owned[rid_node.split(":")[0]].append((rid_node, statement))
@@ -828,7 +828,7 @@ def main():
             RESTRUCTURE_TEMPLATE.format(**fill, JOB=job_id, **fields))
         review_id = "REV-" + job_id
         add({"id": review_id, "kind": "review", "priority": 0, "order": 20 + number, "name": family["name"], "roadmapIds": members,
-             "outputs": [f"research/blueprint/reviews/{review_id}.md"], "after": [job_id], "avoidAccountOf": job_id},
+             "outputs": [f"research/blueprint/reviews/{review_id}.md", output], "after": [job_id], "avoidAccountOf": job_id},
             RESTRUCTURE_REVIEW_TEMPLATE.format(**fill, JOB=review_id, **fields))
         for member in members:
             family_review[member] = review_id

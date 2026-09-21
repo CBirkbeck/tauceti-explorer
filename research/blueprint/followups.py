@@ -87,7 +87,9 @@ def main():
                            "roadmapIds": target.get("roadmapIds", []), "scope": target.get("scope"), "outputs": target.get("outputs", []),
                            "after": [job["id"]], "state": "pending", "prompt": prompt_path, "timeout": target.get("timeout")}, text,
                           {"id": review_id, "kind": "review", "priority": 2, "order": job.get("order", 0),
-                           "roadmapIds": job.get("roadmapIds", []), "outputs": [f"research/blueprint/reviews/{review_id}.md"],
+                           # A review writes its verdict into the files it reviews (PROTOCOL.md section 8).
+                           "roadmapIds": job.get("roadmapIds", []),
+                           "outputs": [f"research/blueprint/reviews/{review_id}.md"] + [p for p in target.get("outputs", []) if p.endswith((".json", ".lean"))],
                            "after": [next_id], "avoidAccountOf": next_id, "state": "pending",
                            "prompt": f"research/blueprint/prompts/{review_id}.md"}, review_prompt))
         for cont, text, review, review_text in added:
