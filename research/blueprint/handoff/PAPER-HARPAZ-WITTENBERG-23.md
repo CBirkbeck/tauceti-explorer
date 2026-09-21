@@ -1,16 +1,27 @@
 # PAPER-HARPAZ-WITTENBERG-23 handoff
 
-Codex, session codex-c83e7a; issue #1310. Partial extraction, ready for independent continuation rather than rereading from scratch.
+Codex continuation session codex-a71f92, following codex-c83e7a's checkpoint; issue #1310. Status: complete paper extraction, ready for independent review. This continuation is not an independent review.
 
-Read the full 33-page December 2021 author final, matching arXiv v2 except its header. The publisher's 41-page pagination was not inspected. The report records URL, hash, pinned commits, ownership and exact corrections. There are 139 items (9 library, 15 planned, 115 missing); nine routes cover 113 missing plus seven planned items. Only two items are unrouted.
+156 items: 10 library, 15 planned, 131 missing. Ten routes cover every missing item exactly once, plus seven planned items. Full final-author paper reread; publisher layout not independently collated. Preserve the report's distinction between inherited checks, fresh checks and prerequisite excerpts.
 
-1. `PAPER-HARPAZ-WITTENBERG-23/46`: supply the explicit Remark 3.4 example over C((x))((y))((z)) with abelian stabilizer, a class satisfying the conjugacy-power tests, and nonzero Hochschild–Serre δ. The paper gives no witness. Keep δ in the general formula. This is not needed over number fields.
-2. `PAPER-HARPAZ-WITTENBERG-23/139`: resolve or explicitly restrict the printed arbitrary-discrete-module Lemma 5.5. The report gives a concrete product-C2/direct-sum counterexample to continuity of the splitting torsor. Finite C repairs all actual paper applications. A general replacement must specify a suitable Hom topology or an open-stabilizer/continuous-torsor condition, not simply call Hom a discrete module.
+## What changed
 
-The omitted length-six examples are now completed, and must NOT be put back on the gap list. For p=2,n=6, σ=e_01+e_12+e_56, the commuting-matrix equations force coordinate 25 to vanish on the fixed-conjugacy image, although e_25 is fixed. Over Q, take α=(χ,χ,0,0,0,χ) for χ of Q(√2), and cocycle β(σ)=e_25*. This gives a nonzero unramified class while the cyclic kernel is zero. Items `PAPER-HARPAZ-WITTENBERG-23/76` and `PAPER-HARPAZ-WITTENBERG-23/77` contain the full arguments. The length-four cyclic-kernel computation was also verified exactly (8 cocycles/4 coboundaries).
+- Former gap46 is completed explicitly: B=F_2^5, Q=C2×C4×C2, β=(χ_x+χ_y)b*, γ(s)=a,γ(t)=b+c, f=γ cup χ_z, E=B×_f Q of order512, and V=(SL_513×Spec L)/E over C((x))((y))((z)). Every conjugacy test passes, but δβ is the nonzero image of (x)cup(y)cup(z). Items144–152 and the report give the complete calculation.
+- Former gap139 is retained as a counterexample to the unrestricted discrete-Hom statement. Items140–143 replace it with Hom_pt(C,A), its continuous splitting torsor and the direct formula ∂c=γ cup c. Finite generation of C recovers discrete Hom; all paper applications already use finite C. The generic correction routes to ArithmeticGaloisDuality R02.1, not a new coefficient theory.
+- Corrected an additional literal-definition issue: under Definition3.2 the outer exponent of C2 is1. Lemma4.7 yields factorization through (Z/p)×, so the least divisor is1 at p=2 and p at odd primes. All downstream uses need only that factorization.
+- Separated existing Tau Ceti transvections as library item156; item14 retains only the UT membership/factorization interface. Made item131's invariant equations explicit and split Remark3.1's sufficient conditions into items41,153–155.
 
-Preserve these repairs: fixed adjacent representatives in Proposition 7.3; finite-C hypothesis and ∂c=γ cup c with the flipped (-1)^m sign; explicit real-place lifting; Lemma 4.13 factor e_03^(a_2); §6 five-by-five subgroup; §7 eigenspace index i+m+1; internal-sum interpretation of P with one corner; geometric bar in Proposition 4.1; B_ω inside Br_1/Br_0, defined by local Brauer classes rather than only evaluation functions.
+## Reviewer focus
 
-Upstream DGAInfinity Layer 8 owns generic Massey products; ProfiniteCohomology supplies continuous cochains; upper-unitriangular groups and filtration already exist in Tau Ceti. Do not duplicate these. The two proposed Part IIs have ordered interfaces finite algebra → geometry/Brauer → arithmetic. Existing source routes cover SF.1,SF.2,SF.4, RP.2, R02.2,R02.4 and IG.4. Grunwald–Wang is outside upstream ClassFieldTheory's stated scope.
+1. Check the natural group/étale Hochschild–Serre comparison, Pál–Schlank §9 pp.28–31. The explicit mixed cochain c((v,q),(w,q′))=β(q)(q w) has differential infl(β cup f); the comparison identifies this with the geometric edge obstruction.
+2. Check both nonvanishing steps: iterated finite-coefficient residues and the injectivity H³(μ_2)→H³(G_m) coming from 2-divisibility of Br(k). The latter follows from Gille–Szamuely Witt decomposition; finite-coefficient nonzero alone would be insufficient.
+3. Check the source-topology distinction: TauCeti.InternalHom is always discrete; use a separate induced-topology wrapper, retaining its algebraic homAction and existing topological H¹. Do not claim an Ext computation in the discrete-module category for arbitrary Hom_pt.
+4. Keep the existing stage order finite algebra → geometric/Brauer constructions → final arithmetic conclusions. R02.1 supplies the general topology repair; R02.2 the group transgression and generic Laurent residues; SF.2 the étale comparison. C((x))((y))((z)) is not an HL.0 n-local field with finite last residue field.
 
-No Lean deliverable or compilation is claimed. On continuation, refresh current atlas/audit/protocol inputs, settle the two gaps, then rerun the paper checker and intake checks on the exact three issue paths. A complete designation requires closing both gaps honestly, not deleting their source assertions without recording the disposition.
+## Preserve previous repairs
+
+The explicit length-six fixed-conjugacy and arithmetic Brauer examples (items76–77) are complete, not gaps. Also preserve: fixed adjacent representatives in Proposition7.3; γ-first cup with flipped (−1)^m sign; real-place lifting; e_03^(a_2) in Lemma4.13; five-by-five §6 subgroup; twisted eigenspace index i+m+1; internal sum with one corner; geometric bar in Proposition4.1; B_ω inside Br_1/Br_0, defined by local Brauer classes.
+
+Fresh finite checks: 256 cocycle/cup pairs, 4096 factor-set/symbol triples, 224 fixed-vector tests, 24576 mixed-cochain checks, non-coboundary verification, cyclic outer exponents1–64. Prior matrix checks remain attributed to the original checkpoint. Source URLs, hashes, read ranges, library pins and refreshed owner/audit evidence are in the report.
+
+Paper checker and scope/route/API checks passed before submission. No Lean file was compiled or claimed formalized. Remaining work is independent review and the already-routed blueprint/prerequisite-paper proof decomposition, not an unresolved extraction item.
