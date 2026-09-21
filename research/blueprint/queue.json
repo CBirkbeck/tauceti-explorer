@@ -1134,8 +1134,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DASGUPTA-KAKDE-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1089"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1089",
+   "finishedAt": "2026-09-21T21:38:00Z"
   },
   {
    "id": "REV-PAPER-DASGUPTA-KAKDE-23",
@@ -5017,7 +5018,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1332"
   },
   {
    "id": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18",
