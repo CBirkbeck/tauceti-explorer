@@ -2422,7 +2422,8 @@
    ],
    "avoidAccountOf": "PAPER-BAKKER-TSIMERMAN-16",
    "prompt": "research/blueprint/prompts/REV-PAPER-BAKKER-TSIMERMAN-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1166"
   },
   {
    "id": "PAPER-SCHMIDT-STIX-16",
@@ -3467,7 +3468,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CARO-PASTEN-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1235"
   },
   {
    "id": "REV-PAPER-CARO-PASTEN-23",
@@ -5055,8 +5057,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SHENDE-TSIMERMAN-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1334"
+   "state": "pending",
+   "note": "released on GitHub issue #1334"
   },
   {
    "id": "REV-PAPER-SHENDE-TSIMERMAN-17",
