@@ -1,0 +1,326 @@
+{
+  "paper": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "source": {
+    "title": "Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves",
+    "authors": "Manjul Bhargava, Arul Shankar, Takashi Taniguchi, Frank Thorne, Jacob Tsimerman, Yongqiang Zhao",
+    "venue": "Journal of the American Mathematical Society 33 (2020), no. 4, 1087–1099",
+    "doi": "10.1090/jams/945",
+    "arxiv": "1701.02458v1",
+    "url": "https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf",
+    "version": "Checkpoint based on Taniguchi's 13-page author copy dated 2017-02-18 and arXiv v1 dated 2017-01-11. NOT verified against the revised/published 2020 text.",
+    "accessed": "2026-09-21",
+    "readSections": [
+      "Taniguchi 2017-02-18: all pp.1–13, §§1–7 including §5.4 and references",
+      "arXiv v1: all pp.1–12, §§1–7 and references",
+      "MPG file_3277756: opening inspected only; it is an arXiv-v1 recompile, not the published article"
+    ],
+    "files": [
+      {
+        "url": "https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf",
+        "sha256": "bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec",
+        "pages": 13,
+        "date": "2017-02-18"
+      },
+      {
+        "url": "https://arxiv.org/pdf/1701.02458",
+        "sha256": "99ee35275ecb42c52cd8bbc615538dbe6094326fb72894e88ef82c0b89286871",
+        "pages": 12,
+        "date": "2017-01-11"
+      },
+      {
+        "url": "https://pure.mpg.de/rest/items/item_3277755_1/component/file_3277756/content",
+        "sha256": "04e4e52e2e7d2902cfe6ef7c37793650b5a7c3128554cdc3a7a577fb176deb9d",
+        "pages": 12,
+        "date": "2020-11-25 recompilation retaining arXiv v1 stamp"
+      }
+    ],
+    "publicationCheck": "DOI resolves to AMS S0894-0347-2020-00945-6. Primary Princeton publication metadata records revisions 2019-11-01 and 2019-11-20. AMS article, published PDF and public accepted-manuscript PDF all returned HTTP 403. Identity is verified; mathematical agreement with final text is not.",
+    "pins": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+    }
+  },
+  "summary": "Partial source-critical checkpoint, not a complete extraction. Both available 2017 texts have been read completely; they differ (the February copy adds the degree-one del Pezzo application), and neither has been matched to the 2019 revisions underlying the 2020 article. Twenty foundational/geometry-of-numbers items are checked against pinned declarations and reviewed audits: ten library, one planned, nine missing. The nine missing items are provisionally routed as a Part II of EffectiveBounds. All final torsion, elliptic/hyperelliptic, quartic-count and function-field branches remain to extract after resolving version and hypothesis questions documented in the report. Do not generate accepted routes or mark complete from this checkpoint.",
+  "items": [
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/class-group",
+      "kind": "definition",
+      "name": "Ordinary ideal class group",
+      "statement": "For a number field K with ring of integers O_K, Cl(K) is the multiplicative group of nonzero fractional O_K-ideals modulo nonzero principal fractional ideals.",
+      "locator": "Introduction p.1 and §2 p.4, Taniguchi 2017-02-18 copy",
+      "status": "library",
+      "library": [
+        "mathlib:ClassGroup"
+      ],
+      "note": "ClassGroup is defined for a domain using invertible fractional ideals; for O_K the Dedekind-domain equivalence supplies the stated carrier. Not the narrow class group."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/class-group-finite",
+      "kind": "theorem",
+      "name": "Finiteness of the number-field class group",
+      "statement": "For every number field K, the ordinary ideal class group Cl(O_K) is finite; its cardinality is h(K).",
+      "locator": "Introduction p.1, implicit in h_m(K); §6 p.10",
+      "status": "library",
+      "library": [
+        "mathlib:NumberField.RingOfIntegers.instFintypeClassGroup",
+        "mathlib:NumberField.classNumber"
+      ],
+      "note": "This does not supply a degree-uniform torsion estimate."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/infinite-places",
+      "kind": "definition",
+      "name": "Archimedean absolute values",
+      "statement": "M_infinity(K) consists of absolute values associated to embeddings K → C; at a complex place use the ordinary complex modulus, not its square.",
+      "locator": "§2 p.4",
+      "status": "library",
+      "library": [
+        "mathlib:NumberField.InfinitePlace",
+        "mathlib:NumberField.InfinitePlace.mk"
+      ],
+      "note": "The product formula gives complex places multiplicity two. Keep that multiplicity in volume/norm computations."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/discriminant",
+      "kind": "definition",
+      "name": "Integral discriminant and its absolute value",
+      "statement": "For a number field K, discr(K) is the determinant of the trace pairing on an integral basis; it is nonzero and independent of the integral basis. Write D_K = |discr(K)|.",
+      "locator": "Introduction and §§2–3 pp.1,4–5",
+      "status": "library",
+      "library": [
+        "mathlib:NumberField.discr",
+        "mathlib:NumberField.discr_ne_zero",
+        "mathlib:NumberField.discr_eq_discr"
+      ],
+      "note": "Despite its docstring, the Lean integer discr is signed. Use its absolute value in all real powers."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/mixed-embedding",
+      "kind": "construction",
+      "name": "Minkowski space with one complex embedding per pair",
+      "statement": "If K has r real and s complex places, embed K into R^r × C^s via its real embeddings and one representative of each complex pair. The resulting real space has dimension n = [K:Q] = r + 2s.",
+      "locator": "§3 p.5",
+      "status": "library",
+      "library": [
+        "mathlib:NumberField.mixedEmbedding",
+        "mathlib:NumberField.mixedEmbedding.mixedSpace",
+        "mathlib:NumberField.mixedEmbedding.finrank"
+      ],
+      "note": "Product measure is the unweighted real-coordinate measure. The Euclidean norm used for successive minima needs an explicit compatible norm, not the default product sup norm."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/integer-covolume",
+      "kind": "theorem",
+      "name": "Covolume of the ring of integers",
+      "statement": "In R^r × C^s with ordinary product Lebesgue measure, the mixed embedding of O_K has covolume 2^(-s) sqrt(D_K).",
+      "locator": "§3 p.5",
+      "status": "library",
+      "library": [
+        "mathlib:NumberField.mixedEmbedding.covolume_integerLattice"
+      ],
+      "note": "Do not use this constant unchanged for the metric which weights complex coordinates by two."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/ideal-covolume",
+      "kind": "theorem",
+      "name": "Covolume of a fractional ideal",
+      "statement": "For a nonzero fractional ideal J of O_K, covol(mixedEmbedding(J)) = N_abs(J) 2^(-s) sqrt(D_K). In particular J = I^(-1) gives 2^(-s) sqrt(D_K)/N(I).",
+      "locator": "§2 proof of Theorem 2.1, p.4",
+      "status": "library",
+      "library": [
+        "mathlib:NumberField.mixedEmbedding.covolume_idealLattice"
+      ],
+      "note": "Lean input is a unit of the fractional-ideal monoid. The inverse case is a specialization plus multiplicativity of absolute norm."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/minkowski-strict",
+      "kind": "theorem",
+      "name": "Minkowski convex-body theorem, strict volume form",
+      "statement": "Let E be a finite-dimensional real normed space with additive Haar measure μ. Let L be a countable additive subgroup with measurable fundamental domain F. If S is convex, symmetric about zero, and μ(F) 2^(dim E) < μ(S), then S contains a nonzero point of L.",
+      "locator": "§2 p.4, invoked Minkowski theorem",
+      "status": "library",
+      "library": [
+        "mathlib:MeasureTheory.exists_ne_zero_mem_lattice_of_measure_mul_two_pow_lt_measure"
+      ],
+      "note": "General library statement read with its actual hypotheses; strict inequality alone does not justify the equality case in Theorem 2.1."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/minkowski-closed",
+      "kind": "theorem",
+      "name": "Minkowski convex-body theorem, compact boundary form",
+      "statement": "In a nontrivial finite-dimensional real normed space with additive Haar measure, a compact convex symmetric set S satisfying μ(F) 2^(dim E) ≤ μ(S) contains a nonzero point of a countable discrete subgroup L with fundamental domain F.",
+      "locator": "§2 p.4, boundary case needed for the displayed non-strict bounds",
+      "status": "library",
+      "library": [
+        "mathlib:MeasureTheory.exists_ne_zero_mem_lattice_of_measure_mul_two_pow_le_measure"
+      ],
+      "note": "Compactness, discreteness and nontriviality are genuine hypotheses; the number-field degree is positive."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/minkowski-class-representative",
+      "kind": "theorem",
+      "name": "Minkowski ideal-class representative bound",
+      "statement": "Every class c of a degree-n number field of signature (r,s) contains a nonzero integral ideal I with N(I) ≤ (4/pi)^s (n!/n^n) sqrt(D_K).",
+      "locator": "§2 p.4, background ideal-class/Minkowski input",
+      "status": "library",
+      "library": [
+        "mathlib:NumberField.exists_ideal_in_class_of_norm_le"
+      ],
+      "note": "Useful existing baseline, but the paper's simultaneous bounds on a generator of I^m are stronger and are not this theorem."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/successive-minima",
+      "kind": "definition",
+      "name": "Successive minima",
+      "statement": "For a full lattice Λ in a positive-dimensional Euclidean real space and its closed unit ball B, λ_i is the infimum of t > 0 for which Λ ∩ tB spans a real subspace of dimension at least i, for 1 ≤ i ≤ n.",
+      "locator": "Theorems 1.6 and 3.1, pp.3,5; explicit expansion of the standard term used there",
+      "status": "planned",
+      "planned": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "note": "Reviewed AUDIT-02 marks the successive-minimum definitions and second theorem absent. No new competing general definition is proposed."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-body",
+      "kind": "construction",
+      "name": "Weighted box and polydisc for a torsion ideal",
+      "statement": "Given a degree-n number field K, m ≥ 1, a nonzero integral ideal I, and I^m = (α) with α ≠ 0, put R_v = D_K^(1/(2n)) |α|_v^(-1/m). In mixed space take intervals [-R_v,R_v] at real places and closed complex discs of radius R_v. This compact symmetric convex body's volume is 2^r pi^s D_K^(1/2)/N(I).",
+      "locator": "§2 proof of Theorem 2.1, p.4",
+      "status": "missing",
+      "note": "Preprint extraction only: both public 2017 copies agree on this section; comparison with the final 2020 text remains open. The displayed preprint volume formula needs dimensional care: a complex disc contributes pi R_v^2, not sqrt(pi) R_v. Its volume is at least 2^n covol(I^(-1)) because pi ≥ 2."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-kappa",
+      "kind": "theorem",
+      "name": "Small inverse-ideal multiplier",
+      "statement": "With the preceding hypotheses, there exists κ ∈ I^(-1), κ ≠ 0, with |κ|_v ≤ D_K^(1/(2n)) |α|_v^(-1/m) for every infinite place v.",
+      "locator": "§2 proof of Theorem 2.1, p.4",
+      "status": "missing",
+      "note": "Preprint extraction only: both public 2017 copies agree on this section; comparison with the final 2020 text remains open. Consume the compact non-strict Minkowski theorem and fractional-ideal covolume, then keep the nonzero witness."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-m-generator",
+      "kind": "theorem",
+      "name": "Archimedean-balanced generator of a torsion representative",
+      "statement": "For a degree-n number field K and an ideal class of order m ≥ 1, there is a nonzero integral ideal J in the class and β ∈ O_K, β ≠ 0, such that J^m = (β) and |β|_v ≤ D_K^(m/(2n)) for every infinite place v.",
+      "locator": "Theorem 2.1, p.4",
+      "status": "missing",
+      "note": "Preprint extraction only: both public 2017 copies agree on this section; comparison with the final 2020 text remains open. The proof also works if the class order divides m, but this item preserves the theorem's stated order-m hypothesis. Construct J = κ I, β = α κ^m and prove integrality and class preservation."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-square-generator",
+      "kind": "theorem",
+      "name": "Balanced generator for a 2-torsion class",
+      "statement": "For a degree-n number field K and an ideal class of order two, there is a nonzero integral representative J and nonzero β ∈ O_K with J^2 = (β) and |β|_v ≤ D_K^(1/n) at every infinite place.",
+      "locator": "Theorem 1.5 p.3; Theorem 2.1 specialization p.4",
+      "status": "missing",
+      "note": "Preprint extraction only: both public 2017 copies agree on this section; comparison with the final 2020 text remains open. The trivial class is handled too by the order-dividing version or directly. Count absolute square norms: N_K/Q(β) can be negative; J^2 only forces |N_K/Q(β)| = N(J)^2."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/reduced-integral-basis",
+      "kind": "construction",
+      "name": "Reduced integral basis starting with one",
+      "statement": "For a degree-n number field with n ≥ 2, choose a Z-basis 1,v_1,...,v_(n-1) of O_K, ordered by archimedean Euclidean length, with reduction comparisons |v_i| ≪_n |v| outside the preceding rational span and product |v_1|...|v_(n-1)| asymptotic up to n-dependent positive constants to sqrt(D_K).",
+      "locator": "§3 p.5, citing Siegel Lecture X §6",
+      "status": "missing",
+      "note": "Preprint extraction only: both public 2017 copies agree on this section; comparison with the final 2020 text remains open. Original Siegel proof not read. The sentence prints its comparison only for i ≤ n−2, but the next proof uses it at i=n−1; certify the full reduced-basis lemma, primitive vector 1, metric normalization and n=2 case. Generic reduction stays with GN.1/GN.3."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/multiplication-matrix",
+      "kind": "construction",
+      "name": "Top-coordinate multiplication matrix",
+      "statement": "For n ≥ 3 and the basis 1,v_1,...,v_(n-1), form the symmetric (n−2)-square rational matrix A with entry a_ij the coefficient of v_(n−1) in v_i v_j, 1 ≤ i,j ≤ n−2.",
+      "locator": "§3 proof of Theorem 3.1, p.5",
+      "status": "missing",
+      "note": "Preprint extraction only: both public 2017 copies agree on this section; comparison with the final 2020 text remains open. This is a coordinate construction on field multiplication, not the trace Gram matrix."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/multiplication-matrix-nondegenerate",
+      "kind": "theorem",
+      "name": "Nondegeneracy of the top-coordinate multiplication matrix",
+      "statement": "For any degree-n field extension K/Q, n ≥ 3, and Q-basis 1,v_1,...,v_(n−1), the preceding matrix A has nonzero determinant.",
+      "locator": "§3 proof of Theorem 3.1, p.5",
+      "status": "missing",
+      "note": "Preprint extraction only: both public 2017 copies agree on this section; comparison with the final 2020 text remains open. If r in span(v_1,...,v_(n−2)) lies in its kernel, multiplication by r preserves L = span(1,...,v_(n−2)). For r ≠ 0, Q(r) has degree at least two dividing both n and n−1, impossible. Separately extract the nonzero-permutation term in det A."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/largest-minimum",
+      "kind": "theorem",
+      "name": "Degree-dependent upper bound for the largest minimum",
+      "statement": "For each n ≥ 2 there is C_n > 0 such that every degree-n number field K satisfies λ_n(O_K) ≤ C_n D_K^(1/n), for the ordinary archimedean Euclidean lattice. With a controlled reduced basis as in §3, also |v_(n−1)| ≪_n D_K^(1/n).",
+      "locator": "Theorems 1.6 p.3 and 3.1 p.5",
+      "status": "missing",
+      "note": "Preprint extraction only: both public 2017 copies agree on this section; comparison with the final 2020 text remains open. The n=2 case follows from the product bound. For n≥3 use a permutation with all a_i,pi(i) nonzero, reduction and multiplicative norm comparison; obtain |v_(n−1)|^n ≪_n D_K. Constants are degree-dependent."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-box-count",
+      "kind": "theorem",
+      "name": "Coarse count of small algebraic integers",
+      "statement": "For a fixed degree n and fixed positive archimedean scale c, the number of β ∈ O_K satisfying |β|_v ≤ c D_K^(1/n) at every infinite place is O_(n,c)(D_K^(1/2)), uniformly over degree-n number fields K.",
+      "locator": "Opening of §4, p.6",
+      "status": "missing",
+      "note": "Preprint extraction only: both public 2017 copies agree on this section; comparison with the final 2020 text remains open. Use the reduced basis and largest-minimum estimate to fit a fundamental parallelepiped inside a fixed dilation of the box; then a disjoint-translate volume argument. Not an automatic consequence of fixed-lattice asymptotics. Square-norm savings are not extracted in this checkpoint."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "C. L. Siegel, Lectures on the Geometry of Numbers, Lecture X §6 (1989 edition).",
+      "link": "https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf",
+      "why": "Reduced basis with initial vector 1, product estimate and the last-index comparison used in §3. Original source not read; exact normalization and proof are still required. The link is to the citing author's bibliography, not an accessed copy of Siegel."
+    },
+    {
+      "citation": "E. Bombieri and J. Pila, The number of integral points on arcs and ovals, Duke Mathematical Journal 59 (1989), 337–357, Theorem 5.",
+      "link": "https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf",
+      "why": "Coefficient-uniform curve bound used in §4. Original theorem not read in this checkpoint; verify weighted rectangle, total degree, squarefree-part degree, and both norm signs. The link is to the citing author's bibliography, not an accessed copy of Bombieri–Pila."
+    },
+    {
+      "citation": "H. A. Helfgott and A. Venkatesh, Integral points on elliptic curves and 3-torsion in class groups, JAMS 19 (2006), 527–550.",
+      "link": "https://arxiv.org/abs/math/0405180",
+      "why": "Theorem 3.8 and Corollaries 3.9/3.11 supply packing/height estimates in §§5.1 and 5.4. Not read in this checkpoint; the del Pezzo application needs the height-sensitive version, not only total integral points."
+    },
+    {
+      "citation": "A. Brumer and K. Kramer, The rank of elliptic curves, Duke Mathematical Journal 44 (1977), 715–743, Proposition 7.1 and following remark.",
+      "link": "https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf",
+      "why": "Explicit 2-Selmer dimension bound through the cubic étale algebra. Not read; audit discriminant versus ramification support and reducible algebras. The link is to the citing author's bibliography, not an accessed copy of Brumer–Kramer."
+    },
+    {
+      "citation": "J. Tsimerman, Brauer–Siegel for arithmetic tori and lower bounds for Galois orbits of special points, JAMS 25 (2012), 1091–1117, Lemma 6.1.",
+      "link": "https://www.math.toronto.edu/jacobt/",
+      "why": "Quartic/cubic-resolvent class-group 2-torsion comparison, including the paper's extension to reducible étale resolvents. Not read; verify exact hypotheses before importing."
+    },
+    {
+      "citation": "A. Sedunova, On the Bombieri–Pila method over function fields, arXiv:1506.08757v1, Theorem 1.",
+      "link": "https://arxiv.org/abs/1506.08757v1",
+      "why": "The omitted details of the bounded-gonality branch in §7 require its exact uniformity, characteristic and degree hypotheses. Not read."
+    },
+    {
+      "citation": "A. M. Baily (1980); H. Cohn (1954); M. Bhargava and A. Shnidman (2014); H. Cohen and A. Morra (2011), works cited in §6.",
+      "link": "https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf",
+      "why": "Future extraction must split Baily's resolvent-weighted estimate, cyclic cubic asymptotic, fixed-quadratic-resolvent cubic asymptotic and partial summation. This is an acquisition checklist, not verified statements or an assertion that every such input lacks an atlas owner."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "tauceti:Completed/EffectiveBounds",
+      "roadmap": "EffectiveBoundsClassGroupTorsion",
+      "title": "Effective arithmetic bounds and geometry of numbers, Part II: class-group torsion and balanced ideal generators",
+      "area": "algebraicnt",
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-body",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-kappa",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-m-generator",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-square-generator",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/reduced-integral-basis",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/multiplication-matrix",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/multiplication-matrix-nondegenerate",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/largest-minimum",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-box-count"
+      ],
+      "reason": "The completed roadmap provides coarse effective class-number/ideal bounds and geometry-of-numbers infrastructure, but not balanced generators or this degree-dependent largest-minimum theorem. Preserve its existing work. This checkpoint proposes only the extracted foundation, not yet the final paper's full torsion programme.",
+      "brief": "Provisional checkpoint brief; resolve source-version agreement before design intake. Build on Effective arithmetic bounds and geometry of numbers (tauceti:Completed/EffectiveBounds), importing its existing packing and class-number APIs. Import mixed embeddings, fractional-ideal covolumes and the compact Minkowski theorem from the pinned Mathlib baseline; import general successive minima and reduced-basis theory from Geometry of numbers and quadratic arithmetic (GeometryOfNumbersAndQuadraticArithmetic), especially GN.1/GN.3, rather than duplicating them. For a degree-n number field and an order-m ideal class prove existence of an integral representative J with J^m=(β) and |β|_v≤D_K^(m/(2n)) for every infinite place. Prove the m=2 specialization and λ_n(O_K)≪_n D_K^(1/n), via the nonsingular top-coordinate multiplication matrix, including n=2 separately. Export the O_n(D_K^(1/2)) balanced-box count. Give each construction an API, proof dependency and tests (Q, real quadratic, imaginary quadratic, degree three); preserve complex-place dimension factors and norm signs. Extend this brief with the paper's actual final torsion bounds only after completing §§4–7 extraction and the unresolved published-version/prerequisite checks."
+    }
+  ]
+}
