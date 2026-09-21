@@ -143,7 +143,7 @@ REDTEAM_REVIEW_TEMPLATE = """You are an independent verifier for the Tau Ceti At
 READ FIRST (binding): research/blueprint/PROTOCOL.md, section 17.
 
 VERIFY: the red-team findings research/blueprint/redteam/{RT}.result.json on {TARGET}.
-Library baseline: {BASELINE} (BASELINE.json, TauCeti/, mathlib/Mathlib/, declarations.tsv). Public sources may be fetched into your scratch directory with provenance, never into the repository.
+Library baseline: {BASELINE} (BASELINE.json, TauCeti/, mathlib/Mathlib/, declarations.tsv). Reference library: {LIBRARY}/. Public sources may be fetched into your scratch directory with provenance, never into the repository.
 
 For every finding, check its evidence yourself: open the source at the locator, the declaration at the pinned commit, and the files it names. Decide: confirmed (it is right; if its fix is not, state the right fix in your reason) or rejected (say why). Confirmed findings of high or medium severity become a fix job, so confirm only what you would have fixed.
 Write research/blueprint/redteam/{RT}.review.json, {{"redteam": "{RT}", "findings": [{{"finding": "<id>", "verdict": "confirmed | rejected", "reason": "..."}}]}}, and research/blueprint/reviews/REV-{RT}.md. Run `python3 scripts/check_redteam.py research/blueprint/redteam/{RT}.review.json` until it reports no errors.
@@ -171,7 +171,7 @@ PAPER_REVIEW_TEMPLATE = """You are an independent reviewer for the Tau Ceti Atla
 READ FIRST (binding): research/blueprint/PROTOCOL.md, sections 0, 15 and 16.
 
 REVIEW: the paper extraction research/blueprint/papers/{PAPER}.result.json and its report research/blueprint/papers/{PAPER}.md. Paper: {CITATION} ({LINK}).
-Library baseline: {BASELINE} (BASELINE.json, TauCeti/, mathlib/Mathlib/, declarations.tsv). Public sources may be fetched into your scratch directory with provenance, never into the repository.
+Library baseline: {BASELINE} (BASELINE.json, TauCeti/, mathlib/Mathlib/, declarations.tsv). Reference library: {LIBRARY}/. Public sources may be fetched into your scratch directory with provenance, never into the repository.
 
 1. Items. Check statements and locators against the paper, and that no definition or key theorem on the way to the main results is missing.
 2. Statuses. Open every cited declaration at the pinned commit and check that it provides the item. Read every cited layer's description and check that it plans the item. Search the libraries and the atlas yourself for every missing item.
