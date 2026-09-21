@@ -89,6 +89,10 @@ def main():
     if data["isDraft"]:
         gh("pr", "ready", str(number))
     gh("pr", "merge", str(number), "--squash", "--delete-branch")
+    # A description saying "close #N" makes GitHub close the job's issue on merge;
+    # the issue stays open until the job is reviewed and integrated.
+    if issue and json.loads(gh("issue", "view", str(issue), "--json", "state"))["state"] == "CLOSED":
+        gh("issue", "reopen", str(issue))
     if mark_complete:
         import pathlib
         repo = pathlib.Path(__file__).resolve().parents[2]
