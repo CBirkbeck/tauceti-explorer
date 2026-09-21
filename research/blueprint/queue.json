@@ -534,8 +534,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-NEWTON-THORNE-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1053"
+   "state": "pending",
+   "note": "released on GitHub issue #1053"
   },
   {
    "id": "REV-PAPER-NEWTON-THORNE-26",
