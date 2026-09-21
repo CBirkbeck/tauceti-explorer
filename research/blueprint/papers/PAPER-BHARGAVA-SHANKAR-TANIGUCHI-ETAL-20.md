@@ -1,126 +1,139 @@
-# BSTTTZ: balanced generators and the unreduced norm-curve argument
+# BSTTTZ: torsion feedback, determinant methods and finite-field sections
 
-**Partial continuation, not a completed paper extraction.** Issue #1420.
-Initial foundation: Codex, session `codex-a71f92`, merged in #1636.
-Continuation: GPT-6 Astra Pro, session `g6ap-0921-classgroup-7c4e`,
-21 September 2026.
+**Partial third checkpoint; not ready for acceptance.** Issue #1420. Codex,
+session `codex-c83e7a`, 21 September 2026. Continues Codex's PR #1636 and
+GPT-6 Astra Pro's PR #1641. All **35 inherited item IDs remain**. The expanded
+inventory contains **110 items: 22 library, 7 planned and 81 missing**.
+Five proposed routes cover **73 missing items and one planned item**; eight
+unresolved claims have explicit gaps instead of executable routes. All 31
+definitions/constructions have an API outline and at least three discriminating
+acceptance tests. No Lean implementation or independent review is claimed.
 
-The companion JSON retains the previous twenty stable item IDs and adds
-fifteen items. There are **35 items: ten inherited library items, one
-inherited planned item and twenty-four provisional missing items**, each
-routed once. The new work expands the part of §4 for fields with **no
-index-two subfield**, using the original Bombieri–Pila theorem. It does not
-close the reduced-basis source obligation, the remaining relative-genus
-argument, or the other branches of the paper. No new implementation,
-independent review, or accepted routing decision is claimed.
+This continuation adds the selected original Bombieri–Pila proof chain, cubic
+feedback and elliptic consequences, quartic resolvents and counting targets,
+and the finite-field section-count proof. It replaces several previously
+unexamined prerequisites with actual pinned library imports. Original source
+closure and the final published-version comparison remain incomplete.
 
-## 1. Source identity and reading record
+## Source identity and reading boundary
 
-The target is M. Bhargava, A. Shankar, T. Taniguchi, F. Thorne, J. Tsimerman
-and Y. Zhao, *Bounds on 2-torsion in class groups of number fields and
-integral points on elliptic curves*, JAMS **33** (2020), no. 4,
-1087–1099, [DOI 10.1090/jams/945](https://doi.org/10.1090/jams/945).
-The [Princeton publication record](https://collaborate.princeton.edu/en/publications/bounds-on-2-torsion-in-class-groups-of-number-fields-and-integral/)
-records revisions on November 1 and November 20, 2019. This verifies
-bibliographic identity, **not agreement of the mathematical text** with
-an earlier author copy.
+The target is Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao,
+*Bounds on 2-torsion in class groups of number fields and integral points on
+elliptic curves*, JAMS 33 (2020), 1087–1099,
+[DOI 10.1090/jams/945](https://doi.org/10.1090/jams/945).
+The mathematical source used here is Taniguchi's author copy dated
+18 February 2017. Every page, including references, was read afresh; its
+pages 5, 6, 8, 11 and 12 were visually inspected after local rendering.
+Locators below are **author-copy page numbers**.
 
-The initial checkpoint read both available 2017 copies completely. The
-continuation reread all parsed text of the February copy, concentrating on
-§§2–4. The following byte hashes are **inherited measurements from #1636**,
-not fresh measurements by this continuation.
+Freshly measured bytes, all acquired on 21 September 2026:
 
-| Public file | Version and extent of initial reading | SHA-256 |
-| --- | --- | --- |
-| [Taniguchi author copy](https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf) | February 18, 2017; all 13 pages | `bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec` |
-| [arXiv v1](https://arxiv.org/pdf/1701.02458) | January 11, 2017; all 12 pages | `99ee35275ecb42c52cd8bbc615538dbe6094326fb72894e88ef82c0b89286871` |
-| [MPG deposit](https://pure.mpg.de/rest/items/item_3277755_1/component/file_3277756/content) | November 25, 2020 recompile retaining the arXiv-v1 stamp; opening only | `04e4e52e2e7d2902cfe6ef7c37793650b5a7c3128554cdc3a7a577fb176deb9d` |
+| Source | PDF pages | SHA-256 |
+| --- | ---: | --- |
+| [taniguchi](https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf) | 13 | `bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec` |
+| [arxiv](https://arxiv.org/pdf/1701.02458) | 12 | `99ee35275ecb42c52cd8bbc615538dbe6094326fb72894e88ef82c0b89286871` |
+| [bombieri-pila](https://people.maths.ox.ac.uk/pila/Ovals.pdf) | 22 | `a46f75e55ddc055050f7924dbea2e5c5655aee32e5e15091eff74d3fc2bbe408` |
+| [helfgott-venkatesh](https://arxiv.org/pdf/math/0405180) | 23 | `bfb29584474ac4a580da9a1fa1b0279faa283f301c0481f43a0919cbaa102255` |
+| [tsimerman](https://arxiv.org/pdf/1103.5619v3) | 32 | `4cd8527c28b94f98df53738c9805a8ff5c84a94d3754c873b804d33dbdea7aed` |
+| [sedunova](https://arxiv.org/pdf/1506.08757v1) | 8 | `7b7117e414c126f41cb3b5fe22044034652e0b97d2e12660b0afdc7b5228b3f0` |
 
-The February copy adds §5.4 on degree-one del Pezzo surfaces and references.
-Its later date and the MPG recompilation date do not make either a verified
-copy of the final article. The MPG publisher-version attachment is
-restricted and was not accessed. Ordinary public AMS article, PDF and
-[accepted-manuscript](https://www.ams.org/jams/2020-33-04/S0894-0347-2020-00945-6/jams945_AM.pdf)
-paths failed in the initial checkpoint; this continuation obtained 403 or
-cache-miss failures on further public paths. No access restriction was
-bypassed. Use **February-copy page numbers**, not invented journal locators.
-Screenshots of the main paper's formula-heavy pages failed, so the present
-continuation does not claim successful visual verification of those pages.
+The arXiv v1 hash was remeasured, but its full reading is inherited from #1636.
+The February copy includes §5.4, absent from arXiv v1. The earlier MPG
+preprint hash `04e4e52e2e7d2902cfe6ef7c37793650b5a7c3128554cdc3a7a577fb176deb9d`
+is retained as an inherited measurement, not a newly downloaded version.
+Fresh [MPG item metadata](https://pure.mpg.de/rest/items/item_3277755)
+identifies file_3277756 as a public preprint and file_3277757 as the restricted
+publisher version. Thus the public deposit's 2020 recompilation date does not
+make it the final article. Public AMS and author-page retrieval still did not
+produce the revised publisher text. Bibliographic identity is not a
+mathematical version comparison; **G0 remains**.
 
-### A newly checked original input
+Additional reading was bounded and is not represented as a complete reading
+of every prerequisite paper:
 
-Bombieri–Pila, *The number of integral points on arcs and ovals*, Duke
-Mathematical Journal **59** (1989), 337–357,
-[DOI 10.1215/S0012-7094-89-05915-2](https://doi.org/10.1215/S0012-7094-89-05915-2),
-is available as an [author preprint](https://people.maths.ox.ac.uk/pila/Ovals.pdf)
-linked from [Pila's Oxford page](https://www.maths.ox.ac.uk/people/jonathan.pila).
-The **original Theorem 5 on printed page 17** and its concluding proof were
-read; its formula and hypotheses were checked in a successfully rendered
-screenshot (PDF page index 16). Earlier introductory and main-lemma passages
-were also read, but the full preceding determinant-method proof has **not**
-been decomposed or read in its entirety. Direct byte retrieval failed; no
-hash is claimed for this additional source.
+- Bombieri–Pila: §2 pp.1–6, giving determinant/interpolation foundations, and
+  the complete §3 pp.10–17 leading to Theorem 5. Later analytic-curve material
+  of §2 and smooth-curve §4 are not claimed fully read.
+- Helfgott–Venkatesh: Theorem 3.8 and proof, Definition 1, Corollaries 3.9 and
+  3.11, Proposition 3.10 and adjacent remarks. Earlier repulsion, sphere-packing
+  and positive-height proof interiors remain to audit.
+- Tsimerman v3: the negligible-factor definition and Theorem 4.7; §5 Theorem
+  5.1 through Corollary 5.7 with their proofs; §6's quartic/cubic module argument.
+  The preceding analytic/class-formation closure remains open.
+- Sedunova v1: the entire eight-page source, especially Theorem 1 and its
+  determinant proof. The arXiv stamp is June 2015, while the downloaded body
+  says August 2018. This is recorded rather than silently treated as a later
+  arXiv revision.
 
-For an absolutely irreducible plane curve of total degree `d ≥ 2` and
-`N ≥ exp(d^6)`, Theorem 5 gives
+## Baseline and ownership corrections
 
-```text
-#(C ∩ Z² ∩ [0,N]²)
-  ≤ N^(1/d) exp(12 sqrt(d log N log log N)).
-```
+Pins remain Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. This continuation reread the
+actual statements for all ten inherited Mathlib library items: class groups,
+class number, infinite places, discriminant, mixed embedding, covolumes,
+both Minkowski forms and the small-norm ideal-class representative.
+The covolume formula takes an invertible fractional ideal; the compact
+Minkowski theorem needs a discrete lattice and a nontrivial real vector space.
+Complex places use ordinary modulus with multiplicity two in the norm product.
 
-It does **not** require smoothness or a bound on the coefficients. Its final
-proof explicitly separates the singular points. For fixed `d` and `ε > 0`,
-the exponential factor is at most `N^ε` once `N` is sufficiently large in
-terms of `d,ε`. The remaining bounded interval is handled by the grid bound
-`(floor(N)+1)²`. Integer translation preserves both integer points and total
-degree. Thus the usable bound is `O_(d,ε)(N^(1/d+ε))`, uniformly in the
-coefficients and integer translates of the square. This conclusion uses the
-original input, not a stronger modern replacement.
+New exact imports, with their source files at the pins:
 
-## 2. The inherited foundation and its unresolved lemma
+| Imported interface | Actual declaration and scope |
+| --- | --- |
+| Norm tower | `Algebra.norm_norm`, `Algebra.norm_eq_norm_adjoin`, Mathlib `RingTheory/Norm/Transitivity.lean`; finite/free scalar-tower machinery, not a newly defined norm |
+| Projective cardinality | `Projectivization.card_of_finrank`, `Projectivization.card''`, Mathlib `LinearAlgebra/Projectivization/Cardinality.lean`; quotient by every nonzero scalar |
+| Explicit 2-descent | `WeierstrassCurve.Affine.selmerGroup₂`, `mem_selmerGroup₂_iff`, `range_μ_le_selmerGroup₂`, Tau Ceti `AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean` |
+| Rank inequality | `WeierstrassCurve.Affine.pow_rank_le_card_of_range_μ_le`, same file; requires a finite subgroup containing the descent image |
+| Mordell–Weil | `WeierstrassCurve.Affine.fg_point_of_numberField`, `MordellWeil/FinitelyGenerated.lean` |
+| Canonical height | `WeierstrassCurve.Affine.Point.canonicalHeight`, its convergence and bounded-difference theorem, `AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean` |
+| Function-field divisors | `TauCeti.Divisor`, `TauCeti.Divisor.degree`, `TauCeti.Divisor.principal`, under `FieldTheory/FunctionField/Divisor/` |
+| Degree-zero classes | `TauCeti.Divisor.degreeClass`, `degreeClass_divisorClass`, `divisorClass_eq_zero_iff`; use the existing quotient and degree kernel |
+| Finite class group | `TauCeti.Divisor.finite_ker_degreeClass`, `RiemannRoch/ClassNumber.lean`; no exact-constants hypothesis for this finiteness theorem |
+| Sections and effective representatives | `TauCeti.riemannRochSpace`, `TauCeti.Divisor.dim`, `degree_add_one_sub_genus_le_dim`, `exists_isEffective_linearlyEquivalent_add_nsmul` |
+| High-degree RR | `TauCeti.Divisor.dim_eq_degree_add_one_sub_genus_of_two_mul_genus_sub_one_le_degree`, `Consequences/HighDegree.lean`; exact constants, integer inequality `deg D≥2g−1` |
 
-The first ten library items retain the pinned declaration evidence recorded
-by Codex in #1636. That checkpoint reports reading the actual declarations
-and comparing seven files byte for byte with Mathlib at
-`082e2d37e8b0463410cdb532e111cd43d5a66174`:
+Reviewed audit entries read: AUDIT-01 (AlgebraicCurves Layers 3–5 and
+JacobianChallenge E), AUDIT-02 (GN), AUDIT-03 (completed EffectiveBounds),
+AUDIT-11 (EllipticCurves Layers 6–7), AUDIT-20 (FA.1). They distinguish
+implemented divisor RR from the missing scheme Picard comparison, and the
+built explicit Selmer carrier from still-missing general cohomological Selmer
+machinery. The rank-cardinality lemma does **not** establish finiteness of
+the Selmer subgroup by itself.
 
-- [ClassGroup/Basic](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/ClassGroup/Basic.lean#L90),
-  [ClassNumber](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/ClassNumber.lean#L58),
-  and [Discriminant/Defs](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean#L37).
-- [InfinitePlace/Basic](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean#L57),
-  [CanonicalEmbedding/Basic](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/CanonicalEmbedding/Basic.lean#L187),
-  and [Discriminant/Basic](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean#L124).
-- [MeasureTheory/Group/GeometryOfNumbers](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/MeasureTheory/Group/GeometryOfNumbers.lean#L65).
+Full owner documents read: GN, completed EffectiveBounds, ED, RP, ST, FA
+and JacobianChallenge. Complete relevant sections read: upstream
+AlgebraicCurves Layer 5 and EllipticCurves Layers 6–7. The 211 atlas records,
+new-roadmap catalogue, reserved IDs and available packet were screened.
+The earlier full LD reading is retained from #1641; LD.6 excludes the algebraic
+part and does not supply this Bombieri–Pila theorem. Remaining proof-interior
+supplier checks for HV and arithmetic tori are explicitly G3/G4.
 
-These supply the ordinary class group, finiteness, signed discriminant,
-archimedean places, mixed embedding, integer/fractional-ideal covolumes,
-Minkowski's first theorem in strict and compact-boundary forms, and the
-small-norm ideal representative. They do not supply the paper's balanced
-generator or torsion power saving merely by being present.
+The [Couveignes result](PAPER-COUVEIGNES-20.result.json) already proposes
+`EffectiveBoundsCompactModels`, with the same completed parent. Its route was
+read in full: it concerns short multi-equation field models and degree-sensitive
+field counts. Share measure/reduction imports and any compatible short-integer
+lemma; do not treat an unreviewed proposal as an installed supplier. Its target
+is different from the present torsion power saving. Neither candidate may own
+a duplicate general reduced-basis theory.
 
-The inherited reviewed AUDIT-02 evidence puts general successive minima
-and the second theorem in `GeometryOfNumbersAndQuadraticArithmetic:GN.1`.
-The inherited EffectiveBounds/AUDIT-03 reading distinguishes coarse existing
-class-number and ideal-count bounds from the new application. Generic
-reduction must remain with GN.1/GN.3; a new extension cannot own it again.
+## Lattice boundary retained from the previous checkpoint
 
-Two details of the foundation remain essential. First, with ordinary
-complex modulus and product Lebesgue measure, a complex disc contributes
-`πR_v²`. The weighted body in §2 has volume
-`2^r π^s sqrt(D_K)/N(I)`, which is at least `2^n covol(I^(-1))`.
-Use compact non-strict Minkowski, including the all-real equality case.
-Do not mix this measure with a trace metric that doubles complex coordinates.
+For the §2 weighted body, each complex disc contributes `pi R_v²`; hence
+the volume is `2^r pi^s sqrt(D_K)/N(I)`. It is at least
+`2^n covol(I^(-1))`. Equality in the all-real case requires the compact,
+non-strict Minkowski theorem. The proof uses only `c^m=1`, so it includes
+the identity class and every class whose order divides m.
 
-Second, the exact Siegel reduced-basis input still needs its original proof.
-The source prints a comparison through index `n−2`, whereas the subsequent
-argument uses it at `n−1`. The needed statement includes a primitive initial
-vector `1`, a degree-uniform product bound, all comparison indices and the
-quadratic case. The proof expansions below **consume** the recorded
-controlled-basis and largest-minimum lemmas; they do not pretend that this
-remaining source obligation has been discharged.
+The literal reduced-basis item remains **unrouted G1**: the source compares
+through index n−2 and uses the last index n−1 in its proof. Original Siegel
+verification must include extending primitive 1, the metric and product
+constants, and n=2. The general reduction supplier stays GN.1/GN.3.
+Likewise, the printed relative-genus bound with only one base factor h₂(F)
+remains **unrouted G2**, requiring capitulation, ambiguous-class and unit
+terms. The restricted proof below consumes these recorded lattice inputs;
+it does not settle either gap.
 
-## 3. Expanded §4 argument: no subfield of index two
+## Preserved no-index-two proof: no subfield of index two
 
 Here `K` has degree `n ≥ 3`, `D=|Disc(K)| ≥ 1`, and `R=D^(1/n)`. Define
 
@@ -129,8 +142,7 @@ B_K(T) = {β ∈ O_K : |β|_v ≤ T at every infinite place v}.
 ```
 
 All implicit constants depend only on the displayed degree, scale or epsilon,
-not on the field. The following supplies explicit proof details for the new
-items. Statements described as repairs or expansions are not attributed to
+not on the field. The following preserves the detailed proof expansion from PR #1641. Statements described as repairs or expansions are not attributed to
 the source as verbatim named lemmas.
 
 ### 3.1 All 2-torsion classes, including the identity
@@ -276,114 +288,182 @@ cubic/quartic exponent. The full extraction must still read the original
 relative-genus estimate with its dependence on base class groups, units
 and ramified primes. A quadratic-over-Q API is not that relative theorem.
 
-## 4. Provisional ownership, not accepted new jobs
 
-The existing proposed `EffectiveBoundsClassGroupTorsion` Part II is retained
-and extended from nine to twenty-two provisional missing application items.
-It builds on the completed `tauceti:Completed/EffectiveBounds` roadmap,
-imports the class-group/norm/discriminant/ideal APIs and GN.1/GN.3, and owns
-the balanced-generator and norm-curve application. The earlier Couveignes
-paper's overlapping proposed extension is **not** an installed supplier;
-reconcile the two at design time rather than duplicating reduced-basis work.
+## Original determinant-method proof now extracted
 
-The two generic Bombieri–Pila items provisionally propose
-`IntegralPointDeterminantMethods`, *Uniform integral-point bounds by
-determinant methods*. Three full current roadmap documents were read:
+The selected chain is evaluation rank deficiency → nonzero integer minor →
+Vandermonde/derivative bound → separation of successive blocks → auxiliary
+curves → proper Bézout intersections. Restrict monomials to avoid the leading
+degree-d term of the original polynomial. For integer δ≥2d, their number is
+`D=d(δ−d+1)` and degree sum is
+`p=d(δ(δ+1)−d(d−1))/2`. The exponent `2p/(D(D−1))` approaches 1/d.
+Derivative level-set bounds partition the graph; intervals with a large
+derivative are short. Iterating the resulting recurrence gives Theorem 4;
+decomposition into bounded-slope graph pieces gives Theorem 5, including
+singular curves.
 
-- `HeightsRationalPointsAndObstructions`: RP.4 supplies Siegel/Faltings
-  finiteness, not this coefficient-uniform finite-box estimate.
-- `EffectiveDiophantineMethods`: certified algorithms, descent, logarithmic
-  bounds and Chabauty/sieve workflows do not provide this theorem merely
-  because they count or enumerate points.
-- `LogicAndDefinabilityInNumberTheory`: LD.6 is Pila–Wilkie **outside the
-  algebraic part**, not Bombieri–Pila on the algebraic curve itself.
+Two literal proof typos are now visible. In Lemma 7 the dimensionless length
+must be `|I| A^(1/k)/N`, not `|I| A^(-1/k)/N`. In the final estimate the
+monomial sums satisfy **q≤p**, whereas the preprint prints the reverse.
+The final choice of δ must also be an integer. These are **G7**: the exact
+constants 11 and 12 require a checked rounding argument; the theorem is a
+source target, not a completed formal proof. The selected API and test cases
+now give the next worker concrete proof obligations.
 
-The proposed counting owner must import algebraic geometry, determinants,
-real analysis and intersection theory, not duplicate them. An exact-ID
-search found no result, but a full catalogue, packets, reserved-ID and
-library check remains necessary before the name or route is approved.
-The result JSON contains an actionable brief with the exact endpoint,
-singular-curve and small-N handling, and the remaining proof-acquisition
-work. Function-field counting is **not** obtained by silently copying the
-characteristic-zero statement.
+## Cubic feedback and elliptic consequences
 
-## 5. Baseline and prerequisite audit boundary
+For cubic K, the translation count gives O(D_K^(1/6)) signed norm curves.
+Their integral coefficients satisfy `|A|≪D^(1/3)`, `|B|≪D^(2/3)`,
+`|C|≪D`, and their model discriminants are O(D²). A nonrational element
+of a cubic field is primitive, so its cubic norm polynomial is separable.
+The rational-generator case is singular and must be removed: if J²=(a),
+a is rational and |N(a)| is square, then |a|=m² and J=(m), so this contributes
+only the identity class. For the negative sign, X=−x turns the equation
+into a monic cubic with the signs of A and C changed.
 
-The Tau Ceti pin remains `f790474821cf4256814db967cb154e7af3d0c369`.
-The continuation opened Mathlib `RingTheory/Norm/Basic.lean` at the prescribed
-Mathlib pin, lines 1–100: this includes the power-basis norm/constant-term
-and norm/product-of-roots statements. It does **not** establish a matching
-pinned declaration for the entire norm-polynomial package. Default-branch
-keyword searches for norm/minimal-polynomial and Bombieri/Pila terminology
-are leads, not proofs of absence at either pin.
+With natural logarithms, the constants are
 
-The earlier seven-file library checks and reviewed GN/EffectiveBounds audit
-readings are retained with attribution; they have not been independently
-repeated here. All fifteen new statuses require the final pinned-library
-and whole-atlas audit. Generic constituent results should become explicit
-imports wherever supplied. The big reviewed library audit and every proposed
-roadmap/reserved identifier have not been rechecked in this continuation.
-
-The prerequisite array retains the earlier acquisition register, with the
-Bombieri–Pila entry updated to the original source actually read. Siegel,
-Helfgott–Venkatesh, Brumer–Kramer, Tsimerman, Sedunova and the §6 counting
-sources still need precise original statements and ownership screening.
-Links to the citing bibliography are labelled as such; they are not claims
-to have accessed the cited original. The array is **not an audited claim that
-every listed work is absent from the atlas**.
-
-## 6. Remaining branches and correctness obligations
-
-The following register preserves the substantive unfinished work from #1636.
-No entry in it has become an extracted, baseline-verified theorem merely
-because the author copy was read.
-
-| Author-copy locus | Remaining work |
-| --- | --- |
-| Introduction / Theorem 1.1 | Extract torsion carriers and all degree/epsilon quantifiers; finish the relative index-two reduction and sharper cubic/quartic exponent `a=0.2784…`. Retain small-degree boundary cases. |
-| Theorem 1.2(a–c), §5.2 | Separate elliptic 2-Selmer, rank and integral-point estimates; specify an integral nonsingular model and its discriminant. The rank bound is not an equality. |
-| Theorem 1.3(a–b) | Check the hyperelliptic Jacobian descent input, reducible étale algebras and the distinction between field/étale-algebra, polynomial-order and curve-model discriminants. Algebra discriminant alone need not control the chosen model's bad primes. Compare with the final revision before asserting the exact bound. |
-| §5.1 / Theorems 5.1–5.2 | Read Helfgott–Venkatesh packing/height bounds and Brumer–Kramer precisely. Construct the elliptic norm-curve family, verify coefficient/discriminant bounds, prime-divisor loss and feedback inequality. |
-| §5.3 / Lemma 5.3, Remark 5.4 | Read Tsimerman's quartic/cubic-resolvent 2-torsion comparison, including the separate justification for reducible resolvents and discriminant comparisons. |
-| §5.4 | The February-copy del Pezzo branch is absent from arXiv v1. Check weighted sextic presentation, anticanonical height, primitive representatives, singular fibers, height comparison and the height-sensitive integral-point estimate before claiming `O_X(N^2.87)`. Read Da Costa and the precise original inputs. |
-| Theorem 1.4, §6 / (5)–(10), Remark 6.1 | Separate Baily's weighted-resolvent estimate, Cohn's cyclic-cubic count, fixed-quadratic-resolvent asymptotics and partial summation. Count isomorphism classes by normal-closure Galois group, not automorphism group. Constants for a fixed quadratic resolvent are not automatically uniform in it. Landau/Davenport–Heilbronn/Wong comparisons are historical inputs, not new proofs here. |
-| §7 / Theorem 7.1 = 1.7 | For a smooth projective geometrically irreducible curve over `F_q`, justify a rational degree-g divisor and the passage from rational Picard points to divisor classes. Construct the even-divisor section locus and its surjection after projectivization; apply Riemann–Roch to obtain `(q^(g+1)−1)/(q−1)`. |
-| §7 bounded-gonality branch | Read Sedunova's actual characteristic, degree, epsilon and uniformity hypotheses; the one-line analogy is not a full proof. In characteristic two geometric 2-torsion points have cardinality at most `2^g`, with equality depending on p-rank; distinguish point cardinality from group-scheme length. |
-
-The feedback constants must be preserved exactly. In the author copy,
-`α=√3/2` and
-
-```text
-b = ((1+α)/(2α)) log((1+α)/(2α))
-  − ((1−α)/(2α)) log((1−α)/(2α)),
-a = 1 / (6(1−b/log 2)).
+```
+u = sqrt(3)/2
+b = ((1+u)/(2u)) log((1+u)/(2u))
+  - ((1-u)/(2u)) log((1-u)/(2u))
+a = 1 / (6(1-b/log 2))
+c = a*b/log 2
 ```
 
-The integral-point exponent is `ab/log 2`. Check the coefficient of
-`log h_2` is below one before absorbing epsilon; do not infer the theorem
-from rounded decimal constants.
+Numerical checks give b≈0.2782386677, a≈0.2784337427 and
+c≈0.1117670760. In particular b/log 2<1 and a=1/6+c.
+The inequality
+`H≤C_eta D^(1/6+eta) exp((b+eta)log₂ H)` therefore yields
+`H≪epsilon D^(a+epsilon)` by choosing eta small enough and dividing
+by `1−(b+eta)/log 2`. Rounded decimals are not theorem constants.
 
-The next atlas audit still includes EllipticCurves layers 6–7,
-RP.0/RP.1, ST.0/ST.3/ST.4, SF.3/SF.5, finite-field curves/Jacobians,
-and relative genus-theory suppliers. An average-Selmer programme is not a
-pointwise discriminant bound. The new no-index-two argument does not remove
-any of these obligations.
+HV Theorem 3.8 includes both height and rank, with S containing every
+infinite place and every prime dividing the chosen integral-model
+discriminant. At t=0 it gives the packing endpoint. Corollary 3.11 plus
+prime-support absorption gives the all-integral-point theorem quoted as
+BSTTTZ Theorem 5.1. `A^omega(m)≪epsilon m^epsilon` follows by splitting
+small and large primes, and absorbs the prefactors only **after** choosing S.
+The explicit b-dependent feedback then uses Brumer–Kramer. Its original
+Proposition 7.1 and following remark are still **G3**; the quotation in
+BSTTTZ is not a claimed original-source reading.
 
-## 7. Validation and completion gate
+Tau Ceti's implemented height is `lim h_x(2^nP)/(2·4^n)`, matching HV.
+The upstream roadmap prose requests twice this normalization. Moreover,
+the existing bounded-difference theorem has a constant depending on the
+curve. It does not supply the uniform leading coefficient for a varying
+family needed by §5.4. Thus the del Pezzo exponent remains **G6**, alongside
+singular fibers and primitive weighted representatives.
 
-The unmodified repository `scripts/check_paper.py` was executed on the
-35-item result using a **scoped local catalogue** containing the inherited
-GN.1 owner and completed EffectiveBounds parent. It reported `ok`.
-The checker Git blob hash is
-`cf3cae9e7d2d41209bf9fa4d719fd6fe17a69f1f`.
-All stable IDs are unique, all twenty-four provisional missing items are
-routed exactly once, and the ten library items retain their earlier
-citations. This checks structure, referenced owner IDs and route
-multiplicity, **not** final source agreement, source completeness, mathematical
-acceptance or a full-atlas audit. Repository CI uses its full input set.
-No Lean file was requested, produced or compiled.
+The main elliptic conclusions are now separate items: Selmer cardinality
+exponent a, rank at most `C_epsilon+(a+epsilon)log₂|Delta|`, and integral-point
+exponent c. All use the chosen integral-model discriminant. Hyperelliptic
+Theorem 1.3(a) and (b) are separate but **unrouted G5**: the printed bound
+uses the étale algebra discriminant while model bad primes can also come
+from the polynomial-order index and twists. A split cubic algebra can stay
+fixed while the curve model's bad primes change. This observation identifies
+an omitted dependency, not a claimed counterexample to the final article.
 
-Keep `status: partial`. Obtain the final article, finish the source and
-prerequisite coverage, settle the relative-genus and reduced-basis inputs,
-audit all statuses/routes and run the full repository checks before calling
-this paper job complete. The handoff gives the next worker a concrete order.
+## Quartic transfer and field counts
+
+Tsimerman's selected argument compares the F₂ permutation modules on four
+embeddings and three pair partitions. Quotienting the four-dimensional
+module by its sum line and then taking its even-weight image gives a
+two-dimensional module, isomorphic to the three-partition module modulo
+its sum line. Other factors are trivial. The isomorphism was checked on all
+24 permutations and all eight representatives of the latter quotient.
+Restricting this construction to a transitive subgroup of S₄ explains why
+reducible cubic resolvents require étale product algebras, not an assumption
+that the resolvent is a field.
+
+This finite check does not prove the arithmetic transfer. Tsimerman's class
+quantity is only defined up to discriminant-negligible factors, relative to
+the splitting field. Its torus exact-sequence theorem, Brauer–Siegel inputs,
+conversion to D_K and discriminant-preserving resolvent order still need
+full closure and owner screening (**G4**). A composite acquisition node is
+left unrouted and explicitly awaits splitting; it is not presented as a
+completed atomic extraction.
+
+The counting targets are routed to existing ST.0/ST.1/ST.3. Baily's weighted
+quartic sum uses `h₂(K)(log D_K)²(X/D_K)^(1/2)`. A cubic family count
+O_F(T^(1/2)), together with the pointwise cubic torsion bound, gives
+O_(F,epsilon)(X^(1/2+a+epsilon)) by dyadic summation. Cohn supplies the cyclic
+cubic input for A₄ quartics; the fixed-quadratic-resolvent cubic asymptotic
+supplies the S₄ variant. The latter constant depends on the quadratic field
+F. A favorable leading constant does not make convergence uniform in F.
+Baily, Cohn and the two fixed-resolvent originals remain to acquire (**G8**).
+
+## Finite-field proof and the gonality boundary
+
+Let C/k be smooth, projective and geometrically integral, k finite of order
+q, with genus g. Use the planned degree-one-divisor theorem to obtain a
+divisor E of degree g; this does not assume C(k) nonempty. The divisor-class
+interpretation of Pic⁰(C)(k) additionally uses the existing Picard comparison
+target and Br(k)=0. These planned inputs are not falsely marked implemented.
+
+For V=L(2E), take the subset of nonzero f whose principal divisor has every
+coefficient even. It is stable under **all** k×, not only square constants.
+It need not be a vector subspace and does not mean that f is a square in k(C).
+The projective class of f maps to the class of half its principal divisor.
+This has degree zero and is killed by two.
+
+For c=[D] in 2-torsion, Riemann's inequality produces an effective divisor
+D₊ linearly equivalent to E−D. Since 2D is principal, choose f with
+`div(f)=2D₊−2E`. Then f lies in the chosen subset and its half-divisor class
+is −c=c. This proves **surjectivity**. Uniqueness up to scalars holds for a
+fixed principal divisor, not for all choices of D₊ in one class; no unjustified
+canonical injection is used.
+
+Implemented high-degree RR gives `dim L(2E)=g+1`, including g=0. The
+implemented projective-space formula then proves the target
+`#Pic⁰(C)(k)[2]≤(q^(g+1)−1)/(q−1)`. This argument has no characteristic
+restriction. In characteristic two the geometric 2-torsion point group has
+size 2^f for p-rank f≤g, not invariably 2^g; the group-scheme rank is 2^(2g).
+Those general abelian-variety results belong to the existing Jacobian Layer E.
+
+The stronger gonality assertion remains **unrouted G9**. Sedunova's theorem
+has an epsilon loss absent from the displayed claim in BSTTTZ. Its literal
+q-independent constant also fails a simple test: with I the polynomials of
+degree at most two, |I|=q³, and the absolutely irreducible smooth parabola
+Y²=X, every linear Y gives a pair in I². There are exactly q² such pairs,
+whereas `|I|^(1/2+epsilon)=q^(3/2+3epsilon)`. For epsilon<1/6 a constant
+independent of q cannot hold as q varies. This does not exclude an estimate
+for fixed q or with additional q factors/thresholds. Resolve the correct
+uniformity, epsilon handling, degree convention, bad-reduction exclusions
+and coordinate-change cost; then separately treat inseparable maps and
+characteristic two. The one-line analogy in the main paper is not a proof.
+
+## Proposed ownership and acyclic dependencies
+
+1. **EffectiveBoundsClassGroupTorsion**, Part II of the completed EffectiveBounds
+   roadmap: balanced representatives, the norm-curve bound, cubic feedback,
+   quartic transfer and the resulting elliptic discriminant applications.
+2. **IntegralPointDeterminantMethods**, new direction: original coefficient-uniform
+   plane-curve bound, importing generic polynomial, analysis and SF.5 intersection
+   theory. Pila–Wilkie and pointwise finiteness do not supply it.
+3. **EllipticCurvesPartIIIntegralPointBounds**, Part II of upstream EllipticCurves:
+   HV and Brumer–Kramer tools. It does not depend on the improved torsion theorem;
+   those final applications live in the consuming EffectiveBounds extension.
+4. **ArithmeticStatistics**, source for ST.0/ST.1/ST.3: resolvent-weighted counts
+   and the A₄/fixed-resolvent S₄ consequences, importing pointwise torsion.
+5. **FunctionFieldArithmeticPartIITorsionBounds**, Part II of FA: quantitative
+   Picard 2-torsion by projective sections, importing its already-built RR
+   foundation and the existing degree-one/Picard suppliers.
+
+These are proposals, not accepted designs. The result's briefs specify
+endpoints, suppliers, tests and suggested Lean homes. They exclude G1/G2/G4's
+unresolved acquisition nodes and G5/G6/G9's unverified claims. The complete
+G0–G10 register and the handoff are part of the checkpoint, not optional caveats.
+
+## Validation
+
+The unmodified paper checker and intake file checks are run against the full
+available atlas catalogue before submission. Custom structural checks preserve
+all 35 old IDs, verify unique routing, ensure every unrouted missing item is
+listed in a gap, and require an API plus three tests for all 31 definitions.
+Meaningful finite checks cover the S₄ quotient-module map, projective scalar
+orbits over F₂/F₃/F₅ in dimensions zero through four, the Sedunova parabola
+example over F₂/F₃/F₅/F₇, and restricted-monomial counts/exponents for degrees
+two through eight. Floating-point calculations check the displayed constants
+and feedback identities; they are not certified real inequalities in Lean.
+No Lean artifact was requested, produced or compiled.

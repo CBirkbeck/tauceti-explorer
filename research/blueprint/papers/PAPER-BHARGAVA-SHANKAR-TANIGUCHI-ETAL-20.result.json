@@ -15,7 +15,12 @@
       "Codex checkpoint #1636: Taniguchi 2017-02-18, all pp.1–13, §§1–7 including §5.4 and references",
       "Codex checkpoint #1636: arXiv v1, all pp.1–12 and references; MPG opening only",
       "GPT-6 Astra Pro continuation: all parsed text of the Taniguchi author copy, with detailed rereading of §§2–4; no new byte hash is claimed",
-      "GPT-6 Astra Pro continuation: Bombieri–Pila author preprint, introductory/main-lemma passages and the concluding proof on pp.15–17; Theorem 5 p.17 visually checked. Not a complete reading of the 22-page input."
+      "GPT-6 Astra Pro continuation: Bombieri–Pila author preprint, introductory/main-lemma passages and the concluding proof on pp.15–17; Theorem 5 p.17 visually checked. Not a complete reading of the 22-page input.",
+      "Codex codex-c83e7a: freshly downloaded Taniguchi copy, all pp.1–13 including references; pp.5,6,8,11,12 visually checked.",
+      "Bombieri–Pila: §2 determinant foundations pp.1–6 and §3 pp.10–17 completely read; §2 later analytic-curve digression and §4 are not prerequisites of the selected Theorem 5 and are not claimed fully read.",
+      "Helfgott–Venkatesh: Theorem 3.8 and proof, Definition 1, Corollaries 3.9/3.11, Proposition 3.10 and adjacent remarks; preceding local-repulsion and spherical-code proof interiors still to audit.",
+      "Tsimerman arXiv v3: §4 negligible-factor definition/Theorem 4.7; §5 Theorem 5.1 through Corollary 5.7 with proofs; §6 quartic/cubic argument. Earlier analytic/class-formation proof closure not claimed.",
+      "Sedunova v1: entire eight-page source read, with particular attention to Theorem 1, Lemmas 1–2 and proof §§2–3; compilation date August 2018 differs from the June 2015 arXiv version stamp."
     ],
     "files": [
       {
@@ -23,14 +28,18 @@
         "sha256": "bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec",
         "pages": 13,
         "date": "2017-02-18",
-        "provenance": "Hash recorded by Codex in #1636, retained and not remeasured in this continuation."
+        "provenance": "Fresh byte hash measured by codex-c83e7a; matches the earlier checkpoint.",
+        "bytes": 291000,
+        "accessed": "2026-09-21T20:48:21.430126+00:00"
       },
       {
         "url": "https://arxiv.org/pdf/1701.02458",
         "sha256": "99ee35275ecb42c52cd8bbc615538dbe6094326fb72894e88ef82c0b89286871",
         "pages": 12,
         "date": "2017-01-11",
-        "provenance": "Hash recorded by Codex in #1636."
+        "provenance": "Fresh byte hash measured by codex-c83e7a; matches the earlier checkpoint.",
+        "bytes": 177762,
+        "accessed": "2026-09-21T20:48:17.211900+00:00"
       },
       {
         "url": "https://pure.mpg.de/rest/items/item_3277755_1/component/file_3277756/content",
@@ -40,7 +49,7 @@
         "provenance": "Hash recorded by Codex in #1636; only opening inspected."
       }
     ],
-    "publicationCheck": "The DOI identifies AMS S0894-0347-2020-00945-6; primary Princeton metadata records November 2019 revisions. Earlier AMS article/PDF/accepted-manuscript reads returned HTTP 403. This continuation retried public AMS paths, obtaining 403 or cache-miss failures, and found no verified final text. Bibliographic identity is not mathematical agreement.",
+    "publicationCheck": "The DOI identifies AMS S0894-0347-2020-00945-6; primary Princeton metadata records November 2019 revisions. Earlier AMS article/PDF/accepted-manuscript reads returned HTTP 403. This continuation retried public AMS paths, obtaining 403 or cache-miss failures, and found no verified final text. Bibliographic identity is not mathematical agreement. Fresh MPG item_3277755 REST metadata explicitly marks file_3277756 as the public preprint and file_3277757 as the restricted publisher version. The public deposit therefore does not resolve the final-text discrepancy. Public author and AMS paths did not yield the final revision.",
     "additionalSource": {
       "title": "The number of integral points on arcs and ovals",
       "authors": "Enrico Bombieri and Jonathan Pila",
@@ -49,15 +58,41 @@
       "url": "https://people.maths.ox.ac.uk/pila/Ovals.pdf",
       "locator": "Theorem 5, author preprint p.17 (PDF page index 16)",
       "accessed": "2026-09-21",
-      "sha256": null,
-      "accessNote": "Public author preprint linked from Pila’s Oxford page. Parsed text and screenshot of Theorem 5 succeeded. Direct byte download failed; no hash claimed. The whole preceding proof has not been read."
+      "sha256": "a46f75e55ddc055050f7924dbea2e5c5655aee32e5e15091eff74d3fc2bbe408",
+      "accessNote": "Fresh bytes retrieved and hashed. Selected proof path §2 pp.1–6 and complete §3 pp.10–17 read. Exact-constant rounding remains G7."
     },
     "pins": {
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
-    }
+    },
+    "additionalSources": [
+      {
+        "name": "helfgott-venkatesh",
+        "url": "https://arxiv.org/pdf/math/0405180",
+        "sha256": "bfb29584474ac4a580da9a1fa1b0279faa283f301c0481f43a0919cbaa102255",
+        "bytes": 374047,
+        "pages": 23,
+        "accessed": "2026-09-21T20:51:34.247526+00:00"
+      },
+      {
+        "name": "tsimerman",
+        "url": "https://arxiv.org/pdf/1103.5619v3",
+        "sha256": "4cd8527c28b94f98df53738c9805a8ff5c84a94d3754c873b804d33dbdea7aed",
+        "bytes": 317339,
+        "pages": 32,
+        "accessed": "2026-09-21T20:51:34.257408+00:00"
+      },
+      {
+        "name": "sedunova",
+        "url": "https://arxiv.org/pdf/1506.08757v1",
+        "sha256": "7b7117e414c126f41cb3b5fe22044034652e0b97d2e12660b0afdc7b5228b3f0",
+        "bytes": 154990,
+        "pages": 8,
+        "accessed": "2026-09-21T20:51:34.530003+00:00"
+      }
+    ]
   },
-  "summary": "Partial continuation of #1636: retain the twenty foundation items and add fifteen atomic items for the no-index-two-subfield branch of §4 and its original Bombieri–Pila input. There are ten inherited library items, one inherited planned item and twenty-four provisional missing items, each routed once. The new report repairs norm signs, the identity class, lower-degree squarefree substitution and boundary-fiber counting. It expands the restricted torsion argument while retaining the lattice-source dependencies. The final 2020 source comparison, relative genus theory, remaining application branches and final per-item baseline/ownership audit are unresolved. Do not promote this to a complete paper extraction or accepted design.",
+  "summary": "Partial third checkpoint: 110 stable-identified items (22 library, 7 planned, 81 missing), preserving all 35 prior IDs. Expands original Bombieri–Pila proof interiors, cubic feedback and elliptic consequences, resolvents/field counts, and the characteristic-free finite-field section-count proof. Imports implemented RR, projective cardinality, explicit descent and heights. Literal source gaps, final-version mismatch and unfinished original-input closure prevent complete status; unrouted claims are enumerated in G1/G2/G4/G5/G6/G9.",
   "items": [
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/class-group",
@@ -69,7 +104,7 @@
       "library": [
         "mathlib:ClassGroup"
       ],
-      "note": "Inherited from #1636: ClassGroup uses invertible fractional ideals; the Dedekind-domain instance for O_K gives the stated carrier. Not the narrow class group."
+      "note": "Inherited from #1636: ClassGroup uses invertible fractional ideals; the Dedekind-domain instance for O_K gives the stated carrier. Not the narrow class group. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a. API: Use ClassGroup (O_K), mk0, equality modulo principal ideals and the kernel of squaring; import the quotient carrier. Tests: (1) Q has trivial class group; (2) principal nonzero ideals map to one; (3) ordinary versus narrow classes are distinguished."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/class-group-finite",
@@ -82,7 +117,7 @@
         "mathlib:NumberField.RingOfIntegers.instFintypeClassGroup",
         "mathlib:NumberField.classNumber"
       ],
-      "note": "Inherited from #1636. Finiteness does not supply a degree-uniform torsion estimate."
+      "note": "Inherited from #1636. Finiteness does not supply a degree-uniform torsion estimate. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/infinite-places",
@@ -95,7 +130,7 @@
         "mathlib:NumberField.InfinitePlace",
         "mathlib:NumberField.InfinitePlace.mk"
       ],
-      "note": "Inherited from #1636. Complex places have multiplicity two in the product formula and norm/volume computations."
+      "note": "Inherited from #1636. Complex places have multiplicity two in the product formula and norm/volume computations. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a. API: Evaluate the existing absolute values, real/complex subtype tests, extension of embeddings and the norm product with multiplicities. Tests: (1) Q has one real place; (2) Q(i) has one complex place with multiplicity two; (3) conjugate embeddings define the same place."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/discriminant",
@@ -109,7 +144,7 @@
         "mathlib:NumberField.discr_ne_zero",
         "mathlib:NumberField.discr_eq_discr"
       ],
-      "note": "Inherited from #1636. The Lean integer discr is signed; use its absolute value in all real powers."
+      "note": "Inherited from #1636. The Lean integer discr is signed; use its absolute value in all real powers. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a. API: Use signed discr and D=|discr|, integral-basis invariance, positivity of D and order-index comparisons as separate lemmas. Tests: (1) Q has D=1; (2) Q(i) has signed discriminant -4; (3) a nonmaximal order can have larger discriminant."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/mixed-embedding",
@@ -123,7 +158,7 @@
         "mathlib:NumberField.mixedEmbedding.mixedSpace",
         "mathlib:NumberField.mixedEmbedding.finrank"
       ],
-      "note": "Inherited from #1636. Use ordinary product measure and explicitly specify the Euclidean norm for successive minima, not the default product sup norm."
+      "note": "Inherited from #1636. Use ordinary product measure and explicitly specify the Euclidean norm for successive minima, not the default product sup norm. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a. API: Import mixedEmbedding and its Euclidean transport; expose injectivity, real dimension and archimedean coordinate projections. Tests: (1) dimension r+2s equals n; (2) Q(i) contributes two real coordinates; (3) default product norm is not silently the Euclidean norm."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/integer-covolume",
@@ -135,7 +170,7 @@
       "library": [
         "mathlib:NumberField.mixedEmbedding.covolume_integerLattice"
       ],
-      "note": "Inherited from #1636. Do not reuse this constant unchanged for a metric weighting complex coordinates by two."
+      "note": "Inherited from #1636. Do not reuse this constant unchanged for a metric weighting complex coordinates by two. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/ideal-covolume",
@@ -147,7 +182,7 @@
       "library": [
         "mathlib:NumberField.mixedEmbedding.covolume_idealLattice"
       ],
-      "note": "Inherited from #1636. The Lean input is a unit of the fractional-ideal monoid; the inverse case also uses multiplicativity of absolute norm."
+      "note": "Inherited from #1636. The Lean input is a unit of the fractional-ideal monoid; the inverse case also uses multiplicativity of absolute norm. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/minkowski-strict",
@@ -159,7 +194,7 @@
       "library": [
         "mathlib:MeasureTheory.exists_ne_zero_mem_lattice_of_measure_mul_two_pow_lt_measure"
       ],
-      "note": "Inherited from #1636. The strict theorem alone does not justify a boundary equality."
+      "note": "Inherited from #1636. The strict theorem alone does not justify a boundary equality. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/minkowski-closed",
@@ -171,7 +206,7 @@
       "library": [
         "mathlib:MeasureTheory.exists_ne_zero_mem_lattice_of_measure_mul_two_pow_le_measure"
       ],
-      "note": "Inherited from #1636. Compactness, discreteness and nontriviality are required."
+      "note": "Inherited from #1636. Compactness, discreteness and nontriviality are required. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/minkowski-class-representative",
@@ -183,7 +218,7 @@
       "library": [
         "mathlib:NumberField.exists_ideal_in_class_of_norm_le"
       ],
-      "note": "Inherited from #1636. This does not itself bound all archimedean values of a generator of I^m."
+      "note": "Inherited from #1636. This does not itself bound all archimedean values of a generator of I^m. Declaration statement reread at the prescribed Mathlib pin by codex-c83e7a."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/successive-minima",
@@ -195,7 +230,7 @@
       "planned": [
         "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
       ],
-      "note": "Inherited from #1636: reviewed AUDIT-02 distinguishes these planned definitions and the second theorem from existing Minkowski-first machinery."
+      "note": "Inherited from #1636: reviewed AUDIT-02 distinguishes these planned definitions and the second theorem from existing Minkowski-first machinery. API: Infimum of radii containing i independent lattice vectors; positivity, monotonicity, attainment and Minkowski second product estimates. Tests: (1) rank-one lattice aZ has minimum |a|; (2) rectangular rank-two lattice has distinct minima; (3) zero-dimensional case has an empty product."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-body",
@@ -204,7 +239,7 @@
       "statement": "Given K of degree n, m ≥ 1, a nonzero integral ideal I and I^m = (α) with α ≠ 0, set R_v = D_K^(1/(2n)) |α|_v^(-1/m). The product of real intervals [-R_v,R_v] and closed complex discs of radius R_v is compact, symmetric and convex, with volume 2^r pi^s sqrt(D_K)/N(I).",
       "locator": "§2 proof of Theorem 2.1, p.4",
       "status": "missing",
-      "note": "Inherited author-copy extraction from #1636; comparison with the final 2020 text is still open. A complex disc contributes pi R_v². The body volume is at least 2^n covol(I^(-1)), since pi ≥ 2."
+      "note": "A complex disc contributes pi R_v². The body volume is at least 2^n covol(I^(-1)), since pi ≥ 2. API: Construct the product of intervals and complex discs from positive radii; membership, compactness, convexity, symmetry and the volume formula. Tests: (1) all-real case attains the Minkowski volume threshold; (2) one complex place contributes pi times radius squared; (3) alpha=0 is rejected."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-kappa",
@@ -213,7 +248,7 @@
       "statement": "Under the balanced-body hypotheses, there exists κ ∈ I^(-1), κ ≠ 0, with |κ|_v ≤ D_K^(1/(2n)) |α|_v^(-1/m) for every infinite place v.",
       "locator": "§2 proof of Theorem 2.1, p.4",
       "status": "missing",
-      "note": "Inherited author-copy extraction from #1636; comparison with the final 2020 text is still open. Use compact non-strict Minkowski and the fractional-ideal covolume, retaining a nonzero witness."
+      "note": "Use compact non-strict Minkowski and the fractional-ideal covolume, retaining a nonzero witness."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-m-generator",
@@ -222,7 +257,7 @@
       "statement": "For a degree-n number field K and an ideal class of exact order m ≥ 1, there exist a nonzero integral ideal J in the class and nonzero β ∈ O_K with J^m = (β) and |β|_v ≤ D_K^(m/(2n)) for every infinite place v.",
       "locator": "Theorem 2.1, p.4",
       "status": "missing",
-      "note": "Inherited author-copy extraction from #1636; comparison with the final 2020 text is still open. Construct J = κI and β = ακ^m. The order-dividing variant is extracted separately in this continuation."
+      "note": "Construct J = κI and β = ακ^m. The order-dividing variant is extracted separately in this continuation."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-square-generator",
@@ -231,7 +266,7 @@
       "statement": "For a degree-n number field K and an ideal class of exact order two, there are a nonzero integral representative J and nonzero β ∈ O_K with J² = (β) and |β|_v ≤ D_K^(1/n) at every infinite place.",
       "locator": "Theorem 1.5 p.3; Theorem 2.1 specialization p.4",
       "status": "missing",
-      "note": "Inherited author-copy extraction from #1636; comparison with the final 2020 text is still open. For all 2-torsion include the identity through balanced-order-dividing. Only |N(β)| = N(J)² is forced; the field norm can be negative."
+      "note": "For all 2-torsion include the identity through balanced-order-dividing. Only |N(β)| = N(J)² is forced; the field norm can be negative."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/reduced-integral-basis",
@@ -240,7 +275,7 @@
       "statement": "For a degree-n number field with n ≥ 2, choose a Z-basis 1,v_1,...,v_(n-1) of O_K ordered by archimedean Euclidean length, with |v_i| ≪_n |v| for nonzero integral v outside the preceding rational span, and |v_1|...|v_(n-1)| comparable to sqrt(D_K) by positive constants depending only on n.",
       "locator": "§3 p.5, citing Siegel Lecture X §6",
       "status": "missing",
-      "note": "Inherited author-copy extraction from #1636; comparison with the final 2020 text is still open. Original Siegel proof remains unread. The source prints the comparison only through n−2, then uses it at n−1; certify the full lemma, primitive vector 1, metric and n=2 case. General reduction belongs to GN.1/GN.3."
+      "note": "Original Siegel proof remains unread. The source prints the comparison only through n−2, then uses it at n−1; certify the full lemma, primitive vector 1, metric and n=2 case. General reduction belongs to GN.1/GN.3. API: Import GN.1/GN.3 reduction, then certify an integral basis extending primitive 1, all comparison indices and a degree-uniform product bound. Tests: (1) quadratic case has one nonconstant basis vector; (2) last-index comparison must be exported; (3) Euclidean and conjugate-trace metrics require their explicit constants. G1: no route for the literal source-dependent basis package until the comparison at its last index is proved."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/multiplication-matrix",
@@ -249,7 +284,7 @@
       "statement": "For n ≥ 3 and a basis 1,v_1,...,v_(n-1), form the symmetric (n−2)-square rational matrix A whose entry a_ij is the coefficient of v_(n−1) in v_i v_j, for 1 ≤ i,j ≤ n−2.",
       "locator": "§3 proof of Theorem 3.1, p.5",
       "status": "missing",
-      "note": "Inherited author-copy extraction from #1636; comparison with the final 2020 text is still open. This is a coordinate construction on field multiplication, not the trace Gram matrix."
+      "note": "This is a coordinate construction on field multiplication, not the trace Gram matrix. API: Use basis.repr of products and Matrix.det, with symmetry and invariance of the rational hyperplane under a kernel witness. Tests: (1) cubic basis produces a one-by-one matrix; (2) quadratic extension needs a separate empty-matrix argument; (3) trace Gram matrices have different entries."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/multiplication-matrix-nondegenerate",
@@ -258,7 +293,7 @@
       "statement": "For any degree-n extension K/Q with n ≥ 3 and Q-basis 1,v_1,...,v_(n−1), the top-coordinate multiplication matrix has nonzero determinant.",
       "locator": "§3 proof of Theorem 3.1, p.5",
       "status": "missing",
-      "note": "Inherited author-copy extraction from #1636; comparison with the final 2020 text is still open. A nonzero kernel vector r in span(v_1,...,v_(n−2)) makes multiplication by r preserve L = span(1,...,v_(n−2)). Since r is not rational, [Q(r):Q] ≥ 2 divides both n and n−1, a contradiction. The permutation term in the nonzero determinant still needs its own proof node at blueprint time."
+      "note": "A nonzero kernel vector r in span(v_1,...,v_(n−2)) makes multiplication by r preserve L = span(1,...,v_(n−2)). Since r is not rational, [Q(r):Q] ≥ 2 divides both n and n−1, a contradiction. The permutation term in the nonzero determinant still needs its own proof node at blueprint time."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/largest-minimum",
@@ -267,7 +302,7 @@
       "statement": "For every n ≥ 2 there is C_n > 0 such that every degree-n number field K satisfies λ_n(O_K) ≤ C_n D_K^(1/n) for its archimedean Euclidean lattice. For the controlled reduced basis of §3, also |v_(n−1)| ≪_n D_K^(1/n).",
       "locator": "Theorems 1.6 p.3 and 3.1 p.5",
       "status": "missing",
-      "note": "Inherited author-copy extraction from #1636; comparison with the final 2020 text is still open. For n=2 use the product bound. For n≥3 use a nonzero permutation term, reduction and norm multiplication to obtain |v_(n−1)|^n ≪_n D_K. Still depends on the exact reduced-basis source lemma."
+      "note": "For n=2 use the product bound. For n≥3 use a nonzero permutation term, reduction and norm multiplication to obtain |v_(n−1)|^n ≪_n D_K. Still depends on the exact reduced-basis source lemma."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-box-count",
@@ -276,7 +311,7 @@
       "statement": "For fixed n and c > 0, the number of β ∈ O_K with |β|_v ≤ c D_K^(1/n) at every infinite place is O_(n,c)(D_K^(1/2)), uniformly over degree-n number fields K.",
       "locator": "Opening of §4, p.6",
       "status": "missing",
-      "note": "Inherited author-copy extraction from #1636; comparison with the final 2020 text is still open. Use a uniformly controlled fundamental parallelepiped and disjoint-translate volumes, not a fixed-lattice asymptotic with field-dependent error."
+      "note": "Use a uniformly controlled fundamental parallelepiped and disjoint-translate volumes, not a fixed-lattice asymptotic with field-dependent error."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-order-dividing",
@@ -285,7 +320,7 @@
       "statement": "Let K be a degree-n number field, m ≥ 1 and c ∈ Cl(K) with c^m = 1. There exist a nonzero integral ideal J representing c and nonzero β ∈ O_K with J^m = (β) and |β|_v ≤ D_K^(m/(2n)) at every infinite place.",
       "locator": "Theorem 2.1 proof p.4, logical order-dividing extension used in §4",
       "status": "missing",
-      "note": "New continuation, g6ap-0921-classgroup-7c4e. Status and ownership require the final pinned-library/cross-roadmap audit; no implementation absence is certified. The proof uses only I^m principal, not exact order m. This extends rather than misquotes the displayed theorem; in particular it includes the identity class."
+      "note": "The proof uses only I^m principal, not exact order m. This extends rather than misquotes the displayed theorem; in particular it includes the identity class."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/torsion-square-norm-injection",
@@ -294,7 +329,7 @@
       "statement": "For K of degree n set R = D_K^(1/n) and B_K(R) = {β ∈ O_K : |β|_v ≤ R for every infinite v}. Choosing the order-dividing-m=2 representatives defines an injection Cl(K)[2] → {β ∈ B_K(R) : β ≠ 0 and |N_K/Q(β)| is an integer square}.",
       "locator": "Opening of §4 p.6; injectivity and norm-sign details expanded in this report",
       "status": "missing",
-      "note": "New continuation, g6ap-0921-classgroup-7c4e. Status and ownership require the final pinned-library/cross-roadmap audit; no implementation absence is certified. If two chosen generators agree, their ideal squares agree; unique factorization of nonzero ideals then identifies the ideals and their classes. Use both norm signs."
+      "note": "If two chosen generators agree, their ideal squares agree; unique factorization of nonzero ideals then identifies the ideals and their classes. Use both norm signs. API: Choose representatives via balanced-order-dividing; prove nonzeroness, square-norm membership, ideal-power cancellation and injectivity. Tests: (1) identity class is included; (2) negative signed norm is allowed; (3) equal generators force equal integral ideals."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/variable-radius-box-count",
@@ -303,7 +338,7 @@
       "statement": "For each d ≥ 1 there is C_d such that for every degree-d number field F and every real T ≥ D_F^(1/d), the number of α ∈ O_F with |α|_v ≤ T at every infinite place is at most C_d T^d / sqrt(D_F).",
       "locator": "§4 p.6, expansion of the subfield-box estimate following Lemma 4.1",
       "status": "missing",
-      "note": "New continuation, g6ap-0921-classgroup-7c4e. Status and ownership require the final pinned-library/cross-roadmap audit; no implementation absence is certified. From the controlled integral basis and largest-minimum theorem, a fundamental parallelepiped lies in a degree-dependent dilation of the T-box. Disjoint translates and covolume prove the bound. Treat F=Q directly."
+      "note": "From the controlled integral basis and largest-minimum theorem, a fundamental parallelepiped lies in a degree-dependent dilation of the T-box. Disjoint translates and covolume prove the bound. Treat F=Q directly."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/norm-polynomial",
@@ -312,7 +347,7 @@
       "statement": "For β ∈ O_K define P_β(X) as the characteristic polynomial of multiplication by β on the free Z-module O_K. It is monic in Z[X], has degree [K:Q], and satisfies P_β(t) = N_K/Q(t−β) for t ∈ Q.",
       "locator": "§4 p.6 norm polynomial; monic sign convention expanded here",
       "status": "missing",
-      "note": "New continuation, g6ap-0921-classgroup-7c4e. Status and ownership require the final pinned-library/cross-roadmap audit; no implementation absence is certified. The paper uses N(β−X) = (−1)^n P_β(X). Import the existing characteristic-polynomial, determinant and norm APIs rather than creating duplicate carriers; the packaged comparison has not been matched to an exact pinned declaration."
+      "note": "The paper uses N(β−X) = (−1)^n P_β(X). Import the existing characteristic-polynomial, determinant and norm APIs rather than creating duplicate carriers; the packaged comparison has not been matched to an exact pinned declaration. API: Reuse multiplication endomorphisms and characteristic polynomials; monicity, degree, scalar extension, evaluation as norm and translation. Tests: (1) rational beta has P=(X-beta)^n; (2) primitive beta has its minimal polynomial; (3) odd degree changes the sign of N(beta-X)."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/norm-polynomial-multiplicity",
@@ -321,7 +356,7 @@
       "statement": "Let β ∈ O_K, let q_β ∈ Z[X] be its monic minimal polynomial, and set e = [K:Q(β)]. Then P_β = q_β^e, and every complex root of P_β has multiplicity e.",
       "locator": "Lemma 4.1 and preceding paragraph, §4 p.6",
       "status": "missing",
-      "note": "New continuation, g6ap-0921-classgroup-7c4e. Status and ownership require the final pinned-library/cross-roadmap audit; no implementation absence is certified. Use restriction of scalars from Q(β) or the norm tower, and separability in characteristic zero. The exponent uses the generated field Q(β), not an arbitrary subfield containing β."
+      "note": "Use restriction of scalars from Q(β) or the norm tower, and separability in characteristic zero. The exponent uses the generated field Q(β), not an arbitrary subfield containing β."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/norm-polynomial-square-index",
@@ -330,7 +365,7 @@
       "statement": "For β ∈ O_K, P_β is a square in C[X] if and only if [K:Q(β)] is even. In the even case its monic square root lies in Z[X].",
       "locator": "Lemma 4.1, §4 p.6, with the monic sign convention",
       "status": "missing",
-      "note": "New continuation, g6ap-0921-classgroup-7c4e. Status and ownership require the final pinned-library/cross-roadmap audit; no implementation absence is certified. Apply the root multiplicity statement. For the paper’s signed norm polynomial, being a square may require multiplication by −1."
+      "note": "Apply the root multiplicity statement. For the paper’s signed norm polynomial, being a square may require multiplication by −1."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/odd-index-norm-curves",
@@ -339,7 +374,7 @@
       "statement": "Let K have degree n ≥ 3 and β ∈ O_K with e = [K:Q(β)] odd. For each s ∈ {1,−1}, the affine plane curve Y² − sP_β(X) = 0 is absolutely irreducible of total degree n.",
       "locator": "§4 p.6, replacement of the squarefree-part step by an unreduced norm curve",
       "status": "missing",
-      "note": "New continuation, g6ap-0921-classgroup-7c4e. Status and ownership require the final pinned-library/cross-roadmap audit; no implementation absence is certified. P_β is not a square in C(X), so the monic quadratic in Y is irreducible there; Gauss’s lemma gives irreducibility in C[X,Y]. Repeated roots can make the curve singular, but do not change total degree or this conclusion. This is an explicit proof repair, not a verbatim named source lemma."
+      "note": "P_β is not a square in C(X), so the monic quadratic in Y is irreducible there; Gauss’s lemma gives irreducibility in C[X,Y]. Repeated roots can make the curve singular, but do not change total degree or this conclusion. This is an explicit proof repair, not a verbatim named source lemma."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/even-index-exception-count",
@@ -348,7 +383,7 @@
       "statement": "Let K have fixed degree n ≥ 3 and no subfield F with [K:F] = 2. Among β ∈ O_K satisfying |β|_v ≤ D_K^(1/n) at every infinite place, the number with [K:Q(β)] even is O_n(D_K^(1/4)).",
       "locator": "§4 p.6, subfield estimate following Lemma 4.1",
       "status": "missing",
-      "note": "New continuation, g6ap-0921-classgroup-7c4e. Status and ownership require the final pinned-library/cross-roadmap audit; no implementation absence is certified. For F=Q(β) its even index e is at least 4. The discriminant tower gives D_F^(e) ≤ D_K, so variable-radius-box-count applies and yields O_n(D_K^(1/e)/sqrt(D_F)). Sum over the bounded number of subfields (for example at most 2^(n!)). In odd degree the exceptional locus is empty. The discriminant and subfield machinery must be imported from its baseline supplier."
+      "note": "For F=Q(β) its even index e is at least 4. The discriminant tower gives D_F^(e) ≤ D_K, so variable-radius-box-count applies and yields O_n(D_K^(1/e)/sqrt(D_F)). Sum over the bounded number of subfields (for example at most 2^(n!)). In odd degree the exceptional locus is empty. The discriminant and subfield machinery must be imported from its baseline supplier."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/integer-translation-cosets",
@@ -357,7 +392,7 @@
       "statement": "For a degree-n number field K with n ≥ 3, set R = D_K^(1/n). The number of additive cosets in O_K/Z meeting B_K(R) is O_n(D_K^(1/2−1/n)).",
       "locator": "Final paragraph of §4 p.6; boundary-safe proof expanded in this report",
       "status": "missing",
-      "note": "New continuation, g6ap-0921-classgroup-7c4e. Status and ownership require the final pinned-library/cross-roadmap audit; no implementation absence is certified. Choose one β_L in each nonempty coset. The pairs (L,m), |m| ≤ floor(R), inject by β_L+m into B_K(2R). Divide the coarse count for the enlarged box by 2 floor(R)+1. Do not assume every fiber inside the original box has length comparable to R."
+      "note": "Choose one β_L in each nonempty coset. The pairs (L,m), |m| ≤ floor(R), inject by β_L+m into B_K(2R). Divide the coarse count for the enlarged box by 2 floor(R)+1. Do not assume every fiber inside the original box has length comparable to R."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/signed-norm-curve-map",
@@ -366,7 +401,7 @@
       "statement": "For K of degree n ≥ 3, R = D_K^(1/n), β_0 ∈ B_K(R) and α = β_0−m ∈ B_K(R) with m ∈ Z, α ≠ 0 and |N(α)| = y² for y ∈ Z_≥0, one has |m| ≤ 2R and 0 < y ≤ sqrt(D_K). The assignment α ↦ (s,m,y), with s chosen so that y² = sP_β0(m), injects into the union of the two norm curves in this rectangle.",
       "locator": "§4 p.6, with the ± sign made explicit as in §5.1 p.7",
       "status": "missing",
-      "note": "New continuation, g6ap-0921-classgroup-7c4e. Status and ownership require the final pinned-library/cross-roadmap audit; no implementation absence is certified. The sign also incorporates P_β0(m) = (−1)^n N(α). The norm is nonzero. The rectangle fits an integer translate of a square of side at most C_n sqrt(D_K)."
+      "note": "The sign also incorporates P_β0(m) = (−1)^n N(α). The norm is nonzero. The rectangle fits an integer translate of a square of side at most C_n sqrt(D_K). API: Recover the translation integer, positive square root and sign; prove bounds, inverse recovery and the unchanged generated field. Tests: (1) negative norm selects the other curve; (2) zero alpha is excluded; (3) integer translation preserves generated-field index."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/odd-index-coset-bound",
@@ -375,7 +410,7 @@
       "statement": "For every n ≥ 3 and ε > 0 there is C_(n,ε) such that, uniformly over degree-n fields K and β_0 ∈ B_K(D_K^(1/n)) with [K:Q(β_0)] odd, the number of nonzero α ∈ (β_0+Z) ∩ B_K(D_K^(1/n)) whose absolute norm is a square is at most C_(n,ε) D_K^(1/(2n)+ε).",
       "locator": "Final paragraph of §4 p.6, with the unreduced norm-curve repair",
       "status": "missing",
-      "note": "New continuation, g6ap-0921-classgroup-7c4e. Status and ownership require the final pinned-library/cross-roadmap audit; no implementation absence is certified. Apply the coefficient-uniform Bombieri–Pila theorem to each absolutely irreducible degree-n signed curve in a square of side O_n(sqrt(D_K)). Q(β_0+m)=Q(β_0). The proof permits singular curves; it does not give the lower-degree squarefree part the wrong degree n."
+      "note": "Apply the coefficient-uniform Bombieri–Pila theorem to each absolutely irreducible degree-n signed curve in a square of side O_n(sqrt(D_K)). Q(β_0+m)=Q(β_0). The proof permits singular curves; it does not give the lower-degree squarefree part the wrong degree n."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-square-norm-count",
@@ -384,7 +419,7 @@
       "statement": "For every n ≥ 3 and ε > 0, uniformly over degree-n fields K having no subfield of index two, the number of nonzero β ∈ O_K with |β|_v ≤ D_K^(1/n) at all infinite places and |N(β)| an integer square is O_(n,ε)(D_K^(1/2−1/(2n)+ε)).",
       "locator": "§4 p.6, expanded combination of the odd- and even-index cases",
       "status": "missing",
-      "note": "New continuation, g6ap-0921-classgroup-7c4e. Status and ownership require the final pinned-library/cross-roadmap audit; no implementation absence is certified. Multiply the translation-coset count by the odd-index bound and add O_n(D_K^(1/4)) for the even-index locus. Since n ≥ 3, that error is absorbed. This proof consumes the recorded lattice lemmas and the original Bombieri–Pila input."
+      "note": "Multiply the translation-coset count by the odd-index bound and add O_n(D_K^(1/4)) for the even-index locus. Since n ≥ 3, that error is absorbed. This proof consumes the recorded lattice lemmas and the original Bombieri–Pila input."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-no-index-two",
@@ -393,7 +428,7 @@
       "statement": "For every n ≥ 3 and ε > 0 there is C_(n,ε) such that every degree-n number field K with no subfield F satisfying [K:F]=2 has |Cl(K)[2]| ≤ C_(n,ε) D_K^(1/2−1/(2n)+ε).",
       "locator": "Theorem 1.1 general exponent and §4 p.6, explicitly restricted to the branch whose proof is expanded here",
       "status": "missing",
-      "note": "New continuation, g6ap-0921-classgroup-7c4e. Status and ownership require the final pinned-library/cross-roadmap audit; no implementation absence is certified. Combine torsion-square-norm-injection with balanced-square-norm-count. This covers odd degrees, but is not the whole theorem for even degrees, nor the sharper cubic/quartic exponent. The relative-genus-theory reduction remains unresolved in this checkpoint."
+      "note": "Combine torsion-square-norm-injection with balanced-square-norm-count. This covers odd degrees, but is not the whole theorem for even degrees, nor the sharper cubic/quartic exponent. The relative-genus-theory reduction remains unresolved in this checkpoint."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bombieri-pila-explicit",
@@ -402,7 +437,7 @@
       "statement": "Let C be an absolutely irreducible affine plane curve of total degree d ≥ 2, and let N ≥ exp(d^6). The number of integral points on C in [0,N] × [0,N] is at most N^(1/d) exp(12 sqrt(d log N log log N)).",
       "locator": "Bombieri–Pila, The number of integral points on arcs and ovals, Theorem 5, author preprint p.17; cited in BSTTTZ §4 p.6",
       "status": "missing",
-      "note": "New continuation, g6ap-0921-classgroup-7c4e. Status and ownership require the final pinned-library/cross-roadmap audit; no implementation absence is certified. The original theorem and its local concluding proof were read and the formula was visually checked in a PDF screenshot. No smoothness or coefficient-height hypothesis is present. The full preceding determinant-method proof remains to decompose."
+      "note": "The original theorem and its local concluding proof were read and the formula was visually checked in a PDF screenshot. No smoothness or coefficient-height hypothesis is present. The full preceding determinant-method proof remains to decompose."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bombieri-pila-epsilon",
@@ -411,59 +446,796 @@
       "statement": "For each integer d ≥ 2 and real ε > 0 there is C_(d,ε) such that every absolutely irreducible real plane curve of total degree d has at most C_(d,ε) N^(1/d+ε) integer points in any integer translate of [0,N]², for every N ≥ 1. The constant is independent of the curve coefficients and the translating integers.",
       "locator": "Elementary consequence of Bombieri–Pila Theorem 5, author preprint p.17; form consumed in BSTTTZ §4",
       "status": "missing",
-      "note": "New continuation, g6ap-0921-classgroup-7c4e. Status and ownership require the final pinned-library/cross-roadmap audit; no implementation absence is certified. For large N absorb the subpower exponential; for the bounded remaining interval use the grid count (floor(N)+1)². Integer translation preserves integral points and total degree."
+      "note": "For large N absorb the subpower exponential; for the bounded remaining interval use the grid count (floor(N)+1)². Integer translation preserves integral points and total degree."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion",
+      "kind": "definition",
+      "name": "Ordinary class-group 2-torsion",
+      "statement": "Cl(K)[2] is the kernel of c ↦ c² on the ordinary ideal class group; h₂(K) is its finite cardinality and r₂(K)=log₂ h₂(K).",
+      "locator": "§1 pp.1–3",
+      "status": "missing",
+      "note": " API: Use the existing group kernel rather than a new class-group type; prove finiteness, F₂-vector-space structure and h₂=2^r₂. Tests: (1) the identity belongs to the kernel; (2) a cyclic group of order four has two elements killed by two; (3) an odd-order group has h₂=1."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/feedback-constants",
+      "kind": "definition",
+      "name": "Packing and feedback constants",
+      "statement": "Put u=√3/2, b=((1+u)/(2u)) log((1+u)/(2u))−((1−u)/(2u)) log((1−u)/(2u)), a=1/(6(1−b/log 2)), c=ab/log 2. All logarithms except log₂ are natural.",
+      "locator": "§5.1 pp.7–8; Theorem 1.2",
+      "status": "missing",
+      "note": " API: Define exact real constants; prove positivity and b<log 2 before dividing; expose a=1/6+c. Tests: (1) b lies between .27823 and .27825; (2) a lies between .27843 and .27844; (3) c lies between .11176 and .11178."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/relative-genus-source-claim",
+      "kind": "theorem",
+      "name": "Index-two reduction requiring an original-source check",
+      "statement": "The author copy claims: if [K:F]=2, h₂(K) is bounded by h₂(F) times O(2^t), where t counts ramified primes of K/F, and consequently h₂(K)≪_{n,ε}D_K^(1/4+ε). This literal dependence on h₂(F) is NOT certified here.",
+      "locator": "§4 p.6 first paragraph",
+      "status": "missing",
+      "note": "G2: audit ambiguous versus all 2-torsion classes, capitulation, base-class and unit terms. A quadratic-over-Q genus theorem does not justify this relative assertion. No route is assigned to an unverified formula."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-general",
+      "kind": "theorem",
+      "name": "Main class-group torsion bound in degrees above four",
+      "statement": "For every n>4 and ε>0 there is C_(n,ε) such that h₂(K)≤C_(n,ε)D_K^(1/2−1/(2n)+ε) for every degree-n number field K.",
+      "locator": "Theorem 1.1; §§3–4",
+      "status": "missing",
+      "note": "Source theorem target; no-index-two case expanded, but G1 (basis) and G2 (relative reduction) remain genuine proof dependencies."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-cubic",
+      "kind": "theorem",
+      "name": "Sharper cubic 2-torsion bound",
+      "statement": "For every ε>0, h₂(K)≪_ε D_K^(a+ε) uniformly over cubic number fields K, with exact a from feedback-constants.",
+      "locator": "Theorem 1.1; §5.1 equation (4)",
+      "status": "missing",
+      "note": "The cubic case has no index-two subfield. Retain G1 and the unacquired Brumer–Kramer original input G3."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-quartic",
+      "kind": "theorem",
+      "name": "Sharper quartic 2-torsion bound",
+      "statement": "For every ε>0, h₂(K)≪_ε D_K^(a+ε) uniformly over quartic number fields K.",
+      "locator": "Theorem 1.1; §5.3",
+      "status": "missing",
+      "note": "Requires the cubic resolvent comparison and all reducible cases, not only S₄ fields; see G4."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/feedback-absorption",
+      "kind": "theorem",
+      "name": "Solving the cubic feedback inequality",
+      "statement": "Suppose for every η>0, H(D)≤C_η D^(1/6+η) exp((b+η)log₂ H(D)) for D≥1 and H(D)≥1, with b<log 2. Then for every ε>0, H(D)≪_ε D^(a+ε).",
+      "locator": "§5.1 p.8, equation (4) expanded",
+      "status": "missing",
+      "note": "Choose η with θ=(b+η)/log 2<1; raise both sides to 1/(1−θ), and use continuity at η=0. Fixed positive epsilon cannot simply be removed."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/prime-support-loss",
+      "kind": "theorem",
+      "name": "Absorbing prime-support factors",
+      "statement": "For fixed A≥1 and ε>0, A^ω(m)≪_(A,ε)m^ε for positive integers m, uniformly in m; ω counts distinct prime divisors.",
+      "locator": "§§4–6 prime-factor losses",
+      "status": "missing",
+      "note": "Split primes at A^(1/ε): finitely many small primes contribute a fixed constant, each large-prime factor A is at most p^ε. Use this on model discriminants and retain fixed degree."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-system",
+      "kind": "definition",
+      "name": "Restricted monomial system",
+      "statement": "A finite nonempty set M of distinct monomials X^iY^j has D=|M|, p=Σ(i+j), q=Σj; evaluation at points gives a matrix with one column per monomial.",
+      "locator": "Bombieri–Pila §3 p.10",
+      "status": "missing",
+      "note": " API: Reuse MvPolynomial and finite exponent sets; evaluation, cardinality and degree sums, nonzero coefficient vectors and curve kernels. Tests: (1) constant monomial contributes zero to p and q; (2) q≤p always; (3) duplicate monomials must not inflate D."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-scaled-derivative-norm",
+      "kind": "definition",
+      "name": "Scaled derivative bound",
+      "statement": "For N>0, a compact interval I⊂[0,N] and f∈C^k(I), define ||f||_(N,k)=max_{0≤i≤k,x∈I} N^(i−1)|f^(i)(x)|/i!.",
+      "locator": "Bombieri–Pila §2 p.3",
+      "status": "missing",
+      "note": " API: Prove finite maxima, dilation invariance, product bound and the estimates for X^i f^j. Tests: (1) dilation f_t(x)=tf(x/t) preserves the norm; (2) the zero function has norm zero; (3) the constant function has norm |c|/N."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-evaluation-kernel",
+      "kind": "theorem",
+      "name": "Auxiliary curve from evaluation rank deficiency",
+      "statement": "The selected points lie on the zero locus of a nonzero polynomial supported in M if and only if their monomial evaluation matrix has rank <D.",
+      "locator": "Bombieri–Pila Lemmas 1 and 3 pp.2–3,11",
+      "status": "missing",
+      "note": "Consume ordinary matrix rank/kernel and polynomial monomial independence; do not create a second generic linear-algebra owner."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-determinant",
+      "kind": "theorem",
+      "name": "Vandermonde derivative bound",
+      "statement": "For D distinct x_i in I and f_j∈C^(D−1)(I), |det(f_j(x_i))| ≤ |Vandermonde(x_i)| D! N^(−D(D−3)/2) ∏_j ||f_j||_(N,D−1).",
+      "locator": "Bombieri–Pila Proposition 2 and equation (1), pp.4–5",
+      "status": "missing",
+      "note": "Interpolation divided differences and repeated mean-value theorem; pointwise derivative witnesses can differ between matrix entries. Coincident abscissae instead make determinant zero."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-integral-determinant",
+      "kind": "theorem",
+      "name": "Integer determinant forces separation",
+      "statement": "A nonzero integer monomial evaluation determinant has absolute value at least one. Combining this with the derivative estimate bounds the abscissa span below by (D^p ||f||_(N,D−1)^q)^(−2/(D(D−1))) N^(1−2p/(D(D−1))), for D≥2.",
+      "locator": "Bombieri–Pila Lemmas 2 and 4 pp.6,11",
+      "status": "missing",
+      "note": "Use a maximal nonvanishing minor in an ordered block; handle vanishing derivative-bound factor separately rather than dividing by zero."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-auxiliary-cover",
+      "kind": "theorem",
+      "name": "Generalized determinant covering lemma",
+      "statement": "For D≥2 and f∈C^(D−1)(I), all integral points on its graph lie on at most (D^p ||f||_(N,D−1)^q)^(2/(D(D−1))) N^(2p/(D(D−1)))+1 curves defined in M.",
+      "locator": "Bombieri–Pila Generalized Main Lemma pp.11–12",
+      "status": "missing",
+      "note": "Count successive maximal blocks by disjoint spans; floor/ceiling convention must turn the real upper bound into an integer count."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-standard-monomials",
+      "kind": "construction",
+      "name": "Monomials avoiding the leading term",
+      "statement": "For a degree-d plane polynomial F and integer δ≥2d, select monomials of degrees d through δ not divisible by the degree-d term of largest Y-degree in F. Then D=d(δ−d+1), p=d(δ(δ+1)−d(d−1))/2.",
+      "locator": "Bombieri–Pila §3 pp.11–12",
+      "status": "missing",
+      "note": " API: Define the degree-then-Y monomial order, avoidance predicate, counts, and show no nonzero supported polynomial is divisible by F. Tests: (1) exactly d monomials survive at each degree h≥d; (2) δ=2d satisfies D≥2; (3) a multiple of F has a forbidden leading term."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-proper-intersection",
+      "kind": "theorem",
+      "name": "Auxiliary curves meet the original properly",
+      "statement": "If F is absolutely irreducible of degree d and 0≠G is supported in its selected monomials through degree δ, then F∤G and their affine intersection has at most dδ geometric points.",
+      "locator": "Bombieri–Pila Proposition 3 p.12",
+      "status": "missing",
+      "note": "Import SF.5 isolated/proper Bézout; cardinal upper bound, not equality, and the zero polynomial is excluded."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-level",
+      "kind": "theorem",
+      "name": "Uniform bound for derivative level sets",
+      "statement": "For a nonpolynomial analytic branch g of an absolutely irreducible degree-b plane curve, the equation g^(k)(x)=c has at most b(b−1)(2k−1) solutions for k≥1.",
+      "locator": "Bombieri–Pila Lemma 5 p.13",
+      "status": "missing",
+      "note": "Implicit differentiation gives denominator G_y^(2k−1); remove critical points first, and use proper intersection. Polynomial branches are handled separately."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-partition",
+      "kind": "theorem",
+      "name": "Partition by derivative thresholds",
+      "statement": "Given positive A_1,...,A_k, a smooth degree-b algebraic graph can be divided into at most 2b²k² intervals on each of which every |g^(i)| is entirely ≤A_i or entirely ≥A_i.",
+      "locator": "Bombieri–Pila Lemma 6 p.14",
+      "status": "missing",
+      "note": "Include endpoints and the polynomial-branch alternative; avoid counting a derivative identically equal to a threshold as infinitely many cutting points."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-large-derivative-interval",
+      "kind": "theorem",
+      "name": "Large derivative implies short interval",
+      "statement": "If |g^(i)(x)|≤i! A^(i/k)N^(1−i) for i<k and |g^(k)(x)|≥k! A N^(1−k) on a compact interval, with A,N>0, then its length is at most 2 A^(−1/k)N.",
+      "locator": "Bombieri–Pila Lemma 7 p.14",
+      "status": "missing",
+      "note": "Taylor with remainder; normalized length is length·A^(1/k)/N. The displayed proof prints the opposite exponent in its definition of lambda; retain the corrected substitution."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-graph-count",
+      "kind": "theorem",
+      "name": "Coefficient-uniform algebraic graph bound",
+      "statement": "For an absolutely irreducible degree-d relation F(x,f(x))=0, d≥2, a smooth graph with |f′|≤1 over a subinterval of [0,N] has at most N^(1/d)exp(11√(d log N loglog N)) integral points when N≥exp(d^6).",
+      "locator": "Bombieri–Pila Theorem 4 pp.15–17",
+      "status": "missing",
+      "note": "The recurrence G(N)≤HN^α+KG(λN), Kλ^α=1/2, precedes optimization. Check rounding of the integer δ and the printed p≤q typo (actual q≤p) before transcribing exact constants; proof closure remains G7."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-arc-decomposition",
+      "kind": "theorem",
+      "name": "Plane curve decomposes into bounded-slope arcs",
+      "statement": "An absolutely irreducible degree-d plane curve in a square decomposes into O(d²) smooth graph pieces, each with slope at most one relative to one coordinate axis, together with O(d²) exceptional points.",
+      "locator": "Bombieri–Pila Theorem 5 proof p.17",
+      "status": "missing",
+      "note": "Explicitly count singular points, slope ±1 points and boundary intersections. Smoothness is a condition on pieces, not on the original curve."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/explicit-selmer",
+      "kind": "definition",
+      "name": "Explicit elliptic 2-Selmer group",
+      "statement": "For an elliptic Weierstrass model in characteristic-not-two normal form over a number field, intersect the norm-square kernel in its cubic étale square-class algebra with the local Kummer images at every finite and infinite place.",
+      "locator": "§5 Theorem 5.2; elliptic API prerequisite",
+      "status": "library",
+      "note": " API: Import selmerGroup₂, membership and the inclusion of the global Kummer image. The comparison with cohomological Sel₂ is a separate EC.7 theorem. Tests: (1) split cubic algebra retains all factors; (2) a norm-square class can fail a local condition; (3) global point images pass every local condition.",
+      "library": [
+        "tauceti:WeierstrassCurve.Affine.selmerGroup₂",
+        "tauceti:WeierstrassCurve.Affine.mem_selmerGroup₂_iff",
+        "tauceti:WeierstrassCurve.Affine.range_μ_le_selmerGroup₂"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/mordell-weil",
+      "kind": "theorem",
+      "name": "Finite generation of elliptic rational points",
+      "statement": "For an elliptic Weierstrass curve over a number field K, E(K) is a finitely generated abelian group.",
+      "locator": "§5 rank and height prerequisites",
+      "status": "library",
+      "note": "",
+      "library": [
+        "tauceti:WeierstrassCurve.Affine.fg_point_of_numberField"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/rank-from-descent",
+      "kind": "theorem",
+      "name": "Cardinality bounds the Mordell–Weil rank",
+      "statement": "For any finite subgroup S of the explicit square-class target containing the Kummer image, 2^rank E(K)·#E(K)[2]≤#S, assuming finite generation of E(K).",
+      "locator": "Theorem 5.2 first inequality; reusable baseline",
+      "status": "library",
+      "note": "This actual pinned statement requires finiteness of S; it does not itself prove selmerGroup₂ finite.",
+      "library": [
+        "tauceti:WeierstrassCurve.Affine.pow_rank_le_card_of_range_μ_le"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/canonical-height",
+      "kind": "definition",
+      "name": "Elliptic canonical height with the HV normalization",
+      "statement": "Use ĥ(P)=lim_n h_x(2^nP)/(2·4^n), the height for the origin divisor. It differs from h_x(P)/2 by a model-dependent bounded quantity.",
+      "locator": "Helfgott–Venkatesh §2; §5.4 use",
+      "status": "library",
+      "note": " API: Import canonicalHeight, its proved convergence and quadraticity; keep the factor 1/2 when comparing with the EC roadmap text. Tests: (1) ĥ(0)=0; (2) ĥ(2P)=4ĥ(P); (3) the EC roadmap convention without 1/2 is twice this height.",
+      "library": [
+        "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight",
+        "tauceti:WeierstrassCurve.Affine.Point.tendsto_naiveHeight_two_pow_nsmul_div_four_pow",
+        "tauceti:WeierstrassCurve.Affine.Point.abs_canonicalHeight_sub_naiveHeight_le"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/selmer-comparison",
+      "kind": "theorem",
+      "name": "Explicit and cohomological 2-Selmer comparison",
+      "statement": "For E/K over a number field, identify its explicit étale-algebra 2-Selmer group with the cohomological group cut out by all local Kummer images.",
+      "locator": "Theorem 1.2(a); Theorem 5.2 notation",
+      "status": "planned",
+      "note": "Reviewed AUDIT-11: general Selmer/Kummer sequence is absent; finite square-class containers alone are insufficient.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/hv-packing-function",
+      "kind": "definition",
+      "name": "Height/rank interpolation function",
+      "statement": "For 0≤t<1 put f(t)=√((1+t)(3−t))/2 and β(t)=((1+f)/(2f))log((1+f)/(2f))−((1−f)/(2f))log((1−f)/(2f)); set β(1)=0 and α(x)=min_{0≤t≤1}(xt+β(t)) for x≥0.",
+      "locator": "HV Theorem 3.8 and Definition 1",
+      "status": "missing",
+      "note": " API: Prove continuous endpoint extension and attainment of the minimum; export β(0)=b, α(x)≤β(0) and α(x)≤x. Tests: (1) t=1 uses the zero-log-zero limit; (2) x=0 gives α=0; (3) t=0 gives the pure packing bound."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/hv-height-count",
+      "kind": "theorem",
+      "name": "Height-sensitive S-integral point bound",
+      "statement": "For E/K with an integral Weierstrass equation, S containing every infinite place and every prime dividing its discriminant, s=|S|, h₀≥1, 0≤t≤1 and ε>0 sufficiently small, the number of S-integral points with ĥ≤h₀ is ≪_(ε,[K:Q]) C^s ε^(−2(s+[K:Q])) s^[K:Q](1+log h₀)^2 exp(t[K:Q]h₀+(β(t)+ε)rank E(K)).",
+      "locator": "HV Theorem 3.8 pp.13–15",
+      "status": "missing",
+      "note": "Statement and proof read. Inputs: local repulsion partitions, positive-height lower bound, spherical-code estimate and torsion bound; their full original proof closure remains G3."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/hv-optimized-count",
+      "kind": "theorem",
+      "name": "Optimized height/rank bound",
+      "statement": "With the same E,K,S and h₀, let R≥max(1,rank E(K)). Replace the exponential in hv-height-count by exp(Rα([K:Q]h₀/R)+εR), retaining its prefactors.",
+      "locator": "HV Corollary 3.9 pp.15–16",
+      "status": "missing",
+      "note": "The printed E(Q) in the general-number-field rank hypothesis must be E(K), as follows from the preceding theorem. R≥1 avoids division by zero."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/hv-all-integral-count",
+      "kind": "theorem",
+      "name": "All integral points controlled by rank and discriminant",
+      "statement": "For every ε>0 and an elliptic integral Weierstrass model over Q of nonzero discriminant Δ, #E(Z)≪_ε |Δ|^ε exp((b+ε)rank E(Q)).",
+      "locator": "BSTTTZ Theorem 5.1; HV Corollary 3.11",
+      "status": "missing",
+      "note": "Read Corollary 3.11 and proof: choose S=∞ plus all bad primes, include Z-points in S-points, and absorb C^s, logarithms and prime support into |Δ|^ε. The original corollary has explicit s and largest-prime factors; it is not a bound with constants independent of S before this step."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/brumer-kramer",
+      "kind": "theorem",
+      "name": "Selmer dimension through a cubic étale class group",
+      "statement": "For E:y²=f(x) over Q, f a nonsingular integral monic cubic and A=Q[x]/f, dim_F₂ Sel₂(E)≤dim_F₂ Cl(A)[2]+2ω(|Δ_E|)+2, where Cl(A) is the product of the maximal-order class groups of its field factors.",
+      "locator": "BSTTTZ Theorem 5.2 p.8, citing Brumer–Kramer Proposition 7.1",
+      "status": "missing",
+      "note": "G3: source theorem as quoted by the main paper; original Proposition 7.1 and following remark still not acquired. Preserve the chosen integral model and all local bad-prime terms."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/cubic-norm-family",
+      "kind": "construction",
+      "name": "Elliptic curves from cubic norm polynomials",
+      "statement": "The balanced translation cosets for a cubic field give O(D_K^(1/6)) signed equations ±y²=x³+Ax²+Bx+C with |A|≪D_K^(1/3), |B|≪D_K^(2/3), |C|≪D_K; counted points have |x|≪D_K^(1/3), |y|≪D_K^(1/2).",
+      "locator": "§5.1 p.7",
+      "status": "missing",
+      "note": " API: Construct signed models from the unreduced cubic norm polynomial, bound elementary symmetric coefficients and discriminants, and inject nontrivial torsion classes into smooth fibers. Tests: (1) rational beta gives a singular cubic and must be separated; (2) negative sign converts by X=-x with sign changes of A,C; (3) nonrational beta in a cubic field is primitive."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/rational-generator-identity",
+      "kind": "theorem",
+      "name": "Rational balanced generators contribute only the identity class",
+      "statement": "In a cubic number field, if a nonzero integral ideal J has J²=(a) for a rational algebraic integer a and |N(a)| is square, then a=±m² for a positive integer m and J=(m); its class is the identity.",
+      "locator": "§5.1, explicit repair of the singular rational-generator case",
+      "status": "missing",
+      "note": "|N(a)|=|a|³ implies |a| is square; equality of ideal squares cancels. This argument is about the selected generators, not all rational points on a singular cubic."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/cubic-model-discriminant",
+      "kind": "theorem",
+      "name": "Discriminant of the cubic norm family",
+      "statement": "For the smooth models in cubic-norm-family, 0<|Δ_E|≪D_K²; the cubic étale algebra is isomorphic to K, and D_K≤|disc(f)|=|Δ_E|/16 for a model y²=f with monic f.",
+      "locator": "§5.1 pp.7–8; §5.2",
+      "status": "missing",
+      "note": "Use the cubic discriminant polynomial and [O_K:Z[beta]]²D_K=|disc(f)|. Inequality is non-strict; changing to an isomorphic integral model needs an explicit coordinate map."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/cubic-feedback",
+      "kind": "theorem",
+      "name": "Cubic torsion feedback inequality",
+      "statement": "For every η>0, h₂(K)≪_η D_K^(1/6+η) exp((b+η)log₂ h₂(K)) uniformly over cubic fields.",
+      "locator": "§5.1 p.8 before equation (4)",
+      "status": "missing",
+      "note": "Combine the smooth norm family, all-integral HV bound, Brumer–Kramer and prime-support loss; absorb the identity separately and rescale eta after the discriminant bound."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/elliptic-selmer-bound",
+      "kind": "theorem",
+      "name": "Pointwise elliptic 2-Selmer bound",
+      "statement": "For every ε>0, #Sel₂(E)≪_ε |Δ_E|^(a+ε), uniformly over elliptic curves given by integral nonsingular Weierstrass equations over Q.",
+      "locator": "Theorem 1.2(a); §5.2",
+      "status": "missing",
+      "note": "For reducible cubic algebras use the product of factor class groups, quadratic genus bounds and D_A≤|disc(f)|. Complete the integral coordinate-change and cohomological comparison contracts."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/elliptic-rank-bound",
+      "kind": "theorem",
+      "name": "Pointwise elliptic rank bound",
+      "statement": "For every ε>0 there is C_ε with rank E(Q)≤C_ε+(a+ε)log₂|Δ_E| for every nonsingular integral Weierstrass model.",
+      "locator": "Theorem 1.2(b); §5.2",
+      "status": "missing",
+      "note": "Take log₂ of the Selmer cardinal bound; this is an upper bound, never a computation of the actual rank."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/elliptic-integral-bound",
+      "kind": "theorem",
+      "name": "Pointwise elliptic integral-point bound",
+      "statement": "For every ε>0, #E(Z)≪_ε |Δ_E|^(c+ε) uniformly over integral nonsingular Weierstrass models, with c=ab/log 2.",
+      "locator": "Theorem 1.2(c); §5.2",
+      "status": "missing",
+      "note": "Substitute the rank bound into HV and rescale epsilon. Integral points and Δ belong to the chosen model; rational isomorphisms do not preserve integral points automatically."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/hyperelliptic-selmer-source",
+      "kind": "theorem",
+      "name": "Hyperelliptic Selmer claim requiring local-condition repair",
+      "statement": "Theorem 1.3(a) of the author copy claims a bound for #Sel₂(Jac(C)) using only the discriminant of A=Q[x]/f for C:y²=f(x), with f separable of degree n. The passage from this algebra discriminant to the local conditions of the curve model is unverified.",
+      "locator": "Theorem 1.3(a) pp.2–3",
+      "status": "missing",
+      "note": "G5: do not export the printed bound until leading coefficient, even degree, twists, reducible A and primes dividing the polynomial-order index are checked. A fixed split algebra does not control the bad primes of all its curve models."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/hyperelliptic-rank-source",
+      "kind": "theorem",
+      "name": "Hyperelliptic rank consequence requiring the same repair",
+      "statement": "Theorem 1.3(b) asserts the associated logarithmic rank bound for Jac(C)(Q), using the same algebra-discriminant exponent as part (a). Its hypotheses and local terms must be reconciled with the published revision.",
+      "locator": "Theorem 1.3(b) pp.2–3",
+      "status": "missing",
+      "note": "G5: separate main result, but not accepted or routed on the basis of the unsupported Selmer claim."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/del-pezzo-source",
+      "kind": "theorem",
+      "name": "Degree-one del Pezzo point count requiring height comparison",
+      "statement": "For a smooth degree-one del Pezzo surface over Q, the February author copy claims O_X(N^2.87) rational points of anticanonical height at most N, using its weighted sextic elliptic fibration.",
+      "locator": "§5.4 p.9",
+      "status": "missing",
+      "note": "G6: not routed. Need primitive weighted representatives, canonical-height comparison uniform in the varying integral fibers with the right leading constant, singular-fiber treatment and numerical optimization. This subsection is absent from arXiv v1."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/etale-class-group",
+      "kind": "definition",
+      "name": "Class group of a finite étale rational algebra",
+      "statement": "For A=∏ K_i a finite étale Q-algebra, Cl(A)=∏Cl(O_(K_i)), h₂(A)=∏h₂(K_i), and D_A=∏|disc K_i|. These use maximal orders, not an arbitrary polynomial order.",
+      "locator": "Theorem 5.2; §5.3 Remark 5.4",
+      "status": "missing",
+      "note": " API: Transport along algebra isomorphisms and factor permutations; expose product torsion and discriminant formulas. Tests: (1) Q³ has D=1 and h₂=1; (2) Q×a quadratic field reduces to its quadratic factor; (3) changing a polynomial order does not change A but may enlarge its discriminant."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/cubic-resolvent",
+      "kind": "construction",
+      "name": "Cubic étale resolvent of a quartic field",
+      "statement": "For a quartic field K, let its Galois group act on the three partitions of the four embeddings into two unordered pairs. The associated degree-three finite étale Q-algebra is its cubic resolvent A.",
+      "locator": "§5.3 Lemma 5.3 and Remark 5.4",
+      "status": "missing",
+      "note": " API: Construct the three-element Galois set and its étale algebra; handle disconnected orbits, isomorphism invariance and comparison with resolvent orders. Tests: (1) S₄ acts transitively through S₃; (2) V₄ acts trivially and gives Q³; (3) a nontransitive action yields a product algebra rather than a cubic field."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/resolvent-torsion-transfer",
+      "kind": "theorem",
+      "name": "Quartic-to-resolvent 2-torsion comparison",
+      "statement": "For every ε>0, h₂(K)/h₂(A) is between C_ε^(-1)D_K^(-ε) and C_ε D_K^ε for quartic fields K and their cubic étale resolvent A.",
+      "locator": "BSTTTZ Lemma 5.3 and Remark 5.4; Tsimerman Lemma 6.1",
+      "status": "missing",
+      "note": "G4: Tsimerman §§5–6 read locally, but the adelic-torus proof interior and transfer from splitting-field discriminant to D_K remain to audit. Restricting the module identities to transitive subgroups treats reducible resolvents; a non-Galois quartic is not assumed S₄."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/resolvent-discriminant",
+      "kind": "theorem",
+      "name": "Maximal cubic resolvent discriminant comparison",
+      "statement": "For the cubic étale resolvent A of a quartic field K, D_A≤D_K.",
+      "locator": "§5.3 proof after Lemma 5.3",
+      "status": "missing",
+      "note": "G4: requires the discriminant-preserving cubic resolvent order and passage to its maximal order, or an equally precise ramification proof. Original theorem not yet read; do not replace this by an equality of maximal-order discriminants."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/resolvent-f2-modules",
+      "kind": "construction",
+      "name": "Common nontrivial factor of the permutation modules",
+      "statement": "Let M=F₂^4 with S₄ permuting its basis, M₀ the line spanned by the sum, M₁=M/M₀ and M₂ the image of the even-weight subspace in M₁. Let N=F₂^3 on the three pair partitions and N₀ its sum line. Then M₁/M₂ is trivial and N/N₀≅M₂ equivariantly.",
+      "locator": "Tsimerman §6 pp.15–16",
+      "status": "missing",
+      "note": " API: Use quotient F₂-representations, the incidence of a pair partition and a weight-two vector modulo complements, and restriction to subgroups. Tests: (1) dimensions M₀,M₂,M₁/M₂ are 1,2,1; (2) N/N₀ has dimension two; (3) the isomorphism remains equivariant after restriction to V₄."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/discriminant-negligible",
+      "kind": "definition",
+      "name": "Discriminant-negligible comparison",
+      "statement": "For bounded degree n of a Galois splitting field L and bounded torus dimension d, a positive quantity F is negligible if for every ε>0, D_L^(-ε)≪_(n,d,ε) F≪_(n,d,ε)D_L^ε.",
+      "locator": "Tsimerman §4 pp.6–7",
+      "status": "missing",
+      "note": " API: Track both bounds, multiplication, inversion and changing ε; retain the discriminant of the actual splitting field. Tests: (1) a positive bounded constant is negligible; (2) D_L^c for fixed c>0 is not negligible; (3) one-sided upper bounds alone are insufficient."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/torus-transfer-source",
+      "kind": "theorem",
+      "name": "Exact-sequence transfer input needing an owner and proof audit",
+      "statement": "Tsimerman Theorem 5.1 states that an exact sequence of Q-tori split by a degree-bounded field has a class-group sequence whose homology cardinalities are discriminant negligible. Corollary 5.2 assigns a class quantity to finite Galois modules, Lemma 5.3 bounds it along exact sequences, and Corollary 5.4 makes trivial modules negligible.",
+      "locator": "Tsimerman §§5–6 pp.9–16",
+      "status": "missing",
+      "note": "G4 acquisition node, not a closed atomic extraction: split these four results and the torus class-group carrier after reading the full adelic/class-formation supplier and the Shyr/Brauer–Siegel proof. Do not route a duplicate torus library from this application."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/field-count-carrier",
+      "kind": "definition",
+      "name": "Discriminant-ordered field counts",
+      "statement": "For transitive G≤S_n and X>0, N_n(G,X) counts Q-isomorphism classes of degree-n fields with normal-closure permutation group G and absolute discriminant <X. A fixed quadratic resolvent F gives the subcount N_n(G,F,X).",
+      "locator": "§6 p.10",
+      "status": "planned",
+      "note": " API: Import ST.0 field-family and height-count conventions; prove finiteness, monotonicity and group/resolvent predicates. Tests: (1) normal-closure group is not Aut(K/Q); (2) strict versus non-strict discriminant cutoffs are explicit; (3) fixed F is additional data, not a uniformity assertion.",
+      "planned": [
+        "ArithmeticStatistics:ST.0"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/baily-weighted-count",
+      "kind": "theorem",
+      "name": "Weighted quartic-to-cubic counting estimate",
+      "statement": "For a family F₃ of cyclic or noncyclic cubic fields and the A₄/S₄ quartic family F₄ whose resolvents lie in F₃, N(F₄,X)≪Σ_(K∈F₃,D_K<X) h₂(K)(log D_K)² (X/D_K)^(1/2).",
+      "locator": "§6 equation (5), citing Baily Theorems 2 and 4",
+      "status": "missing",
+      "note": "G8: the main paper extends the original estimates to subfamilies; acquire Baily before asserting the exact family uniformity or multiplicities."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/cyclic-cubic-count",
+      "kind": "theorem",
+      "name": "Cyclic cubic discriminant asymptotic",
+      "statement": "N₃(C₃,X)~C₁ X^(1/2) for a positive constant C₁.",
+      "locator": "§6 p.10, Cohn",
+      "status": "missing",
+      "note": "Only an O(X^(1/2)) input is consumed. Original Cohn argument not acquired; ST.3 owns selected field-count asymptotics."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/fixed-resolvent-cubic-count",
+      "kind": "theorem",
+      "name": "Cubic count with fixed quadratic resolvent",
+      "statement": "For each fixed quadratic field F, N₃(S₃,F,X)~C_F X^(1/2), with a positive constant depending on F.",
+      "locator": "§6 equation (10), Bhargava–Shnidman Theorem 7 and Cohen–Morra Theorem 1.1(2), Corollary 7.6",
+      "status": "missing",
+      "note": "G8: original references remain to read. Neither a bound for C_F nor pointwise convergence gives a uniform error term in F."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/weighted-partial-summation",
+      "kind": "theorem",
+      "name": "Converting the weighted cubic sum",
+      "statement": "If a cubic family has counting function O_F(T^(1/2)) and h₂(K)≪_ηD_K^(a+η), then Σ_(D_K<X)h₂(K)(log D_K)²(X/D_K)^(1/2)≪_(F,ε)X^(1/2+a+ε) for every ε>0.",
+      "locator": "§6 p.10 proof of equations (8) and (9)",
+      "status": "missing",
+      "note": "Dyadic shells suffice: each shell T contributes O(X^(1/2)T^(a+η)(log T)²); a>0 makes the shell sum dominated by its top end. Absorb logarithms after choosing η<ε."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/a4-quartic-count",
+      "kind": "theorem",
+      "name": "A₄ quartic field bound",
+      "statement": "For every ε>0, N₄(A₄,X)≪_ε X^(1/2+a+ε).",
+      "locator": "Theorem 1.4 and §6 equation (8)",
+      "status": "missing",
+      "note": "Combine Baily, Cohn and weighted-partial-summation. This counts fields, not quartic rings or polynomial presentations."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/fixed-resolvent-quartic-count",
+      "kind": "theorem",
+      "name": "S₄ quartic bound with fixed quadratic resolvent",
+      "statement": "For every fixed quadratic field F and every ε>0, N₄(S₄,F,X)≪_(F,ε)X^(1/2+a+ε).",
+      "locator": "§6 Remark 6.1 equation (9)",
+      "status": "missing",
+      "note": "Retain dependence on F in the final result; the source explicitly disclaims uniformity despite its estimate of C_F."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/function-divisors",
+      "kind": "definition",
+      "name": "Function-field divisors and degree",
+      "statement": "For a one-variable function field L/k, divisors are finite integer sums of normalized places, with degree Σ_P n_P[k(P):k].",
+      "locator": "§7 proof pp.11–12",
+      "status": "library",
+      "note": " API: Import TauCeti.Divisor, degree and principal divisors; use the existing coefficient order and degree homomorphism. Tests: (1) a degree-two closed point has degree two; (2) a nonzero constant has principal divisor zero; (3) degree is additive and weights residue degrees.",
+      "library": [
+        "tauceti:TauCeti.Divisor",
+        "tauceti:TauCeti.Divisor.degree",
+        "tauceti:TauCeti.Divisor.principal"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/function-class-group",
+      "kind": "definition",
+      "name": "Degree-zero divisor class group",
+      "statement": "For a function field L/k, Cl⁰(L/k) is the kernel of the existing degree map on divisor classes; the principal subgroup identifies linearly equivalent divisors.",
+      "locator": "§7 Pic⁰ notation",
+      "status": "library",
+      "note": " API: Use degreeClass and its kernel; expose quotient surjectivity, representative degree and principal witness recovery. Tests: (1) principal divisors represent zero; (2) positive-degree divisors do not lie in Cl⁰; (3) finite-chart ideal class groups are not identified without an infinity comparison.",
+      "library": [
+        "tauceti:TauCeti.Divisor.degreeClass",
+        "tauceti:TauCeti.Divisor.degreeClass_divisorClass",
+        "tauceti:TauCeti.Divisor.divisorClass_eq_zero_iff"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/function-class-finite",
+      "kind": "theorem",
+      "name": "Finiteness of the degree-zero class group",
+      "statement": "If k is finite and L/k is a function field, Cl⁰(L/k) is finite.",
+      "locator": "§7 counting prerequisite",
+      "status": "library",
+      "note": "No exact-constants hypothesis is needed for this library finiteness theorem; exact constants are required elsewhere in the source application.",
+      "library": [
+        "tauceti:TauCeti.Divisor.finite_ker_degreeClass"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/rr-space",
+      "kind": "definition",
+      "name": "Riemann–Roch space and its dimension",
+      "statement": "L(D)={0}∪{f∈L×:div(f)+D≥0}, a finite-dimensional k-subspace; ℓ(D)=dim_k L(D).",
+      "locator": "§7 proof pp.11–12",
+      "status": "library",
+      "note": " API: Import riemannRochSpace and Divisor.dim; nonzero membership via ord inequalities, monotonicity and finite-dimensionality. Tests: (1) zero belongs for every D; (2) L(0)=k requires exact constants; (3) negative-degree divisors have no nonzero sections.",
+      "library": [
+        "tauceti:TauCeti.riemannRochSpace",
+        "tauceti:TauCeti.Divisor.dim",
+        "tauceti:TauCeti.mem_riemannRochSpace_iff_neg_le_ord",
+        "tauceti:TauCeti.finiteDimensional_riemannRochSpace"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/rr-effective-representative",
+      "kind": "theorem",
+      "name": "Effective representative from Riemann’s inequality",
+      "statement": "For a function field and a divisor D, ℓ(D)≥deg(D)+1−g. In particular a divisor of degree g has a nonzero section and is linearly equivalent to an effective divisor.",
+      "locator": "§7 proof p.11",
+      "status": "library",
+      "note": "The second declaration moves a degree-zero D by nB with g≤n deg B; use n=1, B=E of degree g in this application. It does not construct E.",
+      "library": [
+        "tauceti:TauCeti.Divisor.degree_add_one_sub_genus_le_dim",
+        "tauceti:TauCeti.Divisor.exists_isEffective_linearlyEquivalent_add_nsmul"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/rr-high-degree",
+      "kind": "theorem",
+      "name": "High-degree Riemann–Roch",
+      "statement": "For a function field with exact constants k and deg D≥2g−1, ℓ(D)=deg D+1−g, with subtraction in Z.",
+      "locator": "§7 proof p.12",
+      "status": "library",
+      "note": "",
+      "library": [
+        "tauceti:TauCeti.Divisor.dim_eq_degree_add_one_sub_genus_of_two_mul_genus_sub_one_le_degree"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/projective-space-count",
+      "kind": "theorem",
+      "name": "Finite projective-space cardinality",
+      "statement": "For a finite field k of q elements and a d-dimensional k-vector space V, #P(V)=Σ_(i=0)^(d−1)q^i=(q^d−1)/(q−1).",
+      "locator": "§7 final cardinality step",
+      "status": "library",
+      "note": "Actual Mathlib declarations read; quotient by all nonzero scalars, not squares. The formula handles d=0 as zero.",
+      "library": [
+        "mathlib:Projectivization.card_of_finrank",
+        "mathlib:Projectivization.card''"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/degree-one-divisor",
+      "kind": "theorem",
+      "name": "Existence of a degree-one divisor over finite constants",
+      "statement": "A smooth projective geometrically integral curve over a finite field has a rational divisor of degree one, hence a divisor E of degree g. No rational point or effective degree-one divisor is asserted.",
+      "locator": "§7 proof opening; hidden prerequisite",
+      "status": "planned",
+      "note": "AUDIT-01 says this F. K. Schmidt target is still absent. It is already a named consequence in upstream AlgebraicCurves Layer 5; do not re-plan it. A Lang/Picard route must also discharge the Brauer obstruction.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/picard-divisor-comparison",
+      "kind": "theorem",
+      "name": "Rational Picard classes over a finite field",
+      "statement": "For a smooth projective geometrically integral curve over a finite field k, degree-zero rational divisor classes identify with Pic⁰_(C/k)(k), since the obstruction lies in Br(k)=0.",
+      "locator": "§7 interpretation of Pic⁰(C)(k)",
+      "status": "planned",
+      "note": "Upstream Layer D explicitly owns the functor/sheaf versus actual line-bundle obstruction. Rational divisor classes must not be inferred from a nonexistent chosen k-point.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/even-divisor-sections",
+      "kind": "construction",
+      "name": "Nonzero sections with even divisor",
+      "statement": "Fix a divisor E of degree g on C/k. Let V=L(2E), and S_E={f∈V:f≠0 and every coefficient of div(f) is even}. This is a k×-stable subset of V minus zero, not asserted to be a subspace.",
+      "locator": "§7 p.12 displayed H⁰(C,2E)^sq",
+      "status": "missing",
+      "note": " API: Define the coefficientwise evenness predicate on existing principal divisors, prove scalar invariance and inclusion into the projectivization. Tests: (1) a section with an odd zero is excluded; (2) multiplication by a nonsquare constant still preserves membership; (3) zero is excluded even though the valuation API has junk values there."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/half-divisor-map",
+      "kind": "construction",
+      "name": "Projective sections map to 2-torsion",
+      "statement": "For f∈S_E, divide the coefficients of div(f) by two to obtain an integral degree-zero divisor A_f. The class [A_f] depends only on the projective class of f and satisfies 2[A_f]=0.",
+      "locator": "§7 p.12 surjection expanded",
+      "status": "missing",
+      "note": " API: Prove exact coefficient halving, degree zero using 2deg A=0, independence under scalar multiplication and codomain membership. Tests: (1) non-even coefficients cannot be rounded; (2) constant sections map to the identity; (3) global squares give principal half-divisors but even divisors need not come from squares."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/half-divisor-surjective",
+      "kind": "theorem",
+      "name": "Every 2-torsion class comes from an even-divisor section",
+      "statement": "The map P(S_E)→Cl⁰(C)[2] in half-divisor-map is surjective.",
+      "locator": "§7 proof pp.11–12",
+      "status": "missing",
+      "note": "For c=[D], deg D=0, use RR on E−D to choose D₊≥0 with D₊~E−D. Since 2D is principal, choose f with div(f)=2D₊−2E. Then f∈L(2E) and [half div f]=−c=c. Different D₊ may give different projective f; uniqueness is only for a fixed principal divisor."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/double-divisor-dimension",
+      "kind": "theorem",
+      "name": "Dimension of the section space used in the torsion count",
+      "statement": "If deg E=g, then ℓ(2E)=g+1 over the exact finite constant field, including g=0.",
+      "locator": "§7 proof p.12",
+      "status": "missing",
+      "note": "deg(2E)=2g≥2g−1 invokes the imported high-degree theorem, without an effective E or a chosen rational point."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/function-torsion-bound",
+      "kind": "theorem",
+      "name": "Finite-field Picard 2-torsion bound",
+      "statement": "For a smooth projective geometrically integral genus-g curve C over a finite field k of q elements, #Pic⁰(C)(k)[2]≤(q^(g+1)−1)/(q−1).",
+      "locator": "Theorems 1.7 and 7.1, first assertion",
+      "status": "missing",
+      "note": "Chain: degree-one divisor and Picard comparison suppliers; even-divisor projective surjection; dimension g+1; existing projective cardinality. No gonality or characteristic restriction. Existence/comparison are planned imports, not assumed formalized."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/gonality",
+      "kind": "definition",
+      "name": "Gonality over the stated constant field",
+      "statement": "The k-gonality of C is the minimum degree of a nonconstant k-morphism C→P¹. The second assertion only assumes existence of a degree-n map, not minimality.",
+      "locator": "§7 opening p.11",
+      "status": "missing",
+      "note": " API: Import finite morphisms and function-field degrees; record separable/inseparable degree and base-field dependence, and prove a chosen map bounds gonality. Tests: (1) P¹ has gonality one; (2) a degree-n map need not compute the minimum; (3) extension of the constant field may lower gonality."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/function-gonality-source",
+      "kind": "theorem",
+      "name": "Gonality-sensitive torsion claim awaiting an exact counting input",
+      "statement": "The author copy asserts #Pic⁰(C)(k)[2]≪_n q^((1−1/n)g) whenever C admits a degree-n map to P¹ over k.",
+      "locator": "Theorems 1.7 and 7.1, second assertion",
+      "status": "missing",
+      "note": "G9: no route. Sedunova Theorem 1 has an epsilon loss and its printed coefficient/q uniformity needs repair. The source gives only a one-sentence analogy; characteristic two and inseparable maps cannot be replaced by characteristic-zero norm-square curves."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/sedunova-source",
+      "kind": "theorem",
+      "name": "Function-field determinant estimate and its uniformity gap",
+      "statement": "Sedunova Theorem 1 prints #C(I²)≪_(d,ε)|I|^(1/d+ε), for an irreducible degree-d curve over F_q[T] and I the polynomials of degree at most m. Here |I|=q^(m+1).",
+      "locator": "Sedunova arXiv:1506.08757v1, Theorem 1 and proof §§2–3",
+      "status": "missing",
+      "note": "G9: record the literal source, not a certified q-uniform theorem. For Y²=X and m=2 there are q² pairs, exceeding q^(3/2+3ε) with q-independent constant as q→∞ for ε<1/6. This also has a degree/length off-by-one issue later in the source. Bad-reduction primes and the height cost of coordinate changes require explicit treatment. No route until the correct usable statement is established."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/geometric-two-torsion",
+      "kind": "theorem",
+      "name": "Geometric 2-torsion outside characteristic two",
+      "statement": "For a genus-g Jacobian over an algebraically closed field of characteristic different from two, the group of geometric 2-torsion points has cardinality 2^(2g); rational 2-torsion injects into it.",
+      "locator": "Remark 7.3",
+      "status": "planned",
+      "note": "Reuse the abelian-variety multiplication/isogeny supplier; distinguish point cardinality from finite group-scheme rank. Import and refine the existing Layer-E multiplication/isogeny and characteristic-p torsion contract; AUDIT-01 confirms this general abelian-variety result is not implemented.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/characteristic-two-torsion",
+      "kind": "theorem",
+      "name": "Geometric 2-torsion in characteristic two",
+      "statement": "For a genus-g Jacobian in characteristic two, the geometric 2-torsion point group has cardinality 2^f, where f is its p-rank and 0≤f≤g. Thus its cardinality is at most 2^g; equality requires ordinarity.",
+      "locator": "Remark 7.3, correction of the unqualified 2^g equality",
+      "status": "planned",
+      "note": "The group scheme still has rank 2^(2g). The main theorem’s proof with even principal divisors remains characteristic-free and does not rely on a Kummer étale sequence. Import and refine the existing Layer-E multiplication/isogeny and characteristic-p torsion contract; AUDIT-01 confirms this general abelian-variety result is not implemented.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/norm-tower-import",
+      "kind": "theorem",
+      "name": "Transitivity and generated-field norm formula",
+      "statement": "Norms in a finite free scalar tower compose; in a finite field extension L/K, N_(L/K)(x)=N_(K(x)/K)(x)^[L:K(x)].",
+      "locator": "§4 Lemma 4.1 prerequisite",
+      "status": "library",
+      "note": "Actual pinned statements read in Norm/Transitivity. This imports generic norm machinery; packaging an integral characteristic polynomial with multiplicities remains the norm-polynomial items.",
+      "library": [
+        "mathlib:Algebra.norm_norm",
+        "mathlib:Algebra.norm_eq_norm_adjoin"
+      ]
     }
   ],
   "prerequisites": [
     {
-      "citation": "C. L. Siegel, Lectures on the Geometry of Numbers, Lecture X §6 (1989 edition).",
-      "link": "https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf",
-      "why": "The reduced basis with initial vector 1, product bound and last-index comparison remains to read in the original. The link is to the citing bibliography, not an accessed Siegel text. General reduction has GN.1/GN.3 ownership; determine the missing precise input."
-    },
-    {
       "citation": "E. Bombieri and J. Pila, The number of integral points on arcs and ovals, Duke Mathematical Journal 59 (1989), 337–357, Theorem 5.",
       "link": "https://people.maths.ox.ac.uk/pila/Ovals.pdf",
-      "why": "Original theorem and final proof now read and visually checked: coefficient-uniform, total degree, singular curves allowed. Full preceding determinant-method proof and supplier audit remain. Two extracted items provisionally propose a separate reusable counting owner, rather than confusing this with Pila–Wilkie."
+      "why": "Freshly hashed original and full selected proof path read. Generic coefficient-uniform determinant bound is not an existing atlas endpoint; proposed new owner extracts its proof intermediates. G7 remains on exact rounding/constants."
     },
     {
       "citation": "H. A. Helfgott and A. Venkatesh, Integral points on elliptic curves and 3-torsion in class groups, JAMS 19 (2006), 527–550.",
       "link": "https://arxiv.org/abs/math/0405180",
-      "why": "Theorem 3.8 and Corollaries 3.9/3.11 supply the packing and height estimates of §§5.1 and 5.4. Original input not read; the del Pezzo branch needs the height-sensitive version."
+      "why": "Selected theorem/proof path now read: Theorem 3.8, Corollaries 3.9/3.11 and Proposition 3.10. Exact source proof inputs and spherical-code owner remain G3; uniform integral-point theorem extends elliptic-curve infrastructure."
     },
     {
       "citation": "A. Brumer and K. Kramer, The rank of elliptic curves, Duke Mathematical Journal 44 (1977), 715–743, Proposition 7.1 and following remark.",
-      "link": "https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf",
-      "why": "Explicit Selmer-dimension bound through a cubic étale algebra; original not read. Audit local ramification support, curve/order/field discriminants, and reducible algebras. Link is to the citing bibliography."
+      "link": "https://doi.org/10.1215/S0012-7094-77-04431-3",
+      "why": "Original Proposition 7.1 and remark still need acquisition; precise class-group/local-condition bound is additional to the existing explicit descent API. Do not conflate polynomial-order, etale and model discriminants."
     },
     {
       "citation": "J. Tsimerman, Brauer–Siegel for arithmetic tori and lower bounds for Galois orbits of special points, JAMS 25 (2012), 1091–1117, Lemma 6.1.",
-      "link": "https://www.math.toronto.edu/jacobt/",
-      "why": "Quartic/cubic-resolvent 2-torsion comparison, including reducible étale resolvents. Original not read; exact hypotheses and ownership remain to verify."
+      "link": "https://arxiv.org/abs/1103.5619v3",
+      "why": "Selected §§4–6 now read; finite-module transfer is understood locally, but full adelic/Brauer–Siegel closure and supplier audit remain G4. Not an established generic torus owner."
     },
     {
       "citation": "A. Sedunova, On the Bombieri–Pila method over function fields, arXiv:1506.08757v1, Theorem 1.",
       "link": "https://arxiv.org/abs/1506.08757v1",
-      "why": "The bounded-gonality branch requires exact characteristic, degree, epsilon and uniformity hypotheses. Theorem-level reading remains; an abstract does not discharge it."
+      "why": "Entire source now read. The epsilon and q-uniformity boundary fails a literal q-independent short-interval test; repair G9 before using this to route the claimed gonality exponent."
     },
     {
       "citation": "A. M. Baily (1980); H. Cohn (1954); M. Bhargava and A. Shnidman (2014); H. Cohen and A. Morra (2011), works cited in §6.",
       "link": "https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf",
-      "why": "Retained acquisition checklist: split the weighted-resolvent estimate, cyclic cubic asymptotic, fixed-quadratic-resolvent asymptotic and partial summation. Not a claim that every source lacks an existing owner."
+      "why": "Original exact weighted/fixed-resolvent refinements remain to acquire under G8. Generic field-count ownership already exists in ST.0/ST.1/ST.3; this entry requests precise source coverage, not duplicate roadmaps."
     }
   ],
   "routes": [
     {
       "route": "part-ii",
-      "parent": "tauceti:Completed/EffectiveBounds",
       "roadmap": "EffectiveBoundsClassGroupTorsion",
-      "title": "Effective arithmetic bounds and geometry of numbers, Part II: class-group torsion and balanced ideal generators",
+      "parent": "tauceti:Completed/EffectiveBounds",
+      "title": "Effective arithmetic bounds and geometry of numbers, Part II: class-group torsion and its applications",
       "area": "algebraicnt",
       "items": [
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-body",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-kappa",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-m-generator",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-square-generator",
-        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/reduced-integral-basis",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/multiplication-matrix",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/multiplication-matrix-nondegenerate",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/largest-minimum",
@@ -480,10 +1252,30 @@
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/signed-norm-curve-map",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/odd-index-coset-bound",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-square-norm-count",
-        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-no-index-two"
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-no-index-two",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/feedback-constants",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-general",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-cubic",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-quartic",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/feedback-absorption",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/prime-support-loss",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/cubic-norm-family",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/rational-generator-identity",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/cubic-model-discriminant",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/cubic-feedback",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/elliptic-selmer-bound",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/elliptic-rank-bound",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/elliptic-integral-bound",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/etale-class-group",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/cubic-resolvent",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/resolvent-torsion-transfer",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/resolvent-discriminant",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/resolvent-f2-modules",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/discriminant-negligible"
       ],
-      "reason": "Continue the provisional #1636 extension without changing the completed parent. Its coarse class-number/ideal bounds do not supply the paper-specific balanced-generator and norm-curve argument. General algebra, reduction and discriminant facts must still be imported, not re-owned. This is not an accepted route or the full paper’s final theorem package.",
-      "brief": "Provisional continuation brief: settle the final source version and all pinned-library/ownership checks before design intake. Build on Effective arithmetic bounds and geometry of numbers (tauceti:Completed/EffectiveBounds). Import the existing class group, absolute discriminant, mixed embedding, fractional-ideal covolume, compact Minkowski theorem, characteristic polynomial, norm tower and ideal-factorization APIs. Import general successive minima and reduced-basis theory from Geometry of numbers and quadratic arithmetic GN.1/GN.3, retaining its primitive-vector and last-index obligations. Prove balanced generators for classes killed by m, including the identity, and the largest-minimum and variable-radius box estimates. Construct the injection of 2-torsion into nonzero balanced elements with absolute square norm. Set P_beta(X)=N(X-beta); identify it with the minimal polynomial to the generated-field index, and preserve both norm signs. Import the coefficient-uniform Bombieri–Pila estimate from its actual reusable supplier after the separate provisional counting route is audited. For odd generated-field index apply it to the unreduced, possibly singular norm curve of total degree n; do not replace that curve by a lower-degree squarefree part while retaining exponent 1/n. Count integer-translation cosets by injecting fixed-length translates into the enlarged box. For fields without an index-two subfield, bound the even-index locus via discriminant towers and variable-radius subfield counts, then prove h_2(K) = O_(n,epsilon)(D_K^(1/2-1/(2n)+epsilon)). This is the current restricted endpoint, not the full even-degree theorem or the sharper cubic/quartic bound. Finish the original relative-genus-theory, Selmer, elliptic, quartic, function-field and del Pezzo branches before extending the final targets. Tests include the identity class, negative norms, a rational beta in an odd-degree field giving a singular irreducible curve, and short boundary fibers in the original box. Preserve the earlier Couveignes proposal as an overlap to reconcile, not an installed supplier."
+      "brief": "FIRST import Effective arithmetic bounds and geometry of numbers (tauceti:Completed/EffectiveBounds), including its completed discriminant, ideal-count and class-group APIs. Import Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic), GN.0/GN.1/GN.3, for existing lattices, covolumes and the planned genuine successive-minimum/reduced-basis theorems. Reconcile the pending EffectiveBoundsCompactModels proposal from PAPER-COUVEIGNES-20: share its measure and short-integer interfaces; do not create a second generic reduction theory or assume that unreviewed proposal is installed. Prove balanced generators for every class killed by m, the largest minimum bound, variable-radius box counts, ideal-square injection and the original degree-n signed norm-curve argument. Import Uniform integral-point bounds by determinant methods (IntegralPointDeterminantMethods) for coefficient-uniform Bombieri–Pila, preserving singular curves. The no-index-two bound is D^(1/2−1/(2n)+epsilon); close G1/G2 before exporting it for all n>4. Import Elliptic curves, Part II: uniform integral-point estimates (EllipticCurvesPartIIIntegralPointBounds) only for HV and Brumer–Kramer inputs, which do not depend on the sharper torsion bound. Construct the smooth cubic norm family, separate rational generators, and solve the feedback inequality with a=1/[6(1−b/log 2)]. Export h₂(K)≪D_K^(a+epsilon) in degrees three and four; the latter needs G4 resolvent/tori closure including reducible algebras. Derive the integral-model Selmer, rank and integral-point exponents a,a,c=ab/log 2 in this consuming extension, avoiding a roadmap dependency cycle back into the HV supplier. Do not export the unverified hyperelliptic or del Pezzo claims. Suggested future files: TauCeti/NumberTheory/EffectiveBounds/ClassGroupTorsion/{Balanced,NormCurves,CubicFeedback,Resolvents,EllipticApplications}.lean. Definitions use existing carriers and the discriminating tests in the items.",
+      "reason": "Retains the inherited application owner, whose completed parent supplies coarse bounds but no torsion power saving. Applications stay downstream of independent elliptic tools. All proof gaps remain explicit; a routed target is not a proof-ready theorem."
     },
     {
       "route": "new",
@@ -492,64 +1284,162 @@
       "area": "algebraicnt",
       "items": [
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bombieri-pila-explicit",
-        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bombieri-pila-epsilon"
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bombieri-pila-epsilon",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-system",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-scaled-derivative-norm",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-evaluation-kernel",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-determinant",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-integral-determinant",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-auxiliary-cover",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-standard-monomials",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-proper-intersection",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-level",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-partition",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-large-derivative-interval",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-graph-count",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-arc-decomposition"
       ],
-      "reason": "The read RP roadmap supplies finiteness, ED supplies certified algorithms, and LD.6 supplies Pila–Wilkie outside the algebraic part; none of those contracts is this coefficient-uniform count on the algebraic curve itself. An exact-ID search found no result, but the full proposed-roadmap/reserved-ID and baseline audit remains required. This reusable owner is provisional.",
-      "brief": "Provisional reusable counting direction, not a new owner for algebraic geometry or Pila–Wilkie. Read and decompose the complete original Bombieri–Pila proof, with the author preprint version and published comparison recorded. Import finite-dimensional determinants, polynomial evaluation and degree, real differentiation and Rolle-type estimates, and the appropriate existing plane-curve intersection/Bézout supplier. Construct the monomial evaluation matrices, integer nonzero-determinant lower bound, analytic upper bound, covering by auxiliary curves and the uniform treatment of singular points and changes of coordinate. Export exactly Theorem 5: for an absolutely irreducible plane curve of total degree d at least two and N at least exp(d^6), the integer-point count in [0,N]^2 is bounded by N^(1/d) exp(12 sqrt(d log N log log N)), with no coefficient-height or smoothness assumption. Derive the coefficient-uniform epsilon form for all N at least one and integer-translated squares, including the small-N regime. Distinguish total plane degree from the degree of a normalized or squarefree model. Supply tests using Y=X^d, singular irreducible norm curves, and reducible curves which must not satisfy the theorem hypotheses. The present paper is the consumer through the no-index-two torsion argument. Do not assume the same theorem over function fields: Sedunova needs a separate source-complete characteristic and uniformity analysis. Before approval, screen all atlas stages, proposed roadmaps, packets, reserved identifiers and both pinned libraries; merge with an existing exact supplier if found."
+      "reason": "Catalogue screen finds no coefficient-uniform algebraic-curve counting owner. RP.4 is finiteness, ED is certified algorithms, and LD.6 is Pila–Wilkie outside the algebraic part. Retain the inherited candidate, now with selected original proof interiors.",
+      "brief": "Prove original Bombieri–Pila Theorem 5: for an absolutely irreducible real plane curve of total degree d≥2 and N≥exp(d^6), the integer-point count in [0,N]^2 is at most N^(1/d)exp(12 sqrt(d log N loglog N)); deduce the coefficient-uniform epsilon form for all N≥1 and integer translates. The curve may be singular. Import Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations), SF.0/SF.5, for plane curves and proper intersection/Bézout, and Mathlib determinants, interpolation, derivatives and Taylor/mean-value machinery. Build monomial evaluation kernels, scaled derivative norms, Vandermonde determinant estimates, the integer determinant separation argument, auxiliary covers, leading-term avoidance, derivative-level partitions, the short-interval lemma, recurrence and bounded-slope arc decomposition. Keep generic linear algebra and algebraic geometry with their existing suppliers. Correct the lambda substitution and q≤p typo in the author preprint; resolve integer rounding of delta with the displayed constants (G7), including singular/boundary exceptional points. Tests include Y²=X³ (singular degree three), coefficient translations, polynomial branches with constant higher derivatives, the smallest allowed d,N, and repeated abscissae. Suggested file: TauCeti/NumberTheory/IntegralPointBounds/DeterminantMethod.lean. Sedunova’s printed uniformity is not a supplied positive-characteristic analogue; G9 must be resolved separately."
+    },
+    {
+      "route": "part-ii",
+      "roadmap": "EllipticCurvesPartIIIntegralPointBounds",
+      "parent": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "title": "Elliptic curves, Part II: uniform integral-point estimates",
+      "area": "algebraicnt",
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/hv-packing-function",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/hv-height-count",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/hv-optimized-count",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/hv-all-integral-count",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/brumer-kramer"
+      ],
+      "brief": "FIRST import Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves), especially Layers 4, 6 and 7 for local heights, the actual Mordell–Weil group, the existing canonical height and explicit descent, and the planned cohomological Selmer comparison. The pinned canonical height is h_x/2 up to bounded error, agreeing with Helfgott–Venkatesh; the roadmap prose uses twice that normalization, so write the conversion. Prove the HV height-sensitive S-integral bound with S containing infinity and all primes dividing the integral-model discriminant, all s and epsilon factors, and beta(t) exactly as extracted; then optimize using alpha and deduce #E(Z)≪epsilon |Delta|^epsilon exp((b+epsilon)rank). Decompose the original local repulsion, height-shell, positive-height lower-bound, sphere-packing, torsion and global height-upper-bound inputs before declaring closure (G3). The original Brumer–Kramer Proposition 7.1 still must be acquired to prove dim Sel₂≤dim Cl(A)[2]+2omega(|Delta|)+2 for the cubic etale algebra, including reducible A and maximal-order versus model discriminants. This extension supplies tools to EffectiveBoundsClassGroupTorsion and does not import its improved torsion theorem: final exponent-a Selmer and exponent-c point applications belong to that consumer, preventing a cycle. Keep spherical-code theory in its generic owner after audit, not a new duplicate here. Suggested file: TauCeti/NumberTheory/EllipticCurve/IntegralPointBounds.lean. Test rank zero, t=0 versus t=1, nonminimal models, bad primes and integral coordinate changes.",
+      "reason": "Upstream builds heights and descent but not the uniform HV point count. RP.4 does not imply a numerical uniform bound; ED algorithms and ST.4 averages do not own this pointwise theorem."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.0",
+        "ArithmeticStatistics:ST.1",
+        "ArithmeticStatistics:ST.3"
+      ],
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/baily-weighted-count",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/cyclic-cubic-count",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/fixed-resolvent-cubic-count",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/weighted-partial-summation",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/a4-quartic-count",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/fixed-resolvent-quartic-count",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/field-count-carrier"
+      ],
+      "reason": "ST.0 owns discriminant-ordered isomorphism-class counts, ST.1 the selected resolvent parametrizations, and ST.3 selected field-count theorems. Add the Baily/Cohn/fixed-resolvent proof route and dyadic weighted summation within those contracts. Import the pointwise torsion bound from EffectiveBoundsClassGroupTorsion; do not put it in the average-Selmer stage. G8 records the still-unread original counting inputs."
+    },
+    {
+      "route": "part-ii",
+      "roadmap": "FunctionFieldArithmeticPartIITorsionBounds",
+      "parent": "FunctionFieldArithmetic",
+      "title": "Global function fields, reciprocity and automorphic foundations, Part II: quantitative Picard torsion bounds",
+      "area": "algebraicnt",
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/even-divisor-sections",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/half-divisor-map",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/half-divisor-surjective",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/double-divisor-dimension",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/function-torsion-bound",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/gonality"
+      ],
+      "brief": "FIRST import Global function fields, reciprocity and automorphic foundations (FunctionFieldArithmetic), FA.0/FA.1, which in turn consume the implemented divisor and Riemann–Roch theory of Algebraic curves (tauceti:TauCetiRoadmap/AlgebraicCurves). Do not reconstruct divisors, genus, section spaces, Riemann–Roch, finite Cl-zero or projective-space cardinality: the exact pinned declarations are listed. Import the existing AlgebraicCurves Layer-5 degree-one-divisor target and Jacobian challenge (tauceti:TauCetiRoadmap/JacobianChallenge) Layer D for the rational Picard/divisor obstruction; no rational point on C is assumed. Fix E of degree g, form the nonzero sections of L(2E) with even principal divisor and quotient by every nonzero constant. Construct the half-divisor class map and prove it surjective onto 2-torsion using Riemann–Roch and 2c=0, not an unjustified injection from a unique choice of effective representative. High-degree RR gives dimension g+1, hence #Pic⁰(C)(F_q)[2]≤(q^(g+1)−1)/(q−1) in every characteristic. Import general Jacobian torsion and p-rank from existing Layer E; in characteristic two only 2^f geometric points exist, f≤g. Treat gonality as base-field-relative data. The claimed stronger q^((1−1/n)g) bound is withheld at G9 until an exact function-field counting theorem, epsilon handling, uniformity in q and inseparable/characteristic-two branches are proved. Suggested file: TauCeti/FieldTheory/FunctionField/PicardTorsionBounds.lean. Tests: genus zero, curves without a chosen rational point, nonsquare constants, even divisors which are not global squares, and ordinary versus supersingular characteristic-two Jacobians.",
+      "reason": "FA.1 supplies finiteness and RR infrastructure; this adds a quantitative torsion theorem with its own section-count proof. It imports existing generic abelian-variety/p-rank and projective-space results instead of duplicating them."
     }
   ],
   "verification": {
-    "agent": "GPT-6 Astra Pro",
-    "session": "g6ap-0921-classgroup-7c4e",
+    "agent": "Codex",
+    "session": "codex-c83e7a",
     "issue": 1420,
-    "continues": {
-      "pr": 1636,
-      "agent": "Codex",
-      "session": "codex-a71f92",
-      "inheritedItems": 20,
-      "inheritedLibraryItems": 10,
-      "inheritedResultBlob": "055183c3a6e29a0856a8bf4d54549574ed6c1e7b"
-    },
-    "newItems": 15,
-    "libraryBoundary": "No new library-implemented item is claimed. The first ten library statuses and their seven-file pinned checks are retained from #1636, not claimed as independently repeated here. New missing statuses are provisional; generic imports are not declarations of absence from both libraries.",
-    "newPinnedRead": "Mathlib/RingTheory/Norm/Basic.lean at the prescribed Mathlib pin, lines 1–100: PowerBasis.norm_gen_eq_coeff_zero_minpoly, PowerBasis.norm_gen_eq_prod_roots, norm_zero and the start of norm_eq_zero_iff. This is not a matching declaration for the full norm-polynomial package.",
-    "catalogueRead": [
-      "content/campaign/HeightsRationalPointsAndObstructions/README.md, complete",
-      "content/campaign/EffectiveDiophantineMethods/README.md, complete",
-      "content/campaign/LogicAndDefinabilityInNumberTheory/README.md, complete; LD.6 is not a Bombieri–Pila supplier",
-      "Existing #1636 audit/report on GN.1 and completed EffectiveBounds; inherited evidence, not a new full reviewed-audit read"
+    "continues": [
+      1636,
+      1641
     ],
-    "searchBoundary": "Default-branch searches for Pila, Bombieri, norm/minimal-polynomial terms and IntegralPointDeterminantMethods are leads only. The full reviewed library audit, pinned Tau Ceti coverage and all reserved/new-roadmap catalogues remain to screen.",
-    "checks": "Ran the unmodified check_paper.py on the result with a scoped local catalogue containing the inherited GN.1 owner and completed EffectiveBounds parent: ok. This is a schema/owner-ID/route-multiplicity check, not a full-atlas audit. The repository CI will check its full catalogue. No Lean file is required or compiled."
+    "baseCommit": "ae87a08382fa43cc779b97e65942b05b51e8587a",
+    "stableIds": "All 35 inherited item IDs retained.",
+    "libraryBoundary": "First ten Mathlib library declarations reread at 082e2d3; new norm/projective cardinality statements and Tau Ceti divisor, RR, class-group, explicit Selmer, rank, finite-generation and canonical-height statements read at the prescribed pins. No new Lean implementation is claimed.",
+    "audits": [
+      "AUDIT-01 reviewed AlgebraicCurves Layers 3–5 and JacobianChallenge E",
+      "AUDIT-02 reviewed GN.0/GN.1/GN.3 and adjacent reduction scope",
+      "AUDIT-03 reviewed completed EffectiveBounds",
+      "AUDIT-11 reviewed EllipticCurves Layers 6–7",
+      "AUDIT-20 reviewed FA.1"
+    ],
+    "ownership": "Read full GN, EffectiveBounds, ED, RP, ST, FA and JacobianChallenge documents; selected complete AlgebraicCurves Layer 5 and EllipticCurves Layers 6–7; catalogue-wide text search of 211 atlas records, proposed roadmaps and reserved IDs. Couveignes routing read in full. None of the four extension/new candidate IDs is an installed roadmap. Remaining torus/HV proof-interior ownership is G3/G4.",
+    "checks": "Unmodified check_paper.py passed with the full available catalogue; intake check-files reported three files and zero problems. Stable-ID, unique-route, explicit-gap and 31-definition API/three-test checks passed. Finite quotient-module, projective-orbit, parabola and monomial checks passed; exact constants were checked numerically, not proved in Lean. No Lean artifact requested or compiled."
   },
   "gaps": [
     {
-      "id": "published-version",
-      "detail": "Final 2019-revised/2020 article not obtained. Author-copy locators and inherited hashes are preserved; bibliographic identity is not a final-text match."
+      "id": "G0",
+      "detail": "Final 2019-revised/2020 publisher text not obtained. All mathematical locators refer to the February 2017 author copy, not journal pagination."
     },
     {
-      "id": "source-completeness",
-      "detail": "Sharper cubic/quartic bounds, elliptic/hyperelliptic consequences, quartic-counting, function-field and del Pezzo branches still lack complete item extraction and original-input checks."
+      "id": "G1",
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/reduced-integral-basis"
+      ],
+      "detail": "Read and verify the original Siegel basis with primitive initial vector 1, last-index comparison, metric constants and n=2. Do not infer this exact lemma from the broad GN.1/GN.3 plan."
     },
     {
-      "id": "reduced-basis",
-      "detail": "The precise Siegel reduced-basis source, including the last-index comparison, remains unverified. New §4 proof expansions consume the recorded lattice lemmas; they do not silently close that dependency."
+      "id": "G2",
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/relative-genus-source-claim"
+      ],
+      "detail": "Original relative genus estimate needs exact base class-group, capitulation, unit and ramification terms. All-degree target remains source-gated."
     },
     {
-      "id": "relative-genus-theory",
-      "detail": "The index-two-subfield reduction is still unresolved. No unconditional all-even-degree theorem is asserted from the restricted proof."
+      "id": "G3",
+      "detail": "Acquire Brumer–Kramer Proposition 7.1 and remark. Decompose HV local repulsion, lower-height, spherical-code and height-upper-bound inputs; audit all their supplier declarations. Coordinate changes and explicit/cohomological Selmer comparison remain."
     },
     {
-      "id": "baseline-ownership",
-      "detail": "Audit all fifteen new items against both pins and the full atlas/proposed-roadmap/audit inputs. The two routes remain provisional; generic algebra and reduction must be imported."
+      "id": "G4",
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/torus-transfer-source"
+      ],
+      "detail": "Split and close Tsimerman torus/finite-module transfer with its adelic and Brauer–Siegel inputs; identify a nonduplicating torus owner; prove splitting-field discriminant comparison and cubic resolvent order maximalization, including reducible cases."
     },
     {
-      "id": "input-proof-provenance",
-      "detail": "Bombieri–Pila Theorem 5 and its final proof are checked, but the full earlier determinant-method proof, byte hash and exact existing suppliers remain to record. Main-paper screenshots failed; no successful visual check of those pages is claimed."
+      "id": "G5",
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/hyperelliptic-selmer-source",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/hyperelliptic-rank-source"
+      ],
+      "detail": "Resolve curve-model local conditions versus etale-algebra discriminant, twists, leading coefficient, even degree and reducible algebra. No theorem route is assigned to the unverified printed claims."
     },
     {
-      "id": "granularity",
-      "detail": "Further split inherited multi-assertion packages at final extraction/blueprint time. The prerequisite array includes clearly labelled unresolved acquisition leads, not an audited assertion that every source is missing."
+      "id": "G6",
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/del-pezzo-source"
+      ],
+      "detail": "Del Pezzo model/height and singular-fiber proof not expanded; verify exact leading constants before the 2.87 optimization."
+    },
+    {
+      "id": "G7",
+      "detail": "Bombieri–Pila proof selected path read; integer delta rounding and exact constants 11/12 remain to certify, with corrected lambda substitution and q≤p. Complete the generic supplier audit and tests at the blueprint stage."
+    },
+    {
+      "id": "G8",
+      "detail": "Acquire Baily, Cohn, Bhargava–Shnidman and Cohen–Morra original counting inputs. Present source targets are routed to ST.0/ST.1/ST.3 but not claimed proof-ready."
+    },
+    {
+      "id": "G9",
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/function-gonality-source",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/sedunova-source"
+      ],
+      "detail": "Sedunova printed q-uniformity fails the parabola/short-interval check; its epsilon loss also does not directly prove the no-epsilon gonality assertion. Resolve q-dependence, degree convention, coordinate changes, bad reduction, and characteristic-two/inseparable cases before routing."
+    },
+    {
+      "id": "G10",
+      "detail": "This expanded checkpoint still is not a complete extraction of every proof input: relative genus, torus class-group infrastructure, hyperelliptic descent, del Pezzo geometry and the counting originals retain explicit acquisition/decomposition work."
     }
   ]
 }
