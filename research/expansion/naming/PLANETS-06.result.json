@@ -1,0 +1,1781 @@
+[
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-0-class-functions-and-their-pairing::landmark:character-pairing-a9ud7o",
+    "decision": "name",
+    "label": "Character pairing on class functions",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-0-class-functions-and-their-pairing::landmark:classfunction-k-g-vb1f2b",
+    "decision": "keep",
+    "label": "ClassFunction k G",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-0-class-functions-and-their-pairing::landmark:indexing-by-conjugacy-classes-1d2ig3",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Indexing equivalence and dimension bookkeeping for the class-function space retained separately."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-1-the-group-algebra-its-center-and-structure-constants::landmark:class-sum-mywg4w",
+    "decision": "name",
+    "label": "Class sum in k[G]",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-1-the-group-algebra-its-center-and-structure-constants::landmark:integral-class-center-1v5a79q",
+    "decision": "name",
+    "label": "Integral class center of G",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-1-the-group-algebra-its-center-and-structure-constants::landmark:structure-constants-19tcosz",
+    "decision": "keep",
+    "label": "Structure constants",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-2-wedderburn-irreducible-indexing-and-the-count::landmark:5-irreducible-indexing-infrastructure-1fe7nty",
+    "decision": "name",
+    "label": "Classes of simple k[G]-modules",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-2-wedderburn-irreducible-indexing-and-the-count::landmark:center-splits-hb7c91",
+    "decision": "name",
+    "label": "Central-character splitting of the center",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality::landmark:character-table-yh8cxg",
+    "decision": "name",
+    "label": "Character table of G",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality::landmark:completeness-wgku7d",
+    "decision": "name",
+    "label": "Irreducible-character basis",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality::landmark:primitive-central-idempotents-13j9msb",
+    "decision": "keep",
+    "label": "Primitive central idempotents",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality::landmark:virtual-character-lattice-15ltcpk",
+    "decision": "name",
+    "label": "Virtual-character lattice of G",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-4-the-arithmetic-of-character-values::landmark:central-characters-integrally-yhjx4p",
+    "decision": "name",
+    "label": "Central characters",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-4-the-arithmetic-of-character-values::landmark:degree-divides-the-order-g9l5ao",
+    "decision": "name",
+    "label": "Character-degree divisibility",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-4-the-arithmetic-of-character-values::landmark:diagonalizability-per-arena-htqv7b",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Supporting diagonalizability argument for the character-value integrality theorem."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-4-the-arithmetic-of-character-values::landmark:values-are-cyclotomic-integers-j3tj0m",
+    "decision": "name",
+    "label": "Complex character-value integrality",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-5-the-dixon-schneider-characterization-the-specification::landmark:class-multiplication-matrices-with-a-pinne-6kl4z6",
+    "decision": "name",
+    "label": "Class-multiplication matrices",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-5-the-dixon-schneider-characterization-the-specification::landmark:coordinate-identity-1vxngvz",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Auxiliary coordinate identity supporting the central-character eigenvector theorem."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-5-the-dixon-schneider-characterization-the-specification::landmark:normalization-and-degree-recovery-b1mkog",
+    "decision": "keep",
+    "label": "Normalization and degree recovery",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-5-the-dixon-schneider-characterization-the-specification::landmark:specification-and-the-checker-g24pgj",
+    "decision": "name",
+    "label": "Character-table uniqueness",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-6-the-executable-burnside-dixon-schneider-algorithm-the-summit::landmark:certified-dixon-prime-data-zxgtnj",
+    "decision": "keep",
+    "label": "Certified Dixon prime data",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-6-the-executable-burnside-dixon-schneider-algorithm-the-summit::landmark:computable-finite-field-linear-algebra-19imynw",
+    "decision": "name",
+    "label": "Finite-field eigenvalue search",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-6-the-executable-burnside-dixon-schneider-algorithm-the-summit::landmark:exact-cyclotomic-arithmetic-1qs8sf8",
+    "decision": "name",
+    "label": "Computable cyclotomic ring",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-6-the-executable-burnside-dixon-schneider-algorithm-the-summit::landmark:executable-class-data-o93gdf",
+    "decision": "keep",
+    "label": "Executable class data",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-7-the-frobenius-schur-indicator-and-realquaternionic-type::landmark:indicator-on-the-module-spine-syoe87",
+    "decision": "name",
+    "label": "Frobenius–Schur indicator",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-7-the-frobenius-schur-indicator-and-realquaternionic-type::landmark:invariant-bilinear-forms-sgg5uy",
+    "decision": "keep",
+    "label": "Invariant bilinear forms",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-7-the-frobenius-schur-indicator-and-realquaternionic-type::landmark:symmetric-and-exterior-squares-a-build-tar-64jjjj",
+    "decision": "name",
+    "label": "Symmetric and exterior squares",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-7-the-frobenius-schur-indicator-and-realquaternionic-type::landmark:trichotomy-1xrudtd",
+    "decision": "name",
+    "label": "Frobenius–Schur trichotomy",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-8-frobenius-groups-and-frobeniuss-theorem::landmark:frobenius-complement-o1oyum",
+    "decision": "keep",
+    "label": "Frobenius complement",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-8-frobenius-groups-and-frobeniuss-theorem::landmark:frobenius-kernel-189fmkj",
+    "decision": "keep",
+    "label": "Frobenius kernel",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-8-frobenius-groups-and-frobeniuss-theorem::landmark:frobenius-s-theorem-3lrfqw",
+    "decision": "keep",
+    "label": "Frobenius's theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-8-frobenius-groups-and-frobeniuss-theorem::landmark:t-i-set-machinery-stated-precisely-1w47ru4",
+    "decision": "name",
+    "label": "Trivial-intersection sets",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-9-the-representation-theory-of-gl₂𝔽_q::landmark:borel-and-the-principal-series-78ayhq",
+    "decision": "name",
+    "label": "Principal series of GL₂(𝔽_q)",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-9-the-representation-theory-of-gl₂𝔽_q::landmark:boundary-linear-and-steinberg-constituents-nx662d",
+    "decision": "name",
+    "label": "Steinberg representation of GL₂(𝔽_q)",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-9-the-representation-theory-of-gl₂𝔽_q::landmark:conjugacy-classes-a-build-target-y3gvp1",
+    "decision": "name",
+    "label": "GL₂(𝔽_q) conjugacy-class classification",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-9-the-representation-theory-of-gl₂𝔽_q::landmark:cuspidal-discrete-series-representations-117ifl7",
+    "decision": "name",
+    "label": "Cuspidal representations of GL₂(𝔽_q)",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation::landmark:complete-reducibility-over-4xrphr",
+    "decision": "keep",
+    "label": "Complete reducibility over ℂ",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation::landmark:rational-and-polynomial-representations-evefoi",
+    "decision": "keep",
+    "label": "Rational and polynomial representations",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation::landmark:standard-representation-7egakd",
+    "decision": "name",
+    "label": "Standard representation of GL n ℂ",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation::landmark:subgroups-and-the-extra-invariants-1pnwnlm",
+    "decision": "name",
+    "label": "Invariant forms of classical subgroups",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-1-functorial-constructions-and-tensor-powers::landmark:first-decomposition-1nedffm",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "The tensor-square identity is the first acceptance example for the general symmetric/exterior and tensor constructions retained separately."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-1-functorial-constructions-and-tensor-powers::landmark:symmetric-and-exterior-power-representatio-2odd6a",
+    "decision": "keep",
+    "label": "Symmetric and exterior power representations",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-1-functorial-constructions-and-tensor-powers::landmark:tensor-power-representation-1jqvjb6",
+    "decision": "name",
+    "label": "Tensor power representation of GL n ℂ",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-2-the-weyl-construction-via-young-symmetrizers::landmark:young-symmetrizers-and-the-schur-functor-1g3fz6l",
+    "decision": "name",
+    "label": "Schur functor",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification::landmark:dominant-weights-pk8gqs",
+    "decision": "keep",
+    "label": "Dominant weights",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification::landmark:highest-weight-and-the-classification-1wv8e8p",
+    "decision": "name",
+    "label": "Highest-weight classification of GLₙ",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification::landmark:maximal-torus-and-weight-spaces-l8iw85",
+    "decision": "name",
+    "label": "Weight-space decomposition",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification::landmark:sln-1413b2h",
+    "decision": "name",
+    "label": "Highest-weight classification of SLₙ",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-4-characters-and-schur-polynomials::landmark:characters-are-schur-polynomials-b31nx1",
+    "decision": "name",
+    "label": "Schur-polynomial character formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-4-characters-and-schur-polynomials::landmark:schur-polynomials-aravmp",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Ownership and import instructions for Schur polynomials constructed in the Schur–Weyl roadmap."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-5-the-weyl-dimension-formula::landmark:dimension-of-v-1d49nlc",
+    "decision": "keep",
+    "label": "Hook-content formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-6-branching-rules-and-gelfand-tsetlin-bases::landmark:gelfand-tsetlin-basis-1j4097c",
+    "decision": "name",
+    "label": "Gelfand–Tsetlin basis",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-6-branching-rules-and-gelfand-tsetlin-bases::landmark:gelfand-tsetlin-patterns-18okxip",
+    "decision": "name",
+    "label": "Gelfand–Tsetlin patterns",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-6-branching-rules-and-gelfand-tsetlin-bases::landmark:gln-gln-1-voyah2",
+    "decision": "name",
+    "label": "GLₙ ↓ GLₙ₋₁ branching rule",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-0-normalized-haar-measure-and-averaging::landmark:averaging-operator-1al296p",
+    "decision": "name",
+    "label": "Haar averaging operator",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-0-normalized-haar-measure-and-averaging::landmark:haar-probability-measure-lj1fty",
+    "decision": "keep",
+    "label": "Haar probability measure",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-1-unitarizability-weyls-unitarian-trick::landmark:averaging-a-hermitian-form-as-a-positive-o-p8jybj",
+    "decision": "name",
+    "label": "Averaged Hermitian Gram operator",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-1-unitarizability-weyls-unitarian-trick::landmark:unitarity-predicate-1vpg61p",
+    "decision": "name",
+    "label": "Unitary continuous representation",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-2-complete-reducibility::landmark:complete-reducibility-compact-maschke-inte-15cti7o",
+    "decision": "name",
+    "label": "Compact Maschke theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-2-complete-reducibility::landmark:invariant-complements-12ksziq",
+    "decision": "keep",
+    "label": "Invariant complements",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-2-complete-reducibility::landmark:schur-s-lemma-transported-bjxmhk",
+    "decision": "name",
+    "label": "Schur's lemma",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-3-matrix-coefficients::landmark:algebra-of-matrix-coefficients-vfbn8d",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Matrix-coefficient algebra identities supporting the representative ring retained separately."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-3-matrix-coefficients::landmark:matrix-coefficient-space-of-a-representati-1qq4kub",
+    "decision": "name",
+    "label": "Representative ring",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-4-schur-orthogonality-in-l²g::landmark:first-orthogonality-fixed-irreducible-qkmlvb",
+    "decision": "name",
+    "label": "First Schur orthogonality",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-4-schur-orthogonality-in-l²g::landmark:second-orthogonality-distinct-irreducibles-1byom9e",
+    "decision": "name",
+    "label": "Second Schur orthogonality",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem::landmark:density-in-c-g-the-analytic-core-via-the-n-1yd848",
+    "decision": "name",
+    "label": "Uniform density of representative subalgebra",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem::landmark:density-in-l2-g-qdqei8",
+    "decision": "keep",
+    "label": "Density in L²(G)",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem::landmark:isotypic-decomposition-16pyysk",
+    "decision": "name",
+    "label": "Isotypic decomposition of L²(G)",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem::landmark:peter-weyl-hilbert-basis-the-summit-17oaviy",
+    "decision": "name",
+    "label": "Peter–Weyl Hilbert basis",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups::landmark:character-12mpy4w",
+    "decision": "name",
+    "label": "Character of π",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups::landmark:characters-span-the-class-functions-1o2mkjp",
+    "decision": "name",
+    "label": "Character Hilbert basis of central L² functions",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-0-the-functorial-core----transitivity-and-the-projection-formula::landmark:projection-formula-tensor-identity-uaab4y",
+    "decision": "name",
+    "label": "Induction projection formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-0-the-functorial-core----transitivity-and-the-projection-formula::landmark:restriction-is-functorial-in-the-map-19tnj38",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Routine restriction-functor composition identity, subsidiary to the induction theorems."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-0-the-functorial-core----transitivity-and-the-projection-formula::landmark:transitivity-of-induction-tm2501",
+    "decision": "keep",
+    "label": "Transitivity of induction",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-1-the-conjugate-representation::landmark:conjrep-s-1vl3yw3",
+    "decision": "name",
+    "label": "Conjugate representation of a subgroup",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-1-the-conjugate-representation::landmark:conjugate-character-1gge8im",
+    "decision": "name",
+    "label": "Character of a conjugate representation",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-1-the-conjugate-representation::landmark:conjugation-convention-fixed-once-1ul4ats",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Conjugation-orientation convention and its sanity check."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-1-the-conjugate-representation::landmark:restriction-conjugation-interchange-19c3w3b",
+    "decision": "keep",
+    "label": "Restriction–conjugation interchange",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-2-induced-characters-and-frobenius-reciprocity::landmark:averaged-group-sum-form-corollary-1tgvdgx",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Averaged reformulation of the primary coset-sum character formula, with an additional invertibility hypothesis."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-2-induced-characters-and-frobenius-reciprocity::landmark:induced-character-formula-primary-form-cos-8v7hgb",
+    "decision": "name",
+    "label": "Coset-sum induced-character formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-2-induced-characters-and-frobenius-reciprocity::landmark:induction-preserves-finite-dimensionality--1arc6ce",
+    "decision": "name",
+    "label": "Induction coset model",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-2-induced-characters-and-frobenius-reciprocity::landmark:permutation-character-1280j84",
+    "decision": "name",
+    "label": "Coset permutation character",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3-the-mackey-decomposition-formula::landmark:h-k-subgroup-g-7fmyne",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Hypothesis and dependency bookkeeping for the two Mackey formulations."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3a-the-decomposition-as-an-isomorphism-of-representations-over-commring-k::landmark:mackey-decomposition-isomorphism-form-1gztc85",
+    "decision": "keep",
+    "label": "Mackey decomposition (isomorphism form)",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3a-the-decomposition-as-an-isomorphism-of-representations-over-commring-k::landmark:mackey-summand-with-its-two-homomorphisms--kitln9",
+    "decision": "name",
+    "label": "Mackey summand",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3b-the-character-form-over-a-field-needs-layer-2::landmark:mackey-decomposition-character-form-197psyq",
+    "decision": "keep",
+    "label": "Mackey decomposition (character form)",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-4-intertwining-numbers-and-the-mackey-irreducibility-criterion::landmark:intertwining-number-formula-1bj8umv",
+    "decision": "name",
+    "label": "Mackey intertwining-number formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-4-intertwining-numbers-and-the-mackey-irreducibility-criterion::landmark:intertwining-spaces-are-finite-dimensional-sxdu38",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Finite-dimensional Hom-space infrastructure supporting the intertwining-number formula."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-4-intertwining-numbers-and-the-mackey-irreducibility-criterion::landmark:mackey-irreducibility-criterion-primary-fo-qn01xj",
+    "decision": "name",
+    "label": "Mackey irreducibility criterion",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-5-clifford-theory-over-a-normal-subgroup::landmark:clifford-correspondence-98m1eu",
+    "decision": "keep",
+    "label": "Clifford correspondence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-5-clifford-theory-over-a-normal-subgroup::landmark:clifford-s-theorem-1yzish2",
+    "decision": "keep",
+    "label": "Clifford's theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-5-clifford-theory-over-a-normal-subgroup::landmark:g-action-on-irr-n-arj6jc",
+    "decision": "keep",
+    "label": "G-action on Irr(N)",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-5-clifford-theory-over-a-normal-subgroup::landmark:over-a-splitting-field-with-isunit-nat-car-ibhh6m",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Standing coefficient, finiteness and normal-subgroup hypotheses without a separate mathematical object."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction::landmark:artin-s-corollary-rational-representations-7e77hx",
+    "decision": "name",
+    "label": "Cyclic fixed-point dimension criterion",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction::landmark:artin-s-induction-theorem-1m7huq8",
+    "decision": "keep",
+    "label": "Artin's induction theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction::landmark:elementary-and-hyperelementary-subgroups-1387hqo",
+    "decision": "keep",
+    "label": "Elementary and hyperelementary subgroups",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction::landmark:representation-ring-and-its-character-map-1mjzmi0",
+    "decision": "name",
+    "label": "Grothendieck representation ring",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier::landmark:central-extensions-and-representation-grou-103lw6m",
+    "decision": "keep",
+    "label": "Central extensions and representation groups",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier::landmark:factor-set-classes-and-the-second-cohomolo-m4djun",
+    "decision": "name",
+    "label": "Factor-set classification by H²(G, kˣ)",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier::landmark:projective-representations-and-factor-sets-1wy9slj",
+    "decision": "keep",
+    "label": "Projective representations and factor sets",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier::landmark:twisted-group-algebra-jvf8v2",
+    "decision": "name",
+    "label": "Twisted group algebra of a 2-cocycle",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-0-the-exponential-map-and-one-parameter-subgroups::landmark:exponential-map-i8ir66",
+    "decision": "name",
+    "label": "Lie exponential map",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-0-the-exponential-map-and-one-parameter-subgroups::landmark:lie-algebra-and-the-tangent-space-at-1-3a0e6",
+    "decision": "name",
+    "label": "Lie algebra–tangent space identification",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-0-the-exponential-map-and-one-parameter-subgroups::landmark:matrix-and-circle-shadows-128lqpi",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Specialized matrix and circle coincidence checks, rather than a separate central construction."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-0-the-exponential-map-and-one-parameter-subgroups::landmark:one-parameter-subgroups-vfvpxz",
+    "decision": "keep",
+    "label": "One-parameter subgroups",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad::landmark:conjugation-formulas-1lwvy5r",
+    "decision": "name",
+    "label": "Adjoint–exponential conjugation formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad::landmark:group-adjoint-1y8bqhv",
+    "decision": "name",
+    "label": "Adjoint representation of G",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad::landmark:infinitesimal-adjoint-1ng7s8y",
+    "decision": "name",
+    "label": "Differential of the adjoint representation",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem::landmark:closed-subgroup-theorem-yt1we1",
+    "decision": "name",
+    "label": "Cartan closed-subgroup theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem::landmark:lie-subalgebra-of-a-subgroup-dfcs4e",
+    "decision": "keep",
+    "label": "Lie subalgebra of a subgroup",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff::landmark:baker-campbell-hausdorff-1agzr64",
+    "decision": "name",
+    "label": "Baker–Campbell–Hausdorff series",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff::landmark:functor-on-morphisms-1lfigsb",
+    "decision": "name",
+    "label": "Lie functor",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff::landmark:injectivity-on-connected-groups-1pwjw53",
+    "decision": "name",
+    "label": "Faithfulness on connected Lie groups",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories::landmark:equivalence-of-categories-1r9f9jg",
+    "decision": "name",
+    "label": "Simply-connected Lie correspondence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-4-frobenius-lies-third-theorem-and-the-equivalence-of-categories::landmark:lie-s-third-theorem-1yare8y",
+    "decision": "keep",
+    "label": "Lie's third theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra::landmark:simply-connected-covers-4rfybv",
+    "decision": "keep",
+    "label": "Simply-connected covers",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra::landmark:universal-enveloping-algebra-qx1c0t",
+    "decision": "name",
+    "label": "Left-invariant differential operator algebra",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration::landmark:conjugacy-and-exhaustion-19xv1rt",
+    "decision": "name",
+    "label": "Maximal-torus conjugacy and exhaustion",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration::landmark:tori-and-maximal-tori-uj7ldj",
+    "decision": "keep",
+    "label": "Tori and maximal tori",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration::landmark:weyl-group-4zylsf",
+    "decision": "keep",
+    "label": "Weyl group",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration::landmark:weyl-integration-formula-1pytxlo",
+    "decision": "keep",
+    "label": "Weyl integration formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms::landmark:complexification-190cwnt",
+    "decision": "name",
+    "label": "Lie group complexification",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms::landmark:real-forms-1o9eb8a",
+    "decision": "keep",
+    "label": "Real forms",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat::landmark:borel-subgroups-and-the-flag-manifold-uj2oo3",
+    "decision": "name",
+    "label": "Borel subgroups and flag manifold",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat::landmark:borel-weil-theorem-1t4r7xd",
+    "decision": "name",
+    "label": "Borel–Weil theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat::landmark:bruhat-decomposition-lb8v72",
+    "decision": "keep",
+    "label": "Bruhat decomposition",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions::landmark:cartan-decomposition-1t5cvo7",
+    "decision": "keep",
+    "label": "Cartan decomposition",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions::landmark:iwasawa-decomposition-1f0gt07",
+    "decision": "keep",
+    "label": "Iwasawa decomposition",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions::landmark:restricted-roots-and-the-kak-decomposition-1fp6rod",
+    "decision": "name",
+    "label": "KAK decomposition",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine::landmark:classification-1nu4ldt",
+    "decision": "name",
+    "label": "sl₂ highest-weight classification",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine::landmark:complete-reducibility-for-sl2-1qz7jvl",
+    "decision": "keep",
+    "label": "Complete reducibility for sl₂",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine::landmark:standard-irreducible-v-n-q3ikth",
+    "decision": "name",
+    "label": "Standard irreducible sl₂-module V(n)",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine::landmark:weight-string-1z0wn2",
+    "decision": "name",
+    "label": "sl₂ weight string",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-1-cartan-subalgebras-and-the-root-space-decomposition::landmark:cartan-subalgebra-and-the-root-space-decom-18juxw4",
+    "decision": "name",
+    "label": "Root-space decomposition",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-1-cartan-subalgebras-and-the-root-space-decomposition::landmark:root-system-and-a-choice-of-positive-syste-107s350",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Supplier and notation choices for previously constructed root systems."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-1-cartan-subalgebras-and-the-root-space-decomposition::landmark:sl2-attached-to-a-root-1gqtnnu",
+    "decision": "keep",
+    "label": "sl₂ attached to a root",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-2-weights-of-a-module-and-their-integrality::landmark:generalized-weight-space-decomposition-zuc6zb",
+    "decision": "name",
+    "label": "Generalized weight-space decomposition of M",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-2-weights-of-a-module-and-their-integrality::landmark:honest-weight-spaces-the-diagonalizability-6l3a6p",
+    "decision": "name",
+    "label": "Weight-space diagonalizability theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-2-weights-of-a-module-and-their-integrality::landmark:integrality-of-weights-the-sl2-reduction-1qaw0kt",
+    "decision": "name",
+    "label": "Integrality of weights",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-2-weights-of-a-module-and-their-integrality::landmark:weyl-invariance-of-multiplicities-directly-ngpkr0",
+    "decision": "name",
+    "label": "Weyl-invariance of weight multiplicities",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ::landmark:borel-and-the-nilradicals-1p9w3p7",
+    "decision": "name",
+    "label": "Borel subalgebra and nilradicals",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ::landmark:highest-weight-vectors-and-modules-15osrgd",
+    "decision": "keep",
+    "label": "Highest weight vectors and modules",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ::landmark:pbw-a-substantial-sub-project-ms6wm9",
+    "decision": "name",
+    "label": "Poincaré–Birkhoff–Witt basis",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ::landmark:verma-modules-kvrged",
+    "decision": "keep",
+    "label": "Verma modules",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles::landmark:classification-theorem-1ep6cjp",
+    "decision": "name",
+    "label": "Highest-weight classification theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles::landmark:l-is-finite-dimensional-iff-is-dominant-in-a9mdjc",
+    "decision": "name",
+    "label": "Finite-dimensionality of L(λ)",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-5-complete-reducibility-weyls-theorem::landmark:casimir-element-1h3tfkr",
+    "decision": "keep",
+    "label": "Casimir element",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-5-complete-reducibility-weyls-theorem::landmark:dual-and-hom-modules-the-reduction-machine-9u34k2",
+    "decision": "name",
+    "label": "Dual and Hom Lie modules",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-5-complete-reducibility-weyls-theorem::landmark:invariant-form-on-weights-a-prerequisite-o-hr0on7",
+    "decision": "name",
+    "label": "Invariant bilinear form on weights",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-5-complete-reducibility-weyls-theorem::landmark:weyl-s-complete-reducibility-theorem-88m5ds",
+    "decision": "keep",
+    "label": "Weyl's complete reducibility theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas::landmark:formal-characters-9kce6",
+    "decision": "keep",
+    "label": "Formal characters",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas::landmark:representation-ring-and-the-character-alge-1ewcv4z",
+    "decision": "name",
+    "label": "Grothendieck representation ring",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas::landmark:weyl-character-formula-11nmpv5",
+    "decision": "keep",
+    "label": "Weyl character formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas::landmark:weyl-dimension-formula-1bx6sre",
+    "decision": "keep",
+    "label": "Weyl dimension formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations::landmark:center-z-u-l-and-central-characters-zjmh8l",
+    "decision": "name",
+    "label": "Central characters of Z(U(L))",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations::landmark:central-characters-and-the-dot-orbit-it3lr",
+    "decision": "name",
+    "label": "Central-character dot-orbit theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations::landmark:central-characters-separate-the-dominant-w-opbq2x",
+    "decision": "name",
+    "label": "Dominant-weight central-character injectivity",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations::landmark:harish-chandra-isomorphism-1c4q4x8",
+    "decision": "name",
+    "label": "Harish–Chandra isomorphism",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly::landmark:e-series-e6-e7-e8-as-explicit-construction-1idoeri",
+    "decision": "name",
+    "label": "Split exceptional Lie algebras E₆, E₇, E₈",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly::landmark:split-octonions-5twrgq",
+    "decision": "name",
+    "label": "Split Cayley algebra 𝕆",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n::landmark:classification-and-the-named-carrier-1rrevtm",
+    "decision": "name",
+    "label": "gl_n highest-weight classification",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n::landmark:diagonal-cartan-and-gl-n-weights-kz602h",
+    "decision": "name",
+    "label": "Dominant gl_n weights",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n::landmark:irreducibles-of-a-reductive-algebra-14hzwn9",
+    "decision": "name",
+    "label": "Classification of reductive irreducibles",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n::landmark:structure-of-reductive-lie-algebras-dyjzwl",
+    "decision": "name",
+    "label": "Direct sum of center and derived ideal",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-0-quivers-and-the-path-algebra::landmark:acyclicity-as-a-predicate-1uxkaur",
+    "decision": "name",
+    "label": "Acyclic quiver",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-0-quivers-and-the-path-algebra::landmark:finite-dimension-6wtgii",
+    "decision": "name",
+    "label": "Dimension of an acyclic path algebra",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-0-quivers-and-the-path-algebra::landmark:path-algebra-dh0q9u",
+    "decision": "name",
+    "label": "Path algebra of Q",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-0-quivers-and-the-path-algebra::landmark:path-basis-11pjt0o",
+    "decision": "name",
+    "label": "Path basis of kQ",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-1-representations-of-a-quiver-as-kq-modules::landmark:category-of-representations-840l5o",
+    "decision": "name",
+    "label": "Category of quiver representations",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-1-representations-of-a-quiver-as-kq-modules::landmark:representations-are-modules-h0d1jq",
+    "decision": "name",
+    "label": "Quiver representation–module equivalence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-1-representations-of-a-quiver-as-kq-modules::landmark:vertex-simples-projectives-injectives-jqyqvc",
+    "decision": "keep",
+    "label": "Vertex simples, projectives, injectives",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-2-the-krull-schmidt-theorem::landmark:existence-of-a-decomposition-11c2bgw",
+    "decision": "name",
+    "label": "Finite-length indecomposable decomposition",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-2-the-krull-schmidt-theorem::landmark:fitting-s-lemma-x2v6ta",
+    "decision": "keep",
+    "label": "Fitting's lemma",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-2-the-krull-schmidt-theorem::landmark:uniqueness-krull-schmidt-2xu3wd",
+    "decision": "name",
+    "label": "Krull–Schmidt uniqueness theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra::landmark:cartan-matrix-of-an-algebra-123g8it",
+    "decision": "keep",
+    "label": "Cartan matrix of an algebra",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra::landmark:finite-dimensional-algebra-infrastructure--1q89j50",
+    "decision": "name",
+    "label": "Primitive orthogonal idempotents",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra::landmark:projective-covers-and-injective-envelopes-we0x8l",
+    "decision": "keep",
+    "label": "Projective covers and injective envelopes",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra::landmark:radical-packaged-ae5u5l",
+    "decision": "name",
+    "label": "Nilpotence of the radical",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors::landmark:dimension-vectors-7zih9r",
+    "decision": "keep",
+    "label": "Dimension vectors",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors::landmark:euler-and-tits-forms-1oj8ckk",
+    "decision": "keep",
+    "label": "Euler and Tits forms",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors::landmark:ext1-of-representations-1edoswq",
+    "decision": "keep",
+    "label": "Ext¹ of representations",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors::landmark:homological-interpretation-6sdif",
+    "decision": "name",
+    "label": "Euler form Hom–Ext¹ identity",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification::landmark:finite-representation-type-1klb2dp",
+    "decision": "keep",
+    "label": "Finite representation type",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification::landmark:gabriel-s-dichotomy-nvljb5",
+    "decision": "keep",
+    "label": "Gabriel's dichotomy",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification::landmark:indecomposables-are-positive-roots-1rvlm7r",
+    "decision": "name",
+    "label": "Gabriel indecomposable–positive root bijection",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification::landmark:reflection-induction-the-combinatorial-cor-6b5kxc",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Proof outline for the indecomposable–positive root bijection retained in this layer."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-6-auslander-reiten-theory::landmark:almost-split-sequences-1ef1rgw",
+    "decision": "keep",
+    "label": "Almost-split sequences",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-6-auslander-reiten-theory::landmark:ar-quiver-4h602c",
+    "decision": "name",
+    "label": "Auslander–Reiten quiver",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-6-auslander-reiten-theory::landmark:ar-translate-5vm0cc",
+    "decision": "name",
+    "label": "Auslander–Reiten translate",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-6-auslander-reiten-theory::landmark:irreducible-morphisms-h70x5b",
+    "decision": "keep",
+    "label": "Irreducible morphisms",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange::landmark:finiteness-of-the-weyl-group-rqi3d5",
+    "decision": "keep",
+    "label": "Finiteness of the Weyl group",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange::landmark:inversion-sets-and-the-exchange-step-1mjpl24",
+    "decision": "name",
+    "label": "Root-level exchange condition",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange::landmark:positive-and-negative-roots-n0g9cr",
+    "decision": "keep",
+    "label": "Positive and negative roots",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-1-root-combinatorics-positive-roots-lowering-inversions-exchange::landmark:simple-root-lowering-fd4mkt",
+    "decision": "keep",
+    "label": "Simple-root lowering",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system::landmark:coxeter-matrix-of-a-base-93xacv",
+    "decision": "keep",
+    "label": "Coxeter matrix of a base",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system::landmark:length-equals-inversions-p1qhg0",
+    "decision": "name",
+    "label": "Coxeter length and inversions",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system::landmark:presentation-tits-theorem-o3uw3z",
+    "decision": "name",
+    "label": "Tits' presentation theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-2-the-weyl-group-as-a-coxeter-system::landmark:simple-reflections-generate-1dozng0",
+    "decision": "name",
+    "label": "Generation by simple reflections",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-3-the-missing-coxeter-combinatorics-root-system-free::landmark:bruhat-order-s-basic-well-definedness-and--ckap9v",
+    "decision": "name",
+    "label": "Poincaré polynomial",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-3-the-missing-coxeter-combinatorics-root-system-free::landmark:matsumoto-s-theorem-1jfctwe",
+    "decision": "keep",
+    "label": "Matsumoto's theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-3-the-missing-coxeter-combinatorics-root-system-free::landmark:stated-for-a-general-cs-coxetersystem-m-w--2ausgk",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Scope and file-placement instructions for the general Coxeter development."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-3-the-missing-coxeter-combinatorics-root-system-free::landmark:strong-exchange-condition-itz31i",
+    "decision": "name",
+    "label": "Strong exchange condition for Coxeter systems",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element::landmark:fundamental-domain-pwohqk",
+    "decision": "name",
+    "label": "Dominant chamber fundamental domain",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element::landmark:longest-element-1vh71g1",
+    "decision": "name",
+    "label": "Longest Weyl group element",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element::landmark:stated-for-p-rootpairing-m-n-finite-reduce-ps2qa6",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Standing hypotheses and a scope note about avoiding topology."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element::landmark:weyl-chambers-as-cones-1qf6s69",
+    "decision": "keep",
+    "label": "Weyl chambers as cones",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification::landmark:classification-of-finite-type-cartan-matri-ns6iev",
+    "decision": "name",
+    "label": "Finite-type Cartan matrix classification",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification::landmark:dynkin-type-enumeration-cj0n7h",
+    "decision": "keep",
+    "label": "Dynkin type enumeration",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification::landmark:finite-type-condition-18oa9qk",
+    "decision": "name",
+    "label": "Finite-type Cartan matrix",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification::landmark:realization-h6m4ub",
+    "decision": "name",
+    "label": "Coordinate realization of Dynkin types",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data::landmark:layer-5-classifies-root-systems-up-to-isom-1b57xy1",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Consumer motivation for explicit carriers, supplied by the root-datum construction below."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data::landmark:named-datum-per-valid-type-49jnzk",
+    "decision": "name",
+    "label": "Simply connected integral root datum",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data::landmark:pin-the-node-numbering-ztqlde",
+    "decision": "name",
+    "label": "Bourbaki-indexed Cartan matrix",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-0-partitions-diagrams-tableaux-and-orders::landmark:partition-diagram-class-dictionary-1o995iw",
+    "decision": "name",
+    "label": "Partition–Young diagram equivalence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-0-partitions-diagrams-tableaux-and-orders::landmark:standard-young-tableaux-1r1dzrm",
+    "decision": "keep",
+    "label": "Standard Young tableaux",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-0-partitions-diagrams-tableaux-and-orders::landmark:tableaux-and-their-row-column-groups-1patfab",
+    "decision": "keep",
+    "label": "λ-tableaux and their row/column groups",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-1-young-subgroups-and-the-permutation-modules-mλ::landmark:kostka-numbers-and-the-tabloid-combinatori-1hmqti",
+    "decision": "name",
+    "label": "Kostka numbers",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-1-young-subgroups-and-the-permutation-modules-mλ::landmark:permutation-module-2zqxzt",
+    "decision": "name",
+    "label": "Permutation module on λ-tabloids",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-1-young-subgroups-and-the-permutation-modules-mλ::landmark:young-subgroups-13mmzux",
+    "decision": "keep",
+    "label": "Young subgroups",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-2-young-symmetrizers::landmark:idempotent-theory-1b83ysr",
+    "decision": "name",
+    "label": "Idempotence of Young symmetrizers",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-2-young-symmetrizers::landmark:row-column-and-young-symmetrizers-ow0vrm",
+    "decision": "keep",
+    "label": "Row, column, and Young symmetrizers",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-3-the-specht-modules-sλ::landmark:polytabloids-and-the-specht-module-14yl768",
+    "decision": "keep",
+    "label": "Polytabloids and the Specht module",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-3-the-specht-modules-sλ::landmark:submodule-theorem-james-1l0lv5m",
+    "decision": "name",
+    "label": "James's submodule theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-4-completeness-and-irreducibility-the-classification::landmark:absolute-irreducibility-1dbz0tw",
+    "decision": "name",
+    "label": "Absolute irreducibility of Specht modules",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-4-completeness-and-irreducibility-the-classification::landmark:distinctness-and-completeness-1swfny9",
+    "decision": "name",
+    "label": "Specht module classification",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-4-completeness-and-irreducibility-the-classification::landmark:irreducibility-1tjul5t",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Ordinary irreducibility is subsumed by the retained absolute-irreducibility theorem in this layer."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-4-completeness-and-irreducibility-the-classification::landmark:young-s-rule-proper-deferred-from-layer-1-13ll87b",
+    "decision": "name",
+    "label": "Young's rule",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-5-the-standard-basis-and-the-hook-length-formula::landmark:hook-lengths-and-the-formula-1ns5r1b",
+    "decision": "name",
+    "label": "Hook-length formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-5-the-standard-basis-and-the-hook-length-formula::landmark:standard-basis-kbv7y6",
+    "decision": "name",
+    "label": "Standard polytabloid basis",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-6-characters-and-the-murnaghan-nakayama-rule::landmark:class-sizes-jhgqlx",
+    "decision": "name",
+    "label": "Class-size formula for Sₙ",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-6-characters-and-the-murnaghan-nakayama-rule::landmark:rim-hooks-and-murnaghan-nakayama-c1ubiv",
+    "decision": "name",
+    "label": "Murnaghan–Nakayama rule",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-6-characters-and-the-murnaghan-nakayama-rule::landmark:specht-character-bs5s8h",
+    "decision": "keep",
+    "label": "Specht character",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-7-symmetric-functions-the-frobenius-characteristic-and-rsk::landmark:frobenius-characteristic-1hikt3j",
+    "decision": "name",
+    "label": "Finite-variable Frobenius characteristic",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-7-symmetric-functions-the-frobenius-characteristic-and-rsk::landmark:rsk-12hkhej",
+    "decision": "name",
+    "label": "Robinson–Schensted–Knuth correspondence",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-7-symmetric-functions-the-frobenius-characteristic-and-rsk::landmark:schur-polynomials-finitely-many-variables-1jh0n2c",
+    "decision": "keep",
+    "label": "Schur polynomials (finitely many variables)",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-8-schur-weyl-duality::landmark:decomposition-and-schur-functors-xpaz8o",
+    "decision": "name",
+    "label": "Schur–Weyl tensor decomposition",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-8-schur-weyl-duality::landmark:double-centralizer-image-level-1m5ffdc",
+    "decision": "name",
+    "label": "Mutual centralizers of Sₙ and GLₔ",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-8-schur-weyl-duality::landmark:two-commuting-actions-v4j4v1",
+    "decision": "name",
+    "label": "Commuting Sₙ and GLₔ tensor actions",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-9-schur-weyl-duality-for-the-orthogonal-and-symplectic-groups-the-brauer-algebra::landmark:brauer-diagrams-and-the-brauer-algebra-1f8b6ft",
+    "decision": "keep",
+    "label": "Brauer diagrams and the Brauer algebra",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-9-schur-weyl-duality-for-the-orthogonal-and-symplectic-groups-the-brauer-algebra::landmark:harmonic-tensors-and-the-trace-maps-1y87k4e",
+    "decision": "keep",
+    "label": "Harmonic tensors and the trace maps",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-9-schur-weyl-duality-for-the-orthogonal-and-symplectic-groups-the-brauer-algebra::landmark:schur-weyl-duality-the-double-centralizer-wz34ty",
+    "decision": "name",
+    "label": "Orthogonal–symplectic Schur–Weyl duality",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-0-the-jacobson-radical-and-the-semisimplicity-criterion-supporting-api-optional::landmark:left-right-symmetry-1rqr25j",
+    "decision": "name",
+    "label": "Left-right symmetry of semiprimary rings",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-0-the-jacobson-radical-and-the-semisimplicity-criterion-supporting-api-optional::landmark:radical-as-an-intersection-and-its-quotien-yycox1",
+    "decision": "name",
+    "label": "Jacobson radical semisimplicity criterion",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-1-simple-modules-schur-and-isotypic-components::landmark:isotypic-decomposition-as-counted-data-1dhe04u",
+    "decision": "name",
+    "label": "Isotypic components and simple-module classes",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-1-simple-modules-schur-and-isotypic-components::landmark:schur-assembled-1pg5ofm",
+    "decision": "name",
+    "label": "Hom of simple modules",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-15-every-simple-module-is-a-minimal-left-ideal::landmark:isomorphism-class-bijection-11i4q6d",
+    "decision": "name",
+    "label": "Simple-module isomorphism-class bijection",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-15-every-simple-module-is-a-minimal-left-ideal::landmark:occurrence-in-the-regular-module-b267lc",
+    "decision": "name",
+    "label": "Simple modules as minimal left ideals",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness::landmark:canonical-invariants-intrinsic-k8yt4w",
+    "decision": "name",
+    "label": "Canonical Wedderburn invariants",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness::landmark:dimension-count-x8bjr4",
+    "decision": "name",
+    "label": "Wedderburn dimension identity",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness::landmark:presentation-named-choice-laden-1lcj59x",
+    "decision": "name",
+    "label": "Wedderburn presentation",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness::landmark:uniqueness-invariance-1wqjjzc",
+    "decision": "name",
+    "label": "Wedderburn presentation uniqueness",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem::landmark:from-surjective-to-bijective-xuw3up",
+    "decision": "name",
+    "label": "Faithful simple-module density isomorphism",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem::landmark:jacobson-chevalley-corollaries-10n4ull",
+    "decision": "name",
+    "label": "Jacobson–Chevalley density theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products::landmark:central-simple-packaged-1f5vnhg",
+    "decision": "name",
+    "label": "Central simple algebras",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products::landmark:mn-k-and-division-algebras-are-the-buildin-1sbcrpb",
+    "decision": "name",
+    "label": "Central simple algebra as Mₙ(D)",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products::landmark:square-dimension-and-the-degree-qbok9o",
+    "decision": "name",
+    "label": "Degree of a central simple algebra",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products::landmark:tensor-product-of-central-simple-is-centra-19i7asg",
+    "decision": "name",
+    "label": "Central simplicity of tensor products",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-5-skolem-noether-and-the-centralizer-theorem::landmark:centralizer-theorem-wlt00y",
+    "decision": "name",
+    "label": "Central simple centralizer theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-5-skolem-noether-and-the-centralizer-theorem::landmark:skolem-noether-pjbdv2",
+    "decision": "name",
+    "label": "Central-simple Skolem–Noether theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields::landmark:base-change-preserves-central-simplicity-t-4b13cf",
+    "decision": "name",
+    "label": "Central simplicity under scalar extension",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields::landmark:brauer-group-as-a-group-1f889sd",
+    "decision": "name",
+    "label": "Brauer group",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields::landmark:brauer-triviality-prerequisites-named-not--1rxsf64",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "A bundle of prerequisite identities for the retained Brauer group construction."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields::landmark:splitting-fields-maximal-subfields-and-the-1d3eknw",
+    "decision": "name",
+    "label": "Splitting fields and index",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-0-the-clifford-algebra-its-universal-property-and-the-two-gradings::landmark:2-grading-zplc73",
+    "decision": "name",
+    "label": "Clifford ℤ/2-grading",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-0-the-clifford-algebra-its-universal-property-and-the-two-gradings::landmark:degree-filtration-1m3wkn1",
+    "decision": "name",
+    "label": "Clifford degree filtration",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-0-the-clifford-algebra-its-universal-property-and-the-two-gradings::landmark:universal-property-consumed-and-packaged-27ki80",
+    "decision": "name",
+    "label": "Clifford algebra universal property",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-1-the-structure-theorem::landmark:even-dimensional-case-19qun2b",
+    "decision": "name",
+    "label": "Even-dimensional Clifford structure theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-1-the-structure-theorem::landmark:nondegeneracy-and-diagonalization-1s1rwsn",
+    "decision": "name",
+    "label": "Orthogonal diagonalization of quadratic forms",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-1-the-structure-theorem::landmark:odd-dimensional-case-13pwysq",
+    "decision": "name",
+    "label": "Odd-dimensional Clifford structure theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-1-the-structure-theorem::landmark:seed-of-periodicity-1iho9yq",
+    "decision": "name",
+    "label": "Clifford graded tensor product",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-2-the-pin-and-spin-groups-and-the-double-covers::landmark:abstract-orthogonal-group-1iob8z1",
+    "decision": "name",
+    "label": "Orthogonal group of Q",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-2-the-pin-and-spin-groups-and-the-double-covers::landmark:double-cover-the-summit-of-the-layer-over-19dq59z",
+    "decision": "name",
+    "label": "Pin and Spin double covers over ℂ",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-2-the-pin-and-spin-groups-and-the-double-covers::landmark:twisted-conjugation-homomorphism-w2obwp",
+    "decision": "name",
+    "label": "Pin twisted-conjugation homomorphism",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-2-the-pin-and-spin-groups-and-the-double-covers::landmark:vectors-from-the-clifford-algebra-nwkuwb",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Auxiliary range equivalence used to transport the retained twisted-conjugation action."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-3-the-lie-algebra-𝔰𝔬v--²v-inside-the-clifford-algebra::landmark:bivectors-as-a-lie-subalgebra-qxfefx",
+    "decision": "keep",
+    "label": "Bivectors as a Lie subalgebra",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-3-the-lie-algebra-𝔰𝔬v--²v-inside-the-clifford-algebra::landmark:differential-of-the-double-cover-3r943w",
+    "decision": "name",
+    "label": "Differential of the Spin double cover",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-4-the-spin-and-half-spin-representations::landmark:clifford-module-s-w-1nam3vo",
+    "decision": "keep",
+    "label": "Spinor representation of the Clifford algebra",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-4-the-spin-and-half-spin-representations::landmark:half-spin-summands-ilz3c1",
+    "decision": "name",
+    "label": "Half-spin representations",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-4-the-spin-and-half-spin-representations::landmark:maximal-isotropic-subspace-1kfyj3u",
+    "decision": "name",
+    "label": "Maximal isotropic subspace over ℂ",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-4-the-spin-and-half-spin-representations::landmark:spin-representation-of-the-group-k5t5qb",
+    "decision": "name",
+    "label": "Spin representation on S",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-5-the-fundamental-representations-of-bₗ-and-dₗ::landmark:split-cartan-and-borel-matched-to-the-abst-xssatw",
+    "decision": "name",
+    "label": "Split Cartan and Borel of 𝔰𝔬(V)",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-5-the-fundamental-representations-of-bₗ-and-dₗ::landmark:type-bl-so-2l-1-1pwn5r",
+    "decision": "name",
+    "label": "Type Bₗ spin highest weight",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-5-the-fundamental-representations-of-bₗ-and-dₗ::landmark:type-dl-so-2l-o3j3g1",
+    "decision": "name",
+    "label": "S⁺ and S⁻ highest weights in type Dₗ",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-5-the-fundamental-representations-of-bₗ-and-dₗ::landmark:weights-of-the-spin-module-1005pmo",
+    "decision": "keep",
+    "label": "Weights of the spin module",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-7-real-clifford-algebras-bott-periodicity-and-spinp-q::landmark:bott-periodicity-17zdzqp",
+    "decision": "name",
+    "label": "Bott periodicity of real Clifford algebras",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-7-real-clifford-algebras-bott-periodicity-and-spinp-q::landmark:connectivity-of-the-compact-spin-group-ih8wu4",
+    "decision": "keep",
+    "label": "Connectivity of the compact spin group",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-7-real-clifford-algebras-bott-periodicity-and-spinp-q::landmark:real-forms-cliff-p-q-12x4spq",
+    "decision": "name",
+    "label": "Real Clifford algebra Cliff(p, q)",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-7-real-clifford-algebras-bott-periodicity-and-spinp-q::landmark:real-spin-groups-1lt5pbl",
+    "decision": "name",
+    "label": "Real spin group Spin(p, q)",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-8-triality-for-spin₈::landmark:stage-one-representation-level-triality-th-16btv5s",
+    "decision": "name",
+    "label": "Representation-level triality",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-8-triality-for-spin₈::landmark:stage-two-triality-as-an-outer-automorphis-u655rq",
+    "decision": "name",
+    "label": "Outer triality automorphism of Spin₈",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-9-lie-algebras-acting-through-the-clifford-algebra-and-kostants-isotypy-corollary::landmark:abstract-quadratic-realization-181c4kh",
+    "decision": "name",
+    "label": "Quadratic realization of 𝔰𝔬(V, Q)",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-9-lie-algebras-acting-through-the-clifford-algebra-and-kostants-isotypy-corollary::landmark:adjoint-embedding-and-the-rank-bookkeeping-pnds2f",
+    "decision": "name",
+    "label": "Adjoint embedding in 𝔰𝔬(𝔤, B)",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-9-lie-algebras-acting-through-the-clifford-algebra-and-kostants-isotypy-corollary::landmark:kostant-s-isotypy-corollary-the-summit-n9ee6s",
+    "decision": "name",
+    "label": "Kostant's isotypy corollary",
+    "kind": "theorem"
+  }
+]
