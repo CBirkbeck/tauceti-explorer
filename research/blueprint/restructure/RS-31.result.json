@@ -49,6 +49,14 @@
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ],
       "reason": "The generic pinned split group construction and uniqueness are anchor Layer 9 work. The dualization application, induced action and functorial L-group interface are RG2.5 work, required independently of Tannakian Satake reconstruction."
+    },
+    "ShimuraData:D1": {
+      "action": "narrow",
+      "keeps": "Import RG2.0a's actual Deligne torus S = Res_(C/R) G_m, its diagonal and norm maps, complex splitting with conjugation, and character/cocharacter conventions. Retain the equivalence between finite-dimensional algebraic real representations of S and finite direct sums of pure real Hodge structures, the rational-weight criterion, tensor/dual/Tate-twist compatibilities and comparison with the existing opposed-filtration construction. Retain all four tests: the trivial representation, Q(1), elliptic-curve homology and the adjoint GL_2 representation. Compare the imported diagonal with the chosen 1979 Hodge-sign dictionary: the central restriction of h is the inverse of its weight cocharacter, and h(i) = C^(-1). A general representation is not required to have a single weight. Retain D0 and the existing Hodge-structure supplier; do not reconstruct the torus or change the Hodge library's conventions.",
+      "suppliedBy": [
+        "ReductiveGroupsPartII:RG2.0a"
+      ],
+      "reason": "The literal Deligne-torus construction in D1 repeats RG2.0a, an overlap already noted by the unreviewed AUDIT-41 lead and independently confirmed in both documents. RG2.0a owns the algebraic construction; D1 owns the representation/Hodge equivalence and its sign comparisons."
     }
   },
   "links": [
@@ -226,6 +234,16 @@
       "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
       "target": "SmoothRepresentationsOfLocalGroups:SR.4",
       "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "ReductiveGroupsPartII:RG2.0a",
+      "target": "ShimuraData:D1",
+      "reason": "Import the constructed Deligne torus, diagonal/norm maps, complex splitting/conjugation and character data for the Hodge-representation equivalence; D1 compares the Hodge-sign convention instead of constructing a second torus."
+    },
+    {
+      "source": "ReductiveGroupsPartII:RG2.0a",
+      "target": "ShimuraData:D2",
+      "reason": "Preserve D1's imported algebraic Deligne-torus interface for h and its adjoint Hodge decomposition in the Hermitian-domain construction. Keep D1 to supply its representation/Hodge equivalence and sign dictionary; Weil restriction alone is not that equivalence."
     }
   ],
   "owners": [
@@ -265,11 +283,29 @@
       ]
     },
     {
-      "target": "Geometric reductivity predicate of a group over a field, used on a special-fiber quotient",
+      "target": "Reductivity over a field (smooth, connected, with trivial geometric unipotent radical), used on a special-fiber quotient",
       "owner": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
       "formerly": [
         "ReductiveGroupsPartII:RG2.3"
       ]
+    },
+    {
+      "target": "Deligne torus as Res_(C/R) G_m, diagonal and norm maps, complex splitting/conjugation and character/cocharacter data",
+      "owner": "ReductiveGroupsPartII:RG2.0a",
+      "formerly": [
+        "ShimuraData:D1"
+      ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-31",
+    "date": "2026-09-21",
+    "notes": "Independently checked the full member and anchor documents, the unreviewed audit leads, original external consumers, retained targets, exact pinned declarations, and section-15 structure. Corrected the missed Deligne-torus duplication with ShimuraData D1 and preserved its Hodge work and D2 handoff. Clarified the reductivity ownership label. Acceptance concerns structural ownership, not source-proof closure or the pre-existing unassigned associated-bundle request.",
+    "corrections": [
+      "Narrowed ShimuraData:D1 to import the Deligne torus and its algebraic maps from RG2.0a, preserving every Hodge equivalence, comparison, sign convention and acceptance test.",
+      "Added one Deligne-torus ownership row and two supplier links, to D1 and its existing direct consumer D2; all original RG2 consumer edges remain.",
+      "Reworded the Layer 6 ownership label to specify smooth connected reductivity with trivial geometric unipotent radical, avoiding ambiguity with the distinct term geometric reductivity."
+    ]
+  }
 }
