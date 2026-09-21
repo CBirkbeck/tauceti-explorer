@@ -1,0 +1,1420 @@
+{
+  "paper": "PAPER-LIPNOWSKI-TSIMERMAN-18",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "source": {
+    "title": "How large is A_g(F_q)?",
+    "authors": "Michael Lipnowski and Jacob Tsimerman",
+    "venue": "Duke Mathematical Journal 167(18) (2018), 3403–3453",
+    "doi": "10.1215/00127094-2018-0029",
+    "arxiv": "1511.02212v1",
+    "url": "https://arxiv.org/pdf/1511.02212v1",
+    "readSections": [
+      "Public arXiv v1 (6 November 2015): all 38 pages, §§0–5.7.3 and all references read completely.",
+      "Conrad, Polarizations: all 10 pages read completely.",
+      "Yun arXiv:1303.2420v2: introduction, §§1.3–1.5; §§4.8–4.13 including proofs of Lemma 4.9 and Proposition 4.13. Other sections not claimed read."
+    ],
+    "versionNote": "G0: both authors link the 38-page v1. Crossref records the 51-page 2018 published article. Matching has NOT been established. Canonical publisher full/download URLs returned Incapsula HTML, not PDF. All mathematical locators and error reports here refer to v1 unless explicitly Conrad or Yun.",
+    "files": [
+      {
+        "name": "arxiv",
+        "url": "https://arxiv.org/pdf/1511.02212",
+        "sha256": "5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a",
+        "pages": 38,
+        "bytes": 394120,
+        "accessed": "2026-09-21T21:27:47.479862+00:00",
+        "read": "all 38 pages"
+      },
+      {
+        "url": "https://arxiv.org/pdf/1303.2420",
+        "sha256": "a9f560f9c7ed334ff4895cde2676476cd430e0efa7c14e3d6d508df5326bc347",
+        "pages": 19,
+        "date": "2026-09-21T21:32:51.892740+00:00",
+        "read": "selected sections specified above"
+      },
+      {
+        "url": "https://virtualmath1.stanford.edu/~conrad/vigregroup/vigre04/polarization.pdf",
+        "sha256": "7156a718e879f7cc752a460ad61c14dbcfd2978a13149b7024c9809ac487af6b",
+        "pages": 10,
+        "date": "2026-09-21T21:36:19.023997+00:00",
+        "read": "all 10 pages"
+      }
+    ],
+    "libraryPins": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "TauCeti": "f790474821cf4256814db967cb154e7af3d0c369"
+    },
+    "atlasCommit": "14482fbdbea546a681b66b8bb4ff336bdc8830c6"
+  },
+  "summary": "A source-qualified checkpoint for finite-field abelian-variety counts. Imports existing abelian varieties, isocrystals, CM fields, class-number and finite-GL APIs; routes polarization, hermitian-lattice and distribution suppliers to their existing owners and adds one finite-field arithmetic Part II. The complete public preprint was read, but published-version comparison, local-order estimates, mass normalization and statistical endpoints remain open. A concrete characteristic-two counterexample blocks v1 Lemma 5.19. No formalization is claimed.",
+  "items": [
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/abelian-variety",
+      "kind": "definition",
+      "name": "Abelian variety over a field",
+      "statement": "An abelian variety over k is a proper geometrically integral group scheme over Spec k; its dimension is the Krull dimension of its underlying scheme. Smoothness and geometric connectedness are derived.",
+      "locator": "§0; §3 setup",
+      "status": "library",
+      "note": " API: Reuse the bundled carrier, Hom/End, products, field extension and dimension; prove finite natural dimension before using g in counts. Tests: (1) the zero variety has dimension zero; (2) geometric connectedness is required; (3) the finite-field model is not an abstract finite abelian group.",
+      "library": [
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety",
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.dim",
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.smooth"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/unpolarized-count",
+      "kind": "definition",
+      "name": "Unweighted abelian-variety count",
+      "statement": "B(p,g) is the number of F_p-isomorphism classes of g-dimensional abelian varieties over the prime field F_p, for fixed prime p and g tending to infinity.",
+      "locator": "§0 p.1",
+      "status": "planned",
+      "note": " API: Construct the isomorphism quotient, finite cardinality after its finiteness theorem, and decomposition over isogeny classes. Tests: (1) isogenous nonisomorphic varieties remain distinct; (2) automorphism orders do not weight this count; (3) p stays fixed in every g-asymptotic.",
+      "planned": [
+        "ArithmeticStatistics:ST.0"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/ppav-count",
+      "kind": "definition",
+      "name": "Unweighted principally polarized count",
+      "statement": "A(p,g) counts F_p-isomorphism classes of pairs (A,λ) with dim A=g and λ a principal polarization; equivalences preserve λ. The associated distribution is uniform on these classes.",
+      "locator": "§0 pp.1–2",
+      "status": "planned",
+      "note": " API: Use polarization-preserving isomorphisms, forgetful fibers and finite probability measures; distinguish stack mass and coarse rational points. Tests: (1) one A can give several classes; (2) a twist can share a coarse moduli point; (3) sum 1/|Aut(A,λ)| is a different quantity.",
+      "planned": [
+        "ArithmeticStatistics:ST.0"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/polarization-fiber",
+      "kind": "definition",
+      "name": "Number of polarizations on a fixed variety",
+      "statement": "n_A is the number of Aut_k(A)-orbits on principal polarizations of A, and is zero if A has none.",
+      "locator": "§4.4; Conjecture 5.2",
+      "status": "missing",
+      "note": " API: Define fibers of the forgetful class map; prove A(p,g)=Σ_[A] n_A only after finiteness; guard log n_A by n_A>0. Tests: (1) an empty polarization set gives zero; (2) changing an isomorphic underlying representative preserves n_A; (3) counting line bundles would overcount Pic⁰ translates. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/main-unpolarized-source",
+      "kind": "theorem",
+      "name": "Source main unpolarized estimate",
+      "statement": "The public v1 states: for every ε>0 and fixed prime p, B(p,g)=o(p^((17/2+ε)g²)) as g→∞.",
+      "locator": "Theorem 0.1; §3.2.3 (28)",
+      "status": "missing",
+      "note": "G0/G1/G2: recorded source claim, not an accepted numerical target. Equations (26)–(28) lose discriminant squares and fixed-p powers of 2; the exact exponent needs the final paper and a repaired local argument. Unrouted."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/main-repeated-source",
+      "kind": "theorem",
+      "name": "Source squarefree-isogeny probability",
+      "statement": "For a prime satisfying Lemma 5.11, v1 claims that the proportion of ppav classes whose underlying variety has no repeated simple F_p-isogeny factor AND whose Frobenius polynomial is coprime to X²−p tends to zero.",
+      "locator": "Theorem 0.3; Proposition 4.17",
+      "status": "missing",
+      "note": "G0/G4: retain the conjunction and the prime restriction. The qualitative comparison exp(O_p(g²)) versus exp(c g² log g) is the mechanism; quantitative suppliers are not closed. Unrouted pending source reconciliation."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/main-elliptic-source",
+      "kind": "theorem",
+      "name": "Source conditional large elliptic factor",
+      "statement": "Assuming Conjecture 5.2, for a prime satisfying Lemma 5.11, v1 claims that the proportion of ppav classes admitting an F_p-isogeny factor E^h, with E/F_p elliptic and h≥0.99g, tends to one.",
+      "locator": "Theorem 0.2; Corollary 5.13",
+      "status": "missing",
+      "note": "G4/G5: Conjecture 5.2 only covers products of CM-field matrix algebras; the real-Weil/quaternionic factor is not covered. The coefficient 0.99 also depends on the disputed mass asymptotic. Unrouted."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/trace-formula",
+      "kind": "theorem",
+      "name": "Compactly supported trace formula",
+      "statement": "For a separated finite-type scheme X/F_q and ℓ∤q, #X(F_q)=Σ_i (−1)^i Tr(Frob_q | H_c^i(X_bar,Q_ℓ)), with geometric Frobenius convention.",
+      "locator": "§1 (1)–(2)",
+      "status": "missing",
+      "note": "The paper explicitly suppresses stack issues. This item is scheme-valued only; no unweighted stack count follows."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/weights-source",
+      "kind": "theorem",
+      "name": "Weights used in the point-count heuristic",
+      "statement": "The source uses |α|≤q^(i/2) for eigenvalues on H_c^i of a smooth F_q-variety; purity of weight i requires properness as well.",
+      "locator": "§1 p.3",
+      "status": "planned",
+      "note": "DWP.7 and its reviewed audit read: the upper compact-support bound and smooth proper purity are existing targets. This motivational input is not used in §§2–5; no purity claim for arbitrary open varieties.",
+      "planned": [
+        "DeligneWeightsAndPurity:DWP.7"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/euler-source",
+      "kind": "theorem",
+      "name": "Orbifold Euler characteristic heuristic",
+      "statement": "The motivational section uses χ_orb(A_g)=∏_(n=1)^g ζ(1−2n) and χ_orb(M_g)=ζ(1−2g)/(2−2g) for g≥2, and compares their growth with topology.",
+      "locator": "§1 pp.4–5",
+      "status": "missing",
+      "note": "G8: split and acquire the original Euler-characteristic theorems before closure. Orbifold Euler characteristic is not automatically the alternating sum of ordinary rational Betti numbers; genus-one stack weights already distinguish them. Unrouted acquisition item."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/isogeny",
+      "kind": "definition",
+      "name": "Isogeny of abelian varieties",
+      "statement": "An isogeny is a group-scheme homomorphism whose underlying scheme map is finite and surjective; inseparability is allowed.",
+      "locator": "§3 setup",
+      "status": "library",
+      "note": " API: Reuse IsIsogeny, composition, invariance under isomorphism and base change; rationalize Hom separately. Tests: (1) identity is an isogeny; (2) inseparable Frobenius is not excluded; (3) finite alone does not supply surjectivity.",
+      "library": [
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny",
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.isIsogeny_iff"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/rational-endomorphism",
+      "kind": "definition",
+      "name": "Rational endomorphism algebra",
+      "statement": "End⁰_k(A)=End_k(A)⊗_Z Q; quasi-isogenies are its units for self-maps, and invertible morphisms in the rationalized category for different varieties.",
+      "locator": "§3 pp.6–7",
+      "status": "planned",
+      "note": " API: Extend the existing End ring by rational scalar extension; prove inverse denominators, composition and centralizers. Tests: (1) [m] for m≠0 becomes invertible; (2) integral automorphisms form a smaller subgroup; (3) base-field endomorphisms need not be geometric endomorphisms.",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A6"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/poincare-decomposition",
+      "kind": "theorem",
+      "name": "Isogeny decomposition and semisimplicity",
+      "statement": "Over a field, every abelian variety is isogenous to a product of powers of pairwise nonisogenous simple abelian varieties; its rational endomorphism algebra is the corresponding product of matrix algebras over division algebras.",
+      "locator": "§3.2.2; Proposition 4.16",
+      "status": "planned",
+      "note": "",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A6"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-module",
+      "kind": "definition",
+      "name": "Prime-to-characteristic Tate module",
+      "statement": "For ℓ≠char k, T_ℓ(A)=lim_n A[ℓ^n](k_sep) with multiplication-by-ℓ transitions; V_ℓ(A)=T_ℓ(A)⊗Q_ℓ, carrying G_k-action.",
+      "locator": "§3 setup",
+      "status": "planned",
+      "note": " API: Construct the inverse limit and Galois action; prove rank 2g, functoriality, and integral versus rational comparisons. Tests: (1) ℓ=p is excluded here; (2) isogenies act invertibly on V but not always T; (3) a rank-2g statement requires the torsion theorem.",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A4"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-hom",
+      "kind": "theorem",
+      "name": "Tate full faithfulness over finite fields",
+      "statement": "For A,B/F_q and ℓ≠p, Hom_Fq(A,B)⊗Z_ℓ→Hom_Gal(T_ℓA,T_ℓB) is an isomorphism; rationalizing gives the analogous Q_ℓ statement.",
+      "locator": "§3 lattice classification; [25]",
+      "status": "missing",
+      "note": "Original Tate proof not yet read, G8. Existing Tate modules in A4 are an input, not this theorem. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/weil-polynomial",
+      "kind": "definition",
+      "name": "Frobenius polynomial and reciprocity",
+      "statement": "For A/F_q of dimension g, P_A(X)=det(X−Frob_q|V_ℓA) is a monic polynomial in Z[X] of degree 2g, independent of ℓ, with all complex roots of absolute value √q and coefficients satisfying a_(2g−i)=q^(g−i)a_i.",
+      "locator": "§2; §4.3",
+      "status": "missing",
+      "note": " API: Define from the characteristic polynomial, then prove integrality, independence, multiplicativity and reciprocal symmetry. Tests: (1) P_(A×B)=P_A P_B; (2) constant coefficient is q^g; (3) X²−q satisfies the root-radius condition but not this reciprocal condition. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/isogeny-polynomial",
+      "kind": "theorem",
+      "name": "Frobenius polynomial determines the isogeny class",
+      "statement": "Two abelian varieties over F_q are F_q-isogenous exactly when their Frobenius characteristic polynomials agree.",
+      "locator": "Corollary 2.2, Tate input",
+      "status": "missing",
+      "note": "Use semisimplicity plus Tate full faithfulness, not only equality of eigenvalue sets. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/honda-tate",
+      "kind": "theorem",
+      "name": "Honda–Tate simple isogeny classification",
+      "statement": "Simple F_q-isogeny classes correspond to conjugacy classes of q-Weil algebraic integers π. The dimension is determined by 2 dim A=[Q(π):Q] sqrt([End⁰(A):Q(π)]), with the division-algebra local invariants prescribed by π.",
+      "locator": "§0; §3.2.2; Proposition 4.14",
+      "status": "missing",
+      "note": "G8: original Honda/Tate statements and local invariants still to extract atomically. This is a supplier target, not permission to regard every degree-2g Weil polynomial as realized by dimension g. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/power-sum-count",
+      "kind": "theorem",
+      "name": "A safe reciprocal-polynomial counting bound",
+      "statement": "For q≥2 and g≥1, the number of monic reciprocal integer polynomials of degree 2g with constant q^g and all roots of absolute value √q is at most (4g+1)^g q^(g(g+1)/4).",
+      "locator": "§2 Lemma 2.1, repaired elementary bound",
+      "status": "missing",
+      "note": "The k-th power sum is an integer of absolute value ≤2g q^(k/2); its possible values number at most (4g+1)q^(k/2). The first g power sums determine the first g coefficients by Newton identities; reciprocity determines the rest. This is an explicitly derived replacement, not the printed constant. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/power-sum-source",
+      "kind": "theorem",
+      "name": "Printed polynomial-count constant",
+      "statement": "Lemma 2.1 prints (2g)^g q^(g(g+1)/4) for all monic degree-2g integer polynomials with roots of absolute value √q.",
+      "locator": "§2 Lemma 2.1",
+      "status": "missing",
+      "note": "G1: false as literally written already for g=1,q=2: the five reciprocal polynomials X²−aX+2, −2≤a≤2, exceed 2√2; X²−2 additionally exposes missing reciprocity. Unrouted."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/isogeny-class-upper",
+      "kind": "theorem",
+      "name": "Asymptotic count of isogeny classes",
+      "statement": "For fixed q, the number of dimension-g F_q-isogeny classes is at most exp((log q)g²/4+O_q(g log g)).",
+      "locator": "Corollary 2.2 with repaired power-sum-count",
+      "status": "missing",
+      "note": "Only injectivity of the class-to-polynomial map is used. No Honda–Tate surjectivity onto all polynomials is needed. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/isocrystal",
+      "kind": "definition",
+      "name": "Frobenius isocrystal carrier",
+      "statement": "Over a perfect field k of characteristic p, an F-isocrystal is a vector space over Frac W(k) with a bijective Witt-Frobenius-semilinear map.",
+      "locator": "§3 p-adic realization",
+      "status": "library",
+      "note": " API: Import the existing carrier, Frobenius and equivariant homomorphisms; impose finite dimension explicitly. Tests: (1) over F_p the coefficient Frobenius is identity; (2) over F_(p^r) semilinearity is retained; (3) an arbitrary linear map is not an isocrystal morphism.",
+      "library": [
+        "mathlib:WittVector.Isocrystal",
+        "mathlib:WittVector.Isocrystal.frobenius",
+        "mathlib:WittVector.IsocrystalHom"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/dieudonne-lattice",
+      "kind": "definition",
+      "name": "Integral Dieudonné realization",
+      "statement": "For A/F_q, the chosen covariant Dieudonné module D₀(A) is a free W(F_q)-module of rank 2g with F,V semilinear in opposite directions and FV=VF=p; D(A)=D₀(A)[1/p].",
+      "locator": "§3 setup",
+      "status": "planned",
+      "note": " API: Import R07.2 with one fixed covariance convention; prove isogeny transport, F/V stability and recovery of p-power subgroup quotients. Tests: (1) F and V are Q_p-linear only over F_p; (2) rank counts height rather than dimension of A[p](k_bar); (3) changing covariance reverses the quasi-isogeny lattice map.",
+      "planned": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/marked-lattice-space",
+      "kind": "definition",
+      "name": "Prime-to-p and p lattice spaces",
+      "statement": "X^p is the restricted product of Frob-stable full Z_ℓ-lattices in V_ℓ(A₀), equal to T_ℓ(A₀) almost everywhere; X_p is the set of W(F_q)-lattices in D(A₀) stable under both F and V.",
+      "locator": "§3 equations (5)–(6)",
+      "status": "missing",
+      "note": " API: Define restricted support, full lattices and rational-centralizer actions, with a separate p component. Tests: (1) a collection modified at infinitely many primes is excluded; (2) F-stability alone is insufficient at p; (3) endomorphism units preserve the stability predicates. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/marked-quasi-isogeny",
+      "kind": "theorem",
+      "name": "Marked quasi-isogenies classified by lattices",
+      "statement": "Isomorphism classes of pairs (A,f:A→A₀ a rational quasi-isogeny) correspond to X_p×X^p via covariant realization transport.",
+      "locator": "§3 (5)–(6)",
+      "status": "missing",
+      "note": "G8: construction requires Tate and Dieudonné full faithfulness and finite-flat quotients. Do not infer essential surjectivity merely from the linear maps. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/forget-marking",
+      "kind": "theorem",
+      "name": "Isomorphism classes as rational orbits",
+      "statement": "The underlying F_q-isomorphism classes in the isogeny class of A₀ are End⁰(A₀)^×\\(X_p×X^p).",
+      "locator": "§3 (7)",
+      "status": "missing",
+      "note": "Changing the marking acts by postcomposition. Global rational orbits differ from independent local orbits. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-p-centralizer",
+      "kind": "theorem",
+      "name": "The prime-field p-component reduction",
+      "statement": "For A₀/F_p, F is Q_p-linear and V=pF^(−1); hence the simultaneous centralizer of F,V is the centralizer of F, and its orbits on F,V-stable lattices form a subset of its orbits on F-stable lattices.",
+      "locator": "Remark 3.2",
+      "status": "missing",
+      "note": "For F_(p^r), r>1, the coefficient Frobenius is nontrivial; this argument does not extend by replacing p with q. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/local-order",
+      "kind": "definition",
+      "name": "Local monogenic order",
+      "statement": "For a monic irreducible f∈Z_ℓ[X] with separable fraction algebra F, R=Z_ℓ[X]/(f)⊂O_F; an R-lattice of rank n is a full Z_ℓ-lattice in F^n stable under R.",
+      "locator": "§3.1.2",
+      "status": "missing",
+      "note": " API: Use existing submodules, integral closure and finite-length quotients; define saturation and the trace-dual lattice. Tests: (1) R=O_F gives one GL_n(F)-orbit of R-lattices; (2) nonmaximal orders allow nonfree modules; (3) the residue field of R need not equal F_ℓ. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/saturation-normalization",
+      "kind": "theorem",
+      "name": "Normalized lattice sandwiches",
+      "statement": "For an R-lattice M⊂F^n, some g∈GL_n(F) puts it in R^n⊂gM⊂O_F^n.",
+      "locator": "§3.1.2",
+      "status": "missing",
+      "note": "First normalize O_F M to O_F^n. Choose n elements of M whose reductions form a residue-field basis and use Nakayama to obtain an O_F-basis. The next passage to sublattices of R^n needs a separate duality argument, G2. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/flag-fiber",
+      "kind": "definition",
+      "name": "Stable lattice with prescribed flag quotients",
+      "statement": "For semisimple γ preserving 0⊂V₁⊂V and V₂=V/V₁, fix full γ-stable lattices U₁⊂V₁,U₂⊂V₂. Consider full γ-stable L⊂V with L∩V₁=U₁ and image U₂.",
+      "locator": "§3.1.3; Yun §4.8–4.9",
+      "status": "missing",
+      "note": " API: Construct the fiber and equivariant splitting; encode it by γ-equivariant maps U₂→V₁/U₁. Tests: (1) projection to V₂ is not intersection with a chosen V₂ summand; (2) a split lattice gives the zero extension; (3) equal eigenvalues require quotienting by shears. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-shear",
+      "kind": "theorem",
+      "name": "Centralizer shears identify equivalent extensions",
+      "statement": "Two such lattices whose maps U₂→V₁/U₁ differ by a rational γ-equivariant map U₂→V₁ lie in the same centralizer orbit.",
+      "locator": "Lemma 3.1 and proof",
+      "status": "missing",
+      "note": "Choose a γ-equivariant splitting. The unipotent block matrix with that difference as off-diagonal entry commutes with γ and transports one graph lattice to the other. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/yun-resultant-fiber",
+      "kind": "theorem",
+      "name": "Resultant cardinality of a disjoint-spectrum fiber",
+      "statement": "If γ₁ and γ₂ on the two graded spaces have disjoint spectra, the flag fiber has q^(v_F Res(P₁,P₂)) elements, where P_i are their full characteristic polynomials over a local field F with residue size q.",
+      "locator": "Yun Lemma 4.9 pp.14–15; LT §3.1.1",
+      "status": "missing",
+      "note": "Yun proof read. The determinant of γ₂*⊗1−1⊗γ₁ gives the exponent. Each unordered pair of blocks occurs once; characteristic-polynomial multiplicities matter. Repeated blocks require the separate shear quotient. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-determinant-bound",
+      "kind": "theorem",
+      "name": "Bound after removing zero eigenspaces",
+      "statement": "For the extension quotient in §3.1.4, semisimplicity bounds its order by the residue cardinality to the valuation of the product of all nonzero cross-eigenvalue differences, counted with multiplicity.",
+      "locator": "§3.1.4 pp.8–10",
+      "status": "missing",
+      "note": "The cokernel torsion is a quotient of the lattice on the nonzero-eigenvalue subspace modulo F applied to that lattice; the printed subset inclusion is reversed. Prove the quotient map explicitly. This does not certify the later global exponent. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/punctual-hilbert-count",
+      "kind": "definition",
+      "name": "Finite-colength ideal count",
+      "statement": "For a complete DVR O with residue field F_q, Hilb^j_(O[[X]]) denotes ideals I with O-module length(O[[X]]/I)=j.",
+      "locator": "Yun §4.12–4.13",
+      "status": "missing",
+      "note": " API: Use ideals and module length; classify by initial ideals/partitions and finite residue choices. Tests: (1) j=0 contains the whole ring only; (2) length is measured over O; (3) a residue extension changes q and scales base-ring length. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/yun-partition-formula",
+      "kind": "theorem",
+      "name": "Yun finite-colength partition formula",
+      "statement": "#Hilb^j_(O[[X]])=Σ_(λ partition of j) q^(j−length λ).",
+      "locator": "Yun Proposition 4.13 pp.16–17",
+      "status": "missing",
+      "note": "Full proof read: initial ideals have the same colength, the lifts of I_μ number q^(|μ|−μ₀), then transpose partitions. In particular j=0,1,2 give 1,1,q+1. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/hilbert-crude-bound",
+      "kind": "theorem",
+      "name": "Crude partition upper bound",
+      "statement": "For j≥0, #Hilb^j_(O[[X]])≤(2q)^j.",
+      "locator": "LT §3.1.5; Yun Proposition 4.13",
+      "status": "missing",
+      "note": "For j≥1 bound the number of partitions by 2^(j−1), and each exponent by j; handle j=0 separately. A general local order must first be reduced to the same residue field, as Yun Corollary 4.10 does. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/local-orbit-source",
+      "kind": "theorem",
+      "name": "Unclosed local orbit estimate",
+      "statement": "The source claims #GL_n(F)\\{R-lattices in F^n}≤ℓ^(4nδ), δ=v_ℓ disc(R/Z_ℓ), and combines this into (14).",
+      "locator": "§§3.1.5–3.1.6",
+      "status": "missing",
+      "note": "G2: missing residue-field reduction, dual sandwich conversion, equal-block multiplicities and false weak-composition estimate at δ=0. Yun treats regular semisimple orbital integrals; it cannot directly supply this repeated-eigenvalue statement. Unrouted."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/stabilizer-depth-source",
+      "kind": "theorem",
+      "name": "Unclosed integral stabilizer-index bound",
+      "statement": "The source claims a normalized local representative M has #GL_n(O_F)·M≤ℓ^(4δn²), followed by a global product estimate (20).",
+      "locator": "§3.2.1 (16)–(20)",
+      "status": "missing",
+      "note": "G2: gM↦(m↦g(m) mod R^n) is not a well-defined map on orbit points without a representative-choice argument; residue cardinalities and δ=0 need separate checks. Preserve as an unrouted source claim."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/adelic-class-set",
+      "kind": "definition",
+      "name": "Adelic class set of the endomorphism group",
+      "statement": "For G=(End⁰(A₀))^× and an adelic lattice L, the global orbits inside its G(A_fin)-orbit are G(Q)\\G(A_fin)/Stab(L).",
+      "locator": "§3.2 (15)",
+      "status": "missing",
+      "note": " API: Construct orbit decomposition and compact-open stabilizers; compare smaller stabilizers with maximal compact opens by index inequalities. Tests: (1) rational orbits need not coincide with adelic orbits; (2) nontrivial stabilizers are retained; (3) an index gives an upper bound without an unjustified free action. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/strong-approximation",
+      "kind": "theorem",
+      "name": "Strong approximation supplier",
+      "statement": "A simply connected almost-simple group over a number field satisfies strong approximation away from a nonempty set S when the relevant S-local group is noncompact, with the standard isotropy/noncompactness hypothesis on each factor.",
+      "locator": "§3.2.2 before (21)",
+      "status": "planned",
+      "note": "AUDIT-09/AA.4 inspected: the library only has a congruence SL₂/Q instance, not the groups used here. The compact definite quaternion norm-one group in rank one is excluded.",
+      "planned": [
+        "AdelicAlgebraicGroups:AA.4"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonabelian-class-comparison",
+      "kind": "theorem",
+      "name": "Class-set comparison by reduced norms",
+      "statement": "Let K₀=Q(√p), D₀/K₀ the quaternion algebra ramified at both real places and split at every finite place, and d≥2. With maximal finite compact U₀,d=∏_v GL_(2d)(O_(K₀,v)), reduced norm identifies GL_d(D₀)(K₀)\\GL_d(D₀)(A_(K₀,fin))/U₀,d with the narrow ideal class group Cl⁺(K₀). For each CM field K_i, determinant identifies GL_(n_i)(K_i)\\GL_(n_i)(A_(K_i,fin))/GL_(n_i)(Ohat_(K_i)) with Cl(K_i). Their product gives the mixed class set. The d=1 quaternion factor remains its own class set; d=0 omits it.",
+      "locator": "§3.2.2 (21)",
+      "status": "missing",
+      "note": "Explicit corrected supplier target derived from strong approximation and the reduced-norm image theorem, not a verbatim statement of (21). At real ramified places norms are positive; Cl⁺ rather than Cl occurs. Its ratio to Cl is at most 2^[K₀:Q]=4, harmless for fixed-p exponential scale. G8: acquire the original approximation and norm-image proofs; the rank-one finite quaternion class number is separate. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/class-formula",
+      "kind": "theorem",
+      "name": "Analytic class number formula",
+      "statement": "For a number field K, lim_(s→1+) (s−1)ζ_K(s)=2^r₁(2π)^r₂ h_K R_K/(w_K√|D_K|).",
+      "locator": "§3.2.2 (22)",
+      "status": "library",
+      "note": "The pinned theorem is the real right-hand residue limit. No meromorphic continuation is being claimed by this citation.",
+      "library": [
+        "mathlib:NumberField.dedekindZeta_residue",
+        "mathlib:NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/coarse-class-bound",
+      "kind": "theorem",
+      "name": "Available uniform class-number bound",
+      "statement": "For every number field K, h_K≤|D_K|·4^[K:Q].",
+      "locator": "Coarser available replacement for §3.2.2",
+      "status": "library",
+      "note": "This already proves the exp(O_p(g²)) scale once the discriminant and dimension sums are bounded; it does not recover the printed 17/2 constant.",
+      "library": [
+        "tauceti:NumberField.classNumber_le_bound"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/weil-discriminant-bound",
+      "kind": "theorem",
+      "name": "Correct elementary discriminant estimate",
+      "statement": "If K=Q(π), π is an integral p-Weil number of degree d, then |D_K|≤|disc minpoly(π)|≤(2√p)^(d(d−1)).",
+      "locator": "§3.2.2 (26), corrected exponent",
+      "status": "missing",
+      "note": "The Vandermonde product is squared: ∏_(i<j)|π_i−π_j|². The printed binomial exponent misses this square. Combined with coarse-class-bound and Σd_i≤2g this gives product h_(K_i)≤exp(O_p(g²)). Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/regulator-source",
+      "kind": "theorem",
+      "name": "Skoruppa input awaiting original proof",
+      "statement": "The source quotes R_K/w_K≥0.00299 exp(0.48r₁+0.06r₂)≥1/500.",
+      "locator": "§3.2.2 (23), [24]",
+      "status": "missing",
+      "note": "G8: original Skoruppa source and all low-degree conventions need checking; source-scoped analytic estimate not routed from an unverified quotation. Coarse-class-bound makes it unnecessary for the coarse class-set scale."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/residue-source",
+      "kind": "theorem",
+      "name": "Louboutin input awaiting original proof",
+      "statement": "For degree d>1 the source quotes Res_(s=1) ζ_K(s)≤(e log|D_K|/(2(d−1)))^(d−1).",
+      "locator": "§3.2.2 (24), [18]",
+      "status": "missing",
+      "note": "G8: original hypotheses not checked. In §5.4.2 an upper bound for each residue does not bound their ratio from both sides. Unrouted."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/dual-poincare",
+      "kind": "definition",
+      "name": "Dual variety and rigidified Poincaré bundle",
+      "statement": "A∨ represents the degree-zero Picard functor of A, with a Poincaré line bundle P_A on A×A∨ rigidified on both zero sections.",
+      "locator": "§4.1; Conrad §1",
+      "status": "planned",
+      "note": " API: Import Picard representability, biduality and the rigidified universal property; prove dual functoriality. Tests: (1) zero parameter gives the trivial rigidified bundle; (2) forgetting rigidifications creates scalar automorphisms; (3) duality reverses composition.",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A2"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/polarization",
+      "kind": "definition",
+      "name": "Polarization as a positive symmetric morphism",
+      "statement": "A polarization λ:A→A∨ is symmetric under biduality and has ample graph pullback (1,λ)*P_A; it is principal when λ is an isomorphism.",
+      "locator": "Definition 4.1; Conrad Definitions 2.1,3.2",
+      "status": "planned",
+      "note": " API: Export symmetry, ampleness, isogeny and principal predicates, base change and pullback along homomorphisms. Tests: (1) −λ is not positive for dim A>0; (2) a symmetric isomorphism need not be a polarization; (3) principal means degree one, not merely finite kernel.",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A2"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/mumford-map",
+      "kind": "construction",
+      "name": "Mumford homomorphism of a line bundle",
+      "statement": "For L on A, the rigidified bundle m*L⊗p₁*L^(−1)⊗p₂*L^(−1) corresponds to φ_L:A→A∨, with φ_L(a)=t_a*L⊗L^(−1).",
+      "locator": "§4.1; Conrad Example 2.2",
+      "status": "planned",
+      "note": " API: Construct the actual map from the universal property; prove tensor additivity, Pic⁰ kernel and pullback covariance. Tests: (1) φ_(L⊗M)=φ_L+φ_M; (2) Pic⁰ bundles map to zero; (3) graph pullback has class 2[L], not [L].",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A2"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/graph-pullback",
+      "kind": "theorem",
+      "name": "Correct graph-pullback normalization",
+      "statement": "(1,φ_L)*P_A≅[2]*L⊗L^(−2), up to the fixed zero-fiber rigidification; its class in NS(A) is 2[L], and it is ample exactly when L is ample.",
+      "locator": "Conrad Example 2.2 pp.6–7, correcting LT §4.1",
+      "status": "missing",
+      "note": "The source equality with L is not literal. Conrad was read completely; no ad hoc change of the principal-polarization definition is made. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/phi-kernel",
+      "kind": "theorem",
+      "name": "Kernel of the Mumford map",
+      "statement": "Two line bundles give the same φ_L exactly when their quotient lies in Pic⁰(A); over an algebraically closed field every symmetric map A→A∨ has such a representation.",
+      "locator": "§4.1 (1)–(2); Conrad Lemma 2.3 and p.8",
+      "status": "missing",
+      "note": "Keep the algebraically closed hypothesis in the original construction. Finite fields use the next descent theorem. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/phi-ample-isogeny",
+      "kind": "theorem",
+      "name": "Ample line bundles induce isogenies",
+      "statement": "If L is ample on A over a field, φ_L is an isogeny; a polarization is therefore always an isogeny.",
+      "locator": "§4.1 (3); Conrad Remark 2.4",
+      "status": "planned",
+      "note": "",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A2"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-field-polarization-descent",
+      "kind": "theorem",
+      "name": "Line-bundle realization over a finite field",
+      "statement": "For A over a finite field, every symmetric isogeny A→A∨ is φ_L for some line bundle over that field.",
+      "locator": "Remark 4.2; Conrad Theorem 2.6",
+      "status": "missing",
+      "note": "The obstruction is a torsor under A∨ and vanishes by Lang. Use the stated isogeny case from the checked Conrad theorem; no arbitrary-field descent is inferred. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/polarized-isomorphism",
+      "kind": "definition",
+      "name": "Isomorphism of symmetric morphisms",
+      "statement": "An isomorphism (A,f)→(B,g) is an isomorphism α:A→B with f=α∨ g α.",
+      "locator": "Definition 4.3",
+      "status": "planned",
+      "note": " API: Define composition and inverse and prove compatibility with pullback of line bundles. Tests: (1) identity preserves f; (2) composition requires contravariant dual order; (3) an unpolarized isomorphism may fail the equation.",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A2"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/phi-pullback",
+      "kind": "theorem",
+      "name": "Pullback covariance",
+      "statement": "For a homomorphism α:A→B and a line bundle L on B, φ_(α*L)=α∨ φ_L α.",
+      "locator": "Remark 4.4 (29)",
+      "status": "planned",
+      "note": "",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A2"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/rosati",
+      "kind": "definition",
+      "name": "Rosati involution",
+      "statement": "For a polarization f, h†=f^(−1) h∨ f is a Q-linear involutive anti-automorphism of End⁰(A); S⁰(A) is its fixed subspace.",
+      "locator": "Definition 4.5; Conrad §3",
+      "status": "planned",
+      "note": " API: Use inverse in the isogeny category, prove (ab)†=b†a† and square identity, and define the symmetric subspace. Tests: (1) scalars are fixed; (2) matrix products reverse order; (3) different polarizations can induce different involutions.",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A2"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/ns-rational",
+      "kind": "definition",
+      "name": "Rational Néron–Severi space",
+      "statement": "NS(A)_Q=(Pic(A)/Pic⁰(A))⊗Q, with its ample cone in NS(A)_R. Rational endomorphism pullbacks act on this rational space after clearing denominators.",
+      "locator": "§4.2 with rationalization made explicit",
+      "status": "missing",
+      "note": " API: Import Picard quotients and rational scalar extension; distinguish integral classes from rational multiples and the open ample cone from its closure. Tests: (1) half an ample class need not be integral; (2) Pic⁰ twists have the same NS class; (3) zero is nef but not ample in positive dimension. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/ns-rosati-map",
+      "kind": "construction",
+      "name": "Normalized Néron–Severi/Rosati map",
+      "statement": "For a principal f=φ_(L₀), define Φ_f:NS(A)_Q→S⁰(A) by [L]↦(1/2)f^(−1)φ_L. Define D_f(a,b)=(a+b)*[L₀]−a*[L₀]−b*[L₀] on rationalized classes.",
+      "locator": "§4.2, Lemma 4.6 with rational domain corrected",
+      "status": "missing",
+      "note": "The factor 1/2 is retained as in the paper; NS must be rationalized. Polarization-orbit identification below uses f^(−1)λ, not Φ_f without rescaling. API: Prove bilinearity of D_f, the inverse a↦D_f(a,1) on symmetric a, and Φ_f(α*L)=α†Φ_f(L)α. Tests: (1) Φ_f([L₀])=1/2; (2) D_f(1,1)=2[L₀]; (3) rational pullbacks cannot be typed as integral line bundles. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/endomorphism-trace",
+      "kind": "definition",
+      "name": "Geometric endomorphism trace",
+      "statement": "t(h) is the trace on V_ℓ(A), equivalently the negative coefficient of X^(2g−1) in det(X−h), extended Q-linearly to End⁰(A).",
+      "locator": "Definition 4.7; Conrad Definition 3.3",
+      "status": "planned",
+      "note": " API: Prove independence of ℓ, t(1)=2g, cyclicity and product compatibility; compare reduced traces with representation multiplicities. Tests: (1) t([m])=2gm; (2) for End⁰=Q the reduced trace of 1 is 1 but t(1)=2g; (3) cyclicity does not require commutativity.",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A6"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/degree-polynomial",
+      "kind": "theorem",
+      "name": "Degree characteristic polynomial",
+      "statement": "For an endomorphism h of a g-dimensional abelian variety, det(X−h|V_ℓA) is the degree polynomial deg([X]−h), independent of ℓ; degree on End⁰ extends homogeneously of degree 2g.",
+      "locator": "§4.3, Mumford §19 Theorem 4",
+      "status": "planned",
+      "note": "G8: read the original degree-polynomial theorem before implementation; equality means polynomial interpolation, not degree of a morphism over a polynomial-valued point.",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A6"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/rosati-positivity",
+      "kind": "theorem",
+      "name": "Positive Rosati trace pairing",
+      "statement": "For a polarization f, (a,b)↦t(a†b) is a positive-definite Q-bilinear form on End⁰(A).",
+      "locator": "§4.3; Conrad Theorem 3.4 pp.9–10",
+      "status": "planned",
+      "note": "Conrad proof read, via 2g(D^(g−1)·a*D)/(D^g)>0. Positivity of this trace form alone does not characterize polarizations among all symmetric isogenies.",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A6"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/positive-ample",
+      "kind": "theorem",
+      "name": "Ample classes and positive symmetric elements",
+      "statement": "Under the rationalized Φ_f, a symmetric invertible a is in the rational ample cone exactly when its characteristic roots are positive real numbers, equivalently when it is a sum of squares of invertible elements of Q[a].",
+      "locator": "Proposition 4.9",
+      "status": "missing",
+      "note": "Interpret the line-bundle side as a positive rational ample class. Lang original proof and the sums-of-squares implication remain G8. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/real-cone",
+      "kind": "theorem",
+      "name": "Real ample-cone matrix description",
+      "statement": "A polarized abelian variety has real endomorphism algebra a product of matrix algebras over R,C,H; under compatible involution identifications its ample cone is a product of positive-definite self-adjoint matrix cones with g*a g action.",
+      "locator": "Proposition 4.10",
+      "status": "missing",
+      "note": "Open cone duality means the interior of the dual of its closed cone. Do not assert literal equality of an open cone with its closed dual. The trace metric can have positive factor weights; an unweighted isometry requires its own normalization. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/polarization-orbits",
+      "kind": "theorem",
+      "name": "Polarizations as Rosati-conjugacy orbits",
+      "statement": "For a fixed principal polarization f on A/k, principal polarizations up to Aut_k(A) correspond to Aut_k(A)-orbits of integral units a∈End_k(A) fixed by † and positive in the ample cone, by λ=f a and a↦α†aα.",
+      "locator": "Proposition 4.11",
+      "status": "missing",
+      "note": "Use f^(−1)λ without the 1/2 factor in Φ_f. For finite-field k the line-bundle descent above is available; determinant-one terminology must be interpreted via degree/unit conditions. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/integer-matrix-example",
+      "kind": "theorem",
+      "name": "No-CM elliptic-power orbit example",
+      "statement": "If End_k(E)=Z, principal polarizations on E^g correspond to positive-definite symmetric matrices in GL_g(Z) modulo integral congruence.",
+      "locator": "Example 4.12",
+      "status": "missing",
+      "note": "This example is over a general field; it does not describe elliptic curves over finite fields. Its printed exp(g² log g) count is withheld with G4. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/cm-field",
+      "kind": "definition",
+      "name": "CM field and maximal real subfield",
+      "statement": "A CM field L is a totally imaginary quadratic extension of its maximal totally real subfield K.",
+      "locator": "§4.4.1; Definition 5.1",
+      "status": "library",
+      "note": " API: Import IsCMField, maximalRealSubfield and degree/place APIs. Tests: (1) Q(i) is CM; (2) a totally real field is excluded; (3) [L:Q]=2[K:Q].",
+      "library": [
+        "mathlib:NumberField.IsCMField"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/cm-conjugation",
+      "kind": "definition",
+      "name": "Intrinsic CM conjugation",
+      "statement": "The nonidentity automorphism of L/K agrees with complex conjugation under every embedding L→C.",
+      "locator": "Definition 5.1",
+      "status": "library",
+      "note": " API: Import complexConj and embedding compatibility; use it in matrix adjoints and norm units. Tests: (1) conjugating twice is identity; (2) K is fixed pointwise; (3) conjugation is intrinsic rather than an arbitrary embedding choice.",
+      "library": [
+        "mathlib:NumberField.IsCMField.complexConj",
+        "mathlib:NumberField.IsCMField.complexEmbedding_complexConj",
+        "mathlib:NumberField.IsCMField.complexConj_apply_apply"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/cm-unit-orbits",
+      "kind": "theorem",
+      "name": "Polarizations for a maximal CM endomorphism order",
+      "statement": "If A admits a principal polarization and End(A)=O_L for a CM field L with Rosati conjugation, its principal-polarization classes correspond to O_K^(×,+)/N_(L/K)(O_L^×).",
+      "locator": "Example 4.13",
+      "status": "missing",
+      "note": "The base principal polarization and Rosati identification are hypotheses. Norms of field elements and norms of units are different subgroups. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-end-algebra",
+      "kind": "theorem",
+      "name": "Commutative endomorphisms in the nonreal prime-field case",
+      "statement": "If A/F_p is simple and Q(Frob) has no real embedding, End⁰_Fp(A)=Q(Frob) is a CM field.",
+      "locator": "Proposition 4.14(1)",
+      "status": "missing",
+      "note": "Retain both simple and prime-field hypotheses. Supersingular elliptic curves over F_(p²) provide the excluded noncommutative behavior. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/waterhouse-orders",
+      "kind": "theorem",
+      "name": "Realization of nonreal prime-field orders",
+      "statement": "In the preceding simple F_p-isogeny class, every order R in Q(Frob) containing Frob and p/Frob occurs as End_Fp(A′) for some A′ in that class.",
+      "locator": "Proposition 4.14(2), Waterhouse Theorem 6.1",
+      "status": "missing",
+      "note": "G8: original Waterhouse construction not yet read. It is an existence target with these exact restrictions, not a universal order-realization theorem over F_q. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/squarefree-pol-count",
+      "kind": "theorem",
+      "name": "Squarefree nonreal polarization bound",
+      "statement": "For A/F_p of dimension g with no repeated simple isogeny factor and P_A coprime to X²−p, the source proves n_A≪p^(C g²) for some absolute C.",
+      "locator": "Proposition 4.16",
+      "status": "missing",
+      "note": "G8: unit norms, nonmaximal-order index and global class-set estimates remain dependencies. The proof only needs an exp(O_p(g²)) scale; no sharpened numerical coefficient is exported. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/model-ring",
+      "kind": "definition",
+      "name": "Model ring with positive involution",
+      "statement": "For distinct CM fields L_i with real subfields K_i and n_i>0 satisfying Σ_i n_i[L_i:Q]=2g, R_(L,n)=∏_i M_(n_i)(O_(L_i)) with conjugate-transpose involution.",
+      "locator": "Definition 5.1",
+      "status": "missing",
+      "note": " API: Define the product ring, adjoint and positive symmetric unit locus; expose factorwise congruence orbits. Tests: (1) one imaginary quadratic factor has n=g; (2) different factors retain separate ranks; (3) this ring need not be realized by a principally polarized variety. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/model-orbit-count",
+      "kind": "definition",
+      "name": "Positive-unit model orbit count",
+      "statement": "n_(L,n) is the number of R_(L,n)^×-orbits on positive self-adjoint units by a↦g*ag.",
+      "locator": "Definition 5.1; Conjecture 5.2",
+      "status": "missing",
+      "note": " API: Construct orbit finiteness, products and log-count only after positivity; separate unweighted counts from masses. Tests: (1) identity is a positive unit; (2) a singular positive-semidefinite matrix is excluded; (3) the action is congruence rather than ordinary conjugation. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/model-comparison-conjecture",
+      "kind": "theorem",
+      "name": "Conjectural comparison with the model ring",
+      "statement": "CONJECTURE: for fixed p, A/F_p principally polarizable with simple rational endomorphism fields L_i CM and multiplicities n_i satisfies |log n_A−log n_(L,n)|≤C_p g², uniformly in A and g.",
+      "locator": "Conjecture 5.2",
+      "status": "missing",
+      "note": "Explicit proposition-valued hypothesis; never register it as a proved theorem. It excludes the real Frobenius field Q(√p) case and is not repaired by enlarging an O-constant. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/unit-norm-label",
+      "kind": "definition",
+      "name": "Totally positive unit norm labels",
+      "statement": "Σ=O_K^(×,+)/N_(L/K)(O_L^×), with chosen representatives ε_σ; on L^n set h_σ(z,w)=ε_σ z₁ conjugate(w₁)+Σ_(i>1) z_i conjugate(w_i).",
+      "locator": "§5.2",
+      "status": "missing",
+      "note": " API: Construct the quotient, representative independence, determinants and positive definite hermitian spaces. Tests: (1) the identity label uses ε=1; (2) different unit labels may become equal modulo field norms; (3) n=1 keeps the determinant label visible. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/unitary-group",
+      "kind": "definition",
+      "name": "Unitary group of a definite hermitian space",
+      "statement": "U_σ is the K-algebraic group preserving h_σ; its K-points act on O_L-lattices by isometries.",
+      "locator": "§5.2",
+      "status": "missing",
+      "note": " API: Import affine-group and hermitian-form carriers; build functor of points, localizations and determinant map to the norm-one torus. Tests: (1) the center is anisotropic; (2) unitary is not unitary-similitude; (3) at split finite places the group becomes GL_n. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/hermitian-lattice",
+      "kind": "definition",
+      "name": "Integral projective hermitian lattice",
+      "statement": "An O_L-lattice M in L^n is finitely generated, full and locally free of rank n, and integral when h(M,M)⊂O_L. Free lattices form a distinguished subclass.",
+      "locator": "Definition 5.3",
+      "status": "planned",
+      "note": " API: Use projective modules and localization; prove basis/Gram equivalence only for free modules and retain the Steinitz class. Tests: (1) a nonprincipal ideal gives a rank-one projective module; (2) fullness excludes the zero submodule for n>0; (3) integrality is a pairing condition, not freeness.",
+      "planned": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/hermitian-dual",
+      "kind": "definition",
+      "name": "Dual and unimodularity",
+      "statement": "M∨={x∈L^n:h(x,M)⊂O_L}; an integral hermitian lattice is unimodular if M=M∨.",
+      "locator": "Definition 5.3",
+      "status": "planned",
+      "note": " API: Construct the dual, double dual and localization, and prove determinant-unit criterion when a basis exists. Tests: (1) O_L^n with the standard form is unimodular; (2) integral does not imply self-dual; (3) local self-duality does not imply global freeness.",
+      "planned": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/gram-orbit-bijection",
+      "kind": "theorem",
+      "name": "Free unimodular lattices and Gram congruence",
+      "statement": "Positive hermitian matrices in GL_n(O_L) modulo congruence correspond to free unimodular hermitian lattices up to isometry, with their determinant unit class retained.",
+      "locator": "Proposition 5.4",
+      "status": "missing",
+      "note": "The realization inside the fixed spaces h_σ additionally uses local classification and the hermitian Hasse principle. The determinant-class condition in (35) is necessary: the same rational space can represent multiple integral unit-norm labels. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/norm-ideal",
+      "kind": "definition",
+      "name": "Norm ideal of a local hermitian lattice",
+      "statement": "n(M) is the O_(L_v)-ideal generated by h(m,m), m∈M, for a lattice in a fixed localized hermitian space.",
+      "locator": "Definition 5.5",
+      "status": "missing",
+      "note": " API: Prove isometry invariance, relation to scale ideal and localization; retain dyadic parity. Tests: (1) isometric lattices have equal norm ideals; (2) unimodular dyadic lattices may have different norm ideals; (3) norm and determinant are separate invariants. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/local-hermitian-classification",
+      "kind": "theorem",
+      "name": "Local unimodular classification input",
+      "statement": "In the fixed hermitian space over a local quadratic extension, unimodular lattices of the specified determinant and equal norm ideal are isometric; the norm-ideal restriction is automatic for unramified extensions and for ramified odd residue characteristic.",
+      "locator": "Proposition 5.6 and following paragraph",
+      "status": "planned",
+      "note": "G8: Jacobowitz Theorems 7.1,8.2 and Proposition 10.4 must be read for exact dyadic and split conventions. Do not turn the automatic odd-prime case into an all-prime assertion.",
+      "planned": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/hermitian-genus",
+      "kind": "definition",
+      "name": "Genus of a hermitian lattice",
+      "statement": "The genus of M comprises projective unimodular lattices in its rational hermitian space locally isometric to M at every finite place, modulo global isometry.",
+      "locator": "§5.3 (37)",
+      "status": "planned",
+      "note": " API: Define local isometry and global classes; prove the adelic double-coset description and isolate free classes. Tests: (1) one genus can have several global classes; (2) class number one for O_L makes projective lattices free; (3) fixing the genus does not fix an integral basis.",
+      "planned": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/genus-double-cosets",
+      "kind": "theorem",
+      "name": "Hermitian genus as a unitary class set",
+      "statement": "For a representative lattice M in a fixed genus, its projective isometry classes identify with U(K)\\U(A_(K,fin))/Stab(M).",
+      "locator": "§5.3 (37)",
+      "status": "missing",
+      "note": "This counts all projective lattices; it is not a bijection onto free Gram matrices unless the Steinitz obstruction is removed. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/hermitian-mass",
+      "kind": "definition",
+      "name": "Weighted hermitian genus mass",
+      "statement": "mass(C)=Σ_[M]∈C 1/|Aut(M)| for a positive definite hermitian genus with finitely many isometry classes.",
+      "locator": "§5.4 (38)",
+      "status": "planned",
+      "note": " API: Prove finiteness of automorphism groups and genus, define the weighted sum, and compare it with unweighted cardinality. Tests: (1) one class with two automorphisms has mass 1/2; (2) all automorphisms preserve the hermitian form; (3) mass includes projective nonfree lattices.",
+      "planned": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/tamagawa-mass",
+      "kind": "theorem",
+      "name": "Unitary Tamagawa mass formula",
+      "statement": "For a definite unitary group U of a nondegenerate hermitian space over a CM extension L/K, the genus mass is τ(U)/vol_Tam(K_M), with archimedean compact factors included in K_M; τ(U)=2.",
+      "locator": "§5.4 (38)",
+      "status": "planned",
+      "note": "GN.3 owns this formula and all measure normalizations. Gan–Yu original proof remains G8; the formula alone does not justify the simplified dyadic factors in (39).",
+      "planned": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/density-source",
+      "kind": "theorem",
+      "name": "Unverified simplified local-density formula",
+      "statement": "Equation (39) writes the inverse stabilizer volume as a discriminant factor times ∏_(d=1)^n ((d−1)!/(2π)^d)^[K:Q] divided by finite local factors β_(M_v), identified with normalized unitary or orthogonal group orders.",
+      "locator": "§5.4 (39)",
+      "status": "missing",
+      "note": "G4: unacquired Gan–Yu Theorem 10.20, ramified dyadic corrections, nonsmooth naive group models and split local cases prevent routing this displayed simplification as an exact theorem."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/relative-discriminant",
+      "kind": "theorem",
+      "name": "Elementary CM relative-discriminant bound",
+      "statement": "If L=Q(π) is generated by a nonreal p-Weil number and K=L⁺, then N_(K/Q)(D_(L/K))≤(4p)^[K:Q].",
+      "locator": "§5.4.1 (41), corrected factor",
+      "status": "missing",
+      "note": "disc_(O_K)(1,π)=(π−conjugate π)², whose real absolute values are 4p sin²θ. The printed p sin²θ misses 4; the O_p([K:Q]) logarithmic scale survives. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/factorial-asymptotic",
+      "kind": "theorem",
+      "name": "Factorial product asymptotic",
+      "statement": "As n→∞, Σ_(d=1)^n log((d−1)!)=(1/2)n² log n−(3/4)n²+O(n log n).",
+      "locator": "§5.4.3, elementary audit of (39) to (51)",
+      "status": "missing",
+      "note": "Expand as Σ_(j=1)^(n−1)(n−j)log j and compare monotone sums to integrals. Thus the displayed factorial product has coefficient 1/2, whereas (51) prints coefficient 1. This audit does not decide which formula the final paper uses. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/mass-asymptotic-source",
+      "kind": "theorem",
+      "name": "Source leading mass asymptotic",
+      "statement": "The v1 equation (51) claims log mass(C_σ)=[K:Q]n² log n+O(n²[K:Q]²), then repeats that coefficient in (53)–(56).",
+      "locator": "§§5.4.3–5.5",
+      "status": "missing",
+      "note": "G4: inconsistent with the displayed factorial factor in (39). Also (49) cannot follow from upper residue bounds alone. Unrouted; compare final text and Gan–Yu before any 0.99 threshold."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/gl-card",
+      "kind": "theorem",
+      "name": "Finite general linear group cardinality",
+      "statement": "For a field F_q and n≥0, |GL_n(F_q)|=∏_(i=0)^(n−1)(q^n−q^i)=q^(n²)∏_(j=1)^n(1−q^(−j)).",
+      "locator": "Lemma 5.8; Example 5.17",
+      "status": "library",
+      "note": "The pinned formula is the first product; the normalized second form is elementary algebra. Empty products cover n=0.",
+      "library": [
+        "mathlib:Matrix.card_GL_field",
+        "mathlib:Matrix.card_matrix"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-integral-group",
+      "kind": "theorem",
+      "name": "Minkowski finite integral group bound",
+      "statement": "The largest order of a finite subgroup of GL_N(Z) is exp(N log N+O(N)) as N→∞.",
+      "locator": "Lemma 5.8 and full proof",
+      "status": "missing",
+      "note": "Upper bound: inject at odd congruence primes, choose primes in primitive residue classes, sum valuations and use Σ_(p≤N)log p/p=log N+O(1). Signed permutation matrices give 2^N N! as the matching scale. The congruence and prime estimates remain supplier proof tasks. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/mass-cardinality-comparison",
+      "kind": "theorem",
+      "name": "Passing from mass to class count",
+      "statement": "For a finite nonempty genus C with 1≤|Aut(M)|≤H, mass(C)≤|C|≤H mass(C). For rank n hermitian O_L-lattices, H≤exp(N log N+O(N)), N=n[L:Q].",
+      "locator": "§5.4.4 (52)–(53)",
+      "status": "missing",
+      "note": "Forget the O_L-structure to embed the finite isometry group in GL_N(Z). A bound on mass alone is not an upper bound for the unweighted count. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/free-projective-comparison",
+      "kind": "theorem",
+      "name": "Free versus projective mass classes",
+      "statement": "Free unimodular isometry classes form a subset of all projective classes. If Cl(O_L)=1, every finitely generated projective O_L-module of fixed rank is free, so the subset is all classes.",
+      "locator": "Remark 5.7; (54)",
+      "status": "missing",
+      "note": "Retain determinant labels in the union of genera. Class number one is sufficient, not claimed necessary. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/model-count-source",
+      "kind": "theorem",
+      "name": "Source model-ring logarithmic bound",
+      "statement": "V1 claims log n_(L,n)≤Σ_i [K_i:Q] n_i² log n_i+O_p(g²), with equality up to O_p(g²) when all Cl(O_(L_i)) are trivial.",
+      "locator": "§5.4.5 (55)",
+      "status": "missing",
+      "note": "G4: the displayed line calls the count itself bounded by this logarithmic quantity, but context requires log count. Its leading coefficient inherits the (39)/(51) discrepancy. Unrouted."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/convex-concentration",
+      "kind": "theorem",
+      "name": "Convex mass-concentration inequality",
+      "statement": "For g≥0, 1/2<ε<1 and finitely many nonnegative x_i≤εg with Σx_i=g, Σx_i²≤(ε²+(1−ε)²)g².",
+      "locator": "Lemma 5.9",
+      "status": "missing",
+      "note": "Move weight between two interior coordinates until at most one is interior; the maximum has entries εg,(1−ε)g,0,… . This avoids the source interval typo [0,ε]^k and does not depend on the mass formula. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/model-concentration-source",
+      "kind": "theorem",
+      "name": "Source model concentration threshold",
+      "statement": "V1 claims log n_(L,n)≥0.99g² log g forces n_(i₀)≥0.99g and [K_(i₀):Q]=1.",
+      "locator": "Proposition 5.10",
+      "status": "missing",
+      "note": "G4: at minimum this is an eventual-in-g statement after controlling uniform O_p(g²) errors, not an all-g implication. The correct threshold also requires the reconciled leading coefficient. Unrouted."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/split-prime-density",
+      "kind": "theorem",
+      "name": "Density of primes splitting in a class-number-one CM field",
+      "statement": "The nine imaginary quadratic fields of class number one have independent square classes; outside their finite ramified-prime set, the primes splitting in at least one have natural density 1−2^(−9).",
+      "locator": "Lemma 5.11 proof",
+      "status": "missing",
+      "note": "Independent characters and prime equidistribution supply this statement. G8: acquire the class-number-one classification and exact equidistribution proof before closure; the density does not assert a pointwise condition at ramified primes. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/cm-elliptic-existence",
+      "kind": "theorem",
+      "name": "Elliptic curve with class-number-one endomorphisms",
+      "statement": "If a prime p splits in an imaginary quadratic class-number-one field L, there exists E/F_p with End_Fp(E)=O_L, obtained from a norm-p algebraic integer and Waterhouse order realization.",
+      "locator": "Lemma 5.11 proof",
+      "status": "missing",
+      "note": "Keep the degree-two Weil polynomial, ordinary reduction and endomorphism-order certificate. This existence statement does not itself determine the mass asymptotic. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/elliptic-power-source",
+      "kind": "theorem",
+      "name": "Source elliptic-power asymptotic",
+      "statement": "For a density at least 1−2^(−9) set of primes, v1 claims an E/F_p whose principal-polarization count on E^g is exp(g² log g+O_p(g²)).",
+      "locator": "Lemma 5.11 (56)",
+      "status": "missing",
+      "note": "G4: the coefficient is withheld with (51). A positive multiple of g² log g would suffice for Theorem 0.3, but the exact leading coefficient is not repaired here. Unrouted."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/spacing-measure",
+      "kind": "definition",
+      "name": "Normalized eigenangle spacing measure",
+      "statement": "For a degree-2g Frobenius polynomial, order its 2g eigenangles on the circle with multiplicity, include the wraparound gap, scale gaps by 2g/(2π), and give each gap mass 1/(2g). Average over uniform ppav classes to obtain μ_g.",
+      "locator": "§5.6, expanded convention",
+      "status": "missing",
+      "note": " API: Define cyclic gaps, tie multiplicities and averaged measures; prove total mass one and permutation invariance. Tests: (1) 2g equal angles give 2g−1 zero gaps; (2) wraparound contributes a gap; (3) repeated eigenvalues must not be deduplicated. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/spacing-source",
+      "kind": "theorem",
+      "name": "Source random-matrix discrepancy conclusion",
+      "statement": "Assuming Conjecture 5.2 and the prime condition of Lemma 5.11, v1 states a discrepancy at least 0.99 between μ_g and μ_GUE.",
+      "locator": "Corollary 5.14",
+      "status": "missing",
+      "note": "G5/G7: should specify an asymptotic lower bound, the exact discrepancy metric and normalized spacing law. Two eigenvalues each of multiplicity h force at least 2(h−1) zero gaps, so finite-g mass is at least h/g−1/g, not h/g. Unrouted."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/cl-measure",
+      "kind": "definition",
+      "name": "Cohen–Lenstra probability measure",
+      "statement": "For a prime ℓ, CL_ℓ assigns a finite abelian ℓ-group H mass c_ℓ/|Aut(H)|, c_ℓ=∏_(j≥1)(1−ℓ^(−j)); for finite S use the product of these measures.",
+      "locator": "§5.7.1",
+      "status": "planned",
+      "note": " API: Construct the countable isomorphism-class space, positive normalization and finite-prime product; keep it separate from symplectic Frobenius models. Tests: (1) trivial group has mass c_ℓ; (2) the prime set S is finite; (3) being a heuristic for a family requires a separate hypothesis.",
+      "planned": [
+        "ArithmeticStatistics:ST.5"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/friedman-washington",
+      "kind": "theorem",
+      "name": "Random integral matrices and Cohen–Lenstra",
+      "statement": "For Haar-uniform F∈M_g(Z_ℓ), coker(1−F) converges in distribution on finite abelian ℓ-group classes to CL_ℓ as g→∞.",
+      "locator": "§5.7.1 [9]",
+      "status": "planned",
+      "note": "The matrix is drawn from all endomorphisms, not GL_g. G8: original Friedman–Washington proof and almost-sure finiteness remain to acquire.",
+      "planned": [
+        "ArithmeticStatistics:ST.5"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/enhanced-cl",
+      "kind": "definition",
+      "name": "Proposed enhanced Cohen–Lenstra law",
+      "statement": "For distinct positive n₁,…,n_k, the source defines CL_(n,ℓ)(H₁,…,H_k) by the g→∞ limit of Haar probabilities that coker(1−F^(n_j))≅H_j for every j; CL_(n,S) is the finite-prime product.",
+      "locator": "Definition 5.16",
+      "status": "missing",
+      "note": "G7: Definition 5.16 writes a limit without proving general existence. Route the finite-g construction and existence task, not an assumed limiting measure. API: Treat existence, tightness and total probability one as proof obligations before packaging a probability measure; define the finite-g joint laws first. Tests: (1) repeated exponents are excluded by the source; (2) n=(1) recovers the ordinary model; (3) shared F makes components at different exponents dependent. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/cl-two-prime",
+      "kind": "theorem",
+      "name": "Two-extension zero-cokernel probability at two",
+      "statement": "For F uniform in M_g(F₂), P(det(1−F²)≠0)=|GL_g(F₂)|/2^(g²)=∏_(j=1)^g(1−2^(−j)), with positive infinite-product limit.",
+      "locator": "Example 5.17, first case",
+      "status": "missing",
+      "note": "1−F²=(1−F)² in characteristic two; translation F↦1−F is a bijection on all matrices. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/cl-odd-prime",
+      "kind": "theorem",
+      "name": "Uniform positive bound at odd primes",
+      "statement": "For odd ℓ and F uniform in M_g(F_ℓ), P(det(1−F²)≠0)≥2∏_(j≥1)(1−3^(−j))−1>0.",
+      "locator": "Example 5.17, second case",
+      "status": "missing",
+      "note": "Union bound excludes eigenvalues ±1. This lower bound proves a positive liminf; it alone does not prove convergence of the joint law. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/enhanced-cl-conjecture",
+      "kind": "theorem",
+      "name": "Source enhanced-statistics conjecture",
+      "statement": "CONJECTURE: when CL_S models the S-primary point groups of a geometric family over F_p and p∉S, the enhanced law CL_(n,S) models the joint S-primary point groups over F_(p^(n_j)).",
+      "locator": "Conjecture 5.18",
+      "status": "missing",
+      "note": "Explicit speculative implication, conditioned on existence of the enhanced law and a specified convergence meaning. No blanket theorem about geometric families is asserted. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/elliptic-pgroups-source",
+      "kind": "theorem",
+      "name": "False small-prime lemma in the public preprint",
+      "statement": "V1 Lemma 5.19 asserts that E(F_p) and E(F_(p²)) are never both p-groups for an elliptic E/F_p.",
+      "locator": "Lemma 5.19",
+      "status": "missing",
+      "note": "G6: counterexample over F₂ is E:y²+xy=x³+x²+1, discriminant 1, with #E(F₂)=2 and #E(F₄)=8. Direct enumeration over F₂[t]/(t²+t+1) confirms both counts. The Hasse-bound step excluding this is invalid at p=2. Unrouted; this is a v1 finding only."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/elliptic-pgroups-large",
+      "kind": "theorem",
+      "name": "Large-prime repair of the elliptic lemma",
+      "statement": "For prime p≥7 and any elliptic E/F_p, E(F_p) and E(F_(p²)) cannot both be p-groups.",
+      "locator": "Lemma 5.19, explicitly restricted elementary repair",
+      "status": "missing",
+      "note": "For p≥7 the Hasse interval at p contains only the p-power p, so trace a=1. Then #E(F_(p²))=(p+1)²−a²=p(p+2), not a p-power. The p=3,5 cases can be checked separately; no p=2 assertion is retained. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/point-count-isogeny",
+      "kind": "theorem",
+      "name": "Point counts are isogeny invariant",
+      "statement": "For A/F_q, #A(F_(q^r))=det(1−Frob_q^r|V_ℓA), so point counts are invariant under F_q-isogeny and multiply on products.",
+      "locator": "Corollary 5.20 proof",
+      "status": "missing",
+      "note": "An isogeny need not identify rational point groups; only their orders are used in the large-factor argument. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/enhanced-failure-source",
+      "kind": "theorem",
+      "name": "Source failure of enhanced Cohen–Lenstra",
+      "statement": "V1 asserts, under Conjecture 5.2 and its Lemma 5.11 prime condition, a finite S with p∉S for which the joint S-primary point groups over F_p,F_(p²) fail the enhanced model.",
+      "locator": "Corollary 5.20",
+      "status": "missing",
+      "note": "G5/G6/G7: the stated proof invokes the false p=2 lemma, unclosed concentration and an unspecified limiting law. The zero-cokernel event comparison can be repaired only after those hypotheses are resolved. Unrouted."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/reduced-trace-source",
+      "kind": "theorem",
+      "name": "Unqualified reduced-trace identification in v1",
+      "statement": "V1 Remark 4.8 identifies t with the reduced trace of End⁰(A) for a simple A.",
+      "locator": "Remark 4.8",
+      "status": "missing",
+      "note": "G3: false without a multiplicity factor in general. If End⁰(A)=Q and dim A=g>0, t(1)=2g but reduced trace_Q/Q(1)=1. The checked Conrad trace definition keeps the actual Tate representation. Unrouted literal claim."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/ramification-count",
+      "kind": "theorem",
+      "name": "Ramified-prime count from the relative discriminant",
+      "statement": "For L/K generated by a p-Weil number with d=[K:Q], the number of finite primes of K ramifying in L is at most d log(4p)/log 2.",
+      "locator": "§5.4.2 (44), sharper elementary bound",
+      "status": "missing",
+      "note": "Every ramified prime divides the relative discriminant and has norm at least 2; multiply their norms and use relative-discriminant. This avoids the extra factor d in the source estimate. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Yun, Orbital integrals and Dedekind zeta functions (2013), arXiv v2",
+      "link": "https://arxiv.org/abs/1303.2420",
+      "why": "Selected original proof read: §§1.3–1.5 and 4.8–4.13; full orbital-integral functional equation and repeated-eigenvalue extension remain outside this checkpoint."
+    },
+    {
+      "citation": "Conrad, Polarizations, VIGRE notes",
+      "link": "https://virtualmath1.stanford.edu/~conrad/vigregroup/vigre04/polarization.pdf",
+      "why": "All ten pages read; corrects graph pullback, finite-field descent and Rosati positivity. Underlying Mumford representability and intersection theory still belong to A2/A6."
+    },
+    {
+      "citation": "Waterhouse, Abelian varieties over finite fields, Ann. Sci. ENS 2 (1969), 521–560",
+      "link": "https://arxiv.org/abs/1511.02212",
+      "why": "Acquire Theorem 6.1 and its actual order construction, exceptional real-Weil case and covariance conventions."
+    },
+    {
+      "citation": "Tate, Endomorphisms of abelian varieties over finite fields (1966); Honda, Isogeny classes (1968)",
+      "link": "https://arxiv.org/abs/1511.02212",
+      "why": "Read original full faithfulness/classification and split local invariants; not merely their statements as quoted in the main paper."
+    },
+    {
+      "citation": "Gan–Yu, Group schemes and local densities, Duke Math. J. 105 (2000), 497–524",
+      "link": "https://arxiv.org/abs/1511.02212",
+      "why": "Acquire Theorem 10.20 and §10.9, measure conventions and residue-characteristic-two exclusions before accepting (39). Original exact public source URL remains to establish."
+    },
+    {
+      "citation": "Jacobowitz, Hermitian forms over local fields, Amer. J. Math. 84 (1962), 441–465",
+      "link": "https://arxiv.org/abs/1511.02212",
+      "why": "Read Theorems 7.1,8.2 and Proposition 10.4, including dyadic norm/scale ideals and split cases; locator as cited by main paper."
+    },
+    {
+      "citation": "Lang, Divisors and endomorphisms on an abelian variety, Amer. J. Math. 79 (1957), 761–777",
+      "link": "https://arxiv.org/abs/1511.02212",
+      "why": "Original positivity and NS comparison, cited as [15]; exact public article link not yet established."
+    },
+    {
+      "citation": "Louboutin (2000), Explicit bounds for residues; Skoruppa (1993), Quick lower bounds for regulators",
+      "link": "https://arxiv.org/abs/1511.02212",
+      "why": "Original references [18],[24] not acquired. Their hypotheses and residue-ratio lower bound remain G8; this link identifies the checked bibliography only."
+    },
+    {
+      "citation": "Friedman–Washington (1989), On the distribution of divisor class groups of curves over a finite field",
+      "link": "https://arxiv.org/abs/1511.02212",
+      "why": "Original [9] and joint matrix-cokernel limit/tightness needed. The ordinary CL law does not alone imply Definition 5.16."
+    },
+    {
+      "citation": "Serre (2007), Bounds for the orders of finite subgroups of G(k)",
+      "link": "https://arxiv.org/abs/1511.02212",
+      "why": "Original [23] congruence/primes-in-progressions input remains to acquire; main-paper proof of Lemma 5.8 was read."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "AbelianSchemesAndArithmeticModuli",
+      "stages": [
+        "AbelianSchemesAndArithmeticModuli:A2"
+      ],
+      "items": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/dual-poincare",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/polarization",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/mumford-map",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/graph-pullback",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/phi-kernel",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/phi-ample-isogeny",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/polarized-isomorphism",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/phi-pullback",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/rosati",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/ns-rational",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/ns-rosati-map",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/positive-ample",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/polarization-orbits",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/integer-matrix-example",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/cm-unit-orbits"
+      ],
+      "reason": "A2 already owns duals, Poincaré bundles, polarizations and Rosati. Add the explicitly normalized NS and orbit dictionary there; use Conrad to repair v1 graph-pullback and rationalization errors."
+    },
+    {
+      "route": "source",
+      "roadmap": "AbelianSchemesAndArithmeticModuli",
+      "stages": [
+        "AbelianSchemesAndArithmeticModuli:A4"
+      ],
+      "items": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-module"
+      ],
+      "reason": "Tate-module realizations are already an A4 target; finite-field full faithfulness is a separate consumer."
+    },
+    {
+      "route": "source",
+      "roadmap": "AbelianSchemesAndArithmeticModuli",
+      "stages": [
+        "AbelianSchemesAndArithmeticModuli:A6"
+      ],
+      "items": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/rational-endomorphism",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/poincare-decomposition",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/endomorphism-trace",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/degree-polynomial",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/rosati-positivity",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/real-cone"
+      ],
+      "reason": "Import the existing field Hom/End carriers and add only the already planned arithmetic, semisimple and Rosati-cone targets."
+    },
+    {
+      "route": "source",
+      "roadmap": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "stages": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "items": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/dieudonne-lattice"
+      ],
+      "reason": "The existing Dieudonné owner fixes covariance and F,V. A new finite-field application must consume it, not reconstruct it."
+    },
+    {
+      "route": "source",
+      "roadmap": "GeometryOfNumbersAndQuadraticArithmetic",
+      "stages": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
+      ],
+      "items": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/local-order",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/saturation-normalization",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/flag-fiber",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/model-ring",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/unit-norm-label",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/unitary-group",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/hermitian-lattice",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/hermitian-dual",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/gram-orbit-bijection",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/norm-ideal",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/local-hermitian-classification",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/hermitian-genus",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/free-projective-comparison"
+      ],
+      "reason": "GN.2 explicitly owns integral/hermitian lattices, local invariants, genera and local-global theory. Existing rational Z-lattices and CM fields are reused; O_L-projective lattices and dyadic norm ideals are not already built."
+    },
+    {
+      "route": "source",
+      "roadmap": "GeometryOfNumbersAndQuadraticArithmetic",
+      "stages": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+      ],
+      "items": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-shear",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/yun-resultant-fiber",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-determinant-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/punctual-hilbert-count",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/yun-partition-formula",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/hilbert-crude-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/model-orbit-count",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/genus-double-cosets",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/hermitian-mass",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/tamagawa-mass",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/relative-discriminant",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/factorial-asymptotic",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-integral-group",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/mass-cardinality-comparison",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/ramification-count"
+      ],
+      "reason": "GN.3 owns arithmetic quotient counts, local densities and mass. Add the checked Yun local inputs and weighted-to-unweighted comparison, while the disputed exact estimates remain outside the route."
+    },
+    {
+      "route": "source",
+      "roadmap": "AdelicAlgebraicGroups",
+      "stages": [
+        "AdelicAlgebraicGroups:AA.4"
+      ],
+      "items": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/strong-approximation"
+      ],
+      "reason": "Strong approximation is an existing owner target. Keep the definite quaternion rank-one exception and norm-image obstructions visible."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.0"
+      ],
+      "items": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/unpolarized-count",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/ppav-count",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/polarization-fiber"
+      ],
+      "reason": "ST.0 owns arithmetic families and weighted/unweighted measures; define these counts on actual F_p-isomorphism classes."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.5"
+      ],
+      "items": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/model-comparison-conjecture",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/convex-concentration",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/spacing-measure",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/cl-measure",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/friedman-washington",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/enhanced-cl",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/cl-two-prime",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/cl-odd-prime",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/enhanced-cl-conjecture"
+      ],
+      "reason": "ST.5 explicitly owns random-matrix laws and function-field statistics. Conjectures stay hypotheses, and the enhanced limit is a separate existence task. No disputed 0.99 endpoint is routed here."
+    },
+    {
+      "route": "part-ii",
+      "parent": "AbelianSchemesAndArithmeticModuli",
+      "roadmap": "AbelianSchemesAndArithmeticModuliPartIIFiniteFields",
+      "title": "Abelian Schemes and Arithmetic Moduli, Part II: finite-field isogeny classes",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/tate-hom",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/weil-polynomial",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/isogeny-polynomial",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/honda-tate",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/power-sum-count",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/isogeny-class-upper",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/marked-lattice-space",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/marked-quasi-isogeny",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/forget-marking",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-p-centralizer",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/adelic-class-set",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/nonabelian-class-comparison",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/weil-discriminant-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-field-polarization-descent",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-field-end-algebra",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/waterhouse-orders",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/squarefree-pol-count",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/split-prime-density",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/cm-elliptic-existence",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/elliptic-pgroups-large",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/point-count-isogeny"
+      ],
+      "reason": "A1–A6 construct relative geometry and realizations but have no Honda–Tate/Waterhouse classification or prime-field lattice-counting layers. This extension consumes them; PEL moduli and statistical models remain with their existing owners.",
+      "brief": "Construct the finite-field arithmetic of existing Tau Ceti abelian varieties. Import Abelian Schemes and Arithmetic Moduli (AbelianSchemesAndArithmeticModuli) A2–A4/A6, Finite flat groups and integral p-adic Hodge theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory) R07.2, Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic) GN.2–GN.3, Adelic algebraic groups (AdelicAlgebraicGroups) AA.4, and the built NumberField class-number APIs. Prove Tate full faithfulness and the Honda–Tate simple-isogeny correspondence with the exact local invariants; prove Waterhouse order realization only in the nonreal simple prime-field case. Construct the marked quasi-isogeny/lattice correspondence, its rational-orbit quotient, and the prime-field p-component reduction. Export the corrected reciprocal-polynomial upper bound (4g+1)^g q^(g(g+1)/4) and its exp((log q)g²/4+O_q(g log g)) isogeny-class consequence. Keep real-Weil/quaternionic factors, norm-image class sets and integral stabilizers explicit. Prove the source-scoped exp(O_p(g²)) squarefree polarization bound only after its local-order and unit-norm suppliers close. Obtain CM elliptic examples and point-count isogeny invariance; the p-group lemma in this route is restricted to p≥7. Do not use or advertise v1 Theorem 0.1 numerical constant, Lemma 5.11 leading coefficient, Corollaries 5.13/5.14/5.20 or an all-q extension until the final published source is compared and gaps G0–G8 are closed. PELModuli owns the moduli stack, ArithmeticStatistics ST.0/ST.5 owns the family measures and conditional distribution consequences. Every definition needs ≥3 discriminating unit tests, a consumer-derived API and a suggested Lean file on existing carriers. No implementation or formalization is claimed."
+    }
+  ]
+}
