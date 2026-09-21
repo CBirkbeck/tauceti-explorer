@@ -4207,7 +4207,8 @@
    ],
    "avoidAccountOf": "RS-28",
    "prompt": "research/blueprint/prompts/REV-RS-28.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #855"
   },
   {
    "id": "RS-29",
@@ -15509,8 +15510,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-15.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #895"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #895",
+   "finishedAt": "2026-09-21T15:05:10Z"
   },
   {
    "id": "PLANETS-16",
