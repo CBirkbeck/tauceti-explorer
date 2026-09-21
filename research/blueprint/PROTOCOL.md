@@ -9,7 +9,10 @@ source-faithfulness discipline still applies in full.
 
 A blueprint is a plan. It never claims that anything is formalised: every node
 keeps `"implementationStatus": "unchecked"`, and no Lean code, `sorry`, or
-ticket belongs in a packet.
+ticket belongs in a packet. Every definition also carries unit tests (section
+12), and each job writes a suggested Lean file of signatures, API and tests
+(section 13), which is the only Lean the programme writes. The workers who
+develop a roadmap also choose its planets in the atlas (section 14).
 
 ## 0. The standard to meet
 
@@ -34,7 +37,8 @@ example `content/tau-ceti/ModularForms/README.md`,
 `content/tau-ceti/EllipticCurves/README.md`,
 `content/tau-ceti/AdicSpaces/README.md` and
 `content/tau-ceti/ModularCurves/README.md`. Blueprint packets and documents
-contain no Lean code; declarations are named and specified in mathematics.
+contain no Lean code; declarations are named and specified in mathematics. Lean
+appears only in the suggested file (section 13).
 
 ## 1. The pinned baseline
 
@@ -183,6 +187,9 @@ own lemma node and reference it by id.
     "hypotheses": ["..."],
     "proofSteps": ["Construction or proof steps, each naming the facts it uses"],
     "acceptance": ["A property, comparison or example that tests the node"],
+    "tests": [{"name": "PreBlochGroup.gen_inv", "kind": "characterisation",
+               "statement": "For x ≠ 0, 1: [x] + [1/x] = 0 in P(F) up to 6-torsion."}],
+    "planet": {"name": "Pre-Bloch group"},
     "prerequisites": ["mathlib:FreeAbelianGroup", "K3BlochGroups:V.3/five-term-relation-set"],
     "api": [{"name": "PreBlochGroup.gen", "role": "constructor",
              "statement": "For x in F with x ≠ 0, 1, the class [x] ∈ P(F)."}],
@@ -211,6 +218,8 @@ Field notes:
 - `scope` lists the stages this packet covers. Omit it to mean the whole
   roadmap.
 - `part` names a part of a large roadmap, or is `null`.
+- `tests` (every definition and construction) and `planet` (optional) are
+  described in sections 12 and 14.
 
 ## 7. New roadmaps
 
@@ -249,9 +258,12 @@ example `foundations`, `classical`, `diophantine`, `modular`, `automorphic`,
   - the file is `research/blueprint/readmes/<file>.md`, with `--<part>` added
     for a part;
   - for each layer it gives the objects with exact definitions and conventions,
-    the theorems with their hypotheses, the named declarations with their API,
-    the dependencies within and across roadmaps, and the acceptance tests;
+    the theorems with their hypotheses, the named declarations with their API
+    and unit tests, the dependencies within and across roadmaps, and the
+    acceptance tests;
   - it agrees with the packet.
+- Each blueprint job also writes the suggested Lean file (section 13),
+  `research/blueprint/suggested/<file>.lean`, with `--<part>` added for a part.
 - An assembly job joins the part documents of a multi-part roadmap into one
   document. The same job adds the introduction (purpose, scope, conventions,
   boundaries, sources) and reconciles notation and cross-part prerequisites.
@@ -263,7 +275,9 @@ example `foundations`, `classical`, `diophantine`, `modular`, `automorphic`,
   - the closure;
   - every baseline claim, by reading the Lean source;
   - granularity;
-  - API quality.
+  - API quality;
+  - the unit tests (section 12), the suggested Lean file (section 13) and the
+    planets (section 14).
 
   The reviewer writes a `review` object into the packet and a report under
   `research/blueprint/reviews/`.
@@ -348,3 +362,66 @@ Rules:
   work, and never plan a construction that the audit shows in the library in at
   least the stated generality. A layer the reviewed audit finds fully built
   counts as complete in the atlas.
+
+## 12. Unit tests
+
+Every `definition` and `construction` node has a `tests` list of at least three
+unit tests. A unit test is a precise statement the object must satisfy, chosen
+so that a plausible wrong definition fails at least one of them. Each item is
+`{"name", "kind", "statement"}`, and `kind` is one of:
+
+- `computation`: a value in a small case, such as the class number of a
+  particular field or the image of a named element;
+- `degenerate`: the trivial or boundary case, such as the zero module, the base
+  field itself or weight zero;
+- `compatibility`: agreement with the closest Mathlib or Tau Ceti notion
+  wherever both are defined, stated as an equality or an isomorphism;
+- `characterisation`: a property that characterises the object, such as its
+  universal property applied to a concrete target;
+- `non-example`: something the object is not, which a tempting wrong
+  definition would get wrong.
+
+`name` is the proposed name of the test in the suggested file. Write each
+statement so that it can become a Lean `example` there (section 13). Theorems
+keep their `acceptance` properties, including a concrete instance of the
+theorem wherever the source gives one.
+
+## 13. The suggested Lean file
+
+Each blueprint job writes `research/blueprint/suggested/<file>.lean`, with
+`--<part>` added for a part, in the form of upstream's `Suggested.lean`
+(`UPSTREAM_GUIDE.md`, Prototyping):
+
+- it opens with the standard note: the file is not the roadmap and is not
+  exhaustive, the roadmap document is definitive, and the statements suggest
+  Lean forms so that contributors and reviewers converge on names and
+  signatures;
+- for each definition and construction it gives the signature, the API items as
+  lemma signatures and the unit tests as `example`s, each proved by `sorry`;
+- it states the named theorems of the layers in scope, proved by `sorry`;
+- it imports individual Mathlib and `TauCeti.*` modules, and prototypes against
+  what the pinned libraries already contain rather than restating it;
+- it uses `sorry` honestly: a condition that cannot yet be stated is left out,
+  never replaced by a `Prop`-valued field or by `def _ : Prop := sorry`.
+
+The file and the packet agree: every definition, API item and unit test in the
+packet appears in the file under the name the packet gives it. A worker who can
+run Lean at the pinned baseline makes the file elaborate, with `sorry` as its
+only warning, and says so in the handoff; a worker who cannot says that the file
+was not compiled. The file claims no implementation: `implementationStatus`
+stays `"unchecked"`.
+
+## 14. Planets and structure for the atlas
+
+The workers who develop a roadmap also decide how it appears in the atlas.
+
+- A node the atlas should show as a planet carries `"planet": {"name": "..."}`.
+  Planets are a layer's key definitions, central constructions and named
+  theorems, at most six per layer, and never checks, caveats or bookkeeping.
+  The name is a short noun phrase of at most 60 characters, drawn from the
+  source, such as "Pre-Bloch group" or "Bloch–Wigner dilogarithm".
+- A layer too broad to read as one star may be divided. Give its nodes a parent
+  node of the same roadmap (section 6), and record the proposed sub-layers in
+  `restructure` (section 9), with their titles and the nodes each contains.
+- The checker enforces these limits. The orchestrator draws planets and
+  sub-layers from accepted packets.

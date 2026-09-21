@@ -7,7 +7,12 @@ agents can claim the same jobs.
   python3 research/blueprint/issues.py publish --yes [--kinds ...] [--limit N]
       Create an issue for each selected job that has none (research/blueprint/issues.json).
   python3 research/blueprint/issues.py sync
-      Mark jobs claimed on GitHub as `external` in the queue, and close issues of finished jobs.
+      Mark jobs claimed on GitHub as `external` in the queue, label jobs whose inputs
+      are not finished `state:blocked`, and close issues of finished jobs.
+  python3 research/blueprint/issues.py refresh [--pace S]
+      Rewrite the bodies of the open issues from the queue and the prompts.
+  python3 research/blueprint/issues.py stale [--days 2] [--release]
+      List claims with no activity for that many days; --release makes them available again.
 """
 from __future__ import annotations
 
@@ -15,6 +20,7 @@ import argparse
 import re
 import json
 import subprocess
+import time
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
@@ -26,13 +32,12 @@ KIND_TITLE = {"blueprint": "Blueprint", "design": "New roadmap", "link": "Links"
 
 
 LOCAL_ONLY = {"PLAN-HABIRO", "REV-PLAN-HABIRO"}
-LABEL_COLOURS = {"swarm": "5b6b7a", "state:available": "2da44e", "state:claimed": "bf8700", "state:running": "1f6feb",
-                 "state:submitted": "8250df", "state:done": "57606a", "local-only": "b60205"}
+LABEL_COLOURS = {"swarm": "5b6b7a", "state:available": "2da44e", "state:blocked": "c5c9ce", "state:claimed": "bf8700",
+                 "state:running": "1f6feb", "state:submitted": "8250df", "state:done": "57606a", "local-only": "b60205"}
 
 
 def publicize(text):
     """The worker prompt with local paths replaced by their public equivalents."""
-    import re
     replacements = [
         (r"/Users/[^\s]*/Downloads/TauCeti_Roadmaps_Revised_[^\s]*/references/?", "public sources (the maintainer's reference library is not available to you; cite public versions)"),
         (r"/Users/[^\s]*/Downloads/Habiro_[A-Za-z_-]*\d*\.pdf", "[course notes available only to the maintainer's local workers]"),
@@ -40,6 +45,12 @@ def publicize(text):
         (r"(/private)?/tmp/tauceti-workers/baseline", "the pinned library (Mathlib 082e2d3 and Tau Ceti f790474 on GitHub; see BROWSER_AGENTS.md)"),
         (r"(/private)?/tmp/tauceti-workers/[A-Za-z0-9_.~-]+", "your own scratch space"),
         (r"/Users/[^\s]*/GitHub/tauceti-explorer", "a clone of https://github.com/CBirkbeck/tauceti-explorer"),
+        # The swarm host's paths, for prompts generated there.
+        (r"/home/[^/\s]+/tauceti-swarm/tauceti-explorer", "a clone of https://github.com/CBirkbeck/tauceti-explorer"),
+        (r"/home/[^/\s]+/tauceti-swarm/workers/baseline/declarations\.tsv", "the pinned library (search Loogle, LeanSearch, the docs or GitHub as BROWSER_AGENTS.md describes)"),
+        (r"/home/[^/\s]+/tauceti-swarm/workers/baseline", "the pinned library (Mathlib 082e2d3 and Tau Ceti f790474 on GitHub; see BROWSER_AGENTS.md)"),
+        (r"/home/[^/\s]+/tauceti-swarm/workers/[A-Za-z0-9_.~-]+", "your own scratch space"),
+        (r"/home/[^/\s]+/tauceti-swarm/sources/[^\s]*", "public sources (the maintainer's reference library is not available to you; cite public versions)"),
         (r"You run unattended in a tmux session as job", "You work on job"),
         (r"You run unattended as job", "You work on job"),
         (r"You run unattended in a tmux session", "You work on this job"),
@@ -64,9 +75,14 @@ def publicize(text):
         text = re.sub(pattern, replacement, text, flags=re.M)
     for pattern, replacement in replacements:
         text = re.sub(pattern, replacement, text)
-    if re.search(r"/Users/|/private/|mcu22seu|/Downloads/", text):
+    if re.search(r"/Users/|/private/|/home/|mcu22seu|/Downloads/", text):
         return None
     return text
+
+
+def ready(job, by_id):
+    """Every job this one waits for is finished."""
+    return all(by_id.get(dep, {}).get("state") == "done" for dep in job.get("after") or [])
 
 
 def load():
@@ -93,12 +109,21 @@ def body(job, jobs, roadmaps, stages):
     if job.get("outputs"):
         lines += ["", "Deliverables:"] + [f"- `{path}`" for path in job["outputs"]]
     if job.get("after"):
-        waiting = [dep for dep in job["after"] if not dep.startswith("LINK-")]
-        links = len(job["after"]) - len(waiting)
-        text = ", ".join(f"`{d}`" for d in waiting[:12])
-        if links:
-            text += (", " if text else "") + f"the {links} link jobs"
-        lines += ["", f"Starts after: {text}."]
+        by_id = {j["id"]: j for j in jobs}
+        waiting = [dep for dep in job["after"] if by_id.get(dep, {}).get("state") != "done"]
+        if waiting:
+            lines += ["", "Waits for: " + ", ".join(f"`{d}`" for d in waiting[:12]) + " (labelled `state:blocked` until then)."]
+    if job.get("suppliers"):
+        lines += ["", "Suppliers: " + ", ".join(f"`{d}`" for d in job["suppliers"][:12]) +
+                  ". Reuse their packets' node ids where the packets exist; for anything still missing from them, add a `requests` entry. Do not wait for them."]
+    if job["kind"] in ("blueprint", "design"):
+        lines += ["", "### What this issue delivers",
+                  "- **The plan, gap-free from the pinned libraries:** a blueprint packet with one node per declaration. Read the roadmap's reviewed library audit (`data/library-coverage.json`) first, and plan only what Mathlib and Tau Ceti do not already contain.",
+                  "- **API and unit tests for every definition:** an `api` outline, and at least three unit tests that a plausible wrong definition would fail (a small computed value, the degenerate case, agreement with the nearest Mathlib or Tau Ceti notion, a non-example). See PROTOCOL.md sections 4 and 12.",
+                  "- **The roadmap document** in the upstream style and density, with each definition's API and unit tests.",
+                  "- **A suggested Lean file** in upstream's `Suggested.lean` form: signatures, API lemmas and unit tests as `example`s, all proved by `sorry` (section 13).",
+                  "- **The atlas's planets for these layers:** the key definitions and named theorems, at most six per layer, named from the source (section 14). Sub-layers can be proposed in `restructure`.",
+                  "- **A handoff note:** what is closed, what remains, and whether the Lean file compiled."]
     if job.get("avoidAccountOf"):
         lines += ["", f"Must be done by a different agent from the one that did `{job['avoidAccountOf']}`."]
     reserved = json.loads((BP / "reserved-ids.json").read_text()) if (BP / "reserved-ids.json").exists() else {}
@@ -162,10 +187,12 @@ def title(job, roadmaps):
     return f"[{kind}] {name or rid or jid}{part}"[:240]
 
 
-def labels_for(job, roadmaps):
+def labels_for(job, roadmaps, by_id):
     rid = (job.get("roadmapIds") or [None])[0]
     group = roadmaps[rid].get("group") if rid in roadmaps else None
     state = {"pending": "available", "running": "running", "done": "submitted", "external": "claimed"}.get(job.get("state"), "available")
+    if state == "available" and not ready(job, by_id):
+        state = "blocked"
     out = ["swarm", f"kind:{job['kind']}", f"priority:{job.get('priority', 9)}", f"state:{state}"]
     if job["id"] in LOCAL_ONLY or job["kind"] == "classify":
         out.append("local-only")
@@ -176,13 +203,16 @@ def labels_for(job, roadmaps):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("command", choices=["render", "publish", "sync", "refresh"])
+    ap.add_argument("command", choices=["render", "publish", "sync", "refresh", "stale"])
     ap.add_argument("--kinds", default="blueprint,design,link,plan,review,assembly,classify,naming")
     ap.add_argument("--pace", type=float, default=7.5, help="seconds between issue creations (GitHub allows about 500 an hour)")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--yes", action="store_true")
+    ap.add_argument("--days", type=float, default=2.0, help="stale: days without activity")
+    ap.add_argument("--release", action="store_true", help="stale: make those jobs available again")
     args = ap.parse_args()
     jobs, roadmaps, stages = load()
+    by_id = {j["id"]: j for j in jobs}
     kinds = set(args.kinds.split(","))
     selected = [j for j in jobs if j["kind"] in kinds and j.get("state") in ("pending", "running")]
     selected.sort(key=lambda j: (j.get("priority", 9), j.get("order", 0), j["id"]))
@@ -194,7 +224,7 @@ def main():
         out = BP / "issues-preview"
         out.mkdir(exist_ok=True)
         for job in selected:
-            (out / f"{job['id']}.md").write_text(f"# {title(job, roadmaps)}\n\nLabels: {', '.join(labels_for(job, roadmaps))}\n\n" + body(job, jobs, roadmaps, stages))
+            (out / f"{job['id']}.md").write_text(f"# {title(job, roadmaps)}\n\nLabels: {', '.join(labels_for(job, roadmaps, by_id))}\n\n" + body(job, jobs, roadmaps, stages))
         print(f"rendered {len(selected)} issue bodies into {out.relative_to(REPO)}")
         return
     if args.command == "publish":
@@ -205,8 +235,7 @@ def main():
         for job in selected:
             if job["id"] in mapping:
                 continue
-            import re, time
-            for label in labels_for(job, roadmaps) + ["state:claimed", "state:running", "state:submitted", "state:done"]:
+            for label in labels_for(job, roadmaps, by_id) + ["state:blocked", "state:claimed", "state:running", "state:submitted", "state:done"]:
                 if label not in existing:
                     colour = LABEL_COLOURS.get(label, "c5def5" if label.startswith("area:") else "ededed")
                     subprocess.run(["gh", "label", "create", label, "--force", "--color", colour], cwd=REPO, capture_output=True)
@@ -217,7 +246,7 @@ def main():
                 print("skipped (private path)", job["id"]); continue
             for attempt in range(6):
                 result = subprocess.run(["gh", "issue", "create", "--title", title(job, roadmaps), "--body", text,
-                                         *sum((["--label", label] for label in labels_for(job, roadmaps)), [])],
+                                         *sum((["--label", label] for label in labels_for(job, roadmaps, by_id)), [])],
                                         capture_output=True, text=True, cwd=REPO)
                 if result.returncode == 0:
                     break
@@ -232,11 +261,15 @@ def main():
         return
     if args.command == "sync":
         sync(mapping)
+    if args.command == "stale":
+        stale(mapping, by_id, args.days, args.release)
     if args.command == "refresh":
-        import time
+        listing = subprocess.run(["gh", "issue", "list", "--label", "swarm", "--state", "open", "--limit", "2000", "--json", "number"],
+                                 capture_output=True, text=True, cwd=REPO)
+        open_numbers = {item["number"] for item in json.loads(listing.stdout or "[]")}
         for job in jobs:
             number = mapping.get(job["id"])
-            if not number:
+            if not number or number not in open_numbers:
                 continue
             text = body(job, jobs, roadmaps, stages)
             if re.search(r"/Users/|/private/|mcu22seu", text):
@@ -246,7 +279,7 @@ def main():
             time.sleep(args.pace)
 
 
-STATE_LABELS = ("state:available", "state:claimed", "state:running", "state:submitted", "state:done")
+STATE_LABELS = ("state:available", "state:blocked", "state:claimed", "state:running", "state:submitted", "state:done")
 CLOSE_WHEN_DONE = {"review", "classify", "naming", "status", "assembly", "plan"}
 
 
@@ -304,6 +337,7 @@ def sync(mapping):
     changed_queue, edits, closed = 0, 0, 0
     try:
         queue = json.loads((BP / "queue.json").read_text())
+        by_id = {j["id"]: j for j in queue["jobs"]}
         for job in queue["jobs"]:
             number = mapping.get(job["id"])
             item = issues.get(number)
@@ -324,7 +358,8 @@ def sync(mapping):
             if state == "external" and "state:available" in labels:
                 job["state"] = "pending"; job["note"] = f"released on GitHub issue #{number}"; changed_queue += 1
                 state = "pending"
-            wanted = {"pending": "state:available", "running": "state:running", "external": "state:claimed"}.get(state)
+            wanted = {"pending": "state:available" if ready(job, by_id) else "state:blocked",
+                      "running": "state:running", "external": "state:claimed"}.get(state)
             if state == "done":
                 wanted = "state:done" if (job["kind"] in CLOSE_WHEN_DONE or job.get("integrated")) else "state:submitted"
             if state in ("failed", "superseded"):
@@ -342,6 +377,49 @@ def sync(mapping):
     finally:
         fcntl.flock(lock, fcntl.LOCK_UN)
     print(f"sync: {changed_queue} queue change(s), {edits} label edit(s), {closed} issue(s) closed")
+
+
+def stale(mapping, by_id, days, release):
+    """Claims by external workers with no activity on their issue for `days` days."""
+    import datetime
+    cutoff = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=days)
+    listing = subprocess.run(["gh", "issue", "list", "--label", "state:claimed", "--state", "open", "--limit", "500",
+                              "--json", "number,updatedAt,title"], capture_output=True, text=True, cwd=REPO)
+    number_to_job = {number: jid for jid, number in mapping.items()}
+    released = []
+    for item in json.loads(listing.stdout or "[]"):
+        updated = datetime.datetime.fromisoformat(item["updatedAt"].replace("Z", "+00:00"))
+        if updated > cutoff:
+            continue
+        jid = number_to_job.get(item["number"])
+        print(f"#{item['number']} {jid} idle since {item['updatedAt'][:10]}: {item['title'][:70]}")
+        if not release:
+            continue
+        subprocess.run(["gh", "issue", "edit", str(item["number"]), "--add-label", "state:available", "--remove-label", "state:claimed"],
+                       capture_output=True, cwd=REPO)
+        subprocess.run(["gh", "issue", "comment", str(item["number"]), "--body",
+                        f"Orchestrator: this claim has had no activity since {item['updatedAt'][:10]}, so the job is available again. "
+                        "Any work that was merged stays in the repository; the next worker continues from it and from the handoff note, if there is one."],
+                       capture_output=True, cwd=REPO)
+        if jid in by_id and by_id[jid].get("state") == "external":
+            released.append(jid)
+        time.sleep(1)
+    if released:
+        import fcntl
+        lock = open(BP / ".queue.lock", "a+")
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        try:
+            queue = json.loads((BP / "queue.json").read_text())
+            for job in queue["jobs"]:
+                if job["id"] in released and job.get("state") == "external":
+                    job["state"] = "pending"; job["note"] = "stale claim released"
+                    job.pop("account", None); job.pop("lane", None)
+            tmp = BP / "queue.json.tmp"
+            tmp.write_text(json.dumps(queue, indent=1, ensure_ascii=False) + "\n")
+            tmp.replace(BP / "queue.json")
+        finally:
+            fcntl.flock(lock, fcntl.LOCK_UN)
+    print(f"stale: {len(released)} released" if release else "stale: listed only; pass --release to release")
 
 
 if __name__ == "__main__":

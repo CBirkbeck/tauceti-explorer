@@ -23,6 +23,7 @@ COMMON_INPUTS = """INPUTS
 - An integrated, reviewed decomposition, if present: data/decompositions/{FILE}.json. Build on it: keep its node ids for nodes you keep, refine them to declaration granularity and reuse its verified locators. Its node ids may be reused in your packet, which will replace it.
 - Unreviewed drafts, as leads only (re-verify everything): research/expansion/external/*/{FILE}.json and research/expansion/drafts/{FILE}.json.
 - Other blueprints: research/blueprint/packets/*.json. Use their node ids for cross-roadmap prerequisites when they supply exactly what you need. Ids promised by concurrent jobs are listed in research/blueprint/reserved-ids.json.
+- The reviewed library audit: data/library-coverage.json, one entry per audited layer: its verdict (built, partly built, not built or process), each target with where the pinned libraries have it, the declarations that show it, and the layers of other roadmaps that duplicate it. Plan only what is missing. A target the libraries contain is a baseline citation, never a node; a partly built layer gets nodes only for its missing targets; a process layer is not mathematics and gets no nodes (propose its removal in `restructure`); a layer that duplicates another roadmap's layer is planned once, by the roadmap that owns it, and you add a `requests` entry for it. Audits in research/blueprint/audit/ without an accepted review are leads only.
 - Library baseline (what exists today): {BASELINE}/BASELINE.json (pinned commits), {BASELINE}/TauCeti/ (Tau Ceti source), {BASELINE}/mathlib/Mathlib/ (Mathlib source), {BASELINE}/declarations.tsv (index: library, full name, kind, file, line, signature start). Search the index (grep -i -P), then open the Lean file at that line and read the actual statement before citing it. Tau Ceti is a large library (about 70,000 declarations): search it thoroughly before declaring something missing.
 - Links between roadmaps: research/blueprint/links/*.json (evidence-backed stage links and overlaps; read every entry that mentions your roadmap's stages) and the stage links already in data/atlas.json (stageEdges).
 - Style and density: research/blueprint/UPSTREAM_GUIDE.md (upstream's checklist, binding) and the upstream roadmap documents under content/tau-ceti/ (read at least two in or near your area, for example ModularForms/README.md, EllipticCurves/README.md, AdicSpaces/README.md, ModularCurves/README.md).
@@ -37,27 +38,29 @@ METHOD = """METHOD
    (d) add a new node to this packet.
    Recurse on every new node until every chain ends in (a), (b) or (c). Keep an explicit worklist in your scratch directory and work through it methodically; do not stop at the first level.
 3. Granularity. One node per library declaration. Split multi-part results. Every non-routine step becomes its own lemma node.
-4. API. Every definition and construction node gets an `api` outline (PROTOCOL.md section 4). Think as a library designer: what does a user of this object need in order to use it without unfolding its definition? Include compatibility with the closest Mathlib or Tau Ceti notion, stated precisely.
+4. API and unit tests. Every definition and construction node gets an `api` outline (PROTOCOL.md section 4) and a `tests` list of at least three unit tests (section 12), chosen so that a plausible wrong definition fails one of them: a value in a small case, the degenerate case, agreement with the closest Mathlib or Tau Ceti notion wherever both are defined, and a non-example. Think as a library designer: what does a user of this object need in order to use it without unfolding its definition? Include compatibility with the closest Mathlib or Tau Ceti notion, stated precisely.
 5. Sources. Every node cites the passage that states or proves it. Keep excerpts short.
 6. Check. Run `python3 scripts/check_blueprint.py {OUTPUT}` and fix every error. Record anything you could not establish as a gap; never paper over a missing step.
 7. Document. Write {README} in the style and density of the upstream Tau Ceti roadmap documents. For each layer in scope, give:
    - the objects, with exact definitions and pinned conventions;
    - the theorems, with their hypotheses;
-   - the named declarations and their API;
+   - the named declarations, their API and their unit tests;
    - the dependencies inside this roadmap and on other roadmaps (by stage id);
    - the acceptance tests.
    The document and the packet must agree. Do not write "optional", "deferred" or "later".
-8. Structure. If this roadmap overlaps another, or is too broad or too thin, record a `restructure` proposal in the packet (PROTOCOL.md section 9) and keep working with the current structure.
-9. Handoff. Write research/blueprint/handoff/{JOB}.md: what is closed, what remains (precisely), requests you made to other roadmaps, sources read and sources missing.
+8. Suggested Lean file. Write {SUGGESTED} in the form of upstream's Suggested.lean (PROTOCOL.md section 13; UPSTREAM_GUIDE.md, Prototyping): the standard note; for each definition and construction its signature, its API items as lemma signatures and its unit tests as `example`s, each proved by `sorry`; the named theorems as signatures proved by `sorry`. Import individual Mathlib and Tau Ceti modules and prototype against what they already contain. If you can run Lean at the pinned baseline, make the file elaborate; say in the handoff whether you compiled it.
+9. Planets. Mark the nodes the atlas should show as planets with "planet": {{"name": "..."}} (PROTOCOL.md section 14): a layer's key definitions, central constructions and named theorems, at most six per layer, each named by a short noun phrase from the source.
+10. Structure. If this roadmap overlaps another, or is too broad or too thin, or a layer should be divided into sub-layers for the atlas, record a `restructure` proposal in the packet (PROTOCOL.md sections 9 and 14) and keep working with the current structure.
+11. Handoff. Write research/blueprint/handoff/{JOB}.md: what is closed, what remains (precisely), requests you made to other roadmaps, whether the suggested file compiled, sources read and sources missing.
 
 RULES
-- No Lean code, no `sorry`, no tickets, no implementation claims: implementationStatus stays "unchecked".
-- Edit only {EDITABLE}, the document {README}, the handoff note and files in your scratch directory. Do not run git. Do not edit application code, data/, content/, tests/, README.md, HANDOVER.md, the queue, reserved ids or other packets.
+- Lean code only in {SUGGESTED}; no Lean code or `sorry` in the packet or the document; no tickets and no implementation claims: implementationStatus stays "unchecked".
+- Edit only {EDITABLE}, the document {README}, the suggested file {SUGGESTED}, the handoff note and files in your scratch directory. Do not run git. Do not edit application code, data/, content/, tests/, README.md, HANDOVER.md, the queue, reserved ids or other packets.
 - No private absolute paths, PDFs or extracted book text in the repository.
 - Save the packet after every few nodes (write to a temporary file in your scratch directory, validate it with python3 -c 'import json;json.load(open(...))', then move it into place) so an interrupted run loses little.
 - Depth before breadth: a closed treatment of fewer stages is worth more than a shallow treatment of all. If you cannot finish, leave status "partial" with precise `remaining` lists so a continuation job can resume exactly where you stopped.
 
-Finish by printing a summary under 250 words: nodes by kind, API items, baseline declarations cited, gaps, requests, and what a continuation must do."""
+Finish by printing a summary under 250 words: nodes by kind, API items, unit tests, planets, baseline declarations cited, whether the suggested file compiled, gaps, requests, and what a continuation must do."""
 
 HEADER = """You are a research mathematician and library architect for the Tau Ceti Atlas blueprint programme. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it).
 
@@ -100,8 +103,10 @@ Check each item below, and correct it in place wherever the fix is clear. Record
    - Check that each request is precise.
 4. Granularity. Split any node that bundles several declarations or hides a non-routine argument.
 5. API. For every definition and construction, check that the outline would let a user work with the object without unfolding its definition. It should cover constructors, extensionality, simp lemmas, structure, functoriality, the universal property, compatibility with Mathlib or Tau Ceti, relations and examples. Add any missing items.
-6. For a new roadmap, also check that its layers are correctly ordered, that its suppliers are right, and that its scope is honest.
-7. Run `python3 scripts/check_blueprint.py` on each packet and fix every error.
+6. Unit tests, suggested file and planets. Every definition and construction has at least three unit tests that would catch a plausible wrong definition (PROTOCOL.md section 12). The suggested Lean file matches the packet, uses `sorry` honestly and, if you can run Lean at the pinned baseline, elaborates (section 13). Planets are key definitions, central constructions and named theorems, named from the source (section 14). Add or correct what is missing.
+7. Library audit. Nothing that the reviewed audit (data/library-coverage.json) shows in the libraries is planned as a new node, and a duplicated layer is requested from its owner rather than planned again.
+8. For a new roadmap, also check that its layers are correctly ordered, that its suppliers are right, and that its scope is honest.
+9. Run `python3 scripts/check_blueprint.py` on each packet and fix every error.
 
 Then add a top-level "review" object to each packet:
 {{"status": "accepted" | "needs_changes", "reviewer": "independent-review-{JOB}", "date": "<today>", "notes": "<what was checked and corrected>", "checked": [{{"nodeId": "...", "verdict": "verified|corrected|added|unverifiable", "note": "..."}}]}}
@@ -112,7 +117,7 @@ Use "accepted" only when all of the following hold:
 A packet may still be accepted while it is partial and while it lists open gaps, as long as they are recorded honestly.
 Write research/blueprint/reviews/{JOB}.md with the counts, corrections, baseline citations removed or fixed, nodes added, and questions for the orchestrator.
 
-RULES: edit only the files under review, your report and scratch files. Do not run git. No Lean code. No private paths in the repository. Do not promote anything.
+RULES: edit only the files under review, your report and scratch files. Do not run git. No Lean code outside the suggested file under review. No private paths in the repository. Do not promote anything.
 Finish with a summary under 250 words."""
 
 LINK_TEMPLATE = """You are a mathematician mapping dependencies between roadmaps for the Tau Ceti Atlas. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it). Save as you go.
@@ -169,8 +174,9 @@ Tasks:
 1. Write the full roadmap document {README}. It opens with purpose, scope and boundaries (against the neighbouring roadmaps named in research/blueprint/links/), conventions, sources and a layer overview, followed by the parts in order. Reconcile notation across parts. The result should read as one document in the upstream style.
 2. Check cross-part prerequisites. A node that needs a result from another part must reference that part's node id. Fix references in the part packets where the fix is clear; otherwise record a gap in the consuming part.
 3. Run `python3 scripts/check_blueprint.py` on all part packets and fix every error.
-4. Collect the parts' `restructure` proposals and requests in research/blueprint/handoff/{JOB}.md.
-RULES: edit only the listed part packets, {README}, the handoff note and scratch files. Do not run git. No Lean code. No private paths in the repository. Do not change a review verdict. If you change a reviewed node's mathematics, say so in the handoff note, so that the orchestrator can schedule a re-review.
+4. Join the parts' suggested Lean files ({PARTLEAN}) into {SUGGESTED}, with one standard note, one import block and consistent names.
+5. Collect the parts' `restructure` proposals and requests in research/blueprint/handoff/{JOB}.md.
+RULES: edit only the listed part packets, {README}, {SUGGESTED}, the handoff note and scratch files. Do not run git. No Lean code outside {SUGGESTED}. No private paths in the repository. Do not change a review verdict. If you change a reviewed node's mathematics, say so in the handoff note, so that the orchestrator can schedule a re-review.
 Finish with a summary under 200 words."""
 
 HABIRO_FAMILY = {"HabiroNumberFields", "HabiroRings", "HabiroCyclotomicCompletions", "HabiroNahmSeries",
@@ -446,17 +452,18 @@ def main():
             job_id = f"BP-{file_id(rid)}" + (f"--{key}" if multi else "")
             output = f"research/blueprint/packets/{file_id(rid)}" + (f"--{key}" if multi else "") + ".json"
             readme = f"research/blueprint/readmes/{file_id(rid)}" + (f"--{key}" if multi else "") + ".md"
-            text = BP_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, TITLE=title, README=readme,
+            suggested = f"research/blueprint/suggested/{file_id(rid)}" + (f"--{key}" if multi else "") + ".lean"
+            text = BP_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, TITLE=title, README=readme, SUGGESTED=suggested,
                                       PARTNOTE=f", part {i + 1} of {len(groups)}" if multi else "",
                                       STAGES=stage_lines(group), OUTPUT=output, PART=json.dumps(part),
                                       EXTRA=extra, FILE=file_id(rid), EDITABLE=output)
             add({"id": job_id, "kind": "blueprint", "priority": priority, "order": order * 100 + i,
-                 "roadmapIds": [rid], "scope": [s["id"] for s in group], "outputs": [output, readme],
+                 "roadmapIds": [rid], "scope": [s["id"] for s in group], "outputs": [output, readme, suggested],
                  "after": list(after)}, text)
             bp_jobs_of[rid].append(job_id)
-            parts_of[rid].append((job_id, output, readme))
+            parts_of[rid].append((job_id, output, readme, suggested))
             review_id = "REV-" + job_id[3:]
-            rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_id, TARGETS=f"the blueprint packet {output} (roadmap {rid}, stages: {', '.join(s['id'] for s in group)})")
+            rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_id, TARGETS=f"the blueprint packet {output} and its suggested Lean file {suggested} (roadmap {rid}, stages: {', '.join(s['id'] for s in group)})")
             add({"id": review_id, "kind": "review", "priority": 2, "order": order * 100 + i,
                  "roadmapIds": [rid], "outputs": [f"research/blueprint/reviews/{review_id}.md"],
                  "after": [job_id], "avoidAccountOf": job_id}, rtext)
@@ -492,27 +499,26 @@ def main():
     for job_id, rid, group, brief in (("DESIGN-LV", "MordellLawrenceVenkatesh", "diophantine", LV_BRIEF),
                                       ("DESIGN-ZAGIER", "ZagierConjecturePolylogarithms", "motivic", ZAGIER_BRIEF)):
         output = f"research/blueprint/packets/{rid}.json"
+        suggested = f"research/blueprint/suggested/{rid}.lean"
         text = DESIGN_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, GROUP=group, BRIEF=brief, OUTPUT=output,
-                                      README=f"research/blueprint/readmes/{rid}.md",
+                                      README=f"research/blueprint/readmes/{rid}.md", SUGGESTED=suggested,
                                       FILE=rid, EDITABLE=f"research/blueprint/roadmaps/{rid}.json and {output}")
         add({"id": job_id, "kind": "design", "priority": 1, "order": 1 if rid.startswith("Mordell") else 2,
-             "roadmapIds": [rid], "outputs": [f"research/blueprint/roadmaps/{rid}.json", output, f"research/blueprint/readmes/{rid}.md"],
+             "roadmapIds": [rid], "outputs": [f"research/blueprint/roadmaps/{rid}.json", output, f"research/blueprint/readmes/{rid}.md", suggested],
              "after": [], "timeout": 8 * 3600}, text)
         review_id = "REV-" + job_id
-        rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_id, TARGETS=f"the new roadmap definition research/blueprint/roadmaps/{rid}.json and its blueprint packet {output}")
+        rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_id, TARGETS=f"the new roadmap definition research/blueprint/roadmaps/{rid}.json, its blueprint packet {output} and its suggested Lean file {suggested}")
         add({"id": review_id, "kind": "review", "priority": 2, "order": 1, "roadmapIds": [rid],
              "outputs": [f"research/blueprint/reviews/{review_id}.md"], "after": [job_id], "avoidAccountOf": job_id,
              "timeout": 8 * 3600}, rtext)
     upstream = [rid for rid in roadmaps if rid.startswith("tauceti:")]
     upstream.sort(key=lambda r: (LINK_PRIORITY.index(r) if r in LINK_PRIORITY else 100, r))
-    link_jobs = []
     for position, rid in enumerate(upstream):
         job_id = f"LINK-{file_id(rid)}"
         output = f"research/blueprint/links/{file_id(rid)}.json"
         text = LINK_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, TITLE=roadmaps[rid]["title"], OUTPUT=output)
         add({"id": job_id, "kind": "link", "priority": 1, "order": 10 + position, "roadmapIds": [rid],
              "outputs": [output], "after": []}, text)
-        link_jobs.append(job_id)
         review_id = f"REV-LINK-{file_id(rid)}"
         rtext = LINK_REVIEW_TEMPLATE.format(**fill, JOB=review_id, ROADMAP=rid, TARGET=output)
         add({"id": review_id, "kind": "review", "priority": 2, "order": 10 + position, "roadmapIds": [rid],
@@ -545,20 +551,21 @@ def main():
     for job in jobs:
         if job["kind"] == "blueprint" and job["priority"] == 3:
             rid = job["roadmapIds"][0]
-            hard = {j for s in suppliers[rid] if not s.startswith("tauceti:") for j in bp_jobs_of.get(s, []) if j in ids}
-            job["after"] = sorted(hard | set(link_jobs))
-            if rid in HABIRO_FAMILY:
-                job["after"] = sorted(set(job["after"]) | {"REV-PLAN-HABIRO"})
+            # A supplier's blueprint is read if it exists; what is missing becomes a
+            # `requests` entry. So no blueprint waits for another, or for the link maps.
+            job["suppliers"] = sorted({j for s in suppliers[rid] if not s.startswith("tauceti:") for j in bp_jobs_of.get(s, []) if j in ids})
+            job["after"] = ["REV-PLAN-HABIRO"] if rid in HABIRO_FAMILY else []
     # Assembly of multi-part roadmaps, after every part is reviewed.
     for rid, parts in parts_of.items():
         if len(parts) < 2:
             continue
         job_id = f"ASM-{file_id(rid)}"
         readme = f"research/blueprint/readmes/{file_id(rid)}.md"
+        suggested = f"research/blueprint/suggested/{file_id(rid)}.lean"
         text = ASSEMBLY_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, TITLE=roadmaps.get(rid, {}).get("title", rid),
                                         PARTS=", ".join(p[1] for p in parts), PARTDOCS=", ".join(p[2] for p in parts),
-                                        README=readme)
-        add({"id": job_id, "kind": "assembly", "priority": 2, "order": 5000, "roadmapIds": [rid], "outputs": [readme],
+                                        PARTLEAN=", ".join(p[3] for p in parts), README=readme, SUGGESTED=suggested)
+        add({"id": job_id, "kind": "assembly", "priority": 2, "order": 5000, "roadmapIds": [rid], "outputs": [readme, suggested],
              "after": ["REV-" + p[0][3:] for p in parts]}, text)
     # Priority 4: planet naming.
     for n in range(1, 15):

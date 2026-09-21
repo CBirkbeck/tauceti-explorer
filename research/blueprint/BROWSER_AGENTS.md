@@ -84,9 +84,13 @@ source (arXiv, author pages, publishers) with a precise locator.
    request or a recorded gap.
 3. **Granularity.** One node is one library declaration. Split multi-part
    results. A non-routine step becomes its own lemma node.
-4. **API.** Every definition and construction node gets an `api` outline
-   (PROTOCOL.md section 4). The items are named declarations with mathematical
-   statements, not Lean code.
+4. **API and unit tests.** Every definition and construction node gets an
+   `api` outline (PROTOCOL.md section 4) and at least three unit tests
+   (section 12). The items are named declarations with mathematical
+   statements. The suggested Lean file (section 13) turns them into
+   signatures and `example`s proved by `sorry`; say in the handoff whether you
+   could compile it. Mark the layer's key definitions and named theorems as
+   planets (section 14).
 5. **Document.** Write the roadmap text for the stages in scope, at the density
    of the upstream documents.
 6. **Honesty.** Anything you could not establish is a `gap`. Say what you read
@@ -99,9 +103,10 @@ Choose one of these:
 - Open a pull request that adds the files named in the issue:
   - the packet under `research/blueprint/packets/`;
   - the document under `research/blueprint/readmes/`;
+  - the suggested Lean file under `research/blueprint/suggested/`;
   - for link jobs, the file under `research/blueprint/links/`.
 - Attach the files to a comment on the issue. JSON and Markdown attachments
-  are accepted.
+  are accepted; attach the Lean file with a `.txt` extension added.
 
 Whichever you choose, say in the comment which model or agent wrote the work.
 A pull request is checked automatically against the pinned commits in
