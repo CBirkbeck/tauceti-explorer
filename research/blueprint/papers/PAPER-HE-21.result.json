@@ -1,0 +1,1549 @@
+{
+  "paper": "PAPER-HE-21",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "source": {
+    "title": "Cordial elements and dimensions of affine Deligne–Lusztig varieties",
+    "authors": "Xuhua He",
+    "venue": "Forum of Mathematics, Pi 9 (2021), e9, 1–15",
+    "doi": "10.1017/fmp.2021.10",
+    "arxiv": "2001.03325",
+    "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf",
+    "version": "Published Cambridge open-access PDF, 15 pages; read completely, including references. The arXiv PDF was acquired only for provenance/possible comparison, not used instead of the publication.",
+    "readSections": [
+      "§1.1–1.5, entire introduction",
+      "§2.1–2.2, all setup, upper bound and shrunken conventions",
+      "§3.1–3.4, reduction and Demazure monoid",
+      "§4.1–4.4, cordiality, Mazur and proofs",
+      "§5.1–5.4, normalized subtraction and entire correspondence proof",
+      "§6.1–6.5, main proof, corollary and Levi remark",
+      "References p.15"
+    ],
+    "provenance": [
+      {
+        "name": "published",
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf",
+        "sha256": "88927779f86559df0e819095936316683ac37b2aa7e8ee338b1c3981d8fec013",
+        "date": "2026-09-21T18:42:15.275394+00:00",
+        "bytes": 343197,
+        "contentType": "application/pdf",
+        "pages": 15
+      },
+      {
+        "name": "arxiv",
+        "url": "https://arxiv.org/pdf/2001.03325",
+        "sha256": "818873a568bf37ec0b336cb12bd6822879ca369865cceb332ba06b95910989a3",
+        "date": "2026-09-21T18:42:14.809686+00:00",
+        "bytes": 243730,
+        "contentType": "application/pdf",
+        "pages": 15
+      }
+    ],
+    "libraryPins": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+    },
+    "atlasCommit": "ca6dcd4422eb59d1518b2a0054784d36102ee17b",
+    "prerequisiteProvenance": [
+      {
+        "name": "ghn15",
+        "url": "https://www.numdam.org/item/10.24033/asens.2254.pdf",
+        "sha256": "f0c94caa4855416b4c1949307ea8c4f382d3310f5b27a349216203f5c9d81e3e",
+        "date": "2026-09-21T18:48:20.282117+00:00",
+        "bytes": 739200,
+        "contentType": "application/pdf",
+        "pages": 22
+      },
+      {
+        "name": "ghn-erratum",
+        "url": "https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf",
+        "sha256": "cf7efbf887e8202c7efd7590e2eebd85c93c89bea81c26fa39a80af8082399c0",
+        "date": "2026-09-21T18:48:20.268693+00:00",
+        "bytes": 229660,
+        "contentType": "application/pdf",
+        "pages": 3
+      },
+      {
+        "name": "mv20",
+        "url": "https://arxiv.org/pdf/1902.02415",
+        "sha256": "cac23ba66e8eddd933a6bb8e41da965cfbed8a554ab4c866f6d0847de41bc97b",
+        "date": "2026-09-21T18:48:20.239362+00:00",
+        "bytes": 713045,
+        "contentType": "application/pdf",
+        "pages": 17
+      },
+      {
+        "name": "he15",
+        "url": "https://arxiv.org/pdf/1511.01386",
+        "sha256": "f6170c52ce24599a5b1b6d7991ae9c9b98a8be8e5cf8753b9a335e74d3fe3cdc",
+        "date": "2026-09-21T18:48:20.135042+00:00",
+        "bytes": 655753,
+        "contentType": "application/pdf",
+        "pages": 60
+      },
+      {
+        "name": "gh10",
+        "url": "https://pure.mpg.de/rest/items/item_3122778/component/file_3122779/content",
+        "sha256": "20f3b823dba6b1b635ca6ca9c18fdef52330738a0c7f9a865b0879bc0a30c488",
+        "date": "2026-09-21T18:48:20.430968+00:00",
+        "bytes": 294783,
+        "contentType": "application/pdf; charset=UTF-8",
+        "pages": 22
+      }
+    ]
+  },
+  "summary": "Full published-paper reading and itemized checkpoint for cordiality and shrunken-chamber ADLV dimension formulas. Existing local-group, Newton and affine flag owners are imported; two Part II briefs add Demazure/dominant subtraction and ADLV geometry. Explicit unresolved proof interfaces G1–G3 prevent a complete claim; no formalization is asserted.",
+  "items": [
+    {
+      "id": "PAPER-HE-21/1",
+      "kind": "definition",
+      "name": "Completed maximal unramified coefficient field",
+      "statement": "For a nonarchimedean local field F, put L=F-breve, the completion of the maximal unramified extension in a fixed separable closure, with continuous arithmetic Frobenius σ, residue field kbar and a uniformizer inherited from F. The absolute Galois group has inertia Γ0.",
+      "locator": "§2.1 p.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Construct the completion and extension of Frobenius; identify fixed field, valuation and residue actions. Import finite unramified extensions/Frobenius from LocalFieldsRamification Layer 2; this item is their completed limit adapter. Tests: F=F_q((t)) gives L=kbar((t)), σ(t)=t and coefficient q-power; the mixed-characteristic unramified case uses Witt Frobenius, not coefficientwise characteristic-p arithmetic."
+    },
+    {
+      "id": "PAPER-HE-21/2",
+      "kind": "definition",
+      "name": "Local reductive root datum and affine apartment",
+      "statement": "For connected reductive G/F choose an F-defined maximal L-split torus S containing a maximal F-split torus; T=Z_G(S). Put W0=N_G(T)(L)/T(L). The apartment is identified after choices with X_*(T)_Γ0⊗R; use the reduced root system attached to the affine Weyl group, which need not be the relative root system itself.",
+      "locator": "§2.1; GHN15 §3.1 pp.654–655",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "ReductiveGroupsPartII:RG2.1"
+      ],
+      "note": " API: Expose torus/normalizer, relative and reduced affine root systems, pairing and σ-action; carry the choice of apartment origin. Tests: SL2; a nonsplit group with multipliable relative roots; preserve the distinction between its reduced affine root system and relative roots."
+    },
+    {
+      "id": "PAPER-HE-21/3",
+      "kind": "definition",
+      "name": "Base alcove and Iwahori",
+      "statement": "Fix a σ-stable alcove a and its Iwahori I⊂G(L). The positive finite chamber is opposite a; t^λ acts on the apartment by v↦v−λ.",
+      "locator": "§2.1 p.4",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "ReductiveGroupsPartII:RG2.2",
+        "ReductiveGroupsPartII:RG2.3"
+      ],
+      "note": " API: Alcove fixers, σ-stability, intersection with T and translation-action convention; compare parahoric group schemes. Tests: Type A1: a has α-coordinate (−1,0), t^{α∨} shifts by −2; do not silently use the opposite sign."
+    },
+    {
+      "id": "PAPER-HE-21/4",
+      "kind": "definition",
+      "name": "Iwahori–Weyl group",
+      "statement": "Wtilde=N_G(T)(L)/(T(L)∩I), with 0→X_*(T)_Γ0→Wtilde→W0→1. A special vertex supplies a splitting Wtilde=X_*(T)_Γ0⋊W0.",
+      "locator": "§2.1 p.4",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "ReductiveGroupsPartII:RG2.4"
+      ],
+      "note": " API: Quotient maps, representatives, translation embedding and semidirect multiplication; record σ-compatibility under the quasi-split setup. Tests: t^λu t^μv=t^{λ+uμ}uv; torsion coinvariants cannot be erased by tensoring with R."
+    },
+    {
+      "id": "PAPER-HE-21/5",
+      "kind": "definition",
+      "name": "Affine Weyl subgroup and length-zero extension",
+      "statement": "The affine Weyl subgroup Wa is the Coxeter group on walls of a; Wtilde=Wa⋊Ω with Ω the alcove stabilizer and length zero. Extend length and Bruhat order cosetwise to Wtilde.",
+      "locator": "§2.1 p.4",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "ReductiveGroupsPartII:RG2.4"
+      ],
+      "note": " API: Wa/Ω inclusion, decomposition and cosetwise order, σ-preservation and simple reflections; reuse the abstract Coxeter APIs. Tests: Different Ω-components are incomparable; a nonidentity Ω element has length zero."
+    },
+    {
+      "id": "PAPER-HE-21/6",
+      "kind": "definition",
+      "name": "Abstract Coxeter length",
+      "statement": "For cs:CoxeterSystem M W, ℓ(w) is the minimal number of simple generators representing w, and a word is reduced iff its number of letters equals ℓ of its product.",
+      "locator": "§2.1 p.4; §3.1 p.6",
+      "status": "library",
+      "library": [
+        "mathlib:CoxeterSystem.length",
+        "mathlib:CoxeterSystem.IsReduced"
+      ],
+      "planned": [],
+      "note": " API: Reuse reduced expressions, word product and length; this supplies the abstract carrier only, not the affine-group identification. Tests: Identity has length zero; simple generators have length one."
+    },
+    {
+      "id": "PAPER-HE-21/7",
+      "kind": "theorem",
+      "name": "Coxeter length inversion and subadditivity",
+      "statement": "For a Coxeter system and u,v∈W, ℓ(u⁻¹)=ℓ(u) and ℓ(uv)≤ℓ(u)+ℓ(v).",
+      "locator": "§5.4 equations (5.2)–(5.4)",
+      "status": "library",
+      "library": [
+        "mathlib:CoxeterSystem.length_inv",
+        "mathlib:CoxeterSystem.length_mul_le"
+      ],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/8",
+      "kind": "definition",
+      "name": "Abstract Bruhat order",
+      "statement": "For a Coxeter system, u≤w is the reflexive-transitive closure of steps multiplying by a reflection and strictly increasing length. This gives a partial order.",
+      "locator": "§2.1 p.4; §3.4 p.6",
+      "status": "library",
+      "library": [
+        "tauceti:CoxeterSystem.BruhatStep",
+        "tauceti:CoxeterSystem.BruhatLE",
+        "tauceti:CoxeterSystem.bruhatPartialOrder"
+      ],
+      "planned": [],
+      "note": " API: Use BruhatLE, transitivity, antisymmetry and length monotonicity; an adapter supplies the extended affine Ω-components. Tests: Identity≤w; u≤w and w≤u imply equality; do not infer arbitrary subword converses from the one-direction API."
+    },
+    {
+      "id": "PAPER-HE-21/9",
+      "kind": "definition",
+      "name": "Parabolic subgroups and minimal representatives",
+      "statement": "For K among finite or affine simple generators let W_K be the generated subgroup, {}^K W the minimal representatives for W_K\\W and W^K those for W/W_K; finite K is used where a longest element is needed.",
+      "locator": "§2.1; §5.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Membership by left/right descents, unique length-additive parabolic factorization and inversion interchange of left/right representatives. Tests: W0=S3, K={s1}; left and right representative sets differ; K=∅ and K=S."
+    },
+    {
+      "id": "PAPER-HE-21/10",
+      "kind": "definition",
+      "name": "σ-conjugacy classes and algebraic σ-centralizer",
+      "statement": "B(G) is the quotient of G(L) by g·b=g b σ(g)⁻¹. J_b is the algebraic F-group with J_b(F)={g∈G(L):g b σ(g)⁻¹=b}, not merely that abstract subgroup.",
+      "locator": "§2.1–2.2 pp.4–5",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "BunGAndNewtonStrata:BG0"
+      ],
+      "note": " API: Class map, conjugacy transport, J_b functor and representability/inner-Levi comparison. Tests: GL1 and basic GL2; change representative by σ-conjugation and compare centralizers."
+    },
+    {
+      "id": "PAPER-HE-21/11",
+      "kind": "definition",
+      "name": "Kottwitz and Newton invariants",
+      "statement": "A class [b] has κ(b)∈Ω_σ≅π1(G)_Γ and a dominant rational σ-fixed Newton coweight ν_b. These classify B(G) in the stated local reductive setting, with functoriality under Levi inclusions and central maps.",
+      "locator": "§2.1, §4.1, §6.2",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "BunGAndNewtonStrata:BG1"
+      ],
+      "note": " API: Define κ, ν and class invariance, compare to translations and the algebraic fundamental group; distinguish a Levi-dominant vector from its G-dominant representative. Tests: GL2 diag(t,1) and diag(1,t) have the same G-class, different torus classes; torus central slopes are retained."
+    },
+    {
+      "id": "PAPER-HE-21/12",
+      "kind": "definition",
+      "name": "Defect",
+      "statement": "def_G(b)=rank_F(G)−rank_F(J_b), with J_b the algebraic σ-centralizer.",
+      "locator": "§2.2 p.5",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Class invariance, rank computation, behavior under central/adjoint comparison and translation case. Tests: Quasi-split dominant translations have defect zero; an anisotropic basic inner form may have positive defect."
+    },
+    {
+      "id": "PAPER-HE-21/13",
+      "kind": "definition",
+      "name": "Newton partial order",
+      "statement": "[b]≤[b′] means κ(b)=κ(b′) and ν_b≤ν_b′ in rational coroot dominance.",
+      "locator": "§4.1 p.7",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "BunGAndNewtonStrata:BG1"
+      ],
+      "note": " API: Partial-order laws, equal-κ necessity and basic minimal class in a fixed κ-fibre. Tests: Unequal κ classes are incomparable even when Newton coordinates appear ordered."
+    },
+    {
+      "id": "PAPER-HE-21/14",
+      "kind": "definition",
+      "name": "Affine flag carrier",
+      "statement": "Fl=G(L)/I on kbar-points, represented by the corresponding equal-characteristic affine flag ind-scheme, or perfect flag geometry in mixed characteristic; the carrier and comparison must be fixed before discussing dimensions.",
+      "locator": "§2.2 p.5; §5.3 pp.9–10",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "GeometricSatakeAndFusion:GS0:loop-geometry",
+        "GeometricSatakeAndFusion:GS0:Witt-geometry"
+      ],
+      "note": " API: Quotient functor, bounded Schubert strata, Frobenius, group action, finite-type/perfectly finite-type models and topology/dimension comparison. Tests: Rank-one Schubert curve; distinguish a perfect scheme from a finite-type scheme. The printed equal-characteristic sentence cites BS17, whose Witt construction addresses mixed characteristic."
+    },
+    {
+      "id": "PAPER-HE-21/15",
+      "kind": "theorem",
+      "name": "Iwahori–Bruhat decomposition",
+      "statement": "G(L)=⨆_{w∈Wtilde} I wdot I; hence Fl is partitioned by I-orbits indexed by Wtilde.",
+      "locator": "§2.2 p.5",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "ReductiveGroupsPartII:RG2.4"
+      ],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/16",
+      "kind": "definition",
+      "name": "Affine Deligne–Lusztig variety",
+      "statement": "For b∈G(L), w∈Wtilde, X_w(b)={gI∈Fl:g⁻¹bσ(g)∈I wdot I}, with the reduced locally closed geometric structure inside Fl and dimension −∞ for the empty set. After §2.2 the paper assumes G simple and quasi-split.",
+      "locator": "§2.2 p.5",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Define via the relative-position graph, show independence of representatives, σ-conjugacy invariance in b and the J_b(F)-action, and construct bounded finite-dimensional pieces. Tests: X_1(1); κ mismatch forces emptiness; for GL1 the condition becomes the valuation/Kottwitz condition."
+    },
+    {
+      "id": "PAPER-HE-21/17",
+      "kind": "theorem",
+      "name": "Kottwitz obstruction",
+      "statement": "If X_w(b) is nonempty, κ(b)=κ(w).",
+      "locator": "§6.2 p.13",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Apply κ to g⁻¹bσ(g); the coboundary vanishes in σ-coinvariants."
+    },
+    {
+      "id": "PAPER-HE-21/18",
+      "kind": "construction",
+      "name": "Dominant double-coset normal form",
+      "statement": "Uniquely write w=x t^λ y with λ dominant, x,y∈W0 and t^λy∈{}^S Wtilde; then ℓ(w)=ℓ(x)+ℓ(t^λ)−ℓ(y).",
+      "locator": "§2.2 equation (2.1) p.5",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Normal form, uniqueness, conversion to semidirect coordinates, and the length formula with wall stabilizers. Tests: λ=0 forces y=1 in the minimal-representative convention; singular λ must use the specified representative rather than arbitrary x,y."
+    },
+    {
+      "id": "PAPER-HE-21/19",
+      "kind": "definition",
+      "name": "Finite twisted part",
+      "statement": "For the preceding unique normal form define η_σ(w)=σ⁻¹(y)x∈W0.",
+      "locator": "§2.2 p.5",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Normal-form independence and formulas for x t^λ and dominant-chamber elements; length and support adapters. Tests: η(x t^λ)=x; reversing the order to xσ⁻¹(y) is not generally equal in S3."
+    },
+    {
+      "id": "PAPER-HE-21/20",
+      "kind": "definition",
+      "name": "Virtual dimension",
+      "statement": "d_w(b)=(ℓ(w)+ℓ(η_σ(w))−def_G(b))/2−〈ν_b,ρ〉, where 〈α∨,ρ〉=1 on simple coroots.",
+      "locator": "§2.2 p.5",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Use rational-valued arithmetic before proving any integrality; difference at fixed b cancels defect/Newton terms; explicit empty-dimension conventions. Tests: For w=1,b=1 the value is zero; compare ADLV dimension with the I-normalized Newton-stratum dimension, which differs by 〈2ρ,ν_b〉."
+    },
+    {
+      "id": "PAPER-HE-21/21",
+      "kind": "theorem",
+      "name": "Virtual dimension upper bound",
+      "statement": "For G simple quasi-split in the paper’s setup, b∈G(L), w∈Wtilde, dim X_w(b)≤d_w(b), with the empty case −∞.",
+      "locator": "Theorem 2.1 p.5",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "He14 Cor.10.4 and He15 Thm2.30 are the named inputs; the latter is formulated for I-normalized dimension of IwI∩[b], so He15 Thm2.23 supplies the subtraction of 〈2ρ,ν_b〉."
+    },
+    {
+      "id": "PAPER-HE-21/22",
+      "kind": "definition",
+      "name": "Finite and σ-saturated support",
+      "statement": "supp(w) for w∈W0 is the set of simple generators occurring in a reduced word; supp_σ(w)=⋃_{n∈Z}σ^n(supp(w)), independent of the word.",
+      "locator": "§2.2 p.5",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Reduced-word invariance, parabolic membership, product containment, σ-saturation, inversion and diagram-automorphism behavior. Tests: Identity has empty support; a diagram automorphism can make the saturated support strictly larger."
+    },
+    {
+      "id": "PAPER-HE-21/23",
+      "kind": "definition",
+      "name": "Hodge coweight and σ-average",
+      "statement": "λ_w is the unique dominant λ with w∈W0 t^λ W0; λ_w^♦ is the average over its finite σ-orbit in the rational coweight space.",
+      "locator": "§2.2 p.5",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Double-coset invariance, averaging independent of a multiple of the orbit order and preservation of coroot dominance. Tests: Split σ gives λ^♦=λ; diagram-swapped A2 fundamental coweights average to their half-sum."
+    },
+    {
+      "id": "PAPER-HE-21/24",
+      "kind": "definition",
+      "name": "Dominant chamber on a root pairing",
+      "statement": "For an ordered coefficient ring and a root pairing with base b, the closed dominant chamber consists of x with every simple coroot functional nonnegative; the open chamber uses strict positivity. Apply to the flipped pairing for coweights.",
+      "locator": "§2.1; §5.1",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.dominantChamber",
+        "tauceti:TauCeti.openDominantChamber"
+      ],
+      "planned": [],
+      "note": " API: Reuse membership, addition and nonnegative scaling. Keep dualization explicit so root and coroot dominance are not interchanged. Tests: Zero belongs to the closed chamber, not its interior in positive rank; an A1 positive coweight is dominant."
+    },
+    {
+      "id": "PAPER-HE-21/25",
+      "kind": "theorem",
+      "name": "Unique dominant representative and its wall stabilizer",
+      "statement": "For a finite crystallographic root system over a strictly ordered domain with the reduced hypotheses on the pairing and its flip, each Weyl orbit meets the closed dominant chamber in exactly one point; a dominant point’s stabilizer is generated by the simple wall reflections fixing it.",
+      "locator": "§5.2–5.4 dominant-orbit choices",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.existsUnique_mem_orbit_inter_dominantChamber",
+        "tauceti:TauCeti.stabilizer_eq_closure_wallReflections"
+      ],
+      "planned": [],
+      "note": "Read FundamentalDomain.lean at f790474; this does not identify the local reductive W0 with the abstract Weyl group. Apply to the flipped pairing after that separate RG2.1 adapter."
+    },
+    {
+      "id": "PAPER-HE-21/26",
+      "kind": "definition",
+      "name": "Integral positive coroot cone",
+      "statement": "The additive monoid of nonnegative integer sums of simple coroots is posRootCone on the flipped root pairing. λ≥_Zμ means λ−μ belongs to this monoid, while rational dominance permits nonnegative rational coefficients.",
+      "locator": "§2.2; §5.1",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.posRootCone",
+        "tauceti:TauCeti.mem_posRootCone"
+      ],
+      "planned": [],
+      "note": " API: Reuse the natural-coefficient membership witness; add only comparison adapters for integral/rational coweight spaces. Tests: Zero coefficients must be allowed; in A1 the fundamental coweight α∨/2 lies in the rational positive cone but not in the integral coroot cone."
+    },
+    {
+      "id": "PAPER-HE-21/27",
+      "kind": "theorem",
+      "name": "Finiteness below a dominant integral weight",
+      "statement": "For the finite crystallographic root-system hypotheses in TauCeti.DominantCone, the dominant integral μ with λ−μ in the positive root monoid form a finite set. Dualize for coweights.",
+      "locator": "Proposition 5.1 proof-completion input",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.finite_setOf_dominant_sub_mem_posRootCone"
+      ],
+      "planned": [],
+      "note": "The exact signature additionally requires finite root index, characteristic zero, a domain, IsRootSystem and IsCrystallographic; integrality is ∀ simple i, ∃n:N, coroot′ i μ=n."
+    },
+    {
+      "id": "PAPER-HE-21/28",
+      "kind": "definition",
+      "name": "Shrunken Weyl chamber",
+      "statement": "For every positive root α of the reduced root system attached to Wa remove the critical strip {v:−1<〈v,α〉<0}. A shrunken chamber is a connected component of the complement; w is shrunken when w a lies there.",
+      "locator": "§2.2 p.5",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: Root-coordinate membership, alcove criterion, diagram invariance and relation to ordinary Weyl chambers; use the chosen negative base alcove. Tests: In A1 the removed strip is (−1,0); s a=(0,1) is shrunken. In A2 an alcove may avoid some critical strips and meet another; check every positive root, not just simple roots."
+    },
+    {
+      "id": "PAPER-HE-21/29",
+      "kind": "definition",
+      "name": "Length-decreasing twisted conjugation",
+      "statement": "w→_{s,σ}s w σ(s) for affine simple s when the target length is at most ℓ(w); →_σ is the generated reflexive-transitive relation. w≈_σw′ means both directions, equivalently an equal-length reduction chain.",
+      "locator": "§3.1 p.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Reflexivity, transitivity, preservation of twisted conjugacy, equal-length criterion and σ-equivariance. Tests: s²=1 gives reversible equal-length steps; a strict descent cannot reverse without increasing length."
+    },
+    {
+      "id": "PAPER-HE-21/30",
+      "kind": "theorem",
+      "name": "Reduction to minimal length",
+      "statement": "For every σ-twisted conjugacy class O in Wtilde and w∈O there exists w′∈O of minimal length with w→_σw′.",
+      "locator": "Theorem 3.1 p.6; HN14 §2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Do not conflate twisted conjugacy with cyclic equivalence; HN14 proof still needs independent source decomposition."
+    },
+    {
+      "id": "PAPER-HE-21/31",
+      "kind": "theorem",
+      "name": "Minimal-length nonemptiness",
+      "statement": "If w is minimal in its σ-twisted conjugacy class, X_w(b)≠∅ iff wdot∈[b].",
+      "locator": "Theorem 3.2 first assertion p.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/32",
+      "kind": "theorem",
+      "name": "Minimal-length dimension",
+      "statement": "Under the preceding minimal-length and nonemptiness hypotheses, dim X_w(b)=ℓ(w)−〈ν_b,2ρ〉.",
+      "locator": "Theorem 3.2 second assertion p.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/33",
+      "kind": "theorem",
+      "name": "Equal-length reduction preserves dimension",
+      "statement": "If w≈_σw′ then dim X_w(b)=dim X_w′(b) for every b, including empty loci.",
+      "locator": "Proposition 3.3(1) p.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/34",
+      "kind": "theorem",
+      "name": "Two-branch reduction formula",
+      "statement": "If s is affine simple and ℓ(s w σ(s))=ℓ(w)−2, then dim X_w(b)=max(dim X_{sw}(b),dim X_{s w σ(s)}(b))+1.",
+      "locator": "Proposition 3.3(2) p.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Export the geometric open/closed pieces and affine-line or punctured-affine-line bundle reductions, not just an equality of numbers."
+    },
+    {
+      "id": "PAPER-HE-21/35",
+      "kind": "definition",
+      "name": "Universal comparison after virtual dimension",
+      "statement": "w⇒_σw′ means for every b, dim X_w(b)−d_w(b)≥dim X_w′(b)−d_w′(b). Equivalently nonemptiness of X_w′(b) implies that of X_w(b), and their dimension difference is at least (ℓw+ℓηw−ℓw′−ℓηw′)/2.",
+      "locator": "§3.3 p.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Define the relation with an explicit −∞ carrier or the equivalent implication form; prove equivalence and transitivity; define ⇔_σ by mutual comparison. Tests: Empty source/target combinations; reflexivity; κ mismatch cannot be hidden by an undefined subtraction of infinities."
+    },
+    {
+      "id": "PAPER-HE-21/36",
+      "kind": "theorem",
+      "name": "Equal-length and finite-part comparison",
+      "statement": "If w≈_σw′ and ℓη_σ(w)≤ℓη_σ(w′), then w⇒_σw′; with equal finite-part lengths, w⇔_σw′.",
+      "locator": "§3.2–3.3 p.6, derived interface",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/37",
+      "kind": "construction",
+      "name": "Demazure product",
+      "statement": "For u,v in a Coxeter/extended affine group, u*v is the unique Bruhat maximum of {a v:a≤u}, equivalently of {a b:a≤u,b≤v}, with the appropriate Ω-component.",
+      "locator": "§3.4 p.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Construct the maximum, simple-generator recursion, agreement with ordinary product under length additivity and extension across Ω. Tests: s*s=s while s·s=1; in S3 (s1s2)*s2=s1s2; finite braid relations."
+    },
+    {
+      "id": "PAPER-HE-21/38",
+      "kind": "theorem",
+      "name": "Associativity and unit of Demazure product",
+      "statement": "(u*v)*w=u*(v*w), and 1*w=w*1=w.",
+      "locator": "§3.4 p.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/39",
+      "kind": "theorem",
+      "name": "Bruhat monotonicity of Demazure product",
+      "statement": "If u′≤u and v′≤v then u′*v′≤u*v.",
+      "locator": "§3.4 p.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/40",
+      "kind": "theorem",
+      "name": "Demazure support and length factorizations",
+      "statement": "For finite Weyl elements supp(u*v)=supp(u)∪supp(v); moreover ℓ(u*v)=ℓu+ℓ(u⁻¹(u*v))=ℓ((u*v)v⁻¹)+ℓv. Diagram automorphisms preserve *.",
+      "locator": "§5.4 p.12; GH10 Lemma 2.5.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/41",
+      "kind": "construction",
+      "name": "Generic Newton class in an Iwahori double coset",
+      "statement": "B(G)_w={[b]:X_w(b)≠∅} has a unique maximal class [b_w], the generic Newton class of IwdotI; dim X_w(b_w)=ℓw−〈2ρ,ν_bw〉.",
+      "locator": "§4.1 p.7; MV20 Lemma 3.2/Corollary 3.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Construct the class with its maximality property and Newton-stratum interpretation; no arbitrary maximal choice. Tests: Translation and x t^λ cases; retain κ in maximality comparisons."
+    },
+    {
+      "id": "PAPER-HE-21/42",
+      "kind": "definition",
+      "name": "Cordial element",
+      "statement": "w is cordial iff dim X_w(b_w)=d_w(b_w), equivalently ℓw−ℓη_σ(w)=〈ν_bw,2ρ〉−def_G(b_w).",
+      "locator": "§4.1 p.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Equivalence of numerical/geometry definitions, class invariance and transport under ⇔_σ. Tests: x t^λ; comparison-equivalent elements share cordiality; no assertion that every element is cordial."
+    },
+    {
+      "id": "PAPER-HE-21/43",
+      "kind": "theorem",
+      "name": "Cordiality under universal comparison equivalence",
+      "statement": "If w⇔_σw′ then w is cordial iff w′ is cordial.",
+      "locator": "§4.1 p.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Mutual nonemptiness propagation identifies B(G)_w and B(G)_w′ and hence their maximal classes."
+    },
+    {
+      "id": "PAPER-HE-21/44",
+      "kind": "theorem",
+      "name": "Saturation for cordial elements",
+      "statement": "If w is cordial, [b]≤[b′]≤[b_w] and X_w(b)≠∅, then X_w(b′)≠∅.",
+      "locator": "Theorem 4.1(1) p.7; MV20 Theorem 1.1/3.16",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "A known nonempty lower endpoint is essential; saturation does not assert every class below [b_w] occurs."
+    },
+    {
+      "id": "PAPER-HE-21/45",
+      "kind": "theorem",
+      "name": "Dimension for cordial elements",
+      "statement": "For cordial w and any b with X_w(b)≠∅, dim X_w(b)=d_w(b).",
+      "locator": "Theorem 4.1(2) p.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/46",
+      "kind": "theorem",
+      "name": "Finite Weyl element times dominant translation is cordial",
+      "statement": "If G is simple quasi-split, λ dominant and x∈W0, then x t^λ is cordial.",
+      "locator": "Theorem 4.2 first assertion p.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/47",
+      "kind": "theorem",
+      "name": "Generic Newton class of x t^λ",
+      "statement": "For the same x and λ, [b_{x t^λ}]=[t^λ].",
+      "locator": "Theorem 4.2 second assertion p.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/48",
+      "kind": "theorem",
+      "name": "Special-parahoric nonemptiness criterion",
+      "statement": "For quasi-split G, a σ-stable special maximal parahoric K containing I, dominant λ and [b]∈B(G), [b]∩K t^λ K≠∅ iff κ(b)=κ(t^λ) and ν_b≤λ^♦.",
+      "locator": "Theorem 4.4 p.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The published proof cites Gashi10 Thm1.1 for unramified groups and He14 Thm7.1 for the general case. He15 Thm2.24 is a further reformulation; preserve the characteristic/ramification transport required by these sources."
+    },
+    {
+      "id": "PAPER-HE-21/49",
+      "kind": "theorem",
+      "name": "Closure does not change the maximal Newton class",
+      "statement": "For an Iwahori double coset, its Bruhat closure has the same maximal σ-conjugacy class as the double coset itself, in the source’s affine flag/Newton geometry.",
+      "locator": "§4.3 p.7; Vi14 Corollary 5.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Original Vi14 proof not read in this checkpoint; record as a prerequisite, not a verified unrestricted mixed-characteristic assertion."
+    },
+    {
+      "id": "PAPER-HE-21/50",
+      "kind": "theorem",
+      "name": "Bruhat closure sandwich for x t^λ",
+      "statement": "For λ dominant, closure(I t^λ I)⊂closure(I x t^λ I)⊂closure(I w_S t^λ I)=closure(K t^λ K), where w_S is the longest finite Weyl element and K the associated special parahoric.",
+      "locator": "§4.3 p.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "All overbars are essential; the raw disjoint Iwahori double cosets do not contain one another. PDF image checked."
+    },
+    {
+      "id": "PAPER-HE-21/51",
+      "kind": "theorem",
+      "name": "Translation Newton and length identities",
+      "statement": "In the quasi-split setup ν_{t^λ}=λ^♦ and def(t^λ)=0 for dominant λ; ℓ(t^λ)=〈λ,2ρ〉=〈λ^♦,2ρ〉, η(x t^λ)=x and ℓ(x t^λ)=ℓx+ℓ(t^λ).",
+      "locator": "§4.3 p.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/52",
+      "kind": "theorem",
+      "name": "Dominant-chamber cordiality via twisted rotation",
+      "statement": "If w=w_S t^λy, λ dominant and t^λy∈{}^S Wtilde, then w≈_σσ⁻¹(y)w_S t^λ, with equal η-lengths. Thus w is cordial.",
+      "locator": "§4.4 p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Not every x t^λ is ≈_σ-equivalent to an element in that chamber; do not claim an exhaustive classification."
+    },
+    {
+      "id": "PAPER-HE-21/53",
+      "kind": "theorem",
+      "name": "Feasible dominant subtraction set is nonempty",
+      "statement": "For dominant integral coweights λ,λ′ in a fixed root-datum lattice, there exists a dominant μ with μ+λ′≥_Zλ. One may use μ=λ−λ′+N·2ρ∨ for N sufficiently large in the semisimple coweight space, retaining any central coordinate separately.",
+      "locator": "Proposition 5.1 p.8, implicit existence step",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "λ itself need not be feasible because λ′ need not lie in the coroot lattice. The central coordinate is fixed by the root-lattice congruence."
+    },
+    {
+      "id": "PAPER-HE-21/54",
+      "kind": "theorem",
+      "name": "Common lower bound for two feasible coweights",
+      "statement": "If μ1,μ2 are dominant and μi+λ′≥_Zλ, write μ1−μ2=γ1−γ2 with disjoint simple-coroot supports and nonnegative coefficients. Then μ=μ1−γ1=μ2−γ2 is dominant and μ+λ′≥_Zλ, with μ≤_Zμ1,μ2.",
+      "locator": "Proposition 5.1 proof p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use simple coroots, not the printed α in the coweight sums; zero coefficients are allowed. Off-diagonal Cartan entries are nonpositive."
+    },
+    {
+      "id": "PAPER-HE-21/55",
+      "kind": "theorem",
+      "name": "Least dominant feasible coweight",
+      "statement": "For dominant λ,λ′ the set of dominant μ with μ+λ′≥_Zλ has a unique least element.",
+      "locator": "Proposition 5.1 p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The paper states unique minimal. Complete the argument using a feasible μ0, finiteness of dominant elements below μ0 (pinned Tau Ceti after dualization), a minimal element there, and the common-lower-bound lemma to obtain leastness globally."
+    },
+    {
+      "id": "PAPER-HE-21/56",
+      "kind": "definition",
+      "name": "Normalized dominant subtraction",
+      "statement": "λ−domλ′ is the preceding least dominant μ with μ+λ′≥_Zλ.",
+      "locator": "§5.1 p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Feasibility, leastness, characterization by μ+λ′≥_Zλ, lattice congruence, monotonicity in each variable and σ-equivariance. Tests: A1 coweight lattice P∨=Zω∨ with α∨=2ω∨: 0−domω∨=ω∨, not zero; this is a least element in a congruence class, not coordinatewise truncated subtraction."
+    },
+    {
+      "id": "PAPER-HE-21/57",
+      "kind": "theorem",
+      "name": "Agreement with ordinary dominant difference",
+      "statement": "If λ,λ′ are dominant and λ−λ′ is dominant, then λ−domλ′=λ−λ′.",
+      "locator": "§5.1 p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/58",
+      "kind": "theorem",
+      "name": "Dominant representative bounds normalized subtraction",
+      "statement": "If λ,λ′,λ′′ are dominant and λ′≥_Zλ′′, x∈W0 and μ is the dominant representative of λ−xλ′′, then μ≥_Zλ−domλ′.",
+      "locator": "Corollary 5.3 p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Requires the positive-coroot-difference lemma for a dominant representative and for λ′′−xλ′′, as well as lattice integrality."
+    },
+    {
+      "id": "PAPER-HE-21/59",
+      "kind": "theorem",
+      "name": "Iterated normalized subtraction",
+      "statement": "For dominant λ,λ1,λ2, (λ−domλ1)−domλ2=λ−dom(λ1+λ2).",
+      "locator": "Corollary 5.4 p.9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/60",
+      "kind": "construction",
+      "name": "Auxiliary fundamental coweight sum",
+      "statement": "For J⊂S, in the full coweight lattice of the reduced root system define ρ∨_J by 〈ρ∨_J,α_s〉=1 for s∈J and 0 otherwise; let η∨_J be the dominant representative of −σ⁻¹ρ∨_J.",
+      "locator": "§5.2 p.9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Construct via the dual basis; prove uniqueness, J=∅/S values and diagram equivariance; distinguish full coweight lattice from X_*(T)_Γ0. Tests: For SL2, ρ∨_{s}=α∨/2 is not an SL2 cocharacter; for adjoint A1 it is integral."
+    },
+    {
+      "id": "PAPER-HE-21/61",
+      "kind": "theorem",
+      "name": "Unresolved integral realization of auxiliary translations",
+      "statement": "The proof uses t^{ρ∨_J} and t^{λ−ρ∨_J} as elements of the working Iwahori–Weyl group. For a general simple quasi-split G this requires an explicit passage to an auxiliary/adjoint coweight lattice and a geometry/dimension descent theorem; it is not automatic in X_*(T)_Γ0.",
+      "locator": "§5.2–5.4 pp.9–11",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "UNROUTED G1: false if read as claiming ρ∨_J is always an original cocharacter (SL2). GHN15 §2 plus its 2017 erratum gives only qualified componentwise adjoint comparisons. Resolve the carrier before activating the proposed main route."
+    },
+    {
+      "id": "PAPER-HE-21/62",
+      "kind": "theorem",
+      "name": "Descent set forces dominant shifted coweight",
+      "statement": "If t^λy∈{}^S Wtilde and J={s∈S:sy<y}, then 〈λ,α_s〉>0 for s∈J and λ−ρ∨_J is dominant in the full coweight lattice.",
+      "locator": "§5.2 p.9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/63",
+      "kind": "definition",
+      "name": "Double-flat coweight",
+      "statement": "For w=x t^λy in its normal form and J the left descent set of y, define λ_w^{♭♭}=(λ−ρ∨_J)−domη∨_J=λ−dom(ρ∨_J+η∨_J), in a specified coweight lattice.",
+      "locator": "§5.2 p.9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Equivalence of the two expressions, dominance, σ-average and compatibility with any adjoint/auxiliary-lattice comparison; retain G1 as a prerequisite. Tests: J=∅ gives λ^{♭♭}=λ; split minuscule λ gives λ^{♭♭}=λ; A1 λ=α∨,y=s gives zero."
+    },
+    {
+      "id": "PAPER-HE-21/64",
+      "kind": "definition",
+      "name": "Relative-position orbit and convolution incidence variety",
+      "statement": "O_w={(gI,g wdot I):g∈G(L)}⊂Fl². The triple incidence space consists of (g,g′,g′′) with relative positions (g,g′′)=u,(g′′,g′)=v and optionally (g,g′)=z. Give these their locally closed geometric structures.",
+      "locator": "§5.3 pp.9–10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Well-defined relative position, diagonal action, fiber products, forgetful projections and bounded models; distinguish points from the representing schemes/perfections. Tests: O_1 is the diagonal; length-additive chains have unique intermediate flag; rank-one convolution has A1 and Gm fibers."
+    },
+    {
+      "id": "PAPER-HE-21/65",
+      "kind": "theorem",
+      "name": "Length-additive convolution is an isomorphism",
+      "statement": "If ℓ(uv)=ℓu+ℓv, forgetting the intermediate flag identifies the two-step relative-position incidence space with O_{uv}.",
+      "locator": "§5.4 pp.11–12; GH10 §2.2(1)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/66",
+      "kind": "theorem",
+      "name": "Convolution onto the ordinary-product orbit",
+      "statement": "For u,v∈Wtilde the incidence space with total position uv maps surjectively to O_{uv}; every fiber has dimension at least (ℓu+ℓv−ℓuv)/2.",
+      "locator": "Proposition 5.6 ordinary-product case p.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proof by simple-reflection induction and A1/Gm strata; characteristic/perfection transport belongs to the geometry adapter."
+    },
+    {
+      "id": "PAPER-HE-21/67",
+      "kind": "theorem",
+      "name": "Convolution onto the Demazure-product orbit",
+      "statement": "For u,v∈Wtilde the incidence space with total position u*v maps surjectively to O_{u*v}; every fiber has dimension at least ℓu+ℓv−ℓ(u*v).",
+      "locator": "Proposition 5.6 Demazure case p.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/68",
+      "kind": "theorem",
+      "name": "Finite-type fiber lower bound gives total dimension bound",
+      "statement": "For a surjective finite-type morphism X→Y of nonempty finite-type schemes over a field, if every geometric fiber has dimension at least d, then dim X≥dim Y+d. Apply to bounded models, and pass through perfection by a proved dimension comparison.",
+      "locator": "§5.4 pp.11–12 argument (a)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The paper uses GW10 Cor.14.116. Its finite union of proper closed subsets needs finiteness of the relevant components; an arbitrary ind-scheme or infinite union cannot replace the finite-type hypothesis."
+    },
+    {
+      "id": "PAPER-HE-21/69",
+      "kind": "theorem",
+      "name": "Unresolved boundedness and perfect-geometry bridge in the fiber argument",
+      "statement": "For the particular maps X2→X3 and X4→X5 in §5.4, one must justify a finite-type (or perfected finite-type) convolution model over each finite-dimensional irreducible target component, sufficient to apply the preceding fiber-dimension inequality.",
+      "locator": "§5.4 argument (a), pp.11–12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "UNROUTED G2: the source writes ⋃_Y Z_Y≠Z without spelling out finiteness. This is a proof-interface obligation, not an assertion that the paper’s conclusion is false. Verify bounded convolution and component hypotheses before routing this bridge."
+    },
+    {
+      "id": "PAPER-HE-21/70",
+      "kind": "construction",
+      "name": "Parabolic factors used in the cordial reduction",
+      "statement": "For w=x t^λy shrunken, set J=des_L(y), J′={s:s(λ−ρ∨_J)=λ−ρ∨_J}, and factor η_σ(w)=x′z with x′∈W0^{J′}, z∈W_{J′}.",
+      "locator": "§5.4 p.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Name J,J′,x′,z and their length-additive decomposition; identify J′ with zero simple pairings and retain G1. Tests: J′=∅ and J′=S; singular λ−ρ∨_J must not be assumed regular."
+    },
+    {
+      "id": "PAPER-HE-21/71",
+      "kind": "theorem",
+      "name": "Shrunken-chamber sign and first length cancellation",
+      "statement": "Under those hypotheses xα_j<0 for each j∈J′; consequently ℓ(xz⁻¹)=ℓx−ℓz.",
+      "locator": "§5.4 equation (5.1) p.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The root-sign implication cites GH10 §2.3; verify the sign convention against a negative base alcove."
+    },
+    {
+      "id": "PAPER-HE-21/72",
+      "kind": "construction",
+      "name": "Dominant γ and its transporter",
+      "statement": "Let β=λ−ρ∨_J+(x′)⁻¹σ⁻¹ρ∨_J. Choose its unique dominant representative γ; let K={s:sγ=γ} and y′∈W0^K with β=y′γ. Then γ≥_Zλ_w^{♭♭}.",
+      "locator": "§5.4 p.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Define β,γ,K,y′ with unique representative conventions; derive γ bound from Cor.5.3 and check lattice/Kottwitz compatibility. Tests: γ on a wall has nontrivial K; β=0 forces y′=1, not an arbitrary Weyl element."
+    },
+    {
+      "id": "PAPER-HE-21/73",
+      "kind": "theorem",
+      "name": "Inversion containment gives length cancellation",
+      "statement": "For the chosen γ,y′, if α>0 and (y′)⁻¹α<0, then 〈y′γ,α〉<0 and x′α<0. Hence ℓ(x′y′)=ℓx′−ℓy′.",
+      "locator": "§5.4 equation (5.2) p.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Uses minimality y′∈W0^K to rule out zero pairing, and GH10 Lemma2.6.1 for inversion/length conversion."
+    },
+    {
+      "id": "PAPER-HE-21/74",
+      "kind": "theorem",
+      "name": "Left minimality and second additive length identity",
+      "statement": "The above y′ belongs to {}^{J′}W0, and ℓ((y′)⁻¹z)=ℓy′+ℓz.",
+      "locator": "§5.4 equations (5.3)–(5.4) p.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/75",
+      "kind": "construction",
+      "name": "Two factors w1 and w2",
+      "statement": "With the preceding data define w1=xz⁻¹ t^{λ−ρ∨_J}y′ and w2=(y′)⁻¹z t^{ρ∨_J}y. Then w=w1w2.",
+      "locator": "§5.4 p.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Define both factors only after G1 is resolved; prove product, normal-form and length identities. Tests: Rank-one computation; translations in an enlarged lattice require an explicit carrier comparison."
+    },
+    {
+      "id": "PAPER-HE-21/76",
+      "kind": "theorem",
+      "name": "Length accounting in the two-factor construction",
+      "statement": "ℓw1=ℓ(xz⁻¹)+ℓt^{λ−ρ∨_J}−ℓy′, ℓw2=ℓ((y′)⁻¹z)+ℓt^{ρ∨_J}−ℓy, and ℓw=ℓw1+ℓw2. Also ℓ((y′)⁻¹z)+ℓ(x′y′)=ℓη_σ(w).",
+      "locator": "§5.4 equations (5.5)–(5.9) pp.10–11",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/77",
+      "kind": "construction",
+      "name": "Twisted rotation and X1",
+      "statement": "Length-additive convolution identifies X_w(b) with chains g→_{w1}g1→_{w2}bσ(g). The rotation (g,g1)↦(g1,bσ(g)) gives a universal homeomorphism to X1={g1→_{w2}g2→_{σ(w1)}bσ(g1)}.",
+      "locator": "§5.4 p.11",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Construct maps and Frobenius inverses after perfection; prove universal homeomorphism, nonemptiness and dimension preservation. Tests: A purely inseparable Frobenius map is not automatically an isomorphism on unperfected schemes."
+    },
+    {
+      "id": "PAPER-HE-21/78",
+      "kind": "construction",
+      "name": "First constrained correspondence X2→X3",
+      "statement": "Write A=(y′)⁻¹z and B=t^{ρ∨_J}y. Refine X1 as g1→_A g3→_B g2→_{σ(w1)}bσ(g1). X2 imposes (g3,bσg1) of position σ(x′y′t^γ). X3 forgets g2 and splits that last length-additive position into σ(x′y′),σ(t^γ).",
+      "locator": "§5.4 p.11",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Define locally closed inclusions/projections and verify Bσ(w1)=σ(x′y′t^γ), so Prop.5.6 applies. Tests: Ordinary-product fiber bound uses N1=(ℓB+ℓw1−ℓ(x′y′t^γ))/2; no Demazure bound is substituted at this first step."
+    },
+    {
+      "id": "PAPER-HE-21/79",
+      "kind": "theorem",
+      "name": "First dimension gain",
+      "statement": "X2→X3 is surjective with all fibers of dimension at least N1=(ℓ(t^{ρ∨_J}y)+ℓw1−ℓ(x′y′t^γ))/2; after the boundedness bridge G2, dim X_w(b)≥dim X3+N1.",
+      "locator": "§5.4 pp.11–12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/80",
+      "kind": "construction",
+      "name": "Demazure factor a and second correspondence",
+      "statement": "Put a=σ⁻¹((y′)⁻¹z)*(x′y′). Inside X3 let X4 impose total position σ(a) from g1 to g4, and let X5 forget g3. Then X4→X5 uses the Demazure case of Prop.5.6.",
+      "locator": "§5.4 p.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Define a, X4,X5 and maps on the same flag carrier; prove σ(a)=A*σ(x′y′). Tests: σ must act on both factors of *; replacing * by ordinary multiplication loses support."
+    },
+    {
+      "id": "PAPER-HE-21/81",
+      "kind": "theorem",
+      "name": "Support survives the Demazure construction",
+      "statement": "supp_σ(a) contains supp_σ(η_σ(w)), because support of * is a union and supp(x′y′(y′)⁻¹z)⊂supp(x′y′)∪supp((y′)⁻¹z).",
+      "locator": "§5.4 p.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/82",
+      "kind": "theorem",
+      "name": "Second dimension gain and final identification",
+      "statement": "After G2, dim X3≥dim X5+ℓη_σ(w)−ℓa. The length-additive map gives X5≅X_{σ(at^γ)}(b), universally homeomorphic to X_{at^γ}(b).",
+      "locator": "§5.4 p.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/83",
+      "kind": "theorem",
+      "name": "Nonemptiness and virtual-dimension comparison",
+      "statement": "If X_{at^γ}(b)≠∅, the two surjective correspondences imply X_w(b)≠∅ and dim X_w(b)−dim X_{at^γ}(b)≥(ℓw−ℓ(at^γ)+ℓη_σ(w)−ℓa)/2=d_w(b)−d_{at^γ}(b).",
+      "locator": "§5.4 final display p.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/84",
+      "kind": "theorem",
+      "name": "Reduction to a cordial element",
+      "statement": "For simple quasi-split G and w a shrunken alcove, there exist dominant γ≥_Zλ_w^{♭♭} and a∈W0 with supp_σ(a)⊃supp_σ(η_σ(w)) such that w⇒_σa t^γ.",
+      "locator": "Theorem 5.5 p.9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Extracted as the paper’s target; G1 and G2 prevent claiming proof closure at this checkpoint."
+    },
+    {
+      "id": "PAPER-HE-21/85",
+      "kind": "definition",
+      "name": "Levi alcove condition",
+      "statement": "For σ-stable J⊂S and v∈W0, w is a (J,v,σ)-alcove element if v⁻¹wσ(v)∈Wtilde_J and ({}^{vdot}U_{P_J}(L))∩{}^{wdot}I⊂({}^{vdot}U_{P_J}(L))∩I, with superscripts denoting conjugation.",
+      "locator": "§6.1 p.13",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": " API: Define standard Levi/parabolic/unipotent radical using RG2.1; root-subgroup criterion, conjugation conventions, σ-stability and strict variant. Tests: J=S makes the unipotent condition vacuous; conjugates {}^wI are not left cosets wI."
+    },
+    {
+      "id": "PAPER-HE-21/86",
+      "kind": "theorem",
+      "name": "Levi Kottwitz obstruction",
+      "statement": "If w is a (J,v,σ)-alcove element and κ_{M_J}(v⁻¹wσ(v)) differs from κ_{M_J}(b′) for every b′∈[b]∩M_J(L), then X_w(b)=∅. No basic assumption is needed on b.",
+      "locator": "Theorem 6.3 p.13; GHN15 Corollary3.6.1 with He’s footnote",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "GHN15 §3 is stated for tamely ramified quasi-split semisimple groups. Its contraction proof gives this direction without basic b; removing its tame geometry hypotheses still needs justification. Do not import the false nonbasic uniqueness assertion corrected in the erratum."
+    },
+    {
+      "id": "PAPER-HE-21/87",
+      "kind": "theorem",
+      "name": "Corrected conjugating element for the support obstruction",
+      "statement": "Write w=x t^λy as in §2.2 and put J=supp_σ(σ⁻¹(y)x). GHN15 Lemma3.6.3 makes w a (J,x,σ)-alcove element, and x⁻¹wσ(x)=t^λ yσ(x)=t^λσ(η_σ(w)) belongs to Wtilde_J.",
+      "locator": "§6.2 p.13, corrected from GHN15 Lemma3.6.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The printed (J,σ⁻¹(y),σ) and later conjugate use inconsistent inverse conventions. Using the original normal-form left factor x matches the cited lemma and leaves the translation λ unchanged. This is a repair of the proof’s notation, not a change to the theorem."
+    },
+    {
+      "id": "PAPER-HE-21/88",
+      "kind": "theorem",
+      "name": "Newton vector and Levi Kottwitz comparison",
+      "statement": "For b′∈[b]∩M_J(L), its M_J-dominant ν^M_b′ lies in W0ν_b, and ν_b−ν^M_b′ is a nonnegative rational sum of simple coroots. If its Levi κ equals that of t^λσ(η), then λ^♦−ν^M_b′ lies in the rational span of J-coroots.",
+      "locator": "§6.2 p.13; GHN15 §3.5 and Prop.3.6.4 proof",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Keep every b′ rather than assuming [b]∩M_J(L) is a single Levi class; the latter requires basic b."
+    },
+    {
+      "id": "PAPER-HE-21/89",
+      "kind": "theorem",
+      "name": "Emptiness for proper σ-support",
+      "statement": "For w shrunken and λ_w^♦−ν_b having strictly positive coefficient on every simple coroot, if supp_σ(η_σ(w)) is proper then X_w(b)=∅.",
+      "locator": "§6.2 p.13",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The strict cone cannot lie in the span of a proper σ-stable J after adding ν_b−ν^M_b′. This uses the strict Newton assumption of Thm6.1 even though the first line of §6.2 only repeats the double-flat assumption."
+    },
+    {
+      "id": "PAPER-HE-21/90",
+      "kind": "theorem",
+      "name": "Basic class below a fixed Kottwitz fibre",
+      "statement": "For κ=κ(w), choose τ∈Ω representing the basic class with that κ. If κ(b)=κ, then [τdot]≤[b].",
+      "locator": "§6.3 pp.13–14",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "BunGAndNewtonStrata:BG1"
+      ],
+      "note": "Uniqueness is for the σ-class/basic class, not a unique element τ of Ω."
+    },
+    {
+      "id": "PAPER-HE-21/91",
+      "kind": "theorem",
+      "name": "Kottwitz preservation through cordial reduction",
+      "statement": "For the constructed γ,a, κ(t^γ)=κ(w); γ−λ is a sum of coroot terms and a (σ−1)-coboundary in the chosen coweight lattice, hence vanishes in the required σ-coinvariants after the carrier comparison.",
+      "locator": "§6.3 p.13",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Needs G1: computing in an enlarged lattice does not alone prove equality in the original Ω_σ."
+    },
+    {
+      "id": "PAPER-HE-21/92",
+      "kind": "theorem",
+      "name": "Basic nonemptiness used for the reduced element",
+      "statement": "The proof needs X_{a t^γ}(τdot)≠∅ for the specific dominant γ and full-σ-support a constructed in Thm5.5, with κ(τ)=κ(t^γ). The cited He15 Thm2.27 applies only when a t^γ has a shrunken alcove.",
+      "locator": "§6.3 p.14",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "UNROUTED G3: the construction need not produce a shrunken a t^γ. In split adjoint A2 take λ=ω2∨=(0,1), y=1, x=s2s1. Then J=∅, J′={s1}, x′=s2, z=s1, γ=λ, y′=1 and a=s1*s2=s1s2. On the base alcove with u<0,v<0,u+v>−1, w maps (u,v) to (v−1,1−u−v), outside every critical strip; a t^γ maps it to (1−u−v,u), whose second coordinate is in (−1,0). Both finite parts have full support. Thus He15 Thm2.27 cannot directly be applied to this constructed a t^γ. Supply a more general basic-seed theorem or alter the reduction; this does not disprove the main theorem. The earlier A1 suspicion was rejected after checking the exact sign convention."
+    },
+    {
+      "id": "PAPER-HE-21/93",
+      "kind": "theorem",
+      "name": "Lower dimension bound by cordial saturation",
+      "statement": "Assume the main hypotheses, the reduction w⇒a t^γ and its basic nonemptiness input. Then γ^♦≥(λ_w^{♭♭})^♦≥ν_b and equal κ give [τ]≤[b]≤[t^γ]. Cordial saturation makes X_{at^γ}(b) nonempty with dimension d_{at^γ}(b), hence dim X_w(b)≥d_w(b).",
+      "locator": "§6.3 pp.13–14",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/94",
+      "kind": "theorem",
+      "name": "Main nonemptiness criterion",
+      "statement": "Under the paper’s standing simple quasi-split G/F hypothesis, let b∈G(L), w∈Wtilde with w a shrunken, λ_w^♦−ν_b∈Σ_{α∈Δ}Q_{>0}α∨ and (λ_w^{♭♭})^♦≥ν_b. Then X_w(b)≠∅ iff κ(b)=κ(w) and supp_σ(η_σ(w))=S.",
+      "locator": "Theorem 6.1 first conclusion p.13; Theorem1.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Both Newton hypotheses are retained; no claim for all w or all [b]≤[t^λ]. The broad scope remains a target pending G1–G3 and source-hypothesis transport."
+    },
+    {
+      "id": "PAPER-HE-21/95",
+      "kind": "theorem",
+      "name": "Main dimension formula",
+      "statement": "With all hypotheses of the preceding main criterion and its two nonemptiness conditions, dim X_w(b)=(ℓw+ℓη_σ(w)−def_G(b))/2−〈ν_b,ρ〉.",
+      "locator": "Theorem 6.1 second conclusion p.13; Theorem1.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/96",
+      "kind": "theorem",
+      "name": "Minuscule exception in the two Newton bounds",
+      "statement": "If G is split and λ_w is minuscule, then λ_w^{♭♭}=λ_w; therefore the weak double-flat bound alone does not imply strict positivity of λ_w^♦−ν_b.",
+      "locator": "Remark 6.2 p.13",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "A nonzero dominant difference in an irreducible root system lies in the strictly positive rational simple-coroot cone, but zero is a necessary exception."
+    },
+    {
+      "id": "PAPER-HE-21/97",
+      "kind": "theorem",
+      "name": "Basic-class double-flat bound",
+      "statement": "For basic [b] with κ(b)=κ(w), (λ_w^{♭♭})^♦≥ν_b in the setup where the double-flat carrier/Kottwitz compatibility is established.",
+      "locator": "§6.4 p.14",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/98",
+      "kind": "theorem",
+      "name": "Two-rho sufficient Newton bound",
+      "statement": "If λ_w^♦≥ν_b+2ρ∨, then (λ_w^{♭♭})^♦≥ν_b and λ_w^♦−ν_b is strictly positive on all simple-coroot coefficients. The argument uses 2ρ∨−ρ∨_J−η∨_J≥0 in the rational coroot cone.",
+      "locator": "§6.4 p.14",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "λ_w−2ρ∨ itself need not be dominant; only its σ-average is constrained."
+    },
+    {
+      "id": "PAPER-HE-21/99",
+      "kind": "theorem",
+      "name": "Effective-region nonemptiness criterion",
+      "statement": "For G simple quasi-split, w a shrunken and λ_w^♦≥ν_b+2ρ∨, X_w(b)≠∅ iff κ(b)=κ(w) and supp_σ(η_σ(w))=S.",
+      "locator": "Corollary6.4 first conclusion p.14",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/100",
+      "kind": "theorem",
+      "name": "Effective-region dimension formula",
+      "statement": "Under the preceding Cor.6.4 hypotheses and nonemptiness, dim X_w(b)=d_w(b).",
+      "locator": "Corollary6.4 second conclusion p.14",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/101",
+      "kind": "theorem",
+      "name": "Sufficiently large fundamental ray",
+      "statement": "For an irreducible root system and fixed b, if λ_w=nω∨ is an allowed integral multiple of a fundamental coweight and n is sufficiently large, then λ_w^♦≥ν_b+2ρ∨.",
+      "locator": "§6.4 p.14",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Only multiples lying in the actual cocharacter lattice are allowed. This supplies the Newton bound, not the separate shrunken-alcove assumption."
+    },
+    {
+      "id": "PAPER-HE-21/102",
+      "kind": "theorem",
+      "name": "Necessary Hodge–Newton conditions",
+      "statement": "If X_w(b)≠∅, then κ(b)=κ(w) and ν_b≤λ_w^♦.",
+      "locator": "§6.5 p.14",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HE-21/103",
+      "kind": "theorem",
+      "name": "Levi reduction for proper support",
+      "statement": "For w in a shrunken chamber with proper J=supp_σ(η_σ(w)), use the appropriate (J,v,σ)-alcove and Hodge–Newton decomposition to reduce the ADLV to suitable Levi ADLV data; recheck Theorem6.1’s hypotheses on each simple Levi factor before applying it.",
+      "locator": "§6.5 p.14",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The side remark is not a theorem that all classes satisfying Mazur’s inequality are covered, nor an unrestricted equality of G- and Levi-varieties without the required quotient/components. GHKR10 Thm2.1.4 and GHN15 Thm3.3.1 require separate decomposition."
+    },
+    {
+      "id": "PAPER-HE-21/104",
+      "kind": "theorem",
+      "name": "Corrected adjoint comparison on connected components",
+      "statement": "In equal characteristic with char(k) not dividing |π1(G_ad)|, G→G_ad identifies each selected connected component of its affine flag variety with the corresponding component for G_ad; a global immersion requires injectivity of the map on component groups. The induced componentwise ADLV comparison is GHN15 Cor.2.2.2.",
+      "locator": "GHN15 §2.2; erratum Proposition0.0.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The erratum explicitly removes the automatic injectivity claim. In mixed characteristic the cited original passage only establishes a set-theoretic comparison; dimension requires the later perfect-geometry bridge."
+    },
+    {
+      "id": "PAPER-HE-21/105",
+      "kind": "theorem",
+      "name": "Levi class uniqueness only for a basic G-class",
+      "statement": "If [b] is basic and J is σ-stable, [b]∩M_J(L) contains at most one σ-conjugacy class of M_J(L). This statement is false without basic b.",
+      "locator": "GHN15 erratum Proposition0.0.2; He21 Thm6.3 footnote",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Counterexample GL2 with diagonal Levi: diag(t,1),diag(1,t) are G-σ-conjugate but not torus-σ-conjugate."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Görtz–He–Nie, P-alcoves and nonemptiness of affine Deligne–Lusztig varieties (2015), and 2017 erratum",
+      "link": "https://www.numdam.org/item/10.24033/asens.2254.pdf",
+      "why": "Read §§2.1–2.5 and §§3.1–3.6, plus all three erratum pages. Supplies adjoint/inner-form comparison and Levi obstruction. Tame ramification, equal-characteristic prime restrictions and componentwise comparison must be preserved. Erratum: https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf ."
+    },
+    {
+      "citation": "Görtz–He, Dimensions of affine Deligne–Lusztig varieties in affine flag varieties (2010)",
+      "link": "https://arxiv.org/abs/1006.2291",
+      "why": "Read author PDF pp.6–7 for relative-position convolution and Prop.2.5.2; the remaining induction and Lemma2.6.1 proof need a dedicated pass. Supplies actual A1/Gm geometry and length-to-inversion lemmas."
+    },
+    {
+      "citation": "Milićević–Viehmann, Generic Newton points and the Newton poset in Iwahori-double cosets (2020)",
+      "link": "https://arxiv.org/abs/1902.02415",
+      "why": "Read pp.2,8–9: Thm1.1, Cor3.12, Def3.14 and Thm3.16 proof. Newton purity, maximal chain lengths and completion geometry behind cordial saturation remain a prerequisite subtree, not assumed theorem fields."
+    },
+    {
+      "citation": "He, Hecke algebras and p-adic groups (2015 survey)",
+      "link": "https://arxiv.org/abs/1511.01386",
+      "why": "Read pp.37–38: Thm2.27 has a shrunken hypothesis; Thm2.30 concerns I-normalized Newton-stratum dimension. Trace Thm2.23/2.24 and general ramified/perfect-geometry comparisons before closing the upper-bound/Mazur/basic-seed imports."
+    },
+    {
+      "citation": "He–Nie, Minimal length elements of extended affine Weyl groups (2014)",
+      "link": "https://arxiv.org/abs/1112.0824",
+      "why": "He21 Thm3.1 imports §2. Exact twisted reduction proof and its affine root-datum generality are not fully read here; atlas basic Coxeter theory does not supply this theorem."
+    },
+    {
+      "citation": "He, Geometric and homological properties of affine Deligne–Lusztig varieties (2014)",
+      "link": "https://arxiv.org/abs/1201.4901",
+      "why": "He21 Thm3.2, Prop3.3, Thm4.4 and the upper bound use minimal-length geometry, Deligne–Lusztig reduction, Thm7.1 and Cor10.4. Full original proof acquisition/decomposition remains; do not replace the mixed/perfect extension with a set bijection."
+    },
+    {
+      "citation": "Viehmann, Truncations of level 1 of elements in the loop group of a reductive group (2014)",
+      "link": "https://doi.org/10.4007/annals.2014.179.3.3",
+      "why": "Cor5.6 is used in the maximal-Newton closure sandwich; the original proof and characteristic range remain to be read."
+    },
+    {
+      "citation": "He, A subalgebra of a 0-Hecke algebra (2009)",
+      "link": "https://arxiv.org/abs/0904.1786",
+      "why": "He21 §3.4 cites Lemma1 for the Demazure maximum. DOI 10.1016/j.jalgebra.2009.04.003 verified from the author institutional record; full proof not read. GH10 Lemma2.5.1 restates the required maximum and support formulas."
+    },
+    {
+      "citation": "Görtz–Wedhorn, Algebraic Geometry I (2010), Corollary14.116",
+      "link": "https://doi.org/10.1007/978-3-8348-9722-0",
+      "why": "Generic fiber-dimension theorem in He21 §5.4. The exact cited edition/page has not been acquired; use a verified equivalent finite-type theorem and prove applicability to the bounded/perfect correspondence."
+    },
+    {
+      "citation": "Görtz–Haines–Kottwitz–Reuman, Affine Deligne–Lusztig varieties in affine flag varieties (2010)",
+      "link": "https://arxiv.org/abs/0805.0045",
+      "why": "Thm2.1.4 supplies the split Hodge–Newton decomposition in §6.5. Whole source not read; the proper-support side remark requires exact Levi components/quotients and hypotheses."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "ReductiveGroupsPartII",
+      "stages": [
+        "ReductiveGroupsPartII:RG2.0"
+      ],
+      "items": [
+        "PAPER-HE-21/1"
+      ],
+      "reason": "The completion/Frobenius adapter supports the already owned topology of local rational points; import finite unramified field theory from Tau Ceti without replanning it."
+    },
+    {
+      "route": "source",
+      "roadmap": "ReductiveGroupsPartII",
+      "stages": [
+        "ReductiveGroupsPartII:RG2.1"
+      ],
+      "items": [
+        "PAPER-HE-21/2"
+      ],
+      "reason": "The relative/affine root datum and its actual lattice belong to the local reductive root-data owner."
+    },
+    {
+      "route": "source",
+      "roadmap": "ReductiveGroupsPartII",
+      "stages": [
+        "ReductiveGroupsPartII:RG2.2",
+        "ReductiveGroupsPartII:RG2.3"
+      ],
+      "items": [
+        "PAPER-HE-21/3"
+      ],
+      "reason": "The existing building/parahoric stages own alcoves and Iwahori models."
+    },
+    {
+      "route": "source",
+      "roadmap": "ReductiveGroupsPartII",
+      "stages": [
+        "ReductiveGroupsPartII:RG2.4"
+      ],
+      "items": [
+        "PAPER-HE-21/4",
+        "PAPER-HE-21/5",
+        "PAPER-HE-21/15",
+        "PAPER-HE-21/18",
+        "PAPER-HE-21/23",
+        "PAPER-HE-21/51"
+      ],
+      "reason": "The Iwahori–Weyl group, normal forms, length conventions and double-coset computations refine the existing decomposition stage."
+    },
+    {
+      "route": "source",
+      "roadmap": "BunGAndNewtonStrata",
+      "stages": [
+        "BunGAndNewtonStrata:BG0"
+      ],
+      "items": [
+        "PAPER-HE-21/10",
+        "PAPER-HE-21/12"
+      ],
+      "reason": "B(G) and the algebraic J_b are already owned here; defect is a direct rank interface on that group."
+    },
+    {
+      "route": "source",
+      "roadmap": "BunGAndNewtonStrata",
+      "stages": [
+        "BunGAndNewtonStrata:BG1"
+      ],
+      "items": [
+        "PAPER-HE-21/11",
+        "PAPER-HE-21/13",
+        "PAPER-HE-21/88",
+        "PAPER-HE-21/90",
+        "PAPER-HE-21/105"
+      ],
+      "reason": "These are the existing κ/ν, order and central/Levi functoriality targets, with the nonbasic warning made explicit."
+    },
+    {
+      "route": "source",
+      "roadmap": "GeometricSatakeAndFusion",
+      "stages": [
+        "GeometricSatakeAndFusion:GS0:loop-geometry",
+        "GeometricSatakeAndFusion:GS0:Witt-geometry"
+      ],
+      "items": [
+        "PAPER-HE-21/14",
+        "PAPER-HE-21/64",
+        "PAPER-HE-21/65",
+        "PAPER-HE-21/66",
+        "PAPER-HE-21/67",
+        "PAPER-HE-21/104"
+      ],
+      "reason": "The existing stages explicitly own affine flag/perfect flag geometry and relative-position strata. Add these convolution and adjoint-comparison interfaces there; do not rebuild Satake or shtuka diamonds."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "items": [
+        "PAPER-HE-21/68"
+      ],
+      "reason": "The finite-type scheme dimension lemma is general scheme-morphism infrastructure. Its application to the ind/perfect correspondences remains G2."
+    },
+    {
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+      "roadmap": "RootSystemsPartIIDominanceAndDemazure",
+      "title": "Root systems, Weyl groups, and the Cartan-Killing classification, Part II: dominant subtraction and Demazure reduction",
+      "area": "grouptheory",
+      "items": [
+        "PAPER-HE-21/9",
+        "PAPER-HE-21/22",
+        "PAPER-HE-21/28",
+        "PAPER-HE-21/29",
+        "PAPER-HE-21/30",
+        "PAPER-HE-21/37",
+        "PAPER-HE-21/38",
+        "PAPER-HE-21/39",
+        "PAPER-HE-21/40",
+        "PAPER-HE-21/53",
+        "PAPER-HE-21/54",
+        "PAPER-HE-21/55",
+        "PAPER-HE-21/56",
+        "PAPER-HE-21/57",
+        "PAPER-HE-21/58",
+        "PAPER-HE-21/59",
+        "PAPER-HE-21/60",
+        "PAPER-HE-21/62",
+        "PAPER-HE-21/71",
+        "PAPER-HE-21/73",
+        "PAPER-HE-21/74",
+        "PAPER-HE-21/81",
+        "PAPER-HE-21/96",
+        "PAPER-HE-21/98",
+        "PAPER-HE-21/101"
+      ],
+      "reason": "The upstream roadmap owns chambers, Coxeter presentation, exchange/Matsumoto and basic Bruhat order. It does not state the Demazure monoid, least dominant subtraction or affine twisted minimal-length reduction; add only those extensions, consuming the pinned chamber/Bruhat/positive-cone APIs.",
+      "brief": "Import root systems, Weyl groups, and the Cartan-Killing classification (tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems), the existing weight-lattice interfaces from representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas (tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight), and local relative/affine root adapters from ReductiveGroupsPartII RG2.1/RG2.4. Do not re-plan any upstream layer; reconcile their conflicting prose about lattice ownership by using the existing pinned root-datum carrier. Construct only the missing parabolic-representative/support adapters and Demazure product, with maximum characterization, simple recursion, associativity, monotonicity, support union and ordinary-product comparison. Prove the HN14 reduction-to-minimal-length theorem for affine twisted conjugacy. For an explicit full coweight lattice prove nonemptiness, lower-directedness and leastness of the dominant subtraction feasible set; export Prop.5.1, Cor.5.3 and the exact identity (λ−domλ1)−domλ2=λ−dom(λ1+λ2). Supply ρ∨_J and η∨_J on this full lattice, the root-sign/length lemmas used in (5.1)–(5.4), the minuscule exception and the 2ρ∨ bound. Do not identify the full lattice with the cocharacters of every G; G1 must be settled by an explicit comparison. Test A1 parity in P∨/Q∨, singular A2 representatives, s*s=s, diagram automorphisms, non-simply-laced dual root data and strict versus weak dominance. Every definition needs APIs and genuine unit examples. Suggested future Lean home: TauCeti/GroupTheory/Coxeter/Demazure.lean and TauCeti/LinearAlgebra/RootSystem/DominantSubtraction.lean; no Lean implementation is supplied in this paper job."
+    },
+    {
+      "route": "part-ii",
+      "parent": "HeckeStacksAndLocalShtukas",
+      "roadmap": "HeckeStacksAndLocalShtukasPartIIAffineDeligneLusztig",
+      "title": "Hecke correspondences and local shtuka cohomology, Part II: cordial elements and affine Deligne–Lusztig dimensions",
+      "area": "langlands",
+      "items": [
+        "PAPER-HE-21/16",
+        "PAPER-HE-21/17",
+        "PAPER-HE-21/19",
+        "PAPER-HE-21/20",
+        "PAPER-HE-21/21",
+        "PAPER-HE-21/31",
+        "PAPER-HE-21/32",
+        "PAPER-HE-21/33",
+        "PAPER-HE-21/34",
+        "PAPER-HE-21/35",
+        "PAPER-HE-21/36",
+        "PAPER-HE-21/41",
+        "PAPER-HE-21/42",
+        "PAPER-HE-21/43",
+        "PAPER-HE-21/44",
+        "PAPER-HE-21/45",
+        "PAPER-HE-21/46",
+        "PAPER-HE-21/47",
+        "PAPER-HE-21/48",
+        "PAPER-HE-21/49",
+        "PAPER-HE-21/50",
+        "PAPER-HE-21/52",
+        "PAPER-HE-21/63",
+        "PAPER-HE-21/70",
+        "PAPER-HE-21/72",
+        "PAPER-HE-21/75",
+        "PAPER-HE-21/76",
+        "PAPER-HE-21/77",
+        "PAPER-HE-21/78",
+        "PAPER-HE-21/79",
+        "PAPER-HE-21/80",
+        "PAPER-HE-21/82",
+        "PAPER-HE-21/83",
+        "PAPER-HE-21/84",
+        "PAPER-HE-21/85",
+        "PAPER-HE-21/86",
+        "PAPER-HE-21/87",
+        "PAPER-HE-21/89",
+        "PAPER-HE-21/91",
+        "PAPER-HE-21/93",
+        "PAPER-HE-21/94",
+        "PAPER-HE-21/95",
+        "PAPER-HE-21/97",
+        "PAPER-HE-21/99",
+        "PAPER-HE-21/100",
+        "PAPER-HE-21/102",
+        "PAPER-HE-21/103"
+      ],
+      "reason": "HS2 owns local shtuka moduli but none of its layers proves classical Iwahori-level affine Deligne–Lusztig nonemptiness or dimension formulas. This is a continuation in the local Frobenius-modification direction, sharing GS0 geometry and BG invariants. It is not a new copy of affine flags, B(G), Satake or general Hecke functors.",
+      "brief": "Import Hecke correspondences and local shtuka cohomology (HeckeStacksAndLocalShtukas, HS0/HS2), geometric Satake over the Fargues–Fontaine curve (GeometricSatakeAndFusion GS0:loop-geometry/GS0:Witt-geometry), Bun_G and Newton strata (BunGAndNewtonStrata BG0/BG1), ReductiveGroupsPartII RG2.1–RG2.4, SchemeAndStackFoundations SF.0 and the proposed RootSystemsPartIIDominanceAndDemazure. Keep classical equal-characteristic ADLV schemes and mixed-characteristic perfect ADLV spaces separate from local shtuka diamonds; an actual comparison is needed where used. Construct X_w(b), η_σ, virtual dimension, reduction relations, generic Newton classes, cordiality, double-flat coweights and Levi alcoves. Cover split parts of Theorems2.1/3.1/3.2, Proposition3.3, MV cordial saturation with a known nonempty lower endpoint, and Theorem4.2: x t^λ is cordial with [b_xtλ]=[t^λ]. Prove the precise two-correspondence Theorem5.5, retaining every lattice, finite-type and perfection hypothesis. Final targets: for simple quasi-split G, shrunken w, λ_w^♦−ν_b strictly positive on every simple coroot and (λ_w^{♭♭})^♦≥ν_b, X_w(b) is nonempty exactly when κ(b)=κ(w) and supp_σ(η_σ(w))=S, and then dim=(ℓw+ℓη_σ(w)−def_G(b))/2−〈ν_b,ρ〉. Also prove Cor.6.4 with λ_w^♦≥ν_b+2ρ∨ and the separate shrunken hypothesis. Gate execution on G1–G3: auxiliary/adjoint lattice realization, bounded/perfect fiber-dimension comparison, and a basic-seed theorem covering the constructed element (the explicit A2 example shows it need not be shrunken). Preserve the tame/good-characteristic restrictions of cited inputs until broader transport is proved. Use the corrected (J,x,σ) in §6.2, all overbars in §4.3, and the GHN erratum. Add basic/minuscule/wall/σ-twisted/rank-one and nonbasic-Levi tests; never infer all classes below the maximal Newton point from saturation alone. Suggested future Lean home: TauCeti/AlgebraicGeometry/AffineDeligneLusztig/{Basic,Reduction,Cordial,Dimension}.lean. This checkpoint is a design brief, not a verified proof closure or a Lean implementation."
+    }
+  ]
+}
