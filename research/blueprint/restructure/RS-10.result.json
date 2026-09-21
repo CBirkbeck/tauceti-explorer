@@ -1,0 +1,780 @@
+{
+  "family": "RS-10",
+  "roadmaps": {
+    "ArithmeticQuantumTopology": {
+      "action": "keep",
+      "reason": "Topological constructions, surgery invariance and quantum comparisons are applications of the coefficient rings; neither completion nor cohomology subsumes them."
+    },
+    "HabiroCohomologyFoundations": {
+      "action": "keep",
+      "reason": "Keep global q-de Rham, chosen q-Hodge filtrations, Habiro descent and their applications. Import the shared q-Witt theory from the reviewed PLAN-HABIRO definitions."
+    },
+    "HabiroCyclotomicCompletions": {
+      "action": "keep",
+      "reason": "The ordinary cyclotomic completion, finite precision, evaluation and injectivity APIs remain the classical foundation. Derived completion and twisted arithmetic rings are separate extensions of the API, not replacements."
+    },
+    "HabiroNumberFields": {
+      "action": "keep",
+      "reason": "Keep finite regulators, arithmetic properties of number-field Habiro rings and K3-indexed modules. Specialise the early Taylor construction in HR.1, then supply the later relative-ring comparison."
+    },
+    "HabiroRings": {
+      "action": "keep",
+      "reason": "Keep relative coefficient rings and derived cyclotomic gluing. Share Lambda/q-Witt foundations with the existing reviewed PLAN-HABIRO; its staged definitions must be integrated with this result."
+    }
+  },
+  "layers": {
+    "ArithmeticQuantumTopology:QT.0": {
+      "action": "keep",
+      "reason": "Keep framed links, Kirby moves and the presentation-to-manifold invariant proof obligations."
+    },
+    "ArithmeticQuantumTopology:QT.1": {
+      "action": "keep",
+      "reason": "Keep ribbon categories, quantum groups, admissible root specializations and normalized RT surgery; no generic semisimplicity claim."
+    },
+    "ArithmeticQuantumTopology:QT.2": {
+      "action": "keep",
+      "reason": "Keep colored Jones constructions and the integral cyclotomic expansion theorem for the specified link class. Import HC.1–HC.2 finite-precision infrastructure; a generic ring expansion is not this theorem."
+    },
+    "ArithmeticQuantumTopology:QT.3": {
+      "action": "keep",
+      "reason": "Keep the unified integral-homology-sphere invariant and its surgery invariance; import completion and rigidity. Rational homology spheres require their own coefficient theorem."
+    },
+    "ArithmeticQuantumTopology:QT.4": {
+      "action": "keep",
+      "reason": "Keep WRT and Ohtsuki identifications and qualified general-Lie variants; import generic evaluation/Taylor/injectivity from HC.3–HC.4."
+    },
+    "ArithmeticQuantumTopology:QT.5": {
+      "action": "keep",
+      "reason": "Keep geometric Bloch classes, flattenings, Pachner invariance and volume/Chern–Simons comparison; K3BlochGroups supplies the algebraic regulator."
+    },
+    "ArithmeticQuantumTopology:QT.6": {
+      "action": "keep",
+      "reason": "Keep source-specific state sums/integrals and controlled asymptotics, using retained Nahm suppliers. No automatic equality of formal and analytic expansions."
+    },
+    "ArithmeticQuantumTopology:QT.7": {
+      "action": "keep",
+      "reason": "Keep explicitly labelled research conjectures and independently proved cases; no new general quantum-modularity or volume theorem is asserted."
+    },
+    "HabiroCohomologyFoundations:HQ.1": {
+      "action": "narrow",
+      "keeps": "Global arithmetic q-de Rham gluing over the admitted perfectly covered bases, rational/p-complete comparisons, coherent chart independence and descent; retain PLAN-HABIRO q-connection/module applications.",
+      "suppliedBy": [
+        "QWittVectors:QW.1",
+        "QWittVectors:QW.6",
+        "HabiroRings:HR.1",
+        "HabiroCyclotomicCompletions:HC.1",
+        "PrismaticCohomology:PR.6"
+      ],
+      "reason": "Import Lambda/Frobenius and elementary q formulas, the uncompleted framed complex from QW.6, and the independent p-complete q-prismatic calculation from PR.6; prove their comparison, with ideal [p]_q rather than q-1."
+    },
+    "HabiroCohomologyFoundations:HQ.2": {
+      "action": "keep",
+      "reason": "Keep animated/derived q-de Rham, filtered completion and the exact completion-sensitive comparisons; PLAN-HABIRO twisted q-de Rham/Nygaard applications import QW.7 and HR.3. Ordinary derived de Rham, animation and L-eta remain external imports."
+    },
+    "HabiroCohomologyFoundations:HQ.3": {
+      "action": "keep",
+      "reason": "Own chosen q-Hodge filtrations, modified q-Hodge complexes and their Habiro descent (Theorem 3.11, §§3.5–3.8), including the descent application formerly in HQ.4. Replace HQ.4 by QW.7 as an input; retain all coherent rational and p-completed rational conditions."
+    },
+    "HabiroCohomologyFoundations:HQ.4": {
+      "action": "narrow",
+      "keeps": "The framed Habiro-ring and uncompleted q-Habiro–Hodge application of PLAN-HABIRO §6.5, its Koszul model, comparison with HQ.3, examples and the framed no-go applications. Preserve the distinction between the uncompleted Habiro complex and its q-1 completion.",
+      "suppliedBy": [
+        "QWittVectors:QW.2",
+        "QWittVectors:QW.5",
+        "QWittVectors:QW.6",
+        "QWittVectors:QW.7",
+        "HabiroRings:HR.3",
+        "HabiroRings:HR.1",
+        "HabiroRings:HR.5",
+        "HabiroCohomologyFoundations:HQ.3"
+      ],
+      "reason": "Positive-degree q-de Rham–Witt and ordinary comparison move to QW.5; animation/smooth Corollary 3.31 to QW.7; ghost/no-restriction statements to QW.2; cyclotomic descent application to HQ.3. Remove CR.4 and HR.4 prerequisite edges, then add the suppliers listed here."
+    },
+    "HabiroCohomologyFoundations:HQ.5": {
+      "action": "narrow",
+      "keeps": "Algebraic existence results: dimension-dependent small-prime inversion with the partial-operad arity condition, scheme descent and smooth-proper perfectness over the Habiro completion of the localized base; condition (R), the regular-higher-power case of Theorem 4.22(a), and the qualified functor of Theorem 4.29 with its actual uniqueness hypotheses and finite-order/action comparisons. Retain the completed finite-etale cohomology export to HR.6, completion comparisons and imported HR.5 Taylor maps; keep Meyer–Wagner Lemma 3.17 as the named proof input requiring source verification at blueprint time.",
+      "suppliedBy": [
+        "HabiroCohomologyFoundations:HQ.5-trace",
+        "HabiroRings:HR.5"
+      ],
+      "reason": "The spherical E1-lift case, Theorem 4.22(b), moves to HQ.5-trace because its proof uses the ku theorem. This is a transfer, not a backward dependency from HQ.5 to HQ.5-trace; see the report consumer matrix."
+    },
+    "HabiroCohomologyFoundations:HQ.5-trace": {
+      "action": "keep",
+      "reason": "Own application of trace-supplied q-Hodge existence, now also Wagner Theorem 4.22(b). Keep the connective spherical E2 lift and 2-invertibility in the separate quasi-syntomic statement; an E1 lift or ku lift alone does not meet it. Require RT.4:q-Hodge and HQ.5 as before."
+    },
+    "HabiroCohomologyFoundations:HQ.6": {
+      "action": "keep",
+      "reason": "Keep only the qualified algebraic–analytic comparison and its open status. Import the analytic side from staged AnalyticHabiroStack:HS.3; expected completed localization is not an established equivalence in general."
+    },
+    "HabiroCohomologyFoundations:HQ.7": {
+      "action": "keep",
+      "reason": "Keep algebraic cohomology acceptance cases and the Lean boundary. Replace HQ.6 by HQ.4, HQ.5 and HQ.5-trace so these tests do not require an open analytic comparison."
+    },
+    "HabiroCohomologyFoundations:HQ.8": {
+      "action": "keep",
+      "reason": "Keep the comparison atlas and all existing cohomology/comparison suppliers. Add the moved q-Witt and trace-case owners; neither ordinary nor analytic comparisons imply a universal equivalence."
+    },
+    "HabiroCyclotomicCompletions:HC.1": {
+      "action": "keep",
+      "reason": "Own ordinary cyclotomic inverse limits, cofinality, topology, universal maps and functoriality. Incorporate PLAN-HABIRO §6.1 elementary q-toolkit here; do not require Lambda theory to construct it. Existing polynomial identities are library imports."
+    },
+    "HabiroCyclotomicCompletions:HC.2": {
+      "action": "keep",
+      "reason": "Own degree-normalised Habiro-factorial expansions, finite-precision arithmetic and q invertibility in the ordinary completion; the colored-Jones integrality theorem stays in QT.2."
+    },
+    "HabiroCyclotomicCompletions:HC.3": {
+      "action": "keep",
+      "reason": "Own evaluation, Hasse/Taylor coefficients, change of roots and convergent p-adic re-expansion with cocycles. HR.1 adds the Frobenius-twisted ring, not another re-expansion API."
+    },
+    "HabiroCyclotomicCompletions:HC.4": {
+      "action": "keep",
+      "reason": "Own cyclotomic adjacency, resultants and the source-hypothesis-sensitive rigidity theorems. PLAN-HABIRO §6.1 also puts the elementary cyclotomic comaximality and naive-completion comparison here; exclude m=n from the nonzero prime-power ratio formula."
+    },
+    "HabiroCyclotomicCompletions:HC.5": {
+      "action": "narrow",
+      "keeps": "Ordinary module completion, functoriality, finite-direct-sum comparison, continuous scalar action, exactness under the stated hypotheses, module separation/injectivity and localization/component examples. The late comparison applies HR.2 derived completion and its homotopy/derived-limit detection to this ordinary construction.",
+      "suppliedBy": [
+        "HabiroRings:HR.2"
+      ],
+      "reason": "The derived completion and correction machinery has one owner. At blueprint granularity the HR.2 edge enters only the comparison node; the ordinary HC.5 prefix still follows HC.4."
+    },
+    "HabiroCyclotomicCompletions:HC.6": {
+      "action": "narrow",
+      "keeps": "Classical completion acceptance cases, finite precision, value-versus-Taylor checks, source ledger and suggested-file boundary. The arithmetic F=Q comparison test is performed in HB.6 after its number-field ring exists.",
+      "suppliedBy": [
+        "HabiroNumberFields:HB.6"
+      ],
+      "reason": "Move only the late arithmetic comparison test. QT.4 consumes the retained classical tests, so it does not acquire a number-field prerequisite."
+    },
+    "HabiroNumberFields:HB.1": {
+      "action": "keep",
+      "reason": "Retain finite Chern classes, Bloch/Suslin conventions and small-torsion hypotheses. Generic motivic/K-theoretic and Kummer inputs remain imports; PLAN-HABIRO §6.3 names M.1 and upstream ProfiniteCohomology layer 9."
+    },
+    "HabiroNumberFields:HB.2": {
+      "action": "keep",
+      "reason": "Retain cyclic quantum dilogarithms, five-term identities and exact regulator/Chern comparison, including the square and root-choice normalization. PLAN-HABIRO root-Pochhammer asymptotics use HC.1 and Polylogarithms P.1."
+    },
+    "HabiroNumberFields:HB.6": {
+      "action": "narrow",
+      "keeps": "The arithmetic specialization H_R=H^Tay_(R/Z), R=O_F[1/Delta], disc(F) dividing Delta: root-order restrictions, p-completed decomposition, intersection description, prime-chain components and abelian special cases. Retain the F=Q comparison and arithmetic examples with their proved/conjectural status.",
+      "suppliedBy": [
+        "HabiroRings:HR.1",
+        "HabiroCyclotomicCompletions:HC.1",
+        "HabiroCyclotomicCompletions:HC.3",
+        "HabiroCyclotomicCompletions:HC.4",
+        "HabiroCyclotomicCompletions:HC.5"
+      ],
+      "reason": "Import the early twisted-ring construction and classical completion/re-expansion/localization facts. Own the arithmetic consequences, not a second construction of the same Taylor ring. Drop M.1 as a prerequisite of the ring."
+    },
+    "HabiroNumberFields:HB.7": {
+      "action": "keep",
+      "reason": "Own local regulator sections, global K3-indexed invertible modules, gluing and normalization; preserve restrictions at small primes and do not assert all modules are free. D.3 and V.4 are explicit suppliers alongside existing D.4/HB.1/HB.2."
+    },
+    "HabiroNumberFields:KU-finitereg": {
+      "action": "keep",
+      "reason": "Retain the finite-regulator readiness checkpoint with all existing suppliers and its export to Nahm torsion."
+    },
+    "HabiroNumberFields:KU-habiromodules": {
+      "action": "keep",
+      "reason": "Retain the module-readiness checkpoint and every existing requirement, including the regulator and ring checkpoints."
+    },
+    "HabiroNumberFields:KU-habiroring": {
+      "action": "keep",
+      "reason": "Retain the ring-readiness checkpoint using HC.1–HC.3, HB.6 and HR.1. Remove MotivicEtaleKTheory:KU-continuous and StableHomotopyKTheory:KU-existing; neither constructs the ring."
+    },
+    "HabiroRings:HR.1": {
+      "action": "narrow",
+      "keeps": "Unique Frobenius lifts on p-completions of etale algebras over Lambda bases; linearised relative Frobenius, completed base change and iterates. Add the early Taylor-glued ring H^Tay_(R/A) for polynomial/toric Lambda bases and etale R, its ring/functor/H_Z-algebra API, as specified by PLAN-HABIRO §6.2.",
+      "suppliedBy": [
+        "QWittVectors:QW.1",
+        "HabiroCyclotomicCompletions:HC.3"
+      ],
+      "reason": "Lambda rings, Adams operations and perfect covering belong to QW.1. This early construction is independent of the later finite-level relative gluing and number-field comparison."
+    },
+    "HabiroRings:HR.2": {
+      "action": "narrow",
+      "keeps": "Derived Habiro-completeness, reflector, idempotence, homotopy and cyclotomic detection, staticity, tensor structure and the spectral upgrade; own Wagner B.7–B.8 Habiro-specific comparison, with its bounded-below hypothesis.",
+      "suppliedBy": [
+        "HabiroCyclotomicCompletions:HC.1",
+        "HabiroCyclotomicCompletions:HC.2",
+        "DerivedDeRhamCohomology:DD.1",
+        "SolidAnalyticRings:SA.1"
+      ],
+      "reason": "Import ordinary completion/cofinality/q inverse and generic derived completion. SA.1 supplies light solid spectra and their tensor API; the existing VS2 prose citation is not a substitute for this category."
+    },
+    "HabiroRings:HR.3": {
+      "action": "narrow",
+      "keeps": "Finite cyclotomic descent of complete derived modules/algebras, all prime-edge coherences and the right-Kan-extension proof of Wagner Corollary 2.4.",
+      "suppliedBy": [
+        "HabiroCyclotomicCompletions:HC.1",
+        "HabiroCyclotomicCompletions:HC.4"
+      ],
+      "reason": "Reuse ordinary indexing/cofinality and cyclotomic arithmetic; retain the genuinely derived descent theorem."
+    },
+    "HabiroRings:HR.4": {
+      "action": "narrow",
+      "keeps": "E_d cyclotomic completions and the glued H_(R/A,m); Wagner Theorem 2.9 under the standing etale R/A and perfectly covered A hypotheses: staticity, unique complete etale lift and reduction to qW_m(R/A). Own transitions and their identification with quotient Frobenius, plus naturality.",
+      "suppliedBy": [
+        "QWittVectors:QW.2",
+        "QWittVectors:QW.3",
+        "QWittVectors:QW.4"
+      ],
+      "reason": "Move degree-zero q-Witt constructions, ghost maps, F/V operators, no-restriction obstruction and etale base change to their existing PLAN-HABIRO owners."
+    },
+    "HabiroRings:HR.5": {
+      "action": "narrow",
+      "keeps": "The inverse-limit relative ring for perfectly covered A and etale R; its topology, functoriality, corrected Taylor-equalizer comparison (Wagner Lemma 2.12), and comparison with the early HR.1 Taylor ring for admitted toric bases. Preserve the full cyclotomic coefficient algebra and the R=Z comparison.",
+      "suppliedBy": [
+        "HabiroCyclotomicCompletions:HC.1",
+        "HabiroCyclotomicCompletions:HC.3",
+        "HabiroRings:HR.1"
+      ],
+      "reason": "Reuse cofinality, convergent re-expansion and the independently constructed early Taylor ring. The finite-gluing-to-Taylor equivalence remains a theorem here, not a definition of both sides."
+    },
+    "HabiroRings:HR.5-number-field-comparison": {
+      "action": "keep",
+      "reason": "Own Wagner Corollary 2.13 after HB.6 and HR.5: identify the two constructions, including maps, Frobenius twists and root conventions. Preserve PLAN-HABIRO finite-etaleness/rank consequence via Theorem 2.9 and QW.4; do not make HB.6 depend on this comparison."
+    },
+    "HabiroRings:HR.6": {
+      "action": "keep",
+      "reason": "Own the late etale-cohomology/ring identification (Corollary 3.13) and the comparison showing what K3-indexed information completion loses. Import HB.7 modules and HQ.3/HQ.5 cohomology; neither is reconstructed here."
+    },
+    "HabiroRings:HR.7": {
+      "action": "keep",
+      "reason": "Retain relative-ring/equalizer acceptance tests, including Phi_5 over F_11. Classical HC.6 and cohomology HQ.7 tests remain independent checks on different APIs."
+    }
+  },
+  "links": [
+    {
+      "source": "AnalyticHabiroStack:HS.3",
+      "target": "HabiroCohomologyFoundations:HQ.6",
+      "reason": "Supply the analytic object and base-change functor, with its source gaps retained."
+    },
+    {
+      "source": "ArithmeticQuantumTopology:QT.4",
+      "target": "QSeriesPartitionsAndMockModularForms:QM.5",
+      "reason": "Retain this existing external export; its mathematical object and hypotheses survive the restructuring."
+    },
+    {
+      "source": "HabiroCohomologyFoundations:HQ.3",
+      "target": "HabiroCohomologyFoundations:HQ.4",
+      "reason": "Supply the chosen filtration and Habiro descent theorem, including the application transferred from HQ.4."
+    },
+    {
+      "source": "HabiroCohomologyFoundations:HQ.3",
+      "target": "HabiroCohomologyFoundations:HQ.5",
+      "reason": "Supply the chosen filtration and Habiro descent theorem, including the application transferred from HQ.4."
+    },
+    {
+      "source": "HabiroCohomologyFoundations:HQ.3",
+      "target": "HabiroCohomologyFoundations:HQ.8",
+      "reason": "Supply the chosen filtration and Habiro descent theorem, including the application transferred from HQ.4."
+    },
+    {
+      "source": "HabiroCohomologyFoundations:HQ.3",
+      "target": "HabiroRings:HR.6",
+      "reason": "Supply the chosen filtration and Habiro descent theorem, including the application transferred from HQ.4."
+    },
+    {
+      "source": "HabiroCohomologyFoundations:HQ.3",
+      "target": "RefinedTraceMethods:RT.4:q-Hodge",
+      "reason": "Supply the chosen filtration and Habiro descent theorem, including the application transferred from HQ.4. Retain this existing external export; its mathematical object and hypotheses survive the restructuring."
+    },
+    {
+      "source": "HabiroCohomologyFoundations:HQ.4",
+      "target": "HabiroCohomologyFoundations:HQ.7",
+      "reason": "Supply framed algebraic cohomology acceptance cases independently of HQ.6."
+    },
+    {
+      "source": "HabiroCohomologyFoundations:HQ.5",
+      "target": "HabiroCohomologyFoundations:HQ.7",
+      "reason": "Supply the algebraic existence cases used by the tests."
+    },
+    {
+      "source": "HabiroCohomologyFoundations:HQ.5-trace",
+      "target": "HabiroCohomologyFoundations:HQ.6",
+      "reason": "Supply the moved spherical E1-lift case and its distinction from the stronger quasi-syntomic E2 theorem."
+    },
+    {
+      "source": "HabiroCohomologyFoundations:HQ.5-trace",
+      "target": "HabiroCohomologyFoundations:HQ.7",
+      "reason": "Supply the moved spherical E1-lift case and its distinction from the stronger quasi-syntomic E2 theorem."
+    },
+    {
+      "source": "HabiroCohomologyFoundations:HQ.5-trace",
+      "target": "HabiroCohomologyFoundations:HQ.8",
+      "reason": "Supply the moved spherical E1-lift case and its distinction from the stronger quasi-syntomic E2 theorem."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.1",
+      "target": "HabiroCohomologyFoundations:HQ.1",
+      "reason": "Import ordinary cyclotomic indexing/completion or the elementary q-toolkit, as appropriate; retain the relative/derived/application theorem."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.1",
+      "target": "HabiroNumberFields:HB.2",
+      "reason": "Import ordinary cyclotomic indexing/completion or the elementary q-toolkit, as appropriate; retain the relative/derived/application theorem."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.1",
+      "target": "HabiroNumberFields:HB.6",
+      "reason": "Import ordinary cyclotomic indexing/completion or the elementary q-toolkit, as appropriate; retain the relative/derived/application theorem."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.1",
+      "target": "HabiroRings:HR.2",
+      "reason": "Import ordinary cyclotomic indexing/completion or the elementary q-toolkit, as appropriate; retain the relative/derived/application theorem."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.1",
+      "target": "HabiroRings:HR.3",
+      "reason": "Import ordinary cyclotomic indexing/completion or the elementary q-toolkit, as appropriate; retain the relative/derived/application theorem."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.1",
+      "target": "HabiroRings:HR.5",
+      "reason": "Import ordinary cyclotomic indexing/completion or the elementary q-toolkit, as appropriate; retain the relative/derived/application theorem."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.2",
+      "target": "ArithmeticQuantumTopology:QT.2",
+      "reason": "Use factorial finite precision and ordinary q invertibility, with the separate application proof retained."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.2",
+      "target": "HabiroRings:HR.2",
+      "reason": "Use factorial finite precision and ordinary q invertibility, with the separate application proof retained."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.3",
+      "target": "ArithmeticQuantumTopology:QT.4",
+      "reason": "Use evaluation and convergent p-adic Taylor re-expansion, preserving all coefficient/root hypotheses."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.3",
+      "target": "HabiroNumberFields:HB.6",
+      "reason": "Use evaluation and convergent p-adic Taylor re-expansion, preserving all coefficient/root hypotheses."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.3",
+      "target": "HabiroRings:HR.1",
+      "reason": "Use evaluation and convergent p-adic Taylor re-expansion, preserving all coefficient/root hypotheses."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.3",
+      "target": "HabiroRings:HR.5",
+      "reason": "Use evaluation and convergent p-adic Taylor re-expansion, preserving all coefficient/root hypotheses."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.3",
+      "target": "QSeriesPartitionsAndMockModularForms:QM.5",
+      "reason": "Retain this existing external export; its mathematical object and hypotheses survive the restructuring."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.4",
+      "target": "ArithmeticQuantumTopology:QT.4",
+      "reason": "Use cyclotomic adjacency/comaximality or classical rigidity with its exact hypotheses."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.4",
+      "target": "HabiroNumberFields:HB.6",
+      "reason": "Use cyclotomic adjacency/comaximality or classical rigidity with its exact hypotheses."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.4",
+      "target": "HabiroRings:HR.3",
+      "reason": "Use cyclotomic adjacency/comaximality or classical rigidity with its exact hypotheses."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.4",
+      "target": "QSeriesPartitionsAndMockModularForms:QM.5",
+      "reason": "Retain this existing external export; its mathematical object and hypotheses survive the restructuring."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.4",
+      "target": "QWittVectors:QW.2",
+      "reason": "Use cyclotomic adjacency/comaximality or classical rigidity with its exact hypotheses."
+    },
+    {
+      "source": "HabiroCyclotomicCompletions:HC.5",
+      "target": "HabiroNumberFields:HB.6",
+      "reason": "Import the classical localization/component API before proving the twisted arithmetic version."
+    },
+    {
+      "source": "HabiroNumberFields:HB.2",
+      "target": "HabiroNahmSeries:HB.5",
+      "reason": "Retain this existing external export; its mathematical object and hypotheses survive the restructuring."
+    },
+    {
+      "source": "HabiroNumberFields:HB.6",
+      "target": "HabiroRings:HR.5-number-field-comparison",
+      "reason": "Supply the explicit arithmetic ring to the later relative-ring identification."
+    },
+    {
+      "source": "HabiroNumberFields:HB.7",
+      "target": "HabiroNahmSeries:HB.9",
+      "reason": "Retain this existing external export; its mathematical object and hypotheses survive the restructuring."
+    },
+    {
+      "source": "HabiroNumberFields:HB.7",
+      "target": "HabiroRings:HR.6",
+      "reason": "Supply constructed K3-indexed modules to the cohomological/completion comparison."
+    },
+    {
+      "source": "HabiroNumberFields:KU-finitereg",
+      "target": "HabiroNahmSeries:KU-nahmtorsion",
+      "reason": "Retain this existing external export; its mathematical object and hypotheses survive the restructuring."
+    },
+    {
+      "source": "HabiroNumberFields:KU-habiromodules",
+      "target": "HabiroNahmSeries:KU-habiromembership",
+      "reason": "Retain this existing external export; its mathematical object and hypotheses survive the restructuring."
+    },
+    {
+      "source": "HabiroRings:HR.1",
+      "target": "HabiroCohomologyFoundations:HQ.1",
+      "reason": "Use the early Taylor ring and/or etale p-completed Frobenius API; no late number-field comparison is an input."
+    },
+    {
+      "source": "HabiroRings:HR.1",
+      "target": "HabiroCohomologyFoundations:HQ.4",
+      "reason": "Use the early Taylor ring and/or etale p-completed Frobenius API; no late number-field comparison is an input."
+    },
+    {
+      "source": "HabiroRings:HR.1",
+      "target": "HabiroNumberFields:HB.6",
+      "reason": "Use the early Taylor ring and/or etale p-completed Frobenius API; no late number-field comparison is an input."
+    },
+    {
+      "source": "HabiroRings:HR.1",
+      "target": "HabiroNumberFields:KU-habiroring",
+      "reason": "Use the early Taylor ring and/or etale p-completed Frobenius API; no late number-field comparison is an input."
+    },
+    {
+      "source": "HabiroRings:HR.1",
+      "target": "HabiroRings:HR.5",
+      "reason": "Use the early Taylor ring and/or etale p-completed Frobenius API; no late number-field comparison is an input."
+    },
+    {
+      "source": "HabiroRings:HR.2",
+      "target": "HabiroCyclotomicCompletions:HC.5",
+      "reason": "Supply the derived correction at the late ordinary-versus-derived module comparison, not the ordinary completion prefix."
+    },
+    {
+      "source": "HabiroRings:HR.3",
+      "target": "HabiroCohomologyFoundations:HQ.2",
+      "reason": "Import the derived finite cyclotomic descent theorem; HQ.3 owns the q-Hodge application."
+    },
+    {
+      "source": "HabiroRings:HR.3",
+      "target": "HabiroCohomologyFoundations:HQ.3",
+      "reason": "Import the derived finite cyclotomic descent theorem; HQ.3 owns the q-Hodge application."
+    },
+    {
+      "source": "HabiroRings:HR.3",
+      "target": "HabiroCohomologyFoundations:HQ.4",
+      "reason": "Import the derived finite cyclotomic descent theorem; HQ.3 owns the q-Hodge application."
+    },
+    {
+      "source": "HabiroRings:HR.5",
+      "target": "HabiroCohomologyFoundations:HQ.4",
+      "reason": "Import the relative-ring/Taylor comparison in the framed and completion applications."
+    },
+    {
+      "source": "HabiroRings:HR.5",
+      "target": "HabiroCohomologyFoundations:HQ.5",
+      "reason": "Import the relative-ring/Taylor comparison in the framed and completion applications."
+    },
+    {
+      "source": "HabiroRings:HR.5-number-field-comparison",
+      "target": "RefinedTraceMethods:RT.4:Habiro-comparison",
+      "reason": "Retain this existing external export; its mathematical object and hypotheses survive the restructuring."
+    },
+    {
+      "source": "K3BlochGroups:V.4",
+      "target": "HabiroNumberFields:HB.7",
+      "reason": "Supply the K3/Bloch comparison used to index arithmetic modules."
+    },
+    {
+      "source": "MotivicEtaleKTheory:M.1",
+      "target": "HabiroNumberFields:HB.1",
+      "reason": "Finite motivic/etale coefficient conventions belong to the regulator track, not to construction of HB.6."
+    },
+    {
+      "source": "PadicHodgeRegulators:D.3",
+      "target": "HabiroNumberFields:HB.7",
+      "reason": "Supply the local p-adic regulator theorem with its prime restrictions."
+    },
+    {
+      "source": "Polylogarithms:P.1",
+      "target": "HabiroNumberFields:HB.2",
+      "reason": "Import the dilogarithm and its identities for the root-Pochhammer application."
+    },
+    {
+      "source": "QWittVectors:QW.1",
+      "target": "HabiroCohomologyFoundations:HQ.1",
+      "reason": "Use the single Lambda/perfect-covering owner from the reviewed staged definition."
+    },
+    {
+      "source": "QWittVectors:QW.1",
+      "target": "HabiroRings:HR.1",
+      "reason": "Use the single Lambda/perfect-covering owner from the reviewed staged definition."
+    },
+    {
+      "source": "QWittVectors:QW.1",
+      "target": "HabiroRings:HR.2",
+      "reason": "Use the single Lambda/perfect-covering owner from the reviewed staged definition."
+    },
+    {
+      "source": "QWittVectors:QW.2",
+      "target": "HabiroCohomologyFoundations:HQ.4",
+      "reason": "Import absolute q-Witt operators, ghost maps and the no-restriction obstruction."
+    },
+    {
+      "source": "QWittVectors:QW.2",
+      "target": "HabiroRings:HR.4",
+      "reason": "Import absolute q-Witt operators, ghost maps and the no-restriction obstruction."
+    },
+    {
+      "source": "QWittVectors:QW.3",
+      "target": "HabiroRings:HR.4",
+      "reason": "Import relative q-Witt rings over Lambda bases."
+    },
+    {
+      "source": "QWittVectors:QW.4",
+      "target": "HabiroCohomologyFoundations:HQ.3",
+      "reason": "Use degree-zero q-Witt etale base change and its comparisons; finite completed lifts remain HR.4."
+    },
+    {
+      "source": "QWittVectors:QW.4",
+      "target": "HabiroRings:HR.4",
+      "reason": "Use degree-zero q-Witt etale base change and its comparisons; finite completed lifts remain HR.4."
+    },
+    {
+      "source": "QWittVectors:QW.4",
+      "target": "HabiroRings:HR.5",
+      "reason": "Use degree-zero q-Witt etale base change and its comparisons; finite completed lifts remain HR.4."
+    },
+    {
+      "source": "QWittVectors:QW.4",
+      "target": "HabiroRings:HR.5-number-field-comparison",
+      "reason": "Use degree-zero q-Witt etale base change and its comparisons; finite completed lifts remain HR.4."
+    },
+    {
+      "source": "QWittVectors:QW.5",
+      "target": "HabiroCohomologyFoundations:HQ.3",
+      "reason": "Redirect the positive-degree q-de Rham–Witt input formerly supplied through HQ.4."
+    },
+    {
+      "source": "QWittVectors:QW.5",
+      "target": "HabiroCohomologyFoundations:HQ.4",
+      "reason": "Redirect the positive-degree q-de Rham–Witt input formerly supplied through HQ.4."
+    },
+    {
+      "source": "QWittVectors:QW.5",
+      "target": "HabiroCohomologyFoundations:HQ.5",
+      "reason": "Redirect the positive-degree q-de Rham–Witt input formerly supplied through HQ.4."
+    },
+    {
+      "source": "QWittVectors:QW.5",
+      "target": "HabiroCohomologyFoundations:HQ.8",
+      "reason": "Redirect the positive-degree q-de Rham–Witt input formerly supplied through HQ.4."
+    },
+    {
+      "source": "QWittVectors:QW.5",
+      "target": "HabiroRings:HR.6",
+      "reason": "Redirect the positive-degree q-de Rham–Witt input formerly supplied through HQ.4."
+    },
+    {
+      "source": "QWittVectors:QW.6",
+      "target": "HabiroCohomologyFoundations:HQ.1",
+      "reason": "Import the framed q-complex and its completion comparison from the single staged owner."
+    },
+    {
+      "source": "QWittVectors:QW.6",
+      "target": "HabiroCohomologyFoundations:HQ.4",
+      "reason": "Import the framed q-complex and its completion comparison from the single staged owner."
+    },
+    {
+      "source": "QWittVectors:QW.7",
+      "target": "HabiroCohomologyFoundations:HQ.2",
+      "reason": "Redirect animated q-Witt forms, Nygaard theory and smooth Corollary 3.31 formerly supplied through HQ.4."
+    },
+    {
+      "source": "QWittVectors:QW.7",
+      "target": "HabiroCohomologyFoundations:HQ.3",
+      "reason": "Redirect animated q-Witt forms, Nygaard theory and smooth Corollary 3.31 formerly supplied through HQ.4."
+    },
+    {
+      "source": "QWittVectors:QW.7",
+      "target": "HabiroCohomologyFoundations:HQ.4",
+      "reason": "Redirect animated q-Witt forms, Nygaard theory and smooth Corollary 3.31 formerly supplied through HQ.4."
+    },
+    {
+      "source": "QWittVectors:QW.7",
+      "target": "HabiroCohomologyFoundations:HQ.5",
+      "reason": "Redirect animated q-Witt forms, Nygaard theory and smooth Corollary 3.31 formerly supplied through HQ.4."
+    },
+    {
+      "source": "QWittVectors:QW.7",
+      "target": "HabiroCohomologyFoundations:HQ.8",
+      "reason": "Redirect animated q-Witt forms, Nygaard theory and smooth Corollary 3.31 formerly supplied through HQ.4."
+    },
+    {
+      "source": "QWittVectors:QW.7",
+      "target": "HabiroRings:HR.6",
+      "reason": "Redirect animated q-Witt forms, Nygaard theory and smooth Corollary 3.31 formerly supplied through HQ.4."
+    },
+    {
+      "source": "SolidAnalyticRings:SA.1",
+      "target": "HabiroRings:HR.2",
+      "reason": "Import light solid spectra and their tensor theory; HR.2 proves Habiro-specific B.7–B.8."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+      "target": "HabiroNumberFields:HB.1",
+      "reason": "Import the unchanged upstream Kummer interface specified by PLAN-HABIRO."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Ordinary cyclotomic completion and cofinal indexing comparisons",
+      "owner": "HabiroCyclotomicCompletions:HC.1",
+      "formerly": [
+        "HabiroNumberFields:HB.6",
+        "HabiroRings:HR.2",
+        "HabiroRings:HR.3",
+        "HabiroRings:HR.5"
+      ]
+    },
+    {
+      "target": "Normalised factorial expansion infrastructure and ordinary q invertibility",
+      "owner": "HabiroCyclotomicCompletions:HC.2",
+      "formerly": [
+        "ArithmeticQuantumTopology:QT.2",
+        "HabiroRings:HR.2"
+      ]
+    },
+    {
+      "target": "Root evaluations, Taylor maps and convergent p-adic re-expansion",
+      "owner": "HabiroCyclotomicCompletions:HC.3",
+      "formerly": [
+        "ArithmeticQuantumTopology:QT.4",
+        "HabiroNumberFields:HB.6",
+        "HabiroRings:HR.5"
+      ]
+    },
+    {
+      "target": "Cyclotomic prime adjacency and classical rigidity input",
+      "owner": "HabiroCyclotomicCompletions:HC.4",
+      "formerly": [
+        "ArithmeticQuantumTopology:QT.4",
+        "HabiroRings:HR.3"
+      ]
+    },
+    {
+      "target": "Classical localized completion and root-component calculations",
+      "owner": "HabiroCyclotomicCompletions:HC.5",
+      "formerly": [
+        "HabiroNumberFields:HB.6"
+      ]
+    },
+    {
+      "target": "Derived Habiro completion and its correction to ordinary module completion",
+      "owner": "HabiroRings:HR.2",
+      "formerly": [
+        "HabiroCyclotomicCompletions:HC.5"
+      ]
+    },
+    {
+      "target": "Lambda rings, Adams operations and perfectly covered bases",
+      "owner": "QWittVectors:QW.1",
+      "formerly": [
+        "HabiroRings:HR.1",
+        "HabiroCohomologyFoundations:HQ.1"
+      ]
+    },
+    {
+      "target": "Etale p-completed Frobenius lifts and the early twisted Taylor-ring construction",
+      "owner": "HabiroRings:HR.1",
+      "formerly": [
+        "HabiroNumberFields:HB.6",
+        "HabiroRings:HR.5",
+        "HabiroCohomologyFoundations:HQ.1"
+      ]
+    },
+    {
+      "target": "Derived cyclotomic descent before its q-Hodge application",
+      "owner": "HabiroRings:HR.3",
+      "formerly": [
+        "HabiroCohomologyFoundations:HQ.4"
+      ]
+    },
+    {
+      "target": "Absolute q-Witt rings, ghost maps and restriction obstruction",
+      "owner": "QWittVectors:QW.2",
+      "formerly": [
+        "HabiroRings:HR.4",
+        "HabiroCohomologyFoundations:HQ.4"
+      ]
+    },
+    {
+      "target": "Relative q-Witt rings over Lambda bases",
+      "owner": "QWittVectors:QW.3",
+      "formerly": [
+        "HabiroRings:HR.4"
+      ]
+    },
+    {
+      "target": "Etale q-Witt base change and comparison API",
+      "owner": "QWittVectors:QW.4",
+      "formerly": [
+        "HabiroRings:HR.4"
+      ]
+    },
+    {
+      "target": "Positive-degree q-de Rham–Witt and classical comparison",
+      "owner": "QWittVectors:QW.5",
+      "formerly": [
+        "HabiroCohomologyFoundations:HQ.4"
+      ]
+    },
+    {
+      "target": "Animated q-Witt forms and the smooth comparison of Corollary 3.31",
+      "owner": "QWittVectors:QW.7",
+      "formerly": [
+        "HabiroCohomologyFoundations:HQ.4",
+        "HabiroCohomologyFoundations:HQ.3"
+      ]
+    },
+    {
+      "target": "Habiro descent application for chosen q-Hodge filtrations",
+      "owner": "HabiroCohomologyFoundations:HQ.3",
+      "formerly": [
+        "HabiroCohomologyFoundations:HQ.4"
+      ]
+    },
+    {
+      "target": "Number-field K3-indexed Habiro modules",
+      "owner": "HabiroNumberFields:HB.7",
+      "formerly": [
+        "HabiroRings:HR.6"
+      ]
+    },
+    {
+      "target": "Arithmetic F=Q comparison with the classical completion, including its late test",
+      "owner": "HabiroNumberFields:HB.6",
+      "formerly": [
+        "HabiroCyclotomicCompletions:HC.6"
+      ]
+    },
+    {
+      "target": "The spherical E1-lift case of Wagner Theorem 4.22(b)",
+      "owner": "HabiroCohomologyFoundations:HQ.5-trace",
+      "formerly": [
+        "HabiroCohomologyFoundations:HQ.5"
+      ]
+    }
+  ]
+}
