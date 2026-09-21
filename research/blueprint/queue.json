@@ -4649,7 +4649,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HARPAZ-WITTENBERG-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1310"
   },
   {
    "id": "REV-PAPER-HARPAZ-WITTENBERG-23",
@@ -6401,8 +6402,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1420"
+   "state": "pending",
+   "note": "released on GitHub issue #1420"
   },
   {
    "id": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
