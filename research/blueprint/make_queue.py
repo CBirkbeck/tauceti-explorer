@@ -250,6 +250,33 @@ BCGP18_BRIEF = """Final theorem: Boxer, Calegari, Gee and Pilloni, "Abelian surf
 
 BCGP25_BRIEF = """Final theorem: Boxer, Calegari, Gee and Pilloni, "Modularity theorems for abelian surfaces" (arXiv:2502.20645), with all the main theorems as stated there. This roadmap builds on the roadmap for their earlier paper (arXiv:1812.09269; job DESIGN-BCGP18, research/blueprint/roadmaps/AbelianSurfacesPotentialModularity.json) and on the infrastructure of the ten-author paper, Allen, Calegari, Caraiani, Gee, Helm, Le Hung, Newton, Scholze, Taylor and Thorne, "Potential automorphy over CM fields" (arXiv:1812.09999). The atlas already plans that infrastructure: Reusable infrastructure for potential automorphy over CM fields; Reusable infrastructure for torsion in arithmetic cohomology; Igusa varieties and torsion concentration (Caraiani and Scholze); and Arithmetic locally symmetric spaces (with the Borel–Serre compactification and boundary cohomology). Cover the paper completely, every definition and key theorem it uses or proves. Among them: higher Coleman theory; abelian surfaces and their polarizations; cuspidal automorphic representations of GL4 over Q, and of the other reductive groups it uses, with their L-functions; the Sato–Tate conjecture as the paper uses it; locally symmetric spaces; the Hecke algebras needed for the ten-author modularity results; Caraiani and Scholze's results; decomposed generic representations; the Borel–Serre compactification and boundary cohomology; and deformation theory. Import from these roadmaps and never duplicate them; where more is needed in one's direction, propose a Part II (PROTOCOL.md section 15)."""
 
+# Papers the maintainer added on 21 September 2026. Three need new layers and
+# become "Part II" roadmaps of the roadmaps they extend; one falls inside the
+# existing layers of two roadmaps and becomes a source of their blueprints.
+PAN_BRIEF = """Final theorems: Lue Pan, "On locally analytic vectors of the completed cohomology of modular curves II", Annals of Mathematics 203 (2026), 121–281 (doi:10.4007/annals.2026.203.1.3), with every main theorem as stated there: the differential operators on modular curves at infinite level at p in the holomorphic and anti-holomorphic directions; the new proof of Emerton's classicality theorem (an absolutely irreducible two-dimensional Galois representation that is regular de Rham at p and appears in the completed cohomology of modular curves comes from an eigenform); and the geometric description of the locally analytic representations of GL₂(ℚ_p) attached to such a representation in completed cohomology. The paper continues Pan's "On locally analytic vectors of the completed cohomology of modular curves" (Forum of Mathematics, Pi 10 (2022), e7), which this roadmap covers first, as its foundation: the Hodge–Tate period map at infinite level, the Sen operator and geometric Sen theory, and the locally analytic vectors of completed cohomology in terms of the perfectoid modular curve. Cover both papers completely, every definition and key theorem they use or prove. The roadmap is "Completed cohomology and p-adic local–global compatibility over Q, Part II: locally analytic vectors": it builds on CompletedCohomologyAndLocalGlobalCompatibility (Emerton's route, R31.1–R31.6) and imports from these roadmaps, never duplicating them (PROTOCOL.md section 15): Hodge–Tate theory, canonical subgroups and automorphic period maps; Shimura towers and perfectoid representability; Perfectoid rings and spaces; P-adic local Langlands for GL₂(Q_p); Locally analytic distributions, growth and character spaces; Completed cohomology, homology and arithmetic towers — Part II; P-adic Hodge theory and geometric comparison; and the modular forms roadmaps."""
+
+SKINNER_BRIEF = """Final theorems: Christopher Skinner, "A converse to a theorem of Gross, Zagier, and Kolyvagin", Annals of Mathematics 191 (2020), 329–354 (doi:10.4007/annals.2020.191.2.1), with every main theorem as stated there: for a semistable elliptic curve E over ℚ with the paper's reduction hypotheses, rank E(ℚ) = 1 and #Ш(E) finite imply ord_{s=1} L(E,s) = 1; the analogue for the abelian varieties attached to weight-two newforms; and the criteria for ord_{s=1} L(f,s) = 1 through Iwasawa theory over imaginary quadratic fields, including the non-vanishing of the p-adic logarithm of a suitable Heegner point. Cover the paper completely, every definition and key theorem it uses or proves. The roadmap is "Rank-zero and rank-one Birch–Swinnerton-Dyer theory, Part II: the p-converse": it builds on RankZeroOneBSD, whose BSD.3 proves the Gross–Zagier–Kolyvagin direction, and imports from these roadmaps, never duplicating them (PROTOCOL.md section 15): Heegner-point Euler systems and arithmetic descent; Gross–Zagier formulas and arithmetic heights; Generalized Heegner cycles and their Iwasawa variation (the p-adic Gross–Zagier formula of Bertolini, Darmon and Prasanna); Main conjectures for modular forms and their families; Automorphic congruences and reverse main-conjecture divisibilities; Euler systems, Kolyvagin systems and higher-rank descent; and Elliptic curves."""
+
+BETTS_STIX_BRIEF = """Final theorem: L. Alexander Betts and Jakob Stix, "Galois sections and p-adic period mappings", Annals of Mathematics 201 (2025), 79–166 (doi:10.4007/annals.2025.201.1.2), with every main theorem as stated there: for a number field K containing no CM subfield and a smooth projective curve Y over K of genus at least 2, the image of the Selmer part of Grothendieck's section set in Y(K_v) is finite for every finite place v. Cover the paper completely, every definition and key theorem it uses or proves: Galois sections and the section conjecture, Selmer sections and their local conditions, the p-adic period mappings of Lawrence and Venkatesh as the paper uses them, and the finiteness argument. The roadmap is "Anabelian geometry and nonabelian Chabauty, Part II: Galois sections and p-adic period mappings": it builds on AnabelianGeometryAndNonabelianChabauty (NC.0 sections, NC.3 Selmer varieties) and imports from these roadmaps, never duplicating them (PROTOCOL.md section 15): The Mordell conjecture after Lawrence and Venkatesh (research/blueprint/roadmaps/MordellLawrenceVenkatesh.json: its p-adic period maps and crystalline comparison); P-adic Hodge theory and geometric comparison; Inverse Galois theory and arithmetic fundamental groups; and Heights, rational points and obstructions."""
+
+BDMTV = ('Balakrishnan, Dogra, Müller, Tuitman and Vonk, "Explicit Chabauty–Kim for the split Cartan modular curve of level 13", '
+         'Annals of Mathematics 189 (2019), 885–944 (doi:10.4007/annals.2019.189.3.6): explicit quadratic Chabauty for non-hyperelliptic '
+         'curves (genus at least 2 over Q, Jacobian of Mordell–Weil rank equal to the genus and Picard number greater than one, with the '
+         "paper's further conditions), and its application determining the rational points of X_s(13), which completes the classification "
+         "of non-CM elliptic curves over Q with split Cartan level structure (Bilu–Parent, Bilu–Parent–Rebolledo)")
+ADDED_SOURCES = {
+    "AnabelianGeometryAndNonabelianChabauty": [BDMTV + ". Its theory (local heights at p and the height equations for non-hyperelliptic curves) belongs to NC.5."],
+    "EffectiveDiophantineMethods": [BDMTV + ". Its algorithm and the computation for X_s(13) belong to ED.6, which consumes NC.5 of AnabelianGeometryAndNonabelianChabauty."],
+}
+
+
+def added_sources(rid):
+    papers = ADDED_SOURCES.get(rid)
+    if not papers:
+        return ""
+    return ("\nThe maintainer added these sources to this roadmap. Cover them completely, like its own sources (PROTOCOL.md section 0), "
+            "within the stages they belong to; what belongs to another roadmap is requested from it:\n" + "\n".join(f"- {paper}" for paper in papers) + "\n")
+
 HABIRO_FAMILY = {"HabiroNumberFields", "HabiroRings", "HabiroCyclotomicCompletions", "HabiroNahmSeries",
                  "HabiroCohomologyFoundations", "ArithmeticQuantumTopology"}
 
@@ -570,13 +597,17 @@ def main():
     for job_id, rid, group, brief in (("DESIGN-LV", "MordellLawrenceVenkatesh", "diophantine", LV_BRIEF),
                                       ("DESIGN-ZAGIER", "ZagierConjecturePolylogarithms", "motivic", ZAGIER_BRIEF),
                                       ("DESIGN-BCGP18", "AbelianSurfacesPotentialModularity", "modular", BCGP18_BRIEF),
-                                      ("DESIGN-BCGP25", "AbelianSurfacesModularity", "modular", BCGP25_BRIEF)):
+                                      ("DESIGN-BCGP25", "AbelianSurfacesModularity", "modular", BCGP25_BRIEF),
+                                      ("DESIGN-PAN", "LocallyAnalyticCompletedCohomology", "langlands", PAN_BRIEF),
+                                      ("DESIGN-SKINNER", "RankOneConverse", "iwasawa", SKINNER_BRIEF),
+                                      ("DESIGN-BETTS-STIX", "GaloisSectionsPadicPeriodMaps", "arithmeticgeometry", BETTS_STIX_BRIEF)):
         output = f"research/blueprint/packets/{rid}.json"
         suggested = f"research/blueprint/suggested/{rid}.lean"
         text = DESIGN_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, GROUP=group, BRIEF=brief, OUTPUT=output,
                                       README=f"research/blueprint/readmes/{rid}.md", SUGGESTED=suggested,
                                       FILE=rid, EDITABLE=f"research/blueprint/roadmaps/{rid}.json and {output}")
-        add({"id": job_id, "kind": "design", "priority": 1, "order": {"DESIGN-LV": 1, "DESIGN-ZAGIER": 2, "DESIGN-BCGP18": 3, "DESIGN-BCGP25": 4}[job_id],
+        add({"id": job_id, "kind": "design", "priority": 1, "order": {"DESIGN-LV": 1, "DESIGN-ZAGIER": 2, "DESIGN-BCGP18": 3, "DESIGN-BCGP25": 4,
+                                                                      "DESIGN-PAN": 5, "DESIGN-SKINNER": 6, "DESIGN-BETTS-STIX": 7}[job_id],
              "roadmapIds": [rid], "outputs": [f"research/blueprint/roadmaps/{rid}.json", output, f"research/blueprint/readmes/{rid}.md", suggested],
              "after": ["DESIGN-BCGP18"] if job_id == "DESIGN-BCGP25" else [], "timeout": 8 * 3600}, text)
         review_id = "REV-" + job_id
@@ -638,7 +669,7 @@ def main():
                       and not rid.startswith("tauceti:") and stages_by_owner.get(rid)), key=lambda r: (levels[r], r))
     for position, rid in enumerate(ordered):
         after = sorted({j for s in suppliers[rid] for j in bp_jobs_of.get(s, [])})
-        add_blueprint(rid, 3, 10 + levels[rid] * 1000 + position, after=after)
+        add_blueprint(rid, 3, 10 + levels[rid] * 1000 + position, extra=added_sources(rid), after=after)
     # Supplier jobs are only known once all blueprints are listed: fix dependencies.
     ids = {j["id"] for j in jobs}
     for job in jobs:
