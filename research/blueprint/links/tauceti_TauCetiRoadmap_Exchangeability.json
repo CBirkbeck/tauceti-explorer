@@ -1,0 +1,134 @@
+{
+  "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+  "protocol": "links-v1",
+  "status": "partial",
+  "summary": "Source-checked partial survey of Exchangeability, concentrating on its boundary with DenseGraphLimits. Both complete upstream documents were read. Two narrowly scoped overlaps are recorded: the generic exchangeable relational-law adapter, and finite sampling with versus without replacement. No new prerequisite edge is justified by this checkpoint. In particular, graphon-mixture existence does not acquire an Aldous-Hoover dependency. Three additional nearby roadmap documents were examined to the explicitly stated depth. The full catalogue and all existing-link packets have not been exhausted; none means no relationship established in the recorded read scope, not proof of absence.",
+  "provenance": {
+    "job": "LINK-tauceti_TauCetiRoadmap_Exchangeability",
+    "issue": 46,
+    "worker": "ChatGPT Pro — cgp-0d677fbc2f21",
+    "session": "cgp-0d677fbc2f21",
+    "date": "2026-09-16",
+    "inputRevision": "088ac3dcfb573a1e875fcea971ce54526bbe74d3",
+    "baselinePins": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+    },
+    "baselineCheckScope": "Pins recorded only. No declaration-existence or implementation claim is made; this is a roadmap-text relationship survey.",
+    "sourceDocuments": [
+      {
+        "path": "content/tau-ceti/Exchangeability/README.md",
+        "blob": "5676186fa6d4496439babc5aa70ed97826d9778c",
+        "readScope": "Complete document, including all nine layers, worked examples, ordering and references."
+      },
+      {
+        "path": "content/tau-ceti/DenseGraphLimits/README.md",
+        "blob": "f0ba56d3967542749552dac19ba0c6cca24423b5",
+        "readScope": "Complete document, including Layers 9a, 9b, 9c and the final cross-roadmap checklist."
+      },
+      {
+        "path": "content/campaign/ProbabilisticAndMetricNumberTheory/README.md",
+        "blob": "157781050fae549a2799021e9b2316463a26b988",
+        "readScope": "Complete document; all PM.0-PM.5 stage descriptions."
+      },
+      {
+        "path": "content/tau-ceti/StandardDistributions/README.md",
+        "blob": "754b87b5eb8d0e066a2ab00a94ed40f92768dfe6",
+        "readScope": "Overview, shared measure/kernel conventions, full hypergeometric-family specification, and relationships section through the finite-minima/maxima target. Not a complete document or complete Layer-3 audit."
+      },
+      {
+        "path": "content/tau-ceti/OneParameterSemigroups/README.md",
+        "blob": "06a238d922cc80e4b2e27fc215611ad927eac69f",
+        "readScope": "Lines 1-120: overview, generality conventions, and opening of Part A through the iterated-resolvent bounds. Not a complete document or complete Part-A audit."
+      }
+    ],
+    "submissionBaseRevision": "be09b0fb85faab7fc6a8646e9f524140cfa0df2e",
+    "inputRefresh": "Compared input revision with submission base: the five inspected source documents, baseline pins, atlas and checker files were unchanged. Other new roadmaps/link packets still require the unfinished catalogue screen."
+  },
+  "links": [],
+  "overlaps": [
+    {
+      "id": "EXCH-DGL-01",
+      "stages": [
+        "tauceti:TauCetiRoadmap/Exchangeability#layer-8-generalized-exchangeability-and-representation-theorems",
+        "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9b--exchangeable-graph-laws-and-graphon-mixtures"
+      ],
+      "detail": "Exchangeability Layer 8 owns the general exchangeable-array representation programme. DenseGraphLimits Layer 9b explicitly assigns generic consistent relational laws, relabeling invariance, dissociation and extremality outside its graph-specialized development, naming Exchangeability as the natural owner. The overlap is in this law-level interface, not in the proofs of the two representation theorems. DenseGraphLimits expressly makes its graphLawArrayLawEquiv an interface obligation rather than a build dependency, and proves graphon-mixture existence by empirical mixing, collisions and graphon compactness.",
+      "recommendation": "keep",
+      "proposal": "Keep both roadmaps and their independent representation proofs. Exchangeability should specify the generic law API for the one-sort symmetric irreflexive Boolean binary signature, including finite restriction and joint relabeling. DenseGraphLimits retains the graph-specialized structures and owns the measurable graphCoordEquiv/graphLawArrayLawEquiv adapters, using unordered non-diagonal edge coordinates. Require a commuting relabeling square and preservation of finite marginals and dissociation. Prove compatibility of the graph specialization of the generic representation with the graphon-mixture law: equality is of infinite graph laws and of mixing measures on GraphonSpaceI, never of raw graphon representatives. Do not add an Aldous-Hoover-to-graphon-mixture prerequisite edge, and do not substitute the sequence iid/extreme-point theorem for the array theorem. The generic law-level declarations remain to be specified more finely within the existing Layer 8 scope.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Exchangeability#layer-8-generalized-exchangeability-and-representation-theorems",
+          "locator": "Layer 8, final generalized-exchangeability bullet",
+          "quote": "exchangeable arrays and the Aldous–Hoover representation (a substantially larger tower than\n  the sequence theorem, with its own prerequisites)."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9b--exchangeable-graph-laws-and-graphon-mixtures",
+          "locator": "Layer 9b, Cross-roadmap boundary, API ownership",
+          "quote": "The generic exchangeable relational-law infrastructure — consistent finite\n  and infinite relational laws, relabeling invariance, dissociation, ergodicity, extremality —\n  has its home outside this roadmap."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9b--exchangeable-graph-laws-and-graphon-mixtures",
+          "locator": "Layer 9b, Cross-roadmap boundary, API ownership",
+          "quote": "The adapter is an interface obligation on\n  this roadmap, not a build dependency: the graph-specific targets have no dependency on work\n  outside it."
+        }
+      ]
+    },
+    {
+      "id": "EXCH-DGL-02",
+      "stages": [
+        "tauceti:TauCetiRoadmap/Exchangeability#layer-8-generalized-exchangeability-and-representation-theorems",
+        "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9a--finite-and-joint-graphon-sampling"
+      ],
+      "detail": "Exchangeability Layer 8 develops random finite populations sampled through unrestricted versus injective index maps and a choose(m,2)/n eventwise error. DenseGraphLimits Layer 9a asks for the homomorphism-versus-injective-density bound with the same collision constant. The common proof is the comparison of uniform maps with uniform injections, not the full finite de Finetti theorem and not an equality of empirical graphon mixing with empirical iid laws. The current texts do not assign this reusable elementary comparison to a single owner.",
+      "recommendation": "rescope",
+      "proposal": "Home the general finite-population sampling/comparison API with Exchangeability Layer 8 in a neutral probability namespace. For finite kappa of cardinality n>0 and finite iota of cardinality m<=n, compare the uniform law on iota->kappa with its conditioning on injectivity; bound the collision probability by choose(m,2)/n. Export the expectation bound for measurable tests valued in [0,1], including mixtures over a probability law of populations. DenseGraphLimits retains homDensityFin, injHomDensity, their graph-specific pushforward/test identifications, the unbiasedness theorem, and the joint graphon sampler. Its graph-density estimate is the deterministic-population/Boolean-test specialization, with the ordered-injection denominator (n)_m, not choose(n,m). Treat m=0 and n=1 explicitly and leave n=0 outside the division theorem. Do not add a directed stage link until the common comparison and graph-test adapter are specified; do not make graph sampling wait for the exchangeable-array representation summit.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Exchangeability#layer-8-generalized-exchangeability-and-representation-theorems",
+          "locator": "Layer 8, finite de Finetti bounds, sampling constructions",
+          "quote": "Sampling with and without\n    replacement use one shared random-population reindexing construction and differ only in\n    whether the sampled index map is unrestricted or conditioned to be injective;"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/DenseGraphLimits#layer-9a--finite-and-joint-graphon-sampling",
+          "locator": "Layer 9a, finite estimators",
+          "quote": "with the hom-vs-injective **closeness bound** `|t(F,·) − t₀(F,·)| ≤ C(k,2)/n` and the **unbiasedness\nanchor** `E_{G(n,W)}[t₀(F,·)] = t(F,W)` that pins the `(n)_k` normalization."
+        }
+      ]
+    }
+  ],
+  "examined": [
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+      "result": "overlap",
+      "note": "Complete README read and all nine layers inventoried in the handoff. No claim of exhaustive supplier/consumer closure. Layer-8 general relational-law declarations are not fully specified by its array-programme bullet."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+      "result": "overlap",
+      "note": "Complete README read. Two limited ownership overlaps recorded. Rejected whole-stage Aldous-Hoover prerequisite, reverse-versus-dyadic martingale match, iid-empirical versus empirical-graphon match, and sequence-extremality versus graph-dissociation match."
+    },
+    {
+      "roadmapId": "ProbabilisticAndMetricNumberTheory",
+      "result": "none",
+      "note": "Complete PM.0-PM.5 document read. PM.4 names ergodic theorems but does not specify which Koopman/mean-ergodic output is consumed; PM.0 requires an independence proof or explicit comparison, not exchangeability. No edge established. Continued-fraction dynamics and pointwise ergodic statistics must not be supplied by de Finetti or L2 convergence alone."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+      "result": "none",
+      "note": "Overview/shared API, full hypergeometric family and relationships through finite order-statistic examples read, not all layers. Exchangeability explicitly uses a two-point kernel without a mature Bernoulli API. The hypergeometric law is defined by singleton masses; a sampling-count pushforward bridge would be needed before choosing a finite-population proof of its binomial limit. No established dependency or duplicated sampling construction in the read scope."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+      "result": "none",
+      "note": "Overview, generality conventions and opening of Part A read (lines 1-120), not the complete roadmap. A discrete measure-preserving map and its Koopman iterates do not supply a strongly continuous real-time semigroup, generator or Hille-Yosida hypotheses. Conversely, the roadmap excerpt does not specify a consumer of Exchangeability fixed-point/conditional-expectation identification. No edge established."
+    }
+  ],
+  "remaining": [
+    "Finish the full catalogue screen required by issue #46: every same-area roadmap, every other upstream roadmap, and every campaign document mentioning a target input/output or its synonyms. Do not infer coverage from keyword-result counts.",
+    "Read unexamined source documents and full candidate stage records. OneParameterSemigroups and StandardDistributions were only partially read; result none has only the stated scope.",
+    "Complete the comparison with all recorded stage edges and other link packets. The checkpoint adds no prerequisite edges; global edge de-duplication/completeness is not certified.",
+    "Resolve the generic relational-law API and the general finite-sampling comparison at declaration granularity with the partner roadmap; then reconsider narrow adapter dependencies without creating a whole-stage cycle.",
+    "Run the unmodified scripts/check_links.py against the complete repository inputs and record the actual output. Obtain independent review; this author packet has no review verdict."
+  ]
+}
