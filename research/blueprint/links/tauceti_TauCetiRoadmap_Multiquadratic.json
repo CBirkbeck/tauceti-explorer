@@ -2,7 +2,7 @@
   "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
   "protocol": "links-v1",
   "status": "complete",
-  "summary": "Three new dependencies and two ownership overlaps, following a catalogue-wide summary/scope screen and primary-stage checks for the retained pairs. Multiquadratic supplies the existing square-class prefix to QuadraticFormInvariants, and the degree/Galois and splitting computations for ClassFieldTheory's displayed biquadratic counterexample. Those example-only inputs do not depend on genus theory or global reciprocity. The overlaps separate the shared unit-square bound from quadratic genus theory and the general narrow-class carrier from its quadratic application. Existing NumberFieldArithmetic/Frobenius and ClassFieldTheory/Hilbert-class-field pairs are not duplicated. A real-place inconsistency in the source is recorded for correction. This is a link proposal, not implementation or mathematical approval.",
+  "summary": "Catalogue-wide original screen retained three links and two ownership overlaps. Independent review retains the links, corrects both overlaps against the pinned library, and checks all four canonical stages through seven contracts against 218 roadmaps and 2,007 stages. Existing incoming links/overlaps remain in their owning packets. Ordinary real genus fields use the maximal totally real candidate; no new implementation or broad built claim is made.",
   "links": [
     {
       "source": "tauceti:TauCetiRoadmap/Multiquadratic#layer-0-the-multiquadratic-field",
@@ -10,9 +10,27 @@
       "confidence": "explicit",
       "reason": "The consumer explicitly imports the Multiquadratic square-class language. The supplied prefix is the additive quotient, its ZMod 2 structure, and independence versus nonempty-subset products; the consumer adds multiplicative notation, field-map and cardinality adapters. This is not dependence on tower degree, Galois classification or genus theory. The prefix already exists at the pinned Tau Ceti baseline: reuse it, do not reimplement it. The quotient and independence equivalence hold over any field; characteristic restrictions belong to their subsequent applications.",
       "evidence": [
-        {"stageId":"tauceti:TauCetiRoadmap/Multiquadratic#layer-0-the-multiquadratic-field","quote":"An early\nintermediate target should connect this `Finset` form to genuine `ZMod 2`-linear\nindependence in `Kˣ ⧸ (Kˣ)²`, the form the Galois-theoretic arguments\nwant."},
-        {"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence","quote":"- The [multiquadratic roadmap](../Multiquadratic/README.md) for the square-class\n  language of Layer 0, through the landed files listed above."},
-        {"stageId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence","quote":"- **Square-class interop.** Consume `TauCeti.SquareClassGroup` and add what the\n  invariants need:"}
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Multiquadratic#layer-0-the-multiquadratic-field",
+          "quote": "An early\nintermediate target should connect this `Finset` form to genuine `ZMod 2`-linear\nindependence in `Kˣ ⧸ (Kˣ)²`, the form the Galois-theoretic arguments\nwant.",
+          "sourcePath": "content/tau-ceti/Multiquadratic/README.md",
+          "startLine": 43,
+          "endLine": 46
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence",
+          "quote": "- The [multiquadratic roadmap](../Multiquadratic/README.md) for the square-class\n  language of Layer 0, through the landed files listed above.",
+          "sourcePath": "content/tau-ceti/QuadraticFormInvariants/README.md",
+          "startLine": 390,
+          "endLine": 391
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-0-square-classes-diagonal-calculus-and-chain-equivalence",
+          "quote": "- **Square-class interop.** Consume `TauCeti.SquareClassGroup` and add what the\n  invariants need:",
+          "sourcePath": "content/tau-ceti/QuadraticFormInvariants/README.md",
+          "startLine": 615,
+          "endLine": 616
+        }
       ]
     },
     {
@@ -21,10 +39,34 @@
       "confidence": "inferred",
       "reason": "Example-only dependency: the displayed obstruction to lifting H² classes uses L=Q(sqrt(13),sqrt(17)) of degree four with elementary-abelian Galois group. Instantiate the independent two-radicand theorem: 13, 17 and 221 are nonsquares, as their prime valuations show. Positive radicands make all embeddings real. This supplies the finite extension and its group, not the Brauer/idele cohomology computation. The general construction of globalInv does not depend on this example, and neither genus fields nor ClassFieldTheory Layer 13 may be used as inputs to Layer 10.",
       "evidence": [
-        {"stageId":"tauceti:TauCetiRoadmap/Multiquadratic#layer-0-the-multiquadratic-field","quote":"- **Degree.** Under square-class independence, `[K(√d₁,…,√dₙ) : K] = 2ⁿ` (migrated and\n  de-specialised from `sqrtTower_finrank`)."},
-        {"stageId":"tauceti:TauCetiRoadmap/Multiquadratic#layer-0-the-multiquadratic-field","quote":"- **Galois group.** `K(√d₁,…,√dₙ)/K` is Galois with group `(ℤ/2)ⁿ`, generated by the sign\n  changes `√dⱼ ↦ ±√dⱼ`; the intermediate fields correspond to `𝔽₂`-subspaces."},
-        {"stageId":"tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants","quote":"For `L = ℚ(√13, √17)` every decomposition group has order at most two"},
-        {"stageId":"tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants","quote":"while\n`H²(Gal(L/ℚ), C_L)` is cyclic of order `4`."}
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Multiquadratic#layer-0-the-multiquadratic-field",
+          "quote": "- **Degree.** Under square-class independence, `[K(√d₁,…,√dₙ) : K] = 2ⁿ` (migrated and\n  de-specialised from `sqrtTower_finrank`).",
+          "sourcePath": "content/tau-ceti/Multiquadratic/README.md",
+          "startLine": 89,
+          "endLine": 90
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Multiquadratic#layer-0-the-multiquadratic-field",
+          "quote": "- **Galois group.** `K(√d₁,…,√dₙ)/K` is Galois with group `(ℤ/2)ⁿ`, generated by the sign\n  changes `√dⱼ ↦ ±√dⱼ`; the intermediate fields correspond to `𝔽₂`-subspaces.",
+          "sourcePath": "content/tau-ceti/Multiquadratic/README.md",
+          "startLine": 91,
+          "endLine": 92
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+          "quote": "For `L = ℚ(√13, √17)` every decomposition group has order at most two",
+          "sourcePath": "content/tau-ceti/ClassFieldTheory/README.md",
+          "startLine": 1105,
+          "endLine": 1105
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+          "quote": "while\n`H²(Gal(L/ℚ), C_L)` is cyclic of order `4`.",
+          "sourcePath": "content/tau-ceti/ClassFieldTheory/README.md",
+          "startLine": 1107,
+          "endLine": 1108
+        }
       ]
     },
     {
@@ -33,266 +75,1333 @@
       "confidence": "inferred",
       "reason": "Example-only dependency: Layer 10 needs 13 to split in Q(sqrt(17)) and 17 in Q(sqrt(13)). Apply the singleton odd-prime splitting criterion, with square witnesses 2²=17 mod 13 and 8²=13 mod 17. Do not apply the two-radicand away-from-ramification formula at either ramified prime of the full compositum. Together with the degree-four/exponent-two group, quadratic discriminants and the separately owned completion/ramification dictionary, these computations bound local decomposition groups by two. At other finite primes the extension is unramified and its decomposition group is cyclic; at infinity it is totally real. The edge supplies only this arithmetic part, not H² of idele classes or a proof that 25 fails to be a global norm.",
       "evidence": [
-        {"stageId":"tauceti:TauCetiRoadmap/Multiquadratic#layer-1-the-prime-splitting-law","quote":"- **First theorem, stated this precisely:** for squarefree integers `d₁, …, dₙ` and an\n  odd prime `p ∤ d₁ ⋯ dₙ`, `p` splits completely in `ℚ(√d₁,…,√dₙ)` iff\n  `legendreSym p dⱼ = 1` for every `j`;"},
-        {"stageId":"tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants","quote":"the decomposition\ngroups at unramified primes are cyclic, `13` splits in `ℚ(√17)` and `17` splits in `ℚ(√13)`, and\nthe field is totally real"}
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Multiquadratic#layer-1-the-prime-splitting-law",
+          "quote": "- **First theorem, stated this precisely:** for squarefree integers `d₁, …, dₙ` and an\n  odd prime `p ∤ d₁ ⋯ dₙ`, `p` splits completely in `ℚ(√d₁,…,√dₙ)` iff\n  `legendreSym p dⱼ = 1` for every `j`;",
+          "sourcePath": "content/tau-ceti/Multiquadratic/README.md",
+          "startLine": 98,
+          "endLine": 100
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+          "quote": "the decomposition\ngroups at unramified primes are cyclic, `13` splits in `ℚ(√17)` and `17` splits in `ℚ(√13)`, and\nthe field is totally real",
+          "sourcePath": "content/tau-ceti/ClassFieldTheory/README.md",
+          "startLine": 1105,
+          "endLine": 1107
+        }
       ]
     }
   ],
   "overlaps": [
     {
-      "stages": ["tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets","tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group"],
+      "stages": [
+        "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets",
+        "tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group"
+      ],
       "recommendation": "rescope",
-      "detail": "Both roadmaps assign units_sq_index_le and its abstract squaring-index input. EffectiveBounds Layer 1 states [O_F^×:(O_F^×)^2] <= 2^[F:Q]; Multiquadratic Layer 2 lists the same unit-square input, and its migration-source section explicitly calls the port shared with EffectiveBounds.",
-      "proposal": "Keep the number-field unit-square bound with EffectiveBounds and its generic group helper in shared algebra. Multiquadratic consumes that theorem while retaining its ambiguous-class formula and elementary-two class-group quotient. The exponent [F:Q] is not the number of ramified primes. No merger or duplicate port is needed."
+      "detail": "The source roadmaps both describe migration of the unit-square index bound. This is a historical ownership overlap: at the programme pin NumberField.units_sq_index_le already lives in TauCeti/NumberTheory/EffectiveBounds/UnitSquares/Basic.lean, so neither roadmap should plan another port.",
+      "proposal": "Import NumberField.units_sq_index_le from the pinned EffectiveBounds library, with exponent [F:Q]. Its proof already imports the shared algebra bound. Multiquadratic retains its separate elementary-two quotient and ambiguous-class interfaces; the reviewed audit marks their targets built as well. Keep Cl/Cl² distinct from Cl[2]. The EffectiveBounds link packet already records EffectiveBounds 1 -> Multiquadratic 2 and the same ownership overlap; this record corroborates that boundary and creates no second dependency edge.",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets",
+          "quote": "- **Unit-square index.** `[O_F^× : (O_F^×)²] ≤ 2ⁿ`, from Dirichlet's unit theorem and a\n  squaring-map index computation.",
+          "sourcePath": "content/tau-ceti/Completed/EffectiveBounds/README.md",
+          "startLine": 121,
+          "endLine": 122
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group",
+          "quote": "Also here: the unit-square-class input\n  `[O_K^× : (O_K^×)²]` (migrated as `units_sq_index_le`);",
+          "sourcePath": "content/tau-ceti/Multiquadratic/README.md",
+          "startLine": 115,
+          "endLine": 116
+        }
+      ]
     },
     {
-      "stages": ["tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers","tauceti:TauCetiRoadmap/Multiquadratic#layer-3-the-genus-field-and-the-2-rank-theorem-the-summit"],
+      "stages": [
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+        "tauceti:TauCetiRoadmap/Multiquadratic#layer-3-the-genus-field-and-the-2-rank-theorem-the-summit"
+      ],
       "recommendation": "rescope",
-      "detail": "GlobalNumberFields Layer 2 constructs the general narrow class group, the map to the ordinary group and its unit-sign kernel; Multiquadratic Layer 3 also claims the narrow-class definition. The common carrier is the ray class group with trivial finite modulus and all real places.",
-      "proposal": "GlobalNumberFields owns the carrier, comparison map and kernel; Multiquadratic owns the quadratic specialization and genus-field/elementary-two-quotient calculations. Correct the real-place inconsistency before equating the ordinary genus field with the full prime-discriminant compositum: for discriminant 12=(-4)(-3), that compositum contains i and complexifies the real places of Q(sqrt(3)). Scope the full compositum to the narrow convention (or imaginary fields); the ordinary real case needs the real-place restriction. Source files are not changed by this packet."
+      "detail": "Both source descriptions assign a narrow-class carrier, but Tau Ceti already supplies NumberField.NarrowClassGroup for arbitrary number fields, toClassGroup, surjectivity and toClassGroup_ker. The remaining GlobalNumberFields obligation is comparison with its ray-class carrier and unit-sign exact sequence, not a second general narrow class group.",
+      "proposal": "Both roadmaps import the pinned NumberField.NarrowClassGroup API. GlobalNumberFields owns the ray-class/narrow-modulus comparison and remaining unit-sign adapters; Multiquadratic consumes the carrier for quadratic genus theory. Correct the source wording that equates the ordinary all-places genus field with the full prime-discriminant compositum: for discriminant 12=(-4)(-3), the latter contains i and ramifies at the real places of Q(sqrt(3)). The pin already proves the ordinary genus-field property for candidateGenusFieldReal in the real case and candidateGenusField in the imaginary case. A separately packaged narrow genus-field predicate is still described as future work in the pinned GenusField.lean; do not infer its existence from the audit’s aggregate built verdict. Source files are outside this review’s edit scope.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+          "quote": "- the narrow class group, its surjection to the wide group, and its kernel formula.",
+          "sourcePath": "content/tau-ceti/GlobalNumberFields/README.md",
+          "startLine": 301,
+          "endLine": 301
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Multiquadratic#layer-3-the-genus-field-and-the-2-rank-theorem-the-summit",
+          "quote": "Mathlib has neither;\n  defining the narrow class group is part of this layer and the prerequisite for the real\n  case.",
+          "sourcePath": "content/tau-ceti/Multiquadratic/README.md",
+          "startLine": 131,
+          "endLine": 133
+        }
+      ]
     }
   ],
   "examined": [
-    {"roadmapId":"AInfCohomology","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AbelianSchemesAndArithmeticModuli","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AdditiveCombinatorics","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AdelicAlgebraicGroups","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AdicCoefficientsAndComparisons","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AdicEtaleGeometry","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AdicSpacesPartII","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AlgebraicModularFormsAndSerreWeights","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AlgebraicModuliForArithmeticGeometry","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AnabelianGeometryAndNonabelianChabauty","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AnalyticNumberTheory","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ArakelovGeometryAndAbelianHeights","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ArithmeticDynamics","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ArithmeticGaloisDuality","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ArithmeticGaloisRepresentations","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ArithmeticKTheory","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ArithmeticLocallySymmetricSpaces","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ArithmeticQuantumTopology","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ArithmeticStatistics","result":"none","note":"Full six-stage README read: class-group moments and Selmer counts do not specify a genus-field or quadratic two-rank input."},
-    {"roadmapId":"AutomorphicBundles","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AutomorphicCongruences","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AutomorphicFormsOnReductiveGroups","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AutomorphicGaloisRepresentations","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AutomorphicGaloisRepresentationsPartII","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AutomorphicLFunctionsAndLocalFactors","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AutomorphicPadicLFunctions","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AutomorphicSpectralTheory","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"BorelRegulators","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"BunGAndNewtonStrata","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ClassicalAdicEtaleCohomology","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ClassicalArithmeticCompletion","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ClassicalSerreModularity","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"CohomologyComparisons","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ColemanIntegration","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ColemanPowerSeries","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"CompletedCohomologyAndLocalGlobalCompatibility","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"CompletedCohomologyPartII","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ComplexComparisonPartII","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ComplexMultiplicationAndExplicitReciprocity","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ComputationalNumberTheory","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"CrystallineCohomology","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"DeformationAndDerivedPatchingAlgebra","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"DeligneWeightsAndPurity","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"DerivedDeRhamCohomology","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"DiamondEtaleCohomology","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"DiamondSixOperations","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"DiamondsAndVStacks","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"DiophantineApproximationAndTranscendence","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"DirichletPadicLFunctions","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"DrinfeldModulesAndTModules","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"EffectiveDiophantineMethods","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"EllipticCurveModularity","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"EllipticKTheory","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"EllipticRegulators","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"EndoscopicTransferAndUnitaryTraceComparison","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"EnhancedDerivedSheaves","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"EtaleDualityAndPerverseSheaves","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"EulerSystemsAndKolyvaginSystems","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"EulerSystemsCyclotomicMainConjecture","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ExcursionOperatorsAndSpectralAction","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ExponentialSumsAndCircleMethod","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"FaltingsFinitenessAndIsogenyTheorems","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"FarguesFontaineDiamonds","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"FiniteFieldsAndCharacterSums","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"FiniteFlatGroupsAndIntegralPadicHodgeTheory","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"FoundationsAndLibraryIntegration","result":"none","note":"Summary and retirement record read; retired placeholder, not used as a supplier."},
-    {"roadmapId":"FunctionFieldArithmetic","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"GL2AutomorphicRepresentationsAndTransfer","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"GL2ModularityLifting","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"GeneralAlgebraicKTheory","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"GeneralizedHeegnerCycles","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"GeometricSatakeAndFusion","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"GeometryOfNumbersAndQuadraticArithmetic","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"GlobalGaloisDeformations","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"GlobalShtukasAndFunctionFieldLanglands","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"GrossZagierAndArithmeticHeights","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"HabiroCohomologyFoundations","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"HabiroCyclotomicCompletions","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"HabiroNahmSeries","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"HabiroNumberFields","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"HabiroRings","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"HeckeStacksAndLocalShtukas","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"HeegnerPointEulerSystems","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"HeightsRationalPointsAndObstructions","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"HigherLocalFieldsAndHigherClassFieldTheory","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"HilbertModularVarietiesAndShimuraCurves","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"HodgeTateAndCanonicalSubgroups","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"IgusaVarietiesAndTorsionConcentration","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"IntegralHeckeAndGaloisDeterminants","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"IntegralIwasawaTheory","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"InverseGaloisAndArithmeticFundamentalGroups","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"K2SymbolsBrauer","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"K3BlochGroups","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"KTheoryFiniteLocalFields","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"KTheoryLowDegrees","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"KatoEulerSystems","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"LanglandsParameterStacks","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"LefschetzPencilsAndVanishingCycles","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"LocalGaloisDeformationRings","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"LocallyAnalyticDistributions","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"LogicAndDefinabilityInNumberTheory","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"MetaplecticAutomorphicForms","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ModularCurvesPartII","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ModularIwasawaMainConjectures","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ModularSymbolsPadicLFunctions","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ModularityAndLanglandsExtensions","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"MotivesAndAlgebraicCycles","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"MotivicEtaleKTheory","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"NeronModelsAndSemistableAbelianVarieties","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"NoncommutativeAndEquivariantIwasawa","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"OrdinaryAutomorphicFormsAndModularityLifting","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"OverconvergentAutomorphicForms","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"PELModuli","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"PadicDifferentialEquationsAndRigidCohomology","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"PadicFamilies","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"PadicHodgeRegulators","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"PadicHodgeTheory","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"PadicLocalLanglandsForGL2Qp","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"PadicMeasuresIwasawaAlgebras","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"PerfectoidQuotients","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"PerfectoidShimuraVarieties","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"PerfectoidSpaces","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"PeriodsAndSpecialValues","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"PhiGammaModulesAndIwasawaCohomology","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"Polylogarithms","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"PotentialAutomorphyInfrastructure","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"PotentialModularityAndCompatibleSystems","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"PrismaticCohomology","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ProbabilisticAndMetricNumberTheory","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"QSeriesPartitionsAndMockModularForms","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"RankZeroOneBSD","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ReductiveGroupsPartII","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"RefinedTraceMethods","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"RelativeFarguesFontaine","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"SchemeAndStackFoundations","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"SchemeKTheoryOperations","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"SelmerIwasawaCohomology","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"SerreWeightAndLevelOptimisation","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ShimuraCompactifications","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ShimuraData","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"ShimuraVarieties","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"SieveMethodsAndPrimePatterns","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"SmallRamificationAndAbelianVarietyBaseCases","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"SmoothRepresentationsOfLocalGroups","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"SpecialValuesBirchTate","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"StableHomotopyKTheory","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"TorsionCohomologyInfrastructure","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"TropicalAndBerkovichArithmetic","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"VStackSheavesAndLisseCategories","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"VectorBundlesAndIsocrystals","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"WeightsInEtaleCohomology","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"WeilConjectures","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:Completed/ContourIntegration","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:Completed/EffectiveBounds","result":"overlap","note":"Full README read; same unit-square migration assigned in both roadmaps."},
-    {"roadmapId":"tauceti:Completed/IntegralLattices","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:Completed/OrthogonalL2Bases","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/AdicSpaces","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCodingTheory","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCurves","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicTopology","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/AnalyticToricGeometry","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/BelyiMaps","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/CFSGStatement","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/Chebotarev","result":"none","note":"Scope and exclusions read; density theorems are not prerequisites for the stated residue-symbol splitting criterion."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ClassFieldTheory","result":"links","note":"Full Layers 10 and 13 read. Two arithmetic inputs to the explicit biquadratic example; existing Layer 13 -> M3 pair omitted."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ConformalMapping","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/DGAInfinity","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/DenseGraphLimits","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/EllipticCurves","result":"none","note":"Scope and previously read twist/descent passages at the same README blob checked. Kummer and S-unit/S-class finiteness do not by themselves require multiquadratic genus theory."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/Exchangeability","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/FuchsianOrbifolds","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/GeometricTopology","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/GlobalNumberFields","result":"overlap","note":"Summary and full Layers 0-5 read; narrow-class carrier and unit-sign comparison inspected."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms","result":"none","note":"Summary and square-class search hits screened; local-global quadratic-form theory has QFI/CFT suppliers, not an identified multi-root tower dependency."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/GrothendieckEulerForms","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/HeegaardFloer","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/HodgeStructures","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/HopfRinow","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/JacobianChallenge","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/LocalFieldsRamification","result":"none","note":"Scope and square-class search hits screened. Local power-class counts are not supplied by the number-field unit-index bound."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ModularCurves","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ModularForms","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/Multiquadratic","result":"links","note":"Full README and all four canonical stage descriptions read."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/NumberFieldArithmetic","result":"overlap","note":"Ownership, splitting/Frobenius and convention passages read; the existing Frobenius overlap is not duplicated."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/OneParameterSemigroups","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/OptimalTransport","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/PDE","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteCohomology","result":"none","note":"Scope and Kummer-interface search results screened; general Kummer cohomology is not the multi-root field-degree theorem."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteProPGroups","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants","result":"links","note":"Ownership passages and complete Layer 0 read; the edge uses only the existing square-class prefix."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ReductiveGroups","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/StablePeriodicCurved","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/StableReduction","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/StandardDistributions","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/UniversalCovers","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ZigzagPreprojective","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AnalyticHabiroStack","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"AnalyticStacks","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"MordellLawrenceVenkatesh","result":"none","note":"Proposed roadmap summary, scope, conventions and layer overview read; no concrete multi-root or genus-field input identified."},
-    {"roadmapId":"QWittVectors","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"RingStacksAndTransmutation","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."},
-    {"roadmapId":"SolidAnalyticRings","result":"none","note":"Summary/scope screen; no concrete dependency or duplicate construction identified."}
+    {
+      "roadmapId": "AInfCohomology",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AbelianSchemesAndArithmeticModuli",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AdditiveCombinatorics",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AdelicAlgebraicGroups",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AdicCoefficientsAndComparisons",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AdicEtaleGeometry",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AdicSpacesPartII",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AlgebraicModularFormsAndSerreWeights",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AnalyticNumberTheory",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ArakelovGeometryAndAbelianHeights",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ArithmeticDynamics",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisDuality",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisRepresentations",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ArithmeticKTheory",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ArithmeticLocallySymmetricSpaces",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ArithmeticQuantumTopology",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ArithmeticStatistics",
+      "result": "none",
+      "note": "Full six-stage README read: class-group moments and Selmer counts do not specify a genus-field or quadratic two-rank input."
+    },
+    {
+      "roadmapId": "AutomorphicBundles",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AutomorphicCongruences",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AutomorphicFormsOnReductiveGroups",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentations",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AutomorphicPadicLFunctions",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AutomorphicSpectralTheory",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "BorelRegulators",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "BunGAndNewtonStrata",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ClassicalAdicEtaleCohomology",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ClassicalArithmeticCompletion",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ClassicalSerreModularity",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "CohomologyComparisons",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ColemanIntegration",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ColemanPowerSeries",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "CompletedCohomologyPartII",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ComplexComparisonPartII",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ComplexMultiplicationAndExplicitReciprocity",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ComputationalNumberTheory",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "CrystallineCohomology",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "DeligneWeightsAndPurity",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "DerivedDeRhamCohomology",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "DiamondEtaleCohomology",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "DiamondSixOperations",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "DiamondsAndVStacks",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "DiophantineApproximationAndTranscendence",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "DirichletPadicLFunctions",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "DrinfeldModulesAndTModules",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "EffectiveDiophantineMethods",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "EllipticCurveModularity",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "EllipticKTheory",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "EllipticRegulators",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "EnhancedDerivedSheaves",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "EtaleDualityAndPerverseSheaves",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "EulerSystemsAndKolyvaginSystems",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ExcursionOperatorsAndSpectralAction",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ExponentialSumsAndCircleMethod",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "FarguesFontaineDiamonds",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "FiniteFieldsAndCharacterSums",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "FoundationsAndLibraryIntegration",
+      "result": "none",
+      "note": "Summary and retirement record read; retired placeholder, not used as a supplier."
+    },
+    {
+      "roadmapId": "FunctionFieldArithmetic",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "GL2ModularityLifting",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "GeneralAlgebraicKTheory",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "GeneralizedHeegnerCycles",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "GeometricSatakeAndFusion",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "GlobalGaloisDeformations",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "GrossZagierAndArithmeticHeights",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "HabiroCohomologyFoundations",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "HabiroCyclotomicCompletions",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "HabiroNahmSeries",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "HabiroNumberFields",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "HabiroRings",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "HeckeStacksAndLocalShtukas",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "HeegnerPointEulerSystems",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "HeightsRationalPointsAndObstructions",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "HodgeTateAndCanonicalSubgroups",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "IgusaVarietiesAndTorsionConcentration",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "IntegralIwasawaTheory",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "K2SymbolsBrauer",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "K3BlochGroups",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "KTheoryFiniteLocalFields",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "KTheoryLowDegrees",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "KatoEulerSystems",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "LanglandsParameterStacks",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "LefschetzPencilsAndVanishingCycles",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "LocalGaloisDeformationRings",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "LocallyAnalyticDistributions",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "LogicAndDefinabilityInNumberTheory",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "MetaplecticAutomorphicForms",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ModularCurvesPartII",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ModularIwasawaMainConjectures",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ModularSymbolsPadicLFunctions",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ModularityAndLanglandsExtensions",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "MotivesAndAlgebraicCycles",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "MotivicEtaleKTheory",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "OverconvergentAutomorphicForms",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "PELModuli",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "PadicFamilies",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "PadicHodgeRegulators",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "PadicHodgeTheory",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "PadicLocalLanglandsForGL2Qp",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "PadicMeasuresIwasawaAlgebras",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "PerfectoidQuotients",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "PerfectoidShimuraVarieties",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "PerfectoidSpaces",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "PeriodsAndSpecialValues",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "Polylogarithms",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "PotentialAutomorphyInfrastructure",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "PotentialModularityAndCompatibleSystems",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "PrismaticCohomology",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ProbabilisticAndMetricNumberTheory",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "QSeriesPartitionsAndMockModularForms",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "RankZeroOneBSD",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ReductiveGroupsPartII",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "RefinedTraceMethods",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "RelativeFarguesFontaine",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "SchemeAndStackFoundations",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "SchemeKTheoryOperations",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "SelmerIwasawaCohomology",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "SerreWeightAndLevelOptimisation",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ShimuraCompactifications",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ShimuraData",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "ShimuraVarieties",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "SieveMethodsAndPrimePatterns",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "SmoothRepresentationsOfLocalGroups",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "SpecialValuesBirchTate",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "StableHomotopyKTheory",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "TorsionCohomologyInfrastructure",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "TropicalAndBerkovichArithmetic",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "VStackSheavesAndLisseCategories",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "VectorBundlesAndIsocrystals",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "WeightsInEtaleCohomology",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "WeilConjectures",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:Completed/ContourIntegration",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:Completed/EffectiveBounds",
+      "result": "overlap",
+      "note": "Full README read; same unit-square migration assigned in both roadmaps. Review: the bound is already in the pinned library; its incoming link is recorded in the EffectiveBounds packet."
+    },
+    {
+      "roadmapId": "tauceti:Completed/IntegralLattices",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+      "result": "none",
+      "note": "Scope and exclusions read; density theorems are not prerequisites for the stated residue-symbol splitting criterion."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+      "result": "links",
+      "note": "Full Layers 10 and 13 read. Two arithmetic inputs to the explicit biquadratic example; existing Layer 13 -> M3 pair omitted."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "result": "none",
+      "note": "Scope and previously read twist/descent passages at the same README blob checked. Kummer and S-unit/S-class finiteness do not by themselves require multiquadratic genus theory. Review read full layers 5 and 6: the exact twist input is the already-recorded ProfiniteCohomology 9 Kummer isomorphism; no direct dependence on the multiquadratic tower or genus theorem follows."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+      "result": "overlap",
+      "note": "Summary and full Layers 0-5 read; narrow-class carrier and unit-sign comparison inspected. Review: import the existing general narrow-class carrier; scope ownership to remaining ray-class/sign comparisons."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+      "result": "none",
+      "note": "Summary and square-class search hits screened; local-global quadratic-form theory has QFI/CFT suppliers, not an identified multi-root tower dependency."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+      "result": "none",
+      "note": "Scope and square-class search hits screened. Local power-class counts are not supplied by the number-field unit-index bound."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+      "result": "links",
+      "note": "Full README and all four canonical stage descriptions read."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+      "result": "overlap",
+      "note": "Ownership, splitting/Frobenius and convention passages read; the existing Frobenius overlap is not duplicated."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "result": "none",
+      "note": "Scope and Kummer-interface search results screened; general Kummer cohomology is not the multi-root field-degree theorem."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+      "result": "links",
+      "note": "Ownership passages and complete Layer 0 read; the edge uses only the existing square-class prefix."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AnalyticHabiroStack",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "AnalyticStacks",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "MordellLawrenceVenkatesh",
+      "result": "none",
+      "note": "Proposed roadmap summary, scope, conventions and layer overview read; no concrete multi-root or genus-field input identified."
+    },
+    {
+      "roadmapId": "QWittVectors",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "RingStacksAndTransmutation",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    },
+    {
+      "roadmapId": "SolidAnalyticRings",
+      "result": "none",
+      "note": "Summary/scope screen; no concrete dependency or duplicate construction identified."
+    }
   ],
   "worker": "ChatGPT Pro — cgp-9dbda3a312c1",
   "jobId": "LINK-tauceti_TauCetiRoadmap_Multiquadratic",
   "issueNumber": 51,
   "inputRevision": "dbafc759460581dbd23999a3c112149fedefe2b5",
   "finalComparisonRevision": "66e35f2051d4e49644701ad398112de45095d315",
-  "baseline": {"tauceti":"f790474821cf4256814db967cb154e7af3d0c369","mathlib":"082e2d37e8b0463410cdb532e111cd43d5a66174"},
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+  },
   "screening": {
     "scope": "All 212 original atlas entries, including the retired FoundationsAndLibraryIntegration, plus all six proposed roadmaps. This is summary/scope screening, not full proof verification of 218 roadmaps. Retained pairs were checked against complete supplying/consuming stages and ownership passages.",
-    "sources": ["research/blueprint/atlas/index.json","data/roadmap-summaries.json","content/tau-ceti/*/README.md","research/blueprint/roadmaps/*.json"],
-    "queries": ["multiquadratic","biquadratic","genus field","genus","ambiguous","square-class","square classes","sqrtTower","units_sq_index_le","narrow class","prime discriminants","exists_transversal_family","2-rank"],
+    "sources": [
+      "research/blueprint/atlas/index.json",
+      "data/roadmap-summaries.json",
+      "content/tau-ceti/*/README.md",
+      "research/blueprint/roadmaps/*.json"
+    ],
+    "queries": [
+      "multiquadratic",
+      "biquadratic",
+      "genus field",
+      "genus",
+      "ambiguous",
+      "square-class",
+      "square classes",
+      "sqrtTower",
+      "units_sq_index_le",
+      "narrow class",
+      "prime discriminants",
+      "exists_transversal_family",
+      "2-rank"
+    ],
     "limits": "Search results discover candidates; no-hit results do not prove absence. Unrelated summaries receive no dependency merely for mentioning class groups, genus, Frobenius or F2 linear algebra. Source claims about the whole library were not adopted without independent pin checks."
   },
   "deduplication": {
-    "existingPairsOmitted": ["NumberFieldArithmetic Layer 2 / Multiquadratic Layer 1 Frobenius overlap","ClassFieldTheory Layer 13 -> Multiquadratic Layer 3 Hilbert-class-field dependency"],
+    "existingPairsOmitted": [
+      "NumberFieldArithmetic Layer 2 / Multiquadratic Layer 1 Frobenius overlap",
+      "ClassFieldTheory Layer 13 -> Multiquadratic Layer 3 Hilbert-class-field dependency"
+    ],
     "evidence": "Scoped default-branch code search for Multiquadratic# in research/blueprint/links returned only the ClassFieldTheory and NumberFieldArithmetic packets at 66e35f2051d4e49644701ad398112de45095d315. Those packets were read. The pending QuadraticFormInvariants branch had no output file at the check. Final full-world cycle/duplicate validation is recorded in the handoff.",
     "cycleBoundary": "M0/M1 -> CFT10 -> CFT13 -> M3 is forward construction order; no M3 -> CFT10 edge is proposed."
   },
   "requests": [
-    {"id":"MQ-LINK-R1","owner":"tauceti:TauCetiRoadmap/Multiquadratic","status":"open","request":"Correct the ordinary/narrow scope of the prime-discriminant-compositum sentence; preserve the distinction between Cl/Cl² and Cl[2]."},
-    {"id":"MQ-LINK-R2","owner":"tauceti:Completed/EffectiveBounds","status":"open","request":"Coordinate the shared unit-square-bound ownership with Multiquadratic; no second implementation."},
-    {"id":"MQ-LINK-R3","owner":"tauceti:TauCetiRoadmap/GlobalNumberFields","status":"open","request":"Coordinate the general narrow-class carrier and its quadratic adapter with Multiquadratic."}
+    {
+      "id": "MQ-LINK-R1",
+      "owner": "tauceti:TauCetiRoadmap/Multiquadratic",
+      "status": "open",
+      "request": "Correct the source README’s ordinary/narrow prime-discriminant-compositum sentence, following the pin’s imaginary candidateGenusField / real candidateGenusFieldReal distinction. Preserve Cl/Cl² versus Cl[2]. The ordinary real theorem already exists; separately packaging a narrow genus-field predicate is a distinct remaining obligation."
+    },
+    {
+      "id": "MQ-LINK-R2",
+      "owner": "tauceti:Completed/EffectiveBounds",
+      "status": "resolved-by-pinned-library",
+      "request": "The shared bound is already NumberField.units_sq_index_le in EffectiveBounds/UnitSquares/Basic.lean at the programme pin. Both users import it; the EffectiveBounds packet already supplies the corresponding dependency. No duplicate port."
+    },
+    {
+      "id": "MQ-LINK-R3",
+      "owner": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+      "status": "open",
+      "request": "Reuse NumberField.NarrowClassGroup, toClassGroup and toClassGroup_ker. Coordinate only the remaining ray-class/narrow-modulus and unit-sign comparisons; the general carrier is already built."
+    }
   ],
-  "remainingWork": []
+  "remainingWork": [],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+    "date": "2026-09-21",
+    "notes": "Independent review by Codex — codex-c83e7a of ChatGPTPro — cgp-9dbda3a312c1’s #790 packet. Retained all three links after full endpoint and verbatim-evidence checks. Corrected both overlaps to import pinned library objects and limited outstanding coordination to actual adapters/source corrections. Read all four canonical Multiquadratic stages; five distinct stages do not exist, so completeness was checked through seven separate contracts across those four. No additional independent edge survived existing-packet deduplication. The built audit verdict is not treated as proof of a separately packaged narrow genus-field predicate. See the review report.",
+    "removed": [],
+    "added": []
+  },
+  "reviewSpotCheck": {
+    "inputRevision": "285d7c12ff41928b78f38c003c82cad979515702",
+    "roadmaps": 218,
+    "stages": 2007,
+    "layers": [
+      "tauceti:TauCetiRoadmap/Multiquadratic#layer-0-the-multiquadratic-field",
+      "tauceti:TauCetiRoadmap/Multiquadratic#layer-1-the-prime-splitting-law",
+      "tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group",
+      "tauceti:TauCetiRoadmap/Multiquadratic#layer-3-the-genus-field-and-the-2-rank-theorem-the-summit"
+    ],
+    "stageCountLimitation": "The roadmap has four canonical stages, not five. All four were read in full; no artificial stage was invented. Seven contracts were searched separately.",
+    "contracts": [
+      "square-class carrier and independence (0)",
+      "degree and sign-change Galois group (0)",
+      "splitting and Frobenius (1)",
+      "prime discriminants and transversal count (1)",
+      "unit-square bound (2)",
+      "elementary-two quotient and ambiguous classes (2)",
+      "ordinary/narrow genus field and rank (3)"
+    ],
+    "method": "Searched all 2,007 stage titles/descriptions across 218 roadmaps with multiquadratic, biquadratic, genus field, ambiguous class, square class, units_sq_index_le, narrow class, prime discriminant, transversal family and 2-rank variants. Read the eight original endpoint stages, the complete own document, and eight additional candidate stages: ClassFieldTheory 12/13, EllipticCurves 5/6, GlobalQuadraticForms 2, NumberFieldArithmetic 2/8 and ProfiniteCohomology 9. This is a completeness spot check, not full verification of every roadmap.",
+    "alreadyElsewhere": [
+      "EffectiveBounds 1 -> Multiquadratic 2, and its overlap, in the EffectiveBounds packet",
+      "NumberFieldArithmetic 2 / Multiquadratic 1 overlap in the NumberFieldArithmetic packet",
+      "ClassFieldTheory 13 -> Multiquadratic 3 in the ClassFieldTheory packet: the source README’s abstract Hilbert-class-field argument; the pinned explicit genus construction does not wait for that future theorem",
+      "ProfiniteCohomology 9 -> EllipticCurves 5 in the EllipticCurves packet"
+    ]
+  },
+  "reviewBaseline": {
+    "coverage": "Read all four reviewed AUDIT-04 layer entries in data/library-coverage.json; each has aggregate verdict built. Direct source checks below qualify that aggregate verdict.",
+    "sources": [
+      {
+        "file": "TauCeti/NumberTheory/Multiquadratic/SquareClass/Basic.lean",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/Multiquadratic/SquareClass/Basic.lean",
+        "sha256": "7168284d808091ab48172e4004c92d39c5dc25d063e94ce5615a7cb688abc95a",
+        "accessed": "2026-09-21",
+        "bytes": 16687
+      },
+      {
+        "file": "TauCeti/NumberTheory/Multiquadratic/GenusField.lean",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/Multiquadratic/GenusField.lean",
+        "sha256": "fd941194cf1225a66a71c15a555d0cbd892e1a87c7ec3cb84a4528580bd7c049",
+        "accessed": "2026-09-21",
+        "bytes": 8123
+      },
+      {
+        "file": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
+        "sha256": "853dedf212c2515ecf5fffdb06243a2eb7c550fb23b344ddd35976759381308e",
+        "accessed": "2026-09-21",
+        "bytes": 23108
+      },
+      {
+        "file": "TauCeti/NumberTheory/EffectiveBounds/UnitSquares/Basic.lean",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/EffectiveBounds/UnitSquares/Basic.lean",
+        "sha256": "9974a607bd165ea0ed9854d9ca8c9d7816c75e603e24d7f6a56deae991dd46c0",
+        "accessed": "2026-09-21",
+        "bytes": 9065
+      },
+      {
+        "file": "TauCeti/NumberTheory/Multiquadratic/Degree.lean",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/Multiquadratic/Degree.lean",
+        "sha256": "83f90becbe30c0a9367717e649f12ddb3acb797b2640945d3a62f9ab09fdbfc8",
+        "accessed": "2026-09-21",
+        "bytes": 7020
+      },
+      {
+        "file": "TauCeti/NumberTheory/Multiquadratic/Galois/Group.lean",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/Multiquadratic/Galois/Group.lean",
+        "sha256": "93e32194087e2e7a3926cdb4f5bdca4bf7d6bdb555bfba1460d54f2bd22f3840",
+        "accessed": "2026-09-21",
+        "bytes": 14480
+      },
+      {
+        "file": "TauCeti/FieldTheory/SquareClassGroup/Basic.lean",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/SquareClassGroup/Basic.lean",
+        "sha256": "bc5a263f714c43d53e3a66a9e37bfeb48a78a02a019b1901cd66cf2d42728c82",
+        "accessed": "2026-09-21",
+        "bytes": 7765
+      },
+      {
+        "file": "TauCeti/NumberTheory/Multiquadratic/MultiquadraticSplitting.lean",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/Multiquadratic/MultiquadraticSplitting.lean",
+        "sha256": "10c75c0821c5d5091d9928c650ea82add48ce20caeefbe8a0e3b468017baf844",
+        "accessed": "2026-09-21",
+        "bytes": 12203
+      },
+      {
+        "file": "Mathlib/Algebra/Group/Subgroup/Even.lean",
+        "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Even.lean",
+        "sha256": "338916da2da0d20d1d0e14d649d90ccdbc80c00c7f577f090fe7a50f2691a98e",
+        "accessed": "2026-09-21",
+        "bytes": 2452
+      }
+    ],
+    "qualification": "GenusField.lean lines 55-57 explicitly leave a narrow genus-field predicate as future work. Existing narrow class groups and candidate-field results do not imply that packaged predicate exists. No whole-library absence claim and no Lean compilation claim."
+  }
 }
