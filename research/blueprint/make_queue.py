@@ -29,6 +29,16 @@ COMMON_INPUTS = """INPUTS
 - Style and density: research/blueprint/UPSTREAM_GUIDE.md (upstream's checklist, binding) and the upstream roadmap documents under content/tau-ceti/ (read at least two in or near your area, for example ModularForms/README.md, EllipticCurves/README.md, AdicSpaces/README.md, ModularCurves/README.md).
 - Reference library: {LIBRARY}/ (CATALOGUE.json and the additional_*.json catalogues, papers/, extracted/, text/; text files are page-ordered: use grep -n and sed -n). Public sources that are not in the library may be fetched into your scratch directory with provenance (URL, SHA-256, date); never into the repository."""
 
+# Jobs that extract or check rather than write a packet: the same inputs,
+# without the instructions for continuing a decomposition or a draft.
+CHECK_INPUTS = """INPUTS
+- The roadmap text and stages: data/atlas.json (roadmaps[] entry with the roadmap id: readme, summary; stages[] with that owner: id, key, title, description, requires, consumers, parentStageId). Extract them with python3 into your scratch directory and read them in full. New roadmaps are defined in research/blueprint/roadmaps/*.json.
+- Blueprints: research/blueprint/packets/*.json, the reviewed decompositions integrated in data/decompositions/*.json, and the node ids promised by running jobs, research/blueprint/reserved-ids.json.
+- The reviewed library audit: data/library-coverage.json, one entry per audited layer: its verdict (built, partly built, not built or process), each target with where the pinned libraries have it, the declarations that show it, and the layers of other roadmaps that duplicate it. Audits in research/blueprint/audit/ without an accepted review are leads only.
+- Library baseline (what exists today): {BASELINE}/BASELINE.json (pinned commits), {BASELINE}/TauCeti/ (Tau Ceti source), {BASELINE}/mathlib/Mathlib/ (Mathlib source), {BASELINE}/declarations.tsv (index: library, full name, kind, file, line, signature start). Search the index (grep -i -P), then open the Lean file at that line and read the actual statement before citing it. Tau Ceti is a large library (about 70,000 declarations): search it thoroughly before declaring something missing.
+- Links between roadmaps: research/blueprint/links/*.json (evidence-backed stage links and overlaps) and the stage links already in data/atlas.json (stageEdges).
+- Reference library: {LIBRARY}/ (CATALOGUE.json and the additional_*.json catalogues, papers/, extracted/, text/; text files are page-ordered: use grep -n and sed -n). Public sources that are not in the library may be fetched into your scratch directory with provenance (URL, SHA-256, date); never into the repository."""
+
 METHOD = """METHOD
 1. Sources and targets. Go through every paper and book the roadmap is built on (its document's references and the sources its stages cite), and list every definition and every key theorem they use or prove on the way to the targets of the stages in scope, together with the targets the stages state: definitions, constructions, theorems, comparisons, examples. Each becomes a node whose `realises` names its stage, unless the libraries or another roadmap already provide it (step 2). Coverage is complete: no definition or key theorem of the sources is left out (PROTOCOL.md section 0).
 2. Backward chaining to the baseline. For each node write the exact statement with all hypotheses, then the construction or proof as steps, and list every fact a step uses in `prerequisites`. For each prerequisite:
@@ -105,7 +115,56 @@ Write research/blueprint/papers/{PAPER}.result.json in the format of PROTOCOL.md
 Worked examples of routing, by the maintainer (research/blueprint/papers/papers.json, "guides"):
 {GUIDES}
 Edit only research/blueprint/papers/{PAPER}.result.json, research/blueprint/papers/{PAPER}.md, the handoff note and your scratch directory.
-""" + COMMON_INPUTS
+""" + CHECK_INPUTS
+
+REDTEAM_TEMPLATE = HEADER + """
+JOB: red-team accepted work (PROTOCOL.md section 17). You are the red team: your job is to break it.
+Target: {TARGET}, a {KIND}, accepted after its review {REVIEW}. Its files: {FILES}.
+You did not write it or review it.
+
+Hunt for errors, omissions and duplication, and record each as a finding in research/blueprint/redteam/{RT}.result.json (format in PROTOCOL.md section 17), with the report research/blueprint/redteam/{RT}.md.
+{FOCUS}
+Every finding says where, what, on what evidence (a source locator with a quotation, or a declaration read at the pinned commit) and how to fix it, with its severity. List in `checked` what you checked: a red team that finds nothing still reports what it looked at. Run `python3 scripts/check_redteam.py research/blueprint/redteam/{RT}.result.json` until it reports no errors, and set "status": "complete" when you are done.
+Edit only your two files, a handoff note research/blueprint/handoff/{RT}.md if you stop early, and your scratch directory.
+""" + CHECK_INPUTS
+
+REDTEAM_AREA_TEMPLATE = HEADER + """
+JOB: red-team one area of the atlas as a whole (PROTOCOL.md section 17). Area: {AREA}. Your roadmaps: {ROADMAPS}.{PARTS}
+Read every one of your roadmaps: its document and layer descriptions (data/atlas.json; new roadmaps in research/blueprint/roadmaps/), its packet where one exists (research/blueprint/packets/), the restructuring proposals that touch it (research/blueprint/restructure/RS-*.result.json) and the papers routed to it (research/blueprint/papers/). Then hunt for:
+- what the area needs that nothing plans: a definition or key theorem that the area's targets, or the papers routed to it, use, that no layer plans and the libraries lack;
+- mathematics planned twice, among your roadmaps or between one of them and any other roadmap, that no restructuring proposal already resolves;
+- layers whose prerequisites are wrong or missing, and targets that are out of date with the literature.
+Record each as a finding in research/blueprint/redteam/{RT}.result.json, with the report research/blueprint/redteam/{RT}.md (PROTOCOL.md section 17). For missing mathematics, the fix names the roadmap and layer that should own it, or proposes a Part II or a new roadmap in a sentence. List in `checked` what you read. Run `python3 scripts/check_redteam.py research/blueprint/redteam/{RT}.result.json` until it reports no errors, and set "status": "complete" when you are done.
+Edit only your two files, a handoff note research/blueprint/handoff/{RT}.md if you stop early, and your scratch directory.
+""" + CHECK_INPUTS
+
+REDTEAM_REVIEW_TEMPLATE = """You are an independent verifier for the Tau Ceti Atlas blueprint programme. You did not write the findings you check. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it). Save as you go.
+
+READ FIRST (binding): research/blueprint/PROTOCOL.md, section 17.
+
+VERIFY: the red-team findings research/blueprint/redteam/{RT}.result.json on {TARGET}.
+Library baseline: {BASELINE} (BASELINE.json, TauCeti/, mathlib/Mathlib/, declarations.tsv). Public sources may be fetched into your scratch directory with provenance, never into the repository.
+
+For every finding, check its evidence yourself: open the source at the locator, the declaration at the pinned commit, and the files it names. Decide: confirmed (it is right; if its fix is not, state the right fix in your reason) or rejected (say why). Confirmed findings of high or medium severity become a fix job, so confirm only what you would have fixed.
+Write research/blueprint/redteam/{RT}.review.json, {{"redteam": "{RT}", "findings": [{{"finding": "<id>", "verdict": "confirmed | rejected", "reason": "..."}}]}}, and research/blueprint/reviews/REV-{RT}.md. Run `python3 scripts/check_redteam.py research/blueprint/redteam/{RT}.review.json` until it reports no errors.
+"""
+
+FIX_TEMPLATE = HEADER + """
+JOB: fix the confirmed red-team findings on {TARGET} (PROTOCOL.md section 17).
+The findings (research/blueprint/redteam/{RT}.result.json, verified in research/blueprint/redteam/{RT}.review.json):
+{FINDINGS}
+Apply each fix to the files it names: correct the statement, claim, owner, route or node; add missing mathematics where the finding says it belongs (a node or a `requests` entry in the owning packet, or a note for the maintainer in your report when it needs a new roadmap). New nodes follow PROTOCOL.md and research/blueprint/UPSTREAM_GUIDE.md like any other (statement, locator, prerequisites, API and unit tests). Keep every file valid under its checker (scripts/check_blueprint.py, check_links.py, check_restructure.py, check_paper.py). Write research/blueprint/redteam/{RT}.fixes.md: for each finding, what you changed, or why you did not.
+Edit only the files the findings name, the target's files, your report and your scratch directory.
+""" + CHECK_INPUTS
+
+REDTEAM_FOCUS = {
+    "audit": "An audit: re-check every claim. For each target marked built or partly built, open each cited declaration at the pinned commit and check that it provides the target. For each target marked not built, search the libraries (declarations.tsv, then the files) for it under other names.",
+    "restructure": "A restructuring proposal: check it against the member roadmaps' documents. Every target of a changed layer is kept, moved or supplied; every owner owns what it is said to; no consumer loses a prerequisite; there is no cycle; Tau Ceti roadmaps are unchanged.",
+    "link": "A link map: check each link's evidence on both sides, and look for links the map missed between the roadmap and the rest of the atlas.",
+    "paper": "A paper extraction: re-read the paper. Look for items it uses or proves that the extraction missed, statuses that are wrong, and routes that go to the wrong owner or duplicate an existing roadmap.",
+    "design": "A new roadmap: check its layers and packet against the sources. Look for missing definitions and theorems, wrong statements, prerequisites that do not give the proof steps, baseline citations that do not hold, unit tests that would not catch a wrong definition, and anything it plans that another roadmap owns.",
+    "blueprint": "A blueprint packet: check it against its sources. Look for missing definitions and theorems, wrong statements, prerequisites that do not give the proof steps, baseline citations that do not hold, unit tests that would not catch a wrong definition, and anything it plans that another roadmap owns.",
+}
 
 PAPER_REVIEW_TEMPLATE = """You are an independent reviewer for the Tau Ceti Atlas blueprint programme. You did not write the files you review. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it). Save as you go.
 
@@ -316,6 +375,44 @@ def accepted_routes(pid):
         return []
     accepted = {entry.get("route") for entry in review.get("routes", []) if entry.get("verdict") == "accept"}
     return [route for number, route in enumerate(result.get("routes", []), 1) if number in accepted]
+
+
+def area_parts(members, links, size=8):
+    """An area's roadmaps in balanced parts of at most `size`, each read in depth by
+    one red team: a part grows from the most linked roadmap left, adding the
+    roadmap most linked to the part so far."""
+    members = sorted(members)
+    count = -(-len(members) // size)
+    if count <= 1:
+        return [members]
+    width = -(-len(members) // count)
+    weight = defaultdict(int)
+    for a, b in links:
+        if a != b:
+            weight[a, b] += 1
+            weight[b, a] += 1
+    left, parts = list(members), []
+    while left:
+        part = [min(left, key=lambda r: (-sum(weight[r, o] for o in left), r))]
+        left.remove(part[0])
+        while left and len(part) < width:
+            best = min(left, key=lambda r: (-sum(weight[r, p] for p in part), r))
+            part.append(best)
+            left.remove(best)
+        parts.append(sorted(part))
+    return parts
+
+
+def confirmed_findings(rt):
+    """Findings of a red team that its verification confirmed, of high or medium severity."""
+    folder = BP / "redteam"
+    try:
+        result = json.loads((folder / f"{rt}.result.json").read_text())
+        review = json.loads((folder / f"{rt}.review.json").read_text())
+    except (OSError, ValueError):
+        return []
+    confirmed = {entry.get("finding") for entry in review.get("findings", []) if entry.get("verdict") == "confirmed"}
+    return [f for f in result.get("findings", []) if f.get("id") in confirmed and f.get("severity") in ("high", "medium")]
 
 
 def added_sources(rid):
@@ -778,6 +875,67 @@ def main():
         add({"id": f"NAME-{n:02d}", "kind": "naming", "priority": 4, "order": n,
              "prompt": f"research/expansion/prompts/NAME-{n:02d}.md",
              "outputs": [f"research/expansion/naming/NAME-{n:02d}.result.json"], "after": []})
+
+    # Red team (PROTOCOL.md section 17): accepted work is attacked, the findings
+    # verified, and confirmed findings fixed. Only work that is finished and
+    # reviewed is attacked; more follows as reviews complete.
+    try:
+        existing = json.loads((BP / "queue.json").read_text())["jobs"]
+    except (OSError, ValueError):
+        existing = []
+    states = {j["id"]: j.get("state") for j in existing}
+
+    def redteam(rt, target, kind, name, roadmap_ids, template, fields, independent, order):
+        result, report = f"research/blueprint/redteam/{rt}.result.json", f"research/blueprint/redteam/{rt}.md"
+        add({"id": rt, "kind": "redteam", "priority": 2, "order": order, "name": name, "target": target, "roadmapIds": roadmap_ids,
+             "outputs": [result, report], "after": [], "independentOf": independent}, template.format(**fill, JOB=rt, RT=rt, FILE=rt, **fields))
+        add({"id": "REV-" + rt, "kind": "review", "priority": 2, "order": order, "name": name, "roadmapIds": roadmap_ids,
+             "outputs": [f"research/blueprint/redteam/{rt}.review.json", f"research/blueprint/reviews/REV-{rt}.md"], "after": [rt],
+             "avoidAccountOf": rt, "independentOf": [rt] + independent}, REDTEAM_REVIEW_TEMPLATE.format(**fill, JOB="REV-" + rt, RT=rt, TARGET=fields.get("TARGET", target)))
+        findings = confirmed_findings(rt)
+        if findings:
+            files = sorted({f["where"] for f in findings if f["where"].startswith("research/") and "/" in f["where"]})
+            listed = "\n".join(f"- {f['id']} ({f['severity']}, {f['kind']}) at {f['where']}: {f['claim']} Fix: {f['fix']}" for f in findings)
+            add({"id": "FIX-" + rt, "kind": "fix", "priority": 1, "order": order, "name": name, "target": target, "roadmapIds": roadmap_ids,
+                 "outputs": [f"research/blueprint/redteam/{rt}.fixes.md"] + [f for f in files if f not in fields.get("OUTPUTS", [])] + fields.get("OUTPUTS", []),
+                 "after": []}, FIX_TEMPLATE.format(**fill, JOB="FIX-" + rt, RT=rt, FILE=rt, TARGET=fields.get("TARGET", target), FINDINGS=listed))
+
+    kind_word = {"audit": "library audit", "restructure": "restructuring proposal", "link": "link map", "paper": "paper extraction",
+                 "design": "new roadmap", "blueprint": "blueprint"}
+    # Jobs this script no longer generates (the library audits) are kept in the
+    # queue as they are, so their red teams are found there.
+    generated = {j["id"] for j in jobs}
+    targets = [j for j in jobs if j["kind"] in REDTEAM_FOCUS] + [j for j in existing if j["kind"] in REDTEAM_FOCUS and j["id"] not in generated]
+    for number, job in enumerate(targets, 1):
+        review = "REV-" + (job["id"][3:] if job["id"].startswith("BP-") else job["id"])
+        if states.get(job["id"]) != "done" or states.get(review) != "done":
+            continue
+        about = job.get("name") or next((roadmaps[r]["title"] for r in job.get("roadmapIds") or [] if r in roadmaps), None)
+        name = f"{kind_word[job['kind']]} {job['id']}" + (f": {about}" if about else f" ({len(job.get('roadmapIds') or [])} roadmaps)")
+        fields = dict(TARGET=job["id"], KIND=kind_word[job["kind"]], REVIEW=review, FILES=", ".join(job.get("outputs", [])),
+                      FOCUS=REDTEAM_FOCUS[job["kind"]], OUTPUTS=list(job.get("outputs", [])))
+        redteam("RT-" + job["id"], job["id"], job["kind"], name, list(job.get("roadmapIds") or []), REDTEAM_TEMPLATE, fields, [job["id"], review], 200 + number)
+    classification = json.loads((REPO / "data" / "roadmap-classification.json").read_text()).get("roadmaps", {})
+    subjects = json.loads((REPO / "data" / "galaxies.json").read_text())
+    field_label = {f["id"]: f["label"] for f in subjects.get("fields", [])}
+    owner = {s["id"]: s["owner"] for s in atlas["stages"]}
+    roadmap_links = [(owner.get(e["source"]), owner.get(e["target"])) for e in atlas.get("stageEdges", [])] + edges
+    listed = lambda rids: ", ".join(f"{rid} ({roadmaps[rid]['title']})" for rid in rids)
+    for number, area in enumerate(subjects["galaxies"], 1):
+        members = sorted(rid for rid in roadmaps if classification.get(rid, {}).get("galaxy") == area["id"])
+        if not members:
+            continue
+        label = area["label"] if field_label.get(area.get("field")) == area["label"] else f"{area['label']} ({field_label.get(area.get('field'), '')})"
+        parts = area_parts(members, roadmap_links)
+        for k, part in enumerate(parts, 1):
+            rt, target, name = f"RT-AREA-{area['id']}", f"area:{area['id']}", f"area: {label}"
+            others = ""
+            if len(parts) > 1:
+                rt, target, name = f"{rt}-{k}", f"{target}:{k}", f"{name}, part {k} of {len(parts)}"
+                others = (f" This is part {k} of {len(parts)} of the area. The other parts' roadmaps, which other red teams read in depth: "
+                          f"{listed(r for p in parts if p is not part for r in p)}. Read their layer titles and descriptions as well, to find what is planned twice across the parts.")
+            fields = dict(AREA=label, ROADMAPS=listed(part), PARTS=others, TARGET=f"the area {label}" + (f", part {k} of {len(parts)}" if len(parts) > 1 else ""))
+            redteam(rt, target, "area", name, part, REDTEAM_AREA_TEMPLATE, fields, [], 300 + 10 * number + k)
 
     queue_path = BP / "queue.json"
     import fcntl

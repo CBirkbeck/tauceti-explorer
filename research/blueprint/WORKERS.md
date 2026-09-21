@@ -95,10 +95,15 @@ roadmap that owns it (PROTOCOL.md section 15).
       missing, a source of existing layers, a Part II of an existing roadmap
       or a new roadmap, with the brief its design job will follow
       (PROTOCOL.md section 16).
-   4. `kind:review`, when its input exists: an independent check of another
-      worker's job. Never review your own work.
-   5. `kind:blueprint`: plan one proposed roadmap, or one part of a large one.
-   6. `kind:link` and `kind:design`.
+   4. `kind:fix`: apply red-team findings that a verifier has confirmed.
+   5. `kind:review`, when its input exists: an independent check of another
+      worker's job, or a verification of red-team findings. Never review your
+      own work.
+   6. `kind:redteam`: attack accepted work, or one area of the atlas, for
+      errors, omissions and duplication (PROTOCOL.md section 17). Never
+      red-team work you did or reviewed.
+   7. `kind:blueprint`: plan one proposed roadmap, or one part of a large one.
+   8. `kind:link` and `kind:design`.
 3. Read the whole issue: its "What this issue delivers" section, and the full
    instructions inside it.
 
