@@ -1,0 +1,1091 @@
+{
+  "family": "RS-33",
+  "roadmaps": {
+    "StableHomotopyKTheory": {
+      "action": "extend",
+      "extends": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+      "title": "Algebraic topology of spaces and manifolds, Part II: homotopy foundations for algebraic K-theory",
+      "reason": "Make AlgebraicTopology the first roadmap prerequisite. Its ordinary chains, local coefficients, CW/cofibration, Serre and homotopy-comparison interfaces remain unchanged. Build classifying-space comparisons, homotopy fibres and Quillen A/B, plus/group completion and concrete spectra beyond them; retain all 12 stage IDs, the reviewed decomposition and every consumer. Preserve stage-level early/late splits, not a whole-roadmap dependency on all of GeneralAlgebraicKTheory or the late EDS comparison."
+    }
+  },
+  "layers": {
+    "StableHomotopyKTheory:H.1": {
+      "action": "narrow",
+      "keeps": "Compose the existing nerve and realization functors to obtain classifying spaces, then prove natural-transformation homotopies, categorical-equivalence/adjoint/contractibility lemmas, product comparison under the finite-factor or compactly generated hypotheses, and filtered-diagram compatibility. Keep the CW structure on realizations, the category-specific covering/local-system and fundamental-group comparisons, BG/bar identification and K(G,1) realization with induced maps, bar/singular homology comparison with arbitrary local coefficients, and all three original tests. Import ordinary local systems, twisted chains, van Kampen, CW and Whitehead machinery; do not construct another nerve, realization or universal cover.",
+      "suppliedBy": [
+        "UPSTREAM:Mathlib-homotopy-and-category-theory",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+        "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+        "tauceti:TauCetiRoadmap/UniversalCovers#stage-4-applications"
+      ],
+      "reason": "Separate already-built carriers and anchor-owned ordinary topology from the genuinely new category-to-space comparisons. The reviewed H.1 nodes stay at their current IDs and retain these imports and their unread proof boundaries."
+    },
+    "StableHomotopyKTheory:H.2": {
+      "action": "narrow",
+      "keeps": "Construct path-space homotopy fibres and pullbacks, their maps and path-dependent transport, the fibre long exact sequence including pointed-set end terms, Quillen A/B with their different comma-category/transition hypotheses, the quasi-fibration lemma, bisimplicial diagonal/iterated realization and the separately required levelwise-equivalence theorem. Import Kan homotopy groups and their cubical/singular comparison, the based-pair interface and ordinary basepoint transport. Use the anchor's Serre-fibration carrier and prove path-replacement/fibre comparisons to it where needed; neither the pair LES nor Serre's homology spectral sequence substitutes for the fibre LES.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+        "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy"
+      ],
+      "reason": "The AT8 overlap is an exact import; the AT5 lead is a shared carrier and compatibility boundary, not ownership of all homotopy-fibre mathematics. Quasi-fibrations must not silently acquire Serre lifting."
+    },
+    "StableHomotopyKTheory:H.3": {
+      "action": "narrow",
+      "keeps": "Construct plus for connected CW-type spaces and perfect normal subgroups by 2/3-cell attachments, including the quotient fundamental group, all pulled-back quotient local-coefficient homology isomorphisms, acyclicity, the appropriately qualified universal property and uniqueness, functoriality with subgroup data, and relative/fibre comparison. Keep the generic plus/central-extension consequences and all tests in the integrated packet. Apply imported Hurewicz, Whitehead, CW/cofibration, excision, van Kampen, covering and Serre results; do not reprove them. Preserve the obstruction-theory, local-coefficient acyclicity and relative-plus source gaps.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-3-subdivision-excision-and-mayer--vietoris",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+        "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence"
+      ],
+      "reason": "The Hurewicz test is an application of AT8, not a second Hurewicz theorem. AT5 now names the previously missing Serre supplier, but applications must still verify its coefficient, base and convergence hypotheses."
+    },
+    "StableHomotopyKTheory:H.4": {
+      "action": "narrow",
+      "keeps": "Construct homotopy group completion from the maximal subgroupoid using S-inverse-S/Gamma or an explicit equivalent model, its comparison of pi0 with the existing algebraic group completion/split K0, homology localization and cofinal stabilization. Retain the general cofinality theorem and its projective-module group-completion-to-BGL-plus comparison, with component and ring-map/block-sum naturality, countability/phantom restrictions where used and no natural product splitting. Retain coherence or strictification-independence proofs for the homotopy construction. Import algebraic K0, projective complements, stable GL/elementary/perfectness results, and plus. The comparison from Q(Proj) to this completion remains K.2:plus.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+        "KTheoryLowDegrees:Z.1",
+        "KTheoryLowDegrees:U.1",
+        "StableHomotopyKTheory:H.3"
+      ],
+      "reason": "The reviewed H.4 -> K.2:plus handoff already selects the correct owner for cofinal homotopy stabilization. Algebraic complements and K0 are separate suppliers; no reverse K.2:plus prerequisite is introduced."
+    },
+    "StableHomotopyKTheory:H.5": {
+      "action": "keep",
+      "reason": "Keep the parent ID and both child prerequisites as an aggregation/reexport, not a third spectrum construction. Its late return to EDS E5:spectra-comparison remains intact."
+    },
+    "StableHomotopyKTheory:H.5:spectra": {
+      "action": "narrow",
+      "keeps": "Construct the concrete simplicial-compatible spectrum model, suspension spectra, loops/shifts, integer-indexed homotopy groups and stable equivalences, functorial replacements, stable homotopy category and spectrum fibre/cofibre LES. Verify stability, shifts/signs and finite biproducts in this model using the abstract EDS interface. Keep Eilenberg-Mac Lane spectra from chain complexes, their homotopy/cohomology comparison and functorial truncations. Locate the generic concrete smash product, induced homotopy-group pairing and needed concrete operadic/E-infinity realization here, reexporting them through H.5:S-delooping. Do not import the late EDS comparison or define abstract stable/monoidal categories again.",
+      "suppliedBy": [
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E5:abstract"
+      ],
+      "reason": "Deduplicate abstract category theory while retaining its model-level realization obligations. Generic smash is the early spectrum infrastructure already demanded by RefinedTraceMethods, not an S-construction-specific operation; moving its ownership within H.5 preserves all old exports."
+    },
+    "StableHomotopyKTheory:H.5:S-delooping": {
+      "action": "narrow",
+      "keeps": "Assemble the iterated Waldhausen S-construction as a connective spectrum in the H.5:spectra model and prove the model/indexing/naturality comparisons, using the additivity, relative-S fibration and delooping theorem supplied by K.4:construction. Reexport the concrete smash/pairing interface from H.5:spectra and apply the EDS operadic framework only in the proved setting. The actual biexact-functor external K-theory product, its coherences and relative/localization compatibility belong to K.7, which consumes these spectrum interfaces, not conversely. Keep the existing integrated node as the spectrum assembly/comparison and preserve its incoming proof link.",
+      "suppliedBy": [
+        "GeneralAlgebraicKTheory:K.4:construction",
+        "StableHomotopyKTheory:H.5:spectra",
+        "EnhancedDerivedSheaves:E5:abstract"
+      ],
+      "reason": "A sequence of spaces does not prove delooping. Assign the fibration/delooping proof once to the early K.4:construction supplier, retain the later assembly here, and never require K.4's aggregate or K.7 as input to this stage. Required integration alignment: keep the IDs GeneralAlgebraicKTheory:K.4/waldhausen-additivity-theorem and GeneralAlgebraicKTheory:K.4/relative-S-construction-fibration-and-delooping, but set both parentStageId values to GeneralAlgebraicKTheory:K.4:construction. Their current late K.4 parents contradict their incoming/outgoing proof links. Preserve all those links and source gaps; see the report's exact migration table."
+    },
+    "StableHomotopyKTheory:H.6": {
+      "action": "narrow",
+      "keeps": "Construct spectrum cofibres E/m, their Bockstein maps and exact sequences in all integer degrees without assuming a splitting; the actual E/p^r tower and homotopy limit; the spectrum Milnor sequence and map-level naturality; its reduction under proved module-level Mittag-Leffler/lim1 conditions; finiteness and Tate-term hypotheses for tensor-with-Z_p comparisons; filtered-spectrum exact couples, differentials and convergence with explicit completeness/boundedness/connectivity; rationalization and bounded-below arithmetic fracture. Compare the ordinary Eilenberg-Mac Lane/CW filtration case with AT4's existing skeletal construction, without reconstructing it. Preserve nonzero torsion and nonzero lim1 tests, and compare the module/complex specialization with the established arithmetic derived-limit interface rather than identifying complexes with all spectra.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "reason": "AT4 is the fixed ordinary special case, not a supplier of spectrum convergence. R02.1 supplies module-level limit criteria; D7 owns the compact-cochain derived extension and CC.2 its arithmetic tower application. H.6 still owes the spectrum homotopy-limit construction and compatibility proofs."
+    },
+    "StableHomotopyKTheory:KU-existing": {
+      "action": "keep",
+      "reason": "Preserve the readiness checkpoint, its original prerequisites and all consumers; it aggregates the named owners and is not a second proof construction. KU-existing remains a baseline check; KU-spectra does not acquire the later S-delooping prerequisite."
+    },
+    "StableHomotopyKTheory:KU-homotopy": {
+      "action": "keep",
+      "reason": "Preserve the readiness checkpoint, its original prerequisites and all consumers; it aggregates the named owners and is not a second proof construction. KU-existing remains a baseline check; KU-spectra does not acquire the later S-delooping prerequisite."
+    },
+    "StableHomotopyKTheory:KU-plus": {
+      "action": "keep",
+      "reason": "Preserve the readiness checkpoint, its original prerequisites and all consumers; it aggregates the named owners and is not a second proof construction. KU-existing remains a baseline check; KU-spectra does not acquire the later S-delooping prerequisite."
+    },
+    "StableHomotopyKTheory:KU-spectra": {
+      "action": "keep",
+      "reason": "Preserve the readiness checkpoint, its original prerequisites and all consumers; it aggregates the named owners and is not a second proof construction. KU-existing remains a baseline check; KU-spectra does not acquire the later S-delooping prerequisite."
+    }
+  },
+  "links": [
+    {
+      "source": "UPSTREAM:Mathlib-homotopy-and-category-theory",
+      "target": "StableHomotopyKTheory:H.1",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.1 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+      "target": "StableHomotopyKTheory:H.1",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.1 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+      "target": "StableHomotopyKTheory:H.1",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.1 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "StableHomotopyKTheory:H.1",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.1 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "target": "StableHomotopyKTheory:H.1",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.1 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+      "target": "StableHomotopyKTheory:H.1",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.1 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-4-applications",
+      "target": "StableHomotopyKTheory:H.1",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.1 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "target": "StableHomotopyKTheory:H.2",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.2 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "target": "StableHomotopyKTheory:H.2",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.2 contract; preserve the supplier's hypotheses and maps. Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy",
+      "target": "StableHomotopyKTheory:H.2",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.2 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+      "target": "StableHomotopyKTheory:H.3",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.3 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+      "target": "StableHomotopyKTheory:H.3",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.3 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-3-subdivision-excision-and-mayer--vietoris",
+      "target": "StableHomotopyKTheory:H.3",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.3 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "StableHomotopyKTheory:H.3",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.3 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "target": "StableHomotopyKTheory:H.3",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.3 contract; preserve the supplier's hypotheses and maps. Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "target": "StableHomotopyKTheory:H.3",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.3 contract; preserve the supplier's hypotheses and maps. Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+      "target": "StableHomotopyKTheory:H.3",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.3 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "target": "StableHomotopyKTheory:H.4",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.4 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.1",
+      "target": "StableHomotopyKTheory:H.4",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.4 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "KTheoryLowDegrees:U.1",
+      "target": "StableHomotopyKTheory:H.4",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.4 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.3",
+      "target": "StableHomotopyKTheory:H.4",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.4 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E0",
+      "target": "StableHomotopyKTheory:H.5:spectra",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.5:spectra contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E5:abstract",
+      "target": "StableHomotopyKTheory:H.5:spectra",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.5:spectra contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4:construction",
+      "target": "StableHomotopyKTheory:H.5:S-delooping",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.5:S-delooping contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.5:spectra",
+      "target": "StableHomotopyKTheory:H.5:S-delooping",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.5:S-delooping contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E5:abstract",
+      "target": "StableHomotopyKTheory:H.5:S-delooping",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.5:S-delooping contract; preserve the supplier's hypotheses and maps. Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "StableHomotopyKTheory:H.6",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.6 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "StableHomotopyKTheory:H.6",
+      "reason": "Supply the explicitly delimited import in the narrowed StableHomotopyKTheory:H.6 contract; preserve the supplier's hypotheses and maps."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.1",
+      "target": "StableHomotopyKTheory:H.3",
+      "reason": "The acyclic-space consequences use the BG/bar comparison, preserving the reviewed node-level link."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2",
+      "target": "GeneralAlgebraicKTheory:K.4:construction",
+      "reason": "The early S proof consumes the levelwise-realization and homotopy-fibre lemmas, not the later S-delooping output."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2",
+      "target": "KTheoryFiniteLocalFields:L.1",
+      "reason": "Preserve the reviewed packet's Adams-fibre long exact sequence input, absent from the old stage graph."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.2",
+      "target": "GeneralAlgebraicKTheory:K.5",
+      "reason": "Space-level fibre comparison complements, and does not replace, the existing spectrum-level fibre input."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.4",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Import cofinal homotopy stabilization and the zero-component plus comparison; K.2:plus proves the Q comparison, with no reverse edge."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.1",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Import the finite-projective complement lemma rather than reprove it in the Q-to-plus application. Preserve access for an existing StableHomotopyKTheory:H.4 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Compare pi0 on the existing algebraic K0 carrier. Preserve access for an existing StableHomotopyKTheory:H.4 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.5:spectra",
+      "target": "GeneralAlgebraicKTheory:K.7",
+      "reason": "Generic smash and homotopy pairings supply actual biexact K-theory products; no reverse dependency."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.5:S-delooping",
+      "target": "GeneralAlgebraicKTheory:K.7",
+      "reason": "Use the assembled functorial K spectrum for the K-specific product application."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.5",
+      "target": "EnhancedDerivedSheaves:E5:spectra-comparison",
+      "reason": "Preserve the late abstract/concrete comparison return. This never feeds the early abstract branch."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "CompletedCohomologyPartII:CC.2",
+      "reason": "Module-level ML criteria are imported in the arithmetic tower application."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:D7",
+      "target": "CompletedCohomologyPartII:CC.2",
+      "reason": "Preserve the already canonical compact-cochain derived-limit supplier."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.6",
+      "target": "MotivicEtaleKTheory:M.6b",
+      "reason": "Use the general filtered-spectrum machinery; verify the motivic tower's own ranges, operations and convergence."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.6",
+      "target": "HabiroRings:HR.2",
+      "reason": "Retain the spectral limit/completion interface; this is not the separate generic derived ring/ideal completion."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "target": "K2SymbolsBrauer:T.1:plus",
+      "reason": "Direct Hurewicz import for the first nonzero plus homotopy group. Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "target": "K3BlochGroups:V.1",
+      "reason": "Direct Hurewicz import for the Steinberg-plus comparison. Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.5:spectra",
+      "target": "RefinedTraceMethods:RT.4:topological",
+      "reason": "Keep early smash, truncation and concrete spectrum support for ku/KU without waiting for algebraic S-delooping."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+      "target": "GeneralAlgebraicKTheory:K.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+      "target": "StableHomotopyKTheory:H.2",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+      "target": "StableHomotopyKTheory:H.4",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+      "target": "StableHomotopyKTheory:KU-homotopy",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+      "target": "GeneralAlgebraicKTheory:K.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+      "target": "StableHomotopyKTheory:H.2",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+      "target": "StableHomotopyKTheory:H.4",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+      "target": "StableHomotopyKTheory:KU-homotopy",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "GeneralAlgebraicKTheory:K.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "StableHomotopyKTheory:H.2",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "StableHomotopyKTheory:H.4",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "StableHomotopyKTheory:KU-homotopy",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "target": "GeneralAlgebraicKTheory:K.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction. Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "target": "StableHomotopyKTheory:H.4",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction. Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "target": "StableHomotopyKTheory:KU-homotopy",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction. Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+      "target": "GeneralAlgebraicKTheory:K.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+      "target": "StableHomotopyKTheory:H.2",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+      "target": "StableHomotopyKTheory:H.4",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+      "target": "StableHomotopyKTheory:KU-homotopy",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-4-applications",
+      "target": "GeneralAlgebraicKTheory:K.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-4-applications",
+      "target": "StableHomotopyKTheory:H.2",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-4-applications",
+      "target": "StableHomotopyKTheory:H.4",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-4-applications",
+      "target": "StableHomotopyKTheory:KU-homotopy",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.1 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "target": "ArithmeticKTheory:N.3:finite-generation",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "target": "GeneralAlgebraicKTheory:K.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "target": "GeneralAlgebraicKTheory:K.3",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "target": "StableHomotopyKTheory:H.4",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "target": "StableHomotopyKTheory:H.5:spectra",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "target": "StableHomotopyKTheory:KU-homotopy",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "target": "ArithmeticKTheory:N.3:finite-generation",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "target": "GeneralAlgebraicKTheory:K.3",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "target": "StableHomotopyKTheory:H.5:spectra",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy",
+      "target": "ArithmeticKTheory:N.3:finite-generation",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy",
+      "target": "GeneralAlgebraicKTheory:K.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy",
+      "target": "GeneralAlgebraicKTheory:K.3",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy",
+      "target": "StableHomotopyKTheory:H.3",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy",
+      "target": "StableHomotopyKTheory:H.4",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy",
+      "target": "StableHomotopyKTheory:H.5:spectra",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy",
+      "target": "StableHomotopyKTheory:KU-homotopy",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.2 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+      "target": "K2SymbolsBrauer:T.1:plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+      "target": "K3BlochGroups:V.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+      "target": "StableHomotopyKTheory:KU-plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+      "target": "K2SymbolsBrauer:T.1:plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+      "target": "K3BlochGroups:V.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+      "target": "StableHomotopyKTheory:KU-plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-3-subdivision-excision-and-mayer--vietoris",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-3-subdivision-excision-and-mayer--vietoris",
+      "target": "K2SymbolsBrauer:T.1:plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-3-subdivision-excision-and-mayer--vietoris",
+      "target": "K3BlochGroups:V.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-3-subdivision-excision-and-mayer--vietoris",
+      "target": "StableHomotopyKTheory:KU-plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "K2SymbolsBrauer:T.1:plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "K3BlochGroups:V.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "StableHomotopyKTheory:KU-plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "target": "K2SymbolsBrauer:T.1:plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "target": "K3BlochGroups:V.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "target": "StableHomotopyKTheory:KU-plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "target": "StableHomotopyKTheory:KU-plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+      "target": "K2SymbolsBrauer:T.1:plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+      "target": "K3BlochGroups:V.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+      "target": "StableHomotopyKTheory:KU-plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.3 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "target": "StableHomotopyKTheory:KU-plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.4 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "KTheoryLowDegrees:Z.1",
+      "target": "StableHomotopyKTheory:KU-plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.4 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "KTheoryLowDegrees:U.1",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.4 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "KTheoryLowDegrees:U.1",
+      "target": "StableHomotopyKTheory:KU-plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.4 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.3",
+      "target": "GeneralAlgebraicKTheory:K.2:plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.4 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.3",
+      "target": "StableHomotopyKTheory:KU-plus",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.4 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E0",
+      "target": "GeneralAlgebraicKTheory:K.4:construction",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E0",
+      "target": "GeneralAlgebraicKTheory:K.5",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E0",
+      "target": "MotivicEtaleKTheory:M.6a",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E0",
+      "target": "RefinedTraceMethods:RT.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E0",
+      "target": "RefinedTraceMethods:RT.4:topological",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E0",
+      "target": "StableHomotopyKTheory:H.5",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E0",
+      "target": "StableHomotopyKTheory:H.5:S-delooping",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E0",
+      "target": "StableHomotopyKTheory:H.6",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E0",
+      "target": "StableHomotopyKTheory:KU-spectra",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E5:abstract",
+      "target": "GeneralAlgebraicKTheory:K.4:construction",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E5:abstract",
+      "target": "GeneralAlgebraicKTheory:K.5",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E5:abstract",
+      "target": "MotivicEtaleKTheory:M.6a",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E5:abstract",
+      "target": "RefinedTraceMethods:RT.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E5:abstract",
+      "target": "RefinedTraceMethods:RT.4:topological",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E5:abstract",
+      "target": "StableHomotopyKTheory:H.5",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction. Preserve access for an existing StableHomotopyKTheory:H.5:S-delooping consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E5:abstract",
+      "target": "StableHomotopyKTheory:H.6",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E5:abstract",
+      "target": "StableHomotopyKTheory:KU-spectra",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:spectra consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4:construction",
+      "target": "GeneralAlgebraicKTheory:K.4",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:S-delooping consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4:construction",
+      "target": "GeneralAlgebraicKTheory:KU-waldhausen",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:S-delooping consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4:construction",
+      "target": "StableHomotopyKTheory:H.5",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:S-delooping consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.5:spectra",
+      "target": "GeneralAlgebraicKTheory:K.4",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:S-delooping consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.5:spectra",
+      "target": "GeneralAlgebraicKTheory:KU-waldhausen",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:S-delooping consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.5:spectra",
+      "target": "StableHomotopyKTheory:H.5",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:S-delooping consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E5:abstract",
+      "target": "GeneralAlgebraicKTheory:K.4",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:S-delooping consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E5:abstract",
+      "target": "GeneralAlgebraicKTheory:KU-waldhausen",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.5:S-delooping consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "BorelRegulators:R.3",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.6 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "HabiroRings:HR.2",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.6 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "KTheoryFiniteLocalFields:L.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.6 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "MotivicEtaleKTheory:M.6b",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.6 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "StableHomotopyKTheory:KU-spectra",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.6 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "BorelRegulators:R.3",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.6 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "HabiroRings:HR.2",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.6 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "KTheoryFiniteLocalFields:L.1",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.6 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "MotivicEtaleKTheory:M.6b",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.6 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "StableHomotopyKTheory:KU-spectra",
+      "reason": "Preserve access for an existing StableHomotopyKTheory:H.6 consumer to its now-imported interface; use only the portion and hypotheses needed by that consumer, not a second construction."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.1",
+      "target": "StableHomotopyKTheory:H.4",
+      "reason": "Import the unique owner of Category-specific BG/bar and local-coefficient bar/singular comparison; the receiving layer retains its application and comparison obligations."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.3",
+      "target": "K2SymbolsBrauer:T.1:plus",
+      "reason": "Import the unique owner of Plus construction and generic plus/central-extension homotopy comparisons; the receiving layer retains its application and comparison obligations."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.3",
+      "target": "K3BlochGroups:V.1",
+      "reason": "Import the unique owner of Plus construction and generic plus/central-extension homotopy comparisons; the receiving layer retains its application and comparison obligations."
+    },
+    {
+      "source": "StableHomotopyKTheory:H.5:S-delooping",
+      "target": "GeneralAlgebraicKTheory:K.4",
+      "reason": "Import the unique owner of Assembling and comparing the iterated S object as a connective spectrum in the concrete model; the receiving layer retains its application and comparison obligations."
+    },
+    {
+      "source": "GeneralAlgebraicKTheory:K.4:construction",
+      "target": "GeneralAlgebraicKTheory:K.3",
+      "reason": "After the two explicitly recorded parent alignments, preserve the reviewed relative-S proof input to K.3/cofinality-degree-zero-correction; the proof is supplied before the later K.4 aggregation."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Ordinary module-valued local systems, pullback/monodromy, and twisted singular chains and relative homology",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+      "formerly": [
+        "StableHomotopyKTheory:H.1",
+        "StableHomotopyKTheory:H.3"
+      ]
+    },
+    {
+      "target": "Ordinary van Kampen and cell-attachment fundamental-group calculations",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
+      "formerly": [
+        "StableHomotopyKTheory:H.1",
+        "StableHomotopyKTheory:H.3"
+      ]
+    },
+    {
+      "target": "Ordinary excision and Mayer-Vietoris input to plus cell attachments",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-3-subdivision-excision-and-mayer--vietoris",
+      "formerly": [
+        "StableHomotopyKTheory:H.3"
+      ]
+    },
+    {
+      "target": "CW/cofibration, mapping-cylinder and cellular-comparison infrastructure; ordinary skeletal exact couple",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "formerly": [
+        "StableHomotopyKTheory:H.1",
+        "StableHomotopyKTheory:H.3",
+        "StableHomotopyKTheory:H.6"
+      ]
+    },
+    {
+      "target": "Serre-fibration disc-lifting carrier, pullbacks and maps, and its homology spectral sequence with monodromy",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "formerly": [
+        "StableHomotopyKTheory:H.2",
+        "StableHomotopyKTheory:H.3"
+      ]
+    },
+    {
+      "target": "Kan homotopy groups and singular/Kan/cubical comparison, with based-pair boundary and basepoint compatibility",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "formerly": [
+        "StableHomotopyKTheory:H.2"
+      ]
+    },
+    {
+      "target": "Hurewicz and CW-type Whitehead theorems applied to classifying spaces and plus constructions",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "formerly": [
+        "StableHomotopyKTheory:H.1",
+        "StableHomotopyKTheory:H.3",
+        "K2SymbolsBrauer:T.1:plus",
+        "K3BlochGroups:V.1"
+      ]
+    },
+    {
+      "target": "Covering-space lifting/classification and quotient-cover infrastructure",
+      "owner": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+      "formerly": [
+        "StableHomotopyKTheory:H.1",
+        "StableHomotopyKTheory:H.3"
+      ]
+    },
+    {
+      "target": "Ordinary higher-homotopy induced maps and change of basepoint",
+      "owner": "tauceti:TauCetiRoadmap/UniversalCovers#stage-3-higher-homotopy",
+      "formerly": [
+        "StableHomotopyKTheory:H.2"
+      ]
+    },
+    {
+      "target": "K(G,1) recognition, products and invariance, as distinct from constructing BG",
+      "owner": "tauceti:TauCetiRoadmap/UniversalCovers#stage-4-applications",
+      "formerly": [
+        "StableHomotopyKTheory:H.1"
+      ]
+    },
+    {
+      "target": "Category-specific BG/bar and local-coefficient bar/singular comparison",
+      "owner": "StableHomotopyKTheory:H.1",
+      "formerly": [
+        "StableHomotopyKTheory:H.3",
+        "StableHomotopyKTheory:H.4"
+      ]
+    },
+    {
+      "target": "Path-space homotopy fibre/pullback and its low-degree-correct homotopy LES",
+      "owner": "StableHomotopyKTheory:H.2",
+      "formerly": [
+        "GeneralAlgebraicKTheory:K.5",
+        "KTheoryFiniteLocalFields:L.1"
+      ]
+    },
+    {
+      "target": "Plus construction and generic plus/central-extension homotopy comparisons",
+      "owner": "StableHomotopyKTheory:H.3",
+      "formerly": [
+        "K2SymbolsBrauer:T.1:plus",
+        "K3BlochGroups:V.1"
+      ]
+    },
+    {
+      "target": "Algebraic split K0 and its commutative-monoid group-completion comparison",
+      "owner": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+      "formerly": [
+        "StableHomotopyKTheory:H.4",
+        "GeneralAlgebraicKTheory:K.2:plus"
+      ]
+    },
+    {
+      "target": "Finite projective complements and their splitting/idempotent presentations",
+      "owner": "KTheoryLowDegrees:Z.1",
+      "formerly": [
+        "StableHomotopyKTheory:H.4",
+        "GeneralAlgebraicKTheory:K.2:plus"
+      ]
+    },
+    {
+      "target": "Stable GL, elementary subgroup, perfectness and Whitehead commutator identity",
+      "owner": "KTheoryLowDegrees:U.1",
+      "formerly": [
+        "StableHomotopyKTheory:H.4"
+      ]
+    },
+    {
+      "target": "Homotopy group completion, cofinal stabilization and the projective group-completion-to-BGL-plus comparison",
+      "owner": "StableHomotopyKTheory:H.4",
+      "formerly": [
+        "GeneralAlgebraicKTheory:K.2:plus"
+      ]
+    },
+    {
+      "target": "Abstract stable-category fibres/cofibres, suspension and triangulated homotopy-category interface",
+      "owner": "EnhancedDerivedSheaves:E0",
+      "formerly": [
+        "StableHomotopyKTheory:H.5",
+        "StableHomotopyKTheory:H.5:spectra"
+      ]
+    },
+    {
+      "target": "Abstract symmetric-monoidal stable categories, operadic algebras/modules and coherent monoidal functors",
+      "owner": "EnhancedDerivedSheaves:E5:abstract",
+      "formerly": [
+        "StableHomotopyKTheory:H.5",
+        "StableHomotopyKTheory:H.5:spectra",
+        "StableHomotopyKTheory:H.5:S-delooping"
+      ]
+    },
+    {
+      "target": "Concrete spectra, generic smash product and induced pairing on stable homotopy groups",
+      "owner": "StableHomotopyKTheory:H.5:spectra",
+      "formerly": [
+        "StableHomotopyKTheory:H.5",
+        "StableHomotopyKTheory:H.5:S-delooping",
+        "GeneralAlgebraicKTheory:K.7"
+      ]
+    },
+    {
+      "target": "Waldhausen S-construction additivity and relative-S fibration/delooping proof",
+      "owner": "GeneralAlgebraicKTheory:K.4:construction",
+      "formerly": [
+        "StableHomotopyKTheory:H.5:S-delooping",
+        "GeneralAlgebraicKTheory:K.4"
+      ]
+    },
+    {
+      "target": "Assembling and comparing the iterated S object as a connective spectrum in the concrete model",
+      "owner": "StableHomotopyKTheory:H.5:S-delooping",
+      "formerly": [
+        "GeneralAlgebraicKTheory:K.4"
+      ]
+    },
+    {
+      "target": "Module-level Mittag-Leffler and lim1 criteria used in inverse-limit comparisons",
+      "owner": "ArithmeticGaloisDuality:R02.1",
+      "formerly": [
+        "StableHomotopyKTheory:H.6",
+        "CompletedCohomologyPartII:CC.2"
+      ]
+    },
+    {
+      "target": "Compact-coefficient continuous-cochain derived inverse limits and their comparison",
+      "owner": "ArithmeticGaloisDuality:D7",
+      "formerly": [
+        "CompletedCohomologyPartII:CC.2"
+      ]
+    },
+    {
+      "target": "Spectrum Milnor/Bockstein and filtered-spectrum exact-couple/convergence machinery",
+      "owner": "StableHomotopyKTheory:H.6",
+      "formerly": [
+        "MotivicEtaleKTheory:M.6b",
+        "HabiroRings:HR.2"
+      ]
+    }
+  ]
+}
