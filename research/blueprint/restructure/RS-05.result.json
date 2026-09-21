@@ -1,0 +1,3201 @@
+{
+  "family": "RS-05",
+  "roadmaps": {
+    "AdicEtaleGeometry": {
+      "action": "keep",
+      "reason": "Keep the ordinary analytic sites, corrected pro-etale covers, nonnoetherian approximation and the early analytic torsor tower. R0-R3 supply analytic geometry; D6 owns diamondification."
+    },
+    "AdicSpacesPartII": {
+      "action": "extend",
+      "reason": "Extend the existing adic foundation with completed tensors and morphism theory, formal and rigid comparison, coherent sheaves, dagger geometry and sousperfectoid families. Put the unchanged anchor first among whole-roadmap prerequisites; the introduction begins after its Layers 0-6 and imports all other existing prerequisites. No anchor content is replanned.",
+      "extends": "tauceti:TauCetiRoadmap/AdicSpaces",
+      "title": "Foundations of adic spaces, Part II: analytic and formal geometry"
+    },
+    "ClassicalAdicEtaleCohomology": {
+      "action": "keep",
+      "reason": "Keep the classical analytic cohomology proof route: henselian/formal and valuation-base comparisons, invariance, curves and finiteness precede their diamond applications."
+    },
+    "DiamondEtaleCohomology": {
+      "action": "keep",
+      "reason": "Keep the diamond-relative sites, etale category and four-operation theory; classical inputs and generic enhancements are imports."
+    },
+    "DiamondSixOperations": {
+      "action": "keep",
+      "reason": "Keep the eligible diamond exceptional operations, cohomological smoothness and biduality as the continuation of the four-operation theory."
+    },
+    "DiamondsAndVStacks": {
+      "action": "keep",
+      "reason": "Keep the ordinary foundations still needed, Perf sites/descent, quotient diamonds and small v-stacks, geometric properties and diamondification; import the anchor spectral and adic carriers."
+    },
+    "PerfectoidShimuraVarieties": {
+      "action": "keep",
+      "reason": "Keep tower construction and the Shimura-specific perfectoid/period-map proofs; neither general v-sheaf limits nor general Shimura data imply perfectoid representability."
+    },
+    "PerfectoidSpaces": {
+      "action": "keep",
+      "reason": "Keep almost algebra and general perfectoid rings/spaces beyond the anchor characteristic-p field example; import the anchor carriers and prove compatibility with that example."
+    },
+    "VStackSheavesAndLisseCategories": {
+      "action": "keep",
+      "reason": "Keep Artin-v-stack eligibility, ULA, solid/lisse coefficients, compact generation and representation/duality comparisons with their different coefficient and geometric hypotheses."
+    }
+  },
+  "layers": {
+    "AdicSpacesPartII:F1": {
+      "action": "keep",
+      "reason": "Retain weak/overconvergent completions, dagger spaces, strict neighborhoods, their formal-model comparison and independence; export the same dagger carrier to RD.0 and AG2.4, which own differential equations/cohomology."
+    },
+    "AdicSpacesPartII:R1": {
+      "action": "keep",
+      "reason": "Retain finite-type scheme analytification, rigid/adic comparison, proper/separated/smooth comparisons, proper analytic GAGA and group-scheme analytification. R2 owns generic fibers; R3 supplies coherent analytic machinery; F0 formal GAGA is a different comparison."
+    },
+    "AdicSpacesPartII:R2": {
+      "action": "keep",
+      "reason": "Retain admissible formal models, generic fibers, integral loci and blow-ups, Hasse neighborhoods and every comparison. Explicitly retain type-(S) formal schemes and Conrad FS_C over nondiscrete valuation rings, plus fibral finiteness, flattening/quasi-finite-model proof obligations; F0 noetherian models do not replace them."
+    },
+    "AdicEtaleGeometry:A4": {
+      "action": "keep",
+      "reason": "Retain uniform completion, valuation-spectrum invariance, finite etale torsor towers, perfectoidness and the early analytic presentation. D6 owns the v-sheaf, diamond quotient and site equivalence. The two accepted A4 nodes recording later ECD 15.4/15.6 endpoints retain their IDs as mixed/endpoint records, not extra early proofs."
+    },
+    "ClassicalAdicEtaleCohomology:H1:henselian": {
+      "action": "keep",
+      "reason": "Retain affinoid henselizations, pro-special sets and Hub96 3.2.5/3.2.9-12 cohomological comparisons with L2 continuity. This is different from the early algebraic finite-etale approximation in P3."
+    },
+    "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison": {
+      "action": "keep",
+      "reason": "Retain the type-(S) specialization site morphism, support pairs, stalks, actual torsion comparison maps 3.5.13-17 and trait R-Psi comparison. Keep microbial valuation rings, local-principal alternatives, and the reviewed distinction between R-Psi and R-Phi."
+    },
+    "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles": {
+      "action": "keep",
+      "reason": "Retain Hub96 4.2.1-5 and 4.2.10 over arbitrary valuation bases, eta=s, actual equivariant base-change maps and prime-to-residue coefficients. General Sylow and continuous Hochschild-Serre are imports. A completed algebraically closed field automorphism lemma in C8 is not automatically this theorem."
+    },
+    "ClassicalAdicEtaleCohomology:H1:valuation-exports": {
+      "action": "keep",
+      "reason": "Retain support/local cohomology, SURJECTIVE valuation-spectrum invariance and all finite-presentation or dimension/boundary hypotheses of 4.2.6-9; keep nondiscrete and higher-rank tests."
+    },
+    "ClassicalAdicEtaleCohomology:H2": {
+      "action": "keep",
+      "reason": "Retain all classical algebraically closed extension/invariance proofs, mapped cohomology and valid torsion scope. P5 finite-etale approximation is an input, not the classical cohomological result."
+    },
+    "ClassicalAdicEtaleCohomology:H3": {
+      "action": "keep",
+      "reason": "Retain classical proper base change, supports, curve traces/Poincare duality and their source hypotheses. Coherent trace in R3, scheme trace, and later diamond exceptional operations are distinct carriers and comparison tasks."
+    },
+    "ClassicalAdicEtaleCohomology:H4": {
+      "action": "keep",
+      "reason": "Retain relative constructibility, annuli/curves and classical analytic finiteness with valuation exports; neither a diamond constructibility definition nor disconnected Perf approximation proves it."
+    },
+    "ClassicalAdicEtaleCohomology:H5": {
+      "action": "keep",
+      "reason": "Retain algebraic/analytic comparisons and finiteness, mapped radius transitions and source-scoped compactifications. R1/R2 supply geometry, while S6 is a later duality consumer."
+    },
+    "DiamondsAndVStacks:D1": {
+      "action": "keep",
+      "reason": "Retain disconnected/strictly totally disconnected perfectoid covers, countability and splitting under the actual hypotheses; P6 supplies large-cardinal presentations, not the stronger cover theorem."
+    },
+    "DiamondsAndVStacks:D2": {
+      "action": "keep",
+      "reason": "Retain pro-etale and v-sites on characteristic-p Perf, qc covering condition, subcanonicity, structure-sheaf vanishing and effective descent with almost/inverse-limit proofs. A1 analytic pro-etale covers have a different definition and correction history."
+    },
+    "DiamondsAndVStacks:D3": {
+      "action": "keep",
+      "reason": "Retain diamond quotients, independence, locally representable morphisms and topological/geometric properties; ordinary adic properness is only an input for later comparisons."
+    },
+    "DiamondsAndVStacks:D4": {
+      "action": "keep",
+      "reason": "Retain small v-sheaves and groupoid-valued small v-stacks, size/cutoff independence, atlases, 2-fiber products and local representability. Ordinary stackification comes from D0; Artin eligibility is added in VS0."
+    },
+    "DiamondsAndVStacks:D5": {
+      "action": "keep",
+      "reason": "Retain separatedness, specialization, partially proper/proper maps, canonical compactification and all diamond geometric criteria. C4/S0/S1 consume this geometry to prove separate cohomology and compact-support statements."
+    },
+    "DiamondsAndVStacks:D6": {
+      "action": "keep",
+      "reason": "Retain ECD 15.1 v-descent of marked untilts, Spd, 15.2-4 diamond representability, gluing, 15.6 topology and etale/finite-etale equivalences. Import A4 analytic towers, P1-3 tilting/almost/etale input and D2-5 descent. Preserve accepted A4 endpoint IDs as historical records of this owner."
+    },
+    "DiamondEtaleCohomology:C0": {
+      "action": "keep",
+      "reason": "Retain the relative etale, quasi-pro-etale and v-sites of diamonds/v-stacks, slice comparisons and site-specific descent. Import Perf sites and generic topos machinery; these relative sites are not the same objects as A1 or D2."
+    },
+    "DiamondEtaleCohomology:C1": {
+      "action": "keep",
+      "reason": "Retain the independent pre-C2 approximation/invariance proof (16.1), using H2 classical input and D6 site comparison; no appeal to 14.12 which consumes this theorem."
+    },
+    "DiamondEtaleCohomology:C2": {
+      "action": "keep",
+      "reason": "Retain D_et as the tested subcategory, 14.12-16 descent/left-completion comparison and 17.1-3 cutoff presentability/adjoints/hyperdescent. Generic E1-E3 enhancement and cutoff tools are imports; the concrete diamond eligibility proof remains new."
+    },
+    "DiamondEtaleCohomology:C3": {
+      "action": "keep",
+      "reason": "Retain the four etale operations, their actual adjunctions, change of coefficients and qcqs base change. S1 adds compact support and VS0 extends eligibility; neither restates this theorem."
+    },
+    "DiamondEtaleCohomology:C4": {
+      "action": "keep",
+      "reason": "Retain the cohomology of canonical compactifications and the actual comparison maps; D5 supplies compactification geometry, while S0/S1 use the theorem for compact support."
+    },
+    "DiamondEtaleCohomology:C6": {
+      "action": "keep",
+      "reason": "Retain the diamond pullback/full-faithfulness/invariance proofs, exact generality and maps, importing their classical H2/H4 input where used."
+    },
+    "DiamondEtaleCohomology:C7": {
+      "action": "keep",
+      "reason": "Retain diamond constructibility, finite stratifications and finiteness criteria. FS lisse categories are generated categories, not a renaming of locally constant sheaves."
+    },
+    "DiamondEtaleCohomology:C8": {
+      "action": "keep",
+      "reason": "Retain modified topological transcendence degree, dim.trg, 21.13 before compact objects, point-as-profinite-quotient cohomology, 21.17 continuous-automorphism pro-p lemma, tame embedding, residue/value-rank inequalities and Scheiderer proof. Import existing pro-p/Sylow and continuous Hochschild-Serre theory; retain the distinct general-valuation H1 proof route."
+    },
+    "DiamondEtaleCohomology:C9": {
+      "action": "keep",
+      "reason": "Retain actual compact-generation and compact-object theorem on locally spatial diamonds with all finiteness/cohomological-dimension hypotheses; Bun_G and solid categories need separate proofs."
+    },
+    "DiamondSixOperations:S0": {
+      "action": "keep",
+      "reason": "Retain eligible compactifiable morphisms and refinements using D5 geometry, C4 comparison and C8 finite dim.trg; these are the input conditions for the next operation."
+    },
+    "DiamondSixOperations:S1": {
+      "action": "keep",
+      "reason": "Retain the source-scoped exceptional direct image construction and its 3d compactification bound, not a blanket six-functor theorem for every v-stack."
+    },
+    "DiamondSixOperations:S2": {
+      "action": "keep",
+      "reason": "Retain enhanced coherent compactification/descent and operations on the stated small-v-stack range. Generic Kan extensions/descent are imported from E; Artin nonrepresentable maps need VS0 additional work."
+    },
+    "DiamondSixOperations:S3": {
+      "action": "keep",
+      "reason": "Retain exceptional right adjoints and comparison/naturality with exact hypotheses, preserving the 23.16(i) formal step before cohomological smoothness. No unrestricted stacky composition identity."
+    },
+    "DiamondSixOperations:S4": {
+      "action": "keep",
+      "reason": "Retain cohomological smoothness, invertible dualizing objects and its characterizations/locality in the stated diamond class. Compact generation supplies a proof input, not the geometric result."
+    },
+    "DiamondSixOperations:S5": {
+      "action": "keep",
+      "reason": "Retain smooth analytic maps and their diamond cohomological smoothness, the relative-ball calculation and dualizing normalization, importing H3 classical curves and D6/P1 comparison."
+    },
+    "DiamondSixOperations:S6": {
+      "action": "keep",
+      "reason": "Retain source-scoped biduality, Kunneth and constructibility refinements using H5/C9. VS5 Artin/lisse admissibility and BZ involution are additional results, not aliases."
+    },
+    "PerfectoidSpaces:P3": {
+      "action": "keep",
+      "reason": "Retain all three almost-purity conclusions, finite etale/site tilting and etale almost acyclicity. Keep the accepted henselian-finite-etale-approximation node as an EARLY algebraic prefix (Sch12 7.4/7.5; GR book 5.4.53) used already in almost purity. P5 imports it; no P5-to-P3 backedge."
+    },
+    "PerfectoidSpaces:P6": {
+      "action": "keep",
+      "reason": "Retain cardinal-bounded perfectoid presentations, closure bounds, coverings and w-local preliminaries. D0 owns abstract cutoff cardinal arithmetic; D1 proves the later strictly totally disconnected covers."
+    },
+    "PerfectoidSpaces:P8": {
+      "action": "keep",
+      "reason": "Retain invariant affinoid quotient constructions, gluing, tower quotient comparisons and closed loci with Q4 perfectoidization. Include non-free and p-group actions when source hypotheses permit; never use averaging where group order is not invertible."
+    },
+    "PerfectoidSpaces:P9": {
+      "action": "keep",
+      "reason": "Retain continuous profinite-torsor descent of finite locally free modules and its smooth-parameter/weight-space extension; import R5 product/coefficient sheaves and R3 finite-projective gluing. Preserve integral/rational equalizers, nonflat restrictions, completion and derived-limit corrections."
+    },
+    "PerfectoidShimuraVarieties:S0": {
+      "action": "keep",
+      "reason": "Retain concrete level cofinality, group actions, actual diamond limits/local spatiality and effective deck groups, comparing with P7 only when a perfectoid tilde-limit is separately proved."
+    },
+    "PerfectoidShimuraVarieties:S0.general": {
+      "action": "keep",
+      "reason": "Retain the general-data diamond-limit suffix. It adds neither perfectoid representability nor a Hodge-Tate map before S6."
+    },
+    "PerfectoidShimuraVarieties:S1": {
+      "action": "keep",
+      "reason": "Retain the anticanonical Siegel tower construction and quantitative integral Frobenius-lift verification; instantiate P7 rather than rebuilding its criterion."
+    },
+    "PerfectoidShimuraVarieties:S2": {
+      "action": "keep",
+      "reason": "Retain Hodge-type closed embeddings, finite-level/tower compatibility and the actual closed-locus perfection argument, importing P8 and Q4."
+    },
+    "PerfectoidShimuraVarieties:S3": {
+      "action": "keep",
+      "reason": "Retain Hodge-type perfectoid/period-map theorem, compactifications, Hecke equivariance and automorphic bundle pullback with exact hypotheses."
+    },
+    "PerfectoidShimuraVarieties:S4": {
+      "action": "keep",
+      "reason": "Retain pre-abelian finite-group/connected-component descent, invariant affinoid covers and tower comparisons. P8 is the generic quotient supplier, not proof that all Shimura data are perfectoid."
+    },
+    "PerfectoidShimuraVarieties:S5": {
+      "action": "keep",
+      "reason": "Retain the Hilbert BHW period/line-bundle normalizations, prime-by-prime bounds and coefficient-field descent; these are applications with new calculations."
+    },
+    "PerfectoidShimuraVarieties:S6": {
+      "action": "keep",
+      "reason": "Retain general toroidal diamond Hodge-Tate morphisms and their logarithmic comparison input; distinguish them from pre-abelian minimal perfectoid representability and do not assert automatic minimal factorization."
+    },
+    "VStackSheavesAndLisseCategories:VS0": {
+      "action": "keep",
+      "reason": "Retain Artin atlas/diagonal eligibility, atlas independence and partial exceptional operations of FS IV; use D4 carrier and eligible ECD operations. No full six-functor formalism or unrestricted composition of stacky exceptional pullbacks."
+    },
+    "VStackSheavesAndLisseCategories:VS1": {
+      "action": "keep",
+      "reason": "Retain the strengthened ULA definition, formal smoothness/Jacobian theorem, partial compact-support vanishing, hyperbolic localization and Drinfeld lemma with all separation/equivariance hypotheses. The cohomologically smooth atlas definition is not these theorems."
+    },
+    "VStackSheavesAndLisseCategories:VS2": {
+      "action": "keep",
+      "reason": "Retain the qualified generic solidification universal property and derived solid tensor/Hom, generators and topological-module comparison, then relative solid categories/five operations at adequate cutoffs. Reuse pinned condensed carriers and restricted predicate, extend it correctly for general rings; the FS proper-pushforward projection-formula warning survives."
+    },
+    "VStackSheavesAndLisseCategories:VS3": {
+      "action": "keep",
+      "reason": "Retain the generated lisse subcategory, right adjoint/kernel with cutoff justification, coefficient/completion and torsion comparison, and point comparison with the derived DISCRETE module category. Do not identify D_solid of a point with that category or lisse with locally constant."
+    },
+    "VStackSheavesAndLisseCategories:VS5": {
+      "action": "keep",
+      "reason": "Retain Artin Verdier/BZ duality, compact/basic-stratum comparisons and ULA=perfect compact-open invariants in the exact regime. Individual admissibility does not replace perfectness of the derived invariants; Bun_G dimension zero is a proved prerequisite."
+    },
+    "AdicSpacesPartII:F0": {
+      "action": "narrow",
+      "keeps": "Noetherian Spf, ideal-of-definition independence, gluing, coherent formal modules, completion, formal functions and proper formal GAGA/algebraization with the required ample-line hypotheses. The analytic paragraph becomes a forward reference to R0-R3, not an early proof or prerequisite of F0.",
+      "suppliedBy": [
+        "AdicSpacesPartII:R0",
+        "AdicSpacesPartII:R1",
+        "AdicSpacesPartII:R2",
+        "AdicSpacesPartII:R3"
+      ],
+      "reason": "The original paragraph explicitly assigns generic fibers, tensors and coherent analytic results to R0-R3. Keep F0 available before R2; named late suppliers are consumed only when that analytic component is used."
+    },
+    "AdicSpacesPartII:R0": {
+      "action": "narrow",
+      "keeps": "Admissible completed tensors including topology and plus ring, analytic fiber products/universal properties and gluing; separated/proper/partially proper and finite/quasi-finite morphisms, continuous differentials, smooth/etale Jacobian and local structure. Compare with the existing elementary immersion and locally-finite-type carriers.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry"
+      ],
+      "reason": "The anchor owns Huber algebra, rational localization, sheafiness and elementary adic geometry; the new analytic morphism theory begins after them."
+    },
+    "AdicSpacesPartII:R3": {
+      "action": "narrow",
+      "keeps": "Coherent affine equivalence/Kiehl theory under its noetherian hypotheses; finite-projective gluing on sheafy Tate affinoids; proper coherent direct images, valid base change and finite locally free/etale analytic trace with algebraic comparison. Keep all boundedness and gluing proof obligations.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity"
+      ],
+      "reason": "Import the anchor structure-sheaf sheafiness/Tate acyclicity and stable-uniform theorem; finite modules, nonnoetherian vector bundles, proper finiteness and trace still require new proofs."
+    },
+    "AdicSpacesPartII:R4": {
+      "action": "narrow",
+      "keeps": "Comparison/reexport of A1 etale/pro-etale sites on the R0/R1 carriers and on smooth pairs, including boundary-complement restriction and corrected covers. No implicit H0 derived-cohomology, R5 family-descent or logarithmic comparison import.",
+      "suppliedBy": [
+        "AdicEtaleGeometry:A1"
+      ],
+      "reason": "A1 is the one early site owner; the reviewed link direction is A1 to R4."
+    },
+    "AdicSpacesPartII:R5": {
+      "action": "narrow",
+      "keeps": "Sousperfectoid class and local affinoid descriptions, perfectoid-times-smooth products, their coefficient algebras/sheaves, rational/integral base-change and local equalizers. Retain BHW product over a perfectoid extension L-prime/L. Continuous profinite-torsor descent of modules is exported by later P9.",
+      "suppliedBy": [
+        "PerfectoidSpaces:P9"
+      ],
+      "reason": "R5 supplies the early ambient product theory to A3 and P9; P9 owns the later torsor descent theorem and weight-space extension. No P9-to-R5 backedge."
+    },
+    "AdicEtaleGeometry:A0": {
+      "action": "narrow",
+      "keeps": "Supplier-contract comparison of the completed tensor/plus-ring topology, universal property and analytic pullbacks supplied by R0. Retain explicit distinction between admissible analytic products and the perfectoidness result proved later in P2.",
+      "suppliedBy": [
+        "AdicSpacesPartII:R0"
+      ],
+      "reason": "R0 owns the completed tensor and general analytic fiber-product construction."
+    },
+    "AdicEtaleGeometry:A1": {
+      "action": "narrow",
+      "keeps": "Finite-etale algebra/adic comparison, analytic etale/pro-etale sites, geometric points, strict localizations, basis/slice comparisons, generalized adic presentations and the corrected transfinite covering convention. Import ordinary analytic finite/etale morphism geometry and local Jacobian charts.",
+      "suppliedBy": [
+        "AdicSpacesPartII:R0"
+      ],
+      "reason": "R0 owns ordinary morphisms; A1 owns the sites and generalized presentations. Perf pro-etale/v-sites remain D2."
+    },
+    "AdicEtaleGeometry:A2": {
+      "action": "narrow",
+      "keeps": "Supplier-contract comparison of analytic proper/separated/smooth geometry, formal models/generic fibers and analytification on the same carriers; retain exact scope required by H1 without claiming any derived comparison theorem.",
+      "suppliedBy": [
+        "AdicSpacesPartII:R0",
+        "AdicSpacesPartII:R1",
+        "AdicSpacesPartII:R2",
+        "AdicSpacesPartII:F0"
+      ],
+      "reason": "R0-R2/F0 own the geometric constructions; H1 owns specialization/nearby-cycle cohomology."
+    },
+    "AdicEtaleGeometry:A3": {
+      "action": "narrow",
+      "keeps": "Nonnoetherian affinoid-etale finite-stage approximation ECD 6.4(iv), generalized presentations and the needed pseudocoherent/Jacobian perturbation theory over sousperfectoid bases. Retain all KL16 and FS IV.4.13-19 source gaps; parts (o)-(iii) of 6.4 are P5 imports.",
+      "suppliedBy": [
+        "PerfectoidSpaces:P5",
+        "AdicSpacesPartII:R0",
+        "AdicSpacesPartII:R5"
+      ],
+      "reason": "P5 owns qcqs/finite-etale descent; the affinoid extension needs genuinely new nonnoetherian proofs beyond R3 coherent gluing. Only the EARLY R5 ambient class is imported."
+    },
+    "DiamondsAndVStacks:D0": {
+      "action": "narrow",
+      "keeps": "The missing ordinary spectral/coherent-topos/pro-category interfaces, Hochster realization, cutoff-cardinal lemma, Leray/Cech-to-derived and acyclic-basis comparison, ordinary stackification and groupoid quotients. Extend existing Mathlib sheaf-module/Grothendieck/cohomology and descent carriers; prove no second copy of their existing instances.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations"
+      ],
+      "reason": "The anchor owns spectral/constructible/pro-constructible foundations and patch calculus. D0 supplies only remaining ordinary interfaces, independently of diamonds or enhanced cohomology."
+    },
+    "PerfectoidSpaces:P0": {
+      "action": "narrow",
+      "keeps": "General almost algebra for an abstract idempotent base ideal with flatness/tensor hypotheses, quotient/adjoints, tensor/Hom, flat/finite-projective/finite-etale theory, descent and completion. Add the almost-context cotangent/deformation extension required by the accepted P1 nodes, using DD.0 classical cotangent theory and comparing ordinary and almost constructions. Specialize the base ideal only in P1-P2; preserve derived-limit conditions.",
+      "suppliedBy": [
+        "DerivedDeRhamCohomology:DD.0"
+      ],
+      "reason": "DD.0 owns classical full cotangent complexes. P0 owns the generic almost extension, a recorded gap in the accepted packet, not an assumed theorem; it needs GR book/arXiv locator reconciliation."
+    },
+    "PerfectoidSpaces:P1": {
+      "action": "narrow",
+      "keeps": "General perfectoid Tate rings, field criterion, full topological tilt/sharp and marked-untilt classification; primitive theta-kernel theorem and general-base tilting equivalence. Use existing Witt/PreTilt/untilt/theta definitions in their verified scope and prove explicit comparison. Instantiate the abstract almost base and retain field-to-general-Tate proof gaps.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+        "DerivedDeRhamCohomology:DD.0"
+      ],
+      "reason": "The anchor owns topological algebra and the characteristic-p field/A_inf example; DD.0 classical cotangent theory and pinned Fontaine primitives are imports, not the general untilt classification."
+    },
+    "PerfectoidSpaces:P2": {
+      "action": "narrow",
+      "keeps": "Perfectoid rational-localization stability, tilt homeomorphism, approximation estimates, integral almost acyclicity, p-finite/completed-limit arguments, glued tilting and perfectoid fiber-product theorem. Compare existing rational localization, structure sheaf and adic gluing; retain plus rings and arbitrary-perfectoid-Tate generality as explicit tasks.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+        "AdicSpacesPartII:R0",
+        "AdicSpacesPartII:R3"
+      ],
+      "reason": "The anchor owns ordinary Spa/localization/sheaf geometry; R0 tensors and R3 noetherian acyclicity/finite-projective gluing are inputs. The perfectoid and almost conclusions are additional work."
+    },
+    "PerfectoidSpaces:P4": {
+      "action": "narrow",
+      "keeps": "Perfectoid open/closed immersion and Zariski-closed-locus criteria with the existing adic immersion carrier, tilt comparison and plus-ring/topological formulas. The strong closed quotient theorem is an explicit Q4 import, not an arbitrary underived quotient assertion.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry"
+      ],
+      "reason": "The anchor owns general adic immersions; P4 adds their perfectoid tests and the comparison needed by Q4."
+    },
+    "PerfectoidSpaces:P5": {
+      "action": "narrow",
+      "keeps": "Cofiltered limits of affinoid perfectoids with cardinal bounds and ECD 6.4(o)-(iii): finite-etale/qcqs/quasicompact-separated descent, morphism/isomorphism detection, descent of opens and gluing. Import the earlier henselian finite-etale approximation from P3; do not claim part (iv), owned by A3.",
+      "suppliedBy": [
+        "PerfectoidSpaces:P3"
+      ],
+      "reason": "The accepted P3/7.4-7.5 node is already needed inside almost purity; its proof cannot be postponed to P5."
+    },
+    "PerfectoidSpaces:P7": {
+      "action": "narrow",
+      "keeps": "Perfectoid tilde-limit uniqueness and represented-functor comparison, Frobenius-controlled integral towers, completion/inversion and uniformity, rational restriction, cofinality, etale base change and gluing. Import the general Huber topology-plus-affinoid-density definition and ordinary cohomological continuity from H0; prove the extra perfectoid/Sch12 7.16-19 comparisons.",
+      "suppliedBy": [
+        "ClassicalAdicEtaleCohomology:H0"
+      ],
+      "reason": "H0 owns the general classical limit/continuity interface needed before R5; P7 owns the perfectoid representability and Frobenius criterion. The accepted P7 comparison node remains a specialized extension."
+    },
+    "ClassicalAdicEtaleCohomology:H0": {
+      "action": "narrow",
+      "keeps": "Classical analytic site instances of the common sheaf/derived carriers, local systems/constructibility/twists/supports, strict-localization stalks and the classical continuity theorems. Own the general Huber tilde-limit definition (topology and density separately) used in these proofs. Retain higher-rank field pairs and compare ordinary Ext cohomology with the shared enhancement.",
+      "suppliedBy": [
+        "DiamondsAndVStacks:D0",
+        "EnhancedDerivedSheaves:E1"
+      ],
+      "reason": "D0 owns ordinary generic sheaf/cohomology interfaces and E1 their enhancement; H0 proves the analytic instance and geometric stalk/limit theorems."
+    },
+    "ClassicalAdicEtaleCohomology:H1": {
+      "action": "narrow",
+      "keeps": "Compatibility umbrella reexport of its four explicitly identified substages, including comparisons to the existing LPV trait theory. No fifth construction of their objects; preserve the distinction between formal torsion comparison and prime-to-residue valuation-base-change.",
+      "suppliedBy": [
+        "ClassicalAdicEtaleCohomology:H1:henselian",
+        "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports"
+      ],
+      "reason": "Each qualified H1 substage has its own early/late proof contract and remains independently usable."
+    },
+    "DiamondEtaleCohomology:C5": {
+      "action": "narrow",
+      "keeps": "Etale extension by zero and ECD 19.2 exchange map, with proper plus quasi-pro-etale or prime-to-p conditions, the justified bounded-to-unbounded passage, canonical compactification hypercovers and Zariski-Riemann application. Import the generic henselian cohomological comparison rather than jointly reprove it.",
+      "suppliedBy": [
+        "ClassicalAdicEtaleCohomology:H1:henselian"
+      ],
+      "reason": "H1:henselian owns Hub93b/Hub96 henselian cohomology; C5 owns its diamond/Zariski-Riemann application and exchange-map compatibility."
+    },
+    "VStackSheavesAndLisseCategories:VS4": {
+      "action": "narrow",
+      "keeps": "Classifying-v-stack comparison, connected Banach-Colmez-kernel removal, J_b(E) stratum equivalence and compact generation of Bun_G with compact objects of finite HN support and perfect compact-open invariants. Import the smooth abelian and enhanced derived carriers; prove the actual equivalence and geometric compact-generation argument here.",
+      "suppliedBy": [
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ],
+      "reason": "SR owns smooth representations/derived enhancement and compact induction. Pinned smooth-discrete continuity already exists; it is not the Bun_G equivalence."
+    }
+  },
+  "links": [
+    {
+      "source": "AdicEtaleGeometry:A0",
+      "target": "PerfectoidSpaces:P2",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "AdicEtaleGeometry:A1",
+      "target": "AInfCohomology:AI.3",
+      "reason": "Import the canonical owner of Analytic etale/pro-etale sites and corrected transfinite covers."
+    },
+    {
+      "source": "AdicEtaleGeometry:A1",
+      "target": "AdicEtaleGeometry:A4",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "AdicEtaleGeometry:A1",
+      "target": "AdicSpacesPartII:R4",
+      "reason": "Import the canonical component: A1 is the one early site owner; the reviewed link direction is A1 to R4. Import the canonical owner of Analytic etale/pro-etale sites and corrected transfinite covers. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "AdicEtaleGeometry:A1",
+      "target": "ClassicalAdicEtaleCohomology:H0",
+      "reason": "Import the canonical owner of Analytic etale/pro-etale sites and corrected transfinite covers."
+    },
+    {
+      "source": "AdicEtaleGeometry:A1",
+      "target": "HodgeTateAndCanonicalSubgroups:T6:log-sites",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicEtaleGeometry:A1",
+      "target": "IgusaVarietiesAndTorsionConcentration:IG.3",
+      "reason": "Import the canonical owner of Analytic etale/pro-etale sites and corrected transfinite covers."
+    },
+    {
+      "source": "AdicEtaleGeometry:A1",
+      "target": "PadicHodgeTheory:P8:local-rational",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "AdicEtaleGeometry:A1",
+      "target": "PerfectoidSpaces:P3",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "AdicEtaleGeometry:A3",
+      "target": "DiamondsAndVStacks:D6",
+      "reason": "Import the canonical owner of Nonnoetherian affinoid-etale approximation, ECD 6.4(iv)."
+    },
+    {
+      "source": "AdicEtaleGeometry:A4",
+      "target": "DiamondsAndVStacks:D6",
+      "reason": "Import the canonical owner of Analytic uniform-completion/finite-etale tower for diamondification. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "AdicSpacesPartII:F0",
+      "target": "AdicCoefficientsAndComparisons:L1",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:F0",
+      "target": "AdicEtaleGeometry:A2",
+      "reason": "Import the canonical component: R0-R2/F0 own the geometric constructions; H1 owns specialization/nearby-cycle cohomology. Import the canonical owner of Noetherian formal Spf, formal functions and formal GAGA."
+    },
+    {
+      "source": "AdicSpacesPartII:F0",
+      "target": "AdicEtaleGeometry:A3",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:F0",
+      "target": "AdicSpacesPartII:R2",
+      "reason": "Import the canonical owner of Noetherian formal Spf, formal functions and formal GAGA."
+    },
+    {
+      "source": "AdicSpacesPartII:F0",
+      "target": "ClassicalAdicEtaleCohomology:H0",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:F0",
+      "target": "ClassicalAdicEtaleCohomology:H1",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:F0",
+      "target": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:F0",
+      "target": "ClassicalAdicEtaleCohomology:H3",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:F0",
+      "target": "DiamondsAndVStacks:D3",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:F1",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.4",
+      "reason": "Import the canonical owner of Dagger/weak-completion geometric carrier."
+    },
+    {
+      "source": "AdicSpacesPartII:F1",
+      "target": "PadicDifferentialEquationsAndRigidCohomology:RD.0",
+      "reason": "Import the canonical owner of Dagger/weak-completion geometric carrier."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "AInfCohomology:AI.3",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "AdicCoefficientsAndComparisons:L1",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "AdicEtaleGeometry:A0",
+      "reason": "Import the canonical component: R0 owns the completed tensor and general analytic fiber-product construction. Import the canonical owner of Analytic completed tensor and admissible fiber-product construction. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "AdicEtaleGeometry:A1",
+      "reason": "Import the canonical component: R0 owns ordinary morphisms; A1 owns the sites and generalized presentations. Perf pro-etale/v-sites remain D2. Import the canonical owner of Ordinary analytic finite/etale/smooth and proper/separated morphism theory. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned. Direct component import after narrowing AdicEtaleGeometry:A0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "AdicEtaleGeometry:A2",
+      "reason": "Import the canonical component: R0-R2/F0 own the geometric constructions; H1 owns specialization/nearby-cycle cohomology. Import the canonical owner of Ordinary analytic finite/etale/smooth and proper/separated morphism theory. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned. Direct component import after narrowing AdicEtaleGeometry:A1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "AdicEtaleGeometry:A3",
+      "reason": "Import the canonical component: P5 owns qcqs/finite-etale descent; the affinoid extension needs genuinely new nonnoetherian proofs beyond R3 coherent gluing. Only the EARLY R5 ambient class is imported. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned. Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "AdicEtaleGeometry:A4",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "AdicSpacesPartII:F1",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "AdicSpacesPartII:R2",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "AdicSpacesPartII:R4",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned. Direct component import after narrowing AdicEtaleGeometry:A1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "AdicSpacesPartII:R5",
+      "reason": "Import the canonical owner of Analytic completed tensor and admissible fiber-product construction. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned. Direct component import after narrowing AdicEtaleGeometry:A1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "ClassicalAdicEtaleCohomology:H0",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "ClassicalAdicEtaleCohomology:H1",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned. Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "ClassicalAdicEtaleCohomology:H3",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "DiamondsAndVStacks:D2",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "DiamondsAndVStacks:D3",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "FarguesFontaineDiamonds:F2",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "FarguesFontaineDiamonds:F4",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A0; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "HodgeTateAndCanonicalSubgroups:T1",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "HodgeTateAndCanonicalSubgroups:T6:comparison",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "HodgeTateAndCanonicalSubgroups:T6:log-sites",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "LocalGaloisDeformationRings:L7",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "LocalGaloisDeformationRings:R08.3",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "PadicFamilies:L2a",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "PadicHodgeTheory:P8:local-rational",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A1; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "PadicHodgeTheory:R06.1",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "PerfectoidShimuraVarieties:S0",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "PerfectoidSpaces:P2",
+      "reason": "Import the canonical component: The anchor owns ordinary Spa/localization/sheaf geometry; R0 tensors and R3 noetherian acyclicity/finite-projective gluing are inputs. The perfectoid and almost conclusions are additional work. Import the canonical owner of Analytic completed tensor and admissible fiber-product construction. Direct component import after narrowing AdicEtaleGeometry:A0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "PerfectoidSpaces:P3",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A1; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "PerfectoidSpaces:P4",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A1; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "PerfectoidSpaces:P6",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A3; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "PerfectoidSpaces:P7",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "RelativeFarguesFontaine:RF0:integral-Y",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A3; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "RelativeFarguesFontaine:RF2:untilts",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "TorsionCohomologyInfrastructure:TC.0",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R0",
+      "target": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R1",
+      "target": "AdicCoefficientsAndComparisons:L1",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R1",
+      "target": "AdicEtaleGeometry:A2",
+      "reason": "Import the canonical component: R0-R2/F0 own the geometric constructions; H1 owns specialization/nearby-cycle cohomology. Import the canonical owner of Scheme analytification and rigid/adic geometric comparisons. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "AdicSpacesPartII:R1",
+      "target": "AdicEtaleGeometry:A3",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R1",
+      "target": "AdicSpacesPartII:F1",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R1",
+      "target": "AdicSpacesPartII:R2",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned. Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R1",
+      "target": "ClassicalAdicEtaleCohomology:H0",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R1",
+      "target": "ClassicalAdicEtaleCohomology:H1",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R1",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R1",
+      "target": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R1",
+      "target": "ClassicalAdicEtaleCohomology:H3",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R1",
+      "target": "ClassicalAdicEtaleCohomology:H5",
+      "reason": "Import the canonical owner of Scheme analytification and rigid/adic geometric comparisons. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "AdicSpacesPartII:R1",
+      "target": "DiamondsAndVStacks:D3",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R1",
+      "target": "LocalGaloisDeformationRings:L7",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R1",
+      "target": "LocalGaloisDeformationRings:R08.3",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R1",
+      "target": "TorsionCohomologyInfrastructure:TC.0",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R2",
+      "target": "AdicCoefficientsAndComparisons:L1",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R2",
+      "target": "AdicEtaleGeometry:A2",
+      "reason": "Import the canonical component: R0-R2/F0 own the geometric constructions; H1 owns specialization/nearby-cycle cohomology. Import the canonical owner of Type-(S)/admissible formal models, generic fibers and formal/analytic geometry. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "AdicSpacesPartII:R2",
+      "target": "AdicEtaleGeometry:A3",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R2",
+      "target": "AdicSpacesPartII:F1",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R2",
+      "target": "ClassicalAdicEtaleCohomology:H0",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R2",
+      "target": "ClassicalAdicEtaleCohomology:H1",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R2",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "reason": "Import the canonical owner of Type-(S)/admissible formal models, generic fibers and formal/analytic geometry. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned. Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R2",
+      "target": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R2",
+      "target": "ClassicalAdicEtaleCohomology:H3",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R2",
+      "target": "ClassicalAdicEtaleCohomology:H5",
+      "reason": "Import the canonical owner of Type-(S)/admissible formal models, generic fibers and formal/analytic geometry."
+    },
+    {
+      "source": "AdicSpacesPartII:R2",
+      "target": "DiamondsAndVStacks:D3",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R2",
+      "target": "LocalGaloisDeformationRings:L7",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R2",
+      "target": "LocalGaloisDeformationRings:R08.3",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R2",
+      "target": "PadicFamilies:L2a",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "AdicSpacesPartII:R2",
+      "target": "TorsionCohomologyInfrastructure:TC.0",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "AdicSpacesPartII:F1",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "AdicSpacesPartII:R5",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "AlgebraicModuliForArithmeticGeometry:R09.6",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "DiamondsAndVStacks:D2",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "FarguesFontaineDiamonds:F4",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "LocalGaloisDeformationRings:L7",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "LocalGaloisDeformationRings:R08.3",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "PadicFamilies:L2a",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "PadicHodgeTheory:P8:local-rational",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "PadicHodgeTheory:R06.1",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "PerfectoidSpaces:P2",
+      "reason": "Import the canonical component: The anchor owns ordinary Spa/localization/sheaf geometry; R0 tensors and R3 noetherian acyclicity/finite-projective gluing are inputs. The perfectoid and almost conclusions are additional work. Import the canonical owner of Coherent analytic theory and finite-projective gluing in their separate valid ranges. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "PerfectoidSpaces:P3",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "PerfectoidSpaces:P4",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "PerfectoidSpaces:P7",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "PerfectoidSpaces:P9",
+      "reason": "Import the canonical owner of Coherent analytic theory and finite-projective gluing in their separate valid ranges."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "RelativeFarguesFontaine:RF0:integral-Y",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "RelativeFarguesFontaine:RF2:untilts",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "TorsionCohomologyInfrastructure:TC.0",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:F0; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R3",
+      "target": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R5",
+      "target": "AdicEtaleGeometry:A3",
+      "reason": "Import the canonical component: P5 owns qcqs/finite-etale descent; the affinoid extension needs genuinely new nonnoetherian proofs beyond R3 coherent gluing. Only the EARLY R5 ambient class is imported. Import the canonical owner of Early sousperfectoid product and coefficient-sheaf theory. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "AdicSpacesPartII:R5",
+      "target": "BunGAndNewtonStrata:BG0",
+      "reason": "Import the early sousperfectoid ambient spaces; G-torsor/Tannakian descent remains BG0, distinct from finite-locally-free profinite-torsor descent."
+    },
+    {
+      "source": "AdicSpacesPartII:R5",
+      "target": "PerfectoidSpaces:P6",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A3; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "AdicSpacesPartII:R5",
+      "target": "PerfectoidSpaces:P9",
+      "reason": "Import the canonical owner of Early sousperfectoid product and coefficient-sheaf theory."
+    },
+    {
+      "source": "AdicSpacesPartII:R5",
+      "target": "RelativeFarguesFontaine:RF0:annuli",
+      "reason": "Import sousperfectoid closure for the annulus presentation, retaining the curve-specific equations."
+    },
+    {
+      "source": "AdicSpacesPartII:R5",
+      "target": "RelativeFarguesFontaine:RF0:integral-Y",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A3; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "reason": "Import the canonical owner of General all-degree continuous Hochschild-Serre spectral sequence."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.1",
+      "target": "DiamondEtaleCohomology:C8",
+      "reason": "Import the canonical owner of General all-degree continuous Hochschild-Serre spectral sequence."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "reason": "Import the canonical owner of Discrete/compact coefficient comparison and continuous-cohomology convergence."
+    },
+    {
+      "source": "ArithmeticGaloisDuality:R02.2",
+      "target": "DiamondEtaleCohomology:C8",
+      "reason": "Import the canonical owner of Discrete/compact coefficient comparison and continuous-cohomology convergence."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H0",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H0",
+      "target": "ClassicalAdicEtaleCohomology:H5",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H0",
+      "target": "PadicHodgeTheory:P8:local-rational",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P7; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H0",
+      "target": "PerfectoidShimuraVarieties:S1",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P7; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H0",
+      "target": "PerfectoidSpaces:P7",
+      "reason": "Import the canonical component: H0 owns the general classical limit/continuity interface needed before R5; P7 owns the perfectoid representability and Frobenius criterion. The accepted P7 comparison node remains a specialized extension. Import the canonical owner of General Huber tilde-limit carrier and classical continuity."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H0",
+      "target": "PerfectoidSpaces:P8",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P7; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "target": "AdicCoefficientsAndComparisons:L5",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "target": "ClassicalAdicEtaleCohomology:H1",
+      "reason": "Import the canonical component: Each qualified H1 substage has its own early/late proof contract and remains independently usable. Import the canonical owner of Classical formal/adic specialization and nearby-cycle comparison."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "target": "ClassicalAdicEtaleCohomology:H2",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "target": "ClassicalAdicEtaleCohomology:H3",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "target": "ClassicalAdicEtaleCohomology:H5",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "target": "DiamondEtaleCohomology:C5",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "target": "AdicCoefficientsAndComparisons:L5",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "target": "ClassicalAdicEtaleCohomology:H1",
+      "reason": "Import the canonical component: Each qualified H1 substage has its own early/late proof contract and remains independently usable."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "target": "ClassicalAdicEtaleCohomology:H2",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "target": "ClassicalAdicEtaleCohomology:H3",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "target": "ClassicalAdicEtaleCohomology:H5",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned. Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "target": "DiamondEtaleCohomology:C5",
+      "reason": "Import the canonical component: H1:henselian owns Hub93b/Hub96 henselian cohomology; C5 owns its diamond/Zariski-Riemann application and exchange-map compatibility. Import the canonical owner of Henselian/pro-special cohomological comparison. Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "target": "DiamondEtaleCohomology:C6",
+      "reason": "Direct component import after narrowing DiamondEtaleCohomology:C5; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "target": "DiamondSixOperations:S1",
+      "reason": "Direct component import after narrowing DiamondEtaleCohomology:C5; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+      "target": "AdicCoefficientsAndComparisons:L5",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+      "target": "ClassicalAdicEtaleCohomology:H1",
+      "reason": "Import the canonical component: Each qualified H1 substage has its own early/late proof contract and remains independently usable. Import the canonical owner of Valuation-base support, surjective invariance and constructibility exports."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+      "target": "ClassicalAdicEtaleCohomology:H2",
+      "reason": "Import the canonical owner of Valuation-base support, surjective invariance and constructibility exports. Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+      "target": "ClassicalAdicEtaleCohomology:H3",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+      "target": "ClassicalAdicEtaleCohomology:H4",
+      "reason": "Import the canonical owner of Valuation-base support, surjective invariance and constructibility exports."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+      "target": "ClassicalAdicEtaleCohomology:H5",
+      "reason": "Import the canonical owner of Valuation-base support, surjective invariance and constructibility exports. Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+      "target": "DiamondEtaleCohomology:C5",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "target": "AdicCoefficientsAndComparisons:L5",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "target": "ClassicalAdicEtaleCohomology:H1",
+      "reason": "Import the canonical component: Each qualified H1 substage has its own early/late proof contract and remains independently usable. Import the canonical owner of Arbitrary-valuation-base nearby cycles and prime-to-residue base change."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "target": "ClassicalAdicEtaleCohomology:H2",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "target": "ClassicalAdicEtaleCohomology:H3",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "target": "ClassicalAdicEtaleCohomology:H5",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "target": "DiamondEtaleCohomology:C5",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H5",
+      "target": "AdicCoefficientsAndComparisons:L3",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H5",
+      "target": "AdicCoefficientsAndComparisons:L4",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "ClassicalAdicEtaleCohomology:H5",
+      "target": "EtaleDualityAndPerverseSheaves:EDC.6",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "AdicSpacesPartII:R5",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "DiamondSixOperations:S5",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "DiamondsAndVStacks:D2",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "DiamondsAndVStacks:D3",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "DiamondsAndVStacks:D6",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "EnhancedDerivedSheaves:E5:cotangent-export",
+      "reason": "Import the unique classical cotangent complex; any almost/logarithmic/geometric extension needs its additional comparison proof."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "FarguesFontaineDiamonds:F1",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "HodgeTateAndCanonicalSubgroups:T1",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "OverconvergentAutomorphicForms:O0",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "PadicHodgeTheory:R06.1",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Import the unique classical cotangent complex; any almost/logarithmic/geometric extension needs its additional comparison proof."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "PerfectoidQuotients:Q0",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "PerfectoidQuotients:Q0:integral-algebra",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "PerfectoidQuotients:Q2",
+      "reason": "Import the unique classical cotangent complex; any almost/logarithmic/geometric extension needs its additional comparison proof."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "PerfectoidQuotients:Q3",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "PerfectoidSpaces:P0",
+      "reason": "Import the canonical component: DD.0 owns classical full cotangent complexes. P0 owns the generic almost extension, a recorded gap in the accepted packet, not an assumed theorem; it needs GR book/arXiv locator reconciliation. Import the canonical owner of Classical full cotangent complex."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "PerfectoidSpaces:P1",
+      "reason": "Import the canonical component: The anchor owns topological algebra and the characteristic-p field/A_inf example; DD.0 classical cotangent theory and pinned Fontaine primitives are imports, not the general untilt classification. Import the canonical owner of Classical full cotangent complex. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned. Direct component import after narrowing PerfectoidSpaces:P0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "PerfectoidSpaces:P2",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P0; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "PerfectoidSpaces:P3",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P0; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "PerfectoidSpaces:P7",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "PrismaticCohomology:PR.2",
+      "reason": "Import the unique classical cotangent complex; any almost/logarithmic/geometric extension needs its additional comparison proof."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "PrismaticCohomology:PR.8",
+      "reason": "Import the unique classical cotangent complex; any almost/logarithmic/geometric extension needs its additional comparison proof."
+    },
+    {
+      "source": "DerivedDeRhamCohomology:DD.0",
+      "target": "RelativeFarguesFontaine:RF0:integral-Y",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DiamondEtaleCohomology:C4",
+      "target": "DiamondSixOperations:S0",
+      "reason": "Import the canonical owner of Cohomology of canonical compactifications."
+    },
+    {
+      "source": "DiamondEtaleCohomology:C4",
+      "target": "DiamondSixOperations:S1",
+      "reason": "Import the canonical owner of Cohomology of canonical compactifications."
+    },
+    {
+      "source": "DiamondEtaleCohomology:C8",
+      "target": "DiamondSixOperations:S0",
+      "reason": "Import the canonical owner of Diamond dimension and cohomological bounds."
+    },
+    {
+      "source": "DiamondEtaleCohomology:C8",
+      "target": "DiamondSixOperations:S1",
+      "reason": "Import the canonical owner of Diamond dimension and cohomological bounds."
+    },
+    {
+      "source": "DiamondEtaleCohomology:C9",
+      "target": "DiamondSixOperations:S4",
+      "reason": "Import the canonical owner of Diamond compact-generation theorem."
+    },
+    {
+      "source": "DiamondEtaleCohomology:C9",
+      "target": "DiamondSixOperations:S6",
+      "reason": "Import the canonical owner of Diamond compact-generation theorem."
+    },
+    {
+      "source": "DiamondSixOperations:S3",
+      "target": "VStackSheavesAndLisseCategories:VS0",
+      "reason": "Import the canonical owner of Diamond exceptional operations in the eligible class."
+    },
+    {
+      "source": "DiamondSixOperations:S4",
+      "target": "VStackSheavesAndLisseCategories:VS0",
+      "reason": "Import the canonical owner of Diamond cohomological smoothness."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "AdicSpacesPartII:R5",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "ClassicalAdicEtaleCohomology:H0",
+      "reason": "Import the canonical component: D0 owns ordinary generic sheaf/cohomology interfaces and E1 their enhancement; H0 proves the analytic instance and geometric stalk/limit theorems. Import the canonical owner of Ordinary sheaf/topos, Leray/Cech and acyclic-basis continuation."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "ClassicalAdicEtaleCohomology:H1",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "ClassicalAdicEtaleCohomology:H5",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "DiamondEtaleCohomology:C0",
+      "reason": "Import the canonical owner of Ordinary sheaf/topos, Leray/Cech and acyclic-basis continuation."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "DiamondEtaleCohomology:C2",
+      "reason": "Import the canonical owner of Abstract size and cutoff-cardinal lemma."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "DiamondEtaleCohomology:C8",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "DiamondsAndVStacks:D1",
+      "reason": "Import the canonical owner of Abstract size and cutoff-cardinal lemma."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "DiamondsAndVStacks:D2",
+      "reason": "Import the canonical owner of Ordinary sheaf/topos, Leray/Cech and acyclic-basis continuation."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "EnhancedDerivedSheaves:E1",
+      "reason": "Import the canonical owner of Ordinary sheaf/topos, Leray/Cech and acyclic-basis continuation."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "HodgeTateAndCanonicalSubgroups:T1",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "HodgeTateAndCanonicalSubgroups:T6:comparison",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "PadicHodgeTheory:P8:local-rational",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "PerfectoidShimuraVarieties:S0",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "PerfectoidSpaces:P2",
+      "reason": "Import the canonical owner of Ordinary sheaf/topos, Leray/Cech and acyclic-basis continuation. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "DiamondsAndVStacks:D0",
+      "target": "PerfectoidSpaces:P6",
+      "reason": "Import the canonical owner of Abstract size and cutoff-cardinal lemma."
+    },
+    {
+      "source": "DiamondsAndVStacks:D2",
+      "target": "DiamondEtaleCohomology:C0",
+      "reason": "Import the canonical owner of Perf pro-etale/v-sites and effective descent."
+    },
+    {
+      "source": "DiamondsAndVStacks:D2",
+      "target": "DiamondsAndVStacks:D6",
+      "reason": "Import the canonical owner of Perf pro-etale/v-sites and effective descent."
+    },
+    {
+      "source": "DiamondsAndVStacks:D4",
+      "target": "DiamondEtaleCohomology:C0",
+      "reason": "Import the canonical owner of Small v-stack carrier and atlas descent."
+    },
+    {
+      "source": "DiamondsAndVStacks:D4",
+      "target": "VStackSheavesAndLisseCategories:VS0",
+      "reason": "Import the canonical owner of Small v-stack carrier and atlas descent."
+    },
+    {
+      "source": "DiamondsAndVStacks:D5",
+      "target": "DiamondEtaleCohomology:C4",
+      "reason": "Import the canonical owner of Diamond canonical compactification geometry."
+    },
+    {
+      "source": "DiamondsAndVStacks:D5",
+      "target": "DiamondSixOperations:S0",
+      "reason": "Import the canonical owner of Diamond canonical compactification geometry."
+    },
+    {
+      "source": "DiamondsAndVStacks:D6",
+      "target": "AdicCoefficientsAndComparisons:L3",
+      "reason": "Import the canonical owner of Diamondification, Spd and analytic/diamond etale-site equivalence. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "DiamondsAndVStacks:D6",
+      "target": "AdicCoefficientsAndComparisons:L4",
+      "reason": "Import the canonical owner of Diamondification, Spd and analytic/diamond etale-site equivalence. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "DiamondsAndVStacks:D6",
+      "target": "PerfectoidShimuraVarieties:S0",
+      "reason": "Import the canonical owner of Diamondification, Spd and analytic/diamond etale-site equivalence."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "AdicSpacesPartII:R5",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "ClassicalAdicEtaleCohomology:H0",
+      "reason": "Import the canonical component: D0 owns ordinary generic sheaf/cohomology interfaces and E1 their enhancement; H0 proves the analytic instance and geometric stalk/limit theorems. Import the canonical owner of Generic enhanced sheaf model and derived functors."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "ClassicalAdicEtaleCohomology:H1",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "ClassicalAdicEtaleCohomology:H5",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "DiamondEtaleCohomology:C2",
+      "reason": "Import the canonical owner of Generic enhanced sheaf model and derived functors."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "DiamondEtaleCohomology:C8",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "HodgeTateAndCanonicalSubgroups:T1",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "HodgeTateAndCanonicalSubgroups:T6:comparison",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "PadicHodgeTheory:P8:local-rational",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "PerfectoidShimuraVarieties:S0",
+      "reason": "Direct component import after narrowing ClassicalAdicEtaleCohomology:H0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E2",
+      "target": "DiamondEtaleCohomology:C0",
+      "reason": "Import the canonical owner of Generic enhanced descent and Postnikov comparison."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E2",
+      "target": "DiamondEtaleCohomology:C2",
+      "reason": "Import the canonical owner of Generic enhanced descent and Postnikov comparison."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E2",
+      "target": "DiamondSixOperations:S2",
+      "reason": "Import the canonical owner of Generic enhanced descent and Postnikov comparison."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E3",
+      "target": "DiamondEtaleCohomology:C2",
+      "reason": "Import the canonical owner of Generic presentability/cutoff/adjoint criteria."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E3",
+      "target": "VStackSheavesAndLisseCategories:VS2",
+      "reason": "Import the canonical owner of Generic presentability/cutoff/adjoint criteria."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "PerfectoidQuotients:Q4",
+      "target": "PerfectoidShimuraVarieties:S2",
+      "reason": "Import the canonical owner of Closed perfectoid quotient via perfectoidization."
+    },
+    {
+      "source": "PerfectoidQuotients:Q4",
+      "target": "PerfectoidSpaces:P8",
+      "reason": "Import the canonical owner of Closed perfectoid quotient via perfectoidization."
+    },
+    {
+      "source": "PerfectoidSpaces:P0",
+      "target": "AInfCohomology:AI.3",
+      "reason": "Use the same almost-base ideal and almost module API; retain the consumer-specific comparison and estimates."
+    },
+    {
+      "source": "PerfectoidSpaces:P0",
+      "target": "DiamondsAndVStacks:D2",
+      "reason": "Import the canonical owner of Almost algebra over a general admissible idempotent ideal, including almost cotangent/deformation extension."
+    },
+    {
+      "source": "PerfectoidSpaces:P0",
+      "target": "DiamondsAndVStacks:D6",
+      "reason": "Import the canonical owner of Almost algebra over a general admissible idempotent ideal, including almost cotangent/deformation extension."
+    },
+    {
+      "source": "PerfectoidSpaces:P0",
+      "target": "HodgeTateAndCanonicalSubgroups:T1",
+      "reason": "Use the same almost-base ideal and almost module API; retain the consumer-specific comparison and estimates."
+    },
+    {
+      "source": "PerfectoidSpaces:P0",
+      "target": "IgusaVarietiesAndTorsionConcentration:IG.3",
+      "reason": "Use the same almost-base ideal and almost module API; retain the consumer-specific comparison and estimates."
+    },
+    {
+      "source": "PerfectoidSpaces:P0",
+      "target": "PerfectoidQuotients:Q3",
+      "reason": "Use the same almost-base ideal and almost module API; retain the consumer-specific comparison and estimates."
+    },
+    {
+      "source": "PerfectoidSpaces:P0",
+      "target": "PerfectoidQuotients:Q4",
+      "reason": "Use the same almost-base ideal and almost module API; retain the consumer-specific comparison and estimates."
+    },
+    {
+      "source": "PerfectoidSpaces:P0",
+      "target": "PerfectoidSpaces:P1",
+      "reason": "Import the canonical owner of Almost algebra over a general admissible idempotent ideal, including almost cotangent/deformation extension. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "PerfectoidSpaces:P0",
+      "target": "PerfectoidSpaces:P2",
+      "reason": "Import the canonical owner of Almost algebra over a general admissible idempotent ideal, including almost cotangent/deformation extension."
+    },
+    {
+      "source": "PerfectoidSpaces:P0",
+      "target": "PerfectoidSpaces:P3",
+      "reason": "Import the canonical owner of Almost algebra over a general admissible idempotent ideal, including almost cotangent/deformation extension. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "PerfectoidSpaces:P0",
+      "target": "PerfectoidSpaces:P8",
+      "reason": "Use the same almost-base ideal and almost module API; retain the consumer-specific comparison and estimates."
+    },
+    {
+      "source": "PerfectoidSpaces:P0",
+      "target": "PerfectoidSpaces:P9",
+      "reason": "Use the same almost-base ideal and almost module API; retain the consumer-specific comparison and estimates."
+    },
+    {
+      "source": "PerfectoidSpaces:P0",
+      "target": "TorsionCohomologyInfrastructure:TC.0",
+      "reason": "Use the same almost-base ideal and almost module API; retain the consumer-specific comparison and estimates."
+    },
+    {
+      "source": "PerfectoidSpaces:P1",
+      "target": "DiamondSixOperations:S5",
+      "reason": "Import the canonical owner of General perfectoid tilting and marked-untilt theory."
+    },
+    {
+      "source": "PerfectoidSpaces:P1",
+      "target": "DiamondsAndVStacks:D6",
+      "reason": "Import the canonical owner of General perfectoid tilting and marked-untilt theory."
+    },
+    {
+      "source": "PerfectoidSpaces:P1",
+      "target": "PadicHodgeTheory:R06.1",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "PerfectoidSpaces:P1",
+      "target": "PerfectoidSpaces:P2",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "PerfectoidSpaces:P1",
+      "target": "PerfectoidSpaces:P3",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "PerfectoidSpaces:P2",
+      "target": "DiamondsAndVStacks:D2",
+      "reason": "Import the canonical owner of Perfectoid pullback, rational localizations and almost acyclicity."
+    },
+    {
+      "source": "PerfectoidSpaces:P2",
+      "target": "DiamondsAndVStacks:D6",
+      "reason": "Import the canonical owner of Perfectoid pullback, rational localizations and almost acyclicity."
+    },
+    {
+      "source": "PerfectoidSpaces:P2",
+      "target": "PadicHodgeTheory:P8:local-rational",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "PerfectoidSpaces:P2",
+      "target": "PerfectoidSpaces:P3",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "PerfectoidSpaces:P3",
+      "target": "AdicEtaleGeometry:A3",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P5; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "PerfectoidSpaces:P3",
+      "target": "AdicEtaleGeometry:A4",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P5; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "PerfectoidSpaces:P3",
+      "target": "DiamondsAndVStacks:D6",
+      "reason": "Import the canonical owner of Almost purity and finite-etale/site tilting."
+    },
+    {
+      "source": "PerfectoidSpaces:P3",
+      "target": "PadicHodgeTheory:P8:local-rational",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "PerfectoidSpaces:P3",
+      "target": "PerfectoidSpaces:P5",
+      "reason": "Import the canonical component: The accepted P3/7.4-7.5 node is already needed inside almost purity; its proof cannot be postponed to P5. Import the canonical owner of Early henselian finite-etale completion/approximation (Sch12 7.4-7.5, GR book 5.4.53). Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "PerfectoidSpaces:P3",
+      "target": "PerfectoidSpaces:P6",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P5; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "PerfectoidSpaces:P3",
+      "target": "PerfectoidSpaces:P7",
+      "reason": "Import the canonical owner of Early henselian finite-etale completion/approximation (Sch12 7.4-7.5, GR book 5.4.53). Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned. Direct component import after narrowing PerfectoidSpaces:P5; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "PerfectoidSpaces:P4",
+      "target": "PerfectoidQuotients:Q4",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "PerfectoidSpaces:P5",
+      "target": "AdicEtaleGeometry:A3",
+      "reason": "Import the canonical component: P5 owns qcqs/finite-etale descent; the affinoid extension needs genuinely new nonnoetherian proofs beyond R3 coherent gluing. Only the EARLY R5 ambient class is imported. Import the canonical owner of Perfectoid cofiltered limits and ECD 6.4(o)-(iii) qcqs descent."
+    },
+    {
+      "source": "PerfectoidSpaces:P5",
+      "target": "ClassicalAdicEtaleCohomology:H2",
+      "reason": "Import the canonical owner of Perfectoid cofiltered limits and ECD 6.4(o)-(iii) qcqs descent."
+    },
+    {
+      "source": "PerfectoidSpaces:P5",
+      "target": "PerfectoidSpaces:P6",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A3; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "PerfectoidSpaces:P5",
+      "target": "RelativeFarguesFontaine:RF0:integral-Y",
+      "reason": "Direct component import after narrowing AdicEtaleGeometry:A3; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "PerfectoidSpaces:P7",
+      "target": "PadicHodgeTheory:P8:local-rational",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "PerfectoidSpaces:P7",
+      "target": "PerfectoidShimuraVarieties:S0",
+      "reason": "Import the canonical owner of Perfectoid tilde-limits and Frobenius tower criterion."
+    },
+    {
+      "source": "PerfectoidSpaces:P7",
+      "target": "PerfectoidShimuraVarieties:S1",
+      "reason": "Import the canonical owner of Perfectoid tilde-limits and Frobenius tower criterion."
+    },
+    {
+      "source": "PerfectoidSpaces:P8",
+      "target": "PerfectoidShimuraVarieties:S2",
+      "reason": "Import the canonical owner of Finite perfectoid quotients and closed-locus gluing."
+    },
+    {
+      "source": "PerfectoidSpaces:P8",
+      "target": "PerfectoidShimuraVarieties:S4",
+      "reason": "Import the canonical owner of Finite perfectoid quotients and closed-locus gluing."
+    },
+    {
+      "source": "PerfectoidSpaces:P9",
+      "target": "HodgeTateAndCanonicalSubgroups:T5",
+      "reason": "Import the canonical owner of Continuous profinite-torsor module descent and weight-space extension."
+    },
+    {
+      "source": "PerfectoidSpaces:P9",
+      "target": "OverconvergentAutomorphicForms:O1",
+      "reason": "Import the canonical owner of Continuous profinite-torsor module descent and weight-space extension."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "ExcursionOperatorsAndSpectralAction:ES0",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "ExcursionOperatorsAndSpectralAction:ES4",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "ExcursionOperatorsAndSpectralAction:ES5",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "HeckeStacksAndLocalShtukas:HS1",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "HeckeStacksAndLocalShtukas:HS3",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "VStackSheavesAndLisseCategories:VS4",
+      "reason": "Import the canonical component: SR owns smooth representations/derived enhancement and compact induction. Pinned smooth-discrete continuity already exists; it is not the Bun_G equivalence. Import the canonical owner of Early smooth abelian carrier."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "VStackSheavesAndLisseCategories:VS5",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "target": "ExcursionOperatorsAndSpectralAction:ES0",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "target": "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "target": "ExcursionOperatorsAndSpectralAction:ES4",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "target": "ExcursionOperatorsAndSpectralAction:ES5",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "target": "HeckeStacksAndLocalShtukas:HS1",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "target": "HeckeStacksAndLocalShtukas:HS3",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "target": "VStackSheavesAndLisseCategories:VS4",
+      "reason": "Import the canonical component: SR owns smooth representations/derived enhancement and compact induction. Pinned smooth-discrete continuity already exists; it is not the Bun_G equivalence. Import the canonical owner of Enhanced derived smooth category."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "target": "VStackSheavesAndLisseCategories:VS5",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "target": "ExcursionOperatorsAndSpectralAction:ES0",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "target": "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "target": "ExcursionOperatorsAndSpectralAction:ES4",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "target": "ExcursionOperatorsAndSpectralAction:ES5",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "target": "HeckeStacksAndLocalShtukas:HS1",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "target": "HeckeStacksAndLocalShtukas:HS3",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "target": "VStackSheavesAndLisseCategories:VS4",
+      "reason": "Import the canonical component: SR owns smooth representations/derived enhancement and compact induction. Pinned smooth-discrete continuity already exists; it is not the Bun_G equivalence. Import the canonical owner of Compact induction for locally profinite groups."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "target": "VStackSheavesAndLisseCategories:VS5",
+      "reason": "Direct component import after narrowing VStackSheavesAndLisseCategories:VS4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "VStackSheavesAndLisseCategories:VS0",
+      "target": "VStackSheavesAndLisseCategories:VS1",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "VStackSheavesAndLisseCategories:VS0",
+      "target": "VStackSheavesAndLisseCategories:VS3",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "VStackSheavesAndLisseCategories:VS0",
+      "target": "VStackSheavesAndLisseCategories:VS4",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "VStackSheavesAndLisseCategories:VS0",
+      "target": "VStackSheavesAndLisseCategories:VS5",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "VStackSheavesAndLisseCategories:VS1",
+      "target": "VStackSheavesAndLisseCategories:VS5",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "VStackSheavesAndLisseCategories:VS2",
+      "target": "HabiroRings:HR.2",
+      "reason": "Import the canonical owner of Qualified solidification and derived solid modules."
+    },
+    {
+      "source": "VStackSheavesAndLisseCategories:VS2",
+      "target": "VStackSheavesAndLisseCategories:VS3",
+      "reason": "Import the canonical owner of Qualified solidification and derived solid modules. Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "VStackSheavesAndLisseCategories:VS3",
+      "target": "VStackSheavesAndLisseCategories:VS4",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "VStackSheavesAndLisseCategories:VS4",
+      "target": "VStackSheavesAndLisseCategories:VS5",
+      "reason": "Preserve the accepted decomposition supplier at stage level; historical A4/15.6 endpoint is interpreted as D6-owned."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "AdicEtaleGeometry:A0",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "AdicEtaleGeometry:A1",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "AdicEtaleGeometry:A2",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "AdicEtaleGeometry:A3",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "AdicSpacesPartII:R0",
+      "reason": "Import the canonical component: The anchor owns Huber algebra, rational localization, sheafiness and elementary adic geometry; the new analytic morphism theory begins after them. Import the canonical owner of Huber/Tate algebra and completion."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "AdicSpacesPartII:R1",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "AdicSpacesPartII:R2",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "AdicSpacesPartII:R4",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "AdicSpacesPartII:R5",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "CohomologyComparisons:CP.0",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "DiamondSixOperations:S5",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "DiamondsAndVStacks:D6",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "FarguesFontaineDiamonds:F1",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "OverconvergentAutomorphicForms:O0",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "PadicFamilies:L2a",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "PadicHodgeTheory:R06.1",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "PerfectoidQuotients:Q0",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "PerfectoidQuotients:Q0:integral-algebra",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "PerfectoidSpaces:P1",
+      "reason": "Import the canonical component: The anchor owns topological algebra and the characteristic-p field/A_inf example; DD.0 classical cotangent theory and pinned Fontaine primitives are imports, not the general untilt classification. Import the canonical owner of Huber/Tate algebra and completion."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "PerfectoidSpaces:P2",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "PerfectoidSpaces:P3",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "PerfectoidSpaces:P7",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "target": "RelativeFarguesFontaine:RF0:integral-Y",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+      "target": "AdicCoefficientsAndComparisons:L2",
+      "reason": "Direct component import after narrowing DiamondsAndVStacks:D0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+      "target": "ClassicalAdicEtaleCohomology:H0",
+      "reason": "Direct component import after narrowing DiamondsAndVStacks:D0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+      "target": "DiamondsAndVStacks:D0",
+      "reason": "Import the canonical component: The anchor owns spectral/constructible/pro-constructible foundations and patch calculus. D0 supplies only remaining ordinary interfaces, independently of diamonds or enhanced cohomology. Import the canonical owner of Spectral, patch and pro-constructible calculus."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+      "target": "DiamondsAndVStacks:D1",
+      "reason": "Direct component import after narrowing DiamondsAndVStacks:D0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+      "target": "DiamondsAndVStacks:D2",
+      "reason": "Direct component import after narrowing DiamondsAndVStacks:D0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+      "target": "EnhancedDerivedSheaves:E1",
+      "reason": "Direct component import after narrowing DiamondsAndVStacks:D0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+      "target": "EnhancedDerivedSheaves:E2",
+      "reason": "Direct component import after narrowing DiamondsAndVStacks:D0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+      "target": "PerfectoidQuotients:Q1",
+      "reason": "Direct component import after narrowing DiamondsAndVStacks:D0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+      "target": "PerfectoidSpaces:P0",
+      "reason": "Direct component import after narrowing DiamondsAndVStacks:D0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+      "target": "PerfectoidSpaces:P2",
+      "reason": "Direct component import after narrowing DiamondsAndVStacks:D0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+      "target": "PerfectoidSpaces:P5",
+      "reason": "Direct component import after narrowing DiamondsAndVStacks:D0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+      "target": "PerfectoidSpaces:P6",
+      "reason": "Direct component import after narrowing DiamondsAndVStacks:D0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+      "target": "AdicEtaleGeometry:A1",
+      "reason": "Import the canonical owner of Spa and rational subsets."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+      "target": "DiamondsAndVStacks:D2",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+      "target": "FarguesFontaineDiamonds:F4",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+      "target": "PadicHodgeTheory:P8:local-rational",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+      "target": "PadicHodgeTheory:R06.1",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+      "target": "PerfectoidSpaces:P2",
+      "reason": "Import the canonical component: The anchor owns ordinary Spa/localization/sheaf geometry; R0 tensors and R3 noetherian acyclicity/finite-projective gluing are inputs. The perfectoid and almost conclusions are additional work. Import the canonical owner of Spa and rational subsets."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+      "target": "PerfectoidSpaces:P3",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+      "target": "PerfectoidSpaces:P4",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+      "target": "PerfectoidSpaces:P7",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+      "target": "RelativeFarguesFontaine:RF0:integral-Y",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+      "target": "RelativeFarguesFontaine:RF2:untilts",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+      "target": "TorsionCohomologyInfrastructure:TC.0",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+      "target": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "AdicEtaleGeometry:A0",
+      "reason": "Import the canonical owner of Rational localization and structure presheaf. Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "AdicEtaleGeometry:A1",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "AdicEtaleGeometry:A2",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "AdicEtaleGeometry:A3",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "AdicSpacesPartII:R0",
+      "reason": "Import the canonical component: The anchor owns Huber algebra, rational localization, sheafiness and elementary adic geometry; the new analytic morphism theory begins after them. Import the canonical owner of Rational localization and structure presheaf."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "AdicSpacesPartII:R1",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "AdicSpacesPartII:R2",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "AdicSpacesPartII:R4",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "AdicSpacesPartII:R5",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "CohomologyComparisons:CP.0",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "DiamondsAndVStacks:D2",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "FarguesFontaineDiamonds:F4",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "PadicFamilies:L2a",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "PadicHodgeTheory:P8:local-rational",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "PadicHodgeTheory:R06.1",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "PerfectoidSpaces:P2",
+      "reason": "Import the canonical component: The anchor owns ordinary Spa/localization/sheaf geometry; R0 tensors and R3 noetherian acyclicity/finite-projective gluing are inputs. The perfectoid and almost conclusions are additional work. Import the canonical owner of Rational localization and structure presheaf."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "PerfectoidSpaces:P3",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "PerfectoidSpaces:P4",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "PerfectoidSpaces:P7",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "RelativeFarguesFontaine:RF0:integral-Y",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "RelativeFarguesFontaine:RF2:untilts",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "TorsionCohomologyInfrastructure:TC.0",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "target": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "AdicEtaleGeometry:A0",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "AdicEtaleGeometry:A1",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "AdicEtaleGeometry:A2",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "AdicEtaleGeometry:A3",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "AdicSpacesPartII:F1",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R3; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "AdicSpacesPartII:R0",
+      "reason": "Import the canonical component: The anchor owns Huber algebra, rational localization, sheafiness and elementary adic geometry; the new analytic morphism theory begins after them."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "AdicSpacesPartII:R1",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "AdicSpacesPartII:R2",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "AdicSpacesPartII:R3",
+      "reason": "Import the canonical component: Import the anchor structure-sheaf sheafiness/Tate acyclicity and stable-uniform theorem; finite modules, nonnoetherian vector bundles, proper finiteness and trace still require new proofs. Import the canonical owner of Strongly-noetherian/stably-uniform sheafiness and structure-sheaf Tate acyclicity."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "AdicSpacesPartII:R4",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "AdicSpacesPartII:R5",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing AdicSpacesPartII:R3; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "AlgebraicModuliForArithmeticGeometry:R09.6",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R3; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "CohomologyComparisons:CP.0",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing AdicSpacesPartII:R3; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "DiamondsAndVStacks:D2",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "FarguesFontaineDiamonds:F4",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "OverconvergentAutomorphicForms:O6",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R3; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "PadicFamilies:L2a",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing AdicSpacesPartII:R3; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "PadicHodgeTheory:P8:local-rational",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "PadicHodgeTheory:R06.1",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "PerfectoidSpaces:P2",
+      "reason": "Import the canonical component: The anchor owns ordinary Spa/localization/sheaf geometry; R0 tensors and R3 noetherian acyclicity/finite-projective gluing are inputs. The perfectoid and almost conclusions are additional work. Import the canonical owner of Strongly-noetherian/stably-uniform sheafiness and structure-sheaf Tate acyclicity. Direct component import after narrowing AdicSpacesPartII:R3; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "PerfectoidSpaces:P3",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "PerfectoidSpaces:P4",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "PerfectoidSpaces:P7",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing AdicSpacesPartII:R3; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "RelativeFarguesFontaine:RF0:integral-Y",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing AdicSpacesPartII:R3; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "RelativeFarguesFontaine:RF2:untilts",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "TorsionCohomologyInfrastructure:TC.0",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R3; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "target": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "AdicEtaleGeometry:A0",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "AdicEtaleGeometry:A1",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "AdicEtaleGeometry:A2",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "AdicEtaleGeometry:A3",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "AdicSpacesPartII:R0",
+      "reason": "Import the canonical component: The anchor owns Huber algebra, rational localization, sheafiness and elementary adic geometry; the new analytic morphism theory begins after them. Import the canonical owner of General adic carrier, gluing and elementary immersions."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "AdicSpacesPartII:R1",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "AdicSpacesPartII:R2",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "AdicSpacesPartII:R4",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "AdicSpacesPartII:R5",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "CohomologyComparisons:CP.0",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "DiamondsAndVStacks:D1",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "DiamondsAndVStacks:D2",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "DiamondsAndVStacks:D6",
+      "reason": "Import the canonical owner of General adic carrier, gluing and elementary immersions."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "FarguesFontaineDiamonds:F4",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "PadicFamilies:L2a",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "PadicHodgeTheory:P8:local-rational",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "PadicHodgeTheory:R06.1",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "PerfectoidQuotients:Q4",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "PerfectoidSpaces:P2",
+      "reason": "Import the canonical component: The anchor owns ordinary Spa/localization/sheaf geometry; R0 tensors and R3 noetherian acyclicity/finite-projective gluing are inputs. The perfectoid and almost conclusions are additional work. Import the canonical owner of General adic carrier, gluing and elementary immersions."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "PerfectoidSpaces:P3",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "PerfectoidSpaces:P4",
+      "reason": "Import the canonical component: The anchor owns general adic immersions; P4 adds their perfectoid tests and the comparison needed by Q4. Import the canonical owner of General adic carrier, gluing and elementary immersions. Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "PerfectoidSpaces:P5",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "PerfectoidSpaces:P7",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "RelativeFarguesFontaine:RF0:integral-Y",
+      "reason": "Direct component import after narrowing AdicSpacesPartII:R0; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses. Direct component import after narrowing PerfectoidSpaces:P4; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "RelativeFarguesFontaine:RF2:untilts",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "TorsionCohomologyInfrastructure:TC.0",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "target": "VectorBundlesAndIsocrystals:VB3:positive-basic-examples",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P2; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "DiamondSixOperations:S5",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "DiamondsAndVStacks:D6",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "FarguesFontaineDiamonds:F1",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "OverconvergentAutomorphicForms:O0",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "PadicHodgeTheory:R06.1",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "PerfectoidQuotients:Q0",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "PerfectoidQuotients:Q0:integral-algebra",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "PerfectoidSpaces:P1",
+      "reason": "Import the canonical component: The anchor owns topological algebra and the characteristic-p field/A_inf example; DD.0 classical cotangent theory and pinned Fontaine primitives are imports, not the general untilt classification. Import the canonical owner of Characteristic-p perfectoid-field A_inf/absolute-curve example."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "PerfectoidSpaces:P2",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "PerfectoidSpaces:P3",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "PerfectoidSpaces:P7",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "RelativeFarguesFontaine:RF0:integral-Y",
+      "reason": "Direct component import after narrowing PerfectoidSpaces:P1; retain its application edge and apply only the supplier component/hypotheses this consumer uses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
+      "target": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "reason": "Import the canonical owner of Profinite Sylow theory."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
+      "target": "DiamondEtaleCohomology:C8",
+      "reason": "Import the canonical owner of Profinite Sylow theory."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+      "target": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "reason": "Import the canonical owner of General pro-p group structure."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+      "target": "DiamondEtaleCohomology:C8",
+      "reason": "Import the canonical owner of General pro-p group structure."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Huber/Tate algebra and completion",
+      "owner": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "formerly": [
+        "AdicSpacesPartII:R0",
+        "PerfectoidSpaces:P1"
+      ]
+    },
+    {
+      "target": "Spectral, patch and pro-constructible calculus",
+      "owner": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+      "formerly": [
+        "DiamondsAndVStacks:D0"
+      ]
+    },
+    {
+      "target": "Spa and rational subsets",
+      "owner": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+      "formerly": [
+        "PerfectoidSpaces:P2",
+        "AdicEtaleGeometry:A1"
+      ]
+    },
+    {
+      "target": "Rational localization and structure presheaf",
+      "owner": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+      "formerly": [
+        "AdicSpacesPartII:R0",
+        "PerfectoidSpaces:P2",
+        "AdicEtaleGeometry:A0"
+      ]
+    },
+    {
+      "target": "Strongly-noetherian/stably-uniform sheafiness and structure-sheaf Tate acyclicity",
+      "owner": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+      "formerly": [
+        "AdicSpacesPartII:R3",
+        "PerfectoidSpaces:P2"
+      ]
+    },
+    {
+      "target": "General adic carrier, gluing and elementary immersions",
+      "owner": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+      "formerly": [
+        "AdicSpacesPartII:R0",
+        "PerfectoidSpaces:P2",
+        "PerfectoidSpaces:P4",
+        "DiamondsAndVStacks:D6"
+      ]
+    },
+    {
+      "target": "Characteristic-p perfectoid-field A_inf/absolute-curve example",
+      "owner": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "formerly": [
+        "PerfectoidSpaces:P1"
+      ]
+    },
+    {
+      "target": "Analytic completed tensor and admissible fiber-product construction",
+      "owner": "AdicSpacesPartII:R0",
+      "formerly": [
+        "AdicEtaleGeometry:A0",
+        "PerfectoidSpaces:P2",
+        "AdicSpacesPartII:R5"
+      ]
+    },
+    {
+      "target": "Ordinary analytic finite/etale/smooth and proper/separated morphism theory",
+      "owner": "AdicSpacesPartII:R0",
+      "formerly": [
+        "AdicEtaleGeometry:A1",
+        "AdicEtaleGeometry:A2"
+      ]
+    },
+    {
+      "target": "Scheme analytification and rigid/adic geometric comparisons",
+      "owner": "AdicSpacesPartII:R1",
+      "formerly": [
+        "AdicEtaleGeometry:A2",
+        "ClassicalAdicEtaleCohomology:H5"
+      ]
+    },
+    {
+      "target": "Noetherian formal Spf, formal functions and formal GAGA",
+      "owner": "AdicSpacesPartII:F0",
+      "formerly": [
+        "AdicEtaleGeometry:A2",
+        "AdicSpacesPartII:R2"
+      ]
+    },
+    {
+      "target": "Type-(S)/admissible formal models, generic fibers and formal/analytic geometry",
+      "owner": "AdicSpacesPartII:R2",
+      "formerly": [
+        "AdicEtaleGeometry:A2",
+        "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+        "ClassicalAdicEtaleCohomology:H5"
+      ]
+    },
+    {
+      "target": "Coherent analytic theory and finite-projective gluing in their separate valid ranges",
+      "owner": "AdicSpacesPartII:R3",
+      "formerly": [
+        "PerfectoidSpaces:P2",
+        "PerfectoidSpaces:P9"
+      ]
+    },
+    {
+      "target": "Dagger/weak-completion geometric carrier",
+      "owner": "AdicSpacesPartII:F1",
+      "formerly": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0",
+        "AutomorphicGaloisRepresentationsPartII:AG2.4"
+      ]
+    },
+    {
+      "target": "Analytic etale/pro-etale sites and corrected transfinite covers",
+      "owner": "AdicEtaleGeometry:A1",
+      "formerly": [
+        "AdicSpacesPartII:R4",
+        "ClassicalAdicEtaleCohomology:H0",
+        "AInfCohomology:AI.3",
+        "IgusaVarietiesAndTorsionConcentration:IG.3"
+      ]
+    },
+    {
+      "target": "Ordinary sheaf/topos, Leray/Cech and acyclic-basis continuation",
+      "owner": "DiamondsAndVStacks:D0",
+      "formerly": [
+        "ClassicalAdicEtaleCohomology:H0",
+        "PerfectoidSpaces:P2",
+        "DiamondsAndVStacks:D2",
+        "DiamondEtaleCohomology:C0",
+        "EnhancedDerivedSheaves:E1"
+      ]
+    },
+    {
+      "target": "Abstract size and cutoff-cardinal lemma",
+      "owner": "DiamondsAndVStacks:D0",
+      "formerly": [
+        "PerfectoidSpaces:P6",
+        "DiamondsAndVStacks:D1",
+        "DiamondEtaleCohomology:C2"
+      ]
+    },
+    {
+      "target": "Classical full cotangent complex",
+      "owner": "DerivedDeRhamCohomology:DD.0",
+      "formerly": [
+        "PerfectoidSpaces:P0",
+        "PerfectoidSpaces:P1"
+      ]
+    },
+    {
+      "target": "Almost algebra over a general admissible idempotent ideal, including almost cotangent/deformation extension",
+      "owner": "PerfectoidSpaces:P0",
+      "formerly": [
+        "PerfectoidSpaces:P1",
+        "PerfectoidSpaces:P2",
+        "PerfectoidSpaces:P3",
+        "DiamondsAndVStacks:D2",
+        "DiamondsAndVStacks:D6"
+      ]
+    },
+    {
+      "target": "General perfectoid tilting and marked-untilt theory",
+      "owner": "PerfectoidSpaces:P1",
+      "formerly": [
+        "DiamondsAndVStacks:D6",
+        "DiamondSixOperations:S5"
+      ]
+    },
+    {
+      "target": "Perfectoid pullback, rational localizations and almost acyclicity",
+      "owner": "PerfectoidSpaces:P2",
+      "formerly": [
+        "DiamondsAndVStacks:D2",
+        "DiamondsAndVStacks:D6"
+      ]
+    },
+    {
+      "target": "Almost purity and finite-etale/site tilting",
+      "owner": "PerfectoidSpaces:P3",
+      "formerly": [
+        "DiamondsAndVStacks:D6"
+      ]
+    },
+    {
+      "target": "Early henselian finite-etale completion/approximation (Sch12 7.4-7.5, GR book 5.4.53)",
+      "owner": "PerfectoidSpaces:P3",
+      "formerly": [
+        "PerfectoidSpaces:P5",
+        "PerfectoidSpaces:P7"
+      ]
+    },
+    {
+      "target": "Perfectoid cofiltered limits and ECD 6.4(o)-(iii) qcqs descent",
+      "owner": "PerfectoidSpaces:P5",
+      "formerly": [
+        "AdicEtaleGeometry:A3",
+        "ClassicalAdicEtaleCohomology:H2"
+      ]
+    },
+    {
+      "target": "Nonnoetherian affinoid-etale approximation, ECD 6.4(iv)",
+      "owner": "AdicEtaleGeometry:A3",
+      "formerly": [
+        "DiamondsAndVStacks:D6"
+      ]
+    },
+    {
+      "target": "Early sousperfectoid product and coefficient-sheaf theory",
+      "owner": "AdicSpacesPartII:R5",
+      "formerly": [
+        "AdicEtaleGeometry:A3",
+        "PerfectoidSpaces:P9"
+      ]
+    },
+    {
+      "target": "Analytic uniform-completion/finite-etale tower for diamondification",
+      "owner": "AdicEtaleGeometry:A4",
+      "formerly": [
+        "DiamondsAndVStacks:D6"
+      ]
+    },
+    {
+      "target": "Diamondification, Spd and analytic/diamond etale-site equivalence",
+      "owner": "DiamondsAndVStacks:D6",
+      "formerly": [
+        "AdicCoefficientsAndComparisons:L3",
+        "AdicCoefficientsAndComparisons:L4",
+        "PerfectoidShimuraVarieties:S0"
+      ]
+    },
+    {
+      "target": "General Huber tilde-limit carrier and classical continuity",
+      "owner": "ClassicalAdicEtaleCohomology:H0",
+      "formerly": [
+        "PerfectoidSpaces:P7"
+      ]
+    },
+    {
+      "target": "Perfectoid tilde-limits and Frobenius tower criterion",
+      "owner": "PerfectoidSpaces:P7",
+      "formerly": [
+        "PerfectoidShimuraVarieties:S0",
+        "PerfectoidShimuraVarieties:S1"
+      ]
+    },
+    {
+      "target": "Finite perfectoid quotients and closed-locus gluing",
+      "owner": "PerfectoidSpaces:P8",
+      "formerly": [
+        "PerfectoidShimuraVarieties:S2",
+        "PerfectoidShimuraVarieties:S4"
+      ]
+    },
+    {
+      "target": "Closed perfectoid quotient via perfectoidization",
+      "owner": "PerfectoidQuotients:Q4",
+      "formerly": [
+        "PerfectoidSpaces:P8",
+        "PerfectoidShimuraVarieties:S2"
+      ]
+    },
+    {
+      "target": "Continuous profinite-torsor module descent and weight-space extension",
+      "owner": "PerfectoidSpaces:P9",
+      "formerly": [
+        "HodgeTateAndCanonicalSubgroups:T5",
+        "OverconvergentAutomorphicForms:O1"
+      ]
+    },
+    {
+      "target": "Henselian/pro-special cohomological comparison",
+      "owner": "ClassicalAdicEtaleCohomology:H1:henselian",
+      "formerly": [
+        "DiamondEtaleCohomology:C5"
+      ]
+    },
+    {
+      "target": "Classical formal/adic specialization and nearby-cycle comparison",
+      "owner": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "formerly": [
+        "ClassicalAdicEtaleCohomology:H1"
+      ]
+    },
+    {
+      "target": "Arbitrary-valuation-base nearby cycles and prime-to-residue base change",
+      "owner": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "formerly": [
+        "ClassicalAdicEtaleCohomology:H1"
+      ]
+    },
+    {
+      "target": "Valuation-base support, surjective invariance and constructibility exports",
+      "owner": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+      "formerly": [
+        "ClassicalAdicEtaleCohomology:H1",
+        "ClassicalAdicEtaleCohomology:H2",
+        "ClassicalAdicEtaleCohomology:H4",
+        "ClassicalAdicEtaleCohomology:H5"
+      ]
+    },
+    {
+      "target": "Perf pro-etale/v-sites and effective descent",
+      "owner": "DiamondsAndVStacks:D2",
+      "formerly": [
+        "DiamondEtaleCohomology:C0",
+        "DiamondsAndVStacks:D6"
+      ]
+    },
+    {
+      "target": "Small v-stack carrier and atlas descent",
+      "owner": "DiamondsAndVStacks:D4",
+      "formerly": [
+        "DiamondEtaleCohomology:C0",
+        "VStackSheavesAndLisseCategories:VS0"
+      ]
+    },
+    {
+      "target": "Diamond canonical compactification geometry",
+      "owner": "DiamondsAndVStacks:D5",
+      "formerly": [
+        "DiamondEtaleCohomology:C4",
+        "DiamondSixOperations:S0"
+      ]
+    },
+    {
+      "target": "Cohomology of canonical compactifications",
+      "owner": "DiamondEtaleCohomology:C4",
+      "formerly": [
+        "DiamondSixOperations:S0",
+        "DiamondSixOperations:S1"
+      ]
+    },
+    {
+      "target": "Diamond dimension and cohomological bounds",
+      "owner": "DiamondEtaleCohomology:C8",
+      "formerly": [
+        "DiamondSixOperations:S0",
+        "DiamondSixOperations:S1"
+      ]
+    },
+    {
+      "target": "Diamond compact-generation theorem",
+      "owner": "DiamondEtaleCohomology:C9",
+      "formerly": [
+        "DiamondSixOperations:S4",
+        "DiamondSixOperations:S6"
+      ]
+    },
+    {
+      "target": "Diamond exceptional operations in the eligible class",
+      "owner": "DiamondSixOperations:S3",
+      "formerly": [
+        "VStackSheavesAndLisseCategories:VS0"
+      ]
+    },
+    {
+      "target": "Diamond cohomological smoothness",
+      "owner": "DiamondSixOperations:S4",
+      "formerly": [
+        "VStackSheavesAndLisseCategories:VS0"
+      ]
+    },
+    {
+      "target": "Generic enhanced sheaf model and derived functors",
+      "owner": "EnhancedDerivedSheaves:E1",
+      "formerly": [
+        "ClassicalAdicEtaleCohomology:H0",
+        "DiamondEtaleCohomology:C2"
+      ]
+    },
+    {
+      "target": "Generic enhanced descent and Postnikov comparison",
+      "owner": "EnhancedDerivedSheaves:E2",
+      "formerly": [
+        "DiamondEtaleCohomology:C0",
+        "DiamondEtaleCohomology:C2",
+        "DiamondSixOperations:S2"
+      ]
+    },
+    {
+      "target": "Generic presentability/cutoff/adjoint criteria",
+      "owner": "EnhancedDerivedSheaves:E3",
+      "formerly": [
+        "DiamondEtaleCohomology:C2",
+        "VStackSheavesAndLisseCategories:VS2"
+      ]
+    },
+    {
+      "target": "Qualified solidification and derived solid modules",
+      "owner": "VStackSheavesAndLisseCategories:VS2",
+      "formerly": [
+        "HabiroRings:HR.2",
+        "VStackSheavesAndLisseCategories:VS3"
+      ]
+    },
+    {
+      "target": "Early smooth abelian carrier",
+      "owner": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "formerly": [
+        "VStackSheavesAndLisseCategories:VS4"
+      ]
+    },
+    {
+      "target": "Enhanced derived smooth category",
+      "owner": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "formerly": [
+        "VStackSheavesAndLisseCategories:VS4"
+      ]
+    },
+    {
+      "target": "Compact induction for locally profinite groups",
+      "owner": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "formerly": [
+        "VStackSheavesAndLisseCategories:VS4"
+      ]
+    },
+    {
+      "target": "General all-degree continuous Hochschild-Serre spectral sequence",
+      "owner": "ArithmeticGaloisDuality:R02.1",
+      "formerly": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+        "DiamondEtaleCohomology:C8"
+      ]
+    },
+    {
+      "target": "Discrete/compact coefficient comparison and continuous-cohomology convergence",
+      "owner": "ArithmeticGaloisDuality:R02.2",
+      "formerly": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+        "DiamondEtaleCohomology:C8"
+      ]
+    },
+    {
+      "target": "Profinite Sylow theory",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
+      "formerly": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+        "DiamondEtaleCohomology:C8"
+      ]
+    },
+    {
+      "target": "General pro-p group structure",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+      "formerly": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+        "DiamondEtaleCohomology:C8"
+      ]
+    },
+    {
+      "target": "Analytic tensor/morphism paragraph historically repeated under F0",
+      "owner": "AdicSpacesPartII:R0",
+      "formerly": [
+        "AdicSpacesPartII:F0"
+      ]
+    },
+    {
+      "target": "Analytification paragraph historically repeated under F0",
+      "owner": "AdicSpacesPartII:R1",
+      "formerly": [
+        "AdicSpacesPartII:F0"
+      ]
+    },
+    {
+      "target": "Generic-fiber paragraph historically repeated under F0",
+      "owner": "AdicSpacesPartII:R2",
+      "formerly": [
+        "AdicSpacesPartII:F0"
+      ]
+    },
+    {
+      "target": "Coherent analytic paragraph historically repeated under F0",
+      "owner": "AdicSpacesPartII:R3",
+      "formerly": [
+        "AdicSpacesPartII:F0"
+      ]
+    },
+    {
+      "target": "Profinite-torsor descent historically repeated in the R5 paragraph",
+      "owner": "PerfectoidSpaces:P9",
+      "formerly": [
+        "AdicSpacesPartII:R5"
+      ]
+    },
+    {
+      "target": "ECD 15.6 endpoint historically recorded in the A4 decomposition",
+      "owner": "DiamondsAndVStacks:D6",
+      "formerly": [
+        "AdicEtaleGeometry:A4"
+      ]
+    }
+  ]
+}
