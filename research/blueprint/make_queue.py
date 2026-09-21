@@ -95,7 +95,7 @@ Link: {LINK}
 Maintainer's note: {NOTE}
 
 Write research/blueprint/papers/{PAPER}.result.json in the format of PROTOCOL.md section 16, and the report research/blueprint/papers/{PAPER}.md.
-1. Read the paper completely. Fetch the public version into your scratch directory with its provenance (URL, SHA-256, date), and read what it relies on wherever you need to know exactly what an input says.
+1. Read the paper completely. The link may be paywalled: use the authors' public version (arXiv or a homepage), check that it matches the published paper, and record in `source` which version you read. Fetch it into your scratch directory with its provenance (URL, SHA-256, date), and read what the paper relies on wherever you need to know exactly what an input says.
 2. List every definition, construction and key theorem the paper uses or proves on the way to its main results, and each main result, as an item with its exact statement and its locator. Split multi-part results. Coverage is complete (PROTOCOL.md section 0).
 3. For each item, search the pinned libraries ({BASELINE}/declarations.tsv, then open the Lean file and read the statement) and the atlas: data/atlas.json (layers and their descriptions), the new roadmaps in research/blueprint/roadmaps/, the packets in research/blueprint/packets/, and the reviewed library audit data/library-coverage.json. Mark it `library`, `planned` or `missing`, and cite what you found.
 4. Route every missing item exactly once: `source` of existing layers of a proposed roadmap, `part-ii` of an existing roadmap (a Tau Ceti roadmap is extended this way, never re-planned), or `new`. Build on what exists (PROTOCOL.md section 15). For each part-ii or new route, write the brief its design job will follow.
