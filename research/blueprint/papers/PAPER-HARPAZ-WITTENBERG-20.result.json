@@ -11,18 +11,20 @@
     "url": "https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf",
     "readSections": [
       "All 31 pages: introduction and conventions pp.1–7; §2 pp.7–11; §3 pp.12–15; §4 pp.15–18; §5 pp.18–21; §6 pp.21–24; §7 pp.24–28; references pp.28–31.",
-      "Selected prerequisite statements: HW16 pp.259–260,266–268,284; DLA19 Definition 5.1/Theorem 5.2 in both public versions; Har08 definitions and Theorem 2; Dem10 author pp.10–12; LA19 §6 pp.14–17; DLAN17 Proposition 2.4 p.1018; Wit18 Remark 3.9."
+      "Selected prerequisite statements: HW16 pp.259–260,266–268,284; DLA19 Definition 5.1/Theorem 5.2 in both public versions; Har08 definitions and Theorem 2; Dem10 author pp.10–12; LA19 §6 pp.14–17; DLAN17 Proposition 2.4 p.1018; Wit18 Remark 3.9.",
+      "Continuation by Codex codex-a71f92, 2026-09-21: reread every author page (same SHA-256), all 144 inherited items, and Borovoi author manuscript pp.3–4,6–9, DLA19 arXiv v4 §2 conventions and §5 pp.22–23, Harari 1997 §3.2 pp.154–158. Not a full read of those prerequisite papers."
     ],
     "version": "Author manuscript dated 26 February 2018, revised 23 September 2019; arXiv v2 differs only by the first-page arXiv header and the final Email/E-mail spelling. Published metadata checked against author page and Crossref; publisher PDF returned 403 and was not read.",
     "sha256": "2e425ee63d77e6fc53ddd76aca8c8b7ab36be95b078fbcec5e2a8d7f325e6ad9",
     "accessed": "2026-09-21T19:42:25Z",
-    "atlasCommit": "d76643df4405140aed1dfade7a21b9159db80017",
+    "atlasCommit": "ab70a4827ce9461bb1055187ad8ef4656c0864f4",
     "libraryPins": {
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
-    }
+    },
+    "continuationAccessed": "2026-09-21"
   },
-  "summary": "Full-paper checkpoint: unconditional E/E⁺ for homogeneous compactifications; unconditional full Brauer–Manin density for outer-Galois-supersolvable finite stabilizers; conditional density for general solvable stabilizers. Extracts torus descent, type fibrations, norm base changes, finite étale stabilizer reductions and zero-cycle induction. Reuses the pending homogeneous Massey candidate for HW20’s shared rational-point foundation and proposes a separate zero-cycle continuation. Two proof-interface gaps remain unrouted (Remark 4.5 scope and DLA ambient unipotent groups); prerequisite proof decompositions remain work for the designs. No formalization is claimed.",
+  "summary": "Continuation of the full 31-page extraction: 150 items (7 library, 12 planned, 131 missing). Borovoi Proposition 3.4 is read in its original author version and resolves the broader ambient-unipotent good-property interface G2; the report supplies the compactification and all-finite-extension argument. Fourteen routes cover 130 missing items and 10 planned source items exactly once. Only Remark 4.5 (item 75, G1) remains unrouted, so status stays partial. Theorem A is unconditional; general solvable rational-point density remains conditional, while outer-supersolvable and abelian cases are unconditional.",
   "items": [
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/1",
@@ -879,7 +881,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "G1, unresolved source-scope bridge: the proof invokes Theorem 4.2(i), whose §4 standing hypotheses include geometrically rationally connected generic fibre, absent from the remark. Wit18 Remark 3.9 states the general claim too. Determine whether Sko90’s more general fibration theorem supplies the needed version, or give a separate proof; no counterexample is claimed. This item remains unrouted; the RC applications of Theorems 6.1/6.6 do not depend on this remark."
+      "note": "G1, unresolved source-scope bridge: the proof invokes Theorem 4.2(i), whose §4 standing hypotheses include geometrically rationally connected generic fibre, absent from the remark. Wit18 Remark 3.9 states the general claim too. Determine whether Sko90’s more general fibration theorem supplies the needed version, or give a separate proof; no counterexample is claimed. This item remains unrouted; the RC applications of Theorems 6.1/6.6 do not depend on this remark. Continuation checked Har97 Theorem 3.2.1 and §3.2's final remark: its geometric Brauer finiteness, torsion-free Picard and general-line-section hypotheses prevent substituting it without verification. Sko90 original not acquired; no source theorem inferred from a search snippet."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/76",
@@ -1317,18 +1319,18 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The source notion of good includes ambient groups G=G^ssu with G^ss simply connected, not only semisimple ambient groups. The bridge to the paper’s Definition 7.1 is tracked separately as G2."
+      "note": "Use DLA19's broader good-property definition, extracted as item 149. For E⁺ its ascent is supplied by items 139,148,150 and 115; this is a specific verification, not an equivalence of arbitrary good-property definitions."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/115",
       "kind": "theorem",
-      "name": "Compatibility of the two good-property definitions",
-      "statement": "To apply DLA19 Theorem 5.2 to E⁺ as in this paper, extend the fibration ascent verification from semisimple simply connected ambient groups to ambient groups G=G^ssu with simply connected semisimple quotient, retaining geometric stabilizer H=H^ssu.",
+      "name": "Broader ambient-unipotent ascent for E⁺",
+      "statement": "Over a number field k, let f:V→W be a surjective morphism of smooth geometrically integral varieties birational to connected linear homogeneous spaces, whose fibres over every point w are homogeneous under groups G_w=G_w^ssu with (G_w)^ss simply connected and geometric stabilizers H_w=H_w^ssu. If smooth proper models of W satisfy E⁺, then smooth proper models of V satisfy E⁺.",
       "locator": "Proposition 7.3 p.25 versus DLA19 Definition 5.1 p.22",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "G2, unresolved proof interface: both arXiv and the author DLA19 versions explicitly include the unipotent radical in the ambient group. Supply the unipotent quotient/affine-fibration reduction and the (⋆), RC and E⁺ compatibility, or prove the broader ascent directly. This is not evidence that either theorem is false. Leave this interface unrouted until the reduction is written precisely."
+      "note": "G2 resolved for the property actually used: compactify f to Y→X and shrink a dense W₀⊂W so Y_w is smooth proper with V_w dense geometrically integral. The generic fibre is geometrically unirational, hence RC. For every finite k′/k and w∈W₀(k′), Bor96 Proposition 3.4 gives (⋆) for V_w even with ambient unipotent radical; dense-open/birational invariance transfers it to Y_w. Apply HW20 Lemma 7.4. Items 139 and 148 split the two parts of Borovoi's proposition; item 150 records the admissibility bridge. No relative global group action or equivalence for arbitrary properties is assumed."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/116",
@@ -1339,7 +1341,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The three components are Lemmas 7.4–7.6 plus the known (⋆) theorem for the indicated homogeneous fibres. The DLA ambient-unipotent comparison remains the separate G2 proof obligation."
+      "note": "Lemma 7.4 gives ascent, Lemma 7.5 gives stable-birational invariance, Lemma 7.6 gives section descent. Item 115 separately proves ascent in DLA19's broader sense using the precise Borovoi statement, so its Theorem 5.2 applies."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/117",
@@ -1471,7 +1473,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The extracted source theorem is retained with the outstanding DLA interface G2 expressly visible; no independently closed proof or formalization is claimed."
+      "note": "The DLA good-property interface is closed at the statement/proof-interface level by item 115 and the report's finite-extension compactification argument. This is not Lean formalization or a claim to have decomposed every prerequisite proof."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/129",
@@ -1586,13 +1588,13 @@
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/139",
       "kind": "theorem",
-      "name": "Property (⋆) for the homogeneous fibres of good-property ascent",
-      "statement": "Over a number field, homogeneous spaces of semisimple simply connected groups whose geometric stabilizers are extensions of connected semisimple groups by connected unipotent groups satisfy (⋆); smooth proper birational models retain this property.",
-      "locator": "Proposition 7.3 and Lemma 7.4 pp.24–25",
+      "name": "Real-solubility Hasse theorem with ambient unipotent radical",
+      "statement": "Let k be a number field, G a connected linear k-group with G=G^ssu and G^ss simply connected, and V a homogeneous G-space whose geometric stabilizer H is connected and H=H^ssu. If V(k_v) is nonempty for every real place v, then V(k) is nonempty.",
+      "locator": "HW20 Proposition 7.3; Bor96 author Proposition 3.4(i), pp.8–9, with notation pp.3–4",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Supply the connected-stabilizer Hasse principle with real approximation and weak approximation through Borovoi/Platonov–Rapinchuk. The broader ambient-unipotent bridge is G2, not silently included here."
+      "note": "Borovoi's simply connected affine group is not required semisimple: the proof explicitly quotients by U=R_u(G), applies the semisimple case to V/U, and lifts a point via Lemma 3.2(i). Complex local points exist automatically. This includes HW20's narrower fibres and DLA19's full fibre class. The weak-approximation conclusion is split off as item 148."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/140",
@@ -1648,6 +1650,72 @@
       "library": [],
       "planned": [],
       "note": "This makes properness explicit rather than confusing an H¹ class with a surjective character. Local extensions embed through their chosen subgroups, up to conjugacy."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/145",
+      "kind": "construction",
+      "name": "Quotient of a homogeneous space by a normal subgroup",
+      "statement": "For a connected linear group G over a characteristic-zero field k, a homogeneous G-space V (without a chosen k-point), and a closed normal k-subgroup N⊂G, construct V/N as a homogeneous G/N-space and a smooth surjective G-equivariant quotient map V→V/N whose geometric fibres are N-orbits.",
+      "locator": "Bor96 Lemma 3.1, author p.7; proof of Proposition 3.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: quotient map and universal property, G/N-action, geometric fibre/orbit identification, scalar extension and descent from HN\\G after choosing a geometric point. Tests: N=1 recovers V; N=G gives Spec k; for the upper-unitriangular 3×3 group and its centre, the quotient is G_a² via the (1,2),(2,3) entries. Import upstream ReductiveGroups Layers 3–5 and SF.1 for the sheaf quotient/descent and unipotent radical; this item owns the twisted homogeneous-space representability and comparison, not those generic constructions."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/146",
+      "kind": "theorem",
+      "name": "Unipotent homogeneous spaces have points in characteristic zero",
+      "statement": "If U is a unipotent linear algebraic group over a characteristic-zero field k and V is a homogeneous U-space, then V(k) is nonempty.",
+      "locator": "Bor96 Lemma 3.2(i), author p.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read the proof: the unipotent stabilizer obstruction is neutral, giving a U-torsor mapping to V, and unipotent H¹ vanishes. The extracted range is characteristic zero, already the paper's standing convention; no imperfect-field or arbitrary positive-characteristic generalization is made."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/147",
+      "kind": "theorem",
+      "name": "Weak approximation for unipotent homogeneous spaces",
+      "statement": "Over a number field k, for a unipotent linear algebraic group U, a homogeneous U-space V and any finite set S of places, V(k) is dense in ∏_(v∈S)V(k_v).",
+      "locator": "Bor96 Lemma 3.2(ii), author pp.7–8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "After item 146 choose x∈V(k), with unipotent stabilizer H. The exponential isomorphism Lie U≅U and field weak approximation give approximation on U; H¹(k_v,H)=1 makes U(k_v)→V(k_v) surjective. Keep the number-field/characteristic-zero condition on the exponential argument."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/148",
+      "kind": "theorem",
+      "name": "Weak approximation for character-free connected-stabilizer homogeneous spaces",
+      "statement": "Let k be a number field, G a connected linear k-group with G=G^ssu and G^ss simply connected, and V a homogeneous G-space with geometric stabilizer H=H^ssu. If V(k) is nonempty, then for every finite set S of places, V(k) is dense in ∏_(v∈S)V(k_v).",
+      "locator": "Bor96 Proposition 3.4(ii), author pp.8–9; HW20 Proposition 7.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Combined with item 139 this is precisely (⋆), including over each finite extension of k. The proposition cites Borovoi's earlier weak-approximation work; that underlying proof is a registered prerequisite, not claimed re-proved here."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/149",
+      "kind": "definition",
+      "name": "DLA good property on birational homogeneous-space models",
+      "statement": "Over a characteristic-zero field K, a property P on smooth geometrically integral K-varieties birational to connected linear homogeneous spaces is DLA-good if it is invariant under stable birational equivalence, descends along morphisms with a section, and ascends every surjective morphism all of whose fibres over w are homogeneous under G_w=G_w^ssu with (G_w)^ss simply connected and geometric stabilizer H_w=H_w^ssu. Here G^red=G°/R_u(G°), G^ss=[G^red,G^red], G^tor=G^red/G^ss and G^ssu=ker(G°→G^tor).",
+      "locator": "DLA19 arXiv v4 §2 p.4 and Definition 5.1 p.22",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: three closure witnesses, restriction to actual homogeneous spaces, implication to HW20-good, and specialization to the compactification-E⁺ property. Tests: G=SL₂⋉G_a² with H=1 is admitted by the broader fibre condition despite its nontrivial unipotent radical; G=G_m is excluded; a section requires P(total)⇒P(base), while the fibre axiom requires P(base)⇒P(total). No converse equivalence of the two good-property predicates is asserted."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/150",
+      "kind": "theorem",
+      "name": "Compactification of a DLA fibration is E⁺-admissible",
+      "statement": "Under the morphism and fibre hypotheses of item 115, there are smooth proper compactifications Y of V and X of W and a dominant extension F:Y→X such that its geometric generic fibre is rationally connected and there is a dense open W₀⊂W for which, for every finite k′/k and w∈W₀(k′), Y_w satisfies (⋆) over k′.",
+      "locator": "HW20 Proposition 7.3 proof and Definition 7.2; Bor96 Proposition 3.4; continuation proof in report",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Compactify the graph and resolve while preserving V. Shrink the base once to make F smooth with geometrically integral fibres and V fibrewise dense. Homogeneous linear-group geometry gives geometric generic unirationality; Borovoi over each finite extension gives (⋆) for V_w, and smooth dense-open invariance gives it for Y_w. Do not quotient the whole family by a purported relative group action: only the pointwise fibre hypotheses are supplied."
     }
   ],
   "prerequisites": [
@@ -1659,7 +1727,7 @@
     {
       "citation": "Demarche–Lucchini Arteche (2019), Le principe de Hasse pour les espaces homogènes : réduction au cas des stabilisateurs finis, Compositio 155, 1568–1593",
       "link": "https://arxiv.org/abs/1704.08646",
-      "why": "Read Definition 5.1 and Theorem 5.2, confirmed against the author PDF. The finite-stabilizer reduction and good-property proof require complete decomposition; resolve the ambient-unipotent interface G2."
+      "why": "Continuation reread arXiv v4 §2 conventions and §5 Definition 5.1, Theorem 5.2, Proposition 5.3 and its proof. The ambient-unipotent interface G2 is now verified for E⁺ using Bor96 and item 150. The full gerbe/finite-stabilizer reduction proof still needs decomposition; this is not a full read of DLA19."
     },
     {
       "citation": "Harari (2008), Le défaut d’approximation forte pour les groupes algébriques commutatifs, ANT 2, 595–611",
@@ -1699,7 +1767,7 @@
     {
       "citation": "Harari (1997), Flèches de spécialisations en cohomologie étale et applications arithmétiques, BSMF 125, 143–166",
       "link": "https://www.numdam.org/item/BSMF_1997__125_2_143_0/",
-      "why": "Theorem 3.2.1 is the full Brauer fibration input; its specialization and Hilbert-subset hypotheses must be decomposed for Theorem 4.1(ii)."
+      "why": "Theorem 3.2.1 is the full Brauer fibration input; its specialization and Hilbert-subset hypotheses must be decomposed for Theorem 4.1(ii). Continuation read §3.2 pp.154–158: the theorem requires a general-line geometric section, finite geometric Brauer group and torsion-free geometric Picard group; the closing remark permits a Hilbert subset. This does not by itself settle G1."
     },
     {
       "citation": "Graber–Harris–Starr (2003), Families of rationally connected varieties, JAMS 16, 57–67; Kollár (1996), Rational curves on algebraic varieties, IV.6.10",
@@ -1722,9 +1790,19 @@
       "why": "Primary HW20 pp.8–11,17 and bibliography identify HS13 Theorem 8.4/Proposition 8.12 and CTS00 Proposition 1.1/Lemma 3.1. Needed for open descent and the formal lemma; read the latter proof for the stronger finite quotient, not just its printed image-finiteness statement."
     },
     {
-      "citation": "Platonov–Rapinchuk (1994), Algebraic groups and number theory; Borovoi (1996), The Brauer-Manin obstructions for homogeneous spaces with connected or abelian stabilizer",
+      "citation": "Platonov–Rapinchuk (1994), Algebraic groups and number theory",
       "link": "https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf",
-      "why": "Primary HW20 §§6–7 gives the exact simply connected torsor and connected-stabilizer (⋆) uses. Full proofs and the ambient-unipotent compatibility are not replaced by a general reference to approximation."
+      "why": "HW20 §6 names Theorems 6.4,6.6,7.8 for local H¹, the torsor Hasse principle and weak approximation. Their complete proofs remain a prerequisite for AA.4; not read in the original monograph here."
+    },
+    {
+      "citation": "Borovoi (1996), The Brauer–Manin obstructions for homogeneous spaces with connected or abelian stabilizer; author manuscript dated 1 February 1995",
+      "link": "https://www.tau.ac.il/~borovoi/papers/manin.pdf",
+      "why": "Read conventions pp.3–4, §2, Lemmas 3.1–3.2 and Proposition 3.4 with its proof pp.6–9. The latter explicitly treats G/R_u(G) semisimple simply connected and closes G2 with the report's compactification bridge. Its semisimple real-Hasse input is [Bo4] §7.3(vi), and its weak-approximation input is [Bo2] Theorems 1.1,1.4; those deeper proofs are not claimed read."
+    },
+    {
+      "citation": "Borovoi (1990), On weak approximation in homogeneous spaces of simply connected algebraic groups; Borovoi (1993), Abelianization of the second nonabelian Galois cohomology",
+      "link": "https://www.tau.ac.il/~borovoi/papers/manin.pdf",
+      "why": "The verified citing source's Proposition 3.4 and bibliography identify [Bo2] Theorems 1.1/1.4 for weak approximation and [Bo4] §7.3(vi) for real-solubility Hasse. Read their originals when decomposing the arithmetic proof; the link is explicitly the citing Bor96 manuscript, not either original."
     }
   ],
   "routes": [
@@ -1946,10 +2024,14 @@
         "PAPER-HARPAZ-WITTENBERG-20/139",
         "PAPER-HARPAZ-WITTENBERG-20/140",
         "PAPER-HARPAZ-WITTENBERG-20/141",
-        "PAPER-HARPAZ-WITTENBERG-20/142"
+        "PAPER-HARPAZ-WITTENBERG-20/142",
+        "PAPER-HARPAZ-WITTENBERG-20/145",
+        "PAPER-HARPAZ-WITTENBERG-20/146",
+        "PAPER-HARPAZ-WITTENBERG-20/147",
+        "PAPER-HARPAZ-WITTENBERG-20/148"
       ],
-      "reason": "Reuse the same candidate owner proposed in PAPER-HARPAZ-WITTENBERG-23 for its HW20 Theorem B input. That partial extraction is not an accepted roadmap, so these items stay missing, not planned. This paper supplies the general homogeneous-space foundation required by that candidate; do not create another copy of the supersolvable theorem or finite-stabilizer Picard/Brauer interfaces.",
-      "brief": "Extend the existing candidate design brief with the complete HW20 foundation, while retaining its Massey consumers. Over a number field prove that a smooth proper geometrically integral X birational to a homogeneous space of a semisimple simply connected G with finite geometric stabilizer H has rational points dense in its full Brauer–Manin set when H has an outer-Galois-invariant normal flag with cyclic factors (Theorem 6.6). For finite solvable H retain HW16 Conjecture 9.1 explicitly in Theorem 6.1; for finite abelian H prove the unconditional Br₁ version. Construct multiplicative-type torsor types, universal torsors, the boundary-Picard pullback, their quasitrivial-base fibrations, finite étale homogeneous covers, Pic(Vbar)=Hom(Hab,kbar×), and the compatible stabilizer sequence. Prove Propositions 3.1 and 3.3, norm-base-change Lemmas 4.3–4.4, split/geometrically split fibration Theorems 4.1–4.2, the conditional Theorem 4.6, property (⋆), and both rational-point inductions. Include LA19 good-place evaluation and Dem10 quaternion Brauer vanishing for the IG.4 consumers. Import Heights, rational points and obstructions (HeightsRationalPointsAndObstructions, RP.2–RP.3) for adelic/Brauer/torsor descent; Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations, SF.1–SF.4); Reductive groups (tauceti:TauCetiRoadmap/ReductiveGroups, Layers 3–6) for the group and character theory; Reductive groups, Part II (ReductiveGroupsPartII, RG2.0a) for Weil restriction; Adelic algebraic groups (AdelicAlgebraicGroups, AA.4); Global Galois duality and compact coefficients (ArithmeticGaloisDuality, R02.2/R02.4); Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory); and Inverse Galois and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups, IG.0–IG.2). The generic RC geometry exported by HeightsRationalPointsPartIIZeroCycles precedes this homogeneous layer; that roadmap’s final arithmetic induction then consumes the homogeneous layer, so specify stage-level order without a cycle. All definitions receive APIs and three discriminating tests. Keep nonconstant stabilizers, twist signs, real places, transcendental Brauer classes and field-extension hypotheses. G1 Remark 4.5 is not a closed proof input. Retain the earlier candidate’s Massey-specific layers and import this one general proof of HW20 rather than rebuilding it."
+      "reason": "Reuse the same candidate owner proposed in PAPER-HARPAZ-WITTENBERG-23 for its HW20 Theorem B input. Its completed continuation (PR #1664) is still a candidate, not an accepted roadmap, so these items stay missing, not planned. This paper supplies the general homogeneous-space foundation required by that candidate; do not create another copy of the supersolvable theorem or finite-stabilizer Picard/Brauer interfaces.",
+      "brief": "Extend the existing candidate design brief with the complete HW20 foundation, while retaining its Massey consumers. Over a number field prove that a smooth proper geometrically integral X birational to a homogeneous space of a semisimple simply connected G with finite geometric stabilizer H has rational points dense in its full Brauer–Manin set when H has an outer-Galois-invariant normal flag with cyclic factors (Theorem 6.6). For finite solvable H retain HW16 Conjecture 9.1 explicitly in Theorem 6.1; for finite abelian H prove the unconditional Br₁ version. Construct multiplicative-type torsor types, universal torsors, the boundary-Picard pullback, their quasitrivial-base fibrations, finite étale homogeneous covers, Pic(Vbar)=Hom(Hab,kbar×), and the compatible stabilizer sequence. Prove Propositions 3.1 and 3.3, norm-base-change Lemmas 4.3–4.4, split/geometrically split fibration Theorems 4.1–4.2, the conditional Theorem 4.6, property (⋆), and both rational-point inductions. Include LA19 good-place evaluation and Dem10 quaternion Brauer vanishing for the IG.4 consumers. Import Heights, rational points and obstructions (HeightsRationalPointsAndObstructions, RP.2–RP.3) for adelic/Brauer/torsor descent; Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations, SF.1–SF.4); Reductive groups (tauceti:TauCetiRoadmap/ReductiveGroups, Layers 3–6) for the group and character theory; Reductive groups, Part II (ReductiveGroupsPartII, RG2.0a) for Weil restriction; Adelic algebraic groups (AdelicAlgebraicGroups, AA.4); Global Galois duality and compact coefficients (ArithmeticGaloisDuality, R02.2/R02.4); Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory); and Inverse Galois and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups, IG.0–IG.2). The generic RC geometry exported by HeightsRationalPointsPartIIZeroCycles precedes this homogeneous layer; that roadmap’s final arithmetic induction then consumes the homogeneous layer, so specify stage-level order without a cycle. All definitions receive APIs and three discriminating tests. Keep nonconstant stabilizers, twist signs, real places, transcendental Brauer classes and field-extension hypotheses. G1 Remark 4.5 is not a closed proof input. Retain the earlier candidate’s Massey-specific layers and import this one general proof of HW20 rather than rebuilding it. For the E⁺ consumer, export Bor96 Proposition 3.4 in its full ambient G=G^ssu range with G^ss simply connected, splitting real-solubility existence and weak approximation. Extract its normal-subgroup quotient and unipotent homogeneous-space lemmas as items 145–148; import existing radical/quotient/group foundations, and do not build a second generic group API."
     },
     {
       "route": "part-ii",
@@ -1999,10 +2081,13 @@
         "PAPER-HARPAZ-WITTENBERG-20/134",
         "PAPER-HARPAZ-WITTENBERG-20/135",
         "PAPER-HARPAZ-WITTENBERG-20/136",
-        "PAPER-HARPAZ-WITTENBERG-20/137"
+        "PAPER-HARPAZ-WITTENBERG-20/137",
+        "PAPER-HARPAZ-WITTENBERG-20/115",
+        "PAPER-HARPAZ-WITTENBERG-20/149",
+        "PAPER-HARPAZ-WITTENBERG-20/150"
       ],
       "reason": "The existing rational-point roadmap and Chow foundations have no layers for the completed zero-cycle complex, E⁺, universal-torsor descent for cycles, or the prime-to-p reduction proving Theorem A. All 211 current atlas roadmap descriptions were screened for these targets; six new roadmaps and the existing packet do not supply them.",
-      "brief": "Prove HW20 Theorem A: for every number field, every smooth proper variety birational to a homogeneous space of a linear algebraic group satisfies E, and in the rationally connected case its uncompleted modified local zero-cycle complex is exact. Derive the degree-one zero-cycle corollary on the open homogeneous space; do not assert effectiveness or a rational point. Begin with reusable characteristic-zero rational connectedness, the curve section theorem and composition theorem, geometric étale H¹/A₀ vanishing and Picard/Brauer finiteness. Export these to the homogeneous-space candidate before constructing the arithmetic E/E⁺ layers. Build modified infinite-place CH₀, completion by M/nM, cycle Brauer pairing via the RP.2 owner, defect h_X, the degree comparison in Rappel 1.3, and stable-birational/section invariance. Import all cycle/rational-equivalence and Chow functoriality from SchemeAndStackFoundations SF.5, and resolution from SF.4; do not reproduce them. Decompose HW16 Theorem 8.3, Corollary 8.4, Condition 8.1 and Lemma 8.2 with closed points, finite extensions and generic cohomological hypotheses retained. Prove E⁺ closure under admissible fibrations, prime-to-p generically finite maps for every p, universal-torsor descent, and projective-base closed-fibre fibrations; handle irreducible varieties that are not geometrically irreducible and prove the finite-field-extension reinterpretation dictionary, not a Weil-restriction substitute. Import Sylow existence and the image theorem from Profinite and pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups, Layer 2), finite étale covers from InverseGaloisAndArithmeticFundamentalGroups IG.0–IG.1, and universal-torsor/stabilizer fibrations from HeightsRationalPointsPartIIHomogeneousMassey. Induct on solvable stabilizer order unconditionally, then use Sylow covers and DLA19 to reach all connected linear groups. The DLA ambient-unipotent bridge G2 must be resolved before claiming proof closure; it remains an unrouted extraction gap, not an axiom. Import RP.2–RP.3, ArithmeticGaloisDuality and ClassFieldTheory for the shared arithmetic objects. Finish with Hilbert-subset moving and export the collective-coprime-degree Galois consequence to IG.4. Every new definition must include its API and three meaningful tests; distinguish E from E⁺ and closed-point fibre hypotheses from rational-point ones."
+      "brief": "Prove HW20 Theorem A: for every number field, every smooth proper variety birational to a homogeneous space of a linear algebraic group satisfies E, and in the rationally connected case its uncompleted modified local zero-cycle complex is exact. Derive the degree-one zero-cycle corollary on the open homogeneous space; do not assert effectiveness or a rational point. Begin with reusable characteristic-zero rational connectedness, the curve section theorem and composition theorem, geometric étale H¹/A₀ vanishing and Picard/Brauer finiteness. Export these to the homogeneous-space candidate before constructing the arithmetic E/E⁺ layers. Build modified infinite-place CH₀, completion by M/nM, cycle Brauer pairing via the RP.2 owner, defect h_X, the degree comparison in Rappel 1.3, and stable-birational/section invariance. Import all cycle/rational-equivalence and Chow functoriality from SchemeAndStackFoundations SF.5, and resolution from SF.4; do not reproduce them. Decompose HW16 Theorem 8.3, Corollary 8.4, Condition 8.1 and Lemma 8.2 with closed points, finite extensions and generic cohomological hypotheses retained. Prove E⁺ closure under admissible fibrations, prime-to-p generically finite maps for every p, universal-torsor descent, and projective-base closed-fibre fibrations; handle irreducible varieties that are not geometrically irreducible and prove the finite-field-extension reinterpretation dictionary, not a Weil-restriction substitute. Import Sylow existence and the image theorem from Profinite and pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups, Layer 2), finite étale covers from InverseGaloisAndArithmeticFundamentalGroups IG.0–IG.1, and universal-torsor/stabilizer fibrations from HeightsRationalPointsPartIIHomogeneousMassey. Induct on solvable stabilizer order unconditionally, then use Sylow covers and DLA19 to reach all connected linear groups. Use DLA19's broader good-property predicate (item 149). Import Bor96's full character-free connected-stabilizer (⋆) theorem from the shared homogeneous owner. Establish the compactification/finite-extension admissibility lemma (150) and apply HW20 Lemma 7.4 to obtain broader ascent (115); G2 is thereby discharged for E⁺, without claiming equivalence for arbitrary good properties. Import RP.2–RP.3, ArithmeticGaloisDuality and ClassFieldTheory for the shared arithmetic objects. Finish with Hilbert-subset moving and export the collective-coprime-degree Galois consequence to IG.4. Every new definition must include its API and three meaningful tests; distinguish E from E⁺ and closed-point fibre hypotheses from rational-point ones."
     }
   ]
 }
