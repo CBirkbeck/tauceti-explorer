@@ -3488,7 +3488,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-12.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #824"
   },
   {
    "id": "REV-RS-12",
@@ -3527,8 +3528,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-13.md",
-   "state": "pending",
-   "note": "released on GitHub issue #826"
+   "state": "external",
+   "note": "claimed on GitHub issue #826"
   },
   {
    "id": "REV-RS-13",
@@ -3823,8 +3824,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #840"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #840",
+   "finishedAt": "2026-09-21T13:27:55Z"
   },
   {
    "id": "REV-RS-20",
