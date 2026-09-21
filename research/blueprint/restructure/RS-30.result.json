@@ -1,0 +1,302 @@
+{
+  "family": "RS-30",
+  "roadmaps": {
+    "RankZeroOneBSD": {
+      "action": "extend",
+      "extends": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "title": "Elliptic curves, Part II: rank-zero and rank-one Birch–Swinnerton-Dyer theory",
+      "reason": "Make Elliptic curves the first prerequisite and sole owner of its general foundations, including its still-planned Layer 7 targets. Preserve the member ID and all twelve stage IDs. The continuation owns quadratic analytic/arithmetic comparisons, the all-curve rank-zero/one rank and whole-Sha theorems, the separately proved source-qualified prime branches, all-prime certificates and rigorous tests; it does not assert the all-prime formula for every curve."
+    },
+    "tauceti:TauCetiRoadmap/EllipticCurves": {
+      "action": "keep",
+      "reason": "Immutable upstream anchor. No title, scope, layer, implementation-status or consumer edits are proposed for it."
+    }
+  },
+  "layers": {
+    "RankZeroOneBSD:BSD.0": {
+      "action": "narrow",
+      "keeps": "Adapters from the imported actual elliptic L-function to its finite central vanishing order, nonvanishing and derivative criteria, root-number parity, and quadratic-twist/base-change local-factor, product and central-derivative comparisons. Reuse generic analytic-order machinery. Transport the existing quadratic-twist object and rational-newform coefficient data; do not reconstruct the twist, modularity, curve/newform L-series equality or analytic continuation.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+        "EllipticCurveModularity:R29.3",
+        "EllipticCurveModularity:R29.6"
+      ],
+      "reason": "The README already cites these suppliers. R29.3 owns rationality of the newform coefficient field; R29.6 owns the actual curve/newform analytic comparison. The quadratic base-change comparisons and actual analytic-rank interface remain new BSD work."
+    },
+    "RankZeroOneBSD:BSD.1": {
+      "action": "narrow",
+      "keeps": "Quadratic restriction/trace and twist comparisons on the existing point and torsion-quotient types; rational eigenspace/rank splitting; the specialized integral lattice index; odd-primary finite-level Selmer/Sha comparisons and explicit 2-primary kernels/cokernels; ramified-place differential, component and period comparisons; and descent of whole-Sha finiteness using a finite restriction kernel. Import general Mordell-Weil, height/regulator APIs, Selmer/Sha/Kummer carriers, local Tamagawa data, periods and Cassels invariance rather than rebuilding them.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+        "GrossZagierAndArithmeticHeights:GZ.0"
+      ],
+      "reason": "A point equivalence or finite 2-descent API is not the required rank/index or general Selmer/Sha comparison. Preserve those missing comparison proofs, including the integral 2-primary corrections and the noncircular whole-Sha finiteness descent."
+    },
+    "RankZeroOneBSD:BSD.2": {
+      "action": "keep",
+      "reason": "Owns the source-qualified quadratic nonvanishing theorem with simultaneous local conditions, including the separate value and derivative branches and BFH/Friedberg-Hoffstein argument. This is not a consequence of the upstream twist construction or a root-number calculation."
+    },
+    "RankZeroOneBSD:BSD.3": {
+      "action": "keep",
+      "reason": "Retain the all-E/Q analytic-rank-one theorem and entire-Sha finiteness, using GZ.8, HE.7 and BSD.1-2, including CM and nonsemistable cases and noncircular eigenspace descent. Neither Mordell-Weil nor finite Selmer groups proves this endpoint."
+    },
+    "RankZeroOneBSD:BSD.4": {
+      "action": "keep",
+      "reason": "Retain the independent rank-zero twist/Heegner route, entire-Sha finiteness, the explicitly scoped Kato comparison and the combined analytic-rank-at-most-one interface. Do not make the universal endpoint depend on a restricted prime-part main conjecture."
+    },
+    "RankZeroOneBSD:BSD.5": {
+      "action": "narrow",
+      "keeps": "Rationality and positivity of the actual normalized leading term in ranks zero and one; the specialized Heegner-point height/index comparison with torsion and Q/K factors; the Ribet-Takahashi character-group/parametrization-degree calculation; and a nonzero rational BSD defect with its valuation formula. Derive isogeny invariance of that rational defect by composing the imported arithmetic-quotient and actual analytic-leading-term invariances with the normalization adapters. Do not reprove Cassels, general isogeny Euler-factor/continuation invariance, the height/regulator and basis-independence API, or source-wide height/period rescaling.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+        "GrossZagierAndArithmeticHeights:GZ.0",
+        "RankZeroOneBSD:BSD.1"
+      ],
+      "reason": "The immutable EllipticCurves Layer 7 stretch target owns both halves of general isogeny invariance. Its ownership is independent of implementation status. The rational BSD defect and specialized Heegner/modular-degree comparisons are additional outputs and cannot be deleted."
+    },
+    "RankZeroOneBSD:BSD.6": {
+      "action": "keep",
+      "reason": "Retain exactly the enumerated irreducible prime-part formulas, JSW and corrected Castella hypotheses, integral control maps and both divisibilities. No extension to every prime or every reduction type follows from this restructuring."
+    },
+    "RankZeroOneBSD:BSD.6a": {
+      "action": "keep",
+      "reason": "Retain sole ownership of the separately required signed/supersingular and corrected multiplicative proof inputs, including the BSTW replacement-source zeta-element argument and comparisons. Consume only early MIMC formulations/comparisons; export the completed branch to MIMC:L6, never import that reexport as a proof."
+    },
+    "RankZeroOneBSD:BSD.7": {
+      "action": "keep",
+      "reason": "Retain the source-qualified good Eisenstein prime-part formulas, including the distinct CGS and Keller-Yin ranges and all rational p-torsion corrections. The irreducible main conjecture does not supply these branches."
+    },
+    "RankZeroOneBSD:BSD.7a": {
+      "action": "keep",
+      "reason": "Retain sole ownership of the CGS/Keller-Yin arithmetic proof inputs with both divisibilities, integrality, local invariants, lattices and finite-submodule corrections. It uses early HE.8 classes, not HE.8b equality; its exports to HE.8b and MIMC:L6 are unchanged."
+    },
+    "RankZeroOneBSD:BSD.8": {
+      "action": "keep",
+      "reason": "Retain the separate all-prime certificate: a positive rational defect, a proved finite exceptional support, every exceptional-prime equality and the outside-support statement. Rank/Sha finiteness and named prime-part results remain usable without this certificate. Existing arithmetic invariants are imported, not duplicated."
+    },
+    "RankZeroOneBSD:BSD.9": {
+      "action": "narrow",
+      "keeps": "Separate rank, whole-Sha finiteness, named-prime and complete-certificate APIs; rigorous enclosures for actual L-values/derivatives; and all existing positive and negative end-to-end tests, including torsion, rank-zero regulator one, normalization rescaling, CM, nonsemistable and p-isogeny cases. The regulator-one, torsion and general rescaling lemmas are imported inputs to these tests, not new foundation milestones.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+        "GrossZagierAndArithmeticHeights:GZ.0"
+      ],
+      "reason": "Reusing a proved lemma does not justify deleting the acceptance test that checks its use in the BSD normalization. An unresolved exceptional prime must continue to block only the full leading-term certificate."
+    }
+  },
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+      "target": "RankZeroOneBSD:BSD.0",
+      "reason": "Import the quadratic-twist carrier and its point/Galois comparison; BSD.0 adds local L-factor and analytic comparisons."
+    },
+    {
+      "source": "EllipticCurveModularity:R29.3",
+      "target": "RankZeroOneBSD:BSD.0",
+      "reason": "Import rationality of the full newform coefficient field, including bad coefficients; retain only the BSD-facing transport."
+    },
+    {
+      "source": "EllipticCurveModularity:R29.6",
+      "target": "RankZeroOneBSD:BSD.0",
+      "reason": "Preserve the existing supplier of actual elliptic/newform L-series equality, analytic continuation and functional equation."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "target": "RankZeroOneBSD:BSD.1",
+      "reason": "Supply local reduction, minimal-differential and Tamagawa data for the new quadratic base-change comparisons."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+      "target": "RankZeroOneBSD:BSD.1",
+      "reason": "Supply the quadratic-twist point equivalence and Galois action; rank splitting and integral indices are still proved in BSD.1."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+      "target": "RankZeroOneBSD:BSD.1",
+      "reason": "Supply finite generation, finite torsion and the canonical height/regulator lattice and basis independence."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "target": "RankZeroOneBSD:BSD.1",
+      "reason": "Supply actual general Selmer/Sha/Kummer objects, periods and Cassels arithmetic invariance before quadratic descent."
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.0",
+      "target": "RankZeroOneBSD:BSD.1",
+      "reason": "Supply explicit source normalization and rescaling conventions for field/twist period and regulator comparisons."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+      "target": "RankZeroOneBSD:BSD.5",
+      "reason": "Supply the canonical height, regulator and basis-independence API; the needed finite-index/Heegner specialization remains BSD.5 work."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "target": "RankZeroOneBSD:BSD.5",
+      "reason": "Supply arithmetic-quotient and isogeny local-factor/analytic-leading-term invariance; BSD.5 derives invariance of its rational defect."
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.0",
+      "target": "RankZeroOneBSD:BSD.5",
+      "reason": "Supply height, period and determinant rescaling before rationality and the exact Heegner-index comparison."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.1",
+      "target": "RankZeroOneBSD:BSD.5",
+      "reason": "Supply Q/K lattice, period, component and torsion comparisons used by the rational-defect and Heegner-index calculation."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "target": "RankZeroOneBSD:BSD.8",
+      "reason": "Use the existing arithmetic BSD expression on actual invariants with whole-Sha finiteness explicit, rather than a shadow certificate carrier."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+      "target": "RankZeroOneBSD:BSD.9",
+      "reason": "Import regulator_eq_one_of_finrank_eq_zero and the torsion/regulator API into the preserved end-to-end tests."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "target": "RankZeroOneBSD:BSD.9",
+      "reason": "Test against the existing real period, arithmetic BSD expression and statement interface, retaining all finiteness hypotheses."
+    },
+    {
+      "source": "GrossZagierAndArithmeticHeights:GZ.0",
+      "target": "RankZeroOneBSD:BSD.9",
+      "reason": "Import source rescaling laws; keep their application to the certified analytic/arithmetic tests."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.0",
+      "target": "RankZeroOneBSD:BSD.3",
+      "reason": "Make the already stated actual-L-function/simple-zero dependency explicit for the rank-one argument."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.0",
+      "target": "RankZeroOneBSD:BSD.4",
+      "reason": "Make the already stated actual-L-function and product-derivative dependency explicit for the independent rank-zero argument."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.0",
+      "target": "RankZeroOneBSD:BSD.5",
+      "reason": "The numerator is the actual analytic leading coefficient, not an arbitrary germ or supplied real number."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.2",
+      "target": "RankZeroOneBSD:BSD.6a",
+      "reason": "Supply auxiliary quadratic fields with all compatible local conditions for the separately owned source branches."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.7a",
+      "target": "HeegnerPointEulerSystems:HE.8b",
+      "reason": "Preserve the Eisenstein CGS proof export; HE.8b does not supply BSD.7a with its own conclusion."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.6a",
+      "target": "ModularIwasawaMainConjectures:L6",
+      "reason": "Preserve the independently proved supersingular/corrected multiplicative branch export to the common interface."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.7a",
+      "target": "ModularIwasawaMainConjectures:L6",
+      "reason": "Preserve the independently proved Eisenstein branch export to the common interface."
+    },
+    {
+      "source": "RankZeroOneBSD:BSD.8",
+      "target": "PeriodsAndSpecialValues:PS.6",
+      "reason": "Preserve the scoped BSD assembly export, including all unresolved exceptional-prime gates."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Mordell-Weil finite generation and finite rational-point torsion over number fields",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+      "formerly": [
+        "RankZeroOneBSD:BSD.1"
+      ]
+    },
+    {
+      "target": "Canonical height, torsion-quotient regulator, basis independence and the rank-zero regulator-one convention",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+      "formerly": [
+        "RankZeroOneBSD:BSD.1",
+        "RankZeroOneBSD:BSD.5",
+        "RankZeroOneBSD:BSD.9"
+      ]
+    },
+    {
+      "target": "Quadratic-twist curve and point/Galois equivalence (not the rank splitting or L-factor comparison)",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+      "formerly": [
+        "RankZeroOneBSD:BSD.0",
+        "RankZeroOneBSD:BSD.1"
+      ]
+    },
+    {
+      "target": "Local elliptic reduction, minimal-differential and Tamagawa-factor package (not quadratic base-change formulas)",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "formerly": [
+        "RankZeroOneBSD:BSD.1"
+      ]
+    },
+    {
+      "target": "General elliptic Selmer/Sha and Kummer carriers and exact sequences",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "formerly": [
+        "RankZeroOneBSD:BSD.1"
+      ]
+    },
+    {
+      "target": "Full-component real period and arithmetic BSD quotient with whole-Sha finiteness explicit",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "formerly": [
+        "RankZeroOneBSD:BSD.1",
+        "RankZeroOneBSD:BSD.5",
+        "RankZeroOneBSD:BSD.8",
+        "RankZeroOneBSD:BSD.9"
+      ]
+    },
+    {
+      "target": "Cassels isogeny invariance of the arithmetic BSD quotient",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "formerly": [
+        "RankZeroOneBSD:BSD.1",
+        "RankZeroOneBSD:BSD.5"
+      ]
+    },
+    {
+      "target": "Isogeny equality of elliptic local Euler factors and the resulting equality of actual analytic leading coefficients when continuations exist",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "formerly": [
+        "RankZeroOneBSD:BSD.5"
+      ]
+    },
+    {
+      "target": "Rationality of the full coefficient field of the elliptic newform",
+      "owner": "EllipticCurveModularity:R29.3",
+      "formerly": [
+        "RankZeroOneBSD:BSD.0"
+      ]
+    },
+    {
+      "target": "Actual elliptic/newform L-series comparison and transfer of analytic continuation and functional equation",
+      "owner": "EllipticCurveModularity:R29.6",
+      "formerly": [
+        "RankZeroOneBSD:BSD.0"
+      ]
+    },
+    {
+      "target": "Cross-source height/period/regulator rescaling conventions, with every rank-dependent factor retained",
+      "owner": "GrossZagierAndArithmeticHeights:GZ.0",
+      "formerly": [
+        "RankZeroOneBSD:BSD.1",
+        "RankZeroOneBSD:BSD.5",
+        "RankZeroOneBSD:BSD.9"
+      ]
+    }
+  ]
+}
