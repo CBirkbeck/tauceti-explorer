@@ -10259,8 +10259,9 @@
    ],
    "avoidAccountOf": "RS-07",
    "prompt": "research/blueprint/prompts/REV-RS-07.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #813"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #813",
+   "finishedAt": "2026-09-21T17:37:07Z"
   },
   {
    "id": "RS-08",
@@ -10502,8 +10503,9 @@
    ],
    "avoidAccountOf": "RS-12",
    "prompt": "research/blueprint/prompts/REV-RS-12.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #823"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #823",
+   "finishedAt": "2026-09-21T17:37:10Z"
   },
   {
    "id": "RS-13",
@@ -10629,8 +10631,9 @@
    ],
    "avoidAccountOf": "RS-15",
    "prompt": "research/blueprint/prompts/REV-RS-15.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #829"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #829",
+   "finishedAt": "2026-09-21T17:37:14Z"
   },
   {
    "id": "RS-16",
@@ -10852,8 +10855,9 @@
    ],
    "avoidAccountOf": "RS-20",
    "prompt": "research/blueprint/prompts/REV-RS-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #839"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #839",
+   "finishedAt": "2026-09-21T17:37:17Z"
   },
   {
    "id": "RS-21",
@@ -11114,8 +11118,9 @@
    ],
    "avoidAccountOf": "RS-26",
    "prompt": "research/blueprint/prompts/REV-RS-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #851"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #851",
+   "finishedAt": "2026-09-21T17:37:21Z"
   },
   {
    "id": "RS-27",
@@ -11199,8 +11204,9 @@
    ],
    "avoidAccountOf": "RS-28",
    "prompt": "research/blueprint/prompts/REV-RS-28.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #855"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #855",
+   "finishedAt": "2026-09-21T17:37:25Z"
   },
   {
    "id": "RS-29",
@@ -11242,8 +11248,9 @@
    ],
    "avoidAccountOf": "RS-29",
    "prompt": "research/blueprint/prompts/REV-RS-29.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #857"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #857",
+   "finishedAt": "2026-09-21T17:37:29Z"
   },
   {
    "id": "RS-30",
@@ -11285,8 +11292,9 @@
    ],
    "avoidAccountOf": "RS-30",
    "prompt": "research/blueprint/prompts/REV-RS-30.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #859"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #859",
+   "finishedAt": "2026-09-21T17:37:32Z"
   },
   {
    "id": "RS-31",
@@ -11328,8 +11336,9 @@
    ],
    "avoidAccountOf": "RS-31",
    "prompt": "research/blueprint/prompts/REV-RS-31.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #861"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #861",
+   "finishedAt": "2026-09-21T17:37:35Z"
   },
   {
    "id": "RS-32",
@@ -11371,8 +11380,9 @@
    ],
    "avoidAccountOf": "RS-32",
    "prompt": "research/blueprint/prompts/REV-RS-32.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #863"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #863",
+   "finishedAt": "2026-09-21T17:37:39Z"
   },
   {
    "id": "RS-33",
