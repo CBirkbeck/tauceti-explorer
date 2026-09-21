@@ -1,9 +1,9 @@
 {
   "paper": "PAPER-COUVEIGNES-20",
   "protocol": "paper-v1",
-  "status": "partial",
-  "agent": "ChatGPT",
-  "session": "chatgpt-couveignes-20260921-c7e4",
+  "status": "complete",
+  "agent": "Codex",
+  "session": "codex-a71f92",
   "source": {
     "title": "Enumerating number fields",
     "authors": "Jean-Marc Couveignes",
@@ -11,16 +11,22 @@
     "doi": "10.4007/annals.2020.192.2.4",
     "arxiv": "1907.13617",
     "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v192-n2-p04-s.pdf",
-    "versionRead": "Published Annals PDF, all 11 pages, Sections 1-4 and references; not a claim of comparing every arXiv version.",
+    "versionRead": "Published Annals PDF, all 11 pages (487–497), including Sections 1–4 and references; downloaded and read completely. No claim to have compared the arXiv versions.",
     "accessed": "2026-09-21",
-    "sha256": null,
-    "provenanceGap": "The published PDF was read through browser extraction and available page renders. Container download and clone failed DNS resolution; original PDF bytes were not obtained, so no PDF checksum is asserted. Final local source acquisition remains an explicit checkpoint task."
+    "sha256": "8d63bd3a14f0d61f421695f1d93559d18fb674240c6dee872c23bf5902e1a104",
+    "readSections": [
+      "Section 1, pp. 487–489: Theorems 1–2, field-component convention, historical bounds and strategy",
+      "Section 2, pp. 489–490: canonical metric/measure, successive minima, product-span argument and Proposition 1",
+      "Section 3, pp. 491–495: first jets, integer parameters, relation lattice, dual Gram determinant, truncation and Proposition 2",
+      "Section 4, pp. 495–496: central-binomial choice, coefficient enumeration and isolated-point Bezout",
+      "References, pp. 496–497"
+    ]
   },
   "libraryPins": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
   },
-  "summary": "Extraction of the short-integer, first-jet interpolation, small-relation and component-counting proof. The arithmetic continuation is proposed as Effective Bounds, Part II, importing the already planned Minkowski second theorem and a separately owned generic double-point interpolation input. All currently extracted missing items have one route. This is a checkpoint, not a finished baseline audit: original-source checksum acquisition, exhaustive generic-lemma overlap checks and auxiliary-proof source closure remain open.",
+  "summary": "Complete extraction/routing of the published paper, continuing the merged partial checkpoint while preserving all 42 original item IDs. The 49 items distinguish 10 pinned-library inputs, 2 existing planned interfaces and 37 missing consumer/generic statements routed exactly once. The source proves independent delta^2-short integers, explicit small Jacobian-open component models, logarithmic equation/variable bounds and N_n(H)<=n^(Q*n*log(n)^3)*H^(Q*log(n)^3). Existing root discriminants, degree-bounded polynomials, product-measure covolumes, lattice indices, Schwartz–Zippel and abstract etale classification are imports. The four routes are two source additions, generic double-point interpolation, and a Part II of EffectiveBounds. Complete denotes extraction and ownership, not a closed blueprint, an accepted route, or a Lean implementation.",
   "items": [
     {
       "id": "PAPER-COUVEIGNES-20/signed-discriminant",
@@ -29,8 +35,13 @@
       "statement": "For a number field K of degree n, use d_K = NumberField.discr K in Z and write delta = |d_K|^(1/n). Here n is positive. The root is a real power of the absolute value, not of the signed discriminant.",
       "locator": "Section 2, p. 490, definitions preceding Proposition 1",
       "status": "library",
-      "library": ["mathlib:NumberField.discr", "mathlib:NumberField.discr_ne_zero"],
-      "note": "Pinned Discriminant/Defs.lean was read. delta is notation in this extraction; no declaration named rootDiscr is claimed at the pin. API checks: positivity; invariance under Q-algebra isomorphism; an imaginary quadratic example must use |d_K|."
+      "library": [
+        "mathlib:NumberField.discr",
+        "mathlib:NumberField.discr_ne_zero",
+        "mathlib:NumberField.rootDiscr",
+        "mathlib:NumberField.discr_eq_discr_of_algEquiv"
+      ],
+      "note": "Discriminant/Defs.lean supplies the signed invariant, nonvanishing and Q-algebra-isomorphism invariance. Discriminant/Basic.lean, lines 74–86, actually defines NumberField.rootDiscr with exactly |discr K|^(finrank Q K)^(-1); this corrects the inherited checkpoint's negative claim. Positivity follows from nonzero integer discriminant. Use |d_K| in imaginary examples."
     },
     {
       "id": "PAPER-COUVEIGNES-20/embedding-sup-gauge",
@@ -39,7 +50,10 @@
       "statement": "Use the supremum over all embeddings tau:K -> C, equivalently the maximum over the real places and one representative of each complex conjugate pair. For x in K, its canonical embedding has norm at most R exactly when every |tau(x)| is at most R.",
       "locator": "Section 2, p. 489",
       "status": "library",
-      "library": ["mathlib:NumberField.canonicalEmbedding", "mathlib:NumberField.canonicalEmbedding.norm_le_iff"],
+      "library": [
+        "mathlib:NumberField.canonicalEmbedding",
+        "mathlib:NumberField.canonicalEmbedding.norm_le_iff"
+      ],
       "note": "Pinned CanonicalEmbedding/Basic.lean read. Keep this sup gauge distinct from the canonical Euclidean metric and from the coefficient Euclidean norm. Tests: Q, a real quadratic field, and an imaginary quadratic field."
     },
     {
@@ -49,7 +63,12 @@
       "statement": "The mixed embedding of O_K is a full Z-lattice in the real vector space with one real coordinate per real place and one complex coordinate per complex place; its real dimension is n. An integral basis gives its real lattice basis.",
       "locator": "Section 2, pp. 489-490",
       "status": "library",
-      "library": ["mathlib:NumberField.mixedEmbedding", "mathlib:NumberField.mixedEmbedding.finrank", "mathlib:NumberField.mixedEmbedding.latticeBasis", "mathlib:NumberField.mixedEmbedding.fundamentalDomain_integerLattice"],
+      "library": [
+        "mathlib:NumberField.mixedEmbedding",
+        "mathlib:NumberField.mixedEmbedding.finrank",
+        "mathlib:NumberField.mixedEmbedding.latticeBasis",
+        "mathlib:NumberField.mixedEmbedding.fundamentalDomain_integerLattice"
+      ],
       "note": "Pinned CanonicalEmbedding/Basic.lean read, including the anonymous IsZLattice instance following span_latticeBasis. Consume the existing carrier rather than defining a competing lattice."
     },
     {
@@ -59,7 +78,9 @@
       "statement": "For x in K, the product over infinite places of the absolute value of x, with multiplicity one at real places and two at complex places, is |Norm_(K/Q)(x)|.",
       "locator": "Section 2, p. 489, input to the nonzero-integer lower bound",
       "status": "library",
-      "library": ["mathlib:NumberField.mixedEmbedding.norm_eq_norm"],
+      "library": [
+        "mathlib:NumberField.mixedEmbedding.norm_eq_norm"
+      ],
       "note": "Pinned CanonicalEmbedding/Basic.lean read; multiplicity two is essential."
     },
     {
@@ -69,7 +90,7 @@
       "statement": "If K has signature (r1,s), n=r1+2s, put <x,y> = sum_real x_i y_i + sum_complex (x_j conjugate(y_j)+conjugate(x_j)y_j). Its Euclidean Haar measure mu_can equals 2^s times standard product Lebesgue measure. The sup unit ball has mu_can-volume 2^r1(2*pi)^s >= 2^n.",
       "locator": "Section 2, p. 489",
       "status": "missing",
-      "note": "Consumer normalization bridge, not a claim that Mathlib lacks Haar measure. Test s=0 and K=Q(i). The default mixed-space product measure must not silently be called mu_can. Final declaration-level audit of the scalar-measure bridge remains open."
+      "note": "Only the weighted-metric/product-measure bridge is new. Mathlib's mixed-space volume and even its euclidean.volumePreserving_toMixed use unweighted complex Euclidean coordinates. Multiplying the measure by 2^s gives Couveignes's convention. Prove the identity by scaling each complex real coordinate by sqrt(2); the determinant is 2^s. Test s=0 and Q(i); never rescale a norm by silently replacing the measure."
     },
     {
       "id": "PAPER-COUVEIGNES-20/discriminant-covolume",
@@ -78,7 +99,7 @@
       "statement": "For an actual Z-basis beta of O_K and its embedding matrix A=(tau_j(beta_i)), the canonical Gram matrix is A conjugate(A)^t. Thus covol_mu_can(O_K)=|det A|=sqrt(|d_K|)=delta^(n/2).",
       "locator": "Section 2, p. 490",
       "status": "missing",
-      "note": "The merged audit marks general GN.0 covolume infrastructure built. This item is only the explicitly normalized consumer comparison. det_matrixToStdBasis was read at the pin and gives (2^-1*I)^s; the complete scalar-measure/covolume comparison still needs to be attached before this item can be changed to library."
+      "note": "The product-measure theorem is baseline-mixed-covolume below, not new work. This item is its canonical-measure specialization using measure-normalization and the same fundamental domain: multiply 2^(-s)*sqrt|d_K| by 2^s. An actual integral basis, not the short independent family, identifies |det A|. The final real-power identity uses n>0 and |d_K|>=1."
     },
     {
       "id": "PAPER-COUVEIGNES-20/integer-gauge-lower-bound",
@@ -87,7 +108,7 @@
       "statement": "For x in O_K, x != 0 implies max_tau |tau(x)| >= 1: its field norm is a nonzero rational integer, whereas all conjugates of modulus less than one would give norm of modulus less than one.",
       "locator": "Section 2, p. 489",
       "status": "missing",
-      "note": "Elementary consumer lemma from existing norm and integrality APIs. Do not assert every conjugate separately has modulus at least one. Audit whether an exact existing lemma already supplies this consequence."
+      "note": "Consumer consequence of norm-product, integrality of the algebra norm and Int.one_le_abs; searches in both canonical-embedding and discriminant APIs did not locate the exact sup-gauge bound. A hypothetical gauge<1 makes every factor in the nonzero norm product <1. Do not assert every individual conjugate has modulus >=1 (units give counterexamples)."
     },
     {
       "id": "PAPER-COUVEIGNES-20/minkowski-second",
@@ -96,7 +117,9 @@
       "statement": "For a full lattice Lambda in a real vector space of positive finite dimension m and a compact convex symmetric body B with nonempty interior, the successive minima satisfy product_i lambda_i(B,Lambda) * vol(B) <= 2^m*covol(Lambda). Supply independent lattice vectors attaining the successive-minimum bounds, so the same upper bound controls the product of their B-gauges.",
       "locator": "Section 2, p. 490 and Section 3, p. 494; Siegel [19], Lecture III, Section 4, Theorem 16",
       "status": "planned",
-      "planned": ["GeometryOfNumbersAndQuadraticArithmetic:GN.1"],
+      "planned": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
       "note": "Merged reviewed audit explicitly says the second theorem/successive-minima product bound is absent in both pinned libraries; GN.1 already plans it. The first theorem alone is insufficient."
     },
     {
@@ -106,7 +129,7 @@
       "statement": "If 1 <= a_1 <= ... <= a_m and product_i a_i <= V, then for 1 <= i <= m, a_i <= V^(1/(m+1-i)).",
       "locator": "Section 2, p. 490; repeated with m=ell in Section 3, p. 494",
       "status": "missing",
-      "note": "A reusable elementary inequality. Only a corollary is needed, not a new asymptotic theory; exact library coverage remains to be closed."
+      "note": "A small arithmetic consequence, not a new asymptotic theory. Prove a_i^(m+1-i)<=product a_j<=V using a_j>=1 for j<i and a_j>=a_i for j>=i, then the increasing positive-root function. Searches of ordered-product/rpow APIs did not locate this exact indexed package. Consumer-specific sorted-vector extraction remains in the Part II."
     },
     {
       "id": "PAPER-COUVEIGNES-20/half-small-integers",
@@ -124,7 +147,7 @@
       "statement": "For a finite field extension K/k of dimension n and a k-subspace V with 2*dim_k(V)>n, the k-span of {ab | a,b in V} is K. In particular the products omega_i*omega_j for i,j<=m span K over Q.",
       "locator": "Section 2, p. 490, argument before Proposition 1",
       "status": "missing",
-      "note": "Proof: for nonzero f:K->k linear, (a,b)->f(ab) is nondegenerate since K is a field. If it vanished on V x V, V would be contained in its annihilator of dimension n-dim V. This does not require K/k to be Galois or separable. Final generic-owner/library search remains open."
+      "note": "For nonzero f:K->k, the form f(ab) is nondegenerate: choose c with f(c)!=0 and pair a!=0 with a^(-1)c. Its annihilator of V has dimension n-dim V; V contained in it contradicts 2 dim V>n. This elementary field-specific lemma was not found in either pinned tree; no Galois or separability assumption is needed. It remains a short lemma beside its arithmetic consumer, not a competing bilinear-form theory."
     },
     {
       "id": "PAPER-COUVEIGNES-20/short-integers",
@@ -142,7 +165,7 @@
       "statement": "For r>=1 and d>=0, let M be the monomials in r variables of total degree <=d, so #M=binom(d+r,d). The coefficient module V_R=R^M is identified with the degree-bounded polynomials; over C, homogenization at x_0 identifies it with degree-d homogeneous forms and H^0(P^r_C,O(d)). Give V_R the Euclidean metric making M orthonormal and V_Z=Z^M.",
       "locator": "Section 3, pp. 491, 493",
       "status": "missing",
-      "note": "This bundles the paper-specific bounded-polynomial/metric comparison, not a claim that polynomial rings or monomials are missing. API: coefficients, evaluation, derivative, homogenize/dehomogenize inverse, dimension; tests r=1 and d=0. Exact baseline and splitting into library lemmas remain a checkpoint task."
+      "note": "Import baseline-bounded-polynomials (the actual restrictTotalDegree submodule, restricted monomial basis and finite generation). New here are the joint finite-monomial count, fixed-degree homogenization/H^0 comparison and coefficient-isometry contract; do not construct polynomial rings or a second degree-bounded carrier. API: coefficient/evaluation/partial-derivative maps, homogenization/dehomogenization inverses, dimension binom(d+r,d), and orthonormal coordinate identification. Tests: r=1 gives d+1; d=0 gives constants; r=2,d=2 gives six monomials, not nine."
     },
     {
       "id": "PAPER-COUVEIGNES-20/double-points",
@@ -169,7 +192,7 @@
       "statement": "Over an algebraically closed field of characteristic zero, for r>=1, d>=5 and n>=1 with n(r+1)<=binom(d+r,d), there is a nonempty Zariski-open locus of ordered distinct n-tuples in (A^r)^n for which the first-jet evaluation map in degree <=d is surjective.",
       "locator": "Section 3, p. 491; Brambilla-Ottaviani, Theorem 1.1",
       "status": "missing",
-      "note": "Theorem 1.1 of arXiv:math/0701409v2 was read and its exception list checked: every exception has d<=4. This is not a theorem for every configuration and is not asserted in positive characteristic. No existing atlas owner for this interpolation theorem was found in the searches recorded in the report; full prerequisite-paper decomposition remains open."
+      "note": "Brambilla–Ottaviani arXiv:math/0701409v2, Sections 1–6 (pp. 1–19), were read, including the proof of Theorem 6.4 and its low-degree dependencies. All exceptions in Theorem 1.1 have d<=4. Intersect the generic projective locus with the dense affine chart and distinct-point locus; it is not a theorem for every configuration. The owner must include residual/trace sequences, the curvilinear lemma, semicontinuity/degeneration and the cubic/quartic base certificates; no proof by merely calling d>=5 exception-free. No positive-characteristic extension is claimed."
     },
     {
       "id": "PAPER-COUVEIGNES-20/grid-nonvanishing",
@@ -178,7 +201,7 @@
       "statement": "Let F be a characteristic-zero field. A nonzero polynomial in N variables with degree in each variable at most D does not vanish on all of {0,...,D}^N subset F^N.",
       "locator": "Section 3, p. 492, passage from a nonzero minor to bounded u_ij",
       "status": "missing",
-      "note": "Induct on N using the univariate root bound. The hypothesis is per-variable degree, not an assumption that generic real coefficients can be rounded. Audit exact MvPolynomial coverage before creating any new generic lemma."
+      "note": "This exact per-variable statement follows by induction from the univariate root bound; no exact finite-box declaration was found in the inspected MvPolynomial APIs. The paper's application can avoid introducing it: its determinant has TOTAL degree <=d*n*(r+1), so baseline-total-degree-grid gives a nonzero integer point directly. Preserve this source statement, but implement only the needed existing-lemma specialization unless another consumer requires the stronger box theorem. Generic real coefficients cannot be rounded to obtain the result."
     },
     {
       "id": "PAPER-COUVEIGNES-20/parameterized-generators",
@@ -196,7 +219,7 @@
       "statement": "For d>=5, r>=1 and n(r+1)<=M, some maximal minor of the first-jet matrix of parameterized-generators is a nonzero polynomial in the nr parameters, with degree in each u_ij at most d*n*(r+1). Hence parameters can be chosen with 0<=u_ij<=d*n*(r+1) so 2P is well poised.",
       "locator": "Section 3, p. 492",
       "status": "missing",
-      "note": "The embedding matrix of the Q-basis alpha is invertible; this is why pulling back the generic full-rank locus leaves a nonzero minor. Distinctness and closed immersion follow from the chosen rank condition; they are not assumed for arbitrary u."
+      "note": "The embedding matrix of the Q-basis alpha is invertible, so pulling back the generic rank locus leaves a nonzero maximal minor. Each value/derivative row has parameter total degree <=d (derivative rows <=d-1); the determinant has total degree <=d*n*(r+1), stronger than the displayed per-variable bound. Thus the existing Schwartz–Zippel theorem suffices. Distinctness and closed immersion follow from full first-jet rank; arbitrary parameters need not give distinct points."
     },
     {
       "id": "PAPER-COUVEIGNES-20/value-surjectivity",
@@ -223,7 +246,7 @@
       "statement": "For a rational subspace W of Euclidean R^M, the primitive lattices W intersect Z^M and Wperp intersect Z^M have equal covolumes in their respective real spans, using the induced Euclidean measures.",
       "locator": "Section 3, p. 493; Martinet [16], Corollary 1.3.5",
       "status": "missing",
-      "note": "Primitivity is essential: replacing W intersect Z^M by an arbitrary finite-index sublattice is invalid. Proposed source route adds only this consequence to GN.0, whose existing lattice/covolume API is already built. Tau Ceti IntegralLattice overlap requires a final declaration-level audit; original Martinet proof has not been independently read in this checkpoint."
+      "note": "Couveignes explicitly invokes Martinet Corollary 1.3.5. GN.0's existing covolume and determinant APIs do not themselves assert this orthogonal-sublattice comparison. The completed IntegralLattices README/audit and Dual/Overlattice/OrthogonalSum searches give discriminant groups and orthogonal sums, not this Euclidean-measure conclusion. Proof route: extend a basis of the saturated sublattice to a Z-basis of Z^M; the complementary dual basis spans the orthogonal lattice; block Gram/Schur-complement determinants and unimodularity give equal squared covolumes. No new IntegralLattice carrier or gluing theorem is proposed. Check Z(1,1) and Z(1,-1), both covolume sqrt(2); a nonsaturated replacement invalidates equality."
     },
     {
       "id": "PAPER-COUVEIGNES-20/dual-image",
@@ -232,7 +255,7 @@
       "statement": "For Odual=Hom_Z(O_K,Z), the transpose of epsilon_Z,d maps Odual injectively into Lperp, and its image has full rank n. Hence covol(L)=covol(Lperp)<=covol(image(epsilon_Z,d^t)).",
       "locator": "Section 3, p. 493",
       "status": "missing",
-      "note": "Injectivity follows from full rational rank, not integral surjectivity. Do not replace the inclusion by equality. API: transpose pairing, annihilation of L, rank, finite-index direction; test Z^M->Z given by an even-valued full-rank row."
+      "note": "Full rational rank gives injectivity and a rank-n image in Lperp; integral surjectivity is not required. Use baseline-lattice-index after an orthonormal identification of Wperp with R^n to get the covolume inequality. API: transpose pairing, annihilation, rank and index. An even-valued full-rank row Z^M->Z gives a strict index and tests the direction."
     },
     {
       "id": "PAPER-COUVEIGNES-20/gram-discriminant-identity",
@@ -259,7 +282,7 @@
       "statement": "Hadamard applied to the positive Hermitian Gram matrix gives covol(L)<=D^(n/2)/sqrt(|d_K|)<=D^(n/2).",
       "locator": "Section 3, p. 494",
       "status": "missing",
-      "note": "Only the consumer bound is new here. Exact pinned Hadamard and determinant/index declarations remain to be attached; do not route a second generic matrix theory."
+      "note": "Use hadamard-gram (separately extracted generic input), gram-discriminant-identity and the dual-image inclusion. The final weakening uses |d_K|>=1. A file named Matrix/Hadamard contains the entrywise product, not this inequality; searches of determinant/Gram/inner-product/volume APIs did not locate a matching bound. No unverified Hadamard declaration is cited."
     },
     {
       "id": "PAPER-COUVEIGNES-20/euclidean-ball-bound",
@@ -268,7 +291,7 @@
       "statement": "In an ell-dimensional Euclidean space with ell>=1, the closed unit ball has volume at least 2^ell*ell^(-ell/2), by containing the cube with each coordinate in [-1/sqrt(ell),1/sqrt(ell)].",
       "locator": "Section 3, p. 494",
       "status": "missing",
-      "note": "The paper calls this set a sphere, but it is a closed ball. Use Euclidean measure in W, not ambient M-dimensional measure. Generic volume APIs are baseline; exact existing bound is still to be audited."
+      "note": "Only the cube-in-ball consequence is new; Haar measure, finite products and orthonormal coordinates are existing infrastructure. For ell>=1 the coordinate cube of side 2/sqrt(ell) lies in the closed unit ball because its squared Euclidean norm is <=ell/ell. The paper's 'sphere' means ball. Measure is intrinsic to W, not the ambient M-dimensional measure."
     },
     {
       "id": "PAPER-COUVEIGNES-20/independent-short-relations",
@@ -304,7 +327,7 @@
       "statement": "Let f:W->direct_sum_(a=1)^n k^r be surjective and U subset W have codimension < n. Then for some a, projection_a(f(U))=k^r. Applied with codim U=n-1, some retained-gradient matrix has rank r.",
       "locator": "Section 3, p. 494",
       "status": "missing",
-      "note": "If every block image were proper, f(U) would lie in the product of n proper subspaces, of codimension at least n, whereas codim f(U)<=codim U. This reusable statement may already follow directly from library dimension lemmas; close the generic audit before new implementation."
+      "note": "If all n block images are proper, their product has codimension >=n; f(U) lies in it, whereas surjectivity of f gives codim f(U)<=codim U<n. The joint codimension statement was not located as a library declaration; prove it from finite-dimensional rank inequalities. Separate surjectivity of each projection of f would not be sufficient."
     },
     {
       "id": "PAPER-COUVEIGNES-20/common-jacobian-minor",
@@ -331,7 +354,7 @@
       "statement": "Over a characteristic-zero field, the Jacobian-open algebra for r equations in r variables is finite etale (possibly zero). If a finite separable extension K receives a surjective evaluation from this algebra, Spec K is an open-and-closed irreducible component.",
       "locator": "Section 1, pp. 487-488 and Proposition 2, p. 495, geometric inference",
       "status": "missing",
-      "note": "First prove standard etaleness at the inverted determinant, then finite generation plus dimension zero gives finiteness over the field. Preserve zero-ring/empty-scheme case. SF.0 owns generic morphism infrastructure; the exact combined statement needs a pinned-source audit, not an assumed smoothness oracle."
+      "note": "The baseline-standard-smooth and baseline-finite-etale items already supply the abstract Jacobian-presentation/etale and finite-product theorems. New here is assembling the r-equation localized quotient into that presentation and identifying the given surjective evaluation as a field factor/open-and-closed component. Preserve the zero-algebra case; a surjection to a field excludes it. This is an SF.0 comparison lemma, not a second theory of etale morphisms."
     },
     {
       "id": "PAPER-COUVEIGNES-20/explicit-small-model",
@@ -349,7 +372,7 @@
       "statement": "Let r be the least positive integer satisfying n(r+1)<=binom(2r,r), and set d=r. For all sufficiently large n one has r>=5, r<=3*log(n), and n(r+1)<=binom(2r,r)<=4*n*(r+1).",
       "locator": "Section 4, p. 495",
       "status": "missing",
-      "note": "Use the Catalan ratio bound C_(r+1)<=4*C_r and binom(2r,r)>=2^r; treat r=1 separately before using minimality at r-1. API: existence, leastness, bounds, explicit eventual threshold; test n=1 without applying the eventual d>=5 conclusion."
+      "note": "Use binom(2r,r)>=2^r and the Catalan quotient C_(r+1)/C_r=2(2r+1)/(r+2)<=4. Minimality at r-1 gives M<4n(r+1) when r>1; treat r=1 directly. The inequality r<=3 log(n) and r>=5 are eventual, not claims for n=1. Export an explicit sufficiently-large threshold when this is implemented."
     },
     {
       "id": "PAPER-COUVEIGNES-20/asymptotic-small-model",
@@ -367,7 +390,7 @@
       "statement": "Over an algebraically closed field of characteristic zero, r polynomials in r variables of degrees <=d, with d>=1, have at most d^r common zeros where their Jacobian determinant is nonzero. This remains valid if their total common zero scheme has other, positive-dimensional components.",
       "locator": "Section 4, p. 496; Fulton [13], Chapter 13",
       "status": "missing",
-      "note": "Route the isolated-intersection statement, not a Bezout equality assuming the whole intersection is proper. Original Fulton argument and an exact pinned-library comparison remain to be read; this is an explicit checkpoint dependency."
+      "note": "Couveignes cites Fulton Chapter 13. The publisher's Chapter 13 opening (p. 210, refined Bezout paragraph) explicitly bounds the sum of degrees of distinguished varieties and includes all irreducible components, without properness of the entire intersection. Homogenize the nonconstant equations at their actual degrees; each isolated affine point remains an isolated projective component. Zero or constant equations have empty Jacobian-open and are treated separately. No such multi-equation isolated bound was found in either pinned library. Full refined-intersection proof remains a supplier blueprint obligation; the statement and its applicability, not a fictional exact theorem number, are recorded."
     },
     {
       "id": "PAPER-COUVEIGNES-20/coefficient-box",
@@ -376,7 +399,7 @@
       "statement": "For r ordered polynomials supported on the M degree-<=d monomials with integer coefficients of absolute value <=B, B>=0, there are exactly (2*floor(B)+1)^(r*M) such coefficient lists, including lower-degree and zero polynomials.",
       "locator": "Section 4, p. 496",
       "status": "missing",
-      "note": "Generic finite-product cardinality is baseline, not a new counting foundation. This item is the bounded-polynomial encoding bridge. Zero or singular systems only enlarge the box and do not invalidate an upper bound."
+      "note": "This is only the encoding of r coefficient vectors on the finite monomial set into a product of integer intervals; use existing finite-product and interval-cardinality APIs. The resulting cardinality is exact, including zero/lower-degree systems. B>=0 and floor(B) are essential. No new generic counting foundation is proposed."
     },
     {
       "id": "PAPER-COUVEIGNES-20/field-count-carrier",
@@ -385,7 +408,9 @@
       "statement": "For n>=1 and real H>=1, N_n(H) is the cardinality of Q-algebra isomorphism classes of number fields of degree exactly n with |d_K|<=H. Count each class once; do not weight by automorphisms or count embeddings into a fixed ambient field.",
       "locator": "Theorem 2 and surrounding discussion, p. 488",
       "status": "planned",
-      "planned": ["ArithmeticStatistics:ST.0"],
+      "planned": [
+        "ArithmeticStatistics:ST.0"
+      ],
       "note": "ST.0 owns equivalence relations, height bounds and unweighted family counts. API: invariance, finiteness, monotonicity in H and the exact-degree condition. The existing fixed-ambient-field Hermite theorem is a different carrier that can supply finiteness after comparison."
     },
     {
@@ -405,60 +430,162 @@
       "locator": "Theorem 2, p. 488; Section 4, p. 496",
       "status": "missing",
       "note": "Substitute delta<=H^(1/n) into the model-height bound, use r*M=O(n*(log n)^2), and absorb d^r and rounding by enlarging Q. The discriminant is absolute; the result is an upper bound, not an asymptotic N_n(H)~c_n H."
+    },
+    {
+      "id": "PAPER-COUVEIGNES-20/baseline-mixed-covolume",
+      "kind": "theorem",
+      "name": "Product-measure covolume already in Mathlib",
+      "statement": "For a number field K, with the standard product volume on its mixed embedding space, covol(O_K)=2^(-nrComplexPlaces K)*sqrt(|NumberField.discr K|).",
+      "locator": "Section 2, pp. 489–490, normalization input; Mathlib Discriminant/Basic.lean, lines 89–133",
+      "status": "library",
+      "library": [
+        "mathlib:NumberField.mixedEmbedding.covolume_integerLattice",
+        "mathlib:NumberField.mixedEmbedding.volume_fundamentalDomain_latticeBasis"
+      ],
+      "note": "This is NOT the paper's canonically weighted metric. The separate measure-normalization and discriminant-covolume items give the conversion."
+    },
+    {
+      "id": "PAPER-COUVEIGNES-20/baseline-lattice-index",
+      "kind": "theorem",
+      "name": "Index is the quotient of full-lattice covolumes",
+      "statement": "For full discrete Z-lattices L1<=L2 in R^iota (finite iota), covol(L1)/covol(L2)=[L2:L1]. Covolumes with a fixed Haar measure equal absolute basis determinants times the reference fundamental-domain measure.",
+      "locator": "Section 3, p. 493, finite-index comparison; Mathlib ZLattice/Covolume.lean, lines 84–166",
+      "status": "library",
+      "library": [
+        "mathlib:ZLattice.covolume_div_covolume_eq_relIndex",
+        "mathlib:ZLattice.covolume_eq_det_mul_measureReal",
+        "mathlib:ZLattice.covolume_eq_measure_fundamentalDomain"
+      ],
+      "note": "Use an orthonormal coordinate identification for a lattice in Wperp. The smaller lattice has larger covolume; no assertion that the transpose image is all of Lperp."
+    },
+    {
+      "id": "PAPER-COUVEIGNES-20/baseline-bounded-polynomials",
+      "kind": "construction",
+      "name": "Existing degree-bounded polynomial module and monomial basis",
+      "statement": "Over a commutative ring R, restrictTotalDegree sigma R d is the submodule of MvPolynomial sigma R consisting exactly of total-degree-<=d polynomials. Its support restriction has the basis indexed by monomials of total degree <=d; for finite sigma this module is finite.",
+      "locator": "Section 3, p. 491; Mathlib RingTheory/MvPolynomial/Basic.lean, lines 92–100, 165–177, 224ff",
+      "status": "library",
+      "library": [
+        "mathlib:MvPolynomial.restrictTotalDegree",
+        "mathlib:MvPolynomial.mem_restrictTotalDegree",
+        "mathlib:MvPolynomial.basisRestrictSupport"
+      ],
+      "note": "Use basisRestrictSupport on the total-degree exponent set and the anonymous Module.Finite instance. The binomial count and homogeneous-section comparison are the separate bounded-polynomials item."
+    },
+    {
+      "id": "PAPER-COUVEIGNES-20/baseline-total-degree-grid",
+      "kind": "theorem",
+      "name": "Existing Schwartz–Zippel input to bounded parameters",
+      "statement": "For a nonzero polynomial p in N variables over an integral domain and a finite set S, the fraction of zeros on S^N is <=p.totalDegree/#S. In characteristic zero, totalDegree(p)<=D and S={0,...,D} imply that some grid value is nonzero.",
+      "locator": "Section 3, p. 492, bounded-grid application; Mathlib Algebra/MvPolynomial/SchwartzZippel.lean, lines 188–206",
+      "status": "library",
+      "library": [
+        "mathlib:MvPolynomial.schwartz_zippel_totalDegree"
+      ],
+      "note": "The strict fraction D/(D+1)<1 gives the displayed existence by elementary finite counting. This supplies the actual determinant application after its total-degree bound. It does not assert the stronger per-variable-degree theorem."
+    },
+    {
+      "id": "PAPER-COUVEIGNES-20/baseline-standard-smooth",
+      "kind": "construction",
+      "name": "Existing submersive-presentation route to etaleness",
+      "statement": "A finite submersive presentation P of an R-algebra S with relative dimension zero supplies IsStandardSmoothOfRelativeDimension 0 R S; such an algebra is etale over R.",
+      "locator": "Section 3, p. 495, Jacobian criterion; Mathlib Smooth/StandardSmooth.lean, lines 87–103; StandardSmoothCotangent.lean, lines 348–355",
+      "status": "library",
+      "library": [
+        "mathlib:Algebra.SubmersivePresentation.isStandardSmoothOfRelativeDimension",
+        "mathlib:Algebra.IsStandardSmoothOfRelativeDimension"
+      ],
+      "note": "The concluding Etale instance is anonymous and is not assigned an invented theorem name. Constructing the concrete presentation of the localized r-equation quotient remains jacobian-etale-components."
+    },
+    {
+      "id": "PAPER-COUVEIGNES-20/baseline-finite-etale",
+      "kind": "theorem",
+      "name": "Etale algebras over a field are finite products of separable extensions",
+      "statement": "For a field k and a commutative k-algebra A, Etale k A holds iff A is k-algebra-isomorphic to a finite product of finite separable field extensions of k; the index set can be empty.",
+      "locator": "Section 1, pp. 487–488 and Section 3, p. 495; Mathlib Etale/Field.lean, lines 267–286",
+      "status": "library",
+      "library": [
+        "mathlib:Algebra.Etale.iff_exists_algEquiv_prod"
+      ],
+      "note": "This already gives finiteness, not merely formal etaleness. Do not prove a second etale-algebra classification or discard the zero ring/empty product."
+    },
+    {
+      "id": "PAPER-COUVEIGNES-20/hadamard-gram",
+      "kind": "theorem",
+      "name": "Hadamard bound for a complex Gram determinant",
+      "statement": "For vectors v_1,...,v_n in a finite-dimensional complex inner-product space, their Hermitian Gram determinant is nonnegative and at most product_i ||v_i||_2^2. In particular, if each squared norm is <=D with D>=0, det Gram(v)<=D^n.",
+      "locator": "Section 3, pp. 493–494, Hadamard step",
+      "status": "missing",
+      "note": "Use Gram–Schmidt (or a positive-semidefinite matrix factorization), determinant multiplication and norm-decrease of orthogonal projection; retain the linearly dependent case, where the determinant is zero. This generic inequality is separated from the arithmetic relation-covolume estimate. Matching Gram positivity and Gram–Schmidt APIs exist, but no exact determinant upper bound was located; the entrywise Hadamard product is unrelated."
     }
   ],
   "prerequisites": [
     {
-      "citation": "C. L. Siegel, Lectures on the Geometry of Numbers (1989), Lecture III, Section 4, Theorem 16",
-      "link": "https://doi.org/10.1007/978-3-662-08287-4",
-      "why": "Minkowski second theorem is used twice, with different gauges and dimensions. Its general theorem is already planned in GN.1; the cited edition/proof was not independently read in this checkpoint."
-    },
-    {
-      "citation": "J. Alexander and A. Hirschowitz, Polynomial interpolation in several variables, J. Algebraic Geom. 4 (1995), 201-222; M. C. Brambilla and G. Ottaviani, On the Alexander-Hirschowitz theorem, J. Pure Appl. Algebra 212 (2008), 1229-1251",
-      "link": "https://arxiv.org/abs/math/0701409",
-      "why": "Theorem 1.1 and its exceptional cases were checked in the public exposition, arXiv v2. Only the d>=5 characteristic-zero first-jet consequence is imported here. The exposition proof and its interpolation prerequisites still need full extraction by the proposed generic owner."
+      "citation": "J. Alexander and A. Hirschowitz, Polynomial interpolation in several variables (1995); M. C. Brambilla and G. Ottaviani, On the Alexander–Hirschowitz theorem, JPAA 212 (2008), 1229–1251; arXiv:math/0701409v2",
+      "link": "https://arxiv.org/abs/math/0701409v2",
+      "why": "The generic first-jet theorem has no current owner; GenericDoublePointInterpolation is proposed. BO Sections 1–6 (pp. 1–19) read completely, including induction and exceptions. Exact base-case rank certificates, scheme-theoretic specialization/semicontinuity and a declaration-sized dependency decomposition remain tasks of that design/blueprint; the source's instructions to use a computer are not certificates. PDF SHA-256 7d3dd9e6268431f4be53740bbf57ebf46d9a76b13c3472d6911d7f6deb530aa7, accessed 2026-09-21."
     },
     {
       "citation": "J. Martinet, Perfect Lattices in Euclidean Spaces (2003), Corollary 1.3.5",
       "link": "https://doi.org/10.1007/978-3-662-05167-2",
-      "why": "Equality of covolumes of primitive orthogonal complements in a unimodular lattice. Exact required statement is recorded; original proof and overlap with the completed IntegralLattices library remain checkpoint work."
+      "why": "Couveignes p. 493 invokes the unimodular primitive-orthogonal covolume consequence. Exact needed statement and a basis/dual-basis proof route are recorded in primitive-orthogonal-covolume; neither the current GN.0 specification nor the IntegralLattices audit promises that exact comparison. Original Martinet proof not acquired/read independently; obtain it when decomposing this added GN.0 source, or fully verify the indicated determinant proof rather than claiming it as baseline."
     },
     {
-      "citation": "W. Fulton, Intersection Theory, second edition (1998), Chapter 13",
-      "link": "https://doi.org/10.1007/978-1-4612-1700-8",
-      "why": "Bound the isolated smooth intersection points without assuming the entire zero scheme is zero-dimensional. SF.5 already owns intersection theory and names Fulton; the exact isolated-component theorem and proof locator still require source closure."
+      "citation": "W. Fulton, Intersection Theory, second edition (1998), Chapter 13, Positivity, pp. 210–234 (opening refined Bezout statement on p. 210)",
+      "link": "https://link.springer.com/chapter/10.1007/978-1-4612-1700-8_13",
+      "why": "The isolated-component inequality is the added SF.5 source input. The publisher's chapter opening was read and explicitly includes all irreducible components even in excess intersections; this verifies the needed hypothesis boundary. The full refined-intersection proof was not accessible in that preview and remains required in SF.5's source decomposition. Do not substitute the proper-complete-intersection Bezout equality or invent a more precise theorem number."
     }
   ],
   "routes": [
     {
       "route": "source",
       "roadmap": "GeometryOfNumbersAndQuadraticArithmetic",
-      "stages": ["GeometryOfNumbersAndQuadraticArithmetic:GN.0", "GeometryOfNumbersAndQuadraticArithmetic:GN.1"],
-      "items": ["PAPER-COUVEIGNES-20/primitive-orthogonal-covolume", "PAPER-COUVEIGNES-20/ordered-product-bound", "PAPER-COUVEIGNES-20/euclidean-ball-bound"],
-      "reason": "The generic lattice-volume consequences belong beside the existing lattice/covolume and successive-minima owners. Add only consequences not already built: GN.0 itself is audited built. The exact orthogonal-covolume overlap and elementary inequality coverage are unresolved and must be closed before this checkpoint route is accepted."
+      "stages": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "items": [
+        "PAPER-COUVEIGNES-20/primitive-orthogonal-covolume",
+        "PAPER-COUVEIGNES-20/ordered-product-bound",
+        "PAPER-COUVEIGNES-20/euclidean-ball-bound",
+        "PAPER-COUVEIGNES-20/hadamard-gram"
+      ],
+      "reason": "Source for four missing, small lattice-volume consequences at GN.0/GN.1: primitive orthogonal-lattice equality, the ordered-product corollary, the intrinsic cube/ball estimate, and the Gram determinant inequality used in covolume estimates. GN.0's existing carriers, determinant and index formulas stay baseline; GN.1 already owns Minkowski second. IntegralLattices' built rational discriminant/gluing theory is not replanned. These additions are proof-local consequences, not a duplicate lattice roadmap."
     },
     {
       "route": "source",
       "roadmap": "SchemeAndStackFoundations",
-      "stages": ["SchemeAndStackFoundations:SF.0", "SchemeAndStackFoundations:SF.5"],
-      "items": ["PAPER-COUVEIGNES-20/jacobian-etale-components", "PAPER-COUVEIGNES-20/isolated-bezout"],
-      "reason": "Generic Jacobian-open etaleness belongs to SF.0 and the isolated Bezout bound to SF.5. Neither should be redeveloped inside a number-field counting roadmap. Exact pinned coverage of the combined etale-component interface and exact Fulton locator remain checkpoint checks."
+      "stages": [
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "items": [
+        "PAPER-COUVEIGNES-20/jacobian-etale-components",
+        "PAPER-COUVEIGNES-20/isolated-bezout"
+      ],
+      "reason": "SF.0 owns the concrete localized-Jacobian presentation/component comparison, importing its already-built abstract etale APIs. SF.5 owns the isolated-intersection Bezout inequality (not an equality that assumes proper intersection). Both are generic algebraic geometry inputs; the arithmetic continuation supplies the selected equations and evaluation, not another generic geometric theory."
     },
     {
       "route": "new",
       "roadmap": "GenericDoublePointInterpolation",
       "title": "Generic double-point interpolation in characteristic zero",
-      "area": "foundations",
-      "items": ["PAPER-COUVEIGNES-20/bounded-polynomials", "PAPER-COUVEIGNES-20/double-points", "PAPER-COUVEIGNES-20/first-jet-matrix", "PAPER-COUVEIGNES-20/generic-hermite", "PAPER-COUVEIGNES-20/grid-nonvanishing"],
-      "reason": "No exact owner of the Alexander-Hirschowitz first-jet theorem was found in the atlas searches. This input is general algebraic geometry, not a number-field-specific axiom. The proposal remains provisional until the remaining overlap audit and full auxiliary-paper read are complete.",
-      "brief": "Construct the bounded-degree polynomial and first-jet restriction interfaces over an algebraically closed field of characteristic zero, importing polynomial, finite-dimensional linear-algebra and projective-scheme infrastructure rather than duplicating them. Identify the jet matrix with restriction to the union of distinct double points, and prove the nonempty open maximal-rank theorem for degree at least five and n(r+1)<=binom(d+r,d), following Alexander-Hirschowitz through Brambilla-Ottaviani. Export an affine-chart form and the bounded integer-grid nonvanishing application; do not claim the positive-characteristic or exceptional low-degree cases. SchemeAndStackFoundations, Scheme, stack, cohomology and intersection foundations, supplies the geometric foundations. Effective Bounds, Part II consumes the theorem. Before design, complete the existing-polynomial-API audit and the source proof closure; elementary existing lemmas must become baseline references rather than planets."
+      "area": "algebraicgeometry",
+      "items": [
+        "PAPER-COUVEIGNES-20/bounded-polynomials",
+        "PAPER-COUVEIGNES-20/double-points",
+        "PAPER-COUVEIGNES-20/first-jet-matrix",
+        "PAPER-COUVEIGNES-20/generic-hermite",
+        "PAPER-COUVEIGNES-20/grid-nonvanishing"
+      ],
+      "reason": "The catalogue-wide screen found no owner of generic double-point interpolation or the Alexander–Hirschowitz theorem. R09.1/2 own projective/Hilbert/Quot foundations, not the Hilbert function of generic fat-point configurations; SF.0 owns schemes, not this interpolation theorem. The separate interpolation project has a reusable endpoint independent of number-field enumeration.",
+      "brief": "Prove the characteristic-zero, exception-free Alexander–Hirschowitz interface used by Couveignes: for an algebraically closed field k, r>=1, d>=5, n>=1 and n(r+1)<=binom(d+r,d), a nonempty Zariski-open set of ordered distinct n-tuples in (A^r_k)^n has surjective value-and-first-derivative evaluation on degree-<=d polynomials. Import SchemeAndStackFoundations (Scheme, stack, cohomology and intersection foundations), especially SF.0, and AlgebraicModuliForArithmeticGeometry (Algebraic moduli and representability for arithmetic geometry), R09.1/R09.2 only for the projective parameter/Hilbert-family interfaces actually used. Reuse Mathlib MvPolynomial.restrictTotalDegree and its restricted monomial basis; construct the binomial dimension, fixed-degree homogenization/H^0 comparison, length-n(r+1) double-point quotient and first-jet matrix. Follow Brambilla–Ottaviani Sections 2–6: residual/trace sequences, restriction-dimension inequalities, curvilinear reduction, semicontinuity and differential-Horace degeneration, cubic cases and quartic base cases with exact rank certificates where the source invokes computer calculations. The induction needs low-degree inputs even though the exported theorem assumes d>=5. Supply the affine-chart/open-minor comparison and integer-parameter specialization, using the existing total-degree Schwartz–Zippel theorem whenever possible; the stronger per-variable box lemma is a small API consequence, not a new polynomial foundation. EffectiveBoundsCompactModels consumes this result. Tests must reject special collinear configurations, recover univariate Hermite interpolation, and separate double points from reduced points and higher jets. Do not export positive-characteristic or low-degree exception-free claims."
     },
     {
       "route": "part-ii",
       "parent": "tauceti:Completed/EffectiveBounds",
       "roadmap": "EffectiveBoundsCompactModels",
-      "title": "Effective Bounds, Part II: compact models and degree-sensitive field counts",
-      "area": "classical",
+      "title": "Effective arithmetic bounds and geometry of numbers, Part II: compact models and degree-sensitive field counts",
+      "area": "algebraicnt",
       "items": [
         "PAPER-COUVEIGNES-20/measure-normalization",
         "PAPER-COUVEIGNES-20/discriminant-covolume",
@@ -487,30 +614,146 @@
         "PAPER-COUVEIGNES-20/components-to-classes",
         "PAPER-COUVEIGNES-20/discriminant-count-bound"
       ],
-      "reason": "The existing Effective Bounds roadmap already contains effective Hermite-Minkowski counting. Couveignes supplies new layers in precisely this direction: short component models and a degree-sensitive exponent. It must extend, not re-plan, that owner; ArithmeticStatistics consumes the resulting bound on its own family-count carrier.",
-      "brief": "Starting from tauceti:Completed/EffectiveBounds (Effective Bounds), construct independent short integers with root-discriminant bounds, bounded integral parameter choices, the saturated lattice of polynomial relations, its correctly normalized dual-image covolume estimate, and simultaneous small equations with a nonzero Jacobian at every conjugate. Prove the explicit component-model height bound, then the logarithmic-degree and logarithmic-dimension model theorem and N_n(H)<=n^(Q*n*(log n)^3)*H^(Q*(log n)^3) for one absolute Q and sufficiently large n. Import GeometryOfNumbersAndQuadraticArithmetic (Geometry of numbers, quadratic forms and homogeneous arithmetic), specifically GN.1 second-minimum bounds, the proposed GenericDoublePointInterpolation theorem, and SF.5 isolated Bezout; SF.0 supplies the Jacobian-open geometric interface. Use ArithmeticStatistics (Arithmetic statistics, counting fields and Selmer distributions), ST.0, for the unweighted isomorphism-class carrier. Preserve the difference between a short independent family and an integral basis, finite-index dual images and equality, and a field component versus the entire quotient algebra. Existing number-field, lattice, determinant and coefficient-count APIs are baseline, not new layers."
+      "reason": "The fully read tauceti:Completed/EffectiveBounds anchor already constructs effective Hermite–Minkowski bounds; its pinned implementation counts bounded-discriminant subfields of a fixed ambient extension by primitive-element polynomial bounds. Couveignes adds short multi-equation component models and the sharper degree-sensitive discriminant exponent, neither of which the anchor promises. This is an extension with the anchor as first prerequisite. ArithmeticStatistics:ST.0 supplies the isomorphism-class count carrier, and ST.3 is a consumer; its selected asymptotic/moment goals do not duplicate the model construction.",
+      "brief": "Extend tauceti:Completed/EffectiveBounds (Effective arithmetic bounds and geometry of numbers) as the FIRST prerequisite; import its completed explicit Hermite–Minkowski and discriminant infrastructure without reconstructing it. Fix n=[K:Q], delta=|disc K|^(1/n), and the weighted canonical measure. For d>=5, r>=1, M=binom(d+r,d)>=n(r+1), ell=M-n, prove Proposition 2 exactly: r integral polynomials of total degree <=d, coefficient height <=ell^(ell/(2n))*sqrt(M)*[n^2*d*(r+1)]^d*delta^(2d), whose Jacobian-open scheme contains Spec K as an irreducible component. Build the short independent integers (all conjugates <=delta^2), integral parameter choice, saturated relation lattice, finite-index transpose image and Gram estimate, retain exactly ell+1-n short relations, choose one gradient block of full rank, and transport the SAME nonzero Jacobian minor through every embedding. Import GeometryOfNumbersAndQuadraticArithmetic (Geometry of numbers, quadratic forms and homogeneous arithmetic), GN.0/GN.1 for covolume consequences and the genuine second-minimum witness theorem; GenericDoublePointInterpolation (Generic double-point interpolation in characteristic zero) for the first-jet theorem; SchemeAndStackFoundations (Scheme, stack, cohomology and intersection foundations), SF.0/SF.5 for the localized component comparison and isolated-point Bezout. Use ArithmeticStatistics (Arithmetic statistics, counting fields and Selmer distributions), ST.0 for unweighted exact-degree Q-isomorphism classes, supplying a bridge from fixed-ambient finiteness, without making the construction depend on ST.3's statistical asymptotics. Deduce Theorem 1: one absolute Q, n>=Q, r,d<=Q log n, M<=Q n log n, coefficient height <=(n*delta)^(Q log n). Then prove Theorem 2: for integers n>=Q and H>=1, N_n(H)<=n^(Q*n*(log n)^3)*H^(Q*(log n)^3). Give the coefficient-box count, bound isolated components by d^r despite other positive-dimensional components, and use a surjection from component models to classes, not an injective choice of models. Preserve all measure factors, floor functions and eventual thresholds. Test a non-integral-basis short family, a strict dual-image index, repeated roots, multiple field components and n=1 outside the eventual range. Neither algorithmic runtime, an asymptotic equivalent c_n*H, nor an integral presentation of O_K is claimed."
     }
   ],
-  "gaps": [
+  "gaps": [],
+  "auxiliarySources": [
     {
-      "id": "G-PROVENANCE",
-      "task": "Download the exact published PDF into worker scratch and record its SHA-256 and date. Do not hash extracted text and label it a PDF checksum."
+      "citation": "C. L. Siegel, Lectures on the Geometry of Numbers, Lecture III, Section 4, Theorem 16",
+      "url": "https://doi.org/10.1007/978-3-662-08287-4",
+      "readStatus": "Cited theorem and both applications read in Couveignes; original book proof not independently read.",
+      "owner": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+      "note": "Already planned, so no duplicate new-paper owner is requested. Blueprint must supply the independent-vector upper-product theorem, not merely Minkowski first."
+    }
+  ],
+  "downstreamObligations": [
+    "Independent paper review before applying any route; no accepted/new roadmap is asserted here.",
+    "GenericDoublePointInterpolation must turn the read BO proof into a closed blueprint with verified low-degree rank certificates and actual deformation/semicontinuity inputs.",
+    "GN.0/SF.5 must source-decompose the primitive-orthogonal and isolated-intersection consequences, including original-proof access or fully justified alternatives as recorded under prerequisites.",
+    "The Part II design must implement normalization, scalar-extension, finite-index and component-to-isomorphism-class bridges, not hide these in assumed structures. No Lean proof or elaboration is claimed."
+  ],
+  "baselineManifest": [
+    {
+      "ref": "mathlib:NumberField.discr",
+      "file": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
     },
     {
-      "id": "G-BASELINE",
-      "task": "Close exact pinned-declaration coverage for normalization/covolume, primitive orthogonal complements versus completed IntegralLattices, bounded-polynomial/homogenization and grid lemmas, Hadamard, elementary product/dimension bounds, and the Jacobian-open finite-etale interface. Reclassify already built items and remove them from new routes; do not interpret provisional missing as proof of global absence."
+      "ref": "mathlib:NumberField.discr_ne_zero",
+      "file": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
     },
     {
-      "id": "G-OWNERS",
-      "task": "Finish packet/new-roadmap/link overlap checks, including integrated ArithmeticStatistics, and read a second nearby upstream roadmap completely. EffectiveBounds was read completely; NumberFieldArithmetic and IntegralLattices were read only in relevant portions. Generic interpolation and generic elementary-lemma ownership remain provisional."
+      "ref": "mathlib:NumberField.discr_eq_discr_of_algEquiv",
+      "file": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
     },
     {
-      "id": "G-SOURCES",
-      "task": "Read the exact Siegel witness theorem, Martinet corollary and Fulton isolated-intersection argument. Fully extract the chosen Alexander-Hirschowitz proof into its general owner, or record a concrete queued prerequisite rather than assuming it formalized."
+      "ref": "mathlib:NumberField.rootDiscr",
+      "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
     },
     {
-      "id": "G-CHECKS",
-      "task": "Run the repository paper checker against the full current catalogue, inspect Swarm submission check, and request independent review only after substantive gaps above are resolved. No Lean compilation or formalization is asserted."
+      "ref": "mathlib:NumberField.mixedEmbedding.covolume_integerLattice",
+      "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:NumberField.mixedEmbedding.volume_fundamentalDomain_latticeBasis",
+      "file": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:NumberField.canonicalEmbedding",
+      "file": "Mathlib/NumberTheory/NumberField/CanonicalEmbedding/Basic.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:NumberField.canonicalEmbedding.norm_le_iff",
+      "file": "Mathlib/NumberTheory/NumberField/CanonicalEmbedding/Basic.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:NumberField.mixedEmbedding",
+      "file": "Mathlib/NumberTheory/NumberField/CanonicalEmbedding/Basic.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:NumberField.mixedEmbedding.finrank",
+      "file": "Mathlib/NumberTheory/NumberField/CanonicalEmbedding/Basic.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:NumberField.mixedEmbedding.latticeBasis",
+      "file": "Mathlib/NumberTheory/NumberField/CanonicalEmbedding/Basic.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:NumberField.mixedEmbedding.fundamentalDomain_integerLattice",
+      "file": "Mathlib/NumberTheory/NumberField/CanonicalEmbedding/Basic.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:NumberField.mixedEmbedding.norm_eq_norm",
+      "file": "Mathlib/NumberTheory/NumberField/CanonicalEmbedding/Basic.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:ZLattice.covolume_div_covolume_eq_relIndex",
+      "file": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:ZLattice.covolume_eq_det_mul_measureReal",
+      "file": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:ZLattice.covolume_eq_measure_fundamentalDomain",
+      "file": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:MvPolynomial.restrictTotalDegree",
+      "file": "Mathlib/RingTheory/MvPolynomial/Basic.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:MvPolynomial.mem_restrictTotalDegree",
+      "file": "Mathlib/RingTheory/MvPolynomial/Basic.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:MvPolynomial.basisRestrictSupport",
+      "file": "Mathlib/RingTheory/MvPolynomial/Basic.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:MvPolynomial.schwartz_zippel_totalDegree",
+      "file": "Mathlib/Algebra/MvPolynomial/SchwartzZippel.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:Algebra.SubmersivePresentation.isStandardSmoothOfRelativeDimension",
+      "file": "Mathlib/RingTheory/Smooth/StandardSmooth.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:Algebra.IsStandardSmoothOfRelativeDimension",
+      "file": "Mathlib/RingTheory/Smooth/StandardSmooth.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "mathlib:Algebra.Etale.iff_exists_algEquiv_prod",
+      "file": "Mathlib/RingTheory/Etale/Field.lean",
+      "checked": "Declaration statement read at the pinned commit; source bytes matched upstream."
+    },
+    {
+      "ref": "tauceti:NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le",
+      "file": "TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean",
+      "checked": "Statement read; context/parent-boundary evidence only, not a supplier for the sharper Couveignes theorem."
     }
   ]
 }
