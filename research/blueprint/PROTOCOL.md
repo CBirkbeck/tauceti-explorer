@@ -533,8 +533,10 @@ An independent reviewer checks the proposal against the roadmap documents. An
 accepted proposal goes into the atlas by itself (section 8): an extended roadmap
 takes its Part II title and builds on its base, a narrowed layer states what it
 keeps and who supplies the rest, a dropped layer leaves the map, and the links
-join the atlas. The blueprint jobs of the family's roadmaps start once the
-proposal is accepted, and follow it: a narrowed layer is planned only as far as
+join the atlas. A proposal its review sends back is revised in place
+(`RS-NN~2`, then `RS-NN~3`) and reviewed again. The blueprint jobs of the
+family's roadmaps wait for the latest review, start once the proposal is
+accepted, and follow it: a narrowed layer is planned only as far as
 it keeps, and a dropped layer gets coverage `closed` with no nodes and a note
 naming its suppliers (the checker allows this for layers an accepted proposal
 drops).
@@ -626,8 +628,9 @@ There are two kinds of red-team job:
   `RT-AREA-<area id>-<n>`, grouped by the links between them; each part reads
   its own roadmaps in depth and the other parts' layers for duplication.
 
-A red team is queued for each deliverable once it and its review are done, so
-new red-team jobs appear as work is accepted.
+A red team is queued for each deliverable once its review is done and has
+accepted it (for a job revised in rounds, its latest round), so new red-team
+jobs appear as work is accepted.
 
 A red team hunts for **errors** (a statement that is false or not the source's,
 a wrong hypothesis or locator, a library claim that does not hold at the pinned
