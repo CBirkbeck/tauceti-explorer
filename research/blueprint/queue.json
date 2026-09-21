@@ -3135,7 +3135,8 @@
    ],
    "avoidAccountOf": "RS-04",
    "prompt": "research/blueprint/prompts/REV-RS-04.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #807"
   },
   {
    "id": "RS-05",
