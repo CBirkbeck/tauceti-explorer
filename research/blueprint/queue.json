@@ -1795,8 +1795,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-COUVEIGNES-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1129"
+   "state": "pending",
+   "note": "released on GitHub issue #1129"
   },
   {
    "id": "REV-PAPER-COUVEIGNES-20",
