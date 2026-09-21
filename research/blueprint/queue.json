@@ -15172,7 +15172,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-05.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #885"
   },
   {
    "id": "PLANETS-06",
@@ -15198,8 +15199,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-06.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #886"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #886",
+   "finishedAt": "2026-09-21T14:38:09Z"
   },
   {
    "id": "PLANETS-07",
@@ -15226,7 +15228,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-07.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #887"
   },
   {
    "id": "PLANETS-08",
@@ -15293,7 +15296,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-09.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #889"
   },
   {
    "id": "PLANETS-10",
@@ -15456,8 +15460,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-14.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #894"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #894",
+   "finishedAt": "2026-09-21T14:38:12Z"
   },
   {
    "id": "PLANETS-15",
