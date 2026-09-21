@@ -1799,8 +1799,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-COUVEIGNES-20.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1129"
+   "state": "external",
+   "note": "claimed on GitHub issue #1129"
   },
   {
    "id": "REV-PAPER-COUVEIGNES-20",
@@ -3159,7 +3159,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MARTIN-25.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1216",
+   "finishedAt": "2026-09-21T18:01:32Z"
   },
   {
    "id": "REV-PAPER-MARTIN-25",
@@ -3423,7 +3425,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BRESCIANI-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1233"
   },
   {
    "id": "REV-PAPER-BRESCIANI-24",
@@ -3984,7 +3987,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-XIE-YUAN-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1270"
   },
   {
    "id": "REV-PAPER-XIE-YUAN-22",
@@ -5139,7 +5143,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HANSEN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1340"
   },
   {
    "id": "REV-PAPER-HANSEN-26",
@@ -10527,7 +10532,9 @@
     "REV-RS-12"
    ],
    "prompt": "research/blueprint/prompts/RS-12~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1615",
+   "finishedAt": "2026-09-21T18:01:34Z"
   },
   {
    "id": "REV-RS-12~2",
@@ -10923,7 +10930,9 @@
     "REV-RS-20"
    ],
    "prompt": "research/blueprint/prompts/RS-20~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1617",
+   "finishedAt": "2026-09-21T18:01:37Z"
   },
   {
    "id": "REV-RS-20~2",
