@@ -1,0 +1,1544 @@
+{
+  "paper": "PAPER-SHENDE-TSIMERMAN-17",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "source": {
+    "title": "Equidistribution in Bun₂(P¹)",
+    "authors": "Vivek Shende and Jacob Tsimerman",
+    "venue": "Duke Mathematical Journal 166(18) (2017), 3461–3504",
+    "doi": "10.1215/00127094-2017-0025",
+    "arxiv": "1307.8237v1",
+    "url": "https://arxiv.org/pdf/1307.8237v1",
+    "readSections": [
+      "Entire 40-page arXiv v1 of 31 July 2013: §§1–4, Appendix A.1–A.4 and references.",
+      "Selected prerequisite extents are recorded per source file and in prerequisites; no complete prerequisite-paper reading is claimed."
+    ],
+    "versionNote": "G0: the public authors’ links lead to the 40-page v1. The 2017 published paper has 44 pages and was not acquired or matched. All main locators and error findings refer to v1, not an assertion about the final article.",
+    "files": [
+      {
+        "name": "arxiv",
+        "url": "https://arxiv.org/pdf/1307.8237",
+        "sha256": "542a52a2a04b65901a6d753266ef5f44aa73a8bde4dfdf7935ae27d489a5cf29",
+        "date": "2026-09-21T21:54:40.893802+00:00",
+        "bytes": 416042,
+        "pages": 40,
+        "read": "all 40 pages, including Appendix A and references"
+      },
+      {
+        "name": "migliorini-shende",
+        "url": "https://content.algebraicgeometry.nl/2018-1/2018-1-004.pdf",
+        "sha256": "8ecdf3b986963efb1edb7ed897cd1d0cc02c94ddc47005bc289029665fbc9fd9",
+        "date": "2026-09-21T21:56:49.717602+00:00",
+        "pages": 17,
+        "bytes": 416163,
+        "read": "§2.5 and §3 through Theorem 3.4 only"
+      },
+      {
+        "name": "altug-tsimerman",
+        "url": "https://arxiv.org/pdf/1008.0430",
+        "sha256": "d4092a754d07a2d938cea2f151540397b7f8f346faa88599a9e450a99b28a784",
+        "date": "2026-09-21T21:56:49.948598+00:00",
+        "pages": 84,
+        "bytes": 692080,
+        "read": "§3 through Theorem 3.3, including Theorem 3.1 proof; beginning of Theorem 3.4"
+      },
+      {
+        "name": "inoue-yamazaki",
+        "url": "https://arxiv.org/pdf/math-ph/0501048",
+        "sha256": "3f7e9000a39e9de34d572f88ae40ee864122a595a869970fae1360553735477d",
+        "date": "2026-09-21T21:56:49.760197+00:00",
+        "pages": 22,
+        "bytes": 281335,
+        "read": "selected §2 as recorded in prerequisites"
+      },
+      {
+        "name": "sawin",
+        "url": "https://arxiv.org/pdf/1907.04850",
+        "sha256": "8b0a79ba9fb2ae26ff518908033661c669b47a81a16da3af11bb748d4b399b0d",
+        "date": "2026-09-21T21:56:49.990597+00:00",
+        "pages": 24,
+        "bytes": 320623,
+        "read": "introduction, Lemma 5.5 coefficient discussion and Appendix A only"
+      }
+    ],
+    "libraryPins": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "TauCeti": "f790474821cf4256814db967cb154e7af3d0c369"
+    },
+    "atlasCommit": "06851ad5002dacc66c8cf335bd6e41e5690f4576"
+  },
+  "summary": "Complete reading of the available preprint yields a source-qualified checkpoint for hyperelliptic theta geometry and bundle equidistribution. Existing global bundles, Hecke correspondences, Chow operations, perverse theory, weights and arithmetic measures retain their owners. Two Part II briefs add special theta geometry and general microlocal suppliers. Normalizations, ramified torus levels, characteristic restrictions, the signed Morse formula and a polar-cycle factor are explicit gaps; disputed endpoints are withheld. No formalization is claimed.",
+  "items": [
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/hyperelliptic",
+      "kind": "definition",
+      "name": "Hyperelliptic double cover",
+      "statement": "A smooth projective geometrically connected curve C of genus g≥2 equipped with a finite separable degree-two map π:C→P¹; κ=π*O(1) has degree two and τ is the deck involution. The routed geometric branch initially assumes char k≠2.",
+      "locator": "§1; §2.2",
+      "status": "planned",
+      "note": "Model already planned upstream; scheme comparison and positive-characteristic extensions remain explicit inputs, not new AC layers. API: Import the AC.10 function-field model and the AC.12 curve dictionary; expose π, τ, κ, branch divisor, pullback and norm. Tests: (1) a genus-two curve over a perfect field supplies such a cover; (2) a purely inseparable degree-two map is excluded; (3) κ is a degree-two line bundle, not a chosen rational point.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/rr-space",
+      "kind": "definition",
+      "name": "Function-field Riemann–Roch space",
+      "statement": "For a divisor D of an algebraic function field F/k, L(D) is the k-subspace of F of functions with div(f)+D≥0, including zero; ℓ(D)=finrank_k L(D), guarded by finite-dimensionality.",
+      "locator": "§2 divisor calculations",
+      "status": "library",
+      "note": " API: Reuse membership, monotonicity, principal-divisor transport and Divisor.dim; add the scheme H⁰ comparison through AC.12/JC.B. Tests: (1) zero lies in L(D); (2) a negative-degree divisor has no nonzero sections; (3) this carrier alone is not a coherent sheaf on a scheme.",
+      "library": [
+        "tauceti:TauCeti.riemannRochSpace",
+        "tauceti:TauCeti.Divisor.dim"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/degree-class",
+      "kind": "definition",
+      "name": "Degree on function-field divisor classes",
+      "statement": "For IsFunctionField k F, degreeClass:Cl(F)→Z descends the degree of divisors modulo principal divisors.",
+      "locator": "§4 Picard counting",
+      "status": "library",
+      "note": " API: Reuse degreeClass, degreeClass_divisorClass and its kernel; supply the Picard-scheme comparison separately. Tests: (1) principal divisors map to zero; (2) degree is additive; (3) kernel finiteness does not supply a degree-one class.",
+      "library": [
+        "tauceti:TauCeti.Divisor.degreeClass",
+        "tauceti:TauCeti.Divisor.degreeClass_divisorClass"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/class-finite",
+      "kind": "theorem",
+      "name": "Finite degree-zero function-field class group",
+      "statement": "If F/k is an algebraic function field and k is finite, ker(degreeClass) is finite.",
+      "locator": "§4 finiteness input",
+      "status": "library",
+      "note": "Read actual pinned theorem. It does not assert a rational point on C or representability of Pic⁰.",
+      "library": [
+        "tauceti:TauCeti.Divisor.finite_ker_degreeClass"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/projective-card",
+      "kind": "theorem",
+      "name": "Finite projective-space cardinality",
+      "statement": "For a finite-dimensional vector space V over F_q, (q−1)#P(V)=q^(dim V)−1, including V=0.",
+      "locator": "§4 Abel-fiber counting",
+      "status": "library",
+      "note": "Pinned fraction-free formula uses Nat.card V−1. The vector-space cardinality substitution and scheme-fiber identification are separate.",
+      "library": [
+        "mathlib:Projectivization.card"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/gl-card",
+      "kind": "theorem",
+      "name": "Finite general-linear group cardinality",
+      "statement": "For a finite field F_q, #GL_n(F_q)=∏_(0≤i<n)(q^n−q^i).",
+      "locator": "§1 inverse automorphism weights",
+      "status": "library",
+      "note": "",
+      "library": [
+        "mathlib:Matrix.card_GL_field"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/picard",
+      "kind": "definition",
+      "name": "Picard degree components and Jacobian",
+      "statement": "Pic^d(C) is the degree-d component of the relative Picard scheme, and J=Pic⁰(C). Over F_q, Pic^d(F_q) agrees with degree-d line-bundle classes only after the Brauer obstruction is removed.",
+      "locator": "§2.1",
+      "status": "planned",
+      "note": " API: Import sheafification, representability, degree components, translation, base change and tangent identification from JC; avoid silently identifying stack and scheme. Tests: (1) Pic⁰ is a scheme, not just a finite group; (2) a rational degree-one divisor need not be effective; (3) Picard functor points over general fields can have a descent obstruction.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/symmetric-power",
+      "kind": "construction",
+      "name": "Symmetric powers and Abel morphisms",
+      "statement": "C^(d) represents effective degree-d divisors and is smooth projective of dimension d; A_d sends D to O_C(D).",
+      "locator": "§2.1",
+      "status": "planned",
+      "note": " API: Import relative effective divisors, base change, Abel maps and fiber linear systems from JC.C/D; expose universal divisor and addition. Tests: (1) C^(0) is a point; (2) C^(1)=C; (3) nonreduced divisors require tangent jets.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/coherent-rr",
+      "kind": "theorem",
+      "name": "Coherent Riemann–Roch and duality on C",
+      "statement": "For a line bundle L on a smooth projective geometrically connected curve, h⁰(L)−h¹(L)=deg L+1−g and H¹(L) is dual to H⁰(ω⊗L⁻¹).",
+      "locator": "§2.2; Lemma 4.1",
+      "status": "planned",
+      "note": "This scheme statement is not marked built merely because the function-field theorem exists.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/bun-pgl",
+      "kind": "definition",
+      "name": "Bundles modulo line-bundle twists",
+      "statement": "Bun₂(P¹) in this paper is the set of rank-two vector bundles on P¹_Fq modulo isomorphism and tensoring with a line bundle; equivalently PGL₂-bundle classes in the relevant trivial generic torsor class.",
+      "locator": "§1; Appendix A.1",
+      "status": "planned",
+      "note": " API: Construct the quotient, pushforward from a finite flat double cover and degree mod 2; import the actual Bun_G owner. Tests: (1) O⊕O and O(1)⊕O(1) agree; (2) O⊕O(1) has odd parity; (3) the GL₂ stack has infinitely many central-degree components.",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.0"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/splitting",
+      "kind": "theorem",
+      "name": "Birkhoff–Grothendieck splitting",
+      "statement": "Every rank-two vector bundle on P¹ over a field splits as O(a)⊕O(b), uniquely up to permuting a,b; modulo twisting its class is n=|a−b|.",
+      "locator": "§1 p.2; Lemma 4.1",
+      "status": "missing",
+      "note": "Neither pinned library supplied this theorem; include its vector-bundle proof in GS.0, not just an abstract module splitting."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/automorphism",
+      "kind": "theorem",
+      "name": "Automorphism orders of split bundles",
+      "statement": "Over F_q, |Aut(O²)|=(q²−1)(q²−q); for n>0, |Aut(O⊕O(n))|=(q−1)²q^(n+1). Passing to PGL₂ divides both by q−1.",
+      "locator": "§1 p.2",
+      "status": "missing",
+      "note": "Use Hom(O(a),O(b))=H⁰(O(b−a)), triangularity when a≠b, and the built GL₂ cardinality."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/natural-measure",
+      "kind": "definition",
+      "name": "Normalized inverse-automorphism bundle measure",
+      "statement": "On N≃Bun₂(P¹), μ(0)=(q−1)/(2q), and μ(n)=(q²−1)/(2q^(n+1)) for n>0. Both parity components have mass 1/2.",
+      "locator": "§1 p.2",
+      "status": "planned",
+      "note": " API: Define probability mass function, sum weights, parity conditioning μ₀,μ₁ and tail events. Tests: (1) sum_n μ(n)=1; (2) μ(even)=μ(odd)=1/2; (3) unweighted counting on N cannot be normalized.",
+      "planned": [
+        "ArithmeticStatistics:ST.0"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/tail-mass",
+      "kind": "theorem",
+      "name": "Bundle-measure parity tails",
+      "statement": "For d≥1, μ(d+2N)=1/(2q^(d−1)); the d=0 case is 1/2 rather than q/2.",
+      "locator": "§1 p.2",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/pic-quotient",
+      "kind": "construction",
+      "name": "Finite Picard quotient and uniform law",
+      "statement": "Q_C=Pic(C)/π*Pic(P¹)=Pic(C)/Zκ has two degree-parity fibers of cardinality h=#J(F_q), hence cardinality 2h, after the degree-one divisor-class and Brauer-descent inputs.",
+      "locator": "§1; §4.1",
+      "status": "missing",
+      "note": " API: Construct quotient, translations, Haar/uniform measure and parity map; descend L↦π*L using the projection formula. Tests: (1) κ shifts degree by two; (2) translation by M preserves the uniform law; (3) absence of C(F_q) does not preclude a degree-one divisor class."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/degree-one",
+      "kind": "theorem",
+      "name": "Degree-one divisor classes over finite fields",
+      "statement": "A smooth projective geometrically connected curve over a finite field has index one: its closed-point degrees have gcd one, hence a divisor of degree one; this does not imply a rational point.",
+      "locator": "Theorem 4.2 proof, repaired supplier",
+      "status": "missing",
+      "note": "G3: original F.K. Schmidt/Lang proof still to acquire. The source claim that C has a rational point for large genus is not used."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/joint-measure",
+      "kind": "construction",
+      "name": "Joint bundle pushforward",
+      "statement": "For M,M′ on C, push uniform measure on Q_C along L↦(π*(L⊗M),π*(L⊗M′)). It depends on the ratio M⁻¹M′ up to the natural translations and has deterministic parity difference deg(M⁻¹M′) mod 2.",
+      "locator": "Conjecture 1.2; Theorem 4.4",
+      "status": "missing",
+      "note": " API: Construct pushforward, ratio invariance, marginals and fixed-parity subsequences. Tests: (1) M=M′ gives a diagonal law; (2) odd ratio forces opposite parities; (3) both marginals equal the one-bundle law."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/main-single-source",
+      "kind": "theorem",
+      "name": "Source one-bundle equidistribution",
+      "statement": "For a fixed F_q and hyperelliptic curves with genera tending to infinity, the paper states convergence of the one-bundle pushforward to μ. Theorem 4.2 explicitly assumes q>4, while Theorem 1.1 omits this restriction.",
+      "locator": "Theorems 1.1,4.2",
+      "status": "missing",
+      "note": "G0/G3: retain the version discrepancy; the safe routed theorem below assumes q>4 and explicitly requires the analytic suppliers. This is not a claim for every q."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/main-joint-source",
+      "kind": "theorem",
+      "name": "Source conditional joint equidistribution",
+      "statement": "Assuming the uniform exponential Betti conjecture with base N, the paper states joint equidistribution for q>N⁴ when the minimum effective degree of the ratio modulo κ tends to infinity, after passage to a subsequence of fixed ratio parity.",
+      "locator": "Conjecture 1.2; Theorem 4.4",
+      "status": "missing",
+      "note": "G0/G7: record the source claim without accepting its undeveloped function-field Linnik transfer. The precise conditional assembly is routed separately."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/main-hecke-source",
+      "kind": "theorem",
+      "name": "Source bounded-ratio Hecke alternative",
+      "statement": "If the minimum effective degree of the ratio fails to tend to infinity, the source asserts a subsequence represented by effective D_i with fixed pushforward D on P¹, and convergence of its joint measures to μ_D.",
+      "locator": "Conjecture 1.2; Theorem 4.4",
+      "status": "missing",
+      "note": "G7/G8: the subsequence extraction is elementary after bounded-degree finiteness, but the convergence and torus integral-model identification remain unclosed. Unrouted endpoint."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/theta",
+      "kind": "definition",
+      "name": "Effective divisor loci",
+      "statement": "Θ_d⊂Pic^d(C) is the reduced image of A_d; Θ_d is empty for d<0 and is all Pic^d for d≥g. Comparing different degrees requires specified κ-translates or other line-bundle translations.",
+      "locator": "§2.1; §3",
+      "status": "missing",
+      "note": " API: Expose inclusion, proper image, fibers, dimension and base change; keep translated degree components typed. Tests: (1) Θ₀ is the trivial class; (2) Θ_g=Pic^g; (3) Θ_(d−2) enters Pic^d via tensor κ."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/abel-tangent",
+      "kind": "theorem",
+      "name": "Differential of the Abel map",
+      "statement": "T_D C^(d)=H⁰(D,O_D(D)), T_L Pic^d=H¹(C,O_C); dA_D is the connecting map from 0→O_C→O_C(D)→O_D(D)→0, of rank d+1−h⁰(D).",
+      "locator": "Lemma 2.1",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/abel-sum-tangent",
+      "kind": "theorem",
+      "name": "Tangent image of a sum of Abel maps",
+      "statement": "For effective D_i, the image of the differential of the sum map at (D_i) equals the Abel differential image for the divisor union max_i D_i.",
+      "locator": "Corollary 2.2",
+      "status": "missing",
+      "note": "Union takes maximum multiplicities, not the sum. The unweighted addition map is meant."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/weighted-abel",
+      "kind": "theorem",
+      "name": "Weighted Abel differential with invertible multiplicities",
+      "statement": "At distinct p_i with h⁰(O(Σp_i))=1, the differential of (p_i)↦O(Σd_i p_i) is injective when all d_i are nonzero in k.",
+      "locator": "Proposition 2.3, corrected hypothesis",
+      "status": "missing",
+      "note": "G2: the v1 statement omits the invertibility hypothesis; multiplication by p has zero differential in characteristic p."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/weighted-source",
+      "kind": "theorem",
+      "name": "Unqualified weighted Abel claim",
+      "statement": "V1 Proposition 2.3 asserts the weighted Abel differential has the unweighted injectivity property for arbitrary multiplicities, without a characteristic restriction.",
+      "locator": "Proposition 2.3",
+      "status": "missing",
+      "note": "G2: false in characteristic p with one multiplicity p. Corollary 2.4 cannot inherit this infinitesimal proof unchanged. The restricted version is the routed item."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/weighted-fibers",
+      "kind": "theorem",
+      "name": "Weighted Abel quasi-finiteness near nonspecial reduced support",
+      "statement": "For effective D_i whose union support has h⁰=1, a weighted Abel map with all used weights invertible in k has injective differential on the relevant support stratum, hence is locally quasi-finite there.",
+      "locator": "Corollary 2.4, restricted branch",
+      "status": "missing",
+      "note": "Do not infer the stated char-p claim from the unqualified Proposition 2.3."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/hyperell-reduction",
+      "kind": "definition",
+      "name": "Hyperelliptic and reduced parts of a divisor",
+      "statement": "For effective D, write D=D_h+D_r where D_h is the maximal pullback divisor from P¹ and D_r contains no full hyperelliptic fiber. At a ramification point, D_h has even multiplicity 2 floor(mult/2).",
+      "locator": "Notation 2.5–2.6",
+      "status": "missing",
+      "note": " API: Define h=deg(D_h)/2, residual divisor, involution, uniqueness, degree and linear-equivalence formulas. Tests: (1) p+τp reduces to κ; (2) a single ramification point stays in D_r; (3) three copies of a ramification point leave one residual copy."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/hyperell-sections",
+      "kind": "theorem",
+      "name": "Sections of the hyperelliptic pencil",
+      "statement": "For 0≤h<g, pullback identifies H⁰(P¹,O(h)) with H⁰(C,hκ), of dimension h+1.",
+      "locator": "Lemma 2.7",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/canonical-bundle",
+      "kind": "theorem",
+      "name": "Canonical bundle of a hyperelliptic curve",
+      "statement": "ω_C≅κ^(g−1).",
+      "locator": "Lemma 2.7",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/canonical-involution",
+      "kind": "theorem",
+      "name": "Projective action of the involution",
+      "statement": "The hyperelliptic involution acts trivially on P(H⁰(ω_C)).",
+      "locator": "Corollary 2.8",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/canonical-map",
+      "kind": "theorem",
+      "name": "Canonical map through the rational normal curve",
+      "statement": "For g≥2 the canonical map factors through π followed by the degree-(g−1) Veronese P¹→P^(g−1).",
+      "locator": "Corollary 2.9",
+      "status": "missing",
+      "note": "G2: v1 writes O(g), inconsistent with the target dimension and ω=(g−1)κ; this item records the corrected degree."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/gauss",
+      "kind": "construction",
+      "name": "Extended Gauss map of an Abel image",
+      "statement": "For 1≤d≤g, the generic d-plane image of dA on C^(d) extends through Sym^d(P¹)=P^d by the length-d osculating span of the canonical rational normal curve.",
+      "locator": "Corollary 2.10",
+      "status": "missing",
+      "note": " API: Construct the Grassmannian-valued morphism, its factorization and agreement on h⁰(D)=1; include repeated-point jets. Tests: (1) d=1 gives the canonical map; (2) d=g is the constant full tangent space; (3) a double point uses an osculating plane."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/gauss-embedding",
+      "kind": "theorem",
+      "name": "Embedding by secant planes",
+      "statement": "For d<g, the induced P^d→Gr(d,H¹(O_C)) is an embedding and the Gauss images agree exactly when π_*D agrees.",
+      "locator": "Lemma 2.11",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/canonical-span",
+      "kind": "theorem",
+      "name": "Independent canonical directions",
+      "statement": "For k≤g points whose images on P¹ are pairwise distinct, their k canonical lines span a k-dimensional vector space, or projective dimension k−1.",
+      "locator": "Corollary 2.12",
+      "status": "missing",
+      "note": "Repeated π-images lower the dimension; jets require the separate osculating formulation."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/special-divisor",
+      "kind": "theorem",
+      "name": "Special divisor criterion",
+      "statement": "For D=D_h+D_r with h=deg D_h/2 and r=deg D_r, h¹(D)>0 iff h+r≤g−1.",
+      "locator": "Lemma 2.13",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/linear-system",
+      "kind": "theorem",
+      "name": "Complete linear system of a hyperelliptic divisor",
+      "statement": "For D=D_h+D_r, if h=deg D_h/2 and r=deg D_r satisfy h+r≤g, then |D|=D_r+|hκ| and h⁰(D)=h+1.",
+      "locator": "Lemma 2.13",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/nash",
+      "kind": "definition",
+      "name": "Nash blowup",
+      "statement": "For a reduced pure-dimensional variety X in a smooth ambient space, the Nash blowup is the closure of the graph of its tangent-space Gauss map over the smooth locus, with its map to X.",
+      "locator": "Notation 2.14",
+      "status": "missing",
+      "note": " API: Construct tangent Grassmann bundle, graph closure, proper birational map and ambient-independence comparison. Tests: (1) a smooth X has identity Nash map; (2) the exceptional fibers retain limiting tangent spaces; (3) the blowup is not just the normalization."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/nash-theta",
+      "kind": "theorem",
+      "name": "Nash model of a proper theta locus",
+      "statement": "For 1≤d<g, C^(d)→Θ_d is the Nash blowup, using the extended Gauss map and the residual-divisor description.",
+      "locator": "Proposition 2.15, restricted degree",
+      "status": "missing",
+      "note": "G2: d<g is required by the proof. For d=g and g≥2, Θ_g=J is smooth but the Abel map has positive-dimensional special fibers."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/nash-source",
+      "kind": "theorem",
+      "name": "Unrestricted Nash statement in v1",
+      "statement": "Proposition 2.15 prints C^(d) as the Nash blowup of Θ_d without a stated restriction on d.",
+      "locator": "Proposition 2.15",
+      "status": "missing",
+      "note": "G2: reject the literal all-d reading; d=g has smooth target and nontrivial Abel fibers, and d>g has positive relative dimension. Restricted item routed separately."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/sum-map",
+      "kind": "construction",
+      "name": "Sum maps from divisors and theta loci",
+      "statement": "For 0≤a,b≤g define A_ab:C^(g−a)×C^(g−b)→Pic^(2g−a−b) and Σ_ab:Θ_(g−a)×Θ_(g−b)→Pic^(2g−a−b) by tensor product. A fiber of Σ is X_L=Θ_(g−a)∩(L−Θ_(g−b)).",
+      "locator": "§2.3; §3.1",
+      "status": "missing",
+      "note": " API: Construct factorization through Abel maps, proper fibers and first-projection identification; retain expected dimension n=g−a−b. Tests: (1) a=b=0 gives X_L=J; (2) a=g gives a point or empty fiber; (3) a+b>g does not have a nonnegative expected dimension."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/sum-rank",
+      "kind": "theorem",
+      "name": "Rank formula at a pair of divisors",
+      "statement": "Writing U=D₁∪D₂, rank dA_ab=min(g,deg(U_h)/2+deg(U_r)). A point is critical for the map exactly when this rank is below g.",
+      "locator": "Proposition 2.16",
+      "status": "missing",
+      "note": "Absolute singularity of a fiber also requires the expected-dimension hypothesis; record criticality without suppressing that distinction."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/canonical-septuple",
+      "kind": "construction",
+      "name": "Canonical decomposition of two divisors",
+      "statement": "Set Hcap=D₁h∩D₂h, H_i=D_ih−Hcap, S=D₁r∩(D₁r+D₂r)_h, Rcap=(D₁r−S)∩(D₂r−τS), R₁=D₁r−S−Rcap, R₂=D₂r−τS−Rcap. Then D₁=Hcap+H₁+S+Rcap+R₁ and D₂=Hcap+H₂+τS+Rcap+R₂.",
+      "locator": "Definition 2.17, PDF p.12",
+      "status": "missing",
+      "note": " API: Define min/max divisor operations, all seven effective pieces, reconstruction, disjointness and degree identities. Tests: (1) (p,τp) puts p in S and τp in the second divisor; (2) (p,p) contributes to Rcap; (3) a common full fiber contributes to Hcap."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/septuple-rank",
+      "kind": "theorem",
+      "name": "Incorrect expanded septuple rank formula",
+      "statement": "V1 Corollary 2.18 gives rank min(g,(deg Hcap+deg H₁+deg H₂)/2+deg S+deg Rcap+deg R₁+deg R₂).",
+      "locator": "Corollary 2.18",
+      "status": "missing",
+      "note": "G2: false for a ramification point p with D₁=p,D₂=2p and g≥2: H₂=2p,R₁=p, giving min(g,2), whereas D₁ union D₂=2p and the rank is 2+1−h⁰(2p)=1. Cross-overlap between a hyperelliptic part and the other residual part is not subtracted. The union-divisor formula is the routed target; all uses of this expanded formula require rechecking."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/effectivity-index",
+      "kind": "definition",
+      "name": "Effectivity index modulo the pencil",
+      "statement": "For a line bundle L, e(L)=max{m∈Z:H⁰(C,L⊗κ^(−m))≠0}. It can be negative; e(L⊗κ^r)=e(L)+r.",
+      "locator": "Definition 2.19",
+      "status": "missing",
+      "note": " API: Prove existence and boundedness using RR and degree; expose floor((deg L−g)/2)≤e(L)≤floor(deg L/2), shifts and Θ-membership. Tests: (1) e(O)=0; (2) e(κ^r)=r; (3) a noneffective line bundle can have negative e."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/effectivity-source",
+      "kind": "theorem",
+      "name": "Incorrect lower bound in v1",
+      "statement": "After Definition 2.19, v1 prints e(L)≥(2g−a−b−1)/2 for every L of degree 2g−a−b.",
+      "locator": "p.12 after Definition 2.19",
+      "status": "missing",
+      "note": "G2: false for generic L of degree g, for which e(L)=0, with g≥2 and a+b=g. RR gives only floor((deg L−g)/2) as a uniform lower bound. Unrouted."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/critical-locus",
+      "kind": "theorem",
+      "name": "Dimension and indexing of critical loci",
+      "statement": "The canonical residual data give finitely many strata for the critical locus of A_ab^−1(L), each of dimension at most e(L); if e(L)≤n=g−a−b, the fiber has expected dimension n.",
+      "locator": "Corollary 2.20",
+      "status": "missing",
+      "note": "Route the characteristic-zero branch established using weighted differentials; all-characteristic transfer needs a separate proof, G2."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/perverse",
+      "kind": "definition",
+      "name": "Middle perversity and intersection complexes",
+      "statement": "For a finite-type scheme over a field and rational ℓ-adic coefficients with ℓ invertible, use the middle perverse heart and IC_X=j_!*(Q_ℓ[dim X]) for a pure-dimensional irreducible X.",
+      "locator": "§3.1",
+      "status": "planned",
+      "note": " API: Import truncation, recollement, intermediate extension, support/cosupport bounds and duality with its Tate twist. Tests: (1) Q_ℓ[d] is perverse on a smooth d-fold; (2) IC is not an unshifted constant sheaf; (3) integral coefficients do not inherit rational semisimplicity.",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.5"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/decomposition",
+      "kind": "theorem",
+      "name": "Geometric decomposition theorem",
+      "statement": "For projective f and pure rational perverse K in the finite-field setting, Rf_*K decomposes after geometric base change into shifted perverse cohomology, each geometrically semisimple.",
+      "locator": "Lemma 3.1; §3.2",
+      "status": "planned",
+      "note": "The splitting need not be canonical or preserve an arithmetic Weil structure; source-specific Frobenius comparisons require additional arguments.",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.7"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/relative-hl",
+      "kind": "theorem",
+      "name": "Relative hard Lefschetz",
+      "statement": "For projective f, pure rational perverse K and an f-ample class η, η^i:pH^(−i)(Rf_*K)→pH^i(Rf_*K)(i) is an isomorphism.",
+      "locator": "§3.2",
+      "status": "planned",
+      "note": "",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.7"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/semismall",
+      "kind": "definition",
+      "name": "Semismall maps and relevant strata",
+      "statement": "A proper map f:X→Y with X pure-dimensional is semismall when 2dim f⁻¹(y)≤dim X−dim S on each adapted stratum S; equality specifies relevant strata and their top-fiber local systems.",
+      "locator": "Lemma 3.1; Lemma 3.7",
+      "status": "missing",
+      "note": " API: Define the dimension inequality independently of the decomposition theorem, stratified fiber local systems and induced summands. Tests: (1) C^(d)→Θ_d has P^r fibers on codimension-2r strata; (2) a positive-dimensional map to a point is generally not semismall; (3) a relevant local system need not be constant without proof."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/theta-ic",
+      "kind": "theorem",
+      "name": "Theta loci are rational homology manifolds",
+      "statement": "For a hyperelliptic curve and 0≤d≤g, IC_(Θ_d)=Q_ℓ[d], using semismall Abel fibers and rank-one constant relevant local systems.",
+      "locator": "Lemma 3.1",
+      "status": "missing",
+      "note": "IY Proposition 2.8/Theorem 2.9 were read in the complex setting. An étale all-characteristic proof must re-establish this decomposition with Tate twists; it is not a literal transfer of complex singular cohomology."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/theta-ample",
+      "kind": "theorem",
+      "name": "Successive theta loci are set-theoretically ample sections",
+      "statement": "After suitable translated identifications, Θ_d⊂Θ_(d+1) is set-theoretically the zero locus of an ample section; over F_q the construction is defined over every sufficiently large finite extension.",
+      "locator": "Lemma 3.2",
+      "status": "missing",
+      "note": "The proof uses non-Weierstrass points after extension. It does not provide such a point over F_q itself."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/theta-low",
+      "kind": "theorem",
+      "name": "Low cohomology of theta loci",
+      "statement": "For 0≤j<d≤g, restriction H^j(J_bar,Q_ℓ)→H^j((Θ_d)_bar,Q_ℓ) is an isomorphism, with the source-specific Frobenius compatibility.",
+      "locator": "Corollary 3.3",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/theta-high",
+      "kind": "theorem",
+      "name": "High cohomology of theta loci",
+      "statement": "For d<j and 0≤d≤g, H^j(Θ_d,Q_ℓ)≅H^(j+2g−2d)(J,Q_ℓ)(g−d).",
+      "locator": "Theorem 3.4",
+      "status": "missing",
+      "note": "Retain the Tate twist: geometric Frobenius on Q_ℓ(1) is q⁻¹."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/intersection-lci",
+      "kind": "theorem",
+      "name": "Theta intersections as ample complete intersections set-theoretically",
+      "statement": "If e(L)≤n=g−a−b≥0, X_L is pure of dimension n and, after sufficiently large finite extension, set-theoretically an intersection of a+b translates of Θ_(g−1) in J.",
+      "locator": "Lemma 3.5",
+      "status": "missing",
+      "note": "Set-theoretic lci is the assertion used; no scheme-theoretic regular-sequence claim is inferred."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/intersection-low",
+      "kind": "theorem",
+      "name": "Low cohomology of theta intersections",
+      "statement": "If e(L)≤n=g−a−b, H^j(X_L,Q_ℓ)≅H^j(J,Q_ℓ) for 0≤j<n, compatibly with generalized Frobenius eigenspaces.",
+      "locator": "Corollary 3.6",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/relative-semismall",
+      "kind": "theorem",
+      "name": "Semismallness away from a small locus",
+      "statement": "The map (A×A)_L onto X_L is semismall outside a locus of dimension <e(L), with relevant loci Θ_(g−a−2r)∩(L−Θ_(g−b−2s)) and fibers P^r×P^s on the open strata.",
+      "locator": "Lemma 3.7",
+      "status": "missing",
+      "note": "Shifts by (r+s)κ must be included when typing the line-bundle degree on each lower locus."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/ic-kernel",
+      "kind": "theorem",
+      "name": "Constant perverse sheaf to the intersection complex",
+      "statement": "If e(L)≤n, Q_ℓ[n] on X_L is perverse and maps onto IC_(X_L), with a perverse kernel supported in dimension ≤e(L).",
+      "locator": "Proposition 3.8 and use in Theorem 3.9",
+      "status": "missing",
+      "note": "The surjectivity used in the displayed short exact sequence must be proved, not assumed from existence of a map."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/intersection-high",
+      "kind": "theorem",
+      "name": "High cohomology of theta intersections",
+      "statement": "If 0≤a,b≤g, n=g−a−b≥0, and e(L)≤n, then for i>n+e(L), H^i(X_L,Q_ℓ)≅H^(i+2a+2b)(J,Q_ℓ)(a+b).",
+      "locator": "Theorems 1.3,3.9",
+      "status": "missing",
+      "note": "Precise internal theorem used instead of the introductory Θ_r shorthand. Dependence on the positive-characteristic geometry remains G2."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/jacobian-betti",
+      "kind": "theorem",
+      "name": "Exterior cohomology of a Jacobian",
+      "statement": "For a g-dimensional Jacobian over an algebraically closed field and ℓ invertible, H*(J,Q_ℓ)=Λ*H¹(J,Q_ℓ), dim H¹=2g and total Betti number 4^g.",
+      "locator": "§3.2; §4.1",
+      "status": "missing",
+      "note": "The existing abelian-variety carrier does not provide this cohomology theorem; exact realization supplier remains to locate."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/betti-conjecture",
+      "kind": "definition",
+      "name": "Uniform theta-intersection Betti hypothesis",
+      "statement": "The hyperelliptic hypothesis B(N) asserts a uniform exponential total-Betti bound N^g for X_L with fixed a,b, sufficiently large g, and e(L)≤g−a−b, over the relevant fields. The source also suggests removing the e(L) restriction.",
+      "locator": "Conjectures 1.4,3.10,4.3",
+      "status": "missing",
+      "note": " API: State all quantifiers, ℓ≠char k, whether a,b are fixed, and whether N or an implicit constant is allowed; carry B(N) as a hypothesis. Tests: (1) a bound depending on C is insufficient; (2) an O_ε((960+ε)^g) bound does not give the exact base 960; (3) characteristic zero alone does not prove a finite-field hypothesis."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/complex-betti-source",
+      "kind": "theorem",
+      "name": "Source complex exponential Betti bound",
+      "statement": "For C/C hyperelliptic and e(L)≤g−a−b, v1 Theorem 3.11 claims Σ_i dim H^i(X_L,Q)≪_ε(960+ε)^g.",
+      "locator": "Theorems 1.5,3.11",
+      "status": "missing",
+      "note": "G0/G4/G5: the numerical base is withheld because the printed polar calculation and signed Morse inequality require repair. Record the ε-dependent statement exactly; not ≤960^g."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/perverse-middle",
+      "kind": "theorem",
+      "name": "Only the middle perverse direct image is nonconstant",
+      "statement": "For Σ_ab, the low-cohomology comparison identifies negative perverse direct images of Q_ℓ[2g−a−b] with shifted constant cohomology of J; relative hard Lefschetz controls positive indices. Stalk bounds reduce to pH⁰(RΣ_*Q_ℓ[2g−a−b]) plus an explicitly bounded constant contribution.",
+      "locator": "§3.2 preceding Theorem 3.11",
+      "status": "missing",
+      "note": "Specify shifts and twists in the future proof; there is no unshifted equality of all perverse images."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/weak-high",
+      "kind": "theorem",
+      "name": "Alternative high-cohomology range in characteristic zero",
+      "statement": "For C/C and e(L)≤g−a−b, the source obtains H^i(X_L,Q)≅H^(i+2a+2b)(J,Q)(a+b) for i>g−(a+b)/2+e(L), using higher-discriminant support.",
+      "locator": "Proposition 3.15",
+      "status": "missing",
+      "note": "This range is weaker than Theorem 3.9 and does not use its exact same proof."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/chow",
+      "kind": "definition",
+      "name": "Chow operations and Chern classes",
+      "statement": "Use Chow groups with proper pushforward, flat and refined lci pullback, Chern classes and intersection products, with explicit cycle multiplicities and rational coefficients where required.",
+      "locator": "§§3.3,3.5",
+      "status": "planned",
+      "note": " API: Import projection and excess-intersection formulas, top-Chern Euler characteristic and degree pairing. Tests: (1) [2]_* on a u-dimensional abelian cycle scales its cohomology class by 4^u; (2) image and pushforward cycles can differ by generic degree; (3) excess components require refined intersection.",
+      "planned": [
+        "SchemeAndStackFoundations:SF.5"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/symmetric-chern",
+      "kind": "theorem",
+      "name": "Chern class of a symmetric power",
+      "statement": "In the rational cohomology ring of C^(g−a), c(TC^(g−a))=(1+x)^(1−a) exp(−θ/(1+x)), where x is the point-addition divisor class and θ is pulled back from J.",
+      "locator": "Proposition 3.16, Macdonald input",
+      "status": "missing",
+      "note": "Acquire the original ring presentation, truncation and sign normalization before the coefficient computation, G9."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/poincare-cycle",
+      "kind": "theorem",
+      "name": "Poincaré class of a theta locus",
+      "statement": "For 0≤d≤g, [Θ_d]=θ^(g−d)/(g−d)! in rational cohomology of J, with ∫_J θ^g=g!.",
+      "locator": "Proposition 3.16, [ACGH] input",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/general-euler",
+      "kind": "theorem",
+      "name": "Euler number of a smooth general Abel-sum fiber",
+      "statement": "In characteristic zero, for 0≤a,b≤g and a+b≤g, a smooth expected-dimensional general fiber F of A_ab satisfies |χ(F)|≤8^g.",
+      "locator": "Proposition 3.16",
+      "status": "missing",
+      "note": "Proof uses the actual symmetric-power Chern formula, Poincaré formula and binomial cancellation; original suppliers are still acquisition gaps."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/euler-obstruction",
+      "kind": "definition",
+      "name": "Local Euler obstruction",
+      "statement": "For an irreducible complex subvariety V of a smooth Y, Eu_V is its constructible local Euler obstruction, extended by zero, equal to one on V_smooth.",
+      "locator": "§3.2",
+      "status": "missing",
+      "note": " API: Construct from the Nash bundle, prove stratified constructibility and that Eu_V form the integral triangular basis of constructible functions. Tests: (1) Eu_Y=1 for smooth Y; (2) support is V; (3) χ(Q_Y[dim Y])=(−1)^dim Y, so its coefficient can be negative."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/polar",
+      "kind": "definition",
+      "name": "Polar varieties and multiplicities",
+      "statement": "For a pure-dimensional complex germ V⊂Y, a generic linear projection determines polar varieties; γ_i(V,x) is the local multiplicity of the i-dimensional polar cycle, with the top-dimensional convention explicit.",
+      "locator": "§3.2; §3.5",
+      "status": "missing",
+      "note": " API: Construct conormal incidence, generic-choice independence and local cycle multiplicity; compare with vanishing-cycle definitions. Tests: (1) a smooth d-fold has γ_d=1; (2) genericity excludes the discriminant arrangement; (3) a set-theoretic image loses possible cycle multiplicities."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/morse-source",
+      "kind": "theorem",
+      "name": "Incorrect signed Morse inequality as printed",
+      "statement": "V1 Theorem 3.12 writes χ(K)=Σn_α Eu_(Vα) and dim H^(−i)(K)_x≤Σn_α γ_i(Vα,x) for a perverse K.",
+      "locator": "Theorem 3.12",
+      "status": "missing",
+      "note": "G4: K=Q_C[1] on a smooth complex curve has χ=−1 and γ₁=1, giving the false bound 1≤−1. Use effective characteristic-cycle coefficients with the correct dimension signs or a valid absolute-value bound; original Massey statement remains to acquire."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/characteristic-cycle",
+      "kind": "definition",
+      "name": "Characteristic cycle with normalized signs",
+      "statement": "For a constructible complex K on a smooth complex variety, normalize CC so that perverse sheaves have effective cycles and CC(Q_Y[dim Y]) is the zero section with multiplicity one.",
+      "locator": "Theorem 3.12 prerequisite; Sawin §1",
+      "status": "missing",
+      "note": " API: Construct CC, local index formula and its relation to Eu_V including (−1)^dim V; use CC coefficients in stalk bounds. Tests: (1) shift by one negates CC; (2) Q_C[1] has positive zero-section coefficient; (3) naive Euler pushforward is not functorial for wild Artin–Schreier covers."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/morse-correct",
+      "kind": "theorem",
+      "name": "Characteristic-cycle polar bound",
+      "statement": "For a perverse sheaf K on a smooth complex variety, dim H^(−i)(K)_x is bounded by the ith polar multiplicity of its effective characteristic cycle, with the matching cycle convention.",
+      "locator": "Massey input to Theorem 3.12; Sawin Theorem 1.4 comparison",
+      "status": "missing",
+      "note": "This is a source-acquisition target, not a proof supplied by the false printed n_α formula. Sawin gives an independent characteristic-p formulation for perfect k and ℓ invertible."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/higher-discriminant",
+      "kind": "definition",
+      "name": "Higher discriminants",
+      "statement": "For a proper map f:X→Y of smooth complex varieties, Δ^i(f) consists of y admitting no (i−1)-dimensional tangent subspace transverse to f along the entire fiber.",
+      "locator": "Definition 3.13",
+      "status": "missing",
+      "note": " API: Construct closed loci, transversality along fibers, codimension estimates and relation to singular support. Tests: (1) Δ¹ is the critical-value locus; (2) a smooth map has empty positive discriminants; (3) inseparable maps in characteristic p invalidate automatic codim Δ^i≥i."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/discriminant-codim",
+      "kind": "theorem",
+      "name": "Codimension of higher discriminants",
+      "statement": "For proper maps between smooth complex varieties, codim Δ^i(f)≥i; supports of the relevant direct-image constituents lie among the closures of codimension-i components.",
+      "locator": "Theorem 3.14 input; Migliorini–Shende",
+      "status": "missing",
+      "note": "Published MS §3 explicitly requires a separate codimension hypothesis in positive characteristic; no blanket transfer is routed."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/discriminant-expansion",
+      "kind": "theorem",
+      "name": "Euler-obstruction expansion by higher discriminants",
+      "statement": "For proper smooth-source f over C, χ(Rf_*Q_X) is an integral sum of Eu_(Δ^(i,α)); coefficients are generic transverse-slice vanishing-cycle Euler values with fixed Φ convention.",
+      "locator": "Theorem 3.14; MS published Corollaries 2.16–2.18",
+      "status": "missing",
+      "note": "MS supplies signed characteristic-cycle conversion (−1)^codim in its convention. Do not substitute these possibly signed coefficients directly into a dimension bound."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/abel-motivic",
+      "kind": "theorem",
+      "name": "Motivic Abel-fiber decomposition and inversion",
+      "statement": "After typing κ shifts, [A_ab]=Σ_(r,s≥0) L^(r+s)[Σ_(a+2r,b+2s)] in the relative Grothendieck group. Thus [Σ_ab]=[A_ab]−L[A_(a+2,b)]−L[A_(a,b+2)]+L²[A_(a+2,b+2)].",
+      "locator": "§3.2 after Theorem 3.14",
+      "status": "missing",
+      "note": "G4: v1 has inconsistent indices and a missing L in one inverse term. Euler specialization L↦1 gives the four-term constructible-function identity; this is not an equality of derived objects without shifts and twists."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/transverse-dimension",
+      "kind": "theorem",
+      "name": "Transverse slices along a canonical residual stratum",
+      "statement": "In characteristic zero, for the locus with Rcap fixed and R₁+R₂ fixed, put r=deg(R₁+R₂+Rcap). A generic (g−r)-plane is transverse to A_ab along that locus, and no smaller-dimensional plane is.",
+      "locator": "Lemma 3.17",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/discriminant-strata",
+      "kind": "definition",
+      "name": "Candidate higher-discriminant varieties",
+      "statement": "V_(r,s)=Θ_r+[2](Θ_s), with translations identifying degree components and r,s≥0, r+s≤g−1. Here [2](X) is an image, while [2]⁻¹(X) denotes the full inverse image.",
+      "locator": "Notation 3.18; §3.5",
+      "status": "missing",
+      "note": " API: Construct the addition image, dimension, generic presentation and conormal incidence; distinguish image cycle from pushforward cycle. Tests: (1) V_(r,0)=Θ_r; (2) V_(0,1) is the doubled curve; (3) [2]⁻¹(X) includes all two-torsion translates."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/discriminant-components",
+      "kind": "theorem",
+      "name": "Higher-discriminant component containment",
+      "statement": "In characteristic zero, codimension-i components of Δ^i(A_ab) occur among translated V_(r,s) with r+s=g−i.",
+      "locator": "Corollary 3.19",
+      "status": "missing",
+      "note": "Containment among candidates does not assert every V_(r,s) occurs or has multiplicity one."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/ordinary-double",
+      "kind": "definition",
+      "name": "Ordinary quadratic singularity and vanishing module",
+      "statement": "An ordinary quadratic hypersurface singularity is defined through its completed or étale local equation and smooth projective tangent quadric; its vanishing cycles have the source-qualified rank-one middle-degree description.",
+      "locator": "Proposition 3.20",
+      "status": "planned",
+      "note": " API: Import LPV local model, Milnor/vanishing module, orientation and twist; specialize the complex nondegenerate-Hessian branch. Tests: (1) a node has one vanishing cycle; (2) a degenerate Hessian is excluded; (3) characteristic two needs a separate polar-form convention.",
+      "planned": [
+        "LefschetzPencilsAndVanishingCycles:LPV.2"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/node-count",
+      "kind": "theorem",
+      "name": "Nodal slices of Abel-sum maps",
+      "statement": "At a generic point of V_(r,s), the source-specific transverse sliced Abel-sum map has only ordinary double points, at most 10^g.",
+      "locator": "Proposition 3.20",
+      "status": "missing",
+      "note": "Complex analytic Hessian proof; slice dimensions and generic unramified support must be retained. It is not an all-characteristic theorem."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/polar-incidence",
+      "kind": "construction",
+      "name": "Incidence model for polar cycles of V_(r,s)",
+      "statement": "For r+s≤g−1, use C^r_sym×C^s_sym×P^(g−1−r−s), mapping to J by D+[2]E and to P^(g−1) by the sum π_*D+π_*E+F. Polar loci arise from inverse images of annihilator linear spaces.",
+      "locator": "§3.5",
+      "status": "missing",
+      "note": " API: Define both proper maps, exceptional discriminant B and pushforward cycle with generic degree. Tests: (1) r=s=0 reduces to the auxiliary projective factor; (2) an annihilator reverses linear-space dimension; (3) ramification hyperplanes are part of B."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/polar-incidence-generic",
+      "kind": "theorem",
+      "name": "Generic incidence realization of the polar locus",
+      "statement": "For an annihilator linear space avoiding containment in B, the auxiliary incidence image contains the polar locus; for a general choice equality holds in the source setting.",
+      "locator": "Lemma 3.21",
+      "status": "missing",
+      "note": "G5: statement prints L⊂B while its proof uses L∨ not contained in B. The routed statement uses the latter, with exact scheme/cycle comparison still to prove."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/polar-coefficient-source",
+      "kind": "theorem",
+      "name": "Disputed polar-cycle coefficient",
+      "statement": "V1 Lemma 3.22 computes its coefficient using [2]_*[Θ_u]=2^u[Θ_u] and concludes a g²24^g upper bound.",
+      "locator": "Lemma 3.22, PDF p.27",
+      "status": "missing",
+      "note": "G5: in cohomology [2]_* on a u-dimensional abelian cycle scales by 2^(2u)=4^u. For r=0,s=1,k=g−2 the displayed coefficient is 2, while the pushforward doubled-curve cycle has coefficient 4. Generic image degree must also be checked. Unrouted numerical display."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/polar-multiplicity-source",
+      "kind": "theorem",
+      "name": "Disputed exponential polar-multiplicity bound",
+      "statement": "V1 Proposition 3.23 claims mult_x P_L(V_(r,s))≤g²96^g.",
+      "locator": "Proposition 3.23",
+      "status": "missing",
+      "note": "G5: depends on the disputed preceding coefficient; the lift of a normalization to a proper surjective product also needs a finite base change. Keep qualitative construction but withhold the numerical bound."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/positive-intersection",
+      "kind": "theorem",
+      "name": "Nonnegative intersection contributions on an abelian variety",
+      "statement": "For proper intersections in an abelian variety, the refined contribution of each connected component is nonnegative under the cited nef-tangent intersection theorem; an isolated-point contribution bounds local multiplicity in the stated setting.",
+      "locator": "Proposition 3.23; Fulton 12.2(a),12.4",
+      "status": "missing",
+      "note": "G9: acquire the exact Fulton hypotheses and multiplicity theorem; trivial tangent bundle supplies nefness, not a license to ignore excess-intersection data."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/pushforward-sections",
+      "kind": "theorem",
+      "name": "Splitting index from sections",
+      "statement": "For L∈Pic^(g−1), the bundle index of π*L is 2h⁰(L); for L∈Pic^(g−2), it is 2h⁰(L)+1.",
+      "locator": "Lemma 4.1",
+      "status": "missing",
+      "note": "RR gives Euler characteristics 0 and −1 respectively; compute h⁰ of the split bundle on P¹, including the zero-section cases."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/reduced-divisors",
+      "kind": "definition",
+      "name": "Divisors with no hyperelliptic pair",
+      "statement": "C₀^(n) is the locus of effective degree-n divisors containing no full π-fiber. For n≤g, each effective line-bundle class is uniquely represented by a reduced divisor followed by a κ-power.",
+      "locator": "§4.1 first proof",
+      "status": "missing",
+      "note": " API: Construct reduced locus, unique residual representative in the nonspecial range and the Θ_n disjoint stratification by C₀^(n−2j). Tests: (1) p+τp is excluded; (2) a single branch point is allowed; (3) degree beyond g requires extra linear-system analysis."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/curve-zeta",
+      "kind": "construction",
+      "name": "Curve zeta series and numerator",
+      "statement": "For smooth projective geometrically connected C/F_q, Z_C(t)=Σ_n #C^(n)(F_q)t^n=P_C(t)/((1−t)(1−qt)), with P_C(0)=1 and degree 2g.",
+      "locator": "§4.1",
+      "status": "planned",
+      "note": " API: Import the closed-point Euler product, effective-divisor coefficient identity, rationality and finite-extension normalization. Tests: (1) P¹ has numerator 1; (2) closed points of degree two contribute to C^(2)(F_q); (3) F_q-points of the symmetric power are not merely multisets of C(F_q).",
+      "planned": [
+        "WeilConjectures:WC.1"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/curve-reciprocity",
+      "kind": "theorem",
+      "name": "Curve numerator functional equation",
+      "statement": "P_C(t)=(qt²)^g P_C(1/(qt)).",
+      "locator": "§4.1",
+      "status": "planned",
+      "note": "Geometric Frobenius and reversed characteristic polynomial conventions are fixed by WC.2.",
+      "planned": [
+        "WeilConjectures:WC.2"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/class-zeta",
+      "kind": "theorem",
+      "name": "Jacobian point count from the curve numerator",
+      "statement": "#J(F_q)=P_C(1)=q^g P_C(q⁻¹) for smooth projective geometrically connected C/F_q.",
+      "locator": "§4.1",
+      "status": "missing",
+      "note": "Requires the actual curve/Jacobian realization comparison, not merely numerator reciprocity."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/curve-rh",
+      "kind": "theorem",
+      "name": "Curve Riemann hypothesis and extension counts",
+      "statement": "Every root of P_C has absolute value q^(−1/2), in every complex embedding, and |#C(F_(q^r))−(q^r+1)|≤2g q^(r/2).",
+      "locator": "§4.1; Theorem 4.4 split-place step",
+      "status": "planned",
+      "note": "WC.5 consumes the RH supplier; no pinned general-genus implementation was found.",
+      "planned": [
+        "WeilConjectures:WC.5"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/reduced-zeta",
+      "kind": "theorem",
+      "name": "Generating series for reduced effective divisors",
+      "statement": "Σ_n #C₀^(n)(F_q)t^n=(1−t²)(1−qt²)Z_C(t), using unique removal of full π-fibers.",
+      "locator": "§4.1 equation (7)",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/gonality-points",
+      "kind": "theorem",
+      "name": "Point counts from a finite morphism to P¹",
+      "statement": "If π:C→P¹ over F_q is finite of degree r, then #C(F_(q^m))≤r(q^m+1) for every m≥1.",
+      "locator": "Altuğ–Tsimerman §3, Theorem 3.3 input",
+      "status": "missing",
+      "note": "The morphism must be defined over the ground field; geometric gonality alone does not give this rational-point inequality."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/weil-measure",
+      "kind": "definition",
+      "name": "Weil-angle measure and Lindelöf family",
+      "statement": "For genus g>0, the normalized multiset of reciprocal roots divided by √q defines a probability measure on the unit circle. A fixed-q family is Lindelöf when max_|t|=q^−1/2 |P_C(t)|=O_ε(q^(εg)) for every ε>0.",
+      "locator": "[AT] §3; §4.1",
+      "status": "missing",
+      "note": " API: Construct empirical measures with multiplicity, weak convergence, logarithmic potentials and uniform maxima; distinguish genus and q limits. Tests: (1) repeated eigenangles retain their multiplicity; (2) RH alone allows exponential maxima; (3) the universal curve family is not automatically Lindelöf."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/gonality-lindelof",
+      "kind": "theorem",
+      "name": "Sublinear gonality implies Lindelöf",
+      "statement": "For a fixed finite field and a family with ground-field gonality o(g), normalized Weil measures tend to Haar and the family satisfies the above critical-circle Lindelöf upper bound. In particular this applies to hyperelliptic curves.",
+      "locator": "AT Theorems 3.1,3.3, selected proof read",
+      "status": "missing",
+      "note": "AT writes F_p; its §3 proof only uses fixed-field extension counts and Weil RH. The extension from the paper notation to prime powers is explicit proof work; its general metaplectic restrictions are not silently imported."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/class-asymptotic",
+      "kind": "theorem",
+      "name": "Subexponential normalization of the Jacobian count",
+      "statement": "For a fixed-q hyperelliptic family with g→∞, #J(F_q)=q^(g+o(g)); equivalently log P_C(q⁻¹)=o(g).",
+      "locator": "Theorem 4.2 analytic normalization",
+      "status": "missing",
+      "note": "Derived supplier: Haar convergence of Weil angles integrates the continuous function log|1−q^−1/2 z|, since q>1. This gives BOTH bounds and avoids dividing by a one-sided critical-circle bound."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/reduced-coefficients",
+      "kind": "theorem",
+      "name": "Reduced-divisor coefficient estimate",
+      "statement": "For fixed q>1 and every ε>0, coefficient extraction gives #C₀^(n)(F_q)=q^(n−g)(1−q⁻²)#J(F_q)+O_(q,ε)(q^(n/2+εg)), uniformly in n≥0 along the Lindelöf family.",
+      "locator": "Theorem 4.2 first proof",
+      "status": "missing",
+      "note": "G3: the printed exponent (n/2+ε)g is a typo; the contour factor is q^(n/2), and the εg factor comes only from the numerator bound. Use the pole residue at q⁻¹ and a circle free of denominator poles."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/theta-density",
+      "kind": "theorem",
+      "name": "Asymptotic proportion of effective classes",
+      "statement": "For each fixed integer a≥0, a fixed-q hyperelliptic family satisfying the Lindelöf and class-normalization suppliers has #Θ_(g−a)(F_q)/#J(F_q)→q^(−a).",
+      "locator": "Theorem 4.2 first proof",
+      "status": "missing",
+      "note": "Sum the reduced coefficients for n=g−a−2j; the geometric factor 1−q⁻² cancels. Uniform error summation and the terminal tail must be proved."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/single-limit",
+      "kind": "theorem",
+      "name": "One-bundle equidistribution with explicit inputs",
+      "statement": "For fixed q>4, genus tending to infinity, and the curve/Picard dictionary and analytic suppliers above, the uniform Q_C pushforward converges weakly on N to the inverse-automorphism probability μ.",
+      "locator": "Theorem 4.2, source-qualified assembly",
+      "status": "missing",
+      "note": "Tails determine point masses, and their geometric decay gives tightness. No unproved rational-point existence or all-q endpoint is assumed."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/theta-betti-bound",
+      "kind": "theorem",
+      "name": "Exponential total Betti bound for theta loci",
+      "statement": "For 0≤d≤g, the source obtains Σ_i dim H^i(Θ_d,Q_ℓ)=O(4^g), via semismall Abel decomposition and symmetric-power cohomology.",
+      "locator": "Theorem 4.2 second proof",
+      "status": "missing",
+      "note": "Macdonald and étale comparison suppliers require G9. This is the single-theta bound, not the intersection conjecture."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/trace-weight",
+      "kind": "theorem",
+      "name": "Weights for the compact-support counting error",
+      "statement": "For X/F_q separated of finite type, constant rational ℓ-adic coefficients have H_c^i weights ≤i; if X is proper this applies to H^i, including singular X.",
+      "locator": "§4.1 second proof; §4.2",
+      "status": "planned",
+      "note": "",
+      "planned": [
+        "DeligneWeightsAndPurity:DWP.7"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/trace-formula",
+      "kind": "theorem",
+      "name": "Finite-field trace formula",
+      "statement": "For separated finite-type X/F_q and ℓ∤q, #X(F_q)=Σ_i(−1)^i Tr(Frob_q|H_c^i(X_bar,Q_ℓ)), with geometric Frobenius and Tate twists consistently normalized.",
+      "locator": "§4.1 second proof",
+      "status": "missing",
+      "note": "G9: generic trace-formula owner is upstream CohomologicalPointCounting/PR196; exact supplier stage and original statement remain to read. Unrouted until checked, rather than assigning this theorem to the weights stage."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/geometric-single-threshold",
+      "kind": "theorem",
+      "name": "Threshold for the geometric one-bundle proof",
+      "statement": "Using a total Betti bound O(4^g), high-cohomology comparison and #J=q^(g+o(g)), the elementary error is O(4^g q^(−g/2+o(g))), which tends to zero when q>16.",
+      "locator": "Theorem 4.2 second proof",
+      "status": "missing",
+      "note": "This proof alone does not justify its theorem heading q>4. The analytic proof is a separate supplier."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/escape",
+      "kind": "definition",
+      "name": "Effective-degree escape modulo κ",
+      "statement": "For [M]∈Q_C let m([M]) be the minimum n≥0 admitting an effective degree-n representative after a κ-shift. Escape means m([M_i])→∞.",
+      "locator": "Conjecture 1.2; Theorem 4.4",
+      "status": "missing",
+      "note": " API: Prove well-definedness, existence from RR, invariance under κ, parity and bounded-degree subsequence extraction. Tests: (1) [O] has m=0; (2) a fixed effective representative prevents escape; (3) unbounded degrees of chosen M_i do not imply escape."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/joint-normalization",
+      "kind": "theorem",
+      "name": "Correct joint tail normalization",
+      "statement": "For compatible degree parities, a joint tail event corresponding to X_L has probability #X_L(F_q)/(2#J(F_q)) under the uniform law on Q_C; incompatible parities give probability zero.",
+      "locator": "Theorem 4.4 proof, p.33",
+      "status": "missing",
+      "note": "G3: v1 prints equality with the raw cardinality. The factor 2h is mandatory; conditional-on-parity probabilities instead have denominator h."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/large-ratio-error",
+      "kind": "theorem",
+      "name": "Error estimate in the large-effectivity-distance case",
+      "statement": "Assuming B(N), high-cohomology comparison and #J=q^(g+o(g)), if L∉Θ_(εg) for a fixed 0<ε<1, the normalized low-degree counting error is bounded by N^g q^(−εg/4+o(g)), up to fixed a,b constants.",
+      "locator": "Theorem 4.4 Case 2",
+      "status": "missing",
+      "note": "It tends to zero if q>N^(4/ε). For q>N⁴ choose ε<1 sufficiently close to 1; do not interchange the quantifiers."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/parity-limit",
+      "kind": "definition",
+      "name": "Parity-conditioned product law",
+      "statement": "Write μ₀=2μ restricted to even n and μ₁=2μ restricted to odd n. For ratio parity δ∈{0,1}, the predicted law is 1/2(μ₀⊗μ_δ+μ₁⊗μ_(1+δ mod 2)).",
+      "locator": "Theorem 4.4; Sawin Theorem 1.7",
+      "status": "missing",
+      "note": " API: Construct the product mixture and prove its marginals, total mass and parity support. Tests: (1) δ=0 gives equal parities; (2) δ=1 includes BOTH even×odd and odd×even; (3) plain μ⊗μ assigns mass to forbidden parities."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/joint-conditional",
+      "kind": "theorem",
+      "name": "Joint limit conditional on both proof branches",
+      "statement": "For fixed q>N⁴, a genus-growing hyperelliptic sequence with escaping ratios and fixed parity δ has joint law tending to the parity-conditioned product, PROVIDED B(N), the high-cohomology and trace suppliers, class normalization, and the required function-field small-ratio Linnik theorem all hold.",
+      "locator": "Theorem 4.4, explicit dependency contract",
+      "status": "missing",
+      "note": "This routes the exact implication, not an unconditional theorem. G7 is a named unclosed hypothesis; Sawin supplies a later Betti claim but does not by itself replace the missing local integral-model verification."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/split-place",
+      "kind": "theorem",
+      "name": "Small split place for a hyperelliptic double cover",
+      "statement": "The proof requires an unramified split closed point of P¹ whose degree is O(log_q g), uniformly in the cover; obtain it from curve point counts with explicit treatment of lower-degree points and ramification.",
+      "locator": "Theorem 4.4 Case 1",
+      "status": "missing",
+      "note": "The literal 2 log g needs base and additive constants; route only O(log_q g) until the effective inequality is proved."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/linnik-transfer-source",
+      "kind": "theorem",
+      "name": "Unproved transfer in the small-ratio case",
+      "statement": "The source says the proof of the number-field EMiV §10.3 corollary carries over to function fields using a split place of degree ≤2 log g, yielding mixing for ratios of effective degree ≤εg.",
+      "locator": "Theorem 4.4 Case 1",
+      "status": "missing",
+      "note": "G7: acquire and rederive the positive-characteristic dynamics, entropy/recurrence and variable-place uniformity. A statement that a proof carries over is not a closed supplier. The optional Waldspurger sketch explicitly says the available AT formula is not general enough."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/adeles",
+      "kind": "definition",
+      "name": "Adelic group and integral model",
+      "statement": "For k=F_q(P¹), G(A_k) is the restricted product of G(k_v) relative to a chosen smooth integral model at almost all v; quotients retain the diagonal G(k).",
+      "locator": "Appendix A.1",
+      "status": "planned",
+      "note": " API: Import topology, restricted Haar measures, quotient measure, change of model and restriction of scalars. Tests: (1) GL₁ gives ideles; (2) a ramified place is not automatically hyperspecial; (3) changing finitely many compact opens changes the level.",
+      "planned": [
+        "AdelicAlgebraicGroups:AA.0",
+        "AdelicAlgebraicGroups:AA.1",
+        "AdelicAlgebraicGroups:AA.2"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/adelic-bundle",
+      "kind": "construction",
+      "name": "Adelic construction of a vector bundle",
+      "statement": "For g∈GL_r(A_k), glue the O_v-lattices g_v O_v^r inside the generic k^r to a vector bundle; left GL_r(k) changes the generic frame and right ∏GL_r(O_v) changes integral frames.",
+      "locator": "Appendix A.1",
+      "status": "planned",
+      "note": " API: Construct local lattices, gluing, inverse generic framing, and the groupoid/double-coset dictionary with automorphism groups. Tests: (1) r=1 recovers divisor classes; (2) generic triviality is a hypothesis for general G; (3) a frame change does not change the underlying bundle.",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.0"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/weil-bundle",
+      "kind": "theorem",
+      "name": "Weil double-coset classification",
+      "statement": "For GL_r over a smooth projective curve, GL_r(k) ∖ GL_r(A)/∏GL_r(O_v) classifies vector bundles; for a general G the corresponding quotient describes the generically trivial torsor class, with other generic classes treated separately.",
+      "locator": "Appendix A.1",
+      "status": "planned",
+      "note": "",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.0"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/quadratic-torus",
+      "kind": "definition",
+      "name": "Torus associated with a separable quadratic extension",
+      "statement": "For a separable quadratic extension l/k, T=Res_(l/k) G_m/G_m embeds in PGL₂ by the multiplication representation after a k-basis of l; T(k)=l×/k× by Hilbert 90.",
+      "locator": "Appendix A.2",
+      "status": "missing",
+      "note": " API: Construct the quotient torus, basis-change conjugacy, local points, unit integral model and central quotient. Tests: (1) split l gives a split torus; (2) a ramified field extension is anisotropic locally; (3) T has a PGL₂ representation, not a canonical GL₂ lift."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/maxcompact-source",
+      "kind": "theorem",
+      "name": "Ramified maximal-compact error in the appendix",
+      "statement": "The appendix identifies T(O_v) with the maximal compact and asserts it can be conjugated into PGL₂(O_v) for the quadratic-torus embedding.",
+      "locator": "Appendix A.2–A.3",
+      "status": "missing",
+      "note": "G8: for l_v=k_v(√π), the compact anisotropic group l_v×/k_v× contains √π, represented by [[0,π],[1,0]]. Its determinant valuation is odd, invariant under conjugacy and scalar multiplication modulo 2, so it cannot lie in PGL₂(O_v). The unit quotient has index two and is not the maximal compact. Unrouted literal statement."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/integral-torus-model",
+      "kind": "construction",
+      "name": "Unit-level torus dictionary",
+      "statement": "Use the image of O_(l_v)× in l_v×/k_v× as the level subgroup, including at ramified places. An integral O_(l_v)-lattice basis gives the pushforward bundle from a line bundle on C, after quotienting by base line-bundle twists.",
+      "locator": "Appendix A.3, corrected local model",
+      "status": "missing",
+      "note": "G8: corrected target; comparison to the source measure and exact adelic quotient still requires proof. Do not claim a map T→GL₂ from the multiplication representation. API: Construct local integral bases, lattice multiplication and the Res G_m→GL₂ map before passing to T→PGL₂; prove compatibility with π_* and central quotients. Tests: (1) ramified uniformizer is outside the unit-level subgroup; (2) unramified extension has valuation quotient zero; (3) a base line-bundle twist becomes scalar and disappears in PGL₂."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/hecke",
+      "kind": "definition",
+      "name": "Hecke correspondence of an effective base divisor",
+      "statement": "For effective D=Σn_v[v] on P¹, use local diag(1,π_v^n_v) and K₀(D) to define a correspondence of bundle classes. Equivalently choose W⊂V with quotient O_D, modulo common line-bundle twist.",
+      "locator": "Appendix A.4",
+      "status": "planned",
+      "note": " API: Construct double-coset correspondence, lattice modifications, finite fibers and local primitive flags; import the global Hecke owner. Tests: (1) D=0 gives the diagonal; (2) degree-one D gives q_v+1 local choices; (3) a nonprimitive vector modulo π^n does not define a direct-summand flag.",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.1"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/hecke-measure",
+      "kind": "construction",
+      "name": "Hecke measure with automorphism weights",
+      "statement": "μ_D is the pushforward of normalized invariant measure on the adelic PGL₂ quotient along x↦(xK,xg_DK), or the equivalent weighted measure on modifications.",
+      "locator": "Appendix A.4",
+      "status": "missing",
+      "note": " API: Define using quotient measure, verify finite volume, marginals and independence of uniformizers; keep stabilizer weights. Tests: (1) μ₀ is diagonal; (2) both marginals are μ; (3) parity difference equals deg D mod 2."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/hecke-mixing-source",
+      "kind": "theorem",
+      "name": "Hecke equidistribution input",
+      "statement": "The appendix uses the Ramanujan/spectral estimate to make μ_D approach the parity-conditioned product as deg D→∞ along fixed degree parity.",
+      "locator": "Appendix A.4",
+      "status": "missing",
+      "note": "G7: exact spectral normalization and function-field Ramanujan supplier not extracted. Do not assert convergence to μ⊗μ across both parity components. Unrouted until the theorem is read."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/sawin-context",
+      "kind": "theorem",
+      "name": "Later characteristic-p theorem to acquire fully",
+      "statement": "Sawin arXiv:1907.04850v2 Theorems 1.4 and 1.6 claim a characteristic-p perverse-stalk bound and, for char k≠2, total Betti bound 28^g/16+4·8^g+2·4^g for all 0≤a,b≤g and all L. Theorem 1.7 states a mixing consequence for q>28⁴.",
+      "locator": "Later source: Sawin §§1,5, Appendix A",
+      "status": "missing",
+      "note": "G6: selected introduction, polar coefficient discussion and Appendix A read, not the complete proof. The coefficient quoted from ST Lemma 3.22 repeats the 2-power requiring reconciliation. Its odd-parity display repeats even×odd twice; the correct mixture has both cross terms. Leave the numeric endpoint unrouted until original final versions and cycle conventions are checked."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Shende–Tsimerman, Equidistribution in Bun₂(P¹), Duke 166(18) (2017), 3461–3504",
+      "link": "https://doi.org/10.1215/00127094-2017-0025",
+      "why": "Acquire and compare the 44-page published paper against the completely read 40-page arXiv v1; canonical publisher download returned HTML, not PDF."
+    },
+    {
+      "citation": "Altuğ–Tsimerman, Metaplectic Ramanujan conjecture over function fields, arXiv:1008.0430",
+      "link": "https://arxiv.org/abs/1008.0430",
+      "why": "§3 through Theorem 3.3, including proof of Theorem 3.1, read. Reconcile the main source citation [AT, Lem.3] with this version; prime-power notation and uniformity require explicit transfer."
+    },
+    {
+      "citation": "Inoue–Yamazaki, Cohomological study on variants of the Mumford system, arXiv:math-ph/0501048v3",
+      "link": "https://arxiv.org/abs/math-ph/0501048",
+      "why": "Selected §2: Theorem 2.4, Propositions 2.5–2.8, Theorem 2.9 and beginning of Lemma 2.10 read. Complex homology-manifold proof is not itself an étale all-characteristic theorem; original Bressler–Brylinski/Borho–MacPherson still to acquire."
+    },
+    {
+      "citation": "Migliorini–Shende, Higher discriminants and the topology of algebraic maps, Algebraic Geometry 5(1) (2018), 114–130",
+      "link": "https://content.algebraicgeometry.nl/2018-1/2018-1-004.pdf",
+      "why": "Published §2.5 and §3 through Theorem 3.4 read, including sign conventions and positive-characteristic limitations. Main source cites an older §5; full source proof and version matching remain."
+    },
+    {
+      "citation": "Massey, Numerical invariants of perverse sheaves, Duke Math. J. 73(2) (1994), 307–369",
+      "link": "https://arxiv.org/abs/1307.8237",
+      "why": "Acquire original Corollary 5.5 and all normalization conventions; title and locator from the checked main bibliography/later Sawin citation, exact original URL not established. This link identifies the read source bibliography."
+    },
+    {
+      "citation": "Sawin, Bounds for the stalks of perverse sheaves in characteristic p and a conjecture of Shende and Tsimerman, arXiv:1907.04850v2, appendix by Tsimerman",
+      "link": "https://arxiv.org/abs/1907.04850",
+      "why": "Read introduction, Lemma 5.5 polar coefficient discussion and Appendix A. Not full proof. Resolve the repeated polar coefficient, parity display, characteristic restriction and final version before using 28⁴ numerically."
+    },
+    {
+      "citation": "BBD, Faisceaux pervers; SGA 4½; Deligne Weil II",
+      "link": "https://arxiv.org/abs/1307.8237",
+      "why": "Original perverse, trace, Lefschetz and weight suppliers imported from EDC/DWP/LPV; exact theorem-level proof closure is still required. The link is the checked main bibliography, not a claim of reading these books."
+    },
+    {
+      "citation": "Macdonald, Symmetric products of an algebraic curve; ACGH, Geometry of algebraic curves I; Fulton, Intersection Theory",
+      "link": "https://arxiv.org/abs/1307.8237",
+      "why": "Acquire the exact symmetric-power cohomology/Chern presentation, Poincaré formula, and Fulton 12.2(a)/12.4 with cycle multiplicities. These supplier proofs are not read here."
+    },
+    {
+      "citation": "Ellenberg–Michel–Venkatesh, Linnik’s ergodic method and distribution of integer points on spheres; Linnik; Waldspurger",
+      "link": "https://arxiv.org/abs/1307.8237",
+      "why": "The source relies on EMiV §10.3 and asserts transfer to function fields. Obtain original proofs, verify variable split-place uniformity and positive-characteristic hypotheses. The source itself marks its optional Waldspurger route as insufficiently developed."
+    },
+    {
+      "citation": "F.K. Schmidt/Lang index-one and Picard descent over finite fields",
+      "link": "https://arxiv.org/abs/1307.8237",
+      "why": "Supply a verified original proof of the degree-one divisor-class assertion and Br(F_q)=0. A curve rational point is not guaranteed by growing genus; exact source remains to locate."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "GlobalShtukasAndFunctionFieldLanglands",
+      "stages": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.0"
+      ],
+      "items": [
+        "PAPER-SHENDE-TSIMERMAN-17/bun-pgl",
+        "PAPER-SHENDE-TSIMERMAN-17/splitting",
+        "PAPER-SHENDE-TSIMERMAN-17/automorphism",
+        "PAPER-SHENDE-TSIMERMAN-17/pushforward-sections",
+        "PAPER-SHENDE-TSIMERMAN-17/adelic-bundle",
+        "PAPER-SHENDE-TSIMERMAN-17/weil-bundle",
+        "PAPER-SHENDE-TSIMERMAN-17/integral-torus-model"
+      ],
+      "reason": "GS.0 already owns global G-bundles, central degree, automorphisms and the generic-torsor adelic dictionary. Add the P¹ splitting and explicit unit-level double-cover instance there; ramified maximal compact is not the integral unit model."
+    },
+    {
+      "route": "source",
+      "roadmap": "GlobalShtukasAndFunctionFieldLanglands",
+      "stages": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.1"
+      ],
+      "items": [
+        "PAPER-SHENDE-TSIMERMAN-17/hecke"
+      ],
+      "reason": "GS.1 owns global Hecke stacks and modifications. This elementary PGL₂ correspondence is an acceptance instance, not a second moduli owner."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.0"
+      ],
+      "items": [
+        "PAPER-SHENDE-TSIMERMAN-17/natural-measure",
+        "PAPER-SHENDE-TSIMERMAN-17/tail-mass",
+        "PAPER-SHENDE-TSIMERMAN-17/pic-quotient",
+        "PAPER-SHENDE-TSIMERMAN-17/joint-measure",
+        "PAPER-SHENDE-TSIMERMAN-17/joint-normalization",
+        "PAPER-SHENDE-TSIMERMAN-17/parity-limit",
+        "PAPER-SHENDE-TSIMERMAN-17/hecke-measure"
+      ],
+      "reason": "ST.0 owns weighted measures on arithmetic isomorphism classes. Record the exact inverse-automorphism mass, finite Picard normalization and parity support."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.5"
+      ],
+      "items": [
+        "PAPER-SHENDE-TSIMERMAN-17/betti-conjecture",
+        "PAPER-SHENDE-TSIMERMAN-17/gonality-points",
+        "PAPER-SHENDE-TSIMERMAN-17/weil-measure",
+        "PAPER-SHENDE-TSIMERMAN-17/gonality-lindelof",
+        "PAPER-SHENDE-TSIMERMAN-17/class-asymptotic",
+        "PAPER-SHENDE-TSIMERMAN-17/reduced-coefficients",
+        "PAPER-SHENDE-TSIMERMAN-17/theta-density",
+        "PAPER-SHENDE-TSIMERMAN-17/single-limit",
+        "PAPER-SHENDE-TSIMERMAN-17/geometric-single-threshold",
+        "PAPER-SHENDE-TSIMERMAN-17/escape",
+        "PAPER-SHENDE-TSIMERMAN-17/large-ratio-error",
+        "PAPER-SHENDE-TSIMERMAN-17/joint-conditional",
+        "PAPER-SHENDE-TSIMERMAN-17/split-place"
+      ],
+      "reason": "ST.5 explicitly covers function-field statistics, convergence modes and error bounds. Add the gonality/Lindelöf suppliers and conditional mixing assembly; retain B(N) and the unclosed small-ratio theorem as hypotheses."
+    },
+    {
+      "route": "source",
+      "roadmap": "EtaleDualityAndPerverseSheaves",
+      "stages": [
+        "EtaleDualityAndPerverseSheaves:EDC.5"
+      ],
+      "items": [
+        "PAPER-SHENDE-TSIMERMAN-17/perverse"
+      ],
+      "reason": "The middle perverse category and IC are existing EDC.5 targets, not new definitions in the hyperelliptic application."
+    },
+    {
+      "route": "source",
+      "roadmap": "EtaleDualityAndPerverseSheaves",
+      "stages": [
+        "EtaleDualityAndPerverseSheaves:EDC.7"
+      ],
+      "items": [
+        "PAPER-SHENDE-TSIMERMAN-17/decomposition",
+        "PAPER-SHENDE-TSIMERMAN-17/relative-hl",
+        "PAPER-SHENDE-TSIMERMAN-17/semismall"
+      ],
+      "reason": "EDC.7 owns pure rational decomposition and relative hard Lefschetz. Semismall geometry is the source-specific bridge; arithmetic Frobenius splitting is not automatic."
+    },
+    {
+      "route": "source",
+      "roadmap": "LefschetzPencilsAndVanishingCycles",
+      "stages": [
+        "LefschetzPencilsAndVanishingCycles:LPV.2"
+      ],
+      "items": [
+        "PAPER-SHENDE-TSIMERMAN-17/ordinary-double"
+      ],
+      "reason": "LPV.2 owns ordinary quadratic singularities and their vanishing module. Hyperelliptic Hessian calculations consume it."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "items": [
+        "PAPER-SHENDE-TSIMERMAN-17/chow",
+        "PAPER-SHENDE-TSIMERMAN-17/positive-intersection"
+      ],
+      "reason": "SF.5 owns Chow operations, refined intersection, Chern classes and positivity suppliers; the polar application must not rebuild them."
+    },
+    {
+      "route": "source",
+      "roadmap": "WeilConjectures",
+      "stages": [
+        "WeilConjectures:WC.1",
+        "WeilConjectures:WC.2"
+      ],
+      "items": [
+        "PAPER-SHENDE-TSIMERMAN-17/curve-zeta",
+        "PAPER-SHENDE-TSIMERMAN-17/curve-reciprocity"
+      ],
+      "reason": "Reuse the zeta and functional-equation owner, with the curve class-number evaluation as an additional explicitly named comparison."
+    },
+    {
+      "route": "source",
+      "roadmap": "WeilConjectures",
+      "stages": [
+        "WeilConjectures:WC.5"
+      ],
+      "items": [
+        "PAPER-SHENDE-TSIMERMAN-17/curve-rh"
+      ],
+      "reason": "The all-extension curve bound is an existing target and feeds gonality and split-place estimates; elliptic special cases are insufficient."
+    },
+    {
+      "route": "source",
+      "roadmap": "DeligneWeightsAndPurity",
+      "stages": [
+        "DeligneWeightsAndPurity:DWP.7"
+      ],
+      "items": [
+        "PAPER-SHENDE-TSIMERMAN-17/trace-weight"
+      ],
+      "reason": "Keep compact-support upper weights with DWP.7. Singular proper theta loci use upper bounds, not an unsupported smooth-purity claim."
+    },
+    {
+      "route": "source",
+      "roadmap": "AdelicAlgebraicGroups",
+      "stages": [
+        "AdelicAlgebraicGroups:AA.0",
+        "AdelicAlgebraicGroups:AA.1",
+        "AdelicAlgebraicGroups:AA.2"
+      ],
+      "items": [
+        "PAPER-SHENDE-TSIMERMAN-17/adeles",
+        "PAPER-SHENDE-TSIMERMAN-17/quadratic-torus"
+      ],
+      "reason": "Shared adelic topology, measures and restriction of scalars remain with AA. The quadratic-torus model must export local unit subgroups explicitly."
+    },
+    {
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/JacobianChallenge",
+      "roadmap": "JacobianChallengePartIIHyperellipticTheta",
+      "title": "Jacobian Challenge, Part II: hyperelliptic theta geometry",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-SHENDE-TSIMERMAN-17/degree-one",
+        "PAPER-SHENDE-TSIMERMAN-17/theta",
+        "PAPER-SHENDE-TSIMERMAN-17/abel-tangent",
+        "PAPER-SHENDE-TSIMERMAN-17/abel-sum-tangent",
+        "PAPER-SHENDE-TSIMERMAN-17/weighted-abel",
+        "PAPER-SHENDE-TSIMERMAN-17/weighted-fibers",
+        "PAPER-SHENDE-TSIMERMAN-17/hyperell-reduction",
+        "PAPER-SHENDE-TSIMERMAN-17/hyperell-sections",
+        "PAPER-SHENDE-TSIMERMAN-17/canonical-bundle",
+        "PAPER-SHENDE-TSIMERMAN-17/canonical-involution",
+        "PAPER-SHENDE-TSIMERMAN-17/canonical-map",
+        "PAPER-SHENDE-TSIMERMAN-17/gauss",
+        "PAPER-SHENDE-TSIMERMAN-17/gauss-embedding",
+        "PAPER-SHENDE-TSIMERMAN-17/canonical-span",
+        "PAPER-SHENDE-TSIMERMAN-17/special-divisor",
+        "PAPER-SHENDE-TSIMERMAN-17/linear-system",
+        "PAPER-SHENDE-TSIMERMAN-17/nash-theta",
+        "PAPER-SHENDE-TSIMERMAN-17/sum-map",
+        "PAPER-SHENDE-TSIMERMAN-17/sum-rank",
+        "PAPER-SHENDE-TSIMERMAN-17/canonical-septuple",
+        "PAPER-SHENDE-TSIMERMAN-17/effectivity-index",
+        "PAPER-SHENDE-TSIMERMAN-17/critical-locus",
+        "PAPER-SHENDE-TSIMERMAN-17/theta-ic",
+        "PAPER-SHENDE-TSIMERMAN-17/theta-ample",
+        "PAPER-SHENDE-TSIMERMAN-17/theta-low",
+        "PAPER-SHENDE-TSIMERMAN-17/theta-high",
+        "PAPER-SHENDE-TSIMERMAN-17/intersection-lci",
+        "PAPER-SHENDE-TSIMERMAN-17/intersection-low",
+        "PAPER-SHENDE-TSIMERMAN-17/relative-semismall",
+        "PAPER-SHENDE-TSIMERMAN-17/ic-kernel",
+        "PAPER-SHENDE-TSIMERMAN-17/intersection-high",
+        "PAPER-SHENDE-TSIMERMAN-17/jacobian-betti",
+        "PAPER-SHENDE-TSIMERMAN-17/perverse-middle",
+        "PAPER-SHENDE-TSIMERMAN-17/weak-high",
+        "PAPER-SHENDE-TSIMERMAN-17/symmetric-chern",
+        "PAPER-SHENDE-TSIMERMAN-17/poincare-cycle",
+        "PAPER-SHENDE-TSIMERMAN-17/general-euler",
+        "PAPER-SHENDE-TSIMERMAN-17/abel-motivic",
+        "PAPER-SHENDE-TSIMERMAN-17/transverse-dimension",
+        "PAPER-SHENDE-TSIMERMAN-17/discriminant-strata",
+        "PAPER-SHENDE-TSIMERMAN-17/discriminant-components",
+        "PAPER-SHENDE-TSIMERMAN-17/node-count",
+        "PAPER-SHENDE-TSIMERMAN-17/polar-incidence",
+        "PAPER-SHENDE-TSIMERMAN-17/polar-incidence-generic",
+        "PAPER-SHENDE-TSIMERMAN-17/reduced-divisors",
+        "PAPER-SHENDE-TSIMERMAN-17/class-zeta",
+        "PAPER-SHENDE-TSIMERMAN-17/reduced-zeta",
+        "PAPER-SHENDE-TSIMERMAN-17/theta-betti-bound"
+      ],
+      "reason": "Upstream JC.C/D construct symmetric powers, Abel maps and the Picard scheme, but do not plan the special-divisor stratification, Gauss/Nash models or intersection-cohomology comparison. Extend upstream rather than replanning it.",
+      "brief": "Build on Jacobian Challenge (tauceti:TauCetiRoadmap/JacobianChallenge) A–F and Algebraic Curves (tauceti:TauCetiRoadmap/AlgebraicCurves) 10/12. Import Etale Duality and Perverse Sheaves (EtaleDualityAndPerverseSheaves) EDC.5/7, Scheme and Stack Foundations (SchemeAndStackFoundations) SF.5, Lefschetz Pencils and Vanishing Cycles (LefschetzPencilsAndVanishingCycles) LPV.2 and Weil Conjectures (WeilConjectures). Construct Θ_d, hyperelliptic reduction including ramification, Abel differentials and canonical septuples, e(L) with integer shifts, and the proper sum maps. Prove the Gauss embedding for d<g and Nash model only in that range. Establish IC_Θ=Q[dim Θ], set-theoretic ample sections, the small-support constant-to-IC comparison and the exact Theorem 3.9 target: if e(L)≤n=g−a−b≥0 then H^i(X_L)=H^(i+2a+2b)(J)(a+b) for i>n+e(L), retaining coefficient and Frobenius conventions. First close the characteristic-zero proof and then supply an independent valid étale positive-characteristic argument; Proposition 2.3 does not transfer when weights vanish in k. Develop the generic Euler calculation, discriminant candidate geometry and incidence maps, importing the microlocal Part II. Do not promise the printed 960 numerical base until Lemma 3.22, the signed Morse formula and final-source reconciliation close. ArithmeticStatistics owns limiting measures; GS.0 owns bundles. Define APIs with ≥3 discriminating tests, source-faithful proof tasks and suggested Lean files; no implementation is claimed."
+    },
+    {
+      "route": "part-ii",
+      "parent": "EtaleDualityAndPerverseSheaves",
+      "roadmap": "EtaleDualityAndPerverseSheavesPartIIMicrolocal",
+      "title": "Étale Duality and Perverse Sheaves, Part II: characteristic cycles and polar bounds",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-SHENDE-TSIMERMAN-17/nash",
+        "PAPER-SHENDE-TSIMERMAN-17/euler-obstruction",
+        "PAPER-SHENDE-TSIMERMAN-17/polar",
+        "PAPER-SHENDE-TSIMERMAN-17/characteristic-cycle",
+        "PAPER-SHENDE-TSIMERMAN-17/morse-correct",
+        "PAPER-SHENDE-TSIMERMAN-17/higher-discriminant",
+        "PAPER-SHENDE-TSIMERMAN-17/discriminant-codim",
+        "PAPER-SHENDE-TSIMERMAN-17/discriminant-expansion"
+      ],
+      "reason": "EDC.5/7 provide perverse sheaves and decomposition but have no characteristic-cycle, Euler-obstruction or higher-discriminant theory. Those are shared suppliers for theta geometry and later Sawin applications, not application-local placeholders.",
+      "brief": "Import Etale Duality and Perverse Sheaves (EtaleDualityAndPerverseSheaves) EDC.5/7, Scheme and Stack Foundations (SchemeAndStackFoundations) SF.5, Lefschetz Pencils and Vanishing Cycles (LefschetzPencilsAndVanishingCycles) LPV.0/2/6 and Complex Comparison (ComplexComparison and ComplexComparisonPartII). Construct complex conormal cycles, Nash bundle/local Euler obstruction, generic polar cycles and local multiplicities. Prove effective characteristic-cycle conventions for perverse objects, the signed local index formula and Massey stalk inequalities using effective cycle coefficients. Establish higher discriminants, codimension estimates in characteristic zero, support containment and the Migliorini–Shende Euler-obstruction expansion. Final target: dim H^(−i)(K)_x≤γ_i(CC(K),x) for a perverse K on smooth complex Y, with all genericity and indexing conventions, not the false signed n_α sum printed in ST v1. Obtain the original Massey proof and the entire relevant MS proof before declaring closure. Treat the positive-characteristic Beilinson–Saito/Sawin branch as a separately sourced extension: perfect ground field, ℓ invertible, conical singular support not assumed a union of conormals, wild ramification and pencil transversality explicit. Do not infer it from characteristic-zero stratified topology. Give every definition APIs and ≥3 unit tests, including a shifted constant sheaf on a curve and an Artin–Schreier map. Numerical hyperelliptic bounds stay in the Jacobian Part II, not this general supplier."
+    }
+  ]
+}
