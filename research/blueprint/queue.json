@@ -10260,8 +10260,8 @@
    "avoidAccountOf": "RS-07",
    "prompt": "research/blueprint/prompts/REV-RS-07.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #813",
-   "finishedAt": "2026-09-21T17:37:07Z"
+   "finishedAt": "2026-09-21T17:37:07Z",
+   "note": "deliverables arrived from an external worker on issue #813"
   },
   {
    "id": "RS-08",
@@ -10504,8 +10504,50 @@
    "avoidAccountOf": "RS-12",
    "prompt": "research/blueprint/prompts/REV-RS-12.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #823",
-   "finishedAt": "2026-09-21T17:37:10Z"
+   "finishedAt": "2026-09-21T17:37:10Z",
+   "note": "deliverables arrived from an external worker on issue #823"
+  },
+  {
+   "id": "RS-12~2",
+   "kind": "restructure",
+   "priority": 0,
+   "order": 32,
+   "name": "Galois representations of automorphic forms",
+   "roadmapIds": [
+    "AutomorphicGaloisRepresentations",
+    "AutomorphicGaloisRepresentationsPartII"
+   ],
+   "anchors": [],
+   "outputs": [
+    "research/blueprint/restructure/RS-12.result.json",
+    "research/blueprint/restructure/RS-12.md"
+   ],
+   "after": [
+    "REV-RS-12"
+   ],
+   "prompt": "research/blueprint/prompts/RS-12~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RS-12~2",
+   "kind": "review",
+   "priority": 0,
+   "order": 32,
+   "name": "Galois representations of automorphic forms",
+   "roadmapIds": [
+    "AutomorphicGaloisRepresentations",
+    "AutomorphicGaloisRepresentationsPartII"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-RS-12~2.md",
+    "research/blueprint/restructure/RS-12.result.json"
+   ],
+   "after": [
+    "RS-12~2"
+   ],
+   "avoidAccountOf": "RS-12~2",
+   "prompt": "research/blueprint/prompts/REV-RS-12~2.md",
+   "state": "pending"
   },
   {
    "id": "RS-13",
@@ -10632,8 +10674,8 @@
    "avoidAccountOf": "RS-15",
    "prompt": "research/blueprint/prompts/REV-RS-15.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #829",
-   "finishedAt": "2026-09-21T17:37:14Z"
+   "finishedAt": "2026-09-21T17:37:14Z",
+   "note": "deliverables arrived from an external worker on issue #829"
   },
   {
    "id": "RS-16",
@@ -10856,8 +10898,52 @@
    "avoidAccountOf": "RS-20",
    "prompt": "research/blueprint/prompts/REV-RS-20.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #839",
-   "finishedAt": "2026-09-21T17:37:17Z"
+   "finishedAt": "2026-09-21T17:37:17Z",
+   "note": "deliverables arrived from an external worker on issue #839"
+  },
+  {
+   "id": "RS-20~2",
+   "kind": "restructure",
+   "priority": 0,
+   "order": 40,
+   "name": "Fargues–Fontaine curves",
+   "roadmapIds": [
+    "FarguesFontaineDiamonds",
+    "RelativeFarguesFontaine"
+   ],
+   "anchors": [
+    "tauceti:TauCetiRoadmap/AdicSpaces"
+   ],
+   "outputs": [
+    "research/blueprint/restructure/RS-20.result.json",
+    "research/blueprint/restructure/RS-20.md"
+   ],
+   "after": [
+    "REV-RS-20"
+   ],
+   "prompt": "research/blueprint/prompts/RS-20~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RS-20~2",
+   "kind": "review",
+   "priority": 0,
+   "order": 40,
+   "name": "Fargues–Fontaine curves",
+   "roadmapIds": [
+    "FarguesFontaineDiamonds",
+    "RelativeFarguesFontaine"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-RS-20~2.md",
+    "research/blueprint/restructure/RS-20.result.json"
+   ],
+   "after": [
+    "RS-20~2"
+   ],
+   "avoidAccountOf": "RS-20~2",
+   "prompt": "research/blueprint/prompts/REV-RS-20~2.md",
+   "state": "pending"
   },
   {
    "id": "RS-21",
@@ -11119,8 +11205,8 @@
    "avoidAccountOf": "RS-26",
    "prompt": "research/blueprint/prompts/REV-RS-26.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #851",
-   "finishedAt": "2026-09-21T17:37:21Z"
+   "finishedAt": "2026-09-21T17:37:21Z",
+   "note": "deliverables arrived from an external worker on issue #851"
   },
   {
    "id": "RS-27",
@@ -11205,8 +11291,8 @@
    "avoidAccountOf": "RS-28",
    "prompt": "research/blueprint/prompts/REV-RS-28.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #855",
-   "finishedAt": "2026-09-21T17:37:25Z"
+   "finishedAt": "2026-09-21T17:37:25Z",
+   "note": "deliverables arrived from an external worker on issue #855"
   },
   {
    "id": "RS-29",
@@ -11249,8 +11335,8 @@
    "avoidAccountOf": "RS-29",
    "prompt": "research/blueprint/prompts/REV-RS-29.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #857",
-   "finishedAt": "2026-09-21T17:37:29Z"
+   "finishedAt": "2026-09-21T17:37:29Z",
+   "note": "deliverables arrived from an external worker on issue #857"
   },
   {
    "id": "RS-30",
@@ -11293,8 +11379,8 @@
    "avoidAccountOf": "RS-30",
    "prompt": "research/blueprint/prompts/REV-RS-30.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #859",
-   "finishedAt": "2026-09-21T17:37:32Z"
+   "finishedAt": "2026-09-21T17:37:32Z",
+   "note": "deliverables arrived from an external worker on issue #859"
   },
   {
    "id": "RS-31",
@@ -11337,8 +11423,8 @@
    "avoidAccountOf": "RS-31",
    "prompt": "research/blueprint/prompts/REV-RS-31.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #861",
-   "finishedAt": "2026-09-21T17:37:35Z"
+   "finishedAt": "2026-09-21T17:37:35Z",
+   "note": "deliverables arrived from an external worker on issue #861"
   },
   {
    "id": "RS-32",
@@ -11381,8 +11467,8 @@
    "avoidAccountOf": "RS-32",
    "prompt": "research/blueprint/prompts/REV-RS-32.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #863",
-   "finishedAt": "2026-09-21T17:37:39Z"
+   "finishedAt": "2026-09-21T17:37:39Z",
+   "note": "deliverables arrived from an external worker on issue #863"
   },
   {
    "id": "RS-33",
@@ -12794,7 +12880,7 @@
     "research/blueprint/suggested/AutomorphicGaloisRepresentations.lean"
    ],
    "after": [
-    "REV-RS-12"
+    "REV-RS-12~2"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentations.md",
    "state": "pending",
@@ -12844,7 +12930,7 @@
     "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.0.lean"
    ],
    "after": [
-    "REV-RS-12"
+    "REV-RS-12~2"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentationsPartII--AG2.0.md",
    "state": "pending",
@@ -12890,7 +12976,7 @@
     "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII--AG2.6.lean"
    ],
    "after": [
-    "REV-RS-12"
+    "REV-RS-12~2"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentationsPartII--AG2.6.md",
    "state": "pending",
@@ -14958,7 +15044,7 @@
     "research/blueprint/suggested/FarguesFontaineDiamonds.lean"
    ],
    "after": [
-    "REV-RS-20"
+    "REV-RS-20~2"
    ],
    "prompt": "research/blueprint/prompts/BP-FarguesFontaineDiamonds.md",
    "state": "pending",
@@ -18536,7 +18622,7 @@
     "research/blueprint/suggested/RelativeFarguesFontaine--RF0.lean"
    ],
    "after": [
-    "REV-RS-20"
+    "REV-RS-20~2"
    ],
    "prompt": "research/blueprint/prompts/BP-RelativeFarguesFontaine--RF0.md",
    "state": "pending",
@@ -18581,7 +18667,7 @@
     "research/blueprint/suggested/RelativeFarguesFontaine--RF4.lean"
    ],
    "after": [
-    "REV-RS-20"
+    "REV-RS-20~2"
    ],
    "prompt": "research/blueprint/prompts/BP-RelativeFarguesFontaine--RF4.md",
    "state": "pending",
@@ -23138,10 +23224,396 @@
    "note": "Planets are now chosen by the workers who blueprint each roadmap (PROTOCOL.md section 14)."
   },
   {
+   "id": "RT-RS-07",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 481,
+   "name": "restructuring proposal RS-07: Analytic number theory and arithmetic statistics",
+   "target": "RS-07",
+   "roadmapIds": [
+    "AnalyticNumberTheory",
+    "ArithmeticStatistics",
+    "SieveMethodsAndPrimePatterns"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-07.result.json",
+    "research/blueprint/redteam/RT-RS-07.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "RS-07",
+    "REV-RS-07"
+   ],
+   "prompt": "research/blueprint/prompts/RT-RS-07.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-RS-07",
+   "kind": "review",
+   "priority": 2,
+   "order": 481,
+   "name": "restructuring proposal RS-07: Analytic number theory and arithmetic statistics",
+   "roadmapIds": [
+    "AnalyticNumberTheory",
+    "ArithmeticStatistics",
+    "SieveMethodsAndPrimePatterns"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-07.review.json",
+    "research/blueprint/reviews/REV-RT-RS-07.md"
+   ],
+   "after": [
+    "RT-RS-07"
+   ],
+   "avoidAccountOf": "RT-RS-07",
+   "independentOf": [
+    "RT-RS-07",
+    "RS-07",
+    "REV-RS-07"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-RS-07.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-RS-15",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 490,
+   "name": "restructuring proposal RS-15: Isocrystals, Banach–Colmez spaces and B(G)",
+   "target": "RS-15",
+   "roadmapIds": [
+    "BunGAndNewtonStrata",
+    "VectorBundlesAndIsocrystals"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-15.result.json",
+    "research/blueprint/redteam/RT-RS-15.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "RS-15",
+    "REV-RS-15"
+   ],
+   "prompt": "research/blueprint/prompts/RT-RS-15.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-RS-15",
+   "kind": "review",
+   "priority": 2,
+   "order": 490,
+   "name": "restructuring proposal RS-15: Isocrystals, Banach–Colmez spaces and B(G)",
+   "roadmapIds": [
+    "BunGAndNewtonStrata",
+    "VectorBundlesAndIsocrystals"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-15.review.json",
+    "research/blueprint/reviews/REV-RT-RS-15.md"
+   ],
+   "after": [
+    "RT-RS-15"
+   ],
+   "avoidAccountOf": "RT-RS-15",
+   "independentOf": [
+    "RT-RS-15",
+    "RS-15",
+    "REV-RS-15"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-RS-15.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-RS-26",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 502,
+   "name": "restructuring proposal RS-26: (φ,Γ)-modules, p-adic regulators and p-adic local Langlands",
+   "target": "RS-26",
+   "roadmapIds": [
+    "PadicHodgeRegulators",
+    "PadicLocalLanglandsForGL2Qp",
+    "PhiGammaModulesAndIwasawaCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-26.result.json",
+    "research/blueprint/redteam/RT-RS-26.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "RS-26",
+    "REV-RS-26"
+   ],
+   "prompt": "research/blueprint/prompts/RT-RS-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-RS-26",
+   "kind": "review",
+   "priority": 2,
+   "order": 502,
+   "name": "restructuring proposal RS-26: (φ,Γ)-modules, p-adic regulators and p-adic local Langlands",
+   "roadmapIds": [
+    "PadicHodgeRegulators",
+    "PadicLocalLanglandsForGL2Qp",
+    "PhiGammaModulesAndIwasawaCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-26.review.json",
+    "research/blueprint/reviews/REV-RT-RS-26.md"
+   ],
+   "after": [
+    "RT-RS-26"
+   ],
+   "avoidAccountOf": "RT-RS-26",
+   "independentOf": [
+    "RT-RS-26",
+    "RS-26",
+    "REV-RS-26"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-RS-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-RS-28",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 504,
+   "name": "restructuring proposal RS-28: Higher local fields, building on Class field theory",
+   "target": "RS-28",
+   "roadmapIds": [
+    "HigherLocalFieldsAndHigherClassFieldTheory"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-28.result.json",
+    "research/blueprint/redteam/RT-RS-28.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "RS-28",
+    "REV-RS-28"
+   ],
+   "prompt": "research/blueprint/prompts/RT-RS-28.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-RS-28",
+   "kind": "review",
+   "priority": 2,
+   "order": 504,
+   "name": "restructuring proposal RS-28: Higher local fields, building on Class field theory",
+   "roadmapIds": [
+    "HigherLocalFieldsAndHigherClassFieldTheory"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-28.review.json",
+    "research/blueprint/reviews/REV-RT-RS-28.md"
+   ],
+   "after": [
+    "RT-RS-28"
+   ],
+   "avoidAccountOf": "RT-RS-28",
+   "independentOf": [
+    "RT-RS-28",
+    "RS-28",
+    "REV-RS-28"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-RS-28.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-RS-29",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 505,
+   "name": "restructuring proposal RS-29: Inverse Galois theory, building on Belyi maps",
+   "target": "RS-29",
+   "roadmapIds": [
+    "InverseGaloisAndArithmeticFundamentalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-29.result.json",
+    "research/blueprint/redteam/RT-RS-29.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "RS-29",
+    "REV-RS-29"
+   ],
+   "prompt": "research/blueprint/prompts/RT-RS-29.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-RS-29",
+   "kind": "review",
+   "priority": 2,
+   "order": 505,
+   "name": "restructuring proposal RS-29: Inverse Galois theory, building on Belyi maps",
+   "roadmapIds": [
+    "InverseGaloisAndArithmeticFundamentalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-29.review.json",
+    "research/blueprint/reviews/REV-RT-RS-29.md"
+   ],
+   "after": [
+    "RT-RS-29"
+   ],
+   "avoidAccountOf": "RT-RS-29",
+   "independentOf": [
+    "RT-RS-29",
+    "RS-29",
+    "REV-RS-29"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-RS-29.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-RS-30",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 506,
+   "name": "restructuring proposal RS-30: Birch–Swinnerton-Dyer in rank 0 and 1, building on Elliptic curves",
+   "target": "RS-30",
+   "roadmapIds": [
+    "RankZeroOneBSD"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-30.result.json",
+    "research/blueprint/redteam/RT-RS-30.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "RS-30",
+    "REV-RS-30"
+   ],
+   "prompt": "research/blueprint/prompts/RT-RS-30.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-RS-30",
+   "kind": "review",
+   "priority": 2,
+   "order": 506,
+   "name": "restructuring proposal RS-30: Birch–Swinnerton-Dyer in rank 0 and 1, building on Elliptic curves",
+   "roadmapIds": [
+    "RankZeroOneBSD"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-30.review.json",
+    "research/blueprint/reviews/REV-RT-RS-30.md"
+   ],
+   "after": [
+    "RT-RS-30"
+   ],
+   "avoidAccountOf": "RT-RS-30",
+   "independentOf": [
+    "RT-RS-30",
+    "RS-30",
+    "REV-RS-30"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-RS-30.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-RS-31",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 507,
+   "name": "restructuring proposal RS-31: Reductive groups, building on Reductive algebraic groups",
+   "target": "RS-31",
+   "roadmapIds": [
+    "ReductiveGroupsPartII"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-31.result.json",
+    "research/blueprint/redteam/RT-RS-31.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "RS-31",
+    "REV-RS-31"
+   ],
+   "prompt": "research/blueprint/prompts/RT-RS-31.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-RS-31",
+   "kind": "review",
+   "priority": 2,
+   "order": 507,
+   "name": "restructuring proposal RS-31: Reductive groups, building on Reductive algebraic groups",
+   "roadmapIds": [
+    "ReductiveGroupsPartII"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-31.review.json",
+    "research/blueprint/reviews/REV-RT-RS-31.md"
+   ],
+   "after": [
+    "RT-RS-31"
+   ],
+   "avoidAccountOf": "RT-RS-31",
+   "independentOf": [
+    "RT-RS-31",
+    "RS-31",
+    "REV-RS-31"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-RS-31.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-RS-32",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 508,
+   "name": "restructuring proposal RS-32: Toroidal compactifications, building on Analytic toric geometry",
+   "target": "RS-32",
+   "roadmapIds": [
+    "ShimuraCompactifications"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-32.result.json",
+    "research/blueprint/redteam/RT-RS-32.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "RS-32",
+    "REV-RS-32"
+   ],
+   "prompt": "research/blueprint/prompts/RT-RS-32.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-RS-32",
+   "kind": "review",
+   "priority": 2,
+   "order": 508,
+   "name": "restructuring proposal RS-32: Toroidal compactifications, building on Analytic toric geometry",
+   "roadmapIds": [
+    "ShimuraCompactifications"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-RS-32.review.json",
+    "research/blueprint/reviews/REV-RT-RS-32.md"
+   ],
+   "after": [
+    "RT-RS-32"
+   ],
+   "avoidAccountOf": "RT-RS-32",
+   "independentOf": [
+    "RT-RS-32",
+    "RS-32",
+    "REV-RS-32"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-RS-32.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-AUDIT-01",
    "kind": "redteam",
    "priority": 2,
-   "order": 821,
+   "order": 823,
    "name": "library audit AUDIT-01: Algebraic moduli and representability for arithmetic geometry",
    "target": "AUDIT-01",
    "roadmapIds": [
@@ -23167,7 +23639,7 @@
    "id": "REV-RT-AUDIT-01",
    "kind": "review",
    "priority": 2,
-   "order": 821,
+   "order": 823,
    "name": "library audit AUDIT-01: Algebraic moduli and representability for arithmetic geometry",
    "roadmapIds": [
     "AlgebraicModuliForArithmeticGeometry",
@@ -23196,7 +23668,7 @@
    "id": "RT-AUDIT-02",
    "kind": "redteam",
    "priority": 2,
-   "order": 822,
+   "order": 824,
    "name": "library audit AUDIT-02: Hodge structures (pure, mixed, and polarized)",
    "target": "AUDIT-02",
    "roadmapIds": [
@@ -23222,7 +23694,7 @@
    "id": "REV-RT-AUDIT-02",
    "kind": "review",
    "priority": 2,
-   "order": 822,
+   "order": 824,
    "name": "library audit AUDIT-02: Hodge structures (pure, mixed, and polarized)",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/HodgeStructures",
@@ -23251,7 +23723,7 @@
    "id": "RT-AUDIT-03",
    "kind": "redteam",
    "priority": 2,
-   "order": 823,
+   "order": 825,
    "name": "library audit AUDIT-03: Higher local fields and higher class field theory",
    "target": "AUDIT-03",
    "roadmapIds": [
@@ -23277,7 +23749,7 @@
    "id": "REV-RT-AUDIT-03",
    "kind": "review",
    "priority": 2,
-   "order": 823,
+   "order": 825,
    "name": "library audit AUDIT-03: Higher local fields and higher class field theory",
    "roadmapIds": [
     "HigherLocalFieldsAndHigherClassFieldTheory",
@@ -23306,7 +23778,7 @@
    "id": "RT-AUDIT-04",
    "kind": "redteam",
    "priority": 2,
-   "order": 824,
+   "order": 826,
    "name": "library audit AUDIT-04: Global number fields, ray classes, adeles, and Hecke characters",
    "target": "AUDIT-04",
    "roadmapIds": [
@@ -23332,7 +23804,7 @@
    "id": "REV-RT-AUDIT-04",
    "kind": "review",
    "priority": 2,
-   "order": 824,
+   "order": 826,
    "name": "library audit AUDIT-04: Global number fields, ray classes, adeles, and Hecke characters",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/GlobalNumberFields",
@@ -23361,7 +23833,7 @@
    "id": "RT-AUDIT-05",
    "kind": "redteam",
    "priority": 2,
-   "order": 825,
+   "order": 827,
    "name": "library audit AUDIT-05: Galois groups of polynomials",
    "target": "AUDIT-05",
    "roadmapIds": [
@@ -23387,7 +23859,7 @@
    "id": "REV-RT-AUDIT-05",
    "kind": "review",
    "priority": 2,
-   "order": 825,
+   "order": 827,
    "name": "library audit AUDIT-05: Galois groups of polynomials",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
@@ -23416,7 +23888,7 @@
    "id": "RT-AUDIT-06",
    "kind": "redteam",
    "priority": 2,
-   "order": 826,
+   "order": 828,
    "name": "library audit AUDIT-06: Fuchsian groups and orbifold Riemann surfaces",
    "target": "AUDIT-06",
    "roadmapIds": [
@@ -23441,7 +23913,7 @@
    "id": "REV-RT-AUDIT-06",
    "kind": "review",
    "priority": 2,
-   "order": 826,
+   "order": 828,
    "name": "library audit AUDIT-06: Fuchsian groups and orbifold Riemann surfaces",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
@@ -23469,7 +23941,7 @@
    "id": "RT-AUDIT-07",
    "kind": "redteam",
    "priority": 2,
-   "order": 827,
+   "order": 829,
    "name": "library audit AUDIT-07: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "AUDIT-07",
    "roadmapIds": [
@@ -23495,7 +23967,7 @@
    "id": "REV-RT-AUDIT-07",
    "kind": "review",
    "priority": 2,
-   "order": 827,
+   "order": 829,
    "name": "library audit AUDIT-07: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics",
@@ -23524,7 +23996,7 @@
    "id": "RT-AUDIT-08",
    "kind": "redteam",
    "priority": 2,
-   "order": 828,
+   "order": 830,
    "name": "library audit AUDIT-08: Arithmetic Dirichlet series and Tauberian methods",
    "target": "AUDIT-08",
    "roadmapIds": [
@@ -23550,7 +24022,7 @@
    "id": "REV-RT-AUDIT-08",
    "kind": "review",
    "priority": 2,
-   "order": 828,
+   "order": 830,
    "name": "library audit AUDIT-08: Arithmetic Dirichlet series and Tauberian methods",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
@@ -23579,7 +24051,7 @@
    "id": "RT-AUDIT-09",
    "kind": "redteam",
    "priority": 2,
-   "order": 829,
+   "order": 831,
    "name": "library audit AUDIT-09: Complex multiplication and explicit reciprocity",
    "target": "AUDIT-09",
    "roadmapIds": [
@@ -23605,7 +24077,7 @@
    "id": "REV-RT-AUDIT-09",
    "kind": "review",
    "priority": 2,
-   "order": 829,
+   "order": 831,
    "name": "library audit AUDIT-09: Complex multiplication and explicit reciprocity",
    "roadmapIds": [
     "ComplexMultiplicationAndExplicitReciprocity",
@@ -23634,7 +24106,7 @@
    "id": "RT-AUDIT-10",
    "kind": "redteam",
    "priority": 2,
-   "order": 830,
+   "order": 832,
    "name": "library audit AUDIT-10: Modular Curves PartII",
    "target": "AUDIT-10",
    "roadmapIds": [
@@ -23660,7 +24132,7 @@
    "id": "REV-RT-AUDIT-10",
    "kind": "review",
    "priority": 2,
-   "order": 830,
+   "order": 832,
    "name": "library audit AUDIT-10: Modular Curves PartII",
    "roadmapIds": [
     "ModularCurvesPartII",
@@ -23689,7 +24161,7 @@
    "id": "RT-AUDIT-11",
    "kind": "redteam",
    "priority": 2,
-   "order": 831,
+   "order": 833,
    "name": "library audit AUDIT-11: Complex Shimura varieties and canonical models",
    "target": "AUDIT-11",
    "roadmapIds": [
@@ -23714,7 +24186,7 @@
    "id": "REV-RT-AUDIT-11",
    "kind": "review",
    "priority": 2,
-   "order": 831,
+   "order": 833,
    "name": "library audit AUDIT-11: Complex Shimura varieties and canonical models",
    "roadmapIds": [
     "ShimuraVarieties",
@@ -23742,7 +24214,7 @@
    "id": "RT-AUDIT-12",
    "kind": "redteam",
    "priority": 2,
-   "order": 832,
+   "order": 834,
    "name": "library audit AUDIT-12: Modular curves, following Katz–Mazur",
    "target": "AUDIT-12",
    "roadmapIds": [
@@ -23764,7 +24236,7 @@
    "id": "REV-RT-AUDIT-12",
    "kind": "review",
    "priority": 2,
-   "order": 832,
+   "order": 834,
    "name": "library audit AUDIT-12: Modular curves, following Katz–Mazur",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ModularCurves"
@@ -23789,7 +24261,7 @@
    "id": "RT-AUDIT-13",
    "kind": "redteam",
    "priority": 2,
-   "order": 833,
+   "order": 835,
    "name": "library audit AUDIT-13: Adelic algebraic groups and arithmetic quotients",
    "target": "AUDIT-13",
    "roadmapIds": [
@@ -23815,7 +24287,7 @@
    "id": "REV-RT-AUDIT-13",
    "kind": "review",
    "priority": 2,
-   "order": 833,
+   "order": 835,
    "name": "library audit AUDIT-13: Adelic algebraic groups and arithmetic quotients",
    "roadmapIds": [
     "AdelicAlgebraicGroups",
@@ -23844,7 +24316,7 @@
    "id": "RT-AUDIT-14",
    "kind": "redteam",
    "priority": 2,
-   "order": 834,
+   "order": 836,
    "name": "library audit AUDIT-14: Automorphic L-functions and local factors",
    "target": "AUDIT-14",
    "roadmapIds": [
@@ -23870,7 +24342,7 @@
    "id": "REV-RT-AUDIT-14",
    "kind": "review",
    "priority": 2,
-   "order": 834,
+   "order": 836,
    "name": "library audit AUDIT-14: Automorphic L-functions and local factors",
    "roadmapIds": [
     "AutomorphicLFunctionsAndLocalFactors",
@@ -23899,7 +24371,7 @@
    "id": "RT-AUDIT-15",
    "kind": "redteam",
    "priority": 2,
-   "order": 835,
+   "order": 837,
    "name": "library audit AUDIT-15: Hilbert Modular Varieties And Shimura Curves",
    "target": "AUDIT-15",
    "roadmapIds": [
@@ -23925,7 +24397,7 @@
    "id": "REV-RT-AUDIT-15",
    "kind": "review",
    "priority": 2,
-   "order": 835,
+   "order": 837,
    "name": "library audit AUDIT-15: Hilbert Modular Varieties And Shimura Curves",
    "roadmapIds": [
     "HilbertModularVarietiesAndShimuraCurves",
@@ -23954,7 +24426,7 @@
    "id": "RT-AUDIT-16",
    "kind": "redteam",
    "priority": 2,
-   "order": 836,
+   "order": 838,
    "name": "library audit AUDIT-16: Modular forms — Hecke theory, newforms, and L-functions",
    "target": "AUDIT-16",
    "roadmapIds": [
@@ -23979,7 +24451,7 @@
    "id": "REV-RT-AUDIT-16",
    "kind": "review",
    "priority": 2,
-   "order": 836,
+   "order": 838,
    "name": "library audit AUDIT-16: Modular forms — Hecke theory, newforms, and L-functions",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ModularForms",
@@ -24007,7 +24479,7 @@
    "id": "RT-AUDIT-17",
    "kind": "redteam",
    "priority": 2,
-   "order": 837,
+   "order": 839,
    "name": "library audit AUDIT-17: Commutative algebra for deformation theory and patching",
    "target": "AUDIT-17",
    "roadmapIds": [
@@ -24033,7 +24505,7 @@
    "id": "REV-RT-AUDIT-17",
    "kind": "review",
    "priority": 2,
-   "order": 837,
+   "order": 839,
    "name": "library audit AUDIT-17: Commutative algebra for deformation theory and patching",
    "roadmapIds": [
     "DeformationAndDerivedPatchingAlgebra",
@@ -24062,7 +24534,7 @@
    "id": "RT-AUDIT-18",
    "kind": "redteam",
    "priority": 2,
-   "order": 838,
+   "order": 840,
    "name": "library audit AUDIT-18: Classical arithmetic, sequences, polynomials and reciprocity",
    "target": "AUDIT-18",
    "roadmapIds": [
@@ -24088,7 +24560,7 @@
    "id": "REV-RT-AUDIT-18",
    "kind": "review",
    "priority": 2,
-   "order": 838,
+   "order": 840,
    "name": "library audit AUDIT-18: Classical arithmetic, sequences, polynomials and reciprocity",
    "roadmapIds": [
     "ClassicalArithmeticCompletion",
@@ -24117,7 +24589,7 @@
    "id": "RT-AUDIT-19",
    "kind": "redteam",
    "priority": 2,
-   "order": 839,
+   "order": 841,
    "name": "library audit AUDIT-19: Q-Hodge filtrations and Habiro cohomology",
    "target": "AUDIT-19",
    "roadmapIds": [
@@ -24143,7 +24615,7 @@
    "id": "REV-RT-AUDIT-19",
    "kind": "review",
    "priority": 2,
-   "order": 839,
+   "order": 841,
    "name": "library audit AUDIT-19: Q-Hodge filtrations and Habiro cohomology",
    "roadmapIds": [
     "HabiroCohomologyFoundations",
@@ -24172,7 +24644,7 @@
    "id": "RT-AUDIT-20",
    "kind": "redteam",
    "priority": 2,
-   "order": 840,
+   "order": 842,
    "name": "library audit AUDIT-20: Drinfeld modules, t-motives and characteristic-p special values",
    "target": "AUDIT-20",
    "roadmapIds": [
@@ -24198,7 +24670,7 @@
    "id": "REV-RT-AUDIT-20",
    "kind": "review",
    "priority": 2,
-   "order": 840,
+   "order": 842,
    "name": "library audit AUDIT-20: Drinfeld modules, t-motives and characteristic-p special values",
    "roadmapIds": [
     "DrinfeldModulesAndTModules",
@@ -24227,7 +24699,7 @@
    "id": "RT-AUDIT-21",
    "kind": "redteam",
    "priority": 2,
-   "order": 841,
+   "order": 843,
    "name": "library audit AUDIT-21: Geometric Satake over the Fargues–Fontaine curve",
    "target": "AUDIT-21",
    "roadmapIds": [
@@ -24253,7 +24725,7 @@
    "id": "REV-RT-AUDIT-21",
    "kind": "review",
    "priority": 2,
-   "order": 841,
+   "order": 843,
    "name": "library audit AUDIT-21: Geometric Satake over the Fargues–Fontaine curve",
    "roadmapIds": [
     "GeometricSatakeAndFusion",
@@ -24282,7 +24754,7 @@
    "id": "RT-AUDIT-22",
    "kind": "redteam",
    "priority": 2,
-   "order": 842,
+   "order": 844,
    "name": "library audit AUDIT-22: Profinite and pro-p groups",
    "target": "AUDIT-22",
    "roadmapIds": [
@@ -24307,7 +24779,7 @@
    "id": "REV-RT-AUDIT-22",
    "kind": "review",
    "priority": 2,
-   "order": 842,
+   "order": 844,
    "name": "library audit AUDIT-22: Profinite and pro-p groups",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
@@ -24335,7 +24807,7 @@
    "id": "RT-AUDIT-23",
    "kind": "redteam",
    "priority": 2,
-   "order": 843,
+   "order": 845,
    "name": "library audit AUDIT-23: Continuous cohomology of profinite groups",
    "target": "AUDIT-23",
    "roadmapIds": [
@@ -24361,7 +24833,7 @@
    "id": "REV-RT-AUDIT-23",
    "kind": "review",
    "priority": 2,
-   "order": 843,
+   "order": 845,
    "name": "library audit AUDIT-23: Continuous cohomology of profinite groups",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ProfiniteCohomology",
@@ -24390,7 +24862,7 @@
    "id": "RT-AUDIT-24",
    "kind": "redteam",
    "priority": 2,
-   "order": 844,
+   "order": 846,
    "name": "library audit AUDIT-24: Coleman power series, local units, and cyclotomic-unit quotients",
    "target": "AUDIT-24",
    "roadmapIds": [
@@ -24416,7 +24888,7 @@
    "id": "REV-RT-AUDIT-24",
    "kind": "review",
    "priority": 2,
-   "order": 844,
+   "order": 846,
    "name": "library audit AUDIT-24: Coleman power series, local units, and cyclotomic-unit quotients",
    "roadmapIds": [
     "ColemanPowerSeries",
@@ -24445,7 +24917,7 @@
    "id": "RT-AUDIT-25",
    "kind": "redteam",
    "priority": 2,
-   "order": 845,
+   "order": 847,
    "name": "library audit AUDIT-25: Gross–Zagier formulas and arithmetic heights",
    "target": "AUDIT-25",
    "roadmapIds": [
@@ -24471,7 +24943,7 @@
    "id": "REV-RT-AUDIT-25",
    "kind": "review",
    "priority": 2,
-   "order": 845,
+   "order": 847,
    "name": "library audit AUDIT-25: Gross–Zagier formulas and arithmetic heights",
    "roadmapIds": [
     "GrossZagierAndArithmeticHeights",
@@ -24500,7 +24972,7 @@
    "id": "RT-AUDIT-26",
    "kind": "redteam",
    "priority": 2,
-   "order": 846,
+   "order": 848,
    "name": "library audit AUDIT-26: Main conjectures for modular forms and their families",
    "target": "AUDIT-26",
    "roadmapIds": [
@@ -24526,7 +24998,7 @@
    "id": "REV-RT-AUDIT-26",
    "kind": "review",
    "priority": 2,
-   "order": 846,
+   "order": 848,
    "name": "library audit AUDIT-26: Main conjectures for modular forms and their families",
    "roadmapIds": [
     "ModularIwasawaMainConjectures",
@@ -24555,7 +25027,7 @@
    "id": "RT-AUDIT-27",
    "kind": "redteam",
    "priority": 2,
-   "order": 847,
+   "order": 849,
    "name": "library audit AUDIT-27: Periods, motivic L-values and special-value conjectures",
    "target": "AUDIT-27",
    "roadmapIds": [
@@ -24581,7 +25053,7 @@
    "id": "REV-RT-AUDIT-27",
    "kind": "review",
    "priority": 2,
-   "order": 847,
+   "order": 849,
    "name": "library audit AUDIT-27: Periods, motivic L-values and special-value conjectures",
    "roadmapIds": [
     "PeriodsAndSpecialValues",
@@ -24610,7 +25082,7 @@
    "id": "RT-AUDIT-28",
    "kind": "redteam",
    "priority": 2,
-   "order": 848,
+   "order": 850,
    "name": "library audit AUDIT-28: Stable arithmetic cohomology and Borel regulators",
    "target": "AUDIT-28",
    "roadmapIds": [
@@ -24636,7 +25108,7 @@
    "id": "REV-RT-AUDIT-28",
    "kind": "review",
    "priority": 2,
-   "order": 848,
+   "order": 850,
    "name": "library audit AUDIT-28: Stable arithmetic cohomology and Borel regulators",
    "roadmapIds": [
     "BorelRegulators",
@@ -24665,7 +25137,7 @@
    "id": "RT-AUDIT-29",
    "kind": "redteam",
    "priority": 2,
-   "order": 849,
+   "order": 851,
    "name": "library audit AUDIT-29: Explicit K₂: symbols, residues and reciprocity",
    "target": "AUDIT-29",
    "roadmapIds": [
@@ -24690,7 +25162,7 @@
    "id": "REV-RT-AUDIT-29",
    "kind": "review",
    "priority": 2,
-   "order": 849,
+   "order": 851,
    "name": "library audit AUDIT-29: Explicit K₂: symbols, residues and reciprocity",
    "roadmapIds": [
     "K2SymbolsBrauer",
@@ -24718,7 +25190,7 @@
    "id": "RT-AUDIT-30",
    "kind": "redteam",
    "priority": 2,
-   "order": 850,
+   "order": 852,
    "name": "library audit AUDIT-30: Motivic and étale methods for arithmetic K-theory",
    "target": "AUDIT-30",
    "roadmapIds": [
@@ -24744,7 +25216,7 @@
    "id": "REV-RT-AUDIT-30",
    "kind": "review",
    "priority": 2,
-   "order": 850,
+   "order": 852,
    "name": "library audit AUDIT-30: Motivic and étale methods for arithmetic K-theory",
    "roadmapIds": [
     "MotivicEtaleKTheory",
@@ -24773,7 +25245,7 @@
    "id": "RT-AUDIT-31",
    "kind": "redteam",
    "priority": 2,
-   "order": 851,
+   "order": 853,
    "name": "library audit AUDIT-31: Arithmetic Galois representations and conductors",
    "target": "AUDIT-31",
    "roadmapIds": [
@@ -24799,7 +25271,7 @@
    "id": "REV-RT-AUDIT-31",
    "kind": "review",
    "priority": 2,
-   "order": 851,
+   "order": 853,
    "name": "library audit AUDIT-31: Arithmetic Galois representations and conductors",
    "roadmapIds": [
     "ArithmeticGaloisRepresentations",

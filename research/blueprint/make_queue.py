@@ -415,6 +415,40 @@ def confirmed_findings(rt):
     return [f for f in result.get("findings", []) if f.get("id") in confirmed and f.get("severity") in ("high", "medium")]
 
 
+def review_status(path):
+    """The status of the review recorded in a file ("accepted", "needs_changes"), or None."""
+    try:
+        review = json.loads((REPO / path).read_text()).get("review")
+    except (OSError, ValueError, AttributeError):
+        return None
+    return review.get("status") if isinstance(review, dict) else None
+
+
+def accepted_work(job):
+    """Whether the independent review of a finished job accepted it: the verdict in its
+    first output that records one, or, for a paper, in its review file."""
+    if job["kind"] == "paper":
+        try:
+            return json.loads((BP / "papers" / f"{job['id']}.review.json").read_text()).get("verdict") == "accept"
+        except (OSError, ValueError, AttributeError):
+            return False
+    for path in job.get("outputs", []):
+        if path.endswith(".json"):
+            status = review_status(path)
+            if status is not None:
+                return status == "accepted"
+    return False
+
+
+RS_REVISION = """REVISION ROUND {ROUND} of the restructuring {BASE}.
+The independent review {REVIEW} asked for changes: read its report, research/blueprint/reviews/{REVIEW}.md, and the "review" object in {OUTPUT}.
+Revise the proposal in place: make every change the review asks for, keep what it accepted, and update the report {REPORT}. Leave the "review" object in place: the next reviewer replaces it. Say in research/blueprint/handoff/{JOB}.md what this round changed.
+The original instructions follow.
+
+"""
+MAX_RS_ROUNDS = 3
+
+
 def restructuring_note(rs):
     """What a family member's blueprint takes from its family's restructuring (PROTOCOL.md section 15)."""
     return (f"\nThis roadmap belongs to the restructured family {rs}. Its proposal, research/blueprint/restructure/{rs}.result.json "
@@ -835,6 +869,10 @@ def main():
          "waitForLogs": ["{WORKERS}/EXT-07-continued/run.log"]})
     # Priority 0: restructure the families of overlapping roadmaps first, so that
     # nothing is blueprinted twice (PROTOCOL.md section 15).
+    try:
+        prior = {j["id"]: j for j in json.loads((BP / "queue.json").read_text())["jobs"]}
+    except (OSError, ValueError):
+        prior = {}
     family_review = {}
     for number, path in enumerate(sorted((BP / "restructure").glob("RS-[0-9][0-9].json")), 1):
         family = json.loads(path.read_text())
@@ -849,8 +887,25 @@ def main():
         add({"id": review_id, "kind": "review", "priority": 0, "order": 20 + number, "name": family["name"], "roadmapIds": members,
              "outputs": [f"research/blueprint/reviews/{review_id}.md", output], "after": [job_id], "avoidAccountOf": job_id},
             RESTRUCTURE_REVIEW_TEMPLATE.format(**fill, JOB=review_id, **fields))
+        # A proposal its review sends back is revised and reviewed again; the
+        # family's blueprints wait for the latest review.
+        latest = job_id
+        for round_no in range(2, MAX_RS_ROUNDS + 1):
+            revision, reviewed_by = f"{job_id}~{round_no}", "REV-" + latest
+            sent_back = (prior.get(reviewed_by, {}).get("state") == "done" and review_status(output) == "needs_changes"
+                         and (json.loads((REPO / output).read_text()).get("review") or {}).get("reviewer") == f"independent-review-{reviewed_by}")
+            if revision not in prior and not sent_back:
+                break
+            text = RS_REVISION.format(ROUND=round_no, BASE=job_id, REVIEW=reviewed_by, OUTPUT=output, REPORT=report, JOB=revision)
+            add({"id": revision, "kind": "restructure", "priority": 0, "order": 20 + number, "name": family["name"],
+                 "roadmapIds": members, "anchors": [a["id"] for a in family["anchors"]], "outputs": [output, report], "after": [reviewed_by]},
+                text + RESTRUCTURE_TEMPLATE.format(**fill, JOB=revision, **fields))
+            add({"id": "REV-" + revision, "kind": "review", "priority": 0, "order": 20 + number, "name": family["name"], "roadmapIds": members,
+                 "outputs": [f"research/blueprint/reviews/REV-{revision}.md", output], "after": [revision], "avoidAccountOf": revision},
+                RESTRUCTURE_REVIEW_TEMPLATE.format(**fill, JOB="REV-" + revision, **fields))
+            latest = revision
         for member in members:
-            family_review[member] = review_id
+            family_review[member] = "REV-" + latest
     # Priority 3: every other proposed roadmap, suppliers before consumers. Tau
     # Ceti roadmaps are planned upstream; the atlas builds on them, never
     # re-plans them.
@@ -925,9 +980,20 @@ def main():
     # queue as they are, so their red teams are found there.
     generated = {j["id"] for j in jobs}
     targets = [j for j in jobs if j["kind"] in REDTEAM_FOCUS] + [j for j in existing if j["kind"] in REDTEAM_FOCUS and j["id"] not in generated]
+    def base_round(jid):
+        base, _, number = jid.partition("~")
+        return base, int(number) if number.isdigit() else 1
+    latest_round = defaultdict(lambda: 1)
+    for j in jobs + existing:
+        base, number = base_round(j["id"])
+        latest_round[base] = max(latest_round[base], number)
     for number, job in enumerate(targets, 1):
         review = "REV-" + (job["id"][3:] if job["id"].startswith("BP-") else job["id"])
-        if states.get(job["id"]) != "done" or states.get(review) != "done":
+        # Only accepted work is red-teamed, and only its latest round.
+        if states.get(job["id"]) != "done" or states.get(review) != "done" or not accepted_work(job):
+            continue
+        base, current = base_round(job["id"])
+        if current < latest_round[base]:
             continue
         about = job.get("name") or next((roadmaps[r]["title"] for r in job.get("roadmapIds") or [] if r in roadmaps), None)
         name = f"{kind_word[job['kind']]} {job['id']}" + (f": {about}" if about else f" ({len(job.get('roadmapIds') or [])} roadmaps)")
