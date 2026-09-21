@@ -60,7 +60,7 @@
     "ComputationalNumberTheory:CN.3": {
       "action":"narrow",
       "keeps":"Exact modular-symbol/Hecke and q-expansion computational adapters, certified point-count/isogeny adapters and arithmetic computation interfaces. Reuse existing curve algorithms and certified general descent outputs; retain level, weight, character, bad-prime, precision and Sturm hypotheses in every equality certificate.",
-      "suppliedBy":["FiniteFieldsAndCharacterSums:FF.3","EffectiveDiophantineMethods:ED.3","tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-and-the-formal-group-aec-iii4-iii6-iii7-iv","tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1","tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii","tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4","UPSTREAM:TauCetiRoadmap/ModularForms Hecke and Sturm contracts (content/tau-ceti/ModularForms/README.md)"],
+      "suppliedBy":["FiniteFieldsAndCharacterSums:FF.3","EffectiveDiophantineMethods:ED.3","tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv","tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1","tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii","tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4","UPSTREAM:TauCetiRoadmap/ModularForms Hecke and Sturm contracts (content/tau-ceti/ModularForms/README.md)"],
       "reason":"The elliptic anchor already includes explicit isogeny and descent algorithms, not just abstract existence. CN.3 retains their certified computational integration, not a second proof owner."
     },
     "FiniteFieldsAndCharacterSums:FF.0": {
@@ -120,7 +120,7 @@
     "EffectiveDiophantineMethods:ED.6": {
       "action":"narrow",
       "keeps":"The original worked Thue, S-unit, elliptic and higher-genus examples, plus certified uses of the NC.5 nonabelian/quadratic Chabauty output. Instantiate CN.5 certificate schemas and preserve all completeness and conditionality labels.",
-      "suppliedBy":["ComputationalNumberTheory:CN.5","NonabelianChabautyAndQuadraticChabauty:NC.5"],
+      "suppliedBy":["ComputationalNumberTheory:CN.5","AnabelianGeometryAndNonabelianChabauty:NC.5"],
       "reason":"A generic benchmark/schema and a proved Diophantine example are distinct deliverables; the example retains its own mathematical acceptance test."
     },
     "HeightsRationalPointsAndObstructions:RP.0": {
@@ -148,7 +148,7 @@
     {"source":"ComputationalNumberTheory:CN.2","target":"ClassicalArithmeticCompletion:CA.5","reason":"Interpret certified basis, unit and class-group outputs in intrinsic field invariants."},
     {"source":"FiniteFieldsAndCharacterSums:FF.3","target":"ComputationalNumberTheory:CN.3","reason":"Consume verified finite-field point-counting/factorization outputs in arithmetic computation adapters."},
     {"source":"EffectiveDiophantineMethods:ED.3","target":"ComputationalNumberTheory:CN.3","reason":"Use the certified descent/local-image/saturation service instead of a second algorithm implementation."},
-    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-and-the-formal-group-aec-iii4-iii6-iii7-iv","target":"ComputationalNumberTheory:CN.3","reason":"Import the existing elliptic isogeny and explicit formula contracts."},
+    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv","target":"ComputationalNumberTheory:CN.3","reason":"Import the existing elliptic isogeny and explicit formula contracts."},
     {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1","target":"FiniteFieldsAndCharacterSums:FF.3","reason":"Use elliptic point-count/trace/Hasse correctness when certifying elliptic algorithms."},
     {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1","target":"ComputationalNumberTheory:CN.3","reason":"Preserve the abstract elliptic trace and point-count normalization at adapter boundaries."},
     {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii","target":"ComputationalNumberTheory:CN.3","reason":"Import existing elliptic descent and Mordell-Weil algorithm contracts."},
@@ -185,7 +185,7 @@
     {"target":"Certified reduction and exhaustive residual solution enumeration","owner":"EffectiveDiophantineMethods:ED.2","formerly":["DiophantineApproximationAndTranscendence:DT.4","EffectiveDiophantineMethods:ED.2"]},
     {"target":"New certified local-image, saturation and descent procedures","owner":"EffectiveDiophantineMethods:ED.3","formerly":["EffectiveDiophantineMethods:ED.3","ComputationalNumberTheory:CN.3"]},
     {"target":"Generic machine-checkable certificate schema and reproducibility rules","owner":"ComputationalNumberTheory:CN.5","formerly":["ComputationalNumberTheory:CN.5","FiniteFieldsAndCharacterSums:FF.5","EffectiveDiophantineMethods:ED.6"]},
-    {"target":"Existing elliptic isogeny and explicit algorithm theory","owner":"tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-and-the-formal-group-aec-iii4-iii6-iii7-iv","formerly":["ComputationalNumberTheory:CN.3"]},
+    {"target":"Existing elliptic isogeny and explicit algorithm theory","owner":"tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv","formerly":["ComputationalNumberTheory:CN.3"]},
     {"target":"Elliptic finite-field point count, Frobenius trace and Hasse normalization","owner":"tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1","formerly":["FiniteFieldsAndCharacterSums:FF.3","ComputationalNumberTheory:CN.3"]},
     {"target":"Existing elliptic canonical heights, Mordell-Weil and two-descent algorithms","owner":"tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii","formerly":["HeightsRationalPointsAndObstructions:RP.0","HeightsRationalPointsAndObstructions:RP.1","EffectiveDiophantineMethods:ED.3","ComputationalNumberTheory:CN.3"]},
     {"target":"Abstract Selmer structures on discrete Galois modules","owner":"tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4","formerly":["HeightsRationalPointsAndObstructions:RP.1","EffectiveDiophantineMethods:ED.3","ComputationalNumberTheory:CN.3"]},
