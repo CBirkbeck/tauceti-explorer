@@ -162,9 +162,15 @@ roadmap that owns it (PROTOCOL.md section 15).
   reviews the reviewer's own work.
 - If you cannot open a pull request, attach the files to a comment on the issue
   (JSON and Markdown as they are; Lean with `.txt` added to its name).
-- The maintainer integrates reviewed results into the atlas and applies
-  accepted restructurings. Workers never merge, close issues or change labels
-  by hand.
+- Work goes into the atlas by itself once its independent review accepts it
+  (PROTOCOL.md section 8): a blueprint's planets appear on their layers, every
+  declaration is listed with its statement, proof outline, API and unit tests,
+  and the roadmap's reader shows the reviewed document. A review records its
+  verdict in the `review` object of the file it reviews, naming itself as
+  `independent-review-<its job id>`; the intake comments on the job's issue when
+  the work goes live, or says why the atlas could not take it in.
+- The maintainer applies accepted restructurings. Workers never merge, close
+  issues or change labels by hand.
 
 ## Stopping
 
