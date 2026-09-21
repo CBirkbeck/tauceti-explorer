@@ -11,13 +11,20 @@
     "url": "https://arxiv.org/pdf/1702.04644v2",
     "sha256": "2eacf07f9c79a08a65bbfa332b964f0f9bd4ab5abb93e5db8be72e43669be1bd",
     "readDate": "2026-09-21",
-    "version": "Author-linked accepted preprint, arXiv v2 dated 13 July 2018, 40 pages; TeX source Duke_Final_Revision.tex also inspected. Authorship/title/journal/DOI matched to author and arXiv records. Publisher PDF access returned HTML; NSF public published-PDF endpoint timed out. Final typeset wording has not been verified.",
+    "version": "Author-linked older preprint, arXiv v2 dated 13 July 2018, 40 pages. The current worker reread the full PDF including both tables and the figure. Prior checkpoint inspected Duke_Final_Revision.tex; that archive was not re-downloaded in this continuation. Title/authorship/journal/DOI match the published record, but the publisher PDF was not acquired and sentence-level agreement with the final typeset article is not certified.",
     "readSections": [
-      "All 40 pages: §§1–8, Appendix A and references, including proofs, tables on pp.33–34 and Figure 1 on p.37",
-      "Selected EVW12 v1 primary inputs: pp.32–38,40–41,49–55; no full-paper reading or withdrawal-gap audit claimed"
+      "All 40 pages of Wood arXiv:1702.04644v2: §§1–8, complete proofs, Appendix A, references, tables pp.33–34 and Figure 1 p.37; reread by codex-a71f92 on 2026-09-21",
+      "All 13 pages of Wood (2021), An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland, author lifting.pdf, including every proof and references",
+      "EVW12 v1: this continuation read §7.3 homology-image proof, §§8.2.1–8.2.4, Proposition 8.7.1 proof, Theorem 8.7.3 and Example 9.3.2; inherited checkpoint had additionally read selected pp.32–38,40–41,49–55. Not a full-paper reading",
+      "EVW16: §§7.1–7.8 pp.765–770, including complete proofs of Lemma 7.6 and Proposition 7.7",
+      "Milne ADT (2006): I §4 standing hypotheses, Theorem 4.10, Example 4.11, pp.48–58; not the entire duality proof",
+      "Milne CFT v4.03: VIII §§1–2 pp.229–234, including the exact Grunwald–Wang character statement; its original Artin–Tate proof remains unread",
+      "Delange (1954): standing hypotheses p.213 and §5.2.1 Theorem III statement/proof pp.235–238, not the whole paper",
+      "Bhargava arXiv:1402.0031: Theorem 1.4 with context pp.3–4 and full proof §4.4 pp.23–25",
+      "Alberts JTNB32(3)(2020): Corollary 4.10 and Theorem 4.11 with proofs pp.656–657; original Lemmermeyer/Goldfeld–Hoffstein inputs remain prerequisites"
     ]
   },
-  "summary": "Partial extraction with full primary-preprint reading, split named results and all 72 table rows (multiplier and center claims separated). Reuses five checked library substrates and existing global duality, class-field, Schur-cover, étale-duality and weight owners. Sources ArithmeticStatistics ST.0/ST.3/ST.5 and InverseGalois IG.1/IG.3/IG.4/IG.5; proposes one foundational Part II for reduced Schur covers and marked central extensions. Unresolved inputs, refined-conjecture quantification, bad-type limit existence and appendix weighting are explicit gaps; no complete coverage or proof-closure claim.",
+  "summary": "Continuation of the full primary-preprint extraction: 297 items, preserving all 249 prior IDs and all 72 source table rows. Closes five of seven unrouted gaps by identifying the trace supplier, separating introductory known cases, deriving the prime-2/fixed-infinity Euler factors and A4 rigid weights, and sourcing a higher-pole Delange theorem. Adds precise later Wood2021, EVW16 and global-duality interfaces; distinguishes number-field and function-field ownership. Two foundational Part II briefs extend reduced Schur covers and higher-pole Tauberian methods. The arbitrary-root refined conjecture and bad-type ordinary-limit proof remain unresolved, as do source/algorithm certification debts; no exhaustive proof-closure or formalisation claim.",
   "items": [
     {
       "id": "PAPER-WOOD-19/1",
@@ -381,7 +388,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Goodness follows by conjugacy of the order-two Sylow subgroups. The reduced-multiplier 2-primary vanishing input still needs its complete supplier proof extracted; retained in the handoff."
+      "note": "EVW12 v1 Example 9.3.2 read at pp.56–57: for the odd normal kernel H⊲G′ of index 2, the Lyndon–Hochschild–Serre homology sequence gives H₂(G′,ℤ)≅H₂(H,ℤ)_(C2), hence odd order. For an outside involution x, its commuting-pair class is killed by 2, so Q_c=0. Goodness follows by conjugacy of Sylow-2 subgroups. Extract the homological input in the reduced-Schur supplier; no claim of existing implementation."
     },
     {
       "id": "PAPER-WOOD-19/33",
@@ -434,14 +441,14 @@
       "id": "PAPER-WOOD-19/37",
       "kind": "theorem",
       "name": "Global obstruction detected locally in the lifting situation",
-      "statement": "For L and A=H₂(F,c) in /34, the localization H²(G_L,A)→∏_v H²(G_Lv,A) is injective: Poitou–Tate identifies its kernel dual with the locally trivial H¹ of the dual module, which vanishes because L contains the requisite roots of unity and no nontrivial finite extension splits at every place.",
+      "statement": "For the number field L=K(μ_(4|F̃_c|)) and trivial finite module A=H₂(F,c), localization H²(G_L,A)→∏_v H²(G_Lv,A) is injective. Milne ADT I.4.10 pairs its kernel perfectly with Sha¹(L,A^D); A^D=Hom(A,μ) is trivial because L contains μ_exp(A), and a locally trivial continuous homomorphism to this finite group vanishes by Chebotarev.",
       "locator": "Lemma 3.2 proof, p.10",
       "status": "planned",
       "library": [],
       "planned": [
         "ArithmeticGaloisDuality:R02.4"
       ],
-      "note": "ArithmeticGaloisDuality:R02.4 owns the global finite-module duality. Exact Milne I.4.10 specialization, archimedean modification and function-field coefficient range require a source check; this item is not certified by an abstract H² declaration."
+      "note": "Exact source statement, standing global-field hypotheses and Example 4.11 read in Milne ADT (2006), pp.48–58. Use S=all places, prime-to-characteristic coefficients, finite Cartier dual and the bidual identification. L contains μ4 and has no real places, so the modified archimedean issue disappears. This item now restricts to number fields; the positive-characteristic variant is separate, not silently supplied by a number-field D7 description."
     },
     {
       "id": "PAPER-WOOD-19/38",
@@ -465,7 +472,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The exact Grunwald–Wang source and exceptional-case removal need independent reading. In positive characteristic prime-to-|F̃_c| no wild adjustment is needed. This is a weak homomorphism prescription, not a surjective realization theorem."
+      "note": "Statement checked in Milne CFT v4.03 VIII.2.4 (p.232), with VIII.1.5(b): μ4⊂L makes each 2-power cyclotomic extension cyclic, removing the exception. Decompose A into cyclic factors; extend each local character with order equal to the lcm of its local orders, then assemble the factors. No global surjectivity is asserted. Milne refers the full proof to Artin–Tate X.5; that original proof remains unread. In Wood's stronger roots-rich setting a Kummer/weak-approximation proof is also available as an alternative, not claimed read here."
     },
     {
       "id": "PAPER-WOOD-19/40",
@@ -616,14 +623,14 @@
       "id": "PAPER-WOOD-19/53",
       "kind": "theorem",
       "name": "Global reciprocity kills diagonal elements",
-      "statement": "The product of local reciprocity images of a diagonal element of a global field is trivial in every finite abelian Galois quotient; apply this to roots of unity.",
+      "statement": "For a number field K, the product of local reciprocity images of a diagonal K× element is trivial in every finite abelian Galois quotient; apply this to roots of unity.",
       "locator": "Lemmas 3.6–3.7; Theorem 3.13 proof",
       "status": "planned",
       "library": [],
       "planned": [
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity"
       ],
-      "note": "Import the global Artin map, its diagonal kernel and norm compatibility; keep place normalization fixed."
+      "note": "Import the number-field global Artin map, diagonal kernel and norm compatibility with fixed place normalization. Function-field reciprocity is split into a separate FA.4 supplier item."
     },
     {
       "id": "PAPER-WOOD-19/54",
@@ -744,7 +751,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The fiber product uses the class map ℤ^(c/F)→F^ab. This identification depends on the marking; the isomorphism type of the universal extension does not. The proof uses the homological universal-coefficient exact sequence and its five-term comparison, which need their own construction checks."
+      "note": "Wood (2021), Theorem 2.5 and Lemmas 2.1–2.4, read with all proofs, supply a later reproof independent of EVW's withdrawn homological-stability sections. Write P=F̃_c×_(F^ab)ℤ^(c/F). Its commutator is [F̃_c,F̃_c]×0 and P^ab=ℤ^(c/F). Pullback makes the central class trivial under UCT, hence a splitting; then adjust the marking. If φ([x])=(ĝ_x,e_x)k_x and ψ(e_x)=k_x, the adjustment is φ·ψ⁻¹, not φ·ψ. Exact equality im H₂=Q_c remains /132; the later proof only needs zero composite to reduced homology."
     },
     {
       "id": "PAPER-WOOD-19/65",
@@ -965,21 +972,23 @@
       "name": "Trace formula for rational point counts",
       "statement": "For separated finite-type X/Fq and ℓ∤q, #X(Fq)=∑_j(−1)^j Tr(Frob_geom|H_c^j(X̄,Qℓ)).",
       "locator": "Theorem 4.7 proof, p.23",
-      "status": "missing",
+      "status": "planned",
       "library": [],
-      "planned": [],
-      "note": "Generic supplier ownership and the pinned TraceFormula roadmap stage need a fresh exact match; leave unrouted in this checkpoint rather than assign the formula to a weight-theory stage."
+      "planned": [
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "note": "Supplier integration, not an existing Lean theorem: SF.2 explicitly imports CohomologicalPointCounting. Its upstream TraceFormula README, open TauCetiProject/TauCetiRoadmap PR196 at head 4bd72379658126cbe9be935656396f0c9dac4de0, Layer 12 has this exact constant-Qℓ rational-point formula, including q^r. Layers 8–14 read. Atlas upstreamAliases designate SF.2 as integration_owner; no nonexistent TraceFormula atlas stage is invented, and no new trace-formula implementation is planned here. AUDIT-01 says that integration is absent at the pins."
     },
     {
       "id": "PAPER-WOOD-19/85",
       "kind": "construction",
       "name": "Ordered configuration compactification",
-      "statement": "PConf_n admits a smooth proper compactification with relative normal-crossing boundary in the setting used by EVW16 Lemma 7.6; the ordered pullback of the Hurwitz cover is the comparison object.",
+      "statement": "For n≥2, PConf_n≅M_(0,n+1)×Aff, where Aff≅G_m×A¹; hence M̄_(0,n+1)×(P¹)² is a smooth proper compactification over ℤ with relative simple-normal-crossing boundary. For n=1 use A¹⊂P¹ separately.",
       "locator": "Theorem 4.7 proof, p.22",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "API: boundary strata, finite tame cover, reduction and ordered-to-unordered S_n descent. Exact EVW16 source proof and coefficient assumptions remain to be checked."
+      "note": "EVW16 Lemma 7.6, statement and proof pp.767–768, read. Explicit coordinates send the first two ordered points to 0,1; Aff remembers their difference and first point. Import the M̄_(0,n+1) construction/relative boundary from the moduli owner rather than rebuild it in IG.5."
     },
     {
       "id": "PAPER-WOOD-19/86",
@@ -990,7 +999,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Use ordered configuration, EVW16 Proposition 7.7, extension from Z/ℓ to Z/ℓ^a, inverse limit/Qℓ and S_n invariants, taking ℓ>n and ℓ∤q. The required nonproper comparison is stronger than the smooth proper WC.4 contract; do not mark it already supplied by that layer."
+      "note": "EVW16 Proposition 7.7 and proof pp.768–770 read: proper smooth X over a Henselian DVR, relative SNC divisor D, U=X−D and finite étale U′→U, with finite group action, give equivariant comparison with Z/ℓ coefficients. The proof passes through π_*Z/ℓ, j_!, vanishing cycles, proper base change and duality; it is not smooth proper base change applied directly to U′. Wood needs compatible Z/ℓ^a comparisons, inverse limit and Qℓ, then exact S_n invariants (choose ℓ>n, ℓ∤q). Record those coefficient bridges separately. Fixed n only: no n-uniform homological stability imported."
     },
     {
       "id": "PAPER-WOOD-19/87",
@@ -1247,7 +1256,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "This is the global reciprocity sign constraint; it couples local factors and prevents using their product without a selector."
+      "note": "This describes which quadratic fields are imaginary, not yet the rigid-surjection normalization. In the diagonal embedded type the imaginary rigid extension must send the chosen infinity generator to the distinguished swap σ, not merely to any of the 2^k outside elements; /139 and the new projector lemmas impose this."
     },
     {
       "id": "PAPER-WOOD-19/110",
@@ -1280,7 +1289,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "This combines a singularity assertion and its application; the next pass must split the exact analytic continuation/error hypotheses, local 2-factor positivity and Tauberian theorem. A pole at one point alone is insufficient. Status remains partial."
+      "note": "The continuation, positive leading coefficient and Tauberian bridge are now separate items. Write m=2^k and F+=(T+U+(2m−2)V)/(2m); T has pole order m, U is holomorphic at 1 and V has order at most m/2. All continue meromorphically to Re s>1/2 with no other poles on Re s=1. Apply the Delange integer-pole corollary, not a pole-only inference. The rank-zero boundary is separate."
     },
     {
       "id": "PAPER-WOOD-19/113",
@@ -1313,7 +1322,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The article says the imaginary argument is similar; a proof blueprint must supply its nontrivial-last-coordinate character selector and positivity rather than cite the real proof unchanged."
+      "note": "An explicit fixed-σ projector gives F−=(T−U)/(2m), m=2^k, so the leading constant equals the real constant. Merely selecting π(infinity)=1 gives m times too many homomorphisms. Remove proper images containing σ; the remaining rigid numerator has the displayed growth. This calculation fills the article's 'similarly' step."
     },
     {
       "id": "PAPER-WOOD-19/116",
@@ -1431,12 +1440,12 @@
       "id": "PAPER-WOOD-19/126",
       "kind": "construction",
       "name": "Exact cubic-field enumeration algorithm",
-      "statement": "Use complete cubic-field tables with −X<Disc(M3)<0, retain nowhere-totally-ramified fields (including the separate prime-2 test), compute each S3 closure M, then its class group and the invariant C2² quotients of /122.",
+      "statement": "Use complete cubic-field tables with −X≤Disc(M3)<0, retain nowhere-totally-ramified fields (including the separate prime-2 test), compute each S3 closure M, then its class group and the invariant C2² quotients of /122.",
       "locator": "Appendix A.1 pp.35–36",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "API: input range convention, soundness/completeness of filtering and quotient enumeration, arithmetic precision certificates and conversion from field counts to rigid counts. The paper’s description leaves the explicit Aut(A4) weighting to be audited; /146 keeps that gap open."
+      "note": "Inclusive cutoff matches |Disc|≤X. The conversion is now explicit: 24 rigid surjections per embedded eligible class-group kernel, or 4 per quotient epimorphism, or 48 per S3-orbit of eligible kernels. Cubic input must consist of isomorphism classes, with no extra factor 3 for conjugate subfields. Source implementation, completeness of cubic tables, 2-adic filters and class-group certificates remain unverified; derived weighting does not certify Figure 1."
     },
     {
       "id": "PAPER-WOOD-19/127",
@@ -1477,14 +1486,14 @@
       "id": "PAPER-WOOD-19/130",
       "kind": "theorem",
       "name": "Class fields and equivariance",
-      "statement": "Finite abelian extensions of a global K unramified at finite places and split at infinity correspond to finite quotients of the ordinary ideal class group, equivariantly for automorphisms of K.",
+      "statement": "Finite abelian extensions of a number field K unramified at finite places and split at infinity correspond to finite quotients of the ordinary ideal class group, equivariantly for automorphisms of K.",
       "locator": "§7; Appendix A.1",
       "status": "planned",
       "library": [],
       "planned": [
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
       ],
-      "note": "Upstream owns the class-field correspondence and Hilbert class field. The equivariance and normal-closure adapters used by the appendix need exact interfaces."
+      "note": "Ordinary ideal class groups in this statement are number-field objects. Import the Hilbert-class-field correspondence and automorphism equivariance from upstream ClassFieldTheory. A function-field analogue must specify degree and selected split places and use FA.4; no unqualified global-field extension is claimed here."
     },
     {
       "id": "PAPER-WOOD-19/131",
@@ -1506,7 +1515,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Required for the fiber-product universal property. Use the homological five-term exact sequence and the extension-class comparison; those are not supplied merely by a carrier definition."
+      "note": "EVW12 v1 p.34 explicitly gives this equality from the homological five-term sequence: image is the kernel of the transgression H₂(F,ℤ)→ker(f), and the extension-class/UCT comparison identifies that map with the quotient to H₂(F,c). This is stronger than the zero-composite Lemma 2.2 in Wood (2021). Preserve both statements; the fiber-product proof can use only the weaker one, but this source theorem is not discarded."
     },
     {
       "id": "PAPER-WOOD-19/133",
@@ -1528,7 +1537,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "This stable π0 theorem is the input, not a higher homology stability theorem. Its proof needs the eventual bijectivity of stabilization on generating tuples, not merely a surjection."
+      "note": "Wood (2021) Theorem 3.1 and its full proof read. Stabilization surjectivity for high multiplicities uses Fried–Völklein Appendix Lemma 3. Pick a high multidegree of minimum orbit cardinality to turn surjections into bijections. Localize the braid monoid at v=∏_(g∈c)(g)^ord(g); V[v⁻¹]≅U(F,c). Stable cancellation gives injectivity; central power blocks give generating representatives and de-localization gives surjectivity. The input is stable π0, not higher homology stability. Fried–Völklein's original lemma remains a prerequisite."
     },
     {
       "id": "PAPER-WOOD-19/135",
@@ -1550,40 +1559,40 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "API: fiber functor, marking after adjoining an Nth root, Abhyankar-lemma étaleness, and Frobenius lift. Full §8.2 source decomposition remains open, not replaced by a chosen rational point in an unramified fiber."
+      "note": "EVW12 v1 §§8.2.1–8.2.4 now read, including Puiseux rings, first-order independence and the arithmetic section. Tame splitting uses Abhyankar's lemma; inertia at infinity is preserved as an actual map by the tangential fiber functor, other peripheral maps only up to conjugacy. §8.7.1 proof and §8.7.3 also read. Wood (2021) §§5–6 give a later prime-to-characteristic construction and specialization reproof for the unramified marked point; that version alone does not cover Wood19's ramified infinity case."
     },
     {
       "id": "PAPER-WOOD-19/137",
       "kind": "theorem",
-      "name": "Imaginary odd-order known moment cases",
-      "statement": "The introduction cites the imaginary C3 moment Ẽ⁻(C3,S3)=1 from Davenport–Heilbronn and several nonabelian low-degree cases from Bhargava and Alberts.",
+      "name": "Known imaginary C3 rigid moment",
+      "statement": "For imaginary quadratic fields ordered by absolute discriminant, the average number of surjections from the everywhere-unramified Galois group to C3 is 1; equivalently E⁻(A3,S3)=1/2 and Ẽ⁻(A3,S3)=1.",
       "locator": "§1.1 p.4",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Only the explicit C3 formula is transcribed here; the other cited cases and their rigid/unrigid conventions need separate items after reading the original statements. This inventory is partial for that reason; no blanket theorem about all known moments is exported."
+      "note": "Davenport–Heilbronn is the original source; Bhargava Theorem 1.4(b), n=3, reproves the quoted unrigid value and its proof in §4.4 was read. Other n=3,4,5 and Q8,D8 cases are now separate items. Do not infer arbitrary nonabelian moments."
     },
     {
       "id": "PAPER-WOOD-19/138",
       "kind": "construction",
-      "name": "Analytic Euler-product to counting interface",
-      "statement": "To pass from the Euler product in §6 or F_k in §7 to a count ∼C X(log X)^(r−1), specify nonnegative coefficients, the right-half-plane convergence, a pole of order r with positive principal coefficient and the exact boundary regularity required by the chosen Tauberian theorem.",
+      "name": "Higher-pole Tauberian counting interface",
+      "statement": "For nonnegative Dirichlet coefficients a_n, convergence on Re s>1, a meromorphic continuation near every point of Re s=1, no poles there except s=1, and an order-m pole at 1 with positive leading coefficient A, one has ∑_(n≤X)a_n∼A X(log X)^(m−1)/(m−1)! for integer m≥1.",
       "locator": "§6 p.27; §7 p.31; Narkiewicz p.121 cited",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "This is an unresolved source/interface item, not a theorem saying a pole alone suffices. Check whether upstream Chebotarev’s Tauberian theorem supplies the needed higher-order form or requires a Part II. Leave unrouted pending that exact audit."
+      "note": "Use Delange (1954), §5.2.1 Theorem III, via α(t)=∑_(n≤e^t)a_n and Laplace transform F(s)/s. Standing hypotheses and pp.235–238 proof read. This is a sourced replacement for the unavailable Narkiewicz p.121, not a claim that both formulations coincide. Existing upstream ArithmeticDirichletSeries Layer 9 only supplies a simple pole; the generic higher-pole extension has its own Part II."
     },
     {
       "id": "PAPER-WOOD-19/139",
       "kind": "construction",
-      "name": "Prime-two local factor and imaginary selector",
-      "statement": "Complete the §7 Euler-product calculation by enumerating continuous allowed maps ℤ₂ˣ→C2^{k+1}, attaching conductor/discriminant exponents, and using the character projector for infinity image outside C2^k×1 in the imaginary case.",
+      "name": "Prime-two factor and fixed-involution imaginary selector",
+      "statement": "Put A=F₂^(k+1), m=2^k, c=A\\kerπ, σ=(0,…,0,1), and Sχ=∑_(t∈c)χ(t). The local factor at 2 is 1+m·2^(−3s)+Sχ(2^(−2s)+2^(−3s)). With the three Euler products T,U,V specified below, F+=(T+U+(2m−2)V)/(2m) and the imaginary rigid series fixing infinity σ is F−=(T−U)/(2m).",
       "locator": "§7 pp.30–31",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Finite local character space is explicit but this checkpoint has not transcribed the resulting factor or imaginary projector into separate theorem statements. These are required to justify the stated positive constants and are left unrouted as a concrete gap."
+      "note": "Derived explicitly from Wood §7, not quoted as a displayed formula of the paper. The three nonzero characters of Z₂×/(Z₂×)² have (-1,5) values (1,0),(0,1),(1,1) and conductor exponents 2,3,3. The prior outside-only selector overcounted the rigid imaginary numerator by m. Exact regression exhausts allowed local maps and finite-prime projectors for k=1,…,5."
     },
     {
       "id": "PAPER-WOOD-19/140",
@@ -1654,13 +1663,13 @@
     {
       "id": "PAPER-WOOD-19/146",
       "kind": "construction",
-      "name": "Unresolved rigid weighting of the A4 enumeration",
-      "statement": "An unrigid A4-extension supplies rigid surjections by choosing Gal(L/K)≅A4; its multiplicity must be reconciled with the exact embedded type and the enumeration of kernels of class-group quotients before dividing by the quadratic-field count.",
+      "name": "Rigid weighting of the A4 quotient algorithm",
+      "statement": "For the order-96 embedded A4 type, each eligible embedded kernel N⊲Cl(M) of a C2² quotient stable under C3 but not S3 gives one A4 extension L/K and 24 rigid surjections. Equivalently multiply the count of quotient epimorphisms by 4, or the count of two-element S3-orbits of kernels by 48.",
       "locator": "Appendix A.1 p.36",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The prose says the algorithm computes Ẽ⁻, but does not explicitly display the Aut(A4) weighting. Reconstruct the weighting and check sample field/quotient multiplicities before claiming reproducibility. Unrouted pending this check."
+      "note": "Aut(A4)=S4 has order 24 and every automorphism preserves this embedded type. Six epimorphisms share each kernel; the non-S3-stable kernels have stabilizer C3, hence orbit size 2. Cubic isomorphism classes supply one S3 normal closure, not three. This is a derived normalization, tested on an F4² module; it does not certify the unpublished counting code or numerical figure."
     },
     {
       "id": "PAPER-WOOD-19/147",
@@ -2794,48 +2803,598 @@
       "library": [],
       "planned": [],
       "note": "Source-reported finite GAP computation; preserve the embedded-type qualification from /116–/117. The defining semidirect action and a certified embedding must be supplied before using an abstract group name computationally. This row has not been independently verified, except the elementary appendix order/center/goodness checks recorded in the report."
+    },
+    {
+      "id": "PAPER-WOOD-19/250",
+      "kind": "theorem",
+      "name": "Function-field local detection of the lifting obstruction",
+      "statement": "Let L be a global function field of characteristic p, A=H₂(F,c) with p∤|F|, and μ_exp(A)⊂L. Localization H²(G_L,A)→∏_v H²(G_Lv,A) is injective. Apply Milne I.4.10 with S all places and the finite dual A^D; the dual module is trivial, and Chebotarev kills Sha¹(L,A^D).",
+      "locator": "Wood Lemma 3.2; Milne ADT I.4.10, pp.48–58",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Milne's statement is genuinely global-field and assumes coefficients invertible on the S-integer ring. Schur-multiplier primes divide |F|, so the coefficient condition holds. This repairs the inherited number-field-only roadmap citation for the function-field case."
+    },
+    {
+      "id": "PAPER-WOOD-19/251",
+      "kind": "theorem",
+      "name": "Function-field reciprocity kills diagonal roots",
+      "statement": "For a global function field L, the product of local Artin images of u∈L× is trivial in any finite abelian Galois quotient, with the same norm/restriction convention as the local maps.",
+      "locator": "Wood Lemmas 3.6–3.7 and Theorem 3.13",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "FunctionFieldArithmetic:FA.4"
+      ],
+      "note": "FA.4 explicitly owns function-field class field theory. Keep degree, constant-field and infinity-splitting conditions in the relevant class-field correspondence; the diagonal-kernel identity itself has no ordinary ideal-class-group shortcut."
+    },
+    {
+      "id": "PAPER-WOOD-19/252",
+      "kind": "theorem",
+      "name": "Reduced-cover homology composite vanishes",
+      "statement": "For a reduced Schur cover S_c→F, the composite H₂(S_c,ℤ)→H₂(F,ℤ)→H₂(F,c) is zero.",
+      "locator": "Wood (2021), Lemma 2.2, pp.2–3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Weaker than /132 and sufficient in the later fiber-product universal-extension proof. The proof uses functoriality of the universal-coefficient map and the fact that pulling an extension back along itself splits. It does not identify two homology carriers by notation."
+    },
+    {
+      "id": "PAPER-WOOD-19/253",
+      "kind": "theorem",
+      "name": "Fiber-product abelianization",
+      "statement": "For P=S_c×_(F^ab)ℤ^D with D=c/F and c generating F, P→S_c is onto, [P,P]=[S_c,S_c]×0 and projection induces P^ab≅ℤ^D.",
+      "locator": "Wood (2021), Lemma 2.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "S_c is a stem extension, so S_c^ab≅F^ab. Lift each pair of elements of S_c to P to obtain the reverse commutator inclusion. Its kernel under projection to ℤ^D is exactly [S_c,S_c]×0. This supplies the calculation omitted in the earlier source."
+    },
+    {
+      "id": "PAPER-WOOD-19/254",
+      "kind": "construction",
+      "name": "Correct a splitting to preserve the marking",
+      "statement": "If a splitting φ of the pulled-back central extension sends a marked generator x to the chosen marked lift times k_x∈A, let ψ:P^ab=ℤ^D→A send e_[x] to k_x. Then φ·ψ⁻¹ preserves the chosen marking.",
+      "locator": "Wood (2021), Theorem 2.5 proof; adapter calculation",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Centrality makes the pointwise product a homomorphism; conjugacy makes k_x class-dependent. The displayed proof's product with ψ requires an inverse under its preceding convention. Test one class and arbitrary non-2-torsion k_x; multiplication without inverse doubles the discrepancy."
+    },
+    {
+      "id": "PAPER-WOOD-19/255",
+      "kind": "construction",
+      "name": "Stable cancellation through the braid monoid",
+      "statement": "For V the monoid of braid orbits of c-tuples and v=∏_(g∈c)(g)^ord(g), v is central and V[v⁻¹]≅U(F,c). On generating tuples with all class multiplicities large, multiplication by v is bijective, so equality after localization implies equality before localization.",
+      "locator": "Wood (2021), Theorem 3.1 proof, pp.4–6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use Fried–Völklein Appendix Lemma 3 for high-multiplicity surjectivity; minimize the finite orbit cardinality over a sufficiently large orthant to deduce eventual bijectivity. Positive representatives with every c-element are obtained by central power blocks. Both cancellation and de-localization are required."
+    },
+    {
+      "id": "PAPER-WOOD-19/256",
+      "kind": "theorem",
+      "name": "Finite level suffices for the discrete action",
+      "statement": "To compute the discrete action α∗ on U(F,c), its value depends only on the image of α in (ℤ/|F|²ℤ)×.",
+      "locator": "Wood (2021), Remark 4.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use that the exponent of the finite reduced-cover part divides |F|²; the multidegree factor is handled by the induced permutation of c/F, not an infinite arbitrary powering calculation. This is an algorithmic reduction, not an assertion that ∗ acts by group automorphisms."
+    },
+    {
+      "id": "PAPER-WOOD-19/257",
+      "kind": "theorem",
+      "name": "First-order independence of a tangential parameter",
+      "statement": "If local uniformizers π1 and π2 at a puncture agree modulo the square of the maximal ideal, their prime-to-characteristic Puiseux extensions and associated tame fiber functors are canonically identified, respecting inertia.",
+      "locator": "EVW12 v1 §8.2.2, pp.42–43",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Send each distinguished Nth root of π1 to the unique Nth root whose leading term agrees with the distinguished root of π2. Hensel/Abhyankar supply existence and tame splitting. The arithmetic version gives an actual Galois action from the tangential section, not just an outer action."
+    },
+    {
+      "id": "PAPER-WOOD-19/258",
+      "kind": "theorem",
+      "name": "Tangential specialization preserves the boundary marking",
+      "statement": "For the smooth punctured-line family over a strictly Henselian DVR with finite étale branch divisor and group order invertible on the base, prime-to-p specialization identifies the geometric fundamental groups with their fixed tangential basepoints; the infinity inertia map is preserved exactly, other inertia conjugacy classes are preserved.",
+      "locator": "EVW12 v1 Proposition 8.7.1 proof, pp.52–54; Theorem 8.7.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Import SGA1 XIII Corollary 2.12, retaining tangential fiber functors. It implies local constancy of the lifting invariant and the stable, Galois-equivariant component bijection. Later Wood2021 §6 gives a separate reproof with an unramified marked point, not a replacement for this ramified-boundary scope."
+    },
+    {
+      "id": "PAPER-WOOD-19/259",
+      "kind": "construction",
+      "name": "Coefficient tower and ordered-to-unordered comparison",
+      "statement": "Extend the equivariant Z/ℓ comparison for the ordered Hurwitz pullback to compatible Z/ℓ^a comparisons; pass to inverse limits and tensor with Qℓ; for ℓ>n take exact S_n invariants to obtain the unordered Qℓ Betti bound.",
+      "locator": "Wood Theorem 4.7 proof; EVW16 Proposition 7.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Expose compatible coefficient-change maps and the inverse-limit hypotheses (finite torsion cohomology/Mittag–Leffler), not merely an abstract isomorphism at every a. Characteristic-zero finite-dimensional cohomology bounds fixed n uniformly in q. No uniformity as n→∞ is claimed."
+    },
+    {
+      "id": "PAPER-WOOD-19/260",
+      "kind": "theorem",
+      "name": "Known real A3 unramified moment",
+      "statement": "For real quadratic fields ordered by absolute discriminant, E+(A3,S3)=1/6, counting extensions unramified also at infinity. For the good embedded type, |Aut_(A3≀C2)(S3)|=2; the real rigid pair moment is 1.",
+      "locator": "Wood §1.1; Bhargava arXiv:1402.0031, Theorem 1.4(a), n=3; proof §4.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The real rigid-pair conversion includes the outside-involution class size n(n−1)/2 in addition to the automorphism factor. The source counts cubic/quartic/quintic isomorphism classes, not chosen embeddings. These exact cases are separate from Wood's general conjecture."
+    },
+    {
+      "id": "PAPER-WOOD-19/261",
+      "kind": "theorem",
+      "name": "Known real A4 unramified moment",
+      "statement": "For real quadratic fields ordered by absolute discriminant, E+(A4,S4)=1/24, counting extensions unramified also at infinity. For the good embedded type, |Aut_(A4≀C2)(S4)|=4; the real rigid pair moment is 1.",
+      "locator": "Wood §1.1; Bhargava arXiv:1402.0031, Theorem 1.4(a), n=4; proof §4.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The real rigid-pair conversion includes the outside-involution class size n(n−1)/2 in addition to the automorphism factor. The source counts cubic/quartic/quintic isomorphism classes, not chosen embeddings. These exact cases are separate from Wood's general conjecture."
+    },
+    {
+      "id": "PAPER-WOOD-19/262",
+      "kind": "theorem",
+      "name": "Known imaginary A4 unramified moment",
+      "statement": "For imaginary quadratic fields ordered by absolute discriminant, E-(A4,S4)=1/4, counting extensions unramified also at infinity. For the good embedded type, |Aut_(A4≀C2)(S4)|=4; the imaginary rigid moment is 1.",
+      "locator": "Wood §1.1; Bhargava arXiv:1402.0031, Theorem 1.4(b), n=4; proof §4.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The real rigid-pair conversion includes the outside-involution class size n(n−1)/2 in addition to the automorphism factor. The source counts cubic/quartic/quintic isomorphism classes, not chosen embeddings. These exact cases are separate from Wood's general conjecture."
+    },
+    {
+      "id": "PAPER-WOOD-19/263",
+      "kind": "theorem",
+      "name": "Known real A5 unramified moment",
+      "statement": "For real quadratic fields ordered by absolute discriminant, E+(A5,S5)=1/120, counting extensions unramified also at infinity. For the good embedded type, |Aut_(A5≀C2)(S5)|=12; the real rigid pair moment is 1.",
+      "locator": "Wood §1.1; Bhargava arXiv:1402.0031, Theorem 1.4(a), n=5; proof §4.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The real rigid-pair conversion includes the outside-involution class size n(n−1)/2 in addition to the automorphism factor. The source counts cubic/quartic/quintic isomorphism classes, not chosen embeddings. These exact cases are separate from Wood's general conjecture."
+    },
+    {
+      "id": "PAPER-WOOD-19/264",
+      "kind": "theorem",
+      "name": "Known imaginary A5 unramified moment",
+      "statement": "For imaginary quadratic fields ordered by absolute discriminant, E-(A5,S5)=1/12, counting extensions unramified also at infinity. For the good embedded type, |Aut_(A5≀C2)(S5)|=12; the imaginary rigid moment is 1.",
+      "locator": "Wood §1.1; Bhargava arXiv:1402.0031, Theorem 1.4(b), n=5; proof §4.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The real rigid-pair conversion includes the outside-involution class size n(n−1)/2 in addition to the automorphism factor. The source counts cubic/quartic/quintic isomorphism classes, not chosen embeddings. These exact cases are separate from Wood's general conjecture."
+    },
+    {
+      "id": "PAPER-WOOD-19/265",
+      "kind": "theorem",
+      "name": "Known real S3 divergent moment",
+      "statement": "For real quadratic fields ordered by absolute discriminant, E+(S3,S3×C2)=+∞ for extensions everywhere unramified.",
+      "locator": "Wood §1.1; Bhargava Theorem 1.4(c), n=3; §4.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The theorem is for the stated normal-closure type, not all subgroups of the wreath product. Passing to its rigid convention multiplies by finite positive group factors and preserves divergence."
+    },
+    {
+      "id": "PAPER-WOOD-19/266",
+      "kind": "theorem",
+      "name": "Known imaginary S3 divergent moment",
+      "statement": "For imaginary quadratic fields ordered by absolute discriminant, E-(S3,S3×C2)=+∞ for extensions everywhere unramified.",
+      "locator": "Wood §1.1; Bhargava Theorem 1.4(d), n=3; §4.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The theorem is for the stated normal-closure type, not all subgroups of the wreath product. Passing to its rigid convention multiplies by finite positive group factors and preserves divergence."
+    },
+    {
+      "id": "PAPER-WOOD-19/267",
+      "kind": "theorem",
+      "name": "Known real S4 divergent moment",
+      "statement": "For real quadratic fields ordered by absolute discriminant, E+(S4,S4×C2)=+∞ for extensions everywhere unramified.",
+      "locator": "Wood §1.1; Bhargava Theorem 1.4(c), n=4; §4.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The theorem is for the stated normal-closure type, not all subgroups of the wreath product. Passing to its rigid convention multiplies by finite positive group factors and preserves divergence."
+    },
+    {
+      "id": "PAPER-WOOD-19/268",
+      "kind": "theorem",
+      "name": "Known imaginary S4 divergent moment",
+      "statement": "For imaginary quadratic fields ordered by absolute discriminant, E-(S4,S4×C2)=+∞ for extensions everywhere unramified.",
+      "locator": "Wood §1.1; Bhargava Theorem 1.4(d), n=4; §4.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The theorem is for the stated normal-closure type, not all subgroups of the wreath product. Passing to its rigid convention multiplies by finite positive group factors and preserves divergence."
+    },
+    {
+      "id": "PAPER-WOOD-19/269",
+      "kind": "theorem",
+      "name": "Known real S5 divergent moment",
+      "statement": "For real quadratic fields ordered by absolute discriminant, E+(S5,S5×C2)=+∞ for extensions everywhere unramified.",
+      "locator": "Wood §1.1; Bhargava Theorem 1.4(c), n=5; §4.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The theorem is for the stated normal-closure type, not all subgroups of the wreath product. Passing to its rigid convention multiplies by finite positive group factors and preserves divergence."
+    },
+    {
+      "id": "PAPER-WOOD-19/270",
+      "kind": "theorem",
+      "name": "Known imaginary S5 divergent moment",
+      "statement": "For imaginary quadratic fields ordered by absolute discriminant, E-(S5,S5×C2)=+∞ for extensions everywhere unramified.",
+      "locator": "Wood §1.1; Bhargava Theorem 1.4(d), n=5; §4.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The theorem is for the stated normal-closure type, not all subgroups of the wreath product. Passing to its rigid convention multiplies by finite positive group factors and preserves divergence."
+    },
+    {
+      "id": "PAPER-WOOD-19/271",
+      "kind": "theorem",
+      "name": "Known real Q8 divergent moment",
+      "statement": "For real quadratic fields, the average number of everywhere-unramified Q8-extensions in the subfamily normal over ℚ is +∞. The unique GI-extension has type the order-16 central product D8⊕_(C2)C4 (SmallGroup(16,13)).",
+      "locator": "Wood §1.1; Alberts JTNB 32(3) (2020), Corollary 4.10, p.656",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Alberts denotes the order-8 dihedral group by D4, while Wood uses D8. The Q8 proof uses Lemmermeyer's discriminant factorization and Goldfeld–Hoffstein's double-series pole; the D8 proof uses Lemmermeyer and divergence of prime reciprocals in a progression. These original prerequisite proofs have not all been read, and no claim about every wreath-product type is made."
+    },
+    {
+      "id": "PAPER-WOOD-19/272",
+      "kind": "theorem",
+      "name": "Known imaginary Q8 divergent moment",
+      "statement": "For imaginary quadratic fields, the average number of everywhere-unramified Q8-extensions in the subfamily normal over ℚ is +∞. The unique GI-extension has type the order-16 central product D8⊕_(C2)C4 (SmallGroup(16,13)).",
+      "locator": "Wood §1.1; Alberts JTNB 32(3) (2020), Corollary 4.10, p.656",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Alberts denotes the order-8 dihedral group by D4, while Wood uses D8. The Q8 proof uses Lemmermeyer's discriminant factorization and Goldfeld–Hoffstein's double-series pole; the D8 proof uses Lemmermeyer and divergence of prime reciprocals in a progression. These original prerequisite proofs have not all been read, and no claim about every wreath-product type is made."
+    },
+    {
+      "id": "PAPER-WOOD-19/273",
+      "kind": "theorem",
+      "name": "Known real D8 divergent moment",
+      "statement": "For real quadratic fields, the average number of everywhere-unramified D8-extensions in the subfamily normal over ℚ is +∞. The unique GI-extension has type D8×C2.",
+      "locator": "Wood §1.1; Alberts JTNB 32(3) (2020), Theorem 4.11, pp.656–657",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Alberts denotes the order-8 dihedral group by D4, while Wood uses D8. The Q8 proof uses Lemmermeyer's discriminant factorization and Goldfeld–Hoffstein's double-series pole; the D8 proof uses Lemmermeyer and divergence of prime reciprocals in a progression. These original prerequisite proofs have not all been read, and no claim about every wreath-product type is made."
+    },
+    {
+      "id": "PAPER-WOOD-19/274",
+      "kind": "theorem",
+      "name": "Known imaginary D8 divergent moment",
+      "statement": "For imaginary quadratic fields, the average number of everywhere-unramified D8-extensions in the subfamily normal over ℚ is +∞. The unique GI-extension has type D8×C2.",
+      "locator": "Wood §1.1; Alberts JTNB 32(3) (2020), Theorem 4.11, pp.656–657",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Alberts denotes the order-8 dihedral group by D4, while Wood uses D8. The Q8 proof uses Lemmermeyer's discriminant factorization and Goldfeld–Hoffstein's double-series pole; the D8 proof uses Lemmermeyer and divergence of prime reciprocals in a progression. These original prerequisite proofs have not all been read, and no claim about every wreath-product type is made."
+    },
+    {
+      "id": "PAPER-WOOD-19/275",
+      "kind": "construction",
+      "name": "The three ramified quadratic characters at 2",
+      "statement": "On ℤ₂×/(ℤ₂×)² with basis −1,5, the nonzero F₂ characters have values (1,0),(0,1),(1,1) and conductor exponents 2,3,3. For each t∈c, composing with 1↦t gives one allowed map of each kind; add the trivial map.",
+      "locator": "Wood §7 omitted local-2 calculation; derived unit-square-class adapter",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: enumerate all allowed rank≤1 linear maps, conductor exponent, −1 image, and invariance under a change of square-class basis. Exhaustive finite tests k=1,…,5 compare the enumeration with all homomorphisms from F₂²."
+    },
+    {
+      "id": "PAPER-WOOD-19/276",
+      "kind": "theorem",
+      "name": "Outside-coset character sum",
+      "statement": "For A=F₂^(k+1), H=kerπ, m=2^k and χ∈A*, ∑_(t∈A\\H)χ(t) is m for χ=1, −m for χ=π, and 0 otherwise.",
+      "locator": "Wood §7 character cancellation; explicit finite calculation",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This is finite character orthogonality on H and its nontrivial coset. It simultaneously controls the odd-prime and prime-2 factors. Keep π as the ±1 character (−1)^π when switching additive/multiplicative notation."
+    },
+    {
+      "id": "PAPER-WOOD-19/277",
+      "kind": "definition",
+      "name": "The principal Euler product T",
+      "statement": "For m=2^k, define T(s)=(1+m·2^(−2s)+2m·2^(−3s))∏_(p odd)(1+m p^(−s)) on Re s>1.",
+      "locator": "Wood §7; explicit completion of the exceptional Euler factor",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: convergence, nonnegative coefficients, finite-prime truncation and equality to the trivial-character contribution. Use existing LSeries/EulerProduct carriers, not a new generic Dirichlet-series definition."
+    },
+    {
+      "id": "PAPER-WOOD-19/278",
+      "kind": "definition",
+      "name": "The quotient-character Euler product U",
+      "statement": "Define U(s)=(1−m·2^(−2s))∏_(p≡1 mod4)(1+m p^(−s))∏_(p≡3 mod4)(1−m p^(−s)) on Re s>1.",
+      "locator": "Wood §7; explicit prime-2 and sign calculation",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: signed coefficient function, absolute convergence, quotient-character contribution and later cancellation. Individual U coefficients need not be nonnegative and do not receive the counting Tauberian theorem directly."
+    },
+    {
+      "id": "PAPER-WOOD-19/279",
+      "kind": "definition",
+      "name": "The remaining-character Euler product V",
+      "statement": "Define V(s)=(1+m·2^(−3s))∏_(p≡1 mod4)(1+m p^(−s)) on Re s>1.",
+      "locator": "Wood §7; explicit completion",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "All 2m−2 characters distinct from 1 and π have this contribution. API: same coefficient/truncation interface as T,U and the exact multiplicity; this vanishes from the imaginary fixed-σ sum because those character values at σ sum to zero."
+    },
+    {
+      "id": "PAPER-WOOD-19/280",
+      "kind": "theorem",
+      "name": "Real infinity projector identity",
+      "statement": "The allowed-homomorphism series with infinity image 0 is F+(s)=(T(s)+U(s)+(2m−2)V(s))/(2m).",
+      "locator": "Wood §7 real projector; /110 and local calculations",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Expand 1_(x=0)=|A|⁻¹∑χχ(x). Nonnegative integer coefficients follow from the counting interpretation, not the signed Euler-product presentation. Finite prime sets are checked exactly before the convergent infinite product."
+    },
+    {
+      "id": "PAPER-WOOD-19/281",
+      "kind": "theorem",
+      "name": "Imaginary rigid infinity projector identity",
+      "statement": "For distinguished swap σ, the allowed-homomorphism series with infinity image σ is F−(s)=(T(s)−U(s))/(2m). The outside-only series equals mF−.",
+      "locator": "Wood §7 imaginary step, derived via Proposition 4.4 conventions",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Expand 1_(x=σ)=|A|⁻¹∑χχ(σ)χ(x). Here χ=1,π contribute +1,−1 and the other coefficients sum to zero. Linear automorphisms fixing π act transitively on the outside coset, explaining the factor m. This is the required regression against the inherited unnormalized selector."
+    },
+    {
+      "id": "PAPER-WOOD-19/282",
+      "kind": "theorem",
+      "name": "Principal product continuation",
+      "statement": "T(s)=ζ(s)^m G_T(s), where G_T is holomorphic on Re s>1/2 and G_T(1)>0.",
+      "locator": "Wood §7 analytic step; explicit Euler-product proof",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "At odd p the factor of G_T is (1+m p^(−s))(1−p^(−s))^m=1+O_m(p^(−2Re s)). At 2 use (1+m·2^(−2s)+2m·2^(−3s))(1−2^(−s))^m. Compact-uniform absolute convergence away from a finite prime set proves holomorphy; finite factors are retained as polynomials, without assuming they are zero-free."
+    },
+    {
+      "id": "PAPER-WOOD-19/283",
+      "kind": "theorem",
+      "name": "Quotient-character product continuation",
+      "statement": "U(s)=L(s,χ4)^m G_U(s), where G_U is holomorphic on Re s>1/2, so U is holomorphic near every point of Re s=1.",
+      "locator": "Wood §7 analytic step; explicit cancellation",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "At odd p the factor is (1+mχ4(p)p^(−s))(1−χ4(p)p^(−s))^m; its linear term cancels. At 2 retain 1−m·2^(−2s). This factor can vanish at s=1 for m=4, so positivity of U or division by its local factor must not be assumed."
+    },
+    {
+      "id": "PAPER-WOOD-19/284",
+      "kind": "theorem",
+      "name": "Remaining-character product continuation",
+      "statement": "For k≥1, V(s)=ζ(s)^(m/2)L(s,χ4)^(m/2)G_V(s), where G_V is holomorphic on Re s>1/2; V has pole order at most m/2 at 1 and no other poles on Re s=1.",
+      "locator": "Wood §7 analytic step; explicit completion",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "At p≡1 mod4 use (1+mz)(1−z)^m, at p≡3 mod4 use (1−z²)^(m/2), and at 2 use (1+m·2^(−3s))(1−2^(−s))^(m/2). Positive integer exponents require k≥1; the k=0 boundary is handled separately."
+    },
+    {
+      "id": "PAPER-WOOD-19/285",
+      "kind": "theorem",
+      "name": "Positive common leading coefficient",
+      "statement": "G_T(1)=(1+m/2)2^(−m)∏_(p odd)(1+m/p)(1−1/p)^m>0. Both F+ and F− have an order-m pole at 1 with leading coefficient G_T(1)/(2m).",
+      "locator": "Wood §7 completed local/global calculation",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Every displayed factor at 1 is positive and the infinite product converges absolutely after linear cancellation. U is holomorphic and V has strictly lower pole order m/2. This proves the positivity rather than treating an unspecified residue as nonzero."
+    },
+    {
+      "id": "PAPER-WOOD-19/286",
+      "kind": "theorem",
+      "name": "Integer-pole nondecreasing Laplace Tauberian theorem",
+      "statement": "Let α:[0,∞)→[0,∞) be nondecreasing and locally integrable, with f(s)=∫₀∞e^(−st)α(t)dt convergent for Re s>a>0. Suppose f extends holomorphically near every point on Re s=a except a, where it has an order-m pole with leading coefficient B>0, m≥1. Then α(t)∼B e^(at)t^(m−1)/(m−1)!.",
+      "locator": "Delange (1954), §5.2.1 Theorem III, pp.235–238; standing hypotheses p.213",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Integer specialization of Delange's ω theorem. The local decomposition includes an analytic numerator and holomorphic remainder, not only a radial limit. The proof and its reduction using finite differences were read; no claim that the rest of the 1954 paper was fully extracted."
+    },
+    {
+      "id": "PAPER-WOOD-19/287",
+      "kind": "construction",
+      "name": "Dirichlet summatory function as a Laplace transform",
+      "statement": "For a_n≥0 and F(s)=∑_(n≥1)a_n n^(−s) absolutely convergent for Re s>1, set α(t)=∑_(n≤e^t)a_n. Then ∫₀∞e^(−st)α(t)dt=F(s)/s on Re s>1; at a positive pole s=a the leading coefficient is divided by a.",
+      "locator": "Delange application to Wood §7; direct Tonelli/absolute-convergence adapter",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use inclusive cutoff and note endpoint values at t=log n do not affect the integral. The n=1 mass is included. For complex s justify the interchange by absolute convergence; replacing F(s)/s by F(s) would lose the positive-abscissa scaling factor."
+    },
+    {
+      "id": "PAPER-WOOD-19/288",
+      "kind": "theorem",
+      "name": "Elementary-two series satisfy the full Tauberian hypotheses",
+      "statement": "For k≥1, both F± have nonnegative counting coefficients, converge absolutely on Re s>1, and continue meromorphically to Re s>1/2; on Re s=1 the only pole is at 1, of order m and leading coefficient G_T(1)/(2m).",
+      "locator": "Wood §7, completed analytic input to Delange",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use the three factorization lemmas, holomorphy of L(s,χ4), and ζ's sole pole at 1. No zero-free theorem is needed because ζ,L appear only to nonnegative integer powers and the residual local factors are polynomials."
+    },
+    {
+      "id": "PAPER-WOOD-19/289",
+      "kind": "theorem",
+      "name": "Real elementary-two leading constant",
+      "statement": "The cumulative real rigid-pair numerator for rank k≥1 is asymptotic to C_k X(log X)^(m−1), where m=2^k and C_k=G_T(1)/(2m(m−1)!)>0.",
+      "locator": "Wood §7, explicit constant and surjectivity subtraction",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "First apply the generic Delange corollary to all allowed homomorphisms, then remove lower-rank images using the following two items. Equality of the two leading constants is for these rigid conventions; it is not a claim of equal unrigid finite averages."
+    },
+    {
+      "id": "PAPER-WOOD-19/290",
+      "kind": "theorem",
+      "name": "Imaginary elementary-two leading constant",
+      "statement": "The cumulative imaginary fixed-swap rigid numerator for rank k≥1 is asymptotic to C_k X(log X)^(m−1), where m=2^k and C_k=G_T(1)/(2m(m−1)!)>0.",
+      "locator": "Wood §7, explicit constant and surjectivity subtraction",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "First apply the generic Delange corollary to all allowed homomorphisms, then remove lower-rank images using the following two items. Equality of the two leading constants is for these rigid conventions; it is not a claim of equal unrigid finite averages."
+    },
+    {
+      "id": "PAPER-WOOD-19/291",
+      "kind": "theorem",
+      "name": "Rank-zero boundary for surjectivity subtraction",
+      "statement": "For A=C2, allowed homomorphisms with prescribed infinity sign consist of the corresponding quadratic characters and possibly the trivial character. Their cumulative discriminant count is O(X).",
+      "locator": "Wood §7 k=1 boundary; quadratic-field counting input",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This avoids applying the V factorization with m/2=1/2. The usual positive/negative fundamental-discriminant asymptotics give the O(X) bound; the exact leading constants are not needed for this boundary estimate."
+    },
+    {
+      "id": "PAPER-WOOD-19/292",
+      "kind": "theorem",
+      "name": "Proper-image contribution is negligible for either projector",
+      "statement": "For k≥1 and any proper image W≤F₂^(k+1) meeting the outside coset, dim W=j+1≤k. Its allowed maps have growth O_k(X(log X)^(2^j−1)); sum over the finitely many W. For the imaginary projector retain only W containing σ. Images inside kerπ give only the trivial map.",
+      "locator": "Wood §7 completed lower-rank argument",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "All allowed inertia has outside image, and the abelian Galois group over ℚ is generated by inertia with the global sign relation. Thus a nontrivial allowed image cannot lie inside kerπ. Since 2^j<2^k, the finite sum is little-o of the main term. Use the O(X) rank-zero case when j=0."
+    },
+    {
+      "id": "PAPER-WOOD-19/293",
+      "kind": "theorem",
+      "name": "All A4 automorphisms preserve the order-96 type",
+      "statement": "Aut(A4)≅S4 has cardinality 24. Its induced map on A4^ab=C3 is either +1 or −1, so simultaneous application on both factors preserves ker(A4²→C3, (a,b)↦ā+b̄), and commutes with factor swap.",
+      "locator": "Wood Appendix A.1 rigidification; finite-group derivation",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Conjugation by S4 gives 24 distinct automorphisms. A generator of order 3 has eight possible images and a nontrivial V4 element has three; these generators generate A4, so there are at most 24. The scratch test checks both generation and distinct conjugations; no GAP table lookup is needed."
+    },
+    {
+      "id": "PAPER-WOOD-19/294",
+      "kind": "theorem",
+      "name": "Eligible class-group kernels and A4 extensions are bijective",
+      "statement": "Fix one S3 normal closure M with quadratic subfield K. Each C3-stable but not S3-stable kernel N of a quotient Cl(M)↠V4 determines one A4 extension L/K not normal over ℚ, and conversely. The unique normal V4 in A4 makes M the unique cyclic cubic intermediate extension, so different eligible M or kernels do not duplicate L.",
+      "locator": "Wood Appendix A.1; class-field equivariance and A4 subgroup structure",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use the unramified class-field correspondence and /125. Work with embedded subfields in a fixed closure: two distinct normal extensions of K are not K-isomorphic inside that closure. Input cubic fields are isomorphism classes, each giving the S3 closure once."
+    },
+    {
+      "id": "PAPER-WOOD-19/295",
+      "kind": "theorem",
+      "name": "Equivalent rigidification weights for the A4 computation",
+      "statement": "For this embedded type, #rigid surjections=24·#eligible kernels=4·#eligible quotient epimorphisms=48·#S3-orbits of eligible kernels.",
+      "locator": "Wood Appendix A.1; derived exact normalization",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Each kernel has |GL₂(F₂)|=6 epimorphisms. A non-S3-stable C3-stable kernel has orbit size two, and all 24 target automorphisms preserve the type. This is a normalization theorem for a correctly specified algorithm, not validation of the paper's implementation."
+    },
+    {
+      "id": "PAPER-WOOD-19/296",
+      "kind": "construction",
+      "name": "Finite S3-module regression for quotient weighting",
+      "statement": "On V=F4², let C3 act by scalar multiplication by a primitive cube root and the involution act coordinatewise by Frobenius x↦x². The C3-stable F₂-codimension-two subspaces are the five F4 lines; precisely three are involution-stable and the other two form one orbit. There are twelve quotient epimorphisms with those two kernels.",
+      "locator": "Derived test for the Appendix A.1 algorithm",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Thus 24·2=4·12=48·1. Enumerate all 4^4 F₂-linear maps to F₂² and their kernels to test independently. This is a synthetic finite module, not asserted to be a particular number-field class group."
+    },
+    {
+      "id": "PAPER-WOOD-19/297",
+      "kind": "theorem",
+      "name": "Odd-index-two homology reduction",
+      "statement": "If H⊲F has odd order and F/H=C2, then H₂(F,ℤ)≅H₂(H,ℤ)_(C2). In particular H₂(F,ℤ) has odd order; commuting-pair classes with an involution entry vanish, so H₂(F,c)=H₂(F,ℤ) for a set c of involutions.",
+      "locator": "EVW12 v1 Example 9.3.2, pp.56–57",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "In the Lyndon–Hochschild–Serre homology spectral sequence, H_i(C2,H_j(H,ℤ)) vanishes for i>0,j>0 because the coefficients have odd order; H₂(C2,ℤ)=0 and differentials from 2-primary terms into odd-order H₂(H,ℤ) vanish. The commuting-pair class is killed by the order of either entry. Import the generic spectral-sequence/five-term infrastructure in the parent continuation, not privately in arithmetic statistics."
     }
   ],
   "prerequisites": [
     {
-      "citation": "Ellenberg–Venkatesh–Westerland, Homological stability for Hurwitz spaces and the Cohen–Lenstra conjecture over function fields, II, arXiv:1212.0923v1 (2012)",
-      "link": "https://arxiv.org/abs/1212.0923v1",
-      "why": "Exact selected inputs read: pp.32–38,40–41,49–55, including Theorems 7.5.1,7.6.1, Proposition 8.5.2 and its proof, §8.6.2 and Theorem 8.7.3. Full §§8.1–8.4, moduli proof dependencies and odd-order Example 9.3.2 still need decomposition. Current arXiv v2 is a withdrawal notice concerning §§6,12; Wood’s footnote says the results used here are unaffected. No homological stability theorem is imported by Wood."
+      "citation": "Wood, An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland, Research in the Mathematical Sciences 8 (2021), Article 21",
+      "link": "https://people.math.harvard.edu/~mmwood/Publications/lifting.pdf",
+      "why": "Full 13-page author version read. Reproves the universal marked extension, stable braid-component and lifting-invariant inputs from the unaffected EVW sections; use its Lemmas 2.1–2.4, Theorems 2.5,3.1,5.2,6.1 and finite-level Remark 4.1. The unramified marked-point scope of §§5–6 is not a replacement for ramified tangential infinity. Source proof's marking adjustment needs the inverse discrepancy under its convention."
     },
     {
-      "citation": "Ellenberg–Venkatesh–Westerland, Homological stability for Hurwitz spaces and the Cohen–Lenstra conjecture over function fields, Ann. Math.183 (2016),729–786",
-      "link": "https://doi.org/10.4007/annals.2016.183.3.1",
-      "why": "Wood uses Lemma 7.6 and Proposition 7.7 with an extension from Z/ℓ to Z/ℓ^a and Qℓ coefficients, then S_n invariants. Primary bibliographic source located; complete exact input proof has not been read in this checkpoint. Must supply the uniform-in-q nonproper comparison rather than cite smooth proper base change alone."
+      "citation": "Ellenberg–Venkatesh–Westerland, Homological stability for Hurwitz spaces and the Cohen–Lenstra conjecture over function fields, II, arXiv:1212.0923v1",
+      "link": "https://arxiv.org/abs/1212.0923v1",
+      "why": "Selected §§7–9 inputs and exact read ranges recorded in source. New reading covers tangential basepoints, specialization and odd-order multiplier vanishing. Current arXiv v2 is a withdrawal notice concerning §§6,12; Wood says the inputs used here are unaffected. No higher homology stability claim is imported. Moduli and SGA dependency closure remains incomplete."
     },
     {
-      "citation": "Romagny–Wewers, Hurwitz spaces, in Groupes de Galois arithmétiques et différentiels (2006)",
+      "citation": "Ellenberg–Venkatesh–Westerland, Annals of Mathematics 183 (2016),729–786, Lemma 7.6 and Proposition 7.7",
+      "link": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p01-p.pdf",
+      "why": "Exact statements and full proofs read. Ordered configurations admit relative SNC compactifications; finite-étale pullback comparison is equivariant. Wood additionally needs compatible Z/ℓ^a and Qℓ adapters and S_n invariants. These are recorded separately, not inferred from smooth proper base change on the nonproper Hurwitz scheme."
+    },
+    {
+      "citation": "Romagny–Wewers, Hurwitz spaces, Séminaires et Congrès 13 (2006),313–341",
       "link": "https://arxiv.org/abs/1212.0923v1",
-      "why": "Primary citation and exact §2.1,§2.4,§4.15 uses identified in EVW12 pp.51–53, but the original article has not been acquired. Its moduli/representability and tame-specialization inputs belong to IG.5 with the existing moduli owner, not a second stack theory."
+      "why": "Exact §§2.1,2.4,4.15 uses identified through EVW12; original article not acquired in this continuation. Complete representability and tame-specialization decomposition still needed. IG.5 consumes the existing moduli owner rather than rebuilding stack foundations."
+    },
+    {
+      "citation": "Fried–Völklein, The inverse Galois problem and rational points on moduli spaces, Mathematische Annalen 290,771–800, Appendix Lemma 3",
+      "link": "https://people.math.harvard.edu/~mmwood/Publications/lifting.pdf",
+      "why": "Wood2021 Theorem3.1 uses this exact eventual stabilization-surjectivity lemma. The later proof upgrading it to bijectivity and localization was fully read; the original lemma proof is not yet read. Keep this dependency explicit in IG.3."
     },
     {
       "citation": "Milne, Arithmetic Duality Theorems, 2nd edition (2006), I Theorem 4.10",
-      "link": "https://www.jmilne.org/math/Books/ADT.pdf",
-      "why": "Wood Lemma 3.2 invokes the local-global H² obstruction duality. ArithmeticGaloisDuality:R02.4 plans the general theorem; its exact trivial-module/cyclotomic specialization and both global-field cases remain to be checked from the primary text."
+      "link": "https://www.jmilne.org/math/Books/ADTnot.pdf",
+      "why": "Standing global-field hypotheses, finite-dual perfect pairing and Example4.11 read. Specify S=all places, roots-rich L, prime-to-characteristic coefficients and no real places. Number-field specialization imports R02.4; positive-characteristic coverage is an explicit source extension, not falsely already supplied by a number-field stage. Full proof not reread."
     },
     {
-      "citation": "Artin–Tate, Class Field Theory (1968), Ch.X Theorem 5",
-      "link": "https://arxiv.org/abs/1702.04644v2",
-      "why": "Wood identifies this Grunwald–Wang input to prescribe corrections at finitely many wild places after adjoining μ4. Citation locator verified in Wood’s source; original theorem not read. Read the precise exceptional-case statement before closing /39."
+      "citation": "Artin–Tate, Class Field Theory, Ch.X Theorem5; Milne CFT v4.03 VIII.2.4",
+      "link": "https://www.jmilne.org/math/CourseNotes/CFT.pdf",
+      "why": "Milne's exact character-extension theorem and μ4 exception-removal remark were read, verifying /39 including coordinatewise assembly into finite abelian A. Milne refers the full proof to Artin–Tate, not acquired. Upstream ClassFieldTheory explicitly excludes Grunwald–Wang; the embedding-problem application remains IG.4's responsibility."
     },
     {
-      "citation": "Narkiewicz, Number theory (1983), Corollary p.121; Cohn (1954), Wright (1989), Wood (2010)",
-      "link": "https://arxiv.org/abs/1702.04644v2",
-      "why": "Source citations supporting the analytic Euler-product/Tauberian step of §7. Exact edition/title, analytic boundary hypotheses, higher-order pole reduction, prime-2 factor and imaginary selector remain unresolved. No full secondary-paper extraction is claimed."
+      "citation": "Delange, Généralisation du théorème de Ikehara, Annales scientifiques de l'École Normale Supérieure (3)71(1954),213–242",
+      "link": "https://www.numdam.org/item/ASENS_1954_3_71_3_213_0.pdf",
+      "why": "Standing hypotheses and §5.2.1 TheoremIII statement/proof read. Integer-pole Laplace theorem plus F(s)/s supplies the higher-pole counting interface. This is an alternative to the unavailable Narkiewicz (1983), Corollary p.121, not an attribution of Delange's hypotheses to that book. Proposed Dirichlet-series Part II owns the generic extension."
+    },
+    {
+      "citation": "Bhargava, The geometric sieve and the density of squarefree values of invariant polynomials, arXiv:1402.0031, Theorem1.4 and §4.4",
+      "link": "https://arxiv.org/pdf/1402.0031",
+      "why": "All twelve n=3,4,5 sign/type specializations separated (one retaining /137), and §4.4 proof read. Full squarefree-sieve prerequisites and parametrization proofs are not extracted here. Preserve unramified-at-infinity and rigid/unrigid distinctions; Davenport–Heilbronn is the earlier n=3 source."
+    },
+    {
+      "citation": "Alberts, Cohen–Lenstra moments for some nonabelian groups, Journal de Théorie des Nombres de Bordeaux32(3)(2020),631–664",
+      "link": "https://www.numdam.org/item/JTNB_2020__32_3_631_0.pdf",
+      "why": "Published Corollary4.10 (Q8) and Theorem4.11 (D8, called D4 there), with proofs, read. These concern extensions normal over Q, with their unique GI-extensions. Lemmermeyer's quaternion/dihedral classifications and Goldfeld–Hoffstein's double-series pole remain unextracted primary inputs. Do not confuse published numbering with Wood's Alb16 preprint numbering."
     },
     {
       "citation": "Belabas, A fast algorithm to compute cubic fields (1997), and the cubic-field tables used in Appendix A",
       "link": "https://arxiv.org/abs/1702.04644v2",
-      "why": "Appendix source identifies the cubic enumeration input; certificates of table completeness, filtering at 2, class-group precision and rigid weighting must be supplied before a reproducible algorithm claim."
+      "why": "The algorithm's mathematically required rigid weights are now derived and finite-module-tested. Still missing: source code and exact data version, complete cubic table certification, prime-2 filter, class-group computation precision and sample reconstruction. The new derivation does not reproduce the reported numerical table or figure."
     },
     {
-      "citation": "Davenport–Heilbronn, Bhargava and Alberts low-degree nonabelian moment results cited in §1.1",
-      "link": "https://arxiv.org/abs/1702.04644v2",
-      "why": "The introduction’s known cases are not all individually extracted in this checkpoint. Read their exact weighted family statements before expanding /137; do not treat a generic ST.3 scope as a completed theorem supplier."
+      "citation": "SGA1 XIII and SGA4/SGA7 comparison inputs to the marked Hurwitz family",
+      "link": "https://arxiv.org/abs/1212.0923v1",
+      "why": "Exact consumer interfaces identified in EVW12/16 and Wood2021: tame/prime-to-p specialization with tangential basepoints, Abhyankar splitting, local acyclicity and vanishing cycles, proper base change and duality. Originals not fully re-extracted; import canonical IG/moduli/SF/étale-duality suppliers, not a parallel six-operations theory."
     }
   ],
   "routes": [
@@ -2978,7 +3537,45 @@
         "PAPER-WOOD-19/243",
         "PAPER-WOOD-19/245",
         "PAPER-WOOD-19/247",
-        "PAPER-WOOD-19/249"
+        "PAPER-WOOD-19/249",
+        "PAPER-WOOD-19/137",
+        "PAPER-WOOD-19/139",
+        "PAPER-WOOD-19/146",
+        "PAPER-WOOD-19/260",
+        "PAPER-WOOD-19/261",
+        "PAPER-WOOD-19/262",
+        "PAPER-WOOD-19/263",
+        "PAPER-WOOD-19/264",
+        "PAPER-WOOD-19/265",
+        "PAPER-WOOD-19/266",
+        "PAPER-WOOD-19/267",
+        "PAPER-WOOD-19/268",
+        "PAPER-WOOD-19/269",
+        "PAPER-WOOD-19/270",
+        "PAPER-WOOD-19/271",
+        "PAPER-WOOD-19/272",
+        "PAPER-WOOD-19/273",
+        "PAPER-WOOD-19/274",
+        "PAPER-WOOD-19/275",
+        "PAPER-WOOD-19/276",
+        "PAPER-WOOD-19/277",
+        "PAPER-WOOD-19/278",
+        "PAPER-WOOD-19/279",
+        "PAPER-WOOD-19/280",
+        "PAPER-WOOD-19/281",
+        "PAPER-WOOD-19/282",
+        "PAPER-WOOD-19/283",
+        "PAPER-WOOD-19/284",
+        "PAPER-WOOD-19/285",
+        "PAPER-WOOD-19/288",
+        "PAPER-WOOD-19/289",
+        "PAPER-WOOD-19/290",
+        "PAPER-WOOD-19/291",
+        "PAPER-WOOD-19/292",
+        "PAPER-WOOD-19/293",
+        "PAPER-WOOD-19/294",
+        "PAPER-WOOD-19/295",
+        "PAPER-WOOD-19/296"
       ],
       "reason": "ST.3 explicitly owns field counts and class-group moments by discriminant/signature with fixed groups and automorphism weights. Add Wood as a concrete source, retaining conjectures, source-reported finite computations and empirical data as such. Import ordinary class fields and the reduced-multiplier supplier; do not construct them privately."
     },
@@ -3013,7 +3610,8 @@
         "PAPER-WOOD-19/54",
         "PAPER-WOOD-19/55",
         "PAPER-WOOD-19/56",
-        "PAPER-WOOD-19/136"
+        "PAPER-WOOD-19/136",
+        "PAPER-WOOD-19/257"
       ],
       "reason": "IG.1 owns tame quotients, arithmetic exact sequences and specialization with prime-to-p restrictions. Add the punctured-line/Tate-torsor/tangential-marking instances required here, importing finite étale Galois categories from IG.0 and the local tame quotient from upstream LocalFieldsRamification."
     },
@@ -3029,7 +3627,8 @@
         "PAPER-WOOD-19/59",
         "PAPER-WOOD-19/60",
         "PAPER-WOOD-19/61",
-        "PAPER-WOOD-19/134"
+        "PAPER-WOOD-19/134",
+        "PAPER-WOOD-19/255"
       ],
       "reason": "IG.3 already owns branch-cycle tuples, braid actions and descent. Add stable π0 classification and the comparison of arithmetic and topological lifting invariants as a source. The reduced multiplier and universal marked central extension remain in the separate foundational supplier."
     },
@@ -3080,9 +3679,11 @@
         "PAPER-WOOD-19/85",
         "PAPER-WOOD-19/86",
         "PAPER-WOOD-19/88",
-        "PAPER-WOOD-19/135"
+        "PAPER-WOOD-19/135",
+        "PAPER-WOOD-19/258",
+        "PAPER-WOOD-19/259"
       ],
-      "reason": "IG.5 explicitly owns Hurwitz moduli, Nielsen/braid components and tame reduction. Add the centerless marked scheme, component classification and the fixed-degree uniform point estimate. Reuse AlgebraicModuliForArithmeticGeometry for representability and the canonical étale/weight suppliers. The nonproper ordered-configuration comparison still needs a fully checked source input."
+      "reason": "IG.5 explicitly owns Hurwitz moduli, Nielsen/braid components and tame reduction. Add the centerless marked scheme, component classification and the fixed-degree uniform point estimate. Reuse AlgebraicModuliForArithmeticGeometry for representability and the canonical étale/weight suppliers. The exact EVW16 nonproper comparison has been read; coefficient-tower and invariant-descent adapters remain explicit inputs."
     },
     {
       "route": "part-ii",
@@ -3141,10 +3742,40 @@
         "PAPER-WOOD-19/242",
         "PAPER-WOOD-19/244",
         "PAPER-WOOD-19/246",
-        "PAPER-WOOD-19/248"
+        "PAPER-WOOD-19/248",
+        "PAPER-WOOD-19/252",
+        "PAPER-WOOD-19/253",
+        "PAPER-WOOD-19/254",
+        "PAPER-WOOD-19/256",
+        "PAPER-WOOD-19/297"
       ],
-      "brief": "Extend the existing upstream roadmap “Induction, restriction, and Mackey theory for finite groups” after its Layer 7 central extensions/representation groups. The parent is the first prerequisite. Import its Schur-cover existence and factor-set classification, Mathlib groupHomology.H2 on the trivial integral representation, and TauCeti’s existing normalized factor sets and splitting criterion. Do not reconstruct induction, projective representations or ordinary Schur covers. TauCeti.schurMultiplier is H²(F,kˣ), whereas this extension uses H₂(F,ℤ); build and name the universal-coefficient comparison with all natural maps instead of treating these as definitionally equal.\n\nLayer A: commuting-pair classes in integral H₂, their realization as commutators of lifts, independence of lifts, naturality and orientation. Construct Q_c generated by the classes with x∈c,y∈C_F(x), the quotient H₂(F,c), and the quotient of a chosen Schur cover. Prove exactness/centrality, canonical independence of the quotient homology group from the cover, and the bijective lift of each c-conjugacy class. Do not claim a canonical reduced extension. Check cyclic groups, empty c and the two Schur covers D8/Q8 of C2². Audit and construct the necessary universal-coefficient and homological five-term statements once, on the existing group homology/cohomology carriers.\n\nLayer B: c-marked central extensions and the universal presentation on symbols [g], with [x][y][x]⁻¹=[xyx⁻¹]. Prove its universal property, the chosen-marking isomorphism with F̃_c×_(F^ab)ℤ^(c/F), the abelianization lemma and the reduced-cover H₂ image theorem. Read EVW12 v1 §§7.2–7.5 completely, including the elementary calculation left to the reader. The rational/power-stable c requirement is added only for the next layer; generation is required for the central surjection throughout.\n\nLayer C: prime-to-p power actions, the marking correction z_i(α), the discrete action on the set underlying the universal extension, projection/multidegree equivariance and the two parity fixed-point counts in Wood Proposition 4.1. Use integer multidegrees here; only Hurwitz consumers impose nonnegativity. A nonempty power fiber is a torsor under H₂(F,c)[q−1]; prove nonemptiness in the stated parity cases, and keep the general parity obstruction separate. Include a nonabelian test proving why the power/discrete action cannot be declared an action by group automorphisms.\n\nLayer D: certified finite reduced-multiplier examples from Wood §8.2, with explicit embedded groups and full SmallGroup(order,index) identifiers, not only the bracketed index. Start with the order-96 A4 type: its concrete embedding is the kernel of the sum A4²→C3, extended by factor swap. The separate statistics consumer owns its extension counts. Prove the C2 reduced multiplier by an explicit cover and relation certificate before treating the source GAP output as checked. Other table rows remain source-reported until similarly certified. Center computations and type enumeration are consumed from the arithmetic-statistics finite examples, not built twice.\n\nEvery definition needs constructor/eliminator, transport/naturality API, equality and representative-independence lemmas, and executable small-group unit tests. Suggested future home: TauCeti/GroupTheory/SchurCover/Reduced. ArithmeticStatistics ST.3/ST.5 consumes only the finite multiplier/torsion cardinalities; InverseGalois IG.3/IG.5 consumes the universal marked extension and discrete fixed-point fibers; IG.4 supplies the arithmetic lifting product using global duality and reciprocity. These consumers must not feed back into the foundational supplier. Read the exact EVW inputs despite the 2013 withdrawal notice: Wood states that the affected §§6,12 are not used, but this is not a certificate for a stronger stability theorem. This checkpoint leaves explicit source and ownership gaps outside this route; a design must not silently absorb the unrouted Tauberian, trace-formula or conjecture-correction items.",
+      "brief": "Extend the existing upstream roadmap “Induction, restriction, and Mackey theory for finite groups” after its Layer 7 central extensions/representation groups. The parent is the first prerequisite. Import its Schur-cover existence and factor-set classification, Mathlib groupHomology.H2 on the trivial integral representation, and TauCeti’s existing normalized factor sets and splitting criterion. Do not reconstruct induction, projective representations or ordinary Schur covers. TauCeti.schurMultiplier is H²(F,kˣ), whereas this extension uses H₂(F,ℤ); build and name the universal-coefficient comparison with all natural maps instead of treating these as definitionally equal.\n\nLayer A: commuting-pair classes in integral H₂, their realization as commutators of lifts, independence of lifts, naturality and orientation. Construct Q_c generated by the classes with x∈c,y∈C_F(x), the quotient H₂(F,c), and the quotient of a chosen Schur cover. Prove exactness/centrality, canonical independence of the quotient homology group from the cover, and the bijective lift of each c-conjugacy class. Do not claim a canonical reduced extension. Check cyclic groups, empty c and the two Schur covers D8/Q8 of C2². Audit and construct the necessary universal-coefficient and homological five-term statements once, on the existing group homology/cohomology carriers.\n\nLayer B: c-marked central extensions and the universal presentation on symbols [g], with [x][y][x]⁻¹=[xyx⁻¹]. Prove its universal property, the chosen-marking isomorphism with F̃_c×_(F^ab)ℤ^(c/F), the abelianization lemma and the reduced-cover H₂ image theorem. Use EVW12 v1 §§7.2–7.5 and the later complete reproof in Wood (2021), Lemmas 2.1–2.4 and Theorem 2.5. Prove [P,P]=[F̃_c,F̃_c]×0 and P^ab=ℤ^(c/F) explicitly; correct the marking by the inverse of its discrepancy. The rational/power-stable c requirement is added only for the next layer; generation is required for the central surjection throughout.\n\nLayer C: prime-to-p power actions, the marking correction z_i(α), the discrete action on the set underlying the universal extension, projection/multidegree equivariance and the two parity fixed-point counts in Wood Proposition 4.1. Use integer multidegrees here; only Hurwitz consumers impose nonnegativity. A nonempty power fiber is a torsor under H₂(F,c)[q−1]; prove nonemptiness in the stated parity cases, and keep the general parity obstruction separate. Include a nonabelian test proving why the power/discrete action cannot be declared an action by group automorphisms.\n\nLayer D: certified finite reduced-multiplier examples from Wood §8.2, with explicit embedded groups and full SmallGroup(order,index) identifiers, not only the bracketed index. Start with the order-96 A4 type: its concrete embedding is the kernel of the sum A4²→C3, extended by factor swap. The separate statistics consumer owns its extension counts. Prove the C2 reduced multiplier by an explicit cover and relation certificate before treating the source GAP output as checked. Other table rows remain source-reported until similarly certified. Center computations and type enumeration are consumed from the arithmetic-statistics finite examples, not built twice.\n\nEvery definition needs constructor/eliminator, transport/naturality API, equality and representative-independence lemmas, and executable small-group unit tests. Suggested future home: TauCeti/GroupTheory/SchurCover/Reduced. ArithmeticStatistics ST.3/ST.5 consumes only the finite multiplier/torsion cardinalities; InverseGalois IG.3/IG.5 consumes the universal marked extension and discrete fixed-point fibers; IG.4 supplies the arithmetic lifting product using global duality and reciprocity. These consumers must not feed back into the foundational supplier. Read the exact EVW inputs despite the 2013 withdrawal notice: Wood states that the affected §§6,12 are not used, but this is not a certificate for a stronger stability theorem. The generic Tauberian theorem now has its own Dirichlet-series Part II, and the trace formula is imported through SF.2's canonical upstream supplier. This design must not absorb them or silently repair the unresolved refined conjecture.",
       "reason": "Upstream Layer 7 owns ordinary Schur covers and factor sets, but not reduced multipliers, commuting-pair quotients, universal marked central extensions or the discrete component action. This is its natural continuation; the arithmetic and geometric consumers import it. The integral homology carrier is already in Mathlib and is not rebuilt."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticGaloisDuality",
+      "stages": [
+        "ArithmeticGaloisDuality:R02.4"
+      ],
+      "items": [
+        "PAPER-WOOD-19/250"
+      ],
+      "reason": "Extend the existing global finite-module duality direction to the exact positive-characteristic prime-to-p input needed by Lemma 3.2. Its current D7 wording emphasizes number fields, so this is a missing specialization/coverage extension, not falsely marked already planned for all global fields. Import function-field places and reciprocity from FA.4 and local duality from the same duality roadmap; do not create another Poitou–Tate theory."
+    },
+    {
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+      "roadmap": "ArithmeticDirichletSeriesPartIIHigherPoleTauberian",
+      "title": "Arithmetic Dirichlet series and Tauberian methods, Part II: higher-pole counting asymptotics",
+      "area": "analytic",
+      "items": [
+        "PAPER-WOOD-19/138",
+        "PAPER-WOOD-19/286",
+        "PAPER-WOOD-19/287"
+      ],
+      "brief": "Continue the upstream roadmap Arithmetic Dirichlet series and Tauberian methods after its Layer 9. The parent is the first prerequisite; import its LSeries summability, inclusive summatory functions, Abel/Laplace bridges and simple-pole boundary conventions. Do not re-plan Euler products, arithmetic ideal carriers, or Wiener–Ikehara. The target is the integer-pole Delange theorem: nonnegative coefficients, convergence on Re s>1, holomorphic continuation locally along Re s=1 except an order-m pole at 1, and positive leading coefficient A imply sum_(n≤X) a_n ~ A X(log X)^(m−1)/(m−1)!.\n\nSeparate the nondecreasing Laplace theorem from its Dirichlet-series adapter α(t)=sum_(n≤exp t)a_n and integral exp(−st)α(t)dt=F(s)/s. State all analytic continuation hypotheses as named extensions, avoiding junk-valued LSeries at the boundary. Prove the integer m≥1 form from Delange (1954), §5.2.1 Theorem III, before optional real-exponent variants. Export finite-change invariance, lower-pole perturbation and the positive-abscissa scaling variant with the correct 1/a constant. Tests include a_n=1, divisor coefficients of ζ², an inserted n=1 mass, and rejection when only a local pole without boundary control is supplied. Suggested home: TauCeti/NumberTheory/ArithmeticDirichletSeries/Tauberian/HigherPole. ArithmeticStatistics ST.3 owns Wood's local factors, positivity and surjectivity subtraction, and consumes only the generic counting theorem; it must not feed back into this analytic supplier.",
+      "reason": "Read the complete upstream README: Layer 9 specifies a simple pole and shifted-abscissa variants, not higher pole orders. The pinned trees and nearby accepted roadmap/packet searches did not locate this theorem. Delange is a primary replacement for Wood's unavailable Narkiewicz citation, and this generic analytic extension must not be buried in the statistics consumer."
     }
   ]
 }
