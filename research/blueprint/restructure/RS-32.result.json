@@ -5,7 +5,7 @@
       "action": "extend",
       "extends": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
       "title": "Analytic toric geometry, Part II: arithmetic toroidal compactifications",
-      "reason": "The member already imports the common toric vocabulary. Make that boundary enforceable: the anchor owns its finite regular complex-fan constructions; the extension owns arithmetic-admissible fan systems, relative and integral torus embeddings, Shimura boundary quotients and their compactifications. Preserve the roadmap id and all nine stage ids."
+      "reason": "The member already imports the common toric vocabulary. Make that boundary enforceable: the anchor owns its finite regular complex-fan constructions; the extension owns arithmetic-admissible fan systems, relative and integral torus embeddings, Shimura boundary quotients and their compactifications. Preserve the roadmap id and all nine stage ids. The unchanged Analytic toric geometry roadmap (tauceti:TauCetiRoadmap/AnalyticToricGeometry) is the first prerequisite; the introduction must state exactly where its finite-complex scope stops."
     }
   },
   "layers": {
@@ -51,8 +51,12 @@
       "reason": "Retain the general-data level/refinement/Hecke and boundary comparisons on C2.general. No all-prime integral assertion or new generic finite-fan construction is added."
     },
     "ShimuraCompactifications:C4": {
-      "action": "keep",
-      "reason": "Retain semi-abelian degeneration data, biextensions, polarized 1-motives, effectivity/algebraization, formal charts, endomorphisms and level comparisons, and the existing modular degeneration comparisons. Import existing split tori over a base and C0 relative toric geometry. The separate NeronModels overlap is recorded for coordination, not silently discarded."
+      "action": "narrow",
+      "keeps": "Relative semi-abelian degeneration over the cusp bases: character groups and extensions of abelian schemes by tori, biextensions, polarized 1-motive degeneration data, relative algebraization/effectivity, formal universal charts, extension of endomorphisms and boundary level comparisons. Extend the existing common local Raynaud/abelian-uniformisation construction of R11.3, retaining its polarization, lattice and base hypotheses and proving specialization compatibility; do not construct that local theory a second time. The local theorem does not itself prove relative effectivity or the universal PEL degeneration. Import split tori over a commutative base and C0 relative toric geometry, and retain every dimension-one comparison with ModularCurvesPartII R13.1–R13.3, including du/u versus dq/q and ramified p-level cusp maps.",
+      "suppliedBy": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.3"
+      ],
+      "reason": "AUDIT-10 flags the local Raynaud extension and polarized lattice-uniformisation subproblem in both stages. R11.3 explicitly owns it, also recorded by RS-25; C4 builds on that local case using the same carriers, and owns the additional relative cusp/1-motive/effectivity construction and its comparison, not a second local uniformisation. This does not extend any upstream anchor or identify semistable reduction with boundary effectivity."
     },
     "ShimuraCompactifications:C5": {
       "action": "keep",
@@ -163,6 +167,266 @@
       "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
       "target": "AutomorphicBundles:B3",
       "reason": "Make the finite-chart refinement maps explicit after narrowing C3; section invariance still consumes the retained C3 pushforward theorems and the B3 coefficient comparison."
+    },
+    {
+      "source": "ShimuraCompactifications:C1",
+      "target": "AutomorphicBundles:B3",
+      "reason": "Its explicit Dependencies C1–C6 supplies the actual arithmetic boundary/degeneration charts and refinement results for canonical and subcanonical coefficients."
+    },
+    {
+      "source": "ShimuraCompactifications:C2",
+      "target": "AutomorphicBundles:B3",
+      "reason": "Its explicit Dependencies C1–C6 supplies the actual arithmetic boundary/degeneration charts and refinement results for canonical and subcanonical coefficients."
+    },
+    {
+      "source": "ShimuraCompactifications:C3",
+      "target": "AutomorphicBundles:B3",
+      "reason": "Its explicit Dependencies C1–C6 supplies the actual arithmetic boundary/degeneration charts and refinement results for canonical and subcanonical coefficients."
+    },
+    {
+      "source": "ShimuraCompactifications:C4",
+      "target": "AutomorphicBundles:B3",
+      "reason": "Its explicit Dependencies C1–C6 supplies the actual arithmetic boundary/degeneration charts and refinement results for canonical and subcanonical coefficients."
+    },
+    {
+      "source": "ShimuraCompactifications:C5",
+      "target": "AutomorphicBundles:B3",
+      "reason": "Its explicit Dependencies C1–C6 supplies the actual arithmetic boundary/degeneration charts and refinement results for canonical and subcanonical coefficients."
+    },
+    {
+      "source": "ShimuraCompactifications:C6",
+      "target": "AutomorphicBundles:B3",
+      "reason": "Its explicit Dependencies C1–C6 supplies the actual arithmetic boundary/degeneration charts and refinement results for canonical and subcanonical coefficients."
+    },
+    {
+      "source": "ShimuraCompactifications:C4",
+      "target": "PerfectoidShimuraVarieties:S1",
+      "reason": "Its explicit Dependencies C4–C5 supplies degeneration and completed integral boundary charts for the compactified Siegel construction."
+    },
+    {
+      "source": "ShimuraCompactifications:C5",
+      "target": "PerfectoidShimuraVarieties:S1",
+      "reason": "Its explicit Dependencies C4–C5 supplies degeneration and completed integral boundary charts for the compactified Siegel construction."
+    },
+    {
+      "source": "ShimuraCompactifications:C2",
+      "target": "PerfectoidShimuraVarieties:S2",
+      "reason": "Its explicit Dependencies C2–C5 where applicable supplies the normalized boundary models; retain that datum/prime qualification, without asserting arbitrary Hodge-type smooth integral models."
+    },
+    {
+      "source": "ShimuraCompactifications:C3",
+      "target": "PerfectoidShimuraVarieties:S2",
+      "reason": "Its explicit Dependencies C2–C5 where applicable supplies the normalized boundary models; retain that datum/prime qualification, without asserting arbitrary Hodge-type smooth integral models."
+    },
+    {
+      "source": "ShimuraCompactifications:C4",
+      "target": "PerfectoidShimuraVarieties:S2",
+      "reason": "Its explicit Dependencies C2–C5 where applicable supplies the normalized boundary models; retain that datum/prime qualification, without asserting arbitrary Hodge-type smooth integral models."
+    },
+    {
+      "source": "ShimuraCompactifications:C5",
+      "target": "PerfectoidShimuraVarieties:S2",
+      "reason": "Its explicit Dependencies C2–C5 where applicable supplies the normalized boundary models; retain that datum/prime qualification, without asserting arbitrary Hodge-type smooth integral models."
+    },
+    {
+      "source": "ShimuraCompactifications:C1",
+      "target": "PerfectoidShimuraVarieties:S6",
+      "reason": "Its explicit Dependencies C1–C3 supplies the rational boundary, toroidal models and compatible maps used in the general tower-diamond construction, not perfectoid representability by itself."
+    },
+    {
+      "source": "ShimuraCompactifications:C2",
+      "target": "PerfectoidShimuraVarieties:S6",
+      "reason": "Its explicit Dependencies C1–C3 supplies the rational boundary, toroidal models and compatible maps used in the general tower-diamond construction, not perfectoid representability by itself."
+    },
+    {
+      "source": "ShimuraCompactifications:C3",
+      "target": "PerfectoidShimuraVarieties:S6",
+      "reason": "Its explicit Dependencies C1–C3 supplies the rational boundary, toroidal models and compatible maps used in the general tower-diamond construction, not perfectoid representability by itself."
+    },
+    {
+      "source": "ShimuraCompactifications:C1",
+      "target": "HodgeTateAndCanonicalSubgroups:T6:comparison",
+      "reason": "Its explicit Dependencies C1–C3 supplies boundary models and maps for logarithmic period comparisons; the logarithmic coefficient theorem remains here."
+    },
+    {
+      "source": "ShimuraCompactifications:C2",
+      "target": "HodgeTateAndCanonicalSubgroups:T6:comparison",
+      "reason": "Its explicit Dependencies C1–C3 supplies boundary models and maps for logarithmic period comparisons; the logarithmic coefficient theorem remains here."
+    },
+    {
+      "source": "ShimuraCompactifications:C3",
+      "target": "HodgeTateAndCanonicalSubgroups:T6:comparison",
+      "reason": "Its explicit Dependencies C1–C3 supplies boundary models and maps for logarithmic period comparisons; the logarithmic coefficient theorem remains here."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+      "target": "ShimuraCompactifications:C3",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C0: retain direct access to the common cone/lattice, finite-fan and complex algebraic chart carriers. Continue to consume ShimuraCompactifications:C0 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+      "target": "ShimuraCompactifications:C1",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C0: retain direct access to finite regular complex toric maps and their support-properness criterion. Continue to consume ShimuraCompactifications:C0 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+      "target": "ShimuraCompactifications:C4",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C0: retain direct access to finite regular complex toric maps and their support-properness criterion. Continue to consume ShimuraCompactifications:C0 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+      "target": "ShimuraCompactifications:C2.general",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to the common cone/lattice, finite-fan and complex algebraic chart carriers. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+      "target": "AutomorphicBundles:B3",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to the common cone/lattice, finite-fan and complex algebraic chart carriers. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+      "target": "PerfectoidShimuraVarieties:S2",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to the common cone/lattice, finite-fan and complex algebraic chart carriers. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+      "target": "PerfectoidShimuraVarieties:S6",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to the common cone/lattice, finite-fan and complex algebraic chart carriers. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+      "target": "HodgeTateAndCanonicalSubgroups:T6:comparison",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to the common cone/lattice, finite-fan and complex algebraic chart carriers. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-2-affine-analytic-charts-of-regular-cones",
+      "target": "ShimuraCompactifications:C2.general",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to the finite regular affine complex chart and holomorphic localization. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-2-affine-analytic-charts-of-regular-cones",
+      "target": "ShimuraCompactifications:C3",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to the finite regular affine complex chart and holomorphic localization. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-2-affine-analytic-charts-of-regular-cones",
+      "target": "AutomorphicBundles:B3",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to the finite regular affine complex chart and holomorphic localization. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-2-affine-analytic-charts-of-regular-cones",
+      "target": "PerfectoidShimuraVarieties:S2",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to the finite regular affine complex chart and holomorphic localization. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-2-affine-analytic-charts-of-regular-cones",
+      "target": "PerfectoidShimuraVarieties:S6",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to the finite regular affine complex chart and holomorphic localization. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-2-affine-analytic-charts-of-regular-cones",
+      "target": "HodgeTateAndCanonicalSubgroups:T6:comparison",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to the finite regular affine complex chart and holomorphic localization. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-3-finite-fan-analytic-gluing",
+      "target": "AutomorphicBundles:B3",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to finite regular complex-fan gluing and separation. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-3-finite-fan-analytic-gluing",
+      "target": "PerfectoidShimuraVarieties:S2",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to finite regular complex-fan gluing and separation. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-3-finite-fan-analytic-gluing",
+      "target": "PerfectoidShimuraVarieties:S6",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to finite regular complex-fan gluing and separation. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-3-finite-fan-analytic-gluing",
+      "target": "HodgeTateAndCanonicalSubgroups:T6:comparison",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to finite regular complex-fan gluing and separation. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-4-torus-actions-strata-and-the-boundary",
+      "target": "PerfectoidShimuraVarieties:S2",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to the finite regular complex toric strata and local boundary normal form. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-4-torus-actions-strata-and-the-boundary",
+      "target": "PerfectoidShimuraVarieties:S6",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to the finite regular complex toric strata and local boundary normal form. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-4-torus-actions-strata-and-the-boundary",
+      "target": "HodgeTateAndCanonicalSubgroups:T6:comparison",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to the finite regular complex toric strata and local boundary normal form. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+      "target": "ShimuraCompactifications:C2.general",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to finite regular complex toric maps and their support-properness criterion. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+      "target": "PerfectoidShimuraVarieties:S2",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to finite regular complex toric maps and their support-properness criterion. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+      "target": "PerfectoidShimuraVarieties:S6",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to finite regular complex toric maps and their support-properness criterion. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+      "target": "HodgeTateAndCanonicalSubgroups:T6:comparison",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C2: retain direct access to finite regular complex toric maps and their support-properness criterion. Continue to consume ShimuraCompactifications:C2 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "ShimuraCompactifications:C4",
+      "reason": "Ownership handoff: import R11.3's source-scoped local Raynaud and polarized lattice-uniformisation construction, then prove the additional relative cusp and effectivity comparisons in C4."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "ArakelovGeometryAndAbelianHeights:R35.5",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C4: retain direct access to the local Raynaud extension and polarized formal/analytic uniformisation under R11.3's exact base and lattice hypotheses. Continue to consume ShimuraCompactifications:C4 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "HodgeTateAndCanonicalSubgroups:T0",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C4: retain direct access to the local Raynaud extension and polarized formal/analytic uniformisation under R11.3's exact base and lattice hypotheses. Continue to consume ShimuraCompactifications:C4 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "IgusaVarietiesAndTorsionConcentration:IG.2",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C4: retain direct access to the local Raynaud extension and polarized formal/analytic uniformisation under R11.3's exact base and lattice hypotheses. Continue to consume ShimuraCompactifications:C4 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "ShimuraCompactifications:C5",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C4: retain direct access to the local Raynaud extension and polarized formal/analytic uniformisation under R11.3's exact base and lattice hypotheses. Continue to consume ShimuraCompactifications:C4 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "ShimuraCompactifications:C6",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C4: retain direct access to the local Raynaud extension and polarized formal/analytic uniformisation under R11.3's exact base and lattice hypotheses. Continue to consume ShimuraCompactifications:C4 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "AutomorphicBundles:B3",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C4: retain direct access to the local Raynaud extension and polarized formal/analytic uniformisation under R11.3's exact base and lattice hypotheses. Continue to consume ShimuraCompactifications:C4 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "PerfectoidShimuraVarieties:S1",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C4: retain direct access to the local Raynaud extension and polarized formal/analytic uniformisation under R11.3's exact base and lattice hypotheses. Continue to consume ShimuraCompactifications:C4 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "PerfectoidShimuraVarieties:S2",
+      "reason": "Section-15 supplier handoff after narrowing ShimuraCompactifications:C4: retain direct access to the local Raynaud extension and polarized formal/analytic uniformisation under R11.3's exact base and lattice hypotheses. Continue to consume ShimuraCompactifications:C4 for its additional arithmetic/relative results; the imported special case alone does not prove the consumer's geometry, descent or coefficient theorem."
     }
   ],
   "owners": [
@@ -207,6 +471,25 @@
       "formerly": [
         "ShimuraCompactifications:C3"
       ]
+    },
+    {
+      "target": "Local Raynaud extension and formal/analytic abelian uniformisation with the source's polarization, lattice and base hypotheses",
+      "owner": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "formerly": [
+        "ShimuraCompactifications:C4"
+      ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-32",
+    "date": "2026-09-21",
+    "notes": "Independently read the complete member and immutable toric anchor, all 102 audited targets and the actual external consumer stages; verified aggregate audit integration and two pinned Lean declarations. Corrected missing supplier handoffs and prose dependencies, made the first prerequisite explicit, and resolved the C4/R11.3 local-uniformisation overlap without dropping relative effectivity. Accepted as a structural decision, not mathematical proof closure.",
+    "corrections": [
+      "Made the unchanged Analytic toric geometry anchor the explicit first prerequisite in the machine-readable extension decision.",
+      "Added 18 dependency rows from explicit C-stage ranges in the consumer documents (15 absent from the baseline graph), rather than relying only on incomplete extracted edges.",
+      "Completed 25 missing finite-toric supplier handoffs to all consumers of narrowed C0/C2/C3.",
+      "Narrowed C4 only at the existing R11.3 local Raynaud/polarized-uniformisation subproblem, added its unique-owner record, and added the owner-to-C4 plus eight direct-consumer handoffs. Relative semi-abelian cusp geometry, biextensions, 1-motive data, effectivity and all comparisons remain C4 work."
+    ]
+  }
 }
