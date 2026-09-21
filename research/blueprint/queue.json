@@ -4251,7 +4251,8 @@
    ],
    "avoidAccountOf": "RS-29",
    "prompt": "research/blueprint/prompts/REV-RS-29.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #857"
   },
   {
    "id": "RS-30",
