@@ -3526,8 +3526,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-13.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #826"
+   "state": "pending",
+   "note": "released on GitHub issue #826"
   },
   {
    "id": "REV-RS-13",
@@ -3606,7 +3606,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-15.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #830"
   },
   {
    "id": "REV-RS-15",
