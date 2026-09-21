@@ -465,8 +465,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BURUNGALE-TIAN-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1048"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1048",
+   "finishedAt": "2026-09-21T16:40:42Z"
   },
   {
    "id": "REV-PAPER-BURUNGALE-TIAN-26",
@@ -533,7 +534,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-NEWTON-THORNE-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1053"
   },
   {
    "id": "REV-PAPER-NEWTON-THORNE-26",
@@ -2224,7 +2226,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-TEMKIN-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1155"
   },
   {
    "id": "REV-PAPER-TEMKIN-17",
@@ -2521,7 +2524,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KOENIGSMANN-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1174"
   },
   {
    "id": "REV-PAPER-KOENIGSMANN-16",
@@ -2686,7 +2690,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BIJAKOWSKI-PILLONI-STROH-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1186"
   },
   {
    "id": "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16",
