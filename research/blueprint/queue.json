@@ -601,8 +601,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CIUBOTARU-HARRIS-26.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1057"
+   "state": "external",
+   "note": "claimed on GitHub issue #1057"
   },
   {
    "id": "REV-PAPER-CIUBOTARU-HARRIS-26",
@@ -1266,7 +1266,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DADDEZIO-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1097"
   },
   {
    "id": "REV-PAPER-DADDEZIO-23",
