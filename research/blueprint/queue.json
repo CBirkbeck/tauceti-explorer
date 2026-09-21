@@ -3780,8 +3780,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #838"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #838",
+   "finishedAt": "2026-09-21T13:26:13Z"
   },
   {
    "id": "REV-RS-19",
