@@ -1,163 +1,237 @@
 # PAPER-TSIMERMAN-18 — Tsimerman, André–Oort for A_g
 
-**Status: partial checkpoint, not a completed paper extraction.**
+**Status: second partial checkpoint. This is not a completed extraction or an implementation claim.**
 
-Issue: #1141. Agent: ChatGPT Pro, GPT-6 Astra Pro. Session: `cgp-ao-20260921-a7f3`. Read date: 21 September 2026.
+Issue #1141. Continuation by ChatGPT, GPT-6 Astra Pro, session `astra-ao-9c47e2`, 21 September 2026. Continues the checkpoint in PR #1263 by `cgp-ao-20260921-a7f3`; the original item IDs and contributor record are retained.
 
-The accompanying result contains 65 mathematical items: two directly checked library items, 17 planned items, and 46 provisionally missing items. Three source routes cover existing directions. Thirty-seven missing items remain deliberately unrouted pending the reviewed baseline, external-source checks and the ownership screen. “Missing” in this checkpoint means not established here, not a verified absence from the approximately 70,000-declaration Tau Ceti library.
+The result now has **84 items: 4 library, 25 planned, and 55 unresolved/missing**. Seven source routes attach work to existing owners; **41 missing items remain unrouted**. The larger missing count reflects newly exposed proof obligations, not a claim that the libraries lost mathematics. The principal advances are the recovered full audit, two additional pinned library checks, the corrected finite-family argument, the arbitrary-order CM reduction, the lift-height proof, and the mixed-to-pure orbit interface. Candidate Part II directions remain proposals, not reserved IDs or design jobs.
 
-## 1. Source and version discipline
+## 1. Sources, editions, and access
 
-The source is Jacob Tsimerman, *The André–Oort conjecture for A_g*, Annals of Mathematics 187 (2018), 379–390, DOI [10.4007/annals.2018.187.2.2](https://doi.org/10.4007/annals.2018.187.2.2). All six sections, references, and all twelve rendered pages of the [published PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf) were read. The public arXiv version, 1506.01466v5 of 1 December 2015, was compared with it. Binary download attempts failed, so the JSON records the source URL and access date but leaves the PDF SHA-256 null. A checksum has not been fabricated.
+The primary source is Jacob Tsimerman, *The André–Oort conjecture for A_g*, Annals 187 (2018), 379–390, [DOI 10.4007/annals.2018.187.2.2](https://doi.org/10.4007/annals.2018.187.2.2). All six sections, references, and all twelve images of the [published PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf) have been read. The earlier arXiv version 1506.01466v5 was compared. Use published numbering: **Lemma 4.1 is absent from the earlier arXiv version**. The published Colmez expression has the factor `(1/2) log f_rho`.
 
-Use published numbering. In particular, published Lemma 4.1 supplies the bounded field-of-definition extension; it is not present in the older arXiv version. The published Colmez expression has `(1/2) log f_rho`. The main scope is A_g for every g, not all Shimura varieties. The mixed-Shimura consequence on p. 380 is explicitly restricted to varieties whose pure part is a Shimura subvariety of A_g. The individual Colmez conjecture and the general André–Oort conjecture in the introduction are context, not proved inputs.
+Theorems 1.2/4.2 and 1.3/5.3 are repeated statements, not independent targets. The individual Colmez conjecture and unrestricted André–Oort conjecture in the introduction are context, not proved inputs. The mixed consequence is restricted to the pure parts stated on p. 380.
 
-Theorems 1.2 and 4.2 are one result, as are Theorems 1.3 and 5.3; their duplicate appearances do not generate duplicate items.
+Additional reads in this continuation:
 
-## 2. The existing owners
+| Source | What was actually read |
+| --- | --- |
+| [Pila–Tsimerman, Ax-Lindemann for A_g](https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p05-p.pdf), Annals 179 (2014) | The complete published §7, pp. 673–678, including the page images and the final induction. Earlier checkpoint reads of Lemma 3.3 and Theorem 6.1 are retained. |
+| [Tsimerman, Brauer–Siegel for arithmetic tori](https://arxiv.org/pdf/1103.5619), JAMS 25 (2012) | The arXiv §§7.1–7.2, PDF pp. 17–22, including images. The reduction Theorem 7.1 and local index arguments were read; the rest of the paper and a published-edition reconciliation were not completed. |
+| [Pila–Tsimerman, André–Oort for abelian surfaces](https://arxiv.org/pdf/1106.4023), Compositio 149 (2013) | Complete arXiv §3, PDF pp. 3–9, including images. Despite the title, Theorem 3.1 and its height proof are all-dimensional. |
+| [Silverberg–Zarhin, Rigidity theorems for abelian varieties](https://webapps.math.uci.edu/~asilverb/bibliography/rigidity.pdf) | All four pages; introduction and bibliography also inspected as images. This author-hosted paper explicitly states the Silverberg 1992 result needed here. It does not constitute direct access to the original Proposition 2.3. |
+| [Gao, Towards the André–Oort conjecture for mixed Shimura varieties](https://arxiv.org/pdf/1310.1302) | Complete §13, PDF pp. 46–50, including images, Theorem 13.3, Remark 13.5, and Theorem 13.6 with proof. Earlier mixed Ax–Lindemann and quotient theorems were identified but not read in full. |
+| [Yuan–Zhang, The averaged Colmez conjecture](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p04-p.pdf) | Published pp. 534–535, including images: metric convention and Theorem 1.1. No claim to have read the 106-page proof. |
+| [Yuan–Zhang, 2023 erratum](https://annals.math.princeton.edu/2023/198-2/p08) | Publisher abstract only. It replaces auxiliary Theorem 2.7 by a weaker sufficient result. Import the corrected work through existing paper job #1145. |
 
-### Logic, definability, valued fields and motivic integration — LD.6
+Binary source-PDF download remains unavailable in this environment, so their SHA-256 fields are null. The repository artifact checksum below is a separate object and must not be presented as a paper checksum.
 
-`LogicAndDefinabilityInNumberTheory:LD.6` already specifies an o-minimal/Pila–Zannier branch with separate Galois-orbit, uniformization-definability and functional-transcendence inputs. This paper is a source that decomposes that branch. It is not a reason to create a second André–Oort roadmap.
+### The large-file blocker is resolved
 
-The source route includes the counting assembly, weakly special versus special distinction, passage from semialgebraic pieces to complex algebraic pieces, finite group/family types, and the final induction. Geometric definitions and ordinary heights appearing in these interfaces remain imports from their owners: a source route for an application does not transfer ownership of all its foundations to logic.
-
-### Arakelov geometry and heights of abelian varieties — R35
-
-`ArakelovGeometryAndAbelianHeights:R35.1–R35.3` already cover the hermitian Hodge determinant, arithmetic degree, metric and stable Faltings height, including changes of section and field. Its later height-comparison and export layers are the natural place to attach the Bost lower-bound source. Do not reconstruct a second stable-height theory inside a CM-orbit roadmap.
-
-R35.4's variation formula under isogeny is not a polynomial bound for the minimum degree of an isogeny. The latter is the Masser–Wüstholz input and needs a distinct quantitative interface.
-
-### Complex multiplication and explicit reciprocity — CM.0 and CM.2
-
-`ComplexMultiplicationAndExplicitReciprocity:CM.0` owns CM types and reflex data. `CM.2` owns the explicit reciprocity dictionary, importing the general CM theorem from `ShimuraVarieties:V5`. Preserve that direction; CM.2 must not become a circular prerequisite of V5. The elliptic CM layer alone is not enough for arbitrary g.
-
-The field of moduli, polarized reciprocity stabilizer, quantitative CM heights and power discriminant orbit estimates require further ownership decisions. These are not assigned to new IDs in this checkpoint.
-
-### Nearby directions screened, but not absorbed
-
-The complete `EffectiveBounds` upstream document concerns explicit small-class-number bounds. A long-term Brauer–Siegel aspiration in that document is not a verified implementation of the fixed-degree theorem needed here. The inspected Chebotarev material does not provide a general higher-dimensional Artin L-function theory. `AnalyticNumberTheory`'s classical zeta/Dirichlet-L scope is likewise not automatically the owner of every Artin factor in Colmez's expression.
-
-`FaltingsFinitenessAndIsogenyTheorems:R28.4` supplies the qualitative Tate/Faltings isogeny direction, not the Masser–Wüstholz degree estimate. Its R28.1 moduli-finiteness machinery must not be confused with that estimate either.
-
-The full R35, R28, LD and CM campaign documents were read. EffectiveBounds was read in full; the additional GlobalNumberFields, Chebotarev and AnalyticNumberTheory reads were partial. Finish a second full nearby upstream document before promoting this checkpoint to complete.
-
-## 3. Corrected pinned library baseline
-
-The pins are mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
-
-A fresh direct read of `Mathlib/NumberTheory/NumberField/CMField.lean` at the mathlib pin returned blob `6c7067617742aae433a648031822e84a41746b4f`. It verifies:
-
-- `NumberField.IsCMField`;
-- `NumberField.IsCMField.units_rank_eq_units_rank`;
-- `NumberField.IsCMField.indexRealUnits_eq_one_or_two`;
-- `NumberField.IsCMField.regulator_div_regulator_eq_two_pow_mul_indexRealUnits_inv`.
-
-The exact regulator identity is
+The authorized GitHub connector can download the repository's Pages workflow artifact. Run **35638002941**, artifact **10656618031**, contains a repository snapshot at commit **`2f01d6e7039e8e770477900434aff85f86ea23cc`**. Its ZIP SHA-256 was verified:
 
 ```text
-regulator E / regulator E0
-  = 2^(Units.rank E) * (indexRealUnits E : R)^(-1),
-indexRealUnits E = 1 or indexRealUnits E = 2.
+7fe2ced465afb1399367d47934e500bf5005431e881b9b01953c27c934d767f4
 ```
 
-These statements require a CM number field, not a Galois extension of Q. Thus the dimension-uniform regulator comparison is already available. An earlier working note incorrectly described a Galois-only theorem and different declaration names; that note is superseded and must not be reused. This correction is incorporated in the result JSON. The paper's informal equality of regulators should be implemented using the actual ratio formula, not by inventing a new regulator theorem.
+This yielded the full audit, atlas, research files, scripts, and tests. The audit Git blob is `5e708cfc74a51b10e62149113872fe4e00eb5846`; the atlas blob is `37f2add06983c206067d1104e0f40a839cc3961a`. The previous three-owner validator fixture is no longer needed. A later worker can use a current Pages artifact when large-file readers fail; artifact availability is time-limited, so use a current successful run rather than assuming this download persists.
 
-The reviewed aggregate `data/library-coverage.json`, blob `5e708cfc74a51b10e62149113872fe4e00eb5846`, could not be read: ranged file access returned empty content, and raw-file and blob access rejected the oversized response. Unreviewed audit snippets were not promoted to accepted evidence. In particular, provisional missing entries for discriminant towers, Northcott and basic ideal counting are not recommendations to duplicate those results.
+## 2. Baseline and ownership findings
 
-## 4. Arithmetic proof interfaces
+The pins remain mathlib **`082e2d37e8b0463410cdb532e111cd43d5a66174`** and Tau Ceti **`f790474821cf4256814db967cb154e7af3d0c369`**.
 
-### 4.1 Class numbers and distant isogenies
+The aggregate contains accepted AUDIT-06, AUDIT-08 and AUDIT-09 records for the relevant analytic, abelian, height, CM and Faltings interfaces. **AUDIT-34 is in `pendingReview`; LD has no accepted aggregate record.** Its draft may guide a search but cannot certify a reviewed absence. The remaining missing statuses still require item-level checking, not a blanket inference from keyword searches.
 
-The class set S(E,Phi) is O_E-equivariant and unpolarized. It is not the set of principally polarized points of A_g. Its cardinality is the class number of E. The proof uses the quotient h_E/h_E0, the discriminant tower identity, fixed-degree Brauer–Siegel and the existing CM regulator comparison to obtain a power lower bound.
+### Four directly checked library items
 
-For a primitive type and maximal CM order, the ideal quotient A/T_I remains in this class set, with degree N(I). The counting bound for ideals of norm n must be uniform in E at fixed degree. The printed Proposition 2.2 states existence of a distant pair, but its proof fixes A arbitrarily. Preserve the stronger interface “for every A, there is a distant B”: the final moduli-degree theorem applies to every A, not just one selected representative.
-
-### 4.2 Quantitative isogenies are not qualitative isogeny criteria
-
-The needed contract is
+The original direct check of `Mathlib/NumberTheory/NumberField/CMField.lean`, blob `6c7067617742aae433a648031822e84a41746b4f`, verifies `NumberField.IsCMField` and:
 
 ```text
-minDegree_C(A,B) <= C_g * max(1, h_F(A), [k:Q])^kappa_g
+NumberField.IsCMField.units_rank_eq_units_rank
+NumberField.IsCMField.indexRealUnits_eq_one_or_two
+NumberField.IsCMField.regulator_div_regulator_eq_two_pow_mul_indexRealUnits_inv
 ```
 
-for geometrically isogenous dimension-g abelian varieties defined over a common number field k. The isogeny need not preserve a chosen polarization. The source [Masser–Wüstholz, Factorization estimates](https://www.numdam.org/item/PMIHES_1995__81__5_0.pdf), Theorem II and the field-degree discussion, was checked at printed pp. 7 and 24. The polarization dependence is removed using Zarhin's trick, and the field-degree dependence must remain visible. Adding 1 to the maximum avoids a sign issue with Faltings height.
+The regulator quotient is `2^(Units.rank E) / indexRealUnits E`, with index 1 or 2. No Galois-over-Q assumption is required. Do not turn the paper's informal comparison of regulators into a false equality or re-plan this existing theorem.
 
-### 4.3 The averaged formula and analytic estimates
-
-The deep averaged Colmez input already has paper jobs #1143 (Andreatta–Goren–Howard–Madapusi Pera) and #1145 (Yuan–Zhang, including its 2023 erratum). Import their eventual accepted results instead of making a duplicate extraction. Bost's lower bound isolates an individual height from the sum over all 2^g types. The bound is a real lower bound, not positivity of stable Faltings height.
-
-The following interfaces still need direct verification before closure: polynomial conductor-discriminant control for the actual representations, the completed functional equation with conjugate representation and gamma factors, two-sided control at 1, and derivative estimates. The trivial Artin factor must be split off before evaluating at 1. A fixed-radius Cauchy argument for an arbitrary Artin L-function cannot silently use the Artin holomorphy conjecture; a Hecke-level argument through Brauer induction, with pole cancellation handled, or a direct argument for the averaged expression must be specified. These are verification tasks, not a claim that the published theorem is false.
-
-Only a bound `log f_rho <= C_g (1 + log |Disc(E)|)` is needed. The extraction records this sufficient contract rather than asserting an unchecked literal conductor inequality from the compressed proof. All constants must be uniform in E and Phi for fixed g; ineffective constants are allowed where the argument uses them.
-
-### 4.4 Field of moduli versus field of definition
-
-The published Lemma 4.1 is essential. Full level-3 rigidification and the cited Silverberg homomorphism result produce F'/F with degree at most `2*3^(4g^2)`, defining A, its endomorphisms and polarizations. An ideal quotient then descends because the endomorphisms defining its finite subgroup scheme do. The common-field degree used in the published proof is bounded by `4*3^(8g^2)` over the initial field of moduli.
-
-Do not apply Masser–Wüstholz over a coarse moduli residue field before constructing a model. The direct hypotheses of Silverberg Proposition 2.3 and the polarization conventions on the quotient remain to be checked. This is separately visible in the JSON rather than hidden in a one-line “CM orbit bound” node.
-
-### 4.5 From primitive fields to arbitrary CM orders
-
-The general theorem concerns the discriminant of `R_x = Z(End(A_x))`, including products and nonmaximal orders. It does not follow by substituting a maximal CM field into the primitive estimate. Tsimerman's 2012 Theorem 7.1 supplies a nontrivial reduction that still needs direct extraction.
-
-Keep three class groups distinct: Cl(K), Cl(K*) and Cl(L), where K* is the reflex field and L is the normal closure. The reflex norm gives r, and the normal-closure version is r composed with N_{L/K*}. The norm-image index is bounded in g. The polarized kernel H differs from ker(r) by a totally positive real-unit norm obstruction. Write the ideal norm on K*, where I lives, not the incompatible field subscript in the compressed source notation.
-
-The CM reciprocity theorem must also distinguish absolute moduli degree from degree after adjoining the reflex field. The extraction keeps the sufficient dimension-uniform inequality and leaves the exact base-field convention for direct verification against Shimura–Taniyama.
-
-## 5. Geometric proof interfaces
-
-The source [Pila–Tsimerman, Ax-Lindemann for A_g](https://doi.org/10.4007/annals.2014.179.2.5) was used to check the interfaces suppressed in the two-page sketch: Lemma 3.3, Theorem 6.1, Theorem 7.1 and Lemmas 7.2–7.3.
-
-The counting chain is:
+A fresh read of `TauCeti/NumberTheory/EffectiveBounds/IdealCount/Basic.lean`, blob `1a5b1230f5fdd515978f1d58fcac64bac2c0ad53`, verifies the namespace and statement of:
 
 ```text
-arbitrary-CM-order orbit bound
-  + fundamental-set lift height and bounded degree
-  + restricted uniformization definability
-  -> many algebraic points in a definable set
-  -> positive-dimensional semialgebraic pieces
-  -> maximal complex algebraic pieces
-  -> weakly special subvarieties
-  + a CM point
-  -> special subvarieties.
+NumberField.card_ideal_absNorm_le
 ```
 
-The height convention and bounded-degree algebraic-point extension of Pila–Wilkie must agree. The original rational-point theorem alone is insufficient. The degree bound only needs to depend on g; do not claim that a field generated by every coordinate has degree exactly 2g without checking the original height theorem. Boundary multiplicities of a fundamental set and the passage from the absolute Galois orbit to the orbit over the field defining V also need explicit bounds.
+For real `X >= 1`, nonzero integral ideals of norm at most X form a finite set of cardinality at most `X^2 * 2^[F:Q]`. This is a useful existing theorem, **not the uniform near-linear bound printed in Proposition 2.2**. A fixed-field asymptotic is also not automatically uniform across fields of fixed degree. Using the quadratic bound could give a weaker intermediate exponent, but that is a separately justified variant, not the printed proof.
 
-Ax–Lindemann concludes **weakly special**, not special. A CM point is the additional input that promotes it. Moreover, a real semialgebraic arc is not by itself a complex algebraic variety; the maximalization/algebraicity step has its own source lemma.
+A fresh read of `Mathlib/NumberTheory/NumberField/DedekindZeta.lean`, blob `fbb43cd6ade0c80a65da6c671ca3297a4cdee7da`, verifies:
 
-Finally, producing special subvarieties through almost every CM point is not yet finiteness of maximal special subvarieties. The finite group/family-type argument uses definability together with countability of rational group data and normalizer/stabilizer structure. It is not just an invocation of cell decomposition. The final parameter-locus construction and induction in Pila–Tsimerman remain an explicit handoff task.
+```text
+NumberField.dedekindZeta
+NumberField.dedekindZeta_residue
+NumberField.dedekindZeta_residue_pos
+NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT
+```
 
-## 6. Candidate Part II briefs — not accepted routes or reserved IDs
+The final theorem proves the right-real limit of `(s-1) zeta_K(s)` with the explicit positive class-number residue `2^r1 (2*pi)^r2 R_K h_K / (w_K sqrt(|D_K|))`. This is not complex continuation or a functional equation. Neither the analytic class-number formula nor the elementary CM regulator comparison should be duplicated in a new roadmap.
 
-### Complex multiplication and explicit reciprocity, Part II: CM heights and Galois-orbit bounds
+### Existing owners and the seven source routes
 
-Import CM types, reflex norms and reciprocity from **Complex multiplication and explicit reciprocity** (`ComplexMultiplicationAndExplicitReciprocity`, CM.0 and CM.2), the general CM theorem through **Shimura varieties** (`ShimuraVarieties`, V5), and stable heights from **Arakelov geometry and heights of abelian varieties** (`ArakelovGeometryAndAbelianHeights`, R35.3). Use the existing averaged-Colmez paper outputs, not a second proof programme. Cover height constancy, the subpolynomial CM-height deduction, distant ideal isogenies, polarized descent and reciprocity kernels, and the reduction to arbitrary centre orders. Target the primitive moduli-degree estimate and the all-CM-point orbit estimate. Import a separately owned quantitative isogeny theorem. Do not rebuild CM fields, the existing regulator formula, Neron models or general projective heights.
+**LogicAndDefinabilityInNumberTheory:LD.6** owns the source-scoped Pila–Zannier/André–Oort assembly. The section-7 refinement belongs in this existing application branch. Generic reductive-group and canonical-model facts must remain imports in its eventual blueprint; attaching a source-specific lemma here does not transfer ownership of the general theory to logic.
 
-### Faltings finiteness, semisimplicity and isogeny theorems, Part II: Quantitative isogeny estimates
+**ArakelovGeometryAndAbelianHeights:R35.1–R35.3** owns the metrized Hodge determinant and stable height, including basis/field independence. R35.5–R35.6 receives the Bost lower-bound source. R35.4 is a height-variation formula, not a polynomial bound for the degree of an isogeny.
 
-Extend **Faltings finiteness, semisimplicity and isogeny theorems** (`FaltingsFinitenessAndIsogenyTheorems`) only after verifying that no existing layer or accepted packet already supplies the quantitative theorem. Import abelian varieties, Hom groups, polarizations and Zarhin's trick from their owners and the stable height from **Arakelov geometry and heights of abelian varieties** (`ArakelovGeometryAndAbelianHeights`, R35.3–R35.6). Extract the Masser–Wüstholz proof inputs needed for a minimum-isogeny-degree bound polynomial in height and field degree, with constants depending only on dimension. Separate geometric from rational isogenies, eliminate polarization-degree dependence, and export the exact common-field interface consumed by the CM-orbit argument. Do not relabel the qualitative Tate isogeny criterion as this result.
+**ComplexMultiplicationAndExplicitReciprocity:CM.0/CM.2** owns CM-type/reflex algebra and the explicit reciprocity dictionary. CM.2 imports the main general CM theorem from **ShimuraVarieties:V5**. CM.1 is elliptic and cannot substitute for arbitrary-dimensional CM classification. Preserve the V5-to-CM.2 direction.
 
-These briefs are leads for the next ownership screen. They reserve no IDs and do not create design jobs. General Brauer–Siegel/Artin analysis might require a different owner after that screen.
+**HeightsRationalPointsAndObstructions:RP.0** supplies normalized absolute heights, field-extension comparisons and bounded-degree Northcott. The accepted audit distinguishes the needed statement from existing fixed-number-field element Northcott and polynomial Mahler-measure finiteness. These two items have been removed from the ambiguous ordinary-height part of the LD source route and explicitly attached here.
 
-## 7. Regression obligations for the eventual blueprint
+**AnalyticNumberTheory:AN.4** explicitly includes completed Hecke/Dedekind/Artin interfaces and distinguishes meromorphic continuation from Artin holomorphy. The earlier report's suggestion that this roadmap was only classical zeta/Dirichlet theory was too narrow. Its general Hecke functional-equation supplier is **AutomorphicLFunctionsAndLocalFactors:AL.1**; its character carrier comes from **GlobalNumberFields**, not a new analytic spelling. The Artin functional-equation item is now planned/source-routed to AN.4. Uniform discriminant estimates remain unverified and are not smuggled in by this placement.
 
-These are proposed tests, not executed Lean tests.
+**AbelianSchemesAndArithmeticModuli:A3/A6** supplies dual torsion, the Weil pairing and arithmetic Hom groups. The explicit Silverberg descent contract is attached to these common interfaces. **PELModuli:M6** supplies the separate comparison between coarse rational moduli points, actual families and descent obstructions.
 
-1. For an imaginary quadratic field, the CM regulator formula uses unit rank zero and the actual Hasse-index convention; for a non-Galois CM field, no artificial `IsGalois Q E` assumption appears.
-2. A product CM point and an isogenous point with nonmaximal centre order remain covered by the general orbit interface. The primitive maximal-order theorem alone must not typecheck as a replacement.
-3. Changing the number field after semistable reduction and changing the Hodge section preserve the normalized stable height; a negative stable height does not violate Bost's lower-bound contract.
-4. A polarized coarse moduli point without a chosen model cannot instantiate the isogeny estimate before the descent witness is supplied.
-5. Changing a representative of an ideal class leaves H invariant; the reflex norm's domain and the normal-closure norm's domain are not interchangeable.
-6. A weakly special fixed-factor example with nonspecial fixed coordinate does not satisfy “special” merely from Ax–Lindemann. Adding a CM point discharges the missing hypothesis.
-7. Pila–Wilkie is instantiated with a fixed algebraic degree bound and the same height as the CM lift estimate; a rational-points-only interface is rejected.
-8. The finite-family and lower-dimensional induction steps remain dependencies of finite maximality, not comments after a proof of pointwise coverage.
+### Upstream reads and remaining coordination
 
-## 8. Checks, limitations and resumption
+Both **EffectiveBounds** and **GlobalNumberFields** were read in full. Their blobs are `75f30b8637d98c1d4a134fd707e87c690dcbd963` and `8055760d129f0f8dc38c1e0d5f6b1055d03c0376`. GlobalNumberFields owns general field orders/Picard and ideal/idele/Hecke-character foundations; it does not supply all analytic L-function theory, and its single-field order carrier is not automatically the product-order carrier for `Z(End(A))`.
 
-The repository's `check_paper.py` was reproduced byte-for-byte and its Git blob verified as `cf3cae9e7d2d41209bf9fa4d719fd6fe17a69f1f`. Its `check()` function passed on the local draft against a fixture of the three referenced owners, transcribed from the fetched roadmaps and extracts. All 65 IDs were unique; the local dependency graph was acyclic and all references resolved. As a negative control, changing the local draft to complete produced 37 unrouted-item errors. The full `known()` loader was not run against a fabricated atlas. PR CI must validate the submitted files against the actual repository.
+The available reserved-ID file and existing paper-result files were screened. The CM, R35, R28, LD and relevant additional owner descriptions were inspected. This does **not** yet replace a comprehensive accepted-packet/decomposition/link reconciliation for new Part II routes. The candidate briefs below therefore remain inactive. The existing averaged-Colmez jobs #1143 and #1145 should be reused.
 
-No Lean compilation was run, and this paper job does not require a suggested Lean file. No result here is claimed newly formalised.
+## 3. Arithmetic chain: what is established and what remains
 
-The handoff lists the concrete next reads. Completion still requires the accepted audit, the remaining cited proof interfaces, a complete second upstream-document read, reserved-ID/packet/link/decomposition screening, real ownership for every currently unrouted item, a downloaded-source checksum when access permits, and the full repository validator. Do not convert the status to complete merely because the JSON schema passes.
+### CM classes, ideal isogenies and uniform counting
+
+`S(E,Phi)` is the unpolarized O_E-equivariant class set, not the principally polarized moduli set. Its cardinality is h_E. For a primitive type with maximal order, quotienting by the ideal torsion gives the ideal action and degree N(I). Keep the ideal's norm and the cardinality of the kernel tied by the CM classification and quotient comparison, rather than declaring a numerical degree on an arbitrary map.
+
+The class-number lower bound uses the relative quotient h_E/h_E0, the discriminant tower, fixed-degree Brauer–Siegel and the already-built regulator comparison. The near-linear ideal count is uniform in E at fixed degree. An elementary proof can bound the norm-n coefficient by the fixed-order divisor function: the local factor is dominated by that of `zeta(s)^(2g)`, followed by the uniform divisor bound. This is a proof lead, not a newly checked pinned theorem.
+
+The printed Proposition 2.2 states existence of a distant pair, but its proof fixes A arbitrarily. Retain the stronger consumer quantifier **for every A, there is a distant B**; the eventual field-of-moduli bound applies to every A.
+
+### Quantitative isogenies and descent
+
+The required Masser–Wüstholz contract is a dimension-uniform polynomial bound for the minimum *geometric* isogeny degree in `max(1,h_F(A),[k:Q])`, after A and B are defined over a common number field. It is not required to preserve chosen polarizations. The previous checkpoint read [Factorization estimates](https://www.numdam.org/item/PMIHES_1995__81__5_0.pdf), Theorem II and the field-degree discussion at printed pp. 7 and 24; that evidence is retained. R28.4's qualitative Tate/isogeny criterion does not provide this estimate.
+
+The author-hosted Silverberg–Zarhin introduction states the exact sufficient homomorphism theorem: for A,B over F and `n >= 3` prime to the characteristic, every geometric homomorphism A to B is defined over every extension where all n-torsion of **both** varieties is defined. Its reference [5] is Silverberg's 1992 paper. This closes the previous uncertainty about the sufficient n=3 hypothesis, while not pretending the original proposition was directly obtained.
+
+In characteristic zero, full A[3] and mu_3 give full A-dual[3] by the perfect Weil pairing. Apply the homomorphism theorem to End(A) and Hom(A,A-dual). The latter descends polarization **morphisms**, not automatically chosen ample line bundles. The published Lemma 4.1 gives an extension bound `2*3^(4g^2)` over the field of moduli, and the common field in the proof is bounded by `4*3^(8g^2)`. A coarse residue field cannot be passed directly to Masser–Wüstholz before constructing the model.
+
+### Averaged Colmez: a safer analytic route to investigate
+
+The main averaged theorem is already assigned to #1143/#1145. Stable heights can be negative; Bost supplies a dimension-dependent real lower bound, not positivity. This lower bound isolates an individual height from the sum over the 2^g CM types.
+
+The current analytic gap is genuine: applying Cauchy's formula directly to a general Artin L-function in a fixed disc must not assume Artin holomorphy. The trivial factor also has a pole at 1. A Brauer-induction approach needs explicit cancellation of the trivial Hecke factors and regularization of zeta poles before using Cauchy estimates.
+
+There is a concrete alternative source interface. Yuan–Zhang Theorem 1.1 writes the averaged height of E/F, `[F:Q]=g`, using the nontrivial quadratic Hecke character eta:
+
+```text
+2^(-g) sum_Phi h_YZ(Phi)
+  = -(1/2) L_f'(0,eta)/L_f(0,eta)
+    -(1/4) log(d_(E/F) * d_F).
+```
+
+The metric includes a `(2*pi)^(-g)` factor in the squared norm, so compare it with the present height normalization by an explicit dimension-dependent additive constant before substituting it. No individual-Colmez conjecture is needed for this average identity.
+
+A possible proof route, still **not certified complete here**, is: identify eta's conductor with the relative discriminant; construct its entire Hecke L-function and completed functional equation; use `L(1,eta)=Res(zeta_E)/Res(zeta_F)>0`; obtain two-sided subpolynomial residue/value estimates uniformly in bounded degree by Brauer–Siegel; use a fixed small contour, Hecke convexity and Cauchy to bound L'(1,eta); transport the logarithmic derivative to 0 and apply the averaged formula plus Bost. The analytic conductor is `d_F*N(conductor eta)=d_E/d_F`, and polynomial discriminant control suffices. The remaining proof/source leaves are nonvanishing, the uniform convexity constants, the normalization comparison and the bounded-degree Brauer–Siegel estimates. These are now a sharply specified resumption point, not a claim of a gap-free analytic proof.
+
+For the original Artin decomposition, only `log f_rho <= C_g*(1+log |D_E|)` is needed. Do not insist on an unchecked literal inequality `f_rho <= D_E`. A normal-closure discriminant comparison is a possible supplier. Separate odd nontrivial factors, their values at zero, the conjugate representation in the functional equation, and the trivial factor.
+
+### Primitive reciprocity and arbitrary centre orders
+
+Keep Cl(K), Cl(K-star), and Cl(L) distinct, where K-star is the reflex field and L a normal closure. The normal-closure reflex map is the reflex class map composed with the ideal norm. Its norm-image index is bounded in the fixed dimension. The polarization stabilizer H imposes the relation between a principal type norm `(a)` and `a*bar(a)`; the scalar ideal norm is taken from **K-star**, where the ideal lives. The quotient ker(r)/H is controlled by totally positive real units modulo CM norms. The exact field-degree relation must still be checked against the CM theorem: absolute moduli degree and degree after adjoining the reflex field are not interchangeable equalities.
+
+Tsimerman 2012 Theorem 7.1 is now read. Its primitive hypothesis is required for **every simple dimension h <= g**, not just g. For a general point, decompose A up to isogeny into `product A_i^(n_i)` with pairwise nonisogenous simple factors. The fields K_i may nevertheless be isomorphic. Then
+
+```text
+End^0(A) = product M_(n_i)(K_i),
+R = Z(End(A)) inside O = product O_(K_i),
+|disc R| = [O:R]^2 * product |disc K_i|.
+```
+
+The exponent n_i is the multiplicity, not the dimension of A_i. The order index is not the Mumford–Tate compact-subgroup index. The source's Lemma 7.2 supplies a **comparison**:
+
+```text
+[O:R] <= [T(Zhat):K_x]^(c_g) * (product |disc K_i|)^(d_g),
+K_x = T(A_f) intersect GSp_(2g)(Zhat).
+```
+
+The proof uses reciprocity/class-group projections, bounded norm cokernels, generation by Mumford–Tate/reflex-trace elements, local order indices, p-adic exponentials, and a Vandermonde/Nakayama argument. The factor depending on the number of bad primes cannot be discarded without an epsilon estimate. At p=2, choose sufficient exponential depth. These interfaces are separate nodes; the local proof leaves and the arXiv/published notation reconciliation remain open rather than being hidden behind “reduce to the simple case.”
+
+## 4. CM lift heights: the actual all-dimensional proof
+
+Pila–Tsimerman 2013 §3 proves polynomial height in the discriminant of the **centre order R**, including products and nonmaximal orders. Its steps are not just compactness of a fundamental set:
+
+1. Scale a CM lattice into O_K with index polynomial in disc(R), using the multiplier order and a small ideal representative.
+2. Construct a basis with bounded conjugates. With the standard embedding in C^g, the real covolume is `2^(-g)*sqrt(|disc K|)*[O_K:I]`; the polynomial argument must not import a literal unsquared-discriminant covolume.
+3. Bound the totally imaginary polarization element, its denominators, and a symplectic basis. Control the Riemann form and principal determinant explicitly.
+4. Prove quantitative Siegel/Minkowski reduction (Lemmas 3.4–3.5), then convert conjugate/denominator bounds to the chosen absolute Weil height.
+5. Handle isotypic products, projective O_K-modules, and a bounded polarization-compatible isogeny. The matrix in Lemma 3.7 is integral and invertible over K, not asserted unimodular over O_K.
+
+Some arXiv intermediate expressions use `disc(O_A)` despite the lattice-index dependence, and one displayed matrix size uses the simple-factor dimension where the multiplicity is required. The final Theorem 3.1 depends on disc(R); before transcribing intermediate lemmas, reconcile the published version and preserve the order index. This report does not claim to have checked an erratum or established a defect in the final theorem.
+
+The numerical degree convention is also unresolved: the inspected 2013 text gives `4g` for entries in the simple-case construction, whereas the 2014 Lemma 7.4 uses `2g`. The consumer only needs a bound depending on g. Keep that sufficient statement, distinguish coordinatewise from joint-field degree, and explicitly pass from complex entries to real/imaginary coordinates before bounded-degree counting. Do not manufacture an exact `2g` field-degree theorem.
+
+## 5. The corrected finite-family argument
+
+The previous item `finite-weakly-special-families` wrongly attributed its conclusion to **Lemma 7.2**. The correct chain is in the whole of Pila–Tsimerman 2014 §7:
+
+- **Lemma 7.2, p. 674:** reductivity of the connected normalizer N(F) for the specified connected semisimple rational F. The relevant exclusion is compact **Q-factors**, not every compact real factor.
+- **Lemma 7.3, p. 675:** finiteness of the special envelopes attached to a fixed F. Define N(F)_sh as the identity component of the kernel of the projection from N(F) to the product of compact Q-factors of its adjoint. Keep the condition on the image of the Deligne torus. Finiteness here does not assert that every weakly special translate is discrete.
+- **Lemma 7.4, p. 675:** bounded centre-order discriminant gives finitely many special points, using lift height, degree and Northcott.
+- **Lemma 7.5, p. 677:** the positive-dimensional weakly special locus of algebraic V is a countable union of closed algebraic subvarieties, using rational Shimura subdata and algebraic whole-fibre parameter loci.
+- **Lemma 7.6, pp. 677–678:** that locus is definable. This uses finite real semisimple embedding types and definable dimension/maximality, not closure under arbitrary countable unions.
+- **Lemma 7.7, p. 678:** a countable union of closed complex algebraic subvarieties of a complex quasiprojective variety, if definable in R_an,exp, is a finite subunion. Finite real-analytic cell decomposition, a Baire/dimension argument and analytic continuation are needed. The analogous claim for arbitrary definable subsets is false.
+
+The pointwise chain is unchanged but now has its missing transport made explicit:
+
+```text
+Galois-orbit lower bound + CM lift height/degree
+  + definability + bounded-degree Pila counting
+  -> a conjugate on a positive-dimensional semialgebraic piece
+  -> a maximal complex algebraic piece
+  -> weakly special by Ax-Lindemann
+  -> special because it contains a special point
+  -> conjugate back using V/k and Galois stability of special subvarieties.
+```
+
+The original rational-point Pila–Wilkie statement alone is insufficient; the bounded-degree algebraic-point version and height comparison need their own source/adapter. Likewise a real semialgebraic arc is not itself a complex algebraic subvariety. These inputs remain separate.
+
+Pointwise coverage still does not prove finite maximality. For each fixed F there are **two** induction branches. If N(F)_sh is proper in the generic Mumford–Tate group, use finitely many proper special envelopes and lower-dimensional intersections. If it is the whole group, F is normal; an almost-direct product with the centralizer gives a finite Shimura product map. In the complementary factor form the closed algebraic locus where the **entire** F-fibre is contained in the inverse image of V. This locus has smaller dimension. A positive-dimensional special parameter locus would create a larger special subvariety, so maximal fibres are controlled by isolated special parameters and induction. Combine this with the finite reduction of weakly special families.
+
+The new normalizer, countability, definability, finite-subunion, parameter-locus, isolated-parameter and Galois-transport items preserve these distinctions. They are source obligations, not generic facts silently assigned a second owner.
+
+## 6. The restricted mixed-Shimura consequence
+
+Gao §13 first separates the mixed orbit from its pure projection. Fix the mixed datum `P=W semidirect G`, integral coordinates and the prescribed level. A special point has Mumford–Tate group `wTw^(-1)` with `w in W(Q)`; its denominator N(s) depends on those fixed choices. It agrees with a fibre torsion order only in the stated semiabelian situation up to fixed constants.
+
+Theorem 13.3 proves, for `0 < epsilon < 1`,
+
+```text
+|Gal(Qbar/E) s|
+  >= C_epsilon * N(s)^(1-epsilon) * |Gal(Qbar/E) pi(s)|,
+```
+
+where E is the reflex field and the datum/level is fixed. The compact-torus index and elementary prime-factor estimates are part of the proof. This relative inequality does not require GRH.
+
+Theorem 13.6 then assumes the appropriate **pure Galois-orbit bound**, not merely pure André–Oort. Its proof additionally uses mixed Ax–Lindemann (Theorem 1.2), the quotient/dimension reduction of Theorem 12.2, definability, height bounds and algebraic-point counting. Tsimerman's all-CM orbit bound supplies the previously conditional pure input for the pure parts stated in the 2018 introduction. Accordingly `mixed-application-interface` now depends on the orbit theorem and the conditional mixed theorem, not just `andre-oort-ag`.
+
+This checks the restricted implication and §13 proof, not the whole Gao paper. The mixed foundational constructions and their owner remain open extraction work. The statement has not been broadened to all mixed Shimura varieties.
+
+## 7. Candidate extensions — not active routes
+
+**Complex multiplication and explicit reciprocity, Part II: CM heights and Galois-orbit bounds.** Begin after CM.0/CM.2, importing general CM reciprocity from V5 and stable heights from R35. Cover height constancy, the averaged-height deduction, distant ideal isogenies, polarized stabilizers, bounded-field descent, arbitrary centre orders and CM lift-height estimates. Target the primitive moduli-degree bound and all-CM-point positive-power discriminant orbit bound. Import quantitative isogenies and general analytic estimates; do not duplicate CM fields, regulators, ordinary heights, abelian varieties or Néron models. The final owner must not take the deep averaged-Colmez proof away from the existing paper outputs.
+
+**Faltings finiteness, semisimplicity and isogeny theorems, Part II: Quantitative isogeny estimates.** Keep the exact geometric minimum-degree estimate with constants depending only on dimension and polynomial dependence on height and common-field degree. Import A3/A6, stable heights and Zarhin's trick. Do not equate it with the qualitative Tate criterion or isogeny-height variation. Confirm no accepted packet already supplies the quantitative estimate before assigning a new ID.
+
+**Uniform analytic estimates.** AN.4 owns analytic interfaces; AL.1 owns general Hecke functional equations and GlobalNumberFields the character carrier. The fixed-degree Brauer–Siegel, uniform divisor/ideal estimates and conductor-uniform derivative bounds require an explicit ownership decision after the full overlap check. Whether they refine AN.4 or require new layers in its direction is not settled by this checkpoint. In particular, Chebotarev's cyclotomic continuation branch is not a substitute for general Hecke/Artin analysis.
+
+## 8. Regression obligations
+
+These are proposed blueprint tests, not executed Lean tests. Include: a non-Galois CM field in the regulator comparison; a product with repeated isomorphic CM fields but inequivalent types; a nonmaximal centre order and its squared index; fixed-field versus bounded-degree Northcott; the existing quadratic versus required near-linear ideal count; a coarse moduli point without a chosen model; dual 3-torsion without silently dropping mu_3; a negative stable height; the trivial Artin pole; a weakly special fibre with nonspecial fixed parameter; Galois transport of the conjugate supplied by counting; the whole-fibre condition in the parameter locus; and a mixed special point whose pure projection alone does not control its denominator.
+
+## 9. Validation and resumption
+
+On the verified repository snapshot, the actual command
+
+```text
+python3 scripts/check_paper.py research/blueprint/papers/PAPER-TSIMERMAN-18.result.json
+```
+
+passes using the full atlas and proposed-roadmap loader. All **8** tests in `tests/test_check_paper.py` pass. Additional checks find **84 unique items, 102 dependency edges, no cycle, no unresolved internal dependency reference, and no multiply routed missing item**. A negative control with status changed to complete reports the **41 unrouted missing items**. These tests certify structure, not mathematical completeness or library absence.
+
+No Lean compilation was run; this paper job has no Lean deliverable. The handoff gives the remaining analytic, polarized-reciprocity, source-edition and ownership checks. Keep `partial` until those are completed and every missing item has exactly one justified route. Passing the schema alone is not grounds to promote the extraction.
