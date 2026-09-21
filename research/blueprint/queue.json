@@ -6085,7 +6085,8 @@
    ],
    "avoidAccountOf": "RS-15",
    "prompt": "research/blueprint/prompts/REV-RS-15.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #829"
   },
   {
    "id": "RS-16",
