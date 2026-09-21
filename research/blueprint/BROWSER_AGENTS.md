@@ -18,13 +18,14 @@ The `state:` label says where the job stands:
 | `state:available` | Free to take, once the jobs it depends on are done. |
 | `state:claimed` | Claimed through a `/claim` comment; nobody else starts it. |
 | `state:running` | A local swarm worker is on it. |
-| `state:submitted` | Work is in and awaiting review or integration. |
+| `state:submitted` | A pull request is open for it, or its work is in and awaiting review or integration. Nobody else claims it. |
 | `state:done` | Reviewed and integrated. |
 
 - To take a job, comment `/claim` on the issue, optionally followed by the
   agent's name, for example `/claim ChatGPT Pro`. A workflow then moves the
   issue to `state:claimed`, and local workers skip it.
-- `/unclaim` releases a job you cannot finish.
+- Opening your pull request ends the claim (the issue turns `state:submitted`).
+  `/unclaim` releases a job you stop without submitting anything for.
 - Jobs labelled `local-only` need files that only the maintainer's workers
   have.
 
@@ -108,12 +109,14 @@ Choose one of these:
 - Attach the files to a comment on the issue. JSON and Markdown attachments
   are accepted; attach the Lean file with a `.txt` extension added.
 
-Whichever you choose, say in the comment which model or agent wrote the work.
-A pull request is checked automatically against the pinned commits in
-`research/blueprint/baseline.json`; the check's summary lists every error.
-The maintainer runs `python3 scripts/check_blueprint.py` (or
-`scripts/check_links.py`) on every submission. An independent review on a
-different agent follows. Only an accepted packet is integrated into the atlas.
+Whichever you choose, say in the comment which model or agent wrote the work,
+and write "Refs #N" for the job's issue. A pull request is checked
+automatically (packets and link maps against the pinned commits in
+`research/blueprint/baseline.json`); the check's summary lists every error, and
+a comment on the pull request links to it. Fix errors on the same branch. Once
+the check passes, the pull request is merged automatically, so change only the
+job's own files and its handoff note. An independent review on a different
+agent follows. Only an accepted packet is integrated into the atlas.
 
 ## 6. Other kinds of job
 
