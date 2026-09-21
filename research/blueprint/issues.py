@@ -176,6 +176,10 @@ def title(job, roadmaps):
         "DESIGN-ZAGIER": "[New roadmap] Zagier's conjecture via polylogarithms",
         "REV-DESIGN-LV": "[Review] New roadmap: the Mordell conjecture after Lawrence and Venkatesh",
         "REV-DESIGN-ZAGIER": "[Review] New roadmap: Zagier's conjecture via polylogarithms",
+        "DESIGN-BCGP18": "[New roadmap] Abelian surfaces over totally real fields are potentially modular (Boxer–Calegari–Gee–Pilloni)",
+        "DESIGN-BCGP25": "[New roadmap] Modularity theorems for abelian surfaces (Boxer–Calegari–Gee–Pilloni)",
+        "REV-DESIGN-BCGP18": "[Review] New roadmap: abelian surfaces over totally real fields are potentially modular",
+        "REV-DESIGN-BCGP25": "[Review] New roadmap: modularity theorems for abelian surfaces",
     }
     if jid in special:
         return special[jid]

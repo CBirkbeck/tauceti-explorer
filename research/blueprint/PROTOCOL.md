@@ -32,6 +32,18 @@ job follows. Its main rules:
 - write timelessly;
 - use Mathlib's vocabulary.
 
+**Coverage.** A roadmap covers its sources completely. Go through every paper
+and book the roadmap is built on (its document's references and the sources its
+layers cite), and find every definition and every key theorem they use or prove
+on the way to the roadmap's targets. Each one is outlined in the roadmap: as a
+node of its packet, or as a citation of the library declaration or the other
+roadmap's node that already provides it. For example, a prismatic roadmap
+outlines prisms, δ-rings, the prismatic site, perfect and semiperfectoid rings,
+derived completion, perfectoidization, the cotangent complex, derived
+prismatic cohomology, the décalage functor, almost purity, quasisyntomic
+sheaves, divided power envelopes and the Koszul complex, and states Bhatt and
+Scholze's main comparison theorems with all their hypotheses.
+
 Read at least two upstream documents in or near your area before writing, for
 example `content/tau-ceti/ModularForms/README.md`,
 `content/tau-ceti/EllipticCurves/README.md`,
@@ -119,7 +131,13 @@ Every `definition` and `construction` node has an `api` list. Each item is
 - `statement` is the mathematical statement.
 
 The outline answers one question: what does a user need in order to work with
-this object without unfolding its definition? It covers, as applicable:
+this object without unfolding its definition? Derive it from use. First find
+where and how the object is used, both in the roadmap's sources and in the
+layers of this and other roadmaps that consume it, and record each use in the
+node's `uses` list as `{"where", "how"}`: for example, `{"where": "Bhatt–Scholze,
+Theorem 1.8(3)", "how": "its Frobenius gives the crystalline comparison map"}`.
+Every API item should serve a recorded use, or a standard need of any user of
+the object. The outline covers, as applicable:
 
 - `constructor`, `data`, `projection`: how elements or objects are made, and
   their canonical maps;
@@ -187,6 +205,7 @@ own lemma node and reference it by id.
     "hypotheses": ["..."],
     "proofSteps": ["Construction or proof steps, each naming the facts it uses"],
     "acceptance": ["A property, comparison or example that tests the node"],
+    "uses": [{"where": "Suslin, K3 of a field, Theorem 5.2", "how": "the Bloch group is the kernel of its map to K2"}],
     "tests": [{"name": "PreBlochGroup.gen_inv", "kind": "characterisation",
                "statement": "For x ≠ 0, 1: [x] + [1/x] = 0 in P(F) up to 6-torsion."}],
     "planet": {"name": "Pre-Bloch group"},
@@ -218,8 +237,8 @@ Field notes:
 - `scope` lists the stages this packet covers. Omit it to mean the whole
   roadmap.
 - `part` names a part of a large roadmap, or is `null`.
-- `tests` (every definition and construction) and `planet` (optional) are
-  described in sections 12 and 14.
+- `uses` and `tests` (every definition and construction) and `planet`
+  (optional) are described in sections 4, 12 and 14.
 
 ## 7. New roadmaps
 
@@ -445,6 +464,10 @@ roadmap. Roadmaps complement and build on each other.
   "<existing roadmap>, Part II: <what it adds>", with the existing roadmap as
   its first prerequisite. It starts where the existing roadmap stops, and its
   introduction says so.
+- When a general notion the atlas needs is missing from the libraries (the
+  Koszul complex, say), find every place the atlas uses it, and plan it once,
+  in the most general form those uses require, in the roadmap that owns it:
+  usually the most foundational one. The other roadmaps import it.
 - A general theory that subsumes special cases an existing roadmap builds (say,
   general algebraic spaces over the finite-quotient constructions of Modular
   curves) builds on those cases: it cites them, proves its general statements

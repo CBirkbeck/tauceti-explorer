@@ -20,6 +20,55 @@ another roadmap plans is imported, never planned again. Where more is needed in
 an existing roadmap's direction, it becomes "<that roadmap>, Part II". The rules
 are in [PROTOCOL.md](PROTOCOL.md), section 15.
 
+## What the roadmap work is
+
+For each roadmap, go through the papers it is built on, find every definition
+and every key theorem, and outline each one in the roadmap. Give every
+definition unit tests and a planning API. Derive the API by looking at where
+and how the definition is used, in the papers and in the roadmaps that build on
+it. The maintainer's examples show the granularity expected:
+
+- **Prismatic cohomology** (Bhatt–Scholze and what it rests on): prisms,
+  δ-rings, the prismatic site, Theorem 1.8 of Bhatt–Scholze (the crystalline,
+  Hodge–Tate, de Rham and étale comparisons) and their Theorem 1.18,
+  semiperfectoid rings, derived completion, perfectoidization, the cotangent
+  complex, derived prismatic cohomology, the décalage functor, almost purity,
+  quasisyntomic sheaves, q-crystalline cohomology (compared with Habiro
+  cohomology), A_inf and Breuil–Kisin cohomology, divided power algebras and
+  envelopes, the ∞-category of simplicial commutative rings and the
+  ∞-categorical derived categories the paper needs, and the Koszul complex.
+- **Modularity of abelian surfaces** (Boxer–Calegari–Gee–Pilloni,
+  arXiv:2502.20645, building on arXiv:1812.09269 and on the ten-author paper
+  arXiv:1812.09999): higher Coleman theory, abelian surfaces and their
+  polarizations, cuspidal automorphic representations of GL4 over Q and of the
+  other reductive groups used, with their L-functions, the Sato–Tate
+  conjecture, locally symmetric spaces with the Borel–Serre compactification
+  and boundary cohomology, the Hecke algebras needed for the modularity
+  results, Caraiani–Scholze, decomposed generic representations, and
+  deformation theory.
+
+These lists are examples, not the whole job: a worker finds everything the
+papers use.
+
+Check the pinned libraries before planning anything. A name search on 21
+September 2026 found the following; confirm each at the pinned commits before
+relying on it.
+
+- **Already there:** derived categories of abelian categories
+  (`DerivedCategory`), divided powers and the divided power algebra
+  (`DividedPowers`, `DividedPowerAlgebra`), Witt vectors, condensed sets and
+  modules, simplicial objects, quasicategories (`SSet.Quasicategory`), adic
+  completion, the naive cotangent complex (`Algebra.Extension.H1Cotangent`) and
+  abelian varieties (Tau Ceti).
+- **Not found:** divided power envelopes, the Koszul complex, the full
+  cotangent complex, δ-rings, prisms, perfectoid rings, derived completion,
+  animated (simplicial commutative) rings, stable ∞-categories, and the
+  Borel–Serre compactification.
+
+When a general notion like the Koszul complex is missing, find every place the
+atlas needs it, and plan it once, as generally as those uses require, in the
+roadmap that owns it (PROTOCOL.md section 15).
+
 ## Choosing a job
 
 1. List the open issues labelled `swarm` and `state:available`. Never take one
