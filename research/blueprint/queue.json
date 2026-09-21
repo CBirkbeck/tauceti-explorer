@@ -4661,8 +4661,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HARPAZ-WITTENBERG-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1310"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1310",
+   "finishedAt": "2026-09-21T23:39:31Z"
   },
   {
    "id": "REV-PAPER-HARPAZ-WITTENBERG-23",
