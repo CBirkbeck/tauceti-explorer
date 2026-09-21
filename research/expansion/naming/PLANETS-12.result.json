@@ -1,0 +1,1855 @@
+[
+  {
+    "id": "HabiroRings:HR.1::landmark:for-an-etale-a-algebra-r-construct-the-uni-32i4nx",
+    "decision": "name",
+    "label": "Relative Frobenius on p-adic completions",
+    "kind": "construction"
+  },
+  {
+    "id": "HabiroRings:HR.2::landmark:bounded-below-1ys4m42",
+    "decision": "name",
+    "label": "Bounded-below solid-tensor comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "HabiroRings:HR.2::landmark:formalize-wagner-appendix-b-the-two-term-r-17ph5qk",
+    "decision": "name",
+    "label": "Joint conservativity of cyclotomic reductions",
+    "kind": "theorem"
+  },
+  {
+    "id": "HabiroRings:HR.3::landmark:wagner-corollary-2-4-derived-d-complete-e--19ttlqe",
+    "decision": "name",
+    "label": "Cyclotomic descent for complete algebras",
+    "kind": "theorem"
+  },
+  {
+    "id": "HabiroRings:HR.4::landmark:relative-frobenius-to-supply-hr-3-s-prime--13cswq9",
+    "decision": "name",
+    "label": "Completed étale lift",
+    "kind": "construction"
+  },
+  {
+    "id": "HabiroRings:HR.5::landmark:equalizer-presentation-of-wagner-lemma-2-1-1r8xrfu",
+    "decision": "name",
+    "label": "Cyclotomic Taylor equalizer presentation",
+    "kind": "theorem"
+  },
+  {
+    "id": "HabiroRings:HR.5::landmark:number-field-comparison-hr-5-number-field--17xskx5",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Comparison handoff duplicated by the dedicated number-field comparison layer."
+  },
+  {
+    "id": "HabiroRings:HR.5-number-field-comparison::landmark:number-field-comparison-hr-5-number-field--17xskx5",
+    "decision": "name",
+    "label": "GSWZ ring comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "HabiroRings:HR.6::landmark:after-hq-1-5-prove-the-etale-degree-zero-i-6pj3lg",
+    "decision": "name",
+    "label": "Étale degree-zero coefficient identification",
+    "kind": "theorem"
+  },
+  {
+    "id": "HabiroRings:HR.6::landmark:complete-modules-derived-scalar-extension--muxnyo",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Export and supplier instructions for coefficient interfaces, without a separate central construction."
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS0/demazure-generators-of-ULA-kernels",
+    "decision": "name",
+    "label": "Demazure generation of ULA kernels",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS0/global-hecke-correspondence",
+    "decision": "name",
+    "label": "Global Hecke correspondence",
+    "kind": "construction"
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS0::landmark:chains-of-modifications-and-identify-compo-j8k4mf",
+    "decision": "name",
+    "label": "Chains of modifications",
+    "kind": "construction"
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS1/condensed-enrichment",
+    "decision": "name",
+    "label": "Condensed equivariant objects",
+    "kind": "construction"
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS1/hecke-operator-via-relative-homology",
+    "decision": "name",
+    "label": "Hecke functor T_V",
+    "kind": "construction"
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS1/properties-and-weil-equivariance",
+    "decision": "name",
+    "label": "Hecke duality",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS1/satake-kernel-and-solid-monoidal-functor",
+    "decision": "name",
+    "label": "Solid Satake kernel",
+    "kind": "construction"
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS1::landmark:preservation-of-d-lis-compact-objects-and--kkkxgj",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Summary of Hecke-action properties already represented by the detailed construction and theorem entries."
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS1::landmark:pull-the-satake-sheaf-attached-to-a-finite-dfyzn",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Repeated pull-tensor-push construction of the Hecke functor retained in the reviewed source entry."
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS2/hecke-fibre-description",
+    "decision": "name",
+    "label": "Minuscule local Shimura tower comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS2/local-shtuka-moduli",
+    "decision": "name",
+    "label": "Mixed-characteristic local G-shtukas",
+    "kind": "definition"
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS2::landmark:descent-to-the-reflex-field-of-the-bound-a-bgqr3x",
+    "decision": "name",
+    "label": "Weil action from reflex-field descent",
+    "kind": "construction"
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS2::landmark:for-b-b-in-b-g-and-a-bounded-tuple-of-modi-16ajn2r",
+    "decision": "name",
+    "label": "Local shtuka Hecke fibres",
+    "kind": "definition"
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS3/admissibility-duality-and-adjunction",
+    "decision": "name",
+    "label": "Perfectness against admissible representations",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS3/compactness-of-shtuka-cohomology",
+    "decision": "name",
+    "label": "Compact cohomology at pro-p level",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS3::landmark:compactly-supported-complexes-with-satake--qzrqnn",
+    "decision": "name",
+    "label": "Satake-coefficient cohomology complexes",
+    "kind": "construction"
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS4/isogeny-product-and-weil-restriction-diagrams",
+    "decision": "name",
+    "label": "Isogeny compatibility of Bernstein centres",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality",
+    "decision": "name",
+    "label": "Monoidal Hecke family over finite sets",
+    "kind": "construction"
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS4/uniform-wild-subgroup",
+    "decision": "name",
+    "label": "Uniform wild-inertia triviality",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeckeStacksAndLocalShtukas:HS4::landmark:permutation-creation-annihilation-of-a-pai-abkpos",
+    "decision": "name",
+    "label": "Creation and annihilation of dual legs",
+    "kind": "construction"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.0::landmark:for-k-f-cm-construct-the-order-idele-varia-1azd8tv",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Compatibility and exceptional-unit instructions for the ring-class tower, rather than a separately identified landmark."
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.0::landmark:orders-o-c-co-k-proper-invertible-ideals-p-1d0ibit",
+    "decision": "name",
+    "label": "Ring class fields",
+    "kind": "construction"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation",
+    "decision": "name",
+    "label": "Heegner points on X_0(N)",
+    "kind": "construction"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.1::landmark:cm-elliptic-curves-and-cyclic-isogeny-pair-y39cnq",
+    "decision": "name",
+    "label": "CM cyclic-isogeny pairs",
+    "kind": "construction"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.1::landmark:map-cm-points-to-degree-zero-jacobian-clas-1vlc70d",
+    "decision": "name",
+    "label": "Degree-zero CM Jacobian classes",
+    "kind": "construction"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.2/norm-relation-and-reduction-congruence",
+    "decision": "name",
+    "label": "Heegner norm relation at inert primes",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.2::landmark:at-primes-above-an-inert-auxiliary-l-prove-gmdrfh",
+    "decision": "name",
+    "label": "Heegner reduction congruence",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.2::landmark:hecke-correspondences-on-cm-points-by-clas-9fqzbr",
+    "decision": "name",
+    "label": "Hecke recurrence on CM points",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.3/kummer-classes-and-the-modified-selmer-conditions",
+    "decision": "name",
+    "label": "Selmer conditions for Heegner derivative classes",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.3::landmark:apply-the-existing-finite-and-p-adic-kumme-1b8rhql",
+    "decision": "name",
+    "label": "Integral Tate-module Kummer classes",
+    "kind": "construction"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.3::landmark:at-bad-primes-identify-the-local-kummer-im-194cc1l",
+    "decision": "name",
+    "label": "Local Kummer image at bad primes",
+    "kind": "definition"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.4/kolyvagin-derivative-classes-and-descent-to-K",
+    "decision": "name",
+    "label": "Heegner derivative classes",
+    "kind": "construction"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.4::landmark:for-squarefree-products-n-of-kolyvagin-pri-v0p0",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Repeated derivative-class construction already retained from the detailed source entry."
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.4::landmark:include-the-tensor-of-cyclic-galois-groups-162qfcs",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Coefficient-choice and reduction-compatibility instructions for the derivative classes already retained."
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.5/finite-singular-comparison-and-the-corrected-kolyvagin-system",
+    "decision": "name",
+    "label": "Finite/singular comparison automorphism",
+    "kind": "construction"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.5::landmark:he-2-s-reduction-congruence-to-prove-the-f-aih9z8",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Hypothesis-verification and dependency instructions surrounding the finite/singular comparison retained separately."
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.5::landmark:local-errors-at-p-and-at-tamagawa-primes-ebsyd5",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Cautions distinguishing residual and local-error hypotheses, with regression examples."
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.6/clean-rank-one-descent-theorem-A",
+    "decision": "name",
+    "label": "Rank-one Kolyvagin-system length bound",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.6::landmark:apply-the-abstract-descent-engine-to-the-a-1ieevmr",
+    "decision": "name",
+    "label": "Rank-one Heegner Selmer bound",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.6::landmark:separate-nonzero-primitive-and-primitive-a-rsy9o5",
+    "decision": "name",
+    "label": "Zhang's indivisibility theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.7::landmark:for-non-cm-curves-prove-the-required-open--1dxwjbh",
+    "decision": "name",
+    "label": "Finiteness of entire Sha",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.7::landmark:same-construction-supplies-the-kolyvagin-l-4nn0v2",
+    "decision": "name",
+    "label": "Kolyvagin–Logachev extension for RM quotients",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.8/lambda-adic-heegner-kolyvagin-system-and-theorem-B",
+    "decision": "name",
+    "label": "Anticyclotomic Heegner Kolyvagin system",
+    "kind": "construction"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.8::landmark:apply-the-generic-es-8-and-selmeriwasawa-c-ydpp2c",
+    "decision": "name",
+    "label": "Howard's anticyclotomic divisibility",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.8::landmark:at-a-good-ordinary-prime-form-the-p-stabil-1rocffp",
+    "decision": "name",
+    "label": "p-stabilized Heegner classes",
+    "kind": "construction"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.8::landmark:for-cornut-s-modular-curve-theorem-retain--gfx0ex",
+    "decision": "name",
+    "label": "Cornut–Vatsal nonvanishing",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.8::landmark:this-substage-owns-the-anticyclotomic-heeg-1m77zae",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Main-conjecture ownership handoff duplicated by the dedicated HE.8b entry."
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.8b::landmark:for-bcgs-theorem-a-retain-heeg-disc-tor-e--vbb1ts",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "List of source hypotheses and cautions for conditional nonvanishing, rather than a new landmark."
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.8b::landmark:for-cornut-s-modular-curve-theorem-retain--gfx0ex",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Repeated geometric nonvanishing passage belonging to the earlier anticyclotomic-family layer."
+  },
+  {
+    "id": "HeegnerPointEulerSystems:HE.8b::landmark:this-substage-owns-the-anticyclotomic-heeg-1m77zae",
+    "decision": "name",
+    "label": "Heegner-point characteristic-ideal formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeightsRationalPointsAndObstructions:RP.0::landmark:independence-of-projective-coordinates-and-1fq35sa",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance tests for coordinate independence and height identities."
+  },
+  {
+    "id": "HeightsRationalPointsAndObstructions:RP.0::landmark:normalized-absolute-heights-product-formul-1yg3lo2",
+    "decision": "name",
+    "label": "Line-bundle heights",
+    "kind": "construction"
+  },
+  {
+    "id": "HeightsRationalPointsAndObstructions:RP.1::landmark:elliptic-2-descent-example-includes-local--19377kh",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance example for elliptic 2-descent and a warning about interpreting a Selmer bound."
+  },
+  {
+    "id": "HeightsRationalPointsAndObstructions:RP.1::landmark:finite-selmer-groups-for-isogenies-and-the-1hzcyfx",
+    "decision": "name",
+    "label": "Finite Selmer groups for isogenies",
+    "kind": "definition"
+  },
+  {
+    "id": "HeightsRationalPointsAndObstructions:RP.1::landmark:kummer-maps-1j88f4r",
+    "decision": "keep",
+    "label": "Kummer maps",
+    "kind": "construction"
+  },
+  {
+    "id": "HeightsRationalPointsAndObstructions:RP.1::landmark:using-fppf-cohomology-when-n-meets-residue-rudxgx",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Instruction specifying the appropriate cohomology theory in residue characteristic."
+  },
+  {
+    "id": "HeightsRationalPointsAndObstructions:RP.2::landmark:conic-and-a-variety-with-an-actual-obstruc-uo0yhi",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance examples and a warning that the Brauer–Manin set need not contain a rational point."
+  },
+  {
+    "id": "HeightsRationalPointsAndObstructions:RP.2::landmark:restricted-adelic-point-spaces-local-invar-1asor0w",
+    "decision": "name",
+    "label": "Brauer–Manin pairing",
+    "kind": "construction"
+  },
+  {
+    "id": "HeightsRationalPointsAndObstructions:RP.3::landmark:descent-sets-for-torsors-with-specified-li-3qa5wq",
+    "decision": "name",
+    "label": "Torsor descent sets",
+    "kind": "definition"
+  },
+  {
+    "id": "HeightsRationalPointsAndObstructions:RP.3::landmark:track-a-torsor-with-no-rational-lift-and-a-2kn4d9",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance examples and scope checks for descent obstructions."
+  },
+  {
+    "id": "HeightsRationalPointsAndObstructions:RP.4::landmark:parshin-covering-reduction-from-a-rational-5ay8jn",
+    "decision": "name",
+    "label": "Parshin covering reduction",
+    "kind": "construction"
+  },
+  {
+    "id": "HeightsRationalPointsAndObstructions:RP.5::landmark:field-hypotheses-125f06f",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Isolated hypothesis fragment without a mathematical object."
+  },
+  {
+    "id": "HeightsRationalPointsAndObstructions:RP.5::landmark:manin-mumford-proof-routes-with-precise-ch-14j5cy3",
+    "decision": "name",
+    "label": "Manin–Mumford theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "HeightsRationalPointsAndObstructions:RP.5::landmark:translates-5mxhsi",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Minor object fragment with no specified translate; the central finiteness theorem is retained."
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:H0::landmark:restriction-of-scalars-group-and-the-scala-jg1a47",
+    "decision": "name",
+    "label": "Scalar-determinant subgroup",
+    "kind": "definition"
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:H0::landmark:symplectic-representation-of-g-using-a-tra-ux2i8r",
+    "decision": "name",
+    "label": "Symplectic representation of G*",
+    "kind": "construction"
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:H2::landmark:construction-must-accept-p-2-and-ramified--psfdg0",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Scope warning about dyadic and ramified primes, not an integral-model construction."
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:H2::landmark:deligne-pappas-type-integral-moduli-model--977zt1",
+    "decision": "name",
+    "label": "Deligne–Pappas integral moduli model",
+    "kind": "construction"
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:H3::landmark:finiteness-using-the-unit-theorem-and-prov-1978y8l",
+    "decision": "name",
+    "label": "Arithmetic Hilbert quotient comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:H3::landmark:maps-associated-with-changing-c-and-the-di-6o5bdg",
+    "decision": "name",
+    "label": "Polarization-class descent",
+    "kind": "construction"
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:H3::landmark:totally-positive-unit-action-on-polarizati-1q9mqym",
+    "decision": "name",
+    "label": "Totally positive unit action",
+    "kind": "construction"
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:H4::landmark:calculate-the-ineffective-central-subgroup-c6cs5e",
+    "decision": "name",
+    "label": "Effective finite-level PΓ groups",
+    "kind": "definition"
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:H4::landmark:full-g-p-level-full-g-p-level-and-the-inte-1t69g8m",
+    "decision": "name",
+    "label": "Full p-level moduli",
+    "kind": "definition"
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:H4::landmark:iwahori-and-higher-0-pn-levels-as-subgroup-kzvpep",
+    "decision": "name",
+    "label": "Iwahori level structures",
+    "kind": "construction"
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:H5::landmark:for-f-identify-both-hilbert-groups-with-gl-vnm0p2",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Classical modular-curve and real-quadratic comparison tests."
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:H5::landmark:for-general-f-identify-the-characteristic--l84rdz",
+    "decision": "name",
+    "label": "Characteristic-zero Hodge bundle",
+    "kind": "construction"
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:H6::landmark:for-two-distinct-auxiliary-residue-charact-1vkbgro",
+    "decision": "name",
+    "label": "Torsion-level moduli twist",
+    "kind": "construction"
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:R18.1::landmark:hilbert-moduli-and-their-two-group-convent-78cylh",
+    "decision": "name",
+    "label": "Quaternionic Shimura curve",
+    "kind": "construction"
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:R18.2::landmark:for-bad-prime-integral-geometry-use-carayo-x8ykee",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Bibliographic instruction distinguishing two Carayol papers."
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:R18.2::landmark:hilbert-compactifications-from-shimuracomp-1he3q2w",
+    "decision": "name",
+    "label": "Quaternionic integral models",
+    "kind": "construction"
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:R18.3::landmark:algebraic-automorphic-forms-on-the-finite--ckeq1o",
+    "decision": "name",
+    "label": "Definite quaternionic automorphic forms",
+    "kind": "definition"
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:R18.4::landmark:etale-and-betti-cohomology-with-algebraic--1vnk6f2",
+    "decision": "name",
+    "label": "Étale and Betti cohomology",
+    "kind": "construction"
+  },
+  {
+    "id": "HilbertModularVarietiesAndShimuraCurves:R18.5::landmark:drinfeld-upper-half-plane-and-the-arithmet-1t4qw32",
+    "decision": "name",
+    "label": "Čerednik–Drinfeld uniformisation",
+    "kind": "theorem"
+  },
+  {
+    "id": "HodgeTateAndCanonicalSubgroups:T0::landmark:barsotti-tate-group-duality-and-lie-conorm-ifdp2g",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Supplier and carrier-reuse instructions for the existing Barsotti–Tate theory."
+  },
+  {
+    "id": "HodgeTateAndCanonicalSubgroups:T0::landmark:finite-level-hodge-tate-map-using-cartier--c9ityx",
+    "decision": "name",
+    "label": "Finite-level Hodge–Tate map",
+    "kind": "construction"
+  },
+  {
+    "id": "HodgeTateAndCanonicalSubgroups:T1::landmark:period-rings-structural-period-sheaves-rel-ir4d7k",
+    "decision": "name",
+    "label": "Degree-one abelian comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "HodgeTateAndCanonicalSubgroups:T2::landmark:displayed-hodge-tate-exact-sequence-and-it-h5686z",
+    "decision": "name",
+    "label": "Hodge–Tate exact sequence",
+    "kind": "theorem"
+  },
+  {
+    "id": "HodgeTateAndCanonicalSubgroups:T3::landmark:existence-uniqueness-base-change-and-isoge-11zajbh",
+    "decision": "name",
+    "label": "Existence of canonical subgroups",
+    "kind": "theorem"
+  },
+  {
+    "id": "HodgeTateAndCanonicalSubgroups:T4::landmark:canonical-and-anticanonical-loci-by-subgro-n58mit",
+    "decision": "name",
+    "label": "Canonical and anticanonical loci",
+    "kind": "definition"
+  },
+  {
+    "id": "HodgeTateAndCanonicalSubgroups:T5::landmark:finite-igusa-torsors-of-trivializations-of-77t8w",
+    "decision": "name",
+    "label": "Finite Igusa torsors",
+    "kind": "construction"
+  },
+  {
+    "id": "HodgeTateAndCanonicalSubgroups:T5::landmark:torsor-used-for-the-andreatta-iovita-pillo-l5uq2",
+    "decision": "name",
+    "label": "Andreatta–Iovita–Pilloni torsor",
+    "kind": "construction"
+  },
+  {
+    "id": "HodgeTateAndCanonicalSubgroups:T6::landmark:t6-has-an-early-site-construction-prefix-a-7o4x3s",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Dependency ordering between site construction and period comparison."
+  },
+  {
+    "id": "HodgeTateAndCanonicalSubgroups:T6:comparison::landmark:hodge-tate-filtration-from-the-two-de-rham-1gi3j9d",
+    "decision": "name",
+    "label": "Hodge–Tate filtration",
+    "kind": "construction"
+  },
+  {
+    "id": "HodgeTateAndCanonicalSubgroups:T6:log-sites::landmark:for-smooth-rigid-adic-spaces-over-a-charac-1l4w7vv",
+    "decision": "name",
+    "label": "Pro-Kummer-étale site",
+    "kind": "construction"
+  },
+  {
+    "id": "HodgeTateAndCanonicalSubgroups:T6:log-sites::landmark:site-morphisms-to-the-ordinary-etale-site--u802ys",
+    "decision": "name",
+    "label": "Local toric Kummer towers",
+    "kind": "construction"
+  },
+  {
+    "id": "IgusaVarietiesAndTorsionConcentration:IG.0::landmark:for-a-p-divisible-group-x-over-algebraical-1dcuuyx",
+    "decision": "name",
+    "label": "Central leaf",
+    "kind": "construction"
+  },
+  {
+    "id": "IgusaVarietiesAndTorsionConcentration:IG.0::landmark:instantiate-pelmoduli-m0-m3-s-actual-integ-udneq6",
+    "decision": "name",
+    "label": "Unitary/similitude comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "IgusaVarietiesAndTorsionConcentration:IG.0::landmark:serre-tate-deformation-and-quasi-isogeny-c-iugj5e",
+    "decision": "name",
+    "label": "Serre–Tate deformation comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "IgusaVarietiesAndTorsionConcentration:IG.1::landmark:invariance-of-the-open-igusa-variety-under-3ubm3h",
+    "decision": "name",
+    "label": "Igusa compactly supported cohomology",
+    "kind": "construction"
+  },
+  {
+    "id": "IgusaVarietiesAndTorsionConcentration:IG.2::landmark:describe-each-boundary-stratum-with-all-to-i4lgdc",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Boundary-stratum acceptance checks and an erratum caution about lattice exponents."
+  },
+  {
+    "id": "IgusaVarietiesAndTorsionConcentration:IG.2::landmark:well-positioned-subsets-subschemes-using-t-s4ws7t",
+    "decision": "name",
+    "label": "Well-positioned subschemes",
+    "kind": "definition"
+  },
+  {
+    "id": "IgusaVarietiesAndTorsionConcentration:IG.3::landmark:compatibility-with-prime-to-p-hecke-action-gtrgjp",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Routine compatibility requirements and source references for the period-fiber comparison."
+  },
+  {
+    "id": "IgusaVarietiesAndTorsionConcentration:IG.3::landmark:for-a-geometric-flag-point-x-spa-c-o-c-fl--1mjrris",
+    "decision": "name",
+    "label": "Perfectoid Igusa generic fibers",
+    "kind": "construction"
+  },
+  {
+    "id": "IgusaVarietiesAndTorsionConcentration:IG.5::landmark:apply-et-5-et-7b-to-the-actual-igusa-cohom-lyjlab",
+    "decision": "name",
+    "label": "Rational Igusa trace comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "IgusaVarietiesAndTorsionConcentration:IG.5::landmark:passage-from-mod-ell-cohomology-concentrat-i8gozu",
+    "decision": "name",
+    "label": "Dual Hecke ideal",
+    "kind": "definition"
+  },
+  {
+    "id": "IgusaVarietiesAndTorsionConcentration:IG.6::landmark:assemble-the-finite-boundary-filtration-an-1pkc40z",
+    "decision": "name",
+    "label": "Boundary residual-length obstruction",
+    "kind": "theorem"
+  },
+  {
+    "id": "IgusaVarietiesAndTorsionConcentration:IG.6::landmark:for-a-rational-parabolic-of-rank-r-and-its-1w3sw7t",
+    "decision": "name",
+    "label": "Igusa boundary induction formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "IgusaVarietiesAndTorsionConcentration:IG.7::landmark:integral-lattice-local-system-versions-by--vbhqxb",
+    "decision": "name",
+    "label": "Middle-degree torsion-freeness",
+    "kind": "theorem"
+  },
+  {
+    "id": "IgusaVarietiesAndTorsionConcentration:IG.7::landmark:under-the-exact-initial-global-hypotheses--l0p2ux",
+    "decision": "name",
+    "label": "Localized cohomology vanishing inequalities",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralHeckeAndGaloisDeterminants:IHG.0::landmark:homogeneous-polynomial-laws-of-degree-n-na-g19bjg",
+    "decision": "name",
+    "label": "Multiplicative polynomial-law determinants",
+    "kind": "definition"
+  },
+  {
+    "id": "IntegralHeckeAndGaloisDeterminants:IHG.1::landmark:characteristic-polynomial-ideal-and-cayley-1ajba4e",
+    "decision": "name",
+    "label": "Cayley–Hamilton quotient",
+    "kind": "construction"
+  },
+  {
+    "id": "IntegralHeckeAndGaloisDeterminants:IHG.4::landmark:compatible-determinants-over-finite-coeffi-sr02gd",
+    "decision": "name",
+    "label": "Determinant interpolation",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralHeckeAndGaloisDeterminants:IHG.5::landmark:theorem-schemas-which-take-an-actual-geome-sa5l0z",
+    "decision": "name",
+    "label": "Determinants in quotients by nilpotent ideals",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralHeckeAndGaloisDeterminants:IHG.6::landmark:first-take-a-complete-reduced-noetherian-l-1jgxwtp",
+    "decision": "name",
+    "label": "Integral Ribet extension theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralHeckeAndGaloisDeterminants:IHG.6::landmark:n-and-the-cocycle-zero-on-a-chosen-subgrou-1hfjl71",
+    "decision": "name",
+    "label": "Local-factor Fitting ideal containment",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralHeckeAndGaloisDeterminants:IHG.6::landmark:reusable-gl2-extension-theorem-of-dasgupta-16moxmb",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Source overview of the two extension results retained in the more precise entries."
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.1::landmark:cyclotomic-z-p-extension-of-a-number-field-19t3qm3",
+    "decision": "name",
+    "label": "Cyclotomic Z_p-extension",
+    "kind": "construction"
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.1::landmark:for-finite-abelian-extensions-of-a-totally-zo2de0",
+    "decision": "name",
+    "label": "Invertible determinant modules",
+    "kind": "construction"
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.10::landmark:nonequivariant-characteristic-ideal-statem-1buj3wb",
+    "decision": "name",
+    "label": "Classical characteristic-ideal comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.2::landmark:distinguish-the-unramified-class-group-mod-fm92xu",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Warning distinguishing ramification conventions for two arithmetic modules."
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.2::landmark:inverse-limits-of-p-primary-class-groups-s-8dvuyo",
+    "decision": "name",
+    "label": "Class-group inverse limits",
+    "kind": "definition"
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.3::landmark:interpolation-theorem-fixes-the-exact-comp-vsnu9h",
+    "decision": "name",
+    "label": "p-adic zeta interpolation",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.3::landmark:measures-distributions-and-amice-mellin-tr-12iytc8",
+    "decision": "name",
+    "label": "Kubota–Leopoldt normalization comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.4::landmark:apply-padicmeasuresiwasawaalgebras-l5-s-de-jjy6cc",
+    "decision": "name",
+    "label": "Arithmetic finite-layer base change",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.4::landmark:euler-characteristic-at-an-arithmetic-char-1ecb5dj",
+    "decision": "name",
+    "label": "Arithmetic Euler-characteristic comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.5::landmark:abelian-q-main-conjecture-of-mazur-wiles-w-9etull",
+    "decision": "name",
+    "label": "Mazur–Wiles main conjecture",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.5::landmark:comparison-between-the-hecke-theoretic-ext-1czddo5",
+    "decision": "name",
+    "label": "Hecke-theoretic class-group extension comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.6::landmark:equivariant-artin-l-functions-for-the-abel-1izd5as",
+    "decision": "name",
+    "label": "Integral Stickelberger elements",
+    "kind": "construction"
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.6::landmark:ritter-weiss-modules-and-their-presentatio-1hlr08p",
+    "decision": "name",
+    "label": "Ritter–Weiss modules",
+    "kind": "construction"
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.7::landmark:finite-level-equivariant-tamagawa-number-b-1sbuils",
+    "decision": "name",
+    "label": "Equivariant Brumer–Stark comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.7::landmark:formalise-the-proof-of-the-integral-brumer-13o2lfh",
+    "decision": "name",
+    "label": "DKSW integral Brumer–Stark theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.7::landmark:residually-indistinguishable-case-is-essen-cbefyp",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Import and hypothesis-verification instructions for the separately owned integral Ribet theorem."
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.8::landmark:in-the-precise-burns-flach-kurihara-conven-5ohd0m",
+    "decision": "name",
+    "label": "Perfectness of the Iwasawa complex",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.8::landmark:involution-and-cyclotomic-twist-on-the-coe-1aab5yf",
+    "decision": "name",
+    "label": "Stickelberger–Deligne–Ribet comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.8::landmark:let-k-be-totally-real-f-k-finite-abelian-a-10kkdio",
+    "decision": "name",
+    "label": "Burns–Flach Iwasawa complex",
+    "kind": "construction"
+  },
+  {
+    "id": "IntegralIwasawaTheory:I.9::landmark:formalise-kurihara-s-theorem-4-1-using-i-7-1hu8dch",
+    "decision": "name",
+    "label": "Kurihara determinant main conjecture",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralIwasawaTheory:L0::landmark:q-mu-m-its-real-subfield-roots-of-unity-ra-g3i2ip",
+    "decision": "name",
+    "label": "Cyclotomic units",
+    "kind": "definition"
+  },
+  {
+    "id": "IntegralIwasawaTheory:L0::landmark:regulator-determinant-calculation-for-cycl-dly9zd",
+    "decision": "name",
+    "label": "Cyclotomic-unit index formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralIwasawaTheory:L1::landmark:from-ray-class-reciprocity-the-finite-leve-vhim00",
+    "decision": "name",
+    "label": "Unit and Galois inverse-limit exact sequence",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralIwasawaTheory:L2::landmark:compact-nakayama-applies-and-deduce-finite-1tek44k",
+    "decision": "name",
+    "label": "Class-number growth formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralIwasawaTheory:L3::landmark:combine-l1-with-r04-l4-to-prove-the-actual-j9qnin",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Cross-reference instruction assembling the isomorphism behind the ideal-equality theorem retained separately."
+  },
+  {
+    "id": "IntegralIwasawaTheory:L3::landmark:theorem-13-8-s-ideal-equality-under-vandiv-490fix",
+    "decision": "name",
+    "label": "Ideal equality under Vandiver",
+    "kind": "theorem"
+  },
+  {
+    "id": "IntegralIwasawaTheory:L4::landmark:theorem-11-7-1rradk",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance checklist consisting of source theorem numbers and proof obligations."
+  },
+  {
+    "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.0::landmark:absolute-galois-group-for-spec-k-and-the-f-1cqty2i",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance example recovering the absolute Galois group of a field."
+  },
+  {
+    "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.0::landmark:profinite-automorphism-group-of-the-geomet-13dtq7x",
+    "decision": "name",
+    "label": "Étale fundamental group",
+    "kind": "construction"
+  },
+  {
+    "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.1::landmark:finite-field-frobenius-and-a-punctured-cur-1398zut",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Finite-field and punctured-curve acceptance tests."
+  },
+  {
+    "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.1::landmark:geometric-arithmetic-fundamental-group-seq-11cj2b7",
+    "decision": "name",
+    "label": "Arithmetic fundamental-group exact sequence",
+    "kind": "theorem"
+  },
+  {
+    "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2::landmark:hilbert-irreducibility-over-number-fields--ljpi2t",
+    "decision": "name",
+    "label": "Hilbert irreducibility over number fields",
+    "kind": "theorem"
+  },
+  {
+    "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.2::landmark:infinitely-many-distinct-specialized-exten-19axt6q",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Worked-specialization acceptance example."
+  },
+  {
+    "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.3::landmark:branched-covers-from-generating-tuples-wit-vfs23j",
+    "decision": "name",
+    "label": "Branched covers from generating tuples",
+    "kind": "construction"
+  },
+  {
+    "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.3::landmark:give-one-rigid-realization-and-one-example-mh4p4",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Rigidity and dessin acceptance examples, with a field-of-moduli caution."
+  },
+  {
+    "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.4::landmark:cyclic-and-dihedral-realizations-then-cert-1cg3umx",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Cyclic and dihedral realization tests for the general embedding-problem construction."
+  },
+  {
+    "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.4::landmark:weak-and-proper-solutions-of-finite-embedd-sdumkv",
+    "decision": "name",
+    "label": "Solutions of finite embedding problems",
+    "kind": "definition"
+  },
+  {
+    "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.5::landmark:characteristic-zero-and-tame-reduction-exa-t6dqnm",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Characteristic-zero versus tame-reduction acceptance example."
+  },
+  {
+    "id": "InverseGaloisAndArithmeticFundamentalGroups:IG.5::landmark:relevant-hurwitz-moduli-with-braid-nielsen-7u7um9",
+    "decision": "name",
+    "label": "Hurwitz moduli",
+    "kind": "construction"
+  },
+  {
+    "id": "K2SymbolsBrauer:T.1::landmark:classical-construction-t-1-classical-svomkm",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Parent-layer pointer duplicated by the dedicated classical Steinberg-group construction."
+  },
+  {
+    "id": "K2SymbolsBrauer:T.1::landmark:comparison-with-homotopy-k2-t-1-plus-10f4rmg",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Parent-layer pointer duplicated by the dedicated homotopy-K₂ comparison."
+  },
+  {
+    "id": "K2SymbolsBrauer:T.1::landmark:keep-the-finite-rank-and-stable-objects-di-qinkqj",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Scope warning distinguishing stable and finite-rank kernels and unrelated Steinberg endomorphisms."
+  },
+  {
+    "id": "K2SymbolsBrauer:T.1:classical::landmark:classical-construction-t-1-classical-svomkm",
+    "decision": "name",
+    "label": "Stable Steinberg group",
+    "kind": "construction"
+  },
+  {
+    "id": "K2SymbolsBrauer:T.1:classical::landmark:keep-the-finite-rank-and-stable-objects-di-qinkqj",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Repeated scope warning about finite-rank centrality and unrelated Steinberg endomorphisms."
+  },
+  {
+    "id": "K2SymbolsBrauer:T.1:plus::landmark:comparison-with-homotopy-k2-t-1-plus-10f4rmg",
+    "decision": "name",
+    "label": "Homotopy K₂ comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "K2SymbolsBrauer:T.2::landmark:later-product-comparison-t-2-graded-map-12e3on6",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Parent-layer pointer duplicated by the dedicated graded comparison-map entry."
+  },
+  {
+    "id": "K2SymbolsBrauer:T.2:graded-map::landmark:later-product-comparison-t-2-graded-map-12e3on6",
+    "decision": "name",
+    "label": "Graded Milnor K-theory comparison map",
+    "kind": "construction"
+  },
+  {
+    "id": "K2SymbolsBrauer:T.3::landmark:classical-residue-map-t-3-symbols-1famfue",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Parent-layer pointer duplicated by the dedicated classical tame-symbol entry."
+  },
+  {
+    "id": "K2SymbolsBrauer:T.3::landmark:later-localization-comparison-t-3-localiza-1638ekc",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Parent-layer pointer duplicated by the dedicated localisation comparison."
+  },
+  {
+    "id": "K2SymbolsBrauer:T.3:localization-comparison::landmark:higher-milnor-residues-specialisation-with-bk1zuv",
+    "decision": "name",
+    "label": "Higher Milnor residues",
+    "kind": "construction"
+  },
+  {
+    "id": "K2SymbolsBrauer:T.3:localization-comparison::landmark:later-localization-comparison-t-3-localiza-1638ekc",
+    "decision": "name",
+    "label": "Tame-symbol localisation comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "K2SymbolsBrauer:T.3:symbols::landmark:classical-residue-map-t-3-symbols-1famfue",
+    "decision": "name",
+    "label": "Classical tame symbol",
+    "kind": "definition"
+  },
+  {
+    "id": "K2SymbolsBrauer:T.4::landmark:bass-tate-sequence-for-f-t-and-use-it-to-c-st221r",
+    "decision": "name",
+    "label": "Bass–Tate sequence",
+    "kind": "theorem"
+  },
+  {
+    "id": "K2SymbolsBrauer:T.5::landmark:for-s-integers-allow-residues-at-s-and-obt-smh4k5",
+    "decision": "name",
+    "label": "S-integer tame-kernel exact sequence",
+    "kind": "theorem"
+  },
+  {
+    "id": "K2SymbolsBrauer:T.5::landmark:unramified-subgroup-of-k2-f-by-the-simulta-4jdn93",
+    "decision": "name",
+    "label": "Unramified subgroup of K₂(F)",
+    "kind": "definition"
+  },
+  {
+    "id": "K2SymbolsBrauer:T.6::landmark:dennis-stein-symbols-under-their-1-ab-inve-5c9dka",
+    "decision": "name",
+    "label": "Dennis–Stein symbols",
+    "kind": "definition"
+  },
+  {
+    "id": "K2SymbolsBrauer:T.7::landmark:fix-a-primitive-root-only-when-identifying-s32x9o",
+    "decision": "name",
+    "label": "Hilbert norm-residue symbol comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "K2SymbolsBrauer:T.7::landmark:norm-residue-map-constructed-in-motiviceta-uomxa0",
+    "decision": "name",
+    "label": "Kummer cup-product comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "K3BlochGroups:V.1::landmark:bar-cycles-boundaries-chain-maps-and-the-e-m66ik5",
+    "decision": "name",
+    "label": "Bar-cycle model for K₃",
+    "kind": "construction"
+  },
+  {
+    "id": "K3BlochGroups:V.2::landmark:product-map-from-milnor-k3-to-quillen-k3-a-29pyl0",
+    "decision": "name",
+    "label": "Indecomposable Quillen K₃",
+    "kind": "definition"
+  },
+  {
+    "id": "K3BlochGroups:V.3::landmark:pre-bloch-group-with-its-precise-five-term-qskayb",
+    "decision": "name",
+    "label": "Pre-Bloch group",
+    "kind": "definition"
+  },
+  {
+    "id": "K3BlochGroups:V.3::landmark:separately-construct-the-conventions-used--1h1c96p",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Convention-comparison and small-torsion cautions surrounding the Bloch-group definition."
+  },
+  {
+    "id": "K3BlochGroups:V.3::landmark:this-quotient-need-not-kill-a-a-sw3c16",
+    "decision": "name",
+    "label": "Bloch group",
+    "kind": "definition"
+  },
+  {
+    "id": "K3BlochGroups:V.4::landmark:enhanced-torsion-term-with-its-characteris-1p4qceh",
+    "decision": "name",
+    "label": "Enhanced torsion term",
+    "kind": "construction"
+  },
+  {
+    "id": "K3BlochGroups:V.4::landmark:for-infinite-fields-prove-the-bloch-wigner-q9lzss",
+    "decision": "name",
+    "label": "Bloch–Wigner/Suslin exact sequence",
+    "kind": "theorem"
+  },
+  {
+    "id": "K3BlochGroups:V.6::landmark:give-constructors-for-a-bloch-element-from-ey3xws",
+    "decision": "name",
+    "label": "Five-term relation certificates",
+    "kind": "construction"
+  },
+  {
+    "id": "K3BlochGroups:V.6::landmark:rational-bloch-k3-comparison-an-integral-c-1dqt01q",
+    "decision": "name",
+    "label": "Integral Bloch/K₃ comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "KTheoryFiniteLocalFields:L.1::landmark:finite-field-k-theory-model-used-in-quille-1ijqkw7",
+    "decision": "name",
+    "label": "Brauer lifting",
+    "kind": "construction"
+  },
+  {
+    "id": "KTheoryFiniteLocalFields:L.1::landmark:prove-for-every-finite-field-with-q-elemen-13lqk94",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "The same finite-field K-theory calculation is already represented by the layer's curated planet."
+  },
+  {
+    "id": "KTheoryFiniteLocalFields:L.1::landmark:restriction-and-transfer-maps-for-finite-e-282pa7",
+    "decision": "name",
+    "label": "Finite-field K-theory transfer",
+    "kind": "construction"
+  },
+  {
+    "id": "KTheoryFiniteLocalFields:L.2::landmark:deduce-the-prime-to-residue-characteristic-qggli6",
+    "decision": "name",
+    "label": "Prime-to-residue-characteristic K-theory",
+    "kind": "theorem"
+  },
+  {
+    "id": "KTheoryFiniteLocalFields:L.2::landmark:rigidity-with-coefficients-prime-to-the-re-k1ba29",
+    "decision": "name",
+    "label": "Prime-to-residue-characteristic rigidity",
+    "kind": "theorem"
+  },
+  {
+    "id": "KTheoryFiniteLocalFields:L.3::landmark:keep-the-canonical-short-exact-sequence-se-g52po0",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Warning separating canonical exact sequences from noncanonical splittings and characteristic-specific variants."
+  },
+  {
+    "id": "KTheoryFiniteLocalFields:L.3::landmark:local-symbols-to-construct-the-map-from-k2-ltgsyk",
+    "decision": "name",
+    "label": "Local K₂ roots-of-unity quotient",
+    "kind": "theorem"
+  },
+  {
+    "id": "KTheoryFiniteLocalFields:L.4::landmark:hochschild-cyclic-thh-tc-and-cyclotomic-tr-18kjnuw",
+    "decision": "name",
+    "label": "TR/Frobenius comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "KTheoryFiniteLocalFields:L.6::landmark:combine-localisation-trace-calculations-an-28adoq",
+    "decision": "name",
+    "label": "Completed local K-group rank formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "KTheoryFiniteLocalFields:L.6::landmark:separate-account-of-the-divisible-componen-1t592ye",
+    "decision": "name",
+    "label": "Divisible components of integral K-groups",
+    "kind": "definition"
+  },
+  {
+    "id": "KTheoryFiniteLocalFields:L.7::landmark:compatibility-of-local-restriction-transfe-1ri1q62",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Compatibility and supplier handoff for the existing local-to-global maps."
+  },
+  {
+    "id": "KTheoryLowDegrees:U.1::landmark:gl-a-as-the-filtered-colimit-of-the-finite-kk7fy1",
+    "decision": "name",
+    "label": "Stable general linear group",
+    "kind": "definition"
+  },
+  {
+    "id": "KTheoryLowDegrees:U.1::landmark:stable-elementary-subgroup-e-a-59van4",
+    "decision": "name",
+    "label": "Stable elementary subgroup",
+    "kind": "definition"
+  },
+  {
+    "id": "KTheoryLowDegrees:U.2::landmark:additivity-for-an-automorphism-preserving--68jk0c",
+    "decision": "name",
+    "label": "K₁ additivity for projective filtrations",
+    "kind": "theorem"
+  },
+  {
+    "id": "KTheoryLowDegrees:U.2::landmark:classical-k1-as-gl-a-e-a-and-compare-it-wi-i6fobi",
+    "decision": "name",
+    "label": "Classical K₁",
+    "kind": "definition"
+  },
+  {
+    "id": "KTheoryLowDegrees:U.3::landmark:equality-k1-a-ax-is-not-a-general-commutat-ry879y",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Warning against identifying K₁ with units over an arbitrary ring or scheme."
+  },
+  {
+    "id": "KTheoryLowDegrees:U.3::landmark:for-commutative-a-construct-the-stable-det-zp2a5l",
+    "decision": "name",
+    "label": "Stable determinant",
+    "kind": "construction"
+  },
+  {
+    "id": "KTheoryLowDegrees:U.4::landmark:combine-determinant-with-dirichlet-s-s-uni-1pl6pjg",
+    "decision": "name",
+    "label": "S-integer K₁ and units",
+    "kind": "theorem"
+  },
+  {
+    "id": "KTheoryLowDegrees:U.5::landmark:congruence-subgroups-and-relative-elementa-1v9hx7w",
+    "decision": "name",
+    "label": "Relative K₁",
+    "kind": "definition"
+  },
+  {
+    "id": "KTheoryLowDegrees:U.6::landmark:h-3-and-k-2-to-identify-1-bgl-a-with-the-e-1t0txlj",
+    "decision": "name",
+    "label": "Homotopy K₁ comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "KTheoryLowDegrees:U.6::landmark:k1-of-z-finite-fields-z-1-p-and-a-product--133xca7",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Elementary K₁ computations and matrix regression tests."
+  },
+  {
+    "id": "KTheoryLowDegrees:Z.1::landmark:equivalence-between-finitely-generated-pro-18byxfa",
+    "decision": "name",
+    "label": "Idempotent-matrix projective presentation",
+    "kind": "construction"
+  },
+  {
+    "id": "KTheoryLowDegrees:Z.1::landmark:existing-split-exact-k0-universal-property-o5dtt6",
+    "decision": "name",
+    "label": "Ring K₀",
+    "kind": "definition"
+  },
+  {
+    "id": "KTheoryLowDegrees:Z.2::landmark:k0-f-z-for-fields-and-division-rings-by-di-pc96te",
+    "decision": "name",
+    "label": "K₀ of fields and division rings",
+    "kind": "theorem"
+  },
+  {
+    "id": "KTheoryLowDegrees:Z.3::landmark:determinant-has-an-additive-group-homomorp-1d1t2bk",
+    "decision": "keep",
+    "label": "Determinant",
+    "kind": "construction"
+  },
+  {
+    "id": "KTheoryLowDegrees:Z.3::landmark:for-commutative-rings-construct-the-k0-rin-bppyeo",
+    "decision": "name",
+    "label": "K₀ λ-ring structure",
+    "kind": "construction"
+  },
+  {
+    "id": "KTheoryLowDegrees:Z.4::landmark:include-the-zero-module-separately-1d6qfo0",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Zero-module boundary case and independence-of-representatives checks for the classification."
+  },
+  {
+    "id": "KTheoryLowDegrees:Z.4::landmark:induced-maps-under-localisation-extension--8ng7c6",
+    "decision": "name",
+    "label": "K₀ transfer via determinant and norm",
+    "kind": "theorem"
+  },
+  {
+    "id": "KTheoryLowDegrees:Z.4::landmark:steinitz-classification-a-positive-rank-fi-1syo4pr",
+    "decision": "name",
+    "label": "Steinitz classification",
+    "kind": "theorem"
+  },
+  {
+    "id": "KTheoryLowDegrees:Z.5::landmark:apply-the-categorical-construction-to-fini-1eqp7at",
+    "decision": "name",
+    "label": "Rank–determinant formula for regular curves",
+    "kind": "theorem"
+  },
+  {
+    "id": "KTheoryLowDegrees:Z.5::landmark:for-an-elliptic-curve-with-origin-e-proves-1b2gpum",
+    "decision": "name",
+    "label": "K₀ of an elliptic curve with origin",
+    "kind": "theorem"
+  },
+  {
+    "id": "KatoEulerSystems:L0/siegel-unit-degeneracy-product-formula",
+    "decision": "name",
+    "label": "Siegel-unit degeneracy product formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "KatoEulerSystems:L0/siegel-unit-galois-action-and-distribution",
+    "decision": "name",
+    "label": "Siegel-unit distribution relation",
+    "kind": "theorem"
+  },
+  {
+    "id": "KatoEulerSystems:L0/siegel-units-and-c-independent-rationalisation",
+    "decision": "name",
+    "label": "Siegel units on Y(N)",
+    "kind": "construction"
+  },
+  {
+    "id": "KatoEulerSystems:L0/theta-function-c-normalised",
+    "decision": "name",
+    "label": "c-normalised theta function",
+    "kind": "construction"
+  },
+  {
+    "id": "KatoEulerSystems:L0::landmark:siegel-functions-analytically-prove-their--12dbq98",
+    "decision": "name",
+    "label": "Siegel functions",
+    "kind": "definition"
+  },
+  {
+    "id": "KatoEulerSystems:L1/K2-norm-projection-formula-and-level-norm-relation",
+    "decision": "name",
+    "label": "K₂ level-change norm relation",
+    "kind": "theorem"
+  },
+  {
+    "id": "KatoEulerSystems:L1/beilinson-element-in-K2-of-Y-M-N",
+    "decision": "name",
+    "label": "Beilinson zeta element",
+    "kind": "construction"
+  },
+  {
+    "id": "KatoEulerSystems:L1/etale-chern-moment-map-into-modular-local-system",
+    "decision": "name",
+    "label": "Étale Chern-character moment map",
+    "kind": "construction"
+  },
+  {
+    "id": "KatoEulerSystems:L1/euler-factor-norm-relation-at-auxiliary-primes",
+    "decision": "name",
+    "label": "Auxiliary-prime Euler-factor norm relation",
+    "kind": "theorem"
+  },
+  {
+    "id": "KatoEulerSystems:L1/hecke-and-diamond-equivariance-of-the-moment-map",
+    "decision": "name",
+    "label": "Hecke and diamond equivariance of moments",
+    "kind": "theorem"
+  },
+  {
+    "id": "KatoEulerSystems:L1::landmark:symbols-localization-tame-residues-transfe-1wdguq0",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Import instructions for generic symbols, transfers and regulator suppliers."
+  },
+  {
+    "id": "KatoEulerSystems:L2/euler-system-datum-for-the-modular-lattice",
+    "decision": "name",
+    "label": "Modular Euler-system datum",
+    "kind": "definition"
+  },
+  {
+    "id": "KatoEulerSystems:L2/integral-zeta-submodule-and-finite-index",
+    "decision": "name",
+    "label": "Finite index of the integral zeta submodule",
+    "kind": "theorem"
+  },
+  {
+    "id": "KatoEulerSystems:L2/integrality-of-the-cyclotomic-limit-in-S-integral-cohomology",
+    "decision": "name",
+    "label": "Perrin–Riou/Rubin integrality lemma",
+    "kind": "theorem"
+  },
+  {
+    "id": "KatoEulerSystems:L2/p-adic-zeta-elements-and-their-norm-relations",
+    "decision": "name",
+    "label": "p-adic zeta elements",
+    "kind": "construction"
+  },
+  {
+    "id": "KatoEulerSystems:L2::landmark:apply-these-regulators-to-the-actual-pairs-1l6lsqk",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Summary of the regulator construction already represented by the detailed zeta-element entries."
+  },
+  {
+    "id": "KatoEulerSystems:L2::landmark:integral-version-for-the-chosen-lattice-pr-1ccnfwl",
+    "decision": "name",
+    "label": "Rational universal zeta class",
+    "kind": "construction"
+  },
+  {
+    "id": "KatoEulerSystems:L3/beilinson-regulator-and-the-archimedean-zeta-value",
+    "decision": "name",
+    "label": "Beilinson regulator formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "KatoEulerSystems:L3/dual-exponential-map-on-the-modular-local-system",
+    "decision": "name",
+    "label": "Dual exponential map",
+    "kind": "construction"
+  },
+  {
+    "id": "KatoEulerSystems:L3/generalised-explicit-reciprocity-law-for-zeta-elements",
+    "decision": "name",
+    "label": "Kato's explicit reciprocity law",
+    "kind": "theorem"
+  },
+  {
+    "id": "KatoEulerSystems:L3/zeta-class-interpolation-of-complex-L-values",
+    "decision": "name",
+    "label": "Canonical zeta-class interpolation",
+    "kind": "theorem"
+  },
+  {
+    "id": "KatoEulerSystems:L3::landmark:de-rham-regulator-by-the-explicit-eisenste-1t1u0at",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Regulator-computation instructions already represented by the precise Beilinson and Kato formulas."
+  },
+  {
+    "id": "KatoEulerSystems:L3::landmark:for-noncritical-finite-slope-prove-equalit-8ybti3",
+    "decision": "name",
+    "label": "Noncritical finite-slope comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "KatoEulerSystems:L4/cm-exclusion-and-the-separate-treatment",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Scope explanation for the separate CM proof, not a new Euler-system theorem."
+  },
+  {
+    "id": "KatoEulerSystems:L4/cohomological-divisibility-one-direction",
+    "decision": "name",
+    "label": "Cohomological main-conjecture divisibility",
+    "kind": "theorem"
+  },
+  {
+    "id": "KatoEulerSystems:L4/imported-euler-system-bound-over-the-cyclotomic-iwasawa-algebra",
+    "decision": "name",
+    "label": "Iwasawa-theoretic Euler-system bound",
+    "kind": "theorem"
+  },
+  {
+    "id": "KatoEulerSystems:L4/nonvanishing-of-the-zeta-submodule-at-height-zero",
+    "decision": "name",
+    "label": "Zeta nonvanishing at height-zero primes",
+    "kind": "theorem"
+  },
+  {
+    "id": "KatoEulerSystems:L4/ordinary-selmer-divisibility",
+    "decision": "name",
+    "label": "Good-ordinary Selmer divisibility",
+    "kind": "theorem"
+  },
+  {
+    "id": "KatoEulerSystems:L4::landmark:actual-global-classes-satisfying-every-eul-1ivv0nl",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance checklist for the constructed Euler system and its arithmetic comparisons."
+  },
+  {
+    "id": "KatoEulerSystems:L4::landmark:deduce-the-standard-cohomological-divisibi-1db1s06",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Summary of the cohomological and ordinary divisibilities already retained in precise source entries."
+  },
+  {
+    "id": "LanglandsParameterStacks:LP0/condensed-cocycles-and-L-parameters",
+    "decision": "name",
+    "label": "L-parameters as condensed 1-cocycles",
+    "kind": "definition"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP0/discretization-and-unique-extension",
+    "decision": "name",
+    "label": "Unique extension of condensed cocycles",
+    "kind": "theorem"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP0::landmark:local-field-weil-group-carrier-inertia-and-1q1mkyq",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Carrier-reuse instructions and repeated cocycle construction already represented by the detailed definition."
+  },
+  {
+    "id": "LanglandsParameterStacks:LP1/decomposition-by-wild-kernel",
+    "decision": "name",
+    "label": "Wild-inertia decomposition of parameter space",
+    "kind": "theorem"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP1/derived-comparison-with-the-classical-scheme",
+    "decision": "name",
+    "label": "Discreteness of the derived cocycle algebra",
+    "kind": "theorem"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP1/independent-source-and-dimension-normalisation",
+    "decision": "name",
+    "label": "Parameter scheme over Z[1/p]",
+    "kind": "construction"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP1/representability-flatness-and-lci",
+    "decision": "name",
+    "label": "Flat complete-intersection parameter scheme",
+    "kind": "theorem"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP1::landmark:derived-affine-schemes-fpqc-quotient-stack-19nwz2j",
+    "decision": "name",
+    "label": "Derived mapping stack",
+    "kind": "construction"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism",
+    "decision": "name",
+    "label": "Excursion-algebra universal homeomorphism",
+    "kind": "theorem"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP2:excursion-presentation/map-to-a-bernstein-center",
+    "decision": "name",
+    "label": "Excursion map to the Bernstein centre",
+    "kind": "construction"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP2:excursion-presentation/universal-property-of-the-excursion-algebra",
+    "decision": "name",
+    "label": "Excursion algebra presentation",
+    "kind": "theorem"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem",
+    "decision": "name",
+    "label": "Integral invariant base change",
+    "kind": "theorem"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP2:integral-invariants::landmark:invariant-algebra-and-the-affine-coarse-qu-1om5uwv",
+    "decision": "name",
+    "label": "Affine coarse quotient of parameters",
+    "kind": "construction"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP2:integral-invariants::landmark:presentation-of-the-invariant-algebra-by-a-odef15",
+    "decision": "name",
+    "label": "Free-group invariant-algebra presentation",
+    "kind": "theorem"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP2:semisimple-characters/character-bijection",
+    "decision": "name",
+    "label": "Semisimple-parameter character bijection",
+    "kind": "theorem"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP2:semisimple-characters/semisimple-parameters-and-closed-orbits",
+    "decision": "name",
+    "label": "Semisimple L-parameter",
+    "kind": "definition"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP2:semisimple-characters::landmark:fs-viii-3-8-excursion-characters-over-an-a-1al9i7p",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Repeated semisimple-parameter classification already retained from the detailed source theorem."
+  },
+  {
+    "id": "LanglandsParameterStacks:LP3/donkin-subgroup-and-generation",
+    "decision": "name",
+    "label": "Donkin property for solvable actions",
+    "kind": "theorem"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP3/fixed-points-of-prime-to-l-group-actions",
+    "decision": "name",
+    "label": "Reductive identity component of fixed points",
+    "kind": "theorem"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP3/good-filtration-t-structure",
+    "decision": "name",
+    "label": "Good-filtration t-structure",
+    "kind": "construction"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP3::landmark:highest-weight-modules-weyl-and-dual-weyl--1x33ard",
+    "decision": "name",
+    "label": "Weyl and dual-Weyl modules",
+    "kind": "definition"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP4/generation-and-module-comparison",
+    "decision": "name",
+    "label": "Representation generation of Perf",
+    "kind": "theorem"
+  },
+  {
+    "id": "LanglandsParameterStacks:LP4::landmark:perf-on-the-finite-wild-quotient-and-its-a-p8bkxi",
+    "decision": "name",
+    "label": "Perf on finite-wild quotients",
+    "kind": "construction"
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.0/derived-functorialities-and-specialization-sequence",
+    "decision": "name",
+    "label": "Proper and smooth base change for RΨ",
+    "kind": "theorem"
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle",
+    "decision": "name",
+    "label": "Vanishing triangle",
+    "kind": "construction"
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.0/fibre-product-topos-Y-times-S",
+    "decision": "name",
+    "label": "Specialization morphism",
+    "kind": "construction"
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.0/functor-psi-and-functorialities",
+    "decision": "name",
+    "label": "Nearby-cycle functor",
+    "kind": "construction"
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.0/henselian-trait-conventions-and-galois-sheaves",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Foundational trait and Galois-sheaf conventions, subsidiary to the nearby-cycle constructions."
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.0/variation-morphism",
+    "decision": "name",
+    "label": "Variation morphism",
+    "kind": "construction"
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.0::landmark:geometric-generic-special-fiber-diagram-ov-adzww2",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Repeated geometric nearby-cycle construction already represented by the detailed functor and triangle entries."
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.0::landmark:proper-pushforward-compatibility-smooth-ba-1mup9ru",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Summary of nearby-cycle functorialities already retained in the source base-change theorem."
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.1::landmark:tame-wild-inertia-and-the-tame-character-t-o6egd6",
+    "decision": "name",
+    "label": "Monodromy operator N",
+    "kind": "construction"
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.1::landmark:uniquely-characterized-monodromy-filtratio-82lj0u",
+    "decision": "name",
+    "label": "Monodromy filtration",
+    "kind": "construction"
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.2/even-relative-dimension-variation-3-2",
+    "decision": "name",
+    "label": "Even-dimensional reflection formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.2/odd-relative-dimension-picard-lefschetz-3-3",
+    "decision": "name",
+    "label": "Odd-dimensional Picard–Lefschetz formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.2/ordinary-quadratic-point-nearby-cycles-3-1-2",
+    "decision": "name",
+    "label": "Ordinary quadratic vanishing-cycle concentration",
+    "kind": "theorem"
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.3::landmark:dual-projective-space-incidence-variety-co-xcnlyh",
+    "decision": "name",
+    "label": "Lefschetz pencil incidence variety",
+    "kind": "construction"
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.3::landmark:incidence-total-space-with-the-blowup-alon-f6xoq7",
+    "decision": "name",
+    "label": "Pencil total-space blowup",
+    "kind": "construction"
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.3::landmark:over-f-q-prove-a-nonempty-admissible-open--uhi0rz",
+    "decision": "name",
+    "label": "Lefschetz pencils over finite extensions",
+    "kind": "theorem"
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.4::landmark:for-lpv-4-5-fix-coefficients-q-l-and-write-16vxa4o",
+    "decision": "name",
+    "label": "Vanishing-cycle subspace",
+    "kind": "definition"
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.5::landmark:keep-the-q-l-model-fixed-the-open-image-th-1e25285",
+    "decision": "name",
+    "label": "Conjugacy of local vanishing cycles",
+    "kind": "theorem"
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.6::landmark:compatibility-with-intermediate-extension--1i5fzuv",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Compatibility requirements and a qualified downstream support-criterion handoff."
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.7::landmark:split-nodal-curve-with-nontrivial-n-a-smoo-s18s8v",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance examples and warnings about excluded degenerations and comparison of monodromy operators."
+  },
+  {
+    "id": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles::landmark:split-nodal-curve-with-nontrivial-n-a-smoo-s18s8v",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Repeated acceptance examples and scope warnings, not the invariant-cycle theorem itself."
+  }
+]
