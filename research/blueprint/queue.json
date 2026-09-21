@@ -936,8 +936,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_Chebotarev.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #21"
+   "state": "done",
+   "note": "deliverables arrived from an external worker (merged by intake)",
+   "finishedAt": "2026-09-21T09:57:23Z"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_Chebotarev",
@@ -1423,8 +1424,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_Completed_EffectiveBounds.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #35"
+   "state": "done",
+   "note": "deliverables arrived from an external worker (merged by intake)",
+   "finishedAt": "2026-09-21T09:57:23Z"
   },
   {
    "id": "REV-LINK-tauceti_Completed_EffectiveBounds",
@@ -1491,8 +1493,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_Completed_OrthogonalL2Bases.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #37"
+   "state": "done",
+   "note": "deliverables arrived from an external worker (merged by intake)",
+   "finishedAt": "2026-09-21T09:57:23Z"
   },
   {
    "id": "REV-LINK-tauceti_Completed_OrthogonalL2Bases",
@@ -1525,8 +1528,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #38"
+   "state": "done",
+   "note": "deliverables arrived from an external worker (merged by intake)",
+   "finishedAt": "2026-09-21T09:57:23Z"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
@@ -1966,8 +1970,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #51"
+   "state": "done",
+   "note": "deliverables arrived from an external worker (merged by intake)",
+   "finishedAt": "2026-09-21T09:57:23Z"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
@@ -2000,8 +2005,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #52"
+   "state": "done",
+   "note": "deliverables arrived from an external worker (merged by intake)",
+   "finishedAt": "2026-09-21T09:57:23Z"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
@@ -2102,8 +2108,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #55"
+   "state": "done",
+   "note": "deliverables arrived from an external worker (merged by intake)",
+   "finishedAt": "2026-09-21T09:57:23Z"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory",

@@ -201,6 +201,12 @@ def labels_for(job, roadmaps, by_id):
     return out
 
 
+def merged_labels(current, job, roadmaps, by_id):
+    """The issue's labels with only its state label brought up to date."""
+    state = next(label for label in labels_for(job, roadmaps, by_id) if label.startswith("state:"))
+    return [label for label in current if not label.startswith("state:")] + [state]
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("command", choices=["render", "publish", "sync", "refresh", "stale"])
@@ -264,17 +270,22 @@ def main():
     if args.command == "stale":
         stale(mapping, by_id, args.days, args.release)
     if args.command == "refresh":
-        listing = subprocess.run(["gh", "issue", "list", "--label", "swarm", "--state", "open", "--limit", "2000", "--json", "number"],
+        # One request per issue sets its body and its state label together, so a
+        # full refresh stays within GitHub's limit of about 500 edits an hour.
+        listing = subprocess.run(["gh", "issue", "list", "--label", "swarm", "--state", "open", "--limit", "2000", "--json", "number,labels"],
                                  capture_output=True, text=True, cwd=REPO)
-        open_numbers = {item["number"] for item in json.loads(listing.stdout or "[]")}
+        open_issues = {item["number"]: [label["name"] for label in item["labels"]] for item in json.loads(listing.stdout or "[]")}
+        repo = GITHUB.split("github.com/")[1]
         for job in jobs:
             number = mapping.get(job["id"])
-            if not number or number not in open_numbers:
+            if not number or number not in open_issues:
                 continue
             text = body(job, jobs, roadmaps, stages)
-            if re.search(r"/Users/|/private/|mcu22seu", text):
+            if re.search(r"/Users/|/private/|/home/|mcu22seu", text):
                 print("skipped (private path)", job["id"]); continue
-            result = subprocess.run(["gh", "issue", "edit", str(number), "--body", text], capture_output=True, text=True, cwd=REPO)
+            payload = json.dumps({"body": text, "labels": merged_labels(open_issues[number], job, roadmaps, by_id)})
+            result = subprocess.run(["gh", "api", "-X", "PATCH", f"repos/{repo}/issues/{number}", "--input", "-", "--silent"],
+                                    input=payload, capture_output=True, text=True, cwd=REPO)
             print("refreshed" if result.returncode == 0 else "failed", job["id"], number, result.stderr.strip()[:120], flush=True)
             time.sleep(args.pace)
 
@@ -392,6 +403,8 @@ def stale(mapping, by_id, days, release):
         if updated > cutoff:
             continue
         jid = number_to_job.get(item["number"])
+        if by_id.get(jid, {}).get("state") != "external":
+            continue  # finished or already released in the queue; refresh brings its label up to date
         print(f"#{item['number']} {jid} idle since {item['updatedAt'][:10]}: {item['title'][:70]}")
         if not release:
             continue
