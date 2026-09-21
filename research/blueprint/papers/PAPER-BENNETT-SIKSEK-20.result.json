@@ -1,44 +1,29 @@
 {
   "paper": "PAPER-BENNETT-SIKSEK-20",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "A conjecture of Erdős, supersingular primes and short character sums",
     "authors": "Michael A. Bennett and Samir Siksek",
-    "venue": "Annals of Mathematics 191 (2020), no. 2, 355-392",
     "doi": "10.4007/annals.2020.191.2.2",
-    "arxiv": "1709.01022",
-    "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
-    "version": "Published 38-page version, including Section 12 addendum credited to Andrew Granville; not the earlier arXiv v1",
+    "url": "https://annals.math.princeton.edu/2020/191-2/p02",
+    "version": "Published Annals of Mathematics 191 (2020), no. 2, 355–392, including §12 (Granville addendum); publisher PDF, 38 pages",
+    "pdf": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
+    "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf",
     "accessed": "2026-09-21",
-    "sha256": null,
-    "provenanceStatus": "Read through public PDF text and rendered pages. Direct local download failed because the container could not resolve external hosts; raw PDF bytes and their SHA-256 have NOT been archived.",
-    "readSections": [
-      "1 (introduction and statement)",
-      "2 (residual representations)",
-      "3.1-3.2 (both Frey families)",
-      "4 (top-half primes)",
-      "5 (reduced-level elliptic curves)",
-      "6 (both Legendre cases)",
-      "7 (prime number theorem argument)",
-      "8.1-8.2 (short sums and large sieve)",
-      "9 (Roth and thin-prime sieve)",
-      "10 (maximal-family argument)",
-      "11 (concluding scope remarks)",
-      "12 (addendum, read but extraction and input verification unfinished)",
-      "References (bibliography viewed; cited works not all read)"
-    ]
+    "read": "Entire published paper, §§1–12 and references; sensitive displays also inspected as page images."
   },
-  "summary": "Partial source-led checkpoint: 49 items, with the exact prime-exponent target, both Frey constructions, the Legendre/character interface, and the main conductor-selection mechanism. One underlying Weierstrass-invariant definition is verified in pinned Mathlib. Other status=missing entries are explicitly provisional lookup tasks, not an accepted absence audit. Whole-paper extraction, prerequisite verification, the reviewed library-coverage read, and routing remain unfinished. No new roadmap or completed-job claim is made.",
+  "summary": "Full published-paper extraction, including Granville's §12 addendum: 151 items (9 pinned-library, 12 already planned, 130 missing), with every missing item routed once across five source routes, three Part II continuations and one new progression-specific modular-method roadmap. The main theorem is an effective prime-exponent bound and fixed-length finiteness, not Erdős nonexistence. Printed errors and proof gaps are retained visibly, including a corrected Frey discriminant and order-four point, conductor bookkeeping, and the insufficient Roth threshold; the executable original-proof endgame uses exp(exp(10^7)). Complete means extraction/routing complete, not a closed blueprint, verified original-source proof for every prerequisite, or formalization.",
   "author": {
-    "agent": "ChatGPT",
-    "session": "chatgpt-0921-b74e",
-    "issue": 1119
+    "agent": "Codex",
+    "session": "codex-a71f92",
+    "issue": 1119,
+    "continues": "Merged partial PR #1232 (chatgpt-0921-b74e); IDs 01–49 preserved"
   },
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
-    "auditStatus": "partial; data/library-coverage.json unavailable through attempted readers; do not treat provisional missing as an audited verdict"
+    "auditStatus": "Reviewed library-coverage layers AN.2, AN.3, AN.5, SV.2, AC.2, FF.1, EC Layer 3, MF Layer 8/8G, CM.3 and CM.4 read; exact positive library statements and near misses inspected at the pinned source trees."
   },
   "conventions": {
     "S,H,Hplus": "Defined in item 01 and used as explicit mathematical standing hypotheses, not Lean classes.",
@@ -56,7 +41,7 @@
       "statement": "S(n,d,k,y,ell) means n,d,y are integers, k is a positive integer, ell is prime, gcd(n,d)=1, product_{0<=i<k}(n+i*d)=y^ell, and y*d!=0. Thus every progression term is nonzero. H means S together with k>=10^8 and ell>exp(10^k); Hplus means H and k>=2*10^10.",
       "locator": "Sections 1 and 3, equation (2), pp. 356, 360",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/02",
@@ -65,7 +50,7 @@
       "statement": "There exists an effectively computable absolute positive constant k0 such that, for every positive integer k>=k0, integers n,d,y with gcd(n,d)=1, and prime ell satisfying product_{0<=i<k}(n+i*d)=y^ell, either y=0, d=0, or ell<=exp(10^k).",
       "locator": "Theorem 2, p. 357",
       "status": "missing",
-      "note": "The outer exponential has argument 10 raised to k. This is not the Erdos nonexistence conjecture, nor an algorithm enumerating all integral points. Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/03",
@@ -82,25 +67,25 @@
         "mathlib:WeierstrassCurve.b₈",
         "mathlib:WeierstrassCurve.Δ"
       ],
-      "note": "Actual definitions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean, lines 76-144; blob 5ef9316e466dfc60347c91f8110fe2a8eef28e5b. This cites the invariant infrastructure only, not a pre-existing Frey-curve theorem."
+      "note": "Pinned Mathlib Weierstrass.lean definitions reread. Infrastructure only: the two specialized Frey discriminant identities are separately extracted."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/04",
       "kind": "definition",
-      "name": "Residual representation and reduced conductor",
+      "name": "Reduced level of an elliptic residual representation",
       "statement": "For an elliptic curve E/Q of conductor M and nonzero minimal discriminant Delta, and prime ell>=3, rho_{E,ell} is the G_Q-action on E[ell]. Set M0=M/product{q prime: ord_q(M)=1 and ell divides ord_q(Delta)}. The notation ord_q is the integer valuation, not q raised to that valuation.",
       "locator": "Section 2, equation (3), p. 358",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "The residual carrier is imported separately in item 130. M0 is the paper's explicit level quotient, not automatically the prime-to-ell Artin conductor when ell divides the elliptic conductor."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/05",
       "kind": "theorem",
       "name": "Weight-two newform at the reduced level",
-      "statement": "For E,ell,M0 as in item 04, if E[ell] is irreducible, there is a cuspidal newform f=sum c_n*q^n of weight 2 and level M0, with totally real coefficient field K=Q(c_n:n>=1) and a prime lambda of K above ell, such that rho_{E,ell} is isomorphic to the residual representation of f at lambda.",
+      "statement": "For E,ell,M0 as in item 04, if E[ell] is irreducible, there is a normalized cuspidal newform f=sum c_n*q^n of weight 2, level M0 and trivial nebentypus, with totally real coefficient field K=Q(c_n:n>=1) and a prime lambda of K above ell, such that rho_{E,ell} and the residual representation of f at lambda become isomorphic after extending both coefficient fields to an algebraic closure of F_ell.",
       "locator": "Theorem 3, p. 359",
       "status": "missing",
-      "note": "This is an input quoted by the paper. General modularity and level lowering must be imported, not proved by a trace-congruence placeholder. Candidate ownership: SerreWeightAndLevelOptimisation:R20.2 plus the modularity supplier, which still needs a complete audit. Audit pending; not an absence verdict."
+      "note": "Source theorem quoted in full. Route to the existing optimizer; certify the local/coefficient-prime cases, using elliptic modularity and R19 rather than an assumed modularity predicate."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/06",
@@ -108,8 +93,12 @@
       "name": "Good-prime trace congruence",
       "statement": "In the situation of Theorem 3, for a rational prime p not dividing ell*M*M0, a_p(E) is congruent to c_p modulo lambda.",
       "locator": "Lemma 2.1(i), p. 359",
-      "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "status": "planned",
+      "note": "These stages explicitly compare good-prime Frobenius polynomials on the actual elliptic and modular realizations. Reduction at lambda gives this congruence; no implemented comparison is claimed.",
+      "planned": [
+        "ArithmeticGaloisRepresentations:R01.6",
+        "AutomorphicGaloisRepresentations:R19.2"
+      ]
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/07",
@@ -118,7 +107,7 @@
       "statement": "In the situation of Theorem 3, if p is prime, p does not divide ell*M0, and ord_p(M)=1, then p+1 is congruent to either c_p or -c_p modulo lambda.",
       "locator": "Lemma 2.1(ii), p. 359",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/08",
@@ -127,7 +116,7 @@
       "statement": "In the situation of Theorem 3, if p!=ell is prime, ord_p(M)=1 and ell divides ord_p(Delta), then ell<=(sqrt(p)+1)^((M0+1)/6).",
       "locator": "Lemma 2.2, p. 359",
       "status": "missing",
-      "note": "Inputs include bounds in every real embedding of the coefficient field and the dimension bound dim S_2^new(M0)<=(M0+1)/12, not merely one complex absolute value. Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/09",
@@ -136,16 +125,16 @@
       "statement": "For a positive integer N put mu(N)=N*product_{q prime,q|N}(1+1/q), gplus(N)=dim S_2^new(N), F(N)=(sqrt(mu(N)/6)+1)^(2*gplus(N)), G(N)=(sqrt(mu(lcm(N,4))/6)+1)^2, and H_Kraus(N)=max(F(N),G(N)).",
       "locator": "Section 2, equation (5) and following display, p. 360",
       "status": "missing",
-      "note": "Here mu is a subgroup-index function, not the Mobius function. H_Kraus is distinct from the standing hypothesis H. Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/10",
       "kind": "theorem",
       "name": "Kraus full-two-torsion realization",
-      "statement": "In the situation of Theorem 3, assume E has full rational 2-torsion and ell>H_Kraus(M0). Then there is an elliptic curve F/Q with full rational 2-torsion and conductor exactly M0 such that rho_{E,ell} is isomorphic to rho_{F,ell}.",
+      "statement": "For an elliptic curve E/Q with full rational 2-torsion, prime ell>=5, irreducible residual representation of Serre weight 2, and prime-to-ell residual conductor N, if ell>H_Kraus(N), there is an elliptic curve F/Q of conductor N with full rational 2-torsion and rho(F,ell) isomorphic to rho(E,ell). In the progression application the optimizer must prove N=M0 before invoking this statement.",
       "locator": "Theorem 4, p. 360",
       "status": "missing",
-      "note": "Quoted from Kraus, Theoreme 4; the original theorem and its coefficient-prime cases still need independent input verification. Audit pending; not an absence verdict."
+      "note": "Kraus 1997 Theorem 4 is the authoritative hypothesis-complete version. Elliptic modularity supplies his modularity hypothesis. Bennett–Siksek Theorem 4 suppresses the weight/coefficient-prime comparison; this is an explicit adapter in the design, not an automatic identification of N with the level quotient M0."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/11",
@@ -154,7 +143,7 @@
       "statement": "Assume S. For 0<=i<j<k, the positive gcd of n+i*d and n+j*d divides j-i.",
       "locator": "Lemma 3.1(i), p. 360",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/12",
@@ -163,7 +152,7 @@
       "statement": "Assume S. If 0<=i<k and q>=k is prime, then ell divides ord_q(n+i*d), with valuation taken on the absolute value of the nonzero integer.",
       "locator": "Lemma 3.1(ii), p. 360",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/13",
@@ -172,7 +161,7 @@
       "statement": "Assume S and ell odd. Each term has a unique factorization n+i*d=A_i*y_i^ell where A_i is a positive integer all of whose prime factors are <k and y_i is a nonzero integer all of whose prime factors in |y_i| are >=k. All powers of primes <k belong to A_i.",
       "locator": "Equation (6), p. 360",
       "status": "missing",
-      "note": "The odd-ell restriction is an explicit correction to the scope of the displayed construction: negative terms cannot have the asserted positive-A_i factorization at ell=2. The main proof has ell>exp(10^k), hence odd ell. Audit pending; not an absence verdict."
+      "note": "Odd ell is essential for negative progression terms. Ai contains every small-prime power; it is not the ell-power-free part."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/14",
@@ -181,7 +170,7 @@
       "statement": "Assume S with ell odd. Let A be the triples (i,j,2*j-i) with 0<=i<j and 2*j-i<k. For a=(i,j,h) in A put g=gcd(n+i*d,2*(n+j*d),n+h*d)>0, a_a=(n+i*d)/g, b_a=-2*(n+j*d)/g, c_a=(n+h*d)/g. These are nonzero coprime integers with a_a+b_a+c_a=0. The Frey curve is E_a: Y^2=X*(X-a_a)*(X+c_a).",
       "locator": "Section 3.1, equations (7)-(8), p. 361",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/15",
@@ -190,7 +179,7 @@
       "statement": "With the factorization and triple of items 13-14, A_i*y_i^ell-2*A_j*y_j^ell+A_{2*j-i}*y_{2*j-i}^ell=0.",
       "locator": "Section 3.1, display before equation (7), p. 361",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/16",
@@ -199,34 +188,34 @@
       "statement": "For the Weierstrass model in item 14, Delta(E_a)=16*(a_a*b_a*c_a)^2=2^6*g^(-6)*(n+i*d)^2*(n+j*d)^2*(n+(2*j-i)*d)^2.",
       "locator": "Lemma 3.2 discriminant display, p. 361; corrected normalization",
       "status": "missing",
-      "note": "The published display has 64 and 2^8 instead. This item deliberately records the corrected identity, not that literal false formula. Substitution into the pinned definition in item 03 gives 16*a^2*c^2*(a+c)^2. See report D1 and its reproducible computation; no Lean compilation is claimed. Audit pending; not an absence verdict."
+      "note": "Corrected polynomial identity: printed 64(abc)^2 is false for the displayed Weierstrass model; pinned Delta yields 16(abc)^2. Odd-prime valuations unchanged; no 2-adic minimal-discriminant identity is inferred."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/17",
       "kind": "theorem",
       "name": "First Frey model at odd primes",
-      "statement": "Assume S, ell odd, and a in A. The model E_a is minimal and semistable at every odd prime. For every prime p>=k, ell divides ord_p(Delta(E_a)).",
+      "statement": "Assume S, ell odd, and a in A. The model E_a is minimal and semistable at every odd prime.",
       "locator": "Lemma 3.2, p. 361",
       "status": "missing",
-      "note": "Odd-prime valuations are unchanged by correction D1. The 2-adic upper bounds must still be checked separately before final acceptance. Audit pending; not an absence verdict."
+      "note": "Large-prime valuation conclusion split into item 132. General minimal-model carriers and reduction tests are imported, not duplicated."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/18",
       "kind": "theorem",
       "name": "First Frey reduced level divides its small coefficients",
-      "statement": "Assume S with ell>=7 and a=(i,j,h) in A. The residual representation of E_a is irreducible and is realized by a weight-two newform of reduced level M_a, with M_a dividing 2^8*A_i*A_j*A_h; the odd part of M_a is squarefree.",
+      "statement": "Assume S with ell>=7 and a=(i,j,h) in A. A weight-two newform realizes rho(E_a,ell) at the reduced level M_a; M_a divides 2^8*A_i*A_j*A_h.",
       "locator": "Lemma 3.3, equation (9), and proof, pp. 361-362",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Irreducibility is item 59; squarefreeness of the odd part is item 133. This is the progression specialization, not a second level-lowering theorem."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/19",
       "kind": "theorem",
       "name": "First Frey exponential level bound",
-      "statement": "Under the hypotheses of item 18, M_a divides 2^7*product_{q prime,q<=k}q, and M_a<=2^7*exp(1.000081*k).",
+      "statement": "Under item 18, M_a <= 2^7*exp(1.000081*k).",
       "locator": "Lemma 3.3 and proof, pp. 361-362",
       "status": "missing",
-      "note": "The explicit prime-product estimate is a separate analytic input; exact Schoenfeld source and ranges remain to be catalogued. Audit pending; not an absence verdict."
+      "note": "Prime-product divisibility split into item 134; analytic input 65. The factor 2^8 bound is a general conductor bound, not the erroneous discriminant normalization."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/20",
@@ -235,7 +224,7 @@
       "statement": "Assume S with ell odd. For 0<=j1<i1<=i2<j2<k and i1+i2=j1+j2 define A=(n+j1*d)*(n+j2*d), B=(n+i1*d)*(n+i2*d), kappa=j1*j2-i1*i2. Then A-B=kappa*d^2, kappa!=0 and |kappa|<k^2. Define E_i: Y^2=X*(X^2+2*kappa*d*X+kappa*A).",
       "locator": "Section 3.2, equations (11)-(13), p. 362",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/21",
@@ -244,25 +233,25 @@
       "statement": "For the model of item 20, Delta(E_i)=-64*kappa^3*A^2*B.",
       "locator": "Lemma 3.4, p. 362",
       "status": "missing",
-      "note": "This normalization agrees with direct substitution into item 03. Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/22",
       "kind": "theorem",
       "name": "Second Frey local properties",
-      "statement": "Under item 20, if p>=k is prime and p does not divide kappa, the displayed model is minimal and semistable at p and ell divides ord_p(Delta(E_i)).",
+      "statement": "Under item 20, if p>=k is prime and p does not divide kappa, the displayed model is minimal and semistable at p.",
       "locator": "Lemma 3.4, p. 362",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Valuation divisibility is item 135. In §4 use the separately verified local c4/Delta test in item 136, since p there need not be >=k."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/23",
       "kind": "theorem",
       "name": "Second Frey reduced level bound",
-      "statement": "Assume S with ell>=11 and a quadruple as in item 20. The residual representation of E_i is irreducible and arises from a weight-two newform at reduced level M_i. This level divides 2^7*3^5*kappa^2*product_{q prime,q<=k}q^2 and satisfies M_i<=2^7*3^5*k^4*exp(2.000162*k).",
+      "statement": "Assume S with ell>=11 and a quadruple as in item 20. A weight-two newform realizes rho(E_i,ell) at its reduced level M_i, and M_i<=2^7*3^5*k^4*exp(2.000162*k).",
       "locator": "Lemma 3.5 and proof, p. 363",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Irreducibility imported from item 60; finer divisibility is item 137. The bound concerns the reduced level, not necessarily the conductor of E_i itself."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/24",
@@ -271,7 +260,7 @@
       "statement": "Assume H. For every prime p with k/2<p<=k, p divides d.",
       "locator": "Lemma 4.1, p. 364",
       "status": "missing",
-      "note": "The proof uses both Frey families: one divisible progression term and two divisible terms are separate cases. Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/25",
@@ -280,7 +269,7 @@
       "statement": "Assume H. For every a in A there exists an elliptic curve F_a/Q with full rational 2-torsion, conductor M_a, and rho_{F_a,ell} isomorphic to rho_{E_a,ell}.",
       "locator": "Lemma 5.1, p. 365",
       "status": "missing",
-      "note": "An actual curve is required; an arbitrary newform is not sufficient for the later Legendre and 2-descent arguments. Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/26",
@@ -289,7 +278,7 @@
       "statement": "Assume H, a in A, and p prime with k/2<p<=k. Both E_a and F_a have good reduction at p, and their integer traces a_p are equal.",
       "locator": "Lemma 5.2, first conclusion, pp. 365-366",
       "status": "missing",
-      "note": "The implication from congruent to equal uses |a_p(E_a)-a_p(F_a)|<=4*sqrt(k)<ell. Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/27",
@@ -298,7 +287,7 @@
       "statement": "Under item 26, if p is 3 modulo 4 then a_p(F_a)=0, and F_a has supersingular reduction at p.",
       "locator": "Lemma 5.2, second conclusion, pp. 365-366",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/28",
@@ -307,7 +296,7 @@
       "statement": "For lambda in Q minus {0,1}, let F_lambda: Y^2=X*(X-1)*(X-lambda). A rational elliptic curve with full rational 2-torsion is a quadratic twist of a Legendre model; its parameters are lambda, 1/lambda, 1-lambda, 1/(1-lambda), (lambda-1)/lambda, lambda/(lambda-1), allowing coincidences.",
       "locator": "Section 6, equation (17) and adjacent discussion, pp. 366-367",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Six entries need not be distinct (e.g. lambda=-1). Existing quadraticTwistOf is a supplier, not a theorem constructing the Legendre normalization from full rational 2-torsion."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/29",
@@ -316,7 +305,7 @@
       "statement": "Let F/Q have full rational 2-torsion, be semistable at odd primes, have conductor M, and let lambda be any associated Legendre parameter. At every odd prime p of good reduction for F, ord_p(lambda)=ord_p(1-lambda)=0.",
       "locator": "Lemma 6.2(i), p. 367",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/30",
@@ -325,7 +314,7 @@
       "statement": "Under item 29, let omega be 1,-1,2 or -2. The primitive quadratic character associated to the rational squareclass omega*lambda, characterized away from 2 and the support of lambda by chi(p)=(omega*lambda/p), has odd conductor dividing M.",
       "locator": "Lemma 6.2(ii), pp. 367-368",
       "status": "missing",
-      "note": "The squareclass may be trivial at this stage; nontriviality is proved separately in Proposition 6.1. Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/31",
@@ -334,7 +323,7 @@
       "statement": "For a prime p congruent to 3 modulo 4 and eta in F_p minus {0,1,-1}, the elliptic curve Y^2=X*(X-1)*(X-eta^2) has a subgroup of F_p-points isomorphic to Z/2Z times Z/4Z.",
       "locator": "Lemma 6.3, p. 368",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/32",
@@ -343,7 +332,7 @@
       "statement": "Assume H and a in A. For any associated Legendre parameter lambda of F_a and prime p with k/2<p<=k and p=3 modulo 8, the Legendre symbol (lambda/p) is -1.",
       "locator": "Lemma 6.4, p. 368",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/33",
@@ -352,7 +341,7 @@
       "statement": "For p odd and lambda in Q minus {0,1} with ord_p(lambda)=ord_p(1-lambda)=0, the descent homomorphism from F_lambda(F_p) to (F_p^*/F_p^{*2})^3 has coordinates given on affine non-2-torsion points by x, x-1, x-lambda modulo squares, takes the identity to (1,1,1), and has kernel 2*F_lambda(F_p). At a 2-torsion point its two nonzero coordinates determine the third by the product-one condition.",
       "locator": "Section 6, Legendre elliptic curves revisited, p. 370",
       "status": "missing",
-      "note": "The affine formulas must not be applied to the point at infinity or to a zero squareclass coordinate. Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/34",
@@ -361,7 +350,7 @@
       "statement": "For p prime congruent to 5 modulo 8, the cardinality of F_{-1}(F_p), where F_{-1}:Y^2=X*(X-1)*(X+1), has 2-adic valuation exactly 3.",
       "locator": "Lemma 6.5, p. 370",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/35",
@@ -370,7 +359,7 @@
       "statement": "Assume H. If an associated parameter lambda of F_a has lambda=2*t^2 and 1-lambda=2*v^2 with positive rational t,v, then for every prime p=5 modulo 8 with k/2<p<=k, ord_p(t)=ord_p(v)=0 and (t*v/p)=1.",
       "locator": "Lemma 6.6, pp. 371-372",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/36",
@@ -379,34 +368,34 @@
       "statement": "Assume Hplus. For each a in A one can choose a primitive quadratic character chi_a of conductor N_a such that simultaneously the conclusions in items 37-39 hold.",
       "locator": "Proposition 6.1 and its two-case construction, pp. 366-373",
       "status": "missing",
-      "note": "The case where the six parameters lie in -Q^2 union 2*Q^2 requires the t,v construction and a non-CM exclusion. This choice is reused throughout Sections 7-10. Audit pending; not an absence verdict."
+      "note": "One choice simultaneously satisfies 37–39; all later subsets use this fixed family. Case I and Case II are separately inventoried."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/37",
       "kind": "theorem",
       "name": "Large prime-weighted character sum",
       "statement": "For the characters chosen simultaneously in item 36, |sum_{k/2<m<=k}chi_a(m)*Lambda(m)|>0.1239*k for every a in A. Lambda is the von Mangoldt function and m ranges over integers, including prime powers.",
-      "locator": "Proposition 6.1, equation (16), p. 366",
+      "locator": "Proposition 6.1, p. 367",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/38",
       "kind": "theorem",
       "name": "Odd conductor divisibility",
       "statement": "For the characters chosen in item 36, N_a^odd divides M_a, where N_a^odd=N_a/2^ord_2(N_a).",
-      "locator": "Proposition 6.1, p. 366",
+      "locator": "Proposition 6.1, p. 367",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/39",
       "kind": "theorem",
       "name": "Nontrivial odd conductor",
       "statement": "For the characters chosen in item 36, N_a^odd!=1. In particular chi_a is nonprincipal.",
-      "locator": "Proposition 6.1, p. 366; final case-II argument, pp. 372-373",
+      "locator": "Proposition 6.1, p. 367; Case II exclusion, pp. 372–373",
       "status": "missing",
-      "note": "The proof invokes the applicable rational-isogeny case of Serre uniformity via Lemos, plus a quartic descent. Neither is replaced by an unconditional general Serre-uniformity assumption. Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/40",
@@ -415,16 +404,16 @@
       "statement": "Fix the effective absolute c_star>0 furnished by Proposition 7.1. For a nontrivial primitive quadratic character chi of conductor N, an exceptional zero is a real zero beta of L(s,chi) with 1-c_star/log(N)<beta<1. Its conductor is called exceptional.",
       "locator": "Section 7, Proposition 7.1 and following paragraph, pp. 373-374",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/41",
       "kind": "theorem",
       "name": "Repulsion of exceptional conductors",
-      "statement": "With the same c_star, if N1<N2 are exceptional conductors of distinct primitive quadratic characters then N2>N1^2. For each such character there is at most one exceptional zero, and that zero is simple.",
+      "statement": "With c_star from Proposition 7.1, two distinct exceptional quadratic conductors N1<N2 satisfy N2>N1^2.",
       "locator": "Proposition 7.1 and equation (25), pp. 373-374",
       "status": "missing",
-      "note": "Audit pending; not an absence verdict."
+      "note": "Existence/uniqueness/simplicity and the two-zero inequality are split into items 87–88."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/42",
@@ -433,7 +422,7 @@
       "statement": "Assume Hplus and fix 0<c1<1. If D is a subset of A with pairwise distinct largest prime factors P(N_a), all P(N_a)<(log(k))^(1-c1), and sum_{a in D}1/P(N_a)>=0.166, then k<=k1(c1) for an effectively computable constant depending only on c1.",
       "locator": "Proposition 7.2, pp. 374-375",
       "status": "missing",
-      "note": "P(N) denotes the largest prime divisor of N>1. This statement depends on the already chosen characters and their large sums, not on arbitrary characters. Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/43",
@@ -442,7 +431,7 @@
       "statement": "If N>1 is the conductor of a primitive quadratic character, then P(N)>0.94*log(N).",
       "locator": "Lemma 7.3, p. 375",
       "status": "missing",
-      "note": "The finite small-conductor verification is part of the proof obligation, not supplied by an asymptotic prime-product estimate alone. Audit pending; not an absence verdict."
+      "note": "N>1 excludes the conductor-one principal character. The finite prime-product check at small N is essential; minimum P(N)/log N occurs at N=24. Broad AN.5 scope is not a pre-existing numerical theorem."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/44",
@@ -451,7 +440,7 @@
       "statement": "For every c2>0 there are effective k3(c2)>0 and c3(c2)>0 such that if k>=k3(c2), and chi1,chi2 are distinct primitive quadratic characters of conductors N1,N2 with P(N_i)<=k^(7/16) and N_i<=k^c2, then |sum_{k/2<m<=k}chi1(m)*chi2(m)|<=k^(1-c3).",
       "locator": "Proposition 8.2, pp. 377-379",
       "status": "missing",
-      "note": "Conductor-versus-modulus and the divisor bound in the printed proof require repairs D2-D3 in the report. No claim is made that this proof has been formalized. Audit pending; not an absence verdict."
+      "note": "Generic analytic result, independent of progression solutions. Repair ambient modulus versus primitive conductor and use eventual divisor subpower bounds; report D2–D3."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/45",
@@ -460,7 +449,7 @@
       "statement": "If m>=1 and x,y1,...,ym lie in a real or complex inner product space, then sum_i |<x,yi>|^2 <= ||x||^2 * max_i sum_j |<yi,yj>|.",
       "locator": "Theorem 7, p. 379",
       "status": "missing",
-      "note": "The maximum is over a nonempty finite family. A finite-dimensional specialization is sufficient for the application. Audit pending; not an absence verdict."
+      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/46",
@@ -468,17 +457,21 @@
       "name": "Three-term progression existence at positive density",
       "statement": "For every real 0<delta<1 there is a positive K0(delta) such that for every integer k>=K0(delta), any J subset {0,...,k-1} with |J|>=delta*k contains i<j with i,j,2*j-i in J.",
       "locator": "Theorem 8 (Roth), p. 381",
-      "status": "missing",
-      "note": "The published proof also uses Rahman's explicit K0(delta)=exp(exp(132*log(2)/delta)); its original reference and a pinned supplier are still to be checked. This is additive-combinatorial Roth, not rational approximation. Audit pending; not an absence verdict."
+      "status": "library",
+      "note": "Full pinned Mathlib Combinatorics/Additive/Corner/Roth.lean read. Its explicit tower-type threshold supplies this qualitative existential result, not Rahman's much smaller double-exponential formula (item 101). Unpack ThreeAPFree and order the three distinct natural numbers.",
+      "library": [
+        "mathlib:roth_3ap_theorem_nat",
+        "mathlib:cornersTheoremBound"
+      ]
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/47",
-      "kind": "theorem",
+      "kind": "construction",
       "name": "Simultaneous thin-prime avoidance and polynomial conductor",
       "statement": "Assume Hplus and k>=exp(exp(10^6)). For any set S of primes <=k with sum_{p in S}1/p<0.17, there exists one a in A such that simultaneously: no p in S divides N_a; P(N_a)<=k^(7/16); no prime in ((log(k))^(1-10^(-4)),10^4*log(k)] divides N_a; and N_a<k^418.",
       "locator": "Proposition 9.1, pp. 381-384",
       "status": "missing",
-      "note": "The four properties belong to the same witness; splitting into four independent existential assertions would lose the theorem. Further declaration-granularity splitting is left for the successor. Audit pending; not an absence verdict."
+      "note": "Literal Proposition 9.1 target, including the printed threshold. Its claimed Roth comparison is numerically false: 132*log(2)/10^(-5)>10^6. Do not treat the printed proof as certifying this threshold. Item 149 supplies a proved-safe weakened threshold exp(exp(10^7)); all simultaneous conclusions and exponent 418 are unchanged. A design claiming the sharper threshold must acquire an additional quantitative argument."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/48",
@@ -487,7 +480,7 @@
       "statement": "Under the small-prime factorization of item 13, let J be any subset of {0,...,k-1}. For each prime p<k occurring in the A_i for i in J, remove an index with maximal ord_p(A_i). The remaining set J1 loses at most pi(k) indices and product_{i in J1}A_i divides (k-1)!.",
       "locator": "Proof of Proposition 9.1, p. 384",
       "status": "missing",
-      "note": "An explicit proof is included in the report. This is a signed-progression-safe statement because A_i are positive and gcd(n,d)=1. Audit pending; not an absence verdict."
+      "note": "Full elementary valuation proof in report: for surviving i, vp(Ai)<=vp(i-ip); multiply over distances to ip. No positivity of the progression terms is required."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/49",
@@ -496,15 +489,1321 @@
       "statement": "For sufficiently large integer k, fix the constant c from the applicable bounded-height Landau-Page zero-free statement and put T=exp(c*log(k)/(3*log(log(k)))). Let Q(k) be the integers 1<=q<=k^4 for which some primitive character modulo q has a zero beta+i*t with |t|<=T and beta>1-3*log(log(k))/log(k).",
       "locator": "Section 12, equations (40)-(41), p. 386",
       "status": "missing",
-      "note": "This is only the definition for continuation. The zero-free statement, all three propositions, and the final selection argument remain unaccepted audit work; see handoff. In particular a zero-height restriction must not be discarded. Audit pending; not an absence verdict."
+      "note": "Bounded zero height is explicit. Q(k) is a set of moduli admitting at least one bad primitive character, not a multiset of zeros or of characters."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/50",
+      "kind": "theorem",
+      "name": "Finiteness for each fixed sufficiently large progression length",
+      "statement": "For each fixed integer k>=k0, there are finitely many positive integer tuples (n,d,y,ell), ell>=2, gcd(n,d)=1, with product_{i=0}^{k-1}(n+i*d)=y^ell. The signed version is for fixed k and yd!=0, not one finite set as k varies.",
+      "locator": "Abstract and §1 after Theorem 2, p. 357",
+      "status": "missing",
+      "note": "Deduce from the exponent bound and fixed-exponent finiteness, reducing composite exponents to prime factors and separately ruling out y=±1 for large k. This is ineffective finiteness of points, not a certified enumeration algorithm."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/51",
+      "kind": "theorem",
+      "name": "Erdős–Selfridge theorem (background endpoint)",
+      "statement": "There are no positive integers n,k,y,ell with k>=2, ell>=2 and n(n+1)...(n+k-1)=y^ell.",
+      "locator": "Theorem 1, p. 355",
+      "status": "missing",
+      "note": "Historical theorem, not used as an assumption of the proof of Theorem 2. Retained as a background statement-register entry; the new roadmap must not silently make its separately sourced proof a prerequisite of Theorem 2."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/52",
+      "kind": "definition",
+      "name": "Erdős nonexistence conjecture",
+      "statement": "Define the conjectural assertion: an absolute k0 exists such that for k>=k0 the primitive progression product has no positive integer solution with ell>=2. This is stronger than fixed-k finiteness and is not proved in this paper.",
+      "locator": "§1, Conjecture, p. 356",
+      "status": "missing",
+      "note": "Statement register only; no theorem consumer may assume this conjecture."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/53",
+      "kind": "theorem",
+      "name": "Faltings rational-point finiteness input",
+      "statement": "A smooth proper geometrically connected curve of genus at least 2 over a number field has finitely many rational points.",
+      "locator": "§1, p. 357 (input to finiteness corollary)",
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.4"
+      ],
+      "note": "RP.4 explicitly owns the Parshin/Shafarevich proof route. Fixed-exponent covering and genus verification remain the application adapter, item 129."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/54",
+      "kind": "definition",
+      "name": "Normalized cuspidal newform carrier",
+      "statement": "At nonzero level N and weight 2 use the normalized cusp form in the new subspace with Hecke eigenconditions away from N and fixed nebentypus. The first q-coefficient is 1; the full eigencondition at bad indices is a theorem, not a new field in the carrier.",
+      "locator": "§2, Theorem 3",
+      "status": "library",
+      "library": [
+        "tauceti:HeckeRing.GL2.Newform",
+        "tauceti:HeckeRing.GL2.Newform.qExpansion_coeff_one"
+      ],
+      "note": "Pinned Newforms/Newform.lean definitions read. Trivial nebentypus is an explicit restriction in this paper."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/55",
+      "kind": "theorem",
+      "name": "Algebraicity and integrality of newform coefficients",
+      "statement": "For a normalized newform of weight at least 2 the field Q(c_n:n>=1) is a number field and each c_n is an algebraic integer.",
+      "locator": "§2, proof of Lemma 2.2",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields"
+      ],
+      "note": "Reviewed ModularForms Layer 8 audit reports this absent at the pin; its README explicitly plans it. AINTLIB provenance is not pinned Tau Ceti availability."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/56",
+      "kind": "theorem",
+      "name": "Coefficient-field conjugates and dimension",
+      "statement": "For a weight-two normalized newform of trivial nebentypus and level N, its coefficient field is totally real and [K:Q]<=dim_C S_2^new(Gamma0(N)); all embeddings yield conjugate normalized newforms of the same level.",
+      "locator": "§2, proof of Lemma 2.2; Kraus §3.2",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms"
+      ],
+      "note": "Galois-stability/orbit-degree and real good Hecke spectrum give the comparison; not arbitrary coefficientwise conjugation of analytic limits."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/57",
+      "kind": "theorem",
+      "name": "Martin weight-two newspace dimension bound",
+      "statement": "For every positive integer N, dim_C S_2^new(Gamma0(N)) <= (N+1)/12.",
+      "locator": "Equation (4), p. 359; Martin 2005 Theorem 2, p. 302",
+      "status": "missing",
+      "note": "Original published statement inspected. General dimension formulas and old/new decomposition are suppliers, but this sharp uniform numerical inequality is not a named existing atlas target."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/58",
+      "kind": "theorem",
+      "name": "All-conjugates weight-two coefficient bound",
+      "statement": "For a normalized weight-two newform of level N and trivial nebentypus, at a prime p not dividing N and for every embedding sigma of its coefficient field into C, |sigma(c_p)|<=2*sqrt(p).",
+      "locator": "§2, proof of Lemma 2.2",
+      "status": "planned",
+      "planned": [
+        "AutomorphicGaloisRepresentations:R19.6",
+        "DeligneWeightsAndPurity:DWP.1"
+      ],
+      "note": "Weight-two abelian quotient/Tate realization plus all-embeddings Weil bound; no assertion that analytic ModularForms proves general Ramanujan–Deligne."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/59",
+      "kind": "theorem",
+      "name": "Irreducibility with full rational two-torsion",
+      "statement": "If E/Q has full rational 2-torsion and ell>=7 is prime, E[ell] is irreducible as a G_Q-module.",
+      "locator": "Proof of Lemma 3.3, p. 362 (Mazur input)",
+      "status": "missing",
+      "note": "Requires exact rational-isogeny classification consequences, not just finiteness of exceptional primes for a fixed E."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/60",
+      "kind": "theorem",
+      "name": "Irreducibility with a rational point of order two",
+      "statement": "If E/Q has a rational point of order 2 and ell>=11 is prime, E[ell] is irreducible.",
+      "locator": "Proof of Lemma 3.5, p. 363 (Mazur input)",
+      "status": "missing",
+      "note": "Keep this distinct from the full-two-torsion ell>=7 statement and from torsion-point classification alone."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/61",
+      "kind": "theorem",
+      "name": "Local conductor-exponent bounds",
+      "statement": "For E/Q, its elliptic/Artin conductor exponent at 2 is at most 8, at 3 at most 5, and at primes p>=5 at most 2; good reduction gives exponent 0 and multiplicative reduction exponent 1.",
+      "locator": "§3, conductor bounds in Lemmas 3.3 and 3.5",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "note": "Tate/Ogg algorithm and Artin comparison are distinct suppliers. This does not license identifying every algorithmic conductor with an Artin conductor before the comparison."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/62",
+      "kind": "theorem",
+      "name": "Second generalized Fermat identity",
+      "statement": "For the quadruple of item 20, A_j1*A_j2*(y_j1*y_j2)^ell - A_i1*A_i2*(y_i1*y_i2)^ell = kappa*d^2.",
+      "locator": "Equation (11), p. 362",
+      "status": "missing",
+      "note": "Source-specific statement audited against the pinned libraries and existing stage contracts; see the report and its assigned route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/63",
+      "kind": "theorem",
+      "name": "General three-index linear identity",
+      "statement": "For integers i1<i2<i3, (i3-i2)(n+i1*d)+(i1-i3)(n+i2*d)+(i2-i1)(n+i3*d)=0. Applying the small/large-prime factorization gives a generalized Fermat equation of signature (ell,ell,ell).",
+      "locator": "§3.1 opening, p. 361",
+      "status": "missing",
+      "note": "Source-specific statement audited against the pinned libraries and existing stage contracts; see the report and its assigned route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/64",
+      "kind": "theorem",
+      "name": "Progression bound for the Kraus mu factors",
+      "statement": "Under H, both mu(M_a) and mu(lcm(M_a,4)) are <=2^8*log(k)*exp(1.000081*k).",
+      "locator": "Proof of Lemma 5.1, p. 365 (Tenenbaum Theorem 9 and following remark)",
+      "status": "missing",
+      "note": "Application adapter using the generic Euler-product bound in item 151 and the first Frey level bound. Keep this in the progression roadmap so the analytic supplier does not depend back on the Frey application."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/65",
+      "kind": "theorem",
+      "name": "Schoenfeld explicit Chebyshev bound",
+      "statement": "For x>0, theta(x)=sum_{p prime,p<=x}log p < 1.000081*x.",
+      "locator": "Equation (10), p. 362; Schoenfeld 1976, concluding note p. 360",
+      "status": "missing",
+      "note": "The paper's p.160 reference is inconsistent with the cited article's pagination. Do not confuse Mathlib's weaker theta<=log(4)*x with this constant."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/66",
+      "kind": "definition",
+      "name": "Projective point count and integer Frobenius trace",
+      "statement": "For a Weierstrass model W over finite F_q, pointCount counts affine equation solutions plus the point at infinity; a_q=q+1-pointCount. On an elliptic model this is q+1 minus the cardinality of its point group.",
+      "locator": "§§2,5,6, notation a_p(E)",
+      "status": "library",
+      "library": [
+        "tauceti:WeierstrassCurve.pointCount",
+        "tauceti:WeierstrassCurve.frobeniusTrace",
+        "tauceti:WeierstrassCurve.frobeniusTrace_eq_card_point"
+      ],
+      "note": "Pinned PointCount.lean read, including the singular-model counting convention."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/67",
+      "kind": "theorem",
+      "name": "Hasse bound",
+      "statement": "For an elliptic curve over F_q, a_q^2<=4*q, equivalently |a_q|<=2*sqrt(q).",
+      "locator": "Proof of Lemma 5.2, p. 365",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
+      ],
+      "note": "Audit says point count exists but unconditional Hasse does not at these pins; determinant hypotheses in a partial endgame are not discharged."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/68",
+      "kind": "theorem",
+      "name": "Supersingularity criterion at a prime at least five",
+      "statement": "For E/F_p, p>=5 prime, geometric supersingularity is equivalent to a_p(E)=0. Over F_(p^r) the criterion is p|a_(p^r), not generally equality to zero.",
+      "locator": "Lemma 5.2 and Lemma 6.4; elliptic input",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
+      ],
+      "note": "Source-specific statement audited against the pinned libraries and existing stage contracts; see the report and its assigned route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/69",
+      "kind": "theorem",
+      "name": "Trace zero for the j=1728 reduction",
+      "statement": "If p=3 modulo 4 is prime and u is nonzero in F_p, the curve y^2=x(x-u)(x+u) has a_p=0.",
+      "locator": "Proof of Lemma 5.2, p. 366",
+      "status": "missing",
+      "note": "Direct pairing x with -x in its quadratic-character point count proves it; no CM distribution theorem or GRH is needed."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/70",
+      "kind": "definition",
+      "name": "Von Mangoldt weight",
+      "statement": "Lambda(m)=log p if m=p^r for a prime p and r>=1, and 0 otherwise (including m=0,1).",
+      "locator": "§6, p. 366",
+      "status": "library",
+      "library": [
+        "mathlib:ArithmeticFunction.vonMangoldt",
+        "mathlib:ArithmeticFunction.vonMangoldt_apply_prime",
+        "mathlib:ArithmeticFunction.vonMangoldt_apply_pow"
+      ],
+      "note": "Definitions/statements in VonMangoldt.lean read at the pin."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/71",
+      "kind": "definition",
+      "name": "Dirichlet conductor, primitivity and quadratic values",
+      "statement": "A Dirichlet character at positive modulus N is zero on nonunits. Its conductor is the least divisor through which it factors; primitive means conductor=N; quadratic means its values lie in {0,1,-1}. The principal character has conductor 1 even when represented at larger modulus.",
+      "locator": "§§6–8, conductor and quadratic-character terminology",
+      "status": "library",
+      "library": [
+        "mathlib:DirichletCharacter",
+        "mathlib:DirichletCharacter.conductor",
+        "mathlib:DirichletCharacter.IsPrimitive",
+        "mathlib:DirichletCharacter.conductor_one",
+        "mathlib:MulChar.IsQuadratic"
+      ],
+      "note": "Exact definitions in DirichletCharacter/Basic.lean and MulChar/Basic.lean read. Principal characters represented at q_i in Theorem 6 must be called characters of modulus q_i, not conductor q_i."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/72",
+      "kind": "construction",
+      "name": "Primitive character of a rational squareclass",
+      "statement": "For u in Q^*, choose its signed squarefree integer representative d and fundamental discriminant D=d if d=1 mod 4, otherwise D=4d. The Kronecker character chi_D is primitive of conductor |D|, agrees with (u/p) at odd primes outside the support of u, and has squarefree odd conductor and 2-part at most 8. The class of 1 gives conductor 1.",
+      "locator": "§6, Lemma 6.2 and Proposition 6.1; §7 Lemma 7.3",
+      "status": "missing",
+      "note": "Existing Legendre/small-modulus characters, Int.IsFundamentalDiscr and Tau Ceti prime-discriminant characters are ingredients, not this full classification/primitive-conductor bridge."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/73",
+      "kind": "theorem",
+      "name": "Quadratic-twist trace comparison",
+      "statement": "For odd p and E/F_p with a nonzero twist parameter D, a_p(E^D)=(D/p)*a_p(E); in particular twisting preserves trace zero.",
+      "locator": "§6, Lemmas 6.4 and 6.6",
+      "status": "missing",
+      "note": "The existing quadratic-twist equation and extension isomorphism do not themselves prove this point-count identity."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/74",
+      "kind": "definition",
+      "name": "Chebyshev sums used by the argument",
+      "statement": "psi(X)=sum_{1<=m<=X}Lambda(m), theta(X)=sum_{p<=X}log p; theta(X;a,h) restricts the latter prime sum to p=a modulo h, with gcd(a,h)=1.",
+      "locator": "§§6–9, especially p. 369",
+      "status": "missing",
+      "note": "Ordinary psi/theta are library (item 138); the AP wrapper and exact finite-interval conventions are the additional application definition."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/75",
+      "kind": "construction",
+      "name": "Case-I and Case-II partition of Legendre parameters",
+      "statement": "Let S_sq=-Q^2 union 2*Q^2. Case I consists of triples whose associated full-two-torsion curve has some Legendre parameter outside S_sq; Case II consists of those whose six parameters all lie in S_sq. These partition A.",
+      "locator": "§6, p. 367",
+      "status": "missing",
+      "note": "Source-specific statement audited against the pinned libraries and existing stage contracts; see the report and its assigned route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/76",
+      "kind": "theorem",
+      "name": "Case-II positive parameter normalization",
+      "statement": "In Case II one can choose a parameter lambda and positive rationals t,v with lambda=2*t^2, 1-lambda=2*v^2, hence 2*t^2+2*v^2=1.",
+      "locator": "§6 before (22), p. 370",
+      "status": "missing",
+      "note": "Source-specific statement audited against the pinned libraries and existing stage contracts; see the report and its assigned route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/77",
+      "kind": "construction",
+      "name": "Order-four witness in the quadratic twist",
+      "statement": "Over F_p with p=5 mod 8, suppose t,v are nonzero and 2*t^2+2*v^2=1; put lambda=2*t^2 and choose i with i^2=-1. On F'_lambda:y^2=x(x-2)(x-2lambda), the point P=(4*i*t*v+2lambda,8*i*t*v*(t+i*v)) satisfies 2P=(2lambda,0), hence has order 4, and its third descent coordinate is the squareclass of 4*i*t*v.",
+      "locator": "Proof of Lemma 6.6, p.371; corrected order-four witness",
+      "status": "missing",
+      "note": "Corrected coordinates, not a literal transcription: the printed second coordinate fails at p=5,t=v=2,i=3, where x=4,y=4 gives y^2=1 but x(x-2)(x-2lambda)=4. The replacement follows from halving (2lambda,0) using square roots 2t and 2iv, and is tested by exact finite-field membership/doubling. See report D15."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/78",
+      "kind": "theorem",
+      "name": "Mod-eight prime mass",
+      "statement": "With epsilon=0.002811, for a=3 or 5 and k>=2*10^10, theta(k;a,8)-theta(k/2;a,8)>=(1-3*epsilon)*k/8.",
+      "locator": "§6, pp. 369,372, Ramaré–Rumely input",
+      "status": "missing",
+      "note": "Source at endpoints x>=10^10; both classes are needed. This is quantitative and not supplied by Dirichlet's infinitude theorem."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/79",
+      "kind": "theorem",
+      "name": "Prime powers do not erase the character-sum margin",
+      "statement": "For k>=2*10^10, the prime-power mass psi(k)-theta(k)-psi(k/2)+theta(k/2) is smaller than (((1-3*0.002811)/8)-0.1239)*k. Thus an absolute prime-weighted sum >=(1-3*epsilon)k/8 implies an absolute Lambda-weighted sum >0.1239*k.",
+      "locator": "§6 end of Case I, pp. 369–370; Schoenfeld Theorem 6*, (5.3*)–(5.4*)",
+      "status": "missing",
+      "note": "Alternative verified proof from 65: psi(k)-theta(k)<=1.000081*(sqrt(k)+(log(k)/log(2))*k^(1/3)). Dividing by k gives a decreasing function for k>=2*10^10; at this threshold it is <0.000012<0.000045875, the available margin. Dropping the nonnegative lower-end prime-power mass preserves the bound. This repair does not require Schoenfeld's sharper Theorem 6*."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/80",
+      "kind": "theorem",
+      "name": "Four-character projection in Case I",
+      "statement": "Assume Hplus and choose lambda outside S_sq. In fact lambda lies in none of ±Q^2,±2Q^2. Let mu_1,...,mu_4 correspond to lambda,-lambda,2lambda,-2lambda. On odd primes away from support, mu1-mu2-mu3+mu4 equals 4*(lambda/p) for p=3 mod 8 and 0 otherwise. Hence one of these four primitive characters has the required absolute prime-sum lower bound and nontrivial odd conductor.",
+      "locator": "§6, Case I, equations (19)–(21), p. 369",
+      "status": "missing",
+      "note": "The signed linear combination yields a lower bound for at least one absolute sum, not necessarily a positive sum for a prescribed character."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/81",
+      "kind": "theorem",
+      "name": "Quartic descent input",
+      "statement": "If T,V,U are positive coprime integers and T^4+V^4=2*U^2, then T=V=U=1.",
+      "locator": "§6, Case II, p. 372",
+      "status": "missing",
+      "note": "The classical descent is an explicit prerequisite proof task. Do not confuse it with Fermat's equation x^4+y^4=z^4 or cite that weaker theorem."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/82",
+      "kind": "theorem",
+      "name": "Lemos rational-isogeny uniformity",
+      "statement": "If E/Q has End_(Qbar)(E)=Z and admits a nontrivial cyclic Q-isogeny, then rho(E,ell) is surjective onto GL_2(F_ell) for every prime ell>37.",
+      "locator": "§6 final paragraph, p. 373; Lemos Theorem 1.1, arXiv v2 p. 2",
+      "status": "missing",
+      "note": "Original theorem and assumptions inspected. This is a proved restricted uniformity result; no general Serre uniformity conjecture is used."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/83",
+      "kind": "theorem",
+      "name": "Integrality of a CM j-invariant",
+      "statement": "The j-invariant of an elliptic curve with geometric complex multiplication is an algebraic integer. In particular, for a CM elliptic curve over Q it is an integer.",
+      "locator": "§6, pp. 372–373",
+      "status": "planned",
+      "note": "CM.3 explicitly proves integrality of singular moduli; its reviewed audit reports this absent at the pin. The residual-image consequence is split into item 148.",
+      "planned": [
+        "ComplexMultiplicationAndExplicitReciprocity:CM.3"
+      ]
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/84",
+      "kind": "theorem",
+      "name": "CM exclusion for the progression Frey curve",
+      "statement": "Under H, E_a is not CM: j(E_a)=2^8*(a_a^2-b_a*c_a)^3/(a_a*b_a*c_a)^2. Integral j and pairwise coprimality force all three a_a,b_a,c_a to be signed powers of 2, and a+b+c=0 forces two equal. The alternatives imply d|3 or d=0, contrary to Lemma 4.1/nontriviality.",
+      "locator": "§6 final Case-II proof, p. 373",
+      "status": "missing",
+      "note": "The rational j formula agrees with Delta=16(abc)^2; this is another regression check on correction D1."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/85",
+      "kind": "theorem",
+      "name": "Case-II conductor support and exclusion",
+      "statement": "Under Hplus and item 76, choose one primitive character in the squareclasses omega*t*v, omega in {±1,±2}, by projection to primes 5 mod 8 and item 35. Its odd conductor divides M_a. If that odd conductor were 1, then t*v is a square or twice a square; the parity of 2*T^2+2*V^2=U^2 rules out the latter, item 81 gives lambda=1/2, and items 82–84 and 148 contradict the residual comparison.",
+      "locator": "§6 Case II, pp. 372–373",
+      "status": "missing",
+      "note": "The choice also obeys the same absolute-sum margin as Case I. This is the local proof of the simultaneous package, not a different unrelated family."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/86",
+      "kind": "definition",
+      "name": "Largest prime divisor and odd part",
+      "statement": "For N>1 let P(N) be its largest prime divisor; N^odd=N/2^v_2(N). Quadratic primitive conductors satisfy N<=8*N^odd.",
+      "locator": "§§6–8, pp. 366,375",
+      "status": "missing",
+      "note": "P is used only for N_a^odd!=1, so there is no unmentioned P(1) convention. Integer factorization infrastructure is reused."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/87",
+      "kind": "theorem",
+      "name": "Two-real-zero inequality",
+      "statement": "There is an effective absolute c_star>0 such that if distinct real primitive quadratic characters of conductors N1,N2>1 have real zeros beta1,beta2, then min(beta1,beta2)<1-3*c_star/log(N1*N2).",
+      "locator": "Proposition 7.1(i), (23), p. 373",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/88",
+      "kind": "theorem",
+      "name": "Uniqueness and simplicity of an exceptional zero",
+      "statement": "For that same c_star, a primitive nonprincipal quadratic character of conductor N has at most one real zero in (1-c_star/log N,1), and any such zero is simple.",
+      "locator": "Proposition 7.1(ii), (24), pp. 373–374",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/89",
+      "kind": "theorem",
+      "name": "Effective character prime-number estimate",
+      "statement": "For a primitive nonprincipal character chi of conductor N>1 and X sufficiently large, sum_{m<=X}chi(m)*Lambda(m)=-X^beta/beta+O(X*exp(-c*log X/(sqrt(log X)+log N))*(log N)^4), with the beta term only when an exceptional zero exists; c>0 and the implied constant are absolute and effective.",
+      "locator": "Theorem 5, (26), p. 374; Iwaniec–Kowalski Theorem 5.27",
+      "status": "missing",
+      "note": "Used nonprincipal specialization only. The printed principal N=1 case needs a log(2N)-type convention to avoid a zero error factor; no false exact psi(X)=X assertion is exported."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/90",
+      "kind": "theorem",
+      "name": "Small-conductor exclusion of real zeros",
+      "statement": "For every primitive Dirichlet character of conductor q<=400000 there are no real zeros of L(s,chi) with 0<s<1. In particular there are no exceptional conductors in this range.",
+      "locator": "§7 proof of Proposition 7.2, p. 376; Platt Theorems 7.1–7.2",
+      "status": "missing",
+      "note": "Original computational result inspected: bounded-height GRH plus separately certified nonvanishing at 1/2 (up to 2000000). Height zero is included. A future formal proof must check interval-arithmetic/Turing certificates; empirical floating-point output is not a library theorem."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/91",
+      "kind": "theorem",
+      "name": "Many small smooth characters force a bound on k",
+      "statement": "Under Hplus, for every c2>10, if B subset A has |B|>17*log k, its chosen characters are pairwise distinct, P(N_a)<=k^(7/16), and N_a<k^c2, then k<=k2(c2) effectively.",
+      "locator": "Proposition 8.1, p. 376",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/92",
+      "kind": "theorem",
+      "name": "Smooth-modulus short-character estimate",
+      "statement": "Let r>=1, let pi_i be Dirichlet characters represented at positive moduli q_i, and write q=q_1>1. Suppose q is squarefree, gcd(q,q_2...q_r)=1, and pi_1 is primitive. For R>=max(q_2,...,q_r,q^(1/4))*q^(5/4), any interval (M,M+R] satisfies |sum_m product_i pi_i(m)|<=4*R*(tau(q)^(r^2)/q)^(2^(-r)); for r=1 the maximum is q^(1/4).",
+      "locator": "Theorem 6, pp. 376–377; Iwaniec–Kowalski Theorem 12.13 variant",
+      "status": "missing",
+      "note": "Modulus replaces printed 'conductor' for the possibly principal later factors, as the actual application requires. Absolute bars and exponent 2^(-r) checked in page image. Original book proof/source-edition comparison remains a design preparation task."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/93",
+      "kind": "construction",
+      "name": "Primitive reduction of a Dirichlet character",
+      "statement": "For a character chi at positive modulus M there is a primitive character at conductor(chi), and changing its level back to M recovers chi.",
+      "locator": "§8 proof of Proposition 8.2",
+      "status": "library",
+      "note": "Actual statements read; they retain nonunit zero-extension.",
+      "library": [
+        "mathlib:DirichletCharacter.primitiveCharacter",
+        "mathlib:DirichletCharacter.primitiveCharacter_isPrimitive",
+        "mathlib:DirichletCharacter.changeLevel_primitiveCharacter"
+      ]
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/94",
+      "kind": "theorem",
+      "name": "Product character with its exclusion modulus",
+      "statement": "For distinct primitive quadratic chi1,chi2 at N1,N2, put M=lcm(N1,N2), eta the primitive character inducing their product, M1=cond(eta), and M2=product of primes p|M with p not dividing M1. Then eta is nonprincipal, gcd(M1,M2)=1, M1*M2 divides M, M2 divides gcd(N1,N2), and chi1(m)*chi2(m)=eta(m)*1_{gcd(m,M2)=1} for every integer m.",
+      "locator": "Corrected conductor decomposition for Proposition 8.2, p. 377",
+      "status": "missing",
+      "note": "M is an ambient modulus, not necessarily the product character's conductor. In particular conductors 8 and 8 can multiply to conductor 4; their product does not require the false equality M=M1*M2."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/95",
+      "kind": "construction",
+      "name": "Bounded CRT factor blocks",
+      "statement": "Fix c2>0. If N_i<=k^c2 and P(N_i)<=k^(7/16), and the M1 of item 94 is >=8*k^(7/32), then for sufficiently large k the product character has a CRT factorization with one primitive odd squarefree factor q in [k^(7/32),k^(7/16)], all other moduli <=k^(7/16), and at most ceil(10*c2)+4 factors. Consequently the R0 of item 92 is <=k^(63/64)<k/2.",
+      "locator": "§8, Case 1, pp. 377–378; corrected packing interface",
+      "status": "missing",
+      "note": "Greedily group odd primes, leaving residual blocks and the bounded 2-part explicit; remove modulus-one factors. This weakened finite bound suffices for the existential c3 and avoids requiring the printed nonempty last principal block when M2=1."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/96",
+      "kind": "theorem",
+      "name": "Effective divisor subpower bound",
+      "statement": "For every epsilon>0 there is an effectively computable C_epsilon such that tau(n)<=C_epsilon*n^epsilon for all positive integers n; equivalently tau(n)<=n^(2epsilon) for all sufficiently large n.",
+      "locator": "§8, p. 378 and §12, p. 388 (corrected usable input)",
+      "status": "missing",
+      "note": "Do not export the printed universal tau(q)<=q^(1/log log(3q)); e.g. q=120 contradicts it. Eventual subpower bounds suffice in both applications."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/97",
+      "kind": "theorem",
+      "name": "Small primitive-conductor cancellation with exclusions",
+      "statement": "For nonprincipal primitive eta of conductor M1 and squarefree M2 coprime to M1, |sum_{k/2<m<=k}eta(m)*1_{gcd(m,M2)=1}|<=tau(M2)*M1, by Möbius inversion and complete-period cancellation. Also the direct period bound is <=M1*M2. Apply with M1<8*k^(7/32), separating M2<=k^(3/4) from larger M2.",
+      "locator": "§8 Case 2, pp. 378–379",
+      "status": "missing",
+      "note": "All moduli and conductor bounds are retained; the source-specific exponent gap is not the general orthogonality identity alone."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/98",
+      "kind": "theorem",
+      "name": "Prime-number asymptotic used by the Gram bound",
+      "statement": "psi(x)=x+o(x), and the quantitative PNT error can be chosen so that psi(k)-psi(k/2)=k/2+O(k/log k). Thus sum_{k/2<m<=k}Lambda(m)^2 <= (k log k)/2+O(k).",
+      "locator": "§8.2, p. 380",
+      "status": "planned",
+      "note": "Unconditional classical PNT is planned, not available at the pins. Tau Ceti's conditional PNT transfer is not the analytic hypothesis itself.",
+      "planned": [
+        "AnalyticNumberTheory:AN.2"
+      ]
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/99",
+      "kind": "theorem",
+      "name": "Gram-matrix bound for the chosen characters",
+      "statement": "Under Proposition 8.1 and pairwise cancellation 44, (1/|B|)*sum_{a in B}|sum_{k/2<m<=k}chi_a(m)*Lambda(m)|^2 <= (k log k/2+O(k))*((k+1)/(34 log k)+k^(1-c3)) = (1/68+o(1))*k^2.",
+      "locator": "Equations (32)–(35), pp. 379–380",
+      "status": "missing",
+      "note": "The diagonal and off-diagonal bounds are separate, and 1/68<0.1239^2 is the correct comparison. The printed final comparison with the square of an already squared constant is false."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/100",
+      "kind": "definition",
+      "name": "Divisibility index sets",
+      "statement": "For I={0,...,k-1} and each prime p put I_p={i in I:p divides n+i*d}. If gcd(n,d)=1 then I_p is empty when p|d; otherwise it is one residue class modulo p and ||I_p|-k/p|<1.",
+      "locator": "§9 before Proposition 9.1, p. 381",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/101",
+      "kind": "theorem",
+      "name": "Rahman quantitative Roth threshold",
+      "statement": "For 0<delta<1, the conclusion of item 46 holds whenever k>=exp(exp(132*log(2)/delta)).",
+      "locator": "Equation (36), p. 381",
+      "status": "missing",
+      "note": "This numerical choice is quoted explicitly in the fully read main source. Rahman's original linked PDF currently returned empty content and the former MIT URL returned 404; mark source preparation required, not independently proof-verified. Mathlib's tower bound does not certify this formula."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/102",
+      "kind": "theorem",
+      "name": "Rosser–Schoenfeld explicit prime-count bounds",
+      "statement": "For x>=59, (x/log x)*(1+1/(2 log x))<pi(x)<(x/log x)*(1+3/(2 log x)).",
+      "locator": "§9 proof, p. 382; Rosser–Schoenfeld Theorem 1",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/103",
+      "kind": "theorem",
+      "name": "Explicit reciprocal-prime estimate",
+      "statement": "There is the prime Mertens constant B=0.26149... such that for x>=286, |sum_{p<=x}1/p-log log x-B|<1/(2*(log x)^2).",
+      "locator": "§9 proof, p. 382; Rosser–Schoenfeld Theorem 5",
+      "status": "missing",
+      "note": "Absolute value is part of the input; both endpoints are needed in the interval estimate."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/104",
+      "kind": "construction",
+      "name": "Thin-prime sieve survivors",
+      "statement": "Under Proposition 9.1 define T_pr={p prime:k^(7/16)<p<=k}, U_pr={p prime:(log k)^(1-10^(-4))<p<=10^4 log k}, and J=I minus the union of I_p over S union T_pr union U_pr. Every triple from J has conductor avoiding S and U_pr and largest conductor prime <=k^(7/16).",
+      "locator": "§9 proof, p. 382",
+      "status": "missing",
+      "note": "No prime 2 lies in S (otherwise its reciprocal alone exceeds .17) or T_pr/U_pr at the working threshold, so the uncontrolled bounded 2-part does not break avoidance."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/105",
+      "kind": "theorem",
+      "name": "Sieve loss and positive density",
+      "statement": "For k>=exp(exp(10^6)), the losses from T_pr, U_pr, S are respectively <=k*log(16/7), <=k*log(1/(1-10^(-4)))+5*k*log(10)/log log k+10^4 log k, and <.17*k+1.1*k/log k. Their union has size <.9968*k, hence |J|>.0032*k.",
+      "locator": "§9 proof, pp. 382–383",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/106",
+      "kind": "theorem",
+      "name": "Survivor factorial bound after valuation deletion",
+      "statement": "For J1 obtained from J by item 48, |J1|>.00319*k and product_{i in J1}A_i divides (k-1)!, with all its prime factors <=k^(7/16).",
+      "locator": "§9 proof, pp. 383–384",
+      "status": "missing",
+      "note": "The text says no p>=k^(7/16), while the sieve only excludes p>k^(7/16); retain the weak endpoint, which is exactly what the subsequent product over p>k^(7/16) uses."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/107",
+      "kind": "theorem",
+      "name": "Smooth part of the factorial is small",
+      "statement": "For the J1 above and k>=exp(exp(10^6)), log(product_{k^(7/16)<p<=k}p^v_p((k-1)!)) >=(9/16)*k*log k-5*k. With the explicit Stirling upper bound for (k-1)!, this gives product_{i in J1}A_i<k^(.44*k).",
+      "locator": "§9 proof, p. 384",
+      "status": "missing",
+      "note": "The weighted-prime input and Stirling remainder are separately itemized below; no unspecified asymptotic may replace the stated threshold."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/108",
+      "kind": "theorem",
+      "name": "Small-coefficient dense subset and selected progression",
+      "statement": "Under Proposition 9.1's preliminary construction, set J2={i in J1:A_i<=k^139}. Then |J2|>10^(-5)*k. The quoted Roth bound has log log K0(10^(-5))=132*log(2)*10^5, which lies between 10^6 and 10^7. Thus for k>=exp(exp(10^7)), one triple in J2 has N_a<=2^8*A_i*A_j*A_h<k^418.",
+      "locator": "§9 end of proof, p. 384",
+      "status": "missing",
+      "note": "Corrected sufficient threshold, not the false numerical comparison printed on p.384. The Markov density bound and exponent 418 are unchanged."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/109",
+      "kind": "theorem",
+      "name": "Thin-prime avoidance projection",
+      "statement": "For the single witness a constructed in item 47 (under its hypotheses), no prime in S divides N_a.",
+      "locator": "Proposition 9.1(I), p. 382",
+      "status": "missing",
+      "note": "Projection of the same simultaneous existential package; not an independent choice of a."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/110",
+      "kind": "theorem",
+      "name": "Smooth-conductor projection",
+      "statement": "For the single witness a constructed in item 47 (under its hypotheses), P(N_a)<=k^(7/16).",
+      "locator": "Proposition 9.1(II), p. 382",
+      "status": "missing",
+      "note": "Projection of the same simultaneous existential package; not an independent choice of a."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/111",
+      "kind": "theorem",
+      "name": "Medium-prime gap projection",
+      "statement": "For the single witness a constructed in item 47 (under its hypotheses), no prime p with (log k)^(1-10^(-4))<p<=10^4*log k divides N_a.",
+      "locator": "Proposition 9.1(III), p. 382",
+      "status": "missing",
+      "note": "Projection of the same simultaneous existential package; not an independent choice of a."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/112",
+      "kind": "theorem",
+      "name": "Polynomial-conductor projection",
+      "statement": "For the single witness a constructed in item 47 (under its hypotheses), N_a<k^418.",
+      "locator": "Proposition 9.1(IV), p. 382",
+      "status": "missing",
+      "note": "Projection of the same simultaneous existential package; not an independent choice of a."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/113",
+      "kind": "construction",
+      "name": "Maximal family with distinct largest conductor primes",
+      "statement": "For large k choose a nonempty inclusion-maximal B subset A whose P(N_a) are distinct, P(N_a)<=k^(7/16), N_a<k^418, and N_a avoids the open-left interval ((log k)^(1-10^(-4)),10^4 log k]. If |B|<=17 log k then sum_{a in B}1/P(N_a)>=.17; otherwise item 47 augments B.",
+      "locator": "§10, pp. 384–385; endpoint correction",
+      "status": "missing",
+      "note": "Use the exact open-left interval supplied by Proposition 9.1; the printed switch to a closed-left interval is not justified."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/114",
+      "kind": "theorem",
+      "name": "Maximal-family dichotomy closes the original proof",
+      "statement": "For B in 113, either |B|>17 log k and Proposition 8.1 bounds k, or its subfamily D with P(N_a)<=(log k)^(1-10^(-4)) has reciprocal mass >=.1683>.166, since the complementary mass is <=.0017. Apply Proposition 7.2 with c1=1/20000 to obtain the strict required smoothness and an effective bound on k.",
+      "locator": "§10 proof of Theorem 2, p. 385; corrected endpoint dispatch",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/115",
+      "kind": "definition",
+      "name": "Smooth-multiplier extension and its stated scope",
+      "statement": "Register the extension discussed for product(n+i*d)=b*y^ell with all prime divisors of nonzero b at most tau*k for a fixed tau<1/2. The paper announces that its arguments extend in this range but supplies no separate quantified theorem or full proof; it expressly does not handle all P(b)<=k.",
+      "locator": "§11, pp. 385–386",
+      "status": "missing",
+      "note": "Design target/statement register, not a proved theorem with invented constants. b=±1 is interpreted by its empty prime support."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/116",
+      "kind": "theorem",
+      "name": "Bounded-height Landau–Page theorem",
+      "statement": "There is an effective absolute c>0 such that among primitive Dirichlet characters of moduli q<=T, T>=2, there is at most one zero rho=beta+i*t with |t|<=T and beta>1-c/log T. Any exception is a simple real zero of a real character.",
+      "locator": "§12 opening, p. 386; Bombieri §5 p.39; Iwaniec–Kowalski Theorem 5.26",
+      "status": "missing",
+      "note": "The height restriction omitted in the opening prose must be restored. It is explicitly present in Bombieri's primary statement inspected here."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/117",
+      "kind": "theorem",
+      "name": "Selberg zero-density input",
+      "statement": "For epsilon>0, Q>=2, T>=2, and 1/2<=sigma<=1, sum_{q<=Q} sum_{chi primitive mod q} N(sigma,T,chi) <<_epsilon (Q^(5+epsilon)*T^(3+epsilon))^(1-sigma), with effective constants; if the source count omits the possible exceptional zero, add 1 to the right-hand side.",
+      "locator": "§12 proof of Proposition 12.1, p. 386; Bombieri §5 remark after Theorem 14, p.40",
+      "status": "missing",
+      "note": "N counts zeros with multiplicity, beta>=sigma and |Im rho|<=T. The +1 allowance preserves the application and respects Bombieri's exceptional-zero convention."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/118",
+      "kind": "theorem",
+      "name": "Quadratic real-zero separation from one",
+      "statement": "For q>=3 and a quadratic Dirichlet character modulo q, a real zero beta>0 satisfies beta<=1-40/(sqrt(q)*(log q)^2).",
+      "locator": "§12 p.387; Bennett–Martin–O'Bryant–Rechnitzer Proposition 1.11",
+      "status": "missing",
+      "note": "Original statement and its §6.1 proof inspected. Small q uses certified zero computations; larger q uses L(1,chi) and derivative bounds. No ineffective Siegel constant is substituted."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/119",
+      "kind": "theorem",
+      "name": "Polylogarithmic number of exceptional moduli",
+      "statement": "For Q(k) in 49 and sufficiently large k, |Q(k)| << (log k)^61, with effective implied constant.",
+      "locator": "Proposition 12.1 first conclusion, p.386",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/120",
+      "kind": "theorem",
+      "name": "Minimum exceptional modulus",
+      "statement": "For sufficiently large k, every q in Q(k) satisfies q>=log k.",
+      "locator": "Proposition 12.1 second conclusion, pp.386–387",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/121",
+      "kind": "theorem",
+      "name": "Only one small exceptional modulus",
+      "statement": "For Q(k) there is at most one element below T=k^(delta/log log k), where delta=c/3>0; all other elements are at least T.",
+      "locator": "Proposition 12.1 third conclusion, pp.386–387",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/122",
+      "kind": "theorem",
+      "name": "Nonexceptional primitive character has a small weighted half-interval sum",
+      "statement": "For sufficiently large k, primitive nonprincipal chi of conductor q<=k^4 with q not in Q(k) satisfies |sum_{k/2<m<=k}chi(m)*Lambda(m)| << k/log k, effectively and uniformly.",
+      "locator": "Proposition 12.2, p.387; repaired hypothesis and zero-sum estimate",
+      "status": "missing",
+      "note": "Keep the truncation height T throughout, not the printed switch to Q. Subtract the two explicit formulas before bounding to control zeros near 0; item 139 and report D10."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/123",
+      "kind": "definition",
+      "name": "Exceptional divisibility indices",
+      "statement": "For coprime nonzero integers a,d, let N_bad(a,d)={n in {0,...,k-1}: some q in Q(k) has a divisor r>=q^(1/3)/2 with r dividing a+n*d}.",
+      "locator": "Proposition 12.3, pp.387–388",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/124",
+      "kind": "theorem",
+      "name": "Exceptional index set is sparse",
+      "statement": "For the set of 123, |N_bad(a,d)| << k/(log k)^(1/4), with an effective bound uniform in coprime nonzero a,d.",
+      "locator": "Proposition 12.3, pp.387–388",
+      "status": "missing",
+      "note": "Corrected proof retains k/r+1: the +1 contributions are bounded by k^(1/3)*(log k)^61 using tau(q)<<q^(1/12) and q<=k^4, and are negligible at this scale."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/125",
+      "kind": "construction",
+      "name": "One addendum triple with both conductor size and avoidance",
+      "statement": "Under Hplus and for sufficiently large k, there is one a=(i,j,h) in A whose three indices avoid N_bad(n,d) and for which N_a<=8*A_i*A_j*A_h<=k^4.",
+      "locator": "§12 final paragraph, p.388; explicit simultaneous-witness repair",
+      "status": "missing",
+      "note": "Proof supplied in report using maximal-valuation deletion, disjoint consecutive triples, and their average logarithmic product. Do not combine two independent existence assertions."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/126",
+      "kind": "theorem",
+      "name": "Odd-conductor divisibility detects an exceptional index",
+      "statement": "For the triple of 125, N_a^odd divides A_i*A_j*A_h and N_a<=8*N_a^odd. Therefore product_{r in {i,j,h}}gcd(N_a,A_r)>=N_a/8, so one gcd is at least N_a^(1/3)/2. If N_a were in Q(k), that index would belong to N_bad(n,d), a contradiction.",
+      "locator": "§12 final paragraph, p.388; corrected divisibility",
+      "status": "missing",
+      "note": "No equality with the largest odd squarefree divisor is needed or generally justified."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/127",
+      "kind": "theorem",
+      "name": "Granville addendum contradiction",
+      "statement": "For sufficiently large k, choose the same triple from 125. Item 126 gives N_a not in Q(k), while N_a<=k^4 and N_a^odd!=1. Then 122 contradicts the lower bound >.1239*k in 37. This gives an alternative effective k0 for Theorem 2, without Roth or smooth-modulus short-sum estimates.",
+      "locator": "§12 end, p.388",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/128",
+      "kind": "theorem",
+      "name": "Composite-exponent reduction",
+      "statement": "If ell>=2 is an integer and p is a prime divisor of ell, a primitive progression solution with right side y^ell gives one of prime exponent p and new power variable y^(ell/p). Once y is restricted to finitely many integers with |y|>1, it has only finitely many representations as a nontrivial perfect power.",
+      "locator": "§1 finiteness consequence of Theorem 2, p.357",
+      "status": "missing",
+      "note": "Treat y=±1 and zero separately. This is not a bound on composite ell from a bound on only its largest prime divisor."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/129",
+      "kind": "theorem",
+      "name": "Fixed-exponent progression finiteness input",
+      "statement": "For each fixed k>=5 and integer ell>=2, the integer solutions of product_{i<k}(n+i*d)=y^ell with gcd(n,d)=1 and yd!=0 form a finite set. This suffices for item 50 when k0 is increased to at least 5.",
+      "locator": "§1, p.357; Darmon–Granville Corollary 2.1 specialization",
+      "status": "missing",
+      "note": "Original Darmon–Granville Corollary 2.1 and its complete §2.1 proof, pp.520–521, read: the theorem has m>=2,k>=3,m+k>=6; the strict genus argument applies to m+k>=7, hence our k>=5. The finite coefficient systems and projective scaling/primitive normalization bridge must be retained, including signs."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/130",
+      "kind": "construction",
+      "name": "Elliptic residual Galois representation",
+      "statement": "For E/Q and prime ell, the G_Q action on geometric ell-torsion gives a continuous two-dimensional F_ell representation (up to basis); its determinant is the mod-ell cyclotomic character, and for odd ell it is odd.",
+      "locator": "§2 first paragraph, p.358",
+      "status": "planned",
+      "note": "Two-dimensionality and determinant require the torsion/Weil-pairing theorems; a generic group action does not supply them.",
+      "planned": [
+        "ArithmeticGaloisRepresentations:R01.6",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68"
+      ]
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/131",
+      "kind": "theorem",
+      "name": "Unconditional elliptic modularity supplier",
+      "statement": "Every elliptic curve E/Q has a normalized weight-two newform with rational coefficients, trivial nebentypus and exact level N_E, with matching local factors and Tate-module realizations.",
+      "locator": "§2 before Theorem 3, p.359",
+      "status": "planned",
+      "note": "Already owned; never re-prove the Wiles/BCDT or Serre theorem inside the progression roadmap.",
+      "planned": [
+        "EllipticCurveModularity:R29.6"
+      ]
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/132",
+      "kind": "theorem",
+      "name": "First Frey large-prime discriminant divisibility",
+      "statement": "Under 14, for every prime p>=k, ell divides v_p(Delta(E_a)).",
+      "locator": "Lemma 3.2 last conclusion, p.361",
+      "status": "missing",
+      "note": "A nonempty A implies k>=3, so such p is odd; g is a p-unit and correction D1 does not change the valuation."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/133",
+      "kind": "theorem",
+      "name": "First Frey odd level is squarefree",
+      "statement": "Under 18, M_a^odd is squarefree.",
+      "locator": "Proof of Lemma 3.3, p.362",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/134",
+      "kind": "theorem",
+      "name": "First Frey primorial divisibility",
+      "statement": "Under 18, M_a divides 2^7*product_{q prime,q<=k}q.",
+      "locator": "Proof of Lemma 3.3, p.362",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/135",
+      "kind": "theorem",
+      "name": "Second Frey large-prime discriminant divisibility",
+      "statement": "Under 20, if p>=k is prime with p not dividing kappa, then ell divides v_p(Delta(E_i)).",
+      "locator": "Lemma 3.4 last conclusion, p.362",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/136",
+      "kind": "theorem",
+      "name": "Second Frey local test actually used in the two-term case",
+      "statement": "For the quadruple (i,i+1,i+p-1,i+p) in Lemma 4.1, with p in (k/2,k], p not dividing d and p dividing both endpoint terms, p|A, p does not divide B*kappa*d, and ell|v_p(A). Hence v_p(c4(E_i))=0 and v_p(Delta(E_i))>0 is divisible by ell; E_i is minimal with multiplicative reduction at p.",
+      "locator": "§4 second case, p.364",
+      "status": "missing",
+      "note": "p>=k is not needed here: c4=16*kappa*(4*kappa*d^2-3*A) is nonzero modulo this odd p. This repairs the apparent range gap with Lemma 3.4."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/137",
+      "kind": "theorem",
+      "name": "Second Frey reduced-level divisibility",
+      "statement": "Under 23, M_i divides 2^7*3^5*kappa^2*product_{q prime,q<=k}q^2.",
+      "locator": "Proof of Lemma 3.5, p.363",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/138",
+      "kind": "definition",
+      "name": "Ordinary Chebyshev carriers",
+      "statement": "For real X, psi(X)=sum_{1<=n<=floor(X)}Lambda(n) and theta(X)=sum_{p prime,p<=floor(X)}log p.",
+      "locator": "§6 p.370; §§7–9",
+      "status": "library",
+      "note": "Actual pinned Chebyshev.lean definitions read; no asymptotic or numerical prime theorem follows from these definitions.",
+      "library": [
+        "mathlib:Chebyshev.psi",
+        "mathlib:Chebyshev.theta"
+      ]
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/139",
+      "kind": "theorem",
+      "name": "Half-interval explicit formula and low-zero-safe bound",
+      "statement": "For primitive nonprincipal chi of conductor q, sufficiently large integer k and 2<=T<=k, a truncated explicit formula on (k/2,k] has zero contributions -(k^rho-(k/2)^rho)/rho for nontrivial zeros |Im rho|<=T, with error O(k*log^2(qk)/T+log^2(qk)). Moreover |(k^rho-(k/2)^rho)/rho|<=C*k^Re(rho)*min(1,1/|rho|) for 0<Re(rho)<1. The local zero-count bound gives sum_{|Im rho|<=T}min(1,1/|rho|)<<log^2(q(T+2)).",
+      "locator": "§12 proof of Proposition 12.2, p.387; explicit repaired interface",
+      "status": "missing",
+      "note": "Subtract at the same height before absolute values, absorbing endpoint weights in the error. This avoids a false uniform bound on sum 1/|rho| near rho=0. Original Iwaniec–Kowalski Prop.5.25 edition and exceptional/constant terms must be checked before blueprint proof leaves are executable."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/140",
+      "kind": "theorem",
+      "name": "One residue-class count including its boundary",
+      "statement": "For gcd(a,d)=1 and positive r, the number of 0<=n<k with r|(a+n*d) is 0 if gcd(r,d)>1, otherwise at most k/r+1.",
+      "locator": "Proof of Proposition 12.3, pp.387–388",
+      "status": "missing",
+      "note": "For r>k, k/r cannot replace k/r+1 by a uniform constant multiple: a single multiple may remain."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/141",
+      "kind": "theorem",
+      "name": "Explicit Stirling upper bound",
+      "statement": "For integer m>=1, m!<=sqrt(2*pi*m)*(m/e)^m*exp(1/(12*m)).",
+      "locator": "§9 p.384, reference [43]",
+      "status": "missing",
+      "note": "Pinned Mathlib Stirling.log_stirlingSeq_sdiff_le and tendsto_stirlingSeq_sqrt_pi were read: they supply the successive-difference estimate and limit, not this packaged global upper bound. Telescope from m to M, bound the tail by 1/(12m), pass to the limit, then exponentiate. This is a short adapter, not a second Stirling asymptotic proof."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/142",
+      "kind": "theorem",
+      "name": "Weighted-prime sum input to the factorial estimate",
+      "statement": "For x>=319, with the same absolute constant E at both endpoints, log x+E-1/(2 log x)<sum_{p<=x}(log p)/p<log x+E+1/(2 log x). Therefore for x>=y>=319 the prime sum over y<p<=x is greater than log(x/y)-1/(2 log x)-1/(2 log y).",
+      "locator": "§9 p.384; Rosser–Schoenfeld Theorem 6, p.70",
+      "status": "missing",
+      "note": "Rosser–Schoenfeld (1962), Theorem 6, p.70, equations (3.21)–(3.22), inspected as a page image. The common constant cancels; the report derives the 5k error without assuming an unspecified O(1)."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/143",
+      "kind": "theorem",
+      "name": "Case-I lower prime sum before prime powers",
+      "statement": "Under Hplus and Case I, one of the four characters in 80 obeys |sum_{k/2<p<=k}chi(p)*log p| >=(1-3*.002811)*k/8.",
+      "locator": "Equation (21), p.369",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/144",
+      "kind": "theorem",
+      "name": "Case-II lower prime sum before prime powers",
+      "statement": "Under Hplus and Case II, applying the mod-8 projection to omega*t*v and the sign condition of Lemma 6.6 produces one character with |sum_{k/2<p<=k}chi(p)*log p| >=(1-3*.002811)*k/8.",
+      "locator": "§6 Case II first paragraph, p.372",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/145",
+      "kind": "theorem",
+      "name": "Nonexceptional smooth conductor gives an effective small sum",
+      "statement": "Under Proposition 7.2 and for a nonexceptional chi_a, log N_a<1.07*(log k)^(1-c1), and its half-interval Lambda sum is O(k*exp(-c'*(log k)^min(c1,1/2))*(log k)^4), hence o(k) effectively.",
+      "locator": "§7 proof, p.375; corrected exponent for general c1",
+      "status": "missing",
+      "note": "The source writes exponent c1 for every 0<c1<1; the denominator sqrt(log k)+log N only proves min(c1,1/2). Its used c1 near 10^(-4) is unchanged."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/146",
+      "kind": "theorem",
+      "name": "Exceptional conductor chain violates the computed range",
+      "statement": "For the D of 42, if all chosen characters are exceptional, order conductors N1<...<Ns. Then Nj>N1^(2^(j-1)) and sum 1/P(Nj)<(2/.94)/log N1<2.13/log N1. The .166 lower bound forces N1<=373743<400000, contradicting 90.",
+      "locator": "§7 proof, pp.375–376",
+      "status": "missing",
+      "note": "Compared with pinned declarations and existing stage scope; see the report for the evidence and route."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/147",
+      "kind": "theorem",
+      "name": "Character product conductor divisibility",
+      "statement": "For characters chi,psi at one positive modulus, conductor(chi*psi) divides lcm(conductor(chi),conductor(psi)); equality is not asserted.",
+      "locator": "§8 conductor bookkeeping, p.377",
+      "status": "library",
+      "note": "Actual pinned statement read; this supports but does not by itself prove the coprime exclusion factorization in 94.",
+      "library": [
+        "mathlib:DirichletCharacter.conductor_mul_dvd_lcm_conductor"
+      ]
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/148",
+      "kind": "theorem",
+      "name": "CM residual image in a Cartan normalizer",
+      "statement": "If E/Q has geometric CM by an imaginary quadratic order O and ell is prime not dividing discr(O), its image on E[ell] is contained in the normalizer of a Cartan subgroup of GL_2(F_ell). For j=1728 this applies at every odd ell. At ell>37 this is a proper subgroup and is incompatible with surjectivity.",
+      "locator": "§6 pp.372–373; CM action and Galois-conjugation input",
+      "status": "missing",
+      "note": "Use CM.4 for the actual order action and Tate-module components; the finite residual centralizer/normalizer adapter and discriminant hypothesis are additional explicit source material."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/149",
+      "kind": "construction",
+      "name": "Certified-threshold version of the simultaneous conductor witness",
+      "statement": "Assume Hplus and k>=exp(exp(10^7)). For every set S of primes <=k with sum_{p in S}1/p<.17, there is one a in A satisfying all four conclusions of item 47: avoidance of S, P(N_a)<=k^(7/16), avoidance of ((log k)^(1-10^(-4)),10^4 log k], and N_a<k^418.",
+      "locator": "Proposition 9.1, pp.381–384; repaired Roth-threshold calculation",
+      "status": "missing",
+      "note": "All earlier estimates hold at the increased threshold; item 108 now legitimately applies the quoted Roth bound. Theorem 2 asks only for an effective unspecified k0, so this correction preserves the main target. Independent review must distinguish this repair from the literal sharper source claim in 47."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/150",
+      "kind": "theorem",
+      "name": "Coefficient-prime bridge for the progression Kraus application",
+      "statement": "Under H, for every first-family Frey curve E_a and residual prime ell, the irreducible residual representation has Serre weight 2 and prime-to-ell Artin conductor equal to the reduced level M_a of item 18. In particular ell does not divide M_a.",
+      "locator": "Adapter between Theorem 4 and Lemma 5.1, §§2–5",
+      "status": "missing",
+      "note": "Because ell>k, the first model is semistable at ell; if multiplicative, ell divides its minimal discriminant valuation. Apply the precise finite-flat/weight-two and local conductor criteria of R20.3–R20.4. This comparison is not licensed merely by the quotient formula in 04."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/151",
+      "kind": "theorem",
+      "name": "Explicit prime Euler-product bound",
+      "statement": "For real x>=10^8, product_{p prime,p<=x}(1+1/p)<=2*log x.",
+      "locator": "§5 proof of Lemma 5.1, p.365; alternate direct input from Rosser–Schoenfeld Theorem 8 (3.29), p.70",
+      "status": "missing",
+      "note": "Bound this product by product(1-1/p)^(-1)<exp(gamma)*log x*(1+1/(2 log^2 x)); the latter is <2 log x at x>=10^8. This avoids requiring an uninspected Tenenbaum constant and does not duplicate the progression-specific mu specialization."
     }
   ],
-  "prerequisites": [],
-  "routes": [],
+  "prerequisites": [
+    {
+      "citation": "Kraus (1997), Majorations effectives pour l'équation de Fermat généralisée, Theorems 3–4",
+      "link": "https://doi.org/10.4153/CJM-1997-056-2",
+      "why": "Effective residual comparison and full-two-torsion realization, including small-prime recognition and norm arguments. This is not the already-owned Kraus c4/c6 integral-model criterion. Statements and relevant proof passages read; full source decomposition remains required."
+    },
+    {
+      "citation": "Martin (2005), Dimensions of the spaces of cusp forms and newforms on Gamma_0(N) and Gamma_1(N), Theorem 2",
+      "link": "https://doi.org/10.1016/j.jnt.2004.10.009",
+      "why": "Uniform sharp dim S_2^new(N)<=(N+1)/12, not just the existing generic dimension-formula target. Published theorem read; full inequality proof to decompose."
+    },
+    {
+      "citation": "Mazur (1978), Rational isogenies of prime degree, with the rational-isogeny classification consequences needed for two-torsion",
+      "link": "https://doi.org/10.1007/BF01390348",
+      "why": "Exact uniform irreducibility cutoffs in items 59–60. The parent R29.1 proves only finitely many exceptional primes for each fixed curve. A blueprint must trace the actual isogeny-classification lemmas (including any composite-degree consequences), not replace a rational subgroup by a rational point."
+    },
+    {
+      "citation": "Lemos (2019), Serre's uniformity conjecture for elliptic curves with rational cyclic isogenies, Theorem 1.1",
+      "link": "https://arxiv.org/abs/1702.01985v2",
+      "why": "Non-CM E/Q with a nontrivial cyclic Q-isogeny has surjective mod-ell image for ell>37. Author theorem read; formal-immersion/Bilu–Parent–Rebolledo inputs require separate source decomposition."
+    },
+    {
+      "citation": "Bennett–Skinner (2004), Ternary Diophantine equations via Galois representations and modular forms",
+      "link": "https://doi.org/10.4153/CJM-2004-002-2",
+      "why": "Signature (ell,ell,2) Frey local/conductor calculations and irreducibility. Lemma 2.1 and Corollary 3.1 inspected. Its normalized coprimality/squarefree hypotheses must be proved for each transformed model, never assumed for the unnormalized progression model."
+    },
+    {
+      "citation": "Darmon–Granville (1995), On the equations z^m=F(x,y) and Ax^p+By^q=Cz^r, Corollary 2.1",
+      "link": "https://www.math.mcgill.ca/darmon/pub/Articles/Research/12.Granville/pub12.pdf",
+      "why": "Fixed-exponent finite-cover/genus reduction; §2.1 proof read. Faltings itself is already planned by RP.4. Track primitive projective scaling and the small k,m exceptions."
+    },
+    {
+      "citation": "Iwaniec–Kowalski (2004), Analytic Number Theory, Propositions/Theorems 5.25–5.27 and 12.13",
+      "link": "https://doi.org/10.1090/coll/053",
+      "why": "Precise explicit-formula, exceptional-zero/PNT and smooth-modulus short-sum interfaces quoted in the main paper. Original relevant chapter pages were not obtained; attempted institutional PDFs were front matter and author excerpt Chapter 11 only. Source acquisition and proof-level comparison remain explicit design tasks."
+    },
+    {
+      "citation": "Graham–Ringrose (1990), Lower bounds for least quadratic non-residues",
+      "link": "https://doi.org/10.1007/978-1-4612-3464-7_18",
+      "why": "Original short smooth-modulus character-sum method underlying item 92. Not read independently; the exact variant used is stated by Bennett–Siksek and must be matched to its proof before execution."
+    },
+    {
+      "citation": "Bombieri (1987), Le grand crible dans la théorie analytique des nombres, §§2 and 5",
+      "link": "https://www.numdam.org/item/AST_1987__18__1_0/",
+      "why": "Selberg inner-product inequality, bounded-height Landau–Page and zero-density remark. Relevant statements/proof passages read; density counts may exclude the exceptional zero, requiring the +1 convention here."
+    },
+    {
+      "citation": "Platt (2016), Numerical computations concerning the GRH, Theorems 7.1–7.2",
+      "link": "https://arxiv.org/abs/1305.3087",
+      "why": "Certified small-conductor zero exclusion. Both bounded-height GRH and nonvanishing at 1/2 are needed. Computations were not rerun and are not Lean certificates."
+    },
+    {
+      "citation": "Bennett–Martin–O'Bryant–Rechnitzer (2018), Explicit bounds for primes in arithmetic progressions, Proposition 1.11",
+      "link": "https://arxiv.org/abs/1802.00085",
+      "why": "The effective real-zero gap 40/(sqrt(q) log^2 q) used in the addendum. Statement and §6.1 proof read; exact computational and L-value inputs require blueprint nodes."
+    },
+    {
+      "citation": "Ramaré–Rumely (1996), Primes in arithmetic progressions, Theorem 1 and Table 1",
+      "link": "https://ramare-olivier.github.io/Maths/rumely.pdf",
+      "why": "The explicit epsilon_8=.002811 at x>=10^10, for both residue classes 3 and 5. Author-hosted published statement/table read; numerical zero certificates remain to formalize."
+    },
+    {
+      "citation": "Rosser–Schoenfeld (1962), Approximate formulas for some functions of prime numbers, Theorems 1, 5, 6 and 8",
+      "link": "https://doi.org/10.1215/ijm/1255631807",
+      "why": "Exact pi, reciprocal-prime, weighted-prime and Euler-product bounds. Source pp.69–70 read, including page image. Existing ClassicalSerreModularity prime-gap node does not cover these statements; share its upstream analytic supplier rather than duplicate them."
+    },
+    {
+      "citation": "Schoenfeld (1976), Sharper bounds for the Chebyshev functions theta(x) and psi(x). II",
+      "link": "https://doi.org/10.1090/S0025-5718-1976-0457374-X",
+      "why": "Uniform theta(x)<1.000081*x. Main paper states this precisely; publisher retrieval returned 403, so the concluding-note source/proof is a preparation task. The report replaces the sharper prime-power estimate by a direct consequence of this bound."
+    },
+    {
+      "citation": "Rahman, Roth's theorem on 3-term arithmetic progressions",
+      "link": "https://pdfs.semanticscholar.org/34d5/e5d802d1107b68f1aa76dff994e8b23341c2.pdf",
+      "why": "The exact double-exponential threshold quoted on p.381, not the qualitative Roth theorem already in Mathlib. Linked source returned empty content; former MIT link 404. Independently acquire its proof. The printed application at exp(exp(10^6)) fails its own numerical comparison; the report uses exp(exp(10^7))."
+    },
+    {
+      "citation": "Erdős–Selfridge (1975), The product of consecutive integers is never a power",
+      "link": "https://doi.org/10.1215/ijm/1256050816",
+      "why": "Historical Theorem 1 endpoint retained in the statement register, not a load-bearing input to Theorem 2. Its proof is not extracted here and should be a separate paper task if the programme elects to build this background branch."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "SerreWeightAndLevelOptimisation",
+      "stages": [
+        "SerreWeightAndLevelOptimisation:R20.2",
+        "SerreWeightAndLevelOptimisation:R20.3",
+        "SerreWeightAndLevelOptimisation:R20.4",
+        "SerreWeightAndLevelOptimisation:R20.6"
+      ],
+      "items": [
+        "PAPER-BENNETT-SIKSEK-20/04",
+        "PAPER-BENNETT-SIKSEK-20/05",
+        "PAPER-BENNETT-SIKSEK-20/07"
+      ],
+      "reason": "The reduced-level elliptic specialization and removed-prime congruence are consumer contracts of existing level/weight optimisation. This route adds the precise local and coefficient-prime cases as source material; it does not re-plan modularity, integral Hecke modules or Galois representations."
+    },
+    {
+      "route": "source",
+      "roadmap": "AnalyticNumberTheory",
+      "stages": [
+        "AnalyticNumberTheory:AN.0",
+        "AnalyticNumberTheory:AN.1",
+        "AnalyticNumberTheory:AN.2",
+        "AnalyticNumberTheory:AN.3",
+        "AnalyticNumberTheory:AN.5",
+        "AnalyticNumberTheory:AN.6"
+      ],
+      "items": [
+        "PAPER-BENNETT-SIKSEK-20/40",
+        "PAPER-BENNETT-SIKSEK-20/41",
+        "PAPER-BENNETT-SIKSEK-20/43",
+        "PAPER-BENNETT-SIKSEK-20/65",
+        "PAPER-BENNETT-SIKSEK-20/72",
+        "PAPER-BENNETT-SIKSEK-20/74",
+        "PAPER-BENNETT-SIKSEK-20/78",
+        "PAPER-BENNETT-SIKSEK-20/79",
+        "PAPER-BENNETT-SIKSEK-20/86",
+        "PAPER-BENNETT-SIKSEK-20/87",
+        "PAPER-BENNETT-SIKSEK-20/88",
+        "PAPER-BENNETT-SIKSEK-20/89",
+        "PAPER-BENNETT-SIKSEK-20/90",
+        "PAPER-BENNETT-SIKSEK-20/96",
+        "PAPER-BENNETT-SIKSEK-20/102",
+        "PAPER-BENNETT-SIKSEK-20/103",
+        "PAPER-BENNETT-SIKSEK-20/116",
+        "PAPER-BENNETT-SIKSEK-20/117",
+        "PAPER-BENNETT-SIKSEK-20/118",
+        "PAPER-BENNETT-SIKSEK-20/139",
+        "PAPER-BENNETT-SIKSEK-20/141",
+        "PAPER-BENNETT-SIKSEK-20/142",
+        "PAPER-BENNETT-SIKSEK-20/151"
+      ],
+      "reason": "These are reusable Dirichlet-character, explicit-prime, zero-free/density, divisor and numerical summation interfaces within the proposed analytic roadmap. The rational-squareclass/conductor bridge consumes existing fundamental-discriminant and reciprocity facts, not a second multiquadratic field theory. Numerical constants, certified small-conductor computations and the low-zero-safe half-interval formula are added source requirements, not claims that broad stage titles already prove them."
+    },
+    {
+      "route": "source",
+      "roadmap": "SieveMethodsAndPrimePatterns",
+      "stages": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "items": [
+        "PAPER-BENNETT-SIKSEK-20/45"
+      ],
+      "reason": "The finite inner-product inequality is the duality/Gram-matrix input already within SV.2's large-sieve direction. It is separate from the new individual smooth-modulus short-sum continuation."
+    },
+    {
+      "route": "source",
+      "roadmap": "AdditiveCombinatorics",
+      "stages": [
+        "AdditiveCombinatorics:AC.2"
+      ],
+      "items": [
+        "PAPER-BENNETT-SIKSEK-20/101"
+      ],
+      "reason": "Only the exact Rahman double-exponential quantitative threshold is added. Pinned Mathlib already proves qualitative Roth with a different tower threshold and is imported as item 46. The source edition/proof of the stronger numerical threshold must be acquired before executing its blueprint."
+    },
+    {
+      "route": "source",
+      "roadmap": "ComplexMultiplicationAndExplicitReciprocity",
+      "stages": [
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4"
+      ],
+      "items": [
+        "PAPER-BENNETT-SIKSEK-20/148"
+      ],
+      "reason": "CM Tate-module components and Galois action already belong here; the unramified-order residual Cartan-normalizer corollary is a concrete added consumer contract. The integrality theorem is separately imported from CM.3, and the rational progression-specific CM exclusion stays in the application."
+    },
+    {
+      "route": "part-ii",
+      "parent": "EllipticCurveModularity",
+      "roadmap": "EllipticModularityEffectiveComparisons",
+      "title": "Modularity and modular parametrisations of elliptic curves over Q, Part II: effective residual comparisons",
+      "area": "automorphic",
+      "items": [
+        "PAPER-BENNETT-SIKSEK-20/08",
+        "PAPER-BENNETT-SIKSEK-20/09",
+        "PAPER-BENNETT-SIKSEK-20/10",
+        "PAPER-BENNETT-SIKSEK-20/57",
+        "PAPER-BENNETT-SIKSEK-20/59",
+        "PAPER-BENNETT-SIKSEK-20/60",
+        "PAPER-BENNETT-SIKSEK-20/82"
+      ],
+      "brief": "Build the reusable effective modular-method comparison package of Bennett–Siksek §2. Final exports are the removed-prime exponent bound ell<=(sqrt(p)+1)^((M0+1)/6), and Kraus's full-rational-two-torsion realization at the exact prime-to-ell residual conductor N when ell>=5, Serre weight is 2, irreducibility holds and ell>max(F(N),G(N)), with F and G exactly as item 09. Also prove the sharp weight-two newspace bound dim S_2^new(N)<=(N+1)/12 and the rational-isogeny consequences giving irreducibility at ell>=7 with full two-torsion and ell>=11 with one rational two-torsion point. Export Lemos's proved non-CM cyclic-rational-isogeny surjectivity theorem for ell>37, not unrestricted Serre uniformity. Import the parent Modularity and modular parametrisations of elliptic curves over Q (EllipticCurveModularity), Weight and level optimisation of residual modular representations (SerreWeightAndLevelOptimisation), Modular forms (tauceti:TauCetiRoadmap/ModularForms), Automorphic Galois representations (AutomorphicGaloisRepresentations), and Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves). Use actual newforms, coefficient fields, all conjugates, norm bounds, integral trace comparisons and Sturm recognition. Expose residual conductor versus quotient-level and finite-flat weight-two bridges. Source-decompose Kraus, Martin, Mazur/Kenku and Lemos, with exact theorem hypotheses, before proof execution; no new modularity or local conductor carrier is owned here.",
+      "reason": "The parent supplies unconditional modularity, not effective norm/Kraus thresholds or uniform rational-isogeny image bounds. This coherent continuation owns those generic comparisons once; the Frey progressions are a consumer."
+    },
+    {
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "roadmap": "EllipticLegendreCharacterInterfaces",
+      "title": "Elliptic curves, Part II: Legendre models, descent and character interfaces",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-BENNETT-SIKSEK-20/28",
+        "PAPER-BENNETT-SIKSEK-20/29",
+        "PAPER-BENNETT-SIKSEK-20/30",
+        "PAPER-BENNETT-SIKSEK-20/31",
+        "PAPER-BENNETT-SIKSEK-20/33",
+        "PAPER-BENNETT-SIKSEK-20/34",
+        "PAPER-BENNETT-SIKSEK-20/69",
+        "PAPER-BENNETT-SIKSEK-20/73",
+        "PAPER-BENNETT-SIKSEK-20/77"
+      ],
+      "brief": "Build equation-level Legendre interfaces for elliptic curves with full rational two-torsion: a twist-normalization construction with all six possibly coincident parameters, the good-odd-prime unit criterion for lambda and 1-lambda, and odd-conductor support for the primitive characters of omega*lambda. Final finite-field exports include the Z/2 times Z/4 subgroup for the squared-parameter curve at p=3 mod 4, the three-coordinate squareclass descent homomorphism with kernel 2E and explicit two-torsion values, v_2(#F_-1(F_p))=3 at p=5 mod 8, and the explicit order-four point of Bennett–Siksek Lemma 6.6. Prove trace zero for y^2=x(x-u)(x+u) at p=3 mod 4 and the quadratic-twist trace factor. Import Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves), especially Layers 2–5 and the existing group law, point counts, torsion, reduction and quadratic-twist equation; do not redevelop pointed-twist classification or global Selmer groups. Import the primitive-squareclass character/conductor bridge from Analytic number theory, zeta functions and prime distribution (AnalyticNumberTheory) and the actual Legendre-symbol library. Cover rational and finite-field domains separately, exclude singular parameters and characteristic two, certify equation membership/doubling, and test lambda=-1, 2, 1/2 as well as generic parameters. These generic lemmas feed the progression roadmap rather than carry its contradictory large-exponent hypothesis.",
+      "reason": "Existing elliptic layers supply the carriers, Hasse, local models and twist descent, but do not state the Legendre normalization, finite-field coordinate descent or these explicit character/torsion tests. Extending upstream requires a Part II, not re-planning it."
+    },
+    {
+      "route": "part-ii",
+      "parent": "SieveMethodsAndPrimePatterns",
+      "roadmap": "SmoothModulusCharacterSums",
+      "title": "Sieve methods, prime gaps and prime patterns, Part II: short sums at smooth moduli",
+      "area": "analytic",
+      "items": [
+        "PAPER-BENNETT-SIKSEK-20/44",
+        "PAPER-BENNETT-SIKSEK-20/92",
+        "PAPER-BENNETT-SIKSEK-20/94",
+        "PAPER-BENNETT-SIKSEK-20/95",
+        "PAPER-BENNETT-SIKSEK-20/97"
+      ],
+      "brief": "Prove the individual short-character-sum machinery and Proposition 8.2 of Bennett–Siksek. The final theorem says that for each c2>0, effectively for all large k, distinct primitive quadratic characters with N_i<=k^c2 and P(N_i)<=k^(7/16) have half-interval product sum at most k^(1-c3(c2)) for an effective c3>0. First construct the product's primitive inducing character and coprime exclusion modulus; never identify lcm(N1,N2) with the primitive conductor. Prove the Graham–Ringrose/Iwaniec–Kowalski estimate of item 92 with the exact exponent 2^(-r), later factors specified by modulus (they may be principal), and a bounded CRT packing with explicit dyadic and modulus-one cases. Then handle the small primitive conductor by Mobius inversion and periodic cancellation. Import Sieve methods, prime gaps and prime patterns (SieveMethodsAndPrimePatterns) for primitive reduction/duality and the elementary sieve API, Finite fields, character sums, finite rings and coding interfaces (FiniteFieldsAndCharacterSums) for the finite-field character estimates used by the chosen complete short-sum proof, and Analytic number theory, zeta functions and prime distribution (AnalyticNumberTheory) for effective divisor subpower bounds. Acquire and check the original book/Graham–Ringrose proof before execution. The printed universal divisor inequality is false; use the corrected eventual bound. No progression-specific Frey curve or global zero-density theorem belongs here.",
+      "reason": "SV.2 plans average large-sieve/duality and bilinear estimates, not this individual smooth-modulus short-sum theorem. New layers are needed in the same analytic direction; the large-sieve inequality itself remains a source of SV.2."
+    },
+    {
+      "route": "new",
+      "roadmap": "ErdosProgressionPowers",
+      "title": "Perfect powers in primitive arithmetic progressions",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-BENNETT-SIKSEK-20/01",
+        "PAPER-BENNETT-SIKSEK-20/02",
+        "PAPER-BENNETT-SIKSEK-20/11",
+        "PAPER-BENNETT-SIKSEK-20/12",
+        "PAPER-BENNETT-SIKSEK-20/13",
+        "PAPER-BENNETT-SIKSEK-20/14",
+        "PAPER-BENNETT-SIKSEK-20/15",
+        "PAPER-BENNETT-SIKSEK-20/16",
+        "PAPER-BENNETT-SIKSEK-20/17",
+        "PAPER-BENNETT-SIKSEK-20/18",
+        "PAPER-BENNETT-SIKSEK-20/19",
+        "PAPER-BENNETT-SIKSEK-20/20",
+        "PAPER-BENNETT-SIKSEK-20/21",
+        "PAPER-BENNETT-SIKSEK-20/22",
+        "PAPER-BENNETT-SIKSEK-20/23",
+        "PAPER-BENNETT-SIKSEK-20/24",
+        "PAPER-BENNETT-SIKSEK-20/25",
+        "PAPER-BENNETT-SIKSEK-20/26",
+        "PAPER-BENNETT-SIKSEK-20/27",
+        "PAPER-BENNETT-SIKSEK-20/32",
+        "PAPER-BENNETT-SIKSEK-20/35",
+        "PAPER-BENNETT-SIKSEK-20/36",
+        "PAPER-BENNETT-SIKSEK-20/37",
+        "PAPER-BENNETT-SIKSEK-20/38",
+        "PAPER-BENNETT-SIKSEK-20/39",
+        "PAPER-BENNETT-SIKSEK-20/42",
+        "PAPER-BENNETT-SIKSEK-20/47",
+        "PAPER-BENNETT-SIKSEK-20/48",
+        "PAPER-BENNETT-SIKSEK-20/49",
+        "PAPER-BENNETT-SIKSEK-20/50",
+        "PAPER-BENNETT-SIKSEK-20/51",
+        "PAPER-BENNETT-SIKSEK-20/52",
+        "PAPER-BENNETT-SIKSEK-20/62",
+        "PAPER-BENNETT-SIKSEK-20/63",
+        "PAPER-BENNETT-SIKSEK-20/75",
+        "PAPER-BENNETT-SIKSEK-20/76",
+        "PAPER-BENNETT-SIKSEK-20/80",
+        "PAPER-BENNETT-SIKSEK-20/81",
+        "PAPER-BENNETT-SIKSEK-20/84",
+        "PAPER-BENNETT-SIKSEK-20/85",
+        "PAPER-BENNETT-SIKSEK-20/91",
+        "PAPER-BENNETT-SIKSEK-20/99",
+        "PAPER-BENNETT-SIKSEK-20/100",
+        "PAPER-BENNETT-SIKSEK-20/104",
+        "PAPER-BENNETT-SIKSEK-20/105",
+        "PAPER-BENNETT-SIKSEK-20/106",
+        "PAPER-BENNETT-SIKSEK-20/107",
+        "PAPER-BENNETT-SIKSEK-20/108",
+        "PAPER-BENNETT-SIKSEK-20/109",
+        "PAPER-BENNETT-SIKSEK-20/110",
+        "PAPER-BENNETT-SIKSEK-20/111",
+        "PAPER-BENNETT-SIKSEK-20/112",
+        "PAPER-BENNETT-SIKSEK-20/113",
+        "PAPER-BENNETT-SIKSEK-20/114",
+        "PAPER-BENNETT-SIKSEK-20/115",
+        "PAPER-BENNETT-SIKSEK-20/119",
+        "PAPER-BENNETT-SIKSEK-20/120",
+        "PAPER-BENNETT-SIKSEK-20/121",
+        "PAPER-BENNETT-SIKSEK-20/122",
+        "PAPER-BENNETT-SIKSEK-20/123",
+        "PAPER-BENNETT-SIKSEK-20/124",
+        "PAPER-BENNETT-SIKSEK-20/125",
+        "PAPER-BENNETT-SIKSEK-20/126",
+        "PAPER-BENNETT-SIKSEK-20/127",
+        "PAPER-BENNETT-SIKSEK-20/128",
+        "PAPER-BENNETT-SIKSEK-20/129",
+        "PAPER-BENNETT-SIKSEK-20/132",
+        "PAPER-BENNETT-SIKSEK-20/133",
+        "PAPER-BENNETT-SIKSEK-20/134",
+        "PAPER-BENNETT-SIKSEK-20/135",
+        "PAPER-BENNETT-SIKSEK-20/136",
+        "PAPER-BENNETT-SIKSEK-20/137",
+        "PAPER-BENNETT-SIKSEK-20/140",
+        "PAPER-BENNETT-SIKSEK-20/143",
+        "PAPER-BENNETT-SIKSEK-20/144",
+        "PAPER-BENNETT-SIKSEK-20/145",
+        "PAPER-BENNETT-SIKSEK-20/146",
+        "PAPER-BENNETT-SIKSEK-20/149",
+        "PAPER-BENNETT-SIKSEK-20/150",
+        "PAPER-BENNETT-SIKSEK-20/64"
+      ],
+      "brief": "Build the Bennett–Siksek modular-method proof for primitive arithmetic progression products, including both the original analytic endgame and Granville's published §12 addendum. The main target is exactly: there is an effectively computable absolute k0 such that if k>=k0, ell is prime, gcd(n,d)=1 and product_{0<=i<k}(n+i*d)=y^ell, then y*d=0 or ell<=exp(10^k). Derive finiteness of positive integer solutions for each fixed sufficiently large k and all integer exponents ell>=2; do not claim nonexistence, one finite set over all k, or an effective enumeration of points. Define the signed small-prime factorization, both indexed Frey families, minimal/semistable local tests, reduced-level bounds and one fixed family of primitive quadratic characters with nontrivial odd conductor and Lambda-weighted half-interval sum >.1239*k. Prove both Legendre cases and every simultaneous conductor-avoidance/size choice. Import Modularity and modular parametrisations of elliptic curves over Q (EllipticCurveModularity), Weight and level optimisation of residual modular representations (SerreWeightAndLevelOptimisation), Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves), and the new effective-comparison and Legendre-interface continuations (EllipticModularityEffectiveComparisons, EllipticLegendreCharacterInterfaces). Import generic zeros/prime estimates from Analytic number theory, zeta functions and prime distribution (AnalyticNumberTheory), short smooth-modulus sums from SmoothModulusCharacterSums, Gram duality from SieveMethodsAndPrimePatterns, quantitative Roth from AdditiveCombinatorics, CM integrality/images from ComplexMultiplicationAndExplicitReciprocity, and Faltings from HeightsRationalPointsAndObstructions. The fixed-exponent Darmon–Granville adapter and elementary quartic descent remain explicit local proof tasks. Follow the report's corrected discriminant, conductor bookkeeping, interval endpoints, divisor bounds and low-zero estimates. For the addendum, prove the single-witness lemma by deletion and disjoint triples; never combine unrelated existence claims. Include the historical theorem, Erdős conjecture and §11 smooth-multiplier announcement in a statement register with their actual status; neither unproved assertion is an assumption. Every definition needs API and unit tests, every nonroutine comparison a dependency, and both proof routes must terminate at these named suppliers or recorded blueprint gaps. The printed comparison of Roth constants is false: retain Proposition 9.1's exp(exp(10^6)) threshold as a source claim with a proof gap, and execute item 149 at exp(exp(10^7)), which suffices for the main theorem. Do not claim to have proved the sharper threshold.",
+      "reason": "No current roadmap owns this modular-method treatment of progression products. EffectiveDiophantineMethods has certified algorithms, not this non-effective finiteness/large-exponent contradiction. The new roadmap owns only application-specific constructions and adapters, with reusable machinery assigned to its existing subject owners or explicit continuations."
+    }
+  ],
   "handoff": "research/blueprint/handoff/PAPER-BENNETT-SIKSEK-20.md",
   "verification": {
-    "lean": "Not compiled; no Lean source submitted.",
-    "sourceAudit": "Partial. Corrected identities and proposed proof repairs are distinguished from source statements in the report.",
-    "routeAudit": "Not completed. Empty routes deliberately prevent downstream design jobs from being generated from unverified ownership."
+    "lean": "Not compiled; this paper job submits no Lean file and claims no formalization.",
+    "sourceAudit": "Entire published paper read; relevant original prerequisite statements/proofs read where listed in the report. Unavailable original proofs and the sharper source threshold are explicit design obligations.",
+    "routeAudit": "All 130 missing items routed once. Current atlas, reviewed audits, new roadmap definitions, packets, decompositions, reserved IDs and accepted link ownership compared; no generic carrier is re-planned.",
+    "checks": [
+      "python3 scripts/check_paper.py research/blueprint/papers/PAPER-BENNETT-SIKSEK-20.result.json: passed",
+      "Exact-arithmetic Frey/discriminant and finite-field point regressions (passed)",
+      "Numerical threshold/counterexample regressions (passed)"
+    ]
   }
 }

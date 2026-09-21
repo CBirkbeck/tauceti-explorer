@@ -1,148 +1,216 @@
-# Bennett–Siksek: source-led checkpoint
+# PAPER-BENNETT-SIKSEK-20 — extraction and routing
 
-**Job:** PAPER-BENNETT-SIKSEK-20; issue #1119.  
-**Worker:** ChatGPT, session `chatgpt-0921-b74e`.  
-**Status:** partial, not ready to generate design jobs.  
-**Read date:** 2026-09-21.
+Codex, session codex-a71f92; issue #1119. This continues merged checkpoint #1232, retaining IDs 01–49.
 
-## Source and limits of this submission
+## Outcome and scope
 
-Michael A. Bennett and Samir Siksek, *A conjecture of Erdős, supersingular primes and short character sums*, Annals of Mathematics **191** (2020), 355–392, DOI [10.4007/annals.2020.191.2.2](https://doi.org/10.4007/annals.2020.191.2.2). The source used is the [published 38-page PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf), including the Section 12 addendum credited to Andrew Granville. The earlier arXiv:1709.01022 version is not an interchangeable source for that addendum. Printed page 355 is PDF page 1.
+The extraction is complete: 151 items, comprising 9 pinned-library items, 12 already-planned items and 130 missing items. Each missing item has exactly one route. There are five source routes, three Part II continuations and one new application roadmap. “Complete” describes extraction and ownership, not a closed blueprint or a formalized theorem. Original-proof acquisition, computational certification and the paper's sharper unverified numerical threshold remain explicit design obligations.
 
-The JSON records 49 items. Sections 1–12 and the bibliography were viewed, with rendered-page checks for sensitive displays. This is **not** a complete extraction: several imported results, the final assembly, and most of the addendum still need individual entries and input verification. Reading an input as quoted in this paper is not verification of its original hypotheses.
+The published theorem is an effectively computable absolute bound on **prime** exponents: for sufficiently large k, a primitive solution of
+\[
+\prod_{0\leq i<k}(n+id)=y^\ell,\qquad \gcd(n,d)=1
+\]
+has yd=0 or \(\ell\leq\exp(10^k)\). Its consequence is finiteness for each fixed sufficiently large length k. This is not the Erdős nonexistence conjecture, finiteness over all lengths at once, or an algorithm listing every solution.
 
-Only item 03 is marked as a verified library item. Every other `missing` status means **unresolved lookup in this partial checkpoint**, not established absence from either library or the atlas. Each such item carries an explicit warning. The schema has no `unchecked` status. The empty `routes` and `prerequisites` arrays mean unfinished audits, not that no routes or prerequisites are needed. Do not accept those provisional classifications or generate a roadmap from this checkpoint.
+The entire publisher PDF was read, including the Granville addendum, all references, and the historical/extension discussion. The machine-readable inventory gives the individual exact statements and locators. Historical claims that do not enter the proof are identified as such. The optional Varnavides alternative mentioned on p.381 is not substituted for the proof actually given; the smooth-multiplier extension of §11 is an announcement, not an invented quantified theorem.
 
-The container could not resolve external hosts, so neither a clone nor raw PDF bytes were obtained. The PDF SHA-256 is deliberately null, rather than a hash of rendered text or a guessed fingerprint. The reviewed aggregate `data/library-coverage.json` did not return usable content through the attempted readers; its blob read timed out. No claim is made to have read that audit.
+## Sources and evidence
 
-## What the proof actually needs
+Access date throughout: 2026-09-21. Full-paper reading is asserted only for Bennett–Siksek. The following original-source passages were also inspected; this does not assert that all their proofs have been checked.
 
-For a primitive progression solution, write its small-prime factors as `n+i*d=A_i*y_i^ell`, with all prime powers below `k` retained in the positive integer `A_i`. In the main proof `ell` is odd and very large, so the sign lies in `y_i`. The target in Theorem 2 is the bound `ell <= exp(10^k)` for prime exponents and sufficiently large `k`, allowing the degenerate alternatives `y=0` or `d=0`. It is not `exp(10*k)`. The finiteness application fixes `k`; it is neither the full Erdős nonexistence conjecture nor an algorithm for listing all integral points. See pp. 356–358 and Section 11.
+| Source | Version and passages inspected | SHA-256 |
+| --- | --- | --- |
+| [Bennett–Siksek](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf) | Published Annals 191 (2020), 355–392; all 38 pages, §§1–12 and references | 3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf |
+| [Kraus](https://doi.org/10.4153/CJM-1997-056-2) | Published 1997, pp.1143–1146, Theorems 3–4, small-prime recognition and proof of Theorem 3/start of Theorem 4 | 3d9dc061cdfea2cbdd7525b35ad1ec3d9b0cf97e68277f97ad174c40faca4874 |
+| [Martin](https://personal.math.ubc.ca/~gerg/papers/downloads/DSCFN.pdf) | Published 2005, pp.298–302, dimension conventions and Theorem 2 | ef07b4915f8b98809c07b325ba95b5b1d87bebc97c09bf4820aac3e1d98ee847 |
+| [Lemos](https://arxiv.org/pdf/1702.01985v2) | March 2017 v2, introduction and Theorem 1.1; published reference DOI 10.1090/tran/7198 | ce889428aa4d6cbe1f30fcb504591063927fdaa96baa1bdf598596bbc02bd043 |
+| [Bennett–Skinner](https://personal.math.ubc.ca/~bennett/BS.pdf) | Published 2004, Lemma 2.1, Corollary 2.2, Corollary 3.1 and relevant local/irreducibility proof | 9fa607a29e78ec9aaf465d20ae4aee39dc0378b8dda7c9a8cde18b65b366309c |
+| [Bennett–Martin–O'Bryant–Rechnitzer](https://arxiv.org/pdf/1802.00085) | Downloaded arXiv manuscript; Propositions 1.10–1.12 and §6.1 proof of Proposition 1.11 | e51f8b8f63486c2259efe076d367504f08dda0fe9e99dc35bf36de544ffc0601 |
+| [Bombieri](https://www.numdam.org/item/AST_1987__18__1_0.pdf) | Astérisque 18, 1987 reprint; §2 pp.14–15 and §5 pp.39–40 | c1969cbf67bd01678a607fab403e206ec9bf979d15ff8ea9908a21492081622a |
+| [Platt](https://arxiv.org/pdf/1305.3087) | §7, Theorems 7.1–7.2 and accompanying computational discussion | 8fd109aa21345bc3feac4fde2faa7dfb51b4ef1fc9a430f643323612a39ef417 |
+| [Ramaré–Rumely](https://ramare-olivier.github.io/Maths/rumely.pdf) | Author-hosted published article; Theorem 1 p.398, §5.1, Table 1 p.419, modulus 8 row | 94bd522a40cfa72da87c5d8acc35f5e8e8ce2ea3347acdda5e1114eb880e553d |
+| [Rosser–Schoenfeld](https://denisevellachemla.eu/Rosser-Schoenfeld-1962.pdf) | Mirror of the original 31-page 1962 article; pp.69–70, Theorems 1,5,6,8; p.70 inspected as an image | 8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556 |
+| [Darmon–Granville](https://www.math.mcgill.ca/darmon/pub/Articles/Research/12.Granville/pub12.pdf) | Author-hosted published article; entire §2.1 pp.520–521, Corollary 2.1 and genus/finite-cover proof | 2a77462524aebdce6a34c540e99afb3913c2c6113b597af9792bed6c82376aca |
 
-The extraction follows the mathematical dependency order, not just the section titles:
+Kraus was downloaded from the Cambridge publisher DOI landing route. The Bennett–Skinner digest was checked against the downloaded published PDF.
 
-| Items | Interface established or recorded from the source |
-|---|---|
-| 04–10 | Residual representations, reduced conductor, weight-two realization, trace congruences, exponent bounds, and Kraus's replacement by an actual elliptic curve with full rational 2-torsion. |
-| 11–23 | Gcd/valuation splitting and **both** Frey families. The quadruple family is needed as well as the three-term-progression family. |
-| 24–27 | Every prime in `(k/2,k]` divides `d`; reduced-level curves have the same integer traces, and those at primes `3 mod 4` vanish. |
-| 28–39 | Legendre parameters, the two squareclass cases, finite-field 2-descent, and a simultaneous choice of primitive quadratic characters with large von Mangoldt sums and controlled, nontrivial odd conductors. |
-| 40–48 | Exceptional conductors, the harmonic-family contradiction, smooth-character cancellation, the inner-product sieve, Roth, and the simultaneous conductor-selection statement. |
-| 49 | The bounded-height exceptional-modulus definition at the start of the addendum; not an extraction of all its propositions. |
+The Schoenfeld publisher PDF returned 403. Its uniform theta bound is transcribed from Bennett–Siksek's explicit display; obtaining the original concluding note is still required. The main paper's “p.160” locator cannot be right for an article on pp.337–360.
 
-A residual trace congruence is not an actual curve. Kraus's theorem is the bridge needed before using Legendre coordinates. Equality of integer traces needs the Hasse inequalities and `4*sqrt(k)<ell`. The exceptional second squareclass case in Section 6 cannot be discarded: it is where the descent and the applicable rational-isogeny case of Serre uniformity enter. Conversely, general Serre uniformity must not be assumed.
+Rahman's linked PDF returned empty content and the former MIT URL returned 404. The exact bound is quoted in Bennett–Siksek (36), whose page image was read; no independent proof-verification claim is made. Attempts to obtain Iwaniec–Kowalski's relevant chapters returned front matter or an author excerpt of Chapter 11, not §§5 or 12. Those are not presented as evidence for the unavailable proofs. Graham–Ringrose was not independently read. The prerequisite register names these source-acquisition tasks.
 
-For continuation, the main proof closes as follows (Sections 9–10, pp. 381–385). Proposition 9.1 chooses **one** progression satisfying all four avoidance, smoothness and size conditions. Take a maximal family of such progressions with distinct largest conductor primes. More than `17*log(k)` members invokes Proposition 8.1. Otherwise maximality forces reciprocal mass at least `0.17`. The portion above `10^4*log(k)` is at most `0.0017`; the remaining small-prime portion therefore exceeds the `0.166` required by Proposition 7.2. These are proof dependencies still to be split into final-assembly entries, not work already marked complete.
+## Baseline and nonduplication audit
 
-Section 12 is a separate zero-density/exceptional-modulus route from Proposition 6.1. It replaces the short-character-sum and Roth part of the proof. A complete extraction must include **both** routes rather than silently replacing the original proof with the addendum.
+Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
-## Pinned library evidence and routing boundaries
+Actual positive statements were read in the pinned Lean files:
 
-The pins are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
+| Items | Files and exact scope |
+| --- | --- |
+| 03 | Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean: WeierstrassCurve and b₂,b₄,b₆,b₈,Δ; not the specialized Frey discriminants |
+| 46 | Mathlib/Combinatorics/Additive/Corner/Roth.lean, read completely: roth_3ap_theorem_nat and cornersTheoremBound; qualitative density threshold, not Rahman's numerical bound |
+| 54 | TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean: HeckeRing.GL2.Newform and qExpansion_coeff_one; Hecke eigenconditions are initially away from the level |
+| 66 | TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean, read completely: pointCount, frobeniusTrace and frobeniusTrace_eq_card_point; not Hasse |
+| 70 | Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean: the actual definition and prime/prime-power values |
+| 71,93,147 | Mathlib/NumberTheory/DirichletCharacter/Basic.lean and NumberTheory/MulChar/Basic.lean: conductor, primitivity, primitive inducing character, changeLevel recovery, quadratic values and product-conductor divisibility |
+| 138 | Mathlib/NumberTheory/Chebyshev.lean: ordinary psi/theta definitions, not PNT or the sharp numerical estimates |
 
-I read the actual Mathlib source [Weierstrass.lean at the pin](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean), including the coefficient structure and invariant definitions. The file blob is `5ef9316e466dfc60347c91f8110fe2a8eef28e5b`. Item 03 cites `WeierstrassCurve`, `b₂`, `b₄`, `b₆`, `b₈`, and `Δ`. This proves the availability of that infrastructure only, not the Frey lemmas, conductors, modularity, or 2-descent.
+The nine “library” records count packages of already-existing infrastructure, not nine new formalization achievements. Readback hashes of the pinned Stirling and Tau Ceti Newform files matched the local baseline copies.
 
-The pinned Tau Ceti root file was also read. It is intentionally empty and expressly says modules are built through the lakefile globs. **Its emptiness gives no evidence of mathematical absence.** A module-level Tau Ceti search remains necessary.
+Near misses matter. Mathlib's theta upper bound is weaker than 1.000081x. Its psi-minus-theta asymptotic does not by itself give the paper's finite threshold. The Stirling file supplies a sharp successive-difference estimate and its limit, but not the packaged global upper bound in item 141: telescope and pass to the limit. Tau Ceti's quadratic twist equations/isomorphisms do not already prove the finite-field trace identity. Fundamental-discriminant arithmetic and prime-discriminant characters do not supply the full rational-squareclass/primitive-conductor classification. The FLT-four theorem is not the quartic descent \(T^4+V^4=2U^2\). The conditional PNT transfer does not discharge its own analytic hypotheses.
 
-The EllipticCurves and ModularForms upstream roadmaps were consulted for their mathematical interfaces and style. Current roadmap prose is not a substitute for pinned declaration verification. The following are routing leads, not accepted routes:
+Reviewed coverage entries read include AUDIT-06 AN.2/AN.3/AN.5; SV.2; AUDIT-16 AC.2 and ModularForms Layers 8/8G; EllipticCurves Layer 3; AUDIT-09 CM.3/CM.4; and AUDIT-19 FF.1. They distinguish already-built character/point-count infrastructure from missing Hasse, supersingularity, coefficient fields, zero-free regions, explicit formulas and large-sieve estimates. Broad stage scope was not treated as evidence that a particular new numerical inequality was already a target.
 
-* `SerreWeightAndLevelOptimisation:R20.2`, whose full extracted description was read, already plans Mazur/Ribet/Diamond level lowering with exact Artin-conductor and exceptional-case controls. Import the applicable result; do not create another general level-lowering roadmap. The modularity supplier and exact matching hypotheses still need verification.
-* The effective-Diophantine roadmap's layers concern certified algorithms, logarithmic bounds, descent, Chabauty and the Mordell–Weil sieve. An effective exponent bound followed by an ineffective finiteness theorem is not, by itself, its certified-point-enumeration interface. Do not force this application into `ED.6` merely because both concern Diophantine equations.
-* The general elliptic, modular, additive-combinatorial and analytic inputs need their existing owners checked against the reviewed audit, packet IDs, proposed roadmaps and links. Only the remaining application-specific glue can justify a new route. No new roadmap ID is reserved here.
+Roadmap descriptions were read for the actual suppliers: ArithmeticDirichletSeries, EllipticCurveModularity, SerreWeightAndLevelOptimisation, AnalyticNumberTheory, SieveMethodsAndPrimePatterns, FiniteFieldsAndCharacterSums, EffectiveDiophantineMethods, ComplexMultiplicationAndExplicitReciprocity, and relevant EllipticCurves/ModularForms layers. At least two relevant upstream documents were read in full. Searches also covered new roadmap definitions, packets, reviewed decompositions, reserved IDs and link ownership. The ClassicalSerreModularity decomposition mentions a Rosser–Schoenfeld consecutive-prime ratio, but does not own the precise estimates extracted here. EllipticCurves' existing Kraus theorem is a different, integral-model theorem.
 
-## Source diagnostics and proposed repairs
+The atlas has no existing Frey/progression, short smooth-modulus or Legendre-character continuation matching these targets. Accepted elliptic-link ownership is respected: no scheme geometry is inserted into the equation-level elliptic roadmap. Retired FoundationsAndLibraryIntegration and a merely conceptual “ZerosOfLFunctions” name are not used as suppliers.
 
-These diagnostics are not a claim to have disproved the main theorem. They distinguish literal formulas from corrected identities, and local repairs from an audit of the full proof.
+## Why the nine routes
 
-### D1. First Frey discriminant: a factor of four
+The JSON contains the exhaustive per-item assignments and design briefs.
 
-On p. 361, Lemma 3.2 displays `64*(a*b*c)^2` for the model `Y^2=X*(X-a)*(X+c)`, with `a+b+c=0`. In the pinned Mathlib convention the coefficients are `a2=c-a`, `a4=-a*c`, and `a1=a3=a6=0`. Direct substitution gives
+1. **SerreWeightAndLevelOptimisation, source:** reduced-level and removed-prime comparison contracts belong to R20.2–R20.4/R20.6. The progression-specific coefficient-prime adapter remains local (150).
+2. **AnalyticNumberTheory, source:** generic character/conductor, zero-free, density, explicit-formula, prime-count, divisor and numerical summation inputs. The progression-specific mu bound (64) stays in the application, consuming generic Euler-product item 151; this prevents a dependency back from the analytic supplier.
+3. **SieveMethodsAndPrimePatterns, source:** the finite Gram/duality inequality of item 45 belongs to SV.2.
+4. **AdditiveCombinatorics, source:** only the stronger numerical Roth threshold is new. The library's existing qualitative theorem is reused.
+5. **ComplexMultiplicationAndExplicitReciprocity, source:** CM.4 supplies the finite residual Cartan-normalizer adapter; CM.3 already plans singular-modulus integrality.
+6. **EllipticCurveModularity, Part II — effective residual comparisons:** Kraus's threshold/realization, Martin's sharp dimension bound, uniform two-torsion irreducibility consequences and Lemos's restricted uniformity theorem. This extends the parent's qualitative modularity; it does not prove modularity again.
+7. **EllipticCurves, Part II — Legendre models, descent and character interfaces:** generic Legendre normalization, finite-field coordinate descent, explicit torsion tests and twist trace. These are not the parent's global Selmer or pointed-twist classification.
+8. **SieveMethodsAndPrimePatterns, Part II — short sums at smooth moduli:** individual Graham–Ringrose-type bounds, conductor bookkeeping, CRT packing and product-character cancellation. A large-sieve average alone does not state this theorem.
+9. **New ErdosProgressionPowers:** precisely the progression-specific modular method and its two endgames. The maintainer's arithmetic-geometric emphasis is preserved. EffectiveDiophantineMethods' certified algorithms do not already plan this finiteness/large-exponent contradiction.
 
-```
-Delta = 16*a^2*c^2*(a+c)^2 = 16*(a*b*c)^2.
-```
+The new application imports all the reusable results. Its generic suppliers do not import its final theorem, hypothetical progression solution or chosen Frey family. The source routes add exact contracts to proposed layers; they are not claimed as existing implementations. New/Part II IDs are proposals, not existing atlas stages.
 
-Consequently the progression-coordinate coefficient is `2^6/g^6`, not `2^8/g^6`. Item 16 records this **corrected** identity explicitly. The paper's later expression for `j` is consistent with the corrected invariant. Odd-prime valuations do not change; this observation does not discharge the separate 2-adic minimal-model/conductor bounds. The second Frey discriminant `-64*kappa^3*A^2*B` does agree with the same invariant convention.
+## Corrections and proof obligations
 
-### D2. The all-integer divisor bound is false as printed
+These distinctions are mandatory for downstream design. A numerical or algebraic diagnostic is not a Lean proof.
 
-On p. 378 the displayed inequality `tau(q) <= q^(1/log(log(3*q)))` is asserted for all positive `q`. At `q=120`, the left side is 16 and the right side is approximately 14.8922198924. This refutes the literal universal claim. **120 is not squarefree**, so it is not a counterexample to a separately restricted squarefree statement or to Proposition 8.2.
+### D1. The first discriminant
 
-The proof only needs an eventual subpower divisor estimate with constants controlled after `c2` is fixed. Replace the universal statement by a verified eventual estimate and absorb its threshold into `k3(c2)`, or prove the exact restricted bound needed for the chosen factor. The external divisor-estimate input is still to be audited.
+For \(y^2=x(x-a)(x+c)\), \(a+b+c=0\), the pinned convention gives
+\[
+\Delta=16(abc)^2,\qquad c_4=16(a^2-bc).
+\]
+The printed \(64(abc)^2\) on p.361 is false; the progression-coordinate factor is \(2^6/g^6\), not \(2^8/g^6\). Odd valuations are unaffected. This does not change the general \(v_2(N_E)\leq8\) conductor bound or provide a false minimal-discriminant identity at 2.
 
-### D3. Product-character conductor is not the lcm modulus
+### D2–D3. Divisors, modulus and conductor
 
-On p. 377 the proof sets `M=lcm(N1,N2)` and calls it the conductor of the product, then factors it into coprime primitive and principal parts. For the primitive characters of discriminants 8 and -8, both conductors are 8, but their product is the character of discriminant -4, of conductor 4. Thus the asserted conductor identity is false, even for distinct primitive quadratic characters.
+The universal printed \(\tau(q)\leq q^{1/\log\log(3q)}\) is false: q=120 gives 16 on the left and about 14.89 on the right. Use effective eventual subpower bounds; they suffice for §§8 and 12.
 
-A usable replacement separates the ambient modulus `M` from the primitive conductor `M1`. Let `eta` be the inducing primitive character and let `M2` be the product of primes dividing `M` but not `M1`. Then
+For the product of distinct primitive quadratic characters, set \(M=\operatorname{lcm}(N_1,N_2)\), let eta be the primitive inducing character of conductor M1, and let M2 be the product of primes dividing M but not M1. Then
+\[
+\chi_1(m)\chi_2(m)=\eta(m)1_{(m,M_2)=1},\quad
+(M_1,M_2)=1,\quad M_1M_2\mid M,\quad M_2\mid\gcd(N_1,N_2).
+\]
+M is not necessarily the primitive conductor. The characters of discriminants 8 and -8 multiply to the primitive character of conductor 4, while the ambient modulus is 8. Nor is \(M=M_1M_2\) generally true at 2.
 
-```
-chi1(n)*chi2(n) = eta(n) * 1_{gcd(n,M2)=1},
-gcd(M1,M2)=1,       M1*M2 divides M.
-```
+### D4–D6. Signs and addendum divisibility
 
-The principal factor has **modulus** `M2`, not primitive conductor `M2`. Equality with the old ambient modulus is unnecessary. Recheck the block decomposition, the length bounds, and both cases of Proposition 8.2 with this corrected convention before accepting the route.
+The factorization with positive Ai and signed yi uses odd ell; it is not valid unchanged for negative terms and even exponent. Ai contains all powers of primes below k, not merely their ell-power-free residues.
 
-### D4. Sign restriction in the small-prime factorization
+A residue-class count is at most k/r+1, even for r>k. In §12 sum the +1 terms: with q<=k^4 and \(\tau(q)\ll q^{1/12}\), their total is \(O(k^{1/3}(\log k)^{61})\), negligible against \(k/(\log k)^{1/4}\).
 
-Equation (6), p. 360, uses positive `A_i`. For negative progression terms that is incompatible with an even exponent. Item 13 explicitly assumes odd `ell`, which the main proof supplies. A general even-exponent API would need a different sign convention or positivity hypothesis.
+Only \(N_a^{odd}\mid A_iA_jA_h\) is justified, not equality with the largest odd squarefree divisor. Together with \(N_a\leq8N_a^{odd}\), this gives the product-of-gcd lower bound needed by the addendum.
 
-### D5. Retain the boundary term in the addendum's divisor count
+### D7–D9. Constants and endpoints
 
-On pp. 387–388 the count of indices in a length-`k` progression divisible by `r` is reduced from `k/r+O(1)` to `O(k/r)`. Uniformly in unbounded `r`, that reduction is not justified. Under coprimality, the count is at most `k/r+1` (or zero when the congruence has no solution). For `r|q` and `r >= q^(1/3)/2`, a valid sum is
+The Gram contradiction compares \(1/68<0.1239^2\). The paper first sets its symbol to \(0.1239^2\), then squares it again in the printed last comparison. The latter inequality is false.
 
-```
-sum_{q in Q(k)} tau(q) * (2*k/q^(1/3) + 1).
-```
+Proposition 9.1 excludes an open-left prime interval. Keep that endpoint in the maximal-family construction. For the remaining conductors use \(P(N)\leq(\log k)^{1-10^{-4}}\) and apply Proposition 7.2 with c1=1/20000, giving the strict inequality it requires.
 
-Here is a local repair, conditional on the stated estimates of Proposition 12.1 and a verified divisor bound. Use `tau(q) << q^(1/12)` and `q<=k^4`. The main term is bounded by `C*k*sum q^(-1/4)`. The omitted boundary contribution is at most `C*k^(1/3)*(log(k))^61`, using `#Q(k) << (log(k))^61`. The minimum-modulus and all-but-one lower bounds of Proposition 12.1 give the desired `O(k/(log(k))^(1/4))` overall. This repairs that counting step without pretending the other addendum inputs have been checked.
+For general \(0<c_1<1\), the quoted PNT denominator gives decay exponent \(\min(c_1,1/2)\), not c1 throughout. The actual small c1 used in §10 is unaffected.
 
-### D6. Divisibility suffices in the final addendum argument
+### D10. The addendum explicit formula
 
-On p. 388 the odd conductor is identified with the largest odd squarefree divisor of `A_i*A_j*A_h`. Proposition 6.1 and the level bound establish divisibility, not that equality. The needed conclusion is nevertheless obtained from the weaker statement. Since the odd part is squarefree, divides the product, and a primitive quadratic conductor has 2-part at most 8,
+Restore the zero-height restriction in Landau–Page, and require a primitive **nonprincipal** character in Proposition 12.2. Keep T, not a stray Q, as the truncation height. Uniformly bounding \(\sum1/|\rho|\) is unsafe near a zero approaching 0.
 
-```
-gcd(N,A_i)*gcd(N,A_j)*gcd(N,A_h) >= N^odd >= N/8.
-```
+Subtract the two explicit formulas first. A zero contributes
+\[
+\frac{k^\rho-(k/2)^\rho}{\rho}
+ =\int_{k/2}^k t^{\rho-1}\,dt,
+\]
+whose absolute value is at most \(Ck^\beta\min(1,1/|\rho|)\). Local zero counting bounds the sum of the latter weights by \(O(\log^2(q(T+2)))\). Constants independent of x cancel; endpoint and parity terms must be carried explicitly. Outside Q(k), \(k^\beta\leq k/\log^3 k\). For q<=k^4 and the chosen T this yields \(O(k/\log k)\), including the truncation error. The exact original explicit-formula proof/edition still has to be obtained before blueprint execution; item 139 states the required repaired interface, not a claim of library availability.
 
-At least one gcd is therefore at least `N^(1/3)/2`. Do not strengthen the earlier interface to an unsupported equality. The simultaneous avoidance and `N<=k^4` selection earlier in the same paragraph still needs a quantitative proof.
+### D11–D14. Other essential interfaces
 
-### An explicit factorial-deletion proof for item 48
+In §4 use the original index range 0,...,k-1. For the two-term case, p is in (k/2,k], not necessarily >=k as in Lemma 3.4. Directly use
+\(c_4=16\kappa(4\kappa d^2-3A)\): p divides A but not \(\kappa dB\), hence c4 is a p-unit and the positive discriminant valuation is divisible by ell. This supplies the actual local hypothesis (136).
 
-For each supported prime `p<k`, choose a maximal-valuation index `i_p` in `J`. Such a prime cannot divide `d`, since it divides one term and `gcd(n,d)=1`. For every other `i` in `J`, maximality and subtraction imply
+The sieve excludes primes **greater than** \(k^{7/16}\), not greater than or equal to it. Keep the weak largest-prime bound.
 
-```
-v_p(A_i) = v_p(n+i*d) <= v_p(i-i_p).
-```
+The PNT input is used only for nonprincipal conductor N>1. The displayed principal N=1 formula with a factor \((\log N)^4\) would have zero error and must not be exported.
 
-After deleting every chosen index, sum over the remaining indices and enlarge to all `i != i_p` in `[0,k-1]`. This gives
+In Theorem 6 the later factors may be principal of nontrivial modulus; “modulus” cannot be replaced by “conductor.” Handle M2=1 explicitly and discard modulus-one CRT factors. A weakened packing bound \(r\leq\lceil10c_2\rceil+4\) suffices for an effective positive cancellation exponent.
 
-```
-v_p(product A_i) <= v_p(i_p! * (k-1-i_p)!) <= v_p((k-1)!).
-```
+### D15. Correct the order-four point
 
-Primes not supported by the `A_i` contribute zero. Hence the product divides `(k-1)!`. The number of deletions is at most the number of primes below `k`. Valuations of signed terms are taken on absolute values; no positivity of `n` was used.
+The printed second coordinate on p.371 fails even at p=5, t=v=2, i=3, lambda=3: it gives (x,y)=(4,4), but \(y^2=1\) and \(x(x-2)(x-2\lambda)=4\) in F5.
 
-## Prerequisite-source leads, not an absence audit
+A valid replacement is
+\[
+P=(4itv+2\lambda,\;8itv(t+iv)).
+\]
+Put r=2t and s=2iv; then \(r^2=2\lambda\), \(s^2=2\lambda-2\). The standard halving formulas give \(x=r^2+rs\), \(y=rs(r+s)\), so membership and \(2P=(2\lambda,0)\) follow directly. Here t+iv cannot vanish because \(t^2+v^2=1/2\). The third descent coordinate remains 4itv, so the subsequent argument is unchanged. Exact modular tests checked all such t,v and both roots i for primes below 200: 2,504 membership/doubling cases passed.
 
-The following identifications were checked against this paper's bibliography. Their original statements and their atlas coverage are **not yet verified**, so these are a continuation list, not accepted missing-paper requests.
+### D16. The printed Roth comparison fails
 
-| Source in the paper | Needed interface |
-|---|---|
-| Kraus [23], *Majorations effectives pour l'équation de Fermat généralisée*, DOI `10.4153/CJM-1997-056-2` | Exact full-two-torsion replacement theorem and threshold. |
-| Bennett–Skinner [4], DOI `10.4153/CJM-2004-002-2` | Second Frey family's reduction and conductor estimates. |
-| Lemos [25], DOI `10.1090/tran/7198` | The rational cyclic-isogeny case actually used in Section 6, with CM exceptions. |
-| Martin [28], DOI `10.1016/j.jnt.2004.10.009` | The newform-dimension bound used in Lemma 2.2. |
-| Graham–Ringrose [15], DOI `10.1007/978-1-4612-3464-7_18`; Bombieri [6], DOI `10.4064/aa-18-1-401-404` | Exact short-sum and inner-product-sieve inputs, including conductor and length hypotheses. |
-| Iwaniec–Kowalski [19], DOI `10.1090/coll/053` | Zero-free regions, exceptional-zero repulsion, explicit formula and divisor bounds with their ranges. |
-| Rahman [31]; Laishram–Shorey [24] | The explicit Roth threshold and the cited progression-factor combinatorics. |
-| Bennett–Martin–O'Bryant–Rechnitzer [2], DOI `10.1215/ijm/1552442669`; Platt [30], DOI `10.1090/mcom/3077` | Addendum zero-free/numerical inputs and exact certified ranges. |
-| Darmon–Granville [9], DOI `10.1112/blms/27.6.513` | The fixed-exponent finiteness interface; distinguish it from an effective enumeration claim. |
+The quoted threshold gives
+\[
+\log\log K_0(10^{-5})=132\log(2)\,10^5
+ \approx9.1495\,10^6>10^6.
+\]
+Thus the claimed comparison on p.384 does not follow. Item 47 preserves the literal Proposition 9.1 statement and marks this proof gap. Item 149 supplies the same four simultaneous conclusions at the sufficient threshold \(\exp(\exp(10^7))\). All preceding estimates still hold, and the quoted Roth bound now applies. The main theorem has an unspecified effective k0, so its target is unchanged. No claim is made that the sharper proposition is false; only that the supplied numerical argument fails.
 
-## Validation performed
+## Two short quantitative repairs
 
-The exact repository `scripts/check_paper.py` was reconstructed locally and its Git blob hash verified as `cf3cae9e7d2d41209bf9fa4d719fd6fe17a69f1f`. Calling its unmodified `check(data, paper, {}, {})` returned no errors. Empty catalogues are sufficient for this **structural** check because the checkpoint has no planned-stage references or routes. This was not a run of the full CLI against a cloned atlas, and it does not establish mathematical completeness or library coverage.
+Let \(L=\log k\), y=\(k^{7/16}\), and \(S(x)=\sum_{p\leq x}\log p/p\). Rosser–Schoenfeld Theorem 6 gives
+\[
+S(k)-S(y)>\frac9{16}L-\frac{23}{14L}.
+\]
+Therefore
+\[
+\sum_{y<p\leq k}v_p((k-1)!)\log p
+ \geq(k-1)(S(k)-S(y))-\theta(k)
+ >\frac9{16}kL-5k
+\]
+at the working threshold: the loss is bounded by
+\(9L/16+23(k-1)/(14L)+1.000081k<5k\).
+Combined with explicit Stirling this gives the paper's \(k^{.44k}\) bound. No unspecified O(1) is used to justify a fixed constant.
 
-JSON parsing and uniqueness of all 49 IDs were checked. Symbolic substitution in the pinned discriminant formulas verified D1 and the second-family identity. Direct arithmetic checked D2, and the discriminant-8/-8 product identity was checked over a finite range as a regression test for D3. These computations are not Lean proofs. No Lean file was submitted or compiled.
+For the character margin, it suffices to discard the nonnegative lower-end prime-power mass and bound
+\[
+\psi(k)-\theta(k)
+ \leq1.000081\left(\sqrt{k}+\frac{\log k}{\log2}k^{1/3}\right).
+\]
+After division by k the terms decrease for k>=2*10^10. At the left endpoint, use \(\sqrt{k}>140000\), \(k^{2/3}>7000000\), and \(\log_2 k<35\); the resulting bound is less than .000013. The available margin is exactly
+\((1-3(.002811))/8-.1239=.000045875\).
+This proves item 79 without assuming the uninspected sharper prime-power theorem. These are mathematical inequalities; the scratch tests only check their numerical arithmetic.
 
-The accompanying handoff gives the exact remaining work and acceptance conditions.
+## A simultaneous addendum witness
+
+The final paragraph of the paper needs one triple with both avoidance and small conductor. Here is an explicit proof, not an assertion that two independent choices coincide.
+
+First prove the Erdős deletion lemma. For each p<k dividing some Ai in J, choose an index ip of maximum p-valuation. For every other i,
+\(v_p(A_i)\leq v_p(i-i_p)\), because p cannot divide d and the difference of the progression terms is (i-ip)d. Summing these valuations gives at most
+\(v_p(i_p!)+v_p((k-1-i_p)!)\leq v_p((k-1)!)\).
+Deleting at most pi(k) indices therefore leaves a product dividing (k-1)!.
+
+Delete additionally the exceptional indices of Proposition 12.3. In the original partition into consecutive disjoint triples (0,1,2), (3,4,5), ..., at most one block per deleted index is lost. Effectively for all sufficiently large k, more than 2k/7 blocks survive. Their combined Ai-product divides (k-1)!, so the sum of their logarithmic products is at most k log k. One surviving block has product at most \(k^{7/2}\), whence \(N_a\leq8k^{7/2}\leq k^4\) for k>=64.
+
+It is the same surviving block that avoids all bad indices. If its conductor were in Q(k), odd-conductor divisibility would force one of the three gcds to be at least \(N_a^{1/3}/2\), making that index bad. This contradiction supplies items 125–127. It uses neither Roth nor short smooth-modulus sums, but still imports the common Frey/character construction, explicit formula and effective exceptional-set estimates.
+
+## Design preparation and tests
+
+Every new definition/construction must receive an API and unit tests in its eventual blueprint: projection and nonzero lemmas for solutions; signed factorization uniqueness/support/valuation APIs; bounds and membership for indexed triples/quadruples; normalization and singular-parameter rejection for Legendre models; conductor/change-level and nonunit-zero identities for characters; endpoint and membership lemmas for sieve/exceptional sets; and simultaneous projections from each selected witness. No downstream proof may unfold an unexplained object or assume that independent witnesses agree.
+
+Priority proof-preparation tasks are: the rational-isogeny consequences in 59–60; the weight/conductor bridge 150; original Kraus/Martin/Lemos proof trees; the quartic descent in 81; the exact IK/Graham–Ringrose/Rahman sources; computational certificates behind Platt, BMOR and Ramaré–Rumely; and the corrected explicit formula. Platt's bounded-height GRH alone permits a real zero at 1/2, so Theorem 7.2's separate nonvanishing is essential. No computational certificate was rerun or checked in Lean.
+
+Checks performed:
+
+- The paper checker reports no errors.
+- Every missing item is assigned exactly once; new/Part II names and galaxy IDs were checked; no baseline/planned item is assigned to a new roadmap.
+- Exact-integer tests cover 552 first-Frey and 3,971 second-Frey discriminant specializations.
+- Exact finite-field tests cover the corrected order-four coordinates and j=1728 point-count assertions at primes below 200.
+- Arithmetic regressions cover the false divisor estimate, corrected Gram margin, prime-power margin, density estimates, failed/corrected Roth threshold and finite small-conductor prime-product checks.
+- Relevant atlas inputs were compared against current main; no mathematical ownership change was found in the intervening commits.
+
+These tests are diagnostics, not proof certificates. No Lean file belongs to this paper job; Lean compilation is not applicable. The next independent review should particularly challenge the repairs, exact uniformity hypotheses, source-threshold distinction and boundaries of the three proposed continuations.
