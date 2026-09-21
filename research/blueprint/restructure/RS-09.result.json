@@ -1,0 +1,399 @@
+{
+  "family": "RS-09",
+  "roadmaps": {
+    "ArithmeticLocallySymmetricSpaces": {
+      "action": "keep",
+      "reason": "Keep the arithmetic geometry and finite-level cohomology roadmap. Import generic topology from the unchanged Tau Ceti AlgebraicTopology anchor. The Borel-Serre construction, arithmetic local systems, Hecke and boundary comparisons, finite-level duality and late automorphic comparison remain new arithmetic work, not a second generic topology roadmap."
+    },
+    "CompletedCohomologyPartII": {
+      "action": "extend",
+      "extends": "ArithmeticLocallySymmetricSpaces",
+      "title": "Arithmetic locally symmetric spaces and their cohomology, Part II: completed cohomology and homology",
+      "reason": "Keep the stable roadmap ID, and make the existing finite-level base explicit in the title and first prerequisite. Begin with ALS.0-4 actual objects and maps; only the support/duality suffix imports ALS.5:finite-level-duality. The extension adds completed tower objects, their topology, equivariant completed chain models, finiteness, descent and actual Shimura adapters. ALS.6 is a downstream export facade for those constructions, not a prerequisite of the extension, and the late ALS.5 automorphic branch is not imported into early CC. R31 remains the separate GL2/Q_p Banach local-global application."
+    },
+    "tauceti:TauCetiRoadmap/AlgebraicTopology": {
+      "action": "keep",
+      "reason": "Existing Tau Ceti anchor. Its document, stage IDs, targets and ownership remain unchanged. Only proposed-roadmap imports are added; no anchor layer is re-planned."
+    }
+  },
+  "layers": {
+    "ArithmeticLocallySymmetricSpaces:ALS.0": {
+      "action": "narrow",
+      "keeps": "The actual real symmetric-space and reductive-centre-corrected arithmetic quotient, component/stabilizer maps, proper discontinuity and freeness at neat level, and the identification/transport of the imported orientation system on these quotients, including nonorientable examples. Existing AA/AF inputs remain imports.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+      ],
+      "reason": "Remove only a second generic construction of the orientation local system. Arithmetic orientation data and all quotient-specific proofs remain here; the anchor supplies local orientation classes, not the arithmetic quotient."
+    },
+    "ArithmeticLocallySymmetricSpaces:ALS.1": {
+      "action": "narrow",
+      "keeps": "Arithmetic local systems from the given coefficient modules and stable lattices; their actual absolute, relative and compact-support complexes; comparison of the imported singular/cellular complexes with the arithmetic sheaf model; finite-projective models under the stated finite-CW, neat and coefficient hypotheses; derived coefficient change with uniform amplitude and all Tor terms; coefficient and level functoriality.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+      ],
+      "reason": "Use the anchor local-coefficient, chain, cellular-comparison and cochain constructions rather than planning them again. Keep the arithmetic sheaf comparison and coefficient-change theorem. The anchor cohomological universal-coefficient Ext spectral sequence is not the derived coefficient-change Tor spectral sequence required here; neither perfectness nor base change is inferred from finite CW type alone."
+    },
+    "ArithmeticLocallySymmetricSpaces:ALS.2": {
+      "action": "keep",
+      "reason": "Keep all Borel-Serre boundary components, incidence gluing, corner geometry, compactness and interior homotopy equivalence, nilmanifold/Levi fibrations, monodromy and the stratification spectral sequence with differentials. Neither generic topology nor the completed tower constructs this compactification."
+    },
+    "ArithmeticLocallySymmetricSpaces:ALS.3": {
+      "action": "narrow",
+      "keeps": "The actual arithmetic double-coset correspondence on the ALS complexes, normalized pullback/trace, representative independence, composition, cup/support/boundary and coefficient compatibility, coherent refinement comparisons, and non-neat stabilizer factors. Keep the existing adelic diagram and abstract Hecke-algebra suppliers.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
+      ],
+      "reason": "Import generic finite-cover chain transfer and its identities. Construct its action on the arithmetic complexes and prove all Hecke coherence here; an abstract Hecke ring or generic transfer theorem is not that action."
+    },
+    "ArithmeticLocallySymmetricSpaces:ALS.4": {
+      "action": "keep",
+      "reason": "Keep the finite-level compact-support/boundary triangle, unipotent/Levi stratum cohomology, source-qualified Hochschild-Serre applications, Hecke/Satake comparison with modulus and twist factors, gluing/convergence/localization and any arithmetic vanishing proof. This is the finite-level supplier to CC.7, not the completed-limit theorem."
+    },
+    "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality": {
+      "action": "narrow",
+      "keeps": "Finite-level arithmetic Poincare-Lefschetz/derived duality for the specified perfect coefficient complexes on the actual corner model; the bridge from the anchor manifold-with-boundary theorem to this model; orientation twists, evaluation and relative/compact pairings, restriction/corestriction and inverse-Hecke adjoints, coefficient change and boundary-triangle compatibility. Preserve non-neat stabilizer qualifications.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+      ],
+      "reason": "The generic topological duality theorem belongs to the anchor. Corner reduction, perfect-coefficient transport and arithmetic functoriality remain here; no unconditional orbifold theorem is inferred. This early supplier has no completed-cohomology or automorphic-comparison hypothesis."
+    },
+    "ArithmeticLocallySymmetricSpaces:ALS.5": {
+      "action": "narrow",
+      "keeps": "The later characteristic-zero Betti/de Rham/relative-Lie-algebra comparison and its source-qualified automorphic step, with AF.1a and AS.5 as recorded inputs; identification with the already constructed early pairings when needed. Retain the early finite-level duality as a named import/re-export, not a second construction.",
+      "suppliedBy": [
+        "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality"
+      ],
+      "reason": "The extracted parent description repeats the early prefix, but the full README also has a genuinely later comparison. Preserve both targets with distinct owners rather than deleting the parent or importing AS.5 into the early duality prefix."
+    },
+    "ArithmeticLocallySymmetricSpaces:ALS.6": {
+      "action": "narrow",
+      "keeps": "The arithmetic finite-cover/descent application and its Hecke comparison; identify the actual tame and p-power diagrams with CC.0, then export the same CC.2/CC.4/CC.7 completed objects through named comparison maps. Retain modular-curve and anisotropic-compact tests, support variants and lim^1 qualifications. Existing R02 generic continuous-cohomology inputs remain imports.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+        "CompletedCohomologyPartII:CC.0",
+        "CompletedCohomologyPartII:CC.2",
+        "CompletedCohomologyPartII:CC.4",
+        "CompletedCohomologyPartII:CC.7"
+      ],
+      "reason": "Own the arithmetic application and comparison, not a second generic finite-cover theory, tower carrier, completion or completed boundary construction. CC consumes the early ALS prefix, never this late facade; finite-cover descent here is not the same statement as CC.6 completed descent."
+    },
+    "CompletedCohomologyPartII:CC.0": {
+      "action": "narrow",
+      "keeps": "Actual level-indexing categories, cofinal normal/pro-p systems and conjugation maps; assemble the ALS finite-level quotient, coefficient, compactification and correspondence objects into one coherent tower diagram and identify their support models; preserve non-neat derived/groupoid models and the eligible singular/etale realization comparison. No new copy of an arithmetic space, finite-level cochain carrier or Borel-Serre compactification.",
+      "suppliedBy": [
+        "ArithmeticLocallySymmetricSpaces:ALS.1",
+        "ArithmeticLocallySymmetricSpaces:ALS.2",
+        "ArithmeticLocallySymmetricSpaces:ALS.3",
+        "ArithmeticLocallySymmetricSpaces:ALS.4"
+      ],
+      "reason": "This owns assembly of the compatible tower and realization identifications. ALS owns its actual finite-level geometry and maps. An axiomatically postulated tower does not discharge the arithmetic construction or the realization comparisons."
+    },
+    "CompletedCohomologyPartII:CC.1": {
+      "action": "narrow",
+      "keeps": "Apply existing filtered-colimit exactness/cofinality and smooth-representation infrastructure to the actual tower; construct the full local-group action by conjugating levels and prove open stabilizers. Transport the same normalized ALS Hecke and restriction/corestriction maps to the colimit and establish their compatibilities without inverting index factors.",
+      "suppliedBy": [
+        "ArithmeticLocallySymmetricSpaces:ALS.3"
+      ],
+      "reason": "Do not reconstruct finite-level Hecke correspondences or generic chain transfer. The smooth action on the actual colimit and its compatibility with the transported maps remain genuine work; already-built colimit and smoothness infrastructure is reused."
+    },
+    "CompletedCohomologyPartII:CC.2": {
+      "action": "keep",
+      "reason": "Keep the actual topological and derived completed objects, order of limits, separatedness/completeness, Milnor and reduction comparisons under proved Mittag-Leffler/torsion hypotheses, counterexamples and the rational Banach construction with continuous actions. Generic derived-limit infrastructure remains with the existing R02/D7 supplier; ALS.6 only re-exports this application."
+    },
+    "CompletedCohomologyPartII:CC.3": {
+      "action": "keep",
+      "reason": "Keep continuous O-linear/Pontryagin dual comparisons on the actual completed modules, compact/discrete topologies, completed homology and its transition direction, the existing Iwasawa-algebra action with the opposite-action convention, qualified biduality, and localization/completion compatibility. Preserve the reviewed torsion and proof-order gaps; do not infer this from finite-level duality."
+    },
+    "CompletedCohomologyPartII:CC.4": {
+      "action": "narrow",
+      "keeps": "The equivariantly lifted cellular tower complex on the actual finite-level ALS models, including boundary chains and coherent refinements; its completed Iwasawa-algebra module structure; bounded finite free/projective complex under the precise finite-cell, torsion-free and analytic-group hypotheses; realization comparisons; derived finite-level coinvariants recovering the finite-level complex, with noncompact/stabilizer replacements where required.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+        "ArithmeticLocallySymmetricSpaces:ALS.1",
+        "ArithmeticLocallySymmetricSpaces:ALS.2"
+      ],
+      "reason": "Import generic cellular chains/comparison and actual finite-level arithmetic cell/cochain and Borel-Serre models. The completed equivariant chain complex and derived recovery theorem remain here. A finite-level projective complex is not automatically a completed projective complex, and neither assertion makes its homology free or projective."
+    },
+    "CompletedCohomologyPartII:CC.5": {
+      "action": "keep",
+      "reason": "Keep source-qualified finite generation of completed homology, topology comparisons and dual admissibility from the finite-cell model and compact p-adic analytic/Iwasawa inputs. Do not reprove the generic completed group ring or infer admissibility for arbitrary profinite groups, freeness, Cohen-Macaulayness or concentration. Preserve all source-proof and codimension gaps in the partial decomposition."
+    },
+    "CompletedCohomologyPartII:CC.6": {
+      "action": "keep",
+      "reason": "Keep the continuous completed-descent spectral sequence, edge maps and Hecke functoriality, the derived-invariants statement and qualified classical coefficient evaluation. Generic R02/D7 cohomology is imported. Finite-cover descent, completed descent and a GL2 locally algebraic/Banach comparison are distinct targets; degree-zero invariants alone do not recover all classical cohomology."
+    },
+    "CompletedCohomologyPartII:CC.7": {
+      "action": "keep",
+      "reason": "Keep passage of the ALS.4 triangle and early ALS.5 duality through the actual derived tower construction, connecting morphisms, lim^1/torsion corrections and separate interior-image comparisons. The generic functor does not prove arithmetic boundary vanishing or concentration. Preserve the provisional CC.7/CC.8 corollary-placement gap; no reverse edge is added."
+    },
+    "CompletedCohomologyPartII:CC.8": {
+      "action": "keep",
+      "reason": "Keep actual modular, Siegel, unitary and Hilbert tower adapters, finite-level realization/canonical-model comparisons, continuous commuting Galois/Hecke actions, residual-ideal localization and the precise support/lattice comparison to the selected Scholze convention. Preserve Hodge-type, tame-level, almost-coefficient and fixed-exponent qualifications and the unresolved comparison imports. TC/IHG/IG/R31 application theorems are not transferred here."
+    }
+  },
+  "links": [
+    {
+      "source": "ArithmeticLocallySymmetricSpaces:ALS.1",
+      "target": "CompletedCohomologyPartII:CC.0",
+      "reason": "Direct construction-owner import: Actual finite-level arithmetic local systems, cochain/sheaf comparisons and source-qualified finite-projective models with derived coefficient change. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "ArithmeticLocallySymmetricSpaces:ALS.1",
+      "target": "CompletedCohomologyPartII:CC.4",
+      "reason": "Direct construction-owner import: Actual finite-level arithmetic local systems, cochain/sheaf comparisons and source-qualified finite-projective models with derived coefficient change. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "ArithmeticLocallySymmetricSpaces:ALS.2",
+      "target": "CompletedCohomologyPartII:CC.0",
+      "reason": "Direct construction-owner import: Actual Borel-Serre compactification and its boundary/corner geometry at finite level. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "ArithmeticLocallySymmetricSpaces:ALS.2",
+      "target": "CompletedCohomologyPartII:CC.4",
+      "reason": "Direct construction-owner import: Actual Borel-Serre compactification and its boundary/corner geometry at finite level. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "ArithmeticLocallySymmetricSpaces:ALS.3",
+      "target": "ArithmeticLocallySymmetricSpaces:ALS.6",
+      "reason": "Direct construction-owner import: The normalized finite-level arithmetic Hecke correspondence on actual complexes, with coherent restriction/corestriction and support comparisons. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "ArithmeticLocallySymmetricSpaces:ALS.3",
+      "target": "CompletedCohomologyPartII:CC.0",
+      "reason": "Direct construction-owner import: The normalized finite-level arithmetic Hecke correspondence on actual complexes, with coherent restriction/corestriction and support comparisons. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "ArithmeticLocallySymmetricSpaces:ALS.3",
+      "target": "CompletedCohomologyPartII:CC.1",
+      "reason": "Direct construction-owner import: The normalized finite-level arithmetic Hecke correspondence on actual complexes, with coherent restriction/corestriction and support comparisons. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "CompletedCohomologyPartII:CC.0",
+      "target": "ArithmeticLocallySymmetricSpaces:ALS.6",
+      "reason": "Direct construction-owner import: Assembly of the actual level-indexed arithmetic tower, including cofinal/conjugation and support data. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+      "target": "ArithmeticLocallySymmetricSpaces:ALS.1",
+      "reason": "Direct construction-owner import: Generic local-coefficient and relative singular-chain carriers and their functoriality, before arithmetic or realization comparisons. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+      "target": "CompletedCohomologyPartII:CC.0",
+      "reason": "Direct construction-owner import: Generic local-coefficient and relative singular-chain carriers and their functoriality, before arithmetic or realization comparisons. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+      "target": "CompletedCohomologyPartII:CC.4",
+      "reason": "Direct construction-owner import: Generic local-coefficient and relative singular-chain carriers and their functoriality, before arithmetic or realization comparisons. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "ArithmeticLocallySymmetricSpaces:ALS.1",
+      "reason": "Direct construction-owner import: Generic cellular chains from skeleta and the natural cellular-to-singular comparison up to the specified homotopy/derived equivalence. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "target": "CompletedCohomologyPartII:CC.4",
+      "reason": "Direct construction-owner import: Generic cellular chains from skeleta and the natural cellular-to-singular comparison up to the specified homotopy/derived equivalence. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "target": "ArithmeticLocallySymmetricSpaces:ALS.3",
+      "reason": "Direct construction-owner import: Generic finite-cover chain transfer, degree/regular-cover identities and Cartan-Leray descent; not the arithmetic or completed application. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "target": "ArithmeticLocallySymmetricSpaces:ALS.6",
+      "reason": "Direct construction-owner import: Generic finite-cover chain transfer, degree/regular-cover identities and Cartan-Leray descent; not the arithmetic or completed application. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "target": "CompletedCohomologyPartII:CC.0",
+      "reason": "Direct construction-owner import: Generic finite-cover chain transfer, degree/regular-cover identities and Cartan-Leray descent; not the arithmetic or completed application. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "target": "CompletedCohomologyPartII:CC.1",
+      "reason": "Direct construction-owner import: Generic finite-cover chain transfer, degree/regular-cover identities and Cartan-Leray descent; not the arithmetic or completed application. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+      "target": "ArithmeticLocallySymmetricSpaces:ALS.0",
+      "reason": "Direct construction-owner import: Generic local orientation system and local orientation classes, before identifying them on an arithmetic quotient. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+      "target": "ArithmeticLocallySymmetricSpaces:ALS.1",
+      "reason": "Direct construction-owner import: Generic absolute/relative cochains with local coefficients and their cup/cap interface; not the arithmetic sheaf comparison or the coefficient-change Tor spectral sequence. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+      "target": "ArithmeticLocallySymmetricSpaces:ALS.5",
+      "reason": "Direct construction-owner import: Generic local orientation system and local orientation classes, before identifying them on an arithmetic quotient. Generic manifold-with-boundary Poincare-Lefschetz duality with the stated coefficient and orientation hypotheses; not corner/orbifold/perfect-complex transport. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+      "target": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
+      "reason": "Direct construction-owner import: Generic local orientation system and local orientation classes, before identifying them on an arithmetic quotient. Generic manifold-with-boundary Poincare-Lefschetz duality with the stated coefficient and orientation hypotheses; not corner/orbifold/perfect-complex transport. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+      "target": "CompletedCohomologyPartII:CC.0",
+      "reason": "Direct construction-owner import: Generic absolute/relative cochains with local coefficients and their cup/cap interface; not the arithmetic sheaf comparison or the coefficient-change Tor spectral sequence. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+      "target": "CompletedCohomologyPartII:CC.4",
+      "reason": "Direct construction-owner import: Generic absolute/relative cochains with local coefficients and their cup/cap interface; not the arithmetic sheaf comparison or the coefficient-change Tor spectral sequence. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+      "target": "CompletedCohomologyPartII:CC.7",
+      "reason": "Direct construction-owner import: Generic manifold-with-boundary Poincare-Lefschetz duality with the stated coefficient and orientation hypotheses; not corner/orbifold/perfect-complex transport. The consumer retains the actual specialization/transport proof; this does not assert that the supplier is already implemented."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Generic local orientation system and local orientation classes, before identifying them on an arithmetic quotient.",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+      "formerly": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+        "ArithmeticLocallySymmetricSpaces:ALS.0",
+        "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
+        "ArithmeticLocallySymmetricSpaces:ALS.5"
+      ]
+    },
+    {
+      "target": "Generic local-coefficient and relative singular-chain carriers and their functoriality, before arithmetic or realization comparisons.",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+      "formerly": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+        "ArithmeticLocallySymmetricSpaces:ALS.1",
+        "CompletedCohomologyPartII:CC.0",
+        "CompletedCohomologyPartII:CC.4"
+      ]
+    },
+    {
+      "target": "Generic cellular chains from skeleta and the natural cellular-to-singular comparison up to the specified homotopy/derived equivalence.",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+      "formerly": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+        "ArithmeticLocallySymmetricSpaces:ALS.1",
+        "CompletedCohomologyPartII:CC.4"
+      ]
+    },
+    {
+      "target": "Generic absolute/relative cochains with local coefficients and their cup/cap interface; not the arithmetic sheaf comparison or the coefficient-change Tor spectral sequence.",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+      "formerly": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+        "ArithmeticLocallySymmetricSpaces:ALS.1",
+        "CompletedCohomologyPartII:CC.0",
+        "CompletedCohomologyPartII:CC.4"
+      ]
+    },
+    {
+      "target": "Generic finite-cover chain transfer, degree/regular-cover identities and Cartan-Leray descent; not the arithmetic or completed application.",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "formerly": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+        "ArithmeticLocallySymmetricSpaces:ALS.3",
+        "ArithmeticLocallySymmetricSpaces:ALS.6",
+        "CompletedCohomologyPartII:CC.0",
+        "CompletedCohomologyPartII:CC.1"
+      ]
+    },
+    {
+      "target": "Generic manifold-with-boundary Poincare-Lefschetz duality with the stated coefficient and orientation hypotheses; not corner/orbifold/perfect-complex transport.",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+      "formerly": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+        "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
+        "ArithmeticLocallySymmetricSpaces:ALS.5",
+        "CompletedCohomologyPartII:CC.7"
+      ]
+    },
+    {
+      "target": "Actual finite-level arithmetic local systems, cochain/sheaf comparisons and source-qualified finite-projective models with derived coefficient change.",
+      "owner": "ArithmeticLocallySymmetricSpaces:ALS.1",
+      "formerly": [
+        "ArithmeticLocallySymmetricSpaces:ALS.1",
+        "CompletedCohomologyPartII:CC.0",
+        "CompletedCohomologyPartII:CC.4"
+      ]
+    },
+    {
+      "target": "Actual Borel-Serre compactification and its boundary/corner geometry at finite level.",
+      "owner": "ArithmeticLocallySymmetricSpaces:ALS.2",
+      "formerly": [
+        "ArithmeticLocallySymmetricSpaces:ALS.2",
+        "CompletedCohomologyPartII:CC.0",
+        "CompletedCohomologyPartII:CC.4"
+      ]
+    },
+    {
+      "target": "The normalized finite-level arithmetic Hecke correspondence on actual complexes, with coherent restriction/corestriction and support comparisons.",
+      "owner": "ArithmeticLocallySymmetricSpaces:ALS.3",
+      "formerly": [
+        "ArithmeticLocallySymmetricSpaces:ALS.3",
+        "CompletedCohomologyPartII:CC.0",
+        "CompletedCohomologyPartII:CC.1",
+        "CompletedCohomologyPartII:CC.4",
+        "ArithmeticLocallySymmetricSpaces:ALS.6"
+      ]
+    },
+    {
+      "target": "The actual finite-level compact-support/boundary triangle and its arithmetic functoriality.",
+      "owner": "ArithmeticLocallySymmetricSpaces:ALS.4",
+      "formerly": [
+        "ArithmeticLocallySymmetricSpaces:ALS.4",
+        "CompletedCohomologyPartII:CC.7",
+        "ArithmeticLocallySymmetricSpaces:ALS.6"
+      ]
+    },
+    {
+      "target": "Arithmetic corner-model perfect-coefficient duality and the actual pairings, adjoints and boundary compatibility.",
+      "owner": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
+      "formerly": [
+        "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
+        "ArithmeticLocallySymmetricSpaces:ALS.5",
+        "CompletedCohomologyPartII:CC.7"
+      ]
+    },
+    {
+      "target": "Assembly of the actual level-indexed arithmetic tower, including cofinal/conjugation and support data.",
+      "owner": "CompletedCohomologyPartII:CC.0",
+      "formerly": [
+        "CompletedCohomologyPartII:CC.0",
+        "ArithmeticLocallySymmetricSpaces:ALS.6"
+      ]
+    },
+    {
+      "target": "The actual completed/derived limit construction and its topology and finite-coefficient comparison hypotheses.",
+      "owner": "CompletedCohomologyPartII:CC.2",
+      "formerly": [
+        "CompletedCohomologyPartII:CC.2",
+        "ArithmeticLocallySymmetricSpaces:ALS.6"
+      ]
+    },
+    {
+      "target": "The completed equivariant Iwasawa-algebra chain complex and its derived finite-level recovery.",
+      "owner": "CompletedCohomologyPartII:CC.4",
+      "formerly": [
+        "CompletedCohomologyPartII:CC.4",
+        "ArithmeticLocallySymmetricSpaces:ALS.6"
+      ]
+    },
+    {
+      "target": "Passage to the derived completed boundary/support triangle and its connecting maps and correction terms.",
+      "owner": "CompletedCohomologyPartII:CC.7",
+      "formerly": [
+        "CompletedCohomologyPartII:CC.7",
+        "ArithmeticLocallySymmetricSpaces:ALS.6"
+      ]
+    }
+  ]
+}
