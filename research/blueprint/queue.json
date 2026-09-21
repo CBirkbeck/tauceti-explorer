@@ -3691,7 +3691,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #834"
   },
   {
    "id": "REV-RS-17",
