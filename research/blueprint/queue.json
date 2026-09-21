@@ -3944,8 +3944,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #846"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #846",
+   "finishedAt": "2026-09-21T13:23:54Z"
   },
   {
    "id": "REV-RS-23",
