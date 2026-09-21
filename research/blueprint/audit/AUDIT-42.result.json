@@ -1,0 +1,2473 @@
+{
+ "job": "AUDIT-42",
+ "baseline": "tauceti f790474821cf4256814db967cb154e7af3d0c369, mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+ "roadmaps": {
+  "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups": {
+   "summary": "Tau Ceti has built most of the concrete engine of this roadmap and none of its classification. Layers 0, 1 and 5's product formula are essentially complete and often more general than asked (over an arbitrary CommRing rather than ℂ): the standard representation with its character and dual, the SLₙ/Oₙ/Spₙ inclusions with their invariant forms as equivariant self-dualities, basis-independent IsPolynomialRep/IsRationalRep, the tensor, symmetric and exterior power representations with their esymm/hsymm characters, V^{⊗2} ≅ Sym² ⊕ ⋀², the weight-space decomposition of a rational representation, the Weyl modules 𝕊^λ(kⁿ) (named schurFunctor) with their vanishing criterion and both extreme shapes, the diagonal torus, DominantWeight with its Young-diagram dictionary, weylDimension with the hook-content formula, and the whole Gelfand-Tsetlin pattern combinatorics including the dimension formula proved from the branching recursion and the pattern-tableau bijection. What is genuinely missing is everything that needs an irreducible representation to exist: there is no `irreducible n λ`, so no theorem of the highest weight for GLₙ (nor for SLₙ, SOₙ, Spₙ, Oₙ), no identification of characters with Schur polynomials, no finrank statement for the Weyl dimension, no representation-level branching rule, and no Gelfand-Tsetlin basis or subalgebra. The decomposition V^{⊗d} ≅ ⊕_λ 𝕊^λ V ⊗ S^λ is also missing even though both halves of the double centralizer are proved, and complete reducibility of rational GLₙ-representations in characteristic 0 is open (GLₙ is proved reductive but not linearly reductive).",
+   "layers": {
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "stdRep n : Representation ℂ (GL n ℂ) (Fin n → ℂ), the tautological action, its FDRep form, its character trace g, and its dual",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.stdRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Standard.lean",
+         "line": 45,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.stdFDRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Standard.lean",
+         "line": 66,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.char_stdRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Standard.lean",
+         "line": 77,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.stdDualRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Standard.lean",
+         "line": 96,
+         "fit": "more general"
+        },
+        {
+         "name": "Representation.dual",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Basic.lean",
+         "line": 671,
+         "fit": "related"
+        }
+       ],
+       "note": "Built over an arbitrary CommRing k rather than only ℂ, so more general than the roadmap asks; char_stdRep is the trace identity and stdRep_injective the faithfulness."
+      },
+      {
+       "target": "The inclusions SL(n,ℂ) →* GL n ℂ, symplecticGroup ↪ GL, orthogonalGroup ↪ GL, and the restricted standard representation",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "Matrix.SpecialLinearGroup.toGL",
+         "library": "mathlib",
+         "file": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+         "line": 274,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.stdSLRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Restriction.lean",
+         "line": 44,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.symplecticGroupToGL",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Symplectic.lean",
+         "line": 49,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.orthogonalGroupToGL",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Orthogonal.lean",
+         "line": 47,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.stdOrthogonalRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Orthogonal.lean",
+         "line": 80,
+         "fit": "exact"
+        }
+       ],
+       "note": "Mathlib supplies SL ↪ GL; Tau Ceti builds the symplectic and orthogonal inclusions and all three restricted standard representations with their characters. TauCeti uses `attribute [local instance] starRingOfComm`, so `Matrix.orthogonalGroup` there really is the form-orthogonal {A | Aᵀ A = 1}."
+      },
+      {
+       "target": "The distinguishing invariants: the volume form ⋀ⁿ V ≅ ℂ for SLₙ, an invariant symmetric form V ≅ V* for Oₙ, an invariant alternating form V ≅ V* for Spₙ, stated as equivariance of the pairing",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.topExtPowerSLEquivTrivial",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Volume.lean",
+         "line": 83,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.detRowAlternating_stdSLRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Volume.lean",
+         "line": 61,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.stdOrthogonalRepEquivDual",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Orthogonal.lean",
+         "line": 176,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.stdSymplecticBilinForm",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Symplectic.lean",
+         "line": 113,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.stdSymplecticRepEquivDual",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Symplectic.lean",
+         "line": 225,
+         "fit": "exact"
+        }
+       ],
+       "note": "All three invariants are built as equivariant self-dualities (the roadmap's chosen formulation), plus the top exterior power of stdSLRep as the trivial representation."
+      },
+      {
+       "target": "IsRational ρ and IsPolynomial ρ as basis-independent properties, with the coordinate-entry form as a lemma; stdRep, tensor/sym/ext powers polynomial; det^m the one-dimensional rational representations",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsPolynomialRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Rational.lean",
+         "line": 118,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsRationalRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Rational.lean",
+         "line": 139,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isRationalRep_iff_forall_mem_rationalFunctions",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Rational.lean",
+         "line": 198,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isPolynomialRep_tensorPowerRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Rational.lean",
+         "line": 412,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.detPowerRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Determinant.lean",
+         "line": 44,
+         "fit": "exact"
+        }
+       ],
+       "note": "Basis-independence is proved exactly as the roadmap asks (one basis iff every basis), and isPolynomialRep_stdRep / _symPowerRep / _extPowerRep and isRationalRep_detPowerRep discharge the examples. The representation-level notions are pinned over ℂ as the roadmap requires."
+      },
+      {
+       "target": "Complete reducibility over ℂ: every finite-dimensional rational representation of GLₙ is a direct sum of irreducibles (cited from ../ReductiveGroups)",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.GeneralLinear.reductiveCommHopfAlgProperty_finiteTypeCoordinateHopfAlgebra",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Reductive.lean",
+         "line": 95,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.linearlyReductiveCommHopfAlgProperty",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/LinearlyReductive.lean",
+         "line": 57,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.linearlyReductiveCommHopfAlgProperty_monoidAlgebra",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/LinearlyReductive.lean",
+         "line": 79,
+         "fit": "related"
+        }
+       ],
+       "note": "GLₙ is proved reductive in every characteristic, and the linear-reductivity property of a Hopf algebra is defined, but GLₙ is not proved linearly reductive in characteristic 0: the file's own docstring says 'the characteristic-zero complete-reducibility route remains open'. The layer explicitly assigns this to ../ReductiveGroups and does not count it as a Layer 0 deliverable."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-9-schur-weyl-duality-for-the-orthogonal-and-symplectic-groups-the-brauer-algebra",
+       "note": "That layer also fixes the nondegenerate symmetric/alternating invariant form on V = ℂⁿ and the cap/cup it defines, i.e. the same Oₙ and Spₙ invariants this layer pins as self-dualities."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-1-functorial-constructions-and-tensor-powers": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "tensorPowerRep n d, the d-fold tensor power of stdRep, with char = (trace g)^d",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.tensorPowerRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/TensorPower.lean",
+         "line": 55,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.char_tensorPowerRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/TensorPower.lean",
+         "line": 132,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.tensorPowerFDRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/TensorPower.lean",
+         "line": 60,
+         "fit": "more general"
+        }
+       ],
+       "note": "Built over an arbitrary commutative ring; the character identity char (tensorPowerRep k n d) g = (trace g)^d is char_tensorPowerRep."
+      },
+      {
+       "target": "The tensor product of two representations as a bifunctor (Representation.tprod) and the dual (Representation.dual)",
+       "library": "mathlib",
+       "declarations": [
+        {
+         "name": "Representation.tprod",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Basic.lean",
+         "line": 619,
+         "fit": "exact"
+        },
+        {
+         "name": "Representation.dual",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Basic.lean",
+         "line": 671,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.stdDualRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Standard.lean",
+         "line": 96,
+         "fit": "special case"
+        }
+       ],
+       "note": "Both are Mathlib primitives over an arbitrary commutative ring; Tau Ceti specializes the dual to the standard representation and its restrictions."
+      },
+      {
+       "target": "symPowerRep n k and extPowerRep n k, functorial, with characters the complete-homogeneous hsymm and elementary esymm symmetric polynomials in the eigenvalues; ⋀ⁿ V ≅ det and ⋀ᵏ V = 0 for k > n",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "TauCeti.symPowerRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/SymmetricPower.lean",
+         "line": 59,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.char_symPowerRep_diagonal",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/SymmetricPower.lean",
+         "line": 76,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.extPowerRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/ExteriorPower.lean",
+         "line": 66,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.char_extPowerRep_diagonal",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/ExteriorPower.lean",
+         "line": 138,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.topExtPowerEquivDet",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/ExteriorPower.lean",
+         "line": 87,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both characters at a diagonal matrix are the Mathlib MvPolynomial.hsymm and MvPolynomial.esymm of the diagonal entries; the top-degree identification with det is topExtPowerEquivDet (bundled as extPowerFDRepDetIso), and the vanishing above the rank is Mathlib's exteriorPower.eq_zero_of_finrank_lt, which the file imports for exactly this purpose."
+      },
+      {
+       "target": "The first decomposition V^{⊗2} ≅ Sym²V ⊕ ⋀²V as GL n ℂ-representations, with the ½(1 ± swap) projections",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.tensorSquareRepEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Decomposition.lean",
+         "line": 49,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.char_tensorSquare_stdRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Decomposition.lean",
+         "line": 90,
+         "fit": "exact"
+        },
+        {
+         "name": "Representation.tensorSquareEquivSymmetricExterior",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Tensor/Square.lean",
+         "line": 291,
+         "fit": "more general"
+        }
+       ],
+       "note": "Proved for an arbitrary CommRing with Invertible (2 : k), which covers the roadmap's characteristic-0 statement, and stated as an equivalence of representations; the character identity holds over any field even where the splitting fails."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-2-the-weyl-construction-via-young-symmetrizers": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "permTensorAction n d : Representation ℂ (Equiv.Perm (Fin d)) (⨂^d V) permuting tensor factors, and its commutation with the GLₙ action",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.permTensorAction",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Symmetric/TensorAction/Basic.lean",
+         "line": 107,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.commute_permTensorAction_tensorPowerRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/TensorPower.lean",
+         "line": 67,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.commute_permTensorActionAlgHom_tensorPowerRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/TensorPower.lean",
+         "line": 74,
+         "fit": "exact"
+        }
+       ],
+       "note": "Built over an arbitrary commutative ring, with the commutation extended from the group to the whole group algebra k[S_d]."
+      },
+      {
+       "target": "Schur-Weyl duality: the GLₙ and Sₐ images generate each other's commutants (cited from ../SchurWeyl)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.centralizer_range_tensorPowerRep_asAlgebraHom_eq_range_permTensorActionAlgHom",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Symmetric/TensorAction/GeneralLinear.lean",
+         "line": 67,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.centralizer_range_permTensorActionAlgHom_eq_range_tensorPowerRep_asAlgebraHom",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Symmetric/TensorAction/GeneralLinear.lean",
+         "line": 77,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.centralizer_span_range_map_const_eq_range_permTensorActionAlgHom",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Symmetric/TensorAction/SchurWeyl.lean",
+         "line": 119,
+         "fit": "more general"
+        }
+       ],
+       "note": "The image-level double centralizer is proved in both directions over a field in which d! is nonzero and which is infinite (Maschke plus a density argument); both hypotheses hold over ℂ."
+      },
+      {
+       "target": "The Young symmetrizer c_λ ∈ ℂ[Sₐ] acting on ⨂^d V, its image the Schur functor Sᵘ V as a GLₙ-subrepresentation, with the row-superstandard tableau pinned and other tableaux canonically isomorphic",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.YoungTableau.weylModule",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/WeylModule.lean",
+         "line": 122,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.YoungTableau.weylRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/WeylModule.lean",
+         "line": 141,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.YoungTableau.weylRepEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/WeylModule.lean",
+         "line": 197,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.weylModuleOfShape",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/WeylModule.lean",
+         "line": 417,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.schurFunctor",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/WeylModule.lean",
+         "line": 492,
+         "fit": "exact"
+        }
+       ],
+       "note": "schurFunctor is literally the roadmap-pinned name (weylFDRepOfShape at k = ℂ); weylModuleOfShape uses the row-superstandard tableau, and weylRepEquiv proves the tableau-independence up to isomorphism. The base ring is a ℚ-algebra, as the Young symmetrizer is currently built over ℚ."
+      },
+      {
+       "target": "Sᵘ V = 0 iff λ has more than n rows",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.YoungTableau.weylModule_eq_bot_iff",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/WeylModule.lean",
+         "line": 381,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.weylModuleOfShape_eq_bot_iff",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/WeylModule.lean",
+         "line": 460,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.nontrivial_weylModuleOfShape",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/WeylModule.lean",
+         "line": 465,
+         "fit": "exact"
+        }
+       ],
+       "note": "Vanishing needs only 2 invertible, nonvanishing needs characteristic zero (supplied by Nontrivial over a ℚ-algebra); both directions proved."
+      },
+      {
+       "target": "The extreme cases S^{(d)} V ≅ Symᵈ V and S^{(1ᵈ)} V ≅ ⋀ᵈ V",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.YoungTableau.weylRepEquivSymPowerRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/ExtremeShape.lean",
+         "line": 183,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.weylRepOfShapeEquivSymPowerRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/ExtremeShape.lean",
+         "line": 200,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.YoungTableau.weylRepEquivExtPowerRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/ExtremeShape.lean",
+         "line": 266,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.weylRepOfShapeEquivExtPowerRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/ExtremeShape.lean",
+         "line": 283,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both extremes are proved as isomorphisms of representations of GL n k over a ℚ-algebra, hypotheses stated on the shape (colLen 0 ≤ 1, resp. rowLen 0 ≤ 1)."
+      },
+      {
+       "target": "The decomposition V^{⊗d} ≅ ⊕_{λ ⊢ d} (Sᵘ V) ⊗ (Specht λ) as GLₙ × Sₐ-representations, whence V^{⊗d} ≅ ⊕_λ (Sᵘ V)^{⊕ f^λ}",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.centralizer_range_tensorPowerRep_asAlgebraHom_eq_range_permTensorActionAlgHom",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Symmetric/TensorAction/GeneralLinear.lean",
+         "line": 67,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.spechtModule",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Symmetric/Specht/Module.lean",
+         "line": 371,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the double-centralizer half of Schur-Weyl is proved; no declaration decomposes the tensor power as a direct sum over partitions, and neither the bimodule form nor the GLₙ-isotypic form with multiplicity f^λ exists. Specht modules and the standard-tableau count exist on the symmetric-group side but are never paired with the Weyl modules."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-8-schur-weyl-duality",
+       "note": "Same targets: the two commuting actions, the image-level double centralizer, and the decomposition ⨂^d V ≅ ⊕_λ S^λ ⊗ 𝕊^λ(V) with 𝕊^λ defined as the range of the Young symmetrizer; the layer text itself says this is the link to ClassicalGroups."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-2-young-symmetrizers",
+       "note": "Owns the Young symmetrizer c_t = a_t b_t and its idempotent theory, which this layer consumes."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "diagonalTorus n : Subgroup (GL n ℂ) of invertible diagonal matrices, with diagonalTorus ≃* (Fin n → ℂˣ)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.diagonalTorus",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Diagonal/Basic.lean",
+         "line": 202,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.diagonalTorusEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Diagonal/Basic.lean",
+         "line": 231,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.centralizer_diagonalTorus",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Diagonal/Basic.lean",
+         "line": 350,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.map_stdRep_span_basisFun",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Torus.lean",
+         "line": 62,
+         "fit": "related"
+        }
+       ],
+       "note": "Built over an arbitrary commutative ring, with three descriptions of the torus (range of diagGL, diagonality, self-centralizing) and its action on the coordinate lines of stdRep."
+      },
+      {
+       "target": "weightSpace ρ λ for λ : Fin n → ℤ and the weight-space decomposition W = ⊕_λ weightSpace ρ λ for a rational representation",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.weightSpace",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Weight/Basic.lean",
+         "line": 100,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.iSupIndep_weightSpace",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Weight/Basic.lean",
+         "line": 220,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsRationalRep.isInternal_weightSpace",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Weight/Decomposition.lean",
+         "line": 230,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isInternal_weightSpace_stdRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Weight/Basic.lean",
+         "line": 238,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.weightSpace_tprod",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Weight/Tensor.lean",
+         "line": 266,
+         "fit": "related"
+        }
+       ],
+       "note": "The full simultaneous diagonalization of the diagonal torus on a rational representation of GL n ℂ is proved, by the Laurent expansion of the torus action; independence of weight spaces is stated over a general ring under the hypothesis that distinct weights give distinct characters, which weightChar_injective discharges over an infinite field."
+      },
+      {
+       "target": "Identification of these weights with the abstract weight lattice of the root datum of GLₙ from ../RootSystems",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.GeneralLinear.diagonalRootDatum",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Root/Datum.lean",
+         "line": 119,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GeneralLinear.diagonalWeylGroupMulEquivCoordinateWeylGroup",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Root/WeylGroup.lean",
+         "line": 103,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.weightChar",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Basis/DiagonalTorus/Basic.lean",
+         "line": 258,
+         "fit": "related"
+        }
+       ],
+       "note": "The root datum of GLₙ and its Weyl group exist on the algebraic-group side, and the split-torus characters weightChar are built, but nothing identifies the Fin n → ℤ index of weightSpace with the character lattice of that root datum."
+      },
+      {
+       "target": "DominantWeight n (weakly decreasing λ : Fin n → ℤ), the polynomial ones matched with Young diagrams of at most n rows",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.DominantWeight",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/DominantWeight.lean",
+         "line": 71,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.DominantWeight.IsPolynomial",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/DominantWeight.lean",
+         "line": 127,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.shapeEquivPolynomialWeight",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/DominantWeight.lean",
+         "line": 216,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.DominantWeight.detShift",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/DominantWeight.lean",
+         "line": 101,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.DominantWeight.detShiftShape",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/DominantWeight.lean",
+         "line": 241,
+         "fit": "exact"
+        }
+       ],
+       "note": "Exactly the roadmap's index type, with the Young-diagram dictionary and the unique determinant-twist normalization λ = μ + m·(1,…,1)."
+      },
+      {
+       "target": "The dominance order on weights and the GLₙ Weyl group Sₙ acting on ℤⁿ, as the specialization of ../RootSystems' Weyl group",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Dominates",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/Enumerative/Partition/Dominance.lean",
+         "line": 89,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.diagonalNormalizerPerm",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Diagonal/Normalizer.lean",
+         "line": 435,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.permutationGL",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Diagonal/Normalizer.lean",
+         "line": 62,
+         "fit": "related"
+        }
+       ],
+       "note": "Dominance is built only on Young diagrams / partitions, not on DominantWeight n; the normalizer of the diagonal torus and its quotient permutation are built, but no Sₙ-action on Fin n → ℤ is set up and nothing connects it to the RootSystems Weyl group."
+      },
+      {
+       "target": "The highest weight of an irreducible and the theorem of the highest weight: λ ↦ V_λ is a bijection from DominantWeight n to isomorphism classes of irreducible rational GLₙ-representations, including the central-character/integrality step upgrading a dominant 𝔰𝔩ₙ-weight to a weakly decreasing integer sequence",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.IsGlHighestWeightVector",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/GeneralLinear/HighestWeight.lean",
+         "line": 436,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.IsGlDominantIntegral",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/GeneralLinear/HighestWeight.lean",
+         "line": 160,
+         "fit": "related"
+        }
+       ],
+       "note": "Nothing at the group level: there is no `irreducible n λ`, no classification of irreducible rational GLₙ-representations, and no central-character step. The GelfandTsetlin/Dimension.lean docstring states outright that 'no representation and no Gelfand-Tsetlin basis is constructed'. The Lie-algebra highest-weight theory for 𝔤𝔩ₙ exists but is never transported to GL n ℂ."
+      },
+      {
+       "target": "schurFunctor λ V ≅ irreducible n (of λ) for a partition λ, and the rational V_λ as det-twists det^{λₙ} ⊗ V_μ",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.weightSpace_tprod_detPowerRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Weight/Tensor.lean",
+         "line": 223,
+         "fit": "related"
+        }
+       ],
+       "note": "Absent because irreducible n λ does not exist. Only the weight-level shadow is proved: tensoring with det^m translates all weight spaces by the constant sequence m, which the Weight/Tensor.lean docstring identifies as the step the classification would run on."
+      },
+      {
+       "target": "The SLₙ statement (dominant weights modulo (1,…,1), type Aₙ₋₁) by restriction along SLₙ ↪ GLₙ",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.stdSLRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Restriction.lean",
+         "line": 44,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.DynkinType.typeASimplyConnectedRootDatum",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/A.lean",
+         "line": 351,
+         "fit": "related"
+        }
+       ],
+       "note": "The SLₙ root datum of type Aₙ₋₁ exists on the algebraic-group side, but no classification of SLₙ-representations by weights modulo (1,…,1) is stated anywhere."
+      },
+      {
+       "target": "The highest-weight classification for the connected SOₙ (types Bₙ/Dₙ) and Spₙ (type Cₙ), and the separate SOₙ ↑ Oₙ extension problem for the disconnected Oₙ",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.stdSymplecticRepEquivDual",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Symplectic.lean",
+         "line": 225,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.stdSymplecticRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/Symplectic.lean",
+         "line": 75,
+         "fit": "related"
+        }
+       ],
+       "note": "The type B/C/D root data and the standard representations of Spₙ and Oₙ exist, but no highest-weight classification of their representations, and nothing about the Oₙ/SOₙ extension problem or the type-D degeneracies."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
+       "note": "States the Lie-algebra theorem of the highest weight that this layer specializes; the group-level GLₙ classification here is the extra content, but the dominant-weight bijection is the same statement one level down."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element",
+       "note": "Owns the dominant chamber and the Weyl-group action this layer specializes to Sₙ acting on ℤⁿ."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-4-characters-and-schur-polynomials": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "Schur polynomials schurPoly (consumed from ../SchurWeyl), defined by the tableau sum or Jacobi-Trudi, with the bialternant as a later theorem",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.diagramSchurPoly",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/MvPolynomial/Symmetric/Schur/Basic.lean",
+         "line": 174,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.schurPoly",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/MvPolynomial/Symmetric/Schur/Basic.lean",
+         "line": 367,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isSymmetric_diagramSchurPoly",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/MvPolynomial/Symmetric/Schur/Symmetric.lean",
+         "line": 141,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.schurPolyBasis",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/MvPolynomial/Symmetric/Schur/Basis.lean",
+         "line": 275,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.coeff_schurPoly_eq_kostkaNumber",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/MvPolynomial/Symmetric/Schur/Monomial.lean",
+         "line": 339,
+         "fit": "related"
+        }
+       ],
+       "note": "Built as the tableau sum over bounded semistandard tableaux, symmetric, with the monomial (Kostka) expansion, a basis of the symmetric functions, and the extreme shapes identified with hsymm and esymm. The Jacobi-Trudi determinant and the bialternant are not among the declarations; Pieri and Littlewood-Richardson are also absent."
+      },
+      {
+       "target": "The summit: char (irreducible n μ) (diagonal x) = schurPoly n μ (x), i.e. the Weyl character formula specialized to GLₙ, in both the group-character and the symmetric-polynomial forms",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.char_symPowerRep_diagonal",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/SymmetricPower.lean",
+         "line": 76,
+         "fit": "special case"
+        },
+        {
+         "name": "TauCeti.char_extPowerRep_diagonal",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/ExteriorPower.lean",
+         "line": 138,
+         "fit": "special case"
+        }
+       ],
+       "note": "No character of a Weyl module or Schur functor is computed: the only `char_*` declarations under ClassicalGroups are for the standard, dual, determinant, tensor-power, symmetric-power and exterior-power representations. The two extreme shapes (one row, one column) are therefore covered, but the general shape is not, and `irreducible n μ` does not exist."
+      },
+      {
+       "target": "The rational character is Laurent: char (irreducible n λ) (diagonal x) = (∏ xᵢ)^m · s_μ(x) with m = λₙ, μ = λ - m(1,…,1)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.DominantWeight.detShiftShape",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/DominantWeight.lean",
+         "line": 241,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.laurentFunctions",
+         "library": "tauceti",
+         "file": "TauCeti/LinearAlgebra/Basis/DiagonalTorus/LaurentFunctions.lean",
+         "line": 143,
+         "fit": "related"
+        }
+       ],
+       "note": "The combinatorial half (the unique decomposition λ = μ + m·(1,…,1)) and the algebra of Laurent functions on the split torus are built, but no character statement uses them; absent for the same reason as the previous target."
+      },
+      {
+       "target": "The general Weyl character formula for SLₙ, Spₙ, SOₙ as a Weyl-group sum over the appropriate root system",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.irreducibleFormalCharacter",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/HighestWeight/Decomposition.lean",
+         "line": 236,
+         "fit": "related"
+        }
+       ],
+       "note": "The Lie-algebra Weyl character formula exists (LieHighestWeight Layer 6) but is not specialized to any classical matrix group; there is no group-level character for SLₙ, Spₙ or SOₙ."
+      },
+      {
+       "target": "The Littlewood-Richardson structure constants are the tensor-product multiplicities of the V_λ",
+       "library": "absent",
+       "declarations": [],
+       "note": "No Littlewood-Richardson rule at all: grep of the whole baseline finds no declaration whose name mentions Littlewood, and no tensor-product multiplicity statement for GLₙ."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-7-symmetric-functions-the-frobenius-characteristic-and-rsk",
+       "note": "Owns schurPoly and its symmetric-function identities, which this layer explicitly consumes rather than redefines."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
+       "note": "States the general Weyl character formula of which this layer's Schur-polynomial identity is the GLₙ specialization."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-5-the-weyl-dimension-formula": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "weylDimension n λ : ℕ, the product ∏_{i<j}(λᵢ - λⱼ + j - i)/(j - i), landed in ℕ with positivity and integrality",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.weylDimension",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/WeylDimension.lean",
+         "line": 182,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.weylDimension_mul_superFactorial",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/WeylDimension.lean",
+         "line": 187,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.weylDimension_eq_prod_prod_div",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/WeylDimension.lean",
+         "line": 208,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.weylDimension_pos",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/WeylDimension.lean",
+         "line": 198,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.weylDimension_shift",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/WeylDimension.lean",
+         "line": 256,
+         "fit": "exact"
+        }
+       ],
+       "note": "Exactly the roadmap's construction: integrality via Mathlib's Matrix.superFactorial_dvd_vandermonde_det, the quotient form recovered over ℚ, positivity proved, and invariance under the determinant twist λ ↦ λ + m(1,…,1) recorded as weylDimension_congr / weylDimension_shift."
+      },
+      {
+       "target": "finrank ℂ (irreducible n λ) = weylDimension n λ",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.GTPattern.card_topWeight_eq_weylDimension",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/GelfandTsetlin/Dimension.lean",
+         "line": 202,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.YoungTableau.finrank_weylModule_eq",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/WeylModule.lean",
+         "line": 391,
+         "fit": "related"
+        }
+       ],
+       "note": "The formula is proved equal to the Gelfand-Tsetlin pattern count, but never to the dimension of a representation; the Dimension.lean docstring says explicitly that 'either of them is the dimension of a representation is not proved here and cannot yet be stated'."
+      },
+      {
+       "target": "The hook-content formula dim = ∏_{(i,j) ∈ λ} (n + j - i)/hook(i,j) for partitions, and the proof that it agrees with weylDimension",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.weylDimension_weightOfShape_mul_prod_hookLength",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/HookContent.lean",
+         "line": 143,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.weylDimension_weightOfShape_eq_prod_div",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/HookContent.lean",
+         "line": 169,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.weylDimension_eq_prod_detShiftShape_div_hookLength",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/HookContent.lean",
+         "line": 189,
+         "fit": "exact"
+        }
+       ],
+       "note": "Proved in a division-free form over ℕ and in quotient form over ℚ, and extended past partitions to an arbitrary dominant weight through the determinant twist — more than the roadmap asks."
+      },
+      {
+       "target": "The Spₙ and SOₙ product forms of the dimension formula",
+       "library": "absent",
+       "declarations": [],
+       "note": "Only the GLₙ product formula exists; nothing indexed by type B, C or D weights. The abstract Weyl dimension formula ∏_{α>0}⟨λ+ρ,α⟩/⟨ρ,α⟩ is also not in the baseline (see LieHighestWeight Layer 6)."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
+       "note": "Owns the abstract Weyl dimension formula ∏_{α>0}⟨λ+ρ,α⟩/⟨ρ,α⟩, of which this layer's product form is the GLₙ specialization."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-5-the-standard-basis-and-the-hook-length-formula",
+       "note": "Owns the hook lengths and the hook-length formula for f^λ, the combinatorial input to the hook-content formula proved here."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-6-branching-rules-and-gelfand-tsetlin-bases": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "GLₙ ↓ GLₙ₋₁ multiplicity-free branching V_λ|_{GL_{n-1}} ≅ ⊕_{μ ≺ λ} V_μ as an isomorphism of FDRep ℂ (GL (n-1) ℂ)",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.GTPattern.card_topRow_succ",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/GelfandTsetlin/Count.lean",
+         "line": 135,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GTPattern.truncateEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/GelfandTsetlin/Basic.lean",
+         "line": 421,
+         "fit": "related"
+        }
+       ],
+       "note": "Only the combinatorial shadow exists (the pattern truncation and the corresponding count recursion). There is no restriction functor along GL (n-1) ↪ GL n applied to an irreducible, and no representation V_λ to restrict."
+      },
+      {
+       "target": "The character form s_λ(x₁,…,x_{n-1},1) = ∑_{μ ≺ λ} s_μ(x₁,…,x_{n-1}) for a partition λ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.diagramSchurPoly_eq_sum_interlacingShapes",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/MvPolynomial/Symmetric/Schur/Branching.lean",
+         "line": 143,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.aeval_snoc_one_diagramSchurPoly",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/MvPolynomial/Symmetric/Schur/Branching.lean",
+         "line": 194,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eval_snoc_one_diagramSchurPoly",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/MvPolynomial/Symmetric/Schur/Branching.lean",
+         "line": 235,
+         "fit": "exact"
+        },
+        {
+         "name": "YoungDiagram.interlacingShapes",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/Young/Interlacing.lean",
+         "line": 111,
+         "fit": "exact"
+        }
+       ],
+       "note": "Proved over an arbitrary commutative semiring, and in the sharper graded form s_μ(x, x_n) = ∑_ν x_n^{|μ|-|ν|} s_ν that specializing at 1 recovers. The file's docstring is explicit that the representation-theoretic reading is not proved."
+      },
+      {
+       "target": "The rational (DominantWeight-indexed) branching form, with interlacing over integer sequences",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "TauCeti.Interlaces",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/GelfandTsetlin/Basic.lean",
+         "line": 265,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.interlacingFinset",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/GelfandTsetlin/Count.lean",
+         "line": 82,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.GTPattern.card_topWeight_shift",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/GelfandTsetlin/Shift.lean",
+         "line": 186,
+         "fit": "related"
+        }
+       ],
+       "note": "Interlacing of integer sequences and the determinant-shift equivalences on patterns are built, so the index side of the rational form exists; the Schur-polynomial branching identity itself is stated only for Young diagrams (partitions), and there is no Laurent/rational character version."
+      },
+      {
+       "target": "SOₙ ↓ SOₙ₋₁ and Spₙ ↓ Spₙ₋₂ branching, each with its own index convention",
+       "library": "absent",
+       "declarations": [],
+       "note": "No orthogonal or symplectic branching rule of any kind in the baseline; grepping the whole tree for orthogonal/symplectic branching and their GT-type patterns finds nothing."
+      },
+      {
+       "target": "GTPattern n as a Mathlib-native structure: triangular arrays of integers with interlacing, topRow reading off row n, no sign condition on row-final entries",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.GTPattern",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/GelfandTsetlin/Basic.lean",
+         "line": 92,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GTPattern.topRow",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/GelfandTsetlin/Basic.lean",
+         "line": 196,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GTPattern.topWeight",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/GelfandTsetlin/Basic.lean",
+         "line": 208,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GTPattern.entry_anti",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/GelfandTsetlin/Basic.lean",
+         "line": 151,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GTPattern.nonempty_topRow_eq_iff",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/GelfandTsetlin/Count.lean",
+         "line": 148,
+         "fit": "exact"
+        }
+       ],
+       "note": "Exactly as pinned: integer entries with no positivity, interlacing imposed only on interior cells, weak decrease along rows derived rather than assumed, and the top rows that occur characterized as the dominant weights."
+      },
+      {
+       "target": "The bijection between patterns with top row a partition λ and the bounded subtype of SemistandardYoungTableau λ with entries < n",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.gtPatternEquivSSYT",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/GelfandTsetlin/Tableau.lean",
+         "line": 424,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.card_gtPattern_topRow_eq_card_ssyt",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/GelfandTsetlin/Tableau.lean",
+         "line": 453,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GTPattern.detShiftEquivBoundedSSYT",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/GelfandTsetlin/Shift.lean",
+         "line": 242,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.BoundedSSYT",
+         "library": "tauceti",
+         "file": "TauCeti/Combinatorics/Young/Kostka.lean",
+         "line": 206,
+         "fit": "exact"
+        }
+       ],
+       "note": "Built on Mathlib's SemistandardYoungTableau through the bounded subtype TauCeti.BoundedSSYT, exactly as the roadmap asks, and extended to arbitrary dominant weights through the determinant shift. The implementation note records the single n = 0, μ = ⊥ edge case where the roadmap's literal bound fails."
+      },
+      {
+       "target": "gtBasis n λ : Module.Basis {P // topRow P = λ} ℂ (irreducible n λ) from the iterated branching, with a pinned normalization, and the pattern-to-basis bijection",
+       "library": "absent",
+       "declarations": [],
+       "note": "Nothing of the kind exists: grepping the whole baseline for gtBasis and 'Gelfand-Tsetlin basis' finds only prose in the GelfandTsetlin docstrings saying the basis is not built."
+      },
+      {
+       "target": "The Gelfand-Tsetlin dimension formula: the count of patterns with top row λ, proved from the branching side, and compared with weylDimension and with s_λ(1,…,1)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.GTPattern.card_topRow_eq_weylDimension",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/GelfandTsetlin/Dimension.lean",
+         "line": 187,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GTPattern.card_topWeight_eq_weylDimension",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/GelfandTsetlin/Dimension.lean",
+         "line": 202,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.GTPattern.card_topRow_succ",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/ClassicalGroups/GelfandTsetlin/Count.lean",
+         "line": 135,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eval_one_diagramSchurPoly_eq_card_boundedSSYT",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/MvPolynomial/Symmetric/Schur/Basic.lean",
+         "line": 214,
+         "fit": "exact"
+        }
+       ],
+       "note": "The count is proved from the branching recursion and independently of Layer 5, exactly as the roadmap insists, and agrees with weylDimension and (through gtPatternEquivSSYT and eval_one_diagramSchurPoly_eq_card_boundedSSYT) with s_λ(1,…,1). What is missing is only that any of these is the dimension of a representation."
+      },
+      {
+       "target": "gtGenerator: the Gelfand-Tsetlin subalgebra generated by the images of Z(U(𝔤𝔩_k)), simultaneously diagonalized in gtBasis, with separating joint eigencharacters",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.UniversalEnvelopingAlgebra.representation_lie_of_mem_center",
+         "library": "tauceti",
+         "file": "TauCeti/Algebra/Lie/UniversalEnveloping/Basic.lean",
+         "line": 127,
+         "fit": "related"
+        }
+       ],
+       "note": "No Gelfand-Tsetlin subalgebra, no Gelfand invariants or Capelli elements, and no simultaneous diagonalization; grepping for Capelli and 'Gelfand invariant' finds nothing in either library."
+      },
+      {
+       "target": "Spin(n) ↓ Spin(n-1) branching meeting the SOₙ Gelfand-Tsetlin bases",
+       "library": "absent",
+       "declarations": [
+        {
+         "name": "TauCeti.spinRep_isIrreducible_of_odd",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Spin/Irreducible.lean",
+         "line": 637,
+         "fit": "related"
+        }
+       ],
+       "note": "The spin representations exist, but there is no branching along Spin(n-1) ↪ Spin(n) and no orthogonal Gelfand-Tsetlin construction to meet."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-4-the-spin-and-half-spin-representations",
+       "note": "The last bullet here hands Spin(n) ↓ Spin(n-1) to the SpinRepresentations roadmap, which owns the spin and half-spin representations this layer would branch."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-0-partitions-diagrams-tableaux-and-orders",
+       "note": "Owns the semistandard Young tableaux that the pattern-tableau bijection here reuses."
+      }
+     ]
+    }
+   }
+  },
+  "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups": {
+   "summary": "This roadmap is essentially finished in Tau Ceti, and the summary in the extract — which describes Mathlib as having 'the two ends of this subject and almost nothing in between' — is now out of date. TauCeti/RepresentationTheory/Compact builds the normalized Haar probability measure with all three invariances and its uniqueness, the averaging operator, Weyl's unitarian trick through the Gram operator and the unitary model, invariant complements and the orthogonal decomposition into irreducibles, Schur's lemma for continuous intertwiners, matrix coefficients with their full algebra and the representative *-subalgebra, both Schur orthogonality relations with the normalized system, the whole non-circular convolution route to uniform density (compact self-adjoint convolution operators, eigenspace representations, mollifiers), the Peter-Weyl Hilbert basis defined outright with IrrepModel/IsIrrepSkeleton and a skeleton constructed so no hypothesis is left over, its identification with Mathlib's fourierBasis on the circle, and the characters with their orthonormality, the closed class-function subspace and the character Hilbert basis. Everything is sorry-free and stated over an RCLike field rather than only ℂ. The one genuine gap is the last bullet of Layer 5: L²(G) carries only the right regular representation, so the G×G-equivariant isotypic decomposition L²(G) ≅ ⨁̂_π End(V_π) is not stated, although the character block projections it would use are proved.",
+   "layers": {
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-0-normalized-haar-measure-and-averaging": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "haarProb G, the Haar probability measure, with haar_univ_lt_top, haar_univ_ne_zero, haarProb_apply_univ and isProbabilityMeasure_haarProb",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.haarProb",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Haar.lean",
+         "line": 93,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.haar_univ_lt_top",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Haar.lean",
+         "line": 75,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.haar_univ_ne_zero",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Haar.lean",
+         "line": 39,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.haarProb_apply_univ",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Haar.lean",
+         "line": 113,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isProbabilityMeasure_haarProb",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Haar.lean",
+         "line": 106,
+         "fit": "exact"
+        }
+       ],
+       "note": "Built under the roadmap's own pinned names, the finiteness and nonvanishing milestones included rather than hidden as side conditions."
+      },
+      {
+       "target": "Left, right and inversion invariance of haarProb (unimodularity of a compact group), and uniqueness among Haar probability measures",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.isMulLeftInvariant_haarProb",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Haar.lean",
+         "line": 116,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isMulRightInvariant_haarProb",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Haar.lean",
+         "line": 127,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isInvInvariant_haarProb",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Haar.lean",
+         "line": 131,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.eq_haarProb_of_isHaarMeasure_of_isProbabilityMeasure",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Haar.lean",
+         "line": 135,
+         "fit": "exact"
+        },
+        {
+         "name": "MeasureTheory.Measure.isHaarMeasure_eq_of_isProbabilityMeasure",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Measure/Haar/Unique.lean",
+         "line": 700,
+         "fit": "more general"
+        }
+       ],
+       "note": "All three invariances are instances; uniqueness is restated for haarProb exactly as the roadmap asks, so downstream results do not depend on the choice inside Measure.haar."
+      },
+      {
+       "target": "The averaging operator ⨍ g, F g ∂(haarProb G) for a continuous F into a complete normed space, with linearity, averaging of constants, and translation invariance",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.haarAverage",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Averaging.lean",
+         "line": 59,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.haarAverage_const",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Averaging.lean",
+         "line": 91,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.haarAverage_comp_mulLeft",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Averaging.lean",
+         "line": 109,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.haarAverage_comp_mulRight",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Averaging.lean",
+         "line": 118,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.integrable_continuousMap",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Averaging.lean",
+         "line": 41,
+         "fit": "exact"
+        }
+       ],
+       "note": "Packaged as a continuous linear map on C(G, V) with norm one, with left, right and inversion invariance (haarAverage_comp_inv) and the automatic integrability the roadmap notes."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-6-maximal-tori-the-weyl-group-and-weyl-integration",
+       "note": "Weyl integration there is an identity for the same normalized Haar measure on a compact Lie group, so it consumes this layer's haarProb and averaging operator."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-1-unitarizability-weyls-unitarian-trick": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "IsUnitary π as a predicate, with the equivalence of the two forms and the bound ‖v‖‖w‖ on matrix coefficients of a unitary representation",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ContRepresentation.IsUnitary",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/Unitary/Basic.lean",
+         "line": 52,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.norm_matrixCoeff_le",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/MatrixCoefficient.lean",
+         "line": 272,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.norm_matrixCoeffLp_le",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/MatrixCoefficient.lean",
+         "line": 195,
+         "fit": "related"
+        }
+       ],
+       "note": "The predicate and its unitary-group form are in Continuous/Unitary/Basic.lean; the uniform bound ‖v‖·‖w‖ is proved, and the L² bound as well."
+      },
+      {
+       "target": "The Haar-averaged Hermitian form represented by its Gram operator S: positive-definite, self-adjoint, with (π g)† ∘ S ∘ (π g) = S",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ContRepresentation.gramOperator",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Unitarizable.lean",
+         "line": 125,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.inner_gramOperator",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Unitarizable.lean",
+         "line": 129,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.isSelfAdjoint_gramOperator",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Unitarizable.lean",
+         "line": 151,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.isPositive_gramOperator",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Unitarizable.lean",
+         "line": 176,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.adjoint_comp_gramOperator_comp",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Unitarizable.lean",
+         "line": 248,
+         "fit": "exact"
+        }
+       ],
+       "note": "Built exactly in the roadmap's prescribed form — as a Gram operator rather than a second InnerProductSpace.Core — with positive-definiteness (re_inner_gramOperator_self_pos) proved by a uniform operator-norm bound from compactness. The Gram operator itself is built for an arbitrary Hilbert carrier."
+      },
+      {
+       "target": "isUnitarizable: every finite-dimensional continuous representation is unitarizable, equivalently conjugate to a unitary one",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ContRepresentation.isUnitarizable",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Unitarizable.lean",
+         "line": 271,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.exists_isUnitary_congr",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/UnitaryModel.lean",
+         "line": 92,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.exists_isUnitary_matrixCoeff_eq",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/UnitaryModel.lean",
+         "line": 115,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isRepresentative_iff_exists_isUnitary",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/UnitaryModel.lean",
+         "line": 140,
+         "fit": "related"
+        }
+       ],
+       "note": "Both forms are proved: the roadmap-pinned isUnitarizable (existence of the intertwined positive-definite S) and the finite-dimensional conjugation into a genuinely unitary representation, plus the corollary that 𝓡(G) is spanned by matrix coefficients of unitary representations."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation",
+       "note": "That layer mentions the compact form U(n) and the unitarian trick as the route it explicitly does not take, deferring to ../ReductiveGroups instead; the same averaging argument is what is built here."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-2-complete-reducibility": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "Invariant complements: for a unitary π and a closed invariant W, Wᗮ is invariant and V = W ⊕ Wᗮ as representations",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ContRepresentation.IsUnitary.orthogonal_mem_invtSubmodule",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/InvariantComplement.lean",
+         "line": 109,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.IsUnitary.orthogonalSubrepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/InvariantComplement.lean",
+         "line": 116,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.IsUnitary.isCompl_orthogonalSubrepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/InvariantComplement.lean",
+         "line": 165,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.IsUnitary.starProjectionIntertwiner",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/InvariantComplement.lean",
+         "line": 143,
+         "fit": "exact"
+        }
+       ],
+       "note": "Stated for a unitary representation of an arbitrary group, with no measure and no compactness — more general than the layer needs."
+      },
+      {
+       "target": "exists_orthogonal_irreducible_decomposition: a finite-dimensional unitary continuous representation is an orthogonal internal direct sum of irreducible invariant subspaces",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ContRepresentation.IsUnitary.exists_orthogonal_irreducible_decomposition",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/OrthogonalDecomposition.lean",
+         "line": 194,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.IsUnitary.exists_orthogonal_irreducible_decomposition_of_congr",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/OrthogonalDecomposition.lean",
+         "line": 245,
+         "fit": "exact"
+        },
+        {
+         "name": "ContRepresentation.exists_orthogonal_irreducible_decomposition_of_finite",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Finite.lean",
+         "line": 792,
+         "fit": "special case"
+        }
+       ],
+       "note": "The geometric internal form is the primary statement, exactly as the layer insists, with the variant for a representation merely conjugate to a unitary one (which is what the unitarian trick supplies)."
+      },
+      {
+       "target": "isCompletelyReducible as a corollary: IsSemisimpleModule over the group algebra, and the FDRep mirror",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ContRepresentation.IsUnitary.isSemisimpleModule_asModule",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/InvariantComplement.lean",
+         "line": 204,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.IsUnitary.isSemisimpleRepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/InvariantComplement.lean",
+         "line": 198,
+         "fit": "exact"
+        },
+        {
+         "name": "FDRep.simple_iff_isIrreducible",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Simple/Basic.lean",
+         "line": 188,
+         "fit": "related"
+        },
+        {
+         "name": "FDRep.isSimpleModule_asModule_of_simple",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Simple/Basic.lean",
+         "line": 224,
+         "fit": "related"
+        }
+       ],
+       "note": "Both the subrepresentation-lattice form and the group-algebra module form are proved; the FDRep dictionary between `Simple` and `IsIrreducible` is in Simple/Basic.lean, so the category-level mirror is available."
+      },
+      {
+       "target": "Schur's lemma transported: a continuous intertwiner between finite-dimensional irreducibles is 0 or an isomorphism, and a self-intertwiner is a scalar",
+       "library": "both",
+       "declarations": [
+        {
+         "name": "TauCeti.ContRepresentation.eq_zero_of_isEmpty_equiv",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/Schur.lean",
+         "line": 69,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.exists_eq_smul_one_of_irreducible",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/Schur.lean",
+         "line": 90,
+         "fit": "exact"
+        },
+        {
+         "name": "ContRepresentation.eq_finrank_inv_mul_trace_smul_id_of_irreducible",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/Schur.lean",
+         "line": 121,
+         "fit": "exact"
+        },
+        {
+         "name": "FDRep.finrank_hom_simple_simple",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/FDRep.lean",
+         "line": 160,
+         "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.finrank_endomorphism_simple_eq_one",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Preadditive/Schur.lean",
+         "line": 126,
+         "fit": "related"
+        }
+       ],
+       "note": "Both halves are recorded for continuous intertwiners, reducing to Mathlib's algebraic Schur lemma; the trace normalization of the scalar is proved too, which Layer 4 needs."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-1-simple-modules-schur-and-isotypic-components",
+       "note": "Owns simple modules, Schur's lemma and isotypic components in the algebraic setting, which this layer's IsSemisimpleModule shadow and its transported Schur lemma are stated in."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-2-wedderburn-irreducible-indexing-and-the-count",
+       "note": "The [Finite G] specialization of this layer's Maschke statement is the finite-group complete reducibility that layer runs on."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-3-matrix-coefficients": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "matrixCoeff π v w : C(G, ℂ), g ↦ ⟪π g v, w⟫, and its image matrixCoeffLp in L²(G, haarProb G)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ContRepresentation.matrixCoeff",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/MatrixCoefficient.lean",
+         "line": 73,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.matrixCoeffLp",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/MatrixCoefficient.lean",
+         "line": 73,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.matrixCoeffₛₗ",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/MatrixCoefficient.lean",
+         "line": 136,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.matrixCoeffLpₛₗ",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/MatrixCoefficient.lean",
+         "line": 129,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both the uniform-norm and the L² forms are built, each also bundled as a sesquilinear map in the defining vectors, over an RCLike field rather than only ℂ."
+      },
+      {
+       "target": "The algebra of matrix coefficients: sesquilinearity, left and right translation, the involution under the contragredient, and products as matrix coefficients of π ⊗ ρ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ContRepresentation.matrixCoeff_comp_mulLeft",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/MatrixCoefficient.lean",
+         "line": 248,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.matrixCoeff_comp_mulRight",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/MatrixCoefficient.lean",
+         "line": 218,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.star_matrixCoeff_eq_matrixCoeff_conjugate",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/Conjugate.lean",
+         "line": 93,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.matrixCoeff_tprod",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/TensorProduct.lean",
+         "line": 95,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.matrixCoeff_apply_mul_eq_sum",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/MatrixCoefficient.lean",
+         "line": 160,
+         "fit": "related"
+        }
+       ],
+       "note": "All four items are proved, plus the matrix-multiplication identity at a product of group elements. Conjugation is identified with a matrix coefficient of the conjugate representation, which is what makes 𝓡(G) star-closed."
+      },
+      {
+       "target": "The representative ring 𝓡(G) as a StarSubalgebra of C(G), containing constants, closed under multiplication and conjugation",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.representativeSubmodule",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/Representative.lean",
+         "line": 123,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.representativeStarSubalgebra",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/Representative.lean",
+         "line": 235,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.one_mem_representativeSubmodule",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/Representative.lean",
+         "line": 190,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.mul_mem_representativeSubmodule",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/Representative.lean",
+         "line": 211,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.star_mem_representativeSubmodule",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/Representative.lean",
+         "line": 223,
+         "fit": "exact"
+        }
+       ],
+       "note": "Pinned as a StarSubalgebra exactly as the roadmap asks, with the three closure properties proved from the trivial, tensor-product and conjugate representations; matrix coefficients of a representation on any finite-dimensional inner product space are shown representative, so the pinned standard models cost nothing."
+      },
+      {
+       "target": "The (dim V)² functions π_{ij}(g) = ⟪π g e_j, e_i⟫ for an irreducible π with an orthonormal basis",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IrrepModel.basis",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/PeterWeyl.lean",
+         "line": 166,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.modelCoeffs",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/PeterWeyl.lean",
+         "line": 178,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.peterWeylFamily",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/PeterWeyl.lean",
+         "line": 383,
+         "fit": "related"
+        }
+       ],
+       "note": "The indexed family of basis matrix coefficients is built on the standard models, where the orthonormal basis is EuclideanSpace.basisFun and so not a further choice."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+       "note": "Matrix coefficients of an algebraic group are the same functions in the algebraic (comodule) setting; that layer owns the coordinate-ring version of 𝓡(G)."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-4-schur-orthogonality-in-l²g": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "First orthogonality for a fixed irreducible: ∫ π_{ij} conj(π_{kl}) = d⁻¹ δ_{jl} δ_{ik}, in both the basis and the coordinate-free forms, with the conjugation convention pinned",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ContRepresentation.schur_orthogonality_self",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/SchurOrthogonality.lean",
+         "line": 109,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.schur_orthogonality_basis",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/SchurOrthogonality.lean",
+         "line": 127,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.averageOperator_eq_finrank_inv_mul_trace_smul_id",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/SchurOrthogonality.lean",
+         "line": 76,
+         "fit": "related"
+        }
+       ],
+       "note": "Proved by Haar-averaging a rank-one operator into a self-intertwiner and applying Schur, with the scalar pinned by the trace, exactly the route the layer prescribes. The coordinate-free statement is the primitive and the Kronecker form is read off it (the opposite of the layer's suggested order, which changes nothing)."
+      },
+      {
+       "target": "Second orthogonality: matrix coefficients of inequivalent unitary irreducibles are L²-orthogonal",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ContRepresentation.schur_orthogonality",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/SchurOrthogonality.lean",
+         "line": 156,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.schur_orthogonality_distinct",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Intertwiner/Basic.lean",
+         "line": 416,
+         "fit": "exact"
+        }
+       ],
+       "note": "Packaged under the roadmap's name schur_orthogonality, proved from the vanishing of the intertwiners that Schur's lemma supplies for inequivalent irreducibles."
+      },
+      {
+       "target": "The normalized matrix coefficients √d · π_{ij} form an orthonormal system in L²(G), indexed by Σ π, Fin dπ × Fin dπ",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ContRepresentation.orthonormal_matrixCoeffLp",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Orthonormal.lean",
+         "line": 97,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsIrrepSkeleton.orthonormal_peterWeylFamily",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/PeterWeyl.lean",
+         "line": 467,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.peterWeylFamily",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/PeterWeyl.lean",
+         "line": 383,
+         "fit": "exact"
+        }
+       ],
+       "note": "Orthonormality is proved for any family of pairwise inequivalent finite-dimensional irreducible unitary representations, with the sigma-type index the layer prescribes."
+      },
+      {
+       "target": "Verification of the convention against fourierBasis on AddCircle",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.peterWeylFamily_fourierIrrepModel",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/FourierPeterWeyl.lean",
+         "line": 147,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.compMeasurePreserving_peterWeylBasis_fourier",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/FourierPeterWeyl.lean",
+         "line": 204,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.fourierPeterWeylIndexEquiv",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/FourierPeterWeyl.lean",
+         "line": 123,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.orthonormal_characterLp_fourierRep",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Circle.lean",
+         "line": 286,
+         "fit": "related"
+        }
+       ],
+       "note": "Done in Compact/FourierPeterWeyl.lean rather than in the Schur file (whose docstring still records the item as outstanding): the normalized matrix coefficients of the circle's models are identified with Mathlib's Fourier monomials, the conjugate-linearity sign carried explicitly by the index equivalence."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-0-class-functions-and-their-pairing",
+       "note": "The [Finite G] shadow of both relations: the class-function pairing there is the finite average that replaces this layer's Haar integral, and Mathlib's FDRep.char_orthonormal is its summit."
+      }
+     ]
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem": {
+     "verdict": "partly built",
+     "targets": [
+      {
+       "target": "convolutionOperator k on L²(G), its compactness and self-adjointness for a symmetric kernel",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.convolutionCLM",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Convolution.lean",
+         "line": 201,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.convolutionOperator",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Convolution.lean",
+         "line": 314,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isCompactOperator_convolutionOperator",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Convolution.lean",
+         "line": 564,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isSelfAdjoint_convolutionOperator",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Convolution.lean",
+         "line": 417,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.convolutionCLM_compMeasurePreserving_mul_right",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Convolution.lean",
+         "line": 452,
+         "fit": "related"
+        }
+       ],
+       "note": "All of the layer's pinned convolution milestones, over an RCLike field; convolution is even bounded from L²(G) into the uniform norm of C(G)."
+      },
+      {
+       "target": "Each nonzero eigenspace is finite-dimensional and translation-invariant, hence carries a continuous finite-dimensional representation whose functions lie in 𝓡(G)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.finiteDimensional_eigenspace_convolutionOperator",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Convolution.lean",
+         "line": 578,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.compMeasurePreserving_mul_right_mem_eigenspace_convolutionOperator",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Convolution.lean",
+         "line": 615,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.convolutionEigenspaceRepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/EigenspaceRepresentation.lean",
+         "line": 125,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.continuous_convolutionEigenspaceRepresentation",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/EigenspaceRepresentation.lean",
+         "line": 151,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isRepresentative_smul_convolutionCLM_of_mem_eigenspace",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/EigenspaceRepresentation.lean",
+         "line": 210,
+         "fit": "exact"
+        }
+       ],
+       "note": "This is where the finite-dimensional representations are manufactured, with no point-separation input, exactly as the layer demands; the eigenvector's continuous representative is identified with a matrix coefficient of the eigenspace representation."
+      },
+      {
+       "target": "approx_identity_exists: a net of nonnegative symmetric kernels whose convolution tends to the identity uniformly on C(G)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IsMollifier",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/ApproximateIdentity.lean",
+         "line": 138,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_isMollifier",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/ApproximateIdentity.lean",
+         "line": 211,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_isMollifier_norm_convolutionCLM_toLp_sub_le",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/ApproximateIdentity.lean",
+         "line": 275,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_isMollifier_tendsto_convolutionCLM_toLp",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/ApproximateIdentity.lean",
+         "line": 331,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsMollifier.isSelfAdjoint_convolutionOperator",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/ApproximateIdentity.lean",
+         "line": 169,
+         "fit": "related"
+        }
+       ],
+       "note": "Built without any Hausdorff hypothesis, the kernels coming from Urysohn's lemma on a compact group; both the ε-form and the net form are proved."
+      },
+      {
+       "target": "representativeStarSubalgebra_dense: 𝓡(G) is uniformly dense in C(G), proved without assuming point separation, with separation as a corollary",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.dense_representativeSubmodule",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/RepresentativeDensity.lean",
+         "line": 117,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.representativeStarSubalgebra_dense",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/RepresentativeDensity.lean",
+         "line": 142,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.representativeStarSubalgebra_separatesPoints",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/RepresentativeDensity.lean",
+         "line": 185,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.exists_contRepresentation_apply_ne",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/RepresentativeDensity.lean",
+         "line": 208,
+         "fit": "exact"
+        }
+       ],
+       "note": "The non-circular convolution route is carried out exactly as pinned: density first, with separation (and with it 'G has enough finite-dimensional representations') derived afterwards under [T1Space G] only."
+      },
+      {
+       "target": "Density in L²(G): 𝓡(G) is dense in L²(G), so its orthogonal complement is ⊥",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.dense_image_toLp_representativeSubmodule",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/RepresentativeDensity.lean",
+         "line": 224,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.orthogonal_map_toLp_representativeSubmodule_eq_bot",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/RepresentativeDensity.lean",
+         "line": 244,
+         "fit": "exact"
+        },
+        {
+         "name": "ContinuousMap.toLp_denseRange",
+         "library": "mathlib",
+         "file": "Mathlib/MeasureTheory/Function/ContinuousMapDense.lean",
+         "line": 361,
+         "fit": "related"
+        }
+       ],
+       "note": "Stated in exactly the form HilbertBasis.mkOfOrthogonalEqBot consumes."
+      },
+      {
+       "target": "The Peter-Weyl Hilbert basis with IrrepModel / IsIrrepSkeleton as chosen data, and the element-level identification of its vectors",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.IrrepModel",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/PeterWeyl.lean",
+         "line": 141,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.IsIrrepSkeleton",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/PeterWeyl.lean",
+         "line": 202,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.peterWeylBasis",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/PeterWeyl.lean",
+         "line": 501,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.coe_peterWeylBasis",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/PeterWeyl.lean",
+         "line": 511,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.stdPeterWeylBasis",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/PeterWeyl.lean",
+         "line": 700,
+         "fit": "more general"
+        }
+       ],
+       "note": "Stronger than the roadmap asks: the basis is defined outright rather than existentially, coe_peterWeylBasis identifies its vectors with the normalized matrix coefficients on the nose, and stdPeterWeylBasis removes the skeleton hypothesis by constructing one. Parseval is available as peterWeylBasis_repr_apply / hasSum_norm_sq_peterWeylCoeff."
+      },
+      {
+       "target": "The isotypic decomposition L²(G) ≅ ⨁̂_π (V_π ⊗ V_π*) ≅ ⨁̂_π End(V_π) as unitary G×G-representations, with the block projections identified as the isotypic projectors",
+       "library": "partial",
+       "declarations": [
+        {
+         "name": "ContRepresentation.isotypicKernel",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Character/IsotypicProjection.lean",
+         "line": 99,
+         "fit": "related"
+        },
+        {
+         "name": "ContRepresentation.isotypicProjector",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Character/IsotypicProjection.lean",
+         "line": 145,
+         "fit": "related"
+        },
+        {
+         "name": "ContRepresentation.range_isotypicProjector",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Character/IsotypicProjection.lean",
+         "line": 394,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.rightRegularLp",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/RegularRepresentation.lean",
+         "line": 66,
+         "fit": "related"
+        },
+        {
+         "name": "TauCeti.hasSum_peterWeyl_expansion",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/PeterWeyl.lean",
+         "line": 559,
+         "fit": "related"
+        }
+       ],
+       "note": "The block projections exist and are proved to be the isotypic projectors — but on a finite-dimensional continuous representation, not on L²(G). L²(G) carries only the right regular representation (rightRegularLp); there is no left regular action, no G×G-representation on L²(G), and no identification of the Peter-Weyl blocks with End(V_π) as G×G-representations. The Hilbert-basis expansion indexed by Σ i, Fin dᵢ × Fin dᵢ is the block structure in coordinates only."
+      }
+     ],
+     "duplicates": []
+    },
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups": {
+     "verdict": "built",
+     "targets": [
+      {
+       "target": "character π : C(G, ℂ), g ↦ trace (π g), a sum of diagonal matrix coefficients, in L²(G), and a class function",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ContRepresentation.character",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/Character.lean",
+         "line": 86,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.characterLp",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Character/Basic.lean",
+         "line": 93,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.character_mem_representativeSubmodule",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Continuous/Representative.lean",
+         "line": 261,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.characterLp_mem_classFunctionLp",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/ClassFunctionLp.lean",
+         "line": 76,
+         "fit": "exact"
+        },
+        {
+         "name": "FDRep.char_conj",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Character.lean",
+         "line": 194,
+         "fit": "related"
+        }
+       ],
+       "note": "Built for a continuous representation with the conjugation-invariance carried into L² as membership of classFunctionLp; Mathlib's FDRep.char_one, char_tensor, char_dual, char_conj supply the algebraic identities the layer says to reuse verbatim."
+      },
+      {
+       "target": "character_orthonormal: ∫ χ_π conj(χ_ρ) = δ for irreducibles, and the orthonormality of the character system",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ContRepresentation.character_orthonormal_self",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Character/Basic.lean",
+         "line": 184,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.character_orthonormal_distinct",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Character/Basic.lean",
+         "line": 209,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.orthonormal_characterLp",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Orthonormal.lean",
+         "line": 130,
+         "fit": "exact"
+        },
+        {
+         "name": "FDRep.char_orthonormal",
+         "library": "mathlib",
+         "file": "Mathlib/RepresentationTheory/Character.lean",
+         "line": 245,
+         "fit": "special case"
+        }
+       ],
+       "note": "Both relations are proved from Layer 4's Schur orthogonality; Mathlib's FDRep.char_orthonormal is the [Finite G] shadow the layer points to."
+      },
+      {
+       "target": "centralLp G as a genuine closed subspace of L²(G) of a.e. conjugation-invariant classes, with characterLp_mem_centralLp",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.classFunctionLp",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Group/Conjugation.lean",
+         "line": 115,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.isClosed_classFunctionLp",
+         "library": "tauceti",
+         "file": "TauCeti/MeasureTheory/Group/Conjugation.lean",
+         "line": 152,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.toLp_mem_classFunctionLp",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/ClassFunctionLp.lean",
+         "line": 59,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.characterLp_mem_classFunctionLp",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/ClassFunctionLp.lean",
+         "line": 76,
+         "fit": "exact"
+        }
+       ],
+       "note": "Named classFunctionLp rather than the roadmap's centralLp, and built in MeasureTheory/Group/Conjugation.lean for a general conjugation-invariant measure; closedness and completeness are proved, so it is the honest closed subspace the layer insists on."
+      },
+      {
+       "target": "The irreducible characters form an orthonormal Hilbert basis of centralLp G (class-function completeness)",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.characterBasis",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Character/Basis.lean",
+         "line": 346,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.coe_characterBasis",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Character/Basis.lean",
+         "line": 356,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.stdCharacterBasis",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Character/Basis.lean",
+         "line": 365,
+         "fit": "more general"
+        },
+        {
+         "name": "TauCeti.eq_zero_of_forall_inner_characterLp_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Character/Basis.lean",
+         "line": 253,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.characterFamily",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Character/Basis.lean",
+         "line": 296,
+         "fit": "exact"
+        }
+       ],
+       "note": "Proved by cutting the Peter-Weyl basis down to the trace direction of each block, exactly the route the layer describes; stdCharacterBasis discharges the skeleton hypothesis. This is the compact-group form of '#irreducibles = #conjugacy classes'."
+      },
+      {
+       "target": "The isotypic block projections, averaging against dim V_π · conj χ_π",
+       "library": "tauceti",
+       "declarations": [
+        {
+         "name": "TauCeti.ContRepresentation.integratedOperator_star_character_self",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Character/Projection.lean",
+         "line": 139,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.ContRepresentation.integratedOperator_star_character_eq_zero",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Character/Projection.lean",
+         "line": 122,
+         "fit": "exact"
+        },
+        {
+         "name": "ContRepresentation.isotypicProjector_idempotent",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Character/IsotypicProjection.lean",
+         "line": 478,
+         "fit": "exact"
+        },
+        {
+         "name": "ContRepresentation.range_isotypicProjector",
+         "library": "tauceti",
+         "file": "TauCeti/RepresentationTheory/Compact/Character/IsotypicProjection.lean",
+         "line": 394,
+         "fit": "exact"
+        }
+       ],
+       "note": "Both blockwise identities and the assembled idempotent projector are proved, with the range identified with Mathlib's isotypicComponent."
+      }
+     ],
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-0-class-functions-and-their-pairing",
+       "note": "The finite-group version of the same targets: class functions, their pairing, and the orthonormality of the irreducible characters."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality",
+       "note": "Class-function completeness for a finite group, the statement '#irreducibles = #conjugacy classes' that this layer's Hilbert-basis result generalizes."
+      }
+     ]
+    }
+   }
+  }
+ }
+}
