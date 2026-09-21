@@ -1619,7 +1619,8 @@
    ],
    "avoidAccountOf": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1118"
   },
   {
    "id": "PAPER-BENNETT-SIKSEK-20",
