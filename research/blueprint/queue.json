@@ -545,8 +545,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ZAGIER.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-DESIGN-ZAGIER",
@@ -621,8 +621,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_ModularForms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #13"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_ModularForms",
@@ -722,8 +722,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_AdicSpaces",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_AdicSpaces.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #82"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
@@ -779,8 +779,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_GlobalNumberFields.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #17"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_GlobalNumberFields",
@@ -971,8 +971,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_JacobianChallenge.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #22"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_JacobianChallenge",
@@ -1040,8 +1040,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_HodgeStructures.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #24"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_HodgeStructures",
@@ -1187,8 +1187,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_QuadraticFormInvariants.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #28"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_QuadraticFormInvariants",
@@ -1221,8 +1221,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_StableReduction.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #29"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_StableReduction",
@@ -1356,8 +1356,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_FuchsianOrbifolds.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #33"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_FuchsianOrbifolds",
@@ -1390,8 +1390,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_Completed_ContourIntegration.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #34"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_Completed_ContourIntegration",
@@ -1596,8 +1596,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_AnalyticToricGeometry.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #40"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_AnalyticToricGeometry",
@@ -1630,8 +1630,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_CFSGStatement.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #41"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_CFSGStatement",
@@ -1664,8 +1664,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_CombinatorialHeegaardFloer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #42"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_CombinatorialHeegaardFloer",
@@ -1698,8 +1698,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_ConformalMapping.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #43"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_ConformalMapping",
@@ -1732,8 +1732,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_DGAInfinity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #44"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_DGAInfinity",
@@ -1766,8 +1766,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_DenseGraphLimits.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #45"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_DenseGraphLimits",
@@ -1902,8 +1902,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_HeegaardFloer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #49"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_HeegaardFloer",
@@ -1936,8 +1936,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_HopfRinow.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #50"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_HopfRinow",
@@ -2040,8 +2040,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_OptimalTransport.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #53"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_OptimalTransport",
@@ -2074,8 +2074,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_PDE.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #54"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_PDE",
@@ -2143,8 +2143,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_AdoIwasawa.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #56"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_AdoIwasawa",
@@ -2177,8 +2177,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_CharacterTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #57"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_CharacterTheory",
@@ -2246,8 +2246,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_CompactGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #59"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_CompactGroups",
@@ -2349,8 +2349,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieHighestWeight.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #62"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieHighestWeight",
@@ -2383,8 +2383,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/LINK-tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #63"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations",
@@ -2705,8 +2705,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-K3BlochGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #72"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-K3BlochGroups",
@@ -2749,8 +2749,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-Polylogarithms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #73"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-Polylogarithms",
@@ -2794,8 +2794,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-BorelRegulators.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #74"
+   "state": "pending",
+   "note": "stale claim released"
   },
   {
    "id": "REV-BorelRegulators",
