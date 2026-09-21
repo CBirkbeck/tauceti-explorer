@@ -1,0 +1,220 @@
+{
+  "family": "RS-26",
+  "roadmaps": {
+    "PadicHodgeRegulators": {
+      "action": "keep",
+      "reason": "Retain the K-theoretic/syntomic, Bloch–Kato and vector-regulator programme. L2 already imports the PG engine; L3/L4 construct additional interpolation and integral image theorems, not another Fontaine equivalence. Its K3 strand is not a continuation of the GL2 correspondence."
+    },
+    "PadicLocalLanglandsForGL2Qp": {
+      "action": "keep",
+      "reason": "Retain the GL2(Q_p) correspondence, representation categories, locally algebraic comparison and exceptional-block results. R30.1 already imports PG.0–3 and owns only the covariance/normalization bridge. A common input does not make Colmez construction a regulator theorem or a general GL2(K) correspondence."
+    },
+    "PhiGammaModulesAndIwasawaCohomology": {
+      "action": "keep",
+      "reason": "Retain the common cyclotomic coefficient, equivalence, cohomological-comparison, Wach and qualified-family supplier. Import analytic annulus carriers and continuous/Iwasawa cochains from their existing owners. Neither a big logarithm nor a Banach local Langlands correspondence is constructed here."
+    }
+  },
+  "layers": {
+    "PadicHodgeRegulators:D.1": {
+      "action": "keep",
+      "reason": "Keep regulator-specific branch, Frobenius, modified-dilogarithm and scalar comparisons; ColemanIntegration owns the imported analytic functions and their generic identities."
+    },
+    "PadicHodgeRegulators:D.2": {
+      "action": "keep",
+      "reason": "Keep the exact smooth/unramified syntomic and étale regulator comparison, filtered complexes and degree-three/weight-two Bloch formula. Preserve integral ranges. The separate MotivicEtaleKTheory:M.8 Chern-class overlap needs cross-family coordination, not deletion here."
+    },
+    "PadicHodgeRegulators:D.3": {
+      "action": "keep",
+      "reason": "Keep the derived-completed K3 calculation for finite products of unramified p-adic fields with p>3, including the valid roots-of-unity classes, integrality, residue spanning and equal-rank argument. The KTheoryFiniteLocalFields:L.6 cohomology/rank input stays an import."
+    },
+    "PadicHodgeRegulators:D.4": {
+      "action": "keep",
+      "reason": "Keep arithmetic localization, product-of-completions comparison, norm/trace, Frobenius, denominator and Habiro normalization statements. No global injectivity or ramified/small-prime upgrade is inferred."
+    },
+    "PadicHodgeRegulators:D.5": {
+      "action": "keep",
+      "reason": "Keep the good-reduction curve regulator, explicit symbol and pullback/pushforward/specialization statements; the elliptic application and any bad-reduction logarithmic extension remain separately qualified."
+    },
+    "PadicHodgeRegulators:KU-padicreg": {
+      "action": "keep",
+      "reason": "Keep the existing source-unit readiness checkpoint and every incoming/outgoing edge. It aggregates its named owners; it is not another regulator construction or proof-completion claim."
+    },
+    "PadicHodgeRegulators:L0": {
+      "action": "keep",
+      "reason": "Keep the import/convention interface for period rings and realizations. No new period carrier or classification is assigned here."
+    },
+    "PadicHodgeRegulators:L1": {
+      "action": "keep",
+      "reason": "Keep sole ownership of Bloch–Kato exponential and dual exponential, domains, kernels, local duality, twists, finite local condition and semilocal versions. These are early inputs to the regulator and the final PG.5 normalization comparison, not consequences of the big logarithm."
+    },
+    "PadicHodgeRegulators:L2": {
+      "action": "keep",
+      "reason": "Keep the current import-only PG.0–6 boundary and the genuinely new regulator-specific generator, twist, lattice and basis comparison diagrams with Selmer cochains. PG.5 supplies the actual derived psi comparison; no Fontaine, Herr or Iwasawa engine is reconstructed here."
+    },
+    "PadicHodgeRegulators:L3": {
+      "action": "keep",
+      "reason": "Keep the crystalline vector-valued big logarithm, interpolation with singular Euler operators treated on their domains, growth, reciprocity/determinant, lattice and scalar-extension theorems, and exact rank-one Coleman comparison. A scalar projection is still additional data."
+    },
+    "PadicHodgeRegulators:L4": {
+      "action": "keep",
+      "reason": "Keep the LLZ Coleman maps, logarithmic matrix, image/integral and basis-change theorems and the source-qualified de Rham character-domain regulator with crystalline comparison. PG.6 supplies Wach existence, PG.7 the qualified relative cohomology input; neither supplies these regulator conclusions."
+    },
+    "PadicLocalLanglandsForGL2Qp:R30.1": {
+      "action": "keep",
+      "reason": "Keep the already explicit PG.0–3 and early-annulus imports, the GL2(Q_p) covariance convention and its R16.3 normalization bridge. Do not require the later PG.7 relative-family theorem for this fixed-field stage."
+    },
+    "PadicLocalLanglandsForGL2Qp:R30.2": {
+      "action": "keep",
+      "reason": "Keep the three distinct local representation categories, their duals/actions, required finiteness and mod-p classification including exceptional characteristics. Generic smooth-category/distribution suppliers remain outside-family imports to coordinate, not reasons to erase the specialized targets."
+    },
+    "PadicLocalLanglandsForGL2Qp:R30.3": {
+      "action": "keep",
+      "reason": "Keep the actual Colmez construction and Galois functor in the selected direction, exactness in its valid range, determinant/central character and irreducibility statements. Sharing the PG carrier with regulator L2 is not duplication of either application."
+    },
+    "PadicLocalLanglandsForGL2Qp:R30.4": {
+      "action": "keep",
+      "reason": "Keep locally algebraic vectors for de Rham representations with distinct integral weights, classical Langlands/algebraic-weight comparison and qualified nonvanishing/density. No representation is determined by weights alone."
+    },
+    "PadicLocalLanglandsForGL2Qp:R30.5": {
+      "action": "keep",
+      "reason": "Keep projective envelopes, deformation/pseudodeformation endomorphism comparison, support and multiplicity for irreducible, reducible and exceptional blocks. R30.2 supplies category/classification inputs, not a second envelope comparison."
+    },
+    "PadicLocalLanglandsForGL2Qp:R30.6": {
+      "action": "keep",
+      "reason": "Keep exact local theorem branches and every exceptional-block proof obligation, with p>=5, p=3 and p=2 distinguished. Completed global occurrence is owned by R31, and application to lifting by R32; neither is imported to prove the local category equivalence."
+    },
+    "PhiGammaModulesAndIwasawaCohomology:PG.0": {
+      "action": "keep",
+      "reason": "Keep specialized cyclotomic integral/overconvergent coefficient rings, semilinear actions, stable-lattice etaleness, field-of-norms descent and choice comparisons; import the analytic annulus carriers from the early P7 prefix rather than its later comparison suffix."
+    },
+    "PhiGammaModulesAndIwasawaCohomology:PG.1": {
+      "action": "keep",
+      "reason": "Keep Fontaine functors and inverse maps, integral/torsion/rational distinctions, exactness, tensor/dual, coefficient and field-change comparisons. A rational Robba equivalence must not replace a lattice theorem."
+    },
+    "PhiGammaModulesAndIwasawaCohomology:PG.2": {
+      "action": "keep",
+      "reason": "Keep bounded-radius overconvergence and the exact integral/bounded/Robba scalar-extension comparisons. These extend PG.1 rather than duplicating it, and do not identify all Robba modules with Galois representations."
+    },
+    "PhiGammaModulesAndIwasawaCohomology:PG.3": {
+      "action": "keep",
+      "reason": "Keep the Herr complex and actual quasi-isomorphism to the imported continuous cochains, sign/generator, cup, duality and restriction/corestriction comparisons, with a separately proved dyadic derived-descent branch. Do not replace compact-coefficient proofs by discrete low-degree library results."
+    },
+    "PhiGammaModulesAndIwasawaCohomology:PG.4": {
+      "action": "keep",
+      "reason": "Keep the integral, continuous psi operator, trace-divisibility/coordinate construction, semilinearity, basis independence and comparison with existing power-series/measure carriers, including exceptional kernels. Constructing this operator is distinct from PG.5 identifying Iwasawa cohomology."
+    },
+    "PhiGammaModulesAndIwasawaCohomology:PG.5": {
+      "action": "keep",
+      "reason": "Keep the psi complex in degrees 1 and 2 and its comparison to Selmer L3 corestriction cochains, derived-limit corrections, coefficient/twist/field naturality, finite-character maps and dyadic branch. The final comparison with Bloch–Kato normalization imports regulator L1; the core comparison remains independent of big-logarithm construction."
+    },
+    "PhiGammaModulesAndIwasawaCohomology:PG.6": {
+      "action": "keep",
+      "reason": "Keep Wach existence/uniqueness, freeness, height bounds, D_cris and lattice reconstruction with the stated unramified-base and bounded-weight restrictions. The generic Wach basis change is supplied here; LLZ Coleman-map image and integral corrections remain regulator L4."
+    },
+    "PhiGammaModulesAndIwasawaCohomology:PG.7": {
+      "action": "keep",
+      "reason": "Keep source-qualified relative Herr/Iwasawa perfectness and base change with Tor, triangulation and exceptional loci. Compare with earlier fixed-field constructions where hypotheses overlap, without reconstructing them or promoting pointwise properties to uniform integral statements."
+    }
+  },
+  "links": [
+    {
+      "source": "PadicHodgeTheory:P7:annulus-foundations",
+      "target": "PadicHodgeRegulators:L2",
+      "reason": "Expose the analytic coefficient-carrier import already stated in L2. Use the early annulus prefix, not the P7 comparison stage that consumes PG results."
+    },
+    {
+      "source": "PadicHodgeTheory:P7:annulus-foundations",
+      "target": "PadicLocalLanglandsForGL2Qp:R30.1",
+      "reason": "Expose the early analytic Robba import already stated in R30.1, retaining its PG.0–3 and R16.3 prerequisites. No PG.7 family theorem is required."
+    },
+    {
+      "source": "PhiGammaModulesAndIwasawaCohomology:PG.6",
+      "target": "PadicHodgeRegulators:L4",
+      "reason": "Make the actual Wach existence/freeness/basis input explicit at the signed-map consumer. The integral Coleman-map images and logarithmic matrix are still proved in L4."
+    },
+    {
+      "source": "PhiGammaModulesAndIwasawaCohomology:PG.7",
+      "target": "PadicFamilies:L4",
+      "reason": "Record the textual family consumer named in PG.7. Relative triangulation, cohomology and specialization are imported with their exact hypotheses and exceptional loci; the arithmetic family class and reciprocity remain PadicFamilies L4 work."
+    },
+    {
+      "source": "PadicHodgeRegulators:L1",
+      "target": "PhiGammaModulesAndIwasawaCohomology:PG.5",
+      "reason": "Supply the already promised Bloch–Kato normalization comparison at the end of PG.5. This edge applies to that comparison suffix, not to the construction of the psi complex or the core inverse-limit theorem; do not substitute regulator L2/L3/L4, which would introduce a circular dependency."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Analytic annulus/Robba coefficient carriers, topologies and analytic scalar-extension maps",
+      "owner": "PadicHodgeTheory:P7:annulus-foundations",
+      "formerly": [
+        "PhiGammaModulesAndIwasawaCohomology:PG.0",
+        "PadicHodgeRegulators:L2",
+        "PadicLocalLanglandsForGL2Qp:R30.1"
+      ]
+    },
+    {
+      "target": "Specialized cyclotomic coefficient rings and commuting semilinear actions with the stable-lattice etale-module interface",
+      "owner": "PhiGammaModulesAndIwasawaCohomology:PG.0",
+      "formerly": [
+        "PadicHodgeRegulators:L2",
+        "PadicLocalLanglandsForGL2Qp:R30.1",
+        "PadicLocalLanglandsForGL2Qp:R30.3"
+      ]
+    },
+    {
+      "target": "Fontaine etale equivalence and its integral, torsion, rational, tensor/dual and field-change comparison maps",
+      "owner": "PhiGammaModulesAndIwasawaCohomology:PG.1",
+      "formerly": [
+        "PadicHodgeRegulators:L2",
+        "PadicLocalLanglandsForGL2Qp:R30.1",
+        "PadicLocalLanglandsForGL2Qp:R30.3"
+      ]
+    },
+    {
+      "target": "Cherbonnier–Colmez overconvergence and bounded/Robba realization of the fixed-field etale objects",
+      "owner": "PhiGammaModulesAndIwasawaCohomology:PG.2",
+      "formerly": [
+        "PadicHodgeRegulators:L2",
+        "PadicLocalLanglandsForGL2Qp:R30.1"
+      ]
+    },
+    {
+      "target": "Herr complex and its Galois-cochain comparison, including generic choice, cup, duality and dyadic-descent compatibilities",
+      "owner": "PhiGammaModulesAndIwasawaCohomology:PG.3",
+      "formerly": [
+        "PadicHodgeRegulators:L2",
+        "PadicLocalLanglandsForGL2Qp:R30.1"
+      ]
+    },
+    {
+      "target": "Integral continuous psi operator on the cyclotomic coefficient/module carriers and its generic compatibilities",
+      "owner": "PhiGammaModulesAndIwasawaCohomology:PG.4",
+      "formerly": [
+        "PadicHodgeRegulators:L2"
+      ]
+    },
+    {
+      "target": "Psi-complex comparison with the separately owned inverse-corestriction Iwasawa complex, including degrees and derived-limit corrections",
+      "owner": "PhiGammaModulesAndIwasawaCohomology:PG.5",
+      "formerly": [
+        "PadicHodgeRegulators:L2"
+      ]
+    },
+    {
+      "target": "Wach-module existence, freeness, reconstruction and generic basis-change theorem in the specified unramified crystalline range",
+      "owner": "PhiGammaModulesAndIwasawaCohomology:PG.6",
+      "formerly": [
+        "PadicHodgeRegulators:L2",
+        "PadicHodgeRegulators:L4"
+      ]
+    },
+    {
+      "target": "Qualified relative Herr/Iwasawa cohomology, base change and triangulation with Tor corrections and exceptional loci",
+      "owner": "PhiGammaModulesAndIwasawaCohomology:PG.7",
+      "formerly": [
+        "PadicHodgeRegulators:L4"
+      ]
+    }
+  ]
+}
