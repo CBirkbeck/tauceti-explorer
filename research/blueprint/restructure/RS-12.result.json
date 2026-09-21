@@ -1,0 +1,388 @@
+{
+  "family": "RS-12",
+  "roadmaps": {
+    "AutomorphicGaloisRepresentations": {
+      "action": "keep",
+      "reason": "Keep the explicit classical/Hilbert geometric rank-two development, its weight-one branch, full local comparisons and integral-Hecke realization. None is replaced by an abstract rank-n existence theorem or its weaker nonselfdual compatibility."
+    },
+    "AutomorphicGaloisRepresentationsPartII": {
+      "action": "extend",
+      "extends": "AutomorphicGaloisRepresentations",
+      "title": "Galois representations attached to modular and Hilbert modular forms, Part II: arbitrary-rank polarized and nonselfdual systems",
+      "reason": "Make the already-stated dimension-general continuation precise: begin the public scope beyond the existing classical/Hilbert construction and reuse its exact special cases through late comparison links. Retain the early raw-cohomology prelude shared with ET.6; a folder-wide R19-to-AG2.0 prerequisite creates the explicit cycle documented in the report. New CM rank-two cases, general ranks, discrete parameters and the nonselfdual route all remain, with no duplicate public GL2 carrier."
+    }
+  },
+  "layers": {
+    "AutomorphicGaloisRepresentations:R19.1": {
+      "action": "keep",
+      "reason": "Keep the actual classical geometric constructions: weight-two Jacobian components, higher-weight parabolic/symmetric-power or Kuga-Sato cohomology, projectors, dimension, coefficient fields and stable lattices, arithmetic dual/twist and geometric Eichler-Shimura polynomial. Keep Deligne-Serre weight one separately. Higher-rank regular algebraic existence neither supplies that weight-one case nor replaces these realizations. Generic representation/lattice machinery remains R01.1; prove its geometric application here."
+    },
+    "AutomorphicGaloisRepresentations:R19.2": {
+      "action": "keep",
+      "reason": "Keep the Hilbert/quaternionic constructions through R18 and R16/R17, including parity and auxiliary discrete-series places, solvable/totally-real descent where sourced, and proofs of continuity, determinants, oddness and irreducibility. Own the rank-two totally-real theorem on its exact stated domain. AG2.3 extends and compares this domain; it does not supply these hypotheses by a bundled automorphic datum."
+    },
+    "AutomorphicGaloisRepresentations:R19.3": {
+      "action": "narrow",
+      "keeps": "Construct the actual family for a fixed classical or Hilbert eigenform: coefficient number field, representations at coefficient places, common finite exceptional set and Frobenius polynomials, and the precise weak/almost-strict/strict properties proved by the selected sources. Use the generic system carrier and operations from the early R24.5:operations interface and the realized eigenspace purity theorem from R34.6. Retain all source-specific local conditions and never build a system merely as a trace table.",
+      "suppliedBy": [
+        "PotentialModularityAndCompatibleSystems:R24.5:operations",
+        "WeightsInEtaleCohomology:R34.6"
+      ],
+      "reason": "Remove duplicate ownership of the general compatible-system carrier and generic purity application, not the eigenform family or any of its stronger local conclusions. Both R19.3 and AG2.6 instantiate the same early interface; neither may make its construction depend on the late potential-modularity existence theorem R24.5."
+    },
+    "AutomorphicGaloisRepresentations:R19.4": {
+      "action": "keep",
+      "reason": "Keep full Frobenius-semisimplified Weil-Deligne local-global compatibility, including N, the Steinberg case, conductors and bad Euler factors in the classical/Hilbert source domains. Retain the arithmetic/geometric and Hecke/local-Langlands conversion. A higher-rank nonselfdual monodromy bound is not a replacement supplier for this stronger rank-two theorem."
+    },
+    "AutomorphicGaloisRepresentations:R19.5": {
+      "action": "keep",
+      "reason": "Keep the geometric coefficient-prime comparisons and the source-scoped de Rham, crystalline, potentially semistable, Hodge-Tate and inertial-type assertions, including Barsotti-Tate, ordinary and endpoint-weight cases. Retain residual and auxiliary-place hypotheses, ordinary saturation/refinement and the nonordinary D_cris/Wach comparison with R06/P7. AG2.6 imports these exact rank-two special cases; no stronger general branch is assumed."
+    },
+    "AutomorphicGaloisRepresentations:R19.6": {
+      "action": "keep",
+      "reason": "Keep the geometric integral-Hecke determinant instance, its continuity and all finite-quotient congruences, reconstruction under checked residual hypotheses, specialization and local deformation-ring maps. Import generic polynomial-law interpolation and Cayley-Hamilton reconstruction from IHG.4/IHG.1; these are already explicit suppliers, not duplicate constructions. Retain nilpotents and the weight-two-only V_ell(A_f) restriction-of-scalars comparison with total dimension 2[K_f:Q], and all modular Iwasawa realization/period interfaces. No higher-weight abelian quotient is inferred."
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.0": {
+      "action": "keep",
+      "reason": "Keep the branch-specific automorphic weight/coefficient-field data, finite realization/descent checks and the early Frobenius/cyclotomic/Satake dictionary. Reuse AF.4 for algebraic/rational structures, R01/G7 for actual representations and polarizations, and IHG.3 for integral spherical normalization. The rec comparison belongs to AG2.5 after ET.6, not to this early raw-cohomology input. The explicit imports are deliberate handoffs, not new versions of their carriers."
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.1": {
+      "action": "keep",
+      "reason": "Keep only the aggregate completion of the two named producers AG2.1a and AG2.1b. It is not a second construction, a proof leaf or a prerequisite for ET.6. The aggregate cannot be used in place of the raw cohomology interface."
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.1a": {
+      "action": "keep",
+      "reason": "Keep the compact PEL unitary/similitude raw cohomology with actual algebraic projectors, coefficients, parity, twists, commuting actions, finite-dimensionality, continuity, isotypic summands and geometric trace/nearby-cycle identities. This supplies ET.6/ET.6a without an established local correspondence or a completed global Galois realization. No R19 endpoint, late Igusa concentration, torsion interpolation or potential-automorphy theorem is added as a prerequisite."
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.1b": {
+      "action": "keep",
+      "reason": "Keep the passage from alternating virtual characters to actual Galois constituents with proved multiplicity, purity, weight separation and cancellation after ET.6. Import only the specified IG.0/IG.1 and ET characteristic-zero inputs; neither torsion concentration nor an arbitrary unpolarized direct Shimura-cohomology realization replaces this argument."
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.2": {
+      "action": "keep",
+      "reason": "Keep the stable-unitary/endoscopic identification, source-scoped rank and multiplicity calculation, cuspidal versus discrete-isobaric cases, constituent twists and degree-2n polynomial, and polarization/descent. Generic representation/system operations come from G7 and the early R24.5:operations interface; this layer proves that the attached automorphic systems respect them. A generic tensor operation does not prove automorphic compatibility or discrete-parameter assembly."
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.3": {
+      "action": "narrow",
+      "keeps": "Keep the definite-unitary eigenvariety instance, its integral coefficients, compact operators, classicality/density and Galois determinant specialization, plus Chenevier-Harris approximation and effective solvable descent. Retain the general-rank theorem and every CM/totally-real domain not covered by R19.2, including new rank-two cases. On the overlap reuse the existing R19.2 representation as the public rank-two object and prove the general construction is isomorphic after the stated coefficient and normalization comparisons. No canonical matrix conjugacy is claimed.",
+      "suppliedBy": [
+        "AutomorphicGaloisRepresentations:R19.2"
+      ],
+      "reason": "Remove a second public construction of the already-owned regular Hilbert rank-two object, not the uniform general theorem, eigenvariety method, auxiliary hypotheses or descent proof. Imports enter the late comparison, not the generic analytic engine or early AG2.1a input."
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.4": {
+      "action": "keep",
+      "reason": "Keep HLTT boundary/Levi realization, ordinary-locus dagger and compact-support logarithmic complex instance, finite-slope comparison, integral weight-changing congruences at every power of p, determinant limits and degree-n factor extraction/descent. Import generic geometry and determinant APIs from their owners, but prove this automorphic application. The resulting nonselfdual characteristic-zero existence theorem has its stated good-prime conclusion only; it does not consume Scholze torsion interpolation."
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.5": {
+      "action": "narrow",
+      "keeps": "Keep all good-prime and ramified comparisons outside the exact R19.4 overlap, in arbitrary rank and CM/totally-real branches, including new rank-two cases. Keep the late rec-normalization comparison, monodromy partial order, polarized nearby-cycle/purity upgrades and nonselfdual Varma interpolation/bound. On the classical/Hilbert overlap import R19.4 full Weil-Deligne equality and transport it through the representation comparison. Distinguish underlying semisimplification, full Frobenius-semisimplification retaining N, and a monodromy bound; the weaker branch is never silently strengthened.",
+      "suppliedBy": [
+        "AutomorphicGaloisRepresentations:R19.4"
+      ],
+      "reason": "Deduplicate only the covered rank-two local theorem. Its stronger conclusion must remain available, while the general nonselfdual theorem retains its strictly weaker advertised guarantee. Source-specific stronger general theorems remain new proofs here, not consequences of good-prime traces."
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.6": {
+      "action": "narrow",
+      "keeps": "Construct the actual arbitrary-rank branch-specific families using the early common system carrier. Retain coefficient fields, common exceptional sets and polynomials, coefficient-embedding independence and isomorphism-class uniqueness, and prove each new purity/polarization/local property separately. Keep polarized coefficient-prime comparisons and their passage through geometry, deformation and descent beyond R19.5, including new rank-two cases. On the exact base overlap use R19.3 families and R19.5 local comparisons with explicit normalization. Weak compatibility of the basic nonselfdual system is not de Rham/crystalline or full coefficient-prime compatibility.",
+      "suppliedBy": [
+        "PotentialModularityAndCompatibleSystems:R24.5:operations",
+        "AutomorphicGaloisRepresentations:R19.3",
+        "AutomorphicGaloisRepresentations:R19.5"
+      ],
+      "reason": "Remove duplicate carrier and covered eigenform-family/local-comparison ownership. Preserve all genuinely new ranks, field domains, branch conditions and source-scoped comparison proofs. Do not reverse the dependency into R19 or require the late potential-automorphy endpoint."
+    },
+    "AutomorphicGaloisRepresentationsPartII:AG2.7": {
+      "action": "keep",
+      "reason": "Keep finite-realization and chosen-lattice applications, good-polynomial reduction, residual Hecke-ideal independence, the explicit unramified no-cyclotomic-ratio predicate at split auxiliary primes, and separate typed arithmetic exports. Reuse R01.1 for generic invariant lattices/residual semisimplification. Own the local ratio predicate consumed by IG.5, not its Igusa obstruction theorem or G7 enormous-image condition. Compare the GL2 packages with R19 up to isomorphism; do not promise a canonical lattice, unique basis comparison, global residual irreducibility or adequacy from local genericity."
+    }
+  },
+  "links": [
+    {
+      "source": "ArithmeticGaloisRepresentations:G7",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+      "reason": "Use actual finite-dimensional continuous representation/polarization data with multipliers, pairings and signs, not a new abstract polarized carrier."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.1",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+      "reason": "Apply the existing invariant-lattice and residual-semisimplification theorem to the constructed finite-coefficient-field systems, without choosing a canonical lattice."
+    },
+    {
+      "source": "AutomorphicFormsOnReductiveGroups:AF.4",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+      "reason": "Use the already-owned algebraic weights and rational structures, keeping the field-of-rationality versus field-of-realization distinction."
+    },
+    {
+      "source": "AutomorphicGaloisRepresentations:R19.1",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+      "reason": "Compare the higher-rank good-prime GL2 specialization with the existing classical representation through Frobenius-polynomial uniqueness up to isomorphism; weight one stays separate."
+    },
+    {
+      "source": "AutomorphicGaloisRepresentations:R19.2",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.3",
+      "reason": "Supply the precise imported portion of AutomorphicGaloisRepresentationsPartII:AG2.3; preserve the source hypotheses and the retained instance/comparison targets."
+    },
+    {
+      "source": "AutomorphicGaloisRepresentations:R19.2",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.4",
+      "reason": "Protocol 15 forwarding of the narrowed AutomorphicGaloisRepresentationsPartII:AG2.3 interface. This is inherited supplier access, not an assertion that this consumer uses every theorem of that supplier; retain the original dependency as well."
+    },
+    {
+      "source": "AutomorphicGaloisRepresentations:R19.2",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+      "reason": "Protocol 15 forwarding of the narrowed AutomorphicGaloisRepresentationsPartII:AG2.3 interface. This is inherited supplier access, not an assertion that this consumer uses every theorem of that supplier; retain the original dependency as well."
+    },
+    {
+      "source": "AutomorphicGaloisRepresentations:R19.2",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+      "reason": "Protocol 15 forwarding of the narrowed AutomorphicGaloisRepresentationsPartII:AG2.3 interface. This is inherited supplier access, not an assertion that this consumer uses every theorem of that supplier; retain the original dependency as well."
+    },
+    {
+      "source": "AutomorphicGaloisRepresentations:R19.2",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+      "reason": "Use the existing Hilbert representation in the final overlapping GL2 export and verify coefficient/normalization transport; new CM rank-two cases remain in Part II."
+    },
+    {
+      "source": "AutomorphicGaloisRepresentations:R19.3",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+      "reason": "Supply the precise imported portion of AutomorphicGaloisRepresentationsPartII:AG2.6; preserve the source hypotheses and the retained instance/comparison targets."
+    },
+    {
+      "source": "AutomorphicGaloisRepresentations:R19.3",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+      "reason": "Protocol 15 forwarding of the narrowed AutomorphicGaloisRepresentationsPartII:AG2.6 interface. This is inherited supplier access, not an assertion that this consumer uses every theorem of that supplier; retain the original dependency as well."
+    },
+    {
+      "source": "AutomorphicGaloisRepresentations:R19.4",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+      "reason": "Supply the precise imported portion of AutomorphicGaloisRepresentationsPartII:AG2.5; preserve the source hypotheses and the retained instance/comparison targets."
+    },
+    {
+      "source": "AutomorphicGaloisRepresentations:R19.4",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+      "reason": "Protocol 15 forwarding of the narrowed AutomorphicGaloisRepresentationsPartII:AG2.5 interface. This is inherited supplier access, not an assertion that this consumer uses every theorem of that supplier; retain the original dependency as well."
+    },
+    {
+      "source": "AutomorphicGaloisRepresentations:R19.4",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+      "reason": "Protocol 15 forwarding of the narrowed AutomorphicGaloisRepresentationsPartII:AG2.5 interface. This is inherited supplier access, not an assertion that this consumer uses every theorem of that supplier; retain the original dependency as well."
+    },
+    {
+      "source": "AutomorphicGaloisRepresentations:R19.4",
+      "target": "IgusaVarietiesAndTorsionConcentration:IG.5",
+      "reason": "Protocol 15 forwarding of the narrowed AutomorphicGaloisRepresentationsPartII:AG2.5 interface. This is inherited supplier access, not an assertion that this consumer uses every theorem of that supplier; retain the original dependency as well."
+    },
+    {
+      "source": "AutomorphicGaloisRepresentations:R19.5",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+      "reason": "Supply the precise imported portion of AutomorphicGaloisRepresentationsPartII:AG2.6; preserve the source hypotheses and the retained instance/comparison targets."
+    },
+    {
+      "source": "AutomorphicGaloisRepresentations:R19.5",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+      "reason": "Protocol 15 forwarding of the narrowed AutomorphicGaloisRepresentationsPartII:AG2.6 interface. This is inherited supplier access, not an assertion that this consumer uses every theorem of that supplier; retain the original dependency as well."
+    },
+    {
+      "source": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+      "target": "IgusaVarietiesAndTorsionConcentration:IG.5",
+      "reason": "Supply the residual unramified no-ratio-p predicate and polynomial/lattice comparison. IG.5 proves the distinct dual-Hecke-normalized Igusa obstruction; no reverse dependency on its late theorem is introduced."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+      "target": "AutomorphicGaloisRepresentations:R19.6",
+      "reason": "Use generic Cayley-Hamilton reconstruction only after verifying residual absolute irreducibility and the coefficient-ring descent hypotheses; the geometric law is constructed in R19.6."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.0",
+      "reason": "Use the integral spherical Hecke polynomial and rec-free Satake/Frobenius conversion before local Langlands exists."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.4",
+      "target": "AutomorphicGaloisRepresentations:R19.6",
+      "reason": "Apply finite-quotient integral interpolation with actual congruence/continuity witnesses. Reduced characteristic-zero points alone do not determine the integral Hecke family."
+    },
+    {
+      "source": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+      "target": "AutomorphicGaloisRepresentations:R19.3",
+      "reason": "Supply the precise imported portion of AutomorphicGaloisRepresentations:R19.3; preserve the source hypotheses and the retained instance/comparison targets."
+    },
+    {
+      "source": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+      "target": "AutomorphicGaloisRepresentations:R19.4",
+      "reason": "Protocol 15 forwarding of the narrowed AutomorphicGaloisRepresentations:R19.3 interface. This is inherited supplier access, not an assertion that this consumer uses every theorem of that supplier; retain the original dependency as well."
+    },
+    {
+      "source": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.2",
+      "reason": "Reuse generic system operations; AG2.2 separately proves compatibility of the automorphic realization with duals, twists and solvable restriction."
+    },
+    {
+      "source": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+      "reason": "Supply the precise imported portion of AutomorphicGaloisRepresentationsPartII:AG2.6; preserve the source hypotheses and the retained instance/comparison targets."
+    },
+    {
+      "source": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+      "reason": "Protocol 15 forwarding of the narrowed AutomorphicGaloisRepresentationsPartII:AG2.6 interface. This is inherited supplier access, not an assertion that this consumer uses every theorem of that supplier; retain the original dependency as well."
+    },
+    {
+      "source": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+      "target": "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+      "reason": "Protocol 15 forwarding of the narrowed AutomorphicGaloisRepresentations:R19.3 interface. This is inherited supplier access, not an assertion that this consumer uses every theorem of that supplier; retain the original dependency as well."
+    },
+    {
+      "source": "WeightsInEtaleCohomology:R34.6",
+      "target": "AutomorphicGaloisRepresentations:R19.3",
+      "reason": "Supply the precise imported portion of AutomorphicGaloisRepresentations:R19.3; preserve the source hypotheses and the retained instance/comparison targets."
+    },
+    {
+      "source": "WeightsInEtaleCohomology:R34.6",
+      "target": "AutomorphicGaloisRepresentations:R19.4",
+      "reason": "Protocol 15 forwarding of the narrowed AutomorphicGaloisRepresentations:R19.3 interface. This is inherited supplier access, not an assertion that this consumer uses every theorem of that supplier; retain the original dependency as well."
+    },
+    {
+      "source": "WeightsInEtaleCohomology:R34.6",
+      "target": "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+      "reason": "Protocol 15 forwarding of the narrowed AutomorphicGaloisRepresentations:R19.3 interface. This is inherited supplier access, not an assertion that this consumer uses every theorem of that supplier; retain the original dependency as well."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Classical rank-two geometric eigenform realization and its good Frobenius polynomial, with a separate weight-one Artin branch",
+      "owner": "AutomorphicGaloisRepresentations:R19.1",
+      "formerly": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.7"
+      ]
+    },
+    {
+      "target": "Cohomological Hilbert rank-two realization on the R19.2 source domain, including parity and auxiliary-place/descent cases",
+      "owner": "AutomorphicGaloisRepresentations:R19.2",
+      "formerly": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.3"
+      ]
+    },
+    {
+      "target": "General-rank polarized approximation/descent and the new field/rank domains beyond the existing Hilbert construction",
+      "owner": "AutomorphicGaloisRepresentationsPartII:AG2.3",
+      "formerly": []
+    },
+    {
+      "target": "Generic compatible-system carrier with actual representations and distinct weak, almost-strict and strict local predicates, plus general operations",
+      "owner": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+      "formerly": [
+        "AutomorphicGaloisRepresentations:R19.3",
+        "AutomorphicGaloisRepresentationsPartII:AG2.2",
+        "AutomorphicGaloisRepresentationsPartII:AG2.6"
+      ]
+    },
+    {
+      "target": "Generic purity application to an actual eigenform/Kuga-Sato eigenspace with its geometric and projector hypotheses",
+      "owner": "WeightsInEtaleCohomology:R34.6",
+      "formerly": [
+        "AutomorphicGaloisRepresentations:R19.3"
+      ]
+    },
+    {
+      "target": "The actual classical/Hilbert eigenform family, common coefficient-independent polynomials and its source-scoped compatibility properties",
+      "owner": "AutomorphicGaloisRepresentations:R19.3",
+      "formerly": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.6"
+      ]
+    },
+    {
+      "target": "Classical/Hilbert full away-from-coefficient-prime Weil-Deligne comparison, monodromy, conductors and bad factors",
+      "owner": "AutomorphicGaloisRepresentations:R19.4",
+      "formerly": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.5"
+      ]
+    },
+    {
+      "target": "Arbitrary-rank/new-domain local-global comparison and late normalization, with separately scoped full polarized upgrades and nonselfdual monodromy bounds",
+      "owner": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+      "formerly": []
+    },
+    {
+      "target": "Classical/Hilbert coefficient-prime geometric comparisons, including source-scoped ordinary, Barsotti-Tate and endpoint cases",
+      "owner": "AutomorphicGaloisRepresentations:R19.5",
+      "formerly": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.6"
+      ]
+    },
+    {
+      "target": "New-domain polarized coefficient-prime comparison through deformation/descent and construction/properties of the general-rank system instances",
+      "owner": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+      "formerly": []
+    },
+    {
+      "target": "Generic polynomial-law finite-quotient interpolation with continuity and integral congruence hypotheses",
+      "owner": "IntegralHeckeAndGaloisDeterminants:IHG.4",
+      "formerly": [
+        "AutomorphicGaloisRepresentations:R19.6",
+        "AutomorphicGaloisRepresentationsPartII:AG2.4"
+      ]
+    },
+    {
+      "target": "Generic Cayley-Hamilton reconstruction with exact residual and coefficient-ring hypotheses",
+      "owner": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+      "formerly": [
+        "AutomorphicGaloisRepresentations:R19.6",
+        "AutomorphicGaloisRepresentationsPartII:AG2.3"
+      ]
+    },
+    {
+      "target": "Geometric integral-Hecke law, local deformation-map conditions, nilpotent-sensitive specialization and weight-two A_f realization comparison",
+      "owner": "AutomorphicGaloisRepresentations:R19.6",
+      "formerly": []
+    },
+    {
+      "target": "Algebraic automorphic weights, C/L normalization and rational structures in the source-scoped cohomological cases",
+      "owner": "AutomorphicFormsOnReductiveGroups:AF.4",
+      "formerly": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0"
+      ]
+    },
+    {
+      "target": "Integral spherical Hecke polynomial and its normalized Satake/arithmetic-Frobenius conversion",
+      "owner": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+      "formerly": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0"
+      ]
+    },
+    {
+      "target": "Actual arbitrary-rank representation operations and polarization pairings, multipliers and signs",
+      "owner": "ArithmeticGaloisRepresentations:G7",
+      "formerly": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.0",
+        "AutomorphicGaloisRepresentationsPartII:AG2.2"
+      ]
+    },
+    {
+      "target": "Generic invariant lattices and lattice-independent residual semisimplification",
+      "owner": "ArithmeticGaloisRepresentations:R01.1",
+      "formerly": [
+        "AutomorphicGaloisRepresentations:R19.1",
+        "AutomorphicGaloisRepresentationsPartII:AG2.7"
+      ]
+    },
+    {
+      "target": "Unramified residual no-cyclotomic-ratio predicate at a completely split auxiliary prime, separate from distinctness and global image hypotheses",
+      "owner": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+      "formerly": [
+        "IgusaVarietiesAndTorsionConcentration:IG.5"
+      ]
+    },
+    {
+      "target": "Dual-Hecke-normalized rational Igusa trace/genericity obstruction using that predicate",
+      "owner": "IgusaVarietiesAndTorsionConcentration:IG.5",
+      "formerly": []
+    },
+    {
+      "target": "Final typed characteristic-zero, polarized, unitary-discrete and residual automorphic exports with the GL2 isomorphism-class comparison",
+      "owner": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+      "formerly": []
+    }
+  ]
+}
