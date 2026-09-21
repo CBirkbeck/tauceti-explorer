@@ -2631,7 +2631,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #131"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
@@ -4498,7 +4499,8 @@
    ],
    "avoidAccountOf": "RS-32",
    "prompt": "research/blueprint/prompts/REV-RS-32.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #863"
   },
   {
    "id": "RS-33",
