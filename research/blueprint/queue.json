@@ -3159,8 +3159,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-05.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #810"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #810",
+   "finishedAt": "2026-09-21T14:06:05Z"
   },
   {
    "id": "REV-RS-05",
@@ -15121,7 +15122,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-03.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #883"
   },
   {
    "id": "PLANETS-04",
@@ -15142,7 +15144,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-04.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #884"
   },
   {
    "id": "PLANETS-05",
