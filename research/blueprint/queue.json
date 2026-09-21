@@ -3186,7 +3186,8 @@
    ],
    "avoidAccountOf": "PAPER-MARTIN-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-MARTIN-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1217"
   },
   {
    "id": "PAPER-YANG-ZHAO-25",
