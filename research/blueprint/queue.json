@@ -1597,8 +1597,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1117"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1117",
+   "finishedAt": "2026-09-21T17:18:00Z"
   },
   {
    "id": "REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
@@ -2395,7 +2396,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BAKKER-TSIMERMAN-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1165"
   },
   {
    "id": "REV-PAPER-BAKKER-TSIMERMAN-16",
