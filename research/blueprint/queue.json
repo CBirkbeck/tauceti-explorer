@@ -1632,8 +1632,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BENNETT-SIKSEK-20.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1119"
+   "state": "external",
+   "note": "claimed on GitHub issue #1119"
   },
   {
    "id": "REV-PAPER-BENNETT-SIKSEK-20",
@@ -6036,7 +6036,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HE-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1397"
   },
   {
    "id": "REV-PAPER-HE-21",
@@ -6201,8 +6202,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MERKURJEV-SCAVIA-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1408"
+   "state": "pending",
+   "note": "released on GitHub issue #1408"
   },
   {
    "id": "REV-PAPER-MERKURJEV-SCAVIA-26",
@@ -6400,8 +6401,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1420"
+   "state": "pending",
+   "note": "released on GitHub issue #1420"
   },
   {
    "id": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
