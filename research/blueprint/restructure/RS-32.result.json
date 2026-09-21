@@ -1,0 +1,212 @@
+{
+  "family": "RS-32",
+  "roadmaps": {
+    "ShimuraCompactifications": {
+      "action": "extend",
+      "extends": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+      "title": "Analytic toric geometry, Part II: arithmetic toroidal compactifications",
+      "reason": "The member already imports the common toric vocabulary. Make that boundary enforceable: the anchor owns its finite regular complex-fan constructions; the extension owns arithmetic-admissible fan systems, relative and integral torus embeddings, Shimura boundary quotients and their compactifications. Preserve the roadmap id and all nine stage ids."
+    }
+  },
+  "layers": {
+    "ShimuraCompactifications:C0": {
+      "action": "narrow",
+      "keeps": "Arithmetic-admissible cone collections on the common lattice/cone carriers, with arithmetic actions, finitely many cone orbits, local finiteness in the positivity domain, cusp support and compatibility; existence of common and sufficiently fine smooth/projective refinements, including cases not proved by the anchor; compatibility with parabolic inclusions and level changes; extension of affine toric charts to the required base rings, relative torus-torsor embeddings by descent, and the relative/arithmetic support-properness theorem under its separately verified finiteness and base hypotheses. Prove compatibility with the anchor on finite complex fans. Do not redefine its cones, finite fans, dual monoids or complex affine schemes.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+        "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness"
+      ],
+      "reason": "Finite-fan combinatorics and complex toric charts are imported from L0, and finite regular complex-fan properness from L5. Finiteness modulo an arithmetic group is not finiteness of the fan. L0 defines subdivisions; it does not supply the required existence of common, smooth or projective refinements."
+    },
+    "ShimuraCompactifications:C1": {
+      "action": "keep",
+      "reason": "Keep the enrichment of V2 boundary components, mixed Shimura boundary data, positivity cones, pure quotients, torus/abelian torsors, cusp labels and stabilizers. Continue to import, rather than reconstruct, the existing linear-algebraic mixed Hodge structures and the common lattice/cone vocabulary."
+    },
+    "ShimuraCompactifications:C2": {
+      "action": "narrow",
+      "keeps": "Partial compactifications of C1 boundary torus torsors using C0 embeddings; their arithmetic transition, separation, quotient and gluing proofs; normality, properness and the open immersion; descent of the local boundary description at neat level for smooth fans; projectivity for projective admissible fans; the map to the existing minimal compactification and its boundary fibers; canonical-model descent in the stated datum class. Any nonregular-cone geometry required by the original normality/properness targets remains an extension obligation. Prove comparison on finite split complex charts instead of reconstructing those charts, their fan gluing or their local toric boundary theorem.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+        "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-2-affine-analytic-charts-of-regular-cones",
+        "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-3-finite-fan-analytic-gluing",
+        "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-4-torus-actions-strata-and-the-boundary",
+        "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness"
+      ],
+      "reason": "The finite regular complex chart, gluing and boundary lemmas are exact upstream subproblems, not the full arithmetic construction. Neither arithmetic quotient separation nor canonical-model descent follows merely from finite-fan gluing. The original normal-crossings conclusion is not silently strengthened to global simple normal crossings after quotienting."
+    },
+    "ShimuraCompactifications:C2.general": {
+      "action": "keep",
+      "reason": "Retain C2 plus ShimuraVarieties:V8.general as the general-data descent interface, with the same rational boundary components and stabilizers. Import the narrowed C2 construction and the named finite-chart suppliers, not a second gluing theory."
+    },
+    "ShimuraCompactifications:C3": {
+      "action": "narrow",
+      "keeps": "Descent and gluing of refinement maps on the arithmetic toroidal models, with identity/composition laws and agreement with L5 on finite regular complex toric charts; extensions of datum morphisms and Hecke translations for compatible fans; comparison of choices through C0 common refinements; structure-sheaf pushforward and normality theorems; separately stated higher-direct-image vanishing for the exact coefficient sheaves and hypotheses used by consumers.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness"
+      ],
+      "reason": "L5 owns ordinary finite regular toric maps and proper subdivision maps, including the star-subdivision test. It does not own arithmetic Hecke extensions, general refinement pushforward, or coefficient-specific higher-direct-image vanishing."
+    },
+    "ShimuraCompactifications:C3.general": {
+      "action": "keep",
+      "reason": "Retain the general-data level/refinement/Hecke and boundary comparisons on C2.general. No all-prime integral assertion or new generic finite-fan construction is added."
+    },
+    "ShimuraCompactifications:C4": {
+      "action": "keep",
+      "reason": "Retain semi-abelian degeneration data, biextensions, polarized 1-motives, effectivity/algebraization, formal charts, endomorphisms and level comparisons, and the existing modular degeneration comparisons. Import existing split tori over a base and C0 relative toric geometry. The separate NeronModels overlap is recorded for coordination, not silently discarded."
+    },
+    "ShimuraCompactifications:C5": {
+      "action": "keep",
+      "reason": "Retain good-prime integral PEL toroidal algebraic spaces, universal semi-abelian extensions, formal completions, properness, Hodge positivity, section finite generation, minimal projectivity, open quasi-projectivity and higher-p-level normalization bounds. Complex toric properness is only a compatibility input, never a proof of these integral conclusions."
+    },
+    "ShimuraCompactifications:C6": {
+      "action": "keep",
+      "reason": "Retain the Hilbert ordinary-neighborhood models, cusp lattices and unit quotients, polarization quotient comparisons, Hasse ideals, modular comparison at the stated levels, and the coefficient-appropriate Koecher and boundary-ideal statements. Ramified Hilbert geometry continues to use H2, not an enlarged good-prime claim for C5."
+    }
+  },
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+      "target": "ShimuraCompactifications:C0",
+      "reason": "First toric prerequisite: common lattices, cones, finite fans, dual semigroups and finite complex algebraic toric charts; C0 extends them, preserving their finite specialization."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+      "target": "ShimuraCompactifications:C0",
+      "reason": "Import only the finite regular complex-fan support criterion; prove the relative/arithmetic extension with its own hypotheses in C0."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+      "target": "ShimuraCompactifications:C1",
+      "reason": "C1 formerly obtained the shared lattice/cone package through C0; import its owner directly while C0 continues to supply arithmetic admissibility."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+      "target": "ShimuraCompactifications:C4",
+      "reason": "C4 formerly obtained ordinary toric chart vocabulary through C0; retain C0 for the additional base-ring and torsor geometry."
+    },
+    {
+      "source": "ShimuraCompactifications:C0",
+      "target": "ShimuraCompactifications:C2",
+      "reason": "Make explicit the already transitive use of arithmetic-admissible fans and relative torus embeddings in the characteristic-zero compactification charts."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+      "target": "ShimuraCompactifications:C2",
+      "reason": "Reuse the finite complex algebraic toric chart and face-localization carriers in the local comparison, rather than creating a parallel toric scheme construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-2-affine-analytic-charts-of-regular-cones",
+      "target": "ShimuraCompactifications:C2",
+      "reason": "Import the regular affine complex toric chart and holomorphic face localization; the relative and quotient chart comparisons remain C2 obligations."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-3-finite-fan-analytic-gluing",
+      "target": "ShimuraCompactifications:C2",
+      "reason": "Import finite regular complex-fan analytic gluing and separation; C2 verifies the extra arithmetic and relative gluing hypotheses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-4-torus-actions-strata-and-the-boundary",
+      "target": "ShimuraCompactifications:C2",
+      "reason": "Import toric strata and the holomorphic coordinate-hyperplane boundary form before proving its relative/arithmetic descent."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+      "target": "ShimuraCompactifications:C2",
+      "reason": "Import the finite regular toric properness subproblem, without identifying it with properness of a Shimura compactification."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-3-finite-fan-analytic-gluing",
+      "target": "ShimuraCompactifications:C2.general",
+      "reason": "The general-data completion still uses the same finite-chart gluing supplier after C2 is narrowed; general canonical-model descent stays in C2.general."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-4-torus-actions-strata-and-the-boundary",
+      "target": "ShimuraCompactifications:C2.general",
+      "reason": "Retain the local toric boundary input to the general-data boundary comparison; arithmetic descent and any stronger boundary hypotheses must still be proved."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-3-finite-fan-analytic-gluing",
+      "target": "ShimuraCompactifications:C3",
+      "reason": "Preserve the finite-fan realization input previously carried by C2 when defining maps between its arithmetic compactifications."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-4-torus-actions-strata-and-the-boundary",
+      "target": "ShimuraCompactifications:C3",
+      "reason": "Preserve the toric strata/boundary comparison input to refinement and boundary maps; the arithmetic maps remain C3 outputs."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+      "target": "ShimuraCompactifications:C3",
+      "reason": "Import finite regular toric maps, proper subdivision maps, identity and composition, then extend and descend them in the arithmetic setting."
+    },
+    {
+      "source": "ShimuraCompactifications:C0",
+      "target": "ShimuraCompactifications:C3",
+      "reason": "Expose the existing use of common and compatible arithmetic fan refinements for Hecke extensions and comparison of choices."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+      "target": "ShimuraCompactifications:C3.general",
+      "reason": "General-data refinement maps retain the finite-chart map supplier after C3 is narrowed; their general-data descent still uses C3 and C2.general."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+      "target": "ShimuraCompactifications:C5",
+      "reason": "Keep the finite complex-fiber refinement comparison visible; integral properness and degeneration-chart gluing still require C0, C3 and C4, not L5 alone."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-4-torus-actions-strata-and-the-boundary",
+      "target": "AutomorphicBundles:B3",
+      "reason": "The local reduced toric boundary divisor used in canonical/subcanonical extensions is imported from its owner; C2/C6 still supply the actual descended arithmetic boundary."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+      "target": "AutomorphicBundles:B3",
+      "reason": "Make the finite-chart refinement maps explicit after narrowing C3; section invariance still consumes the retained C3 pushforward theorems and the B3 coefficient comparison."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Common lattice/cone and finite-fan vocabulary, dual semigroups, complex affine toric schemes, face localizations and finite algebraic fan gluing",
+      "owner": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+      "formerly": [
+        "ShimuraCompactifications:C0"
+      ]
+    },
+    {
+      "target": "Regular affine complex toric charts and holomorphic face-localization comparisons",
+      "owner": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-2-affine-analytic-charts-of-regular-cones",
+      "formerly": [
+        "ShimuraCompactifications:C2"
+      ]
+    },
+    {
+      "target": "Analytic gluing and separation of ordinary finite regular complex toric fans",
+      "owner": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-3-finite-fan-analytic-gluing",
+      "formerly": [
+        "ShimuraCompactifications:C2"
+      ]
+    },
+    {
+      "target": "Toric orbit strata and the local coordinate-hyperplane boundary description for finite regular complex fans",
+      "owner": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-4-torus-actions-strata-and-the-boundary",
+      "formerly": [
+        "ShimuraCompactifications:C2"
+      ]
+    },
+    {
+      "target": "Cone-by-cone support criterion for properness of finite regular complex toric maps",
+      "owner": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+      "formerly": [
+        "ShimuraCompactifications:C0"
+      ]
+    },
+    {
+      "target": "Finite regular toric refinement maps, identity/composition laws and proper star-subdivision maps",
+      "owner": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+      "formerly": [
+        "ShimuraCompactifications:C3"
+      ]
+    }
+  ]
+}
