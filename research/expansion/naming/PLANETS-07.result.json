@@ -1,0 +1,1789 @@
+[
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories::landmark:additive-functor-f-factors-through-the-quo-11swj88",
+    "decision": "name",
+    "label": "Universal property of the additive quotient",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-0-additive-ideals-and-frobenius-exact-categories::landmark:hom-group-agrees-with-the-quotient-of-the--10xswgf",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "A componentwise description of quotient homs, subordinate to the quotient universal property."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-1-the-triangulated-stable-category::landmark:and-are-additive-quasi-inverse-autoequival-encuvv",
+    "decision": "name",
+    "label": "Stable suspension equivalence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-1-the-triangulated-stable-category::landmark:conflation-x-y-z-produces-the-standard-tri-t81cew",
+    "decision": "name",
+    "label": "Happel's construction",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-1-the-triangulated-stable-category::landmark:different-choices-give-canonically-natural-5t86mr",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Choice-independence property of the stable suspension construction, not a separate planet."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-1-the-triangulated-stable-category::landmark:let-e-be-a-frobenius-exact-category-1lm6c55",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Setup and choices for Happel's construction, already retained in this layer."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities::landmark:exact-frobenius-category-gproj-r-with-the--1i9mvfx",
+    "decision": "name",
+    "label": "Frobenius category Gproj-R",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities::landmark:projective-injective-objects-exactly-the-f-wi8z5c",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "A structural characterization within the retained Frobenius category, not a separate central object."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-3-differential-modules-and-periodic-complexes::landmark:differential-module-is-one-right-r-module--1836itv",
+    "decision": "keep",
+    "label": "Differential module",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-3-differential-modules-and-periodic-complexes::landmark:more-generally-for-n-1-an-n-periodic-compl-xry3or",
+    "decision": "name",
+    "label": "n-periodic complexes",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-3-differential-modules-and-periodic-complexes::landmark:three-related-object-types-1i8j4na",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Instruction to build object types, with no independently identified object."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-4-compression-periodic-resolutions-and-relative-projectives::landmark:homotopically-projective-1emsevy",
+    "decision": "name",
+    "label": "Homotopically projective modules",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-4-compression-periodic-resolutions-and-relative-projectives::landmark:projective-flag-1bngzvq",
+    "decision": "name",
+    "label": "Projective flags",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-4-compression-periodic-resolutions-and-relative-projectives::landmark:relatively-projective-1627lpb",
+    "decision": "name",
+    "label": "Relatively projective modules",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-5-curved-dg-algebras-modules-and-duplexes::landmark:curvature-w-a2-8uhlye",
+    "decision": "name",
+    "label": "Curved DG algebras",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-5-curved-dg-algebras-modules-and-duplexes::landmark:d-a2-a-aw-wa-and-d-a-w-0-uqylxp",
+    "decision": "keep",
+    "label": "Curved duplex",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-5-curved-dg-algebras-modules-and-duplexes::landmark:degree-one-k-linear-graded-derivation-d-a-1nr6tob",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "One constituent of the retained curved DG algebra definition."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-5-curved-dg-algebras-modules-and-duplexes::landmark:graded-unital-associative-k-algebra-1b4d3x5",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "The underlying graded algebra in the retained curved DG algebra definition."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-6-curved-acyclicity-and-derived-categories-of-the-second-kind::landmark:absolutely-acyclic-19hmtqr",
+    "decision": "name",
+    "label": "Absolutely acyclic objects",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-6-curved-acyclicity-and-derived-categories-of-the-second-kind::landmark:category-of-bundled-right-curved-dg-module-1ekbx53",
+    "decision": "name",
+    "label": "Curved homotopy category",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-6-curved-acyclicity-and-derived-categories-of-the-second-kind::landmark:coacyclic-w9ptc1",
+    "decision": "name",
+    "label": "Coacyclic objects",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-6-curved-acyclicity-and-derived-categories-of-the-second-kind::landmark:contraacyclic-tkgjd4",
+    "decision": "name",
+    "label": "Contraacyclic objects",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-7-matrix-factorizations::landmark:buchweitz-s-comparison-1b8kxfv",
+    "decision": "keep",
+    "label": "Buchweitz's comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-7-matrix-factorizations::landmark:eisenbud-s-local-theorem-3r9trf",
+    "decision": "keep",
+    "label": "Eisenbud's local theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-7-matrix-factorizations::landmark:for-a-commutative-ring-s-and-potential-w-s-11gojgh",
+    "decision": "name",
+    "label": "Finite-projective matrix factorizations",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-8-comparison-functors-and-reconciliation::landmark:collect-the-constructions-into-named-funct-19kfilv",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Workflow for assembling functors and commuting diagrams."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-8-comparison-functors-and-reconciliation::landmark:periodic-homotopy-to-periodic-derived-cate-93k6td",
+    "decision": "name",
+    "label": "Periodic Verdier localization",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-8-comparison-functors-and-reconciliation::landmark:stable-gorenstein-projectives-to-singulari-fwj05j",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Cross-reference to the singularity comparison constructed in an earlier layer."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-0-relative-curves-and-extensions-of-dvrs::landmark:existing-sheafofmodules-isquasicoherent-an-1y5yqnr",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Instructions to reuse existing sheaf predicates and coordinate missing operations."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-0-relative-curves-and-extensions-of-dvrs::landmark:for-a-locally-finite-type-morphism-define--1bqpoiz",
+    "decision": "name",
+    "label": "Relative dimension",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-0-relative-curves-and-extensions-of-dvrs::landmark:generic-and-special-fibres-over-a-dvr-incl-gz4u2k",
+    "decision": "name",
+    "label": "Generic and special fibres over a DVR",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs::landmark:kahler-differentials-and-fitting-ideals-fa-1vezi9h",
+    "decision": "name",
+    "label": "Relative singular closed subscheme",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs::landmark:local-normal-form-uqy96z",
+    "decision": "name",
+    "label": "Local normal form of a node",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-10-stable-maps-and-their-stability-condition::landmark:for-a-target-q-v-s-define-a-prestablemap-q-l8du60",
+    "decision": "name",
+    "label": "Prestable maps",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-10-stable-maps-and-their-stability-condition::landmark:isomorphisms-of-prestable-maps-over-a-fixe-apy2xm",
+    "decision": "name",
+    "label": "Isomorphisms of prestable maps",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-10-stable-maps-and-their-stability-condition::landmark:on-a-geometric-fibre-define-when-an-irredu-4on8nz",
+    "decision": "name",
+    "label": "Contracted components",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-11-basic-stable-map-api-and-map-aware-stabilization::landmark:decorate-the-dual-graph-from-layer-1-with--101uuym",
+    "decision": "name",
+    "label": "Decorated dual graph",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-11-basic-stable-map-api-and-map-aware-stabilization::landmark:evaluation-morphism-at-the-ith-marking-as--igukbr",
+    "decision": "name",
+    "label": "Evaluation morphism at a marking",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-11-basic-stable-map-api-and-map-aware-stabilization::landmark:given-a-relatively-ample-l-define-the-degr-1h5pmkx",
+    "decision": "name",
+    "label": "Degree of a map",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-11-basic-stable-map-api-and-map-aware-stabilization::landmark:specialize-layer-2-s-contraction-descent-t-1mtp9fq",
+    "decision": "name",
+    "label": "Contraction descent for prestable curves",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity::landmark:arithmetic-genus-and-prove-the-normalizati-1skbhwz",
+    "decision": "name",
+    "label": "Arithmetic genus",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity::landmark:contracts-j-a1-j-a2-j-b-j-c-and-j-b-sr-2-a-9uvkwo",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Ownership and dependency bookkeeping for shared curve-theory constructions."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity::landmark:over-locally-noetherian-bases-build-cohere-winb0c",
+    "decision": "name",
+    "label": "Cohomology and base change",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity::landmark:relative-dualizing-complex-sheaf-for-prope-1tpid00",
+    "decision": "name",
+    "label": "Relative dualizing sheaf",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves::landmark:n-pointed-prestable-family-using-sections--17bsrw0",
+    "decision": "name",
+    "label": "n-pointed prestable families",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves::landmark:prestable-families-as-proper-at-worst-noda-vtq64m",
+    "decision": "name",
+    "label": "Prestable families",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves::landmark:semistablefamily-and-stablefamily-with-the-13sq4gf",
+    "decision": "name",
+    "label": "Semistable and stable families",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces::landmark:cartier-weil-intersection-multiplicities-o-aclkk1",
+    "decision": "name",
+    "label": "Cartier/Weil intersection multiplicities",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces::landmark:formalize-the-resolution-theorem-in-the-ex-zs2m7",
+    "decision": "name",
+    "label": "Resolution of normal proper curve models",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces::landmark:rees-algebra-and-the-blowup-of-a-quasi-coh-19hmp3s",
+    "decision": "name",
+    "label": "Blowup of a quasi-coherent ideal",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces::landmark:work-out-the-essential-test-case-r-x-y-xy--65999x",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Worked blowup acceptance example rather than a separate central construction."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models::landmark:components-and-multiplicities-of-the-speci-1rzssrg",
+    "decision": "name",
+    "label": "Special-fibre divisor formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models::landmark:keep-the-genus-zero-exception-explicit-min-1ovevo9",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Warning about the genus-zero exception, not a theorem claiming uniqueness."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models::landmark:regular-proper-model-of-a-smooth-projectiv-1cmjzop",
+    "decision": "name",
+    "label": "Minimal regular models",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion::landmark:abstract-numerical-type-exactly-as-in-stac-z94dzz",
+    "decision": "name",
+    "label": "Abstract numerical type",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion::landmark:for-a-regular-model-with-special-fibre-com-pyrpro",
+    "decision": "name",
+    "label": "Genus of a numerical type",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion::landmark:line-bundles-on-the-regular-model-generic--1p1ao5e",
+    "decision": "name",
+    "label": "Picard specialization maps",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion::landmark:pic-t-as-the-cokernel-of-ei-j-aij-wj-ej-wi-1qi4ftk",
+    "decision": "name",
+    "label": "Picard group of a numerical type",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction::landmark:genus-g-2-nodal-reduction-by-layers-5-6-mve302",
+    "decision": "name",
+    "label": "Genus-g ≥ 2 nodal reduction",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction::landmark:genus-one-nodal-reduction-after-finite-sep-12vpn3s",
+    "decision": "name",
+    "label": "Genus-one nodal reduction",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction::landmark:hasnodalreduction-c-r-for-a-curve-over-the-1cj9yyp",
+    "decision": "name",
+    "label": "Nodal reduction",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction::landmark:hasnodalreduction-in-genus-zero-after-a-se-1koa5s9",
+    "decision": "name",
+    "label": "Genus-zero nodal reduction",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction::landmark:for-a-prestable-family-of-genus-g-2-over-a-hktu66",
+    "decision": "name",
+    "label": "Stabilization of prestable families",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction::landmark:uniqueness-among-contractions-with-those-g-1oet5od",
+    "decision": "name",
+    "label": "Uniqueness of stabilization",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction::landmark:generic-markings-to-sections-by-properness-3v84yj",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Preparatory steps extending and separating markings for pointed reduction."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction::landmark:graded-log-canonical-algebra-and-its-multi-iuzkvt",
+    "decision": "name",
+    "label": "Graded log-canonical algebra",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction::landmark:stable-pointed-reduction-for-smooth-generi-pp2qbx",
+    "decision": "name",
+    "label": "Stable pointed reduction",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-0-connect-existing-densities-and-add-the-uniform-distribution::landmark:define-the-uniform-measure-on-an-interval-pv2bxa",
+    "decision": "name",
+    "label": "Uniform measure on an interval",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-0-connect-existing-densities-and-add-the-uniform-distribution::landmark:identify-the-radon-nikodym-derivatives-p604b6",
+    "decision": "name",
+    "label": "Radon–Nikodym derivatives of continuous laws",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-0-connect-existing-densities-and-add-the-uniform-distribution::landmark:if-haslaw-x-gammameasure-a-r-p-prove-haspd-1bqtbnl",
+    "decision": "name",
+    "label": "Densities of continuous families",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-0-connect-existing-densities-and-add-the-uniform-distribution::landmark:target-is-measurable-fun-p-foomeasure-p-16rcxcl",
+    "decision": "name",
+    "label": "Parameter measurability of distributions",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-1-complete-the-elementary-theory-of-existing-distributions::landmark:bernoulli-and-binomial-1tk956j",
+    "decision": "name",
+    "label": "Bernoulli and binomial generating functions",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-1-complete-the-elementary-theory-of-existing-distributions::landmark:exponential-14tm2o8",
+    "decision": "name",
+    "label": "Exponential memorylessness",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-1-complete-the-elementary-theory-of-existing-distributions::landmark:geometric-1hkzusm",
+    "decision": "name",
+    "label": "Geometric memorylessness",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-1-complete-the-elementary-theory-of-existing-distributions::landmark:poisson-wjkvvw",
+    "decision": "name",
+    "label": "Poisson generating function",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-2-incomplete-special-functions-and-closed-form-cdfs::landmark:closed-form-cdfs-and-tails-av8oss",
+    "decision": "name",
+    "label": "Gaussian cdf formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-2-incomplete-special-functions-and-closed-form-cdfs::landmark:error-function-1dy06f7",
+    "decision": "keep",
+    "label": "Error function",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-2-incomplete-special-functions-and-closed-form-cdfs::landmark:lower-incomplete-gamma-1vjxibn",
+    "decision": "keep",
+    "label": "Lower incomplete gamma",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-2-incomplete-special-functions-and-closed-form-cdfs::landmark:regularized-incomplete-beta-8fcu0n",
+    "decision": "keep",
+    "label": "Regularized incomplete beta",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-3-new-scalar-families::landmark:chi-squared-1uuu7bd",
+    "decision": "name",
+    "label": "Chi-squared measure",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-3-new-scalar-families::landmark:laplace-144qmap",
+    "decision": "name",
+    "label": "Laplace measure",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-3-new-scalar-families::landmark:log-normal-1fbx6uv",
+    "decision": "name",
+    "label": "Log-normal measure",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-3-new-scalar-families::landmark:weibull-9rjs7d",
+    "decision": "name",
+    "label": "Weibull measure",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-4-relationships-among-distributions::landmark:independent-gamma-variables-1b2z4x1",
+    "decision": "name",
+    "label": "Beta–gamma independence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-4-relationships-among-distributions::landmark:ratios-cdirjp",
+    "decision": "name",
+    "label": "Gaussian ratio laws",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-4-relationships-among-distributions::landmark:squares-of-gaussian-variables-1qqywkq",
+    "decision": "keep",
+    "label": "Squares of Gaussian variables",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-4-relationships-among-distributions::landmark:sums-and-differences-1lx4at8",
+    "decision": "name",
+    "label": "Exponential differences and Laplace laws",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-5-multivariate-distributions::landmark:affine-maps-of-gaussian-laws-15ty9ey",
+    "decision": "keep",
+    "label": "Affine maps of Gaussian laws",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-5-multivariate-distributions::landmark:conditional-gaussian-laws-4rz7xj",
+    "decision": "keep",
+    "label": "Conditional Gaussian laws",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-5-multivariate-distributions::landmark:covariance-matrices-1c6aoqs",
+    "decision": "keep",
+    "label": "Covariance matrices",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-5-multivariate-distributions::landmark:multivariate-gaussian-density-1whxs71",
+    "decision": "keep",
+    "label": "Multivariate Gaussian density",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-6-symmetric-matrices-and-wishart-distributions::landmark:cholesky-decomposition-xds0d2",
+    "decision": "keep",
+    "label": "Cholesky decomposition",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-6-symmetric-matrices-and-wishart-distributions::landmark:multivariate-gamma-function-5yvbzp",
+    "decision": "name",
+    "label": "Multivariate gamma",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-6-symmetric-matrices-and-wishart-distributions::landmark:symmetric-matrices-and-their-lebesgue-meas-1syhh3x",
+    "decision": "keep",
+    "label": "Symmetric matrices and their Lebesgue measure",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/StandardDistributions#layer-6-symmetric-matrices-and-wishart-distributions::landmark:wishart-distributions-in0qkk",
+    "decision": "keep",
+    "label": "Wishart distributions",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti::landmark:1-action-149wwis",
+    "decision": "keep",
+    "label": "π₁ action",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti::landmark:based-path-space-and-the-cover-117cqq7",
+    "decision": "name",
+    "label": "Universal cover",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti::landmark:deck-transformation-group-1wbnrh6",
+    "decision": "keep",
+    "label": "Deck transformation group",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti::landmark:discreteness-of-homotopy-class-fibres-jrk7ct",
+    "decision": "keep",
+    "label": "Discreteness of homotopy-class fibres",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence::landmark:consume-iscoveringmap-existsunique-continu-1bss53o",
+    "decision": "keep",
+    "label": "General lifting criterion",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence::landmark:cover-associated-to-h-1-x-x0-1gj5i91",
+    "decision": "name",
+    "label": "Cover associated to a subgroup of π₁",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence::landmark:galois-correspondence-get-the-bookkeeping--16x594x",
+    "decision": "name",
+    "label": "Galois correspondence for connected covers",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-4-applications::landmark:n-tk-and-1-rpn-nra44c",
+    "decision": "name",
+    "label": "π_n(Tᵏ) and π₁(RPⁿ)",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/UniversalCovers#stage-4-applications::landmark:recognition-of-k-g-1-spaces-11ffnxy",
+    "decision": "keep",
+    "label": "Recognition of K(G, 1) spaces",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-0-affine-simply-laced-diagrams-doubled-graphs-relation-quotients-and-grading-descent::landmark:affine-simply-laced-diagrams-as-an-inducti-yx3xek",
+    "decision": "name",
+    "label": "Affine simply-laced diagrams",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-0-affine-simply-laced-diagrams-doubled-graphs-relation-quotients-and-grading-descent::landmark:doubledquiver-g-for-a-simple-graph-and-pro-1rjaeey",
+    "decision": "name",
+    "label": "Doubled quiver",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-0-affine-simply-laced-diagrams-doubled-graphs-relation-quotients-and-grading-descent::landmark:homogeneous-relation-families-by-path-degr-1q6r7hv",
+    "decision": "name",
+    "label": "Homogeneous relation quotient",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-0-affine-simply-laced-diagrams-doubled-graphs-relation-quotients-and-grading-descent::landmark:paths-and-path-algebra-elements-attached-t-7mc8m5",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Auxiliary path elements and corner identities used in the retained quotient construction."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-1-strict-ordinary-and-skew-zigzag-algebras::landmark:a1-dual-numbers-presentation-and-the-a2-ra-8a7yvs",
+    "decision": "name",
+    "label": "Zigzag algebra",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-1-strict-ordinary-and-skew-zigzag-algebras::landmark:uniform-relation-quotient-containing-non-r-162z6vr",
+    "decision": "name",
+    "label": "Strict zigzag relation quotient",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-1-strict-ordinary-and-skew-zigzag-algebras::landmark:work-out-cycles-explicitly-c89fxi",
+    "decision": "name",
+    "label": "Skew-zigzag algebras on cycles",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-2-bases-dimensions-centers-and-symmetric-frobenius-traces::landmark:deduce-dim-k-z-k-g-2-v-2-e-1vjgbu4",
+    "decision": "name",
+    "label": "Dimension of Z_k(G)",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-2-bases-dimensions-centers-and-symmetric-frobenius-traces::landmark:that-vertex-idempotents-e-i-all-oriented-a-ju2v76",
+    "decision": "name",
+    "label": "Homogeneous basis",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-2-bases-dimensions-centers-and-symmetric-frobenius-traces::landmark:tr-e-i-0-tr-a-0-and-tr-x-i-1-ghka1z",
+    "decision": "name",
+    "label": "Symmetric Frobenius trace",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms::landmark:in-the-non-dynkin-classical-koszul-cases-c-1yqay3z",
+    "decision": "name",
+    "label": "Inverse quantum Cartan matrix comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms::landmark:in-the-vertex-basis-prove-the-graded-carta-17zko5q",
+    "decision": "name",
+    "label": "Graded Cartan formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms::landmark:indecomposable-graded-left-projective-p-i--jlmc3",
+    "decision": "name",
+    "label": "Indecomposable graded projectives",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-4-additive-preprojective-algebras-and-orientation-independence::landmark:generalize-from-signs-1-to-an-antisymmetri-h0py5x",
+    "decision": "name",
+    "label": "Gauge independence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-4-additive-preprojective-algebras-and-orientation-independence::landmark:k-q-kq-using-the-two-sided-span-its-gradin-oyxxa8",
+    "decision": "name",
+    "label": "Additive preprojective algebra",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-4-additive-preprojective-algebras-and-orientation-independence::landmark:let-q-be-a-finite-quiver-and-q-quiver-symm-18g3c1j",
+    "decision": "name",
+    "label": "Local preprojective relations",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-4-additive-preprojective-algebras-and-orientation-independence::landmark:reverse-one-chosen-original-arrow-and-cons-8ucchn",
+    "decision": "name",
+    "label": "Orientation independence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-5-quadratic-and-koszul-duality::landmark:classical-koszulity-1781660",
+    "decision": "keep",
+    "label": "Classical Koszulity",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-5-quadratic-and-koszul-duality::landmark:comparison-with-standard-preprojective-1q57dt9",
+    "decision": "name",
+    "label": "Preprojective comparison for bipartite graphs",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-5-quadratic-and-koszul-duality::landmark:quadratic-dual-1ony7v1",
+    "decision": "name",
+    "label": "Quadratic dual of strict zigzag",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-6-2-dimensional-ginzburg-dg-algebras-and-calabi--yau-completion::landmark:d2-0-the-leibniz-signs-the-bidegree-statem-yh4qbs",
+    "decision": "name",
+    "label": "H⁰ of the Ginzburg DG algebra",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-6-2-dimensional-ginzburg-dg-algebras-and-calabi--yau-completion::landmark:length-adic-completion-and-the-comparison--fh92pt",
+    "decision": "name",
+    "label": "Length-adic completion",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-6-2-dimensional-ginzburg-dg-algebras-and-calabi--yau-completion::landmark:this-dg-algebra-with-the-derived-2-preproj-1114sdv",
+    "decision": "name",
+    "label": "2-Calabi–Yau completion comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-7-derived-koszul-duality-hochschild-classes-and-a-deformation-theory::landmark:let-be-a-finite-tree-and-choose-a-source-s-18epig4",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Only a setup hypothesis choosing a finite tree and an orientation."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-7-derived-koszul-duality-hochschild-classes-and-a-deformation-theory::landmark:regrade-each-zigzag-arrow-from-path-degree-ogr7gw",
+    "decision": "name",
+    "label": "Bigraded derived Koszul dualities",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-7-derived-koszul-duality-hochschild-classes-and-a-deformation-theory::landmark:small-cofibrant-bimodule-resolution-used-t-6lm5w1",
+    "decision": "name",
+    "label": "Cofibrant bimodule resolution",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-8-braid-complexes-and-spherical-twist-comparisons::landmark:action-on-graded-k0-and-compare-it-with-th-15n3tvd",
+    "decision": "name",
+    "label": "Reflection representation on graded K₀",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-8-braid-complexes-and-spherical-twist-comparisons::landmark:for-every-vertex-i-form-the-two-term-grade-1d0nn1l",
+    "decision": "name",
+    "label": "Two-term graded braid complex",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-8-braid-complexes-and-spherical-twist-comparisons::landmark:in-a-hom-finite-triangulated-category-with-1r70js5",
+    "decision": "name",
+    "label": "Seidel–Thomas evaluation-cone twists",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-8-braid-complexes-and-spherical-twist-comparisons::landmark:inverse-commuting-and-braid-homotopy-equiv-120tmam",
+    "decision": "name",
+    "label": "Artin braid group action",
+    "kind": "construction"
+  },
+  {
+    "id": "AInfCohomology:AI.0::landmark:breuil-kisin-twists-and-their-tensor-power-1wxjlut",
+    "decision": "keep",
+    "label": "Breuil–Kisin twists and their tensor powers",
+    "kind": "construction"
+  },
+  {
+    "id": "AInfCohomology:AI.0:integral::landmark:breuil-kisin-twists-and-their-tensor-power-1wxjlut",
+    "decision": "keep",
+    "label": "Breuil–Kisin twists and their tensor powers",
+    "kind": "construction"
+  },
+  {
+    "id": "AInfCohomology:AI.1/bockstein-reduction",
+    "decision": "keep",
+    "label": "Bockstein reduction of décalage",
+    "kind": "theorem"
+  },
+  {
+    "id": "AInfCohomology:AI.1/completion-at-decalage-ideal",
+    "decision": "keep",
+    "label": "Completion at the décalage ideal",
+    "kind": "theorem"
+  },
+  {
+    "id": "AInfCohomology:AI.1/decalage-cohomology",
+    "decision": "name",
+    "label": "Cohomology of décalage",
+    "kind": "theorem"
+  },
+  {
+    "id": "AInfCohomology:AI.1/decalage-products",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "A subordinate multiplicative structure on the retained derived décalage functor; the layer already retains six central objects and results."
+  },
+  {
+    "id": "AInfCohomology:AI.1/derived-decalage",
+    "decision": "keep",
+    "label": "The derived décalage functor",
+    "kind": "construction"
+  },
+  {
+    "id": "AInfCohomology:AI.1/ideal-decalage-complex",
+    "decision": "keep",
+    "label": "Décalage of a torsion-free complex",
+    "kind": "construction"
+  },
+  {
+    "id": "AInfCohomology:AI.1/preservation-derived-completeness",
+    "decision": "name",
+    "label": "Derived completeness under décalage",
+    "kind": "theorem"
+  },
+  {
+    "id": "AInfCohomology:AI.1::landmark:derived-completeness-1gdjait",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate completeness-preservation statement already represented by the reviewed décalage node."
+  },
+  {
+    "id": "AInfCohomology:AI.1::landmark:for-a-nonzerodivisor-f-a-construct-eta-f-o-1mnzeho",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate affine description of the retained décalage construction and derived functor."
+  },
+  {
+    "id": "AInfCohomology:AI.2::landmark:fargues-equivalence-for-finite-free-bkf-mo-1bv5lkp",
+    "decision": "name",
+    "label": "Fargues' finite-free BKF equivalence",
+    "kind": "theorem"
+  },
+  {
+    "id": "AInfCohomology:AI.2::landmark:finitely-presented-a-inf-modules-m-finite--ffsyzt",
+    "decision": "name",
+    "label": "BKF modules",
+    "kind": "definition"
+  },
+  {
+    "id": "AInfCohomology:AI.2::landmark:for-descent-from-a-discretely-valued-field-6iubcl",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Descent-data warning followed by acceptance examples."
+  },
+  {
+    "id": "AInfCohomology:AI.3::landmark:for-nu-x-proet-mathfrak-x-zar-define-a-l-m-1m7cfle",
+    "decision": "name",
+    "label": "AΩ construction",
+    "kind": "construction"
+  },
+  {
+    "id": "AInfCohomology:AI.3::landmark:framing-independence-restriction-sheaf-des-1r8ksbl",
+    "decision": "name",
+    "label": "Framing independence of AΩ",
+    "kind": "theorem"
+  },
+  {
+    "id": "AInfCohomology:AI.4::landmark:after-mu-inversion-prove-the-etale-compari-fnwcak",
+    "decision": "name",
+    "label": "Étale comparison after mu-inversion",
+    "kind": "theorem"
+  },
+  {
+    "id": "AInfCohomology:AI.4::landmark:hodge-tate-reduction-of-a-along-tilde-thet-1kqnfl6",
+    "decision": "name",
+    "label": "Hodge–Tate reduction of AΩ",
+    "kind": "theorem"
+  },
+  {
+    "id": "AInfCohomology:AI.4::landmark:relative-de-rham-witt-comparison-using-cr--1ybl0oe",
+    "decision": "name",
+    "label": "Relative de Rham–Witt comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "AInfCohomology:AI.5::landmark:linear-algebra-controlling-integral-torsio-1fynzcs",
+    "decision": "name",
+    "label": "Integral torsion inequalities",
+    "kind": "theorem"
+  },
+  {
+    "id": "AInfCohomology:AI.6::landmark:ai-3-5-to-the-precise-semistable-formal-mo-elhra4",
+    "decision": "name",
+    "label": "Semistable AΩ construction",
+    "kind": "construction"
+  },
+  {
+    "id": "AInfCohomology:AI.6::landmark:derived-comparisons-with-log-de-rham-hyodo-3sbpxu",
+    "decision": "name",
+    "label": "Logarithmic comparisons of AΩ",
+    "kind": "theorem"
+  },
+  {
+    "id": "AInfCohomology:AI.6::landmark:semistable-finiteness-torsion-and-lattice--12q16xf",
+    "decision": "name",
+    "label": "Finiteness of semistable AΩ cohomology",
+    "kind": "theorem"
+  },
+  {
+    "id": "AInfCohomology:AI.7::landmark:a-inf-base-change-the-frobenius-twisted-de-1oa6id6",
+    "decision": "name",
+    "label": "Breuil–Kisin base change",
+    "kind": "theorem"
+  },
+  {
+    "id": "AInfCohomology:AI.7::landmark:for-a-smooth-proper-formal-scheme-over-o-k-1xyn9qf",
+    "decision": "name",
+    "label": "Breuil–Kisin cohomology",
+    "kind": "construction"
+  },
+  {
+    "id": "AbelianSchemesAndArithmeticModuli:A1::landmark:homomorphisms-as-group-scheme-homomorphism-1yprrov",
+    "decision": "name",
+    "label": "Abelian-scheme homomorphisms",
+    "kind": "definition"
+  },
+  {
+    "id": "AbelianSchemesAndArithmeticModuli:A1::landmark:relative-dimension-as-locally-constant-all-13bhoef",
+    "decision": "name",
+    "label": "Relative dimension",
+    "kind": "definition"
+  },
+  {
+    "id": "AbelianSchemesAndArithmeticModuli:A2::landmark:functoriality-of-dualization-and-the-formu-61h8a6",
+    "decision": "name",
+    "label": "Functoriality of dualization",
+    "kind": "theorem"
+  },
+  {
+    "id": "AbelianSchemesAndArithmeticModuli:A2::landmark:relative-degree-zero-picard-functor-first--1w1t1fh",
+    "decision": "name",
+    "label": "Relative degree-zero Picard functor",
+    "kind": "construction"
+  },
+  {
+    "id": "AbelianSchemesAndArithmeticModuli:A3::landmark:cartier-duality-from-finiteflatgroupsandin-1uz6g6l",
+    "decision": "name",
+    "label": "Weil pairing",
+    "kind": "construction"
+  },
+  {
+    "id": "AbelianSchemesAndArithmeticModuli:A4::landmark:p-divisible-groups-cartier-duality-and-con-xf2mir",
+    "decision": "name",
+    "label": "Serre–Tate equivalence",
+    "kind": "theorem"
+  },
+  {
+    "id": "AbelianSchemesAndArithmeticModuli:A4::landmark:relative-h1-dr-its-hodge-exact-sequence-ga-mfyehh",
+    "decision": "name",
+    "label": "Relative Hodge exact sequence",
+    "kind": "construction"
+  },
+  {
+    "id": "AbelianSchemesAndArithmeticModuli:A5::landmark:riemann-bilinear-relations-and-the-algebra-3765u5",
+    "decision": "name",
+    "label": "Riemann bilinear relations",
+    "kind": "theorem"
+  },
+  {
+    "id": "AbelianSchemesAndArithmeticModuli:A5::landmark:siegel-universal-analytic-family-identify--106enzw",
+    "decision": "name",
+    "label": "Siegel universal analytic family",
+    "kind": "construction"
+  },
+  {
+    "id": "AbelianSchemesAndArithmeticModuli:A6::landmark:field-hom-end-1lfbcet",
+    "decision": "name",
+    "label": "Poincaré complete reducibility",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.0::landmark:additive-energy-mwt2a3",
+    "decision": "name",
+    "label": "Additive energy on finite abelian groups",
+    "kind": "definition"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.0::landmark:convolution-hvh3qt",
+    "decision": "name",
+    "label": "Convolution on finite abelian groups",
+    "kind": "construction"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.0::landmark:fourier-analysis-on-finite-abelian-groups--1g875st",
+    "decision": "name",
+    "label": "Finite abelian Fourier analysis",
+    "kind": "construction"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.0::landmark:sumsets-pf3x29",
+    "decision": "name",
+    "label": "Sumsets in finite abelian groups",
+    "kind": "definition"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.1::landmark:balog-szemeredi-gowers-1nuzwwz",
+    "decision": "name",
+    "label": "Balog–Szemerédi–Gowers theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.1::landmark:specify-ambient-group-torsion-restrictions-16x6042",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance requirements for ambient groups and quantitative hypotheses."
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.2/szemeredi-set-form-and-functional-form",
+    "decision": "name",
+    "label": "Szemerédi's theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.2::landmark:formalize-roth-szemeredi-and-arithmetic-re-65p9id",
+    "decision": "name",
+    "label": "Arithmetic removal theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.2::landmark:theorem-quantifies-progression-length-and--5ltwm2",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance instruction to retain progression-length and density quantifiers."
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.3/gowers-inner-product-and-uniformity-norm",
+    "decision": "name",
+    "label": "Gowers inner product",
+    "kind": "definition"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.3::landmark:generalized-von-neumann-estimates-5fgyv3",
+    "decision": "name",
+    "label": "Generalized von Neumann uniformity estimates",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.3::landmark:gowers-uniformity-norms-58venn",
+    "decision": "keep",
+    "label": "Gowers uniformity norms",
+    "kind": "definition"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.3::landmark:inverse-theorems-in-their-proved-settings-xwlebc",
+    "decision": "name",
+    "label": "Green–Tao–Ziegler inverse theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.3::landmark:nilmanifold-nilsequence-complexity-ujyln3",
+    "decision": "name",
+    "label": "Nilsequence complexity",
+    "kind": "definition"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.4/generalised-von-neumann-relative-to-a-pseudorandom-measure",
+    "decision": "name",
+    "label": "Weighted progression count",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.4/koopman-von-neumann-structure-theorem",
+    "decision": "name",
+    "label": "Gowers-uniform decomposition",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.4/linear-forms-correlation-and-pseudorandomness",
+    "decision": "name",
+    "label": "k-pseudorandom measures",
+    "kind": "definition"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.4/prime-progressions-endgame",
+    "decision": "name",
+    "label": "Green–Tao prime-progression theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.4/pseudorandom-measures-are-U-d-close-to-one",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Supporting uniformity lemma subordinate to the retained pseudorandom transference theorem; six central planets already retained."
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.4/relative-szemeredi-theorem",
+    "decision": "name",
+    "label": "Relative Szemerédi theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.4/w-trick-and-goldston-yildirim-majorant",
+    "decision": "name",
+    "label": "Truncated divisor sum majorant",
+    "kind": "construction"
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.4::landmark:dense-model-and-relative-counting-theorems-1kyo865",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Broad programme fragment subsumed by the retained precise decomposition and relative Szemerédi theorem."
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.4::landmark:pseudorandom-majorants-a9z7l3",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate of the retained explicit pseudorandom majorant construction."
+  },
+  {
+    "id": "AdditiveCombinatorics:AC.5::landmark:finite-complexity-systems-of-linear-equati-obetju",
+    "decision": "name",
+    "label": "Möbius–nilsequence orthogonality",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdelicAlgebraicGroups:AA.0::landmark:starting-with-the-existing-restricted-prod-xk740k",
+    "decision": "name",
+    "label": "Restricted products of Haar measures",
+    "kind": "construction"
+  },
+  {
+    "id": "AdelicAlgebraicGroups:AA.1::landmark:independence-of-spreading-out-model-and-fi-41hzxz",
+    "decision": "name",
+    "label": "Restriction-of-scalars equivalences",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdelicAlgebraicGroups:AA.2::landmark:real-character-space-a-g-and-logarithmic-m-1pj8zlw",
+    "decision": "name",
+    "label": "Real character space",
+    "kind": "definition"
+  },
+  {
+    "id": "AdelicAlgebraicGroups:AA.3::landmark:minimal-rational-parabolics-relative-posit-l1z45q",
+    "decision": "name",
+    "label": "Siegel sets",
+    "kind": "definition"
+  },
+  {
+    "id": "AdelicAlgebraicGroups:AA.4::landmark:weak-approximation-only-in-the-cases-justi-rjydt8",
+    "decision": "name",
+    "label": "Strong approximation outside S",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdelicAlgebraicGroups:AA.5::landmark:gl-1-quotient-with-the-idele-class-constru-1s3bh4b",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "A general-purpose validation layer collecting comparison examples."
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L0/derived-I-complete-etale-category",
+    "decision": "name",
+    "label": "Adic étale derived category",
+    "kind": "definition"
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L0/six-operations-for-adic-coefficients",
+    "decision": "name",
+    "label": "Six operations with adic coefficients",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L0::landmark:fix-a-commutative-ring-complete-for-the-i--xpm93a",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate of the retained definition of the adic étale derived category."
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L0::landmark:proposition-26-2-u54zhd",
+    "decision": "name",
+    "label": "Inverse limit of adic categories",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L0::landmark:six-operations-for-the-entire-coefficient--x3tfvf",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate six-operations construction already represented by the reviewed source node."
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L1/char-p-scheme-diamond-and-comparison-functor",
+    "decision": "name",
+    "label": "Characteristic-p scheme v-sheaf",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L1/mixed-characteristic-scheme-diamond",
+    "decision": "name",
+    "label": "Scheme diamond over a complete DVR",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L1::landmark:separately-construct-the-mixed-characteris-ldi1au",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate of the retained mixed-characteristic scheme diamond construction."
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L2/nagata-factorisation-as-used-in-27-4",
+    "decision": "name",
+    "label": "Nagata compactification of qcqs schemes",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L2::landmark:common-refinements-and-the-larger-coeffici-1rv5e0p",
+    "decision": "name",
+    "label": "Scheme lower shriek with larger coefficients",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L2::landmark:first-develop-noetherian-approximation-lim-1qhg7sy",
+    "decision": "name",
+    "label": "Noetherian approximation",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L3/commutation-and-adjoints-27-1-27-3",
+    "decision": "name",
+    "label": "Tensor and pullback comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L3/full-faithfulness-27-2",
+    "decision": "name",
+    "label": "Characteristic-p fully faithful pullback",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L3/rf-shriek-comparison-27-4",
+    "decision": "name",
+    "label": "Characteristic-p Rf_! comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L3::landmark:comparison-pullback-and-right-adjoint-and--1y6kg8c",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate pullback/full-faithfulness construction followed by a scope warning."
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L3::landmark:l2-and-s0-s3-to-prove-27-4-for-a-separated-17xpz4",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Dependency instruction repeating the retained characteristic-p proper-support comparison."
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L4/proper-support-comparison-27-5",
+    "decision": "name",
+    "label": "Mixed-characteristic Rf_! comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L4::landmark:for-separated-maps-of-schemes-of-finite-ty-jqswcc",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate of the retained mixed-characteristic proper-support comparison."
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L5/de-jong-4-1-alteration-field-case",
+    "decision": "name",
+    "label": "De Jong's alteration theorem over a field",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L5/de-jong-5-8-curve-fibration-alteration",
+    "decision": "name",
+    "label": "De Jong's semi-stable curve alteration",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L5/de-jong-6-5-strictly-semistable-alteration",
+    "decision": "name",
+    "label": "Strictly semistable alteration over a trait",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L5::landmark:curve-fibration-construction-extension-of--169oykb",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Intermediate curve-family proof tasks already represented by the specific alteration theorem."
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L5::landmark:forms-of-de-jong-smoothness-semi-stability-fj078x",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Source-locator instruction repeating the separately retained field and trait alteration theorems."
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L6/constructible-direct-image-comparison-27-6",
+    "decision": "name",
+    "label": "Constructible direct-image comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L6/constructible-full-faithfulness-27-7",
+    "decision": "name",
+    "label": "Constructible full faithfulness over a DVR",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L6::landmark:27-6-for-a-separated-map-of-schemes-of-fin-14t8ilh",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate of the retained constructible direct-image comparison."
+  },
+  {
+    "id": "AdicCoefficientsAndComparisons:L6::landmark:constructible-full-faithfulness-statement--1yvlxt7",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate of the retained constructible full-faithfulness theorem."
+  },
+  {
+    "id": "AdicEtaleGeometry:A0/supplier-contract-fibre-products",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Explicit supplier contract importing fibre products from AdicSpacesPartII, not a new object here."
+  },
+  {
+    "id": "AdicEtaleGeometry:A0::landmark:adicspacespartii-foundational-prefix-vtdyn0",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Canonical-owner and import bookkeeping."
+  },
+  {
+    "id": "AdicEtaleGeometry:A0::landmark:first-prove-existence-of-pullbacks-along-r-3vaibk",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Construction-order instructions within a supplier contract owned by AdicSpacesPartII."
+  },
+  {
+    "id": "AdicEtaleGeometry:A0::landmark:rational-pullback-a-finite-etale-algebra-s-5fp31j",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance tests and a warning against unrestricted pullback claims."
+  },
+  {
+    "id": "AdicEtaleGeometry:A0::landmark:topology-on-a-tensor-product-of-compatible-nsl7jq",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported completed-tensor construction in a supplier contract; the owning AdicSpacesPartII layer is named separately."
+  },
+  {
+    "id": "AdicEtaleGeometry:A1/etale-morphisms-local-description-and-comparison",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Explicit reexport of the étale local-structure result owned by AdicSpacesPartII."
+  },
+  {
+    "id": "AdicEtaleGeometry:A1/etale-site-and-geometric-points",
+    "decision": "name",
+    "label": "Étale site of an adic space",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicEtaleGeometry:A1/finite-etale-affinoid-algebra",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported ordinary finite-algebra construction; ownership is assigned to AdicSpacesPartII in the layer text."
+  },
+  {
+    "id": "AdicEtaleGeometry:A1/pro-etale-site-corrected",
+    "decision": "name",
+    "label": "Pro-étale site",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicEtaleGeometry:A1::landmark:for-complete-tate-huber-pairs-construct-th-173017r",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate imported finite-étale algebra construction from the AdicSpacesPartII prefix."
+  },
+  {
+    "id": "AdicEtaleGeometry:A1::landmark:small-etale-and-finite-etale-categories-an-19xc66o",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate site construction already represented by the retained étale-site node."
+  },
+  {
+    "id": "AdicEtaleGeometry:A2/supplier-contract-separated-proper-smooth",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Supplier contract listing geometry owned by AdicSpacesPartII."
+  },
+  {
+    "id": "AdicEtaleGeometry:A2::landmark:adicspacespartii-1j0mh3s",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Canonical-owner bookkeeping and a cohomological scope boundary."
+  },
+  {
+    "id": "AdicEtaleGeometry:A2::landmark:diagonals-separated-morphisms-proper-and-p-wi3707",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported properness definitions in the AdicSpacesPartII supplier contract."
+  },
+  {
+    "id": "AdicEtaleGeometry:A2::landmark:finite-dimensional-analytic-balls-and-tori-d0ibsz",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported smooth-chart constructions in the AdicSpacesPartII supplier contract."
+  },
+  {
+    "id": "AdicEtaleGeometry:A3/affinoid-etale-finite-stage-6-4-iv",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate of the existing curated finite-stage affinoid approximation planet."
+  },
+  {
+    "id": "AdicEtaleGeometry:A3/etale-descent-to-finite-stage-6-4",
+    "decision": "name",
+    "label": "Finite-stage descent of qcqs étale spaces",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicEtaleGeometry:A3::landmark:following-analytic-input-in-characteristic-apvw6h",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate description of the existing curated finite-stage affinoid approximation planet."
+  },
+  {
+    "id": "AdicEtaleGeometry:A3::landmark:pseudocoherent-modules-over-the-relevant-t-1pa4wfr",
+    "decision": "name",
+    "label": "Pseudocoherent modules over Tate algebras",
+    "kind": "definition"
+  },
+  {
+    "id": "AdicEtaleGeometry:A3::landmark:requisite-closed-embedding-into-a-finite-r-1r2vm7p",
+    "decision": "name",
+    "label": "Closed embedding into a relative ball",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicEtaleGeometry:A4/diamond-of-analytic-adic-space-and-etale-site-15-6",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Explicit D6-owned endpoint, not an additional construction owned by this analytic presentation layer."
+  },
+  {
+    "id": "AdicEtaleGeometry:A4/spd-of-tate-huber-pair-and-perfectoid-torsor",
+    "decision": "name",
+    "label": "Perfectoid completion of finite étale towers",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicEtaleGeometry:A4::landmark:local-analytic-presentation-used-in-15-a-p-1g4dmw6",
+    "decision": "name",
+    "label": "Perfectoid equivalence-relation presentation",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicEtaleGeometry:A4::landmark:uniform-completion-of-a-tate-pair-and-prov-1wgkcwq",
+    "decision": "name",
+    "label": "Uniform completion of a Tate pair",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicSpacesPartII:F0::landmark:locally-strongly-noetherian-analytic-fibre-11ixgrn",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Analytic fibre-product results already represented in R0; this paragraph is an integration contract."
+  },
+  {
+    "id": "AdicSpacesPartII:F0::landmark:r5-uses-perfectoidspaces-p0-p3-to-construc-a6ik71",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Dependency-order bookkeeping and an explicit warning against a whole-area cycle."
+  },
+  {
+    "id": "AdicSpacesPartII:F0::landmark:spf-a-for-complete-separated-noetherian-ad-f8ft13",
+    "decision": "name",
+    "label": "Formal spectrum Spf(A)",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicSpacesPartII:F1::landmark:weakly-complete-dagger-affinoid-algebras-t-e66p7a",
+    "decision": "name",
+    "label": "Dagger affinoid algebras",
+    "kind": "definition"
+  },
+  {
+    "id": "AdicSpacesPartII:R0/closed-adic-subspaces-and-embeddings",
+    "decision": "name",
+    "label": "Closed adic subspaces",
+    "kind": "definition"
+  },
+  {
+    "id": "AdicSpacesPartII:R0/differentials-unramified-smooth-etale",
+    "decision": "name",
+    "label": "Universal continuous derivation",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicSpacesPartII:R0/etale-local-structure",
+    "decision": "name",
+    "label": "Standard-étale local structure",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicSpacesPartII:R0/fibre-products-existence",
+    "decision": "name",
+    "label": "Adic fibre products",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicSpacesPartII:R0/finite-morphisms",
+    "decision": "name",
+    "label": "Finite adic morphisms",
+    "kind": "definition"
+  },
+  {
+    "id": "AdicSpacesPartII:R0/finite-type-morphism-classes",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Auxiliary finite-type class taxonomy; the layer retains six central constructions and results."
+  },
+  {
+    "id": "AdicSpacesPartII:R0/quasi-finite-and-finiteness-criteria",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Supporting quasi-finite/proper criterion subordinate to the retained finite and proper morphism definitions."
+  },
+  {
+    "id": "AdicSpacesPartII:R0/separated-proper-partially-proper",
+    "decision": "name",
+    "label": "Proper and partially proper morphisms",
+    "kind": "definition"
+  },
+  {
+    "id": "AdicSpacesPartII:R0::landmark:completed-tensor-products-with-their-topol-17yg8iz",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Summary of the tensor and plus-ring construction used in the retained fibre-product node."
+  },
+  {
+    "id": "AdicSpacesPartII:R0::landmark:open-and-closed-immersions-separatedness-f-1yder2u",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate summary of the separately retained morphism definitions and local-structure theorem."
+  },
+  {
+    "id": "AdicSpacesPartII:R1/proper-separated-comparisons",
+    "decision": "name",
+    "label": "Formal–adic properness comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicSpacesPartII:R1/rigid-adic-comparison-functor",
+    "decision": "name",
+    "label": "Rigid–adic equivalence",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicSpacesPartII:R1/scheme-fibre-product-analytification",
+    "decision": "name",
+    "label": "Adic analytification",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicSpacesPartII:R1::landmark:adic-analytification-of-a-finite-type-sche-b2evtk",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate summary of the retained adic analytification construction."
+  },
+  {
+    "id": "AdicSpacesPartII:R1::landmark:analytification-of-finite-locally-free-gro-v4aqny",
+    "decision": "name",
+    "label": "Analytification of abelian schemes",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicSpacesPartII:R2/berthelot-type-rig-functor-nonnoetherian-base",
+    "decision": "name",
+    "label": "Conrad's Berthelot-type functor",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicSpacesPartII:R2/fibral-finiteness-criterion",
+    "decision": "name",
+    "label": "Conrad's fibral finiteness criterion",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicSpacesPartII:R2/formal-completion-and-algebraic-comparison",
+    "decision": "name",
+    "label": "Formal-completion comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicSpacesPartII:R2/formal-schemes-of-type-S",
+    "decision": "name",
+    "label": "Formal schemes of type (S)",
+    "kind": "definition"
+  },
+  {
+    "id": "AdicSpacesPartII:R2/generic-fibre-functor-d",
+    "decision": "name",
+    "label": "Adic generic-fibre functor",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicSpacesPartII:R2/hasse-loci-admissible-opens",
+    "decision": "name",
+    "label": "Admissibility of Hasse-invariant loci",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicSpacesPartII:R2/topological-invariance-of-affinoid",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Supporting topological-invariance lemma; the layer retains six central formal-model and generic-fibre landmarks."
+  },
+  {
+    "id": "AdicSpacesPartII:R2::landmark:admissible-formal-schemes-formal-completio-1dr6k1l",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate summary of the retained formal-scheme and generic-fibre constructions."
+  },
+  {
+    "id": "AdicSpacesPartII:R2::landmark:rational-subdomains-cut-out-by-a-section-o-1lbnn8j",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Intermediate rational-domain construction used in the retained Hasse-locus theorem."
+  },
+  {
+    "id": "AdicSpacesPartII:R3/sheafy-tate-acyclicity-and-kiehl-gluing",
+    "decision": "name",
+    "label": "Kiehl gluing of finite projective modules",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicSpacesPartII:R3/stably-uniform-sheafy",
+    "decision": "name",
+    "label": "Sheafiness of stably uniform adic Banach rings",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicSpacesPartII:R3/tate-kiehl-affinoid",
+    "decision": "name",
+    "label": "Tate acyclicity and Kiehl equivalence",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicSpacesPartII:R3::landmark:affinoid-coherent-sheaf-equivalence-acycli-8t57lt",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate summary of the retained acyclicity and Kiehl equivalence node."
+  },
+  {
+    "id": "AdicSpacesPartII:R3::landmark:trace-for-finite-locally-free-algebras-and-sik6ou",
+    "decision": "name",
+    "label": "Finite locally free trace",
+    "kind": "construction"
+  },
+  {
+    "id": "AdicSpacesPartII:R4/etale-site-and-rigid-comparison",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Explicit early-site reexport; the site is retained at its AdicEtaleGeometry A1 owner."
+  },
+  {
+    "id": "AdicSpacesPartII:R4::landmark:classicaladicetalecohomology-h0-separately-r6rmc0",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Ownership and prerequisite bookkeeping for derived cohomology and coefficient descent."
+  },
+  {
+    "id": "AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product",
+    "decision": "name",
+    "label": "Sousperfectoid products with smooth rigid spaces",
+    "kind": "theorem"
+  },
+  {
+    "id": "AdicSpacesPartII:R5/sousperfectoid-rings",
+    "decision": "name",
+    "label": "Sousperfectoid Tate rings",
+    "kind": "definition"
+  }
+]
