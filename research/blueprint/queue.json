@@ -453,6 +453,2316 @@
    "note": ""
   },
   {
+   "id": "PAPER-BURUNGALE-TIAN-26",
+   "kind": "paper",
+   "priority": 1,
+   "order": 101,
+   "name": "Burungale–Tian (2026): A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+    "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-BURUNGALE-TIAN-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-BURUNGALE-TIAN-26",
+   "kind": "review",
+   "priority": 1,
+   "order": 101,
+   "name": "Burungale–Tian (2026): A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.review.json",
+    "research/blueprint/reviews/REV-PAPER-BURUNGALE-TIAN-26.md"
+   ],
+   "after": [
+    "PAPER-BURUNGALE-TIAN-26"
+   ],
+   "avoidAccountOf": "PAPER-BURUNGALE-TIAN-26",
+   "prompt": "research/blueprint/prompts/REV-PAPER-BURUNGALE-TIAN-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-YUAN-26",
+   "kind": "paper",
+   "priority": 1,
+   "order": 102,
+   "name": "Xinyi Yuan (2026): Arithmetic bigness and a uniform Bogomolov-type result",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-YUAN-26.result.json",
+    "research/blueprint/papers/PAPER-YUAN-26.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-YUAN-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-YUAN-26",
+   "kind": "review",
+   "priority": 1,
+   "order": 102,
+   "name": "Xinyi Yuan (2026): Arithmetic bigness and a uniform Bogomolov-type result",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-YUAN-26.review.json",
+    "research/blueprint/reviews/REV-PAPER-YUAN-26.md"
+   ],
+   "after": [
+    "PAPER-YUAN-26"
+   ],
+   "avoidAccountOf": "PAPER-YUAN-26",
+   "prompt": "research/blueprint/prompts/REV-PAPER-YUAN-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-NEWTON-THORNE-26",
+   "kind": "paper",
+   "priority": 1,
+   "order": 103,
+   "name": "Newton–Thorne (2026): Symmetric power functoriality for Hilbert modular forms",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-NEWTON-THORNE-26.result.json",
+    "research/blueprint/papers/PAPER-NEWTON-THORNE-26.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-NEWTON-THORNE-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-NEWTON-THORNE-26",
+   "kind": "review",
+   "priority": 1,
+   "order": 103,
+   "name": "Newton–Thorne (2026): Symmetric power functoriality for Hilbert modular forms",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-NEWTON-THORNE-26.review.json",
+    "research/blueprint/reviews/REV-PAPER-NEWTON-THORNE-26.md"
+   ],
+   "after": [
+    "PAPER-NEWTON-THORNE-26"
+   ],
+   "avoidAccountOf": "PAPER-NEWTON-THORNE-26",
+   "prompt": "research/blueprint/prompts/REV-PAPER-NEWTON-THORNE-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-CALMES-ETAL-26",
+   "kind": "paper",
+   "priority": 1,
+   "order": 104,
+   "name": "Calmès et al. (2026): Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CALMES-ETAL-26.result.json",
+    "research/blueprint/papers/PAPER-CALMES-ETAL-26.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-CALMES-ETAL-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-CALMES-ETAL-26",
+   "kind": "review",
+   "priority": 1,
+   "order": 104,
+   "name": "Calmès et al. (2026): Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CALMES-ETAL-26.review.json",
+    "research/blueprint/reviews/REV-PAPER-CALMES-ETAL-26.md"
+   ],
+   "after": [
+    "PAPER-CALMES-ETAL-26"
+   ],
+   "avoidAccountOf": "PAPER-CALMES-ETAL-26",
+   "prompt": "research/blueprint/prompts/REV-PAPER-CALMES-ETAL-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-CIUBOTARU-HARRIS-26",
+   "kind": "paper",
+   "priority": 1,
+   "order": 105,
+   "name": "Ciubotaru–Harris (2026): On the generalized Ramanujan and Arthur conjectures over function fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CIUBOTARU-HARRIS-26.result.json",
+    "research/blueprint/papers/PAPER-CIUBOTARU-HARRIS-26.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-CIUBOTARU-HARRIS-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-CIUBOTARU-HARRIS-26",
+   "kind": "review",
+   "priority": 1,
+   "order": 105,
+   "name": "Ciubotaru–Harris (2026): On the generalized Ramanujan and Arthur conjectures over function fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CIUBOTARU-HARRIS-26.review.json",
+    "research/blueprint/reviews/REV-PAPER-CIUBOTARU-HARRIS-26.md"
+   ],
+   "after": [
+    "PAPER-CIUBOTARU-HARRIS-26"
+   ],
+   "avoidAccountOf": "PAPER-CIUBOTARU-HARRIS-26",
+   "prompt": "research/blueprint/prompts/REV-PAPER-CIUBOTARU-HARRIS-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-BHARGAVA-25",
+   "kind": "paper",
+   "priority": 1,
+   "order": 106,
+   "name": "Manjul Bhargava (2025): Galois groups of random integer polynomials and van der Waerden's Conjecture",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BHARGAVA-25.result.json",
+    "research/blueprint/papers/PAPER-BHARGAVA-25.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-25.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-BHARGAVA-25",
+   "kind": "review",
+   "priority": 1,
+   "order": 106,
+   "name": "Manjul Bhargava (2025): Galois groups of random integer polynomials and van der Waerden's Conjecture",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BHARGAVA-25.review.json",
+    "research/blueprint/reviews/REV-PAPER-BHARGAVA-25.md"
+   ],
+   "after": [
+    "PAPER-BHARGAVA-25"
+   ],
+   "avoidAccountOf": "PAPER-BHARGAVA-25",
+   "prompt": "research/blueprint/prompts/REV-PAPER-BHARGAVA-25.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-LESLIE-25",
+   "kind": "paper",
+   "priority": 1,
+   "order": 107,
+   "name": "Spencer Leslie (2025): The endoscopic fundamental lemma for unitary Friedberg–Jacquet periods",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-LESLIE-25.result.json",
+    "research/blueprint/papers/PAPER-LESLIE-25.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-LESLIE-25.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-LESLIE-25",
+   "kind": "review",
+   "priority": 1,
+   "order": 107,
+   "name": "Spencer Leslie (2025): The endoscopic fundamental lemma for unitary Friedberg–Jacquet periods",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-LESLIE-25.review.json",
+    "research/blueprint/reviews/REV-PAPER-LESLIE-25.md"
+   ],
+   "after": [
+    "PAPER-LESLIE-25"
+   ],
+   "avoidAccountOf": "PAPER-LESLIE-25",
+   "prompt": "research/blueprint/prompts/REV-PAPER-LESLIE-25.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-ZAVYALOV-25",
+   "kind": "paper",
+   "priority": 1,
+   "order": 108,
+   "name": "Bogdan Zavyalov (2025): Mod-p Poincaré Duality in p-adic analytic geometry",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-ZAVYALOV-25.result.json",
+    "research/blueprint/papers/PAPER-ZAVYALOV-25.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-ZAVYALOV-25.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-ZAVYALOV-25",
+   "kind": "review",
+   "priority": 1,
+   "order": 108,
+   "name": "Bogdan Zavyalov (2025): Mod-p Poincaré Duality in p-adic analytic geometry",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-ZAVYALOV-25.review.json",
+    "research/blueprint/reviews/REV-PAPER-ZAVYALOV-25.md"
+   ],
+   "after": [
+    "PAPER-ZAVYALOV-25"
+   ],
+   "avoidAccountOf": "PAPER-ZAVYALOV-25",
+   "prompt": "research/blueprint/prompts/REV-PAPER-ZAVYALOV-25.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-KINGS-SPRANG-25",
+   "kind": "paper",
+   "priority": 1,
+   "order": 109,
+   "name": "Kings–Sprang (2025): Eisenstein–Kronecker classes, integrality of critical values of Hecke L-functions and p-adic interpolation",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-KINGS-SPRANG-25.result.json",
+    "research/blueprint/papers/PAPER-KINGS-SPRANG-25.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-KINGS-SPRANG-25.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-KINGS-SPRANG-25",
+   "kind": "review",
+   "priority": 1,
+   "order": 109,
+   "name": "Kings–Sprang (2025): Eisenstein–Kronecker classes, integrality of critical values of Hecke L-functions and p-adic interpolation",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-KINGS-SPRANG-25.review.json",
+    "research/blueprint/reviews/REV-PAPER-KINGS-SPRANG-25.md"
+   ],
+   "after": [
+    "PAPER-KINGS-SPRANG-25"
+   ],
+   "avoidAccountOf": "PAPER-KINGS-SPRANG-25",
+   "prompt": "research/blueprint/prompts/REV-PAPER-KINGS-SPRANG-25.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25",
+   "kind": "paper",
+   "priority": 1,
+   "order": 110,
+   "name": "Lawrence–Sawin (2025): The Shafarevich conjecture for hypersurfaces in abelian varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-LAWRENCE-SAWIN-25.result.json",
+    "research/blueprint/papers/PAPER-LAWRENCE-SAWIN-25.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-LAWRENCE-SAWIN-25.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-LAWRENCE-SAWIN-25",
+   "kind": "review",
+   "priority": 1,
+   "order": 110,
+   "name": "Lawrence–Sawin (2025): The Shafarevich conjecture for hypersurfaces in abelian varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-LAWRENCE-SAWIN-25.review.json",
+    "research/blueprint/reviews/REV-PAPER-LAWRENCE-SAWIN-25.md"
+   ],
+   "after": [
+    "PAPER-LAWRENCE-SAWIN-25"
+   ],
+   "avoidAccountOf": "PAPER-LAWRENCE-SAWIN-25",
+   "prompt": "research/blueprint/prompts/REV-PAPER-LAWRENCE-SAWIN-25.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-KISIN-ZHOU-25",
+   "kind": "paper",
+   "priority": 1,
+   "order": 111,
+   "name": "Kisin–Zhou (2025): Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
+    "research/blueprint/papers/PAPER-KISIN-ZHOU-25.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-KISIN-ZHOU-25.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-KISIN-ZHOU-25",
+   "kind": "review",
+   "priority": 1,
+   "order": 111,
+   "name": "Kisin–Zhou (2025): Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-KISIN-ZHOU-25.review.json",
+    "research/blueprint/reviews/REV-PAPER-KISIN-ZHOU-25.md"
+   ],
+   "after": [
+    "PAPER-KISIN-ZHOU-25"
+   ],
+   "avoidAccountOf": "PAPER-KISIN-ZHOU-25",
+   "prompt": "research/blueprint/prompts/REV-PAPER-KISIN-ZHOU-25.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-SCHOLZE-24",
+   "kind": "paper",
+   "priority": 1,
+   "order": 112,
+   "name": "Česnavičius–Scholze (2024): Purity for flat cohomology",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CESNAVICIUS-SCHOLZE-24.result.json",
+    "research/blueprint/papers/PAPER-CESNAVICIUS-SCHOLZE-24.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-CESNAVICIUS-SCHOLZE-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-CESNAVICIUS-SCHOLZE-24",
+   "kind": "review",
+   "priority": 1,
+   "order": 112,
+   "name": "Česnavičius–Scholze (2024): Purity for flat cohomology",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CESNAVICIUS-SCHOLZE-24.review.json",
+    "research/blueprint/reviews/REV-PAPER-CESNAVICIUS-SCHOLZE-24.md"
+   ],
+   "after": [
+    "PAPER-CESNAVICIUS-SCHOLZE-24"
+   ],
+   "avoidAccountOf": "PAPER-CESNAVICIUS-SCHOLZE-24",
+   "prompt": "research/blueprint/prompts/REV-PAPER-CESNAVICIUS-SCHOLZE-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-CHEN-24",
+   "kind": "paper",
+   "priority": 1,
+   "order": 113,
+   "name": "William Y. Chen (2024): Nonabelian level structures, Nielsen equivalence, and Markoff triples",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CHEN-24.result.json",
+    "research/blueprint/papers/PAPER-CHEN-24.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-CHEN-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-CHEN-24",
+   "kind": "review",
+   "priority": 1,
+   "order": 113,
+   "name": "William Y. Chen (2024): Nonabelian level structures, Nielsen equivalence, and Markoff triples",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CHEN-24.review.json",
+    "research/blueprint/reviews/REV-PAPER-CHEN-24.md"
+   ],
+   "after": [
+    "PAPER-CHEN-24"
+   ],
+   "avoidAccountOf": "PAPER-CHEN-24",
+   "prompt": "research/blueprint/prompts/REV-PAPER-CHEN-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-CARAIANI-SCHOLZE-24",
+   "kind": "paper",
+   "priority": 1,
+   "order": 114,
+   "name": "Caraiani–Scholze (2024): On the generic part of the cohomology of non-compact unitary Shimura varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.result.json",
+    "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-CARAIANI-SCHOLZE-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-CARAIANI-SCHOLZE-24",
+   "kind": "review",
+   "priority": 1,
+   "order": 114,
+   "name": "Caraiani–Scholze (2024): On the generic part of the cohomology of non-compact unitary Shimura varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.review.json",
+    "research/blueprint/reviews/REV-PAPER-CARAIANI-SCHOLZE-24.md"
+   ],
+   "after": [
+    "PAPER-CARAIANI-SCHOLZE-24"
+   ],
+   "avoidAccountOf": "PAPER-CARAIANI-SCHOLZE-24",
+   "prompt": "research/blueprint/prompts/REV-PAPER-CARAIANI-SCHOLZE-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24",
+   "kind": "paper",
+   "priority": 1,
+   "order": 115,
+   "name": "Landesman–Litt (2024): Canonical representations of surface groups",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+    "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-LANDESMAN-LITT-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-LANDESMAN-LITT-24",
+   "kind": "review",
+   "priority": 1,
+   "order": 115,
+   "name": "Landesman–Litt (2024): Canonical representations of surface groups",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.review.json",
+    "research/blueprint/reviews/REV-PAPER-LANDESMAN-LITT-24.md"
+   ],
+   "after": [
+    "PAPER-LANDESMAN-LITT-24"
+   ],
+   "avoidAccountOf": "PAPER-LANDESMAN-LITT-24",
+   "prompt": "research/blueprint/prompts/REV-PAPER-LANDESMAN-LITT-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24",
+   "kind": "paper",
+   "priority": 1,
+   "order": 116,
+   "name": "Bergström–Faber–Payne (2024): Polynomial point counts and odd cohomology vanishing on moduli spaces of stable curves",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BERGSTROM-FABER-PAYNE-24.result.json",
+    "research/blueprint/papers/PAPER-BERGSTROM-FABER-PAYNE-24.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-BERGSTROM-FABER-PAYNE-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-BERGSTROM-FABER-PAYNE-24",
+   "kind": "review",
+   "priority": 1,
+   "order": 116,
+   "name": "Bergström–Faber–Payne (2024): Polynomial point counts and odd cohomology vanishing on moduli spaces of stable curves",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BERGSTROM-FABER-PAYNE-24.review.json",
+    "research/blueprint/reviews/REV-PAPER-BERGSTROM-FABER-PAYNE-24.md"
+   ],
+   "after": [
+    "PAPER-BERGSTROM-FABER-PAYNE-24"
+   ],
+   "avoidAccountOf": "PAPER-BERGSTROM-FABER-PAYNE-24",
+   "prompt": "research/blueprint/prompts/REV-PAPER-BERGSTROM-FABER-PAYNE-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-SMITH-24",
+   "kind": "paper",
+   "priority": 1,
+   "order": 117,
+   "name": "Alexander Smith (2024): Algebraic integers with conjugates in a prescribed distribution",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-SMITH-24.result.json",
+    "research/blueprint/papers/PAPER-SMITH-24.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-SMITH-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-SMITH-24",
+   "kind": "review",
+   "priority": 1,
+   "order": 117,
+   "name": "Alexander Smith (2024): Algebraic integers with conjugates in a prescribed distribution",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-SMITH-24.review.json",
+    "research/blueprint/reviews/REV-PAPER-SMITH-24.md"
+   ],
+   "after": [
+    "PAPER-SMITH-24"
+   ],
+   "avoidAccountOf": "PAPER-SMITH-24",
+   "prompt": "research/blueprint/prompts/REV-PAPER-SMITH-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-FU-24",
+   "kind": "paper",
+   "priority": 1,
+   "order": 118,
+   "name": "Weibo Fu (2024): Sharp bounds for multiplicities of Bianchi modular forms",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-FU-24.result.json",
+    "research/blueprint/papers/PAPER-FU-24.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-FU-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-FU-24",
+   "kind": "review",
+   "priority": 1,
+   "order": 118,
+   "name": "Weibo Fu (2024): Sharp bounds for multiplicities of Bianchi modular forms",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-FU-24.review.json",
+    "research/blueprint/reviews/REV-PAPER-FU-24.md"
+   ],
+   "after": [
+    "PAPER-FU-24"
+   ],
+   "avoidAccountOf": "PAPER-FU-24",
+   "prompt": "research/blueprint/prompts/REV-PAPER-FU-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24",
+   "kind": "paper",
+   "priority": 1,
+   "order": 119,
+   "name": "Cai–Friedberg–Kaplan (2024): Doubling constructions: Global functoriality for non-generic cuspidal representations",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CAI-FRIEDBERG-KAPLAN-24.result.json",
+    "research/blueprint/papers/PAPER-CAI-FRIEDBERG-KAPLAN-24.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-CAI-FRIEDBERG-KAPLAN-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24",
+   "kind": "review",
+   "priority": 1,
+   "order": 119,
+   "name": "Cai–Friedberg–Kaplan (2024): Doubling constructions: Global functoriality for non-generic cuspidal representations",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CAI-FRIEDBERG-KAPLAN-24.review.json",
+    "research/blueprint/reviews/REV-PAPER-CAI-FRIEDBERG-KAPLAN-24.md"
+   ],
+   "after": [
+    "PAPER-CAI-FRIEDBERG-KAPLAN-24"
+   ],
+   "avoidAccountOf": "PAPER-CAI-FRIEDBERG-KAPLAN-24",
+   "prompt": "research/blueprint/prompts/REV-PAPER-CAI-FRIEDBERG-KAPLAN-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-SCHROER-23",
+   "kind": "paper",
+   "priority": 1,
+   "order": 120,
+   "name": "Stefan Schröer (2023): There is no Enriques surface over the integers",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+    "research/blueprint/papers/PAPER-SCHROER-23.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-SCHROER-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-SCHROER-23",
+   "kind": "review",
+   "priority": 1,
+   "order": 120,
+   "name": "Stefan Schröer (2023): There is no Enriques surface over the integers",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-SCHROER-23.review.json",
+    "research/blueprint/reviews/REV-PAPER-SCHROER-23.md"
+   ],
+   "after": [
+    "PAPER-SCHROER-23"
+   ],
+   "avoidAccountOf": "PAPER-SCHROER-23",
+   "prompt": "research/blueprint/prompts/REV-PAPER-SCHROER-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-DASGUPTA-KAKDE-23",
+   "kind": "paper",
+   "priority": 1,
+   "order": 121,
+   "name": "Dasgupta–Kakde (2023): On the Brumer–Stark conjecture",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-23.result.json",
+    "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-23.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-DASGUPTA-KAKDE-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-DASGUPTA-KAKDE-23",
+   "kind": "review",
+   "priority": 1,
+   "order": 121,
+   "name": "Dasgupta–Kakde (2023): On the Brumer–Stark conjecture",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-23.review.json",
+    "research/blueprint/reviews/REV-PAPER-DASGUPTA-KAKDE-23.md"
+   ],
+   "after": [
+    "PAPER-DASGUPTA-KAKDE-23"
+   ],
+   "avoidAccountOf": "PAPER-DASGUPTA-KAKDE-23",
+   "prompt": "research/blueprint/prompts/REV-PAPER-DASGUPTA-KAKDE-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-YU-23",
+   "kind": "paper",
+   "priority": 1,
+   "order": 122,
+   "name": "Hongjie Yu (2023): Comptage des systèmes locaux ℓ-adiques sur une courbe",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-YU-23.result.json",
+    "research/blueprint/papers/PAPER-YU-23.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-YU-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-YU-23",
+   "kind": "review",
+   "priority": 1,
+   "order": 122,
+   "name": "Hongjie Yu (2023): Comptage des systèmes locaux ℓ-adiques sur une courbe",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-YU-23.review.json",
+    "research/blueprint/reviews/REV-PAPER-YU-23.md"
+   ],
+   "after": [
+    "PAPER-YU-23"
+   ],
+   "avoidAccountOf": "PAPER-YU-23",
+   "prompt": "research/blueprint/prompts/REV-PAPER-YU-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-ALLEN-ETAL-23",
+   "kind": "paper",
+   "priority": 1,
+   "order": 123,
+   "name": "Allen et al. (2023): Potential automorphy over CM fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-ALLEN-ETAL-23.result.json",
+    "research/blueprint/papers/PAPER-ALLEN-ETAL-23.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-ALLEN-ETAL-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-ALLEN-ETAL-23",
+   "kind": "review",
+   "priority": 1,
+   "order": 123,
+   "name": "Allen et al. (2023): Potential automorphy over CM fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-ALLEN-ETAL-23.review.json",
+    "research/blueprint/reviews/REV-PAPER-ALLEN-ETAL-23.md"
+   ],
+   "after": [
+    "PAPER-ALLEN-ETAL-23"
+   ],
+   "avoidAccountOf": "PAPER-ALLEN-ETAL-23",
+   "prompt": "research/blueprint/prompts/REV-PAPER-ALLEN-ETAL-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "kind": "paper",
+   "priority": 1,
+   "order": 124,
+   "name": "Browning–Le Boudec–Sawin (2023): The Hasse principle for random Fano hypersurfaces",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
+    "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "kind": "review",
+   "priority": 1,
+   "order": 124,
+   "name": "Browning–Le Boudec–Sawin (2023): The Hasse principle for random Fano hypersurfaces",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.review.json",
+    "research/blueprint/reviews/REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md"
+   ],
+   "after": [
+    "PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+   ],
+   "avoidAccountOf": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "prompt": "research/blueprint/prompts/REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-DADDEZIO-23",
+   "kind": "paper",
+   "priority": 1,
+   "order": 125,
+   "name": "Marco D'Addezio (2023): Parabolicity conjecture of F-isocrystals",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-DADDEZIO-23.result.json",
+    "research/blueprint/papers/PAPER-DADDEZIO-23.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-DADDEZIO-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-DADDEZIO-23",
+   "kind": "review",
+   "priority": 1,
+   "order": 125,
+   "name": "Marco D'Addezio (2023): Parabolicity conjecture of F-isocrystals",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-DADDEZIO-23.review.json",
+    "research/blueprint/reviews/REV-PAPER-DADDEZIO-23.md"
+   ],
+   "after": [
+    "PAPER-DADDEZIO-23"
+   ],
+   "avoidAccountOf": "PAPER-DADDEZIO-23",
+   "prompt": "research/blueprint/prompts/REV-PAPER-DADDEZIO-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23",
+   "kind": "paper",
+   "priority": 1,
+   "order": 126,
+   "name": "Dittmann–Pop (2023): Characterizing finitely generated fields by a single field axiom",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+    "research/blueprint/papers/PAPER-DITTMANN-POP-23.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-DITTMANN-POP-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-DITTMANN-POP-23",
+   "kind": "review",
+   "priority": 1,
+   "order": 126,
+   "name": "Dittmann–Pop (2023): Characterizing finitely generated fields by a single field axiom",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-DITTMANN-POP-23.review.json",
+    "research/blueprint/reviews/REV-PAPER-DITTMANN-POP-23.md"
+   ],
+   "after": [
+    "PAPER-DITTMANN-POP-23"
+   ],
+   "avoidAccountOf": "PAPER-DITTMANN-POP-23",
+   "prompt": "research/blueprint/prompts/REV-PAPER-DITTMANN-POP-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-WITASZEK-22",
+   "kind": "paper",
+   "priority": 1,
+   "order": 127,
+   "name": "Jakub Witaszek (2022): Keel's base point free theorem and quotients in mixed characteristic",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
+    "research/blueprint/papers/PAPER-WITASZEK-22.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-WITASZEK-22.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-WITASZEK-22",
+   "kind": "review",
+   "priority": 1,
+   "order": 127,
+   "name": "Jakub Witaszek (2022): Keel's base point free theorem and quotients in mixed characteristic",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-WITASZEK-22.review.json",
+    "research/blueprint/reviews/REV-PAPER-WITASZEK-22.md"
+   ],
+   "after": [
+    "PAPER-WITASZEK-22"
+   ],
+   "avoidAccountOf": "PAPER-WITASZEK-22",
+   "prompt": "research/blueprint/prompts/REV-PAPER-WITASZEK-22.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22",
+   "kind": "paper",
+   "priority": 1,
+   "order": 128,
+   "name": "Bhatt–Scholze (2022): Prisms and prismatic cohomology",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BHATT-SCHOLZE-22.result.json",
+    "research/blueprint/papers/PAPER-BHATT-SCHOLZE-22.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-BHATT-SCHOLZE-22.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-BHATT-SCHOLZE-22",
+   "kind": "review",
+   "priority": 1,
+   "order": 128,
+   "name": "Bhatt–Scholze (2022): Prisms and prismatic cohomology",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BHATT-SCHOLZE-22.review.json",
+    "research/blueprint/reviews/REV-PAPER-BHATT-SCHOLZE-22.md"
+   ],
+   "after": [
+    "PAPER-BHATT-SCHOLZE-22"
+   ],
+   "avoidAccountOf": "PAPER-BHATT-SCHOLZE-22",
+   "prompt": "research/blueprint/prompts/REV-PAPER-BHATT-SCHOLZE-22.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-FINTZEN-21",
+   "kind": "paper",
+   "priority": 1,
+   "order": 129,
+   "name": "Jessica Fintzen (2021): Types for tame p-adic groups",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-FINTZEN-21.result.json",
+    "research/blueprint/papers/PAPER-FINTZEN-21.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-FINTZEN-21.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-FINTZEN-21",
+   "kind": "review",
+   "priority": 1,
+   "order": 129,
+   "name": "Jessica Fintzen (2021): Types for tame p-adic groups",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-FINTZEN-21.review.json",
+    "research/blueprint/reviews/REV-PAPER-FINTZEN-21.md"
+   ],
+   "after": [
+    "PAPER-FINTZEN-21"
+   ],
+   "avoidAccountOf": "PAPER-FINTZEN-21",
+   "prompt": "research/blueprint/prompts/REV-PAPER-FINTZEN-21.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-ZHANG-21",
+   "kind": "paper",
+   "priority": 1,
+   "order": 130,
+   "name": "Wei Zhang (2021): Weil representation and Arithmetic Fundamental Lemma",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-ZHANG-21.result.json",
+    "research/blueprint/papers/PAPER-ZHANG-21.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-ZHANG-21.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-ZHANG-21",
+   "kind": "review",
+   "priority": 1,
+   "order": 130,
+   "name": "Wei Zhang (2021): Weil representation and Arithmetic Fundamental Lemma",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-ZHANG-21.review.json",
+    "research/blueprint/reviews/REV-PAPER-ZHANG-21.md"
+   ],
+   "after": [
+    "PAPER-ZHANG-21"
+   ],
+   "avoidAccountOf": "PAPER-ZHANG-21",
+   "prompt": "research/blueprint/prompts/REV-PAPER-ZHANG-21.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "kind": "paper",
+   "priority": 1,
+   "order": 131,
+   "name": "Dimitrov–Gao–Habegger (2021): Uniformity in Mordell–Lang for curves",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+    "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-DIMITROV-GAO-HABEGGER-21.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "kind": "review",
+   "priority": 1,
+   "order": 131,
+   "name": "Dimitrov–Gao–Habegger (2021): Uniformity in Mordell–Lang for curves",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.review.json",
+    "research/blueprint/reviews/REV-PAPER-DIMITROV-GAO-HABEGGER-21.md"
+   ],
+   "after": [
+    "PAPER-DIMITROV-GAO-HABEGGER-21"
+   ],
+   "avoidAccountOf": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "prompt": "research/blueprint/prompts/REV-PAPER-DIMITROV-GAO-HABEGGER-21.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-NGODAC-21",
+   "kind": "paper",
+   "priority": 1,
+   "order": 132,
+   "name": "Tuan Ngo Dac (2021): On Zagier-Hoffman's conjectures in positive characteristic",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+    "research/blueprint/papers/PAPER-NGODAC-21.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-NGODAC-21.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-NGODAC-21",
+   "kind": "review",
+   "priority": 1,
+   "order": 132,
+   "name": "Tuan Ngo Dac (2021): On Zagier-Hoffman's conjectures in positive characteristic",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-NGODAC-21.review.json",
+    "research/blueprint/reviews/REV-PAPER-NGODAC-21.md"
+   ],
+   "after": [
+    "PAPER-NGODAC-21"
+   ],
+   "avoidAccountOf": "PAPER-NGODAC-21",
+   "prompt": "research/blueprint/prompts/REV-PAPER-NGODAC-21.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+   "kind": "paper",
+   "priority": 1,
+   "order": 133,
+   "name": "Beuzart-Plessis–Liu–Zhang–Zhu (2021): Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.result.json",
+    "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+   "kind": "review",
+   "priority": 1,
+   "order": 133,
+   "name": "Beuzart-Plessis–Liu–Zhang–Zhu (2021): Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.review.json",
+    "research/blueprint/reviews/REV-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.md"
+   ],
+   "after": [
+    "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21"
+   ],
+   "avoidAccountOf": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+   "prompt": "research/blueprint/prompts/REV-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-LI-LIU-21",
+   "kind": "paper",
+   "priority": 1,
+   "order": 134,
+   "name": "Chao Li–Yifeng Liu (2021): Chow groups and L-derivatives of automorphic motives for unitary groups",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-LI-LIU-21.result.json",
+    "research/blueprint/papers/PAPER-LI-LIU-21.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-LI-LIU-21.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-LI-LIU-21",
+   "kind": "review",
+   "priority": 1,
+   "order": 134,
+   "name": "Chao Li–Yifeng Liu (2021): Chow groups and L-derivatives of automorphic motives for unitary groups",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-LI-LIU-21.review.json",
+    "research/blueprint/reviews/REV-PAPER-LI-LIU-21.md"
+   ],
+   "after": [
+    "PAPER-LI-LIU-21"
+   ],
+   "avoidAccountOf": "PAPER-LI-LIU-21",
+   "prompt": "research/blueprint/prompts/REV-PAPER-LI-LIU-21.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
+   "kind": "paper",
+   "priority": 1,
+   "order": 135,
+   "name": "Burungale–Kobayashi–Ota (2021): Rubin's conjecture on local units in the anticyclotomic tower at inert primes",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+    "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
+   "kind": "review",
+   "priority": 1,
+   "order": 135,
+   "name": "Burungale–Kobayashi–Ota (2021): Rubin's conjecture on local units in the anticyclotomic tower at inert primes",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.review.json",
+    "research/blueprint/reviews/REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md"
+   ],
+   "after": [
+    "PAPER-BURUNGALE-KOBAYASHI-OTA-21"
+   ],
+   "avoidAccountOf": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
+   "prompt": "research/blueprint/prompts/REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-BENNETT-SIKSEK-20",
+   "kind": "paper",
+   "priority": 1,
+   "order": 136,
+   "name": "Bennett–Siksek (2020): A conjecture of Erdős, supersingular primes and short character sums",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BENNETT-SIKSEK-20.result.json",
+    "research/blueprint/papers/PAPER-BENNETT-SIKSEK-20.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-BENNETT-SIKSEK-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-BENNETT-SIKSEK-20",
+   "kind": "review",
+   "priority": 1,
+   "order": 136,
+   "name": "Bennett–Siksek (2020): A conjecture of Erdős, supersingular primes and short character sums",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BENNETT-SIKSEK-20.review.json",
+    "research/blueprint/reviews/REV-PAPER-BENNETT-SIKSEK-20.md"
+   ],
+   "after": [
+    "PAPER-BENNETT-SIKSEK-20"
+   ],
+   "avoidAccountOf": "PAPER-BENNETT-SIKSEK-20",
+   "prompt": "research/blueprint/prompts/REV-PAPER-BENNETT-SIKSEK-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20",
+   "kind": "paper",
+   "priority": 1,
+   "order": 137,
+   "name": "Masser–Zannier (2020): Abelian varieties isogenous to no Jacobian",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-MASSER-ZANNIER-20.result.json",
+    "research/blueprint/papers/PAPER-MASSER-ZANNIER-20.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-MASSER-ZANNIER-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-MASSER-ZANNIER-20",
+   "kind": "review",
+   "priority": 1,
+   "order": 137,
+   "name": "Masser–Zannier (2020): Abelian varieties isogenous to no Jacobian",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-MASSER-ZANNIER-20.review.json",
+    "research/blueprint/reviews/REV-PAPER-MASSER-ZANNIER-20.md"
+   ],
+   "after": [
+    "PAPER-MASSER-ZANNIER-20"
+   ],
+   "avoidAccountOf": "PAPER-MASSER-ZANNIER-20",
+   "prompt": "research/blueprint/prompts/REV-PAPER-MASSER-ZANNIER-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20",
+   "kind": "paper",
+   "priority": 1,
+   "order": 138,
+   "name": "Dihua Jiang–Lei Zhang (2020): Arthur parameters and cuspidal automorphic modules of classical groups",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+    "research/blueprint/papers/PAPER-JIANG-ZHANG-20.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-JIANG-ZHANG-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-JIANG-ZHANG-20",
+   "kind": "review",
+   "priority": 1,
+   "order": 138,
+   "name": "Dihua Jiang–Lei Zhang (2020): Arthur parameters and cuspidal automorphic modules of classical groups",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-JIANG-ZHANG-20.review.json",
+    "research/blueprint/reviews/REV-PAPER-JIANG-ZHANG-20.md"
+   ],
+   "after": [
+    "PAPER-JIANG-ZHANG-20"
+   ],
+   "avoidAccountOf": "PAPER-JIANG-ZHANG-20",
+   "prompt": "research/blueprint/prompts/REV-PAPER-JIANG-ZHANG-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20",
+   "kind": "paper",
+   "priority": 1,
+   "order": 139,
+   "name": "Browning–Sawin (2020): A geometric version of the circle method",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+    "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-BROWNING-SAWIN-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-BROWNING-SAWIN-20",
+   "kind": "review",
+   "priority": 1,
+   "order": 139,
+   "name": "Browning–Sawin (2020): A geometric version of the circle method",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.review.json",
+    "research/blueprint/reviews/REV-PAPER-BROWNING-SAWIN-20.md"
+   ],
+   "after": [
+    "PAPER-BROWNING-SAWIN-20"
+   ],
+   "avoidAccountOf": "PAPER-BROWNING-SAWIN-20",
+   "prompt": "research/blueprint/prompts/REV-PAPER-BROWNING-SAWIN-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-DEMARCO-KRIEGER-YE-20",
+   "kind": "paper",
+   "priority": 1,
+   "order": 140,
+   "name": "DeMarco–Krieger–Ye (2020): Uniform Manin-Mumford for a family of genus 2 curves",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-DEMARCO-KRIEGER-YE-20.result.json",
+    "research/blueprint/papers/PAPER-DEMARCO-KRIEGER-YE-20.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-DEMARCO-KRIEGER-YE-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-DEMARCO-KRIEGER-YE-20",
+   "kind": "review",
+   "priority": 1,
+   "order": 140,
+   "name": "DeMarco–Krieger–Ye (2020): Uniform Manin-Mumford for a family of genus 2 curves",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-DEMARCO-KRIEGER-YE-20.review.json",
+    "research/blueprint/reviews/REV-PAPER-DEMARCO-KRIEGER-YE-20.md"
+   ],
+   "after": [
+    "PAPER-DEMARCO-KRIEGER-YE-20"
+   ],
+   "avoidAccountOf": "PAPER-DEMARCO-KRIEGER-YE-20",
+   "prompt": "research/blueprint/prompts/REV-PAPER-DEMARCO-KRIEGER-YE-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-COUVEIGNES-20",
+   "kind": "paper",
+   "priority": 1,
+   "order": 141,
+   "name": "Jean-Marc Couveignes (2020): Enumerating number fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-COUVEIGNES-20.result.json",
+    "research/blueprint/papers/PAPER-COUVEIGNES-20.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-COUVEIGNES-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-COUVEIGNES-20",
+   "kind": "review",
+   "priority": 1,
+   "order": 141,
+   "name": "Jean-Marc Couveignes (2020): Enumerating number fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-COUVEIGNES-20.review.json",
+    "research/blueprint/reviews/REV-PAPER-COUVEIGNES-20.md"
+   ],
+   "after": [
+    "PAPER-COUVEIGNES-20"
+   ],
+   "avoidAccountOf": "PAPER-COUVEIGNES-20",
+   "prompt": "research/blueprint/prompts/REV-PAPER-COUVEIGNES-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-KHAYUTIN-19",
+   "kind": "paper",
+   "priority": 1,
+   "order": 142,
+   "name": "Ilya Khayutin (2019): Joint equidistribution of CM points",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-KHAYUTIN-19.result.json",
+    "research/blueprint/papers/PAPER-KHAYUTIN-19.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-KHAYUTIN-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-KHAYUTIN-19",
+   "kind": "review",
+   "priority": 1,
+   "order": 142,
+   "name": "Ilya Khayutin (2019): Joint equidistribution of CM points",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-KHAYUTIN-19.review.json",
+    "research/blueprint/reviews/REV-PAPER-KHAYUTIN-19.md"
+   ],
+   "after": [
+    "PAPER-KHAYUTIN-19"
+   ],
+   "avoidAccountOf": "PAPER-KHAYUTIN-19",
+   "prompt": "research/blueprint/prompts/REV-PAPER-KHAYUTIN-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-YUN-ZHANG-19",
+   "kind": "paper",
+   "priority": 1,
+   "order": 143,
+   "name": "Zhiwei Yun–Wei Zhang (2019): Shtukas and the Taylor expansion of L-functions (II)",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-YUN-ZHANG-19.result.json",
+    "research/blueprint/papers/PAPER-YUN-ZHANG-19.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-YUN-ZHANG-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-YUN-ZHANG-19",
+   "kind": "review",
+   "priority": 1,
+   "order": 143,
+   "name": "Zhiwei Yun–Wei Zhang (2019): Shtukas and the Taylor expansion of L-functions (II)",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-YUN-ZHANG-19.review.json",
+    "research/blueprint/reviews/REV-PAPER-YUN-ZHANG-19.md"
+   ],
+   "after": [
+    "PAPER-YUN-ZHANG-19"
+   ],
+   "avoidAccountOf": "PAPER-YUN-ZHANG-19",
+   "prompt": "research/blueprint/prompts/REV-PAPER-YUN-ZHANG-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-GAO-HABEGGER-19",
+   "kind": "paper",
+   "priority": 1,
+   "order": 144,
+   "name": "Gao–Habegger (2019): Heights in families of abelian varieties and the Geometric Bogomolov Conjecture",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
+    "research/blueprint/papers/PAPER-GAO-HABEGGER-19.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-GAO-HABEGGER-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-GAO-HABEGGER-19",
+   "kind": "review",
+   "priority": 1,
+   "order": 144,
+   "name": "Gao–Habegger (2019): Heights in families of abelian varieties and the Geometric Bogomolov Conjecture",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-GAO-HABEGGER-19.review.json",
+    "research/blueprint/reviews/REV-PAPER-GAO-HABEGGER-19.md"
+   ],
+   "after": [
+    "PAPER-GAO-HABEGGER-19"
+   ],
+   "avoidAccountOf": "PAPER-GAO-HABEGGER-19",
+   "prompt": "research/blueprint/prompts/REV-PAPER-GAO-HABEGGER-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-MOK-PILA-TSIMERMAN-19",
+   "kind": "paper",
+   "priority": 1,
+   "order": 145,
+   "name": "Mok–Pila–Tsimerman (2019): Ax-Schanuel for Shimura varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json",
+    "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-MOK-PILA-TSIMERMAN-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-MOK-PILA-TSIMERMAN-19",
+   "kind": "review",
+   "priority": 1,
+   "order": 145,
+   "name": "Mok–Pila–Tsimerman (2019): Ax-Schanuel for Shimura varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.review.json",
+    "research/blueprint/reviews/REV-PAPER-MOK-PILA-TSIMERMAN-19.md"
+   ],
+   "after": [
+    "PAPER-MOK-PILA-TSIMERMAN-19"
+   ],
+   "avoidAccountOf": "PAPER-MOK-PILA-TSIMERMAN-19",
+   "prompt": "research/blueprint/prompts/REV-PAPER-MOK-PILA-TSIMERMAN-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-GAMBURD-MAGEE-RONAN-19",
+   "kind": "paper",
+   "priority": 1,
+   "order": 146,
+   "name": "Gamburd–Magee–Ronan (2019): An asymptotic formula for integer points on Markoff-Hurwitz varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.result.json",
+    "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-GAMBURD-MAGEE-RONAN-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-GAMBURD-MAGEE-RONAN-19",
+   "kind": "review",
+   "priority": 1,
+   "order": 146,
+   "name": "Gamburd–Magee–Ronan (2019): An asymptotic formula for integer points on Markoff-Hurwitz varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.review.json",
+    "research/blueprint/reviews/REV-PAPER-GAMBURD-MAGEE-RONAN-19.md"
+   ],
+   "after": [
+    "PAPER-GAMBURD-MAGEE-RONAN-19"
+   ],
+   "avoidAccountOf": "PAPER-GAMBURD-MAGEE-RONAN-19",
+   "prompt": "research/blueprint/prompts/REV-PAPER-GAMBURD-MAGEE-RONAN-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-TSIMERMAN-18",
+   "kind": "paper",
+   "priority": 1,
+   "order": 147,
+   "name": "Jacob Tsimerman (2018): The André-Oort conjecture for A_g",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-TSIMERMAN-18.result.json",
+    "research/blueprint/papers/PAPER-TSIMERMAN-18.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-TSIMERMAN-18.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-TSIMERMAN-18",
+   "kind": "review",
+   "priority": 1,
+   "order": 147,
+   "name": "Jacob Tsimerman (2018): The André-Oort conjecture for A_g",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-TSIMERMAN-18.review.json",
+    "research/blueprint/reviews/REV-PAPER-TSIMERMAN-18.md"
+   ],
+   "after": [
+    "PAPER-TSIMERMAN-18"
+   ],
+   "avoidAccountOf": "PAPER-TSIMERMAN-18",
+   "prompt": "research/blueprint/prompts/REV-PAPER-TSIMERMAN-18.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
+   "kind": "paper",
+   "priority": 1,
+   "order": 148,
+   "name": "Andreatta–Goren–Howard–Madapusi Pera (2018): Faltings heights of abelian varieties with complex multiplication",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
+    "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
+   "kind": "review",
+   "priority": 1,
+   "order": 148,
+   "name": "Andreatta–Goren–Howard–Madapusi Pera (2018): Faltings heights of abelian varieties with complex multiplication",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.review.json",
+    "research/blueprint/reviews/REV-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.md"
+   ],
+   "after": [
+    "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18"
+   ],
+   "avoidAccountOf": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
+   "prompt": "research/blueprint/prompts/REV-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-YUAN-ZHANG-18",
+   "kind": "paper",
+   "priority": 1,
+   "order": 149,
+   "name": "Xinyi Yuan–Shou-Wu Zhang (2018): On the averaged Colmez conjecture",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
+    "research/blueprint/papers/PAPER-YUAN-ZHANG-18.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-YUAN-ZHANG-18.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-YUAN-ZHANG-18",
+   "kind": "review",
+   "priority": 1,
+   "order": 149,
+   "name": "Xinyi Yuan–Shou-Wu Zhang (2018): On the averaged Colmez conjecture",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-YUAN-ZHANG-18.review.json",
+    "research/blueprint/reviews/REV-PAPER-YUAN-ZHANG-18.md"
+   ],
+   "after": [
+    "PAPER-YUAN-ZHANG-18"
+   ],
+   "avoidAccountOf": "PAPER-YUAN-ZHANG-18",
+   "prompt": "research/blueprint/prompts/REV-PAPER-YUAN-ZHANG-18.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-DASGUPTA-KAKDE-VENTULLO-18",
+   "kind": "paper",
+   "priority": 1,
+   "order": 150,
+   "name": "Dasgupta–Kakde–Ventullo (2018): On the Gross–Stark Conjecture",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-VENTULLO-18.result.json",
+    "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-VENTULLO-18.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-DASGUPTA-KAKDE-VENTULLO-18.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-DASGUPTA-KAKDE-VENTULLO-18",
+   "kind": "review",
+   "priority": 1,
+   "order": 150,
+   "name": "Dasgupta–Kakde–Ventullo (2018): On the Gross–Stark Conjecture",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-VENTULLO-18.review.json",
+    "research/blueprint/reviews/REV-PAPER-DASGUPTA-KAKDE-VENTULLO-18.md"
+   ],
+   "after": [
+    "PAPER-DASGUPTA-KAKDE-VENTULLO-18"
+   ],
+   "avoidAccountOf": "PAPER-DASGUPTA-KAKDE-VENTULLO-18",
+   "prompt": "research/blueprint/prompts/REV-PAPER-DASGUPTA-KAKDE-VENTULLO-18.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18",
+   "kind": "paper",
+   "priority": 1,
+   "order": 151,
+   "name": "Gan–Ichino (2018): The Shimura–Waldspurger correspondence for Mp_2n",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-GAN-ICHINO-18.result.json",
+    "research/blueprint/papers/PAPER-GAN-ICHINO-18.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-GAN-ICHINO-18.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-GAN-ICHINO-18",
+   "kind": "review",
+   "priority": 1,
+   "order": 151,
+   "name": "Gan–Ichino (2018): The Shimura–Waldspurger correspondence for Mp_2n",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-GAN-ICHINO-18.review.json",
+    "research/blueprint/reviews/REV-PAPER-GAN-ICHINO-18.md"
+   ],
+   "after": [
+    "PAPER-GAN-ICHINO-18"
+   ],
+   "avoidAccountOf": "PAPER-GAN-ICHINO-18",
+   "prompt": "research/blueprint/prompts/REV-PAPER-GAN-ICHINO-18.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-ZHU-17",
+   "kind": "paper",
+   "priority": 1,
+   "order": 152,
+   "name": "Xinwen Zhu (2017): Affine Grassmannians and the geometric Satake in mixed characteristic",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-ZHU-17.result.json",
+    "research/blueprint/papers/PAPER-ZHU-17.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-ZHU-17.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-ZHU-17",
+   "kind": "review",
+   "priority": 1,
+   "order": 152,
+   "name": "Xinwen Zhu (2017): Affine Grassmannians and the geometric Satake in mixed characteristic",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-ZHU-17.review.json",
+    "research/blueprint/reviews/REV-PAPER-ZHU-17.md"
+   ],
+   "after": [
+    "PAPER-ZHU-17"
+   ],
+   "avoidAccountOf": "PAPER-ZHU-17",
+   "prompt": "research/blueprint/prompts/REV-PAPER-ZHU-17.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-BUSHNELL-HENNIART-17",
+   "kind": "paper",
+   "priority": 1,
+   "order": 153,
+   "name": "Bushnell–Henniart (2017): Higher ramification and the local Langlands correspondence",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
+    "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-BUSHNELL-HENNIART-17.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "kind": "review",
+   "priority": 1,
+   "order": 153,
+   "name": "Bushnell–Henniart (2017): Higher ramification and the local Langlands correspondence",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.review.json",
+    "research/blueprint/reviews/REV-PAPER-BUSHNELL-HENNIART-17.md"
+   ],
+   "after": [
+    "PAPER-BUSHNELL-HENNIART-17"
+   ],
+   "avoidAccountOf": "PAPER-BUSHNELL-HENNIART-17",
+   "prompt": "research/blueprint/prompts/REV-PAPER-BUSHNELL-HENNIART-17.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-TEMKIN-17",
+   "kind": "paper",
+   "priority": 1,
+   "order": 154,
+   "name": "Michael Temkin (2017): Tame distillation and desingularization by p-alterations",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-TEMKIN-17.result.json",
+    "research/blueprint/papers/PAPER-TEMKIN-17.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-TEMKIN-17.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-TEMKIN-17",
+   "kind": "review",
+   "priority": 1,
+   "order": 154,
+   "name": "Michael Temkin (2017): Tame distillation and desingularization by p-alterations",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-TEMKIN-17.review.json",
+    "research/blueprint/reviews/REV-PAPER-TEMKIN-17.md"
+   ],
+   "after": [
+    "PAPER-TEMKIN-17"
+   ],
+   "avoidAccountOf": "PAPER-TEMKIN-17",
+   "prompt": "research/blueprint/prompts/REV-PAPER-TEMKIN-17.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-CADORET-HUI-TAMAGAWA-17",
+   "kind": "paper",
+   "priority": 1,
+   "order": 155,
+   "name": "Cadoret–Hui–Tamagawa (2017): Geometric monodromy — semisimplicity and maximality",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CADORET-HUI-TAMAGAWA-17.result.json",
+    "research/blueprint/papers/PAPER-CADORET-HUI-TAMAGAWA-17.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-CADORET-HUI-TAMAGAWA-17.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-CADORET-HUI-TAMAGAWA-17",
+   "kind": "review",
+   "priority": 1,
+   "order": 155,
+   "name": "Cadoret–Hui–Tamagawa (2017): Geometric monodromy — semisimplicity and maximality",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CADORET-HUI-TAMAGAWA-17.review.json",
+    "research/blueprint/reviews/REV-PAPER-CADORET-HUI-TAMAGAWA-17.md"
+   ],
+   "after": [
+    "PAPER-CADORET-HUI-TAMAGAWA-17"
+   ],
+   "avoidAccountOf": "PAPER-CADORET-HUI-TAMAGAWA-17",
+   "prompt": "research/blueprint/prompts/REV-PAPER-CADORET-HUI-TAMAGAWA-17.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-DOSPINESCU-LEBRAS-17",
+   "kind": "paper",
+   "priority": 1,
+   "order": 156,
+   "name": "Dospinescu–Le Bras (2017): Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+    "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-DOSPINESCU-LEBRAS-17.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-DOSPINESCU-LEBRAS-17",
+   "kind": "review",
+   "priority": 1,
+   "order": 156,
+   "name": "Dospinescu–Le Bras (2017): Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.review.json",
+    "research/blueprint/reviews/REV-PAPER-DOSPINESCU-LEBRAS-17.md"
+   ],
+   "after": [
+    "PAPER-DOSPINESCU-LEBRAS-17"
+   ],
+   "avoidAccountOf": "PAPER-DOSPINESCU-LEBRAS-17",
+   "prompt": "research/blueprint/prompts/REV-PAPER-DOSPINESCU-LEBRAS-17.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-CARAIANI-SCHOLZE-17",
+   "kind": "paper",
+   "priority": 1,
+   "order": 157,
+   "name": "Caraiani–Scholze (2017): On the generic part of the cohomology of compact unitary Shimura varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-17.result.json",
+    "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-17.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-CARAIANI-SCHOLZE-17.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-CARAIANI-SCHOLZE-17",
+   "kind": "review",
+   "priority": 1,
+   "order": 157,
+   "name": "Caraiani–Scholze (2017): On the generic part of the cohomology of compact unitary Shimura varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-17.review.json",
+    "research/blueprint/reviews/REV-PAPER-CARAIANI-SCHOLZE-17.md"
+   ],
+   "after": [
+    "PAPER-CARAIANI-SCHOLZE-17"
+   ],
+   "avoidAccountOf": "PAPER-CARAIANI-SCHOLZE-17",
+   "prompt": "research/blueprint/prompts/REV-PAPER-CARAIANI-SCHOLZE-17.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-YUN-ZHANG-17",
+   "kind": "paper",
+   "priority": 1,
+   "order": 158,
+   "name": "Zhiwei Yun–Wei Zhang (2017): Shtukas and the Taylor expansion of L-functions",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-YUN-ZHANG-17.result.json",
+    "research/blueprint/papers/PAPER-YUN-ZHANG-17.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-YUN-ZHANG-17.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-YUN-ZHANG-17",
+   "kind": "review",
+   "priority": 1,
+   "order": 158,
+   "name": "Zhiwei Yun–Wei Zhang (2017): Shtukas and the Taylor expansion of L-functions",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-YUN-ZHANG-17.review.json",
+    "research/blueprint/reviews/REV-PAPER-YUN-ZHANG-17.md"
+   ],
+   "after": [
+    "PAPER-YUN-ZHANG-17"
+   ],
+   "avoidAccountOf": "PAPER-YUN-ZHANG-17",
+   "prompt": "research/blueprint/prompts/REV-PAPER-YUN-ZHANG-17.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-BAKKER-TSIMERMAN-16",
+   "kind": "paper",
+   "priority": 1,
+   "order": 159,
+   "name": "Bakker–Tsimerman (2016): p-torsion monodromy representations of elliptic curves over geometric function fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BAKKER-TSIMERMAN-16.result.json",
+    "research/blueprint/papers/PAPER-BAKKER-TSIMERMAN-16.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-BAKKER-TSIMERMAN-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-BAKKER-TSIMERMAN-16",
+   "kind": "review",
+   "priority": 1,
+   "order": 159,
+   "name": "Bakker–Tsimerman (2016): p-torsion monodromy representations of elliptic curves over geometric function fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BAKKER-TSIMERMAN-16.review.json",
+    "research/blueprint/reviews/REV-PAPER-BAKKER-TSIMERMAN-16.md"
+   ],
+   "after": [
+    "PAPER-BAKKER-TSIMERMAN-16"
+   ],
+   "avoidAccountOf": "PAPER-BAKKER-TSIMERMAN-16",
+   "prompt": "research/blueprint/prompts/REV-PAPER-BAKKER-TSIMERMAN-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-SCHMIDT-STIX-16",
+   "kind": "paper",
+   "priority": 1,
+   "order": 160,
+   "name": "Schmidt–Stix (2016): Anabelian geometry with étale homotopy types",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
+    "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-SCHMIDT-STIX-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-SCHMIDT-STIX-16",
+   "kind": "review",
+   "priority": 1,
+   "order": 160,
+   "name": "Schmidt–Stix (2016): Anabelian geometry with étale homotopy types",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.review.json",
+    "research/blueprint/reviews/REV-PAPER-SCHMIDT-STIX-16.md"
+   ],
+   "after": [
+    "PAPER-SCHMIDT-STIX-16"
+   ],
+   "avoidAccountOf": "PAPER-SCHMIDT-STIX-16",
+   "prompt": "research/blueprint/prompts/REV-PAPER-SCHMIDT-STIX-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-DUKE-IMAMOGLU-TOTH-16",
+   "kind": "paper",
+   "priority": 1,
+   "order": 161,
+   "name": "Duke–Imamoḡlu–Tóth (2016): Geometric invariants for real quadratic fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-DUKE-IMAMOGLU-TOTH-16.result.json",
+    "research/blueprint/papers/PAPER-DUKE-IMAMOGLU-TOTH-16.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-DUKE-IMAMOGLU-TOTH-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-DUKE-IMAMOGLU-TOTH-16",
+   "kind": "review",
+   "priority": 1,
+   "order": 161,
+   "name": "Duke–Imamoḡlu–Tóth (2016): Geometric invariants for real quadratic fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-DUKE-IMAMOGLU-TOTH-16.review.json",
+    "research/blueprint/reviews/REV-PAPER-DUKE-IMAMOGLU-TOTH-16.md"
+   ],
+   "after": [
+    "PAPER-DUKE-IMAMOGLU-TOTH-16"
+   ],
+   "avoidAccountOf": "PAPER-DUKE-IMAMOGLU-TOTH-16",
+   "prompt": "research/blueprint/prompts/REV-PAPER-DUKE-IMAMOGLU-TOTH-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-JANNSEN-16",
+   "kind": "paper",
+   "priority": 1,
+   "order": 162,
+   "name": "Uwe Jannsen (2016): Hasse principles for higher-dimensional fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
+    "research/blueprint/papers/PAPER-JANNSEN-16.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-JANNSEN-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-JANNSEN-16",
+   "kind": "review",
+   "priority": 1,
+   "order": 162,
+   "name": "Uwe Jannsen (2016): Hasse principles for higher-dimensional fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-JANNSEN-16.review.json",
+    "research/blueprint/reviews/REV-PAPER-JANNSEN-16.md"
+   ],
+   "after": [
+    "PAPER-JANNSEN-16"
+   ],
+   "avoidAccountOf": "PAPER-JANNSEN-16",
+   "prompt": "research/blueprint/prompts/REV-PAPER-JANNSEN-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16",
+   "kind": "paper",
+   "priority": 1,
+   "order": 163,
+   "name": "Jochen Koenigsmann (2016): Defining Z in Q",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-KOENIGSMANN-16.result.json",
+    "research/blueprint/papers/PAPER-KOENIGSMANN-16.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-KOENIGSMANN-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-KOENIGSMANN-16",
+   "kind": "review",
+   "priority": 1,
+   "order": 163,
+   "name": "Jochen Koenigsmann (2016): Defining Z in Q",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-KOENIGSMANN-16.review.json",
+    "research/blueprint/reviews/REV-PAPER-KOENIGSMANN-16.md"
+   ],
+   "after": [
+    "PAPER-KOENIGSMANN-16"
+   ],
+   "avoidAccountOf": "PAPER-KOENIGSMANN-16",
+   "prompt": "research/blueprint/prompts/REV-PAPER-KOENIGSMANN-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-TREUMANN-VENKATESH-16",
+   "kind": "paper",
+   "priority": 1,
+   "order": 164,
+   "name": "Treumann–Venkatesh (2016): Functoriality, Smith theory, and the Brauer homomorphism",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-TREUMANN-VENKATESH-16.result.json",
+    "research/blueprint/papers/PAPER-TREUMANN-VENKATESH-16.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-TREUMANN-VENKATESH-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-TREUMANN-VENKATESH-16",
+   "kind": "review",
+   "priority": 1,
+   "order": 164,
+   "name": "Treumann–Venkatesh (2016): Functoriality, Smith theory, and the Brauer homomorphism",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-TREUMANN-VENKATESH-16.review.json",
+    "research/blueprint/reviews/REV-PAPER-TREUMANN-VENKATESH-16.md"
+   ],
+   "after": [
+    "PAPER-TREUMANN-VENKATESH-16"
+   ],
+   "avoidAccountOf": "PAPER-TREUMANN-VENKATESH-16",
+   "prompt": "research/blueprint/prompts/REV-PAPER-TREUMANN-VENKATESH-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-16",
+   "kind": "paper",
+   "priority": 1,
+   "order": 165,
+   "name": "Harpaz–Wittenberg (2016): On the fibration method for zero-cycles and rational points",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-16.result.json",
+    "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-16.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-HARPAZ-WITTENBERG-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-HARPAZ-WITTENBERG-16",
+   "kind": "review",
+   "priority": 1,
+   "order": 165,
+   "name": "Harpaz–Wittenberg (2016): On the fibration method for zero-cycles and rational points",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-16.review.json",
+    "research/blueprint/reviews/REV-PAPER-HARPAZ-WITTENBERG-16.md"
+   ],
+   "after": [
+    "PAPER-HARPAZ-WITTENBERG-16"
+   ],
+   "avoidAccountOf": "PAPER-HARPAZ-WITTENBERG-16",
+   "prompt": "research/blueprint/prompts/REV-PAPER-HARPAZ-WITTENBERG-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16",
+   "kind": "paper",
+   "priority": 1,
+   "order": 166,
+   "name": "Olivier Schiffmann (2016): Indecomposable vector bundles and stable Higgs bundles over smooth projective curves",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-SCHIFFMANN-16.result.json",
+    "research/blueprint/papers/PAPER-SCHIFFMANN-16.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-SCHIFFMANN-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-SCHIFFMANN-16",
+   "kind": "review",
+   "priority": 1,
+   "order": 166,
+   "name": "Olivier Schiffmann (2016): Indecomposable vector bundles and stable Higgs bundles over smooth projective curves",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-SCHIFFMANN-16.review.json",
+    "research/blueprint/reviews/REV-PAPER-SCHIFFMANN-16.md"
+   ],
+   "after": [
+    "PAPER-SCHIFFMANN-16"
+   ],
+   "avoidAccountOf": "PAPER-SCHIFFMANN-16",
+   "prompt": "research/blueprint/prompts/REV-PAPER-SCHIFFMANN-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "kind": "paper",
+   "priority": 1,
+   "order": 167,
+   "name": "Ellenberg–Venkatesh–Westerland (2016): Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
+    "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "kind": "review",
+   "priority": 1,
+   "order": 167,
+   "name": "Ellenberg–Venkatesh–Westerland (2016): Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.review.json",
+    "research/blueprint/reviews/REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.md"
+   ],
+   "after": [
+    "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
+   ],
+   "avoidAccountOf": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "prompt": "research/blueprint/prompts/REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16",
+   "kind": "paper",
+   "priority": 1,
+   "order": 168,
+   "name": "Bijakowski–Pilloni–Stroh (2016): Classicité de formes modulaires surconvergentes",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BIJAKOWSKI-PILLONI-STROH-16.result.json",
+    "research/blueprint/papers/PAPER-BIJAKOWSKI-PILLONI-STROH-16.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-BIJAKOWSKI-PILLONI-STROH-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16",
+   "kind": "review",
+   "priority": 1,
+   "order": 168,
+   "name": "Bijakowski–Pilloni–Stroh (2016): Classicité de formes modulaires surconvergentes",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-BIJAKOWSKI-PILLONI-STROH-16.review.json",
+    "research/blueprint/reviews/REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16.md"
+   ],
+   "after": [
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16"
+   ],
+   "avoidAccountOf": "PAPER-BIJAKOWSKI-PILLONI-STROH-16",
+   "prompt": "research/blueprint/prompts/REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-CHARLES-16",
+   "kind": "paper",
+   "priority": 1,
+   "order": 169,
+   "name": "François Charles (2016): Birational boundedness for holomorphic symplectic varieties, Zarhin's trick for K3 surfaces, and the Tate conjecture",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CHARLES-16.result.json",
+    "research/blueprint/papers/PAPER-CHARLES-16.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-CHARLES-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-CHARLES-16",
+   "kind": "review",
+   "priority": 1,
+   "order": 169,
+   "name": "François Charles (2016): Birational boundedness for holomorphic symplectic varieties, Zarhin's trick for K3 surfaces, and the Tate conjecture",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-CHARLES-16.review.json",
+    "research/blueprint/reviews/REV-PAPER-CHARLES-16.md"
+   ],
+   "after": [
+    "PAPER-CHARLES-16"
+   ],
+   "avoidAccountOf": "PAPER-CHARLES-16",
+   "prompt": "research/blueprint/prompts/REV-PAPER-CHARLES-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "PAPER-KALETHA-16",
+   "kind": "paper",
+   "priority": 1,
+   "order": 170,
+   "name": "Tasho Kaletha (2016): Rigid inner forms of real and p-adic groups",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-KALETHA-16.result.json",
+    "research/blueprint/papers/PAPER-KALETHA-16.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PAPER-KALETHA-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PAPER-KALETHA-16",
+   "kind": "review",
+   "priority": 1,
+   "order": 170,
+   "name": "Tasho Kaletha (2016): Rigid inner forms of real and p-adic groups",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/papers/PAPER-KALETHA-16.review.json",
+    "research/blueprint/reviews/REV-PAPER-KALETHA-16.md"
+   ],
+   "after": [
+    "PAPER-KALETHA-16"
+   ],
+   "avoidAccountOf": "PAPER-KALETHA-16",
+   "prompt": "research/blueprint/prompts/REV-PAPER-KALETHA-16.md",
+   "state": "pending"
+  },
+  {
    "id": "DESIGN-LV",
    "kind": "design",
    "priority": 1,
