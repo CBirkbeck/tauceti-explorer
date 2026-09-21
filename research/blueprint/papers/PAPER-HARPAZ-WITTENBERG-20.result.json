@@ -1,0 +1,2008 @@
+{
+  "paper": "PAPER-HARPAZ-WITTENBERG-20",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "source": {
+    "title": "Zéro-cycles sur les espaces homogènes et problème de Galois inverse",
+    "authors": "Yonatan Harpaz; Olivier Wittenberg",
+    "venue": "Journal of the American Mathematical Society 33 (2020), no. 3, 775–805",
+    "doi": "10.1090/jams/943",
+    "arxiv": "1802.09605v2",
+    "url": "https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf",
+    "readSections": [
+      "All 31 pages: introduction and conventions pp.1–7; §2 pp.7–11; §3 pp.12–15; §4 pp.15–18; §5 pp.18–21; §6 pp.21–24; §7 pp.24–28; references pp.28–31.",
+      "Selected prerequisite statements: HW16 pp.259–260,266–268,284; DLA19 Definition 5.1/Theorem 5.2 in both public versions; Har08 definitions and Theorem 2; Dem10 author pp.10–12; LA19 §6 pp.14–17; DLAN17 Proposition 2.4 p.1018; Wit18 Remark 3.9."
+    ],
+    "version": "Author manuscript dated 26 February 2018, revised 23 September 2019; arXiv v2 differs only by the first-page arXiv header and the final Email/E-mail spelling. Published metadata checked against author page and Crossref; publisher PDF returned 403 and was not read.",
+    "sha256": "2e425ee63d77e6fc53ddd76aca8c8b7ab36be95b078fbcec5e2a8d7f325e6ad9",
+    "accessed": "2026-09-21T19:42:25Z",
+    "atlasCommit": "d76643df4405140aed1dfade7a21b9159db80017",
+    "libraryPins": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+    }
+  },
+  "summary": "Full-paper checkpoint: unconditional E/E⁺ for homogeneous compactifications; unconditional full Brauer–Manin density for outer-Galois-supersolvable finite stabilizers; conditional density for general solvable stabilizers. Extracts torus descent, type fibrations, norm base changes, finite étale stabilizer reductions and zero-cycle induction. Reuses the pending homogeneous Massey candidate for HW20’s shared rational-point foundation and proposes a separate zero-cycle continuation. Two proof-interface gaps remain unrouted (Remark 4.5 scope and DLA ambient unipotent groups); prerequisite proof decompositions remain work for the designs. No formalization is claimed.",
+  "items": [
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/1",
+      "kind": "definition",
+      "name": "Algebraic torus",
+      "statement": "Over a field k, an affine finite-type group T is a torus if its base change to an algebraic closure is isomorphic to G_m^r for some r≥0. The pinned carrier uses finite-type commutative Hopf algebras.",
+      "locator": "§1.1 p.6",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.torusCommHopfAlgProperty",
+        "tauceti:TauCeti.splitTorusCommHopfAlgProperty"
+      ],
+      "planned": [],
+      "note": "API: geometric split witness, base change, rank-zero object and Hopf/scheme dictionary Tests: G_m^0 is allowed; a nonsplit norm-one torus is allowed; G_a is excluded."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/2",
+      "kind": "definition",
+      "name": "Group of multiplicative type",
+      "statement": "An affine finite-type group is of multiplicative type if its geometric coordinate Hopf algebra is diagonalizable; in characteristic zero this includes finite commutative group schemes and tori.",
+      "locator": "§1.1 p.6; §3 p.12",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.multiplicativeTypeCommHopfAlgProperty",
+        "tauceti:TauCeti.multiplicativeTypeCommHopfAlgProperty_iff_exists_iso_coordinateRing"
+      ],
+      "planned": [],
+      "note": "API: diagonalizable witness, coordinate algebra, characters and finite-type condition Tests: μ_n is included in characteristic zero; a torus is included; noncommutative finite groups are excluded."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/3",
+      "kind": "theorem",
+      "name": "Characters of multiplicative-type groups are finitely generated",
+      "statement": "The geometric character group of a finite-type commutative Hopf algebra of multiplicative type over k is a finitely generated abelian group.",
+      "locator": "§1.1 p.6",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.CommHopfAlgCat.geometricCharacterGroup_fg_of_multiplicativeType"
+      ],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/4",
+      "kind": "construction",
+      "name": "Character duality with Galois action",
+      "statement": "Over characteristic-zero k, finite-type multiplicative-type groups are contravariantly equivalent to finitely generated discrete Γ_k-modules with continuous action; tori correspond to torsion-free modules and finite groups to finite modules. Exact character sequences dualize to exact fppf group sequences.",
+      "locator": "§1.1; §3 diagram (3.2)",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori"
+      ],
+      "note": "The pinned library supplies characters and substantial descent infrastructure, but the complete equivalence and exact-sequence comparison are imported from the existing owner, not claimed built from a file-name search. API: characters, evaluation, contravariant maps, exactness and finite/torus criteria Tests: μ_n corresponds to Z/n; G_m corresponds to Z with trivial action; an extension reverses arrow order."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/5",
+      "kind": "construction",
+      "name": "Affine Weil restriction",
+      "statement": "For finite étale E/k, Res_E/k A¹ and Res_E/k G_m represent A↦E⊗_k A and A↦(E⊗_k A)^× respectively; a k-basis of E identifies the former with A_k^[E:k] and the latter with the norm-nonzero open.",
+      "locator": "§1.1 p.6; §4 p.15",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "ReductiveGroupsPartII:RG2.0a"
+      ],
+      "note": "API: adjunction, chosen-basis comparison, units open, base change and product étale algebra Tests: E=k×k gives G_m²; E=k gives G_m; zero norm is excluded from the torus."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/6",
+      "kind": "definition",
+      "name": "Quasitrivial torus",
+      "statement": "A k-torus Q is quasitrivial if Q≅Res_E/k G_m for some finite étale k-algebra E, equivalently its character lattice is a permutation Γ_k-module.",
+      "locator": "§1.1 p.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: presentation by étale algebra, permutation basis, product and base change Tests: split G_m^r is quasitrivial; the character action may permute basis vectors; a norm-one torus is not automatically quasitrivial."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/7",
+      "kind": "theorem",
+      "name": "Quasitrivial torus torsors over fields vanish",
+      "statement": "For every field extension L/k and quasitrivial k-torus Q, H¹(L,Q)=0, by Shapiro and multiplicative Hilbert 90 for E⊗_k L.",
+      "locator": "§3 proof Proposition 3.1; §4 Lemma 4.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Import continuous Hilbert 90 from ProfiniteCohomology Layer 8; supply the representable Weil-restriction and Shapiro comparison, rather than relabelling a low-degree injectivity lemma as the whole theorem."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/8",
+      "kind": "definition",
+      "name": "Homogeneous space and geometric stabilizer",
+      "statement": "A smooth geometrically integral k-variety V with action of a connected linear k-group G is homogeneous when G_kbar acts transitively; at a geometric point v, H is its group-scheme stabilizer. Arithmetic sections do not assume v is k-rational.",
+      "locator": "§1.1; §5 p.18",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: orbit map, stabilizer, quotient comparison, change of geometric point and equivariant morphisms Tests: G itself has trivial stabilizer; SL_n/H is an example with a rational basepoint; a homogeneous torsor need not have a k-point."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/9",
+      "kind": "definition",
+      "name": "Outer Galois action on finite stabilizers",
+      "statement": "For a homogeneous space under a semisimple simply connected G in characteristic zero with finite geometric stabilizer H, the fundamental exact sequence gives a continuous Γ_k→Out(H); changing the geometric basepoint changes only the inner identifications. H^ab inherits an honest Γ_k-action.",
+      "locator": "§5 pp.18–19",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: outer action, representative lifts, abelianization, invariant normal subgroups and basepoint transport Tests: constant H with rational basepoint has trivial outer action; inner automorphisms act trivially on H^ab; an arbitrary Out(H) map does not give a chosen action on H."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/10",
+      "kind": "definition",
+      "name": "Hilbert subset with closed points",
+      "statement": "A Hilbert subset H of an irreducible k-variety X consists exactly of the points x of a dense open X₀ for which each fibre (W_i)_x is irreducible, for a finite nonempty family of irreducible finite étale covers W_i→X₀. Distinguish H itself, its closed points, and its k-rational points.",
+      "locator": "§1.1 p.6",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "note": "API: finite family of covers, closed-point membership, shrinking and pullback criteria Tests: the identity cover gives all points of X₀; a split fibre of a nontrivial cover fails membership; nonrational closed points are retained."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/11",
+      "kind": "definition",
+      "name": "Geometric rational connectedness",
+      "statement": "A smooth proper geometrically integral variety in characteristic zero is rationally connected if two general geometric points can be joined by a rational curve, in the sense of Kollár IV Definition 3.2.2. This is a geometric condition and is independent of extending the algebraically closed ground field.",
+      "locator": "§1.1; §§3–4,7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: geometric definition, extension of algebraically closed fields, birational invariance and rational/unirational examples Tests: P^n is rationally connected; a positive-genus smooth proper curve is excluded; the condition is geometric, not existence of rational points over k."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/12",
+      "kind": "theorem",
+      "name": "Homogeneous compactifications are rationally connected",
+      "statement": "In characteristic zero a homogeneous space of a connected linear algebraic group is geometrically unirational; every smooth proper compactification is geometrically rationally connected.",
+      "locator": "Introduction; §5; §7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/13",
+      "kind": "theorem",
+      "name": "Section theorem for rationally connected fibrations over curves",
+      "statement": "Over an algebraically closed characteristic-zero field, a proper morphism of varieties to a smooth curve with rationally connected geometric generic fibre has a rational section.",
+      "locator": "Proposition 3.3(ii); Lemma 7.4; Proposition 7.10; GHS03 and Kol96 IV.6.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "GHS03 supplies the characteristic-zero curve section theorem, with the field-extension/spreading argument and the smooth proper model recorded. This does not assert a section over a number field."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/14",
+      "kind": "definition",
+      "name": "Cohomological and algebraic Brauer groups",
+      "statement": "Br(X)=H²_et(X,G_m); Br₁(X)=ker(Br(X)→Br(X_kbar)), Br₀(X)=im Br(k). For smooth integral characteristic-zero X, Br_nr(X) is the Brauer group of a smooth proper compactification, equivalently the unramified subgroup of Br(k(X)).",
+      "locator": "§1.1 p.6",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "note": "API: pullback, constants, geometric restriction, residues and compactification comparison Tests: constant classes belong to Br₁; nonproper X can have ramified Brauer classes; Br_nr need not equal its algebraic part."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/15",
+      "kind": "construction",
+      "name": "Compatible smooth compactification",
+      "statement": "Over characteristic-zero k, compactify a smooth variety, and after resolution compactify a morphism W→V between smooth varieties into a morphism of smooth proper varieties extending it; resolve a rational map without changing the dense smooth open.",
+      "locator": "§1.1; Corollary 2.2; §7",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "SchemeAndStackFoundations:SF.4"
+      ],
+      "note": "API: open immersion, proper smooth model, extension square and birational comparison Tests: the dense open is preserved; a rational map is resolved rather than assumed regular; positive-characteristic resolution is not asserted."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/16",
+      "kind": "theorem",
+      "name": "Purity and birational invariance of Brauer groups",
+      "statement": "For smooth integral characteristic-zero schemes, Br(X) injects into Br(k(X)), equals the kernel of codimension-one residues when X is regular, and is unchanged by deleting codimension≥2; smooth proper birational varieties have canonically identified Brauer groups.",
+      "locator": "§1.1; Corollary 2.2; Proposition 2.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/17",
+      "kind": "theorem",
+      "name": "Brauer and Picard finiteness for rationally connected varieties",
+      "statement": "For smooth proper geometrically rationally connected X over a number field, Pic(X_kbar) is finitely generated and torsion-free and Br(X)/Br₀(X) is finite.",
+      "locator": "Corollary 2.2; proof Theorem 6.6; §7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/18",
+      "kind": "definition",
+      "name": "Adelic points and weak approximation",
+      "statement": "For a k-variety over a number field use the restricted product of local points relative to integral models; for proper X this is ∏_v X(k_v). Weak approximation is density of X(k) in the product of local points.",
+      "locator": "§1.1",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "note": "API: finite-place neighborhoods, integral models, model independence, functoriality and proper comparison Tests: properness removes integrality restrictions; approximation prescribes only finitely many places; archimedean places are included."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/19",
+      "kind": "construction",
+      "name": "Brauer–Manin evaluation",
+      "statement": "The pairing X(A_k)×Br_nr(X)→Q/Z sums local invariants of evaluation; it has finite support and rational points are orthogonal. X(A_k)^B denotes the annihilator of a subgroup B for which evaluation is defined.",
+      "locator": "§1.1; §2",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "note": "API: evaluation, local constancy, finite support, pullback and global reciprocity Tests: constant Brauer classes sum to zero; real invariants can be nonzero; testing Br₁ alone can miss a transcendental obstruction."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/20",
+      "kind": "definition",
+      "name": "Torsors and twists",
+      "statement": "For a group scheme T over k, a T-torsor Y→X is fppf locally trivial with its action; when T is commutative a class σ∈H¹(k,T) gives the contracted-product twist with [Y^σ]=[Y]+p*σ in H¹(X,T).",
+      "locator": "§1.1; §2 p.8",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.3"
+      ],
+      "note": "API: torsor identity, classifying H¹, contracted product, scalar extension and twist composition Tests: twist by zero preserves the torsor; opposite twists cancel; the chosen sign convention agrees with Proposition 2.6."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/21",
+      "kind": "definition",
+      "name": "Everywhere locally trivial cohomology",
+      "statement": "For a number field and a commutative group or continuous Galois module M, Sha^i(k,M)=ker(H^i(k,M)→∏_v H^i(k_v,M)), including real places.",
+      "locator": "§1.1; §2",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "ArithmeticGaloisDuality:R02.4"
+      ],
+      "note": "API: kernel inclusion, localization, base change and pairings Tests: complex positive-degree local cohomology vanishes in the relevant cases; real places are not omitted; almost-everywhere triviality is a different subgroup."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/22",
+      "kind": "definition",
+      "name": "Algebraic cycle carrier",
+      "statement": "For a scheme X and coefficients R with zero, an algebraic cycle is an R-valued function on points with locally finite support. Zero-cycles on a finite-type k-variety use the subgroup supported on closed points and integral coefficients.",
+      "locator": "§1.2 p.7; §7",
+      "status": "library",
+      "library": [
+        "mathlib:AlgebraicGeometry.AlgebraicCycle"
+      ],
+      "planned": [],
+      "note": "Only the ambient cycle carrier is claimed library; rational equivalence and dimension-zero comparison are the next item. API: support, coefficients, addition and closed-point restriction Tests: a single closed point is a cycle; negative coefficients are allowed for Z; the generic point of a curve is not a zero-cycle."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/23",
+      "kind": "construction",
+      "name": "Zero-cycle Chow group and functoriality",
+      "statement": "CH₀(X) is the free group of closed points modulo pushforwards of principal divisors on integral curves. For proper X/k degree sends [P] to [k(P):k]. Proper pushforward uses residue degrees; flat/lci pullback and the degree projection formula descend to Chow groups in their stated settings.",
+      "locator": "§1.2; Lemma 7.6; Proposition 7.7",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "note": "The library has AlgebraicCycle.map and map_id, read at the pin; this does not supply Chow pushforward or its composition law. API: quotient, degree, residue-degree pushforward, rational-equivalence compatibility and finite-extension pull/push Tests: a degree-d point has degree d; negative cycles are permitted; push∘pull for a finite field extension is multiplication by its degree."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/24",
+      "kind": "construction",
+      "name": "Modified local Chow groups",
+      "statement": "CH₀,A(X)=∏_{v finite}CH₀(X_kv) × ∏_{v infinite}coker(N:CH₀(X_kbarv)→CH₀(X_kv)). Complex factors vanish; real factors are quotients by norm.",
+      "locator": "§1.2 equation (1.1)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: finite and infinite factors, norm quotient, localization and degree to Z or Z/2 Tests: Spec C contributes zero; Spec R contributes Z/2; finite places retain integral degrees."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/25",
+      "kind": "construction",
+      "name": "Brauer pairing on zero-cycles",
+      "statement": "For smooth proper X/k, evaluate a Brauer class on a closed point P, corestrict from k(P), then take the local invariant. Sum linearly over cycles and places; principal divisors and archimedean norms pair trivially, and global cycles are orthogonal.",
+      "locator": "§1.2 pp.6–7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: evaluation on points, corestriction, rational equivalence, norm compatibility and projection formula Tests: a rational point gives ordinary evaluation; real norms give zero pairing; pushing a cycle pairs with pulling the Brauer class."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/26",
+      "kind": "construction",
+      "name": "Completion of the zero-cycle complex",
+      "statement": "For an abelian group M let M̂=lim_{n by divisibility} M/nM. Complete CH₀(X) and CH₀,A(X); their Brauer pairings define the complex CH₀(X)^∧→CH₀,A(X)^∧→Hom(Br(X),Q/Z).",
+      "locator": "§1.2 equation (E)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: divisibility transition maps, completion map, functoriality and torsion-character extension Tests: Z completes to Z-hat; finite groups are unchanged; a divisible group has zero such completion."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/27",
+      "kind": "definition",
+      "name": "Exactness property (E)",
+      "statement": "For a smooth proper irreducible k-variety over a number field, property (E) is exactness at the middle of CH₀(X)^∧→CH₀,A(X)^∧→Hom(Br(X),Q/Z). It is not a claim of surjectivity onto the last group.",
+      "locator": "§1.2 p.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: kernel/image formulation, transport under isomorphism, smooth proper birational invariance Tests: zero obstruction must lift in the completed group; surjectivity onto Hom is not required; an irreducible variety need not be geometrically irreducible."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/28",
+      "kind": "theorem",
+      "name": "Bounded degree kernels for rationally connected varieties",
+      "statement": "For smooth proper rationally connected X over a number field, the kernel and cokernel of CH₀(X)→Z and of the local degree map CH₀,A(X)→∏_{finite}Z×∏_{real}Z/2 have finite exponent.",
+      "locator": "Rappel 1.3 p.7, CT05 Proposition 11 and Wit12 Lemma 2.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/29",
+      "kind": "theorem",
+      "name": "Completed and uncompleted exactness agree for rationally connected X",
+      "statement": "For smooth proper rationally connected X over a number field, property (E) is equivalent to exactness of CH₀(X)→CH₀,A(X)→Hom(Br(X),Q/Z). The degree diagram, bounded-exponent kernels/cokernels and global reciprocity supply the comparison.",
+      "locator": "Rappel 1.3 p.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Do not assert this comparison for arbitrary proper varieties; see Wit12 Lemmas 1.10–1.12 and 2.4."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/30",
+      "kind": "theorem",
+      "name": "Zero-cycles on compactified homogeneous spaces",
+      "statement": "Let k be a number field and X a smooth proper k-variety birational to a homogeneous space of a linear algebraic k-group. Then X satisfies (E); in the geometrically integral homogeneous setting its uncompleted zero-cycle complex is exact as well.",
+      "locator": "Theorem A p.3; §7 pp.24–28",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/31",
+      "kind": "theorem",
+      "name": "Brauer-orthogonal local points give a degree-one cycle",
+      "statement": "For a homogeneous space V of a connected linear algebraic group over a number field, if V has a full family of local points orthogonal to Br_nr(V), then V has a zero-cycle of degree 1. Move the degree-one cycle obtained on a smooth proper compactification into V.",
+      "locator": "Introduction after Theorem A p.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The zero-cycle need not be effective; this does not assert a rational point."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/32",
+      "kind": "definition",
+      "name": "Relative algebraic Brauer group",
+      "statement": "For f:Y→X, Br₁(Y/X) is the subgroup of Br(Y) whose geometric restriction lies in the image of Br(X_kbar)→Br(Y_kbar). For a torus torsor, Br_nr(Y)⊂Br₁(Y/X), by geometric birational trivialization.",
+      "locator": "§2 p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: subgroup membership, comparison with Br₁(Y), pullback and torsor specialization Tests: pullbacks from Br(X) belong; the definition uses image rather than a literal quotient equality; the inclusion of Br_nr uses the torus hypothesis."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/33",
+      "kind": "construction",
+      "name": "Units sequence for a torus torsor",
+      "statement": "For a torus torsor fσ:Yσ→X with X smooth geometrically integral, 1→G_m→fσ_*G_m→T̂→1 is exact on the étale site, R¹fσ_*G_m=0, and H¹(X_kbar,T̂)=0. The connecting maps encode the torsor class.",
+      "locator": "§2 pp.8–9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: units modulo base units, character map, connecting morphism and base change Tests: a split trivial torsor gives the Laurent monomial characters; torus rank zero removes the character term; finite μ_n is not substituted for a torus."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/34",
+      "kind": "construction",
+      "name": "Relative Brauer edge sequence",
+      "statement": "Under the preceding hypotheses there is an exact sequence Br(X)→Br₁(Yσ/X) --φσ→H²(k,T̂) --δσ→H³(X,G_m), obtained from Leray and Hochschild–Serre.",
+      "locator": "§2 equation (2.2)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: edge maps, naturality, exactness and comparison with the units boundary Tests: pullbacks are killed by φσ; image φσ is ker δσ; the last group is H³(X,G_m), not H³(k,G_m)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/35",
+      "kind": "theorem",
+      "name": "Third G_m cohomology of a number field vanishes",
+      "statement": "For a number field k, H³(k,G_m)=0.",
+      "locator": "§2 Proposition 2.3 and proof",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Class-field-theoretic input, with all places retained; the general Proposition 2.3 states this as an explicit hypothesis where needed."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/36",
+      "kind": "theorem",
+      "name": "Twist independence of the terminal edge map",
+      "statement": "If H³(k,G_m)=0, then the boundary δσ:H²(k,T̂)→H³(X,G_m) in (2.2) is independent of σ∈H¹(k,T): it is the cup with [fσ] up to a fixed common sign and the difference factors through H³(k,G_m).",
+      "locator": "Proposition 2.3(i) p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/37",
+      "kind": "theorem",
+      "name": "Twist independence of the unramified edge image",
+      "statement": "If H³(k,G_m)=0, the subgroup φσ(Br_nr(Yσ))⊂H²(k,T̂) is independent of σ.",
+      "locator": "Proposition 2.3(ii) p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/38",
+      "kind": "theorem",
+      "name": "Twist independence of pullback-unramified classes",
+      "statement": "Without the H³ vanishing hypothesis, fσ*⁻¹(Br_nr(Yσ))⊂Br(X) is independent of σ∈H¹(k,T).",
+      "locator": "Proposition 2.3(iii) p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/39",
+      "kind": "theorem",
+      "name": "Brauer evaluation under torus translation",
+      "statement": "For every extension L/k, α∈Br₁(Yσ/X), y∈Yσ(L), and t∈T(L), α(t·y)=α(y)+φσ(α)∪t in Br(L), using the character evaluation pairing.",
+      "locator": "Proposition 2.3(iv) p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/40",
+      "kind": "theorem",
+      "name": "Brauer edge and translation for a torus torsor over a field",
+      "statement": "For a torus torsor Z/k, Br₁(Z)=H²(k,kbar[Z]^×), with edge map to H²(k,T̂); if H³(k,G_m)=0 this edge map is onto. If z∈Z(k), evaluation at t·z minus evaluation at z is φ(α)∪t.",
+      "locator": "Lemma 2.4 p.9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/41",
+      "kind": "theorem",
+      "name": "Unramifiedness descends through geometric-integral scalar extension",
+      "statement": "In the characteristic-zero smooth setting of Proposition 2.3, residues of a Brauer class remain nonzero under extension to a geometrically integral torsor function field: H¹(κ(ξ),Q/Z)→H¹(κ(ξ×Z),Q/Z) is injective. Hence unramifiedness after this extension implies original unramifiedness.",
+      "locator": "Proposition 2.3 proof pp.9–10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/42",
+      "kind": "theorem",
+      "name": "Unramified descent for torus torsors",
+      "statement": "Let k be a number field, X smooth geometrically integral and f:Y→X a torsor under a k-torus T. Put A=f*⁻¹Br_nr(Y)⊂Br(X). Then X(A_k)^A⊂⋃_{σ∈H¹(k,T)}fσ(Yσ(A_k)^Br_nr(Yσ)). If X is proper, A=Br(X).",
+      "locator": "Theorem 2.1 p.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No rational connectedness assumption in Theorem 2.1; the full unramified group is used."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/43",
+      "kind": "theorem",
+      "name": "Classical descent supplies an adelic twist lift",
+      "statement": "In Theorem 2.1, every adelic point orthogonal to A lifts to Yσ(A_k) for some σ. The cup products H¹(k,T̂)∪[f] lie in ker f*⊂A and classical descent applies.",
+      "locator": "Proposition 2.5 p.10; HS13 Theorem 8.4 and Proposition 8.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/44",
+      "kind": "construction",
+      "name": "The residual Tate–Shafarevich functional",
+      "statement": "After choosing an adelic lift y and identifying the common edge image, for σ∈Sha¹(k,T) define εσ on Sha²(k,T̂)∩φ₀Br_nr(Y) by εσ(a)=Σ_v inv_v ασ(y_vσ), for any ασ∈Br_nr(Yσ) with φσ(ασ)=a. The value is independent of the choices.",
+      "locator": "§2 equation (2.8) p.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: edge preimage choice, local lift choice, well-definedness and additivity Tests: changing ασ by a pullback changes the sum by zero; locally trivial a kills translation ambiguity; the intersection with the edge image is essential."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/45",
+      "kind": "theorem",
+      "name": "Variation of the residual functional",
+      "statement": "For σ∈Sha¹(k,T) and a in the domain of ε, εσ(a)=ε₀(a)−⟨a,σ⟩ under the paper twist and Poitou–Tate conventions.",
+      "locator": "Proposition 2.6 p.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/46",
+      "kind": "theorem",
+      "name": "Perfect duality for tori and their character lattices",
+      "statement": "For a k-torus over a number field, Sha²(k,T̂) and Sha¹(k,T) are finite and paired perfectly into Q/Z; use the convention making Proposition 2.6 have its displayed minus sign.",
+      "locator": "§2 Proposition 2.6 and proof of Theorem 2.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "R02.4 explicitly develops finite-module and lattice duality. This torus comparison is a source-scoped extension within that layer, not a claim that finite-module duality alone proves the result."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/47",
+      "kind": "theorem",
+      "name": "Divisible abelian groups are injective",
+      "statement": "Every divisible abelian group A is injective in the category of abelian groups; consequently a homomorphism from a subgroup to Q/Z extends to the ambient abelian group.",
+      "locator": "Proof of Theorem 2.1 p.11",
+      "status": "library",
+      "library": [
+        "mathlib:AddCommGrpCat.injective_of_divisible"
+      ],
+      "planned": [],
+      "note": "The statement was read in Algebra/Category/Grp/Injective.lean. The Q/Z application also uses the quotient-of-divisible-group instance."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/48",
+      "kind": "theorem",
+      "name": "Adelic duality image for a torus",
+      "statement": "For a torus T over a number field, the image of T(A_k) in Hom(H²(k,T̂),Q/Z) is exactly the annihilator of Sha²(k,T̂). The map is the sum of local cup-product invariants.",
+      "locator": "Proposition 2.7 p.11; Har08 Theorem 2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Har08 uses restricted P⁰ with Tate-modified infinite factors. T(A_k) surjects onto those factors and the pairing kills their norm kernels. H² is discrete, so continuous Hom equals all Hom here. In the torus specialization the abelian-variety part is zero, hence Har08’s Sha(A)-finiteness hypothesis is automatic."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/49",
+      "kind": "theorem",
+      "name": "Zero residual functional permits full Brauer orthogonality",
+      "statement": "In the setup of Theorem 2.1, if ε₀=0, extend the Brauer evaluation functional through the edge image to H²(k,T̂); adelic torus duality gives (t_v), and replacing y_v by t_v⁻¹y_v yields an adelic point orthogonal to Br_nr(Y).",
+      "locator": "Proposition 2.7 p.11",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/50",
+      "kind": "theorem",
+      "name": "Formal lemma near a Brauer–Manin point",
+      "statement": "For X smooth proper rationally connected over a number field, V⊂X dense open, and A⊂Br(V) with A/(A∩Br(X)) finite, V(A_k)^A is dense in X(A_k)^(A∩Br(X)).",
+      "locator": "Corollary 2.2 proof p.8; CTS00 Proposition 1.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Retain the finite quotient condition, not finiteness of the whole Br(V)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/51",
+      "kind": "theorem",
+      "name": "Finite ramification quotient for a compactified torus torsor",
+      "statement": "For f:W→V a torus torsor on a dense open of smooth proper rationally connected X, put A=f*⁻¹Br_nr(W). After deleting a codimension≥2 subset to make a compactified morphism flat, geometric codimension-one fibres have a multiplicity-one component, and A/Br(X) is finite.",
+      "locator": "Corollary 2.2 proof p.8; CTS00 proof of Lemma 3.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The paper explicitly invokes the proof of CTS00 Lemma 3.1 for the stronger finite quotient, not only the printed finiteness of its geometric image."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/52",
+      "kind": "theorem",
+      "name": "Descent from an open torus torsor",
+      "statement": "For smooth proper rationally connected X over a number field, V⊂X dense open and W→V a torus torsor, X(A_k)^Br(X) lies in the closure in X(A_k) of ⋃σ fσ(Wσ(A_k)^Br_nr(Wσ)).",
+      "locator": "Corollary 2.2 p.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/53",
+      "kind": "definition",
+      "name": "Type of a multiplicative-type torsor",
+      "statement": "If V is smooth geometrically integral with kbar[V]^×=kbar^× and R is of multiplicative type, an R-torsor has type λ:R̂→Pic(V_kbar), sending a character to its associated line bundle; H¹(V_kbar,R_kbar)=Hom(R̂,Pic(V_kbar)).",
+      "locator": "§3 p.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: associated line bundles, character functoriality, type of contracted product and geometric classification Tests: R=G_m gives its line-bundle class; R=μ_n uses n-torsion Picard classes; the units hypothesis prevents extra Kummer-unit classes."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/54",
+      "kind": "definition",
+      "name": "Universal torsor",
+      "statement": "When Pic(V_kbar) is finitely generated, a universal torsor on V is a torsor under the multiplicative-type group dual to Pic(V_kbar) whose type is the identity. Existence over k is a separate obstruction question.",
+      "locator": "§3 pp.12–14",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: type identity, automorphism group, field extension, existence obstruction and all H¹(k,R) twists Tests: finite Picard gives a finite group torsor; torsion-free Picard gives a torus torsor; identity type does not itself prove existence over k."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/55",
+      "kind": "construction",
+      "name": "Picard boundary exact sequence",
+      "statement": "For V dense in smooth X with kbar[V]^×=kbar^×, 0→Div_(X_kbar minus V_kbar)(X_kbar)→Pic(X_kbar)→Pic(V_kbar)→0 is exact; the boundary divisor lattice is a permutation Γ_k-module.",
+      "locator": "§3 equation (3.1) p.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: prime boundary divisors, divisor-to-line-bundle map, restriction and Galois action Tests: no boundary gives an isomorphism; a principal boundary divisor is zero only under the units hypothesis; Galois can permute boundary components."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/56",
+      "kind": "construction",
+      "name": "Pullback character module and group extension",
+      "statement": "Given λ:R̂→Pic(V_kbar), define T̂=R̂×_{Pic(V_kbar)}Pic(X_kbar), ν:T̂→Pic(X_kbar), and Q̂=Div_boundary(X_kbar). Then 0→Q̂→T̂→R̂→0 dualizes to 1→R→T→Q→1 with Q quasitrivial. T need not be a torus before torsion-freeness is checked.",
+      "locator": "§3 diagram (3.2) p.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: fibre product, two projections, exact sequence, dual extension and torus criterion Tests: torsion in R̂ is not automatically removed; λ injective and Pic(Xbar) free make T̂ torsion-free; Q uses the boundary lattice."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/57",
+      "kind": "theorem",
+      "name": "Quotient of the restricted torsor is trivial",
+      "statement": "If f:Y→X is a T-torsor of type ν and W=f⁻¹V, then the Q-torsor W/R→V is trivial. Choosing its trivialization yields π:W→Q over k.",
+      "locator": "Proposition 3.1(i) p.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/58",
+      "kind": "theorem",
+      "name": "Fibres have the original torsor type",
+      "statement": "For the chosen π:W→Q, every q∈Q(k) gives an R-torsor W_q→V of type λ.",
+      "locator": "Proposition 3.1(ii) p.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/59",
+      "kind": "theorem",
+      "name": "Fibres exhaust torsors with fixed pushout",
+      "statement": "Every R-torsor V′→V of type λ whose pushout along R→T is isomorphic to W occurs, up to R-torsor isomorphism, as W_q for some q∈Q(k).",
+      "locator": "Proposition 3.1(iii) p.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The pushout condition is essential; use the boundary Q(k)→H¹(V,R) and H¹(k,Q)=0."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/60",
+      "kind": "theorem",
+      "name": "Universal torsors contain a quasitrivial-base fibration",
+      "statement": "Assume Pic(X_kbar) finitely generated and kbar[V]^×=kbar^×. Every universal torsor over X contains a dense open W with a smooth map to a quasitrivial torus Q whose rational fibres are universal torsors over V.",
+      "locator": "Corollary 3.2 p.14",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/61",
+      "kind": "theorem",
+      "name": "Geometric section when the type module is torsion-free",
+      "statement": "In Proposition 3.1 over algebraically closed characteristic-zero k, if R̂ is torsion-free, π:W→Q admits a section: split the extension of finitely generated abelian groups and identify W≅W₁×Q.",
+      "locator": "Proposition 3.3(i) p.14",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/62",
+      "kind": "theorem",
+      "name": "Geometric rational section with cyclic torsion",
+      "statement": "In Proposition 3.1 over algebraically closed characteristic-zero k, if the torsion subgroup of R̂ is cyclic and an R-torsor of type λ has a rationally connected smooth compactification, π has a rational section.",
+      "locator": "Proposition 3.3(ii) pp.14–15",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/63",
+      "kind": "theorem",
+      "name": "Reduction to a one-dimensional torus base",
+      "statement": "Write R̂≅Z^r⊕Z/m in Proposition 3.3(ii); lift generators to T̂, split the free summand and quotient suitable boundary directions. The resulting Cartesian description reduces section existence to a rationally connected fibration over G_m, to which the curve section theorem applies.",
+      "locator": "Proof Proposition 3.3(ii) pp.14–15",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/64",
+      "kind": "theorem",
+      "name": "Alternative homogeneous-space section input",
+      "statement": "In the homogeneous-space applications of Proposition 3.3(ii), the curve-section input may be replaced by the existence of points on the relevant homogeneous spaces over the function field of an algebraically closed characteristic-zero curve, via the cohomological-dimension-one theorem of Springer.",
+      "locator": "Remark 3.4 p.15",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Optional alternate proof, not a second mandatory implementation of GHS; retain the precise homogeneous-space/cohomological-dimension-one hypotheses of Springer after source acquisition."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/65",
+      "kind": "definition",
+      "name": "Split fibre",
+      "statement": "A finite-type scheme over a field is split in the fibration sense when it contains a geometrically integral open subscheme, equivalently in the generically reduced fibre situations used here it has a geometrically irreducible component of multiplicity one.",
+      "locator": "§4 pp.15–16",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: component and multiplicity witness, field extension, smooth geometric-integral sufficient condition Tests: a geometrically integral smooth fibre is split; a doubled geometrically integral component alone is not split; splitting after kbar is weaker than splitting over the residue field."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/66",
+      "kind": "definition",
+      "name": "Quasitrivial-base compactified fibration",
+      "statement": "Over a number field k take E finite étale of degree n, Q=Res_E/k G_m⊂Q_aff=Res_E/k A¹≅A^n⊂P^n, and a dominant f:X→P^n with X smooth proper irreducible and geometrically rationally connected generic fibre.",
+      "locator": "§4 opening p.15",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: basis choice, dense torus open, generic fibre and codimension-one residue fields Tests: E=k×k has two norm boundary hyperplanes; geometric generic RC is a hypothesis; codimension-one points include nonrational divisors."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/67",
+      "kind": "theorem",
+      "name": "Split affine fibration preserves weak approximation",
+      "statement": "In the quasitrivial-base setup, suppose every codimension-one fibre over Q_aff is split. If X_q has weak approximation for every rational q in a Hilbert subset of Q, then X has weak approximation.",
+      "locator": "Theorem 4.1(i) p.15, Sko90 Theorem 1 and Sko96 Theorem 2.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/68",
+      "kind": "theorem",
+      "name": "Split affine fibration preserves Brauer–Manin density",
+      "statement": "With the same setup and codimension-one splitting over Q_aff, if X_q(k) is dense in X_q(A_k)^Br(X_q) for rational q in a Hilbert subset of Q, then X(k) is dense in X(A_k)^Br(X).",
+      "locator": "Theorem 4.1(ii) p.15, Har97 Theorem 3.2.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/69",
+      "kind": "theorem",
+      "name": "Geometrically split affine boundary yields algebraic Brauer density",
+      "statement": "In the setup, suppose every codimension-one fibre over Q is split, and every codimension-one fibre over (Q_aff)_kbar is split. If rational fibres in a Hilbert subset of Q have weak approximation, then X(k) is dense in X(A_k)^Br₁(X).",
+      "locator": "Theorem 4.2(i) p.15",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/70",
+      "kind": "theorem",
+      "name": "Geometrically split affine boundary yields full Brauer density",
+      "statement": "Under the splitting hypotheses of Theorem 4.2, if rational fibres in a Hilbert subset of Q have Brauer–Manin density, then X has Brauer–Manin density for its full Brauer group.",
+      "locator": "Theorem 4.2(ii) p.15",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/71",
+      "kind": "construction",
+      "name": "Norm base changes indexed by Q(k)",
+      "statement": "Choose a finite extension ℓ/k splitting the finitely many boundary fibres. Put Q′=Res_(E⊗ℓ)/k G_m and define b_aff(r):Q′_aff→Q_aff by z↦rN_(E⊗ℓ)/E(z), r∈Q(k). Pull back the smooth open V=f⁻¹Q and compactify to X′(r).",
+      "locator": "§4 proof Theorem 4.2 pp.16–17",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: norm morphism, open restriction, Cartesian pullback, scalar r and compactification Tests: r=1 gives the original norm torsor; ℓ=k gives multiplication by r; ramification of affine norm on the boundary is not ignored."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/72",
+      "kind": "theorem",
+      "name": "Norm base change splits codimension-one fibres",
+      "statement": "For the extension ℓ and maps b_aff(r) above, all codimension-one fibres of X′(r)→P^{n[ℓ:k]} over Q′_aff are split. Use pure-dimensional norm fibres and the residue-field containment of ℓ along boundary components.",
+      "locator": "Lemma 4.3 p.16",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/73",
+      "kind": "theorem",
+      "name": "Norm family contains all torsor twists",
+      "statement": "T=ker(N:Q′→Q) is a torus, V′(r)→V is a T-torsor, and every H¹(k,T)-twist of V′(1) is some V′(r), since Q(k)→H¹(k,T) is surjective by H¹(k,Q′)=0.",
+      "locator": "Lemma 4.4 p.16",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/74",
+      "kind": "theorem",
+      "name": "Pullback of Hilbert subsets through the norm map",
+      "statement": "The inverse image of a Hilbert subset of Q under b(r):Q′→Q is a Hilbert subset of Q′, since this map has geometrically integral torus fibres and the pulled-back finite étale covers stay irreducible.",
+      "locator": "Proof Theorem 4.2 p.17",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/75",
+      "kind": "theorem",
+      "name": "Weak approximation for universal torsors on an open and its compactification",
+      "statement": "The paper states: if X is smooth proper, V⊂X is dense with kbar[V]^×=kbar^×, Pic(X_kbar) and Pic(V_kbar) are torsion-free, and every universal torsor on V has weak approximation, then every universal torsor on X has weak approximation. Interpret universal torsors only when the character modules are finitely generated.",
+      "locator": "Remark 4.5 p.17",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "G1, unresolved source-scope bridge: the proof invokes Theorem 4.2(i), whose §4 standing hypotheses include geometrically rationally connected generic fibre, absent from the remark. Wit18 Remark 3.9 states the general claim too. Determine whether Sko90’s more general fibration theorem supplies the needed version, or give a separate proof; no counterexample is claimed. This item remains unrouted; the RC applications of Theorems 6.1/6.6 do not depend on this remark."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/76",
+      "kind": "definition",
+      "name": "Harpaz–Wittenberg norm-value approximation conjecture",
+      "statement": "For a number field k, distinct monic irreducibles P_i∈k[t], k_i=k[t]/P_i with a_i=t mod P_i, finite L_i/k_i, b_i∈k_i×, and finite S containing infinite places and the bad places for b_i and L_i/k_i, suppose t_v∈k_v satisfy b_i(t_v−a_i)∈N((L_i⊗_k k_v)×) for v∈S. There should exist t₀∈k arbitrarily close to all t_v such that, for every finite place w of k_i with w(t₀−a_i)>0, either w lies above S or L_i has a degree-one place above w.",
+      "locator": "Theorem 4.6; HW16 Conjecture 9.1 published p.267",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: polynomial fields, local norm hypothesis, finite set of places, approximation neighborhoods and degree-one-place conclusion Tests: no integrality outside S is imposed on t₀; all extensions L_i/k_i are retained; this conjecture is an explicit assumption, not a proved theorem."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/77",
+      "kind": "theorem",
+      "name": "Conditional fibration theorem for rational points",
+      "statement": "In the quasitrivial-base setup, assume HW16 Conjecture 9.1 for k. If X_q has Brauer–Manin density for rational points q of a Hilbert subset of Q, then X has Brauer–Manin density. No codimension-one splitting hypothesis is needed.",
+      "locator": "Theorem 4.6 p.17; HW16 Corollary 9.25 published p.284",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/78",
+      "kind": "theorem",
+      "name": "Unconditional fibration theorem for zero-cycles",
+      "statement": "In the quasitrivial-base setup, if X_q satisfies (E) for every closed point q of a Hilbert subset of Q, then X satisfies (E), without a splitting hypothesis.",
+      "locator": "Theorem 4.7 p.17; HW16 Corollary 8.4(1) published p.260",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Closed points are essential, not only k-rational points. The imported HW16 theorem assumes H¹_et(X_geometric_generic,Q/Z)=0 and A₀ after algebraic closure of its function field vanishes; rational connectedness supplies these."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/79",
+      "kind": "theorem",
+      "name": "Fundamental group of a finite-stabilizer homogeneous space",
+      "statement": "For G semisimple simply connected over characteristic-zero k and V homogeneous with finite geometric stabilizer H, G_kbar→V_kbar is the universal finite étale cover, π₁(V_kbar,v)=H, and 1→H→π₁(V,v)→Γ_k→1 is exact.",
+      "locator": "§5 pp.18–19",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
+      ],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/80",
+      "kind": "theorem",
+      "name": "Units of semisimple simply connected groups and their homogeneous quotients",
+      "statement": "For semisimple simply connected G over an algebraically closed characteristic-zero field, k[G]^×=k^×; a homogeneous quotient by a finite subgroup also has only constant units by pullback.",
+      "locator": "§5 p.18, Rosenlicht and norm argument",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/81",
+      "kind": "theorem",
+      "name": "Picard group of a finite-stabilizer homogeneous space",
+      "statement": "In the setup of §5, Pic(V_kbar) is canonically Hom(H^ab,kbar×), equivariantly for Γ_k. Use Kummer, constant units and the geometric fundamental group; the character action includes the action on roots of unity.",
+      "locator": "§5 p.18",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/82",
+      "kind": "theorem",
+      "name": "Unique homogeneous action on a finite étale cover",
+      "statement": "A finite étale cover W→V with W geometrically irreducible admits a unique G-action making it equivariant; W is again homogeneous under G with finite geometric stabilizer.",
+      "locator": "Proposition 5.1 pp.18–19",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Geometric irreducibility matters. Over kbar write W=G/K; uniqueness descends the action."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/83",
+      "kind": "construction",
+      "name": "Cover attached to an injective type",
+      "statement": "For finite R̂ and injective λ:R̂→Pic(V_kbar)=Hom(H^ab,kbar×), dualize to a surjection λ̂:H→R(kbar). Over kbar, G/ker λ̂→V is the R-torsor of type λ.",
+      "locator": "Lemma 5.3 p.19",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: dual map, kernel subgroup, quotient cover and associated-character line bundles Tests: identity type has kernel [H,H]; zero type with nonzero R̂ is not injective; quotient order equals |R̂|."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/84",
+      "kind": "theorem",
+      "name": "An injective finite type gives a connected homogeneous torsor",
+      "statement": "Every R-torsor W→V with finite character module R̂ and injective type λ is geometrically irreducible, hence carries the unique homogeneous G-action.",
+      "locator": "Proposition 5.2 first assertion p.19",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/85",
+      "kind": "theorem",
+      "name": "Stabilizer sequence of an injective-type torsor",
+      "statement": "For geometric w∈W over v∈V in Proposition 5.2, 1→H_w→H_v --λ̂→R(kbar)→1 is an exact sequence of finite groups.",
+      "locator": "Proposition 5.2 second assertion p.19",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Do not invent a map Out(H_v)→Out(H_w) for every subgroup; use the invariant kernel and representatives."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/86",
+      "kind": "theorem",
+      "name": "Universal torsors replace finite stabilizers by their derived subgroup",
+      "statement": "Every universal torsor on V in §5 is a homogeneous space of G whose geometric stabilizer is [H,H].",
+      "locator": "Corollary 5.4 p.20",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/87",
+      "kind": "definition",
+      "name": "Sylow pro-p subgroup",
+      "statement": "A subgroup P of a profinite group E is Sylow pro-p if it is closed, pro-p, and its image in every finite continuous quotient has index prime to p.",
+      "locator": "Lemma 5.6 p.20",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IsProPSylow"
+      ],
+      "planned": [],
+      "note": "API: closedness, pro-p property, finite quotient image and index test Tests: finite discrete groups recover p-Sylow subgroups; E pro-p admits P=E; a proper finite-index p-power subgroup is not Sylow."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/88",
+      "kind": "theorem",
+      "name": "Profinite Sylow existence",
+      "statement": "For every prime p and profinite group E there exists a Sylow pro-p subgroup. The pinned statement is for compact totally disconnected topological groups.",
+      "locator": "Lemma 5.6 proof p.20",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.exists_isProPSylow"
+      ],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/89",
+      "kind": "theorem",
+      "name": "Image and kernel intersection of a Sylow subgroup",
+      "statement": "In a profinite extension 1→H→E→Γ→1 with finite kernel H, a Sylow pro-p subgroup E_p maps onto a Sylow pro-p subgroup Γ_p and H_p=H∩E_p is a Sylow p-subgroup of H.",
+      "locator": "Lemma 5.6 p.20",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory"
+      ],
+      "note": "The reviewed audit says existence is built but the arbitrary continuous-surjection image theorem remains planned. Do not classify this whole lemma as library."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/90",
+      "kind": "construction",
+      "name": "Prime-to-p coset diagram",
+      "statement": "With E₀ the inverse image of Γ_p, the exact rows 1→H_p→E_p→Γ_p→1 and 1→H→E₀→Γ_p→1 give an identification of finite coset sets H/H_p≅E₀/E_p of cardinal prime to p.",
+      "locator": "Lemma 5.6 p.20",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: subgroup preimage, kernel intersection, coset bijection and finite index Tests: H_p need not be normal; the rightmost Γ_p map is identity; the quotient cardinal is prime to p."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/91",
+      "kind": "theorem",
+      "name": "Prime-to-p cover with p-group geometric stabilizer",
+      "statement": "For every prime p and V as in §5, there is a finite ℓ/k of degree prime to p and a geometrically irreducible homogeneous G_ℓ-space W with p-group geometric stabilizer and a finite étale map W→V_ℓ of degree prime to p.",
+      "locator": "Proposition 5.5 pp.20–21",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/92",
+      "kind": "theorem",
+      "name": "Descent from the Sylow fixed field",
+      "statement": "Let k′ be fixed by Γ_p⊂Γ_k. The finite cover of V_k′ corresponding to E_p descends to a finite intermediate ℓ/k, including its G-action. Every such finite ℓ⊂k′ has degree prime to p.",
+      "locator": "Proof Proposition 5.5 pp.20–21",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "k′/k may be infinite. The descent is for finitely presented covers and structure maps; do not treat k′ itself as the required finite extension."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/93",
+      "kind": "theorem",
+      "name": "Hasse principle and weak approximation for simply connected torsors",
+      "statement": "Over a number field, a torsor under a semisimple simply connected group has a rational point if it has points at all real places, and, when it has a rational point, it satisfies weak approximation. Over nonarchimedean local fields H¹(k_v,G)=1.",
+      "locator": "§6 Theorem 6.1 base; Theorem 6.2; PR94 Theorems 6.4,7.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "AA.4 owns weak approximation of the group. Export the H¹ local-global input for its torsors explicitly; do not substitute strong approximation with an omitted noncompactness hypothesis."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/94",
+      "kind": "theorem",
+      "name": "Brauer–Manin points imply universal-torsor existence",
+      "statement": "For a smooth proper geometrically rationally connected X over a number field, X(A_k)^Br(X) nonempty implies existence over k of a universal torsor on X. More generally use the precise type obstruction for a torus with prescribed type.",
+      "locator": "§6 proof Theorems 6.1 and 6.6; §7 Proposition 7.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The source invokes Sko01 Proposition 6.1.4 for universal-torsor existence; the prescribed-type version is checked through the character/type obstruction. Do not assume existence merely because a geometric type has been written down."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/95",
+      "kind": "theorem",
+      "name": "Conditional rational-point theorem for finite solvable stabilizers",
+      "statement": "Assume HW16 Conjecture 9.1 for a number field k. If X is smooth proper geometrically irreducible and birational to a homogeneous space of a semisimple simply connected k-group with finite solvable geometric stabilizer, then X(k) is dense in X(A_k)^Br(X).",
+      "locator": "Theorem 6.1 pp.21–22",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/96",
+      "kind": "theorem",
+      "name": "Algebraic Brauer density for finite abelian stabilizers",
+      "statement": "For a number field k and smooth proper geometrically irreducible X birational to a homogeneous space of a semisimple simply connected group with finite abelian geometric stabilizer, X(k) is dense in X(A_k)^Br₁(X).",
+      "locator": "Theorem 6.2 p.22",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Unconditional. The smaller algebraic obstruction suffices in this abelian case."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/97",
+      "kind": "definition",
+      "name": "Real-solubility weak-approximation property",
+      "statement": "A smooth k-variety has property (⋆) if, whenever it has points over every real completion, it has a k-rational point and satisfies weak approximation. Over a number field without real places, the antecedent is vacuous.",
+      "locator": "Proof Theorem 6.2; Lemma 6.3 p.22",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: real-point premise, rational existence, finite-place approximation and birational transport Tests: totally imaginary k requires a point unconditionally; real local solubility is not all-place solubility; empty real-point sets make the implication vacuous."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/98",
+      "kind": "theorem",
+      "name": "Property (⋆) is preserved by suitable fibrations",
+      "statement": "Let f:Z→B be a dominant morphism of smooth varieties over a number field. If B and every fibre Z_b for rational b of some dense open of B satisfy (⋆), then Z satisfies (⋆). Shrink to a smooth map and use the local implicit function theorem.",
+      "locator": "Lemma 6.3 pp.22–23",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/99",
+      "kind": "definition",
+      "name": "Supersolvability for an outer Galois action",
+      "statement": "A finite group H with continuous outer Γ_k-action is supersolvable if it has a chain 1=H₀⊲H₁⊲…⊲H_m=H, each H_i normal in H and invariant under the outer action, and each H_(i+1)/H_i cyclic.",
+      "locator": "Definition 6.4 p.23",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: normal invariant flag, cyclic factors, restriction of Γ and induced flags on subgroups in the proof Tests: trivial outer action on a finite nilpotent group admits such a flag; an abstractly supersolvable group may fail for a nontrivial outer action; A₄ is solvable but not supersolvable."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/100",
+      "kind": "theorem",
+      "name": "Constant nilpotent and dihedral stabilizers qualify",
+      "statement": "With trivial outer action, finite nilpotent groups and finite dihedral groups are supersolvable. For the induction, a nontrivial supersolvable H has a proper outer-invariant normal subgroup with nontrivial cyclic quotient, and the subgroup inherits a compatible flag.",
+      "locator": "Remark 6.5; proof Theorem 6.6 pp.23–24",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/101",
+      "kind": "theorem",
+      "name": "Unconditional Brauer–Manin density for supersolvable stabilizers",
+      "statement": "Let k be a number field, G a semisimple simply connected k-group and X smooth proper geometrically irreducible, birational to a homogeneous G-space V with finite geometric stabilizer H. If H is supersolvable for its natural outer Γ_k-action, then X(k) is dense in X(A_k)^Br(X).",
+      "locator": "Theorem B p.3; Theorem 6.6 pp.23–24",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This is the same HW20 input already requested by PAPER-HARPAZ-WITTENBERG-23; the shared candidate owner below receives the proof once."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/102",
+      "kind": "theorem",
+      "name": "Cyclic-type fibration makes the supersolvable induction unconditional",
+      "statement": "Choose an invariant H′⊲H with cyclic quotient. Its dual type injects into Pic(V_kbar); the pullback character module is torsion-free, hence gives a torus T. A torsor of its type on X descends Brauer-orthogonal points and fibres over a quasitrivial Q with stabilizer H′. Proposition 3.3(ii) supplies a geometric rational section, giving Theorem 4.2(ii)’s splitting hypotheses.",
+      "locator": "Proof Theorem 6.6 pp.23–24",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Outer-action compatibility in Proposition 5.2 is needed to apply induction to each fibre, including nonconstant stabilizers."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/103",
+      "kind": "theorem",
+      "name": "Grunwald realization for supersolvable finite groups away from bad primes",
+      "statement": "For a number field k, finite supersolvable abstract group Γ, and finite set S of places containing no finite place dividing |Γ|, prescribe Galois extensions K_v/k_v whose groups embed into Γ. There is a Γ-Galois extension K/k whose completion at a place over each v∈S is isomorphic to K_v/k_v.",
+      "locator": "Introduction corollary pp.3–4; DLAN17 interface",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Strengthens local prescriptions beyond an unspecified Shafarevich theorem, so route as new source content in IG.4. Proper global realization and arbitrary prescribed decomposition subgroups must both be proved."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/104",
+      "kind": "theorem",
+      "name": "Unramified Brauer vanishing for quaternion quotients",
+      "statement": "For a constant generalized quaternion group Q_(2^m), m≥3, embedded in SL_n over a number field k, Br_nr(SL_n/Q_(2^m))=Br(k).",
+      "locator": "Introduction p.4; Dem10 Corollary 3 and Remark 7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The author version of Dem10 uses Corollary 4.5 and Remark 4.6, read on p.12. The source introduction writes m≥1; use the standard generalized-quaternion range m≥3, recording the low-order convention rather than silently constructing nonexistent standard groups."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/105",
+      "kind": "theorem",
+      "name": "Unrestricted quaternion Grunwald realizations",
+      "statement": "For a number field k and generalized quaternion Γ=Q_(2^m), m≥3, the quotient SL_n/Γ has weak approximation. Hence the Grunwald prescription of the preceding corollary is possible for every finite S, including places dividing |Γ|.",
+      "locator": "Introduction p.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/106",
+      "kind": "theorem",
+      "name": "Bad-place exclusion cannot be dropped for every supersolvable group",
+      "statement": "There is a Grunwald counterexample for Γ=Z/8, k=Q and S={2}; therefore the bad-place exclusion in the general corollary is substantive.",
+      "locator": "Introduction p.4, Wang 1948",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Boundary statement only, not an unspecified implementation test. The design must acquire Wang’s explicit prescribed local extension before using it as an executable example."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/107",
+      "kind": "definition",
+      "name": "Good property of homogeneous spaces",
+      "statement": "For connected linear homogeneous spaces, the paper calls P good if it is stable-birationally invariant, descends along a morphism with a section, and ascends a surjection whose fibres are homogeneous under semisimple simply connected groups with geometric stabilizers extensions of semisimple groups by connected unipotent groups.",
+      "locator": "Definition 7.1 p.24",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: three closure witnesses, field-relative domain and composition of reductions Tests: stable birational equivalence is symmetric; the section implication goes from total space to base; the fibration implication goes from base to total space."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/108",
+      "kind": "definition",
+      "name": "Stable fibration form of the zero-cycle property",
+      "statement": "For smooth proper irreducible X/k, E⁺(X) means: every smooth proper irreducible Z dominating X satisfies E if its geometric generic fibre is rationally connected and there is a dense open X₀ such that for every finite k′/k and x∈X₀(k′), the fibre Z_x satisfies (⋆) over k′.",
+      "locator": "Definition 7.2 pp.24–25",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: admissible fibration predicate, finite-extension quantifier, E⁺ eliminator and identity fibration Tests: the identity shows E⁺⇒E; checking fibres only over k is insufficient; geometric irreducibility of X is not required."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/109",
+      "kind": "theorem",
+      "name": "Admissible fibrations preserve E⁺",
+      "statement": "If X satisfies E⁺ and f:Y→X is a dominant morphism of smooth proper irreducible varieties with rationally connected geometric generic fibre and the fibre (⋆) condition over every finite extension on a dense open, then Y satisfies E⁺.",
+      "locator": "Lemma 7.4 p.25",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/110",
+      "kind": "theorem",
+      "name": "Stable birational invariance of E⁺",
+      "statement": "Smooth proper irreducible varieties over a number field that are stably birational satisfy E⁺ simultaneously. Resolve rational maps, use invariance of E and (⋆), and compare X with X×P¹.",
+      "locator": "Lemma 7.5 p.25",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/111",
+      "kind": "theorem",
+      "name": "A rational section descends E",
+      "statement": "For a dominant morphism f:Y→X of smooth proper irreducible varieties over a number field that admits a rational section, E(Y) implies E(X). Resolve the section and use proper pushforward on the completed zero-cycle complexes.",
+      "locator": "Lemma 7.6(i) p.25",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/112",
+      "kind": "theorem",
+      "name": "A rational section descends E⁺",
+      "statement": "Under the same hypotheses, E⁺(Y) implies E⁺(X), by base changing an admissible Z→X, taking the unique dominating component and resolving it.",
+      "locator": "Lemma 7.6(ii) pp.25–26",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/113",
+      "kind": "construction",
+      "name": "Middle cohomology of the zero-cycle complex",
+      "statement": "For smooth proper irreducible X/k let h_X=ker(CH₀,A(X)^∧→Hom(Br(X),Q/Z))/im(CH₀(X)^∧). Proper morphisms induce h_Y→h_X by cycle pushforward and Brauer pullback; birational morphisms induce isomorphisms.",
+      "locator": "Lemma 7.6 proof p.25",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: kernel/image quotient, pushforward, composition, birational comparison and degree multiplication Tests: E is equivalent to h_X=0; a resolved section gives a surjection on h; h_X is not assumed finite."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/114",
+      "kind": "theorem",
+      "name": "Reduction to finite-stabilizer SL_n spaces",
+      "statement": "For a good property in the sense of DLA19 Definition 5.1 over a characteristic-zero field, every homogeneous space X of a connected linear group is reduced to a homogeneous SL_n-space X′ with finite geometric stabilizer F, an extension of the component group of the original stabilizer by a finite abelian group, such that P(X′)⇒P(X).",
+      "locator": "§7 after Proposition 7.3; DLA19 Theorem 5.2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The source notion of good includes ambient groups G=G^ssu with G^ss simply connected, not only semisimple ambient groups. The bridge to the paper’s Definition 7.1 is tracked separately as G2."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/115",
+      "kind": "theorem",
+      "name": "Compatibility of the two good-property definitions",
+      "statement": "To apply DLA19 Theorem 5.2 to E⁺ as in this paper, extend the fibration ascent verification from semisimple simply connected ambient groups to ambient groups G=G^ssu with simply connected semisimple quotient, retaining geometric stabilizer H=H^ssu.",
+      "locator": "Proposition 7.3 p.25 versus DLA19 Definition 5.1 p.22",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "G2, unresolved proof interface: both arXiv and the author DLA19 versions explicitly include the unipotent radical in the ambient group. Supply the unipotent quotient/affine-fibration reduction and the (⋆), RC and E⁺ compatibility, or prove the broader ascent directly. This is not evidence that either theorem is false. Leave this interface unrouted until the reduction is written precisely."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/116",
+      "kind": "theorem",
+      "name": "E⁺ of compactifications is a good homogeneous-space property",
+      "statement": "Over a number field, the property that every smooth proper variety birational to a homogeneous space V satisfies E⁺ is good in the sense of this paper’s Definition 7.1.",
+      "locator": "Proposition 7.3 p.25",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The three components are Lemmas 7.4–7.6 plus the known (⋆) theorem for the indicated homogeneous fibres. The DLA ambient-unipotent comparison remains the separate G2 proof obligation."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/117",
+      "kind": "theorem",
+      "name": "Prime-to-p alterations descend E⁺",
+      "statement": "If, for every prime p, smooth proper irreducible X/k admits a dominant generically finite map Y→X of degree prime to p with Y satisfying E⁺, then X satisfies E⁺.",
+      "locator": "Proposition 7.7 p.26",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/118",
+      "kind": "theorem",
+      "name": "Degree annihilators force the defect to vanish",
+      "statement": "For an abelian group A, if for every prime p there is an integer d_p>0 with p∤d_p and d_p A=0, then A=0: the ideal generated by the d_p is Z and a finite Bézout combination is 1.",
+      "locator": "Proof Proposition 7.7 p.26",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No finite generation or finiteness of A is needed. For an admissible base change use pull/push on h_Z and its degree identity."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/119",
+      "kind": "construction",
+      "name": "Reinterpreting a finite-extension variety over k",
+      "statement": "For finite ℓ/k, a smooth proper geometrically integral ℓ-variety Y is a smooth proper irreducible k-variety through Spec ℓ→Spec k. Its k-adic cycle complex agrees with the ℓ-adic one after grouping places above v, with the real/complex norm factors respected. E and the finite-extension fibre tests for E⁺ transfer through this dictionary.",
+      "locator": "§7 use of Proposition 5.5 with Proposition 7.7 pp.25–26",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The design must prove the E⁺ dictionary, including reducible base-change factors. It is an explicit bridge in the proof closure, not a claim that E⁺ is invariant under arbitrary scalar extension. API: restriction of structure morphism, grouped local places, degree scaling and base-change product factors Tests: this is not Weil restriction of Y; a real place becoming complex contributes the modified zero factor; geometric irreducibility over k can fail."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/120",
+      "kind": "definition",
+      "name": "Zero-cycle image condition for Brauer–Manin points",
+      "statement": "For smooth proper geometrically integral Y over a number field, HW16 Condition 8.1 says that the image of Y(A_k)^Br(Y) in CH₀,A(Y)^∧ is contained in the image of CH₀(Y)^∧.",
+      "locator": "Proposition 7.8 proof pp.26–27; HW16 p.259",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: local-point cycle map, completed localization image and comparison with E Tests: E implies the condition; only degree-one local cycles from points are tested; the condition is weaker than arbitrary-cycle exactness."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/121",
+      "kind": "theorem",
+      "name": "Rationally connected reduction from E to point-cycle images",
+      "statement": "For smooth proper rationally connected Z/k, if every finite extension k′/k satisfies HW16 Condition 8.1 for Z_k′, then Z satisfies E. Apply HW16 Theorem 8.3(3) to the trivial fibration Z×P¹→P¹ and use birational/product invariance.",
+      "locator": "Proposition 7.8 proof p.26; HW16 Theorem 8.3(3)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/122",
+      "kind": "theorem",
+      "name": "Universal-torsor descent for E⁺",
+      "statement": "Let X be smooth proper rationally connected over a number field. If over every finite k′/k every universal torsor of X_k′ has a smooth proper compactification satisfying E⁺, then X satisfies E⁺.",
+      "locator": "Proposition 7.8 pp.26–27",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/123",
+      "kind": "theorem",
+      "name": "Universal-torsor descent for E",
+      "statement": "The preceding statement also holds with E replacing E⁺ both for X and for compactifications of its universal torsors over all finite extensions.",
+      "locator": "Remark 7.9 p.27",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/124",
+      "kind": "theorem",
+      "name": "Brauer-orthogonal lifting after an admissible base change",
+      "statement": "For admissible Z→X in Proposition 7.8, a Brauer-orthogonal adelic point of Z maps to one on X, giving a universal torsor Y→X. Apply Theorem 2.1 to Z×_X Y→Z; after twisting and compactification get Brauer-orthogonal local points on Z′, where Z′→Y′ is admissible. E⁺(Y′) gives E(Z′), and pushforward supplies Condition 8.1 for Z.",
+      "locator": "Proof Proposition 7.8 pp.26–27",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/125",
+      "kind": "theorem",
+      "name": "Closed-fibre E⁺ over projective space implies total E⁺",
+      "statement": "Let f:X→P^n_k, n≥1, be dominant with X smooth proper irreducible and geometric generic fibre rationally connected. If every closed fibre over some dense open satisfies E⁺ over its residue field, then X satisfies E⁺.",
+      "locator": "Proposition 7.10 p.27",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/126",
+      "kind": "theorem",
+      "name": "The base point satisfies E⁺",
+      "statement": "For every number field k, Spec k satisfies E⁺: a smooth proper rationally connected Z with property (⋆) over every finite extension satisfies E by HW16 Theorem 8.3(3), Lemma 8.2 and the trivial P¹ fibration, or Liang’s result cited in the paper.",
+      "locator": "End §7 p.27",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/127",
+      "kind": "theorem",
+      "name": "Solvable-stabilizer compactifications satisfy E⁺ unconditionally",
+      "statement": "For every number field, every smooth proper compactification of a homogeneous SL_n-space with finite solvable geometric stabilizer satisfies E⁺. Induct on the stabilizer order, use universal torsors to pass to its proper derived subgroup, and combine Propositions 7.8 and 7.10.",
+      "locator": "End proof Theorem A pp.27–28",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Unlike Theorem 6.1 this requires no norm-value conjecture. The base H=1 uses H¹(k,SL_n)=1 and E⁺ of the point."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/128",
+      "kind": "theorem",
+      "name": "All homogeneous compactifications satisfy E⁺",
+      "statement": "Over every number field, smooth proper compactifications of homogeneous spaces of connected linear algebraic groups satisfy E⁺: reduce to finite stabilizers, use Proposition 5.5 and prime-to-p descent to reach p-groups, then use the solvable case.",
+      "locator": "Conclusion §7 pp.27–28",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The extracted source theorem is retained with the outstanding DLA interface G2 expressly visible; no independently closed proof or formalization is claimed."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/129",
+      "kind": "theorem",
+      "name": "Move a zero-cycle into a Hilbert subset",
+      "statement": "For a smooth geometrically integral variety X over a number field and a Hilbert subset H, every zero-cycle on X is rationally equivalent to a zero-cycle supported on closed points of H.",
+      "locator": "Remark 7.11 p.28, elementary proof sketch",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The proof reduces to curves by a smooth curve through prescribed points and applies Hilbert irreducibility to a suitable linear system; include degree preservation and negative coefficients."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/130",
+      "kind": "theorem",
+      "name": "Inverse Galois after extensions of collectively coprime degree",
+      "statement": "For any finite group Γ and number field k, there are finitely many finite extensions k_i/k with gcd_i[k_i:k]=1 such that Γ occurs as a Galois group over each k_i. Move the rational-point cycle of SL_n/Γ into the Hilbert subset for SL_n→SL_n/Γ.",
+      "locator": "Remark 7.11 p.28",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The degrees are collectively coprime, not necessarily pairwise coprime. This is not inverse Galois over k itself and does not require the main theorem A."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/131",
+      "kind": "theorem",
+      "name": "Compatibility of the two outer stabilizer actions",
+      "statement": "In Proposition 5.2, for every γ∈Γ_k the induced outer automorphisms of H_w and H_v have representatives γ_w,γ_v satisfying γ_w(x)=γ_v(x) for all x∈H_w.",
+      "locator": "Proposition 5.2 third assertion p.19",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This is the exact compatibility used to retain the invariant cyclic flag in the supersolvable induction; no general canonical map Out(H_v)→Out(H_w) is asserted."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/132",
+      "kind": "theorem",
+      "name": "Rational connectedness of a total space",
+      "statement": "A dominant morphism of smooth proper varieties over an algebraically closed characteristic-zero field with rationally connected base and rationally connected geometric generic fibre has rationally connected total space.",
+      "locator": "Lemma 7.4; Proposition 7.8; Proposition 7.10; GHS03",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/133",
+      "kind": "definition",
+      "name": "Rational-point conjecture for rationally connected varieties",
+      "statement": "The conjectural assertion is that every smooth proper rationally connected variety X over a number field has X(k) dense in X(A_k)^Br(X). The paper proves specified homogeneous-space cases only.",
+      "locator": "Conjecture 1.1 p.2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: proposition-valued conjecture, base field, obstruction set and specialization to a proved class Tests: rational connectedness is required; transcendental Brauer classes are included; no generic conjectural proof is imported."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/134",
+      "kind": "definition",
+      "name": "Uncompleted zero-cycle conjecture in the rationally connected case",
+      "statement": "For every smooth proper rationally connected X over a number field, the uncompleted complex (1.1) from global zero-cycles to the modified local product to Hom(Br(X),Q/Z) is conjectured exact. Rappel 1.3 identifies this with E for this class.",
+      "locator": "Conjecture 1.2 p.2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: exactness proposition, modified infinite factors and comparison with E Tests: complex factors vanish; real norm quotients remain; a rational point does not itself prove arbitrary-cycle exactness."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/135",
+      "kind": "theorem",
+      "name": "Étale H¹ vanishes geometrically for rationally connected varieties",
+      "statement": "For a smooth proper rationally connected variety over an algebraically closed characteristic-zero field, H¹_et(X,Q/Z)=0; this supplies the first generic-fibre hypothesis in HW16 Theorem 8.3.",
+      "locator": "Theorem 4.7 and Proposition 7.8 via HW16 §8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/136",
+      "kind": "theorem",
+      "name": "Geometric degree-zero cycles vanish for rationally connected varieties",
+      "statement": "For a smooth proper rationally connected variety over an algebraically closed characteristic-zero field, the degree map CH₀(X)→Z is an isomorphism, and remains so after any algebraically closed extension, including an algebraic closure of the function field.",
+      "locator": "Theorem 4.7 via HW16 Theorem 8.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/137",
+      "kind": "theorem",
+      "name": "Brauer–Manin density implies Condition 8.1 in the rationally connected case",
+      "statement": "For smooth proper rationally connected Y over a number field, density of Y(k) in Y(A_k)^Br(Y) implies HW16 Condition 8.1. Use local constancy modulo n and vanishing of A₀ at almost every finite place, with bounded exponents at the remaining places.",
+      "locator": "HW16 Lemma 8.2 published p.259, used at §7 end",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/138",
+      "kind": "theorem",
+      "name": "Algebraic unramified Brauer group of a universal torsor",
+      "statement": "For a universal torsor Y over a smooth proper geometrically integral variety X with free finitely generated geometric Picard group in the Colliot-Thélène–Sansuc descent setting, the algebraic unramified Brauer group Br₁,nr(Y) is Br₀(Y).",
+      "locator": "§2 opening p.7; Remark 4.5; CTS87 Theorem 2.1.2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Import the precise unit/Picard and universal-type hypotheses from CTS87; no vanishing of transcendental Br_nr is inferred. Full prerequisite decomposition remains work for the design."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/139",
+      "kind": "theorem",
+      "name": "Property (⋆) for the homogeneous fibres of good-property ascent",
+      "statement": "Over a number field, homogeneous spaces of semisimple simply connected groups whose geometric stabilizers are extensions of connected semisimple groups by connected unipotent groups satisfy (⋆); smooth proper birational models retain this property.",
+      "locator": "Proposition 7.3 and Lemma 7.4 pp.24–25",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Supply the connected-stabilizer Hasse principle with real approximation and weak approximation through Borovoi/Platonov–Rapinchuk. The broader ambient-unipotent bridge is G2, not silently included here."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/140",
+      "kind": "theorem",
+      "name": "Picard group of a semisimple simply connected group",
+      "statement": "For semisimple simply connected G over an algebraically closed characteristic-zero field, Pic(G)=0. A finite étale quotient V=G/H has Pic(V) killed by |H|, by pullback and norm.",
+      "locator": "§5 p.18",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/141",
+      "kind": "theorem",
+      "name": "Constancy of unramified evaluation at real points",
+      "statement": "For a semisimple simply connected real group G, finite real subgroup F and X=G/F, every class of Br_nr(X) evaluates constantly on X(R).",
+      "locator": "Introduction Grunwald corollary; LA19 Theorem 6.1, arXiv p.14",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/142",
+      "kind": "theorem",
+      "name": "Constancy of unramified evaluation at good finite places",
+      "statement": "Let k_v be nonarchimedean of residue characteristic p, G semisimple simply connected, F a finite k_v-subgroup of order prime to p split by an unramified extension, and X=G/F. Every class of Br_nr(X) evaluates constantly on X(k_v).",
+      "locator": "Introduction Grunwald corollary; LA19 Theorem 6.2, arXiv pp.14–17",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/143",
+      "kind": "theorem",
+      "name": "Approximation for a finite quotient is H1 surjectivity",
+      "statement": "For a finite k-group F embedded in SL_n over a number field and finite set S of places, SL_n/F has weak approximation in S iff H¹(k,F)→∏_(v∈S)H¹(k_v,F) is surjective.",
+      "locator": "Introduction; DLAN17 Proposition 2.4, published p.1018",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/144",
+      "kind": "theorem",
+      "name": "Auxiliary cyclic local conditions force a proper realization",
+      "statement": "For a constant finite Γ, assume H¹(k,Γ) surjects onto local H¹ for every finite set of good places. In addition to the prescribed conditions, choose distinct good finite places and unramified cyclic local characters with Frobenius representing each conjugacy class of Γ. Any resulting global character Γ_k→Γ has full image: a proper subgroup cannot meet every conjugacy class, by the derangement argument in its transitive coset action. Its fixed field gives the prescribed Γ-Galois extension.",
+      "locator": "Proof interface for Introduction Grunwald corollary, using DLAN17 Proposition 2.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This makes properness explicit rather than confusing an H¹ class with a surjective character. Local extensions embed through their chosen subgroups, up to conjugacy."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Harpaz–Wittenberg (2016), On the fibration method for zero-cycles and rational points, Annals 183, 229–295",
+      "link": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p05-p.pdf",
+      "why": "New zero-cycle continuation requires full proof decomposition of §8, Condition 8.1, Theorem 8.3, Corollary 8.4, Lemma 8.2; the rational-point continuation imports the explicitly conjectural §9. Read printed pp.259–260,266–268,284 for the exact interfaces; not a full read of this 67-page prerequisite."
+    },
+    {
+      "citation": "Demarche–Lucchini Arteche (2019), Le principe de Hasse pour les espaces homogènes : réduction au cas des stabilisateurs finis, Compositio 155, 1568–1593",
+      "link": "https://arxiv.org/abs/1704.08646",
+      "why": "Read Definition 5.1 and Theorem 5.2, confirmed against the author PDF. The finite-stabilizer reduction and good-property proof require complete decomposition; resolve the ambient-unipotent interface G2."
+    },
+    {
+      "citation": "Harari (2008), Le défaut d’approximation forte pour les groupes algébriques commutatifs, ANT 2, 595–611",
+      "link": "https://msp.org/ant/2008/2-5/ant-v2-n5-p05-p.pdf",
+      "why": "Read definitions pp.595–596 and Theorem 2 p.604. R02.4 needs its exact torus specialization and modified infinite-place comparison; the abelian-variety finiteness premise is automatic for a torus."
+    },
+    {
+      "citation": "Lucchini Arteche (2019), The unramified Brauer group of homogeneous spaces with finite stabilizer, Trans. AMS 372, 5393–5408",
+      "link": "https://arxiv.org/abs/1709.01170",
+      "why": "Read §6 pp.14–17: Theorems 6.1–6.2 make full unramified Brauer evaluation constant at good places, an essential additional input to the supersolvable Grunwald corollary. Full residue/finite-gerbe proof decomposition is needed."
+    },
+    {
+      "citation": "Demarche–Lucchini Arteche–Neftin (2017), The Grunwald problem and approximation properties for homogeneous spaces, AIF 67, 1009–1033",
+      "link": "https://aif.centre-mersenne.org/item/10.5802/aif.3104.pdf",
+      "why": "Read Proposition 2.4 at printed p.1018. Supply the quotient-approximation/H¹ equivalence and exact bad-place definition to IG.4, then the proper-character auxiliary-place argument."
+    },
+    {
+      "citation": "Demarche (2010), Groupe de Brauer non ramifié d’espaces homogènes à stabilisateurs finis, Math. Ann. 346, 949–968",
+      "link": "https://webusers.imj-prg.fr/~cyril.demarche/articles/BMgroupes.pdf",
+      "why": "Author version pp.10–12, especially Corollary 4.5 and Remark 4.6, checked for the published Corollary 3/Remark 7 quaternion input. Need full proof decomposition of both algebraic and geometric Brauer vanishing, not just the algebraic equality."
+    },
+    {
+      "citation": "Skorobogatov (2001), Torsors and Rational Points, Cambridge Tracts 144",
+      "link": "https://doi.org/10.1017/CBO9780511549588",
+      "why": "RP.3 and the homogeneous continuation need prescribed types, universal-torsor existence (Proposition 6.1.4), torsor twists and descent; only the invocation in HW20 has been read here, not the whole book."
+    },
+    {
+      "citation": "Colliot-Thélène–Sansuc (1987), La descente sur les variétés rationnelles. II, Duke 54, 375–492",
+      "link": "https://www.imo.universite-paris-saclay.fr/~jean-louis.colliot-thelene/DescenteII.pdf",
+      "why": "Type exact sequences and Theorem 2.1.2 for the algebraic unramified Brauer group of universal torsors. Full source acquisition and decomposition remain necessary; no assertion that generic torsor descent already contains these specialized theorems."
+    },
+    {
+      "citation": "Skorobogatov (1990), On the fibration method for proving the Hasse principle and weak approximation; Skorobogatov (1996), Descent on fibrations over the projective line",
+      "link": "https://doi.org/10.1353/ajm.1996.0045",
+      "why": "Theorems 1 and 2.1, respectively, are the named weak-approximation inputs to HW20 Theorem 4.1. Acquire the 1990 version in particular to resolve the missing-RC hypothesis in G1. The 1996 DOI is identified in HW16’s published bibliography."
+    },
+    {
+      "citation": "Harari (1997), Flèches de spécialisations en cohomologie étale et applications arithmétiques, BSMF 125, 143–166",
+      "link": "https://www.numdam.org/item/BSMF_1997__125_2_143_0/",
+      "why": "Theorem 3.2.1 is the full Brauer fibration input; its specialization and Hilbert-subset hypotheses must be decomposed for Theorem 4.1(ii)."
+    },
+    {
+      "citation": "Graber–Harris–Starr (2003), Families of rationally connected varieties, JAMS 16, 57–67; Kollár (1996), Rational curves on algebraic varieties, IV.6.10",
+      "link": "https://arxiv.org/abs/math/0109220",
+      "why": "Supply the curve-section and total-space rational connectedness inputs, with characteristic-zero field extension and compactification details. The atlas currently has no RC theorem layer; do not assume its content follows from the name of SF.4."
+    },
+    {
+      "citation": "Wittenberg (2012), Zéro-cycles sur les fibrations au-dessus d’une courbe de genre quelconque",
+      "link": "https://www.math.univ-paris13.fr/~wittenberg/zerocycles.pdf",
+      "why": "The finite-exponent/completion comparison invokes Lemmas 1.10–1.12 and 2.4 and Remark 1.1; acquire and verify this prerequisite before closing the new zero-cycle foundation."
+    },
+    {
+      "citation": "Colliot-Thélène (2005), Un théorème de finitude pour le groupe de Chow des zéro-cycles d’un groupe algébrique linéaire sur un corps p-adique, Inventiones 159, 589–606",
+      "link": "https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf",
+      "why": "Primary HW20 bibliography p.29 and Rappel 1.3 identify Proposition 11 for bounded exponents, plus p.599 for moving zero-cycles. The linked source is the verified citing paper, not a claim to have read CT05; acquire the original before completing proof closure."
+    },
+    {
+      "citation": "Harari–Skorobogatov (2013), Descent theory for open varieties; Colliot-Thélène–Skorobogatov (2000), Descent on fibrations over P¹ revisited",
+      "link": "https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf",
+      "why": "Primary HW20 pp.8–11,17 and bibliography identify HS13 Theorem 8.4/Proposition 8.12 and CTS00 Proposition 1.1/Lemma 3.1. Needed for open descent and the formal lemma; read the latter proof for the stronger finite quotient, not just its printed image-finiteness statement."
+    },
+    {
+      "citation": "Platonov–Rapinchuk (1994), Algebraic groups and number theory; Borovoi (1996), The Brauer-Manin obstructions for homogeneous spaces with connected or abelian stabilizer",
+      "link": "https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf",
+      "why": "Primary HW20 §§6–7 gives the exact simply connected torsor and connected-stabilizer (⋆) uses. Full proofs and the ambient-unipotent compatibility are not replaced by a general reference to approximation."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "ReductiveGroupsPartII",
+      "stages": [
+        "ReductiveGroupsPartII:RG2.0a"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-20/5"
+      ],
+      "reason": "Representable affine Weil restriction, norm maps and finite étale base change belong to the existing general owner, not to a private arithmetic construction."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-20/16",
+        "PAPER-HARPAZ-WITTENBERG-20/33",
+        "PAPER-HARPAZ-WITTENBERG-20/41"
+      ],
+      "reason": "Étale G_m cohomology, purity, residue comparisons and Leray inputs belong to the shared scheme-cohomology foundation."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-20/55"
+      ],
+      "reason": "Boundary divisors and the Picard localization sequence refine the common divisor/Picard API."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.4"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-20/15"
+      ],
+      "reason": "Characteristic-zero compatible compactification and resolution are explicit birational-geometry inputs; do not assume positive-characteristic resolution."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-20/23"
+      ],
+      "reason": "Import rational equivalence, CH₀, degree and the Chow push/pull projection formula once. The existing AlgebraicCycle carrier and partial map are reused."
+    },
+    {
+      "route": "source",
+      "roadmap": "HeightsRationalPointsAndObstructions",
+      "stages": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-20/14",
+        "PAPER-HARPAZ-WITTENBERG-20/18",
+        "PAPER-HARPAZ-WITTENBERG-20/19",
+        "PAPER-HARPAZ-WITTENBERG-20/25",
+        "PAPER-HARPAZ-WITTENBERG-20/50"
+      ],
+      "reason": "Extend the common Brauer evaluation interface to zero-cycles and the formal lemma, using existing class-field local invariants and global reciprocity."
+    },
+    {
+      "route": "source",
+      "roadmap": "HeightsRationalPointsAndObstructions",
+      "stages": [
+        "HeightsRationalPointsAndObstructions:RP.3"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-20/20",
+        "PAPER-HARPAZ-WITTENBERG-20/32",
+        "PAPER-HARPAZ-WITTENBERG-20/34",
+        "PAPER-HARPAZ-WITTENBERG-20/36",
+        "PAPER-HARPAZ-WITTENBERG-20/37",
+        "PAPER-HARPAZ-WITTENBERG-20/38",
+        "PAPER-HARPAZ-WITTENBERG-20/39",
+        "PAPER-HARPAZ-WITTENBERG-20/40",
+        "PAPER-HARPAZ-WITTENBERG-20/42",
+        "PAPER-HARPAZ-WITTENBERG-20/43",
+        "PAPER-HARPAZ-WITTENBERG-20/44",
+        "PAPER-HARPAZ-WITTENBERG-20/45",
+        "PAPER-HARPAZ-WITTENBERG-20/49",
+        "PAPER-HARPAZ-WITTENBERG-20/51",
+        "PAPER-HARPAZ-WITTENBERG-20/52",
+        "PAPER-HARPAZ-WITTENBERG-20/94"
+      ],
+      "reason": "Theorem 2.1 and Corollary 2.2 prove a precise torus-descent comparison for the full unramified Brauer group. Relative Brauer edge maps, twists and the residual functional form its proof, without a rational-connectedness assumption on Theorem 2.1."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticGaloisDuality",
+      "stages": [
+        "ArithmeticGaloisDuality:R02.4"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-20/21",
+        "PAPER-HARPAZ-WITTENBERG-20/35",
+        "PAPER-HARPAZ-WITTENBERG-20/46",
+        "PAPER-HARPAZ-WITTENBERG-20/48"
+      ],
+      "reason": "Supply the torus/character-lattice Poitou–Tate pairing and adelic image theorem, with discrete H² and Tate-modified infinite factors. These extend the layer’s explicit finite-module and lattice targets; the torus specialization of Harari has no Sha(A)-finiteness conjecture."
+    },
+    {
+      "route": "source",
+      "roadmap": "InverseGaloisAndArithmeticFundamentalGroups",
+      "stages": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-20/79"
+      ],
+      "reason": "Apply the shared finite étale Galois category and arithmetic fundamental exact sequence to G/H; do not create a second π₁ implementation."
+    },
+    {
+      "route": "source",
+      "roadmap": "InverseGaloisAndArithmeticFundamentalGroups",
+      "stages": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-20/10",
+        "PAPER-HARPAZ-WITTENBERG-20/74"
+      ],
+      "reason": "Use Hilbert subsets of all scheme points, then distinguish closed and rational membership. Prove pullback through the geometrically integral norm map."
+    },
+    {
+      "route": "source",
+      "roadmap": "InverseGaloisAndArithmeticFundamentalGroups",
+      "stages": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.4"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-20/103",
+        "PAPER-HARPAZ-WITTENBERG-20/105",
+        "PAPER-HARPAZ-WITTENBERG-20/106",
+        "PAPER-HARPAZ-WITTENBERG-20/130",
+        "PAPER-HARPAZ-WITTENBERG-20/143",
+        "PAPER-HARPAZ-WITTENBERG-20/144"
+      ],
+      "reason": "Add the proved supersolvable Grunwald prescriptions, quaternion all-place refinement, and collective-degree realization as separate named conclusions. Retain the bad-place boundary and make properness explicit via auxiliary cyclic local conditions. This is additional source verification for the layer’s local constraints, not an unwarranted strengthening of its Shafarevich input."
+    },
+    {
+      "route": "source",
+      "roadmap": "AdelicAlgebraicGroups",
+      "stages": [
+        "AdelicAlgebraicGroups:AA.4"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-20/93"
+      ],
+      "reason": "The simply connected group weak-approximation theorem belongs here; export its local H¹ and torsor Hasse-principle interfaces to the homogeneous-space continuation. Do not infer it from an incorrectly unrestricted strong-approximation statement."
+    },
+    {
+      "route": "part-ii",
+      "parent": "HeightsRationalPointsAndObstructions",
+      "roadmap": "HeightsRationalPointsPartIIHomogeneousMassey",
+      "title": "Heights, rational points and obstructions, Part II: homogeneous Massey varieties",
+      "area": "algebraicnt",
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-20/6",
+        "PAPER-HARPAZ-WITTENBERG-20/7",
+        "PAPER-HARPAZ-WITTENBERG-20/8",
+        "PAPER-HARPAZ-WITTENBERG-20/9",
+        "PAPER-HARPAZ-WITTENBERG-20/53",
+        "PAPER-HARPAZ-WITTENBERG-20/54",
+        "PAPER-HARPAZ-WITTENBERG-20/56",
+        "PAPER-HARPAZ-WITTENBERG-20/57",
+        "PAPER-HARPAZ-WITTENBERG-20/58",
+        "PAPER-HARPAZ-WITTENBERG-20/59",
+        "PAPER-HARPAZ-WITTENBERG-20/60",
+        "PAPER-HARPAZ-WITTENBERG-20/61",
+        "PAPER-HARPAZ-WITTENBERG-20/62",
+        "PAPER-HARPAZ-WITTENBERG-20/63",
+        "PAPER-HARPAZ-WITTENBERG-20/64",
+        "PAPER-HARPAZ-WITTENBERG-20/65",
+        "PAPER-HARPAZ-WITTENBERG-20/66",
+        "PAPER-HARPAZ-WITTENBERG-20/67",
+        "PAPER-HARPAZ-WITTENBERG-20/68",
+        "PAPER-HARPAZ-WITTENBERG-20/69",
+        "PAPER-HARPAZ-WITTENBERG-20/70",
+        "PAPER-HARPAZ-WITTENBERG-20/71",
+        "PAPER-HARPAZ-WITTENBERG-20/72",
+        "PAPER-HARPAZ-WITTENBERG-20/73",
+        "PAPER-HARPAZ-WITTENBERG-20/76",
+        "PAPER-HARPAZ-WITTENBERG-20/77",
+        "PAPER-HARPAZ-WITTENBERG-20/80",
+        "PAPER-HARPAZ-WITTENBERG-20/81",
+        "PAPER-HARPAZ-WITTENBERG-20/82",
+        "PAPER-HARPAZ-WITTENBERG-20/83",
+        "PAPER-HARPAZ-WITTENBERG-20/84",
+        "PAPER-HARPAZ-WITTENBERG-20/85",
+        "PAPER-HARPAZ-WITTENBERG-20/86",
+        "PAPER-HARPAZ-WITTENBERG-20/95",
+        "PAPER-HARPAZ-WITTENBERG-20/96",
+        "PAPER-HARPAZ-WITTENBERG-20/97",
+        "PAPER-HARPAZ-WITTENBERG-20/98",
+        "PAPER-HARPAZ-WITTENBERG-20/99",
+        "PAPER-HARPAZ-WITTENBERG-20/100",
+        "PAPER-HARPAZ-WITTENBERG-20/101",
+        "PAPER-HARPAZ-WITTENBERG-20/102",
+        "PAPER-HARPAZ-WITTENBERG-20/104",
+        "PAPER-HARPAZ-WITTENBERG-20/131",
+        "PAPER-HARPAZ-WITTENBERG-20/133",
+        "PAPER-HARPAZ-WITTENBERG-20/138",
+        "PAPER-HARPAZ-WITTENBERG-20/139",
+        "PAPER-HARPAZ-WITTENBERG-20/140",
+        "PAPER-HARPAZ-WITTENBERG-20/141",
+        "PAPER-HARPAZ-WITTENBERG-20/142"
+      ],
+      "reason": "Reuse the same candidate owner proposed in PAPER-HARPAZ-WITTENBERG-23 for its HW20 Theorem B input. That partial extraction is not an accepted roadmap, so these items stay missing, not planned. This paper supplies the general homogeneous-space foundation required by that candidate; do not create another copy of the supersolvable theorem or finite-stabilizer Picard/Brauer interfaces.",
+      "brief": "Extend the existing candidate design brief with the complete HW20 foundation, while retaining its Massey consumers. Over a number field prove that a smooth proper geometrically integral X birational to a homogeneous space of a semisimple simply connected G with finite geometric stabilizer H has rational points dense in its full Brauer–Manin set when H has an outer-Galois-invariant normal flag with cyclic factors (Theorem 6.6). For finite solvable H retain HW16 Conjecture 9.1 explicitly in Theorem 6.1; for finite abelian H prove the unconditional Br₁ version. Construct multiplicative-type torsor types, universal torsors, the boundary-Picard pullback, their quasitrivial-base fibrations, finite étale homogeneous covers, Pic(Vbar)=Hom(Hab,kbar×), and the compatible stabilizer sequence. Prove Propositions 3.1 and 3.3, norm-base-change Lemmas 4.3–4.4, split/geometrically split fibration Theorems 4.1–4.2, the conditional Theorem 4.6, property (⋆), and both rational-point inductions. Include LA19 good-place evaluation and Dem10 quaternion Brauer vanishing for the IG.4 consumers. Import Heights, rational points and obstructions (HeightsRationalPointsAndObstructions, RP.2–RP.3) for adelic/Brauer/torsor descent; Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations, SF.1–SF.4); Reductive groups (tauceti:TauCetiRoadmap/ReductiveGroups, Layers 3–6) for the group and character theory; Reductive groups, Part II (ReductiveGroupsPartII, RG2.0a) for Weil restriction; Adelic algebraic groups (AdelicAlgebraicGroups, AA.4); Global Galois duality and compact coefficients (ArithmeticGaloisDuality, R02.2/R02.4); Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory); and Inverse Galois and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups, IG.0–IG.2). The generic RC geometry exported by HeightsRationalPointsPartIIZeroCycles precedes this homogeneous layer; that roadmap’s final arithmetic induction then consumes the homogeneous layer, so specify stage-level order without a cycle. All definitions receive APIs and three discriminating tests. Keep nonconstant stabilizers, twist signs, real places, transcendental Brauer classes and field-extension hypotheses. G1 Remark 4.5 is not a closed proof input. Retain the earlier candidate’s Massey-specific layers and import this one general proof of HW20 rather than rebuilding it."
+    },
+    {
+      "route": "part-ii",
+      "parent": "HeightsRationalPointsAndObstructions",
+      "roadmap": "HeightsRationalPointsPartIIZeroCycles",
+      "title": "Heights, rational points and obstructions, Part II: zero-cycles and homogeneous fibrations",
+      "area": "algebraicnt",
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-20/11",
+        "PAPER-HARPAZ-WITTENBERG-20/12",
+        "PAPER-HARPAZ-WITTENBERG-20/13",
+        "PAPER-HARPAZ-WITTENBERG-20/17",
+        "PAPER-HARPAZ-WITTENBERG-20/24",
+        "PAPER-HARPAZ-WITTENBERG-20/26",
+        "PAPER-HARPAZ-WITTENBERG-20/27",
+        "PAPER-HARPAZ-WITTENBERG-20/28",
+        "PAPER-HARPAZ-WITTENBERG-20/29",
+        "PAPER-HARPAZ-WITTENBERG-20/30",
+        "PAPER-HARPAZ-WITTENBERG-20/31",
+        "PAPER-HARPAZ-WITTENBERG-20/78",
+        "PAPER-HARPAZ-WITTENBERG-20/90",
+        "PAPER-HARPAZ-WITTENBERG-20/91",
+        "PAPER-HARPAZ-WITTENBERG-20/92",
+        "PAPER-HARPAZ-WITTENBERG-20/107",
+        "PAPER-HARPAZ-WITTENBERG-20/108",
+        "PAPER-HARPAZ-WITTENBERG-20/109",
+        "PAPER-HARPAZ-WITTENBERG-20/110",
+        "PAPER-HARPAZ-WITTENBERG-20/111",
+        "PAPER-HARPAZ-WITTENBERG-20/112",
+        "PAPER-HARPAZ-WITTENBERG-20/113",
+        "PAPER-HARPAZ-WITTENBERG-20/114",
+        "PAPER-HARPAZ-WITTENBERG-20/116",
+        "PAPER-HARPAZ-WITTENBERG-20/117",
+        "PAPER-HARPAZ-WITTENBERG-20/118",
+        "PAPER-HARPAZ-WITTENBERG-20/119",
+        "PAPER-HARPAZ-WITTENBERG-20/120",
+        "PAPER-HARPAZ-WITTENBERG-20/121",
+        "PAPER-HARPAZ-WITTENBERG-20/122",
+        "PAPER-HARPAZ-WITTENBERG-20/123",
+        "PAPER-HARPAZ-WITTENBERG-20/124",
+        "PAPER-HARPAZ-WITTENBERG-20/125",
+        "PAPER-HARPAZ-WITTENBERG-20/126",
+        "PAPER-HARPAZ-WITTENBERG-20/127",
+        "PAPER-HARPAZ-WITTENBERG-20/128",
+        "PAPER-HARPAZ-WITTENBERG-20/129",
+        "PAPER-HARPAZ-WITTENBERG-20/132",
+        "PAPER-HARPAZ-WITTENBERG-20/134",
+        "PAPER-HARPAZ-WITTENBERG-20/135",
+        "PAPER-HARPAZ-WITTENBERG-20/136",
+        "PAPER-HARPAZ-WITTENBERG-20/137"
+      ],
+      "reason": "The existing rational-point roadmap and Chow foundations have no layers for the completed zero-cycle complex, E⁺, universal-torsor descent for cycles, or the prime-to-p reduction proving Theorem A. All 211 current atlas roadmap descriptions were screened for these targets; six new roadmaps and the existing packet do not supply them.",
+      "brief": "Prove HW20 Theorem A: for every number field, every smooth proper variety birational to a homogeneous space of a linear algebraic group satisfies E, and in the rationally connected case its uncompleted modified local zero-cycle complex is exact. Derive the degree-one zero-cycle corollary on the open homogeneous space; do not assert effectiveness or a rational point. Begin with reusable characteristic-zero rational connectedness, the curve section theorem and composition theorem, geometric étale H¹/A₀ vanishing and Picard/Brauer finiteness. Export these to the homogeneous-space candidate before constructing the arithmetic E/E⁺ layers. Build modified infinite-place CH₀, completion by M/nM, cycle Brauer pairing via the RP.2 owner, defect h_X, the degree comparison in Rappel 1.3, and stable-birational/section invariance. Import all cycle/rational-equivalence and Chow functoriality from SchemeAndStackFoundations SF.5, and resolution from SF.4; do not reproduce them. Decompose HW16 Theorem 8.3, Corollary 8.4, Condition 8.1 and Lemma 8.2 with closed points, finite extensions and generic cohomological hypotheses retained. Prove E⁺ closure under admissible fibrations, prime-to-p generically finite maps for every p, universal-torsor descent, and projective-base closed-fibre fibrations; handle irreducible varieties that are not geometrically irreducible and prove the finite-field-extension reinterpretation dictionary, not a Weil-restriction substitute. Import Sylow existence and the image theorem from Profinite and pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups, Layer 2), finite étale covers from InverseGaloisAndArithmeticFundamentalGroups IG.0–IG.1, and universal-torsor/stabilizer fibrations from HeightsRationalPointsPartIIHomogeneousMassey. Induct on solvable stabilizer order unconditionally, then use Sylow covers and DLA19 to reach all connected linear groups. The DLA ambient-unipotent bridge G2 must be resolved before claiming proof closure; it remains an unrouted extraction gap, not an axiom. Import RP.2–RP.3, ArithmeticGaloisDuality and ClassFieldTheory for the shared arithmetic objects. Finish with Hilbert-subset moving and export the collective-coprime-degree Galois consequence to IG.4. Every new definition must include its API and three meaningful tests; distinguish E from E⁺ and closed-point fibre hypotheses from rational-point ones."
+    }
+  ]
+}
