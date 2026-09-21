@@ -4981,8 +4981,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-WOOD-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1330"
+   "state": "pending",
+   "note": "released on GitHub issue #1330"
   },
   {
    "id": "REV-PAPER-WOOD-19",
