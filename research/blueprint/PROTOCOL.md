@@ -249,7 +249,8 @@ A roadmap that does not yet exist is defined in
 {
   "id": "MordellLawrenceVenkatesh",
   "title": "The Mordell conjecture after Lawrence and Venkatesh",
-  "group": "diophantine",
+  "area": "arithmeticgeometry",
+  "parent": null,
   "summary": "At least forty words of mathematical prose for readers of the atlas.",
   "readme": "Markdown: purpose, scope, conventions, sources, layer overview, non-goals.",
   "prerequisites": ["PadicHodgeTheory"],
@@ -261,10 +262,12 @@ A roadmap that does not yet exist is defined in
 }
 ```
 
-Stage ids are `<id>:<key>`. The `group` is the id of one of the atlas areas, for
-example `foundations`, `classical`, `diophantine`, `modular`, `automorphic`,
-`diamonds`, `cohomology`, `motivic`, `iwasawa`, `functionfields`, `analysis`,
-`topology` or `algebra`.
+Stage ids are `<id>:<key>`. The `area` is the id of one of the atlas's areas in
+`data/galaxies.json`, for example `arithmeticgeometry`, `padic`, `langlands`,
+`automorphic`, `iwasawa` or `ktheory`; the roadmap is drawn there. A Part II
+names its base roadmap as `parent`. A definition written before `area` existed
+gives an older `group` instead, and the atlas places it in the area where most
+roadmaps of that group are.
 
 ## 8. Files, checks, review and integration
 
@@ -300,8 +303,22 @@ example `foundations`, `classical`, `diophantine`, `modular`, `automorphic`,
 
   The reviewer writes a `review` object into the packet and a report under
   `research/blueprint/reviews/`.
-- The orchestrator promotes accepted packets. A blueprint packet replaces the
-  roadmap's earlier decomposition packet, and progress denominators are unchanged.
+- Accepted work goes live in the atlas by itself (`scripts/promote.py`, which the
+  intake runs after every merge). A packet or a link map is promoted when its
+  `review` says `accepted` and names, as `independent-review-<job>`, a review job
+  that is finished and reviews a job that wrote the file. It goes live as it stood
+  then: it is copied into `data/blueprints/` (a link map into `data/links/`), with
+  its roadmap document and, for a new roadmap, its definition, and later edits
+  wait for the next accepted review. Work that would break the atlas build is
+  refused, and the workers are told why on their issue. `data/promotions.json`
+  records both.
+- In the atlas, a promoted blueprint replaces the roadmap's earlier
+  decomposition for the layers it covers, and progress denominators are
+  unchanged. Its planets (section 14) orbit their layers; every declaration is
+  listed in its layer's panel, with its statement, proof outline, API and unit
+  tests; a prerequisite in another roadmap links the two layers; and the
+  roadmap's reader shows the reviewed document. A new roadmap enters in its
+  `area`, at a measured distance.
 
 ## 9. Restructuring
 
@@ -444,8 +461,9 @@ The workers who develop a roadmap also decide how it appears in the atlas.
 - A layer too broad to read as one star may be divided. Give its nodes a parent
   node of the same roadmap (section 6), and record the proposed sub-layers in
   `restructure` (section 9), with their titles and the nodes each contains.
-- The checker enforces these limits. The orchestrator draws planets and
-  sub-layers from accepted packets.
+- The checker enforces these limits. The atlas draws the planets of accepted
+  packets (section 8); proposed sub-layers are applied with the restructuring
+  proposals (section 9).
 
 ## 15. Build on existing roadmaps; never duplicate
 
