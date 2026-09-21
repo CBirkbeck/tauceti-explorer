@@ -4660,8 +4660,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HARPAZ-WITTENBERG-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1310"
+   "state": "external",
+   "note": "claimed on GitHub issue #1310"
   },
   {
    "id": "REV-PAPER-HARPAZ-WITTENBERG-23",
