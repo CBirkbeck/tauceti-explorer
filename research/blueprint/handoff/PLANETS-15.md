@@ -3,7 +3,7 @@
 Agent: ChatGPT (GPT-6 Astra Pro). Session: `g6astra-20260921-c7e92b`.
 
 Issue: #895. Claim comment: 5762109798; bot confirmation: 5762112746.
-Branch: `g6astra-20260921-c7e92b-planets-15`.
+Branch: `g6astra-20260921-c7e92b-planets-15`. Pull request: #942.
 
 ## Completed work
 
@@ -17,9 +17,17 @@ The special-value formula-statement nodes are classified as definitions, not pro
 
 ## Checks actually run
 
-Local Python checks passed: JSON round trip; 297 records; unique result IDs; allowed decisions and kind values; nonempty drop reasons with null label/kind; selected label lengths 3–48; forbidden-character and trailing-punctuation checks; case-insensitive uniqueness within each result layer; maximum six selected records per layer; and 18 roadmap prefixes. The whole result was saved at each 50-record boundary and after each further batch.
+Local Python checks passed: JSON round trip; 297 records; unique result IDs; allowed decisions and kind values; nonempty drop reasons with null label/kind; selected label lengths 3–48; forbidden-character and trailing-punctuation checks; case-insensitive uniqueness within each result layer; maximum six selected records per layer; and 18 roadmap prefixes. The whole result was saved at each 50-record boundary and after each further batch. These checks were rerun after the three vocabulary repairs below.
 
-The full repository validator was not run locally: the connected reader cannot return the oversized `data/atlas.json`, and direct network access from the execution environment is unavailable. The local checks do not certify exact equality against the repository input ID set, passage-vocabulary membership or collisions with curated names outside this batch. The automatic Swarm submission check must run `python3 scripts/merge_landmark_names.py research/expansion/naming/PLANETS-15.result.json --strict`; any rejection is to be repaired on this branch. No `--apply` run, git command or Lean compilation was performed. No mathematical result is claimed formalized.
+The full repository validator was not run locally: the connected reader cannot return the oversized `data/atlas.json`, and direct network access from the execution environment is unavailable. It was run by GitHub's Swarm submission workflow on the initial PR revision. The decoded log of run 35615471106, job 106384905164, reports `2 file(s), 0 problem(s)` and `297 entries, accepted names 208, kept 24, procedural 62, rejected 3, undecided 0`. Thus the complete input-ID coverage and all but three vocabulary decisions passed the full validator; there were no reported curated-name collisions.
+
+The three rejected labels were repaired in commit `981611c24affa555dd9cae001726aac4db804d71` using the input's own layer or passage words:
+
+- R25.4: `Semistable nonexistence over Q at small primes` → `Schoof's semistable small-prime theorem`.
+- VS4/classifying-stack-equivalence: `Classifying-stack representation equivalence` → `Smooth G-representation equivalence`.
+- VB0/scalar-extension-adjunction: `Coefficient-field adjunction on isocrystals` → `Adjoint functors on isocrystals`.
+
+The revised result blob is `460cef112831d3c9773f3ad86ac9eb992fafcec0` (52,795 UTF-8 bytes), matching the locally checked content byte-for-byte. The post-repair automatic strict check remains to be observed at this handoff revision; check the latest PR status and comments for its result. No `--apply` run, git command or Lean compilation was performed. No mathematical result is claimed formalized.
 
 ## Five representative renames
 
@@ -39,4 +47,4 @@ The full repository validator was not run locally: the connected reader cannot r
 
 ## Remaining work and resumption
 
-No input record remains undecided. Automatic strict validation and independent editorial review remain. Resume from the complete result, not from a partial batch. Check submission comments for exact validator rejections, compare any disputed name with its input excerpt and own layer, and amend only this result and handoff on the existing branch. Integration into the atlas and independent review belong to the intake/maintainer, not this worker.
+No input record remains undecided. Confirm the post-repair strict CI result and obtain independent editorial review. Resume from the complete result, not from a partial batch. Check submission comments for exact validator rejections, compare any disputed name with its input excerpt and own layer, and amend only this result and handoff on the existing branch. Integration into the atlas and independent review belong to the intake/maintainer, not this worker.
