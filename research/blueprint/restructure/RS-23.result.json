@@ -1,0 +1,259 @@
+{
+  "family": "RS-23",
+  "roadmaps": {
+    "HilbertModularVarietiesAndShimuraCurves": {
+      "action": "keep",
+      "reason": "Keep the Hilbert and quaternionic arithmetic specializations on the shared Shimura and PEL carriers. The two Hilbert groups, polarization modules, arbitrary-prime models, effective level actions, torsion twists and quaternionic bad reduction are not supplied by the generic good-prime PEL development. Narrow H0 and H1 to their additional constructions and comparisons; retain every existing stage identifier."
+    },
+    "PELModuli": {
+      "action": "keep",
+      "reason": "Keep the generic integral PEL datum, moduli functor, representability, complex comparison and higher-level good-base models, together with the Siegel/unitary examples and arithmetic descent interface. M5 imports the already owned Hilbert constructions instead of handing a second construction back to H1. M6 imports the moduli objects and universal abelian family but retains its Hodge-line and rational-family/descent work."
+    }
+  },
+  "layers": {
+    "HilbertModularVarietiesAndShimuraCurves:H0": {
+      "action": "narrow",
+      "suppliedBy": [
+        "ShimuraData:D5"
+      ],
+      "keeps": "Use D5's existing rational G = Res(F/Q) GL2 and scalar-determinant G*, their Shimura data, reflex fields, datum morphism and rational symplectic embedding. Retain the explicit comparison of derived groups, centers and independent-sign versus common-sign domain components on these objects, and the integral lattice/trace-dual/different refinement of that embedding needed by the Hilbert moduli problem. Verify the Hodge-type G* and abelian-type G witnesses against D4 and the actual D5 maps. Do not construct a second rational Hilbert datum, require a symplectic embedding of the arithmetic G, or assume a principal polarization ideal.",
+      "reason": "The member text repeats rational constructions already explicitly assigned to ShimuraData D5. H0 still owes useful integral and convention-sensitive refinements; the D5 import does not discharge those comparisons."
+    },
+    "HilbertModularVarietiesAndShimuraCurves:H1": {
+      "action": "narrow",
+      "suppliedBy": [
+        "PELModuli:M0",
+        "PELModuli:M1",
+        "PELModuli:M2",
+        "PELModuli:M3"
+      ],
+      "keeps": "Construct the Hilbert-specific ordered invertible O_F polarization module, its realization through symmetric O_F-linear maps to the dual abelian scheme and its positive cone. On M0/M1 carriers, construct the trace-pairing PEL instance attached to that module using H0's lattice comparison; prove the trace/different Weil-pairing dictionary and change-of-generator, fractional-ideal and totally positive rescaling laws. Specialize the tame mu_N and K/K0/K1 functors, verify the full determinant condition and the hypotheses of M2, and prove the map-level comparison with M3's complex/adelic components. Import the generic datum, fibered moduli/descent, representability and complex-uniformization constructions rather than proving them again. Preserve the nonprincipal polarization cases and all original level comparisons. An application of M2 has its good-prime hypotheses; the missing ramified/arbitrary-prime model theorem remains H2.",
+      "reason": "H1 is the owner of the polarization-module specialization, not a second generic PEL engine. Assigning its trace-pairing datum to the late example M5 would reverse the established prerequisite order. The imported theorems require actual specialization maps and hypothesis checks."
+    },
+    "HilbertModularVarietiesAndShimuraCurves:H2": {
+      "action": "keep",
+      "reason": "Keep Deligne-Pappas-type arbitrary-prime Hilbert models, the Rapoport and ordinary loci, their Hasse ideals and formal neighborhoods, and the stated generic-fiber/normality/flatness comparisons. M2 good-prime smoothness and M4 normalization are imports only where their hypotheses have been verified; neither supplies the ramified or dyadic statement by itself."
+    },
+    "HilbertModularVarietiesAndShimuraCurves:H3": {
+      "action": "keep",
+      "reason": "Keep the totally positive unit action, its level-dependent kernel and finite polarization quotient, ideal-representative comparison, and Hecke movement between polarization components."
+    },
+    "HilbertModularVarietiesAndShimuraCurves:H4": {
+      "action": "keep",
+      "reason": "Keep the geometric, intermediate and arithmetic Hilbert p-level problems, their comparison maps, adjugate action and effective groups. Import M1 level constructions only in their stated category: full p-level trivializations are generic-fiber objects, not automatically integral finite-flat level structures."
+    },
+    "HilbertModularVarietiesAndShimuraCurves:H5": {
+      "action": "keep",
+      "reason": "Keep the assembled rational and real-quadratic comparison tests, Hodge-bundle splitting/descent, weight and central-unit checks, and nonprincipal/ramified examples. These verify the specialized objects rather than reconstructing generic PEL moduli."
+    },
+    "HilbertModularVarietiesAndShimuraCurves:H6": {
+      "action": "keep",
+      "reason": "Keep the simultaneous torsion-level twist, pairing and real-sign constraints, chosen-component descent/irreducibility and explicit local points. M6 untwisted nonemptiness is not a supplier for this stronger input to potential modularity."
+    },
+    "HilbertModularVarietiesAndShimuraCurves:R18.1": {
+      "action": "keep",
+      "reason": "Keep the specified quaternionic canonical curve and complex uniformization, including the split rational comparison. D5 has no quaternionic datum target; no such construction is removed."
+    },
+    "HilbertModularVarietiesAndShimuraCurves:R18.2": {
+      "action": "keep",
+      "reason": "Keep the source-specific good- and bad-prime quaternionic integral models, local flatness/regularity, Hecke extensions and generic-fiber comparison. M4 normalization over a chosen good PEL base is not a theorem covering Carayol bad reduction. Hilbert compactifications continue to be imported from C6."
+    },
+    "HilbertModularVarietiesAndShimuraCurves:R18.3": {
+      "action": "keep",
+      "reason": "Keep definite quaternionic forms on actual finite double-coset sets, their coefficient and Hecke operations, and the source-specific integral freeness and dyadic tests."
+    },
+    "HilbertModularVarietiesAndShimuraCurves:R18.4": {
+      "action": "keep",
+      "reason": "Keep the quaternionic/Hilbert specialization of Betti and etale cohomology, integral Hecke modules, pairings and finite-level/degeneracy maps with Jacquet-Langlands comparison."
+    },
+    "HilbertModularVarietiesAndShimuraCurves:R18.5": {
+      "action": "keep",
+      "reason": "Keep the Cerednik-Drinfeld construction, formal model, arithmetic quotient, Frobenius descent and uniformization theorem with graph and monodromy comparisons."
+    },
+    "HilbertModularVarietiesAndShimuraCurves:R18.6": {
+      "action": "keep",
+      "reason": "Keep the exact geometric and cohomological exports used by modularity. This is an interface to the preceding owned constructions, not another proof of them."
+    },
+    "PELModuli:M0": {
+      "action": "keep",
+      "reason": "Keep the generic integral/rational PEL datum and determinant-characteristic-polynomial condition, signatures, reflex-field and good-prime tests. Its application to a chosen Hilbert datum is verified in H0/H1, not another generic construction."
+    },
+    "PELModuli:M1": {
+      "action": "keep",
+      "reason": "Keep the PEL fibered moduli category, isomorphism/descent laws, polarization/multiplier conventions and prime-to-p or characteristic-zero full-level functors. Specialized Hilbert group actions and polarization-module comparisons remain H1/H4."
+    },
+    "PELModuli:M2": {
+      "action": "keep",
+      "reason": "Keep generic PEL representability, algebraic-space/stack versus fine-level distinctions, universal abelian schemes and the hypothesis-bearing good-prime deformation/smoothness theorem. Do not import H2 arbitrary-prime smoothness or assume C5 integral quasi-projectivity here."
+    },
+    "PELModuli:M3": {
+      "action": "keep",
+      "reason": "Keep the generic complex moduli/adelic comparison on the correct components, with its Hasse-principle and kernel-of-H1 restrictions. H1 proves the Hilbert instance on the same carriers."
+    },
+    "PELModuli:M4": {
+      "action": "keep",
+      "reason": "Keep canonical-model comparison and normalization of higher p-level generic-fiber covers over the chosen good-level base, with the actual finiteness/normality/flatness hypotheses. This does not become an all-prime or all-quaternionic model theorem."
+    },
+    "PELModuli:M5": {
+      "action": "narrow",
+      "suppliedBy": [
+        "ShimuraData:D5",
+        "HilbertModularVarietiesAndShimuraCurves:H0",
+        "HilbertModularVarietiesAndShimuraCurves:H1"
+      ],
+      "keeps": "Retain the Siegel moduli examples for every genus and their genus-one modular-curve comparison, the unitary CM-signature example with positivity/reflex field/dimension/good-prime calculations, and a nonprincipal polarization-type test. For the Hilbert example import D5's rational data, H0's integral trace-lattice comparison and H1's polarization-module PEL instance and Hilbert moduli functor. Verify that this imported example satisfies the M0-M4 contracts in their actual scope; retain the comparison as an acceptance test, not an independent reconstruction or an input handed backwards to H1/H2.",
+      "reason": "M5 and H1 both describe the same polarization-module trace-pairing PEL example. H1 owns that specific construction; M5 is its late example consumer. H0 refines the D5 rational data, so M5 does not create a third rational datum either. No Siegel, unitary or nonprincipal test is deleted."
+    },
+    "PELModuli:M6": {
+      "action": "narrow",
+      "suppliedBy": [
+        "PELModuli:M1",
+        "PELModuli:M2"
+      ],
+      "keeps": "Import M1's actual moduli fibered category and M2's rigidified algebraic space and fine-level universal abelian scheme. Retain construction and algebraicity of the moduli stack at arbitrary nonrigidifying level from that common category and its proved presentations; M2 retaining a stack formulation is not by itself this theorem. Retain all arithmetic work: rigidifying-level and rational-family comparisons, the obstruction separating rational coarse points from rational families, construction and comparison of the universal Hodge line from the imported family, and the map-level exports to R35.5 and R28.1. Retain explicit nonempty Siegel and unitary examples with nonprincipal polarization. Work at the early algebraic-space/stack level; the integral scheme/quasi-projective realization consumes the later C5 result only in that suffix. Do not attribute a Hodge-line theorem to M2 merely because M2 constructs the abelian family, and do not promote untwisted nonemptiness into H6's twisted prescribed-local-point theorem.",
+      "reason": "The rigidified moduli-object and fine-level universal-family construction is repeated inside the family and has the more foundational owner M1/M2. Arbitrary-level stack algebraicity, the Hodge-line and rational descent statements are genuine M6 outputs and must survive the narrowing; later height finiteness is still a consumer theorem."
+    }
+  },
+  "links": [
+    {
+      "source": "ShimuraData:D5",
+      "target": "HilbertModularVarietiesAndShimuraCurves:H1",
+      "reason": "Supply the rational Hilbert datum, its embedding and reflex field formerly restated in H0; H1 uses these exact objects in its polarization-module PEL realization."
+    },
+    {
+      "source": "PELModuli:M0",
+      "target": "HilbertModularVarietiesAndShimuraCurves:H1",
+      "reason": "Supply the generic PEL datum and full determinant condition for H1's trace-pairing real-multiplication instance."
+    },
+    {
+      "source": "PELModuli:M1",
+      "target": "HilbertModularVarietiesAndShimuraCurves:H1",
+      "reason": "Supply the common fibered moduli and level/descent functors; H1 adds the polarization-module specialization and its comparison maps."
+    },
+    {
+      "source": "PELModuli:M2",
+      "target": "HilbertModularVarietiesAndShimuraCurves:H1",
+      "reason": "Supply representability and the fine-level universal abelian family after H1 verifies the stated good-prime and level hypotheses."
+    },
+    {
+      "source": "PELModuli:M0",
+      "target": "HilbertModularVarietiesAndShimuraCurves:H2",
+      "reason": "Keep the generic datum and determinant input visible to H2 after H1 imports it; H2 separately proves the ramified local-model assertions."
+    },
+    {
+      "source": "PELModuli:M1",
+      "target": "HilbertModularVarietiesAndShimuraCurves:H2",
+      "reason": "Supply the underlying PEL moduli/descent and permitted level functors imported through H1; no full p-level integral trivialization is inferred."
+    },
+    {
+      "source": "PELModuli:M3",
+      "target": "HilbertModularVarietiesAndShimuraCurves:H2",
+      "reason": "Supply the generic-fiber complex/adelic comparison imported through H1, on its correct components; H2 adds the integral model and locus comparisons."
+    },
+    {
+      "source": "PELModuli:M1",
+      "target": "HilbertModularVarietiesAndShimuraCurves:H4",
+      "reason": "Supply generic prime-to-p and characteristic-zero full-level structures; H4 constructs the geometric/intermediate/arithmetic Hilbert comparisons and effective actions."
+    },
+    {
+      "source": "ShimuraData:D5",
+      "target": "PELModuli:M5",
+      "reason": "Supply the existing rational Hilbert data and rational symplectic embedding for the Hilbert example, not a new M5 datum."
+    },
+    {
+      "source": "HilbertModularVarietiesAndShimuraCurves:H0",
+      "target": "PELModuli:M5",
+      "reason": "Supply the integral trace-lattice and different comparison refining D5 for the Hilbert example."
+    },
+    {
+      "source": "HilbertModularVarietiesAndShimuraCurves:H1",
+      "target": "PELModuli:M5",
+      "reason": "Supply the actual polarization-module trace-pairing PEL instance and Hilbert moduli functor; M5 tests this construction instead of supplying it backwards."
+    },
+    {
+      "source": "PELModuli:M1",
+      "target": "ArakelovGeometryAndAbelianHeights:R35.5",
+      "reason": "After M6 imports the moduli category, supply its actual polarization and rigidifying-level object to the height construction; M6 still supplies the Hodge-line/rational-family comparison."
+    },
+    {
+      "source": "PELModuli:M1",
+      "target": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+      "reason": "Supply the moduli and level functors formerly restated in M6, for the conversion of bounded moduli points into arithmetic isomorphism classes."
+    },
+    {
+      "source": "PELModuli:M2",
+      "target": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+      "reason": "Supply the fine-level representing object and universal abelian family formerly restated in M6. The arithmetic descent obstruction remains M6 and the height/finiteness argument remains R28.1."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Rational Hilbert G/G* Shimura data, datum morphism, reflex fields and rational symplectic embedding",
+      "owner": "ShimuraData:D5",
+      "formerly": [
+        "HilbertModularVarietiesAndShimuraCurves:H0",
+        "PELModuli:M5"
+      ]
+    },
+    {
+      "target": "Generic integral/rational PEL datum and determinant-characteristic-polynomial condition",
+      "owner": "PELModuli:M0",
+      "formerly": [
+        "HilbertModularVarietiesAndShimuraCurves:H1"
+      ]
+    },
+    {
+      "target": "Generic PEL fibered moduli, descent and level functors in their stated integral/characteristic-zero categories",
+      "owner": "PELModuli:M1",
+      "formerly": [
+        "HilbertModularVarietiesAndShimuraCurves:H1",
+        "HilbertModularVarietiesAndShimuraCurves:H4",
+        "PELModuli:M6"
+      ]
+    },
+    {
+      "target": "Rigidified PEL algebraic-space representability and good-prime deformation/smoothness theorem",
+      "owner": "PELModuli:M2",
+      "formerly": [
+        "HilbertModularVarietiesAndShimuraCurves:H1",
+        "HilbertModularVarietiesAndShimuraCurves:H2",
+        "PELModuli:M6"
+      ]
+    },
+    {
+      "target": "Universal abelian family on the proved fine PEL moduli object",
+      "owner": "PELModuli:M2",
+      "formerly": [
+        "PELModuli:M6"
+      ]
+    },
+    {
+      "target": "Generic complex/adelic PEL comparison with its connected-component and Hasse-principle conditions",
+      "owner": "PELModuli:M3",
+      "formerly": [
+        "HilbertModularVarietiesAndShimuraCurves:H1"
+      ]
+    },
+    {
+      "target": "Integral Hilbert trace-lattice and different refinement of the existing rational symplectic embedding",
+      "owner": "HilbertModularVarietiesAndShimuraCurves:H0",
+      "formerly": [
+        "PELModuli:M5"
+      ]
+    },
+    {
+      "target": "Polarization-module-specific trace-pairing PEL instance and Hilbert-Blumenthal moduli specialization",
+      "owner": "HilbertModularVarietiesAndShimuraCurves:H1",
+      "formerly": [
+        "PELModuli:M5"
+      ]
+    },
+    {
+      "target": "Normalization and its finiteness/normality/flatness package for higher p-level covers over a chosen good PEL base",
+      "owner": "PELModuli:M4",
+      "formerly": [
+        "HilbertModularVarietiesAndShimuraCurves:H2"
+      ]
+    }
+  ]
+}
