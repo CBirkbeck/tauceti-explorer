@@ -686,7 +686,7 @@
       "statement": "There is no Enriques family over Z; equivalently M_Enr(Z) is empty.",
       "locator": "Theorem5.1, p14; proof §15, pp49–50",
       "status": "missing",
-      "note": "Final target, not a formalized theorem. Proof closure remains partial at the canonical-cover comparison and prerequisite proofs."
+      "note": "Depends on the repaired Proposition5.5 chain /63, Fontaine /147–/148, the exceptional lifting input /48, and the full finite-field endpoint /146. Recursive source closure remains partial."
     },
     {
       "id": "PAPER-SCHROER-23/48",
@@ -874,16 +874,16 @@
       "statement": "Every Enriques family over Z has constant full Picard scheme.",
       "locator": "Proposition5.5, pp15–16",
       "status": "missing",
-      "note": "The source's comparison of the two canonical K3 covers is retained as an unverified obligation; see separate gap item."
+      "note": "Use /63’s four-twist repair and local scheme models before invoking Fontaine. Num constancy is established first from /180–/181; it does not depend on /62. Once μ₂ is excluded, finite étale Z/2-torsors above each numerical basis vector split over Z."
     },
     {
       "id": "PAPER-SCHROER-23/63",
       "kind": "theorem",
       "name": "Canonical-cover compatibility at two",
-      "statement": "In the Pic^τ=μ₂ branch of Proposition5.5, justify that a canonical K3 cover over Z[1/2] may be chosen whose generic fiber acquires the canonical smooth cover of Y over W(F₂bar), while retaining good reduction at every odd prime.",
+      "statement": "If Y/Z is an Enriques family with Pic^τ=μ₂, then for any canonical double cover X of Y over Z[1/2], one of its twists by1,−1,2,−2 has a generic K3 fiber admitting a smooth proper projective scheme model over Z_p for every prime p. In particular it has the required good reduction over W(F₂bar) at2.",
       "locator": "Proposition5.5 proof, p16",
       "status": "missing",
-      "note": "Unverified comparison/twisting obligation, not a proved counterexample and not an assertion that arbitrary local and global torsors coincide. Deliberately unrouted pending proof."
+      "note": "Previously unverified comparison now has an explicit mathematical proof in the report, assembled from /172–/188 and /54–/60,/79–/80. Choose a Z₂-cover first, correct its Q₂-difference by the globally supported twist, and extend the residual unramified class5. The proof is proposed for independent review, not a Lean verification. Arbitrary global and local covers need not coincide."
     },
     {
       "id": "PAPER-SCHROER-23/64",
@@ -1163,7 +1163,8 @@
       "name": "Simple-fiber identification",
       "statement": "Let Y/F₂ be an Enriques surface with constant full Picard scheme, ϕ:Y→P¹ an elliptic fibration, and φ:J→P¹ its relatively minimal Jacobian. If Y_a is simple, J_a≅Y_a over κ(a).",
       "locator": "Proposition9.2, p24",
-      "status": "missing"
+      "status": "missing",
+      "note": "For the smooth-locus point in Proposition9.2, distinguish tree-shaped additive fibers (choose a multiplicity-one terminal component) from I_n cycles. A cycle has no terminal component; choose any component and remove its at most two intersection points. Over F₂ a rational P¹ still has a smooth point. Nonsplit I₁/I₂ use their conductor descriptions. This is a proof clarification, not a new fiber-isomorphism assertion."
     },
     {
       "id": "PAPER-SCHROER-23/90",
@@ -1567,7 +1568,8 @@
       "name": "Six I₄* half-fiber incidence cases",
       "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. If a simple I₄* fiber has components C₀,C₁ meeting C₂, chain C₂—C₃—C₄—C₅—C₆, and C₇,C₈ meeting C₆, then a half-fiber F of a partner fibration with F·(I₄* fiber)=2 has, up to graph symmetry, one of: F·C₂=1; F·C₃=1; F·C₄=1; F·C₀=F·C₁=1; F·C₀=F·C₈=1; F·C₀=2; unspecified intersections are0.",
       "locator": "Proposition12.1 proof, pp38–40",
-      "status": "missing"
+      "status": "missing",
+      "note": "The report’s exact orbit check enumerates15 nonnegative incidence vectors of weighted degree2 and obtains precisely the six listed graph-symmetry orbits. It does not prove realization or exclusion of those cases."
     },
     {
       "id": "PAPER-SCHROER-23/135",
@@ -1655,7 +1657,7 @@
       "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. For the simple III* component numbering of §13, a half-fiber F of a partner fibration has, up to symmetry, incidences F·C₂=1; or F·C₀=F·C₇=1; or F·C₁=1; or F·C₀=2, with all other intersections0.",
       "locator": "Proposition13.2 proof, pp45–47",
       "status": "missing",
-      "note": "The later auxiliary fibration in the final case has fiber intersection8; it is not the initial intersection4 partner."
+      "note": "The report’s exact orbit check enumerates6 nonnegative incidence vectors of weighted degree2 and obtains precisely the four listed graph-symmetry orbits. The geometric contradiction within each branch still imports the source prerequisites."
     },
     {
       "id": "PAPER-SCHROER-23/145",
@@ -2053,6 +2055,246 @@
           "statement": "A split component graph does not force the two nodes to be k-rational."
         }
       ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/172",
+      "kind": "theorem",
+      "name": "Strong p-adic Hensel lemma",
+      "statement": "Let p be prime, R a commutative semiring with an algebra map to Z_p, F∈R[X], and a∈Z_p. If ||F(a)||<||F′(a)||², there is a root z with ||z−a||<||F′(a)|| and ||F′(z)||=||F′(a)||, unique among roots satisfying that strict distance bound.",
+      "locator": "Mathlib/NumberTheory/Padics/Hensel.lean:461; Conrad Hensel’s Lemma, Theorem4.1",
+      "status": "library",
+      "library": [
+        "mathlib:hensels_lemma"
+      ],
+      "note": "Actual generic coefficient hypotheses and full conclusion read at the pinned Mathlib commit. This does not by itself construct geometric sections of an algebraic space."
+    },
+    {
+      "id": "PAPER-SCHROER-23/173",
+      "kind": "theorem",
+      "name": "Dyadic unit square criterion",
+      "statement": "For u∈Z₂×, u is a square in Q₂ iff u≡1 mod8.",
+      "locator": "Conrad Hensel’s Lemma, Theorem4.5 and proof, p7; supplementary input to Proposition5.5 repair",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group"
+      ],
+      "note": "The layer explicitly plans U(Q₂,3)⊂squares and the sharpness witness5. Necessity is reduction of an odd square modulo8. Reviewed AUDIT-04 says the dyadic result is absent; do not cite the prime-to-residue-characteristic power-subgroup API at p=2."
+    },
+    {
+      "id": "PAPER-SCHROER-23/174",
+      "kind": "theorem",
+      "name": "Eight dyadic square classes in normal form",
+      "statement": "Each c∈Q₂× has a unique square class represented by (−1)^e 2^a 5^b, with e,a,b∈{0,1}.",
+      "locator": "Conrad Theorems3.2,4.5; elementary deduction in this continuation’s cover-comparison proof",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group"
+      ],
+      "note": "Application of the existing layer’s multiplicative-group, dyadic eight-class and deep-unit contracts: valuation parity and odd residue modulo8 give the explicit basis. This basis computation is an application, not a second local-field roadmap."
+    },
+    {
+      "id": "PAPER-SCHROER-23/175",
+      "kind": "construction",
+      "name": "Unramified quadratic correction torsor",
+      "statement": "The Z₂-algebra B=Z₂[z]/(z²−z−1), with involution z↦1−z, defines a finite étale Z/2-torsor. Its generic fiber is Q₂(√5), and its special fiber is F₄.",
+      "locator": "Supplementary dyadic model in the Proposition5.5 repair; LocalFieldsRamification Layer2 worked Q₂(√5) example",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius"
+      ],
+      "note": "Discriminant5 is a unit; modulo2 the polynomial is irreducible and separable. The involution exchanges its roots. This gives an actual integral model; Z₂[s]/(s²−5) is not an étale model.",
+      "api": [
+        "monic quadratic algebra and involution",
+        "generic Kummer identification via 2z−1",
+        "finite-étale torsor identity and residue extension"
+      ],
+      "tests": [
+        {
+          "name": "SCH23_175_1",
+          "kind": "computation",
+          "statement": "Modulo2 neither0 nor1 is a root, and the derivative is1."
+        },
+        {
+          "name": "SCH23_175_2",
+          "kind": "compatibility",
+          "statement": "(2z−1)²=5; base change to W(F₂bar) splits the torsor."
+        },
+        {
+          "name": "SCH23_175_3",
+          "kind": "non-example",
+          "statement": "The polynomial s²−5 has derivative2s and does not present an étale Z₂-algebra."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/176",
+      "kind": "construction",
+      "name": "Canonical-cover twists supported at two",
+      "statement": "Let S=Spec Z[1/2], Y/S an Enriques family with Pic^τ=μ₂, and X→Y a canonical Z/2-cover. For u∈{1,−1,2,−2}, the contracted product X^(u)=(X×_S Spec O_S[s]/(s²−u))/(Z/2) is a canonical finite étale double cover of Y.",
+      "locator": "Proposition5.4 twisting action; explicit construction supplementing Proposition5.5",
+      "status": "missing",
+      "api": [
+        "diagonal quotient with residual Z/2-action",
+        "compatibility with pullback and composition of twists",
+        "preservation of the edge-map canonical-cover class"
+      ],
+      "tests": [
+        {
+          "name": "SCH23_176_1",
+          "kind": "computation",
+          "statement": "u=1 yields the original cover up to isomorphism."
+        },
+        {
+          "name": "SCH23_176_2",
+          "kind": "compatibility",
+          "statement": "Twisting successively by u and v agrees with the uv square class."
+        },
+        {
+          "name": "SCH23_176_3",
+          "kind": "non-example",
+          "statement": "Using u=5 over Z[1/2] introduces ramification at5; it is not one of these globally allowed corrections."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/177",
+      "kind": "theorem",
+      "name": "Canonical cover over Z₂ before Picard constancy",
+      "statement": "If Y/Z is an Enriques family with Pic^τ=μ₂, its restriction to Z₂ has a canonical finite étale double cover X₂→Y_Z₂.",
+      "locator": "Proposition5.5 repair, step1; Corollary7.3 and Proposition5.4(ii)",
+      "status": "missing",
+      "note": "Minkowski first makes Num constant. Corollary7.3 uses Num only and gives25 points on Y_F₂. Smooth henselian lifting gives Y(Z₂)≠∅, so Proposition5.4(ii) applies. Neither full Picard constancy nor Theorem15.1 is used."
+    },
+    {
+      "id": "PAPER-SCHROER-23/178",
+      "kind": "theorem",
+      "name": "Dyadic difference class of canonical covers",
+      "statement": "For two canonical Z/2-covers of the same Enriques surface over Q₂, their difference under the twisting action is a class in H¹(Q₂,Z/2)=Q₂×/Q₂×². In particular this applies to a cover over Z[1/2] and the generic fiber of the cover in /177.",
+      "locator": "Proposition5.4 final assertion; repair of Proposition5.5",
+      "status": "missing",
+      "note": "Identify Z/2 with μ₂ only over Q₂, where2 is invertible. Kummer over Z₂ classifies μ₂-torsors, not all finite étale Z/2-torsors."
+    },
+    {
+      "id": "PAPER-SCHROER-23/179",
+      "kind": "theorem",
+      "name": "Removing the ramified part of the difference",
+      "statement": "Let c∈Q₂×/Q₂×² be a difference class as in /178. Exactly one u∈{1,−1,2,−2} has cu∈{1,5}. Twisting the global cover by u and the Z₂-cover by the trivial torsor or /175, respectively, makes their Q₂-fibers isomorphic.",
+      "locator": "This continuation’s proof of the previously unverified Proposition5.5 comparison",
+      "status": "missing",
+      "note": "If c=(−1)^e2^a5^b, choose u=(−1)^e2^a. Each class has exponent2, so cu=5^b. The remaining class already has a finite étale Z₂-model; no approximation over Frac W(F₂bar) is asserted."
+    },
+    {
+      "id": "PAPER-SCHROER-23/180",
+      "kind": "theorem",
+      "name": "Everywhere unramified number fields have degree one",
+      "statement": "For a number field F, if each nonzero prime ideal q of its ring of integers has ramification index1 over Z, then [F:Q]=1.",
+      "locator": "TauCeti/NumberTheory/NumberField/Inertia.lean:89; arithmetic input used on main-paper p15",
+      "status": "library",
+      "library": [
+        "tauceti:NumberField.finrank_eq_one_of_forall_ramificationIdx_eq_one"
+      ],
+      "note": "Actual statement and hypotheses read at f790474. The scheme-theoretic finite-étale translation remains a separate item /181."
+    },
+    {
+      "id": "PAPER-SCHROER-23/181",
+      "kind": "theorem",
+      "name": "The étale fundamental group of Spec Z is trivial",
+      "statement": "Every connected nonempty finite étale cover of Spec Z is isomorphic to Spec Z; consequently π₁(Spec Z)=1 and every finite-rank locally constant free abelian sheaf on Spec Z is constant.",
+      "locator": "Proposition5.5 first paragraph; deduction from /180 and the finite-étale Galois category",
+      "status": "missing",
+      "note": "A connected finite étale Z-algebra is a normal domain, hence the full ring of integers of its fraction number field; its ramification indices are1. Import /180. This is not already the statement of the number-field declaration."
+    },
+    {
+      "id": "PAPER-SCHROER-23/182",
+      "kind": "theorem",
+      "name": "Picard classes are represented when a section exists",
+      "statement": "Let f:X→B be a morphism of algebraic spaces with a section σ and universally O_T≅f_{T,*}O_{X_T}. For every B-scheme T, the sequence0→Pic(T)→Pic(X_T)→Pic_{X/B}(T)→0 is split exact, with retraction σ_T*.",
+      "locator": "Stacks Lemma99.11.4, https://stacks.math.columbia.edu/tag/0D24; local-projectivity supplement to Proposition5.5",
+      "status": "missing",
+      "note": "Statement and descent proof read. The section rigidifies descent isomorphisms; no vanishing of Br(B) is needed."
+    },
+    {
+      "id": "PAPER-SCHROER-23/183",
+      "kind": "construction",
+      "name": "Lifting twice a numerical class",
+      "statement": "For an exact sequence0→P→Q→N→0 of abelian fppf sheaves with2P=0, multiplication by2 on Q descends uniquely to a map d:N→Q, with projection∘d=[2]_N. Apply this to Pic^τ→Pic→Num of an Enriques family in the Pic^τ=μ₂ branch.",
+      "locator": "Elementary sheaf descent supplement to Proposition5.5, using its exact sequence(3)",
+      "status": "missing",
+      "api": [
+        "unique factorization through the sheaf quotient",
+        "compatibility with base change",
+        "numerical projection equals multiplication by2"
+      ],
+      "tests": [
+        {
+          "name": "SCH23_183_1",
+          "kind": "computation",
+          "statement": "For a split extension P⊕N, d(n)=(0,2n)."
+        },
+        {
+          "name": "SCH23_183_2",
+          "kind": "compatibility",
+          "statement": "Two local lifts differ by P and therefore have the same double."
+        },
+        {
+          "name": "SCH23_183_3",
+          "kind": "non-example",
+          "statement": "d is not a splitting of Q→N: its composite is multiplication by2, not the identity."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/184",
+      "kind": "theorem",
+      "name": "Local projectivity for the excluded μ₂ branch",
+      "statement": "Let R be a noetherian local ring and Y/R an Enriques family with a section, constant Num, and Pic^τ annihilated by2. Then Y is a projective R-scheme. In particular an Enriques family over Z in the Pic^τ=μ₂ branch becomes projective over Z_p for every prime p.",
+      "locator": "This continuation’s local-model supplement to Proposition5.5",
+      "status": "missing",
+      "note": "Lift the numerical class of an ample line bundle on the closed fiber to constant Num(R); /183 and /182 give a line bundle with twice that numerical class. Ampleness on the projective closed surface is invariant under numerical equivalence. /186 spreads ampleness over the local base, so Y is a scheme and projective. For R=Z_p, /79 gives1+10p+p² rational points; /185 supplies the section. No claim that an arbitrary proper algebraic space is projective."
+    },
+    {
+      "id": "PAPER-SCHROER-23/185",
+      "kind": "theorem",
+      "name": "Smooth henselian lifting for the local family",
+      "statement": "Let R be a henselian local ring with residue field k, and X/R a smooth separated algebraic space. Every k-point lifts to an R-point.",
+      "locator": "Stacks Lemma68.11.4 at https://stacks.math.columbia.edu/tag/0EMV and Lemma15.13.3 at https://stacks.math.columbia.edu/tag/0H74",
+      "status": "missing",
+      "note": "A separated space is decent. Choose an affine étale neighborhood with the same residue field at the given point, then apply smooth-algebra lifting for (R,m). Statements and proofs read; this avoids presuming X was a scheme."
+    },
+    {
+      "id": "PAPER-SCHROER-23/186",
+      "kind": "theorem",
+      "name": "Spreading a fiberwise ample line bundle",
+      "statement": "Let f:X→B be a proper algebraic space over a noetherian scheme and L an invertible sheaf. If X_b is a scheme and L_b is ample, some open neighborhood V of b makes X_V a scheme with L_V relatively ample.",
+      "locator": "Stacks Lemma71.15.3, https://stacks.math.columbia.edu/tag/0D3A; general version0D3D",
+      "status": "planned",
+      "planned": [
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "note": "Import the existing relative-ampleness and algebraic-space-descent owners. Read the proof constructing a finite morphism to projective space; ampleness is an essential hypothesis, not a consequence of properness alone."
+    },
+    {
+      "id": "PAPER-SCHROER-23/187",
+      "kind": "theorem",
+      "name": "Finite étale twisting preserves good models",
+      "statement": "Let R be a ring, Y/R smooth proper, G/R finite étale, X→Y a finite étale G-torsor, and T/R a G-torsor, with G commutative. The contracted product X×^G T remains finite étale over Y and smooth proper over R. If Y is projective over R, the contracted product is a projective R-scheme.",
+      "locator": "Effective descent applied to Proposition5.4 twists; finite étale descent and pullback of an ample line bundle",
+      "status": "planned",
+      "planned": [
+        "SchemeAndStackFoundations:SF.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "note": "Descend the finite étale morphism to Y, then pull back Y’s ample line bundle. This is not a claim that arbitrary unpolarized projective varieties descend as projective schemes."
+    },
+    {
+      "id": "PAPER-SCHROER-23/188",
+      "kind": "theorem",
+      "name": "Étale canonical covers are K3 surfaces",
+      "statement": "For an Enriques surface over an algebraically closed field whose canonical-cover Cartier dual G is étale of rank2, its canonical G-torsor is a smooth connected K3 surface. This includes ordinary Enriques surfaces in characteristic2 and all Enriques surfaces in characteristic different from2.",
+      "locator": "Main-paper §4 and Proposition5.5; canonical-cover theorem from the Enriques prerequisites",
+      "status": "missing",
+      "note": "Distinct from /40–/41, which concern the singular K3-like covers in the simply connected characteristic-two cases. The geometric K3 theorem is imported; the original Enriques prerequisite proof remains in the recursive-source gap."
     }
   ],
   "source": {
@@ -2082,9 +2324,65 @@
     "pins": {
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
-    }
+    },
+    "continuation": {
+      "agent": "Codex",
+      "session": "codex-c83e7a",
+      "date": "2026-09-21",
+      "baseCheckpoint": "https://github.com/CBirkbeck/tauceti-explorer/pull/1653",
+      "preservedItemIds": "1–171",
+      "newItemIds": "172–188",
+      "inputCommit": "ef9286e4ee82dee8a7d483c61df782c33c5fa5bc",
+      "readExtent": "Full52-page author paper reread. All diagrams on pages34–38,40–44,46–48 inspected; table/matrix pages14,29,33,41,43 inspected. Fontaine PDF pages2–4 reread visually. Conrad Theorems3.2,4.1,4.5 and the proof of4.5 read; not the full25-page note. Stacks0H74,0EMV Lemma68.11.4,0D24 Lemma99.11.4,0D3A,0D3D read with proofs. Earlier prerequisite reading records belong to codex-a71f92 and are preserved, not claimed as repeated."
+    },
+    "supplementaryFiles": [
+      {
+        "file": "conrad-hensel.pdf",
+        "url": "https://kconrad.math.uconn.edu/blurbs/gradnumthy/hensel.pdf",
+        "sha256": "3243fe15855aa549d42ed96f476bfd9f5241cdeb8d33f72beee33fd2e6bfdebf",
+        "pages": 25,
+        "retrieved": "2026-09-21"
+      },
+      {
+        "file": "fontaine.pdf",
+        "url": "https://www.imo.universite-paris-saclay.fr/~fontaine/Zschemas.pdf",
+        "sha256": "3a0d2b7a95db090438b43a86040d92b748e351a6461257dd083151864f33dc67",
+        "pages": 14,
+        "retrieved": "2026-09-21"
+      },
+      {
+        "file": "0H74.html",
+        "url": "https://stacks.math.columbia.edu/tag/0H74",
+        "sha256": "c1a7efdfe06bb5be77b5cdaa7f9017dd6362bed9023a2720e2d076f3e16dfbeb",
+        "retrieved": "2026-09-21"
+      },
+      {
+        "file": "0EMV.html",
+        "url": "https://stacks.math.columbia.edu/tag/0EMV",
+        "sha256": "c3dc46d45e484afbfd3eba2df739f3f3c518f2efcc82c3f38da93abc0247c9f6",
+        "retrieved": "2026-09-21"
+      },
+      {
+        "file": "0D3A.html",
+        "url": "https://stacks.math.columbia.edu/tag/0D3A",
+        "sha256": "99f65961f087b77df3844af7d92fbbda9c682037936dc1d8c6a12d546bd2e6eb",
+        "retrieved": "2026-09-21"
+      },
+      {
+        "file": "0D3D.html",
+        "url": "https://stacks.math.columbia.edu/tag/0D3D",
+        "sha256": "5dfa96a946a21a62202be9c6a916edf48eb4e67d6ebc9817e88a7c182f17c0b8",
+        "retrieved": "2026-09-21"
+      },
+      {
+        "file": "0D24.html",
+        "url": "https://stacks.math.columbia.edu/tag/0D24",
+        "sha256": "d0d28a2cc8b6be6b6d0874c36e7ce653c25484bb337af1b67253eb6c71c2e3e7",
+        "retrieved": "2026-09-21"
+      }
+    ]
   },
-  "summary": "Partial source-qualified extraction:171 items (13 library,3 planned,155 missing), with154 missing items assigned exactly once to six routes and one explicit unresolved canonical-cover comparison. The paper excludes Enriques families over Z via constant Picard descent, an exceptional-fiber lifting obstruction, classification of rational Jacobian fibrations over F₂, and lattice/curve-configuration exclusions. Existing integral-lattice APIs are imported, not replanned. The entire public main paper was read, but prerequisite proof closure, several diagrams/case interiors, and the cover compatibility step remain unfinished; no complete extraction or formalization claim.",
+  "summary": "Partial continuation of the merged checkpoint: 188 stable items (15 library, 8 planned, 165 missing), every missing item assigned exactly once to nine routes. Adds an explicit four-twist repair of canonical-cover compatibility at2, projective local-model justification,17 atomic inputs, and dyadic/graph-incidence checks. Imports the built Minkowski and Hensel theorems. Full main paper and all displayed configuration diagrams read; recursive prerequisite and geometric case closure remains incomplete. No formalization claim.",
   "routes": [
     {
       "route": "part-ii",
@@ -2104,10 +2402,11 @@
         "PAPER-SCHROER-23/9",
         "PAPER-SCHROER-23/10",
         "PAPER-SCHROER-23/11",
-        "PAPER-SCHROER-23/12"
+        "PAPER-SCHROER-23/12",
+        "PAPER-SCHROER-23/183"
       ],
       "reason": "A0-extension supplies relative Pic⁰ representability for arithmetic applications, not the numerical Picard local system of arbitrary proper schemes or descent of contractions. This extends that direction without rebuilding Picard representability.",
-      "brief": "Start from Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry), especially A0-extension, and Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations:SF.1,SF.2,SF.5). Construct Pic^τ and Num for arbitrary proper schemes over a field, including nonreduced and disconnected schemes; expose geometric base change, Galois action, numerical equivalence, torsion obstructions and norm maps. Prove the positive-power descent criterion with a numerically trivial twist, then Theorem1.3: constant Num descends geometric contractions with projective target; treat purely inseparable descent separately without the constantness assumption. Prove Theorem2.1 for contractions of smooth proper surfaces: component-graph descent, the geometrically-reduced edge-label assertion, and pure inseparability of residue fields of reducible fibers. Import surface intersections, not their reconstruction. Give each definition an API and at least three tests; include P¹_C/R with permuted numerical components, d=0 as a forbidden criterion, and projectivity versus arbitrary proper targets. The Enriques roadmap consumes these general theorems; it must not own a duplicate Picard theory."
+      "brief": "Start from Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry), especially A0-extension, and Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations:SF.1,SF.2,SF.5). Construct Pic^τ and Num for arbitrary proper schemes over a field, including nonreduced and disconnected schemes; expose geometric base change, Galois action, numerical equivalence, torsion obstructions and norm maps. Prove the positive-power descent criterion with a numerically trivial twist, then Theorem1.3: constant Num descends geometric contractions with projective target; treat purely inseparable descent separately without the constantness assumption. Prove Theorem2.1 for contractions of smooth proper surfaces: component-graph descent, the geometrically-reduced edge-label assertion, and pure inseparability of residue fields of reducible fibers. Import surface intersections, not their reconstruction. Give each definition an API and at least three tests; include P¹_C/R with permuted numerical components, d=0 as a forbidden criterion, and projectivity versus arbitrary proper targets. The Enriques roadmap consumes these general theorems; it must not own a duplicate Picard theory. Add the killed-by-two numerical-class lift /183 as a sheaf-quotient construction. Import rigidified Picard descent from A0-extension and relative ampleness from R09.1/R09.3; the Enriques consumer owns the local-projectivity application."
     },
     {
       "route": "part-ii",
@@ -2183,7 +2482,7 @@
         "PAPER-SCHROER-23/148"
       ],
       "reason": "R25.3 is explicitly the everywhere-good-reduction obstruction for abelian varieties. A K3 application needs Fontaine1993's higher-cohomology Hodge-vanishing theorem, not an enlargement by analogy.",
-      "brief": "Begin beyond Small ramification and the base cases for Serre modularity (SmallRamificationAndAbelianVarietyBaseCases:R25.1–R25.3), importing its discriminant and ramification methods. Import Finite flat group schemes and integral p-adic Hodge theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1,R07.3,R07.6) and the atlas's p-adic comparison owners rather than recreating their group schemes or comparison functors. Acquire and decompose Fontaine1993 completely. The precise endpoint is: for proper smooth X/Q with good reduction over W(F_pbar) at every prime p, H^j(X,Ω_X^i)=0 for i≠j and i+j≤3. Retain the first remark after Theorem1, which permits these local unramified models; a global Z-model hypothesis would not suffice for Schröer's proof as written. Derive the K3 obstruction from h^{2,0}=1. Keep construction of canonical Enriques covers and their twisting/comparison in the Enriques consumer, not here. Test the strict degree bound, a smooth projective-space example, and the difference between potentially good reduction after ramification and good reduction over the specified Witt ring. State all torsion-crystalline and small-ramification ranges, especially at2; do not apply e<p−1 dyadically."
+      "brief": "Begin beyond Small ramification and the base cases for Serre modularity (SmallRamificationAndAbelianVarietyBaseCases:R25.1–R25.3), importing its discriminant and ramification methods. Import Finite flat group schemes and integral p-adic Hodge theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1,R07.3,R07.6) and the atlas's p-adic comparison owners rather than recreating their group schemes or comparison functors. Acquire and decompose Fontaine1993 completely. The precise endpoint is: for proper smooth X/Q with good reduction over W(F_pbar) at every prime p, H^j(X,Ω_X^i)=0 for i≠j and i+j≤3. Retain the first remark after Theorem1, which permits these local unramified models; a global Z-model hypothesis would not suffice for Schröer's proof as written. Derive the K3 obstruction from h^{2,0}=1. Keep construction of canonical Enriques covers and their twisting/comparison in the Enriques consumer, not here. Test the strict degree bound, a smooth projective-space example, and the difference between potentially good reduction after ramification and good reduction over the specified Witt ring. State all torsion-crystalline and small-ramification ranges, especially at2; do not apply e<p−1 dyadically. This consumer now supplies projective scheme models over each Z_p in /63, which meets Fontaine Theorem1 directly; retain remark(a) as the more general source contract."
     },
     {
       "route": "source",
@@ -2298,10 +2597,50 @@
         "PAPER-SCHROER-23/145",
         "PAPER-SCHROER-23/146",
         "PAPER-SCHROER-23/149",
-        "PAPER-SCHROER-23/150"
+        "PAPER-SCHROER-23/150",
+        "PAPER-SCHROER-23/63",
+        "PAPER-SCHROER-23/176",
+        "PAPER-SCHROER-23/177",
+        "PAPER-SCHROER-23/178",
+        "PAPER-SCHROER-23/179",
+        "PAPER-SCHROER-23/184",
+        "PAPER-SCHROER-23/188"
       ],
       "reason": "Catalogue-wide searches found no Enriques-surface or characteristic-two Enriques nonexistence direction. General Picard theory, finite-flat groups, point counting, genus-one surfaces, low-degree Hodge obstruction, and abstract lattices have separate suppliers.",
-      "brief": "Construct Enriques surfaces and flat proper finitely presented algebraic-space families, not only scheme families. Final endpoints are Schröer5.1, no Enriques family over Z, and15.1, no nonexceptional Enriques surface over F₂ with constant FULL Picard scheme. Import NumericalPicardAndContractionDescent for general descent; GenusOneFibrationsAndRationalEllipticSurfaces for Jacobians, Kodaira types and the11-model classification; EverywhereGoodReductionAndLowDegreeHodgeNumbers for Fontaine's K3 obstruction; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1 for Oort–Tate; WeilConjectures:WC.7 for point counts; SchemeAndStackFoundations:SF.4–SF.5 for deformation and intersection foundations; and the BUILT tauceti:Completed/IntegralLattices for discriminant forms and overlattices. Cover the three characteristic-two types, canonical torsors and twists, conductrix/exceptionality, the no-W₂-lift input, and constant-Picard descent of line bundles, rational (-2)-curves and genus-one fibrations. Prove the geometric Num≅U⊕E₈(-1) comparison rather than rebuilding E₈. Resolve the currently unrouted canonical-cover compatibility obligation before accepting Proposition5.5 or assembling5.1. Descend Mordell–Weil sections using Tsen only over algebraically closed constants. Preserve the integral two-section branch of square0 as well as−2; use the current v3 proof and its lattice matrices, not the superseded two-section argument. Prove all15→8→0 configuration reductions, both ten-curve exclusions, simple and multiple III* separately, and Proposition14.1 over arbitrary algebraically closed fields. Acquire Ekedahl–Shepherd-Barron, Cossec–Dolgachev and Lang's reducibility theorem before dependency closure. Every definition gets consumer-driven API, tests and a suggested Lean signature; formalization is a future design/implementation task."
+      "brief": "Construct Enriques surfaces and flat proper finitely presented algebraic-space families, not only scheme families. Final endpoints are Schröer5.1, no Enriques family over Z, and15.1, no nonexceptional Enriques surface over F₂ with constant FULL Picard scheme. Import NumericalPicardAndContractionDescent for general descent; GenusOneFibrationsAndRationalEllipticSurfaces for Jacobians, Kodaira types and the11-model classification; EverywhereGoodReductionAndLowDegreeHodgeNumbers for Fontaine's K3 obstruction; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1 for Oort–Tate; WeilConjectures:WC.7 for point counts; SchemeAndStackFoundations:SF.4–SF.5 for deformation and intersection foundations; and the BUILT tauceti:Completed/IntegralLattices for discriminant forms and overlattices. Cover the three characteristic-two types, canonical torsors and twists, conductrix/exceptionality, the no-W₂-lift input, and constant-Picard descent of line bundles, rational (-2)-curves and genus-one fibrations. Prove the geometric Num≅U⊕E₈(-1) comparison rather than rebuilding E₈. Implement the explicit four-twist comparison in item /63 before assembling Proposition5.5 or5.1: use Num-only finite-field counts and henselian lifting to obtain a cover over Z₂; express the Q₂ difference as (−1)^e2^a5^b; twist over Z[1/2] by (−1)^e2^a and over Z₂ by the étale model of5^b. Supply the projective scheme models via /182–/186 before applying Fontaine. Import local-field Layers1–2 and the existing strong Hensel declaration, not a second local-field theory. Descend Mordell–Weil sections using Tsen only over algebraically closed constants. Preserve the integral two-section branch of square0 as well as−2; use the current v3 proof and its lattice matrices, not the superseded two-section argument. Prove all15→8→0 configuration reductions, both ten-curve exclusions, simple and multiple III* separately, and Proposition14.1 over arbitrary algebraically closed fields. Acquire Ekedahl–Shepherd-Barron, Cossec–Dolgachev and Lang's reducibility theorem before dependency closure. Every definition gets consumer-driven API, tests and a suggested Lean signature; formalization is a future design/implementation task."
+    },
+    {
+      "route": "source",
+      "roadmap": "InverseGaloisAndArithmeticFundamentalGroups",
+      "stages": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0"
+      ],
+      "items": [
+        "PAPER-SCHROER-23/181"
+      ],
+      "reason": "A concrete finite-étale Galois-category application, importing the built number-field Minkowski declaration /180. No new discriminant proof or second fundamental-group construction."
+    },
+    {
+      "route": "source",
+      "roadmap": "AlgebraicModuliForArithmeticGeometry",
+      "stages": [
+        "AlgebraicModuliForArithmeticGeometry:A0-extension"
+      ],
+      "items": [
+        "PAPER-SCHROER-23/182"
+      ],
+      "reason": "Source-qualified rigidification and representation of Picard classes for algebraic spaces with a section. This supplies the existing higher-dimensional Picard direction; it does not create another Picard functor."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "items": [
+        "PAPER-SCHROER-23/185"
+      ],
+      "reason": "A concrete henselian section-lifting consequence for smooth separated algebraic spaces using a residue-preserving étale scheme chart. Import smooth algebra Hensel lifting, not the p-adic polynomial lemma as a geometric substitute."
     }
   ],
   "prerequisites": [
@@ -2349,13 +2688,18 @@
       "citation": "Liu–Lorenzini–Raynaud, Corrigendum…, Invent. Math.214(2018),593–604.",
       "link": "https://www.math.u-bordeaux.fr/~qliu/articles/CorrigendumToNeronModelsLieAlg.pdf",
       "why": "Introduction and corrected statements read: Pic⁰(C) need not equal Jac(C)(K) over finite-field function fields, and §4 formulas acquire a correction factor. No correction to Theorem6.6 is stated there. SHA256d2afb75093c7b97fcc146f326e572ad1c195811182b3eb371e0cccc45106273f."
+    },
+    {
+      "citation": "K. Conrad, Hensel’s Lemma, Theorems3.2,4.1,4.5; Stacks Project0H74,0EMV,0D24,0D3A,0D3D.",
+      "link": "https://kconrad.math.uconn.edu/blurbs/gradnumthy/hensel.pdf",
+      "why": "Precise supplementary inputs to the four-twist repair; selected statements/proofs read. Strong polynomial Hensel is already implemented at the Mathlib pin; the geometric algebraic-space interfaces are not. Hashes/extent are in source. This is a supplement to the worker proof, not an assertion these sources were cited by Schröer."
     }
   ],
   "coverageGaps": [
-    "One deliberately unrouted item: canonical-cover compatibility in Proposition5.5. The global-to-local twist comparison has not been proved or disproved.",
+    "The canonical-cover comparison has a concrete four-twist proof with all its newly exposed inputs recorded, but this mathematical repair, local projectivity argument and existing /94,/97 repairs require independent review; none is claimed formalized.",
     "Recursive prerequisite closure remains incomplete: Lang2000 classification, Enriques Reducibility Theorem, Ekedahl–Shepherd-Barron TheoremA, full Fontaine1993 proof, full Oort–Tate classification and Deligne–Illusie obstruction construction.",
-    "Named main-paper results are represented, but not every unnamed construction/proof dependency is yet an atomic item. In particular spell out genus-one/quasielliptic model construction, tame/wild criterion, Minkowski π₁(Spec Z), Brauer(Z)=0 and the source-qualified cohomology comparison APIs.",
-    "All main text was read; selected diagrams/matrices were visually checked. Independently validate every remaining graph and the detailed contradiction branches in §§11–14.",
+    "Unnamed construction/proof dependencies still need atomic extraction beyond this continuation’s17 additions. In particular genus-one/quasielliptic model existence, tame/wild criterion, cohomological Brauer(Z)=0 and remaining source-qualified comparison suppliers are not all closed.",
+    "All main text and all displayed diagrams in §§11–14 have now been read/visually inspected. Exact graph multiplicities and the six/four incidence orbit lists were checked. This does not close all geometric case interiors or the unread prerequisite theorems behind the configuration reductions.",
     "Obtain the published63-page version before attributing any preprint precision issue to the published article."
   ]
 }
