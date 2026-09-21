@@ -1654,7 +1654,8 @@
    ],
    "avoidAccountOf": "PAPER-BENNETT-SIKSEK-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-BENNETT-SIKSEK-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1120"
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20",
@@ -5018,8 +5019,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1332"
+   "state": "pending",
+   "note": "released on GitHub issue #1332"
   },
   {
    "id": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18",
