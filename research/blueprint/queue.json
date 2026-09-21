@@ -873,7 +873,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_EllipticCurves",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #81"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_AdicSpaces",
@@ -2182,7 +2183,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_Multiquadratic",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #118"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
