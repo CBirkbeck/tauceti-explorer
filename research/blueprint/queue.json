@@ -15374,8 +15374,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-11.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #891"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #891",
+   "finishedAt": "2026-09-21T15:05:58Z"
   },
   {
    "id": "PLANETS-12",
