@@ -1,6 +1,163 @@
 {
  "version": 2,
- "purpose": "Subject galaxies of the atlas. Each classification cluster is its own galaxy; a galaxy with primaryMsc takes only the roadmaps of its cluster whose primary subject class starts with one of those prefixes, and the galaxy without primaryMsc takes the rest of that cluster. Where a galaxy lies on the map is measured, not set here: its distance from Mathlib and its direction come from scripts/measure_distances.py (data/roadmap-distances.json and data/galaxy-layout.json). msc lists the subject-class prefixes whose secondary classes tag a roadmap with this galaxy; the longest matching prefix wins.",
+ "purpose": "Subject fields and their areas. The map's labels sit at one level of abstraction: zoomed out it names fields (algebraic number theory, algebraic geometry, analysis, ...), and zooming into a field reveals its areas. Each area (a galaxy on the map) belongs to one field and takes its colour; the only area of a field with roadmaps is named after the field. Each classification cluster is its own area; an area with primaryMsc takes only the roadmaps of its cluster whose primary subject class starts with one of those prefixes, and the area without primaryMsc takes the rest of that cluster. Where an area lies on the map is measured, not set here: its distance from Mathlib and its direction come from scripts/measure_distances.py (data/roadmap-distances.json and data/galaxy-layout.json), which keeps a field's areas side by side. msc lists the subject-class prefixes whose secondary classes tag a roadmap with this area; the longest matching prefix wins.",
+ "fields": [
+  {
+   "id": "algebraic-number-theory",
+   "label": "Algebraic number theory",
+   "short": "Algebraic NT",
+   "caption": [
+    "Algebraic",
+    "number theory"
+   ],
+   "color": "#cfe3fb"
+  },
+  {
+   "id": "analytic-number-theory",
+   "label": "Analytic number theory",
+   "short": "Analytic NT",
+   "caption": [
+    "Analytic",
+    "number theory"
+   ],
+   "color": "#dbeafe"
+  },
+  {
+   "id": "elementary-number-theory",
+   "label": "Elementary and computational number theory",
+   "short": "Elementary NT",
+   "caption": [
+    "Elementary & computational",
+    "number theory"
+   ],
+   "color": "#dbeafe"
+  },
+  {
+   "id": "algebraic-geometry",
+   "label": "Algebraic geometry",
+   "short": "Alg. geometry",
+   "caption": [
+    "Algebraic",
+    "geometry"
+   ],
+   "color": "#e0f2e9"
+  },
+  {
+   "id": "k-theory",
+   "label": "Algebraic K-theory and motives",
+   "short": "K-theory & motives",
+   "caption": [
+    "Algebraic K-theory",
+    "& motives"
+   ],
+   "color": "#fce7f3"
+  },
+  {
+   "id": "representation-theory",
+   "label": "Representation theory",
+   "short": "Representations",
+   "caption": [
+    "Representation",
+    "theory"
+   ],
+   "color": "#e7dcfa"
+  },
+  {
+   "id": "group-theory",
+   "label": "Group theory",
+   "short": "Group theory",
+   "caption": [
+    "Group theory"
+   ],
+   "color": "#dcd4f5"
+  },
+  {
+   "id": "commutative-algebra",
+   "label": "Commutative algebra",
+   "short": "Comm. algebra",
+   "caption": [
+    "Commutative",
+    "algebra"
+   ],
+   "color": "#dcd4f5"
+  },
+  {
+   "id": "homological-algebra",
+   "label": "Homological algebra and category theory",
+   "short": "Homological algebra",
+   "caption": [
+    "Homological algebra",
+    "& category theory"
+   ],
+   "color": "#e2e8f0"
+  },
+  {
+   "id": "logic",
+   "label": "Logic and model theory",
+   "short": "Logic",
+   "caption": [
+    "Logic &",
+    "model theory"
+   ],
+   "color": "#e2e8f0"
+  },
+  {
+   "id": "foundations",
+   "label": "Library foundations",
+   "short": "Foundations",
+   "caption": [
+    "Library",
+    "foundations"
+   ],
+   "color": "#e2e8f0"
+  },
+  {
+   "id": "analysis",
+   "label": "Analysis",
+   "short": "Analysis",
+   "caption": [
+    "Analysis"
+   ],
+   "color": "#d8eafe"
+  },
+  {
+   "id": "probability",
+   "label": "Probability",
+   "short": "Probability",
+   "caption": [
+    "Probability"
+   ],
+   "color": "#e6f0ff"
+  },
+  {
+   "id": "combinatorics",
+   "label": "Combinatorics",
+   "short": "Combinatorics",
+   "caption": [
+    "Combinatorics"
+   ],
+   "color": "#e6f0ff"
+  },
+  {
+   "id": "topology",
+   "label": "Topology",
+   "short": "Topology",
+   "caption": [
+    "Topology"
+   ],
+   "color": "#d2f1e7"
+  },
+  {
+   "id": "differential-geometry",
+   "label": "Differential geometry",
+   "short": "Diff. geometry",
+   "caption": [
+    "Differential",
+    "geometry"
+   ],
+   "color": "#d2f1e7"
+  }
+ ],
  "galaxies": [
   {
    "id": "elementary",
@@ -10,7 +167,6 @@
     "Elementary",
     "number theory"
    ],
-   "color": "#dbeafe",
    "clusters": [
     "elementary-and-computational-number-theory"
    ],
@@ -24,7 +180,8 @@
     "Arithmetic functions",
     "Integer sequences",
     "Integer polynomials"
-   ]
+   ],
+   "field": "elementary-number-theory"
   },
   {
    "id": "computational",
@@ -34,7 +191,6 @@
     "Computational",
     "number theory"
    ],
-   "color": "#dbeafe",
    "clusters": [
     "elementary-and-computational-number-theory"
    ],
@@ -50,7 +206,8 @@
     "Certified algorithms",
     "Arithmetic databases",
     "Verified computation"
-   ]
+   ],
+   "field": "elementary-number-theory"
   },
   {
    "id": "finitefields",
@@ -59,7 +216,6 @@
    "caption": [
     "Finite fields"
    ],
-   "color": "#dbeafe",
    "clusters": [
     "elementary-and-computational-number-theory"
    ],
@@ -74,7 +230,8 @@
     "Finite fields and finite rings",
     "Character sums",
     "Coding interfaces"
-   ]
+   ],
+   "field": "elementary-number-theory"
   },
   {
    "id": "analytic",
@@ -84,7 +241,6 @@
     "Analytic",
     "number theory"
    ],
-   "color": "#dbeafe",
    "clusters": [
     "analytic-number-theory"
    ],
@@ -104,17 +260,17 @@
     "Circle method",
     "Diophantine approximation",
     "Arithmetic statistics"
-   ]
+   ],
+   "field": "analytic-number-theory"
   },
   {
    "id": "algebraicnt",
-   "label": "Algebraic number theory",
-   "short": "Algebraic NT",
+   "label": "Number fields and class field theory",
+   "short": "Number fields",
    "caption": [
-    "Algebraic",
-    "number theory"
+    "Number fields &",
+    "class field theory"
    ],
-   "color": "#cfe3fb",
    "clusters": [
     "algebraic-number-theory"
    ],
@@ -133,17 +289,17 @@
     "Class field theory",
     "Galois cohomology and duality",
     "Quadratic forms and lattices"
-   ]
+   ],
+   "field": "algebraic-number-theory"
   },
   {
    "id": "arithmeticgeometry",
-   "label": "Arithmetic geometry",
-   "short": "Arith. geometry",
+   "label": "Curves, abelian varieties and Shimura varieties",
+   "short": "Curves & abelian var.",
    "caption": [
-    "Arithmetic",
-    "geometry"
+    "Curves, abelian &",
+    "Shimura varieties"
    ],
-   "color": "#dcfce7",
    "clusters": [
     "arithmetic-geometry"
    ],
@@ -160,7 +316,8 @@
     "Heights and rational points",
     "Modular curves and Shimura varieties",
     "Faltings and anabelian methods"
-   ]
+   ],
+   "field": "algebraic-number-theory"
   },
   {
    "id": "functionfields",
@@ -169,7 +326,6 @@
    "caption": [
     "Function fields"
    ],
-   "color": "#ecfccb",
    "clusters": [
     "function-fields"
    ],
@@ -179,7 +335,8 @@
     "Global function fields",
     "Drinfeld modules and t-motives",
     "Shtukas and function-field Langlands"
-   ]
+   ],
+   "field": "algebraic-number-theory"
   },
   {
    "id": "automorphic",
@@ -189,7 +346,6 @@
     "Modular &",
     "automorphic forms"
    ],
-   "color": "#ffedd5",
    "clusters": [
     "modular-and-automorphic-forms"
    ],
@@ -203,7 +359,8 @@
     "Locally symmetric spaces",
     "p-adic families",
     "q-series and mock modular forms"
-   ]
+   ],
+   "field": "algebraic-number-theory"
   },
   {
    "id": "iwasawa",
@@ -213,7 +370,6 @@
     "Iwasawa theory &",
     "special values"
    ],
-   "color": "#fee2e2",
    "clusters": [
     "iwasawa-theory-and-special-values"
    ],
@@ -225,17 +381,17 @@
     "Main conjectures",
     "Heegner points and Gross–Zagier",
     "BSD and special values"
-   ]
+   ],
+   "field": "algebraic-number-theory"
   },
   {
    "id": "langlands",
-   "label": "Arithmetic Langlands programme",
-   "short": "Arithmetic Langlands",
+   "label": "Galois representations and modularity",
+   "short": "Galois reps",
    "caption": [
-    "Arithmetic",
-    "Langlands programme"
+    "Galois representations",
+    "& modularity"
    ],
-   "color": "#fef3c7",
    "clusters": [
     "galois-representations-and-langlands"
    ],
@@ -247,7 +403,8 @@
     "Modularity lifting",
     "Potential automorphy",
     "p-adic local Langlands"
-   ]
+   ],
+   "field": "algebraic-number-theory"
   },
   {
    "id": "modeltheory",
@@ -256,7 +413,6 @@
    "caption": [
     "Model theory"
    ],
-   "color": "#e2e8f0",
    "clusters": [
     "logic-and-model-theory"
    ],
@@ -269,17 +425,17 @@
     "Definability",
     "Valued fields",
     "Motivic integration"
-   ]
+   ],
+   "field": "logic"
   },
   {
    "id": "algebraicgeometry",
-   "label": "Algebraic geometry",
-   "short": "Alg. geometry",
+   "label": "Schemes, curves and moduli",
+   "short": "Schemes & curves",
    "caption": [
-    "Algebraic",
-    "geometry"
+    "Schemes, curves",
+    "& moduli"
    ],
-   "color": "#e0f2e9",
    "clusters": [
     "algebraic-geometry"
    ],
@@ -292,17 +448,17 @@
     "Curves and Jacobians",
     "Moduli",
     "Hodge structures"
-   ]
+   ],
+   "field": "algebraic-geometry"
   },
   {
    "id": "padic",
-   "label": "p-adic geometry",
+   "label": "p-adic Hodge theory and p-adic geometry",
    "short": "p-adic geometry",
    "caption": [
-    "p-adic",
-    "geometry"
+    "p-adic Hodge theory",
+    "& p-adic geometry"
    ],
-   "color": "#cffafe",
    "clusters": [
     "p-adic-geometry"
    ],
@@ -316,7 +472,8 @@
     "Prismatic cohomology",
     "p-adic Hodge theory",
     "Fargues–Fontaine curve"
-   ]
+   ],
+   "field": "algebraic-number-theory"
   },
   {
    "id": "etale",
@@ -326,7 +483,6 @@
     "Étale",
     "cohomology"
    ],
-   "color": "#d5f5f0",
    "clusters": [
     "etale-and-motivic-cohomology"
    ],
@@ -339,16 +495,17 @@
     "Weights and the Weil conjectures",
     "Vanishing cycles",
     "Perverse sheaves"
-   ]
+   ],
+   "field": "algebraic-geometry"
   },
   {
    "id": "motives",
-   "label": "Motives",
+   "label": "Motives and algebraic cycles",
    "short": "Motives",
    "caption": [
-    "Motives"
+    "Motives &",
+    "algebraic cycles"
    ],
-   "color": "#fce7f3",
    "clusters": [
     "k-theory-and-motives"
    ],
@@ -363,7 +520,8 @@
     "Algebraic cycles",
     "Pure motives",
     "Mixed motives"
-   ]
+   ],
+   "field": "k-theory"
   },
   {
    "id": "ktheory",
@@ -373,7 +531,6 @@
     "Algebraic",
     "K-theory"
    ],
-   "color": "#fce7f3",
    "clusters": [
     "k-theory-and-motives"
    ],
@@ -386,17 +543,17 @@
     "Symbols and Bloch groups",
     "Regulators and polylogarithms",
     "Trace methods"
-   ]
+   ],
+   "field": "k-theory"
   },
   {
    "id": "geomlanglands",
-   "label": "Geometric Langlands",
-   "short": "Geom. Langlands",
+   "label": "Geometrisation of local Langlands",
+   "short": "Local Langlands",
    "caption": [
-    "Geometric",
-    "Langlands"
+    "Geometrisation of",
+    "local Langlands"
    ],
-   "color": "#f3e8ff",
    "clusters": [
     "geometric-langlands"
    ],
@@ -407,7 +564,8 @@
     "Hecke stacks and local shtukas",
     "Geometric Satake",
     "Spectral action"
-   ]
+   ],
+   "field": "algebraic-number-theory"
   },
   {
    "id": "commutative",
@@ -417,7 +575,6 @@
     "Commutative",
     "algebra"
    ],
-   "color": "#dcd4f5",
    "clusters": [
     "commutative-algebra"
    ],
@@ -429,7 +586,8 @@
     "Completions",
     "Deformation and patching algebra",
     "Habiro rings"
-   ]
+   ],
+   "field": "commutative-algebra"
   },
   {
    "id": "grouptheory",
@@ -438,7 +596,6 @@
    "caption": [
     "Group theory"
    ],
-   "color": "#dcd4f5",
    "clusters": [
     "group-theory"
    ],
@@ -449,7 +606,8 @@
    "topics": [
     "Finite simple groups",
     "Profinite and pro-p groups"
-   ]
+   ],
+   "field": "group-theory"
   },
   {
    "id": "representations",
@@ -459,7 +617,6 @@
     "Representation",
     "theory"
    ],
-   "color": "#e7dcfa",
    "clusters": [
     "lie-theory-and-representations"
    ],
@@ -480,7 +637,8 @@
     "Reductive groups",
     "Smooth representations",
     "Quivers and algebras"
-   ]
+   ],
+   "field": "representation-theory"
   },
   {
    "id": "homological",
@@ -490,7 +648,6 @@
     "Homological",
     "algebra"
    ],
-   "color": "#e2e8f0",
    "clusters": [
     "homological-algebra-and-categories"
    ],
@@ -505,7 +662,8 @@
     "DG and A∞ structures",
     "Stable and curved complexes",
     "Grothendieck groups"
-   ]
+   ],
+   "field": "homological-algebra"
   },
   {
    "id": "foundations",
@@ -515,7 +673,6 @@
     "Library",
     "foundations"
    ],
-   "color": "#e2e8f0",
    "clusters": [
     "foundations"
    ],
@@ -528,16 +685,17 @@
     "Shared definitions",
     "Library integration",
     "Proof integrity"
-   ]
+   ],
+   "field": "foundations"
   },
   {
    "id": "analysis",
-   "label": "Analysis",
-   "short": "Analysis",
+   "label": "Complex and functional analysis",
+   "short": "Complex & functional",
    "caption": [
-    "Analysis"
+    "Complex &",
+    "functional analysis"
    ],
-   "color": "#d8eafe",
    "clusters": [
     "analysis"
    ],
@@ -568,7 +726,8 @@
     "Fuchsian groups",
     "Operator semigroups",
     "Optimal transport"
-   ]
+   ],
+   "field": "analysis"
   },
   {
    "id": "pde",
@@ -578,7 +737,6 @@
     "Partial differential",
     "equations"
    ],
-   "color": "#d8eafe",
    "clusters": [
     "pde"
    ],
@@ -590,7 +748,8 @@
     "Sobolev spaces",
     "Elliptic equations",
     "Evolution equations"
-   ]
+   ],
+   "field": "analysis"
   },
   {
    "id": "probability",
@@ -599,7 +758,6 @@
    "caption": [
     "Probability"
    ],
-   "color": "#e6f0ff",
    "clusters": [
     "probability"
    ],
@@ -611,7 +769,8 @@
    "topics": [
     "Distributions",
     "Exchangeability"
-   ]
+   ],
+   "field": "probability"
   },
   {
    "id": "combinatorics",
@@ -620,7 +779,6 @@
    "caption": [
     "Combinatorics"
    ],
-   "color": "#e6f0ff",
    "clusters": [
     "combinatorics"
    ],
@@ -634,7 +792,8 @@
     "Graph limits",
     "Additive combinatorics",
     "Coding theory"
-   ]
+   ],
+   "field": "combinatorics"
   },
   {
    "id": "topology",
@@ -643,7 +802,6 @@
    "caption": [
     "Topology"
    ],
-   "color": "#d2f1e7",
    "clusters": [
     "topology"
    ],
@@ -658,7 +816,8 @@
     "Low-dimensional topology",
     "Heegaard Floer homology",
     "Quantum invariants"
-   ]
+   ],
+   "field": "topology"
   },
   {
    "id": "diffgeom",
@@ -668,7 +827,6 @@
     "Differential",
     "geometry"
    ],
-   "color": "#d2f1e7",
    "clusters": [
     "differential-geometry"
    ],
@@ -681,7 +839,8 @@
    "topics": [
     "Riemannian manifolds",
     "Geodesics"
-   ]
+   ],
+   "field": "differential-geometry"
   }
  ]
 }
