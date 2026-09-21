@@ -1,8 +1,8 @@
 # Bresciani: birational lifting and section specialization
 
-Agent: Codex. Session: `codex-c83e7a`. Issue: #1233. **Partial checkpoint.**
+Agent: Codex. Session: `codex-a71f92`, continuing `codex-c83e7a`. Issue: #1233. **Partial checkpoint.**
 
-The published paper was read completely. The extraction contains 135 items: 4 library, 8 planned and 123 missing. Of the missing items, 120 have exactly one proposed route; three remain unrouted. A false preliminary sentence about affine parabolic curves is the main correctness obstacle. This does **not** establish that the main theorem is false.
+The published paper was read completely by the original worker and reread completely in this continuation. The extraction contains 149 items: 8 library, 8 planned and 133 missing. Of the missing items, 132 have exactly one proposed route; only `/58` remains unrouted. The completion-exactness gap is closed by the replacement proof below; generic gerbe citations are now checked directly. A false preliminary sentence about affine parabolic curves is the main correctness obstacle. This does **not** establish that the main theorem is false.
 
 ## Source
 
@@ -22,7 +22,7 @@ Theorem C equates the ordinary birational section conjecture with existence of s
 
 ## Correctness findings
 
-**Unrouted `/77`: the affine-parabolic assertion is false as printed.** Take `k=Q`, `barX=P1`, and remove the closed point defined by `T²−2`. The resulting X is smooth affine geometrically connected, with genus-zero completion and boundary degree two, hence parabolic. The point `0∈X(Q)` induces a geometric section. Its boundary has no Q-rational point, so there is no cuspidal section under the paper's definition. The projective completion is already split. Schmidt's actual Theorem A gives splitting and rational points, which does not make a deleted degree-two point rational. The claimed trivial parabolic reductions in Lemma 16 and t-b.l.⇒quasi-t-b.l. need a valid replacement argument. No replacement proof is claimed.
+**Routed negative acceptance `/77`: the affine-parabolic assertion is false as printed.** Take `k=Q`, `barX=P1`, and remove the closed point defined by `T²−2`. The resulting X is smooth affine geometrically connected, with genus-zero completion and boundary degree two, hence parabolic. The point `0∈X(Q)` induces a geometric section. Its boundary has no Q-rational point, so there is no cuspidal section under the paper's definition. The projective completion is already split. Schmidt's actual Theorem A gives splitting and rational points, which does not make a deleted degree-two point rational. The claimed trivial parabolic reductions in Lemma 16 and t-b.l.⇒quasi-t-b.l. need a valid replacement argument. No replacement proof is claimed.
 
 **Base change `/26`: use A.23, not A.18.** In the [published 2021 dependency](https://algebraicgeometry.nl/2021-2/2021-2-005.pdf), A.18 (p.262) concerns algebraic separable extensions; A.23 (p.264) concerns arbitrary extensions in characteristic zero for geometrically connected concentrated fibered categories. The latter is needed for `k(t)`. Both published statements were checked.
 
@@ -30,7 +30,7 @@ Theorem C equates the ordinary birational section conjecture with existence of s
 
 **Unrouted `/58`: retain the Albanese torsor.** The proper pointed Jacobian construction does not supply the affine unpointed comparison in Lemma 8. The loop gives a rational gerbe section, hence a neutralization, but its comparison with the generalized Jacobian's Tate module must be constructed. Do not assert a canonical pointed Jacobian gerbe beforehand.
 
-**Unrouted `/29`: completion exactness needs its exact input.** Anderson Proposition5 has not been acquired. The 2007 author version of Grunewald–Jaikin-Zapirain–Zalesskii has surface goodness at Proposition3.6, whereas the published locator cited here is3.7. These facts do not by themselves prove that arbitrary profinite completion preserves exact sequences. Lemma1 also requires the affine/localized-curve base.
+**Replacement proof closes `/29`.** Anderson Proposition5 has not been acquired, and the author/published goodness numbering remains unchecked. Neither is needed for the direct split-extension argument below. IG.1 owns the affine-curve application and imports a new generic completion Part II. No statement about arbitrary left exactness is made.
 
 **Integral versus rational Faltings comparison `/110`.** The coherence argument uses completed integral Hom over a finitely generated field. Existing R28.4 explicitly plans the rational Q_l comparison. The stronger statement is therefore a missing source refinement of that layer, with integral saturation and field-scope obligations.
 
@@ -88,8 +88,135 @@ All downloads are dated 21 September 2026. Only the listed portions count as rea
 | Saïdi–Tyler 1909.12099v3 | pp.1–2,4–5, TheoremC and outline | `0d6f716ec09b02edf64f8d318f821d76cec618417a367449886e11c952ee654f` |
 | Grunewald et al., author 19Oct2007 | Lemma3.3, Proposition3.6 pp.6,8–9 | `7991e01ad4468cd96f5909b47d722e617b71c0c0f98546c3347f88a385104b16` |
 
-Anderson, the exact Stix book passages, Tamagawa's original proposition, Koenigsmann's original theorem and the full Borne–Vistoli gerbe inputs remain source tasks.
+The exact Stix book passages, Tamagawa's original proposition, Koenigsmann's original theorem and the larger prerequisite proof decompositions remain source tasks. Borne–Vistoli Definition3.4 and Propositions3.9–3.11 have now been read directly. Anderson is historical provenance for the original proof, not a dependency of the replacement proof.
 
 ## Validation
 
 The paper checker and intake `check-files` are run on the JSON, this report and the handoff; a custom audit checks IDs, statuses, routes and stage existence. No Lean file was requested or supplied; no Lean compilation was run. Preserve `partial`: these routes are checkpoint proposals, not ready for completed-job review or promotion.
+
+
+## Continuation: split completion and finite gerbe presentations
+
+This section records the new work of session codex-a71f92. Earlier source-ledger entries describe the inherited reading and are not claims that every prerequisite has now been fully reread. All 22 pages of Bresciani's published text, including every proof, were reread in this continuation.
+
+### A direct proof of the completion step
+
+The statement needed for Lemma 1 is considerably narrower than exactness for arbitrary extensions. Work first with abstract groups. Suppose G=N⋊H, where N is finitely generated and H is arbitrary.
+
+1. Given a finite-index subgroup K of N, put n=[N:K]>0. Let C_n be the intersection of **all** index-n subgroups of N. There are only finitely many such subgroups: give N the discrete topology, use abstract finite generation to obtain topological finite generation, and apply the existing positive-index open-subgroup theorem. Thus C_n has finite index, lies in K, and is characteristic because every automorphism permutes the index-n subgroups. In particular it is normal.
+2. H therefore acts on the finite group N/C_n. Let Q_n be the finite image of H in Aut(N/C_n). There is a surjective homomorphism
+   G → (N/C_n)⋊Q_n, (a,h) ↦ (a mod C_n, action(h)).
+   Its restriction to N has kernel C_n. This constructs finite quotients of G whose restriction kernels are cofinal among finite-index subgroups of N.
+3. Consequently the map of completions hat N→hat G is injective. To see this without assuming N residually finite, separate two distinct completion points by a finite quotient N/K, choose C_n≤K, and use the extending quotient from step 2. The compact-to-Hausdorff injection is a topological embedding.
+4. For **any** normal N in G, set L=closure(image(N→hat G)). The quotient hat G/L is profinite and has the universal property of hat(G/N): maps into a profinite P correspond precisely to homomorphisms G→P killing N. Thus the completed quotient map is surjective with kernel L. The compact image of hat N is exactly L. This is right exactness, not injectivity.
+5. Extend the original section H→G to hat H→hat G by the completion universal property. Its composition with the quotient is the identity, checked on the dense unit image. Steps 3–4 identify its closed normal complement with hat N. Conjugation supplies the continuous action of hat H on hat N; the multiplication map gives the topological semidirect-product isomorphism. No independently constructed topology on Aut(hat N) is needed.
+
+In the complex affine-base curve-family application, the base has the homotopy type of a finite wedge of circles. Its fundamental group is free and its second homotopy group vanishes; the fiber group is finitely generated. The homotopy sequence is short exact, and the free quotient splits by choosing preimages of its free generators. This is an **abstract group section**, not a rational or continuous geometric section of the family. Applying the preceding theorem proves the completion step of Lemma 1. Curve topology, local triviality of the family, Riemann existence, descent from C and passage to localized bases remain the separate IG.1 obligations already recorded in /27–/30.
+
+The general theorem assumes neither residual finiteness nor goodness, and does not require H finitely generated. It does require a split extension and finite generation of N. The ordinary profinite completion used here must not be confused with /18's completion by power quotients: for a general abelian group those quotients need not be finite.
+
+### A sharp negative test
+
+Let N be the direct sum of C2 indexed by Z, with basis e_j, and let the shift generate H=Z. Let K be the kernel of the coordinate-zero character N→C2. In any finite quotient of N⋊Z, the image of the shift has some positive finite order t, so e_0 and e_t have the same image. Therefore e_0+e_t is in the restricted kernel but not in K.
+
+No restricted finite-quotient kernel is contained in K. If hat N→hat G were injective, compactness would make it an embedding; the induced profinite topology would then supply such a restricted open neighborhood inside K, a contradiction. Thus completion fails to be injective even for this split extension when finite generation of N is removed. The original abstract inclusion remains injective. Item /146 is this valid negative theorem, not a purported counterexample to the finitely generated result.
+
+### Baseline and ownership
+
+The following actual statements were read at the pins, not inferred from declaration names:
+
+- Tau Ceti Completion.lean: continuousMonoidHomEquiv (39), continuousMonoidHom_ext (66), and the finite quotient coordinate API. The whole file was read; the adjunction uses G and P in the same universe.
+- Tau Ceti Group/Generation.lean: isTopologicallyFinitelyGenerated_of_fg (82).
+- Tau Ceti Group/OpenSubgroup.lean: finite_openSubgroup_index_eq_of_ne_zero (71), including its proof. Unlike the later all-index version, it needs no compactness.
+- Mathlib GroupTheory/Index.lean: finiteIndex_iInf (771).
+- Mathlib FreeGroup/Basic.lean: lift (678), evaluation on generators and uniqueness.
+- Tau Ceti Profinite/Basic.lean: instTotallyDisconnectedSpace for a quotient by a closed normal subgroup (236).
+
+The four inherited library items were rechecked at their actual source statements: fpqc/fppf sites, stack descent, the abelian-variety carrier and compact cofiltered-limit nonemptiness. None supplies arithmetic fundamental gerbes or the section conjecture.
+
+The complete upstream ProfiniteProPGroups document was read. AUDIT-22's Layer0 and Layers3–5 records were inspected. The library already supplies most of Layer0 and the finite-subgroup counts in Layer3; Layer5 discusses continuous profinite extensions, not the new completion-exactness statement. The new route is therefore **Profinite and pro-p groups, Part II: exactness of completion for split extensions**, parent tauceti:TauCetiRoadmap/ProfiniteProPGroups, in the group-theory galaxy. It owns /140–/146 only. Its brief imports the parent first, reuses /136–/139, and exports the theorem to the geometric application /29 in IG.1. It does not re-plan upstream, create a second completion, or take ownership of curve topology. Existing reservations for profinite arithmetic, powers and topological Aut/Out remain untouched.
+
+The full parent AnabelianGeometryAndNonabelianChabauty, AbelianSchemesAndArithmeticModuli and FaltingsFinitenessAndIsogenyTheorems documents were also checked, together with the relevant NC.0, A3–A4 and R28.4 audit rows. The full JacobianChallenge document and the IG/SF/R02 source-owner descriptions were read in this claim/session. A3/A4 do not supply generalized open Jacobians; R28.4's rational comparison does not silently settle the integral/all-prime statement. The existing nine routes otherwise retain their boundaries. Current-main relevant atlas rows were compared with the local baseline at claim time.
+
+### Direct verification of the gerbe input
+
+Borne–Vistoli's published Definition 3.4 defines local fullness by faithful flatness of automorphism-group maps at field-valued objects. Proposition 3.9 gives canonical locally-full/faithful factorization. Proposition 3.10 identifies local fullness with surjectivity of fpqc Isom sheaves and with being a relative gerbe. Its factorization-proof paragraphs have a numbering typo: the argument concerns condition (4). Proposition 3.11 detects local fullness on a cofiltered target presentation, using the filtered colimit of the injective Hopf-algebra maps.
+
+These statements and proofs were read directly. The extraction now separates the relative-gerbe theorem /35, factorization /147, limit detection /148 and finite-image refinement /149. For /149, replace each finite stage by the canonical image of the projection from the profinite gerbe. After a common fpqc neutralizing field extension this is the usual finite-image refinement of a profinite group presentation; the original and refined limits agree. Canonical factorization permits descent. A locally full map of finite étale gerbes is locally B ker(G→H), so is a proper étale relative gerbe. General affine-gerbe theory stays in SF.1.
+
+This does not settle /58: the loop supplies a section neutralizing the abelianized gerbe, but the Galois-equivariant identification of its band with the generalized Jacobian Tate module, and the unpointed Albanese-torsor comparison, still require precise construction/source closure. No rational point of the curve or of the Albanese torsor is inferred from that gerbe section.
+
+### New source ledger
+
+Access date: 21 September 2026.
+
+- [Bekka, arXiv:2305.04803v1](https://arxiv.org/pdf/2305.04803v1), SHA-256 c6bbcc281e33c4d4e90b3f2b53c1975a1243a8cf7e9fb9686a30088192770b17. Read the introduction pp.1–5, Proposition6(ii) with its full proof pp.9–10, and CorollaryC proof §4.1 p.15. CorollaryC independently states the split-completion endpoint. The representation-theoretic proof of TheoremB is not a claimed fully read input: the direct proof above avoids it.
+- [Borne–Vistoli, Fundamental gerbes, published PDF](https://msp.org/ant/2019/13-3/ant-v13-n3-p01-s.pdf), SHA-256 64fca3767f3c6cbd02fbf84f1fb456c7fda30c7bc95ddc8c8c84cd3bd8629111. Read §3's relevant affine-gerbe setup, Lemma3.3, Definition3.4, Remarks3.5–3.7, Definition3.8 and Propositions3.9–3.11 with proofs, pp.537–541. Not a claim to have read all 46 pages.
+- The Stix book's publisher endpoint returned HTML, not the requested PDF. Its table of contents was inspected, but Proposition75 and Lemma259 were not acquired or verified. This remains an explicit source task. No new access to Anderson is claimed.
+
+### Checks and remaining work
+
+The paper checker and an independent structure check are run on the three deliverables. The structure check preserves all 135 inherited IDs, confirms 149 unique items, 8 library/8 planned/133 missing, and exactly one owner for 132 missing items; /58 is the one explicit unrouted item. Ten routes comprise six source routes and four Part II briefs. The full compact finite regression below passed **81,671 exact assertions**. It tests finite formulas only: it is not a proof of the infinite or geometric theorems, and no Lean code was requested, generated or compiled.
+
+The checkpoint stays partial. The nonsplit degree-two boundary in /81 and /96 remains a real proof-repair task; routing the valid /77 counterexample does not discharge it. TheoremA is not claimed disproved. Complete /58, the specified Stix/Tamagawa/Koenigsmann passages, Mattuck's proof and general analytic supplier, and the other prerequisite decomposition before declaring source closure.
+
+Reproduce the finite tests with Python 3:
+
+```python
+"""Exact finite tests for the BR24 replacement proof; no formalization claim."""
+from itertools import permutations, product
+checks = 0
+def check(b):
+    global checks
+    assert b
+    checks += 1
+# Dihedral quotient (Z/m) semidirect C2, with nontrivial inversion.
+for m in range(1, 13):
+    def mul(a,b):
+        x,e=a; y,f=b
+        return ((x+(-1)**e*y)%m,(e+f)%2)
+    elems=list(product(range(m),range(2)))
+    for a,b,c in product(elems,repeat=3):
+        check(mul(mul(a,b),c)==mul(a,mul(b,c)))
+    for n in range(-17,18):
+        for h in range(2):
+            check(((n%m,h)==(0,0)) == (n%m==0 and h==0))
+            for v in range(-9,10):
+                for k in range(2):
+                    check(mul((n%m,h),(v%m,k))==((n+(-1)**h*v)%m,(h+k)%2))
+# All subgroups of S3; core = intersection of every subgroup of the same index.
+G=list(permutations(range(3)))
+one=(0,1,2)
+def compose(a,b): return tuple(a[b[i]] for i in range(3))
+def inv(a): return tuple(a.index(i) for i in range(3))
+subs=[]
+for mask in range(1<<len(G)):
+    S={G[i] for i in range(len(G)) if mask>>i&1}
+    if one in S and all(compose(a,b) in S for a,b in product(S,repeat=2)):
+        subs.append(S)
+check(len(subs)==6)
+for K in subs:
+    n=6//len(K)
+    same=[S for S in subs if 6//len(S)==n]
+    C=set.intersection(*same)
+    check(C<=K)
+    for a in G:
+        check({compose(compose(a,c),inv(a)) for c in C}==C)
+    if n==3: check(C=={one})
+# A non-invariant subgroup cannot be used as an action quotient.
+K={(0,0),(1,0)}
+swap=lambda x:(x[1],x[0])
+check({swap(x) for x in K}!=K)
+# Lamplighter obstruction: a period-t finite quotient identifies e0 and et,
+# while the coordinate-zero map detects e0+et in the infinite direct sum.
+for t in range(1,65):
+    support={0,t}
+    quotient=[0]*t
+    for j in support: quotient[j%t]^=1
+    check(not any(quotient))
+    check((0 in support)==True)
+# Kummer restricted-product warning: all exponents 1 remain nonzero mod 2.
+for size in range(1,65):
+    check(sum(1%2!=0 for _ in range(size))==size)
+print(f"{checks} exact assertions passed")
+```

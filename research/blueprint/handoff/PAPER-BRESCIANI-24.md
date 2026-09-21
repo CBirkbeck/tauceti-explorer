@@ -1,23 +1,26 @@
-# PAPER-BRESCIANI-24 checkpoint
+# PAPER-BRESCIANI-24 continuation checkpoint
 
-Codex, session `codex-c83e7a`, issue #1233, 21 September 2026.
+Codex, session codex-a71f92, issue #1233, 21 September 2026. Continues PR #1634 by codex-c83e7a. Status remains partial.
 
-Complete published paper read, pp.129–150. JSON: 135 items, 4 library, 8 planned, 123 missing; 120 missing items routed once. Report: provenance, exact reading ledger, nine routes and three Part II briefs. No Lean file requested or compiled.
+All 22 published pages were reread. Stable IDs /1–/135 preserved; 149 items now: 8 library, 8 planned, 133 missing. Exactly 132 missing items are routed once; /58 alone remains unrouted. Ten routes: six source, four Part II. No Lean implementation or compilation claimed.
 
-Resume with the three unrouted items:
+## Completed in this continuation
 
-1. **`/77`: false affine-parabolic sentence, p.141.** `X=P1_Q minus V(T²−2)` has `0∈X(Q)` and no rational boundary point, hence geometric sections but no cuspidal sections under the paper's definition. The page was visually checked. Schmidt's actual TheoremA gives a split completion and rational points, not a split boundary. Repair the parabolic steps in Lemma16 (`/81`) and t-b.l.⇒quasi-t-b.l. (`/96`) before completing the general-curve proof of TheoremA. This is not a disproof of TheoremA itself.
-2. **`/29`: exact profinite-completion input.** Acquire Anderson, Topology13(1974),229–239, Proposition5, DOI `10.1016/0040-9383(74)90016-0`. Match its hypotheses to the affine-curve family extension. Verify the author/published numbering bridge for Grunewald–Jaikin-Zapirain–Zalesskii (author2007 Proposition3.6, paper cites published3.7). Completion is not left exact in general. Generic ownership may require an upstream ProfiniteProPGroups continuation; recheck before routing.
-3. **`/58`: unpointed generalized-Jacobian comparison.** Check the Albanese torsor and how the loop-supplied gerbe section neutralizes it. An equivalence after neutralization is not a canonical identification with a pointed Jacobian. This item is excluded from the proposed Jacobian Part II list until verified.
+- Closed /29's completion source gap with a self-contained replacement proof: the affine complex base has free fundamental group, the curve fiber group is finitely generated, and the extension splits abstractly. Characteristic finite-index cores give finite quotient extensions and injectivity of completed kernels. Universal properties give right exactness and extend the splitting.
+- Added /136–/139 as actual baseline suppliers; /140–/146 belong to the new Profinite and pro-p groups, Part II: exactness of completion for split extensions. IG.1 owns the geometric application /29. No residual finiteness/goodness or finite generation of the quotient is assumed.
+- Read Bekka CorollaryC, its proof, and Proposition6(ii) as independent corroboration; the report supplies the full direct proof rather than depending on unread representation theory. Anderson remains unread but is no longer a dependency of this replacement.
+- Directly read Borne–Vistoli Definition3.4 and Propositions3.9–3.11 with proofs. Split /35, /147–/149 into the relative-gerbe criterion, canonical factorization, limit detection and cofinal finite-image presentation, all SF.1.
+- Restated /77 as the valid nonsplit-boundary counterexample and routed it once as a negative acceptance theorem. This DOES NOT repair the downstream parabolic proof.
+- Rechecked all eight library statements, parent scope, and relevant audit rows. Finite regression passed 81,671 assertions; full Python reproduction and source hashes are in the report.
 
-Then finish closure:
+## Resume here
 
-- Read the exact Borne–Vistoli Definition3.4/Propositions3.9–3.10, Stix book Proposition75/Lemma259, Tamagawa Proposition2.8(iv), and Koenigsmann's original input. The main paper's statements have been extracted; originals have not all been audited.
-- Mattuck Theorem7 statement is checked at p.114. Decompose its analytic proof and identify the existing logarithm/formal-group supplier before finalizing the local-points Part II. The finite-index torsion-free subgroup directly gives `/135`.
-- `/110` is an integral/all-prime refinement of R28.4, with finitely-generated-field scope, not already supplied by its rational Q_l target.
-- Recheck full input coverage after repairing the parabolic branch; split remaining multi-part items if needed. Preserve stable IDs.
-- Check for new overlapping submissions. Betts–Stix's period-map design is a different continuation. Generic semiabelian schemes belong to ShimuraCompactifications **C4**, not C3. Néron R11.4's nodal generalized Jacobians are distinct from the smooth affine Albanese construction.
+1. **Parabolic proof repair remains unresolved.** The printed all-affine-parabolic-sections-are-cuspidal sentence fails for P1_Q minus V(T²−2). Repair the nonsplit degree-two-boundary branch of Lemma16 (/81) and the t-b.l.⇒quasi-t-b.l. assertion (/96), without using TheoremA circularly. No disproof of TheoremA is claimed. Passing to a splitting field and calling every section cuspidal does not descend a rational cusp; finite étale covers of a parabolic curve do not automatically become hyperbolic.
+2. **/58 remains the only unrouted item.** Verify the Galois-equivariant band comparison and generalized Albanese torsor. A loop-provided section neutralizes the gerbe; it does not produce x∈X(k) or a point of the Albanese torsor. The proper pointed Jacobian roadmap does not settle this.
+3. Read Stix book Proposition75/Lemma259, Tamagawa Proposition2.8(iv), and Koenigsmann's original theorem. The Stix publisher book PDF attempt returned HTML; do not report that file as a book PDF.
+4. Finish Mattuck's analytic proof decomposition and exact existing logarithm/formal-group ownership. The inherited Theorem7 statement at p.114 and its finite-torsion consequence were checked, not the full proof.
+5. Complete the other inherited source decompositions and final full coverage audit. Keep the integral/all-prime Faltings refinement separate from the rational R28.4 theorem.
 
-Preserve verified corrections: [6] **A.23** for arbitrary base change (A.18 is algebraic separable); omit the associated point before using cuspidal packets in Lemma26; restricted completed products in `k(t)*`; constant-loop⇒unique-specialization has no general converse; choose disjoint Corollary10 divisors by removing previous divisors before Lemma9; use monic lifts in Lemma9.
+Preserve A.23 (not A.18) for arbitrary gerbe base change; restricted power-completed products; the proper diagonal pro-open; nonconverse of constant-loop⇒unique specialization; disjoint iterative Corollary10 divisors; monic Lemma9 lifts; and omission of the associated point before Lemma26 cusp packets.
 
-All source URLs and hashes are in the report/JSON. Continuation does not depend on worker scratch. Keep `partial` until the mathematical/source gaps are resolved and all missing items have justified routes. Run paper and intake checks on the three deliverables. Submit `Refs #1233`, never `Closes`.
+All durable details are in the three deliverables. Run scripts/check_paper.py and structure/scope checks. Submit Refs #1233, never Closes, and do not unclaim a submitted PR.

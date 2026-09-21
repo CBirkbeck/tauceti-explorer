@@ -16,7 +16,7 @@
       "Entire published pp.129–150: introduction, §§2–7, Lemmas1–26, TheoremsA–C, all proofs, footnote1, acknowledgements and references."
     ]
   },
-  "summary": "Published paper read completely; 135-item partial extraction with foundation routes and three Part II briefs. A concrete counterexample refutes the printed affine-parabolic cuspidality sentence on p.141, leaving its reduction steps unresolved without claiming the main theorem false. Arbitrary-extension gerbe base change is corrected to [6] A.23, Lemma26 cusp wording is clarified, and integral/all-prime Faltings comparison is not confused with the existing rational target. Three items remain unrouted for exactness, parabolic repair and unpointed-gerbe comparison. Further source/ownership closure is recorded in the handoff; no formalization is claimed.",
+  "summary": "Continuation of the full published-paper extraction: 149 items, 8 library, 8 planned, 133 missing. A self-contained split-extension proof closes the completion-exactness source gap, with a separately owned profinite-groups Part II and a lamplighter counterexample to dropping finite generation. Borne–Vistoli's gerbe factorization/relative-gerbe results are now checked directly. The parabolic counterexample is routed as a valid negative acceptance theorem; its downstream proof repair and the unpointed Albanese comparison remain unresolved. Only /58 remains unrouted. Partial: no formalization or complete source closure is claimed.",
   "items": [
     {
       "id": "PAPER-BRESCIANI-24/1",
@@ -331,23 +331,23 @@
       "id": "PAPER-BRESCIANI-24/28",
       "kind": "theorem",
       "name": "Complex affine-curve asphericity input",
-      "statement": "A smooth connected affine complex curve has π2=0; the topological fiber sequence for a smooth curve family therefore gives injectivity on π1 of the fiber.",
+      "statement": "A smooth connected affine complex curve has the homotopy type of a finite wedge of circles, hence π2=0 and finitely generated free π1. For a locally trivial topological curve family over it, the homotopy sequence is short exact on π1; the fiber group is finitely generated.",
       "locator": "Published paper Lemma 1 proof p.134",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Generic topological comparison input requires exact SGA/Riemann-existence supplier; source decomposition of [2] Proposition 5 and [12] Proposition 3.7 remains a prerequisite, not an assumption."
+      "note": "The curve-topology/Riemann-existence and locally trivial family comparisons remain IG.1 proof obligations. Completion now uses /29 and /140–/145, not the unread Anderson theorem or cohomological goodness. A group-theoretic splitting does not assert a geometric section of the family."
     },
     {
       "id": "PAPER-BRESCIANI-24/29",
       "kind": "theorem",
       "name": "Completion exactness input for curve families",
-      "statement": "For the topological curve-family extension used in Lemma 1, profinite completion preserves the displayed short exact sequence.",
-      "locator": "Published paper Lemma 1 p.134, [2] Proposition 5 and [12] Proposition 3.7",
+      "statement": "For the complex affine-base topological curve-family extension 1→N→G→F_r→1 in Lemma1, N is finitely generated and F_r is free; therefore 1→hat N→hat G→hat F_r→1 is split exact as profinite groups.",
+      "locator": "Published Lemma1 p.134; replacement proof in this continuation, using /140–/145; independently Bekka, arXiv:2305.04803v1, CorollaryC p.4.",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "SOURCE GAP: full hypotheses of the combined completion theorem have not yet been checked in the originals. Do not assert that profinite completion preserves arbitrary short exact sequences. The 19 October 2007 author version of Grunewald–Jaikin-Zapirain–Zalesskii has surface-group goodness in Proposition3.6, not the published3.7 locator. Its Lemma3.3 and pp.8–9 were read, but Anderson Proposition5 and version mapping still require verification."
+      "note": "CLOSED SOURCE GAP BY REPLACEMENT, not a claim to have read Anderson. Lift free generators to split the abstract extension; characteristic finite-index subgroups of N provide cofinal finite quotient restrictions from G. The completion universal property gives right exactness and extends the splitting. No residual-finiteness or goodness assumption is needed; finite generation of N and splitting are essential to this proof. Generic completion lemma belongs only to ProfiniteProPGroupsPartIISplitCompletion; IG.1 owns this geometric application."
     },
     {
       "id": "PAPER-BRESCIANI-24/30",
@@ -397,23 +397,23 @@
       "id": "PAPER-BRESCIANI-24/34",
       "kind": "definition",
       "name": "Locally full morphism of gerbes",
-      "statement": "A morphism of gerbes is locally full when its induced maps of sheaves of isomorphisms are epimorphisms; on neutral geometric fibers this is surjectivity of the homomorphism of band groups.",
+      "statement": "For affine gerbes over k, a morphism is locally full when the induced automorphism-group map at every field-valued object is faithfully flat; equivalently the maps of fpqc Isom sheaves are surjective. On neutral finite étale geometric fibers this is surjectivity of finite band groups.",
       "locator": "Published paper Lemma 2 p.135, [4] Definition 3.4",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Planning API and tests: Composition, base change and refinement; test BG→BH induced by a surjective finite group homomorphism."
+      "note": "Definition3.4 and Proposition3.10 read directly, published pp.538–540. Planning API/tests: composition, fpqc base change and neutral BG→BH comparison; test a surjection, a proper subgroup inclusion and identity. Scheme-theoretic faithful flatness is primary, not surjectivity on k-rational points."
     },
     {
       "id": "PAPER-BRESCIANI-24/35",
       "kind": "theorem",
-      "name": "Finite gerbe presentation and relative-gerbe criterion",
-      "statement": "Profinite gerbes admit presentations by finite gerbes with locally full projections; a locally full map of finite étale gerbes is a proper étale relative gerbe.",
-      "locator": "Published paper Lemma 2 p.135, [4] Propositions 3.9,3.10",
+      "name": "Locally full finite étale gerbes are relative gerbes",
+      "statement": "A locally full morphism of finite étale gerbes over k is a proper étale relative gerbe.",
+      "locator": "Bresciani Lemma2 p.135; Borne–Vistoli2019 Proposition3.10 pp.540–541.",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Exact general hypotheses of [4] need further primary-source checking; current claim restricted to the finite étale characteristic-zero use."
+      "note": "Exact affine-gerbe criterion read: locally full iff relative gerbe. For finite étale gerbes, after an fpqc neutralizing cover the fiber is B ker(G→H), with finite étale kernel, hence proper and étale; descend those properties. Presentation by locally full projections is split into /149 rather than bundled here. The proof text of Prop3.10 mislabels its factorization implications as (1)⇒(3)/(3)⇒(1); their argument concerns condition(4), not a change of theorem."
     },
     {
       "id": "PAPER-BRESCIANI-24/36",
@@ -874,13 +874,13 @@
     {
       "id": "PAPER-BRESCIANI-24/77",
       "kind": "theorem",
-      "name": "Printed affine-parabolic cuspidality claim — counterexample recorded",
-      "statement": "SOURCE CLAIM, NOT A VALID THEOREM AS PRINTED: every Galois section of an affine parabolic curve is cuspidal. For k=Q and X=P1 minus the degree-two closed point defined by T²−2, X is affine parabolic and 0∈X(Q) supplies a geometric section, whereas (barX\\X)(Q) is empty, so no section is cuspidal under §1’s definition.",
+      "name": "Nonsplit-boundary counterexample to blanket cuspidality",
+      "statement": "Let X=P1_Q minus the closed point V(T²−2). Then X is affine parabolic, X(Q) contains 0, and the boundary has no Q-rational point. Thus X admits geometric sections but no cuspidal section under Bresciani §1's definition. Consequently the printed p.141 assertion that every affine-parabolic section is cuspidal is false.",
       "locator": "Published paper §4 p.141, [18] Theorem A",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Unrouted correctness gap. Published p.141 was visually checked. Schmidt arXiv:1503.08108v1 TheoremA p.2 only yields splitting/rational points for the Brauer–Severi completion; it does not make the deleted degree-two point rational. The counterexample concerns this preliminary sentence, not a claimed disproof of TheoremA. Repair the parabolic steps in Lemma16 and the t-b.l.⇒quasi-t-b.l. assertion before declaring source closure."
+      "note": "This valid counterexample, not the false source sentence, is the item routed as a negative acceptance theorem to the birational-sections Part II. It does not refute TheoremA. The nonsplit degree-two-boundary branches of /81 and /96 remain a genuine proof-repair gap; routing this counterexample does not close that gap."
     },
     {
       "id": "PAPER-BRESCIANI-24/78",
@@ -1527,6 +1527,168 @@
       "library": [],
       "planned": [],
       "note": "The open subgroup furnished by /62 is torsion-free and finite index; restriction of the quotient map to torsion is injective."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/136",
+      "kind": "theorem",
+      "name": "Profinite-completion universal property",
+      "statement": "For abstract G and profinite P in the same universe, continuous homomorphisms hat G→P correspond to group homomorphisms G→P; equality is detected on the dense unit image.",
+      "locator": "Replacement proof of /29; completion carrier supplier",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.ProfiniteCompletion.continuousMonoidHomEquiv; TauCeti.ProfiniteCompletion.continuousMonoidHom_ext — TauCeti/Topology/Algebra/Group/Profinite/Completion.lean:39,66, pin f790474821cf4256814db967cb154e7af3d0c369"
+      ],
+      "planned": [],
+      "note": "Entire source file read. Reuse Mathlib's profinite completion, not the different power-quotient completion /18. The same-universe convention is retained."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/137",
+      "kind": "theorem",
+      "name": "Finitely many open subgroups of each positive index",
+      "statement": "In a topologically finitely generated topological group G, the type of open subgroups of any fixed nonzero index n is finite. Compactness is not required for n≠0.",
+      "locator": "Bekka CorollaryC proof p.15; existing positive-index theorem",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IsTopologicallyFinitelyGenerated.finite_openSubgroup_index_eq_of_ne_zero — TauCeti/Topology/Algebra/Group/OpenSubgroup.lean:71, pin f790474821cf4256814db967cb154e7af3d0c369"
+      ],
+      "planned": [],
+      "note": "Statement and full proof read. Give the abstract finitely generated N the discrete topology and apply /138; every subgroup is open. Do not use the later compact-only theorem or n=0 (Lean index zero means infinite index)."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/138",
+      "kind": "theorem",
+      "name": "Abstract finite generation implies topological finite generation",
+      "statement": "A finitely generated group is topologically finitely generated in every group topology, in particular its discrete topology.",
+      "locator": "Replacement proof of /29; finite-generation bridge",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.isTopologicallyFinitelyGenerated_of_fg — TauCeti/Topology/Algebra/Group/Generation.lean:82, pin f790474821cf4256814db967cb154e7af3d0c369"
+      ],
+      "planned": [],
+      "note": "Statement/proof read. This implication is not reversible for a profinite topology; Zhat is a counterexample to interpreting topological generators as abstract generators."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/139",
+      "kind": "theorem",
+      "name": "Finite intersections preserve finite index",
+      "statement": "The intersection of a finite family of finite-index subgroups of a group has finite index.",
+      "locator": "Replacement proof of /29; characteristic-core input",
+      "status": "library",
+      "library": [
+        "mathlib:Subgroup.finiteIndex_iInf — Mathlib/GroupTheory/Index.lean:771, pin 082e2d37e8b0463410cdb532e111cd43d5a66174"
+      ],
+      "planned": [],
+      "note": "Statement/proof read. Applies to the finite type of index-n subgroups from /137; no normality or finite generation is needed for this intersection lemma."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/140",
+      "kind": "construction",
+      "name": "Characteristic finite-index core",
+      "statement": "For finitely generated N and finite-index K≤N of index n>0, define C_n as the intersection of all subgroups of index n. Then C_n≤K, C_n is characteristic (hence normal), and C_n has finite index.",
+      "locator": "Bekka arXiv:2305.04803v1 §4.1 p.15; direct group-theoretic proof",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: membership iff membership in every index-n subgroup; characteristicity under each automorphism; inclusion in K; finite-index instance from /137–/139. Tests: n=1 gives N; N=Z,n=6 gives 6Z; N=S3,n=3 gives 1 despite the chosen order-two K being nonnormal. Do not assert endomorphism invariance: characteristic is automorphism invariance."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/141",
+      "kind": "construction",
+      "name": "Finite quotient of a split extension detecting the kernel",
+      "statement": "For an action H→Aut(N) and finite-index characteristic C≤N, let Q_C be the finite image of H in Aut(N/C). The map N⋊H→(N/C)⋊Q_C sends (n,h) to (n mod C, action(h)); it is surjective and its restriction to N has kernel C.",
+      "locator": "Direct finite-quotient proof of /29; Bekka CorollaryC corroborates the endpoint",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: action descent, quotient homomorphism, multiplication formula, kernel on N, projection to Q_C, compatibility under characteristic refinements. Tests: trivial action yields N/C; inversion of Z gives finite dihedral quotients for modulus≥3; swapping coordinates of (Z/2)^2 does not descend through a chosen non-invariant index-two subgroup. No claim that all N-subgroups are H-stable."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/142",
+      "kind": "theorem",
+      "name": "Full induced profinite topology on a finitely generated split kernel",
+      "statement": "For finitely generated N and G=N⋊H with H arbitrary, the restrictions to N of finite-index normal subgroups of G are cofinal among finite-index normal subgroups of N. Hence hat N→hat G is injective and a topological embedding.",
+      "locator": "Direct proof from /140–/141 and finite-quotient coordinates; Bresciani Lemma1 application",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "For any finite-index K≤N choose C_n≤K and use ker of /141. Separate two points of hat N by a coordinate N/K and then the extending finite quotient. Compact-to-Hausdorff injectivity supplies the embedding. N itself need not be residually finite."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/143",
+      "kind": "theorem",
+      "name": "Right exactness of profinite completion",
+      "statement": "For a normal subgroup N of any abstract group G, hat G divided by the closure of the unit image of N is canonically the profinite completion of G/N. In particular hat G→hat(G/N) is surjective and its kernel equals the image of hat N.",
+      "locator": "Bekka arXiv:2305.04803v1 Proposition6(ii), pp.9–10, complete proof read",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use existing closed-normal profinite quotient, /136's universal property, and compactness: image(hat N)=closure(image N). No injectivity of hat N is asserted. The v1 proof says Bohr compactification once in the profinite argument, a typographical mismatch; its universal-property argument is profinite."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/144",
+      "kind": "theorem",
+      "name": "Completion preserves split extensions with finitely generated kernel",
+      "statement": "For arbitrary abstract H, finitely generated N and an action H→Aut(N), completing 1→N→N⋊H→H→1 gives a split exact sequence of profinite groups. The extended splitting induces a continuous action of hat H on hat N and a topological group isomorphism hat(N⋊H)≃hat N⋊hat H.",
+      "locator": "Bekka arXiv:2305.04803v1 CorollaryC p.4 and §4.1 p.15; self-contained replacement proof here",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Combine /142 and /143, and extend the original splitting by /136. Define the completed action by conjugation inside hat G using the closed-kernel embedding; continuity follows from this construction, not an unspecified topology on Aut(hat N). Prove multiplication-map inverse and naturality for maps preserving splittings. Tests: finite N,H; trivial action; Z⋊C2 inversion. No goodness, residual finiteness, or finite generation of H is assumed."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/145",
+      "kind": "theorem",
+      "name": "An abstract extension with free quotient splits",
+      "statement": "If G→F(S) is a surjective homomorphism to a free abstract group, it admits a homomorphic section: choose a lift of each free generator and extend by the free-group universal property.",
+      "locator": "Direct replacement proof for Bresciani Lemma1 p.134",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use Mathlib's existing FreeGroup carrier/lift; no new free profinite group is needed. The chosen section need not arise from a map of curves. Empty S gives the trivial quotient; S singleton gives a split extension by Z. Combine with /144 only after identifying the kernel as finitely generated."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/146",
+      "kind": "theorem",
+      "name": "Finite generation cannot be dropped from split completion",
+      "statement": "Let N=⊕_(j∈Z) C2 and let Z act by shifting the coordinates. The split inclusion N→N⋊Z does not induce an injection on profinite completions.",
+      "locator": "Direct counterexample accompanying replacement proof; not claimed as Bresciani's statement",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Let K be the kernel of the coordinate-zero character N→C2. In any finite quotient of N⋊Z the shift has some order t≥1, forcing e_0 and e_t to have the same image. Thus e_0+e_t lies in the restriction kernel but not K. The full profinite topology on N is not induced; an injective hat N→hat G would be a compact-to-Hausdorff embedding and would induce that topology, contradiction. The inclusion of the abstract groups remains injective; do not confuse it with completion injectivity."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/147",
+      "kind": "theorem",
+      "name": "Canonical locally-full/faithful factorization of affine gerbes",
+      "statement": "Every morphism Γ→Δ of affine gerbes factors canonically as Γ→Δ′→Δ with first map locally full and second faithful.",
+      "locator": "Borne–Vistoli2019 Proposition3.9, published pp.539–540; full proof read",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Rigidify by the kernels of automorphism maps, form the fpqc quotient groupoid, and verify affine descent. This does not assume neutralization over k. Import the existing fpqc stack framework /19–/22. Test BG→BH via the image subgroup."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/148",
+      "kind": "theorem",
+      "name": "Locally full morphisms detected on a cofiltered target presentation",
+      "statement": "For a cofiltered system of affine gerbes Δ_i and f:Γ→lim_i Δ_i, if every composite Γ→Δ_i is locally full, then f is locally full.",
+      "locator": "Borne–Vistoli2019 Proposition3.11, published pp.540–541; proof read",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Choose a field-valued object of Γ. Faithful flatness of affine group maps over a field is injectivity of the coordinate Hopf-algebra map. Each level map is injective, hence so is its filtered colimit. The statement requires the compatible morphism to the limit, not independently chosen maps."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/149",
+      "kind": "construction",
+      "name": "Finite étale gerbe presentation with locally full projections",
+      "statement": "A profinite étale gerbe admits a cofiltered finite étale presentation whose projections and transition maps are locally full, obtained by replacing each finite stage with the canonical image of the projection.",
+      "locator": "Bresciani Lemma2 p.135; Borne–Vistoli2019 Proposition3.9 plus direct cofinal-image refinement",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: finite-stage image, transition factorization, comparison with original limit, invariance under refinement, locally full projections. After a common fpqc neutralizing field extension this is replacement of finite groups by the images of the profinite group; the two limits agree because every compatible tuple already lies in those images. Descend the canonical factorizations. Tests: a system with non-surjective transitions; a constant finite gerbe; a neutral infinite profinite group. The proper relative-gerbe conclusion is /35, not a second assertion bundled here."
     }
   ],
   "prerequisites": [
@@ -1553,7 +1715,7 @@
     {
       "citation": "Borne–Vistoli, Fundamental gerbes, Algebra & Number Theory13(2019),531–576",
       "link": "https://doi.org/10.2140/ant.2019.13.531",
-      "why": "Definition3.4 and Propositions3.9–3.10 are used by Lemma2; exact general statements need primary-source verification. General gerbes route to SF.1."
+      "why": "Definition3.4 and Propositions3.9–3.11, with proofs, now read directly in the published PDF pp.538–541. Generic locally-full factorization, relative-gerbe criterion and cofiltered-target detection route to SF.1; the finite-presentation refinement is separately /149."
     },
     {
       "citation": "Stix, On the birational section conjecture with local conditions, Invent.math.199(2015),239–265",
@@ -1598,7 +1760,12 @@
     {
       "citation": "Anderson, Exactness properties of profinite completion functors, Topology13(1974),229–239; Grunewald–Jaikin-Zapirain–Zalesskii, Cohomological goodness and the profinite completion of Bianchi groups, Duke144(2008),53–72",
       "link": "https://mat.unb.br/~pz/arquivos/apf11.pdf",
-      "why": "Grunewald–Jaikin-Zapirain–Zalesskii author version 19Oct2007 Lemma3.3 and surface-group goodness Proposition3.6 pp.6,8–9 read. Published numbering differs (Bresciani cites3.7). Anderson Proposition5, DOI10.1016/0040-9383(74)90016-0, has not been acquired; full exactness hypotheses are an explicit gap."
+      "why": "Historical route cited by Bresciani only: Anderson Proposition5 remains unread and author/published goodness numbering remains unchecked. Neither is now a required input to /29: the direct split-extension proof /140–/145 replaces them. Do not claim verification of the original proof or general exactness/goodness."
+    },
+    {
+      "citation": "Bekka, On Bohr compactifications and profinite completions of group extensions, arXiv:2305.04803v1 (8 May 2023), CorollaryC",
+      "link": "https://arxiv.org/abs/2305.04803v1",
+      "why": "Read introduction pp.1–5, Proposition6(ii) and complete quotient proof pp.9–10, and CorollaryC proof §4.1 p.15. CorollaryC corroborates the exact split/finitely-generated endpoint. The replacement proof in the report supplies its own finite-quotient argument; Bekka TheoremB's representation-theoretic proof is not a dependency or claimed fully read."
     }
   ],
   "routes": [
@@ -1618,9 +1785,12 @@
         "PAPER-BRESCIANI-24/38",
         "PAPER-BRESCIANI-24/39",
         "PAPER-BRESCIANI-24/83",
-        "PAPER-BRESCIANI-24/121"
+        "PAPER-BRESCIANI-24/121",
+        "PAPER-BRESCIANI-24/147",
+        "PAPER-BRESCIANI-24/148",
+        "PAPER-BRESCIANI-24/149"
       ],
-      "reason": "Gerbes, quotient/classifying stacks, root stacks and proper tame valuative/extension criteria fit the existing general stack/descent layer; they must not be private anabelian constructions. Existing IsStack and fpqc/fppf sites are imported."
+      "reason": "Gerbes, quotient/classifying stacks, root stacks and proper tame valuative/extension criteria fit the existing general stack/descent layer; they must not be private anabelian constructions. Existing IsStack and fpqc/fppf sites are imported. Borne–Vistoli2019 Definition3.4 and Propositions3.9–3.11 are now directly read; finite-stage cofinal image refinement and the relative-gerbe criterion are distinct obligations."
     },
     {
       "route": "source",
@@ -1643,9 +1813,10 @@
         "PAPER-BRESCIANI-24/32",
         "PAPER-BRESCIANI-24/33",
         "PAPER-BRESCIANI-24/84",
-        "PAPER-BRESCIANI-24/125"
+        "PAPER-BRESCIANI-24/125",
+        "PAPER-BRESCIANI-24/29"
       ],
-      "reason": "The arithmetic fundamental-group owner supplies the gerbe presentation of the same finite-cover theory, family exactness, relative gerbes and specialization foundations. Char0 and affine/localized-curve base restrictions are retained; this adds sources inside existing layers."
+      "reason": "The arithmetic fundamental-group owner supplies the gerbe presentation of the same finite-cover theory, family exactness, relative gerbes and specialization foundations. Char0 and affine/localized-curve base restrictions are retained; this adds sources inside existing layers. The geometric application /29 imports the generic split-completion theorem from the proposed ProfiniteProPGroups Part II; this source route does not own that generic theorem."
     },
     {
       "route": "source",
@@ -1773,9 +1944,10 @@
         "PAPER-BRESCIANI-24/130",
         "PAPER-BRESCIANI-24/131",
         "PAPER-BRESCIANI-24/132",
-        "PAPER-BRESCIANI-24/133"
+        "PAPER-BRESCIANI-24/133",
+        "PAPER-BRESCIANI-24/77"
       ],
-      "brief": "Extend Anabelian geometry and nonabelian Chabauty (AnabelianGeometryAndNonabelianChabauty), separately from the Betts–Stix p-adic-period-mapping extension. Own birational/t-birational/quasi-t-birational section conditions, ramified specializing loops and the three proved endpoints of Bresciani, Invent. math.235 (2024),129–150. For X/k smooth geometrically connected and k finitely generated over Q prove: a section is geometric or cuspidal iff its base change to k(t) lifts birationally (Theorem A). For fixed hyperbolic X/k prove equivalence of geometric-or-cuspidal and birational lifting AFTER EVERY finitely generated extension K/k (Theorem B), and deduce the equivalence, not truth, of the global section and cuspidalization conjectures. Prove Theorem C exactly: the ordinary birational section conjecture is equivalent to existence, for every number field k, birational section z of k(P1)/k and nonempty open U⊆P1, of a nonempty open V⊆U and relative π1 section of (U×V)\\Δ→V whose v-specialization is the prescribed image of z on U\\{v} for every v∈V(k).\n\nBuild Lemmas1–26 and their proof leaves in source order, with generic foundation ownership below, then Proposition17's stronger pro-open diagonal lifting criterion and its completed-unit valuation proof, the number-field open-lifting Lemma16, quasi-t-b.l. reduction, Tamagawa neighborhoods and the coherence input. Do not substitute the rational-function field for Spec k(y)×k Spec k(t) with the diagonal deleted. Track restricted completed products, nonrational closed points, finite places, residue characteristic zero and the nonparabolic reductions. A specialization is an essential-image class and need not be unique; the C[x]_(x), z=x example must reject the converse to constant-loop⇒unique specialization. For Hilbertian uniqueness keep finite-kernel conjugacy limits, not arbitrary choices of conjugators.\n\nImport path torsors/sections from the parent NC.0; finite covers, homotopy exactness and relative fundamental gerbes from Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups IG.0–IG.2); gerbes, root stacks, tame valuative criteria and extension gluing from Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations SF.1), with local curve geometry from SF.3; compact cohomology/Kummer completions from Global Galois duality and compact coefficients (ArithmeticGaloisDuality R02.1); generalized Jacobians/Albanese torsors from the proposed JacobianChallenge Part II; local torsion from the proposed AbelianSchemesAndArithmeticModuli Part II. Import existing Chebotarev and Faltings Hom suppliers by verified stage IDs. General finite cofiltered-limit compactness and stack/site carriers already exist in Mathlib. No private replacements of these suppliers.\n\nPrerequisite papers are work to decompose, not axioms: Bresciani–Vistoli valuative criterion, Bresciani's gerbe/base-change and coherence papers, Stix local density and cuspidal packets/book, Koenigsmann, Tamagawa and Saïdi–Tyler. Use [6] Proposition A.23 for arbitrary extension, not A.18. In Lemma26 first omit the associated point before calling open-curve images cuspidal. Design must resolve the checkpoint gaps before declaring source closure. Give each definition its listed evaluation/functoriality API and tests, and a suggested Lean file on the canonical carriers; no Lean construction is claimed in this paper extraction.\n\nCorrectness gate: the published p.141 assertion that all affine-parabolic sections are cuspidal is false for P1_Q minus the closed point T²−2, which has geometric sections and no rational cusp. This does not refute the main theorem, but the claimed trivial reduction in Lemma16 and the quasi-t-b.l. step must be supplied by a valid argument. Do not turn the printed false sentence into a Lean theorem. The generalized-Jacobian torsor neutralization comparison (/58) remains an unrouted source gap; consume it only once verified.",
+      "brief": "Extend Anabelian geometry and nonabelian Chabauty (AnabelianGeometryAndNonabelianChabauty), separately from the Betts–Stix p-adic-period-mapping extension. Own birational/t-birational/quasi-t-birational section conditions, ramified specializing loops and the three proved endpoints of Bresciani, Invent. math.235 (2024),129–150. For X/k smooth geometrically connected and k finitely generated over Q prove: a section is geometric or cuspidal iff its base change to k(t) lifts birationally (Theorem A). For fixed hyperbolic X/k prove equivalence of geometric-or-cuspidal and birational lifting AFTER EVERY finitely generated extension K/k (Theorem B), and deduce the equivalence, not truth, of the global section and cuspidalization conjectures. Prove Theorem C exactly: the ordinary birational section conjecture is equivalent to existence, for every number field k, birational section z of k(P1)/k and nonempty open U⊆P1, of a nonempty open V⊆U and relative π1 section of (U×V)\\Δ→V whose v-specialization is the prescribed image of z on U\\{v} for every v∈V(k).\n\nBuild Lemmas1–26 and their proof leaves in source order, with generic foundation ownership below, then Proposition17's stronger pro-open diagonal lifting criterion and its completed-unit valuation proof, the number-field open-lifting Lemma16, quasi-t-b.l. reduction, Tamagawa neighborhoods and the coherence input. Do not substitute the rational-function field for Spec k(y)×k Spec k(t) with the diagonal deleted. Track restricted completed products, nonrational closed points, finite places, residue characteristic zero and the nonparabolic reductions. A specialization is an essential-image class and need not be unique; the C[x]_(x), z=x example must reject the converse to constant-loop⇒unique specialization. For Hilbertian uniqueness keep finite-kernel conjugacy limits, not arbitrary choices of conjugators.\n\nImport path torsors/sections from the parent NC.0; finite covers, homotopy exactness and relative fundamental gerbes from Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups IG.0–IG.2); gerbes, root stacks, tame valuative criteria and extension gluing from Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations SF.1), with local curve geometry from SF.3; compact cohomology/Kummer completions from Global Galois duality and compact coefficients (ArithmeticGaloisDuality R02.1); generalized Jacobians/Albanese torsors from the proposed JacobianChallenge Part II; local torsion from the proposed AbelianSchemesAndArithmeticModuli Part II. Import existing Chebotarev and Faltings Hom suppliers by verified stage IDs. General finite cofiltered-limit compactness and stack/site carriers already exist in Mathlib. No private replacements of these suppliers.\n\nPrerequisite papers are work to decompose, not axioms: Bresciani–Vistoli valuative criterion, Bresciani's gerbe/base-change and coherence papers, Stix local density and cuspidal packets/book, Koenigsmann, Tamagawa and Saïdi–Tyler. Use [6] Proposition A.23 for arbitrary extension, not A.18. In Lemma26 first omit the associated point before calling open-curve images cuspidal. Design must resolve the checkpoint gaps before declaring source closure. Give each definition its listed evaluation/functoriality API and tests, and a suggested Lean file on the canonical carriers; no Lean construction is claimed in this paper extraction.\n\nCorrectness gate: the published p.141 assertion that all affine-parabolic sections are cuspidal is false for P1_Q minus the closed point T²−2, which has geometric sections and no rational cusp. This does not refute the main theorem, but the claimed trivial reduction in Lemma16 and the quasi-t-b.l. step must be supplied by a valid argument. Do not turn the printed false sentence into a Lean theorem. The generalized-Jacobian torsor neutralization comparison (/58) remains an unrouted source gap; consume it only once verified.\n\nRoute /77 only as the valid nonsplit-boundary counterexample. Its routing does not repair /81 or /96. Lemma1's completion input now imports the separately owned split-completion Part II through IG.1; do not reintroduce Anderson/goodness as required assumptions for this replacement proof.",
       "reason": "NC.1 is source-qualified Mochizuki reconstruction and NC.2–NC.5 are unipotent/Chabauty branches. These full profinite birational-lifting, specialization and conjecture-equivalence theorems need new layers in the parent direction. Betts–Stix imports period maps and is a separate sibling, not a supplier of these theorems."
     },
     {
@@ -1815,6 +1987,24 @@
         "PAPER-BRESCIANI-24/110"
       ],
       "reason": "The integral and all-prime Hom comparison used in the coherence proof refines the existing rational Tate-isogeny layer. Rational comparison alone must not be relabeled as the stronger input; specify integral saturation and finitely-generated-field scope."
+    },
+    {
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+      "roadmap": "ProfiniteProPGroupsPartIISplitCompletion",
+      "title": "Profinite and pro-p groups, Part II: exactness of completion for split extensions",
+      "area": "grouptheory",
+      "items": [
+        "PAPER-BRESCIANI-24/140",
+        "PAPER-BRESCIANI-24/141",
+        "PAPER-BRESCIANI-24/142",
+        "PAPER-BRESCIANI-24/143",
+        "PAPER-BRESCIANI-24/144",
+        "PAPER-BRESCIANI-24/145",
+        "PAPER-BRESCIANI-24/146"
+      ],
+      "brief": "Take Profinite and pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups) as FIRST prerequisite, importing its Layer0 completion and quotient infrastructure and Layer3 topological-generation substrate. Do not rebuild those carriers or their already-implemented universal properties. The new endpoint is: for an abstract split extension 1→N→G→H→1 with N finitely generated and H arbitrary, its profinite completion is split exact, and hat G is isomorphic as a topological group to hat N⋊hat H with the action induced by the chosen splitting. Bekka, On Bohr compactifications and profinite completions of group extensions, arXiv:2305.04803v1, CorollaryC, independently states this endpoint; use the direct finite-quotient proof detailed in the paper report rather than importing his representation-theoretic TheoremB as an unexplained hypothesis.\n\nFirst reuse TauCeti.isTopologicallyFinitelyGenerated_of_fg and the nonzero-index form of finite_openSubgroup_index_eq, applied with discrete topology. Define C_n as the intersection of all index-n subgroups of N, prove finite index using Mathlib.Subgroup.finiteIndex_iInf, and prove characteristicity and C_n≤K for a given index-n K. Descend H's action to N/C_n, take its finite image Q_n in Aut(N/C_n), and construct the surjective finite quotient G→(N/C_n)⋊Q_n whose kernel restricts to C_n. Deduce the cofinal restriction property and injectivity/topological embedding of hat N→hat G. Separately prove general right exactness by identifying hat G/closure(N) with hat(G/N) through the existing universal property. Extend the abstract splitting to hat H, construct the completed action by conjugation, and prove the canonical semidirect-product comparison and its naturality for maps preserving the chosen splittings. No residual-finiteness, cohomological goodness or finite generation of H is a hypothesis.\n\nAdd the free-quotient splitting lemma using the existing abstract FreeGroup universal property. Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups IG.1) imports it with the separate curve-topology/Riemann-existence input: smooth affine complex curves have free fundamental group and curve fibers have finitely generated fundamental group. This geometric application is owned there, never by this generic Part II. Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations) likewise owns gerbes, not this roadmap. Profinite arithmetic (ProfiniteArithmetic) owns profinite powers and topological Aut/Out carriers; the present action is built via the closed-kernel comparison and does not construct another Aut topology.\n\nTests include finite groups, trivial action, all small dihedral quotients of Z⋊C2, a non-invariant index-two subgroup under coordinate swap, and the sharp negative split example (⊕_Z C2)⋊Z: coordinate-zero kernel cannot contain any restricted finite-quotient kernel, because a finite-order shift identifies e_0 and e_t. Thus finite generation cannot simply be deleted. Distinguish ordinary profinite completion from the paper's power-quotient completion of an arbitrary abelian group. Every construction has projection, multiplication, kernel, refinement, naturality and concrete unit-test obligations. No blanket left exactness of profinite completion, general goodness theorem, pro-p replacement, or geometric section of a curve family is claimed.",
+      "reason": "The upstream roadmap's Layers0/3/5 provide completion, finite-subgroup counts and continuous profinite extensions, but do not state preservation of discrete split extensions under completion. This genuinely new generic theorem extends upstream as a Part II; the arithmetic curve-family application imports it once. A catalogue/content search found no existing owner for this exact preservation theorem."
     }
   ]
 }
