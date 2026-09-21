@@ -1799,8 +1799,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-COUVEIGNES-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1129"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1129",
+   "finishedAt": "2026-09-21T18:22:46Z"
   },
   {
    "id": "REV-PAPER-COUVEIGNES-20",
@@ -7125,7 +7126,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANDRE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1464"
   },
   {
    "id": "REV-PAPER-ANDRE-18",
