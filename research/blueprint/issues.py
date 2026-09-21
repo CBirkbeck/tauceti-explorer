@@ -81,6 +81,25 @@ def publicize(text):
     return text
 
 
+def issue_command(label, state, body=False):
+    """Every issue with the label, page by page. `gh issue list` stops at 1000 issues,
+    and the swarm has more; the REST listing has no such limit. Pull requests are left out."""
+    fields = "number, state: (.state | ascii_upcase), labels: [.labels[] | {name}], updatedAt: .updated_at, title" + (", body" if body else "")
+    return ["gh", "api", "--paginate", f"repos/{GITHUB.split('github.com/')[1]}/issues?labels={label}&state={state}&per_page=100",
+            "--jq", f".[] | select(.pull_request | not) | {{{fields}}}"]
+
+
+def parse_issues(text):
+    return [json.loads(line) for line in text.splitlines() if line.strip()]
+
+
+def list_issues(label, state, body=False):
+    result = subprocess.run(issue_command(label, state, body), capture_output=True, text=True, cwd=REPO)
+    if result.returncode != 0:
+        raise SystemExit("listing the issues failed: " + result.stderr[:200])
+    return parse_issues(result.stdout)
+
+
 def ready(job, by_id):
     """Every job this one waits for is finished."""
     return all(by_id.get(dep, {}).get("state") == "done" for dep in job.get("after") or [])
@@ -348,11 +367,7 @@ def main():
     if args.command == "refresh":
         # One request per issue sets its body and its state label together, so a
         # full refresh stays within GitHub's limit of about 500 edits an hour.
-        listing = subprocess.run(["gh", "issue", "list", "--label", "swarm", "--state", "open", "--limit", "2000", "--json", "number,body"],
-                                 capture_output=True, text=True, cwd=REPO)
-        if listing.returncode != 0:
-            raise SystemExit("gh issue list failed: " + listing.stderr[:200])
-        open_issues = {item["number"]: item["body"] for item in json.loads(listing.stdout)}
+        open_issues = {item["number"]: item["body"] for item in list_issues("swarm", "open", body=True)}
         repo = GITHUB.split("github.com/")[1]
         unchanged = 0
         for job in jobs:
@@ -466,11 +481,7 @@ def set_state(number, wanted, current):
 def sync(mapping):
     """Claims flow from GitHub into the queue; local progress flows back as labels."""
     import fcntl
-    listing = subprocess.run(["gh", "issue", "list", "--label", "swarm", "--state", "all", "--limit", "2000",
-                              "--json", "number,labels,state"], capture_output=True, text=True, cwd=REPO)
-    if listing.returncode != 0:
-        raise SystemExit("gh issue list failed: " + listing.stderr[:200])
-    issues = {item["number"]: item for item in json.loads(listing.stdout)}
+    issues = {item["number"]: item for item in list_issues("swarm", "all")}
     lock = open(BP / ".queue.lock", "a+")
     fcntl.flock(lock, fcntl.LOCK_EX)
     changed_queue, edits, closed = 0, 0, 0
@@ -511,11 +522,9 @@ def stale(mapping, by_id, days, release):
     """Claims by external workers with no activity on their issue for `days` days."""
     import datetime
     cutoff = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=days)
-    listing = subprocess.run(["gh", "issue", "list", "--label", "state:claimed", "--state", "open", "--limit", "500",
-                              "--json", "number,updatedAt,title"], capture_output=True, text=True, cwd=REPO)
     number_to_job = {number: jid for jid, number in mapping.items()}
     released = []
-    for item in json.loads(listing.stdout or "[]"):
+    for item in list_issues("state:claimed", "open"):
         updated = datetime.datetime.fromisoformat(item["updatedAt"].replace("Z", "+00:00"))
         if updated > cutoff:
             continue
