@@ -90,7 +90,7 @@ If {OUTPUT} already exists from an earlier attempt, read it and continue: keep w
 
 DESIGN_TEMPLATE = HEADER + """
 JOB: design a new roadmap and write its complete blueprint.
-Roadmap id: {ROADMAP}. Area (group): {GROUP}.
+Roadmap id: {ROADMAP}. Area: {GROUP} (an area of data/galaxies.json; record it as "area" in the roadmap definition, and for a Part II record its base roadmap as "parent").
 {BRIEF}
 
 Step 1. Write the roadmap definition research/blueprint/roadmaps/{ROADMAP}.json (schema in PROTOCOL.md section 7). The layers must lead from the library baseline to the final theorem, in the order a formaliser would build them, with each layer's targets stated precisely in its description. Put in this roadmap everything that is specific to this proof, and take inputs that belong to existing roadmaps from those roadmaps (list them in `prerequisites`, and use their stage ids in `requires`). Search data/atlas.json for suppliers; read a supplier stage's description before relying on it.
@@ -763,10 +763,10 @@ def main():
                            if route["route"] == "part-ii" else f" The roadmap is \"{route['title']}\".")
                 paper_designs.append(("DESIGN-" + route["roadmap"], route["roadmap"], route["area"], route["brief"] + extends + origin, route["title"]))
     # Priority 1: the new roadmaps and the Zagier suppliers.
-    designs = [("DESIGN-LV", "MordellLawrenceVenkatesh", "diophantine", LV_BRIEF, None),
-               ("DESIGN-ZAGIER", "ZagierConjecturePolylogarithms", "motivic", ZAGIER_BRIEF, None),
-               ("DESIGN-BCGP18", "AbelianSurfacesPotentialModularity", "modular", BCGP18_BRIEF, None),
-               ("DESIGN-BCGP25", "AbelianSurfacesModularity", "modular", BCGP25_BRIEF, None),
+    designs = [("DESIGN-LV", "MordellLawrenceVenkatesh", "arithmeticgeometry", LV_BRIEF, None),
+               ("DESIGN-ZAGIER", "ZagierConjecturePolylogarithms", "ktheory", ZAGIER_BRIEF, None),
+               ("DESIGN-BCGP18", "AbelianSurfacesPotentialModularity", "langlands", BCGP18_BRIEF, None),
+               ("DESIGN-BCGP25", "AbelianSurfacesModularity", "langlands", BCGP25_BRIEF, None),
                ("DESIGN-PAN", "LocallyAnalyticCompletedCohomology", "langlands", PAN_BRIEF, None),
                ("DESIGN-SKINNER", "RankOneConverse", "iwasawa", SKINNER_BRIEF, None),
                ("DESIGN-BETTS-STIX", "GaloisSectionsPadicPeriodMaps", "arithmeticgeometry", BETTS_STIX_BRIEF, None)]
