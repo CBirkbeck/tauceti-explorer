@@ -1,0 +1,1270 @@
+{
+ "id": "RS-08",
+ "name": "Galois deformations, modularity lifting, Selmer groups and motives",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "ArithmeticGaloisDuality",
+   "title": "Global Galois duality and compact coefficients",
+   "document": "content/campaign/ArithmeticGaloisDuality/README.md"
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra",
+   "title": "Commutative algebra for deformation theory and patching",
+   "document": "content/campaign/DeformationAndDerivedPatchingAlgebra/README.md"
+  },
+  {
+   "id": "GL2ModularityLifting",
+   "title": "GL₂ Modularity Lifting",
+   "document": "content/campaign/GL2ModularityLifting/README.md"
+  },
+  {
+   "id": "GlobalGaloisDeformations",
+   "title": "Global Galois deformation rings",
+   "document": "content/campaign/GlobalGaloisDeformations/README.md"
+  },
+  {
+   "id": "LocalGaloisDeformationRings",
+   "title": "Local Galois deformation rings and their components",
+   "document": "content/campaign/LocalGaloisDeformationRings/README.md"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions",
+   "title": "Modular symbols and analytic p-adic L-functions of modular forms",
+   "document": "content/campaign/ModularSymbolsPadicLFunctions/README.md"
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles",
+   "title": "Algebraic cycles, pure and mixed motives",
+   "document": "content/campaign/MotivesAndAlgebraicCycles/README.md"
+  },
+  {
+   "id": "MotivicEtaleKTheory",
+   "title": "Motivic and étale methods for arithmetic K-theory",
+   "document": "content/campaign/MotivicEtaleKTheory/README.md"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "title": "Ordinary automorphic forms and ordinary modularity lifting",
+   "document": "content/campaign/OrdinaryAutomorphicFormsAndModularityLifting/README.md"
+  },
+  {
+   "id": "PadicFamilies",
+   "title": "Hida and Coleman families, period modules, and family L-functions",
+   "document": "content/campaign/PadicFamilies/README.md"
+  },
+  {
+   "id": "SelmerIwasawaCohomology",
+   "title": "Selmer groups, continuous integral cohomology, and Iwasawa cohomology",
+   "document": "content/campaign/SelmerIwasawaCohomology/README.md"
+  }
+ ],
+ "anchors": [
+  {
+   "id": "tauceti:TauCetiRoadmap/ModularCurves",
+   "title": "Modular curves, following Katz–Mazur",
+   "document": "content/tau-ceti/ModularCurves/README.md"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/ModularForms",
+   "title": "Modular forms — Hecke theory, newforms, and L-functions",
+   "document": "content/tau-ceti/ModularForms/README.md"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+   "title": "Continuous cohomology of profinite groups",
+   "document": "content/tau-ceti/ProfiniteCohomology/README.md"
+  }
+ ],
+ "evidence": [
+  {
+   "layer": "ArithmeticGaloisDuality:D7",
+   "other": "DeformationAndDerivedPatchingAlgebra:P7",
+   "source": "audit",
+   "note": "Also plans derived Mittag–Leffler comparisons with retained lim¹ and perfectness/Tor-amplitude of complexes, overlapping D7's derived-limit and perfectness/amplitude targets."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:D7",
+   "other": "MotivicEtaleKTheory:M.1",
+   "source": "audit",
+   "note": "Owns continuous derived cohomology with compact coefficients, derived inverse limits with lim^1 and the comparison with discrete coefficients, which M.1 restates as imports."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:D7",
+   "other": "MotivicEtaleKTheory:M.2",
+   "source": "audit",
+   "note": "Proves derived local and global duality with compact support and keeps modified Tate terms at real places when p = 2, the targets M.2 imports."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:D7",
+   "other": "SelmerIwasawaCohomology:L0",
+   "source": "audit",
+   "note": "D7 is the declared owner of derived inverse limits with lim^1 and Mittag-Leffler conditions, full continuous Hochschild-Serre with edge maps, and the cup/cores/Shapiro normalizations - L0 T1, T2, T3 and T5."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:D7",
+   "other": "SelmerIwasawaCohomology:L1",
+   "source": "audit",
+   "note": "D7 owns compact-support arithmetic cohomology and finite/lattice Poitou-Tate duality with the real-place corrections at p = 2 - L1 T2 and T3."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:D8",
+   "other": "DeformationAndDerivedPatchingAlgebra:P7",
+   "source": "audit",
+   "note": "Also proves the spectral sequence Tor_i^A(H^j(C),B) ⇒ H^{j−i}(C ⊗^L_A B), which is D8's change-of-coefficients spectral sequence."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:D8",
+   "other": "GlobalGaloisDeformations:G7",
+   "source": "audit",
+   "note": "Also proves the tangent and obstruction spaces of polarized dimension-n problems, the failure of scalar/traceless splitting when p divides n, and dual-Selmer control, overlapping D8's tangent-complex and dual-Selmer targets."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:D8",
+   "other": "GlobalGaloisDeformations:G7",
+   "source": "audit-unreviewed",
+   "note": "Owns the dual-Selmer dimension calculation in all ranks 'including trace-kernel exceptions when p divides n' — the same p | n degeneracy this layer records."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:D8",
+   "other": "GlobalGaloisDeformations:R04.3",
+   "source": "audit-unreviewed",
+   "note": "Owns the dual-Selmer dimension calculation and the deformation tangent complexes built from the actual restriction maps."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:D8",
+   "other": "SelmerIwasawaCohomology:L2",
+   "source": "audit",
+   "note": "Also proves that the Selmer mapping-fibre complex recovers the classical Selmer group under H⁰ conditions, the comparison D8 states."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:D8",
+   "other": "SelmerIwasawaCohomology:L3",
+   "source": "audit",
+   "note": "Also proves specialization spectral sequences for Iwasawa cohomology, a change-of-coefficients Tor spectral sequence for Galois complexes."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.1",
+   "other": "DeformationAndDerivedPatchingAlgebra:P7",
+   "source": "audit",
+   "note": "Also plans derived Mittag–Leffler comparisons for inverse systems of finite-coefficient complexes, retaining lim¹ when it does not vanish."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.1",
+   "other": "MotivicEtaleKTheory:M.1",
+   "source": "audit",
+   "note": "Constructs cohomology with lattice and torsion coefficients through the canonical continuous cohomology with the Mittag-Leffler/lim^1 statements, the same coefficient target."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.1",
+   "other": "SelmerIwasawaCohomology:L0",
+   "source": "audit",
+   "note": "L0's own text says these general theorems are imported from ArithmeticGaloisDuality R02 and must not be reimplemented; the overlap is by design but the targets are stated in both places."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.2",
+   "other": "SelmerIwasawaCohomology:L0",
+   "source": "audit",
+   "note": "R02.2 builds the Hochschild-Serre spectral sequence with its low-degree identification and restriction/corestriction identities - L0 T2."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.2",
+   "other": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+   "source": "audit",
+   "note": "Owns all-degree corestriction with cor∘res, transitivity and the Mackey formula, overlapping R02.2's restriction/corestriction identities."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.2",
+   "other": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+   "source": "audit",
+   "note": "Owns the five-term inflation–restriction–transgression sequence whose low-degree identification R02.2 restates."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.2",
+   "other": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+   "source": "audit",
+   "note": "Owns the degree 0–2 restriction/corestriction identities (cor∘res = index, transitivity, Mackey) that R02.2 also asks to prove."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.3",
+   "other": "GlobalGaloisDeformations:R04.2",
+   "source": "audit",
+   "note": "Also plans to verify the finiteness (p-finiteness) hypotheses on G_{F,S}, the degree-one case of R02.3's finiteness theorem."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.3",
+   "other": "MotivicEtaleKTheory:M.2",
+   "source": "audit",
+   "note": "Proves finiteness of finite-coefficient cohomology, bounds on cohomological dimension with the real-place exceptions and constructs compactly supported arithmetic cohomology, the compact-support and finite-generation/vcd hypotheses M.2 asks to verify."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.3",
+   "other": "SelmerIwasawaCohomology:L1",
+   "source": "audit",
+   "note": "R02.3 proves finiteness of finite-coefficient cohomology of G_{F,S}, cohomological-dimension bounds with real-place exceptions and compactly supported cohomology - L1 T2 and T4."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.4",
+   "other": "MotivicEtaleKTheory:M.2",
+   "source": "audit",
+   "note": "Proves finite-module Poitou-Tate duality and its lattice and rational versions, the global duality input M.2 restates."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.4",
+   "other": "SelmerIwasawaCohomology:L1",
+   "source": "audit",
+   "note": "R02.4 proves Poitou-Tate duality and the nine-term sequence with local invariant maps - L1 T3."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.5",
+   "other": "LocalGaloisDeformationRings:R08.6",
+   "source": "audit",
+   "note": "Exports the tangent condition of each local deformation condition, which R02.5 also relates to local H¹ subspaces (the document assigns the calculations to R08)."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.5",
+   "other": "SelmerIwasawaCohomology:L2",
+   "source": "audit",
+   "note": "Also defines Selmer groups as kernels of the global-to-local map, proves that the Selmer mapping-fibre complex recovers the classical group, and proves changes of local conditions, overlapping R02.5's identification and change-of-condition targets."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.6",
+   "other": "GlobalGaloisDeformations:G7",
+   "source": "audit",
+   "note": "Also proves an arbitrary-n auxiliary-prime lemma with control of dual Selmer."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.6",
+   "other": "GlobalGaloisDeformations:R04.3",
+   "source": "audit",
+   "note": "Also states the KW II §4 lower bound on global dimension and bound on the number of relations (Prop. 4.5, Cor. 4.7), the numerical inequalities R02.6 is to prove."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.6",
+   "other": "GlobalGaloisDeformations:R04.3",
+   "source": "audit-unreviewed",
+   "note": "Owns the cohomological requirements of patching — the global Euler characteristic and duality input that produces this dimension and relation bound."
+  },
+  {
+   "layer": "ArithmeticGaloisDuality:R02.6",
+   "other": "GlobalGaloisDeformations:R04.5",
+   "source": "audit",
+   "note": "Also proves the dual-Selmer dimension reduction for choosing Taylor–Wiles primes, i.e. R02.6's dual-Selmer-killing argument."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:P7",
+   "other": "ArithmeticGaloisDuality:D7",
+   "source": "audit",
+   "note": "Also plans derived Mittag–Leffler comparisons with retained lim¹ and perfectness/Tor-amplitude of complexes, overlapping D7's derived-limit and perfectness/amplitude targets."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:P7",
+   "other": "ArithmeticGaloisDuality:D8",
+   "source": "audit",
+   "note": "Also proves the spectral sequence Tor_i^A(H^j(C),B) ⇒ H^{j−i}(C ⊗^L_A B), which is D8's change-of-coefficients spectral sequence."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:P7",
+   "other": "ArithmeticGaloisDuality:R02.1",
+   "source": "audit",
+   "note": "Also plans derived Mittag–Leffler comparisons for inverse systems of finite-coefficient complexes, retaining lim¹ when it does not vanish."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:P8",
+   "other": "GL2ModularityLifting:R22.3",
+   "source": "audit",
+   "note": "Applies the abstract patching construction to the actual rings and modules, with presentation, depth and framing-variable bookkeeping."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:P9",
+   "other": "GL2ModularityLifting:R22.4",
+   "source": "audit",
+   "note": "Local component matching and patched support, with the same warning that a Cohen–Macaulay patched module on one component says nothing about another."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.1",
+   "other": "GlobalGaloisDeformations:R04.1",
+   "source": "audit-unreviewed",
+   "note": "Owns the complete local coefficient categories, small and square-zero extensions and completed tensor products that these functors are defined on."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.1",
+   "other": "LocalGaloisDeformationRings:R08.1",
+   "source": "audit",
+   "note": "Relates local deformation rings over O to residue-field extension of the coefficients."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.1",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+   "source": "audit",
+   "note": "Constructs the complete local coefficient categories as inverse limits of Artinian quotients, the categories 7D deforms over."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.1",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+   "source": "link-rescope",
+   "note": "Use one coefficient category: DDPA R03.1 with O = W(k), which already provides the Artinian-quotient and power-series API that 7D's universal property needs. 7D defines the elliptic deformation groupoid over it. If 7D lands first, R03.1 generalises 7D's definition from W(k) to O with a comparison lemma, not a parallel structure."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.1",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
+   "source": "audit",
+   "note": "Works over the same base category of Artinian local W(k)-algebras with residue field k."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.2",
+   "other": "GlobalGaloisDeformations:G8",
+   "source": "audit-unreviewed",
+   "note": "Owns the abstract representability half: Schlessinger's criterion, framed representability, hulls versus prorepresenting objects; G8 proves the Galois instance."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.2",
+   "other": "GlobalGaloisDeformations:R04.2",
+   "source": "audit",
+   "note": "Existence of universal framed rings and of unframed rings under absolute irreducibility, and the framed/unframed comparison by power-series maps."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.2",
+   "other": "GlobalGaloisDeformations:R04.2",
+   "source": "audit-unreviewed",
+   "note": "Owns Schlessinger's criterion, framed representability, tangent-space finiteness and hull-versus-representing-object uniqueness; R04.2 applies them to G_{F,S}."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.2",
+   "other": "GlobalGaloisDeformations:R04.3",
+   "source": "audit",
+   "note": "Tangent and obstruction descriptions and the bound on the number of relations of a global presentation (KW II Prop. 4.5, Cor. 4.7)."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.2",
+   "other": "LocalGaloisDeformationRings:R08.1",
+   "source": "audit",
+   "note": "Framed local representability with its tangent/obstruction description."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.2",
+   "other": "LocalGaloisDeformationRings:R08.1",
+   "source": "audit-unreviewed",
+   "note": "R03.2 owns the abstract Schlessinger criterion, framed representability, hulls versus prorepresenting objects and the obstruction algebra; R08.1 applies it to the local Galois functor."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.2",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#7b-local-algebra-and-local-schemes",
+   "source": "audit",
+   "note": "Owns Schlessinger's criterion and prorepresenting objects versus hulls, the representability input 7B uses."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.2",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
+   "source": "audit",
+   "note": "Pro-representability on Artinian local W(k)-algebras with residue field k, and a parameter criterion for generators of the maximal ideal of the prorepresenting ring."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.3",
+   "other": "GL2ModularityLifting:R22.3",
+   "source": "audit-unreviewed",
+   "note": "Owns the dimension, depth and complete-intersection algebra that the presentation and depth hypotheses are checked against."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.3",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem",
+   "source": "audit",
+   "note": "Develops regular sequences, depth, Cohen–Macaulay rings and dimension formulas: the commutative algebra behind 4D's miracle-flatness and regularity-descent statements."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.3",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#layer-4-the-katzmazur-moduli-formalism",
+   "source": "audit",
+   "note": "Owns the Cohen–Macaulay and depth theory behind 4D."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.5",
+   "other": "GL2ModularityLifting:R22.3",
+   "source": "audit",
+   "note": "Applies the abstract patching construction to the actual rings and modules, proving each presentation and depth hypothesis."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.5",
+   "other": "GL2ModularityLifting:R22.3",
+   "source": "audit-unreviewed",
+   "note": "Owns the abstract patching-module construction this layer instantiates."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.5",
+   "other": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+   "source": "audit-unreviewed",
+   "note": "Named dependency: the generic patching algebra is owned there, so R21.4 owns only the ordinary arithmetic input."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "other": "GL2ModularityLifting:R22.4",
+   "source": "audit",
+   "note": "States when the generic-fibre or integral R=T statement strengthens, the arithmetic form of R03.6's last target."
+  },
+  {
+   "layer": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "other": "GL2ModularityLifting:R22.4",
+   "source": "audit-unreviewed",
+   "note": "Owns support, components and descent for patched modules — the abstract half of this layer's component argument."
+  },
+  {
+   "layer": "GL2ModularityLifting:R22.1",
+   "other": "GlobalGaloisDeformations:R04.6",
+   "source": "audit-unreviewed",
+   "note": "The direct consumer: it names GlobalGaloisDeformations R04.6 as its dependency and reuses the presentation and universal representations packaged here."
+  },
+  {
+   "layer": "GL2ModularityLifting:R22.1",
+   "other": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+   "source": "audit-unreviewed",
+   "note": "Proves the ordinary R=T theorem by the same deformation-to-Hecke construction in the ordinary setting."
+  },
+  {
+   "layer": "GL2ModularityLifting:R22.2",
+   "other": "GlobalGaloisDeformations:R04.5",
+   "source": "audit-unreviewed",
+   "note": "Chooses the Taylor-Wiles primes this layer adds levels at; the two layers share the prime-selection data."
+  },
+  {
+   "layer": "GL2ModularityLifting:R22.3",
+   "other": "DeformationAndDerivedPatchingAlgebra:P8",
+   "source": "audit",
+   "note": "Applies the abstract patching construction to the actual rings and modules, with presentation, depth and framing-variable bookkeeping."
+  },
+  {
+   "layer": "GL2ModularityLifting:R22.3",
+   "other": "DeformationAndDerivedPatchingAlgebra:R03.3",
+   "source": "audit-unreviewed",
+   "note": "Owns the dimension, depth and complete-intersection algebra that the presentation and depth hypotheses are checked against."
+  },
+  {
+   "layer": "GL2ModularityLifting:R22.3",
+   "other": "DeformationAndDerivedPatchingAlgebra:R03.5",
+   "source": "audit",
+   "note": "Applies the abstract patching construction to the actual rings and modules, proving each presentation and depth hypothesis."
+  },
+  {
+   "layer": "GL2ModularityLifting:R22.3",
+   "other": "DeformationAndDerivedPatchingAlgebra:R03.5",
+   "source": "audit-unreviewed",
+   "note": "Owns the abstract patching-module construction this layer instantiates."
+  },
+  {
+   "layer": "GL2ModularityLifting:R22.4",
+   "other": "DeformationAndDerivedPatchingAlgebra:P9",
+   "source": "audit",
+   "note": "Local component matching and patched support, with the same warning that a Cohen–Macaulay patched module on one component says nothing about another."
+  },
+  {
+   "layer": "GL2ModularityLifting:R22.4",
+   "other": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "source": "audit",
+   "note": "States when the generic-fibre or integral R=T statement strengthens, the arithmetic form of R03.6's last target."
+  },
+  {
+   "layer": "GL2ModularityLifting:R22.4",
+   "other": "DeformationAndDerivedPatchingAlgebra:R03.6",
+   "source": "audit-unreviewed",
+   "note": "Owns support, components and descent for patched modules — the abstract half of this layer's component argument."
+  },
+  {
+   "layer": "GL2ModularityLifting:R22.4",
+   "other": "LocalGaloisDeformationRings:R08.4",
+   "source": "audit-unreviewed",
+   "note": "Owns the finite-flat and Barsotti-Tate components whose matching R22.4 performs."
+  },
+  {
+   "layer": "GL2ModularityLifting:R22.5",
+   "other": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+   "source": "audit-unreviewed",
+   "note": "Owns the ordinary R=T and modularity lifting statement, the ordinary case listed here."
+  },
+  {
+   "layer": "GL2ModularityLifting:R22.6",
+   "other": "LocalGaloisDeformationRings:R08.4",
+   "source": "audit-unreviewed",
+   "note": "Owns the Barsotti-Tate component geometry this layer relies on."
+  },
+  {
+   "layer": "GL2ModularityLifting:R22.6",
+   "other": "LocalGaloisDeformationRings:R08.5",
+   "source": "audit-unreviewed",
+   "note": "R22.6 proves the 2-adic lifting results needed by KW I 'including nonsolvable residual image, infinity, local deformation geometry and all twisting arguments' — the same dyadic package, seen from the global lifting side."
+  },
+  {
+   "layer": "GL2ModularityLifting:R32.1",
+   "other": "GlobalGaloisDeformations:R04.6",
+   "source": "audit-unreviewed",
+   "note": "Also lists R04.6 among its inputs when stating the four lifting theorems."
+  },
+  {
+   "layer": "GL2ModularityLifting:R32.3",
+   "other": "LocalGaloisDeformationRings:R08.5",
+   "source": "audit-unreviewed",
+   "note": "R32.3 is the modern dyadic de Rham lifting theorem and explicitly distinguishes itself from the potentially Barsotti–Tate route this layer supplies."
+  },
+  {
+   "layer": "GL2ModularityLifting:R32.3",
+   "other": "LocalGaloisDeformationRings:R08.6",
+   "source": "audit-unreviewed",
+   "note": "Named in the layer as the owner of general de Rham lifting; the de Rham entry here is an interface to it."
+  },
+  {
+   "layer": "GL2ModularityLifting:R32.4",
+   "other": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+   "source": "audit-unreviewed",
+   "note": "Owns ordinary Galois and deformation families in the residually reducible setting."
+  },
+  {
+   "layer": "GL2ModularityLifting:R32.4",
+   "other": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+   "source": "audit-unreviewed",
+   "note": "R32.4 (Pan's p≥5 residually reducible Fontaine–Mazur theorem) is the complementary residually reducible result; the roadmaps are explicit that the p=3 branch is not a consequence of it."
+  },
+  {
+   "layer": "GL2ModularityLifting:R32.5",
+   "other": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+   "source": "audit-unreviewed",
+   "note": "Owns 'Skinner-Wiles and the small-prime cases' — the same theorem, in the ordinary-forms roadmap."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:G7",
+   "other": "ArithmeticGaloisDuality:D8",
+   "source": "audit",
+   "note": "Also proves the tangent and obstruction spaces of polarized dimension-n problems, the failure of scalar/traceless splitting when p divides n, and dual-Selmer control, overlapping D8's tangent-complex and dual-Selmer targets."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:G7",
+   "other": "ArithmeticGaloisDuality:D8",
+   "source": "audit-unreviewed",
+   "note": "Owns the dual-Selmer dimension calculation in all ranks 'including trace-kernel exceptions when p divides n' — the same p | n degeneracy this layer records."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:G7",
+   "other": "ArithmeticGaloisDuality:R02.6",
+   "source": "audit",
+   "note": "Also proves an arbitrary-n auxiliary-prime lemma with control of dual Selmer."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:G7",
+   "other": "LocalGaloisDeformationRings:L7",
+   "source": "audit-unreviewed",
+   "note": "G7 treats local deformation conditions as representable subfunctors with a point criterion and consumes 'the precise local comparisons and component support input used in ACC+ §6.2' that this layer exports; the local conditions themselves are owned here."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:G7",
+   "other": "LocalGaloisDeformationRings:R08.2",
+   "source": "audit-unreviewed",
+   "note": "G7 requires local deformation conditions 'as representable subfunctors or quotient rings with a proved point criterion' for the polarized arbitrary-rank problem; it consumes the conditions built here."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:G7",
+   "other": "LocalGaloisDeformationRings:R08.6",
+   "source": "audit-unreviewed",
+   "note": "G7 consumes 'the precise local comparisons and component support input' that this layer exports."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:G8",
+   "other": "DeformationAndDerivedPatchingAlgebra:R03.2",
+   "source": "audit-unreviewed",
+   "note": "Owns the abstract representability half: Schlessinger's criterion, framed representability, hulls versus prorepresenting objects; G8 proves the Galois instance."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:G8",
+   "other": "LocalGaloisDeformationRings:R08.1",
+   "source": "audit-unreviewed",
+   "note": "Owns the local framed representability and the effect of fixing the determinant or forgetting a framing, the local counterpart of G8's global statements."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:R04.1",
+   "other": "DeformationAndDerivedPatchingAlgebra:R03.1",
+   "source": "audit-unreviewed",
+   "note": "Owns the complete local coefficient categories, small and square-zero extensions and completed tensor products that these functors are defined on."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:R04.1",
+   "other": "LocalGaloisDeformationRings:R08.1",
+   "source": "audit-unreviewed",
+   "note": "R04.1 defines framed and unframed deformations, continuity and determinant-fixed variants for the global group; R08.1 is the same definition for a local group, and R04.1 explicitly restricts to the local one."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:R04.2",
+   "other": "ArithmeticGaloisDuality:R02.3",
+   "source": "audit",
+   "note": "Also plans to verify the finiteness (p-finiteness) hypotheses on G_{F,S}, the degree-one case of R02.3's finiteness theorem."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:R04.2",
+   "other": "DeformationAndDerivedPatchingAlgebra:R03.2",
+   "source": "audit",
+   "note": "Existence of universal framed rings and of unframed rings under absolute irreducibility, and the framed/unframed comparison by power-series maps."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:R04.2",
+   "other": "DeformationAndDerivedPatchingAlgebra:R03.2",
+   "source": "audit-unreviewed",
+   "note": "Owns Schlessinger's criterion, framed representability, tangent-space finiteness and hull-versus-representing-object uniqueness; R04.2 applies them to G_{F,S}."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:R04.2",
+   "other": "LocalGaloisDeformationRings:R08.1",
+   "source": "audit-unreviewed",
+   "note": "R04.2 proves existence of universal framed rings and the framed-versus-unframed power-series comparison; the framing/determinant bookkeeping is stated in both."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:R04.3",
+   "other": "ArithmeticGaloisDuality:D8",
+   "source": "audit-unreviewed",
+   "note": "Owns the dual-Selmer dimension calculation and the deformation tangent complexes built from the actual restriction maps."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:R04.3",
+   "other": "ArithmeticGaloisDuality:R02.6",
+   "source": "audit",
+   "note": "Also states the KW II §4 lower bound on global dimension and bound on the number of relations (Prop. 4.5, Cor. 4.7), the numerical inequalities R02.6 is to prove."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:R04.3",
+   "other": "ArithmeticGaloisDuality:R02.6",
+   "source": "audit-unreviewed",
+   "note": "Owns the cohomological requirements of patching — the global Euler characteristic and duality input that produces this dimension and relation bound."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:R04.3",
+   "other": "DeformationAndDerivedPatchingAlgebra:R03.2",
+   "source": "audit",
+   "note": "Tangent and obstruction descriptions and the bound on the number of relations of a global presentation (KW II Prop. 4.5, Cor. 4.7)."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:R04.3",
+   "other": "LocalGaloisDeformationRings:R08.1",
+   "source": "audit-unreviewed",
+   "note": "Owns the local rings the global presentation is taken over."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:R04.5",
+   "other": "ArithmeticGaloisDuality:R02.6",
+   "source": "audit",
+   "note": "Also proves the dual-Selmer dimension reduction for choosing Taylor–Wiles primes, i.e. R02.6's dual-Selmer-killing argument."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:R04.5",
+   "other": "GL2ModularityLifting:R22.2",
+   "source": "audit-unreviewed",
+   "note": "Chooses the Taylor-Wiles primes this layer adds levels at; the two layers share the prime-selection data."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:R04.6",
+   "other": "GL2ModularityLifting:R22.1",
+   "source": "audit-unreviewed",
+   "note": "The direct consumer: it names GlobalGaloisDeformations R04.6 as its dependency and reuses the presentation and universal representations packaged here."
+  },
+  {
+   "layer": "GlobalGaloisDeformations:R04.6",
+   "other": "GL2ModularityLifting:R32.1",
+   "source": "audit-unreviewed",
+   "note": "Also lists R04.6 among its inputs when stating the four lifting theorems."
+  },
+  {
+   "layer": "LocalGaloisDeformationRings:L7",
+   "other": "GlobalGaloisDeformations:G7",
+   "source": "audit-unreviewed",
+   "note": "G7 treats local deformation conditions as representable subfunctors with a point criterion and consumes 'the precise local comparisons and component support input used in ACC+ §6.2' that this layer exports; the local conditions themselves are owned here."
+  },
+  {
+   "layer": "LocalGaloisDeformationRings:L8",
+   "other": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+   "source": "audit-unreviewed",
+   "note": "R21.3 builds ordinary Galois and deformation families and needs the same ordinary local condition; it consumes this comparison rather than proving it."
+  },
+  {
+   "layer": "LocalGaloisDeformationRings:R08.1",
+   "other": "DeformationAndDerivedPatchingAlgebra:R03.1",
+   "source": "audit",
+   "note": "Relates local deformation rings over O to residue-field extension of the coefficients."
+  },
+  {
+   "layer": "LocalGaloisDeformationRings:R08.1",
+   "other": "DeformationAndDerivedPatchingAlgebra:R03.2",
+   "source": "audit",
+   "note": "Framed local representability with its tangent/obstruction description."
+  },
+  {
+   "layer": "LocalGaloisDeformationRings:R08.1",
+   "other": "DeformationAndDerivedPatchingAlgebra:R03.2",
+   "source": "audit-unreviewed",
+   "note": "R03.2 owns the abstract Schlessinger criterion, framed representability, hulls versus prorepresenting objects and the obstruction algebra; R08.1 applies it to the local Galois functor."
+  },
+  {
+   "layer": "LocalGaloisDeformationRings:R08.1",
+   "other": "GlobalGaloisDeformations:G8",
+   "source": "audit-unreviewed",
+   "note": "Owns the local framed representability and the effect of fixing the determinant or forgetting a framing, the local counterpart of G8's global statements."
+  },
+  {
+   "layer": "LocalGaloisDeformationRings:R08.1",
+   "other": "GlobalGaloisDeformations:R04.1",
+   "source": "audit-unreviewed",
+   "note": "R04.1 defines framed and unframed deformations, continuity and determinant-fixed variants for the global group; R08.1 is the same definition for a local group, and R04.1 explicitly restricts to the local one."
+  },
+  {
+   "layer": "LocalGaloisDeformationRings:R08.1",
+   "other": "GlobalGaloisDeformations:R04.2",
+   "source": "audit-unreviewed",
+   "note": "R04.2 proves existence of universal framed rings and the framed-versus-unframed power-series comparison; the framing/determinant bookkeeping is stated in both."
+  },
+  {
+   "layer": "LocalGaloisDeformationRings:R08.1",
+   "other": "GlobalGaloisDeformations:R04.3",
+   "source": "audit-unreviewed",
+   "note": "Owns the local rings the global presentation is taken over."
+  },
+  {
+   "layer": "LocalGaloisDeformationRings:R08.2",
+   "other": "GlobalGaloisDeformations:G7",
+   "source": "audit-unreviewed",
+   "note": "G7 requires local deformation conditions 'as representable subfunctors or quotient rings with a proved point criterion' for the polarized arbitrary-rank problem; it consumes the conditions built here."
+  },
+  {
+   "layer": "LocalGaloisDeformationRings:R08.4",
+   "other": "GL2ModularityLifting:R22.4",
+   "source": "audit-unreviewed",
+   "note": "Owns the finite-flat and Barsotti-Tate components whose matching R22.4 performs."
+  },
+  {
+   "layer": "LocalGaloisDeformationRings:R08.4",
+   "other": "GL2ModularityLifting:R22.6",
+   "source": "audit-unreviewed",
+   "note": "Owns the Barsotti-Tate component geometry this layer relies on."
+  },
+  {
+   "layer": "LocalGaloisDeformationRings:R08.5",
+   "other": "GL2ModularityLifting:R22.6",
+   "source": "audit-unreviewed",
+   "note": "R22.6 proves the 2-adic lifting results needed by KW I 'including nonsolvable residual image, infinity, local deformation geometry and all twisting arguments' — the same dyadic package, seen from the global lifting side."
+  },
+  {
+   "layer": "LocalGaloisDeformationRings:R08.5",
+   "other": "GL2ModularityLifting:R32.3",
+   "source": "audit-unreviewed",
+   "note": "R32.3 is the modern dyadic de Rham lifting theorem and explicitly distinguishes itself from the potentially Barsotti–Tate route this layer supplies."
+  },
+  {
+   "layer": "LocalGaloisDeformationRings:R08.6",
+   "other": "ArithmeticGaloisDuality:R02.5",
+   "source": "audit",
+   "note": "Exports the tangent condition of each local deformation condition, which R02.5 also relates to local H¹ subspaces (the document assigns the calculations to R08)."
+  },
+  {
+   "layer": "LocalGaloisDeformationRings:R08.6",
+   "other": "GL2ModularityLifting:R32.3",
+   "source": "audit-unreviewed",
+   "note": "Named in the layer as the owner of general de Rham lifting; the de Rham entry here is an interface to it."
+  },
+  {
+   "layer": "LocalGaloisDeformationRings:R08.6",
+   "other": "GlobalGaloisDeformations:G7",
+   "source": "audit-unreviewed",
+   "note": "G7 consumes 'the precise local comparisons and component support input' that this layer exports."
+  },
+  {
+   "layer": "ModularSymbolsPadicLFunctions:L0",
+   "other": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
+   "source": "audit-unreviewed",
+   "note": "The downstream consumer of the exported ordinary family; the interface is stated on both sides."
+  },
+  {
+   "layer": "ModularSymbolsPadicLFunctions:L0",
+   "other": "PadicFamilies:L1",
+   "source": "audit",
+   "note": "L0 there owns modular symbols, Manin symbols, boundary maps, Hecke actions, the involution at infinity and the Eichler-Shimura period maps with their rational structures — the objects L1 takes the ordinary part of."
+  },
+  {
+   "layer": "ModularSymbolsPadicLFunctions:L0",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+   "source": "audit",
+   "note": "Constructs modular symbols on degree-zero divisors of P^1(Q), Manin symbols, Hecke and diamond actions, and the Eichler-Shimura period maps with injectivity - the same machinery as this layer."
+  },
+  {
+   "layer": "ModularSymbolsPadicLFunctions:L1",
+   "other": "PadicFamilies:L1",
+   "source": "audit",
+   "note": "L1 there constructs saturated integral modular-symbol lattices and canonical integral periods up to units, with period lines defined before scalar periods: the single-form periods L1's family periods are compared with, under the same line-bundle-versus-scalar discipline."
+  },
+  {
+   "layer": "ModularSymbolsPadicLFunctions:L1",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+   "source": "audit",
+   "note": "Proves the Mellin formula expressing period integrals of a newform through L(f, chi, j+1), overlapping the completed L-function and twists."
+  },
+  {
+   "layer": "ModularSymbolsPadicLFunctions:L1",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+   "source": "audit",
+   "note": "Constructs the coefficient field of a newform and saturated integral modular-symbol lattices."
+  },
+  {
+   "layer": "ModularSymbolsPadicLFunctions:L2",
+   "other": "PadicFamilies:L0",
+   "source": "audit",
+   "note": "L2 there constructs the p-stabilizations of a newform for a root alpha of X^2 - a_p X + epsilon(p) p^(w-1) and proves their U_p-eigenvalue and coefficient formula: the p-stabilization L0's specialization theorem records."
+  },
+  {
+   "layer": "ModularSymbolsPadicLFunctions:L2",
+   "other": "PadicFamilies:L1",
+   "source": "audit",
+   "note": "L2 there constructs distribution-valued symbols, the small-slope control theorem and, for slope zero, the bounded single-form measure that L1's family measure must specialize to; it takes its integral lattice and period theorem from L1 of that roadmap."
+  },
+  {
+   "layer": "ModularSymbolsPadicLFunctions:L2",
+   "other": "PadicFamilies:L2",
+   "source": "audit",
+   "note": "L2 there proves the small-slope control theorem and the unique eigenlift for modular symbols, which is L2's classicality statement in the single-form case."
+  },
+  {
+   "layer": "ModularSymbolsPadicLFunctions:L3",
+   "other": "PadicFamilies:L3",
+   "source": "audit",
+   "note": "L3 there states the same Pollack-Stevens/Bellaiche critical-slope results, the theta exact sequence and the secondary L-functions, using the finite-slope eigenvariety layer of this roadmap; the two layers state the same theorems from the two sides of the interface."
+  },
+  {
+   "layer": "MotivesAndAlgebraicCycles:MC.0",
+   "other": "MotivicEtaleKTheory:M.4",
+   "source": "audit-unreviewed",
+   "note": "M.4 constructs Bloch cycle complexes with the moving lemma, localisation, products, flat pullback and proper pushforward; the codimension-j cycle groups and their pullback/pushforward calculus are the same objects MC.0 states."
+  },
+  {
+   "layer": "MotivesAndAlgebraicCycles:MC.0",
+   "other": "MotivicEtaleKTheory:M.5a",
+   "source": "audit-unreviewed",
+   "note": "M.5a constructs finite correspondences and sheaves with transfers, overlapping MC.0's correspondence composition (and MC.4 declares M.5a as its input for exactly this reason)."
+  },
+  {
+   "layer": "MotivesAndAlgebraicCycles:MC.1",
+   "other": "MotivicEtaleKTheory:M.5a",
+   "source": "audit-unreviewed",
+   "note": "M.5a constructs finite correspondences and effective motivic complexes, i.e. the correspondence category MC.1 idempotent-completes."
+  },
+  {
+   "layer": "MotivesAndAlgebraicCycles:MC.2",
+   "other": "MotivicEtaleKTheory:M.4",
+   "source": "audit-unreviewed",
+   "note": "M.4's motivic cohomology and its comparisons cover the cycle-class-to-cohomology maps in the higher-Chow formulation."
+  },
+  {
+   "layer": "MotivesAndAlgebraicCycles:MC.4",
+   "other": "MotivicEtaleKTheory:M.4",
+   "source": "audit",
+   "note": "Identifies higher Chow and motivic cohomology maps with the M.4 API inside geometric mixed motives, overlapping M.4's motivic-cohomology definition."
+  },
+  {
+   "layer": "MotivesAndAlgebraicCycles:MC.4",
+   "other": "MotivicEtaleKTheory:M.4",
+   "source": "audit-unreviewed",
+   "note": "M.4 owns Bloch's higher Chow groups and motivic cohomology, which MC.4 asks to identify with DM mapping groups; the motivic-cohomology definition must not be duplicated."
+  },
+  {
+   "layer": "MotivesAndAlgebraicCycles:MC.4",
+   "other": "MotivicEtaleKTheory:M.5",
+   "source": "audit",
+   "note": "Reuses and extends M.5a's finite correspondences, transfer sheaves, A^1-localisation and Tate stabilisation into geometric mixed motives, overlapping the motivic-category part of M.5."
+  },
+  {
+   "layer": "MotivesAndAlgebraicCycles:MC.4",
+   "other": "MotivicEtaleKTheory:M.5a",
+   "source": "audit",
+   "note": "Constructs the A^1-invariant localised motivic category and Tate stabilisation on top of M.5a's finite correspondences and transfer sheaves, overlapping the effective motivic category target."
+  },
+  {
+   "layer": "MotivesAndAlgebraicCycles:MC.4",
+   "other": "MotivicEtaleKTheory:M.5a",
+   "source": "audit-unreviewed",
+   "note": "M.5a is declared an input and states the same targets verbatim — finite correspondences, Nisnevich sheaves with transfers, A¹-localization, effective motivic complexes and cancellation."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.1",
+   "other": "ArithmeticGaloisDuality:D7",
+   "source": "audit",
+   "note": "Owns continuous derived cohomology with compact coefficients, derived inverse limits with lim^1 and the comparison with discrete coefficients, which M.1 restates as imports."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.1",
+   "other": "ArithmeticGaloisDuality:R02.1",
+   "source": "audit",
+   "note": "Constructs cohomology with lattice and torsion coefficients through the canonical continuous cohomology with the Mittag-Leffler/lim^1 statements, the same coefficient target."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.1",
+   "other": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+   "source": "audit",
+   "note": "Owns continuous cohomology of a profinite group in all degrees with restriction, inflation, conjugation, the all-degree finite-quotient colimit theorem H^n(G, M) = colim_U H^n(G/U, M^U) and the long exact sequence: the same continuous-cohomology carrier M.1 imports, and the owner of the degree zero and one cases Tau Ceti has built."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.2",
+   "other": "ArithmeticGaloisDuality:D7",
+   "source": "audit",
+   "note": "Proves derived local and global duality with compact support and keeps modified Tate terms at real places when p = 2, the targets M.2 imports."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.2",
+   "other": "ArithmeticGaloisDuality:R02.3",
+   "source": "audit",
+   "note": "Proves finiteness of finite-coefficient cohomology, bounds on cohomological dimension with the real-place exceptions and constructs compactly supported arithmetic cohomology, the compact-support and finite-generation/vcd hypotheses M.2 asks to verify."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.2",
+   "other": "ArithmeticGaloisDuality:R02.4",
+   "source": "audit",
+   "note": "Proves finite-module Poitou-Tate duality and its lattice and rational versions, the global duality input M.2 restates."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.2",
+   "other": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+   "source": "audit",
+   "note": "Defines cd_p, scd_p and cd of a profinite group in ENat with their bounding predicates, the cohomological-dimension invariant M.2 must verify."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.4",
+   "other": "MotivesAndAlgebraicCycles:MC.0",
+   "source": "audit-unreviewed",
+   "note": "M.4 constructs Bloch cycle complexes with the moving lemma, localisation, products, flat pullback and proper pushforward; the codimension-j cycle groups and their pullback/pushforward calculus are the same objects MC.0 states."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.4",
+   "other": "MotivesAndAlgebraicCycles:MC.2",
+   "source": "audit-unreviewed",
+   "note": "M.4's motivic cohomology and its comparisons cover the cycle-class-to-cohomology maps in the higher-Chow formulation."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.4",
+   "other": "MotivesAndAlgebraicCycles:MC.4",
+   "source": "audit",
+   "note": "Identifies higher Chow and motivic cohomology maps with the M.4 API inside geometric mixed motives, overlapping M.4's motivic-cohomology definition."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.4",
+   "other": "MotivesAndAlgebraicCycles:MC.4",
+   "source": "audit-unreviewed",
+   "note": "M.4 owns Bloch's higher Chow groups and motivic cohomology, which MC.4 asks to identify with DM mapping groups; the motivic-cohomology definition must not be duplicated."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.5",
+   "other": "MotivesAndAlgebraicCycles:MC.4",
+   "source": "audit",
+   "note": "Reuses and extends M.5a's finite correspondences, transfer sheaves, A^1-localisation and Tate stabilisation into geometric mixed motives, overlapping the motivic-category part of M.5."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.5a",
+   "other": "MotivesAndAlgebraicCycles:MC.0",
+   "source": "audit-unreviewed",
+   "note": "M.5a constructs finite correspondences and sheaves with transfers, overlapping MC.0's correspondence composition (and MC.4 declares M.5a as its input for exactly this reason)."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.5a",
+   "other": "MotivesAndAlgebraicCycles:MC.1",
+   "source": "audit-unreviewed",
+   "note": "M.5a constructs finite correspondences and effective motivic complexes, i.e. the correspondence category MC.1 idempotent-completes."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.5a",
+   "other": "MotivesAndAlgebraicCycles:MC.4",
+   "source": "audit",
+   "note": "Constructs the A^1-invariant localised motivic category and Tate stabilisation on top of M.5a's finite correspondences and transfer sheaves, overlapping the effective motivic category target."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.5a",
+   "other": "MotivesAndAlgebraicCycles:MC.4",
+   "source": "audit-unreviewed",
+   "note": "M.5a is declared an input and states the same targets verbatim — finite correspondences, Nisnevich sheaves with transfers, A¹-localization, effective motivic complexes and cancellation."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.7",
+   "other": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+   "source": "audit",
+   "note": "Defines the cohomological dimension of a profinite group, the invariant that fixes the degree range of M.7's Quillen-Lichtenbaum statement."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.8",
+   "other": "SelmerIwasawaCohomology:L2",
+   "source": "audit",
+   "note": "M.8 also constructs Selmer complexes from explicit local conditions for the Tate and elliptic representations."
+  },
+  {
+   "layer": "MotivicEtaleKTheory:M.8",
+   "other": "SelmerIwasawaCohomology:L4",
+   "source": "audit",
+   "note": "M.8 also constructs the crystalline/semistable local conditions at p for the Tate and elliptic representations and their Selmer complexes."
+  },
+  {
+   "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+   "other": "PadicFamilies:L0a",
+   "source": "audit",
+   "note": "R21.1 consumes L0a's ordinary projectors and their finite-level comparison and applies them to Hecke complexes."
+  },
+  {
+   "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+   "other": "PadicFamilies:L0a",
+   "source": "audit-unreviewed",
+   "note": "L0a owns the group-independent finite and profinite ordinary projector, including the Fitting decomposition and the inverse-limit construction R21.1 consumes."
+  },
+  {
+   "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "other": "PadicFamilies:L0",
+   "source": "audit",
+   "note": "R21.2 imports ordinary families, the ordinary Hecke algebra and Hida control from L0 and adds only the nearly ordinary/Eisenstein statements."
+  },
+  {
+   "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "other": "PadicFamilies:L0",
+   "source": "audit-unreviewed",
+   "note": "L0 owns ordinary modular forms, the ordinary cuspidal Hecke algebra, finite generation and the control statements over weight Iwasawa algebras; R21.2 imports those and adds only the nearly ordinary and Eisenstein cases."
+  },
+  {
+   "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "other": "PadicFamilies:L5",
+   "source": "audit",
+   "note": "R21.2 imports L5 as 'the totally real family interface' and adds the nearly ordinary/Eisenstein control statements; the Hida control statement is stated on both sides."
+  },
+  {
+   "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "other": "PadicFamilies:L5",
+   "source": "audit-unreviewed",
+   "note": "L5 owns Hida control over totally real fields and says explicitly that 'the specialized residually reducible Eisenstein cases belong to that lifting owner', i.e. to R21.2."
+  },
+  {
+   "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+   "other": "GL2ModularityLifting:R32.4",
+   "source": "audit-unreviewed",
+   "note": "Owns ordinary Galois and deformation families in the residually reducible setting."
+  },
+  {
+   "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+   "other": "LocalGaloisDeformationRings:L8",
+   "source": "audit-unreviewed",
+   "note": "R21.3 builds ordinary Galois and deformation families and needs the same ordinary local condition; it consumes this comparison rather than proving it."
+  },
+  {
+   "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+   "other": "PadicFamilies:L4",
+   "source": "audit",
+   "note": "R21.3 owns ordinary Galois and deformation families, overlapping L4's big Galois representation and its local ordinary filtration."
+  },
+  {
+   "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+   "other": "DeformationAndDerivedPatchingAlgebra:R03.5",
+   "source": "audit-unreviewed",
+   "note": "Named dependency: the generic patching algebra is owned there, so R21.4 owns only the ordinary arithmetic input."
+  },
+  {
+   "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+   "other": "GL2ModularityLifting:R22.1",
+   "source": "audit-unreviewed",
+   "note": "Proves the ordinary R=T theorem by the same deformation-to-Hecke construction in the ordinary setting."
+  },
+  {
+   "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+   "other": "GL2ModularityLifting:R22.5",
+   "source": "audit-unreviewed",
+   "note": "Owns the ordinary R=T and modularity lifting statement, the ordinary case listed here."
+  },
+  {
+   "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+   "other": "GL2ModularityLifting:R32.4",
+   "source": "audit-unreviewed",
+   "note": "R32.4 (Pan's p≥5 residually reducible Fontaine–Mazur theorem) is the complementary residually reducible result; the roadmaps are explicit that the p=3 branch is not a consequence of it."
+  },
+  {
+   "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+   "other": "GL2ModularityLifting:R32.5",
+   "source": "audit-unreviewed",
+   "note": "Owns 'Skinner-Wiles and the small-prime cases' — the same theorem, in the ordinary-forms roadmap."
+  },
+  {
+   "layer": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
+   "other": "ModularSymbolsPadicLFunctions:L0",
+   "source": "audit-unreviewed",
+   "note": "The downstream consumer of the exported ordinary family; the interface is stated on both sides."
+  },
+  {
+   "layer": "PadicFamilies:L0",
+   "other": "ModularSymbolsPadicLFunctions:L2",
+   "source": "audit",
+   "note": "L2 there constructs the p-stabilizations of a newform for a root alpha of X^2 - a_p X + epsilon(p) p^(w-1) and proves their U_p-eigenvalue and coefficient formula: the p-stabilization L0's specialization theorem records."
+  },
+  {
+   "layer": "PadicFamilies:L0",
+   "other": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "source": "audit",
+   "note": "R21.2 imports ordinary families, the ordinary Hecke algebra and Hida control from L0 and adds only the nearly ordinary/Eisenstein statements."
+  },
+  {
+   "layer": "PadicFamilies:L0",
+   "other": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "source": "audit-unreviewed",
+   "note": "L0 owns ordinary modular forms, the ordinary cuspidal Hecke algebra, finite generation and the control statements over weight Iwasawa algebras; R21.2 imports those and adds only the nearly ordinary and Eisenstein cases."
+  },
+  {
+   "layer": "PadicFamilies:L0a",
+   "other": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+   "source": "audit",
+   "note": "R21.1 consumes L0a's ordinary projectors and their finite-level comparison and applies them to Hecke complexes."
+  },
+  {
+   "layer": "PadicFamilies:L0a",
+   "other": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+   "source": "audit-unreviewed",
+   "note": "L0a owns the group-independent finite and profinite ordinary projector, including the Fitting decomposition and the inverse-limit construction R21.1 consumes."
+  },
+  {
+   "layer": "PadicFamilies:L1",
+   "other": "ModularSymbolsPadicLFunctions:L0",
+   "source": "audit",
+   "note": "L0 there owns modular symbols, Manin symbols, boundary maps, Hecke actions, the involution at infinity and the Eichler-Shimura period maps with their rational structures — the objects L1 takes the ordinary part of."
+  },
+  {
+   "layer": "PadicFamilies:L1",
+   "other": "ModularSymbolsPadicLFunctions:L1",
+   "source": "audit",
+   "note": "L1 there constructs saturated integral modular-symbol lattices and canonical integral periods up to units, with period lines defined before scalar periods: the single-form periods L1's family periods are compared with, under the same line-bundle-versus-scalar discipline."
+  },
+  {
+   "layer": "PadicFamilies:L1",
+   "other": "ModularSymbolsPadicLFunctions:L2",
+   "source": "audit",
+   "note": "L2 there constructs distribution-valued symbols, the small-slope control theorem and, for slope zero, the bounded single-form measure that L1's family measure must specialize to; it takes its integral lattice and period theorem from L1 of that roadmap."
+  },
+  {
+   "layer": "PadicFamilies:L1",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+   "source": "audit",
+   "note": "This Tau Ceti layer owns the integral modular-symbol module with its Manin symbols, Hecke action and period map (not yet in the Tau Ceti library); L1's ordinary modular-symbol module with integral structure and Hecke action is its ordinary part in families."
+  },
+  {
+   "layer": "PadicFamilies:L2",
+   "other": "ModularSymbolsPadicLFunctions:L2",
+   "source": "audit",
+   "note": "L2 there proves the small-slope control theorem and the unique eigenlift for modular symbols, which is L2's classicality statement in the single-form case."
+  },
+  {
+   "layer": "PadicFamilies:L3",
+   "other": "ModularSymbolsPadicLFunctions:L3",
+   "source": "audit",
+   "note": "L3 there states the same Pollack-Stevens/Bellaiche critical-slope results, the theta exact sequence and the secondary L-functions, using the finite-slope eigenvariety layer of this roadmap; the two layers state the same theorems from the two sides of the interface."
+  },
+  {
+   "layer": "PadicFamilies:L4",
+   "other": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+   "source": "audit",
+   "note": "R21.3 owns ordinary Galois and deformation families, overlapping L4's big Galois representation and its local ordinary filtration."
+  },
+  {
+   "layer": "PadicFamilies:L5",
+   "other": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "source": "audit",
+   "note": "R21.2 imports L5 as 'the totally real family interface' and adds the nearly ordinary/Eisenstein control statements; the Hida control statement is stated on both sides."
+  },
+  {
+   "layer": "PadicFamilies:L5",
+   "other": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "source": "audit-unreviewed",
+   "note": "L5 owns Hida control over totally real fields and says explicitly that 'the specialized residually reducible Eisenstein cases belong to that lifting owner', i.e. to R21.2."
+  },
+  {
+   "layer": "SelmerIwasawaCohomology:L0",
+   "other": "ArithmeticGaloisDuality:D7",
+   "source": "audit",
+   "note": "D7 is the declared owner of derived inverse limits with lim^1 and Mittag-Leffler conditions, full continuous Hochschild-Serre with edge maps, and the cup/cores/Shapiro normalizations - L0 T1, T2, T3 and T5."
+  },
+  {
+   "layer": "SelmerIwasawaCohomology:L0",
+   "other": "ArithmeticGaloisDuality:R02.1",
+   "source": "audit",
+   "note": "L0's own text says these general theorems are imported from ArithmeticGaloisDuality R02 and must not be reimplemented; the overlap is by design but the targets are stated in both places."
+  },
+  {
+   "layer": "SelmerIwasawaCohomology:L0",
+   "other": "ArithmeticGaloisDuality:R02.2",
+   "source": "audit",
+   "note": "R02.2 builds the Hochschild-Serre spectral sequence with its low-degree identification and restriction/corestriction identities - L0 T2."
+  },
+  {
+   "layer": "SelmerIwasawaCohomology:L0",
+   "other": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+   "source": "audit",
+   "note": "Layer 5 owns the long exact sequence, inflation-restriction and the five-term sequence with transgression - the low-degree part of the Hochschild-Serre target L0 T2 (only the three-term inflation-restriction sequence is delivered, in TauCeti ContCohomology/Inflation)."
+  },
+  {
+   "layer": "SelmerIwasawaCohomology:L0",
+   "other": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+   "source": "audit",
+   "note": "Layer 6 owns corestriction in degrees 0-2 with transversal independence - part of L0 T3 (delivered in TauCeti ContCohomology/Corestriction)."
+  },
+  {
+   "layer": "SelmerIwasawaCohomology:L0",
+   "other": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+   "source": "audit",
+   "note": "Layer 7 owns coinduced modules and Shapiro's lemma - part of L0 T3 (delivered in degrees 0 and 1)."
+  },
+  {
+   "layer": "SelmerIwasawaCohomology:L0",
+   "other": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+   "source": "audit",
+   "note": "Layer 8 owns low-degree cup products and the projection formula - part of L0 T3 (delivered in TauCeti ContCohomology/Cup and ProjectionFormula)."
+  },
+  {
+   "layer": "SelmerIwasawaCohomology:L0",
+   "other": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+   "source": "audit",
+   "note": "Layer 9 owns profinite Hilbert 90 and the Kummer isomorphism at finite level, the input L0 T4 specializes to H^1(F, Z_p(1))."
+  },
+  {
+   "layer": "SelmerIwasawaCohomology:L1",
+   "other": "ArithmeticGaloisDuality:D7",
+   "source": "audit",
+   "note": "D7 owns compact-support arithmetic cohomology and finite/lattice Poitou-Tate duality with the real-place corrections at p = 2 - L1 T2 and T3."
+  },
+  {
+   "layer": "SelmerIwasawaCohomology:L1",
+   "other": "ArithmeticGaloisDuality:R02.3",
+   "source": "audit",
+   "note": "R02.3 proves finiteness of finite-coefficient cohomology of G_{F,S}, cohomological-dimension bounds with real-place exceptions and compactly supported cohomology - L1 T2 and T4."
+  },
+  {
+   "layer": "SelmerIwasawaCohomology:L1",
+   "other": "ArithmeticGaloisDuality:R02.4",
+   "source": "audit",
+   "note": "R02.4 proves Poitou-Tate duality and the nine-term sequence with local invariant maps - L1 T3."
+  },
+  {
+   "layer": "SelmerIwasawaCohomology:L2",
+   "other": "ArithmeticGaloisDuality:D8",
+   "source": "audit",
+   "note": "Also proves that the Selmer mapping-fibre complex recovers the classical Selmer group under H⁰ conditions, the comparison D8 states."
+  },
+  {
+   "layer": "SelmerIwasawaCohomology:L2",
+   "other": "ArithmeticGaloisDuality:R02.5",
+   "source": "audit",
+   "note": "Also defines Selmer groups as kernels of the global-to-local map, proves that the Selmer mapping-fibre complex recovers the classical group, and proves changes of local conditions, overlapping R02.5's identification and change-of-condition targets."
+  },
+  {
+   "layer": "SelmerIwasawaCohomology:L2",
+   "other": "MotivicEtaleKTheory:M.8",
+   "source": "audit",
+   "note": "M.8 also constructs Selmer complexes from explicit local conditions for the Tate and elliptic representations."
+  },
+  {
+   "layer": "SelmerIwasawaCohomology:L3",
+   "other": "ArithmeticGaloisDuality:D8",
+   "source": "audit",
+   "note": "Also proves specialization spectral sequences for Iwasawa cohomology, a change-of-coefficients Tor spectral sequence for Galois complexes."
+  },
+  {
+   "layer": "SelmerIwasawaCohomology:L4",
+   "other": "MotivicEtaleKTheory:M.8",
+   "source": "audit",
+   "note": "M.8 also constructs the crystalline/semistable local conditions at p for the Tate and elliptic representations and their Selmer complexes."
+  }
+ ]
+}

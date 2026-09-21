@@ -1,0 +1,182 @@
+{
+ "id": "RS-18",
+ "name": "Algebraic K-theory of schemes and curves",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "EllipticKTheory",
+   "title": "K-theory of curves and elliptic curves",
+   "document": "content/campaign/EllipticKTheory/README.md"
+  },
+  {
+   "id": "KTheoryLowDegrees",
+   "title": "Explicit K₀: projectives, rank and determinant",
+   "document": "content/campaign/KTheoryLowDegrees/README.md"
+  },
+  {
+   "id": "SchemeKTheoryOperations",
+   "title": "K-theory of schemes, localisation and operations",
+   "document": "content/campaign/SchemeKTheoryOperations/README.md"
+  }
+ ],
+ "anchors": [],
+ "evidence": [
+  {
+   "layer": "EllipticKTheory:E.2",
+   "other": "KTheoryLowDegrees:Z.5",
+   "source": "audit",
+   "note": "Z.5 proves the rank–determinant isomorphism K₀(X) ≅ ℤ ⊕ Pic(X) for a connected regular noetherian curve, the structure-sheaf and skyscraper class formulas, and combines E's Pic(E) ≅ ℤ ⊕ E(F) with rank to state K₀(E) ≅ ℤ² ⊕ E(F) — E.2's first, second and last targets."
+  },
+  {
+   "layer": "EllipticKTheory:E.3",
+   "other": "SchemeKTheoryOperations:S.3",
+   "source": "audit",
+   "note": "S.3 constructs the localisation fibre sequence K_Z(X) → K(X) → K(U), applies it to a regular curve and identifies the boundaries on units and symbols with valuations and tame symbols — E.3's localisation sequence for a curve."
+  },
+  {
+   "layer": "EllipticKTheory:E.4",
+   "other": "SchemeKTheoryOperations:S.4",
+   "source": "audit",
+   "note": "S.4 constructs the codimension filtration and coniveau exact couple of scheme K-theory, identifies its first page with residue-field K-groups and proves Gersten results — E.4's coniveau spectral sequence in general."
+  },
+  {
+   "layer": "EllipticKTheory:E.4",
+   "other": "SchemeKTheoryOperations:S.6",
+   "source": "audit",
+   "note": "S.6 constructs λ-operations and Adams operations ψ^k on scheme K-theory, the eigenvalue ψ^k = k^j on weight-j rational K-theory and rational projectors — E.4's Adams operations and weight eigenspaces."
+  },
+  {
+   "layer": "EllipticKTheory:E.5",
+   "other": "KTheoryLowDegrees:Z.6",
+   "source": "audit",
+   "note": "Computes the K-theory of P¹ by the projective-bundle theorem, including this layer's K₀(P¹_F) ≅ ℤ² test."
+  },
+  {
+   "layer": "EllipticKTheory:E.5",
+   "other": "SchemeKTheoryOperations:S.2",
+   "source": "audit",
+   "note": "S.2 constructs derived pullback for arbitrary scheme maps, pushforward for proper perfect morphisms, and proves projection formulas and affine scalar-extension comparisons — E.5's first two targets for all schemes in scope."
+  },
+  {
+   "layer": "EllipticKTheory:E.5",
+   "other": "SchemeKTheoryOperations:S.5",
+   "source": "audit",
+   "note": "S.5 proves the projective-bundle theorem with generators given by powers of the tautological bundle and compares it with the ℙ¹ calculation — E.5's third target."
+  },
+  {
+   "layer": "EllipticKTheory:E.6",
+   "other": "SchemeKTheoryOperations:S.5",
+   "source": "audit",
+   "note": "S.5 constructs 'the blow-up formula in the regular-centre setting used to compare arithmetic integral parts' — E.6's model-independence target."
+  },
+  {
+   "layer": "KTheoryLowDegrees:U.5",
+   "other": "SchemeKTheoryOperations:S.3",
+   "source": "audit",
+   "note": "Applies the localisation sequence to a DVR and Dedekind domains and identifies the boundary on units with the valuation, which is this layer's boundary target."
+  },
+  {
+   "layer": "KTheoryLowDegrees:Z.3",
+   "other": "SchemeKTheoryOperations:S.6",
+   "source": "audit",
+   "note": "Constructs λ-operations and Adams operations on K-theory, whose degree-zero part is this layer's λ-ring structure on K₀."
+  },
+  {
+   "layer": "KTheoryLowDegrees:Z.3",
+   "other": "SchemeKTheoryOperations:S.7",
+   "source": "audit",
+   "note": "Constructs the γ-filtration, which this layer relates to the rank kernel."
+  },
+  {
+   "layer": "KTheoryLowDegrees:Z.5",
+   "other": "EllipticKTheory:E.2",
+   "source": "audit",
+   "note": "Z.5 proves the rank–determinant isomorphism K₀(X) ≅ ℤ ⊕ Pic(X) for a connected regular noetherian curve, the structure-sheaf and skyscraper class formulas, and combines E's Pic(E) ≅ ℤ ⊕ E(F) with rank to state K₀(E) ≅ ℤ² ⊕ E(F) — E.2's first, second and last targets."
+  },
+  {
+   "layer": "KTheoryLowDegrees:Z.6",
+   "other": "EllipticKTheory:E.5",
+   "source": "audit",
+   "note": "Computes the K-theory of P¹ by the projective-bundle theorem, including this layer's K₀(P¹_F) ≅ ℤ² test."
+  },
+  {
+   "layer": "KTheoryLowDegrees:Z.6",
+   "other": "SchemeKTheoryOperations:S.2",
+   "source": "audit",
+   "note": "Constructs the Cartan map K(X) → G(X), with the affine comparisons, and proves it an equivalence for regular noetherian schemes: the same K₀ → G₀ Cartan comparison this layer must make against the existing map."
+  },
+  {
+   "layer": "KTheoryLowDegrees:Z.6",
+   "other": "SchemeKTheoryOperations:S.5",
+   "source": "audit",
+   "note": "Proves the projective-bundle theorem and compares it with this layer's P¹ calculation, i.e. K₀(P¹_F) ≅ ℤ²."
+  },
+  {
+   "layer": "SchemeKTheoryOperations:S.2",
+   "other": "EllipticKTheory:E.5",
+   "source": "audit",
+   "note": "S.2 constructs derived pullback for arbitrary scheme maps, pushforward for proper perfect morphisms, and proves projection formulas and affine scalar-extension comparisons — E.5's first two targets for all schemes in scope."
+  },
+  {
+   "layer": "SchemeKTheoryOperations:S.2",
+   "other": "KTheoryLowDegrees:Z.6",
+   "source": "audit",
+   "note": "Constructs the Cartan map K(X) → G(X), with the affine comparisons, and proves it an equivalence for regular noetherian schemes: the same K₀ → G₀ Cartan comparison this layer must make against the existing map."
+  },
+  {
+   "layer": "SchemeKTheoryOperations:S.3",
+   "other": "EllipticKTheory:E.3",
+   "source": "audit",
+   "note": "S.3 constructs the localisation fibre sequence K_Z(X) → K(X) → K(U), applies it to a regular curve and identifies the boundaries on units and symbols with valuations and tame symbols — E.3's localisation sequence for a curve."
+  },
+  {
+   "layer": "SchemeKTheoryOperations:S.3",
+   "other": "KTheoryLowDegrees:U.5",
+   "source": "audit",
+   "note": "Applies the localisation sequence to a DVR and Dedekind domains and identifies the boundary on units with the valuation, which is this layer's boundary target."
+  },
+  {
+   "layer": "SchemeKTheoryOperations:S.4",
+   "other": "EllipticKTheory:E.4",
+   "source": "audit",
+   "note": "S.4 constructs the codimension filtration and coniveau exact couple of scheme K-theory, identifies its first page with residue-field K-groups and proves Gersten results — E.4's coniveau spectral sequence in general."
+  },
+  {
+   "layer": "SchemeKTheoryOperations:S.5",
+   "other": "EllipticKTheory:E.5",
+   "source": "audit",
+   "note": "S.5 proves the projective-bundle theorem with generators given by powers of the tautological bundle and compares it with the ℙ¹ calculation — E.5's third target."
+  },
+  {
+   "layer": "SchemeKTheoryOperations:S.5",
+   "other": "EllipticKTheory:E.6",
+   "source": "audit",
+   "note": "S.5 constructs 'the blow-up formula in the regular-centre setting used to compare arithmetic integral parts' — E.6's model-independence target."
+  },
+  {
+   "layer": "SchemeKTheoryOperations:S.5",
+   "other": "KTheoryLowDegrees:Z.6",
+   "source": "audit",
+   "note": "Proves the projective-bundle theorem and compares it with this layer's P¹ calculation, i.e. K₀(P¹_F) ≅ ℤ²."
+  },
+  {
+   "layer": "SchemeKTheoryOperations:S.6",
+   "other": "EllipticKTheory:E.4",
+   "source": "audit",
+   "note": "S.6 constructs λ-operations and Adams operations ψ^k on scheme K-theory, the eigenvalue ψ^k = k^j on weight-j rational K-theory and rational projectors — E.4's Adams operations and weight eigenspaces."
+  },
+  {
+   "layer": "SchemeKTheoryOperations:S.6",
+   "other": "KTheoryLowDegrees:Z.3",
+   "source": "audit",
+   "note": "Constructs λ-operations and Adams operations on K-theory, whose degree-zero part is this layer's λ-ring structure on K₀."
+  },
+  {
+   "layer": "SchemeKTheoryOperations:S.7",
+   "other": "KTheoryLowDegrees:Z.3",
+   "source": "audit",
+   "note": "Constructs the γ-filtration, which this layer relates to the rank kernel."
+  }
+ ]
+}

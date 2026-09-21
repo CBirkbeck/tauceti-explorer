@@ -1,0 +1,116 @@
+{
+ "id": "RS-25",
+ "name": "Néron models and scheme and stack foundations",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "NeronModelsAndSemistableAbelianVarieties",
+   "title": "Néron models and semistable abelian varieties",
+   "document": "content/campaign/NeronModelsAndSemistableAbelianVarieties/README.md"
+  },
+  {
+   "id": "SchemeAndStackFoundations",
+   "title": "Scheme, stack, cohomology and intersection foundations",
+   "document": "content/campaign/SchemeAndStackFoundations/README.md"
+  }
+ ],
+ "anchors": [
+  {
+   "id": "tauceti:TauCetiRoadmap/EllipticCurves",
+   "title": "Elliptic curves",
+   "document": "content/tau-ceti/EllipticCurves/README.md"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/StableReduction",
+   "title": "Stable reduction of curves and stable maps",
+   "document": "content/tau-ceti/StableReduction/README.md"
+  }
+ ],
+ "evidence": [
+  {
+   "layer": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+   "other": "SchemeAndStackFoundations:SF.4",
+   "source": "audit",
+   "note": "Owns Néron models, which this layer routes through existing owners."
+  },
+  {
+   "layer": "NeronModelsAndSemistableAbelianVarieties:R11.2",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+   "source": "audit",
+   "note": "Tate's algorithm there computes c_p = [E(K) : E₀(K)] and the component count, the equation-level side of the elliptic component-group comparison."
+  },
+  {
+   "layer": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+   "other": "SchemeAndStackFoundations:SF.4",
+   "source": "audit",
+   "note": "Owns semistable reduction of abelian varieties."
+  },
+  {
+   "layer": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+   "other": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+   "source": "audit",
+   "note": "Owns semistable reduction for abelian varieties after a finite extension with the monodromy criterion on the Tate module, which is the Jacobian half of this layer's curve-vs-Jacobian equivalence of semistable reduction."
+  },
+  {
+   "layer": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+   "other": "SchemeAndStackFoundations:SF.3",
+   "source": "audit",
+   "note": "Also constructs Picard schemes of (semistable) curves and relates Jacobians to Néron models."
+  },
+  {
+   "layer": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+   "other": "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion",
+   "source": "audit",
+   "note": "Constructs the degree-zero Picard and generalised Jacobian of semistable curves, the toric character group from the dual graph and the component-group description related to the Neron model, overlapping the comparison of Picard groups of the special fibre with the numerical type and its torsion."
+  },
+  {
+   "layer": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+   "source": "audit",
+   "note": "States Néron–Ogg–Shafarevich for elliptic curves (good reduction ⇔ unramified T_ℓ) in three separate statements."
+  },
+  {
+   "layer": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+   "source": "audit",
+   "note": "Builds the equation-level invariants (minimal discriminant, Kodaira symbols, Ogg exponent, c_p) that this layer compares with Néron-model data."
+  },
+  {
+   "layer": "SchemeAndStackFoundations:SF.0",
+   "other": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+   "source": "audit",
+   "note": "Also plans relative Proj of a finitely generated graded quasi-coherent algebra and projective morphisms."
+  },
+  {
+   "layer": "SchemeAndStackFoundations:SF.1",
+   "other": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+   "source": "audit",
+   "note": "States effective fpqc/fppf descent for the required objects, overlapping Layer 2's effective descent of polarized schemes."
+  },
+  {
+   "layer": "SchemeAndStackFoundations:SF.3",
+   "other": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+   "source": "audit",
+   "note": "Also constructs Picard schemes of (semistable) curves and relates Jacobians to Néron models."
+  },
+  {
+   "layer": "SchemeAndStackFoundations:SF.4",
+   "other": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+   "source": "audit",
+   "note": "Owns Néron models, which this layer routes through existing owners."
+  },
+  {
+   "layer": "SchemeAndStackFoundations:SF.4",
+   "other": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+   "source": "audit",
+   "note": "Owns semistable reduction of abelian varieties."
+  },
+  {
+   "layer": "SchemeAndStackFoundations:SF.4",
+   "other": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+   "source": "audit",
+   "note": "Owns semistable (nodal) reduction of curves, the reduction theorem this layer lists."
+  }
+ ]
+}

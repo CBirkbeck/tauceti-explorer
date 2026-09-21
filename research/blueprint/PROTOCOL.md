@@ -302,7 +302,9 @@ records a proposal in its packet:
 ```
 
 The orchestrator collects these proposals in `research/blueprint/RESTRUCTURE.md`,
-decides on them, and re-plans the affected jobs.
+decides on them, and re-plans the affected jobs. Families of roadmaps that
+overlap one another are restructured before they are blueprinted, by the
+restructuring jobs of section 15.
 
 ## 10. Links between roadmaps
 
@@ -425,3 +427,66 @@ The workers who develop a roadmap also decide how it appears in the atlas.
   `restructure` (section 9), with their titles and the nodes each contains.
 - The checker enforces these limits. The orchestrator draws planets and
   sub-layers from accepted packets.
+
+## 15. Build on existing roadmaps; never duplicate
+
+Every piece of mathematics in the atlas has exactly one owner: one layer of one
+roadmap. Roadmaps complement and build on each other.
+
+- A Tau Ceti roadmap (an id starting `tauceti:`, including the open roadmap
+  pull requests the atlas tracks, such as Modular curves) is existing work. It
+  is never re-planned here: the atlas plans only what lies beyond it, and cites
+  its layers as prerequisites.
+- A proposed roadmap never restates what another roadmap plans. It imports it,
+  through a prerequisite link to the layer that owns it.
+- When a proposed roadmap needs more than an existing roadmap covers in the same
+  direction (more on moduli spaces than Modular curves provides, say), the
+  additions form a roadmap that extends the existing one, titled
+  "<existing roadmap>, Part II: <what it adds>", with the existing roadmap as
+  its first prerequisite. It starts where the existing roadmap stops, and its
+  introduction says so.
+- A general theory that subsumes special cases an existing roadmap builds (say,
+  general algebraic spaces over the finite-quotient constructions of Modular
+  curves) builds on those cases: it cites them, proves its general statements
+  compatible with them, and does not construct them again.
+
+**Restructuring jobs** apply this rule to families of overlapping roadmaps.
+`research/blueprint/restructure/RS-NN.json` describes a family: its proposed
+roadmaps, the existing roadmaps they overlap, and the evidence from the library
+audits and the link maps. The evidence is a set of leads, not a verdict: some
+flagged pairs are deliberate handoffs between a supplier and its consumer. A
+restructuring job reads every member's document and layer descriptions in full,
+and the anchors' documents, and writes two files:
+`research/blueprint/restructure/RS-NN.result.json` in the format below, and
+`research/blueprint/restructure/RS-NN.md`, which explains the decisions to a
+human reader.
+
+```json
+{
+ "family": "RS-NN",
+ "roadmaps": {"<proposed roadmap id>": {"action": "keep | extend | merge | retire",
+               "extends": "<roadmap id, for extend>", "into": "<roadmap id, for merge>",
+               "title": "<the new title, when it changes>", "reason": "..."}},
+ "layers": {"<stage id>": {"action": "keep | narrow | move | drop",
+             "keeps": "<for narrow: exactly what remains in the layer>",
+             "moveTo": "<roadmap id, for move>",
+             "suppliedBy": ["<the owning stage id>"], "reason": "..."}},
+ "links": [{"source": "<owning stage id>", "target": "<consuming stage id>", "reason": "..."}],
+ "owners": [{"target": "<mathematics that appeared more than once>",
+             "owner": "<stage id>", "formerly": ["<stage id>"]}]
+}
+```
+
+The proposal follows these rules:
+
+- Tau Ceti roadmaps never change; only proposed roadmaps do.
+- Every piece of mathematics that appeared in more than one roadmap is listed in
+  `owners`, with exactly one owner.
+- A dropped or narrowed layer names the layers that now supply what it lost,
+  and every layer that relied on it gets a link from the new supplier.
+- An extension starts exactly where the roadmap it extends stops.
+- A layer the proposal does not list keeps its place unchanged.
+
+An independent reviewer checks the proposal against the roadmap documents. The
+orchestrator applies an accepted proposal to the atlas, and the blueprint jobs
+of the family's roadmaps start after that.

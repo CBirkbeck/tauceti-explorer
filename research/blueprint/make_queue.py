@@ -37,6 +37,7 @@ METHOD = """METHOD
    (c) if it belongs to another roadmap with no suitable node yet, add a `requests` entry and list that roadmap's stage; or
    (d) add a new node to this packet.
    Recurse on every new node until every chain ends in (a), (b) or (c). Keep an explicit worklist in your scratch directory and work through it methodically; do not stop at the first level.
+   Build on existing roadmaps and never duplicate them (PROTOCOL.md section 15): what a Tau Ceti roadmap or another proposed roadmap plans is imported through (b) or (c), never planned again in (d). If you need more than an existing roadmap provides in its own direction, propose the addition as "<that roadmap>, Part II" in `restructure`.
 3. Granularity. One node per library declaration. Split multi-part results. Every non-routine step becomes its own lemma node.
 4. API and unit tests. Every definition and construction node gets an `api` outline (PROTOCOL.md section 4) and a `tests` list of at least three unit tests (section 12), chosen so that a plausible wrong definition fails one of them: a value in a small case, the degenerate case, agreement with the closest Mathlib or Tau Ceti notion wherever both are defined, and a non-example. Think as a library designer: what does a user of this object need in order to use it without unfolding its definition? Include compatibility with the closest Mathlib or Tau Ceti notion, stated precisely.
 5. Sources. Every node cites the passage that states or proves it. Keep excerpts short.
@@ -55,6 +56,7 @@ METHOD = """METHOD
 
 RULES
 - Lean code only in {SUGGESTED}; no Lean code or `sorry` in the packet or the document; no tickets and no implementation claims: implementationStatus stays "unchecked".
+- Never plan what another roadmap plans (PROTOCOL.md section 15).
 - Edit only {EDITABLE}, the document {README}, the suggested file {SUGGESTED}, the handoff note and files in your scratch directory. Do not run git. Do not edit application code, data/, content/, tests/, README.md, HANDOVER.md, the queue, reserved ids or other packets.
 - No private absolute paths, PDFs or extracted book text in the repository.
 - Save the packet after every few nodes (write to a temporary file in your scratch directory, validate it with python3 -c 'import json;json.load(open(...))', then move it into place) so an interrupted run loses little.
@@ -177,6 +179,51 @@ Tasks:
 4. Join the parts' suggested Lean files ({PARTLEAN}) into {SUGGESTED}, with one standard note, one import block and consistent names.
 5. Collect the parts' `restructure` proposals and requests in research/blueprint/handoff/{JOB}.md.
 RULES: edit only the listed part packets, {README}, {SUGGESTED}, the handoff note and scratch files. Do not run git. No Lean code outside {SUGGESTED}. No private paths in the repository. Do not change a review verdict. If you change a reviewed node's mathematics, say so in the handoff note, so that the orchestrator can schedule a re-review.
+Finish with a summary under 200 words."""
+
+RESTRUCTURE_TEMPLATE = HEADER + """
+JOB: restructure the roadmap family {FAMILY} ("{NAME}") so that every piece of mathematics has exactly one owner and the roadmaps build on each other (PROTOCOL.md section 15).
+Family file: {FAMILYFILE} (its proposed roadmaps, the existing Tau Ceti roadmaps they overlap, and the evidence).
+Outputs: {OUTPUT} (the proposal, in the format of PROTOCOL.md section 15) and {REPORT} (your reasoning, for a human reader).
+If {OUTPUT} already exists from an earlier attempt, read it and {REPORT} first, and continue from them.
+
+INPUTS
+- The family file. Its evidence lists pairs of layers that the library audits or the link maps flagged as overlapping, with their notes. They are leads, not verdicts: some are deliberate handoffs between a supplier and its consumer, and some duplicates may be missing.
+- Every member's roadmap document (its `document` path) and its layers: research/blueprint/atlas/roadmaps/<id>.json (file name: the roadmap id with ':' and '/' replaced by '_'), with each layer's full description and prerequisite links. Read them in full.
+- Every anchor's document and layers. Anchors are Tau Ceti roadmaps: existing work that never changes.
+- The reviewed library audit, data/library-coverage.json: what the pinned Mathlib and Tau Ceti already contain.
+- The roadmaps outside the family that consume a member (the `requires` links in the atlas extracts), so that nothing a consumer relies on disappears.
+
+METHOD
+1. For each member, write down in your scratch space what each of its layers constructs or proves, precisely.
+2. For every piece of mathematics that appears in more than one roadmap of the family, members and anchors alike, choose one owner. An anchor always owns what it plans. Between members, the roadmap whose purpose it serves most directly, usually the more foundational one, owns it, and the other imports it.
+3. Decide each member's fate: keep (possibly with narrowed layers); extend (it becomes "<base roadmap>, Part II: <what it adds>" and starts exactly where the base stops); merge (its remaining layers join another member); or retire (everything it plans is owned elsewhere).
+4. For each layer that changes, narrow it (state exactly what remains), move it, or drop it (name the layers that supply it). Add a link from the new supplier to every layer that relied on what moved or went.
+5. Check: every piece of mathematics that was duplicated has exactly one owner; every consumer inside and outside the family still finds each of its prerequisites; no anchor changes; each extension starts where its base stops.
+6. Write {REPORT}: the family's structure before and after, each decision with its reason, and anything you are unsure of.
+
+RULES
+- Edit only {OUTPUT}, {REPORT} and files in your scratch directory. Do not run git. Do not edit roadmap documents, atlas data or other jobs' files: the orchestrator applies accepted proposals.
+- Restructuring moves and deduplicates; it never loses mathematics. If a target seems unnecessary, say so in the report instead of dropping it.
+- No private absolute paths in the repository.
+
+Finish with a summary under 250 words: the decision for each roadmap, the layers changed, the links added, and your open questions."""
+
+RESTRUCTURE_REVIEW_TEMPLATE = """You are an independent reviewer for the Tau Ceti Atlas. You did not write the proposal you review. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it). Save as you go.
+
+READ FIRST (binding): research/blueprint/PROTOCOL.md, section 15.
+
+REVIEW: the restructuring proposal {OUTPUT} and its report {REPORT}, for the family {FAMILY} ("{NAME}") described in {FAMILYFILE}.
+
+Check, by reading the members' and anchors' documents and layer descriptions:
+1. Duplication: every piece of mathematics planned by more than one roadmap of the family has exactly one owner, and no duplicate was missed.
+2. Nothing lost: every target of every changed layer is kept, moved, or supplied by a named layer, and every consumer, inside the family or outside it, still finds its prerequisites.
+3. Anchors are unchanged; each extension starts where its base stops and is titled "<base roadmap>, Part II: <what it adds>".
+4. The proposal follows the format of PROTOCOL.md section 15.
+Correct the proposal in place wherever the fix is clear, and record every change. Then add a top-level "review" object to it: {{"status": "accepted" | "needs_changes", "reviewer": "independent-review-{JOB}", "date": "<today>", "notes": "<what was checked and corrected>", "corrections": ["..."]}}.
+Write research/blueprint/reviews/{JOB}.md with your findings and questions for the orchestrator.
+
+RULES: edit only the proposal, your report and scratch files. Do not run git. No private paths in the repository.
 Finish with a summary under 200 words."""
 
 HABIRO_FAMILY = {"HabiroNumberFields", "HabiroRings", "HabiroCyclotomicCompletions", "HabiroNahmSeries",
@@ -540,21 +587,42 @@ def main():
          "prompt": "research/expansion/prompts/REVIEW-EXT-13-EXT-07B.md",
          "outputs": ["research/expansion/reviews/REVIEW-EXT-13-EXT-07B-review.md"], "after": [],
          "waitForLogs": ["{WORKERS}/EXT-07-continued/run.log"]})
-    # Priority 3: every other roadmap, suppliers before consumers.
+    # Priority 0: restructure the families of overlapping roadmaps first, so that
+    # nothing is blueprinted twice (PROTOCOL.md section 15).
+    family_review = {}
+    for number, path in enumerate(sorted((BP / "restructure").glob("RS-[0-9][0-9].json")), 1):
+        family = json.loads(path.read_text())
+        job_id, members = family["id"], [m["id"] for m in family["members"]]
+        output, report = f"research/blueprint/restructure/{job_id}.result.json", f"research/blueprint/restructure/{job_id}.md"
+        familyfile = f"research/blueprint/restructure/{path.name}"
+        fields = dict(FAMILY=job_id, NAME=family["name"], FAMILYFILE=familyfile, OUTPUT=output, REPORT=report)
+        add({"id": job_id, "kind": "restructure", "priority": 0, "order": 20 + number, "name": family["name"],
+             "roadmapIds": members, "anchors": [a["id"] for a in family["anchors"]], "outputs": [output, report], "after": []},
+            RESTRUCTURE_TEMPLATE.format(**fill, JOB=job_id, **fields))
+        review_id = "REV-" + job_id
+        add({"id": review_id, "kind": "review", "priority": 0, "order": 20 + number, "name": family["name"], "roadmapIds": members,
+             "outputs": [f"research/blueprint/reviews/{review_id}.md"], "after": [job_id], "avoidAccountOf": job_id},
+            RESTRUCTURE_REVIEW_TEMPLATE.format(**fill, JOB=review_id, **fields))
+        for member in members:
+            family_review[member] = review_id
+    # Priority 3: every other proposed roadmap, suppliers before consumers. Tau
+    # Ceti roadmaps are planned upstream; the atlas builds on them, never
+    # re-plans them.
     ordered = sorted((rid for rid in roadmaps if rid not in ("K3BlochGroups", "Polylogarithms", "BorelRegulators")
-                      and stages_by_owner.get(rid)), key=lambda r: (levels[r], r))
+                      and not rid.startswith("tauceti:") and stages_by_owner.get(rid)), key=lambda r: (levels[r], r))
     for position, rid in enumerate(ordered):
         after = sorted({j for s in suppliers[rid] for j in bp_jobs_of.get(s, [])})
         add_blueprint(rid, 3, 10 + levels[rid] * 1000 + position, after=after)
     # Supplier jobs are only known once all blueprints are listed: fix dependencies.
     ids = {j["id"] for j in jobs}
     for job in jobs:
-        if job["kind"] == "blueprint" and job["priority"] == 3:
+        if job["kind"] == "blueprint":
             rid = job["roadmapIds"][0]
             # A supplier's blueprint is read if it exists; what is missing becomes a
-            # `requests` entry. So no blueprint waits for another, or for the link maps.
+            # `requests` entry. So no blueprint waits for another, or for the link
+            # maps; it waits only for its family's restructuring, when it has one.
             job["suppliers"] = sorted({j for s in suppliers[rid] if not s.startswith("tauceti:") for j in bp_jobs_of.get(s, []) if j in ids})
-            job["after"] = ["REV-PLAN-HABIRO"] if rid in HABIRO_FAMILY else []
+            job["after"] = (["REV-PLAN-HABIRO"] if rid in HABIRO_FAMILY else []) + ([family_review[rid]] if rid in family_review else [])
     # Assembly of multi-part roadmaps, after every part is reviewed.
     for rid, parts in parts_of.items():
         if len(parts) < 2:

@@ -1,0 +1,141 @@
+{
+ "id": "RS-23",
+ "name": "Hilbert, Siegel and PEL moduli",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "HilbertModularVarietiesAndShimuraCurves",
+   "title": "Hilbert Modular Varieties And Shimura Curves",
+   "document": "content/campaign/HilbertModularVarietiesAndShimuraCurves/README.md"
+  },
+  {
+   "id": "PELModuli",
+   "title": "Siegel and PEL moduli problems",
+   "document": "content/campaign/PELModuli/README.md"
+  }
+ ],
+ "anchors": [],
+ "evidence": [
+  {
+   "layer": "HilbertModularVarietiesAndShimuraCurves:H0",
+   "other": "PELModuli:M0",
+   "source": "audit",
+   "note": "M0 builds the similitude group, its symplectic representation, the positivity/Hodge structure link and the reflex field for PEL data, which covers H0's symplectic representation and reflex-field targets in greater generality."
+  },
+  {
+   "layer": "HilbertModularVarietiesAndShimuraCurves:H1",
+   "other": "PELModuli:M0",
+   "source": "audit",
+   "note": "Verifies the determinant condition for the Hilbert–Blumenthal problem, the real-multiplication case of the PEL linear algebra."
+  },
+  {
+   "layer": "HilbertModularVarietiesAndShimuraCurves:H1",
+   "other": "PELModuli:M1",
+   "source": "audit",
+   "note": "Constructs the Hilbert–Blumenthal moduli problem with polarisation modules and level structures, the real-multiplication instance of these functors."
+  },
+  {
+   "layer": "HilbertModularVarietiesAndShimuraCurves:H1",
+   "other": "PELModuli:M2",
+   "source": "audit",
+   "note": "Verifies the representability hypotheses for the Hilbert–Blumenthal moduli problem, a special case of this layer."
+  },
+  {
+   "layer": "HilbertModularVarietiesAndShimuraCurves:H1",
+   "other": "PELModuli:M3",
+   "source": "audit",
+   "note": "Compares the complex fibres of the Hilbert–Blumenthal problem with the adelic descriptions."
+  },
+  {
+   "layer": "HilbertModularVarietiesAndShimuraCurves:H1",
+   "other": "PELModuli:M5",
+   "source": "audit",
+   "note": "Builds the Hilbert–Blumenthal moduli problem from polarisation modules, the example M5 hands over."
+  },
+  {
+   "layer": "HilbertModularVarietiesAndShimuraCurves:H2",
+   "other": "PELModuli:M2",
+   "source": "audit",
+   "note": "M2 owns representability and smoothness of integral PEL models at good level, including the deformation calculation H2 would reuse."
+  },
+  {
+   "layer": "HilbertModularVarietiesAndShimuraCurves:H2",
+   "other": "PELModuli:M4",
+   "source": "audit",
+   "note": "M4 owns the normalization construction of integral models at higher p-level with its finiteness/normality/flatness statements, which H2 restates for the Hilbert case."
+  },
+  {
+   "layer": "HilbertModularVarietiesAndShimuraCurves:H4",
+   "other": "PELModuli:M1",
+   "source": "audit",
+   "note": "M1 owns the prime-to-p and p-level structures of PEL moduli problems, of which the Hilbert p-levels of H4 are a case."
+  },
+  {
+   "layer": "HilbertModularVarietiesAndShimuraCurves:R18.2",
+   "other": "PELModuli:M4",
+   "source": "audit",
+   "note": "M4 owns integral models at higher level by normalization with the finiteness/normality/flatness statements R18.2 restates for quaternionic curves."
+  },
+  {
+   "layer": "PELModuli:M0",
+   "other": "HilbertModularVarietiesAndShimuraCurves:H0",
+   "source": "audit",
+   "note": "M0 builds the similitude group, its symplectic representation, the positivity/Hodge structure link and the reflex field for PEL data, which covers H0's symplectic representation and reflex-field targets in greater generality."
+  },
+  {
+   "layer": "PELModuli:M0",
+   "other": "HilbertModularVarietiesAndShimuraCurves:H1",
+   "source": "audit",
+   "note": "Verifies the determinant condition for the Hilbert–Blumenthal problem, the real-multiplication case of the PEL linear algebra."
+  },
+  {
+   "layer": "PELModuli:M1",
+   "other": "HilbertModularVarietiesAndShimuraCurves:H1",
+   "source": "audit",
+   "note": "Constructs the Hilbert–Blumenthal moduli problem with polarisation modules and level structures, the real-multiplication instance of these functors."
+  },
+  {
+   "layer": "PELModuli:M1",
+   "other": "HilbertModularVarietiesAndShimuraCurves:H4",
+   "source": "audit",
+   "note": "M1 owns the prime-to-p and p-level structures of PEL moduli problems, of which the Hilbert p-levels of H4 are a case."
+  },
+  {
+   "layer": "PELModuli:M2",
+   "other": "HilbertModularVarietiesAndShimuraCurves:H1",
+   "source": "audit",
+   "note": "Verifies the representability hypotheses for the Hilbert–Blumenthal moduli problem, a special case of this layer."
+  },
+  {
+   "layer": "PELModuli:M2",
+   "other": "HilbertModularVarietiesAndShimuraCurves:H2",
+   "source": "audit",
+   "note": "M2 owns representability and smoothness of integral PEL models at good level, including the deformation calculation H2 would reuse."
+  },
+  {
+   "layer": "PELModuli:M3",
+   "other": "HilbertModularVarietiesAndShimuraCurves:H1",
+   "source": "audit",
+   "note": "Compares the complex fibres of the Hilbert–Blumenthal problem with the adelic descriptions."
+  },
+  {
+   "layer": "PELModuli:M4",
+   "other": "HilbertModularVarietiesAndShimuraCurves:H2",
+   "source": "audit",
+   "note": "M4 owns the normalization construction of integral models at higher p-level with its finiteness/normality/flatness statements, which H2 restates for the Hilbert case."
+  },
+  {
+   "layer": "PELModuli:M4",
+   "other": "HilbertModularVarietiesAndShimuraCurves:R18.2",
+   "source": "audit",
+   "note": "M4 owns integral models at higher level by normalization with the finiteness/normality/flatness statements R18.2 restates for quaternionic curves."
+  },
+  {
+   "layer": "PELModuli:M5",
+   "other": "HilbertModularVarietiesAndShimuraCurves:H1",
+   "source": "audit",
+   "note": "Builds the Hilbert–Blumenthal moduli problem from polarisation modules, the example M5 hands over."
+  }
+ ]
+}

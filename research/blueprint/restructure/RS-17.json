@@ -1,0 +1,439 @@
+{
+ "id": "RS-17",
+ "name": "Étale weights, purity and the Weil conjectures",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "DeligneWeightsAndPurity",
+   "title": "Deligne weights, purity and the Weil bounds",
+   "document": "content/campaign/DeligneWeightsAndPurity/README.md"
+  },
+  {
+   "id": "LefschetzPencilsAndVanishingCycles",
+   "title": "Lefschetz pencils, nearby cycles and vanishing cycles",
+   "document": "content/campaign/LefschetzPencilsAndVanishingCycles/README.md"
+  },
+  {
+   "id": "WeightsInEtaleCohomology",
+   "title": "Weights and purity in étale cohomology",
+   "document": "content/campaign/WeightsInEtaleCohomology/README.md"
+  },
+  {
+   "id": "WeilConjectures",
+   "title": "Weil conjectures and cohomological zeta functions",
+   "document": "content/campaign/WeilConjectures/README.md"
+  }
+ ],
+ "anchors": [],
+ "evidence": [
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.0",
+   "other": "WeightsInEtaleCohomology:R34.1",
+   "source": "audit",
+   "note": "R34.1 restates DWP.0's Weil numbers, chosen-embedding versus algebraic weights and tensor/dual/twist rules as imports, with a representation-convention adapter."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.0",
+   "other": "WeilConjectures:WC.2",
+   "source": "audit",
+   "note": "WC.2 derives invertibility of F and the reciprocal eigenvalue pairing and polynomial reciprocity from the Frobenius-equivariant Poincaré pairing, the same linear algebra as DWP.0's reciprocal-pairing target."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.1",
+   "other": "WeightsInEtaleCohomology:R34.2",
+   "source": "audit",
+   "note": "R34.2 restates DWP.1's curve/abelian Weil bound with the H¹/Jacobian comparison and Rosati positivity as imports."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.1",
+   "other": "WeilConjectures:WC.5",
+   "source": "audit",
+   "note": "WC.5 derives |N_r − (q^r + 1)| ≤ 2g q^{r/2} for curves from b₁ = 2g via the curve/Jacobian cohomology supplier, the same point-count target."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.1",
+   "other": "WeilConjectures:WC.5:surface-alternative",
+   "source": "audit",
+   "note": "WC.5:surface-alternative proves the same curve bound independently by intersection theory on C × C."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.10",
+   "other": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+   "source": "audit",
+   "note": "LPV.7:semistable-curves computes nearby cycles, dual graphs and N for semistable curves, the semistable-curve monodromy statements DWP.10 exports weights for."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.10",
+   "other": "WeightsInEtaleCohomology:R34.6",
+   "source": "audit",
+   "note": "R34.6 consumes DWP.10's export contracts for eigenform/Kuga–Sato purity and coefficient-independent bounds."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.10",
+   "other": "WeilConjectures:WC.5",
+   "source": "audit",
+   "note": "WC.5 proves the point-count error bounds from the weight theorem, DWP.10's point-count target."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.10",
+   "other": "WeilConjectures:WC.7",
+   "source": "audit",
+   "note": "DWP.10's acceptance examples (ℙⁿ, a smooth proper curve and its Jacobian, a nonsemisimple Frobenius, a nonprojective input via DWP.7) overlap WC.7's worked realisations."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.2",
+   "other": "WeightsInEtaleCohomology:R34.5",
+   "source": "audit",
+   "note": "R34.5 restates DWP.2–4's Weil I majoration, pencil rationality and smooth-projective RH proof as imports."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.3",
+   "other": "LefschetzPencilsAndVanishingCycles:LPV.4",
+   "source": "audit",
+   "note": "LPV.4 constructs the vanishing-cycle subspace E, E^⊥ and the nondegenerate pairing on E/(E ∩ E^⊥), the same objects as DWP.3's first target."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.3",
+   "other": "LefschetzPencilsAndVanishingCycles:LPV.5",
+   "source": "audit",
+   "note": "LPV.5 proves absolute irreducibility and open symplectic monodromy of the same radical quotient, whose hypotheses DWP.3 says it must verify."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.3",
+   "other": "WeightsInEtaleCohomology:R34.5",
+   "source": "audit",
+   "note": "Owner of pencil local-factor rationality (Weil I 6.2), restated by R34.5."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.4",
+   "other": "LefschetzPencilsAndVanishingCycles:LPV.3",
+   "source": "audit",
+   "note": "DWP.4 restates the descent and extension of the projective embedding, pencil, singular values and vanishing cycles after a finite extension, which LPV.3 is to export."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.4",
+   "other": "LefschetzPencilsAndVanishingCycles:LPV.4",
+   "source": "audit",
+   "note": "LPV.4 builds the Leray and restriction/Gysin comparisons over the blown-up pencil that DWP.4's dimension induction analyses."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.4",
+   "other": "WeightsInEtaleCohomology:R34.5",
+   "source": "audit",
+   "note": "R34.5 restates DWP.4's smooth-projective RH proof as an import."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.4",
+   "other": "WeilConjectures:WC.3",
+   "source": "audit",
+   "note": "WC.3 carries out Weil I (1.7) ⇒ (1.6), the all-conjugates RH handoff that DWP.4 exports."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.5",
+   "other": "LefschetzPencilsAndVanishingCycles:LPV.1",
+   "source": "audit",
+   "note": "LPV.1 constructs tame inertia, the nilpotent logarithm N, quasi-unipotence and the monodromy filtration that DWP.5's local weight theorem imports and extends."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.5",
+   "other": "WeightsInEtaleCohomology:R34.5",
+   "source": "audit",
+   "note": "Owner of Weil II local weights, part of the Weil II package R34.5 imports."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.6",
+   "other": "WeightsInEtaleCohomology:R34.5",
+   "source": "audit",
+   "note": "R34.5 restates DWP.5–8's local and mixed-sheaf proof, including this curve purity step, as an import."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.7",
+   "other": "WeightsInEtaleCohomology:R34.5",
+   "source": "audit",
+   "note": "R34.5 restates DWP.5–8's Rf_! bounds and smooth-proper purity as imports."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.7",
+   "other": "WeilConjectures:WC.6",
+   "source": "audit",
+   "note": "WC.6 uses DWP.7 to extend purity beyond projective varieties and treats compact-support weights of mixed sheaves, restating DWP.7's consequences."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.8",
+   "other": "WeightsInEtaleCohomology:R34.5",
+   "source": "audit",
+   "note": "R34.5 restates DWP.5–8's mixed-sheaf results as imports, and R34.1 defers its complex-level weight formalism to DWP.8."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.9",
+   "other": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+   "source": "audit",
+   "note": "LPV.7:invariant-cycles proves the potentially-pure invariant-cycle and support-bound weak-Lefschetz results 6.2.8–6.2.12, the exact inputs of DWP.9's 6.2.13 extension."
+  },
+  {
+   "layer": "DeligneWeightsAndPurity:DWP.9",
+   "other": "WeightsInEtaleCohomology:R34.5",
+   "source": "audit",
+   "note": "R34.5 restates DWP.9's absolute hard Lefschetz as an import."
+  },
+  {
+   "layer": "LefschetzPencilsAndVanishingCycles:LPV.0",
+   "other": "WeightsInEtaleCohomology:R34.3",
+   "source": "audit",
+   "note": "R34.3 imports the same nearby/vanishing-cycle functors and specialisation sequence as its own milestone."
+  },
+  {
+   "layer": "LefschetzPencilsAndVanishingCycles:LPV.1",
+   "other": "DeligneWeightsAndPurity:DWP.5",
+   "source": "audit",
+   "note": "LPV.1 constructs tame inertia, the nilpotent logarithm N, quasi-unipotence and the monodromy filtration that DWP.5's local weight theorem imports and extends."
+  },
+  {
+   "layer": "LefschetzPencilsAndVanishingCycles:LPV.1",
+   "other": "WeightsInEtaleCohomology:R34.3",
+   "source": "audit",
+   "note": "R34.3 imports LPV.1's inertia and monodromy as its own milestone."
+  },
+  {
+   "layer": "LefschetzPencilsAndVanishingCycles:LPV.2",
+   "other": "WeightsInEtaleCohomology:R34.3",
+   "source": "audit",
+   "note": "R34.3 imports LPV.2's specialisation sequence and local calculation as its own milestone."
+  },
+  {
+   "layer": "LefschetzPencilsAndVanishingCycles:LPV.3",
+   "other": "DeligneWeightsAndPurity:DWP.4",
+   "source": "audit",
+   "note": "DWP.4 restates the descent and extension of the projective embedding, pencil, singular values and vanishing cycles after a finite extension, which LPV.3 is to export."
+  },
+  {
+   "layer": "LefschetzPencilsAndVanishingCycles:LPV.3",
+   "other": "WeightsInEtaleCohomology:R34.4",
+   "source": "audit",
+   "note": "R34.4 imports LPV.3's Veronese/Bertini existence, blow-up/pencil maps and finite-extension descent as its own milestone."
+  },
+  {
+   "layer": "LefschetzPencilsAndVanishingCycles:LPV.4",
+   "other": "DeligneWeightsAndPurity:DWP.3",
+   "source": "audit",
+   "note": "LPV.4 constructs the vanishing-cycle subspace E, E^⊥ and the nondegenerate pairing on E/(E ∩ E^⊥), the same objects as DWP.3's first target."
+  },
+  {
+   "layer": "LefschetzPencilsAndVanishingCycles:LPV.4",
+   "other": "DeligneWeightsAndPurity:DWP.4",
+   "source": "audit",
+   "note": "LPV.4 builds the Leray and restriction/Gysin comparisons over the blown-up pencil that DWP.4's dimension induction analyses."
+  },
+  {
+   "layer": "LefschetzPencilsAndVanishingCycles:LPV.4",
+   "other": "WeightsInEtaleCohomology:R34.4",
+   "source": "audit",
+   "note": "R34.4 imports the vanishing-cycle radical quotient as its own milestone."
+  },
+  {
+   "layer": "LefschetzPencilsAndVanishingCycles:LPV.5",
+   "other": "DeligneWeightsAndPurity:DWP.3",
+   "source": "audit",
+   "note": "LPV.5 proves absolute irreducibility and open symplectic monodromy of the same radical quotient, whose hypotheses DWP.3 says it must verify."
+  },
+  {
+   "layer": "LefschetzPencilsAndVanishingCycles:LPV.5",
+   "other": "WeightsInEtaleCohomology:R34.4",
+   "source": "audit",
+   "note": "R34.4 imports LPV.5's irreducible, open symplectic monodromy as its own milestone."
+  },
+  {
+   "layer": "LefschetzPencilsAndVanishingCycles:LPV.7",
+   "other": "WeightsInEtaleCohomology:R34.3",
+   "source": "audit",
+   "note": "R34.3 imports LPV.7:semistable-curves' normalisation/node calculations as its own milestone."
+  },
+  {
+   "layer": "LefschetzPencilsAndVanishingCycles:LPV.7:invariant-cycles",
+   "other": "DeligneWeightsAndPurity:DWP.9",
+   "source": "audit",
+   "note": "LPV.7:invariant-cycles proves the potentially-pure invariant-cycle and support-bound weak-Lefschetz results 6.2.8–6.2.12, the exact inputs of DWP.9's 6.2.13 extension."
+  },
+  {
+   "layer": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+   "other": "DeligneWeightsAndPurity:DWP.10",
+   "source": "audit",
+   "note": "LPV.7:semistable-curves computes nearby cycles, dual graphs and N for semistable curves, the semistable-curve monodromy statements DWP.10 exports weights for."
+  },
+  {
+   "layer": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+   "other": "WeightsInEtaleCohomology:R34.3",
+   "source": "audit",
+   "note": "R34.3 imports these normalisation/node nearby-cycle calculations as its own milestone."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.1",
+   "other": "DeligneWeightsAndPurity:DWP.0",
+   "source": "audit",
+   "note": "R34.1 restates DWP.0's Weil numbers, chosen-embedding versus algebraic weights and tensor/dual/twist rules as imports, with a representation-convention adapter."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.2",
+   "other": "DeligneWeightsAndPurity:DWP.1",
+   "source": "audit",
+   "note": "R34.2 restates DWP.1's curve/abelian Weil bound with the H¹/Jacobian comparison and Rosati positivity as imports."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.2",
+   "other": "WeilConjectures:WC.5",
+   "source": "audit",
+   "note": "WC.5 states the same curve bound |N_r − (q^r + 1)| ≤ 2g·q^{r/2} through b₁ = 2g."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.3",
+   "other": "LefschetzPencilsAndVanishingCycles:LPV.0",
+   "source": "audit",
+   "note": "R34.3 imports the same nearby/vanishing-cycle functors and specialisation sequence as its own milestone."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.3",
+   "other": "LefschetzPencilsAndVanishingCycles:LPV.1",
+   "source": "audit",
+   "note": "R34.3 imports LPV.1's inertia and monodromy as its own milestone."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.3",
+   "other": "LefschetzPencilsAndVanishingCycles:LPV.2",
+   "source": "audit",
+   "note": "R34.3 imports LPV.2's specialisation sequence and local calculation as its own milestone."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.3",
+   "other": "LefschetzPencilsAndVanishingCycles:LPV.7",
+   "source": "audit",
+   "note": "R34.3 imports LPV.7:semistable-curves' normalisation/node calculations as its own milestone."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.3",
+   "other": "LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves",
+   "source": "audit",
+   "note": "R34.3 imports these normalisation/node nearby-cycle calculations as its own milestone."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.4",
+   "other": "LefschetzPencilsAndVanishingCycles:LPV.3",
+   "source": "audit",
+   "note": "R34.4 imports LPV.3's Veronese/Bertini existence, blow-up/pencil maps and finite-extension descent as its own milestone."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.4",
+   "other": "LefschetzPencilsAndVanishingCycles:LPV.4",
+   "source": "audit",
+   "note": "R34.4 imports the vanishing-cycle radical quotient as its own milestone."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.4",
+   "other": "LefschetzPencilsAndVanishingCycles:LPV.5",
+   "source": "audit",
+   "note": "R34.4 imports LPV.5's irreducible, open symplectic monodromy as its own milestone."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.5",
+   "other": "DeligneWeightsAndPurity:DWP.2",
+   "source": "audit",
+   "note": "R34.5 restates DWP.2–4's Weil I majoration, pencil rationality and smooth-projective RH proof as imports."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.5",
+   "other": "DeligneWeightsAndPurity:DWP.3",
+   "source": "audit",
+   "note": "Owner of pencil local-factor rationality (Weil I 6.2), restated by R34.5."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.5",
+   "other": "DeligneWeightsAndPurity:DWP.4",
+   "source": "audit",
+   "note": "R34.5 restates DWP.4's smooth-projective RH proof as an import."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.5",
+   "other": "DeligneWeightsAndPurity:DWP.5",
+   "source": "audit",
+   "note": "Owner of Weil II local weights, part of the Weil II package R34.5 imports."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.5",
+   "other": "DeligneWeightsAndPurity:DWP.6",
+   "source": "audit",
+   "note": "R34.5 restates DWP.5–8's local and mixed-sheaf proof, including this curve purity step, as an import."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.5",
+   "other": "DeligneWeightsAndPurity:DWP.7",
+   "source": "audit",
+   "note": "R34.5 restates DWP.5–8's Rf_! bounds and smooth-proper purity as imports."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.5",
+   "other": "DeligneWeightsAndPurity:DWP.8",
+   "source": "audit",
+   "note": "R34.5 restates DWP.5–8's mixed-sheaf results as imports, and R34.1 defers its complex-level weight formalism to DWP.8."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.5",
+   "other": "DeligneWeightsAndPurity:DWP.9",
+   "source": "audit",
+   "note": "R34.5 restates DWP.9's absolute hard Lefschetz as an import."
+  },
+  {
+   "layer": "WeightsInEtaleCohomology:R34.6",
+   "other": "DeligneWeightsAndPurity:DWP.10",
+   "source": "audit",
+   "note": "R34.6 consumes DWP.10's export contracts for eigenform/Kuga–Sato purity and coefficient-independent bounds."
+  },
+  {
+   "layer": "WeilConjectures:WC.2",
+   "other": "DeligneWeightsAndPurity:DWP.0",
+   "source": "audit",
+   "note": "WC.2 derives invertibility of F and the reciprocal eigenvalue pairing and polynomial reciprocity from the Frobenius-equivariant Poincaré pairing, the same linear algebra as DWP.0's reciprocal-pairing target."
+  },
+  {
+   "layer": "WeilConjectures:WC.3",
+   "other": "DeligneWeightsAndPurity:DWP.4",
+   "source": "audit",
+   "note": "WC.3 carries out Weil I (1.7) ⇒ (1.6), the all-conjugates RH handoff that DWP.4 exports."
+  },
+  {
+   "layer": "WeilConjectures:WC.5",
+   "other": "DeligneWeightsAndPurity:DWP.1",
+   "source": "audit",
+   "note": "WC.5 derives |N_r − (q^r + 1)| ≤ 2g q^{r/2} for curves from b₁ = 2g via the curve/Jacobian cohomology supplier, the same point-count target."
+  },
+  {
+   "layer": "WeilConjectures:WC.5",
+   "other": "DeligneWeightsAndPurity:DWP.10",
+   "source": "audit",
+   "note": "WC.5 proves the point-count error bounds from the weight theorem, DWP.10's point-count target."
+  },
+  {
+   "layer": "WeilConjectures:WC.5",
+   "other": "WeightsInEtaleCohomology:R34.2",
+   "source": "audit",
+   "note": "WC.5 states the same curve bound |N_r − (q^r + 1)| ≤ 2g·q^{r/2} through b₁ = 2g."
+  },
+  {
+   "layer": "WeilConjectures:WC.5:surface-alternative",
+   "other": "DeligneWeightsAndPurity:DWP.1",
+   "source": "audit",
+   "note": "WC.5:surface-alternative proves the same curve bound independently by intersection theory on C × C."
+  },
+  {
+   "layer": "WeilConjectures:WC.6",
+   "other": "DeligneWeightsAndPurity:DWP.7",
+   "source": "audit",
+   "note": "WC.6 uses DWP.7 to extend purity beyond projective varieties and treats compact-support weights of mixed sheaves, restating DWP.7's consequences."
+  },
+  {
+   "layer": "WeilConjectures:WC.7",
+   "other": "DeligneWeightsAndPurity:DWP.10",
+   "source": "audit",
+   "note": "DWP.10's acceptance examples (ℙⁿ, a smooth proper curve and its Jacobian, a nonsemisimple Frobenius, a nonprojective input via DWP.7) overlap WC.7's worked realisations."
+  }
+ ]
+}

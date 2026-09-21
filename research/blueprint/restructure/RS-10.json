@@ -1,0 +1,348 @@
+{
+ "id": "RS-10",
+ "name": "Habiro rings and Habiro cohomology",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "ArithmeticQuantumTopology",
+   "title": "Arithmetic quantum topology, Habiro invariants and regulators",
+   "document": "content/campaign/ArithmeticQuantumTopology/README.md"
+  },
+  {
+   "id": "HabiroCohomologyFoundations",
+   "title": "Q-Hodge filtrations and Habiro cohomology",
+   "document": "content/campaign/HabiroCohomologyFoundations/README.md"
+  },
+  {
+   "id": "HabiroCyclotomicCompletions",
+   "title": "Cyclotomic completions and classical Habiro rings",
+   "document": "content/campaign/HabiroCyclotomicCompletions/README.md"
+  },
+  {
+   "id": "HabiroNumberFields",
+   "title": "Number-field Habiro rings, finite regulators and K₃-graded modules",
+   "document": "content/campaign/HabiroNumberFields/README.md"
+  },
+  {
+   "id": "HabiroRings",
+   "title": "Habiro rings: relative arithmetic constructions and cohomological coefficients",
+   "document": "content/campaign/HabiroRings/README.md"
+  }
+ ],
+ "anchors": [],
+ "evidence": [
+  {
+   "layer": "ArithmeticQuantumTopology:QT.2",
+   "other": "HabiroCyclotomicCompletions:HC.2",
+   "source": "audit",
+   "note": "Builds finite truncations of cyclotomic (q;q)_n expansions and proves coefficient compatibility before passing to the completion."
+  },
+  {
+   "layer": "ArithmeticQuantumTopology:QT.4",
+   "other": "HabiroCyclotomicCompletions:HC.3",
+   "source": "audit",
+   "note": "Takes the Taylor expansion at q = 1 (the Ohtsuki series) and root-of-unity evaluations of one completed element."
+  },
+  {
+   "layer": "ArithmeticQuantumTopology:QT.4",
+   "other": "HabiroCyclotomicCompletions:HC.4",
+   "source": "audit",
+   "note": "Derives integrality and determination results for quantum invariants from HC.4's injectivity theorems, restating them for its coefficient ring."
+  },
+  {
+   "layer": "HabiroCohomologyFoundations:HQ.1",
+   "other": "HabiroRings:HR.1",
+   "source": "audit",
+   "note": "Owns the global gluing over a perfectly covered Λ-ring following Wagner Appendix A, restating HR.1's perfectly-covered hypothesis and its local Frobenius data."
+  },
+  {
+   "layer": "HabiroCohomologyFoundations:HQ.3",
+   "other": "HabiroRings:HR.4",
+   "source": "audit",
+   "note": "Uses the derived m-truncated q-de Rham–Witt objects as graded pieces of its filtration, whose degree-zero part is HR.4's qW_m."
+  },
+  {
+   "layer": "HabiroCohomologyFoundations:HQ.4",
+   "other": "HabiroRings:HR.3",
+   "source": "audit",
+   "note": "Applies HR.2–3's arithmetic fracture and cyclotomic descent to complexes over each cyclotomic completion."
+  },
+  {
+   "layer": "HabiroCohomologyFoundations:HQ.4",
+   "other": "HabiroRings:HR.4",
+   "source": "audit",
+   "note": "Imports degree-zero q-Witt rings from HR.4 and owns the positive-degree q-de Rham–Witt complex, restating the same absence of compatible restriction maps."
+  },
+  {
+   "layer": "HabiroCohomologyFoundations:HQ.5",
+   "other": "HabiroRings:HR.5",
+   "source": "audit",
+   "note": "Carries the q−1 completion comparison and the actual Frobenius-glued Taylor maps, comparing with HR.5 and HB.6's GSWZ ring."
+  },
+  {
+   "layer": "HabiroCohomologyFoundations:HQ.5",
+   "other": "HabiroRings:HR.6",
+   "source": "audit",
+   "note": "Exports the completed cohomology object to HR.6 and states that HR.6 and HB.7 own the line-module comparison and the loss of K₃-indexed information on completion."
+  },
+  {
+   "layer": "HabiroCohomologyFoundations:HQ.7",
+   "other": "HabiroCyclotomicCompletions:HC.6",
+   "source": "audit",
+   "note": "Acceptance tests and Lean boundary for the cohomology side of the same family."
+  },
+  {
+   "layer": "HabiroCohomologyFoundations:HQ.7",
+   "other": "HabiroRings:HR.7",
+   "source": "audit",
+   "note": "Acceptance tests and Lean boundary for the cohomology side of the family."
+  },
+  {
+   "layer": "HabiroCyclotomicCompletions:HC.1",
+   "other": "HabiroNumberFields:HB.6",
+   "source": "audit",
+   "note": "Compares the number-field Habiro ring with the usual Habiro completion when F = ℚ and Δ = 1, so it restates the classical completion."
+  },
+  {
+   "layer": "HabiroCyclotomicCompletions:HC.1",
+   "other": "HabiroRings:HR.2",
+   "source": "audit",
+   "note": "States the limit description by (q^m−1)-completions indexed by divisibility and the cofinal Habiro-factorial tower, for its derived completion."
+  },
+  {
+   "layer": "HabiroCyclotomicCompletions:HC.1",
+   "other": "HabiroRings:HR.3",
+   "source": "audit",
+   "note": "Owns the comparison between the Φ-indexed system and the (q^m−1) system that HR.3 uses in derived form."
+  },
+  {
+   "layer": "HabiroCyclotomicCompletions:HC.1",
+   "other": "HabiroRings:HR.5",
+   "source": "audit",
+   "note": "Proves that the divisor system and a cofinal factorial sequence give canonically equivalent limits, the relative form of HC.1's cofinality comparison."
+  },
+  {
+   "layer": "HabiroCyclotomicCompletions:HC.2",
+   "other": "ArithmeticQuantumTopology:QT.2",
+   "source": "audit",
+   "note": "Builds finite truncations of cyclotomic (q;q)_n expansions and proves coefficient compatibility before passing to the completion."
+  },
+  {
+   "layer": "HabiroCyclotomicCompletions:HC.2",
+   "other": "HabiroRings:HR.2",
+   "source": "audit",
+   "note": "Also proves q invertible in the completed coefficient ring and warns against confusing completion with inverting q^m − 1."
+  },
+  {
+   "layer": "HabiroCyclotomicCompletions:HC.3",
+   "other": "ArithmeticQuantumTopology:QT.4",
+   "source": "audit",
+   "note": "Takes the Taylor expansion at q = 1 (the Ohtsuki series) and root-of-unity evaluations of one completed element."
+  },
+  {
+   "layer": "HabiroCyclotomicCompletions:HC.3",
+   "other": "HabiroNumberFields:HB.6",
+   "source": "audit",
+   "note": "Proves substitution by ζ_{pm} − ζ_m exists in the required completion and defines the Frobenius-twisted Taylor-gluing condition."
+  },
+  {
+   "layer": "HabiroCyclotomicCompletions:HC.3",
+   "other": "HabiroRings:HR.5",
+   "source": "audit",
+   "note": "Root-of-unity choices, change-of-choice invariance and convergence of the p-adic substitutions in the Taylor presentation of the relative ring."
+  },
+  {
+   "layer": "HabiroCyclotomicCompletions:HC.4",
+   "other": "ArithmeticQuantumTopology:QT.4",
+   "source": "audit",
+   "note": "Derives integrality and determination results for quantum invariants from HC.4's injectivity theorems, restating them for its coefficient ring."
+  },
+  {
+   "layer": "HabiroCyclotomicCompletions:HC.4",
+   "other": "HabiroRings:HR.3",
+   "source": "audit",
+   "note": "Organises p-adic intersections of cyclotomic loci by prime-power chains, the same adjacency arithmetic used for descent."
+  },
+  {
+   "layer": "HabiroCyclotomicCompletions:HC.5",
+   "other": "HabiroNumberFields:HB.6",
+   "source": "audit",
+   "note": "Keeps the restrictions on root orders and the decomposition phenomena when primes are inverted, and warns that integrality of the coefficient ring does not transfer."
+  },
+  {
+   "layer": "HabiroCyclotomicCompletions:HC.5",
+   "other": "HabiroRings:HR.2",
+   "source": "audit",
+   "note": "The derived upgrade of HC.5's module completion: Habiro-complete modules with derived-limit corrections."
+  },
+  {
+   "layer": "HabiroCyclotomicCompletions:HC.6",
+   "other": "HabiroCohomologyFoundations:HQ.7",
+   "source": "audit",
+   "note": "Acceptance tests and Lean boundary for the cohomology side of the same family."
+  },
+  {
+   "layer": "HabiroCyclotomicCompletions:HC.6",
+   "other": "HabiroNumberFields:HB.6",
+   "source": "audit",
+   "note": "HC.6 states as an acceptance test the map from the classical ℤ-Habiro ring to GSWZ's rational-number-field case — HB.6's comparison with the usual Habiro ring at F = ℚ."
+  },
+  {
+   "layer": "HabiroCyclotomicCompletions:HC.6",
+   "other": "HabiroRings:HR.7",
+   "source": "audit",
+   "note": "The parallel acceptance-test layer for the relative construction, including a value-versus-Taylor test at one root."
+  },
+  {
+   "layer": "HabiroNumberFields:HB.6",
+   "other": "HabiroCyclotomicCompletions:HC.1",
+   "source": "audit",
+   "note": "Compares the number-field Habiro ring with the usual Habiro completion when F = ℚ and Δ = 1, so it restates the classical completion."
+  },
+  {
+   "layer": "HabiroNumberFields:HB.6",
+   "other": "HabiroCyclotomicCompletions:HC.3",
+   "source": "audit",
+   "note": "Proves substitution by ζ_{pm} − ζ_m exists in the required completion and defines the Frobenius-twisted Taylor-gluing condition."
+  },
+  {
+   "layer": "HabiroNumberFields:HB.6",
+   "other": "HabiroCyclotomicCompletions:HC.5",
+   "source": "audit",
+   "note": "Keeps the restrictions on root orders and the decomposition phenomena when primes are inverted, and warns that integrality of the coefficient ring does not transfer."
+  },
+  {
+   "layer": "HabiroNumberFields:HB.6",
+   "other": "HabiroCyclotomicCompletions:HC.6",
+   "source": "audit",
+   "note": "HC.6 states as an acceptance test the map from the classical ℤ-Habiro ring to GSWZ's rational-number-field case — HB.6's comparison with the usual Habiro ring at F = ℚ."
+  },
+  {
+   "layer": "HabiroNumberFields:HB.6",
+   "other": "HabiroRings:HR.5",
+   "source": "audit",
+   "note": "Constructs the Frobenius-twisted Taylor-gluing condition and compatible root-of-unity coefficient rings, which HR.5 must specialise to."
+  },
+  {
+   "layer": "HabiroNumberFields:HB.6",
+   "other": "HabiroRings:HR.5-number-field-comparison",
+   "source": "audit",
+   "note": "Constructs the explicit number-field Habiro ring and exports it to HR.5 for exactly this comparison (Wagner Corollary 2.13)."
+  },
+  {
+   "layer": "HabiroNumberFields:HB.7",
+   "other": "HabiroRings:HR.6",
+   "source": "audit",
+   "note": "Constructs the K₃-indexed Habiro modules that HR.6 imports."
+  },
+  {
+   "layer": "HabiroRings:HR.1",
+   "other": "HabiroCohomologyFoundations:HQ.1",
+   "source": "audit",
+   "note": "Owns the global gluing over a perfectly covered Λ-ring following Wagner Appendix A, restating HR.1's perfectly-covered hypothesis and its local Frobenius data."
+  },
+  {
+   "layer": "HabiroRings:HR.2",
+   "other": "HabiroCyclotomicCompletions:HC.1",
+   "source": "audit",
+   "note": "States the limit description by (q^m−1)-completions indexed by divisibility and the cofinal Habiro-factorial tower, for its derived completion."
+  },
+  {
+   "layer": "HabiroRings:HR.2",
+   "other": "HabiroCyclotomicCompletions:HC.2",
+   "source": "audit",
+   "note": "Also proves q invertible in the completed coefficient ring and warns against confusing completion with inverting q^m − 1."
+  },
+  {
+   "layer": "HabiroRings:HR.2",
+   "other": "HabiroCyclotomicCompletions:HC.5",
+   "source": "audit",
+   "note": "The derived upgrade of HC.5's module completion: Habiro-complete modules with derived-limit corrections."
+  },
+  {
+   "layer": "HabiroRings:HR.3",
+   "other": "HabiroCohomologyFoundations:HQ.4",
+   "source": "audit",
+   "note": "Applies HR.2–3's arithmetic fracture and cyclotomic descent to complexes over each cyclotomic completion."
+  },
+  {
+   "layer": "HabiroRings:HR.3",
+   "other": "HabiroCyclotomicCompletions:HC.1",
+   "source": "audit",
+   "note": "Owns the comparison between the Φ-indexed system and the (q^m−1) system that HR.3 uses in derived form."
+  },
+  {
+   "layer": "HabiroRings:HR.3",
+   "other": "HabiroCyclotomicCompletions:HC.4",
+   "source": "audit",
+   "note": "Organises p-adic intersections of cyclotomic loci by prime-power chains, the same adjacency arithmetic used for descent."
+  },
+  {
+   "layer": "HabiroRings:HR.4",
+   "other": "HabiroCohomologyFoundations:HQ.3",
+   "source": "audit",
+   "note": "Uses the derived m-truncated q-de Rham–Witt objects as graded pieces of its filtration, whose degree-zero part is HR.4's qW_m."
+  },
+  {
+   "layer": "HabiroRings:HR.4",
+   "other": "HabiroCohomologyFoundations:HQ.4",
+   "source": "audit",
+   "note": "Imports degree-zero q-Witt rings from HR.4 and owns the positive-degree q-de Rham–Witt complex, restating the same absence of compatible restriction maps."
+  },
+  {
+   "layer": "HabiroRings:HR.5",
+   "other": "HabiroCohomologyFoundations:HQ.5",
+   "source": "audit",
+   "note": "Carries the q−1 completion comparison and the actual Frobenius-glued Taylor maps, comparing with HR.5 and HB.6's GSWZ ring."
+  },
+  {
+   "layer": "HabiroRings:HR.5",
+   "other": "HabiroCyclotomicCompletions:HC.1",
+   "source": "audit",
+   "note": "Proves that the divisor system and a cofinal factorial sequence give canonically equivalent limits, the relative form of HC.1's cofinality comparison."
+  },
+  {
+   "layer": "HabiroRings:HR.5",
+   "other": "HabiroCyclotomicCompletions:HC.3",
+   "source": "audit",
+   "note": "Root-of-unity choices, change-of-choice invariance and convergence of the p-adic substitutions in the Taylor presentation of the relative ring."
+  },
+  {
+   "layer": "HabiroRings:HR.5",
+   "other": "HabiroNumberFields:HB.6",
+   "source": "audit",
+   "note": "Constructs the Frobenius-twisted Taylor-gluing condition and compatible root-of-unity coefficient rings, which HR.5 must specialise to."
+  },
+  {
+   "layer": "HabiroRings:HR.5-number-field-comparison",
+   "other": "HabiroNumberFields:HB.6",
+   "source": "audit",
+   "note": "Constructs the explicit number-field Habiro ring and exports it to HR.5 for exactly this comparison (Wagner Corollary 2.13)."
+  },
+  {
+   "layer": "HabiroRings:HR.6",
+   "other": "HabiroCohomologyFoundations:HQ.5",
+   "source": "audit",
+   "note": "Exports the completed cohomology object to HR.6 and states that HR.6 and HB.7 own the line-module comparison and the loss of K₃-indexed information on completion."
+  },
+  {
+   "layer": "HabiroRings:HR.6",
+   "other": "HabiroNumberFields:HB.7",
+   "source": "audit",
+   "note": "Constructs the K₃-indexed Habiro modules that HR.6 imports."
+  },
+  {
+   "layer": "HabiroRings:HR.7",
+   "other": "HabiroCohomologyFoundations:HQ.7",
+   "source": "audit",
+   "note": "Acceptance tests and Lean boundary for the cohomology side of the family."
+  },
+  {
+   "layer": "HabiroRings:HR.7",
+   "other": "HabiroCyclotomicCompletions:HC.6",
+   "source": "audit",
+   "note": "The parallel acceptance-test layer for the relative construction, including a value-versus-Taylor test at one root."
+  }
+ ]
+}

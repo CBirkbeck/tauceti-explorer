@@ -1,0 +1,57 @@
+{
+ "id": "RS-14",
+ "name": "p-adic L-functions and Eisenstein measures",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "AutomorphicPadicLFunctions",
+   "title": "Ray-class distributions and general automorphic constructions",
+   "document": "content/campaign/AutomorphicPadicLFunctions/README.md"
+  },
+  {
+   "id": "DirichletPadicLFunctions",
+   "title": "Dirichlet p-adic L-functions, special values, and Eisenstein measures",
+   "document": "content/campaign/DirichletPadicLFunctions/README.md"
+  }
+ ],
+ "anchors": [],
+ "evidence": [
+  {
+   "layer": "AutomorphicPadicLFunctions:L3",
+   "other": "DirichletPadicLFunctions:L1",
+   "source": "audit",
+   "note": "Constructs the Kubota–Leopoldt pseudo-measure over ℚ, which is the F = ℚ case of the Deligne–Ribet pseudo-measure stated here."
+  },
+  {
+   "layer": "AutomorphicPadicLFunctions:L3",
+   "other": "DirichletPadicLFunctions:L2",
+   "source": "audit",
+   "note": "The Deligne–Ribet construction over F = Q interpolates partial zeta functions of all ray classes, hence all Dirichlet characters of tame conductor, overlapping this layer's measures ζ_η."
+  },
+  {
+   "layer": "AutomorphicPadicLFunctions:L3",
+   "other": "DirichletPadicLFunctions:L4",
+   "source": "audit",
+   "note": "Builds Hilbert Eisenstein series and the Eisenstein measure/q-expansion argument for totally real F, whose F = Q case is this layer's Eisenstein family."
+  },
+  {
+   "layer": "DirichletPadicLFunctions:L1",
+   "other": "AutomorphicPadicLFunctions:L3",
+   "source": "audit",
+   "note": "Constructs the Kubota–Leopoldt pseudo-measure over ℚ, which is the F = ℚ case of the Deligne–Ribet pseudo-measure stated here."
+  },
+  {
+   "layer": "DirichletPadicLFunctions:L2",
+   "other": "AutomorphicPadicLFunctions:L3",
+   "source": "audit",
+   "note": "The Deligne–Ribet construction over F = Q interpolates partial zeta functions of all ray classes, hence all Dirichlet characters of tame conductor, overlapping this layer's measures ζ_η."
+  },
+  {
+   "layer": "DirichletPadicLFunctions:L4",
+   "other": "AutomorphicPadicLFunctions:L3",
+   "source": "audit",
+   "note": "Builds Hilbert Eisenstein series and the Eisenstein measure/q-expansion argument for totally real F, whose F = Q case is this layer's Eisenstein family."
+  }
+ ]
+}

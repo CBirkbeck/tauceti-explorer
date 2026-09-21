@@ -1,0 +1,201 @@
+{
+ "id": "RS-19",
+ "name": "Étale duality, perverse sheaves and endoscopic transfer",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison",
+   "title": "Endoscopic transfer and unitary trace comparison",
+   "document": "content/campaign/EndoscopicTransferAndUnitaryTraceComparison/README.md"
+  },
+  {
+   "id": "EtaleDualityAndPerverseSheaves",
+   "title": "Étale duality, cycle classes and perverse sheaves",
+   "document": "content/campaign/EtaleDualityAndPerverseSheaves/README.md"
+  }
+ ],
+ "anchors": [],
+ "evidence": [
+  {
+   "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a",
+   "other": "EtaleDualityAndPerverseSheaves:EDC.5",
+   "source": "audit-unreviewed",
+   "note": "Owns the middle perverse t-structure, recollement and IC that this layer re-exports; the overlap is stated in ET.2a's own text."
+  },
+  {
+   "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a",
+   "other": "EtaleDualityAndPerverseSheaves:EDC.7",
+   "source": "audit-unreviewed",
+   "note": "Owns the pure-IC and decomposition-theorem half re-exported as ET.2a:pure-decomposition."
+  },
+  {
+   "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+   "other": "EtaleDualityAndPerverseSheaves:EDC.0",
+   "source": "audit",
+   "note": "ET.2a:duality-perversity restates EDC.0–5's coefficient categories and operations as imports ('the same source coefficient categories and operators')."
+  },
+  {
+   "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+   "other": "EtaleDualityAndPerverseSheaves:EDC.1",
+   "source": "audit",
+   "note": "ET.2a:duality-perversity restates EDC.1's scheme f^!, dualizing complexes and biduality as imports."
+  },
+  {
+   "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+   "other": "EtaleDualityAndPerverseSheaves:EDC.1:adjoint",
+   "source": "audit",
+   "note": "ET.2a:duality-perversity restates the scheme f^! and dualizing complexes as imports."
+  },
+  {
+   "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+   "other": "EtaleDualityAndPerverseSheaves:EDC.1:biduality",
+   "source": "audit",
+   "note": "ET.2a:duality-perversity restates the smooth purity and biduality results as imports."
+  },
+  {
+   "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+   "other": "EtaleDualityAndPerverseSheaves:EDC.2",
+   "source": "audit",
+   "note": "ET.2a:duality-perversity restates EDC.2's smooth purity as an import."
+  },
+  {
+   "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+   "other": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+   "source": "audit",
+   "note": "ET.2a:duality-perversity restates the smooth purity isomorphism as an import."
+  },
+  {
+   "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+   "other": "EtaleDualityAndPerverseSheaves:EDC.5",
+   "source": "audit",
+   "note": "ET.2a:duality-perversity restates EDC.5's middle perverse truncations, recollement, intermediate extension/IC and smooth/finite/affine bounds as imports."
+  },
+  {
+   "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+   "other": "EtaleDualityAndPerverseSheaves:EDC.5",
+   "source": "audit-unreviewed",
+   "note": "The named owner of everything in this prefix; ET.2a:duality-perversity is a re-export of it."
+  },
+  {
+   "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:pure-decomposition",
+   "other": "EtaleDualityAndPerverseSheaves:EDC.7",
+   "source": "audit",
+   "note": "ET.2a:pure-decomposition restates EDC.7's pure IC, geometric semisimplicity, decomposition and relative hard Lefschetz as imports."
+  },
+  {
+   "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:pure-decomposition",
+   "other": "EtaleDualityAndPerverseSheaves:EDC.7",
+   "source": "audit-unreviewed",
+   "note": "The named owner of the pure-IC and decomposition results; this suffix re-exports them."
+  },
+  {
+   "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b",
+   "other": "EtaleDualityAndPerverseSheaves:EDC.7",
+   "source": "audit-unreviewed",
+   "note": "Owns the decomposition/relative hard Lefschetz theorem that Ngo's support argument runs on."
+  },
+  {
+   "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+   "other": "EtaleDualityAndPerverseSheaves:EDC.8",
+   "source": "audit",
+   "note": "ET.5 imports EDC.8's correspondences and proves the contracting-boundary Lefschetz–Verdier/Fujiwara trace theorem for them, overlapping EDC.8's trace-class target."
+  },
+  {
+   "layer": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+   "other": "EtaleDualityAndPerverseSheaves:EDC.8",
+   "source": "audit-unreviewed",
+   "note": "Owns the general cohomological correspondence/trace-class interface this layer imports; EDC.8's own text reserves 'the genuinely stronger contracting-boundary/Fujiwara application' for ET.5."
+  },
+  {
+   "layer": "EtaleDualityAndPerverseSheaves:EDC.0",
+   "other": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+   "source": "audit",
+   "note": "ET.2a:duality-perversity restates EDC.0–5's coefficient categories and operations as imports ('the same source coefficient categories and operators')."
+  },
+  {
+   "layer": "EtaleDualityAndPerverseSheaves:EDC.1",
+   "other": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+   "source": "audit",
+   "note": "ET.2a:duality-perversity restates EDC.1's scheme f^!, dualizing complexes and biduality as imports."
+  },
+  {
+   "layer": "EtaleDualityAndPerverseSheaves:EDC.1:adjoint",
+   "other": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+   "source": "audit",
+   "note": "ET.2a:duality-perversity restates the scheme f^! and dualizing complexes as imports."
+  },
+  {
+   "layer": "EtaleDualityAndPerverseSheaves:EDC.1:biduality",
+   "other": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+   "source": "audit",
+   "note": "ET.2a:duality-perversity restates the smooth purity and biduality results as imports."
+  },
+  {
+   "layer": "EtaleDualityAndPerverseSheaves:EDC.2",
+   "other": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+   "source": "audit",
+   "note": "ET.2a:duality-perversity restates EDC.2's smooth purity as an import."
+  },
+  {
+   "layer": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+   "other": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+   "source": "audit",
+   "note": "ET.2a:duality-perversity restates the smooth purity isomorphism as an import."
+  },
+  {
+   "layer": "EtaleDualityAndPerverseSheaves:EDC.5",
+   "other": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a",
+   "source": "audit-unreviewed",
+   "note": "Owns the middle perverse t-structure, recollement and IC that this layer re-exports; the overlap is stated in ET.2a's own text."
+  },
+  {
+   "layer": "EtaleDualityAndPerverseSheaves:EDC.5",
+   "other": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+   "source": "audit",
+   "note": "ET.2a:duality-perversity restates EDC.5's middle perverse truncations, recollement, intermediate extension/IC and smooth/finite/affine bounds as imports."
+  },
+  {
+   "layer": "EtaleDualityAndPerverseSheaves:EDC.5",
+   "other": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+   "source": "audit-unreviewed",
+   "note": "The named owner of everything in this prefix; ET.2a:duality-perversity is a re-export of it."
+  },
+  {
+   "layer": "EtaleDualityAndPerverseSheaves:EDC.7",
+   "other": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a",
+   "source": "audit-unreviewed",
+   "note": "Owns the pure-IC and decomposition-theorem half re-exported as ET.2a:pure-decomposition."
+  },
+  {
+   "layer": "EtaleDualityAndPerverseSheaves:EDC.7",
+   "other": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:pure-decomposition",
+   "source": "audit",
+   "note": "ET.2a:pure-decomposition restates EDC.7's pure IC, geometric semisimplicity, decomposition and relative hard Lefschetz as imports."
+  },
+  {
+   "layer": "EtaleDualityAndPerverseSheaves:EDC.7",
+   "other": "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:pure-decomposition",
+   "source": "audit-unreviewed",
+   "note": "The named owner of the pure-IC and decomposition results; this suffix re-exports them."
+  },
+  {
+   "layer": "EtaleDualityAndPerverseSheaves:EDC.7",
+   "other": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b",
+   "source": "audit-unreviewed",
+   "note": "Owns the decomposition/relative hard Lefschetz theorem that Ngo's support argument runs on."
+  },
+  {
+   "layer": "EtaleDualityAndPerverseSheaves:EDC.8",
+   "other": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+   "source": "audit",
+   "note": "ET.5 imports EDC.8's correspondences and proves the contracting-boundary Lefschetz–Verdier/Fujiwara trace theorem for them, overlapping EDC.8's trace-class target."
+  },
+  {
+   "layer": "EtaleDualityAndPerverseSheaves:EDC.8",
+   "other": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+   "source": "audit-unreviewed",
+   "note": "Owns the general cohomological correspondence/trace-class interface this layer imports; EDC.8's own text reserves 'the genuinely stronger contracting-boundary/Fujiwara application' for ET.5."
+  }
+ ]
+}

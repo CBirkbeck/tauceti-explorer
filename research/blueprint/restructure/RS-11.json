@@ -1,0 +1,81 @@
+{
+ "id": "RS-11",
+ "name": "Main conjectures and automorphic congruences",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "AutomorphicCongruences",
+   "title": "Automorphic congruences and reverse main-conjecture divisibilities",
+   "document": "content/campaign/AutomorphicCongruences/README.md"
+  },
+  {
+   "id": "ModularIwasawaMainConjectures",
+   "title": "Main conjectures for modular forms and their families",
+   "document": "content/campaign/ModularIwasawaMainConjectures/README.md"
+  }
+ ],
+ "anchors": [],
+ "evidence": [
+  {
+   "layer": "AutomorphicCongruences:L1",
+   "other": "ModularIwasawaMainConjectures:L1",
+   "source": "audit",
+   "note": "States the FW Theorem 1.6 target and carries out FW §4.8's refined period argument for the Skinner–Urban divisibility."
+  },
+  {
+   "layer": "AutomorphicCongruences:L4",
+   "other": "ModularIwasawaMainConjectures:L2",
+   "source": "audit",
+   "note": "States 'Prove FW Theorem 1.7', the pointwise integral cohomological main conjecture that this layer also deduces."
+  },
+  {
+   "layer": "AutomorphicCongruences:L4",
+   "other": "ModularIwasawaMainConjectures:L4",
+   "source": "audit",
+   "note": "States 'Prove FW Theorem 1.8 for the specified universal family' with the determinant over Λ ≃ O[[X1,X2,X3]], the same universal-family theorem this layer deduces (MIMC names R15.L3–L4 as the proof owner)."
+  },
+  {
+   "layer": "AutomorphicCongruences:L5",
+   "other": "ModularIwasawaMainConjectures:L3",
+   "source": "audit",
+   "note": "States 'Prove BCS Theorem 1.1.2' with its integral strengthening under the rank-one image condition, the cyclotomic theorem that this layer's L5b part says it supplies."
+  },
+  {
+   "layer": "AutomorphicCongruences:L5b",
+   "other": "ModularIwasawaMainConjectures:L3",
+   "source": "audit",
+   "note": "States 'Prove BCS Theorem 1.1.2' over Λ[1/p] and its integral strengthening under the same rank-one image condition, the theorem this layer supplies."
+  },
+  {
+   "layer": "ModularIwasawaMainConjectures:L1",
+   "other": "AutomorphicCongruences:L1",
+   "source": "audit",
+   "note": "States the FW Theorem 1.6 target and carries out FW §4.8's refined period argument for the Skinner–Urban divisibility."
+  },
+  {
+   "layer": "ModularIwasawaMainConjectures:L2",
+   "other": "AutomorphicCongruences:L4",
+   "source": "audit",
+   "note": "States 'Prove FW Theorem 1.7', the pointwise integral cohomological main conjecture that this layer also deduces."
+  },
+  {
+   "layer": "ModularIwasawaMainConjectures:L3",
+   "other": "AutomorphicCongruences:L5",
+   "source": "audit",
+   "note": "States 'Prove BCS Theorem 1.1.2' with its integral strengthening under the rank-one image condition, the cyclotomic theorem that this layer's L5b part says it supplies."
+  },
+  {
+   "layer": "ModularIwasawaMainConjectures:L3",
+   "other": "AutomorphicCongruences:L5b",
+   "source": "audit",
+   "note": "States 'Prove BCS Theorem 1.1.2' over Λ[1/p] and its integral strengthening under the same rank-one image condition, the theorem this layer supplies."
+  },
+  {
+   "layer": "ModularIwasawaMainConjectures:L4",
+   "other": "AutomorphicCongruences:L4",
+   "source": "audit",
+   "note": "States 'Prove FW Theorem 1.8 for the specified universal family' with the determinant over Λ ≃ O[[X1,X2,X3]], the same universal-family theorem this layer deduces (MIMC names R15.L3–L4 as the proof owner)."
+  }
+ ]
+}

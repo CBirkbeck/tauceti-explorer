@@ -1,0 +1,141 @@
+{
+ "id": "RS-15",
+ "name": "Isocrystals, Banach–Colmez spaces and B(G)",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "BunGAndNewtonStrata",
+   "title": "Reductive bundles, B(G) and Newton strata",
+   "document": "content/campaign/BunGAndNewtonStrata/README.md"
+  },
+  {
+   "id": "VectorBundlesAndIsocrystals",
+   "title": "Isocrystals, vector bundles and Banach–Colmez spaces",
+   "document": "content/campaign/VectorBundlesAndIsocrystals/README.md"
+  }
+ ],
+ "anchors": [],
+ "evidence": [
+  {
+   "layer": "BunGAndNewtonStrata:BG0",
+   "other": "VectorBundlesAndIsocrystals:VB0",
+   "source": "audit",
+   "note": "Owns isocrystals and slope conventions; BG0's B(G) is the reductive upgrade of VB0's GL_n isocrystals."
+  },
+  {
+   "layer": "BunGAndNewtonStrata:BG0",
+   "other": "VectorBundlesAndIsocrystals:VB0",
+   "source": "audit-unreviewed",
+   "note": "BG0 builds G-isocrystals with reductive structure group and the Kottwitz/Newton parametrisation, which contains this stage's GL_n Dieudonné–Manin classification as the linear case."
+  },
+  {
+   "layer": "BunGAndNewtonStrata:BG0",
+   "other": "VectorBundlesAndIsocrystals:VB2:classification",
+   "source": "audit-unreviewed",
+   "note": "BG0's G-torsor classification over a geometric point is the reductive-group generalisation of this bundle classification."
+  },
+  {
+   "layer": "BunGAndNewtonStrata:BG1",
+   "other": "VectorBundlesAndIsocrystals:VB0",
+   "source": "audit",
+   "note": "Owns slope conventions and the isocrystal invariants that specialize BG1's κ and ν to GL_n."
+  },
+  {
+   "layer": "BunGAndNewtonStrata:BG2",
+   "other": "VectorBundlesAndIsocrystals:VB1",
+   "source": "audit-unreviewed",
+   "note": "BG2's Bun_G needs the same descent and gluing of G-torsors on the curve, of which the vector-bundle case here is the GL_n instance."
+  },
+  {
+   "layer": "BunGAndNewtonStrata:BG2",
+   "other": "VectorBundlesAndIsocrystals:VB4",
+   "source": "audit-unreviewed",
+   "note": "BG2's Bun_G needs the same pro-étale-local trivialisation of slope-zero objects and the same identification with local systems."
+  },
+  {
+   "layer": "BunGAndNewtonStrata:BG3",
+   "other": "VectorBundlesAndIsocrystals:VB3",
+   "source": "audit",
+   "note": "Owns Banach–Colmez spaces (the sheaf T ↦ H⁰(X_T, E_T), its diamond representability and exact sequences); BG3 uses the positive Banach–Colmez filtration to identify the connected kernel of Gtilde_b."
+  },
+  {
+   "layer": "BunGAndNewtonStrata:BG3",
+   "other": "VectorBundlesAndIsocrystals:VB3",
+   "source": "audit-unreviewed",
+   "note": "BG3 uses the same Banach–Colmez geometry to describe the basic and nonbasic strata of Bun_G."
+  },
+  {
+   "layer": "BunGAndNewtonStrata:BG3",
+   "other": "VectorBundlesAndIsocrystals:VB3:general-BC",
+   "source": "audit-unreviewed",
+   "note": "BG3's basic and nonbasic strata consume the same Banach–Colmez dimension and cohomological-smoothness statements."
+  },
+  {
+   "layer": "BunGAndNewtonStrata:BG3",
+   "other": "VectorBundlesAndIsocrystals:VB4",
+   "source": "audit-unreviewed",
+   "note": "BG3 states the same Newton-stratification and semicontinuity for G-torsors; the vector-bundle HN polygon here is its GL_n shadow."
+  },
+  {
+   "layer": "VectorBundlesAndIsocrystals:VB0",
+   "other": "BunGAndNewtonStrata:BG0",
+   "source": "audit",
+   "note": "Owns isocrystals and slope conventions; BG0's B(G) is the reductive upgrade of VB0's GL_n isocrystals."
+  },
+  {
+   "layer": "VectorBundlesAndIsocrystals:VB0",
+   "other": "BunGAndNewtonStrata:BG0",
+   "source": "audit-unreviewed",
+   "note": "BG0 builds G-isocrystals with reductive structure group and the Kottwitz/Newton parametrisation, which contains this stage's GL_n Dieudonné–Manin classification as the linear case."
+  },
+  {
+   "layer": "VectorBundlesAndIsocrystals:VB0",
+   "other": "BunGAndNewtonStrata:BG1",
+   "source": "audit",
+   "note": "Owns slope conventions and the isocrystal invariants that specialize BG1's κ and ν to GL_n."
+  },
+  {
+   "layer": "VectorBundlesAndIsocrystals:VB1",
+   "other": "BunGAndNewtonStrata:BG2",
+   "source": "audit-unreviewed",
+   "note": "BG2's Bun_G needs the same descent and gluing of G-torsors on the curve, of which the vector-bundle case here is the GL_n instance."
+  },
+  {
+   "layer": "VectorBundlesAndIsocrystals:VB2:classification",
+   "other": "BunGAndNewtonStrata:BG0",
+   "source": "audit-unreviewed",
+   "note": "BG0's G-torsor classification over a geometric point is the reductive-group generalisation of this bundle classification."
+  },
+  {
+   "layer": "VectorBundlesAndIsocrystals:VB3",
+   "other": "BunGAndNewtonStrata:BG3",
+   "source": "audit",
+   "note": "Owns Banach–Colmez spaces (the sheaf T ↦ H⁰(X_T, E_T), its diamond representability and exact sequences); BG3 uses the positive Banach–Colmez filtration to identify the connected kernel of Gtilde_b."
+  },
+  {
+   "layer": "VectorBundlesAndIsocrystals:VB3",
+   "other": "BunGAndNewtonStrata:BG3",
+   "source": "audit-unreviewed",
+   "note": "BG3 uses the same Banach–Colmez geometry to describe the basic and nonbasic strata of Bun_G."
+  },
+  {
+   "layer": "VectorBundlesAndIsocrystals:VB3:general-BC",
+   "other": "BunGAndNewtonStrata:BG3",
+   "source": "audit-unreviewed",
+   "note": "BG3's basic and nonbasic strata consume the same Banach–Colmez dimension and cohomological-smoothness statements."
+  },
+  {
+   "layer": "VectorBundlesAndIsocrystals:VB4",
+   "other": "BunGAndNewtonStrata:BG2",
+   "source": "audit-unreviewed",
+   "note": "BG2's Bun_G needs the same pro-étale-local trivialisation of slope-zero objects and the same identification with local systems."
+  },
+  {
+   "layer": "VectorBundlesAndIsocrystals:VB4",
+   "other": "BunGAndNewtonStrata:BG3",
+   "source": "audit-unreviewed",
+   "note": "BG3 states the same Newton-stratification and semicontinuity for G-torsors; the vector-bundle HN polygon here is its GL_n shadow."
+  }
+ ]
+}

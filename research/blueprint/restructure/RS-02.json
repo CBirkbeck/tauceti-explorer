@@ -1,0 +1,248 @@
+{
+ "id": "RS-02",
+ "name": "Abelian schemes and finite flat group schemes",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "AbelianSchemesAndArithmeticModuli",
+   "title": "Abelian Schemes And Arithmetic Moduli",
+   "document": "content/campaign/AbelianSchemesAndArithmeticModuli/README.md"
+  },
+  {
+   "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "title": "Finite flat group schemes and integral p-adic Hodge theory",
+   "document": "content/campaign/FiniteFlatGroupsAndIntegralPadicHodgeTheory/README.md"
+  }
+ ],
+ "anchors": [
+  {
+   "id": "tauceti:TauCetiRoadmap/JacobianChallenge",
+   "title": "The Jacobian challenge (Christian Merten's AG version)",
+   "document": "content/tau-ceti/JacobianChallenge/README.md"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/ModularCurves",
+   "title": "Modular curves, following Katz–Mazur",
+   "document": "content/tau-ceti/ModularCurves/README.md"
+  }
+ ],
+ "evidence": [
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A1",
+   "other": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+   "source": "audit",
+   "note": "States rigidity and commutativity, the theorem of the square and cube, homomorphisms, products and base change for abelian schemes (more general base)."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A1",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#1a-projective-weierstrass-models",
+   "source": "audit",
+   "note": "Identifies one-dimensional abelian schemes with this roadmap's elliptic curves via the Weierstrass-presentation theorem, so it shares the EllipticCurveGeom S carrier."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A1",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+   "source": "audit",
+   "note": "1D builds `EllipticCurve S`, the elliptic curve over an arbitrary base with its commutative scheme-theoretic group law, on the Weierstrass-presentation theorem of 1C: the \"#81\" object A1's last target must be proved equivalent to. 1D already takes commutativity from Mathlib's `Group/Abelian.lean`."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A1",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
+   "source": "audit",
+   "note": "Proves rigidity for pointed maps and the theorems of the square and cube for abelian schemes, the inputs 2D uses for KM 2.5.1."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A1",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#layer-1-elliptic-curves-over-a-base-scheme",
+   "source": "audit",
+   "note": "Identifies one-dimensional abelian schemes with Layer 1's elliptic curves using its Weierstrass-presentation theorem: the same carrier, reached from the abelian-scheme side."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A2",
+   "other": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+   "source": "audit",
+   "note": "Constructs the relative degree-zero Picard functor (as an algebraic space) and the rigidified Poincare bundle, for abelian schemes rather than curves."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A2",
+   "other": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+   "source": "audit",
+   "note": "States the dual abelian scheme, Poincare bundle and polarizations phi_L, the Layer E dual/polarization targets over a general base."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A2",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
+   "source": "audit",
+   "note": "2D constructs Picard duality for elliptic curves and compares the duals, the relative-dimension-one case of A2's dualization functoriality."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A2",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#layer-2-isogenies-duality-and-the-weil-pairing",
+   "source": "audit",
+   "note": "Owns the relative Picard functor and Poincaré bundle for abelian schemes, and must recover 2D's elliptic construction."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A3",
+   "other": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+   "source": "audit-unreviewed",
+   "note": "States the finite-flat quotient, the fppf quotient abelian scheme, Weil pairings and Tate-module pairings; it explicitly imports Cartier duality from R07.1, so the two layers share that target."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A3",
+   "other": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+   "source": "audit",
+   "note": "States that [n] is finite locally free of rank n^(2g) and etale exactly when n is invertible, keeping p-primary torsion scheme-theoretic, overlapping Layer E's [n]-isogeny and characteristic-p items."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A3",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality",
+   "source": "audit",
+   "note": "0B owns finite locally free group schemes, the fppf quotient by a closed finite locally free subgroup (under its representability hypotheses) and Cartier duality. A3 declares it imports the duality, which Tau Ceti has already built, and A3's own first target is 0B's quotient construction for abelian schemes."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A3",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+   "source": "audit",
+   "note": "2A proves that `[N]` on an elliptic curve over an arbitrary base is finite locally free of rank `N²`, that `E[N]` is finite locally free of rank `N²` with base change, and that both are étale where `N` is invertible: A3's `[n]` target in relative dimension one."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A3",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients",
+   "source": "audit",
+   "note": "Constructs the fppf quotient of an abelian scheme by a finite locally free subgroup with universal property, flatness and base change, and isogenies with their duals; 2B is the elliptic case."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A3",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#2c-the-factorisation-dual",
+   "source": "audit",
+   "note": "Constructs isogenies of abelian schemes and their duals from fppf quotients by finite locally free subgroups; 2C is the elliptic factorisation case."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A3",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing",
+   "source": "audit",
+   "note": "2E constructs Cartier–Nishi duality and the Weil pairing for elliptic curves — the relative-dimension-one case of A3's pairing targets."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A3",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#layer-2-isogenies-duality-and-the-weil-pairing",
+   "source": "audit",
+   "note": "Owns the abelian-scheme versions of 2A–2C and 2E: [n] finite locally free of rank n^(2g), fppf quotients, duals and the Weil pairing."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A4",
+   "other": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+   "source": "audit-unreviewed",
+   "note": "Imports p-divisible groups and Grothendieck–Messing deformation theory from R07.2/R07.6 and proves Serre–Tate; the deformation target is shared."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A4",
+   "other": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+   "source": "audit",
+   "note": "R07.6 owns Grothendieck–Messing deformation theory, which A4 names as its import; A4 adds only the abelian-scheme Serre–Tate statement on top."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A4",
+   "other": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+   "source": "audit-unreviewed",
+   "note": "Names R07.6 as the source of Grothendieck–Messing deformation theory and proves Serre–Tate from it, so the deformation target is shared."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A4",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
+   "source": "audit",
+   "note": "7E owns p-divisible groups for elliptic curves; A4 declares it imports them from R07.1 instead."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A4",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
+   "source": "audit",
+   "note": "7F owns Serre–Tate theory with level structure for elliptic curves, the relative-dimension-one case of A4's deformation target."
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A4",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
+   "source": "link-rescope",
+   "note": "Split A4. An early part proves Katz's Theorem 1.2.1 for abelian schemes over artinian local rings in which p is nilpotent, using only A1 and p-divisible groups. A later part adds endomorphism and polarization structures and the tangent comparison via Grothendieck–Messing. 7F's ST-1 then specialises the early part to elliptic curves through A1. ST-2 to ST-5 stay in 7F: the supersingular universal d"
+  },
+  {
+   "layer": "AbelianSchemesAndArithmeticModuli:A4",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#layer-7-km-chapter-5-for-the-elementary-problems",
+   "source": "audit",
+   "note": "Owns the Serre–Tate equivalence (7F)."
+  },
+  {
+   "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+   "other": "AbelianSchemesAndArithmeticModuli:A3",
+   "source": "audit-unreviewed",
+   "note": "States the finite-flat quotient, the fppf quotient abelian scheme, Weil pairings and Tate-module pairings; it explicitly imports Cartier duality from R07.1, so the two layers share that target."
+  },
+  {
+   "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality",
+   "source": "audit",
+   "note": "Develops Cartier duality, finite-flat subgroup and quotient constructions and fpqc descent for finite flat group schemes, the general theory 0B specialises."
+  },
+  {
+   "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality",
+   "source": "audit-unreviewed",
+   "note": "Owns finite locally free group schemes and Cartier duality (SGA 3 VII_A §3.3, KM §1.12) for the elliptic-curve setting; R07.1's Cartier-duality target is the same theorem, and the Tau Ceti library declaration cited above discharges both."
+  },
+  {
+   "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
+   "source": "audit",
+   "note": "Owns finite-flat subgroup and quotient constructions with fpqc descent, which overlap the finite-group-scheme torsor quotients of item 2."
+  },
+  {
+   "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
+   "source": "audit",
+   "note": "Defines p-divisible groups as compatible finite locally free levels and develops connected–étale sequences: the general theory PD-1 and PD-2 specialise."
+  },
+  {
+   "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
+   "source": "audit-unreviewed",
+   "note": "Its PD-1 constructs the p-divisible group E[p^∞] as compatible finite locally free levels with the rank and epimorphism conditions, and PD-2 constructs the connected–étale sequence over a henselian local ring — exactly R07.1's second and fifth targets, in the elliptic-curve case."
+  },
+  {
+   "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#layer-0-scheme-theoretic-prerequisites",
+   "source": "audit",
+   "note": "Owns Cartier duality and finite-flat subgroup and quotient constructions, the general theory behind 0B."
+  },
+  {
+   "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#layer-7-km-chapter-5-for-the-elementary-problems",
+   "source": "audit",
+   "note": "Owns the finite flat and p-divisible group theory that 7E and 7F specialise to elliptic curves."
+  },
+  {
+   "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+   "other": "AbelianSchemesAndArithmeticModuli:A4",
+   "source": "audit-unreviewed",
+   "note": "Imports p-divisible groups and Grothendieck–Messing deformation theory from R07.2/R07.6 and proves Serre–Tate; the deformation target is shared."
+  },
+  {
+   "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
+   "source": "audit",
+   "note": "Owns Frobenius and Verschiebung, heights and the ordinary/supersingular cases in Dieudonné theory, overlapping PD-3 and PD-5."
+  },
+  {
+   "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+   "other": "AbelianSchemesAndArithmeticModuli:A4",
+   "source": "audit",
+   "note": "R07.6 owns Grothendieck–Messing deformation theory, which A4 names as its import; A4 adds only the abelian-scheme Serre–Tate statement on top."
+  },
+  {
+   "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+   "other": "AbelianSchemesAndArithmeticModuli:A4",
+   "source": "audit-unreviewed",
+   "note": "Names R07.6 as the source of Grothendieck–Messing deformation theory and proves Serre–Tate from it, so the deformation target is shared."
+  }
+ ]
+}

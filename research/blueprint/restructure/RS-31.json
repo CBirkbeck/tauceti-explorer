@@ -1,0 +1,46 @@
+{
+ "id": "RS-31",
+ "name": "Reductive groups, building on Reductive algebraic groups",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "ReductiveGroupsPartII",
+   "title": "Reductive groups, Part II: local structure and arithmetic models",
+   "document": "content/campaign/ReductiveGroupsPartII/README.md"
+  }
+ ],
+ "anchors": [
+  {
+   "id": "tauceti:TauCetiRoadmap/ReductiveGroups",
+   "title": "Reductive algebraic groups",
+   "document": "content/tau-ceti/ReductiveGroups/README.md"
+  }
+ ],
+ "evidence": [
+  {
+   "layer": "ReductiveGroupsPartII:RG2.1",
+   "other": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+   "source": "audit-unreviewed",
+   "note": "RG2.1 owns the relative roots and valued root data over a local field, which is the relative half named here; the two layers state the same relative root system, with RG2.1 adding the valuation."
+  },
+  {
+   "layer": "ReductiveGroupsPartII:RG2.3",
+   "other": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+   "source": "audit-unreviewed",
+   "note": "RG2.3 needs the connected reductive quotient of a parahoric's special fibre, which is a consumer of this layer's reductivity predicate over a field."
+  },
+  {
+   "layer": "ReductiveGroupsPartII:RG2.4",
+   "other": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+   "source": "audit-unreviewed",
+   "note": "RG2.4 proves the Bruhat and Iwahori–Bruhat decompositions for G(E); this layer owns the abstract BN-pair theory they specialise."
+  },
+  {
+   "layer": "ReductiveGroupsPartII:RG2.5",
+   "other": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+   "source": "audit-unreviewed",
+   "note": "RG2.5 needs a pinned split group scheme over ℤ for the dual group; this layer is the construction it would use, on the other side of the duality."
+  }
+ ]
+}

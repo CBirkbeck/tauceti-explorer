@@ -1,0 +1,864 @@
+{
+ "id": "RS-04",
+ "name": "Automorphic forms, Shimura varieties, complex multiplication and Euler systems",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "AdelicAlgebraicGroups",
+   "title": "Adelic algebraic groups and arithmetic quotients",
+   "document": "content/campaign/AdelicAlgebraicGroups/README.md"
+  },
+  {
+   "id": "AutomorphicFormsOnReductiveGroups",
+   "title": "Automorphic forms on reductive groups",
+   "document": "content/campaign/AutomorphicFormsOnReductiveGroups/README.md"
+  },
+  {
+   "id": "AutomorphicSpectralTheory",
+   "title": "Automorphic spectral theory and trace distributions",
+   "document": "content/campaign/AutomorphicSpectralTheory/README.md"
+  },
+  {
+   "id": "BorelRegulators",
+   "title": "Stable arithmetic cohomology and Borel regulators",
+   "document": "content/campaign/BorelRegulators/README.md"
+  },
+  {
+   "id": "ComplexMultiplicationAndExplicitReciprocity",
+   "title": "Complex multiplication and explicit reciprocity",
+   "document": "content/campaign/ComplexMultiplicationAndExplicitReciprocity/README.md"
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems",
+   "title": "Euler systems, Kolyvagin systems and higher-rank descent",
+   "document": "content/campaign/EulerSystemsAndKolyvaginSystems/README.md"
+  },
+  {
+   "id": "FunctionFieldArithmetic",
+   "title": "Global function fields, reciprocity and automorphic foundations",
+   "document": "content/campaign/FunctionFieldArithmetic/README.md"
+  },
+  {
+   "id": "HeegnerPointEulerSystems",
+   "title": "Heegner-point Euler systems and arithmetic descent",
+   "document": "content/campaign/HeegnerPointEulerSystems/README.md"
+  },
+  {
+   "id": "ShimuraVarieties",
+   "title": "Complex Shimura varieties and canonical models",
+   "document": "content/campaign/ShimuraVarieties/README.md"
+  }
+ ],
+ "anchors": [
+  {
+   "id": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+   "title": "Algebraic curves — function fields, divisors, and Riemann–Roch",
+   "document": "content/tau-ceti/AlgebraicCurves/README.md"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+   "title": "Global number fields, ray classes, adeles, and Hecke characters",
+   "document": "content/tau-ceti/GlobalNumberFields/README.md"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/ModularForms",
+   "title": "Modular forms — Hecke theory, newforms, and L-functions",
+   "document": "content/tau-ceti/ModularForms/README.md"
+  }
+ ],
+ "evidence": [
+  {
+   "layer": "AdelicAlgebraicGroups:AA.0",
+   "other": "FunctionFieldArithmetic:FA.2",
+   "source": "audit",
+   "note": "Also builds the restricted product from local completions and valuation rings and proves local compactness, in the function-field case; the elementary restricted-product lemmas are the same statements."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.1",
+   "other": "BorelRegulators:R.1",
+   "source": "audit",
+   "note": "AA.1 constructs the base-change and restriction-of-scalars equivalences for adelic points, the restriction of scalars R.1 lists first among its imported targets."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.1",
+   "other": "FunctionFieldArithmetic:FA.2",
+   "source": "audit",
+   "note": "AA.1 constructs adelic points of algebraic groups over a global field as restricted products with their topology; the underlying adele ring and its local compactness are shared with FA.2."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.1",
+   "other": "FunctionFieldArithmetic:FA.6",
+   "source": "audit",
+   "note": "Owns adelic points of algebraic groups and their functoriality — the carrier G(A_K) that FA.6 quotients."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.1",
+   "other": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles",
+   "source": "audit",
+   "note": "Constructs adelic points and local projections for an algebraic group, and its own text says to test `GL_1` against `GlobalNumberFields.IdeleGroup`: a consumer, not a duplicate."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.1",
+   "other": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-5-full-adeles-and-the-additive-quotient",
+   "source": "audit",
+   "note": "States that rational points form a discrete subgroup in the full adeles for a general algebraic group; the additive group case is this layer's discreteness theorem, already proved in TauCeti."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.1",
+   "other": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles",
+   "source": "audit",
+   "note": "Asks for base change and restriction-of-scalars equivalences for adelic points of algebraic groups; the additive-group case is this layer's `adeleBaseChangeEquiv`, so the two should share one comparison."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.2",
+   "other": "AutomorphicFormsOnReductiveGroups:AF.3",
+   "source": "audit",
+   "note": "Owns the quotient measures and central-character L^2 spaces this layer integrates and concludes in, and AA.3 owns the Siegel sets the decay is stated on."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.2",
+   "other": "BorelRegulators:R.1",
+   "source": "audit",
+   "note": "AA.2 constructs Tamagawa measures from invariant differential forms and convergence factors, the Haar/Tamagawa-measure target R.1 imports."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.2",
+   "other": "BorelRegulators:R.6",
+   "source": "audit",
+   "note": "Bloch's Tamagawa reformulation asks for the same adelic/Tamagawa measure description: local measures, their product, and the finite-volume integrals."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.2",
+   "other": "FunctionFieldArithmetic:FA.2",
+   "source": "audit",
+   "note": "Self-dual Haar measures from a rational differential and the rescaling identity are the function-field analogue of AA.2's differential-form Tamagawa measure and its F^×-rescaling independence."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.3",
+   "other": "AutomorphicFormsOnReductiveGroups:AF.0",
+   "source": "audit",
+   "note": "Owns the reduction theory and moderate-growth estimates under change of faithful representation that AF.0's height functions rest on; the growth-estimate targets overlap."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.3",
+   "other": "AutomorphicFormsOnReductiveGroups:AF.3",
+   "source": "audit",
+   "note": "States rapid decay on Siegel sets, which presupposes and partly restates the Siegel-set construction and height estimates of AA.3."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.3",
+   "other": "BorelRegulators:R.1",
+   "source": "audit",
+   "note": "Imports restriction of scalars, Haar/Tamagawa measures and reduction theory from this roadmap and specializes them to orders in central division algebras; the hidden readiness checkpoint KU-arithmeticgroups previously cited here only aggregates R.1."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.3",
+   "other": "BorelRegulators:R.6",
+   "source": "audit",
+   "note": "AA.3 proves finite volume of G(F)\\G(𝔸)¹ and supplies the reduction theory that the Tamagawa-measure integrals in R.6 rest on."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.3",
+   "other": "ShimuraVarieties:V0",
+   "source": "audit",
+   "note": "AA.3 owns the reduction theory V0 consumes: Siegel sets and finiteness of G(F)\\G(𝔸_f)/K."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.3",
+   "other": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+   "source": "audit",
+   "note": "Proves compactness of the norm-one idele class group and recovers class-group finiteness from it: the GL₁ case of AA.3's finite volume of G(F)\\G(A)¹ and finiteness of G(F)\\G(A_f)/K."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.4",
+   "other": "ShimuraVarieties:V0",
+   "source": "audit",
+   "note": "AA.4 develops strong approximation for simply connected almost-simple groups, the input V0 restricts to."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.4",
+   "other": "ShimuraVarieties:V1",
+   "source": "audit",
+   "note": "AA.4 constructs finite covering maps for nested compact opens at neat levels, their degrees, and the Cartesian diagrams of Hecke correspondences."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.4",
+   "other": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences",
+   "source": "audit",
+   "note": "Weak approximation for algebraic groups; its `GL_1` and additive-group instances are this layer's statement, though the layer there is about the group-theoretic hypotheses."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.4",
+   "other": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+   "source": "audit",
+   "note": "Develops strong approximation for simply connected almost-simple groups; the additive/`GL_1` case here is stated separately and is not covered by that group-theoretic theorem."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.5",
+   "other": "AutomorphicFormsOnReductiveGroups:AF.5",
+   "source": "audit",
+   "note": "Identifies the GL_1 adelic quotient with the idele class construction and the GL_2/Q component with the upper half-plane — the same two validation comparisons."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.5",
+   "other": "ShimuraVarieties:V0",
+   "source": "audit",
+   "note": "Its connected-component decomposition is the same identification of an adelic double-coset quotient with a classical arithmetic quotient."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.5",
+   "other": "ShimuraVarieties:V8",
+   "source": "audit",
+   "note": "AA.5 identifies the GL₂/ℚ upper-half-plane component through ModularCurvesPartII uniformization."
+  },
+  {
+   "layer": "AdelicAlgebraicGroups:AA.5",
+   "other": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+   "source": "audit",
+   "note": "Says it identifies the `GL_1` quotient with the idele class construction and the split-centre normalization with its norm-one subgroup, i.e. it consumes `IdeleClassGroup.normOne` from here."
+  },
+  {
+   "layer": "AutomorphicFormsOnReductiveGroups:AF.0",
+   "other": "AdelicAlgebraicGroups:AA.3",
+   "source": "audit",
+   "note": "Owns the reduction theory and moderate-growth estimates under change of faithful representation that AF.0's height functions rest on; the growth-estimate targets overlap."
+  },
+  {
+   "layer": "AutomorphicFormsOnReductiveGroups:AF.0",
+   "other": "FunctionFieldArithmetic:FA.6",
+   "source": "audit",
+   "note": "Constructs compact-level functions and cuspidal subspaces over a function field, restating the same test-function/growth package in that setting."
+  },
+  {
+   "layer": "AutomorphicFormsOnReductiveGroups:AF.1",
+   "other": "AutomorphicSpectralTheory:AS.5",
+   "source": "audit",
+   "note": "Constructs U(g_C), its centre, generalized infinitesimal-character subspaces and relative Lie algebra cochains Hom_K(∧^q(g/k),V), the objects on which AS.5's finite-infinitesimal-character functors and comparison are built."
+  },
+  {
+   "layer": "AutomorphicFormsOnReductiveGroups:AF.1a",
+   "other": "BorelRegulators:R.2",
+   "source": "audit",
+   "note": "Its text says it imports continuous and relative Lie-algebra cochain complexes, van Est and invariant forms from this very stage, so the two state the same targets."
+  },
+  {
+   "layer": "AutomorphicFormsOnReductiveGroups:AF.2",
+   "other": "AutomorphicSpectralTheory:AS.1",
+   "source": "audit",
+   "note": "Builds induced families and their automorphy on the same automorphic space, consuming the carrier AF.2 constructs."
+  },
+  {
+   "layer": "AutomorphicFormsOnReductiveGroups:AF.2",
+   "other": "FunctionFieldArithmetic:FA.6",
+   "source": "audit",
+   "note": "Constructs G(K)\\G(A_K), compact-level functions, central characters and cuspidal subspaces with their finiteness — the same layer over a function field."
+  },
+  {
+   "layer": "AutomorphicFormsOnReductiveGroups:AF.3",
+   "other": "AdelicAlgebraicGroups:AA.2",
+   "source": "audit",
+   "note": "Owns the quotient measures and central-character L^2 spaces this layer integrates and concludes in, and AA.3 owns the Siegel sets the decay is stated on."
+  },
+  {
+   "layer": "AutomorphicFormsOnReductiveGroups:AF.3",
+   "other": "AdelicAlgebraicGroups:AA.3",
+   "source": "audit",
+   "note": "States rapid decay on Siegel sets, which presupposes and partly restates the Siegel-set construction and height estimates of AA.3."
+  },
+  {
+   "layer": "AutomorphicFormsOnReductiveGroups:AF.3",
+   "other": "AutomorphicSpectralTheory:AS.3",
+   "source": "audit",
+   "note": "Builds Arthur's truncation from parabolic constant terms, reusing and restating the constant-term calculus."
+  },
+  {
+   "layer": "AutomorphicFormsOnReductiveGroups:AF.3",
+   "other": "AutomorphicSpectralTheory:AS.4",
+   "source": "audit",
+   "note": "Deduces square integrability of cusp forms with unitary central character and finite multiplicity of cuspidal constituents, the cuspidal part of AS.4's finite-multiplicity statement."
+  },
+  {
+   "layer": "AutomorphicFormsOnReductiveGroups:AF.3",
+   "other": "FunctionFieldArithmetic:FA.6",
+   "source": "audit",
+   "note": "Constructs constant terms and cuspidal subspaces with their finiteness over a function field — the same targets in that setting."
+  },
+  {
+   "layer": "AutomorphicFormsOnReductiveGroups:AF.3",
+   "other": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-5-full-adeles-and-the-additive-quotient",
+   "source": "audit",
+   "note": "Proves K discrete in its adele ring and 𝔸_K/K compact: the case N = G_a of AF.3's compactness of N(F)\\N(A), from which the unipotent case follows by filtering N."
+  },
+  {
+   "layer": "AutomorphicFormsOnReductiveGroups:AF.5",
+   "other": "AdelicAlgebraicGroups:AA.5",
+   "source": "audit",
+   "note": "Identifies the GL_1 adelic quotient with the idele class construction and the GL_2/Q component with the upper half-plane — the same two validation comparisons."
+  },
+  {
+   "layer": "AutomorphicFormsOnReductiveGroups:AF.5",
+   "other": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+   "source": "audit",
+   "note": "Owns Hecke characters with their infinity types (HeckeCharacter.infinityType), which is AF.5's GL_1 dictionary input."
+  },
+  {
+   "layer": "AutomorphicFormsOnReductiveGroups:AF.5",
+   "other": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+   "source": "audit",
+   "note": "Defines HeckeCharacter K as continuous characters of the idele class group, its local components and finite conductor, the real shift and unitary part, and the dictionary with ray class and Dirichlet characters: the conductor and unitary-twist half of AF.5's GL_1 dictionary."
+  },
+  {
+   "layer": "AutomorphicSpectralTheory:AS.1",
+   "other": "AutomorphicFormsOnReductiveGroups:AF.2",
+   "source": "audit",
+   "note": "Builds induced families and their automorphy on the same automorphic space, consuming the carrier AF.2 constructs."
+  },
+  {
+   "layer": "AutomorphicSpectralTheory:AS.1",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+   "source": "audit",
+   "note": "Plans the translation between Mathlib's level-Γ(N) holomorphic Eisenstein series and Eisenstein series with character. That is the classical GL₂/ℚ holomorphic special case of AS.1's convergence and automorphy statements."
+  },
+  {
+   "layer": "AutomorphicSpectralTheory:AS.3",
+   "other": "AutomorphicFormsOnReductiveGroups:AF.3",
+   "source": "audit",
+   "note": "Builds Arthur's truncation from parabolic constant terms, reusing and restating the constant-term calculus."
+  },
+  {
+   "layer": "AutomorphicSpectralTheory:AS.4",
+   "other": "AutomorphicFormsOnReductiveGroups:AF.3",
+   "source": "audit",
+   "note": "Deduces square integrability of cusp forms with unitary central character and finite multiplicity of cuspidal constituents, the cuspidal part of AS.4's finite-multiplicity statement."
+  },
+  {
+   "layer": "AutomorphicSpectralTheory:AS.4",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms",
+   "source": "audit",
+   "note": "Builds the Petersson inner product with Hecke adjoints and a simultaneous orthonormal eigenbasis of S_k(Γ₁(N)): the holomorphic GL₂/ℚ piece of the discrete spectrum with Hecke compatibility."
+  },
+  {
+   "layer": "AutomorphicSpectralTheory:AS.5",
+   "other": "AutomorphicFormsOnReductiveGroups:AF.1",
+   "source": "audit",
+   "note": "Constructs U(g_C), its centre, generalized infinitesimal-character subspaces and relative Lie algebra cochains Hom_K(∧^q(g/k),V), the objects on which AS.5's finite-infinitesimal-character functors and comparison are built."
+  },
+  {
+   "layer": "AutomorphicSpectralTheory:AS.6",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one",
+   "source": "audit",
+   "note": "The Eichler–Selberg trace formula for Hecke operators at level one, with Hurwitz class numbers: a classical special case of the trace identity, planned by a separate elementary route."
+  },
+  {
+   "layer": "BorelRegulators:R.1",
+   "other": "AdelicAlgebraicGroups:AA.1",
+   "source": "audit",
+   "note": "AA.1 constructs the base-change and restriction-of-scalars equivalences for adelic points, the restriction of scalars R.1 lists first among its imported targets."
+  },
+  {
+   "layer": "BorelRegulators:R.1",
+   "other": "AdelicAlgebraicGroups:AA.2",
+   "source": "audit",
+   "note": "AA.2 constructs Tamagawa measures from invariant differential forms and convergence factors, the Haar/Tamagawa-measure target R.1 imports."
+  },
+  {
+   "layer": "BorelRegulators:R.1",
+   "other": "AdelicAlgebraicGroups:AA.3",
+   "source": "audit",
+   "note": "Imports restriction of scalars, Haar/Tamagawa measures and reduction theory from this roadmap and specializes them to orders in central division algebras; the hidden readiness checkpoint KU-arithmeticgroups previously cited here only aggregates R.1."
+  },
+  {
+   "layer": "BorelRegulators:R.2",
+   "other": "AutomorphicFormsOnReductiveGroups:AF.1a",
+   "source": "audit",
+   "note": "Its text says it imports continuous and relative Lie-algebra cochain complexes, van Est and invariant forms from this very stage, so the two state the same targets."
+  },
+  {
+   "layer": "BorelRegulators:R.6",
+   "other": "AdelicAlgebraicGroups:AA.2",
+   "source": "audit",
+   "note": "Bloch's Tamagawa reformulation asks for the same adelic/Tamagawa measure description: local measures, their product, and the finite-volume integrals."
+  },
+  {
+   "layer": "BorelRegulators:R.6",
+   "other": "AdelicAlgebraicGroups:AA.3",
+   "source": "audit",
+   "note": "AA.3 proves finite volume of G(F)\\G(𝔸)¹ and supplies the reduction theory that the Tamagawa-measure integrals in R.6 rest on."
+  },
+  {
+   "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+   "other": "HeegnerPointEulerSystems:HE.0",
+   "source": "audit",
+   "note": "HE.0 constructs the orders O_c = ℤ + c𝓞_K, their proper invertible ideals, Pic(O_c) and the conductor-change maps, the imaginary quadratic case of CM.0’s order targets."
+  },
+  {
+   "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+   "other": "ShimuraVarieties:V4",
+   "source": "audit",
+   "note": "V4 constructs the reflex norm on ideles for a special pair, the idelic form of CM.0’s reflex norm."
+  },
+  {
+   "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+   "other": "ShimuraVarieties:V5",
+   "source": "audit",
+   "note": "V5 constructs CM types, reflex types and reflex norms, which are CM.0’s CM-type targets."
+  },
+  {
+   "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+   "other": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups",
+   "source": "audit",
+   "note": "Says to construct orders in CM fields, proper invertible ideals, and to distinguish an order's ideal class group from the maximal order's: the same targets as this layer, restricted to CM fields."
+  },
+  {
+   "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+   "other": "HeegnerPointEulerSystems:HE.1",
+   "source": "audit",
+   "note": "HE.1 constructs CM elliptic curves and cyclic-isogeny pairs over ℂ, the curves and ideal actions of CM.1."
+  },
+  {
+   "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+   "other": "HeegnerPointEulerSystems:HE.1",
+   "source": "audit",
+   "note": "HE.1 applies the main theorem of complex multiplication to descend CM points to ring class fields, restating CM.2’s reciprocity in the elliptic case."
+  },
+  {
+   "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+   "other": "ShimuraVarieties:V4",
+   "source": "audit",
+   "note": "V4 constructs the reflex norm on ideles and compares Artin normalisations, the convention bookkeeping CM.2 repeats."
+  },
+  {
+   "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+   "other": "ShimuraVarieties:V5",
+   "source": "audit",
+   "note": "V5 proves the main theorem of complex multiplication with its reciprocity normalisation, which CM.2 imports and restates in ideal, idele and torsion forms."
+  },
+  {
+   "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.3",
+   "other": "HeegnerPointEulerSystems:HE.0",
+   "source": "audit",
+   "note": "HE.0 derives ring class fields and their Artin maps for quadratic orders from class field theory, the same ring class fields."
+  },
+  {
+   "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.3",
+   "other": "HeegnerPointEulerSystems:HE.1",
+   "source": "audit",
+   "note": "HE.1 proves descent of CM points to ring class fields, i.e. the Galois behaviour of the CM moduli that CM.3 uses to identify the ring class field."
+  },
+  {
+   "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.3",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+   "source": "audit",
+   "note": "Layer 0 isolates the level-one j inputs in their own module: it defines the normalised j = E₄³/Δ and proves its modular invariance, q-expansion and exact orders at ρ and i. That is the j-function whose values at CM points CM.3 multiplies into the class polynomial (not built at the baseline)."
+  },
+  {
+   "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+   "other": "ShimuraVarieties:V5",
+   "source": "audit",
+   "note": "V5 constructs the Tate-module action of CM abelian varieties, the object CM.4 compares its characters with."
+  },
+  {
+   "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+   "other": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+   "source": "audit",
+   "note": "Proves infinity type and conductor identities for CM Hecke characters, presupposing the infinity-type carriers of this layer."
+  },
+  {
+   "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+   "other": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+   "source": "audit",
+   "note": "Constructs algebraic Hecke characters of CM abelian varieties and proves infinity type and finite conductor identities: the same objects, specialised to the CM case."
+  },
+  {
+   "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.5",
+   "other": "ShimuraVarieties:V5",
+   "source": "audit",
+   "note": "V5 lists the reduction of CM abelian varieties and the Shimura–Taniyama Frobenius calculation among its proof obligations, the formula CM.5 instantiates."
+  },
+  {
+   "layer": "ComplexMultiplicationAndExplicitReciprocity:CM.6",
+   "other": "HeegnerPointEulerSystems:HE.0",
+   "source": "audit",
+   "note": "HE.0 constructs for itself the quadratic-order ring class fields and Artin maps that CM.6 would export to Heegner-point applications."
+  },
+  {
+   "layer": "EulerSystemsAndKolyvaginSystems:ES.1",
+   "other": "HeegnerPointEulerSystems:HE.4",
+   "source": "audit",
+   "note": "Finite–singular comparison with the cyclic-group tensor factor and independence of the chosen generator."
+  },
+  {
+   "layer": "EulerSystemsAndKolyvaginSystems:ES.1",
+   "other": "HeegnerPointEulerSystems:HE.5",
+   "source": "audit",
+   "note": "Proves the finite/singular relation, the transverse condition and auxiliary-prime existence by Chebotarev on the extensions cutting out the Heegner classes, re-deriving this layer's auxiliary-prime selection in the Heegner case."
+  },
+  {
+   "layer": "EulerSystemsAndKolyvaginSystems:ES.3",
+   "other": "HeegnerPointEulerSystems:HE.4",
+   "source": "audit",
+   "note": "Proves invariance and descent of differentiated classes, the cyclic-group tensor factor with its generator-change law, and the corrected system relations, the same choice-independence and correction targets for Heegner classes."
+  },
+  {
+   "layer": "EulerSystemsAndKolyvaginSystems:ES.4",
+   "other": "HeegnerPointEulerSystems:HE.5",
+   "source": "audit",
+   "note": "Error-tolerant descent keeping restriction errors and bounded local torsion; HE.5 converts those abstract errors into arithmetic quantities."
+  },
+  {
+   "layer": "EulerSystemsAndKolyvaginSystems:ES.4",
+   "other": "HeegnerPointEulerSystems:HE.6",
+   "source": "audit",
+   "note": "The clean Mazur–Rubin DVR bound by the divisibility index of the initial class, which HE.6 instantiates."
+  },
+  {
+   "layer": "EulerSystemsAndKolyvaginSystems:ES.4",
+   "other": "HeegnerPointEulerSystems:HE.7",
+   "source": "audit",
+   "note": "Proves uniform bounds on restriction kernels and local error terms with bounded-denominator derivative classes, overlapping the uniform error-tolerant descent bound (HE.7 assigns the reusable argument to ES.4)."
+  },
+  {
+   "layer": "EulerSystemsAndKolyvaginSystems:ES.5",
+   "other": "HeegnerPointEulerSystems:HE.6",
+   "source": "audit",
+   "note": "Primitivity, rank-one module theorem and index-equals-length equality under primitivity, including the square-index Sha bound for self-dual Heegner descent."
+  },
+  {
+   "layer": "EulerSystemsAndKolyvaginSystems:ES.8",
+   "other": "HeegnerPointEulerSystems:HE.8",
+   "source": "audit",
+   "note": "The Iwasawa-variation machinery and control that HE.8 applies to get Howard's divisibility."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.0",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+   "source": "audit",
+   "note": "Also identifies points of a function field with discrete valuations trivial on constants and proves the exact constant field is finite."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.0",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-1-the-rational-function-field",
+   "source": "audit",
+   "note": "Owns the places of k(x) and the fact that k is the exact constant field of k(x) — FA.0's 'recover P^1 from F_q(t)' acceptance case."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.0",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+   "source": "audit",
+   "note": "Also constructs the normalization of a projective model and the contravariant correspondence between one-variable function fields and smooth projective curves (over a perfect field)."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.0",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
+   "source": "audit",
+   "note": "Also constructs the normalization of a projective model of a function field."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.0",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+   "source": "audit",
+   "note": "Also exports finite morphisms for finite extensions with inseparable degree and induced residue-field maps."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.0",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+   "source": "audit",
+   "note": "Owns constant-field extensions with exact constants preserved (Stichtenoth 3.6.1) and the absolute-irreducibility criterion for exact constants (3.6.6–3.6.8) — FA.0's geometric-connectedness target in function-field form."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.1",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+   "source": "audit",
+   "note": "Also constructs divisors with residue-degree weights, the principal-divisor product formula and L(D), with L(n·∞) on P¹ as acceptance test."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.1",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
+   "source": "audit",
+   "note": "Also plans canonical divisors and the Riemann–Roch theorem for function fields."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.1",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+   "source": "audit",
+   "note": "Also proves finiteness of Pic⁰ over a finite constant field."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.1",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+   "source": "audit",
+   "note": "Also plans residue maps and the residue theorem for a rational differential."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.2",
+   "other": "AdelicAlgebraicGroups:AA.0",
+   "source": "audit",
+   "note": "Also builds the restricted product from local completions and valuation rings and proves local compactness, in the function-field case; the elementary restricted-product lemmas are the same statements."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.2",
+   "other": "AdelicAlgebraicGroups:AA.1",
+   "source": "audit",
+   "note": "AA.1 constructs adelic points of algebraic groups over a global field as restricted products with their topology; the underlying adele ring and its local compactness are shared with FA.2."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.2",
+   "other": "AdelicAlgebraicGroups:AA.2",
+   "source": "audit",
+   "note": "Self-dual Haar measures from a rational differential and the rescaling identity are the function-field analogue of AA.2's differential-form Tamagawa measure and its F^×-rescaling independence."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.2",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
+   "source": "audit",
+   "note": "Owns the repartition (completion-free adele) space and the filtration A_F(D), which FA.2 re-uses as the algebraic skeleton of its adele ring."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.2",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+   "source": "audit",
+   "note": "Also builds adeles from local completions with residue characters from a rational differential, overlapping the local-component and completion-comparison milestones."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.2",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+   "source": "audit",
+   "note": "Also constructs local residue characters from a nonzero rational differential and the global residue pairing."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.2",
+   "other": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-5-full-adeles-and-the-additive-quotient",
+   "source": "audit",
+   "note": "The function-field analogue: proves local compactness of the adeles and discreteness and cocompactness of K in its additive adeles, as this layer does for number fields. Parallel, not shared."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.2",
+   "other": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+   "source": "audit",
+   "note": "The function-field analogue of the idele side: defines the idele degree map and exports the compact degree-zero idele class group separately from the noncompact degree direction, the counterpart of `IdeleClassGroup.normOne` and its compactness. Parallel, not shared."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.3",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
+   "source": "audit",
+   "note": "Also plans Kummer and Artin–Schreier covers with their ramification (y^p − y = t^(−m))."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.3",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+   "source": "audit",
+   "note": "Also constructs integral closures and decomposition/inertia groups for finite separable extensions of function fields."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.3",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+   "source": "audit",
+   "note": "Also plans the different and Riemann–Hurwitz including the wild different for finite separable function-field extensions."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.3",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+   "source": "audit",
+   "note": "Also plans lower and upper ramification filtrations, Artin–Schreier extensions and the separate treatment of purely inseparable extensions."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.6",
+   "other": "AdelicAlgebraicGroups:AA.1",
+   "source": "audit",
+   "note": "Owns adelic points of algebraic groups and their functoriality — the carrier G(A_K) that FA.6 quotients."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.6",
+   "other": "AutomorphicFormsOnReductiveGroups:AF.0",
+   "source": "audit",
+   "note": "Constructs compact-level functions and cuspidal subspaces over a function field, restating the same test-function/growth package in that setting."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.6",
+   "other": "AutomorphicFormsOnReductiveGroups:AF.2",
+   "source": "audit",
+   "note": "Constructs G(K)\\G(A_K), compact-level functions, central characters and cuspidal subspaces with their finiteness — the same layer over a function field."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.6",
+   "other": "AutomorphicFormsOnReductiveGroups:AF.3",
+   "source": "audit",
+   "note": "Constructs constant terms and cuspidal subspaces with their finiteness over a function field — the same targets in that setting."
+  },
+  {
+   "layer": "FunctionFieldArithmetic:FA.7",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-1-the-rational-function-field",
+   "source": "audit",
+   "note": "Owns the F_q(t) end-to-end computation (all places, their degrees, ℓ(n·∞), genus 0) that FA.7's acceptance suite starts from."
+  },
+  {
+   "layer": "HeegnerPointEulerSystems:HE.0",
+   "other": "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+   "source": "audit",
+   "note": "HE.0 constructs the orders O_c = ℤ + c𝓞_K, their proper invertible ideals, Pic(O_c) and the conductor-change maps, the imaginary quadratic case of CM.0’s order targets."
+  },
+  {
+   "layer": "HeegnerPointEulerSystems:HE.0",
+   "other": "ComplexMultiplicationAndExplicitReciprocity:CM.3",
+   "source": "audit",
+   "note": "HE.0 derives ring class fields and their Artin maps for quadratic orders from class field theory, the same ring class fields."
+  },
+  {
+   "layer": "HeegnerPointEulerSystems:HE.0",
+   "other": "ComplexMultiplicationAndExplicitReciprocity:CM.6",
+   "source": "audit",
+   "note": "HE.0 constructs for itself the quadratic-order ring class fields and Artin maps that CM.6 would export to Heegner-point applications."
+  },
+  {
+   "layer": "HeegnerPointEulerSystems:HE.0",
+   "other": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups",
+   "source": "audit",
+   "note": "Constructs the quadratic orders O_c = ℤ + c O_K, their proper invertible ideals, Pic(O_c), the conductor-change maps and their comparison with idele-class quotients: this layer's targets, specialised to quadratic orders."
+  },
+  {
+   "layer": "HeegnerPointEulerSystems:HE.1",
+   "other": "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+   "source": "audit",
+   "note": "HE.1 constructs CM elliptic curves and cyclic-isogeny pairs over ℂ, the curves and ideal actions of CM.1."
+  },
+  {
+   "layer": "HeegnerPointEulerSystems:HE.1",
+   "other": "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+   "source": "audit",
+   "note": "HE.1 applies the main theorem of complex multiplication to descend CM points to ring class fields, restating CM.2’s reciprocity in the elliptic case."
+  },
+  {
+   "layer": "HeegnerPointEulerSystems:HE.1",
+   "other": "ComplexMultiplicationAndExplicitReciprocity:CM.3",
+   "source": "audit",
+   "note": "HE.1 proves descent of CM points to ring class fields, i.e. the Galois behaviour of the CM moduli that CM.3 uses to identify the ring class field."
+  },
+  {
+   "layer": "HeegnerPointEulerSystems:HE.1",
+   "other": "ShimuraVarieties:V5",
+   "source": "audit",
+   "note": "Proves the main theorem of complex multiplication with CM types, reflex norms and the full reciprocity law, and applies it to the Siegel canonical model — HE.1's descent target. CM.2 imports it."
+  },
+  {
+   "layer": "HeegnerPointEulerSystems:HE.4",
+   "other": "EulerSystemsAndKolyvaginSystems:ES.1",
+   "source": "audit",
+   "note": "Finite–singular comparison with the cyclic-group tensor factor and independence of the chosen generator."
+  },
+  {
+   "layer": "HeegnerPointEulerSystems:HE.4",
+   "other": "EulerSystemsAndKolyvaginSystems:ES.3",
+   "source": "audit",
+   "note": "Proves invariance and descent of differentiated classes, the cyclic-group tensor factor with its generator-change law, and the corrected system relations, the same choice-independence and correction targets for Heegner classes."
+  },
+  {
+   "layer": "HeegnerPointEulerSystems:HE.5",
+   "other": "EulerSystemsAndKolyvaginSystems:ES.1",
+   "source": "audit",
+   "note": "Proves the finite/singular relation, the transverse condition and auxiliary-prime existence by Chebotarev on the extensions cutting out the Heegner classes, re-deriving this layer's auxiliary-prime selection in the Heegner case."
+  },
+  {
+   "layer": "HeegnerPointEulerSystems:HE.5",
+   "other": "EulerSystemsAndKolyvaginSystems:ES.4",
+   "source": "audit",
+   "note": "Error-tolerant descent keeping restriction errors and bounded local torsion; HE.5 converts those abstract errors into arithmetic quantities."
+  },
+  {
+   "layer": "HeegnerPointEulerSystems:HE.6",
+   "other": "EulerSystemsAndKolyvaginSystems:ES.4",
+   "source": "audit",
+   "note": "The clean Mazur–Rubin DVR bound by the divisibility index of the initial class, which HE.6 instantiates."
+  },
+  {
+   "layer": "HeegnerPointEulerSystems:HE.6",
+   "other": "EulerSystemsAndKolyvaginSystems:ES.5",
+   "source": "audit",
+   "note": "Primitivity, rank-one module theorem and index-equals-length equality under primitivity, including the square-index Sha bound for self-dual Heegner descent."
+  },
+  {
+   "layer": "HeegnerPointEulerSystems:HE.7",
+   "other": "EulerSystemsAndKolyvaginSystems:ES.4",
+   "source": "audit",
+   "note": "Proves uniform bounds on restriction kernels and local error terms with bounded-denominator derivative classes, overlapping the uniform error-tolerant descent bound (HE.7 assigns the reusable argument to ES.4)."
+  },
+  {
+   "layer": "HeegnerPointEulerSystems:HE.8",
+   "other": "EulerSystemsAndKolyvaginSystems:ES.8",
+   "source": "audit",
+   "note": "The Iwasawa-variation machinery and control that HE.8 applies to get Howard's divisibility."
+  },
+  {
+   "layer": "ShimuraVarieties:V0",
+   "other": "AdelicAlgebraicGroups:AA.3",
+   "source": "audit",
+   "note": "AA.3 owns the reduction theory V0 consumes: Siegel sets and finiteness of G(F)\\G(𝔸_f)/K."
+  },
+  {
+   "layer": "ShimuraVarieties:V0",
+   "other": "AdelicAlgebraicGroups:AA.4",
+   "source": "audit",
+   "note": "AA.4 develops strong approximation for simply connected almost-simple groups, the input V0 restricts to."
+  },
+  {
+   "layer": "ShimuraVarieties:V0",
+   "other": "AdelicAlgebraicGroups:AA.5",
+   "source": "audit",
+   "note": "Its connected-component decomposition is the same identification of an adelic double-coset quotient with a classical arithmetic quotient."
+  },
+  {
+   "layer": "ShimuraVarieties:V1",
+   "other": "AdelicAlgebraicGroups:AA.4",
+   "source": "audit",
+   "note": "AA.4 constructs finite covering maps for nested compact opens at neat levels, their degrees, and the Cartesian diagrams of Hecke correspondences."
+  },
+  {
+   "layer": "ShimuraVarieties:V4",
+   "other": "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+   "source": "audit",
+   "note": "V4 constructs the reflex norm on ideles for a special pair, the idelic form of CM.0’s reflex norm."
+  },
+  {
+   "layer": "ShimuraVarieties:V4",
+   "other": "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+   "source": "audit",
+   "note": "V4 constructs the reflex norm on ideles and compares Artin normalisations, the convention bookkeeping CM.2 repeats."
+  },
+  {
+   "layer": "ShimuraVarieties:V5",
+   "other": "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+   "source": "audit",
+   "note": "V5 constructs CM types, reflex types and reflex norms, which are CM.0’s CM-type targets."
+  },
+  {
+   "layer": "ShimuraVarieties:V5",
+   "other": "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+   "source": "audit",
+   "note": "V5 proves the main theorem of complex multiplication with its reciprocity normalisation, which CM.2 imports and restates in ideal, idele and torsion forms."
+  },
+  {
+   "layer": "ShimuraVarieties:V5",
+   "other": "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+   "source": "audit",
+   "note": "V5 constructs the Tate-module action of CM abelian varieties, the object CM.4 compares its characters with."
+  },
+  {
+   "layer": "ShimuraVarieties:V5",
+   "other": "ComplexMultiplicationAndExplicitReciprocity:CM.5",
+   "source": "audit",
+   "note": "V5 lists the reduction of CM abelian varieties and the Shimura–Taniyama Frobenius calculation among its proof obligations, the formula CM.5 instantiates."
+  },
+  {
+   "layer": "ShimuraVarieties:V5",
+   "other": "HeegnerPointEulerSystems:HE.1",
+   "source": "audit",
+   "note": "Proves the main theorem of complex multiplication with CM types, reflex norms and the full reciprocity law, and applies it to the Siegel canonical model — HE.1's descent target. CM.2 imports it."
+  },
+  {
+   "layer": "ShimuraVarieties:V8",
+   "other": "AdelicAlgebraicGroups:AA.5",
+   "source": "audit",
+   "note": "AA.5 identifies the GL₂/ℚ upper-half-plane component through ModularCurvesPartII uniformization."
+  }
+ ]
+}

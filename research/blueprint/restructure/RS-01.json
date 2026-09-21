@@ -1,0 +1,1186 @@
+{
+ "id": "RS-01",
+ "name": "p-adic cohomology theories: A_inf, crystalline, derived de Rham, prismatic and their comparisons",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "AInfCohomology",
+   "title": "Integral A_inf cohomology and Breuil–Kisin–Fargues structures",
+   "document": "content/campaign/AInfCohomology/README.md"
+  },
+  {
+   "id": "CohomologyComparisons",
+   "title": "Cohomology comparisons: integral diagrams and rational period realizations",
+   "document": "content/campaign/CohomologyComparisons/README.md"
+  },
+  {
+   "id": "CrystallineCohomology",
+   "title": "Crystalline cohomology, de Rham–Witt and logarithmic foundations",
+   "document": "content/campaign/CrystallineCohomology/README.md"
+  },
+  {
+   "id": "DerivedDeRhamCohomology",
+   "title": "Derived de Rham cohomology and its algebraic foundations",
+   "document": "content/campaign/DerivedDeRhamCohomology/README.md"
+  },
+  {
+   "id": "PadicHodgeTheory",
+   "title": "P-adic Hodge theory and geometric comparison",
+   "document": "content/campaign/PadicHodgeTheory/README.md"
+  },
+  {
+   "id": "PerfectoidQuotients",
+   "title": "Perfectoid quotients and their prismatic prerequisites",
+   "document": "content/campaign/PerfectoidQuotients/README.md"
+  },
+  {
+   "id": "PrismaticCohomology",
+   "title": "Prismatic cohomology: relative, absolute, Nygaard and log variants",
+   "document": "content/campaign/PrismaticCohomology/README.md"
+  }
+ ],
+ "anchors": [],
+ "evidence": [
+  {
+   "layer": "AInfCohomology:AI.0",
+   "other": "CohomologyComparisons:CP.0",
+   "source": "audit-unreviewed",
+   "note": "AI.0 constructs θ, θ̃, ξ, ξ̃, μ, the Witt reduction and the Breuil–Kisin twists; CP.0's 'normalization dictionary' is the same list of objects and must record, not rebuild, them."
+  },
+  {
+   "layer": "AInfCohomology:AI.0",
+   "other": "CrystallineCohomology:CR.0",
+   "source": "audit-unreviewed",
+   "note": "CR.0 'Export the common envelope of ker(theta:A_inf→O_C), its p-completion A_cris, and the maps induced by Witt reduction and theta' — the same A_cris and the same θ/Witt-reduction maps AI.0 lists."
+  },
+  {
+   "layer": "AInfCohomology:AI.0",
+   "other": "PadicHodgeTheory:R06.1",
+   "source": "audit-unreviewed",
+   "note": "R06.1 'Period rings' constructs B_dR^+, its filtration, B_dR, B_cris^± and B_st from the same A_inf/θ; it declares AI.0:integral as a dependency, so the split must be enforced — Mathlib already supplies the B_dR^+/B_dR carriers that both layers name."
+  },
+  {
+   "layer": "AInfCohomology:AI.0",
+   "other": "PerfectoidQuotients:Q0",
+   "source": "audit-unreviewed",
+   "note": "AI.0 reuses 'the common integral perfectoid ring and Witt-vector definitions' to build A_inf and θ; the same integral prefix."
+  },
+  {
+   "layer": "AInfCohomology:AI.0",
+   "other": "PerfectoidQuotients:Q0:integral-algebra",
+   "source": "audit-unreviewed",
+   "note": "Q0:integral-algebra constructs integral perfectoid rings and 'the necessary A_inf/θ descriptions', overlapping AI.0's A_inf/θ prefix."
+  },
+  {
+   "layer": "AInfCohomology:AI.0",
+   "other": "PrismaticCohomology:PR.0",
+   "source": "audit-unreviewed",
+   "note": "PR.0 builds δ-rings, distinguished elements and perfect prisms; (A_inf, ker θ) is the perfect prism, so the principality and nonzerodivisor statements of AI.0 are the same facts in prismatic language."
+  },
+  {
+   "layer": "AInfCohomology:AI.0:integral",
+   "other": "CrystallineCohomology:CR.0",
+   "source": "audit-unreviewed",
+   "note": "The A_cris half of this integral prefix is CR.0's exported PD envelope of ker θ."
+  },
+  {
+   "layer": "AInfCohomology:AI.0:integral",
+   "other": "PadicHodgeTheory:R06.1",
+   "source": "audit-unreviewed",
+   "note": "Owns A_inf = W(𝒪_C^♭), its Frobenius and θ, the residue map to W(k), and the elements μ, ξ, ξ̃ with their kernel and non-zero-divisor properties; it says explicitly that B_dR^+ is 'the kernel-adic completion after p-inversion supplied by PadicHodgeTheory', so the two layers split one construction."
+  },
+  {
+   "layer": "AInfCohomology:AI.0:integral",
+   "other": "PerfectoidQuotients:Q0:integral-algebra",
+   "source": "audit-unreviewed",
+   "note": "Same integral perfectoid / A_inf / θ descriptions."
+  },
+  {
+   "layer": "AInfCohomology:AI.0:integral",
+   "other": "PrismaticCohomology:PR.0",
+   "source": "audit-unreviewed",
+   "note": "AI.0 fixes (A_inf, ker θ) with its generator, one of PR.0's acceptance examples."
+  },
+  {
+   "layer": "AInfCohomology:AI.0:period-comparison",
+   "other": "CohomologyComparisons:CP.0",
+   "source": "audit-unreviewed",
+   "note": "CP.0 'Construct all ring maps to A_cris, B_cris, B_st and B_dR from the shared objects of AI.0, CR.0 and PadicHodgeTheory' — the same coefficient-map normalization dictionary."
+  },
+  {
+   "layer": "AInfCohomology:AI.0:period-comparison",
+   "other": "PadicHodgeTheory:R06.1",
+   "source": "audit-unreviewed",
+   "note": "R06.1 is the declared import of this substage and itself promises 'comparison with the arithmetic construction' of the same rings; the compatibility statement should live in exactly one of them."
+  },
+  {
+   "layer": "AInfCohomology:AI.1",
+   "other": "CrystallineCohomology:CR.4",
+   "source": "audit-unreviewed",
+   "note": "CR.4 constructs strict saturated Dieudonné complexes and 'the fixed-point characterization for Lη_p', and states that AI.1 supplies the generic Lη; the p-adic instance appears in both layers."
+  },
+  {
+   "layer": "AInfCohomology:AI.1",
+   "other": "PrismaticCohomology:PR.3",
+   "source": "audit-unreviewed",
+   "note": "AI.1 owns the generic Lη (décalage) functor that this layer uses independently of the AΩ construction."
+  },
+  {
+   "layer": "AInfCohomology:AI.2",
+   "other": "PrismaticCohomology:PR.7",
+   "source": "audit-unreviewed",
+   "note": "PR.7 constructs prismatic F-crystals with φ^*E[1/I] ≅ E[1/I] and the BKF/Robba boundedness argument — the same φ-module data on the perfect prism (A_inf, ker θ)."
+  },
+  {
+   "layer": "AInfCohomology:AI.3",
+   "other": "PadicHodgeTheory:P8",
+   "source": "audit-unreviewed",
+   "note": "Owns the integral pro-étale sheaves, the completed structure sheaf, its tilt and the Witt A_inf sheaf that P8 imports as its first target."
+  },
+  {
+   "layer": "AInfCohomology:AI.3",
+   "other": "PadicHodgeTheory:P8:local-rational",
+   "source": "audit-unreviewed",
+   "note": "P8:local-rational imports the integral A_inf sheaf from AI.3 and builds the rational structural B_dR and crystalline period sheaves on the same pro-étale site; the sheaf-level constructions must be shared."
+  },
+  {
+   "layer": "AInfCohomology:AI.3",
+   "other": "PrismaticCohomology:PR.4",
+   "source": "audit-unreviewed",
+   "note": "AI.3 ('Integral pro-étale sheaves and the AΩ construction') owns the pro-étale sheaf side of the étale comparison."
+  },
+  {
+   "layer": "AInfCohomology:AI.3",
+   "other": "PrismaticCohomology:PR.6",
+   "source": "audit-unreviewed",
+   "note": "PR.6 owns the explicit all-coordinates comparison AΩ_R ≃ qΩ ≃ φ^*Δ with framing independence; AI.3's framed toric computation is the same local calculation."
+  },
+  {
+   "layer": "AInfCohomology:AI.4",
+   "other": "CohomologyComparisons:CP.1",
+   "source": "audit-unreviewed",
+   "note": "CP.1 tabulates precisely these specializations (θ, θ̃, Witt, A_cris, μ-inversion) as the rows of its integral comparison diagram."
+  },
+  {
+   "layer": "AInfCohomology:AI.4",
+   "other": "CohomologyComparisons:CP.2",
+   "source": "audit-unreviewed",
+   "note": "AI.4 constructs the absolute A_cris comparison and the μ-inverted étale comparison that CP.2 chains together."
+  },
+  {
+   "layer": "AInfCohomology:AI.4",
+   "other": "CrystallineCohomology:CR.2",
+   "source": "audit-unreviewed",
+   "note": "Builds the absolute A_cris comparison 'by compatible PD envelopes and the all-coordinates construction' — the same PD-envelope de Rham computation in the A_inf setting."
+  },
+  {
+   "layer": "AInfCohomology:AI.4",
+   "other": "CrystallineCohomology:CR.4",
+   "source": "audit-unreviewed",
+   "note": "CR.4 owns the ordinary and relative (Langer–Zink) de Rham–Witt complexes and states that they supply BMS1 §§10–12 — exactly AI.4's de Rham–Witt comparison input."
+  },
+  {
+   "layer": "AInfCohomology:AI.4",
+   "other": "DerivedDeRhamCohomology:DD.4",
+   "source": "audit-unreviewed",
+   "note": "DD.4 constructs the derived de Rham → crystalline comparison and the p-completed derived de Rham description of A_cris, overlapping AI.4's absolute A_cris comparison."
+  },
+  {
+   "layer": "AInfCohomology:AI.4",
+   "other": "PerfectoidQuotients:Q1",
+   "source": "audit-unreviewed",
+   "note": "Q1 reexports the prismatic Hodge–Tate comparison with Breuil–Kisin twists, the prismatic form of AI.4's tilde-theta reduction."
+  },
+  {
+   "layer": "AInfCohomology:AI.5",
+   "other": "CohomologyComparisons:CP.1",
+   "source": "audit-unreviewed",
+   "note": "CP.1 instantiates the same K_A = RΓ_Ainf(𝔛) and its specializations."
+  },
+  {
+   "layer": "AInfCohomology:AI.5",
+   "other": "CohomologyComparisons:CP.5",
+   "source": "audit-unreviewed",
+   "note": "CP.5 states the torsion inequalities and lattice-recovery applications and explicitly imports AI.5's BKF linear algebra; the two must not both prove the length inequality."
+  },
+  {
+   "layer": "AInfCohomology:AI.6",
+   "other": "CohomologyComparisons:CP.3",
+   "source": "audit-unreviewed",
+   "note": "AI.6 also constructs 'the B_dR^+ comparison with the smooth generic fibre's canonical deformation'."
+  },
+  {
+   "layer": "AInfCohomology:AI.6",
+   "other": "CohomologyComparisons:CP.4",
+   "source": "audit-unreviewed",
+   "note": "CP.4 assembles the semistable rational comparison from AI.6 and CR.6, and both layers state the Nφ = pφN convention and the change-of-uniformizer formula."
+  },
+  {
+   "layer": "AInfCohomology:AI.6",
+   "other": "CrystallineCohomology:CR.5",
+   "source": "audit-unreviewed",
+   "note": "CR.5 owns log structures, charts, exactification and the log PD envelope, including the standard semistable chart O_K[x_1..x_d]/(x_1…x_r−π) that AI.6 also names."
+  },
+  {
+   "layer": "AInfCohomology:AI.6",
+   "other": "CrystallineCohomology:CR.6",
+   "source": "audit-unreviewed",
+   "note": "CR.6 owns the Hyodo–Kato complex, Frobenius, monodromy and change of uniformizer; AI.6 asks for the comparison with the same objects."
+  },
+  {
+   "layer": "AInfCohomology:AI.6",
+   "other": "PrismaticCohomology:PR.8",
+   "source": "audit-unreviewed",
+   "note": "PR.8 'Logarithmic prismatics and exact comparison ranges' covers the same semistable comparison in the prismatic model."
+  },
+  {
+   "layer": "AInfCohomology:AI.7",
+   "other": "PrismaticCohomology:PR.6",
+   "source": "audit-unreviewed",
+   "note": "PR.6 owns exactly the comparison AΩ_R ≃ φ_A^*Δ_(R/A_inf) and the BS22 §18 uniqueness argument that AI.7 says it imports."
+  },
+  {
+   "layer": "AInfCohomology:AI.7",
+   "other": "PrismaticCohomology:PR.7",
+   "source": "audit-unreviewed",
+   "note": "PR.7 evaluates prismatic F-crystals on the Breuil–Kisin prism and compares with R07's Kisin functor, including uniformizer dependence — the same descent data AI.7 states."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.0",
+   "other": "AInfCohomology:AI.0",
+   "source": "audit-unreviewed",
+   "note": "AI.0 constructs θ, θ̃, ξ, ξ̃, μ, the Witt reduction and the Breuil–Kisin twists; CP.0's 'normalization dictionary' is the same list of objects and must record, not rebuild, them."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.0",
+   "other": "AInfCohomology:AI.0:period-comparison",
+   "source": "audit-unreviewed",
+   "note": "CP.0 'Construct all ring maps to A_cris, B_cris, B_st and B_dR from the shared objects of AI.0, CR.0 and PadicHodgeTheory' — the same coefficient-map normalization dictionary."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.0",
+   "other": "CrystallineCohomology:CR.0",
+   "source": "audit-unreviewed",
+   "note": "CR.0 exports the PD envelope of ker θ and A_cris together with the maps induced by Witt reduction and θ."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.0",
+   "other": "PadicHodgeTheory:R06.1",
+   "source": "audit-unreviewed",
+   "note": "R06.1 constructs B_dR^+, B_dR, B_cris and B_st and their ring maps from the shared A_inf/θ, which is CP.0's fourth target."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.1",
+   "other": "AInfCohomology:AI.4",
+   "source": "audit-unreviewed",
+   "note": "CP.1 tabulates precisely these specializations (θ, θ̃, Witt, A_cris, μ-inversion) as the rows of its integral comparison diagram."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.1",
+   "other": "AInfCohomology:AI.5",
+   "source": "audit-unreviewed",
+   "note": "CP.1 instantiates the same K_A = RΓ_Ainf(𝔛) and its specializations."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.1",
+   "other": "CrystallineCohomology:CR.2",
+   "source": "audit-unreviewed",
+   "note": "CR.2's PD Poincaré lemma and de Rham computations supply the crystalline side of two of the rows."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.1",
+   "other": "DerivedDeRhamCohomology:DD.1",
+   "source": "audit-unreviewed",
+   "note": "Its whole comparison diagram is stated for derived completions and derived base changes of A_inf-complexes, so it consumes DD.1's completed-functor identities directly."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.1",
+   "other": "DerivedDeRhamCohomology:DD.4",
+   "source": "audit-unreviewed",
+   "note": "Its table row 'derived base change to A_cris ↦ crystalline cohomology of 𝔛_{O_C/p} over the PD base' is this comparison map, assembled rather than reproved."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.1",
+   "other": "PerfectoidQuotients:Q1",
+   "source": "audit-unreviewed",
+   "note": "CP.1 assembles the same integral derived comparison diagram including the Hodge–Tate comparison."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.1",
+   "other": "PrismaticCohomology:PR.1",
+   "source": "audit-unreviewed",
+   "note": "CP.1 assembles the integral derived comparison diagram containing the same Hodge–Tate and de Rham comparisons."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.1",
+   "other": "PrismaticCohomology:PR.6",
+   "source": "audit-unreviewed",
+   "note": "PR.6 owns the φ_A-pullback comparison AΩ_R ≃ φ_A^*Δ that forms CP.1's last row, with the BS22 §18 uniqueness argument CP.1 also cites."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.2",
+   "other": "AInfCohomology:AI.4",
+   "source": "audit-unreviewed",
+   "note": "AI.4 constructs the absolute A_cris comparison and the μ-inverted étale comparison that CP.2 chains together."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.2",
+   "other": "CrystallineCohomology:CR.3",
+   "source": "audit-unreviewed",
+   "note": "Consumes the finiteness/base-change output; the proper smooth crystalline comparison there reuses the same perfect-W(k)-complex statement."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.2",
+   "other": "DerivedDeRhamCohomology:DD.4",
+   "source": "audit-unreviewed",
+   "note": "DD.4 constructs the derived de Rham–crystalline comparison and the A_cris description, overlapping CP.2's crystalline input."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.2",
+   "other": "PadicHodgeTheory:R06.2",
+   "source": "audit-unreviewed",
+   "note": "R06.2 owns the period-functor/admissibility theorems CP.2 needs to identify D_cris."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.2",
+   "other": "PadicHodgeTheory:R06.5",
+   "source": "audit-unreviewed",
+   "note": "R06.5 'Geometric comparison theorems' is stated to import this comparison instead of rebuilding it; the two layers state the same theorem."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.3",
+   "other": "AInfCohomology:AI.6",
+   "source": "audit-unreviewed",
+   "note": "AI.6 also constructs 'the B_dR^+ comparison with the smooth generic fibre's canonical deformation'."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.3",
+   "other": "PadicHodgeTheory:P8",
+   "source": "audit-unreviewed",
+   "note": "Owns the canonical B_dR^+ deformation and the de Rham comparison that P8's suffix imports and applies."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.3",
+   "other": "PadicHodgeTheory:P8:local-rational",
+   "source": "audit-unreviewed",
+   "note": "P8:local-rational builds the rational structural B_dR period sheaves, local acyclicity and the relative Poincaré lemma, and its proper-comparison suffix consumes CP.3; the corrected structural B_dR^+ sheaf is stated in both."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.3",
+   "other": "PadicHodgeTheory:R06.1",
+   "source": "audit-unreviewed",
+   "note": "R06.1 constructs B_dR^+ with its filtration, which CP.3's deformation is built over."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.4",
+   "other": "AInfCohomology:AI.6",
+   "source": "audit-unreviewed",
+   "note": "CP.4 assembles the semistable rational comparison from AI.6 and CR.6, and both layers state the Nφ = pφN convention and the change-of-uniformizer formula."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.4",
+   "other": "CrystallineCohomology:CR.6",
+   "source": "audit-unreviewed",
+   "note": "CR.6 owns the Hyodo–Kato complex, Frobenius, monodromy, the Nφ = pφN relation and the change-of-uniformizer transformation — restated in CP.4."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.4",
+   "other": "PadicHodgeTheory:P8",
+   "source": "audit-unreviewed",
+   "note": "Owns the semistable/logarithmic/monodromy comparison, the B_st half of P8's application."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.4",
+   "other": "PadicHodgeTheory:R06.3",
+   "source": "audit-unreviewed",
+   "note": "R06.3 owns the monodromy and Weil–Deligne comparison at p, the representation-theoretic side of CP.4's monodromy operator."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.4",
+   "other": "PadicHodgeTheory:R06.5",
+   "source": "audit-unreviewed",
+   "note": "Owns the semistable comparison with monodromy and filtration compatibility that R06.5's semistable branch uses."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.4",
+   "other": "PrismaticCohomology:PR.8",
+   "source": "audit-unreviewed",
+   "note": "PR.8's logarithmic prismatic comparison is the second route to the same semistable statement."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.5",
+   "other": "AInfCohomology:AI.5",
+   "source": "audit-unreviewed",
+   "note": "CP.5 states the torsion inequalities and lattice-recovery applications and explicitly imports AI.5's BKF linear algebra; the two must not both prove the length inequality."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.5",
+   "other": "PadicHodgeTheory:R06.4",
+   "source": "audit-unreviewed",
+   "note": "R06.4 is the 'Integral and small-weight interface' and states the same normalization agreement."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.6",
+   "other": "PadicHodgeTheory:R06.6",
+   "source": "audit-unreviewed",
+   "note": "R06.6 'Arithmetic consequences' is the declared recipient of CP.6's exports and states the same Galois conclusions."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.6",
+   "other": "PrismaticCohomology:PR.4",
+   "source": "audit-unreviewed",
+   "note": "PR.4 owns the étale comparison and p-adic Tate twists, including the prismatic logarithm/Chern class CP.6 compares."
+  },
+  {
+   "layer": "CohomologyComparisons:CP.6",
+   "other": "PrismaticCohomology:PR.6",
+   "source": "audit-unreviewed",
+   "note": "CP.6's reusable coefficient/product exports import the same AΩ comparison."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.0",
+   "other": "AInfCohomology:AI.0",
+   "source": "audit-unreviewed",
+   "note": "CR.0 'Export the common envelope of ker(theta:A_inf→O_C), its p-completion A_cris, and the maps induced by Witt reduction and theta' — the same A_cris and the same θ/Witt-reduction maps AI.0 lists."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.0",
+   "other": "AInfCohomology:AI.0:integral",
+   "source": "audit-unreviewed",
+   "note": "The A_cris half of this integral prefix is CR.0's exported PD envelope of ker θ."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.0",
+   "other": "CohomologyComparisons:CP.0",
+   "source": "audit-unreviewed",
+   "note": "CR.0 exports the PD envelope of ker θ and A_cris together with the maps induced by Witt reduction and θ."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.0",
+   "other": "DerivedDeRhamCohomology:DD.0",
+   "source": "audit-unreviewed",
+   "note": "Asks for the comparison of explicit PD envelopes 'with the derived PD construction in the lci range', which is DD.0's derived divided-power functor plus the lci amplitude criterion."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.0",
+   "other": "DerivedDeRhamCohomology:DD.1",
+   "source": "audit-unreviewed",
+   "note": "Requires DD.1 by name to construct p-completed PD envelopes and to decide when ordinary completion may replace derived completion; the boundedness/torsion criteria are stated in both layers."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.0",
+   "other": "DerivedDeRhamCohomology:DD.4",
+   "source": "audit-unreviewed",
+   "note": "Identifies the p-completed derived de Rham description of A_cris and needs the explicit maps to the PD period rings supplied by CR.0/AI.0; overlapping A_cris target from the derived side."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.0",
+   "other": "PadicHodgeTheory:R06.1",
+   "source": "audit-unreviewed",
+   "note": "Imports 'generic PD envelopes from CrystallineCohomology CR.0' and the shared A_inf/θ to build B_dR, B_cris and B_st; same period-ring objects, downstream of this layer."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.0",
+   "other": "PerfectoidQuotients:Q1",
+   "source": "audit-unreviewed",
+   "note": "CR.0 owns the PD envelopes and their universal properties that this layer imports."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.0",
+   "other": "PrismaticCohomology:PR.0",
+   "source": "audit-unreviewed",
+   "note": "Builds prismatic envelopes by δ-adjunction plus derived completion and explicitly says 'Compare with the PD envelopes already built in CR.0', so the two envelope constructions share the universal-property/flatness/regularity work but PR.0 defers the PD case to here."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.1",
+   "other": "PrismaticCohomology:PR.6",
+   "source": "audit-unreviewed",
+   "note": "q-crystalline charts and the AΩ comparison reuse the crystalline-site/stratification comparison in the q-crystalline site."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.2",
+   "other": "AInfCohomology:AI.4",
+   "source": "audit-unreviewed",
+   "note": "Builds the absolute A_cris comparison 'by compatible PD envelopes and the all-coordinates construction' — the same PD-envelope de Rham computation in the A_inf setting."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.2",
+   "other": "CohomologyComparisons:CP.1",
+   "source": "audit-unreviewed",
+   "note": "CR.2's PD Poincaré lemma and de Rham computations supply the crystalline side of two of the rows."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.2",
+   "other": "DerivedDeRhamCohomology:DD.4",
+   "source": "audit-unreviewed",
+   "note": "Builds the derived-de-Rham-to-crystalline comparison map from polynomial resolutions, PD envelopes and this Poincaré lemma; DD.4 consumes CR.2 rather than reproving it, but the PD-envelope de Rham complex is shared."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.2",
+   "other": "PerfectoidQuotients:Q1",
+   "source": "audit-unreviewed",
+   "note": "CR.2 owns the PD Poincaré lemma and the de Rham computations used for the crystalline comparison."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.2",
+   "other": "PrismaticCohomology:PR.1",
+   "source": "audit-unreviewed",
+   "note": "Consumes CR.2 for the prismatic/crystalline comparison; the Čech–Alexander style independence-of-embedding argument recurs there for prisms."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.3",
+   "other": "CohomologyComparisons:CP.2",
+   "source": "audit-unreviewed",
+   "note": "Consumes the finiteness/base-change output; the proper smooth crystalline comparison there reuses the same perfect-W(k)-complex statement."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.3",
+   "other": "DerivedDeRhamCohomology:DD.1",
+   "source": "audit-unreviewed",
+   "note": "Also carries the Berthelot–Ogus Appendix B corrigendum target ('the claimed projective replacement is an isomorphism in the derived category'), so the derived-tower replacement is stated in both layers."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.4",
+   "other": "AInfCohomology:AI.1",
+   "source": "audit-unreviewed",
+   "note": "CR.4 constructs strict saturated Dieudonné complexes and 'the fixed-point characterization for Lη_p', and states that AI.1 supplies the generic Lη; the p-adic instance appears in both layers."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.4",
+   "other": "AInfCohomology:AI.4",
+   "source": "audit-unreviewed",
+   "note": "CR.4 owns the ordinary and relative (Langer–Zink) de Rham–Witt complexes and states that they supply BMS1 §§10–12 — exactly AI.4's de Rham–Witt comparison input."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.5",
+   "other": "AInfCohomology:AI.6",
+   "source": "audit-unreviewed",
+   "note": "CR.5 owns log structures, charts, exactification and the log PD envelope, including the standard semistable chart O_K[x_1..x_d]/(x_1…x_r−π) that AI.6 also names."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.5",
+   "other": "DerivedDeRhamCohomology:DD.6",
+   "source": "audit-unreviewed",
+   "note": "Imports this log prefix and builds log cotangent/derived de Rham on the same objects; the log-crystalline comparison map appears in both."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.5",
+   "other": "PrismaticCohomology:PR.8",
+   "source": "audit-unreviewed",
+   "note": "Logarithmic prismatics needs the same integral/fine/saturated log geometry and a Cartier-type condition, with its own integral log-smooth hypotheses."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.5:log-algebra",
+   "other": "DerivedDeRhamCohomology:DD.6",
+   "source": "audit-unreviewed",
+   "note": "Explicitly imports 'integral/fine/saturated prelog and log geometry from CrystallineCohomology CR.5's early algebraic prefix' — i.e. this substage."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.5:log-algebra",
+   "other": "PrismaticCohomology:PR.8",
+   "source": "audit-unreviewed",
+   "note": "Requires the same fine/saturated log-monoid layer for log prisms."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.6",
+   "other": "AInfCohomology:AI.6",
+   "source": "audit-unreviewed",
+   "note": "CR.6 owns the Hyodo–Kato complex, Frobenius, monodromy and change of uniformizer; AI.6 asks for the comparison with the same objects."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.6",
+   "other": "CohomologyComparisons:CP.4",
+   "source": "audit-unreviewed",
+   "note": "CR.6 owns the Hyodo–Kato complex, Frobenius, monodromy, the Nφ = pφN relation and the change-of-uniformizer transformation — restated in CP.4."
+  },
+  {
+   "layer": "CrystallineCohomology:CR.6",
+   "other": "PrismaticCohomology:PR.8",
+   "source": "audit-unreviewed",
+   "note": "Log-prismatic comparison over semistable models covers overlapping examples; CP.4 is told to compare the two."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.0",
+   "other": "CrystallineCohomology:CR.0",
+   "source": "audit-unreviewed",
+   "note": "Asks for the comparison of explicit PD envelopes 'with the derived PD construction in the lci range', which is DD.0's derived divided-power functor plus the lci amplitude criterion."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.0",
+   "other": "PerfectoidQuotients:Q0:animated-application",
+   "source": "audit-unreviewed",
+   "note": "DD.0 owns the cotangent complex and the derived exterior/symmetric power functors named here."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.0",
+   "other": "PerfectoidQuotients:Q2",
+   "source": "audit-unreviewed",
+   "note": "DD.0 owns the cotangent complex and derived exterior powers whose completed versions give the graded pieces here."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.0",
+   "other": "PerfectoidQuotients:Q3",
+   "source": "audit-unreviewed",
+   "note": "Opens by importing 'DD.0/5's quasisyntomic and quasiregular semiperfectoid conditions and cotangent criteria' — the quasisyntomic-morphism target is defined here and consumed there."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.0",
+   "other": "PrismaticCohomology:PR.1",
+   "source": "audit-unreviewed",
+   "note": "DD.0 owns the cotangent complex and derived exterior powers whose graded pieces appear in the Hodge–Tate statement."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.0",
+   "other": "PrismaticCohomology:PR.2",
+   "source": "audit-unreviewed",
+   "note": "Needs 'the filtered derived Hodge–Tate comparison with exterior powers of the completed cotangent complex', i.e. DD.0's derived exterior powers applied to L, and re-states the derived-vs-π₀ distinction."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.0",
+   "other": "PrismaticCohomology:PR.5",
+   "source": "audit-unreviewed",
+   "note": "The layer states that derived de Rham/Hodge completions remain DD-owned."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.1",
+   "other": "CohomologyComparisons:CP.1",
+   "source": "audit-unreviewed",
+   "note": "Its whole comparison diagram is stated for derived completions and derived base changes of A_inf-complexes, so it consumes DD.1's completed-functor identities directly."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.1",
+   "other": "CrystallineCohomology:CR.0",
+   "source": "audit-unreviewed",
+   "note": "Requires DD.1 by name to construct p-completed PD envelopes and to decide when ordinary completion may replace derived completion; the boundedness/torsion criteria are stated in both layers."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.1",
+   "other": "CrystallineCohomology:CR.3",
+   "source": "audit-unreviewed",
+   "note": "Also carries the Berthelot–Ogus Appendix B corrigendum target ('the claimed projective replacement is an isomorphism in the derived category'), so the derived-tower replacement is stated in both layers."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.1",
+   "other": "PrismaticCohomology:PR.0",
+   "source": "audit-unreviewed",
+   "note": "Builds prismatic envelopes 'by delta adjunction and derived completion' and proves their complete flatness — the same derived completion functor and complete-flatness statements, applied to prisms."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.2",
+   "other": "PrismaticCohomology:PR.5",
+   "source": "audit-unreviewed",
+   "note": "Says 'Derived de Rham/Hodge completions remain DD-owned', so the Hodge-completed object is referenced there but owned here."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.3",
+   "other": "PrismaticCohomology:PR.3",
+   "source": "audit-unreviewed",
+   "note": "Builds the Nygaard filtration and its associated-graded description 'and comparison with Hodge–Tate and de Rham filtrations', i.e. it consumes the same conjugate/Hodge graded-piece calculus in the prismatic setting."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.3",
+   "other": "PrismaticCohomology:PR.8",
+   "source": "audit-unreviewed",
+   "note": "Requires the Cartier-type condition on the mod-p fibre for its de Rham comparison and Frobenius-isogeny/Lη factorization — the same Cartier-type hypothesis, in the log prismatic scope."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.4",
+   "other": "AInfCohomology:AI.4",
+   "source": "audit-unreviewed",
+   "note": "DD.4 constructs the derived de Rham → crystalline comparison and the p-completed derived de Rham description of A_cris, overlapping AI.4's absolute A_cris comparison."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.4",
+   "other": "CohomologyComparisons:CP.1",
+   "source": "audit-unreviewed",
+   "note": "Its table row 'derived base change to A_cris ↦ crystalline cohomology of 𝔛_{O_C/p} over the PD base' is this comparison map, assembled rather than reproved."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.4",
+   "other": "CohomologyComparisons:CP.2",
+   "source": "audit-unreviewed",
+   "note": "DD.4 constructs the derived de Rham–crystalline comparison and the A_cris description, overlapping CP.2's crystalline input."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.4",
+   "other": "CrystallineCohomology:CR.0",
+   "source": "audit-unreviewed",
+   "note": "Identifies the p-completed derived de Rham description of A_cris and needs the explicit maps to the PD period rings supplied by CR.0/AI.0; overlapping A_cris target from the derived side."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.4",
+   "other": "CrystallineCohomology:CR.2",
+   "source": "audit-unreviewed",
+   "note": "Builds the derived-de-Rham-to-crystalline comparison map from polynomial resolutions, PD envelopes and this Poincaré lemma; DD.4 consumes CR.2 rather than reproving it, but the PD-envelope de Rham complex is shared."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.5",
+   "other": "PerfectoidQuotients:Q2",
+   "source": "audit-unreviewed",
+   "note": "Imports the same derived-completion/left-Kan-extension package and the filtered Hodge–Tate comparison whose graded pieces are completed derived exterior powers of the cotangent complex."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.5",
+   "other": "PerfectoidQuotients:Q3",
+   "source": "audit-unreviewed",
+   "note": "Imports 'DD.0/5's quasisyntomic and quasiregular semiperfectoid conditions and cotangent criteria' and then proves the stronger André flatness theorem; the elementary compatible-root cover is assigned to DD.5 and the absolutely-integrally-closed extension to Q3, so the cover construction is stated in both."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.5",
+   "other": "PrismaticCohomology:PR.2",
+   "source": "audit-unreviewed",
+   "note": "Says 'Use DD.5's elementary quasisyntomic cover/descent branch, prove derived complete-flat descent' — the quasisyntomic descent target is shared, with PR.2 adding the prismatic functor."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.5",
+   "other": "PrismaticCohomology:PR.3",
+   "source": "audit-unreviewed",
+   "note": "DD.5's quasisyntomic descent is the mechanism by which the Nygaard filtration is extended."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.6",
+   "other": "CrystallineCohomology:CR.5",
+   "source": "audit-unreviewed",
+   "note": "Imports this log prefix and builds log cotangent/derived de Rham on the same objects; the log-crystalline comparison map appears in both."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.6",
+   "other": "CrystallineCohomology:CR.5:log-algebra",
+   "source": "audit-unreviewed",
+   "note": "Explicitly imports 'integral/fine/saturated prelog and log geometry from CrystallineCohomology CR.5's early algebraic prefix' — i.e. this substage."
+  },
+  {
+   "layer": "DerivedDeRhamCohomology:DD.6",
+   "other": "PrismaticCohomology:PR.8",
+   "source": "audit-unreviewed",
+   "note": "Opens 'Import CR.5's integral log structures and DD.6's log cotangent complexes' and then reproves log-quasisyntomic descent and the Cartier-type comparison conditions; the log cotangent complex and its base-change statements are shared."
+  },
+  {
+   "layer": "PadicHodgeTheory:P8",
+   "other": "AInfCohomology:AI.3",
+   "source": "audit-unreviewed",
+   "note": "Owns the integral pro-étale sheaves, the completed structure sheaf, its tilt and the Witt A_inf sheaf that P8 imports as its first target."
+  },
+  {
+   "layer": "PadicHodgeTheory:P8",
+   "other": "CohomologyComparisons:CP.3",
+   "source": "audit-unreviewed",
+   "note": "Owns the canonical B_dR^+ deformation and the de Rham comparison that P8's suffix imports and applies."
+  },
+  {
+   "layer": "PadicHodgeTheory:P8",
+   "other": "CohomologyComparisons:CP.4",
+   "source": "audit-unreviewed",
+   "note": "Owns the semistable/logarithmic/monodromy comparison, the B_st half of P8's application."
+  },
+  {
+   "layer": "PadicHodgeTheory:P8:local-rational",
+   "other": "AInfCohomology:AI.3",
+   "source": "audit-unreviewed",
+   "note": "P8:local-rational imports the integral A_inf sheaf from AI.3 and builds the rational structural B_dR and crystalline period sheaves on the same pro-étale site; the sheaf-level constructions must be shared."
+  },
+  {
+   "layer": "PadicHodgeTheory:P8:local-rational",
+   "other": "CohomologyComparisons:CP.3",
+   "source": "audit-unreviewed",
+   "note": "P8:local-rational builds the rational structural B_dR period sheaves, local acyclicity and the relative Poincaré lemma, and its proper-comparison suffix consumes CP.3; the corrected structural B_dR^+ sheaf is stated in both."
+  },
+  {
+   "layer": "PadicHodgeTheory:R06.1",
+   "other": "AInfCohomology:AI.0",
+   "source": "audit-unreviewed",
+   "note": "R06.1 'Period rings' constructs B_dR^+, its filtration, B_dR, B_cris^± and B_st from the same A_inf/θ; it declares AI.0:integral as a dependency, so the split must be enforced — Mathlib already supplies the B_dR^+/B_dR carriers that both layers name."
+  },
+  {
+   "layer": "PadicHodgeTheory:R06.1",
+   "other": "AInfCohomology:AI.0:integral",
+   "source": "audit-unreviewed",
+   "note": "Owns A_inf = W(𝒪_C^♭), its Frobenius and θ, the residue map to W(k), and the elements μ, ξ, ξ̃ with their kernel and non-zero-divisor properties; it says explicitly that B_dR^+ is 'the kernel-adic completion after p-inversion supplied by PadicHodgeTheory', so the two layers split one construction."
+  },
+  {
+   "layer": "PadicHodgeTheory:R06.1",
+   "other": "AInfCohomology:AI.0:period-comparison",
+   "source": "audit-unreviewed",
+   "note": "R06.1 is the declared import of this substage and itself promises 'comparison with the arithmetic construction' of the same rings; the compatibility statement should live in exactly one of them."
+  },
+  {
+   "layer": "PadicHodgeTheory:R06.1",
+   "other": "CohomologyComparisons:CP.0",
+   "source": "audit-unreviewed",
+   "note": "R06.1 constructs B_dR^+, B_dR, B_cris and B_st and their ring maps from the shared A_inf/θ, which is CP.0's fourth target."
+  },
+  {
+   "layer": "PadicHodgeTheory:R06.1",
+   "other": "CohomologyComparisons:CP.3",
+   "source": "audit-unreviewed",
+   "note": "R06.1 constructs B_dR^+ with its filtration, which CP.3's deformation is built over."
+  },
+  {
+   "layer": "PadicHodgeTheory:R06.1",
+   "other": "CrystallineCohomology:CR.0",
+   "source": "audit-unreviewed",
+   "note": "Imports 'generic PD envelopes from CrystallineCohomology CR.0' and the shared A_inf/θ to build B_dR, B_cris and B_st; same period-ring objects, downstream of this layer."
+  },
+  {
+   "layer": "PadicHodgeTheory:R06.2",
+   "other": "CohomologyComparisons:CP.2",
+   "source": "audit-unreviewed",
+   "note": "R06.2 owns the period-functor/admissibility theorems CP.2 needs to identify D_cris."
+  },
+  {
+   "layer": "PadicHodgeTheory:R06.3",
+   "other": "CohomologyComparisons:CP.4",
+   "source": "audit-unreviewed",
+   "note": "R06.3 owns the monodromy and Weil–Deligne comparison at p, the representation-theoretic side of CP.4's monodromy operator."
+  },
+  {
+   "layer": "PadicHodgeTheory:R06.4",
+   "other": "CohomologyComparisons:CP.5",
+   "source": "audit-unreviewed",
+   "note": "R06.4 is the 'Integral and small-weight interface' and states the same normalization agreement."
+  },
+  {
+   "layer": "PadicHodgeTheory:R06.5",
+   "other": "CohomologyComparisons:CP.2",
+   "source": "audit-unreviewed",
+   "note": "R06.5 'Geometric comparison theorems' is stated to import this comparison instead of rebuilding it; the two layers state the same theorem."
+  },
+  {
+   "layer": "PadicHodgeTheory:R06.5",
+   "other": "CohomologyComparisons:CP.4",
+   "source": "audit-unreviewed",
+   "note": "Owns the semistable comparison with monodromy and filtration compatibility that R06.5's semistable branch uses."
+  },
+  {
+   "layer": "PadicHodgeTheory:R06.6",
+   "other": "CohomologyComparisons:CP.6",
+   "source": "audit-unreviewed",
+   "note": "R06.6 'Arithmetic consequences' is the declared recipient of CP.6's exports and states the same Galois conclusions."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q0",
+   "other": "AInfCohomology:AI.0",
+   "source": "audit-unreviewed",
+   "note": "AI.0 reuses 'the common integral perfectoid ring and Witt-vector definitions' to build A_inf and θ; the same integral prefix."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q0",
+   "other": "PrismaticCohomology:PR.0",
+   "source": "audit-unreviewed",
+   "note": "The roadmap summary states Q0's prism suffix now imports PR.0, which is the canonical owner of δ-rings, prisms and envelopes."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q0:animated-application",
+   "other": "DerivedDeRhamCohomology:DD.0",
+   "source": "audit-unreviewed",
+   "note": "DD.0 owns the cotangent complex and the derived exterior/symmetric power functors named here."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q0:animated-application",
+   "other": "PrismaticCohomology:PR.0",
+   "source": "audit-unreviewed",
+   "note": "The layer text says it imports PR.0's δ-rings, free δ-algebras, distinguished elements, prisms, orientations, completed perfection and the perfect-prism correspondence; PR.0 is the constructing owner."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q0:integral-algebra",
+   "other": "AInfCohomology:AI.0",
+   "source": "audit-unreviewed",
+   "note": "Q0:integral-algebra constructs integral perfectoid rings and 'the necessary A_inf/θ descriptions', overlapping AI.0's A_inf/θ prefix."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q0:integral-algebra",
+   "other": "AInfCohomology:AI.0:integral",
+   "source": "audit-unreviewed",
+   "note": "Same integral perfectoid / A_inf / θ descriptions."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q0:integral-algebra",
+   "other": "PrismaticCohomology:PR.0",
+   "source": "audit-unreviewed",
+   "note": "PR.0 also asks for the equivalence between perfect prisms and integral perfectoid rings 'using the existing integral perfectoid/tilt/A_inf construction', i.e. exactly this prefix."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q1",
+   "other": "AInfCohomology:AI.4",
+   "source": "audit-unreviewed",
+   "note": "Q1 reexports the prismatic Hodge–Tate comparison with Breuil–Kisin twists, the prismatic form of AI.4's tilde-theta reduction."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q1",
+   "other": "CohomologyComparisons:CP.1",
+   "source": "audit-unreviewed",
+   "note": "CP.1 assembles the same integral derived comparison diagram including the Hodge–Tate comparison."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q1",
+   "other": "CrystallineCohomology:CR.0",
+   "source": "audit-unreviewed",
+   "note": "CR.0 owns the PD envelopes and their universal properties that this layer imports."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q1",
+   "other": "CrystallineCohomology:CR.2",
+   "source": "audit-unreviewed",
+   "note": "CR.2 owns the PD Poincaré lemma and the de Rham computations used for the crystalline comparison."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q1",
+   "other": "PrismaticCohomology:PR.1",
+   "source": "audit-unreviewed",
+   "note": "The layer opens 'This is the named Q1 reexport of PR.1, not a second construction' — PR.1 owns the relative site, Čech–Alexander models and the Hodge–Tate comparison."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q2",
+   "other": "DerivedDeRhamCohomology:DD.0",
+   "source": "audit-unreviewed",
+   "note": "DD.0 owns the cotangent complex and derived exterior powers whose completed versions give the graded pieces here."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q2",
+   "other": "DerivedDeRhamCohomology:DD.5",
+   "source": "audit-unreviewed",
+   "note": "Imports the same derived-completion/left-Kan-extension package and the filtered Hodge–Tate comparison whose graded pieces are completed derived exterior powers of the cotangent complex."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q2",
+   "other": "PrismaticCohomology:PR.2",
+   "source": "audit-unreviewed",
+   "note": "The layer explicitly imports PR.2's left Kan extension, filtered Hodge–Tate comparison and 7.7–7.10 statements; PR.2 is the owner."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q3",
+   "other": "DerivedDeRhamCohomology:DD.0",
+   "source": "audit-unreviewed",
+   "note": "Opens by importing 'DD.0/5's quasisyntomic and quasiregular semiperfectoid conditions and cotangent criteria' — the quasisyntomic-morphism target is defined here and consumed there."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q3",
+   "other": "DerivedDeRhamCohomology:DD.5",
+   "source": "audit-unreviewed",
+   "note": "Imports 'DD.0/5's quasisyntomic and quasiregular semiperfectoid conditions and cotangent criteria' and then proves the stronger André flatness theorem; the elementary compatible-root cover is assigned to DD.5 and the absolutely-integrally-closed extension to Q3, so the cover construction is stated in both."
+  },
+  {
+   "layer": "PerfectoidQuotients:Q3",
+   "other": "PrismaticCohomology:PR.2",
+   "source": "audit-unreviewed",
+   "note": "PR.2 supplies the discreteness calculation for quasiregular semiperfectoid inputs that this stage's construction uses."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.0",
+   "other": "AInfCohomology:AI.0",
+   "source": "audit-unreviewed",
+   "note": "PR.0 builds δ-rings, distinguished elements and perfect prisms; (A_inf, ker θ) is the perfect prism, so the principality and nonzerodivisor statements of AI.0 are the same facts in prismatic language."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.0",
+   "other": "AInfCohomology:AI.0:integral",
+   "source": "audit-unreviewed",
+   "note": "AI.0 fixes (A_inf, ker θ) with its generator, one of PR.0's acceptance examples."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.0",
+   "other": "CrystallineCohomology:CR.0",
+   "source": "audit-unreviewed",
+   "note": "Builds prismatic envelopes by δ-adjunction plus derived completion and explicitly says 'Compare with the PD envelopes already built in CR.0', so the two envelope constructions share the universal-property/flatness/regularity work but PR.0 defers the PD case to here."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.0",
+   "other": "DerivedDeRhamCohomology:DD.1",
+   "source": "audit-unreviewed",
+   "note": "Builds prismatic envelopes 'by delta adjunction and derived completion' and proves their complete flatness — the same derived completion functor and complete-flatness statements, applied to prisms."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.0",
+   "other": "PerfectoidQuotients:Q0",
+   "source": "audit-unreviewed",
+   "note": "The roadmap summary states Q0's prism suffix now imports PR.0, which is the canonical owner of δ-rings, prisms and envelopes."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.0",
+   "other": "PerfectoidQuotients:Q0:animated-application",
+   "source": "audit-unreviewed",
+   "note": "The layer text says it imports PR.0's δ-rings, free δ-algebras, distinguished elements, prisms, orientations, completed perfection and the perfect-prism correspondence; PR.0 is the constructing owner."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.0",
+   "other": "PerfectoidQuotients:Q0:integral-algebra",
+   "source": "audit-unreviewed",
+   "note": "PR.0 also asks for the equivalence between perfect prisms and integral perfectoid rings 'using the existing integral perfectoid/tilt/A_inf construction', i.e. exactly this prefix."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.1",
+   "other": "CohomologyComparisons:CP.1",
+   "source": "audit-unreviewed",
+   "note": "CP.1 assembles the integral derived comparison diagram containing the same Hodge–Tate and de Rham comparisons."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.1",
+   "other": "CrystallineCohomology:CR.2",
+   "source": "audit-unreviewed",
+   "note": "Consumes CR.2 for the prismatic/crystalline comparison; the Čech–Alexander style independence-of-embedding argument recurs there for prisms."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.1",
+   "other": "DerivedDeRhamCohomology:DD.0",
+   "source": "audit-unreviewed",
+   "note": "DD.0 owns the cotangent complex and derived exterior powers whose graded pieces appear in the Hodge–Tate statement."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.1",
+   "other": "PerfectoidQuotients:Q1",
+   "source": "audit-unreviewed",
+   "note": "The layer opens 'This is the named Q1 reexport of PR.1, not a second construction' — PR.1 owns the relative site, Čech–Alexander models and the Hodge–Tate comparison."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.2",
+   "other": "DerivedDeRhamCohomology:DD.0",
+   "source": "audit-unreviewed",
+   "note": "Needs 'the filtered derived Hodge–Tate comparison with exterior powers of the completed cotangent complex', i.e. DD.0's derived exterior powers applied to L, and re-states the derived-vs-π₀ distinction."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.2",
+   "other": "DerivedDeRhamCohomology:DD.5",
+   "source": "audit-unreviewed",
+   "note": "Says 'Use DD.5's elementary quasisyntomic cover/descent branch, prove derived complete-flat descent' — the quasisyntomic descent target is shared, with PR.2 adding the prismatic functor."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.2",
+   "other": "PerfectoidQuotients:Q2",
+   "source": "audit-unreviewed",
+   "note": "The layer explicitly imports PR.2's left Kan extension, filtered Hodge–Tate comparison and 7.7–7.10 statements; PR.2 is the owner."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.2",
+   "other": "PerfectoidQuotients:Q3",
+   "source": "audit-unreviewed",
+   "note": "PR.2 supplies the discreteness calculation for quasiregular semiperfectoid inputs that this stage's construction uses."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.3",
+   "other": "AInfCohomology:AI.1",
+   "source": "audit-unreviewed",
+   "note": "AI.1 owns the generic Lη (décalage) functor that this layer uses independently of the AΩ construction."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.3",
+   "other": "DerivedDeRhamCohomology:DD.3",
+   "source": "audit-unreviewed",
+   "note": "Builds the Nygaard filtration and its associated-graded description 'and comparison with Hodge–Tate and de Rham filtrations', i.e. it consumes the same conjugate/Hodge graded-piece calculus in the prismatic setting."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.3",
+   "other": "DerivedDeRhamCohomology:DD.5",
+   "source": "audit-unreviewed",
+   "note": "DD.5's quasisyntomic descent is the mechanism by which the Nygaard filtration is extended."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.4",
+   "other": "AInfCohomology:AI.3",
+   "source": "audit-unreviewed",
+   "note": "AI.3 ('Integral pro-étale sheaves and the AΩ construction') owns the pro-étale sheaf side of the étale comparison."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.4",
+   "other": "CohomologyComparisons:CP.6",
+   "source": "audit-unreviewed",
+   "note": "PR.4 owns the étale comparison and p-adic Tate twists, including the prismatic logarithm/Chern class CP.6 compares."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.5",
+   "other": "DerivedDeRhamCohomology:DD.0",
+   "source": "audit-unreviewed",
+   "note": "The layer states that derived de Rham/Hodge completions remain DD-owned."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.5",
+   "other": "DerivedDeRhamCohomology:DD.2",
+   "source": "audit-unreviewed",
+   "note": "Says 'Derived de Rham/Hodge completions remain DD-owned', so the Hodge-completed object is referenced there but owned here."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.6",
+   "other": "AInfCohomology:AI.3",
+   "source": "audit-unreviewed",
+   "note": "PR.6 owns the explicit all-coordinates comparison AΩ_R ≃ qΩ ≃ φ^*Δ with framing independence; AI.3's framed toric computation is the same local calculation."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.6",
+   "other": "AInfCohomology:AI.7",
+   "source": "audit-unreviewed",
+   "note": "PR.6 owns exactly the comparison AΩ_R ≃ φ_A^*Δ_(R/A_inf) and the BS22 §18 uniqueness argument that AI.7 says it imports."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.6",
+   "other": "CohomologyComparisons:CP.1",
+   "source": "audit-unreviewed",
+   "note": "PR.6 owns the φ_A-pullback comparison AΩ_R ≃ φ_A^*Δ that forms CP.1's last row, with the BS22 §18 uniqueness argument CP.1 also cites."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.6",
+   "other": "CohomologyComparisons:CP.6",
+   "source": "audit-unreviewed",
+   "note": "CP.6's reusable coefficient/product exports import the same AΩ comparison."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.6",
+   "other": "CrystallineCohomology:CR.1",
+   "source": "audit-unreviewed",
+   "note": "q-crystalline charts and the AΩ comparison reuse the crystalline-site/stratification comparison in the q-crystalline site."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.7",
+   "other": "AInfCohomology:AI.2",
+   "source": "audit-unreviewed",
+   "note": "PR.7 constructs prismatic F-crystals with φ^*E[1/I] ≅ E[1/I] and the BKF/Robba boundedness argument — the same φ-module data on the perfect prism (A_inf, ker θ)."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.7",
+   "other": "AInfCohomology:AI.7",
+   "source": "audit-unreviewed",
+   "note": "PR.7 evaluates prismatic F-crystals on the Breuil–Kisin prism and compares with R07's Kisin functor, including uniformizer dependence — the same descent data AI.7 states."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.8",
+   "other": "AInfCohomology:AI.6",
+   "source": "audit-unreviewed",
+   "note": "PR.8 'Logarithmic prismatics and exact comparison ranges' covers the same semistable comparison in the prismatic model."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.8",
+   "other": "CohomologyComparisons:CP.4",
+   "source": "audit-unreviewed",
+   "note": "PR.8's logarithmic prismatic comparison is the second route to the same semistable statement."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.8",
+   "other": "CrystallineCohomology:CR.5",
+   "source": "audit-unreviewed",
+   "note": "Logarithmic prismatics needs the same integral/fine/saturated log geometry and a Cartier-type condition, with its own integral log-smooth hypotheses."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.8",
+   "other": "CrystallineCohomology:CR.5:log-algebra",
+   "source": "audit-unreviewed",
+   "note": "Requires the same fine/saturated log-monoid layer for log prisms."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.8",
+   "other": "CrystallineCohomology:CR.6",
+   "source": "audit-unreviewed",
+   "note": "Log-prismatic comparison over semistable models covers overlapping examples; CP.4 is told to compare the two."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.8",
+   "other": "DerivedDeRhamCohomology:DD.3",
+   "source": "audit-unreviewed",
+   "note": "Requires the Cartier-type condition on the mod-p fibre for its de Rham comparison and Frobenius-isogeny/Lη factorization — the same Cartier-type hypothesis, in the log prismatic scope."
+  },
+  {
+   "layer": "PrismaticCohomology:PR.8",
+   "other": "DerivedDeRhamCohomology:DD.6",
+   "source": "audit-unreviewed",
+   "note": "Opens 'Import CR.5's integral log structures and DD.6's log cotangent complexes' and then reproves log-quasisyntomic descent and the Cartier-type comparison conditions; the log cotangent complex and its base-change statements are shared."
+  }
+ ]
+}
