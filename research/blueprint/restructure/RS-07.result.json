@@ -118,7 +118,7 @@
         "ArithmeticStatistics:ST.1",
         "AutomorphicLFunctionsAndLocalFactors:AL.0"
       ],
-      "reason": "ST.1 owns the shared arithmetic orbit parametrizations, invariants and stabilizer dictionaries; ST.0 owns arithmetic-family/local-condition normalization data. AN.8 owns the analytic zeta construction, not a second orbit bijection. Different local-density objects in sieves, circle-method singular series and zeta integrals are related only by proved comparisons, not identified by name."
+      "reason": "ST.1 owns the shared arithmetic orbit parametrizations, remaining integral invariant theory and stabilizer dictionaries; ST.0 owns the named binary-quartic invariant-polynomial/height interface and arithmetic-family/local-condition normalization data. AN.8 owns the analytic zeta construction, not a second orbit bijection. Different local-density objects in sieves, circle-method singular series and zeta integrals are related only by proved comparisons, not identified by name."
     },
     "AnalyticNumberTheory:AN.9": {
       "action": "keep",
@@ -126,15 +126,19 @@
     },
     "ArithmeticStatistics:ST.0": {
       "action": "narrow",
-      "keeps": "Arithmetic families with their equivalence relations, discriminant/general-height orderings, local conditions, automorphism weights, bounded-height finiteness, and the comparison of each selected family convention to the canonical carrier.",
+      "keeps": "Arithmetic families with their equivalence relations, discriminant/general-height orderings, local conditions, automorphism weights, bounded-height finiteness, and the comparison of each selected family convention to the canonical carrier. Own the binary-quartic invariant polynomials I and J, their relative GL2 weights, discriminant, eligible invariant pairs and quartic height H(I,J); retain the normalization comparison 27*H_E = 4*H_prime to the imported canonical elliptic-curve height.",
       "suppliedBy": [
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters"
       ],
-      "reason": "For elliptic curves over Q, import EC Layer 8's minimal-pair short-equation height and finiteness of isomorphism classes. Do not replace this by point heights, a DVR-minimal long model, or the false finiteness of all rational equations."
+      "reason": "For elliptic curves over Q, import EC Layer 8's minimal-pair short-equation height and finiteness of isomorphism classes. Do not replace this by point heights, a DVR-minimal long model, or the false finiteness of all rational equations. The accepted ST.0 source node retains its quartic-invariant and eligibility content here; only the canonical curve-height carrier and its finiteness theorem are supplied by EC.8."
     },
     "ArithmeticStatistics:ST.1": {
-      "action": "keep",
-      "reason": "Keep source-scoped integral orbit parametrizations for number rings and genus-one models, inverse/stabilizer/degenerate-orbit and local-solubility proofs. The binary-quartic/genus-one realization is not the etale-algebra square-class carrier in EC Layer 6. Own the comparison to the explicit/cohomological Selmer models, importing EC Layers 6-7 rather than rebuilding descent. Export the shared orbit data to AN.8."
+      "action": "narrow",
+      "reason": "Keep source-scoped integral orbit parametrizations for number rings and genus-one models, inverse/stabilizer/degenerate-orbit and local-solubility proofs. The binary-quartic/genus-one realization is not the etale-algebra square-class carrier in EC Layer 6. Own the comparison to the explicit/cohomological Selmer models, importing EC Layers 6-7 rather than rebuilding descent. Export the shared orbit data to AN.8. Consume the existing ST.0 -> ST.1 input for the named quartic invariants and height normalization; ST.1 owns the orbit-to-Selmer comparison, which ST.4 uses without reproving.",
+      "keeps": "Integral invariant theory beyond the binary-quartic polynomial/height interface owned by ST.0; source-scoped number-ring and genus-one orbit parametrizations with proved inverse, stabilizer identification, nonmaximal/reducible/degenerate loci, local-solubility restrictions, and comparison to the imported explicit/cohomological Selmer models.",
+      "suppliedBy": [
+        "ArithmeticStatistics:ST.0"
+      ]
     },
     "ArithmeticStatistics:ST.2": {
       "action": "narrow",
@@ -142,7 +146,7 @@
       "suppliedBy": [
         "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
       ],
-      "reason": "Consume source-scoped generic lattice-point estimates rather than rebuilding their general carrier and theorem. The required uniform arithmetic-family errors and cusp/tail analysis are not supplied by generic bounded-region counting."
+      "reason": "Consume source-scoped generic lattice-point estimates rather than rebuilding their general carrier and theorem. The required uniform arithmetic-family errors and cusp/tail analysis are not supplied by generic bounded-region counting. The generic supplier must include Davenport counting for bounded semialgebraic multisets with projection-volume error and constants controlled by dimension, multiplicity and polynomial complexity; Minkowski convex-body bounds or fixed-domain homothetic counting alone do not supply that contract."
     },
     "ArithmeticStatistics:ST.3": {
       "action": "narrow",
@@ -155,7 +159,7 @@
     },
     "ArithmeticStatistics:ST.4": {
       "action": "narrow",
-      "keeps": "Source-scoped Bhargava-Shankar Selmer averages and statistical rank deductions, including family ordering, uniform local-solubility counts and the comparison from the selected orbit parametrization to canonical Selmer groups.",
+      "keeps": "Source-scoped Bhargava-Shankar Selmer averages and statistical rank deductions, including family ordering and uniform local-solubility counts, using ST.1's proved comparison from the selected orbit parametrization to canonical Selmer groups.",
       "suppliedBy": [
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
@@ -209,95 +213,537 @@
     }
   },
   "links": [
-    {"source":"UPSTREAM:Mathlib-ArithmeticFunction-LSeries-Abel","target":"ProbabilisticAndMetricNumberTheory:PM.0","reason":"Replace retired AN.0: arithmetic-function carrier and elementary finite sums; arithmetic probability/independence comparisons remain PM.0."},
-    {"source":"UPSTREAM:Mathlib-ArithmeticFunction-LSeries-Abel","target":"SieveMethodsAndPrimePatterns:SV.0","reason":"Replace retired AN.0: multiplicative arithmetic functions and Mobius/convolution identities for sieve data."},
-    {"source":"UPSTREAM:Mathlib-BoundingSieve-and-SelbergSieve","target":"SieveMethodsAndPrimePatterns:SV.0","reason":"Canonical BoundingSieve data, rem, siftedSum and errSum; distribution estimates are new work."},
-    {"source":"UPSTREAM:Mathlib-BoundingSieve-and-SelbergSieve","target":"SieveMethodsAndPrimePatterns:SV.1","reason":"Use the existing main-term plus error upper bound and quadratic-form setup."},
-    {"source":"UPSTREAM:Mathlib-Selberg-lambdaSquared-upper-bound","target":"SieveMethodsAndPrimePatterns:SV.1","reason":"Use lambdaSquared and its upper-Mobius theorem under weights(1)=1."},
-    {"source":"UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions","target":"AnalyticNumberTheory:AN.2","reason":"Replace retired AN.1: continued zeta/Dirichlet functions, principal poles, finite Euler corrections and line nonvanishing."},
-    {"source":"UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality","target":"AnalyticNumberTheory:AN.2","reason":"Residue-class decomposition at arbitrary modulus, including principal and imprimitive terms."},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation","target":"AnalyticNumberTheory:AN.2","reason":"Perron/Abel with explicit truncation and boundary conventions for the quantitative route."},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara","target":"AnalyticNumberTheory:AN.2","reason":"Generic Wiener-Ikehara input for the qualitative PNT route; ownership does not assert the summit is already proved."},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer","target":"AnalyticNumberTheory:AN.2","reason":"Conditional psi/theta/pi transfer; AN.2 must actually construct and match its analytic input."},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation","target":"AnalyticNumberTheory:AN.3","reason":"Consume the proved Perron kernel and arithmetic summation; residues and zero sums are new explicit-formula work."},
-    {"source":"SieveMethodsAndPrimePatterns:SV.2","target":"AnalyticNumberTheory:AN.3","reason":"Large-sieve and bilinear estimates for the selected zero-density/mean-value route; apply only after deleting the old reverse AN.3 -> SV.2 edge."},
-    {"source":"UPSTREAM:Mathlib-RiemannHypothesis","target":"AnalyticNumberTheory:AN.3","reason":"Reuse the existing RH proposition when transferring the statement register out of AN.6."},
-    {"source":"UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality","target":"SieveMethodsAndPrimePatterns:SV.2","reason":"Primitive characters, conductor and orthogonality already exist for composite moduli; do not substitute finite-field characters."},
-    {"source":"UPSTREAM:Mathlib-ArithmeticFunction-LSeries-Abel","target":"SieveMethodsAndPrimePatterns:SV.2","reason":"Use the existing convolution/Mobius/von Mangoldt identities in the new Vaughan decomposition."},
-    {"source":"AnalyticNumberTheory:AN.3","target":"SieveMethodsAndPrimePatterns:SV.3","reason":"Zero-density and separately justified small-modulus estimates feed BV, not conversely; preserve their uniformity and effectivity."},
-    {"source":"SieveMethodsAndPrimePatterns:SV.2","target":"SieveMethodsAndPrimePatterns:SV.3","reason":"Large-sieve/Vaughan inequalities feed the averaged distribution theorem (retained edge)."},
-    {"source":"SieveMethodsAndPrimePatterns:SV.3","target":"SieveMethodsAndPrimePatterns:SV.4","reason":"Precisely the proved or explicitly assumed distribution range enters Maynard weight asymptotics (retained edge)."},
-    {"source":"tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters","target":"AnalyticNumberTheory:AN.4","reason":"Canonical Hecke/ray-class character carrier and its conductor-compatible ideal/idele dictionaries."},
-    {"source":"AutomorphicLFunctionsAndLocalFactors:AL.0","target":"AnalyticNumberTheory:AN.4","reason":"Import adelic Fourier/Poisson and parameter-integral machinery; preserve the accepted source material under that owner."},
-    {"source":"AutomorphicLFunctionsAndLocalFactors:AL.1","target":"AnalyticNumberTheory:AN.4","reason":"Import Tate local/global continuation, functional equations and local factors; AN.4 owns the arithmetic comparison and additional boundary analysis."},
-    {"source":"UPSTREAM:Mathlib-DedekindZeta-real-residue","target":"AnalyticNumberTheory:AN.4","reason":"Use the existing real right-limit residue formula, not a claimed complex continuation theorem."},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries","target":"AnalyticNumberTheory:AN.4","reason":"Norm-fibre regrouping and ideal/ordinary-series comparison."},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","target":"AnalyticNumberTheory:AN.4","reason":"Generic ideal Euler products and logarithmic derivatives in their proved region."},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-4-counting-carriers-and-local-finiteness","target":"AnalyticNumberTheory:AN.4","reason":"Canonical ideal/prime counting carriers and local finiteness."},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates","target":"AnalyticNumberTheory:AN.4","reason":"Ideal-count and higher-prime-power estimates, without using downstream continuation."},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density","target":"AnalyticNumberTheory:AN.4","reason":"Generic Dirichlet-density calculus, not a second density predicate."},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer","target":"AnalyticNumberTheory:AN.4","reason":"Instantiate the generic conditional prime-ideal transfer after constructing its boundary input; no reverse dependency on AN.4."},
-    {"source":"UPSTREAM:Mathlib-DedekindZeta-real-residue","target":"ArithmeticStatistics:ST.3","reason":"Class-number residue input to the selected field/class-group counting proof; it is not itself an asymptotic over fields."},
-    {"source":"AnalyticNumberTheory:AN.4","target":"ArithmeticStatistics:ST.3","reason":"Only the analytic comparisons actually needed by the selected statistical theorem; all family counting remains ST.3."},
-    {"source":"AutomorphicLFunctionsAndLocalFactors:AL.1","target":"ComputationalNumberTheory:CN.4","reason":"Direct replacement for the GL1 analytic-continuation component removed from AN.4; certified error estimates remain CN.4."},
-    {"source":"AnalyticNumberTheory:AN.4","target":"ComputationalNumberTheory:CN.4","reason":"Retain the arithmetic-series and local-factor comparison needed to certify the correct L-value."},
-    {"source":"AutomorphicLFunctionsAndLocalFactors:AL.2","target":"ModularityAndLanglandsExtensions:ML.3","reason":"Standard GLn analytic continuation for the admitted automorphic symmetric-power instances; not a theorem about arbitrary motivic L-functions."},
-    {"source":"AutomorphicLFunctionsAndLocalFactors:AL.3","target":"ModularityAndLanglandsExtensions:ML.3","reason":"Source-scoped Rankin-Selberg nonvanishing/analytic input where the selected Sato-Tate argument uses it; all hypotheses must be discharged."},
-    {"source":"AnalyticNumberTheory:AN.4","target":"ModularityAndLanglandsExtensions:ML.3","reason":"Retain arithmetic/Artin comparisons where relevant, but do not treat this GL1/Artin interface as the full Sato-Tate analytic proof."},
-    {"source":"UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions","target":"PeriodsAndSpecialValues:PS.1","reason":"Replace retired AN.1 by the actual completed Dirichlet/Tate formulas with gamma, conductor, parity and finite Euler corrections."},
-    {"source":"UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions","target":"AnalyticNumberTheory:AN.7","reason":"Replace retired AN.1 for cyclotomic Dirichlet comparisons and existing zeta identities."},
-    {"source":"UPSTREAM:Mathlib-Hurwitz-and-exponential-zeta","target":"AnalyticNumberTheory:AN.7","reason":"Import Hurwitz/expZeta continuation and functional equations; keep the z*Phi normalization and parameter-domain comparison as an obligation."},
-    {"source":"UPSTREAM:Mathlib-Mellin-transform-and-inversion","target":"AnalyticNumberTheory:AN.7","reason":"Reuse Mellin/inversion in the parameter continuation route, with integrability and continuity hypotheses at use sites."},
-    {"source":"ArithmeticStatistics:ST.0","target":"AnalyticNumberTheory:AN.8","reason":"Use the selected arithmetic family/local-condition normalization, not an identification of all local-density objects."},
-    {"source":"ArithmeticStatistics:ST.1","target":"AnalyticNumberTheory:AN.8","reason":"Single owner of shared integral orbits/invariants/stabilizers; AN.8 constructs their analytic coefficient and zeta-integral comparison."},
-    {"source":"AutomorphicLFunctionsAndLocalFactors:AL.0","target":"AnalyticNumberTheory:AN.8","reason":"Adelic Poisson and holomorphic parameter-integral machinery (retained import)."},
-    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters","target":"ArithmeticStatistics:ST.0","reason":"Curve-height/isomorphism-class finiteness input; no point-height substitution."},
-    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters","target":"ArithmeticStatistics:ST.1","reason":"Direct supplier for the elliptic-height component removed from ST.0; the orbit-family height comparison remains ST.1/ST.0."},
-    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii","target":"ArithmeticStatistics:ST.1","reason":"Compare selected genus-one orbit data to the explicit 2-descent square-class model, without identifying the presentations by fiat."},
-    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4","target":"ArithmeticStatistics:ST.1","reason":"General Selmer/local-condition interface for the orbit-to-Selmer comparison; geometric realization is still a new proof here."},
-    {"source":"GeometryOfNumbersAndQuadraticArithmetic:GN.4","target":"ArithmeticStatistics:ST.2","reason":"Generic source-scoped lattice counting; arithmetic cusp, reducibility and uniform-tail estimates remain ST.2."},
-    {"source":"SieveMethodsAndPrimePatterns:SV.2","target":"ArithmeticStatistics:ST.2","reason":"Retain the large-sieve input for uniform family counting, with its actual hypotheses."},
-    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii","target":"ArithmeticStatistics:ST.4","reason":"Per-curve Mordell-Weil/descent and the finite Selmer-size rank inequality."},
-    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4","target":"ArithmeticStatistics:ST.4","reason":"Canonical general Selmer/Sha exact sequence, not an assumption that Sha is finite."},
-    {"source":"tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters","target":"ArithmeticStatistics:ST.4","reason":"Exact elliptic-curve family ordering and bounded-height isomorphism classes."},
-    {"source":"ArithmeticStatistics:ST.1","target":"ArithmeticStatistics:ST.4","reason":"Actual invariant-theoretic/local-solubility comparison into the canonical Selmer group."},
-    {"source":"AnalyticNumberTheory:AN.3","target":"ExponentialSumsAndCircleMethod:ES.4","reason":"Retain the correctly scoped prime-distribution/zero-analysis input, including the separate uniform prime-weighted branch."},
-    {"source":"SieveMethodsAndPrimePatterns:SV.2","target":"ExponentialSumsAndCircleMethod:ES.4","reason":"Single owner of Vaughan/Type I-II decompositions; ES.4 retains its circle-method major/minor-arc estimates."},
-    {"source":"AnalyticNumberTheory:AN.2","target":"AdditiveCombinatorics:AC.4","reason":"Supply the zero-free/prime-distribution input with the full range required by the selected majorant proof; the accepted decomposition records a remaining small-height gap."},
-    {"source":"SieveMethodsAndPrimePatterns:SV.1","target":"AdditiveCombinatorics:AC.4","reason":"Supply elementary Selberg/truncated-divisor weight machinery; pseudorandomness, linear-forms conditions and transference remain AC.4."},
-    {"source":"SieveMethodsAndPrimePatterns:SV.3","target":"AdditiveCombinatorics:AC.4","reason":"Retain the recorded prime-distribution input, without pretending BV proves the majorant linear-forms conditions."}
+    {
+      "source": "UPSTREAM:Mathlib-ArithmeticFunction-LSeries-Abel",
+      "target": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "reason": "Replace retired AN.0: arithmetic-function carrier and elementary finite sums; arithmetic probability/independence comparisons remain PM.0."
+    },
+    {
+      "source": "UPSTREAM:Mathlib-ArithmeticFunction-LSeries-Abel",
+      "target": "SieveMethodsAndPrimePatterns:SV.0",
+      "reason": "Replace retired AN.0: multiplicative arithmetic functions and Mobius/convolution identities for sieve data."
+    },
+    {
+      "source": "UPSTREAM:Mathlib-BoundingSieve-and-SelbergSieve",
+      "target": "SieveMethodsAndPrimePatterns:SV.0",
+      "reason": "Canonical BoundingSieve data, rem, siftedSum and errSum; distribution estimates are new work."
+    },
+    {
+      "source": "UPSTREAM:Mathlib-BoundingSieve-and-SelbergSieve",
+      "target": "SieveMethodsAndPrimePatterns:SV.1",
+      "reason": "Use the existing main-term plus error upper bound and quadratic-form setup."
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Selberg-lambdaSquared-upper-bound",
+      "target": "SieveMethodsAndPrimePatterns:SV.1",
+      "reason": "Use lambdaSquared and its upper-Mobius theorem under weights(1)=1."
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
+      "target": "AnalyticNumberTheory:AN.2",
+      "reason": "Replace retired AN.1: continued zeta/Dirichlet functions, principal poles, finite Euler corrections and line nonvanishing."
+    },
+    {
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "AnalyticNumberTheory:AN.2",
+      "reason": "Residue-class decomposition at arbitrary modulus, including principal and imprimitive terms."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+      "target": "AnalyticNumberTheory:AN.2",
+      "reason": "Perron/Abel with explicit truncation and boundary conventions for the quantitative route."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara",
+      "target": "AnalyticNumberTheory:AN.2",
+      "reason": "Generic Wiener-Ikehara input for the qualitative PNT route; ownership does not assert the summit is already proved."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+      "target": "AnalyticNumberTheory:AN.2",
+      "reason": "Conditional psi/theta/pi transfer; AN.2 must actually construct and match its analytic input."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+      "target": "AnalyticNumberTheory:AN.3",
+      "reason": "Consume the proved Perron kernel and arithmetic summation; residues and zero sums are new explicit-formula work."
+    },
+    {
+      "source": "SieveMethodsAndPrimePatterns:SV.2",
+      "target": "AnalyticNumberTheory:AN.3",
+      "reason": "Large-sieve and bilinear estimates for the selected zero-density/mean-value route; apply only after deleting the old reverse AN.3 -> SV.2 edge."
+    },
+    {
+      "source": "UPSTREAM:Mathlib-RiemannHypothesis",
+      "target": "AnalyticNumberTheory:AN.3",
+      "reason": "Reuse the existing RH proposition when transferring the statement register out of AN.6."
+    },
+    {
+      "source": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "target": "SieveMethodsAndPrimePatterns:SV.2",
+      "reason": "Primitive characters, conductor and orthogonality already exist for composite moduli; do not substitute finite-field characters."
+    },
+    {
+      "source": "UPSTREAM:Mathlib-ArithmeticFunction-LSeries-Abel",
+      "target": "SieveMethodsAndPrimePatterns:SV.2",
+      "reason": "Use the existing convolution/Mobius/von Mangoldt identities in the new Vaughan decomposition."
+    },
+    {
+      "source": "AnalyticNumberTheory:AN.3",
+      "target": "SieveMethodsAndPrimePatterns:SV.3",
+      "reason": "Zero-density and separately justified small-modulus estimates feed BV, not conversely; preserve their uniformity and effectivity."
+    },
+    {
+      "source": "SieveMethodsAndPrimePatterns:SV.2",
+      "target": "SieveMethodsAndPrimePatterns:SV.3",
+      "reason": "Large-sieve/Vaughan inequalities feed the averaged distribution theorem (retained edge)."
+    },
+    {
+      "source": "SieveMethodsAndPrimePatterns:SV.3",
+      "target": "SieveMethodsAndPrimePatterns:SV.4",
+      "reason": "Precisely the proved or explicitly assumed distribution range enters Maynard weight asymptotics (retained edge)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "target": "AnalyticNumberTheory:AN.4",
+      "reason": "Canonical Hecke/ray-class character carrier and its conductor-compatible ideal/idele dictionaries."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "target": "AnalyticNumberTheory:AN.4",
+      "reason": "Import adelic Fourier/Poisson and parameter-integral machinery; preserve the accepted source material under that owner."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "AnalyticNumberTheory:AN.4",
+      "reason": "Import Tate local/global continuation, functional equations and local factors; AN.4 owns the arithmetic comparison and additional boundary analysis."
+    },
+    {
+      "source": "UPSTREAM:Mathlib-DedekindZeta-real-residue",
+      "target": "AnalyticNumberTheory:AN.4",
+      "reason": "Use the existing real right-limit residue formula, not a claimed complex continuation theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries",
+      "target": "AnalyticNumberTheory:AN.4",
+      "reason": "Norm-fibre regrouping and ideal/ordinary-series comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+      "target": "AnalyticNumberTheory:AN.4",
+      "reason": "Generic ideal Euler products and logarithmic derivatives in their proved region."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-4-counting-carriers-and-local-finiteness",
+      "target": "AnalyticNumberTheory:AN.4",
+      "reason": "Canonical ideal/prime counting carriers and local finiteness."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates",
+      "target": "AnalyticNumberTheory:AN.4",
+      "reason": "Ideal-count and higher-prime-power estimates, without using downstream continuation."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+      "target": "AnalyticNumberTheory:AN.4",
+      "reason": "Generic Dirichlet-density calculus, not a second density predicate."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+      "target": "AnalyticNumberTheory:AN.4",
+      "reason": "Instantiate the generic conditional prime-ideal transfer after constructing its boundary input; no reverse dependency on AN.4."
+    },
+    {
+      "source": "UPSTREAM:Mathlib-DedekindZeta-real-residue",
+      "target": "ArithmeticStatistics:ST.3",
+      "reason": "Class-number residue input to the selected field/class-group counting proof; it is not itself an asymptotic over fields."
+    },
+    {
+      "source": "AnalyticNumberTheory:AN.4",
+      "target": "ArithmeticStatistics:ST.3",
+      "reason": "Only the analytic comparisons actually needed by the selected statistical theorem; all family counting remains ST.3."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "ComputationalNumberTheory:CN.4",
+      "reason": "Direct replacement for the GL1 analytic-continuation component removed from AN.4; certified error estimates remain CN.4."
+    },
+    {
+      "source": "AnalyticNumberTheory:AN.4",
+      "target": "ComputationalNumberTheory:CN.4",
+      "reason": "Retain the arithmetic-series and local-factor comparison needed to certify the correct L-value."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+      "target": "ModularityAndLanglandsExtensions:ML.3",
+      "reason": "Standard GLn analytic continuation for the admitted automorphic symmetric-power instances; not a theorem about arbitrary motivic L-functions."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "target": "ModularityAndLanglandsExtensions:ML.3",
+      "reason": "Source-scoped Rankin-Selberg nonvanishing/analytic input where the selected Sato-Tate argument uses it; all hypotheses must be discharged."
+    },
+    {
+      "source": "AnalyticNumberTheory:AN.4",
+      "target": "ModularityAndLanglandsExtensions:ML.3",
+      "reason": "Retain arithmetic/Artin comparisons where relevant, but do not treat this GL1/Artin interface as the full Sato-Tate analytic proof."
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
+      "target": "PeriodsAndSpecialValues:PS.1",
+      "reason": "Replace retired AN.1 by the actual completed Dirichlet/Tate formulas with gamma, conductor, parity and finite Euler corrections."
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
+      "target": "AnalyticNumberTheory:AN.7",
+      "reason": "Replace retired AN.1 for cyclotomic Dirichlet comparisons and existing zeta identities."
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Hurwitz-and-exponential-zeta",
+      "target": "AnalyticNumberTheory:AN.7",
+      "reason": "Import Hurwitz/expZeta continuation and functional equations; keep the z*Phi normalization and parameter-domain comparison as an obligation."
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Mellin-transform-and-inversion",
+      "target": "AnalyticNumberTheory:AN.7",
+      "reason": "Reuse Mellin/inversion in the parameter continuation route, with integrability and continuity hypotheses at use sites."
+    },
+    {
+      "source": "ArithmeticStatistics:ST.0",
+      "target": "AnalyticNumberTheory:AN.8",
+      "reason": "Import the named binary-quartic invariant-polynomial/height interface and selected arithmetic-family/local-condition normalization; do not identify all local-density objects."
+    },
+    {
+      "source": "ArithmeticStatistics:ST.1",
+      "target": "AnalyticNumberTheory:AN.8",
+      "reason": "Import shared integral orbits, remaining integral invariant theory and stabilizers; AN.8 constructs the analytic coefficient and zeta-integral comparison, using ST.0 for its named quartic invariant/height interface."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "target": "AnalyticNumberTheory:AN.8",
+      "reason": "Adelic Poisson and holomorphic parameter-integral machinery (retained import)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+      "target": "ArithmeticStatistics:ST.0",
+      "reason": "Curve-height/isomorphism-class finiteness input; no point-height substitution."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+      "target": "ArithmeticStatistics:ST.1",
+      "reason": "Canonical elliptic height and isomorphism-class finiteness; the quartic-to-curve height normalization is proved once at ST.0 and consumed here, while the orbit-to-Selmer comparison belongs to ST.1."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+      "target": "ArithmeticStatistics:ST.1",
+      "reason": "Compare selected genus-one orbit data to the explicit 2-descent square-class model, without identifying the presentations by fiat."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "target": "ArithmeticStatistics:ST.1",
+      "reason": "General Selmer/local-condition interface for the orbit-to-Selmer comparison; geometric realization is still a new proof here."
+    },
+    {
+      "source": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "target": "ArithmeticStatistics:ST.2",
+      "reason": "Davenport's bounded-semialgebraic-multiset lattice estimate with error controlled by the largest coordinate projection volume (or 1) and constants depending only on dimension, maximum multiplicity and defining polynomial complexity. ST.2 proves applicability to its moving regions and arithmetic cusp, reducibility and uniform-tail estimates. This is a planned supplier, not a claim that its proof has been read or implemented."
+    },
+    {
+      "source": "SieveMethodsAndPrimePatterns:SV.2",
+      "target": "ArithmeticStatistics:ST.2",
+      "reason": "Retain the large-sieve input for uniform family counting, with its actual hypotheses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+      "target": "ArithmeticStatistics:ST.4",
+      "reason": "Per-curve Mordell-Weil/descent and the finite Selmer-size rank inequality."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "target": "ArithmeticStatistics:ST.4",
+      "reason": "Canonical general Selmer/Sha exact sequence, not an assumption that Sha is finite."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+      "target": "ArithmeticStatistics:ST.4",
+      "reason": "Exact elliptic-curve family ordering and bounded-height isomorphism classes."
+    },
+    {
+      "source": "ArithmeticStatistics:ST.1",
+      "target": "ArithmeticStatistics:ST.4",
+      "reason": "Actual invariant-theoretic/local-solubility comparison into the canonical Selmer group."
+    },
+    {
+      "source": "AnalyticNumberTheory:AN.3",
+      "target": "ExponentialSumsAndCircleMethod:ES.4",
+      "reason": "Retain the correctly scoped prime-distribution/zero-analysis input, including the separate uniform prime-weighted branch."
+    },
+    {
+      "source": "SieveMethodsAndPrimePatterns:SV.2",
+      "target": "ExponentialSumsAndCircleMethod:ES.4",
+      "reason": "Single owner of Vaughan/Type I-II decompositions; ES.4 retains its circle-method major/minor-arc estimates."
+    },
+    {
+      "source": "AnalyticNumberTheory:AN.2",
+      "target": "AdditiveCombinatorics:AC.4",
+      "reason": "Supply the zero-free/prime-distribution input with the full range required by the selected majorant proof; the accepted decomposition records a remaining small-height gap."
+    },
+    {
+      "source": "SieveMethodsAndPrimePatterns:SV.1",
+      "target": "AdditiveCombinatorics:AC.4",
+      "reason": "Supply elementary Selberg/truncated-divisor weight machinery; pseudorandomness, linear-forms conditions and transference remain AC.4."
+    },
+    {
+      "source": "SieveMethodsAndPrimePatterns:SV.3",
+      "target": "AdditiveCombinatorics:AC.4",
+      "reason": "Retain the recorded prime-distribution input, without pretending BV proves the majorant linear-forms conditions."
+    },
+    {
+      "source": "ArithmeticStatistics:ST.0",
+      "target": "ArithmeticStatistics:ST.1",
+      "reason": "Retained prerequisite made explicit: binary-quartic I/J polynomials, relative weights, discriminant, eligible pairs and quartic-to-curve height normalization; ST.1 uses these to prove orbit parametrizations and the Selmer comparison."
+    }
   ],
   "owners": [
-    {"target":"Ordinary arithmetic functions, LSeries convergence/derivatives, convolution and finite Abel summation","owner":"UPSTREAM:Mathlib-ArithmeticFunction-LSeries-Abel","formerly":["AnalyticNumberTheory:AN.0"]},
-    {"target":"General Mellin transform and Mellin inversion with their convergence/continuity hypotheses","owner":"UPSTREAM:Mathlib-Mellin-transform-and-inversion","formerly":["AnalyticNumberTheory:AN.0"]},
-    {"target":"Ideal-indexed arithmetic-function and weight carriers","owner":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-0-arithmetic-functions-on-nonzero-ideals","formerly":["AnalyticNumberTheory:AN.0"]},
-    {"target":"Norm-fibre regrouping and the rational specialization","owner":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries","formerly":["AnalyticNumberTheory:AN.0"]},
-    {"target":"Ideal convolution and logarithmic-derivative coefficients","owner":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-2-convolution-and-logarithmic-derivatives","formerly":["AnalyticNumberTheory:AN.0"]},
-    {"target":"Generic ideal local factors and Euler products","owner":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","formerly":["AnalyticNumberTheory:AN.0"]},
-    {"target":"Generic Abel/Perron summation and finite-height endpoint normalization","owner":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation","formerly":["AnalyticNumberTheory:AN.0"]},
-    {"target":"Generic ideal Dirichlet-density calculus","owner":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density","formerly":["AnalyticNumberTheory:AN.4"]},
-    {"target":"Generic Wiener-Ikehara theorem","owner":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara","formerly":["AnalyticNumberTheory:AN.2"]},
-    {"target":"Generic conditional prime-number-theorem transfer","owner":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer","formerly":["AnalyticNumberTheory:AN.2"]},
-    {"target":"Zeta/Dirichlet continuation, completed functional equations, pole/nonvanishing and finite Euler-factor corrections","owner":"UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions","formerly":["AnalyticNumberTheory:AN.1"]},
-    {"target":"Primitive Dirichlet characters, conductor and orthogonality, including composite moduli","owner":"UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality","formerly":["AnalyticNumberTheory:AN.1","SieveMethodsAndPrimePatterns:SV.2"]},
-    {"target":"Quantitative zero-free regions and instantiated rational/fixed-progression PNT","owner":"AnalyticNumberTheory:AN.2","formerly":["AnalyticNumberTheory:AN.6"]},
-    {"target":"Zero counts, explicit formulas, zero-density estimates and RH/GRH statement interface","owner":"AnalyticNumberTheory:AN.3","formerly":["AnalyticNumberTheory:AN.6","SieveMethodsAndPrimePatterns:SV.3"]},
-    {"target":"Canonical Hecke/ray-class character carrier and ideal-idele dictionary","owner":"tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters","formerly":["AnalyticNumberTheory:AN.4"]},
-    {"target":"Adelic Fourier/Poisson and holomorphic-parameter integration machinery","owner":"AutomorphicLFunctionsAndLocalFactors:AL.0","formerly":["AnalyticNumberTheory:AN.4"]},
-    {"target":"Tate local/global zeta integrals, continuation and completed functional equations","owner":"AutomorphicLFunctionsAndLocalFactors:AL.1","formerly":["AnalyticNumberTheory:AN.4"]},
-    {"target":"Dedekind class-number residue as a real right-limit statement","owner":"UPSTREAM:Mathlib-DedekindZeta-real-residue","formerly":["AnalyticNumberTheory:AN.4","ArithmeticStatistics:ST.3"]},
-    {"target":"Arithmetic-series/Tate comparison, additional boundary analysis, Artin induction and explicit conditional continuation statements","owner":"AnalyticNumberTheory:AN.4","formerly":["AnalyticNumberTheory:AN.6"]},
-    {"target":"Existing real-circle Hurwitz and exponential-zeta theory","owner":"UPSTREAM:Mathlib-Hurwitz-and-exponential-zeta","formerly":["AnalyticNumberTheory:AN.7"]},
-    {"target":"Shared integral arithmetic orbit/invariant/stabilizer parametrizations for the selected prehomogeneous representations","owner":"ArithmeticStatistics:ST.1","formerly":["AnalyticNumberTheory:AN.8"]},
-    {"target":"Analytic prehomogeneous/several-variable zeta integrals and local-integral coefficient comparison","owner":"AnalyticNumberTheory:AN.8","formerly":[]},
-    {"target":"Elliptic-curve minimal-pair short-equation height and bounded-height isomorphism-class finiteness","owner":"tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters","formerly":["ArithmeticStatistics:ST.0"]},
-    {"target":"Per-curve explicit descent, Mordell-Weil and finite Selmer-size rank bounds","owner":"tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii","formerly":["ArithmeticStatistics:ST.4"]},
-    {"target":"General Selmer groups, local conditions and Selmer/Sha exact sequence","owner":"tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4","formerly":["ArithmeticStatistics:ST.4"]},
-    {"target":"Source-scoped generic lattice-point estimates used by arithmetic-family counts","owner":"GeometryOfNumbersAndQuadraticArithmetic:GN.4","formerly":["ArithmeticStatistics:ST.2"]},
-    {"target":"Canonical BoundingSieve data and basic upper-bound main/error inequality","owner":"UPSTREAM:Mathlib-BoundingSieve-and-SelbergSieve","formerly":["SieveMethodsAndPrimePatterns:SV.0","SieveMethodsAndPrimePatterns:SV.1"]},
-    {"target":"Existing Selberg lambdaSquared upper-Mobius construction","owner":"UPSTREAM:Mathlib-Selberg-lambdaSquared-upper-bound","formerly":["SieveMethodsAndPrimePatterns:SV.1"]},
-    {"target":"Large-sieve inequalities and Vaughan/Type I-II decompositions","owner":"SieveMethodsAndPrimePatterns:SV.2","formerly":["ExponentialSumsAndCircleMethod:ES.4"]},
-    {"target":"Bombieri-Vinogradov and explicitly conditional stronger distribution hypotheses","owner":"SieveMethodsAndPrimePatterns:SV.3","formerly":["AnalyticNumberTheory:AN.3","AnalyticNumberTheory:AN.6"]},
-    {"target":"Prime-tuple statements on admissible tuples, separate from the bounded-gap theorem","owner":"SieveMethodsAndPrimePatterns:SV.4","formerly":["AnalyticNumberTheory:AN.6"]}
-  ]
+    {
+      "target": "Ordinary arithmetic functions, LSeries convergence/derivatives, convolution and finite Abel summation",
+      "owner": "UPSTREAM:Mathlib-ArithmeticFunction-LSeries-Abel",
+      "formerly": [
+        "AnalyticNumberTheory:AN.0"
+      ]
+    },
+    {
+      "target": "General Mellin transform and Mellin inversion with their convergence/continuity hypotheses",
+      "owner": "UPSTREAM:Mathlib-Mellin-transform-and-inversion",
+      "formerly": [
+        "AnalyticNumberTheory:AN.0"
+      ]
+    },
+    {
+      "target": "Ideal-indexed arithmetic-function and weight carriers",
+      "owner": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-0-arithmetic-functions-on-nonzero-ideals",
+      "formerly": [
+        "AnalyticNumberTheory:AN.0"
+      ]
+    },
+    {
+      "target": "Norm-fibre regrouping and the rational specialization",
+      "owner": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries",
+      "formerly": [
+        "AnalyticNumberTheory:AN.0"
+      ]
+    },
+    {
+      "target": "Ideal convolution and logarithmic-derivative coefficients",
+      "owner": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-2-convolution-and-logarithmic-derivatives",
+      "formerly": [
+        "AnalyticNumberTheory:AN.0"
+      ]
+    },
+    {
+      "target": "Generic ideal local factors and Euler products",
+      "owner": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+      "formerly": [
+        "AnalyticNumberTheory:AN.0"
+      ]
+    },
+    {
+      "target": "Generic Abel/Perron summation and finite-height endpoint normalization",
+      "owner": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+      "formerly": [
+        "AnalyticNumberTheory:AN.0"
+      ]
+    },
+    {
+      "target": "Generic ideal Dirichlet-density calculus",
+      "owner": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+      "formerly": [
+        "AnalyticNumberTheory:AN.4"
+      ]
+    },
+    {
+      "target": "Generic Wiener-Ikehara theorem",
+      "owner": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara",
+      "formerly": [
+        "AnalyticNumberTheory:AN.2"
+      ]
+    },
+    {
+      "target": "Generic conditional prime-number-theorem transfer",
+      "owner": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+      "formerly": [
+        "AnalyticNumberTheory:AN.2"
+      ]
+    },
+    {
+      "target": "Zeta/Dirichlet continuation, completed functional equations, pole/nonvanishing and finite Euler-factor corrections",
+      "owner": "UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions",
+      "formerly": [
+        "AnalyticNumberTheory:AN.1"
+      ]
+    },
+    {
+      "target": "Primitive Dirichlet characters, conductor and orthogonality, including composite moduli",
+      "owner": "UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality",
+      "formerly": [
+        "AnalyticNumberTheory:AN.1",
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ]
+    },
+    {
+      "target": "Quantitative zero-free regions and instantiated rational/fixed-progression PNT",
+      "owner": "AnalyticNumberTheory:AN.2",
+      "formerly": [
+        "AnalyticNumberTheory:AN.6"
+      ]
+    },
+    {
+      "target": "Zero counts, explicit formulas, zero-density estimates and RH/GRH statement interface",
+      "owner": "AnalyticNumberTheory:AN.3",
+      "formerly": [
+        "AnalyticNumberTheory:AN.6",
+        "SieveMethodsAndPrimePatterns:SV.3"
+      ]
+    },
+    {
+      "target": "Canonical Hecke/ray-class character carrier and ideal-idele dictionary",
+      "owner": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "formerly": [
+        "AnalyticNumberTheory:AN.4"
+      ]
+    },
+    {
+      "target": "Adelic Fourier/Poisson and holomorphic-parameter integration machinery",
+      "owner": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "formerly": [
+        "AnalyticNumberTheory:AN.4"
+      ]
+    },
+    {
+      "target": "Tate local/global zeta integrals, continuation and completed functional equations",
+      "owner": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "formerly": [
+        "AnalyticNumberTheory:AN.4"
+      ]
+    },
+    {
+      "target": "Dedekind class-number residue as a real right-limit statement",
+      "owner": "UPSTREAM:Mathlib-DedekindZeta-real-residue",
+      "formerly": [
+        "AnalyticNumberTheory:AN.4",
+        "ArithmeticStatistics:ST.3"
+      ]
+    },
+    {
+      "target": "Arithmetic-series/Tate comparison, additional boundary analysis, Artin induction and explicit conditional continuation statements",
+      "owner": "AnalyticNumberTheory:AN.4",
+      "formerly": [
+        "AnalyticNumberTheory:AN.6"
+      ]
+    },
+    {
+      "target": "Existing real-circle Hurwitz and exponential-zeta theory",
+      "owner": "UPSTREAM:Mathlib-Hurwitz-and-exponential-zeta",
+      "formerly": [
+        "AnalyticNumberTheory:AN.7"
+      ]
+    },
+    {
+      "target": "Binary-quartic I/J invariant polynomials, relative GL2 weights, discriminant, eligible invariant pairs and quartic-height normalization; comparison 27*H_E = 4*H_prime to the canonical EC.8 curve height",
+      "owner": "ArithmeticStatistics:ST.0",
+      "formerly": [
+        "ArithmeticStatistics:ST.1",
+        "AnalyticNumberTheory:AN.8"
+      ]
+    },
+    {
+      "target": "Shared integral arithmetic orbit/stabilizer parametrizations and integral invariant theory beyond ST.0's named binary-quartic invariant-polynomial/height interface",
+      "owner": "ArithmeticStatistics:ST.1",
+      "formerly": [
+        "AnalyticNumberTheory:AN.8"
+      ]
+    },
+    {
+      "target": "Analytic prehomogeneous/several-variable zeta integrals and local-integral coefficient comparison",
+      "owner": "AnalyticNumberTheory:AN.8",
+      "formerly": []
+    },
+    {
+      "target": "Elliptic-curve minimal-pair short-equation height and bounded-height isomorphism-class finiteness",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+      "formerly": [
+        "ArithmeticStatistics:ST.0"
+      ]
+    },
+    {
+      "target": "Per-curve explicit descent, Mordell-Weil and finite Selmer-size rank bounds",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+      "formerly": [
+        "ArithmeticStatistics:ST.4"
+      ]
+    },
+    {
+      "target": "General Selmer groups, local conditions and Selmer/Sha exact sequence",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "formerly": [
+        "ArithmeticStatistics:ST.4"
+      ]
+    },
+    {
+      "target": "Generic lattice counting, specifically Davenport counting for bounded semialgebraic multisets with maximum projection-volume error and uniform dependence on dimension, multiplicity and polynomial complexity",
+      "owner": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "formerly": [
+        "ArithmeticStatistics:ST.2"
+      ]
+    },
+    {
+      "target": "Canonical BoundingSieve data and basic upper-bound main/error inequality",
+      "owner": "UPSTREAM:Mathlib-BoundingSieve-and-SelbergSieve",
+      "formerly": [
+        "SieveMethodsAndPrimePatterns:SV.0",
+        "SieveMethodsAndPrimePatterns:SV.1"
+      ]
+    },
+    {
+      "target": "Existing Selberg lambdaSquared upper-Mobius construction",
+      "owner": "UPSTREAM:Mathlib-Selberg-lambdaSquared-upper-bound",
+      "formerly": [
+        "SieveMethodsAndPrimePatterns:SV.1"
+      ]
+    },
+    {
+      "target": "Large-sieve inequalities and Vaughan/Type I-II decompositions",
+      "owner": "SieveMethodsAndPrimePatterns:SV.2",
+      "formerly": [
+        "ExponentialSumsAndCircleMethod:ES.4"
+      ]
+    },
+    {
+      "target": "Bombieri-Vinogradov and explicitly conditional stronger distribution hypotheses",
+      "owner": "SieveMethodsAndPrimePatterns:SV.3",
+      "formerly": [
+        "AnalyticNumberTheory:AN.3",
+        "AnalyticNumberTheory:AN.6"
+      ]
+    },
+    {
+      "target": "Prime-tuple statements on admissible tuples, separate from the bounded-gap theorem",
+      "owner": "SieveMethodsAndPrimePatterns:SV.4",
+      "formerly": [
+        "AnalyticNumberTheory:AN.6"
+      ]
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-07",
+    "date": "2026-09-21",
+    "notes": "Codex — codex-c83e7a independently read all member and anchor documents/layers, the family's 29 leads, reviewed library audits, both accepted decompositions (18 nodes), and the relevant supplier/consumer stages. Checked pinned declaration statements, all deleted-stage consumers, immutable anchors and the Part II boundary. Corrected quartic invariant/height ownership, the required Davenport contract and the ST.1/ST.4 comparison boundary. Accepted as an ownership proposal: inherited source/proof gaps remain open. See REV-RS-07.md for the integration/removal ledger, validation and queue deliverable mismatch.",
+    "corrections": [
+      "Explicitly preserve the accepted ST.0 quartic I/J, GL2 weights, discriminant, eligible pairs and height-normalization obligations; the elliptic curve-height carrier remains EC.8-owned.",
+      "Narrow ST.1 to import that named quartic interface from ST.0; add its existing prerequisite explicitly, a unique ST.0 owner entry, and consistent ST.0/ST.1 -> AN.8 descriptions. Resolve the EC.8 -> ST.1 link's former ST.1/ST.0 height-comparison ambiguity in favor of ST.0.",
+      "Specify Davenport's bounded semialgebraic multiset/projection-volume estimate at GN.4 and in GN.4 -> ST.2, preserving the stronger uniformity contract required by the accepted counting node.",
+      "Make ST.4 consume ST.1's orbit-to-Selmer comparison instead of listing it as another construction in its keeps field."
+    ]
+  }
 }
