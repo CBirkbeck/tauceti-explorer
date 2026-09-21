@@ -1,5 +1,55 @@
 {
  "promoted": {
+  "research/blueprint/links/tauceti_TauCetiRoadmap_AdicSpaces.json": {
+   "promotedAt": "2026-09-21T18:15:41Z",
+   "review": "9e04af17059da165",
+   "reviewDate": "2026-09-21",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_AdicSpaces",
+   "sha256": "43ec8b83183c85b01f454cb423613b9dcf2ddfbeb56731f6502fc7479392a425",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_AdicSpaces.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_EllipticCurves.json": {
+   "promotedAt": "2026-09-21T18:15:41Z",
+   "review": "9c96cb4c14c10829",
+   "reviewDate": "2026-09-21",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
+   "sha256": "b674679a2cb220121617e8d4dcb192c4a1b14557ce1d32c61be2ccf4da73f438",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_EllipticCurves.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_Multiquadratic.json": {
+   "promotedAt": "2026-09-21T18:15:41Z",
+   "review": "1744fd549f243e7f",
+   "reviewDate": "2026-09-21",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+   "sha256": "8cfa86728c5293ae69df72f5504bd18c192d3e0a4aa09b8334e26f9a36683445",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_Multiquadratic.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json": {
+   "promotedAt": "2026-09-21T18:15:41Z",
+   "review": "2bc33a6fbcd98b93",
+   "reviewDate": "2026-09-21",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
+   "sha256": "81428ee5abd4b1b98ef5fe5f6c8f72303fcb4e67219b03fb64c1ac1d089f6d67",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json"
+   ]
+  },
+  "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json": {
+   "promotedAt": "2026-09-21T18:15:41Z",
+   "review": "df87a9d8764e1076",
+   "reviewDate": "2026-09-21",
+   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
+   "sha256": "962fbed050164d112342726430e5097e0659bdce5cad310f0537cc2534375a3f",
+   "to": [
+    "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json"
+   ]
+  },
   "research/blueprint/restructure/RS-07.result.json": {
    "promotedAt": "2026-09-21T17:38:22Z",
    "review": "c3785694851ac3a4",
