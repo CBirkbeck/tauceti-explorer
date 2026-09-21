@@ -3,6 +3,7 @@
 
   python3 research/blueprint/intake.py list
   python3 research/blueprint/intake.py merge <pr> [--yes] [--complete] [--auto]
+  python3 research/blueprint/intake.py sweep [--yes]
   python3 research/blueprint/intake.py mark <pr> opened|reopened|closed [merged]
   python3 research/blueprint/intake.py check-files <path> [...]
 
@@ -12,7 +13,9 @@ the pull request's checks have passed (or none apply). With --auto (the "Swarm
 intake" workflow) it must also be a ready pull request from this repository
 for one known, unfinished job, touch only that job's deliverables and handoff
 note, and, for a review, come from a worker who did not do the work under
-review. Anything else is left to the maintainer, with a comment saying why.
+review, and the job's deliverables must not already be complete on main.
+Anything else is left to the maintainer, with a comment saying why. `sweep`
+does this for every open pull request whose "Swarm submission check" passed.
 
 After the merge the job is complete when its deliverables on main cover the
 whole job (issues.deliverables_complete); the sync then finishes it and its
@@ -29,6 +32,7 @@ import json
 import re
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -41,6 +45,8 @@ TOKEN = re.compile(r"[A-Za-z0-9_.-]+")
 ISSUE = re.compile(r"\b(?:refs|references|closes|fixes|resolves|issue)\s*#(\d+)", re.I)
 CLAIM = re.compile(r"^Claimed for (.+?) by @")
 BOT = "github-actions[bot]"
+CHECK = "Swarm submission check"
+PENDING = ("EXPECTED", "PENDING", "QUEUED", "IN_PROGRESS", "WAITING", "REQUESTED")
 REPO = "CBirkbeck/tauceti-explorer"
 ROOT = Path(__file__).resolve().parents[2]
 BP = ROOT / "research" / "blueprint"
@@ -98,7 +104,7 @@ def claimants(comments):
     return sessions
 
 
-def auto_refusals(job, files, draft, reviewer_sessions, author_sessions):
+def auto_refusals(job, files, draft, reviewer_sessions, author_sessions, already_complete=False):
     """Why an automatic merge must leave this pull request to the maintainer."""
     if job is None:
         return ["no job found for the submission"]
@@ -109,12 +115,20 @@ def auto_refusals(job, files, draft, reviewer_sessions, author_sessions):
         found.append(f"{job['id']} is already done")
     elif job.get("state") in ("superseded", "failed"):
         found.append(f"{job['id']} is {job['state']}")
+    elif already_complete:
+        found.append(f"{job['id']}'s deliverables on main are already complete")
     own = own_files(job)
     found += [f"{path} is not a deliverable of {job['id']}" for path in files if path not in own]
     if job["kind"] == "review":
         target = (job.get("after") or ["the work under review"])[0]
         found += [f"the reviewer {session} also did {target}" for session in sorted(reviewer_sessions & author_sessions)]
     return found
+
+
+def swarm_checked(pr):
+    """The submission check ran on the pull request's latest commit and passed."""
+    return any(check.get("workflowName") == CHECK and check.get("conclusion") == "SUCCESS"
+               for check in pr.get("statusCheckRollup") or [])
 
 
 def file_problems(path, text):
@@ -151,9 +165,11 @@ def inspect(number, jobs, mapping, auto=False):
             ["gh", "api", f"repos/{REPO}/contents/{path}?ref={data['headRefOid']}", "-H", "Accept: application/vnd.github.raw"],
             capture_output=True, text=True).stdout
         problems += file_problems(path, text)
-    checks = [c.get("conclusion") or c.get("status") for c in data.get("statusCheckRollup") or []]
-    if any(c not in ("SUCCESS", "SKIPPED", "NEUTRAL") for c in checks):
+    checks = [c.get("conclusion") or c.get("state") or c.get("status") for c in data.get("statusCheckRollup") or []]
+    if any(c not in ("SUCCESS", "SKIPPED", "NEUTRAL") + PENDING for c in checks):
         problems.append(f"checks not passed: {checks}")
+    elif any(c in PENDING for c in checks):
+        problems.append(f"checks still running: {checks}")
     text = data["title"] + "\n" + (data["body"] or "")
     job = job_for(files, text, jobs)
     issue = issue_for(job, mapping, text)
@@ -163,7 +179,8 @@ def inspect(number, jobs, mapping, auto=False):
         reviewer, author = set(), set()
         if job and job["kind"] == "review" and job.get("after"):
             reviewer, author = claimants(comments(issue)), claimants(comments(mapping.get(job["after"][0])))
-        problems += auto_refusals(job, files, data["isDraft"], reviewer, author)
+        complete = bool(job) and deliverables_complete(job, ROOT)
+        problems += auto_refusals(job, files, data["isDraft"], reviewer, author, already_complete=complete)
     return data, files, problems, job, issue
 
 
@@ -177,13 +194,20 @@ def set_issue_state(issue, wanted, note):
     gh("issue", "comment", str(issue), "--body", note)
 
 
-def merge(number, argv):
+def merge(number, argv, wait=True):
     auto = "--auto" in argv
     jobs, mapping = load_queue()
-    data, files, problems, job, issue = inspect(number, jobs, mapping, auto)
+    for attempt in range(20 if wait else 1):
+        data, files, problems, job, issue = inspect(number, jobs, mapping, auto)
+        if not any(problem.startswith("checks still running") for problem in problems):
+            break
+        time.sleep(15)
     print(f"#{number} job={job and job['id']} issue=#{issue} files={files}")
     if auto and problems == ["the pull request is a draft"]:
         print("a draft; the intake waits until it is ready for review")
+        return
+    if auto and any(problem.startswith(("checks still running", "checks not passed")) for problem in problems):
+        print("not merged:", "; ".join(problems))
         return
     if problems:
         if auto and "--yes" in argv:
@@ -235,6 +259,19 @@ def merge(number, argv):
     print("merged", number, "complete" if complete else "checkpoint")
 
 
+def sweep(argv):
+    """Merge every open pull request whose submission check passed on its latest commit."""
+    subprocess.run(["git", "pull", "--rebase", "--autostash", "-q"], cwd=ROOT, check=True)
+    listing = json.loads(gh("pr", "list", "--state", "open", "--limit", "100", "--json", "number,isDraft,statusCheckRollup"))
+    for pr in sorted(listing, key=lambda item: item["number"]):
+        if pr["isDraft"] or not swarm_checked(pr):
+            continue
+        try:
+            merge(pr["number"], ["--auto", *argv], wait=False)
+        except SystemExit as exc:
+            print(f"#{pr['number']}: {exc}")
+
+
 def mark(number, action, merged):
     """Opening a pull request marks its job submitted; closing it unmerged releases it."""
     jobs, mapping = load_queue()
@@ -244,7 +281,7 @@ def mark(number, action, merged):
     if not issue:
         print(f"#{number}: no job issue found")
         return
-    current = json.loads(gh("issue", "view", str(issue), "--json", "labels,state,labels"))
+    current = json.loads(gh("issue", "view", str(issue), "--json", "labels,state"))
     labels = [label["name"] for label in current["labels"]]
     if "swarm" not in labels or current["state"] != "OPEN":
         print(f"#{number}: issue #{issue} is not an open swarm issue")
@@ -283,6 +320,9 @@ def main():
         return 0
     if command == "merge":
         merge(int(sys.argv[2]), sys.argv[3:])
+        return 0
+    if command == "sweep":
+        sweep(sys.argv[2:])
         return 0
     if command == "mark":
         mark(int(sys.argv[2]), sys.argv[3], sys.argv[4] if len(sys.argv) > 4 else "false")

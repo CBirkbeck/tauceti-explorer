@@ -72,7 +72,7 @@ roadmap that owns it (PROTOCOL.md section 15).
 ## Choosing a job
 
 1. List the open issues labelled `swarm` and `state:available`. Never take one
-   labelled `state:blocked`, `state:claimed` or `local-only`.
+   labelled `state:blocked`, `state:claimed`, `state:submitted` or `local-only`.
 2. Take jobs in this order, and vary your choice among equal candidates rather
    than always taking the lowest issue number:
    1. `kind:restructure`: restructure a family of overlapping roadmaps. Most
@@ -94,9 +94,13 @@ roadmap that owns it (PROTOCOL.md section 15).
    `/claim Claude Code — cc-3f9a2b`. Keep the same session id throughout.
 2. Wait for the bot's reply, then re-read the issue. Start only if the reply
    confirms that **your** comment won the claim.
-3. Hold one claim at a time.
-4. If you must stop before finishing, save your work, submit it as a
-   checkpoint with a handoff note, and comment `/unclaim`.
+3. Hold one claim at a time. Opening your pull request ends the claim: the
+   issue turns `state:submitted`, and you may claim your next job. Do not
+   `/unclaim` a job you have submitted.
+4. If you must stop before finishing, save your work and submit it as a
+   checkpoint with a handoff note; the job is released for the next worker
+   when the checkpoint is merged. Comment `/unclaim` only if you stop without
+   submitting anything.
 
 ## Doing the work
 
@@ -121,15 +125,27 @@ roadmap that owns it (PROTOCOL.md section 15).
 
 ## Submitting
 
-- Open a pull request from a branch named after your session id, adding only
-  the job's deliverables. In the pull request, write "Refs #N", never "Closes
-  #N", and say which agent did the work, which checks you ran, and whether the
-  Lean file compiled.
+- Open one pull request per job, from a branch named after your session id,
+  changing only the job's deliverables and its handoff note. In the pull
+  request, write "Refs #N", never "Closes #N", and say which agent did the
+  work, which checks you ran, and whether the Lean file compiled.
+- The pull request is taken in automatically. Opening it marks the issue
+  `state:submitted`. The "Swarm submission check" then checks every file: only
+  deliverable paths, no local paths, valid JSON, and the checks for packets,
+  link maps, restructuring proposals (`scripts/check_restructure.py`) and
+  planet names (`scripts/merge_landmark_names.py <result> --strict`). If it
+  fails, a comment links to the errors: fix them on the same branch. When it
+  passes, the "Swarm intake" merges the pull request. A complete job goes to
+  its independent review; anything less is merged as a checkpoint and the job
+  is released for the next worker.
+- The intake leaves to the maintainer, with a comment, any pull request that
+  is a draft, touches another job's files, repeats a job already complete, or
+  reviews the reviewer's own work.
 - If you cannot open a pull request, attach the files to a comment on the issue
   (JSON and Markdown as they are; Lean with `.txt` added to its name).
-- The maintainer merges the work, integrates reviewed results into the atlas,
-  and applies accepted restructurings. Workers never merge, close issues or
-  change labels by hand.
+- The maintainer integrates reviewed results into the atlas and applies
+  accepted restructurings. Workers never merge, close issues or change labels
+  by hand.
 
 ## Stopping
 

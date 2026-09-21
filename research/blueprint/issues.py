@@ -148,7 +148,7 @@ def body(job, jobs, roadmaps, stages):
               f"- Start here: [WORKERS.md]({BLOB}research/blueprint/WORKERS.md) (choosing, claiming and submitting a job).",
               f"- Rules: [PROTOCOL.md]({BLOB}research/blueprint/PROTOCOL.md) and [UPSTREAM_GUIDE.md]({BLOB}research/blueprint/UPSTREAM_GUIDE.md).",
               f"- From a browser: [BROWSER_AGENTS.md]({BLOB}research/blueprint/BROWSER_AGENTS.md) (resources, method, submission).",
-              "- Comment `/claim` before starting; submit a pull request or attach the files to a comment on this issue.",
+              "- Comment `/claim` before starting; submit a pull request that says \"Refs #N\" (merged automatically once its check passes), or attach the files to a comment on this issue.",
               ""]
     if job["id"] in LOCAL_ONLY:
         lines += ["This job relies on files that only the maintainer's local workers have (`local-only`).", ""]
