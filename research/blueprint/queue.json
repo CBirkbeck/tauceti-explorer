@@ -568,6 +568,84 @@
    "state": "pending"
   },
   {
+   "id": "DESIGN-BCGP18",
+   "kind": "design",
+   "priority": 1,
+   "order": 3,
+   "roadmapIds": [
+    "AbelianSurfacesPotentialModularity"
+   ],
+   "outputs": [
+    "research/blueprint/roadmaps/AbelianSurfacesPotentialModularity.json",
+    "research/blueprint/packets/AbelianSurfacesPotentialModularity.json",
+    "research/blueprint/readmes/AbelianSurfacesPotentialModularity.md",
+    "research/blueprint/suggested/AbelianSurfacesPotentialModularity.lean"
+   ],
+   "after": [],
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/DESIGN-BCGP18.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DESIGN-BCGP18",
+   "kind": "review",
+   "priority": 2,
+   "order": 1,
+   "roadmapIds": [
+    "AbelianSurfacesPotentialModularity"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-BCGP18.md"
+   ],
+   "after": [
+    "DESIGN-BCGP18"
+   ],
+   "avoidAccountOf": "DESIGN-BCGP18",
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/REV-DESIGN-BCGP18.md",
+   "state": "pending"
+  },
+  {
+   "id": "DESIGN-BCGP25",
+   "kind": "design",
+   "priority": 1,
+   "order": 4,
+   "roadmapIds": [
+    "AbelianSurfacesModularity"
+   ],
+   "outputs": [
+    "research/blueprint/roadmaps/AbelianSurfacesModularity.json",
+    "research/blueprint/packets/AbelianSurfacesModularity.json",
+    "research/blueprint/readmes/AbelianSurfacesModularity.md",
+    "research/blueprint/suggested/AbelianSurfacesModularity.lean"
+   ],
+   "after": [
+    "DESIGN-BCGP18"
+   ],
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/DESIGN-BCGP25.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DESIGN-BCGP25",
+   "kind": "review",
+   "priority": 2,
+   "order": 1,
+   "roadmapIds": [
+    "AbelianSurfacesModularity"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-BCGP25.md"
+   ],
+   "after": [
+    "DESIGN-BCGP25"
+   ],
+   "avoidAccountOf": "DESIGN-BCGP25",
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/REV-DESIGN-BCGP25.md",
+   "state": "pending"
+  },
+  {
    "id": "LINK-tauceti_TauCetiRoadmap_ModularCurves",
    "kind": "link",
    "priority": 1,
