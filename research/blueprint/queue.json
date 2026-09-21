@@ -3489,7 +3489,8 @@
    ],
    "avoidAccountOf": "RS-11",
    "prompt": "research/blueprint/prompts/REV-RS-11.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #821"
   },
   {
    "id": "RS-12",
