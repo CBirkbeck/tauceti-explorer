@@ -1,0 +1,81 @@
+{
+ "id": "RS-12",
+ "name": "Galois representations of automorphic forms",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "AutomorphicGaloisRepresentations",
+   "title": "Galois representations attached to modular and Hilbert modular forms",
+   "document": "content/campaign/AutomorphicGaloisRepresentations/README.md"
+  },
+  {
+   "id": "AutomorphicGaloisRepresentationsPartII",
+   "title": "Automorphic Galois Representations PartII",
+   "document": "content/campaign/AutomorphicGaloisRepresentationsPartII/README.md"
+  }
+ ],
+ "anchors": [],
+ "evidence": [
+  {
+   "layer": "AutomorphicGaloisRepresentations:R19.1",
+   "other": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+   "source": "audit",
+   "note": "The rank-n constructions of AG2.2-AG2.4 produce these rank-two representations again; AG2.7 compares its GL2 special case with R19 by uniqueness."
+  },
+  {
+   "layer": "AutomorphicGaloisRepresentations:R19.2",
+   "other": "AutomorphicGaloisRepresentationsPartII:AG2.3",
+   "source": "audit",
+   "note": "Its regular polarized branch over totally real fields includes rank-two Hilbert modular representations of regular weight, constructed again with uniqueness and determinants."
+  },
+  {
+   "layer": "AutomorphicGaloisRepresentations:R19.3",
+   "other": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+   "source": "audit",
+   "note": "Builds a weakly compatible-system object with common Frobenius polynomials and adds purity separately, in rank n."
+  },
+  {
+   "layer": "AutomorphicGaloisRepresentations:R19.4",
+   "other": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+   "source": "audit",
+   "note": "Proves the rank-n good-prime and ramified local-global comparison with Frobenius-semisimplified Weil-Deligne equality retaining N."
+  },
+  {
+   "layer": "AutomorphicGaloisRepresentations:R19.5",
+   "other": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+   "source": "audit",
+   "note": "Proves the rank-n de Rham, crystalline and semistable coefficient-prime comparison with Hodge-Tate multisets."
+  },
+  {
+   "layer": "AutomorphicGaloisRepresentationsPartII:AG2.3",
+   "other": "AutomorphicGaloisRepresentations:R19.2",
+   "source": "audit",
+   "note": "Its regular polarized branch over totally real fields includes rank-two Hilbert modular representations of regular weight, constructed again with uniqueness and determinants."
+  },
+  {
+   "layer": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+   "other": "AutomorphicGaloisRepresentations:R19.4",
+   "source": "audit",
+   "note": "Proves the rank-n good-prime and ramified local-global comparison with Frobenius-semisimplified Weil-Deligne equality retaining N."
+  },
+  {
+   "layer": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+   "other": "AutomorphicGaloisRepresentations:R19.3",
+   "source": "audit",
+   "note": "Builds a weakly compatible-system object with common Frobenius polynomials and adds purity separately, in rank n."
+  },
+  {
+   "layer": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+   "other": "AutomorphicGaloisRepresentations:R19.5",
+   "source": "audit",
+   "note": "Proves the rank-n de Rham, crystalline and semistable coefficient-prime comparison with Hodge-Tate multisets."
+  },
+  {
+   "layer": "AutomorphicGaloisRepresentationsPartII:AG2.7",
+   "other": "AutomorphicGaloisRepresentations:R19.1",
+   "source": "audit",
+   "note": "The rank-n constructions of AG2.2-AG2.4 produce these rank-two representations again; AG2.7 compares its GL2 special case with R19 by uniqueness."
+  }
+ ]
+}

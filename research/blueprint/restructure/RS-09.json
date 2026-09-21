@@ -1,0 +1,231 @@
+{
+ "id": "RS-09",
+ "name": "Locally symmetric spaces and completed cohomology",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "ArithmeticLocallySymmetricSpaces",
+   "title": "Arithmetic locally symmetric spaces and their cohomology",
+   "document": "content/campaign/ArithmeticLocallySymmetricSpaces/README.md"
+  },
+  {
+   "id": "CompletedCohomologyPartII",
+   "title": "Completed cohomology, homology and arithmetic towers — Part II",
+   "document": "content/campaign/CompletedCohomologyPartII/README.md"
+  }
+ ],
+ "anchors": [
+  {
+   "id": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+   "title": "Algebraic topology of spaces and manifolds",
+   "document": "content/tau-ceti/AlgebraicTopology/README.md"
+  }
+ ],
+ "evidence": [
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.0",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+   "source": "audit",
+   "note": "Constructs local orientation classes and the orientation local system of a manifold, the object ALS.0 retains to cover the nonorientable case."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.1",
+   "other": "CompletedCohomologyPartII:CC.0",
+   "source": "audit",
+   "note": "Defines singular, cellular and compact-support cochains on the arithmetic quotients and proves their comparison with sheaf cohomology, which is CC.0's model comparison at finite level."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.1",
+   "other": "CompletedCohomologyPartII:CC.4",
+   "source": "audit",
+   "note": "Builds cellular complexes on finite CW or Borel–Serre models and compares them with singular/étale cochains, restating ALS.1's finite chain models and comparison."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.1",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+   "source": "audit",
+   "note": "Defines cellular chains of a CW complex from Mathlib's skeleta and proves the natural cellular-to-singular comparison and finite-CW finiteness: ALS.1's cellular complexes and finite chain models."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.1",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+   "source": "audit",
+   "note": "Defines absolute and relative singular cochains with local coefficient systems, proves the universal-coefficient short exact sequence and the Ext spectral sequence over a general ring, and constructs cup and cap products: ALS.1's cochain complexes and universal-coefficient target for arbitrary spaces."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.2",
+   "other": "CompletedCohomologyPartII:CC.0",
+   "source": "audit",
+   "note": "Constructs the Borel–Serre compactification: rational parabolic boundary components, the manifold-with-corners structure at neat level, compactness of the quotient, the homotopy equivalence from the interior and the stratification spectral sequence. That is the compactification CC.0's compact-support target names, and the neat-level hypothesis CC.0's cofinal towers require."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.2",
+   "other": "CompletedCohomologyPartII:CC.4",
+   "source": "audit",
+   "note": "Its manifold-with-corners Borel–Serre model, boundary fibrations and finite stratification are the Borel–Serre cell models on which CC.4's equivariant lifted cell complexes and boundary chains are built."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.3",
+   "other": "CompletedCohomologyPartII:CC.1",
+   "source": "audit",
+   "note": "Constructs Hecke correspondences on the finite-level complexes through K∩gKg⁻¹ with pullback and trace, composition via the double-coset algebra and change of level: the same Hecke-operator target as CC.1, before passing to the colimit."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.3",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+   "source": "audit",
+   "note": "Constructs transfer on chains for finite coverings with p_* ∘ transfer = d and the regular-cover formula: the trace half of ALS.3's pullback-and-trace correspondences."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.4",
+   "other": "CompletedCohomologyPartII:CC.6",
+   "source": "audit",
+   "note": "Constructs the continuous Hochschild–Serre/descent spectral sequence and its edge maps for the tower, the completed version of ALS.4's spectral sequence."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.4",
+   "other": "CompletedCohomologyPartII:CC.7",
+   "source": "audit",
+   "note": "Imports exactly the finite-level boundary triangle constructed here before passing to limits, as the ALS.5 text records."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.5",
+   "other": "CompletedCohomologyPartII:CC.7",
+   "source": "audit",
+   "note": "Imports exactly these finite-level duality maps before passing to limits, per the layer's own text."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.5",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+   "source": "audit",
+   "note": "Constructs the orientation local system and proves Poincaré duality and its Poincaré–Lefschetz form for compact manifolds with boundary by cap product: the topological theorem ALS.5 needs on manifolds with corners, with orientation twists."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
+   "other": "CompletedCohomologyPartII:CC.7",
+   "source": "audit",
+   "note": "Consumes this prefix for its support/duality suffix, as the layer text states."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+   "source": "audit",
+   "note": "Owns the orientation local system and Poincaré–Lefschetz duality for compact manifolds with boundary, by cap product: the manifold duality this early prefix specializes to arithmetic manifolds with corners."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.6",
+   "other": "CompletedCohomologyPartII:CC.0",
+   "source": "audit",
+   "note": "Assembles direct and inverse systems in tame and p-power level with restriction, corestriction and Hecke actions, and reexports CC's limits. The finite-level tower data overlaps CC.0."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.6",
+   "other": "CompletedCohomologyPartII:CC.2",
+   "source": "audit",
+   "note": "Owns the completed/derived inverse limits that ALS.6 re-exports, so the two state the same limit API."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.6",
+   "other": "CompletedCohomologyPartII:CC.4",
+   "source": "audit",
+   "note": "Owns the finite-level chain models re-exported here."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.6",
+   "other": "CompletedCohomologyPartII:CC.6",
+   "source": "audit",
+   "note": "Proves finite-level descent and the finite-cover Hochschild–Serre application on the same tower, overlapping CC.6's descent comparison."
+  },
+  {
+   "layer": "ArithmeticLocallySymmetricSpaces:ALS.6",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+   "source": "audit",
+   "note": "Constructs transfer for finite covers, identifies the chains of the base with the coinvariants of a regular finite cover and builds the Cartan–Leray spectral sequence: the finite-cover descent and Hochschild–Serre application of ALS.6."
+  },
+  {
+   "layer": "CompletedCohomologyPartII:CC.0",
+   "other": "ArithmeticLocallySymmetricSpaces:ALS.1",
+   "source": "audit",
+   "note": "Defines singular, cellular and compact-support cochains on the arithmetic quotients and proves their comparison with sheaf cohomology, which is CC.0's model comparison at finite level."
+  },
+  {
+   "layer": "CompletedCohomologyPartII:CC.0",
+   "other": "ArithmeticLocallySymmetricSpaces:ALS.2",
+   "source": "audit",
+   "note": "Constructs the Borel–Serre compactification: rational parabolic boundary components, the manifold-with-corners structure at neat level, compactness of the quotient, the homotopy equivalence from the interior and the stratification spectral sequence. That is the compactification CC.0's compact-support target names, and the neat-level hypothesis CC.0's cofinal towers require."
+  },
+  {
+   "layer": "CompletedCohomologyPartII:CC.0",
+   "other": "ArithmeticLocallySymmetricSpaces:ALS.6",
+   "source": "audit",
+   "note": "Assembles direct and inverse systems in tame and p-power level with restriction, corestriction and Hecke actions, and reexports CC's limits. The finite-level tower data overlaps CC.0."
+  },
+  {
+   "layer": "CompletedCohomologyPartII:CC.1",
+   "other": "ArithmeticLocallySymmetricSpaces:ALS.3",
+   "source": "audit",
+   "note": "Constructs Hecke correspondences on the finite-level complexes through K∩gKg⁻¹ with pullback and trace, composition via the double-coset algebra and change of level: the same Hecke-operator target as CC.1, before passing to the colimit."
+  },
+  {
+   "layer": "CompletedCohomologyPartII:CC.2",
+   "other": "ArithmeticLocallySymmetricSpaces:ALS.6",
+   "source": "audit",
+   "note": "Owns the completed/derived inverse limits that ALS.6 re-exports, so the two state the same limit API."
+  },
+  {
+   "layer": "CompletedCohomologyPartII:CC.4",
+   "other": "ArithmeticLocallySymmetricSpaces:ALS.1",
+   "source": "audit",
+   "note": "Builds cellular complexes on finite CW or Borel–Serre models and compares them with singular/étale cochains, restating ALS.1's finite chain models and comparison."
+  },
+  {
+   "layer": "CompletedCohomologyPartII:CC.4",
+   "other": "ArithmeticLocallySymmetricSpaces:ALS.2",
+   "source": "audit",
+   "note": "Its manifold-with-corners Borel–Serre model, boundary fibrations and finite stratification are the Borel–Serre cell models on which CC.4's equivariant lifted cell complexes and boundary chains are built."
+  },
+  {
+   "layer": "CompletedCohomologyPartII:CC.4",
+   "other": "ArithmeticLocallySymmetricSpaces:ALS.6",
+   "source": "audit",
+   "note": "Owns the finite-level chain models re-exported here."
+  },
+  {
+   "layer": "CompletedCohomologyPartII:CC.4",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+   "source": "audit",
+   "note": "Defines cellular homology from skeleta and proves the cellular-to-singular comparison naturally up to specified homotopy, the generic form of CC.4's cellular–singular comparison."
+  },
+  {
+   "layer": "CompletedCohomologyPartII:CC.6",
+   "other": "ArithmeticLocallySymmetricSpaces:ALS.4",
+   "source": "audit",
+   "note": "Constructs the continuous Hochschild–Serre/descent spectral sequence and its edge maps for the tower, the completed version of ALS.4's spectral sequence."
+  },
+  {
+   "layer": "CompletedCohomologyPartII:CC.6",
+   "other": "ArithmeticLocallySymmetricSpaces:ALS.6",
+   "source": "audit",
+   "note": "Proves finite-level descent and the finite-cover Hochschild–Serre application on the same tower, overlapping CC.6's descent comparison."
+  },
+  {
+   "layer": "CompletedCohomologyPartII:CC.7",
+   "other": "ArithmeticLocallySymmetricSpaces:ALS.4",
+   "source": "audit",
+   "note": "Imports exactly the finite-level boundary triangle constructed here before passing to limits, as the ALS.5 text records."
+  },
+  {
+   "layer": "CompletedCohomologyPartII:CC.7",
+   "other": "ArithmeticLocallySymmetricSpaces:ALS.5",
+   "source": "audit",
+   "note": "Imports exactly these finite-level duality maps before passing to limits, per the layer's own text."
+  },
+  {
+   "layer": "CompletedCohomologyPartII:CC.7",
+   "other": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
+   "source": "audit",
+   "note": "Consumes this prefix for its support/duality suffix, as the layer text states."
+  }
+ ]
+}

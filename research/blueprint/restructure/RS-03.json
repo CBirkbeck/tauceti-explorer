@@ -1,0 +1,513 @@
+{
+ "id": "RS-03",
+ "name": "Classical, computational and Diophantine number theory",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "AdditiveCombinatorics",
+   "title": "Additive combinatorics, higher Fourier analysis and primes",
+   "document": "content/campaign/AdditiveCombinatorics/README.md"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion",
+   "title": "Classical arithmetic, sequences, polynomials and reciprocity",
+   "document": "content/campaign/ClassicalArithmeticCompletion/README.md"
+  },
+  {
+   "id": "ComputationalNumberTheory",
+   "title": "Certified computational number theory and arithmetic data",
+   "document": "content/campaign/ComputationalNumberTheory/README.md"
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence",
+   "title": "Diophantine approximation and transcendence",
+   "document": "content/campaign/DiophantineApproximationAndTranscendence/README.md"
+  },
+  {
+   "id": "EffectiveDiophantineMethods",
+   "title": "Effective Diophantine methods and certified rational points",
+   "document": "content/campaign/EffectiveDiophantineMethods/README.md"
+  },
+  {
+   "id": "ExponentialSumsAndCircleMethod",
+   "title": "Exponential sums, decoupling and the circle method",
+   "document": "content/campaign/ExponentialSumsAndCircleMethod/README.md"
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums",
+   "title": "Finite fields, character sums, finite rings and coding interfaces",
+   "document": "content/campaign/FiniteFieldsAndCharacterSums/README.md"
+  },
+  {
+   "id": "HeightsRationalPointsAndObstructions",
+   "title": "Heights, rational points and obstructions",
+   "document": "content/campaign/HeightsRationalPointsAndObstructions/README.md"
+  }
+ ],
+ "anchors": [
+  {
+   "id": "tauceti:TauCetiRoadmap/EllipticCurves",
+   "title": "Elliptic curves",
+   "document": "content/tau-ceti/EllipticCurves/README.md"
+  }
+ ],
+ "evidence": [
+  {
+   "layer": "AdditiveCombinatorics:AC.0",
+   "other": "ExponentialSumsAndCircleMethod:ES.1",
+   "source": "audit",
+   "note": "AC.0 also builds Fourier analysis and convolution on finite abelian groups, where the finite orthogonality relations live."
+  },
+  {
+   "layer": "AdditiveCombinatorics:AC.0",
+   "other": "FiniteFieldsAndCharacterSums:FF.1",
+   "source": "audit",
+   "note": "Constructs additive characters and their orthogonality, overlapping the character side of the finite Fourier analysis asked for here."
+  },
+  {
+   "layer": "AdditiveCombinatorics:AC.5",
+   "other": "ExponentialSumsAndCircleMethod:ES.3",
+   "source": "audit",
+   "note": "Constructs singular series and local densities, the local factors of the linear-patterns asymptotic."
+  },
+  {
+   "layer": "AdditiveCombinatorics:AC.5",
+   "other": "ExponentialSumsAndCircleMethod:ES.4",
+   "source": "audit",
+   "note": "AC.5 proves counts of finite-complexity linear equations in primes with local factors, a framework whose complexity-one case includes the three-primes count."
+  },
+  {
+   "layer": "ClassicalArithmeticCompletion:CA.1",
+   "other": "FiniteFieldsAndCharacterSums:FF.1",
+   "source": "audit",
+   "note": "FF.1 constructs Gauss and Jacobi sums over finite fields with their norm and product identities, the same targets as this layer's Gauss/Jacobi item."
+  },
+  {
+   "layer": "ClassicalArithmeticCompletion:CA.3",
+   "other": "ComputationalNumberTheory:CN.0",
+   "source": "audit",
+   "note": "Smith and Hermite normal forms with certified change-of-basis matrices and effective ideal arithmetic, the lattice and ideal presentations CN.0 specifies."
+  },
+  {
+   "layer": "ClassicalArithmeticCompletion:CA.3",
+   "other": "ComputationalNumberTheory:CN.1",
+   "source": "audit",
+   "note": "CN.1 factors polynomials with checked factors and irreducibility proofs, overlapping the irreducibility/effective-arithmetic side of CA.3."
+  },
+  {
+   "layer": "ClassicalArithmeticCompletion:CA.3",
+   "other": "FiniteFieldsAndCharacterSums:FF.3",
+   "source": "audit",
+   "note": "FF.3 proves finite-field polynomial factorization with checked irreducibility witnesses."
+  },
+  {
+   "layer": "ClassicalArithmeticCompletion:CA.4",
+   "other": "DiophantineApproximationAndTranscendence:DT.4",
+   "source": "audit",
+   "note": "DT.4 turns logarithmic-form bounds into explicit bounds for Thue, S-unit and exponential equations, the 'source-scoped exponential equations' target."
+  },
+  {
+   "layer": "ClassicalArithmeticCompletion:CA.4",
+   "other": "EffectiveDiophantineMethods:ED.2",
+   "source": "audit",
+   "note": "ED.2 combines those bounds with lattice reduction and certified residual enumeration, matching the 'finite search complete only after a proven bound' acceptance rule for exponential and S-unit equations."
+  },
+  {
+   "layer": "ClassicalArithmeticCompletion:CA.4",
+   "other": "EffectiveDiophantineMethods:ED.3",
+   "source": "audit",
+   "note": "ED.3 owns descent and saturation for genus-one curves, the receiving end of CA.4's routing of genus-one equations."
+  },
+  {
+   "layer": "ClassicalArithmeticCompletion:CA.4",
+   "other": "ExponentialSumsAndCircleMethod:ES.4",
+   "source": "audit",
+   "note": "CA.4 supplies sums of squares, the elementary end of Waring's problem."
+  },
+  {
+   "layer": "ClassicalArithmeticCompletion:CA.5",
+   "other": "ComputationalNumberTheory:CN.2",
+   "source": "audit",
+   "note": "CN.2 certifies integral bases, orders, ideal decomposition and unit/class groups, the same 'certified computation ↔ intrinsic invariant' connection as CA.5."
+  },
+  {
+   "layer": "ClassicalArithmeticCompletion:CA.6",
+   "other": "DiophantineApproximationAndTranscendence:DT.0",
+   "source": "audit",
+   "note": "DT.0 defines Weil heights with the product-formula normalization, the height side of CA.6's comparisons."
+  },
+  {
+   "layer": "ClassicalArithmeticCompletion:CA.6",
+   "other": "DiophantineApproximationAndTranscendence:DT.1",
+   "source": "audit",
+   "note": "CA.6 constructs Mahler measure and the house, which Mathlib already has, as inputs to height comparisons."
+  },
+  {
+   "layer": "ClassicalArithmeticCompletion:CA.7",
+   "other": "FiniteFieldsAndCharacterSums:FF.0",
+   "source": "audit",
+   "note": "FF.0 builds normal bases of finite-field extensions, the finite-field case of CA.7's normal-basis maps."
+  },
+  {
+   "layer": "ComputationalNumberTheory:CN.0",
+   "other": "ClassicalArithmeticCompletion:CA.3",
+   "source": "audit",
+   "note": "Smith and Hermite normal forms with certified change-of-basis matrices and effective ideal arithmetic, the lattice and ideal presentations CN.0 specifies."
+  },
+  {
+   "layer": "ComputationalNumberTheory:CN.0",
+   "other": "EffectiveDiophantineMethods:ED.0",
+   "source": "audit",
+   "note": "CN.0 specifies the exact algebraic-number and p-adic approximation presentations that ED.0 imports and adapts."
+  },
+  {
+   "layer": "ComputationalNumberTheory:CN.1",
+   "other": "ClassicalArithmeticCompletion:CA.3",
+   "source": "audit",
+   "note": "CN.1 factors polynomials with checked factors and irreducibility proofs, overlapping the irreducibility/effective-arithmetic side of CA.3."
+  },
+  {
+   "layer": "ComputationalNumberTheory:CN.1",
+   "other": "FiniteFieldsAndCharacterSums:FF.3",
+   "source": "audit",
+   "note": "Finite-field polynomial factorisation with checked factor products, irreducibility witnesses and separately stated bit-operation and randomness models, the polynomial half of CN.1."
+  },
+  {
+   "layer": "ComputationalNumberTheory:CN.2",
+   "other": "ClassicalArithmeticCompletion:CA.5",
+   "source": "audit",
+   "note": "CN.2 certifies integral bases, orders, ideal decomposition and unit/class groups, the same 'certified computation ↔ intrinsic invariant' connection as CA.5."
+  },
+  {
+   "layer": "ComputationalNumberTheory:CN.3",
+   "other": "EffectiveDiophantineMethods:ED.3",
+   "source": "audit",
+   "note": "CN.3 provides isogeny and descent computations for curves through their owners, the computational side of ED.3."
+  },
+  {
+   "layer": "ComputationalNumberTheory:CN.3",
+   "other": "FiniteFieldsAndCharacterSums:FF.3",
+   "source": "audit",
+   "note": "Also asks for certified point-counting algorithms with the trace convention and a provable error bound, the point-count half of CN.3; the batch already records FF.3 as CN.1's polynomial-factorisation duplicate."
+  },
+  {
+   "layer": "ComputationalNumberTheory:CN.3",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+   "source": "audit",
+   "note": "Point counts with the Frobenius trace convention and the Hasse bound over finite fields."
+  },
+  {
+   "layer": "ComputationalNumberTheory:CN.4",
+   "other": "EffectiveDiophantineMethods:ED.0",
+   "source": "audit",
+   "note": "CN.4 constructs interval/ball arithmetic, precision propagation and certified roots, the certified numerics ED.0’s error-bound acceptance restates."
+  },
+  {
+   "layer": "ComputationalNumberTheory:CN.4",
+   "other": "EffectiveDiophantineMethods:ED.2",
+   "source": "audit",
+   "note": "CN.4 owns the certified logarithm and error evaluation that ED.2 consumes."
+  },
+  {
+   "layer": "ComputationalNumberTheory:CN.5",
+   "other": "EffectiveDiophantineMethods:ED.6",
+   "source": "audit",
+   "note": "CN.5 defines certificate schemas and reproducible worked examples, overlapping ED.6’s maintained proof-producing examples."
+  },
+  {
+   "layer": "ComputationalNumberTheory:CN.5",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+   "source": "audit",
+   "note": "Database adapters for elliptic curves over ℚ with decidable bounded searches certifying claimed lists."
+  },
+  {
+   "layer": "DiophantineApproximationAndTranscendence:DT.0",
+   "other": "ClassicalArithmeticCompletion:CA.6",
+   "source": "audit",
+   "note": "DT.0 defines Weil heights with the product-formula normalization, the height side of CA.6's comparisons."
+  },
+  {
+   "layer": "DiophantineApproximationAndTranscendence:DT.0",
+   "other": "HeightsRationalPointsAndObstructions:RP.0",
+   "source": "audit",
+   "note": "RP.0 imports the same normalized absolute heights and product formula (Mathlib's Height library)."
+  },
+  {
+   "layer": "DiophantineApproximationAndTranscendence:DT.1",
+   "other": "ClassicalArithmeticCompletion:CA.6",
+   "source": "audit",
+   "note": "CA.6 constructs Mahler measure and the house, which Mathlib already has, as inputs to height comparisons."
+  },
+  {
+   "layer": "DiophantineApproximationAndTranscendence:DT.2",
+   "other": "EffectiveDiophantineMethods:ED.2",
+   "source": "audit",
+   "note": "ED.2 treats S-unit equations, in their effective form via logarithmic forms."
+  },
+  {
+   "layer": "DiophantineApproximationAndTranscendence:DT.2",
+   "other": "HeightsRationalPointsAndObstructions:RP.4",
+   "source": "audit",
+   "note": "RP.4 proves Siegel finiteness for affine curves from this layer's Diophantine approximation input."
+  },
+  {
+   "layer": "DiophantineApproximationAndTranscendence:DT.3",
+   "other": "EffectiveDiophantineMethods:ED.2",
+   "source": "audit",
+   "note": "ED.2 imports exactly these archimedean and p-adic logarithmic-form bounds, with their constants and hypotheses."
+  },
+  {
+   "layer": "DiophantineApproximationAndTranscendence:DT.4",
+   "other": "ClassicalArithmeticCompletion:CA.4",
+   "source": "audit",
+   "note": "DT.4 turns logarithmic-form bounds into explicit bounds for Thue, S-unit and exponential equations, the 'source-scoped exponential equations' target."
+  },
+  {
+   "layer": "DiophantineApproximationAndTranscendence:DT.4",
+   "other": "EffectiveDiophantineMethods:ED.2",
+   "source": "audit",
+   "note": "ED.2 also combines logarithmic-form bounds with reduction to solve S-unit and Thue-Mahler instances; the handoff is stated in both roadmaps."
+  },
+  {
+   "layer": "DiophantineApproximationAndTranscendence:DT.4",
+   "other": "EffectiveDiophantineMethods:ED.6",
+   "source": "audit",
+   "note": "ED.6 maintains worked Thue and S-unit examples built on the same bounds."
+  },
+  {
+   "layer": "DiophantineApproximationAndTranscendence:DT.5",
+   "other": "HeightsRationalPointsAndObstructions:RP.5",
+   "source": "audit",
+   "note": "RP.5 owns Mordell-Lang, Manin-Mumford and Bogomolov, the unlikely-intersection theorems this layer coordinates with."
+  },
+  {
+   "layer": "EffectiveDiophantineMethods:ED.0",
+   "other": "ComputationalNumberTheory:CN.0",
+   "source": "audit",
+   "note": "CN.0 specifies the exact algebraic-number and p-adic approximation presentations that ED.0 imports and adapts."
+  },
+  {
+   "layer": "EffectiveDiophantineMethods:ED.0",
+   "other": "ComputationalNumberTheory:CN.4",
+   "source": "audit",
+   "note": "CN.4 constructs interval/ball arithmetic, precision propagation and certified roots, the certified numerics ED.0’s error-bound acceptance restates."
+  },
+  {
+   "layer": "EffectiveDiophantineMethods:ED.2",
+   "other": "ClassicalArithmeticCompletion:CA.4",
+   "source": "audit",
+   "note": "ED.2 combines those bounds with lattice reduction and certified residual enumeration, matching the 'finite search complete only after a proven bound' acceptance rule for exponential and S-unit equations."
+  },
+  {
+   "layer": "EffectiveDiophantineMethods:ED.2",
+   "other": "ComputationalNumberTheory:CN.4",
+   "source": "audit",
+   "note": "CN.4 owns the certified logarithm and error evaluation that ED.2 consumes."
+  },
+  {
+   "layer": "EffectiveDiophantineMethods:ED.2",
+   "other": "DiophantineApproximationAndTranscendence:DT.2",
+   "source": "audit",
+   "note": "ED.2 treats S-unit equations, in their effective form via logarithmic forms."
+  },
+  {
+   "layer": "EffectiveDiophantineMethods:ED.2",
+   "other": "DiophantineApproximationAndTranscendence:DT.3",
+   "source": "audit",
+   "note": "ED.2 imports exactly these archimedean and p-adic logarithmic-form bounds, with their constants and hypotheses."
+  },
+  {
+   "layer": "EffectiveDiophantineMethods:ED.2",
+   "other": "DiophantineApproximationAndTranscendence:DT.4",
+   "source": "audit",
+   "note": "ED.2 also combines logarithmic-form bounds with reduction to solve S-unit and Thue-Mahler instances; the handoff is stated in both roadmaps."
+  },
+  {
+   "layer": "EffectiveDiophantineMethods:ED.3",
+   "other": "ClassicalArithmeticCompletion:CA.4",
+   "source": "audit",
+   "note": "ED.3 owns descent and saturation for genus-one curves, the receiving end of CA.4's routing of genus-one equations."
+  },
+  {
+   "layer": "EffectiveDiophantineMethods:ED.3",
+   "other": "ComputationalNumberTheory:CN.3",
+   "source": "audit",
+   "note": "CN.3 provides isogeny and descent computations for curves through their owners, the computational side of ED.3."
+  },
+  {
+   "layer": "EffectiveDiophantineMethods:ED.3",
+   "other": "HeightsRationalPointsAndObstructions:RP.1",
+   "source": "audit",
+   "note": "RP.1 constructs the same Kummer maps, isogeny Selmer groups and descent that ED.3 turns into algorithms."
+  },
+  {
+   "layer": "EffectiveDiophantineMethods:ED.3",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+   "source": "audit",
+   "note": "That layer owns the 2-descent and Mordell–Weil theorem that Tau Ceti has built and ED.3 builds on."
+  },
+  {
+   "layer": "EffectiveDiophantineMethods:ED.3",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+   "source": "audit",
+   "note": "That layer owns finiteness of Sel_m(E/K) as the effective refinement of weak Mordell–Weil, the computable rank bound, and Sha, overlapping ED.3’s Selmer and torsor targets."
+  },
+  {
+   "layer": "EffectiveDiophantineMethods:ED.6",
+   "other": "ComputationalNumberTheory:CN.5",
+   "source": "audit",
+   "note": "CN.5 defines certificate schemas and reproducible worked examples, overlapping ED.6’s maintained proof-producing examples."
+  },
+  {
+   "layer": "EffectiveDiophantineMethods:ED.6",
+   "other": "DiophantineApproximationAndTranscendence:DT.4",
+   "source": "audit",
+   "note": "ED.6 maintains worked Thue and S-unit examples built on the same bounds."
+  },
+  {
+   "layer": "ExponentialSumsAndCircleMethod:ES.0",
+   "other": "FiniteFieldsAndCharacterSums:FF.1",
+   "source": "audit",
+   "note": "FF.1 constructs the Gauss and Jacobi sums that Mathlib already has."
+  },
+  {
+   "layer": "ExponentialSumsAndCircleMethod:ES.0",
+   "other": "FiniteFieldsAndCharacterSums:FF.2",
+   "source": "audit",
+   "note": "FF.2 states the Weil and Deligne square-root bounds for polynomial and rational exponential sums, with nontriviality and conductor conditions: the bounds this layer's finite-field interface target asks for, and ES.0's declared input."
+  },
+  {
+   "layer": "ExponentialSumsAndCircleMethod:ES.0",
+   "other": "FiniteFieldsAndCharacterSums:FF.5",
+   "source": "audit",
+   "note": "FF.5 exports the character-sum certificates this layer consumes."
+  },
+  {
+   "layer": "ExponentialSumsAndCircleMethod:ES.1",
+   "other": "AdditiveCombinatorics:AC.0",
+   "source": "audit",
+   "note": "AC.0 also builds Fourier analysis and convolution on finite abelian groups, where the finite orthogonality relations live."
+  },
+  {
+   "layer": "ExponentialSumsAndCircleMethod:ES.3",
+   "other": "AdditiveCombinatorics:AC.5",
+   "source": "audit",
+   "note": "Constructs singular series and local densities, the local factors of the linear-patterns asymptotic."
+  },
+  {
+   "layer": "ExponentialSumsAndCircleMethod:ES.4",
+   "other": "AdditiveCombinatorics:AC.5",
+   "source": "audit",
+   "note": "AC.5 proves counts of finite-complexity linear equations in primes with local factors, a framework whose complexity-one case includes the three-primes count."
+  },
+  {
+   "layer": "ExponentialSumsAndCircleMethod:ES.4",
+   "other": "ClassicalArithmeticCompletion:CA.4",
+   "source": "audit",
+   "note": "CA.4 supplies sums of squares, the elementary end of Waring's problem."
+  },
+  {
+   "layer": "FiniteFieldsAndCharacterSums:FF.0",
+   "other": "ClassicalArithmeticCompletion:CA.7",
+   "source": "audit",
+   "note": "FF.0 builds normal bases of finite-field extensions, the finite-field case of CA.7's normal-basis maps."
+  },
+  {
+   "layer": "FiniteFieldsAndCharacterSums:FF.1",
+   "other": "AdditiveCombinatorics:AC.0",
+   "source": "audit",
+   "note": "Constructs additive characters and their orthogonality, overlapping the character side of the finite Fourier analysis asked for here."
+  },
+  {
+   "layer": "FiniteFieldsAndCharacterSums:FF.1",
+   "other": "ClassicalArithmeticCompletion:CA.1",
+   "source": "audit",
+   "note": "FF.1 constructs Gauss and Jacobi sums over finite fields with their norm and product identities, the same targets as this layer's Gauss/Jacobi item."
+  },
+  {
+   "layer": "FiniteFieldsAndCharacterSums:FF.1",
+   "other": "ExponentialSumsAndCircleMethod:ES.0",
+   "source": "audit",
+   "note": "FF.1 constructs the Gauss and Jacobi sums that Mathlib already has."
+  },
+  {
+   "layer": "FiniteFieldsAndCharacterSums:FF.2",
+   "other": "ExponentialSumsAndCircleMethod:ES.0",
+   "source": "audit",
+   "note": "FF.2 states the Weil and Deligne square-root bounds for polynomial and rational exponential sums, with nontriviality and conductor conditions: the bounds this layer's finite-field interface target asks for, and ES.0's declared input."
+  },
+  {
+   "layer": "FiniteFieldsAndCharacterSums:FF.3",
+   "other": "ClassicalArithmeticCompletion:CA.3",
+   "source": "audit",
+   "note": "FF.3 proves finite-field polynomial factorization with checked irreducibility witnesses."
+  },
+  {
+   "layer": "FiniteFieldsAndCharacterSums:FF.3",
+   "other": "ComputationalNumberTheory:CN.1",
+   "source": "audit",
+   "note": "Finite-field polynomial factorisation with checked factor products, irreducibility witnesses and separately stated bit-operation and randomness models, the polynomial half of CN.1."
+  },
+  {
+   "layer": "FiniteFieldsAndCharacterSums:FF.3",
+   "other": "ComputationalNumberTheory:CN.3",
+   "source": "audit",
+   "note": "Also asks for certified point-counting algorithms with the trace convention and a provable error bound, the point-count half of CN.3; the batch already records FF.3 as CN.1's polynomial-factorisation duplicate."
+  },
+  {
+   "layer": "FiniteFieldsAndCharacterSums:FF.5",
+   "other": "ExponentialSumsAndCircleMethod:ES.0",
+   "source": "audit",
+   "note": "FF.5 exports the character-sum certificates this layer consumes."
+  },
+  {
+   "layer": "HeightsRationalPointsAndObstructions:RP.0",
+   "other": "DiophantineApproximationAndTranscendence:DT.0",
+   "source": "audit",
+   "note": "RP.0 imports the same normalized absolute heights and product formula (Mathlib's Height library)."
+  },
+  {
+   "layer": "HeightsRationalPointsAndObstructions:RP.0",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+   "source": "audit",
+   "note": "That layer owns the naive and canonical heights of elliptic curves with the approximate parallelogram law, which Tau Ceti has built."
+  },
+  {
+   "layer": "HeightsRationalPointsAndObstructions:RP.1",
+   "other": "EffectiveDiophantineMethods:ED.3",
+   "source": "audit",
+   "note": "RP.1 constructs the same Kummer maps, isogeny Selmer groups and descent that ED.3 turns into algorithms."
+  },
+  {
+   "layer": "HeightsRationalPointsAndObstructions:RP.1",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+   "source": "audit",
+   "note": "That layer owns weak Mordell–Weil, the descent map and the Mordell–Weil theorem for elliptic curves, which Tau Ceti has built."
+  },
+  {
+   "layer": "HeightsRationalPointsAndObstructions:RP.1",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+   "source": "audit",
+   "note": "That layer owns Selmer groups of elliptic curves for general isogenies, their finiteness and Sha, RP.1’s isogeny Selmer groups."
+  },
+  {
+   "layer": "HeightsRationalPointsAndObstructions:RP.3",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+   "source": "audit",
+   "note": "That layer owns twists of elliptic curves and their classification by H¹(Gal, Aut), the twist theory RP.3 uses for its twist classes."
+  },
+  {
+   "layer": "HeightsRationalPointsAndObstructions:RP.4",
+   "other": "DiophantineApproximationAndTranscendence:DT.2",
+   "source": "audit",
+   "note": "RP.4 proves Siegel finiteness for affine curves from this layer's Diophantine approximation input."
+  },
+  {
+   "layer": "HeightsRationalPointsAndObstructions:RP.5",
+   "other": "DiophantineApproximationAndTranscendence:DT.5",
+   "source": "audit",
+   "note": "RP.5 owns Mordell-Lang, Manin-Mumford and Bogomolov, the unlikely-intersection theorems this layer coordinates with."
+  }
+ ]
+}

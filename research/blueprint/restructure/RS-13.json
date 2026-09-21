@@ -1,0 +1,57 @@
+{
+ "id": "RS-13",
+ "name": "Automorphic L-functions and special values",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "AutomorphicLFunctionsAndLocalFactors",
+   "title": "Automorphic L-functions and local factors",
+   "document": "content/campaign/AutomorphicLFunctionsAndLocalFactors/README.md"
+  },
+  {
+   "id": "PeriodsAndSpecialValues",
+   "title": "Periods, motivic L-values and special-value conjectures",
+   "document": "content/campaign/PeriodsAndSpecialValues/README.md"
+  }
+ ],
+ "anchors": [],
+ "evidence": [
+  {
+   "layer": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+   "other": "PeriodsAndSpecialValues:PS.1",
+   "source": "audit",
+   "note": "AL.1 (Tate's thesis) defines L, epsilon and the real/complex gamma factors of Hecke characters and proves the global functional equation - the GL_1 archimedean factors of PS.1 T1 and the Dirichlet/Tate case of T3."
+  },
+  {
+   "layer": "AutomorphicLFunctionsAndLocalFactors:AL.4",
+   "other": "PeriodsAndSpecialValues:PS.1",
+   "source": "audit",
+   "note": "Defines completed L-functions from local Weil–Deligne data, the Galois-side factors AL.4 is to compare with."
+  },
+  {
+   "layer": "AutomorphicLFunctionsAndLocalFactors:AL.5",
+   "other": "PeriodsAndSpecialValues:PS.1",
+   "source": "audit",
+   "note": "Formulates normalized critical values with signs and powers of 2πi and retains ramified and imprimitive corrections: the same normalization targets from the periods side."
+  },
+  {
+   "layer": "PeriodsAndSpecialValues:PS.1",
+   "other": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+   "source": "audit",
+   "note": "AL.1 (Tate's thesis) defines L, epsilon and the real/complex gamma factors of Hecke characters and proves the global functional equation - the GL_1 archimedean factors of PS.1 T1 and the Dirichlet/Tate case of T3."
+  },
+  {
+   "layer": "PeriodsAndSpecialValues:PS.1",
+   "other": "AutomorphicLFunctionsAndLocalFactors:AL.4",
+   "source": "audit",
+   "note": "Defines completed L-functions from local Weil–Deligne data, the Galois-side factors AL.4 is to compare with."
+  },
+  {
+   "layer": "PeriodsAndSpecialValues:PS.1",
+   "other": "AutomorphicLFunctionsAndLocalFactors:AL.5",
+   "source": "audit",
+   "note": "Formulates normalized critical values with signs and powers of 2πi and retains ramified and imprimitive corrections: the same normalization targets from the periods side."
+  }
+ ]
+}

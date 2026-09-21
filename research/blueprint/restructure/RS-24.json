@@ -1,0 +1,69 @@
+{
+ "id": "RS-24",
+ "name": "Hecke algebras and torsion in arithmetic cohomology",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants",
+   "title": "Integral Hecke actions, determinants and interpolation",
+   "document": "content/campaign/IntegralHeckeAndGaloisDeterminants/README.md"
+  },
+  {
+   "id": "TorsionCohomologyInfrastructure",
+   "title": "Reusable infrastructure for torsion in arithmetic cohomology",
+   "document": "content/campaign/TorsionCohomologyInfrastructure/README.md"
+  }
+ ],
+ "anchors": [],
+ "evidence": [
+  {
+   "layer": "IntegralHeckeAndGaloisDeterminants:IHG.2",
+   "other": "TorsionCohomologyInfrastructure:TC.2",
+   "source": "audit-unreviewed",
+   "note": "TC.2 is the declared consumer of this layer's nilpotence bound for actual arithmetic complexes; it supplies the geometric comparison rather than reproving the abstract bound."
+  },
+  {
+   "layer": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+   "other": "TorsionCohomologyInfrastructure:TC.3",
+   "source": "audit-unreviewed",
+   "note": "TC.3 works with the same ambient Hecke polynomial and Levi Satake map for boundary induction, and factors it; it consumes rather than restates the normalisation."
+  },
+  {
+   "layer": "IntegralHeckeAndGaloisDeterminants:IHG.5",
+   "other": "TorsionCohomologyInfrastructure:TC.2",
+   "source": "audit-unreviewed",
+   "note": "TC.2 builds the geometric Hecke comparison with its nilpotent error that this layer consumes as a hypothesis; the nilpotence bookkeeping is shared."
+  },
+  {
+   "layer": "IntegralHeckeAndGaloisDeterminants:IHG.6",
+   "other": "TorsionCohomologyInfrastructure:TC.4",
+   "source": "audit-unreviewed",
+   "note": "Integral Ribet theory without residual distinctness: the same integral Hecke/determinant compatibility, in the application direction."
+  },
+  {
+   "layer": "TorsionCohomologyInfrastructure:TC.2",
+   "other": "IntegralHeckeAndGaloisDeterminants:IHG.2",
+   "source": "audit-unreviewed",
+   "note": "TC.2 is the declared consumer of this layer's nilpotence bound for actual arithmetic complexes; it supplies the geometric comparison rather than reproving the abstract bound."
+  },
+  {
+   "layer": "TorsionCohomologyInfrastructure:TC.2",
+   "other": "IntegralHeckeAndGaloisDeterminants:IHG.5",
+   "source": "audit-unreviewed",
+   "note": "TC.2 builds the geometric Hecke comparison with its nilpotent error that this layer consumes as a hypothesis; the nilpotence bookkeeping is shared."
+  },
+  {
+   "layer": "TorsionCohomologyInfrastructure:TC.3",
+   "other": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+   "source": "audit-unreviewed",
+   "note": "TC.3 works with the same ambient Hecke polynomial and Levi Satake map for boundary induction, and factors it; it consumes rather than restates the normalisation."
+  },
+  {
+   "layer": "TorsionCohomologyInfrastructure:TC.4",
+   "other": "IntegralHeckeAndGaloisDeterminants:IHG.6",
+   "source": "audit-unreviewed",
+   "note": "Integral Ribet theory without residual distinctness: the same integral Hecke/determinant compatibility, in the application direction."
+  }
+ ]
+}

@@ -1,0 +1,46 @@
+{
+ "id": "RS-30",
+ "name": "Birch–Swinnerton-Dyer in rank 0 and 1, building on Elliptic curves",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "RankZeroOneBSD",
+   "title": "Rank-zero and rank-one Birch–Swinnerton-Dyer theory",
+   "document": "content/campaign/RankZeroOneBSD/README.md"
+  }
+ ],
+ "anchors": [
+  {
+   "id": "tauceti:TauCetiRoadmap/EllipticCurves",
+   "title": "Elliptic curves",
+   "document": "content/tau-ceti/EllipticCurves/README.md"
+  }
+ ],
+ "evidence": [
+  {
+   "layer": "RankZeroOneBSD:BSD.1",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+   "source": "audit",
+   "note": "Layer 6 owns the Mordell-Weil theorem and names the very declaration (fg_point_of_numberField) that is now in Tau Ceti; BSD.1 says it reuses it, so the overlap is intended but the target is already delivered."
+  },
+  {
+   "layer": "RankZeroOneBSD:BSD.1",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+   "source": "audit",
+   "note": "Layer 7 owns Selmer structures, the Selmer group and Sha for a general Galois module; BSD.1's finite-level Selmer comparison depends on it and partly restates it."
+  },
+  {
+   "layer": "RankZeroOneBSD:BSD.5",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+   "source": "audit",
+   "note": "Proves isogeny invariance of the BSD defect using the arithmetic quotient and equality of all L-factors, overlapping this layer's Cassels stretch goal."
+  },
+  {
+   "layer": "RankZeroOneBSD:BSD.9",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+   "source": "audit",
+   "note": "EllipticCurves Layer 6 owns the regulator with the rank-zero convention Reg = 1 and the torsion subgroup, which BSD.9 T1 lists among its checks (already built: regulator_eq_one_of_finrank_eq_zero)."
+  }
+ ]
+}

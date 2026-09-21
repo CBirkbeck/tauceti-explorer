@@ -1,0 +1,52 @@
+{
+ "id": "RS-33",
+ "name": "Homotopy foundations for K-theory, building on Algebraic topology",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "StableHomotopyKTheory",
+   "title": "Homotopy foundations for algebraic K-theory",
+   "document": "content/campaign/StableHomotopyKTheory/README.md"
+  }
+ ],
+ "anchors": [
+  {
+   "id": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+   "title": "Algebraic topology of spaces and manifolds",
+   "document": "content/tau-ceti/AlgebraicTopology/README.md"
+  }
+ ],
+ "evidence": [
+  {
+   "layer": "StableHomotopyKTheory:H.1",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+   "source": "audit",
+   "note": "Item 6 defines local coefficient systems as functors on the fundamental groupoid with pullback, basepoint change and monodromy (the target Tau Ceti has built as TauCeti.LocalCoefficientSystem) and also owns the twisted singular chains needed for the bar/singular comparison."
+  },
+  {
+   "layer": "StableHomotopyKTheory:H.2",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+   "source": "audit",
+   "note": "Item 5 defines Serre fibrations by disc lifting with pullback and map-of-fibrations APIs, overlapping H.2's homotopy-fibre and homotopy-pullback infrastructure (it then aims at the Serre spectral sequence rather than the homotopy long exact sequence)."
+  },
+  {
+   "layer": "StableHomotopyKTheory:H.2",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+   "source": "audit",
+   "note": "Item 2 constructs homotopy groups of Kan simplicial sets, proves TopCat.toSSet X is Kan and compares them naturally with cubical homotopy groups, exactly H.2's Kan/topological comparison; item 1's long exact sequence of a based pair is the relative-homotopy analogue of the fibre sequence."
+  },
+  {
+   "layer": "StableHomotopyKTheory:H.3",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+   "source": "audit",
+   "note": "Item 3 constructs the Hurewicz homomorphism and proves the absolute Hurewicz theorem that H.3's test uses to compute the first nonzero homotopy group of BG^+."
+  },
+  {
+   "layer": "StableHomotopyKTheory:H.6",
+   "other": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+   "source": "audit",
+   "note": "Constructs the skeletal-filtration exact couple of a CW complex, another instance of the exact-couple-to-spectral-sequence passage H.6 asks for."
+  }
+ ]
+}

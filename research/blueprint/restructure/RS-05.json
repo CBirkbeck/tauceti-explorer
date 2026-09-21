@@ -1,0 +1,1424 @@
+{
+ "id": "RS-05",
+ "name": "Adic spaces, perfectoid spaces and diamonds",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "AdicEtaleGeometry",
+   "title": "Analytic adic geometry required for diamonds",
+   "document": "content/campaign/AdicEtaleGeometry/README.md"
+  },
+  {
+   "id": "AdicSpacesPartII",
+   "title": "Adic Spaces PartII",
+   "document": "content/campaign/AdicSpacesPartII/README.md"
+  },
+  {
+   "id": "ClassicalAdicEtaleCohomology",
+   "title": "The classical analytic cohomology inputs to diamonds",
+   "document": "content/campaign/ClassicalAdicEtaleCohomology/README.md"
+  },
+  {
+   "id": "DiamondEtaleCohomology",
+   "title": "Étale cohomology of diamonds and its four operations",
+   "document": "content/campaign/DiamondEtaleCohomology/README.md"
+  },
+  {
+   "id": "DiamondSixOperations",
+   "title": "Six operations, cohomological smoothness and biduality",
+   "document": "content/campaign/DiamondSixOperations/README.md"
+  },
+  {
+   "id": "DiamondsAndVStacks",
+   "title": "Pro-étale descent, diamonds and small v-stacks",
+   "document": "content/campaign/DiamondsAndVStacks/README.md"
+  },
+  {
+   "id": "PerfectoidShimuraVarieties",
+   "title": "Shimura towers and perfectoid representability",
+   "document": "content/campaign/PerfectoidShimuraVarieties/README.md"
+  },
+  {
+   "id": "PerfectoidSpaces",
+   "title": "Perfectoid rings and spaces",
+   "document": "content/campaign/PerfectoidSpaces/README.md"
+  },
+  {
+   "id": "VStackSheavesAndLisseCategories",
+   "title": "Artin v-stacks, solid and lisse coefficient categories",
+   "document": "content/campaign/VStackSheavesAndLisseCategories/README.md"
+  }
+ ],
+ "anchors": [
+  {
+   "id": "tauceti:TauCetiRoadmap/AdicSpaces",
+   "title": "Foundations of adic spaces",
+   "document": "content/tau-ceti/AdicSpaces/README.md"
+  }
+ ],
+ "evidence": [
+  {
+   "layer": "AdicEtaleGeometry:A0",
+   "other": "AdicSpacesPartII:F0",
+   "source": "audit-unreviewed",
+   "note": "F0 says it 'includes original diamond AdicEtaleGeometry A0 and ordinary geometric portions of A1–A2', so the fibre-product constructions are duplicated verbatim."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A0",
+   "other": "AdicSpacesPartII:R0",
+   "source": "audit-unreviewed",
+   "note": "A0 itself names AdicSpacesPartII as the canonical owner; R0 states the same completed tensor product, plus-ring construction, universal property and gluing to fibre products."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A0",
+   "other": "AdicSpacesPartII:R5",
+   "source": "audit-unreviewed",
+   "note": "The fibre product X_∞ ×_L U is an instance of A0's completed tensor product and pullback construction."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A0",
+   "other": "PerfectoidSpaces:P2",
+   "source": "audit-unreviewed",
+   "note": "P2 owns rational localization and sheafiness for perfectoid Huber pairs and the perfectoid pullback theorem A0 defers to it."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A0",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+   "source": "audit-unreviewed",
+   "note": "Tau Ceti's own AdicSpaces Layer 0–3 already owns Huber pairs, pairs of definition, pseudouniformizers, rational localisation and its universal property — the supplier A0 assumes."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A0",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+   "source": "audit-unreviewed",
+   "note": "A0's supplier contract names the plus subring obtained by integral closure of the image and the universal property for continuous morphisms of pairs, which is this layer's A_U⁺ and Lemma 8.1 in another roadmap's words."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A1",
+   "other": "AdicSpacesPartII:R0",
+   "source": "audit-unreviewed",
+   "note": "A1's own first paragraph assigns the ordinary finite/étale morphism constructions to AdicSpacesPartII's early prefix, which is R0."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A1",
+   "other": "AdicSpacesPartII:R4",
+   "source": "audit-unreviewed",
+   "note": "R4 is declared to be the 'early site reexport' of A1 — 'transport the elementary site and sheaf operations from A1 without constructing a second site'."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A1",
+   "other": "ClassicalAdicEtaleCohomology:H0",
+   "source": "audit",
+   "note": "A1 constructs the small étale site of analytic adic spaces with geometric stalks and enough points for field pairs (K,K⁺), H0's first and fourth targets."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A1",
+   "other": "DiamondEtaleCohomology:C0",
+   "source": "audit-unreviewed",
+   "note": "C0 'Sites and bounded comparison' builds the same étale/pro-étale sites for the cohomological theory."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A1",
+   "other": "DiamondsAndVStacks:D2",
+   "source": "audit-unreviewed",
+   "note": "D2 'Pro-étale and v-topologies' constructs the pro-étale topology on the diamond side; the corrected covering convention must be stated once."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A1",
+   "other": "PerfectoidSpaces:P3",
+   "source": "audit-unreviewed",
+   "note": "A1 owns finite étale and étale geometry of adic spaces, which this layer compares with the perfectoid category."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A1",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+   "source": "audit-unreviewed",
+   "note": "A1 builds the small étale and finite étale sites on top of the rational basis and keeps higher-rank field pairs (K,K⁺), i.e. this layer's arbitrary-rank Spa points, as a standing requirement."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A1",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+   "source": "audit-unreviewed",
+   "note": "A1 asks for sheafiness of finite étale algebras `in the required situations`, which consumes this layer's sheafiness predicate."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A1",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+   "source": "audit-unreviewed",
+   "note": "A1 defines étale morphisms by a local open-immersion/finite-étale description, so it needs and restates this layer's open immersions of analytic adic spaces."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A2",
+   "other": "AdicSpacesPartII:F0",
+   "source": "audit-unreviewed",
+   "note": "F0 explicitly absorbs 'ordinary geometric portions of A1–A2', including properness/smoothness comparisons with formal models."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A2",
+   "other": "AdicSpacesPartII:R0",
+   "source": "audit-unreviewed",
+   "note": "A2 names AdicSpacesPartII as canonical owner; R0 states the separatedness, finite, smooth and étale morphism package."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A2",
+   "other": "AdicSpacesPartII:R1",
+   "source": "audit-unreviewed",
+   "note": "R1 owns the adic analytification of finite-type schemes and the properness/GAGA comparison A2 also lists."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A2",
+   "other": "AdicSpacesPartII:R2",
+   "source": "audit-unreviewed",
+   "note": "R2 owns admissible formal schemes, blow-ups and the adic generic-fibre functor, which A2 restates."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A2",
+   "other": "ClassicalAdicEtaleCohomology:H1",
+   "source": "audit",
+   "note": "A2 supplies formal schemes, admissible formal models and their generic fibres 'in the scope required by H1', overlapping H1's formal-scheme targets."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A2",
+   "other": "ClassicalAdicEtaleCohomology:H1",
+   "source": "audit-unreviewed",
+   "note": "H1 owns the formal-model specialization and nearby-cycle comparison that A2's formal-model paragraph hands off."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A2",
+   "other": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+   "source": "audit",
+   "note": "A2 supplies formal schemes, admissible formal models and generic fibres in the scope required by this stage."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A2",
+   "other": "DiamondsAndVStacks:D3",
+   "source": "audit-unreviewed",
+   "note": "Owns separatedness and the classical analytic geometry that D3 requires; the separatedness/étale morphism-property bookkeeping recurs on the adic side."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A2",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+   "source": "link-rescope",
+   "note": "A2 and its PartII owner import Layer 5's locally finite-type morphisms and prove the comparison with Huber's definition in the noetherian analytic scope. They use Layer 5's closed polydiscs as the base case of balls, adding relative balls over an affinoid pair. A2 keeps tori, continuous Kähler differentials, the analytic Jacobian criterion, smooth morphisms, diagonals, separated, proper and partia"
+  },
+  {
+   "layer": "AdicEtaleGeometry:A3",
+   "other": "AdicSpacesPartII:R3",
+   "source": "audit-unreviewed",
+   "note": "R3 owns the affinoid coherent-sheaf equivalence, acyclicity and Kiehl-type finiteness — the coherent-module theory whose nonnoetherian strengthening A3 needs."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A3",
+   "other": "DiamondsAndVStacks:D6",
+   "source": "audit-unreviewed",
+   "note": "D6 owns the diamond comparison A3 is forbidden to use; the finite-stage approximation is the analytic replacement for its locality statement."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A3",
+   "other": "PerfectoidSpaces:P2",
+   "source": "audit-unreviewed",
+   "note": "A3's inputs P2–P5 include rational localization and sheafiness for perfectoid pairs; the completed-localization and gluing statements overlap."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A4",
+   "other": "AdicSpacesPartII:R5",
+   "source": "audit-unreviewed",
+   "note": "R5's sousperfectoid class and its local affinoid descriptions cover the same 'which completions stay perfectoid' question."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A4",
+   "other": "DiamondsAndVStacks:D6",
+   "source": "audit-unreviewed",
+   "note": "A4 states that Spd(A,A⁺), diamond representability and the agreement of the analytic and diamond étale sites are owned by D6; the perfectoid-cover presentation is the shared object."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A4",
+   "other": "PerfectoidSpaces:P2",
+   "source": "audit-unreviewed",
+   "note": "P2 owns the perfectoidness of uniform completions and the tilting correspondence that A4's uniform-completion argument requires."
+  },
+  {
+   "layer": "AdicEtaleGeometry:A4",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+   "source": "audit-unreviewed",
+   "note": "A4 wants invariance of the valuation spectrum under uniform completion, which consumes exactly this layer's Spv/Cont API rather than rebuilding it."
+  },
+  {
+   "layer": "AdicSpacesPartII:F0",
+   "other": "AdicEtaleGeometry:A0",
+   "source": "audit-unreviewed",
+   "note": "F0 says it 'includes original diamond AdicEtaleGeometry A0 and ordinary geometric portions of A1–A2', so the fibre-product constructions are duplicated verbatim."
+  },
+  {
+   "layer": "AdicSpacesPartII:F0",
+   "other": "AdicEtaleGeometry:A2",
+   "source": "audit-unreviewed",
+   "note": "F0 explicitly absorbs 'ordinary geometric portions of A1–A2', including properness/smoothness comparisons with formal models."
+  },
+  {
+   "layer": "AdicSpacesPartII:F0",
+   "other": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+   "source": "audit",
+   "note": "F0 constructs Spf of complete noetherian adic rings and completion along closed subschemes, the formal schemes used here."
+  },
+  {
+   "layer": "AdicSpacesPartII:F0",
+   "other": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+   "source": "audit-unreviewed",
+   "note": "H1 constructs formal schemes of Huber's type (S) and the specialization map, overlapping F0's formal-scheme prefix."
+  },
+  {
+   "layer": "AdicSpacesPartII:R0",
+   "other": "AdicEtaleGeometry:A0",
+   "source": "audit-unreviewed",
+   "note": "A0 itself names AdicSpacesPartII as the canonical owner; R0 states the same completed tensor product, plus-ring construction, universal property and gluing to fibre products."
+  },
+  {
+   "layer": "AdicSpacesPartII:R0",
+   "other": "AdicEtaleGeometry:A1",
+   "source": "audit-unreviewed",
+   "note": "A1's own first paragraph assigns the ordinary finite/étale morphism constructions to AdicSpacesPartII's early prefix, which is R0."
+  },
+  {
+   "layer": "AdicSpacesPartII:R0",
+   "other": "AdicEtaleGeometry:A2",
+   "source": "audit-unreviewed",
+   "note": "A2 names AdicSpacesPartII as canonical owner; R0 states the separatedness, finite, smooth and étale morphism package."
+  },
+  {
+   "layer": "AdicSpacesPartII:R0",
+   "other": "PerfectoidSpaces:P2",
+   "source": "audit-unreviewed",
+   "note": "P2 constructs fibre products of perfectoid spaces 'using A0' and their affine formulas, consuming this same completed tensor algebra."
+  },
+  {
+   "layer": "AdicSpacesPartII:R0",
+   "other": "PerfectoidSpaces:P4",
+   "source": "audit-unreviewed",
+   "note": "R0 owns morphisms and admissible affinoid products, the fibre-product input needed for diagonals and separatedness."
+  },
+  {
+   "layer": "AdicSpacesPartII:R0",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+   "source": "audit-unreviewed",
+   "note": "R0 assumes this layer's Huber/Tate algebra and adds completed tensor products; it restates strong noetherianness as a hypothesis on the affinoid products it glues, so the strongly-noetherian vocabulary is shared but the constructions are not."
+  },
+  {
+   "layer": "AdicSpacesPartII:R0",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+   "source": "audit-unreviewed",
+   "note": "R0 takes the sheafiness/localisation compatibility of this layer as an input and glues it to fibre products; the structure presheaf is assumed, not rebuilt."
+  },
+  {
+   "layer": "AdicSpacesPartII:R0",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+   "source": "audit-unreviewed",
+   "note": "R0's `sheafiness/localization compatibility for the affinoid products actually needed` is this layer's conclusion applied to completed tensor products."
+  },
+  {
+   "layer": "AdicSpacesPartII:R0",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+   "source": "audit-unreviewed",
+   "note": "R0 states the same open and closed immersions and the same presentation-independence obligation, adding separatedness, finite, smooth and étale maps; the two stages own the same open/closed-immersion construction, this one without fibre products."
+  },
+  {
+   "layer": "AdicSpacesPartII:R0",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+   "source": "link-rescope",
+   "note": "R0 imports Layer 5's open and closed immersions. In the locally strongly noetherian analytic category it adds only the comparison between a closed analytic subspace with its coherent ideal sheaf and a Layer 5 closed immersion; quotients of strongly noetherian Tate affinoids by closed ideals are sheafy by Layer 4. Separated, finite, smooth and étale maps, completed tensor products, fibre products, "
+  },
+  {
+   "layer": "AdicSpacesPartII:R1",
+   "other": "AdicEtaleGeometry:A2",
+   "source": "audit-unreviewed",
+   "note": "R1 owns the adic analytification of finite-type schemes and the properness/GAGA comparison A2 also lists."
+  },
+  {
+   "layer": "AdicSpacesPartII:R1",
+   "other": "ClassicalAdicEtaleCohomology:H5",
+   "source": "audit",
+   "note": "R1 constructs the adic analytification of finite-type schemes with the properness comparison and proper GAGA, the algebraic/analytic comparison input of H5."
+  },
+  {
+   "layer": "AdicSpacesPartII:R1",
+   "other": "ClassicalAdicEtaleCohomology:H5",
+   "source": "audit-unreviewed",
+   "note": "H5 owns the algebraic/analytic comparison and compactification for smooth curves, which consumes R1's analytification and GAGA."
+  },
+  {
+   "layer": "AdicSpacesPartII:R2",
+   "other": "AdicEtaleGeometry:A2",
+   "source": "audit-unreviewed",
+   "note": "R2 owns admissible formal schemes, blow-ups and the adic generic-fibre functor, which A2 restates."
+  },
+  {
+   "layer": "AdicSpacesPartII:R2",
+   "other": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+   "source": "audit",
+   "note": "R2 constructs admissible formal schemes, formal completion and the adic generic-fibre functor, the d(X) construction this stage starts from."
+  },
+  {
+   "layer": "AdicSpacesPartII:R2",
+   "other": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+   "source": "audit-unreviewed",
+   "note": "H1 constructs the formal completion and specialization comparison map on the same formal/adic carriers."
+  },
+  {
+   "layer": "AdicSpacesPartII:R2",
+   "other": "ClassicalAdicEtaleCohomology:H5",
+   "source": "audit",
+   "note": "R2 constructs admissible formal schemes and compares a model's formal generic fibre with the analytification of its algebraic generic fibre, the formal-model prerequisites of H5's compactification."
+  },
+  {
+   "layer": "AdicSpacesPartII:R3",
+   "other": "AdicEtaleGeometry:A3",
+   "source": "audit-unreviewed",
+   "note": "R3 owns the affinoid coherent-sheaf equivalence, acyclicity and Kiehl-type finiteness — the coherent-module theory whose nonnoetherian strengthening A3 needs."
+  },
+  {
+   "layer": "AdicSpacesPartII:R3",
+   "other": "ClassicalAdicEtaleCohomology:H3",
+   "source": "audit",
+   "note": "R3 constructs the trace for finite locally free algebras and finite étale analytic maps with its base-change and composition laws and its compatibility with the algebraic trace, the finite-étale half of H3's trace normalization."
+  },
+  {
+   "layer": "AdicSpacesPartII:R3",
+   "other": "PerfectoidSpaces:P2",
+   "source": "audit-unreviewed",
+   "note": "P2 proves the sheaf theorem and all-degree almost acyclicity on perfectoid affinoids and supplies the acyclic basis comparison R3 also states."
+  },
+  {
+   "layer": "AdicSpacesPartII:R3",
+   "other": "PerfectoidSpaces:P9",
+   "source": "audit-unreviewed",
+   "note": "P9 descends finite locally free modules along torsors and constructs completed external tensor products, overlapping R3's locally free sheaves and base change."
+  },
+  {
+   "layer": "AdicSpacesPartII:R4",
+   "other": "AdicEtaleGeometry:A1",
+   "source": "audit-unreviewed",
+   "note": "R4 is declared to be the 'early site reexport' of A1 — 'transport the elementary site and sheaf operations from A1 without constructing a second site'."
+  },
+  {
+   "layer": "AdicSpacesPartII:R4",
+   "other": "ClassicalAdicEtaleCohomology:H0",
+   "source": "audit-unreviewed",
+   "note": "H0 separately owns module sheaves, stalks, derived global sections and direct image on the analytic adic étale site."
+  },
+  {
+   "layer": "AdicSpacesPartII:R4",
+   "other": "DiamondEtaleCohomology:C0",
+   "source": "audit-unreviewed",
+   "note": "C0 constructs the same étale/pro-étale sites for the diamond-side cohomology."
+  },
+  {
+   "layer": "AdicSpacesPartII:R5",
+   "other": "AdicEtaleGeometry:A0",
+   "source": "audit-unreviewed",
+   "note": "The fibre product X_∞ ×_L U is an instance of A0's completed tensor product and pullback construction."
+  },
+  {
+   "layer": "AdicSpacesPartII:R5",
+   "other": "AdicEtaleGeometry:A4",
+   "source": "audit-unreviewed",
+   "note": "R5's sousperfectoid class and its local affinoid descriptions cover the same 'which completions stay perfectoid' question."
+  },
+  {
+   "layer": "AdicSpacesPartII:R5",
+   "other": "PerfectoidSpaces:P9",
+   "source": "audit-unreviewed",
+   "note": "P9 constructs the completed external tensor product for affinoid smooth rigid weight spaces, proves the sheaf condition and descends finite locally free modules — the same product-with-weight-space statement, and it names R5's sousperfectoid stage as its input."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H0",
+   "other": "AdicEtaleGeometry:A1",
+   "source": "audit",
+   "note": "A1 constructs the small étale site of analytic adic spaces with geometric stalks and enough points for field pairs (K,K⁺), H0's first and fourth targets."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H0",
+   "other": "AdicSpacesPartII:R4",
+   "source": "audit-unreviewed",
+   "note": "H0 separately owns module sheaves, stalks, derived global sections and direct image on the analytic adic étale site."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H0",
+   "other": "DiamondsAndVStacks:D0",
+   "source": "audit",
+   "note": "D0 builds sheaves of modules, enough injectives, derived global sections and the Leray and Čech-to-sheaf spectral sequences on ordinary sites, the general-site part of H0."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H0",
+   "other": "PerfectoidSpaces:P7",
+   "source": "audit-unreviewed",
+   "note": "H0 also refers to tilde-limits when transporting étale sheaves along them."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H1",
+   "other": "AdicEtaleGeometry:A2",
+   "source": "audit",
+   "note": "A2 supplies formal schemes, admissible formal models and their generic fibres 'in the scope required by H1', overlapping H1's formal-scheme targets."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H1",
+   "other": "AdicEtaleGeometry:A2",
+   "source": "audit-unreviewed",
+   "note": "H1 owns the formal-model specialization and nearby-cycle comparison that A2's formal-model paragraph hands off."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H1",
+   "other": "DiamondEtaleCohomology:C5",
+   "source": "audit",
+   "note": "C5 constructs Zariski–Riemann models and proves the henselian-ring result cited as Huber [Hub93b], whose proof it says is owned jointly with H1."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H1",
+   "other": "DiamondEtaleCohomology:C5",
+   "source": "audit-unreviewed",
+   "note": "Owns formal models, specialization and the henselian/approximation inputs (its H1:henselian substage), which this layer cites as jointly owned; the henselian-ring result appears in both."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H1",
+   "other": "DiamondEtaleCohomology:C8",
+   "source": "audit",
+   "note": "C8 proves the wild-inertia pro-p lemma and the tame-inertia embedding for valued fields, the valuation-theoretic inputs of H1's nearby-cycle proof."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+   "other": "AdicEtaleGeometry:A2",
+   "source": "audit",
+   "note": "A2 supplies formal schemes, admissible formal models and generic fibres in the scope required by this stage."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+   "other": "AdicSpacesPartII:F0",
+   "source": "audit",
+   "note": "F0 constructs Spf of complete noetherian adic rings and completion along closed subschemes, the formal schemes used here."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+   "other": "AdicSpacesPartII:F0",
+   "source": "audit-unreviewed",
+   "note": "H1 constructs formal schemes of Huber's type (S) and the specialization map, overlapping F0's formal-scheme prefix."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+   "other": "AdicSpacesPartII:R2",
+   "source": "audit",
+   "note": "R2 constructs admissible formal schemes, formal completion and the adic generic-fibre functor, the d(X) construction this stage starts from."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+   "other": "AdicSpacesPartII:R2",
+   "source": "audit-unreviewed",
+   "note": "H1 constructs the formal completion and specialization comparison map on the same formal/adic carriers."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H1:henselian",
+   "other": "DiamondEtaleCohomology:C5",
+   "source": "audit",
+   "note": "C5 proves the Zariski–Riemann limit/cohomology comparisons and the henselian-ring result [Hub93b], explicitly owned jointly with this stage."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H1:henselian",
+   "other": "PerfectoidSpaces:P5",
+   "source": "audit",
+   "note": "P5 proves the henselian-pair approximation theorem (Gabber–Ramero 5.4.53) with finite-stage approximation of étale data, overlapping this stage's approximation and continuity targets."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+   "other": "DiamondEtaleCohomology:C8",
+   "source": "audit",
+   "note": "C8 proves the wild-inertia pro-p lemma 21.17 and the tame-inertia embedding, the same valuation-theoretic Sylow/tame inputs as 4.2.1–4.2.2."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H2",
+   "other": "DiamondEtaleCohomology:C1",
+   "source": "audit-unreviewed",
+   "note": "Owns invariance under extension of an algebraically closed valued field, which C1 consumes; the valued-field-invariance target is stated in both, with H2 owning the classical adic proof."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H2",
+   "other": "DiamondEtaleCohomology:C6",
+   "source": "audit-unreviewed",
+   "note": "Proves the classical adic version of field-invariance; C6 states explicitly that it 'is not the classical field-invariance input H2', so the two are the same theorem in different scopes."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H2",
+   "other": "PerfectoidSpaces:P5",
+   "source": "audit",
+   "note": "P5 proves finite-stage descent of finite étale and qcqs étale objects along cofiltered limits of affinoid perfectoid pairs, overlapping H2's approximation and finite-stage descent target."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H3",
+   "other": "AdicSpacesPartII:R3",
+   "source": "audit",
+   "note": "R3 constructs the trace for finite locally free algebras and finite étale analytic maps with its base-change and composition laws and its compatibility with the algebraic trace, the finite-étale half of H3's trace normalization."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H3",
+   "other": "DiamondSixOperations:S1",
+   "source": "audit",
+   "note": "S1 constructs Rf_! = R f̄_* j_! from the canonical compactification with base change, composition, the projection formula and the cohomological-dimension estimate — H3's proper-support and dimension-bound targets in the diamond setting."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H3",
+   "other": "DiamondSixOperations:S5",
+   "source": "audit-unreviewed",
+   "note": "Owns proper support, traces and Poincaré duality for curves, which supplies the normalization Rf^!Λ ≃ Λ(1)[2] used in 24.1; the trace/duality target is stated there and consumed here."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H4",
+   "other": "DiamondEtaleCohomology:C1",
+   "source": "audit",
+   "note": "C1's reduction to strictly totally disconnected bases proves the geometric-field, relative-ball approximation and extension-by-zero assertions (ECD 16.2–16.5), the same relative-ball approximation over an approximating base as H4's first target."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H4",
+   "other": "DiamondEtaleCohomology:C6",
+   "source": "audit",
+   "note": "C6 is ECD 19.5 and says it uses 'the annulus/open-ball calculations in H4', the prime-to-p cohomology of discs, punctured discs and annuli that H4's second target computes."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H4",
+   "other": "DiamondEtaleCohomology:C6",
+   "source": "audit-unreviewed",
+   "note": "Supplies the annulus/open-ball calculations this proof runs on; those computations are stated there."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H4",
+   "other": "DiamondEtaleCohomology:C7",
+   "source": "audit-unreviewed",
+   "note": "Owns constructibility in curve families and annulus computations — the classical adic constructibility input feeding the diamond statements here."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H5",
+   "other": "AdicSpacesPartII:R1",
+   "source": "audit",
+   "note": "R1 constructs the adic analytification of finite-type schemes with the properness comparison and proper GAGA, the algebraic/analytic comparison input of H5."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H5",
+   "other": "AdicSpacesPartII:R1",
+   "source": "audit-unreviewed",
+   "note": "H5 owns the algebraic/analytic comparison and compactification for smooth curves, which consumes R1's analytification and GAGA."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H5",
+   "other": "AdicSpacesPartII:R2",
+   "source": "audit",
+   "note": "R2 constructs admissible formal schemes and compares a model's formal generic fibre with the analytification of its algebraic generic fibre, the formal-model prerequisites of H5's compactification."
+  },
+  {
+   "layer": "ClassicalAdicEtaleCohomology:H5",
+   "other": "DiamondSixOperations:S6",
+   "source": "audit-unreviewed",
+   "note": "Owns the algebraic/analytic comparison and compactification of smooth curves used in the reduction here."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C0",
+   "other": "AdicEtaleGeometry:A1",
+   "source": "audit-unreviewed",
+   "note": "C0 'Sites and bounded comparison' builds the same étale/pro-étale sites for the cohomological theory."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C0",
+   "other": "AdicSpacesPartII:R4",
+   "source": "audit-unreviewed",
+   "note": "C0 constructs the same étale/pro-étale sites for the diamond-side cohomology."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C0",
+   "other": "DiamondsAndVStacks:D0",
+   "source": "audit-unreviewed",
+   "note": "Builds the étale/quasi-pro-étale/v sites and their morphisms of topoi on top of these ordinary site foundations; the coherence/algebraicity and enough-geometric-points targets are the perfectoid instances of D0's topos interfaces."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C0",
+   "other": "DiamondsAndVStacks:D2",
+   "source": "audit-unreviewed",
+   "note": "Constructs the v-site of a small v-stack and the quasi-pro-étale site of a diamond on top of these; the site-construction targets are shared, with C0 adding the topoi morphisms."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C0",
+   "other": "DiamondsAndVStacks:D3",
+   "source": "audit-unreviewed",
+   "note": "The section lemma for balls is cited there as 'whose ownership is D3', so that target is stated in both layers with ownership assigned here."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C0",
+   "other": "DiamondsAndVStacks:D4",
+   "source": "audit-unreviewed",
+   "note": "Constructs the v-site of a small v-stack, so the small-v-stack definition and its smallness conditions are presupposed there."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C0",
+   "other": "DiamondsAndVStacks:D5",
+   "source": "audit-unreviewed",
+   "note": "Constructs the étale site of a locally spatial diamond, so the locally spatial class is a shared prerequisite."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C1",
+   "other": "ClassicalAdicEtaleCohomology:H2",
+   "source": "audit-unreviewed",
+   "note": "Owns invariance under extension of an algebraically closed valued field, which C1 consumes; the valued-field-invariance target is stated in both, with H2 owning the classical adic proof."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C1",
+   "other": "ClassicalAdicEtaleCohomology:H4",
+   "source": "audit",
+   "note": "C1's reduction to strictly totally disconnected bases proves the geometric-field, relative-ball approximation and extension-by-zero assertions (ECD 16.2–16.5), the same relative-ball approximation over an approximating base as H4's first target."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C1",
+   "other": "DiamondsAndVStacks:D6",
+   "source": "audit-unreviewed",
+   "note": "Supplies the analytic comparison X ↦ X^♢ on which 16.1's reduction runs."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C2",
+   "other": "DiamondSixOperations:S2",
+   "source": "audit-unreviewed",
+   "note": "Applies E3's fibrewise left Kan extension and hyperdescent along a v-hypercover to the same coefficient categories, so the coherent-diagram machinery recurs."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C2",
+   "other": "DiamondsAndVStacks:D1",
+   "source": "audit-unreviewed",
+   "note": "Defines D_ét by testing on strictly totally disconnected perfectoids, so it depends on this layer's class and its cover construction."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C2",
+   "other": "VStackSheavesAndLisseCategories:VS2",
+   "source": "audit-unreviewed",
+   "note": "Builds D_solid(X,Λ) 'over the appropriate cutoffs on a small v-stack' with the same warning that the unrestricted large category need not be presentable at one universe — the cutoff/adjoint construction is duplicated in the solid setting."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C3",
+   "other": "DiamondSixOperations:S1",
+   "source": "audit-unreviewed",
+   "note": "Proves agreement of Rf! with the étale left adjoint and the projection formula, continuing this layer's identity list into the proper-support operations."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C3",
+   "other": "VStackSheavesAndLisseCategories:VS0",
+   "source": "audit-unreviewed",
+   "note": "Extends the allowed operations to Artin v-stacks and proves 'the comparison with existing small-v-stack ECD categories' — the same four operations with a larger class of objects."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C4",
+   "other": "DiamondSixOperations:S0",
+   "source": "audit-unreviewed",
+   "note": "Defines compactifiability by an open immersion followed by a partially proper morphism and proves ECD 22.3 'using C4's canonical compactification' — the envelope and its base-change/composition properties are shared, with C4 owning the construction."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C4",
+   "other": "DiamondSixOperations:S1",
+   "source": "audit-unreviewed",
+   "note": "Uses the canonical factorization Y ↪ Ȳ → X to define Rf!, so the envelope's universal property and non-spatiality are used directly."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C4",
+   "other": "DiamondsAndVStacks:D5",
+   "source": "audit-unreviewed",
+   "note": "Builds canonical compactifications on D5's small-v-stack geometry and is told not to assume they remain spatial, so the spatiality predicate and the maximal-Hausdorff quotient are used in both."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C5",
+   "other": "ClassicalAdicEtaleCohomology:H1",
+   "source": "audit",
+   "note": "C5 constructs Zariski–Riemann models and proves the henselian-ring result cited as Huber [Hub93b], whose proof it says is owned jointly with H1."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C5",
+   "other": "ClassicalAdicEtaleCohomology:H1",
+   "source": "audit-unreviewed",
+   "note": "Owns formal models, specialization and the henselian/approximation inputs (its H1:henselian substage), which this layer cites as jointly owned; the henselian-ring result appears in both."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C5",
+   "other": "ClassicalAdicEtaleCohomology:H1:henselian",
+   "source": "audit",
+   "note": "C5 proves the Zariski–Riemann limit/cohomology comparisons and the henselian-ring result [Hub93b], explicitly owned jointly with this stage."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C5",
+   "other": "DiamondSixOperations:S1",
+   "source": "audit-unreviewed",
+   "note": "Builds Rf! = Rf̄_* j_! directly out of this layer's j_! and the proper pushforward, so the extension-by-zero construction is a shared interface."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C6",
+   "other": "ClassicalAdicEtaleCohomology:H2",
+   "source": "audit-unreviewed",
+   "note": "Proves the classical adic version of field-invariance; C6 states explicitly that it 'is not the classical field-invariance input H2', so the two are the same theorem in different scopes."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C6",
+   "other": "ClassicalAdicEtaleCohomology:H4",
+   "source": "audit",
+   "note": "C6 is ECD 19.5 and says it uses 'the annulus/open-ball calculations in H4', the prime-to-p cohomology of discs, punctured discs and annuli that H4's second target computes."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C6",
+   "other": "ClassicalAdicEtaleCohomology:H4",
+   "source": "audit-unreviewed",
+   "note": "Supplies the annulus/open-ball calculations this proof runs on; those computations are stated there."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C7",
+   "other": "ClassicalAdicEtaleCohomology:H4",
+   "source": "audit-unreviewed",
+   "note": "Owns constructibility in curve families and annulus computations — the classical adic constructibility input feeding the diamond statements here."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C7",
+   "other": "VStackSheavesAndLisseCategories:VS3",
+   "source": "audit-unreviewed",
+   "note": "Develops lisse categories and coefficients, i.e. the local-system half of this constructibility package, on Artin v-stacks."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C8",
+   "other": "ClassicalAdicEtaleCohomology:H1",
+   "source": "audit",
+   "note": "C8 proves the wild-inertia pro-p lemma and the tame-inertia embedding for valued fields, the valuation-theoretic inputs of H1's nearby-cycle proof."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C8",
+   "other": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+   "source": "audit",
+   "note": "C8 proves the wild-inertia pro-p lemma 21.17 and the tame-inertia embedding, the same valuation-theoretic Sylow/tame inputs as 4.2.1–4.2.2."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C8",
+   "other": "DiamondSixOperations:S0",
+   "source": "audit-unreviewed",
+   "note": "Packages locally finite dim.trg as one of the three eligibility predicates, so the invariant defined here is used there as a hypothesis."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C8",
+   "other": "DiamondSixOperations:S1",
+   "source": "audit-unreviewed",
+   "note": "Uses this layer's dimension estimate for the 3d bound on R^i f̄_*, and the exactness of direct image along a qc separated quasi-pro-étale inclusion must 'come from C8'; the dim.trg targets are shared."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C9",
+   "other": "DiamondSixOperations:S4",
+   "source": "audit-unreviewed",
+   "note": "Uses the compactness/direct-sum criterion for cohomological smoothness, which is one of the characterizations proved here."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C9",
+   "other": "DiamondSixOperations:S6",
+   "source": "audit-unreviewed",
+   "note": "Supplies the compact-object characterization for 𝔽_ℓ coefficients (bounded constructible complexes) in which 25.1 is stated."
+  },
+  {
+   "layer": "DiamondEtaleCohomology:C9",
+   "other": "VStackSheavesAndLisseCategories:VS4",
+   "source": "audit-unreviewed",
+   "note": "Proves compact generation for sheaves on Bun_G strata — the same compact-generation question in the Artin v-stack setting."
+  },
+  {
+   "layer": "DiamondSixOperations:S0",
+   "other": "DiamondEtaleCohomology:C4",
+   "source": "audit-unreviewed",
+   "note": "Defines compactifiability by an open immersion followed by a partially proper morphism and proves ECD 22.3 'using C4's canonical compactification' — the envelope and its base-change/composition properties are shared, with C4 owning the construction."
+  },
+  {
+   "layer": "DiamondSixOperations:S0",
+   "other": "DiamondEtaleCohomology:C8",
+   "source": "audit-unreviewed",
+   "note": "Packages locally finite dim.trg as one of the three eligibility predicates, so the invariant defined here is used there as a hypothesis."
+  },
+  {
+   "layer": "DiamondSixOperations:S0",
+   "other": "DiamondsAndVStacks:D5",
+   "source": "audit-unreviewed",
+   "note": "Packages the eligible class by 'compactifiable, representable in locally spatial diamonds, locally finite dim.trg' — the representability notions defined here."
+  },
+  {
+   "layer": "DiamondSixOperations:S1",
+   "other": "ClassicalAdicEtaleCohomology:H3",
+   "source": "audit",
+   "note": "S1 constructs Rf_! = R f̄_* j_! from the canonical compactification with base change, composition, the projection formula and the cohomological-dimension estimate — H3's proper-support and dimension-bound targets in the diamond setting."
+  },
+  {
+   "layer": "DiamondSixOperations:S1",
+   "other": "DiamondEtaleCohomology:C3",
+   "source": "audit-unreviewed",
+   "note": "Proves agreement of Rf! with the étale left adjoint and the projection formula, continuing this layer's identity list into the proper-support operations."
+  },
+  {
+   "layer": "DiamondSixOperations:S1",
+   "other": "DiamondEtaleCohomology:C4",
+   "source": "audit-unreviewed",
+   "note": "Uses the canonical factorization Y ↪ Ȳ → X to define Rf!, so the envelope's universal property and non-spatiality are used directly."
+  },
+  {
+   "layer": "DiamondSixOperations:S1",
+   "other": "DiamondEtaleCohomology:C5",
+   "source": "audit-unreviewed",
+   "note": "Builds Rf! = Rf̄_* j_! directly out of this layer's j_! and the proper pushforward, so the extension-by-zero construction is a shared interface."
+  },
+  {
+   "layer": "DiamondSixOperations:S1",
+   "other": "DiamondEtaleCohomology:C8",
+   "source": "audit-unreviewed",
+   "note": "Uses this layer's dimension estimate for the 3d bound on R^i f̄_*, and the exactness of direct image along a qc separated quasi-pro-étale inclusion must 'come from C8'; the dim.trg targets are shared."
+  },
+  {
+   "layer": "DiamondSixOperations:S2",
+   "other": "DiamondEtaleCohomology:C2",
+   "source": "audit-unreviewed",
+   "note": "Applies E3's fibrewise left Kan extension and hyperdescent along a v-hypercover to the same coefficient categories, so the coherent-diagram machinery recurs."
+  },
+  {
+   "layer": "DiamondSixOperations:S2",
+   "other": "DiamondsAndVStacks:D4",
+   "source": "audit-unreviewed",
+   "note": "Defines small v-stacks and their atlases, the objects along whose hypercovers this construction descends."
+  },
+  {
+   "layer": "DiamondSixOperations:S2",
+   "other": "VStackSheavesAndLisseCategories:VS0",
+   "source": "audit-unreviewed",
+   "note": "Constructs partial compact-support functors for Artin v-stacks 'whose structural map is not in the original representable ECD class', extending this layer's Rf! and warning that π-sharp is not an unqualified ECD Rf!."
+  },
+  {
+   "layer": "DiamondSixOperations:S3",
+   "other": "VStackSheavesAndLisseCategories:VS0",
+   "source": "audit-unreviewed",
+   "note": "Extends 'pullback, exceptional pullback and their normalization' to Artin v-stacks, so the exceptional inverse image recurs there with wider eligibility hypotheses."
+  },
+  {
+   "layer": "DiamondSixOperations:S4",
+   "other": "DiamondEtaleCohomology:C9",
+   "source": "audit-unreviewed",
+   "note": "Uses the compactness/direct-sum criterion for cohomological smoothness, which is one of the characterizations proved here."
+  },
+  {
+   "layer": "DiamondSixOperations:S4",
+   "other": "VStackSheavesAndLisseCategories:VS0",
+   "source": "audit-unreviewed",
+   "note": "Defines Artin v-stacks by 'the cohomologically smooth atlas condition of FS IV.1', so the ℓ-cohomological smoothness predicate defined here is a hypothesis there."
+  },
+  {
+   "layer": "DiamondSixOperations:S5",
+   "other": "ClassicalAdicEtaleCohomology:H3",
+   "source": "audit-unreviewed",
+   "note": "Owns proper support, traces and Poincaré duality for curves, which supplies the normalization Rf^!Λ ≃ Λ(1)[2] used in 24.1; the trace/duality target is stated there and consumed here."
+  },
+  {
+   "layer": "DiamondSixOperations:S5",
+   "other": "DiamondsAndVStacks:D6",
+   "source": "audit-unreviewed",
+   "note": "Constructs Spd ℚ_p and X^♢ for analytic adic spaces, the objects 24.4 and 24.5 are about."
+  },
+  {
+   "layer": "DiamondSixOperations:S5",
+   "other": "PerfectoidSpaces:P1",
+   "source": "audit-unreviewed",
+   "note": "Owns perfectoid Tate rings and marked untilts, out of which the perfectoid ball and punctured perfectoid disc are built."
+  },
+  {
+   "layer": "DiamondSixOperations:S6",
+   "other": "ClassicalAdicEtaleCohomology:H5",
+   "source": "audit-unreviewed",
+   "note": "Owns the algebraic/analytic comparison and compactification of smooth curves used in the reduction here."
+  },
+  {
+   "layer": "DiamondSixOperations:S6",
+   "other": "DiamondEtaleCohomology:C9",
+   "source": "audit-unreviewed",
+   "note": "Supplies the compact-object characterization for 𝔽_ℓ coefficients (bounded constructible complexes) in which 25.1 is stated."
+  },
+  {
+   "layer": "DiamondSixOperations:S6",
+   "other": "VStackSheavesAndLisseCategories:VS5",
+   "source": "audit-unreviewed",
+   "note": "Develops duality and admissible objects for Artin v-stacks; the biduality/dualizability question recurs there in the lisse/solid setting."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D0",
+   "other": "ClassicalAdicEtaleCohomology:H0",
+   "source": "audit",
+   "note": "D0 builds sheaves of modules, enough injectives, derived global sections and the Leray and Čech-to-sheaf spectral sequences on ordinary sites, the general-site part of H0."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D0",
+   "other": "DiamondEtaleCohomology:C0",
+   "source": "audit-unreviewed",
+   "note": "Builds the étale/quasi-pro-étale/v sites and their morphisms of topoi on top of these ordinary site foundations; the coherence/algebraicity and enough-geometric-points targets are the perfectoid instances of D0's topos interfaces."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D0",
+   "other": "PerfectoidSpaces:P6",
+   "source": "audit-unreviewed",
+   "note": "States that it 'instantiates the κ-small perfectoid-space definitions and closure theorems of ECD 4.2–4.4 using D0's abstract cardinal lemma', so the cutoff-cardinal target is stated here and consumed there."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D0",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+   "source": "audit-unreviewed",
+   "note": "Tau Ceti's own adic-spaces roadmap owns the spectrality of Spv A and, in its §1.3, 'pro-constructible subspaces … the standard calculus: intersections, inverse images …' — the same pro-constructible package this layer asks for, and it is the code already in TauCeti/Topology/Spectral/."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D0",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+   "source": "link-rescope",
+   "note": "D0 imports Layer 1's pro-constructible sets, the patch topology and the spectrality theorem. It adds generalisation, spectral maps, limits of spectral spaces, the quotient criteria of ECD §2, profinite decompositions, extremally disconnected covers and the cardinal lemma. Layer 1 keeps its present scope."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D1",
+   "other": "DiamondEtaleCohomology:C2",
+   "source": "audit-unreviewed",
+   "note": "Defines D_ét by testing on strictly totally disconnected perfectoids, so it depends on this layer's class and its cover construction."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D1",
+   "other": "PerfectoidSpaces:P4",
+   "source": "audit-unreviewed",
+   "note": "Owns morphisms and quotients of perfectoid spaces, i.e. the objects D1 classifies; D1 lists P4 among its requirements."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D1",
+   "other": "PerfectoidSpaces:P6",
+   "source": "audit-unreviewed",
+   "note": "Owns the affinoid pro-étale calculus and the ECD 7.9–7.11 pro-category equivalence that this layer's countable iteration consumes; the two split ECD §7 between them."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D2",
+   "other": "AdicEtaleGeometry:A1",
+   "source": "audit-unreviewed",
+   "note": "D2 'Pro-étale and v-topologies' constructs the pro-étale topology on the diamond side; the corrected covering convention must be stated once."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D2",
+   "other": "DiamondEtaleCohomology:C0",
+   "source": "audit-unreviewed",
+   "note": "Constructs the v-site of a small v-stack and the quasi-pro-étale site of a diamond on top of these; the site-construction targets are shared, with C0 adding the topoi morphisms."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D2",
+   "other": "PerfectoidSpaces:P0",
+   "source": "audit-unreviewed",
+   "note": "Owns almost mathematics with a reusable base ideal, which supplies the almost-descent step of this layer's v-descent proof."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D2",
+   "other": "PerfectoidSpaces:P2",
+   "source": "audit-unreviewed",
+   "note": "Owns rational localization, sheafiness and perfectoid spaces themselves, i.e. the 𝒪/𝒪⁺ sheaf statements one topology down; D2 lists P2 as a requirement and lifts them to the pro-étale site."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D3",
+   "other": "AdicEtaleGeometry:A2",
+   "source": "audit-unreviewed",
+   "note": "Owns separatedness and the classical analytic geometry that D3 requires; the separatedness/étale morphism-property bookkeeping recurs on the adic side."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D3",
+   "other": "DiamondEtaleCohomology:C0",
+   "source": "audit-unreviewed",
+   "note": "The section lemma for balls is cited there as 'whose ownership is D3', so that target is stated in both layers with ownership assigned here."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D4",
+   "other": "DiamondEtaleCohomology:C0",
+   "source": "audit-unreviewed",
+   "note": "Constructs the v-site of a small v-stack, so the small-v-stack definition and its smallness conditions are presupposed there."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D4",
+   "other": "DiamondSixOperations:S2",
+   "source": "audit-unreviewed",
+   "note": "Defines small v-stacks and their atlases, the objects along whose hypercovers this construction descends."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D4",
+   "other": "VStackSheavesAndLisseCategories:VS0",
+   "source": "audit-unreviewed",
+   "note": "Defines Artin v-stacks by representable diagonals and a cohomologically smooth atlas and proves 'atlas independence and stability under fibre products' — the same atlas-independence and fibre-product statements one level up, plus 'the comparison with existing small-v-stack ECD categories'."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D5",
+   "other": "DiamondEtaleCohomology:C0",
+   "source": "audit-unreviewed",
+   "note": "Constructs the étale site of a locally spatial diamond, so the locally spatial class is a shared prerequisite."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D5",
+   "other": "DiamondEtaleCohomology:C4",
+   "source": "audit-unreviewed",
+   "note": "Builds canonical compactifications on D5's small-v-stack geometry and is told not to assume they remain spatial, so the spatiality predicate and the maximal-Hausdorff quotient are used in both."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D5",
+   "other": "DiamondSixOperations:S0",
+   "source": "audit-unreviewed",
+   "note": "Packages the eligible class by 'compactifiable, representable in locally spatial diamonds, locally finite dim.trg' — the representability notions defined here."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D6",
+   "other": "AdicEtaleGeometry:A3",
+   "source": "audit-unreviewed",
+   "note": "D6 owns the diamond comparison A3 is forbidden to use; the finite-stage approximation is the analytic replacement for its locality statement."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D6",
+   "other": "AdicEtaleGeometry:A4",
+   "source": "audit-unreviewed",
+   "note": "A4 states that Spd(A,A⁺), diamond representability and the agreement of the analytic and diamond étale sites are owned by D6; the perfectoid-cover presentation is the shared object."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D6",
+   "other": "DiamondEtaleCohomology:C1",
+   "source": "audit-unreviewed",
+   "note": "Supplies the analytic comparison X ↦ X^♢ on which 16.1's reduction runs."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D6",
+   "other": "DiamondSixOperations:S5",
+   "source": "audit-unreviewed",
+   "note": "Constructs Spd ℚ_p and X^♢ for analytic adic spaces, the objects 24.4 and 24.5 are about."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D6",
+   "other": "PerfectoidShimuraVarieties:S0",
+   "source": "audit-unreviewed",
+   "note": "D6 owns analytic adic spaces as diamonds, the target category in which these limits are taken."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D6",
+   "other": "PerfectoidSpaces:P0",
+   "source": "audit-unreviewed",
+   "note": "D6's tilting/diamond comparison reuses the same almost-module and tilting apparatus at the level of analytic adic spaces."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D6",
+   "other": "PerfectoidSpaces:P1",
+   "source": "audit-unreviewed",
+   "note": "Owns perfectoid Tate rings, tilts and marked untilts — the input objects out of which Spd ℤ_p is built here."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D6",
+   "other": "PerfectoidSpaces:P2",
+   "source": "audit-unreviewed",
+   "note": "D6 glues tilting for analytic adic spaces into the diamond comparison, overlapping the slice-equivalence statement."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D6",
+   "other": "PerfectoidSpaces:P3",
+   "source": "audit-unreviewed",
+   "note": "D6's tilting equivalence for analytic adic spaces overlaps the étale-site equivalence, though P3 forbids depending on diamondification."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D6",
+   "other": "PerfectoidSpaces:P6",
+   "source": "audit-unreviewed",
+   "note": "The v-descent/diamond-atlas theory that consumes P6's pro-étale calculus lives in the DiamondsAndVStacks D1–D3/D6 layers."
+  },
+  {
+   "layer": "DiamondsAndVStacks:D6",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+   "source": "audit-unreviewed",
+   "note": "Tau Ceti's own roadmap owns glued adic spaces, the objects X whose diamond X^♢ this layer constructs; that layer is the source of the existing Spa code and is itself not yet finished."
+  },
+  {
+   "layer": "PerfectoidShimuraVarieties:S0",
+   "other": "DiamondsAndVStacks:D6",
+   "source": "audit-unreviewed",
+   "note": "D6 owns analytic adic spaces as diamonds, the target category in which these limits are taken."
+  },
+  {
+   "layer": "PerfectoidShimuraVarieties:S0",
+   "other": "PerfectoidSpaces:P7",
+   "source": "audit-unreviewed",
+   "note": "S0 depends on P7 for the inverse systems and limits of the Shimura tower."
+  },
+  {
+   "layer": "PerfectoidShimuraVarieties:S1",
+   "other": "PerfectoidSpaces:P7",
+   "source": "audit-unreviewed",
+   "note": "S1's anticanonical tower is exactly the Frobenius-approximating integral tower this layer axiomatizes."
+  },
+  {
+   "layer": "PerfectoidShimuraVarieties:S2",
+   "other": "PerfectoidSpaces:P8",
+   "source": "audit-unreviewed",
+   "note": "S2 uses these quotient and closed-locus results for the Hodge-type embedding."
+  },
+  {
+   "layer": "PerfectoidShimuraVarieties:S4",
+   "other": "PerfectoidSpaces:P8",
+   "source": "audit-unreviewed",
+   "note": "S4 implements the same Hansen–Johansson §5 finite-group-quotient argument at infinite level for pre-abelian data."
+  },
+  {
+   "layer": "PerfectoidSpaces:P0",
+   "other": "DiamondsAndVStacks:D2",
+   "source": "audit-unreviewed",
+   "note": "Owns almost mathematics with a reusable base ideal, which supplies the almost-descent step of this layer's v-descent proof."
+  },
+  {
+   "layer": "PerfectoidSpaces:P0",
+   "other": "DiamondsAndVStacks:D6",
+   "source": "audit-unreviewed",
+   "note": "D6's tilting/diamond comparison reuses the same almost-module and tilting apparatus at the level of analytic adic spaces."
+  },
+  {
+   "layer": "PerfectoidSpaces:P1",
+   "other": "DiamondSixOperations:S5",
+   "source": "audit-unreviewed",
+   "note": "Owns perfectoid Tate rings and marked untilts, out of which the perfectoid ball and punctured perfectoid disc are built."
+  },
+  {
+   "layer": "PerfectoidSpaces:P1",
+   "other": "DiamondsAndVStacks:D6",
+   "source": "audit-unreviewed",
+   "note": "Owns perfectoid Tate rings, tilts and marked untilts — the input objects out of which Spd ℤ_p is built here."
+  },
+  {
+   "layer": "PerfectoidSpaces:P1",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+   "source": "audit-unreviewed",
+   "note": "P1's perfectoid Tate rings and pseudouniformisers presuppose this layer's Tate-ring API; the power-bounded subring and rings of integral elements are the same objects."
+  },
+  {
+   "layer": "PerfectoidSpaces:P1",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+   "source": "audit-unreviewed",
+   "note": "The Tau Ceti library roadmap's Layer 6 packages the perfectoid-field input, W(𝒪_F) and A_inf that this layer's integral side needs."
+  },
+  {
+   "layer": "PerfectoidSpaces:P2",
+   "other": "AdicEtaleGeometry:A0",
+   "source": "audit-unreviewed",
+   "note": "P2 owns rational localization and sheafiness for perfectoid Huber pairs and the perfectoid pullback theorem A0 defers to it."
+  },
+  {
+   "layer": "PerfectoidSpaces:P2",
+   "other": "AdicEtaleGeometry:A3",
+   "source": "audit-unreviewed",
+   "note": "A3's inputs P2–P5 include rational localization and sheafiness for perfectoid pairs; the completed-localization and gluing statements overlap."
+  },
+  {
+   "layer": "PerfectoidSpaces:P2",
+   "other": "AdicEtaleGeometry:A4",
+   "source": "audit-unreviewed",
+   "note": "P2 owns the perfectoidness of uniform completions and the tilting correspondence that A4's uniform-completion argument requires."
+  },
+  {
+   "layer": "PerfectoidSpaces:P2",
+   "other": "AdicSpacesPartII:R0",
+   "source": "audit-unreviewed",
+   "note": "P2 constructs fibre products of perfectoid spaces 'using A0' and their affine formulas, consuming this same completed tensor algebra."
+  },
+  {
+   "layer": "PerfectoidSpaces:P2",
+   "other": "AdicSpacesPartII:R3",
+   "source": "audit-unreviewed",
+   "note": "P2 proves the sheaf theorem and all-degree almost acyclicity on perfectoid affinoids and supplies the acyclic basis comparison R3 also states."
+  },
+  {
+   "layer": "PerfectoidSpaces:P2",
+   "other": "DiamondsAndVStacks:D2",
+   "source": "audit-unreviewed",
+   "note": "Owns rational localization, sheafiness and perfectoid spaces themselves, i.e. the 𝒪/𝒪⁺ sheaf statements one topology down; D2 lists P2 as a requirement and lifts them to the pro-étale site."
+  },
+  {
+   "layer": "PerfectoidSpaces:P2",
+   "other": "DiamondsAndVStacks:D6",
+   "source": "audit-unreviewed",
+   "note": "D6 glues tilting for analytic adic spaces into the diamond comparison, overlapping the slice-equivalence statement."
+  },
+  {
+   "layer": "PerfectoidSpaces:P2",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
+   "source": "audit-unreviewed",
+   "note": "P2 asks for the tilting homeomorphism of valuation spectra and its rational-subset correspondence: it presupposes this layer's rational-subset calculus and transports it across the tilt, rather than reproving it."
+  },
+  {
+   "layer": "PerfectoidSpaces:P2",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+   "source": "audit-unreviewed",
+   "note": "The Tau Ceti library roadmap owns rational localisation, the structure presheaf 𝒪_X and 𝒪_X⁺, and pre-adic spaces; that is the non-perfectoid half of this layer and is partly built already."
+  },
+  {
+   "layer": "PerfectoidSpaces:P2",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity",
+   "source": "audit-unreviewed",
+   "note": "Layer 4 owns the classical sheaf theorem and all-degree Čech exactness for strongly noetherian and stably uniform Tate rings, which P2 refines to the perfectoid/almost case."
+  },
+  {
+   "layer": "PerfectoidSpaces:P2",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+   "source": "audit-unreviewed",
+   "note": "Layer 5 owns adic spaces, open/closed immersions and gluing, the carrier on which P2 defines perfectoid spaces."
+  },
+  {
+   "layer": "PerfectoidSpaces:P3",
+   "other": "AdicEtaleGeometry:A1",
+   "source": "audit-unreviewed",
+   "note": "A1 owns finite étale and étale geometry of adic spaces, which this layer compares with the perfectoid category."
+  },
+  {
+   "layer": "PerfectoidSpaces:P3",
+   "other": "DiamondsAndVStacks:D6",
+   "source": "audit-unreviewed",
+   "note": "D6's tilting equivalence for analytic adic spaces overlaps the étale-site equivalence, though P3 forbids depending on diamondification."
+  },
+  {
+   "layer": "PerfectoidSpaces:P4",
+   "other": "AdicSpacesPartII:R0",
+   "source": "audit-unreviewed",
+   "note": "R0 owns morphisms and admissible affinoid products, the fibre-product input needed for diagonals and separatedness."
+  },
+  {
+   "layer": "PerfectoidSpaces:P4",
+   "other": "DiamondsAndVStacks:D1",
+   "source": "audit-unreviewed",
+   "note": "Owns morphisms and quotients of perfectoid spaces, i.e. the objects D1 classifies; D1 lists P4 among its requirements."
+  },
+  {
+   "layer": "PerfectoidSpaces:P4",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+   "source": "audit-unreviewed",
+   "note": "Layer 5 owns open and closed immersions and the gluing of adic spaces on which these perfectoid notions sit."
+  },
+  {
+   "layer": "PerfectoidSpaces:P4",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+   "source": "link-rescope",
+   "note": "P4 reuses Layer 5's open immersions. For closed immersions of perfectoid spaces it proves the comparison with Layer 5's closed immersions whose quotient pair is perfectoid, rather than building a parallel notion. Zariski and strongly Zariski closed immersions, diagonals, separatedness, the valuative criteria and the other ECD §5 criteria stay in P4."
+  },
+  {
+   "layer": "PerfectoidSpaces:P5",
+   "other": "ClassicalAdicEtaleCohomology:H1:henselian",
+   "source": "audit",
+   "note": "P5 proves the henselian-pair approximation theorem (Gabber–Ramero 5.4.53) with finite-stage approximation of étale data, overlapping this stage's approximation and continuity targets."
+  },
+  {
+   "layer": "PerfectoidSpaces:P5",
+   "other": "ClassicalAdicEtaleCohomology:H2",
+   "source": "audit",
+   "note": "P5 proves finite-stage descent of finite étale and qcqs étale objects along cofiltered limits of affinoid perfectoid pairs, overlapping H2's approximation and finite-stage descent target."
+  },
+  {
+   "layer": "PerfectoidSpaces:P6",
+   "other": "DiamondsAndVStacks:D0",
+   "source": "audit-unreviewed",
+   "note": "States that it 'instantiates the κ-small perfectoid-space definitions and closure theorems of ECD 4.2–4.4 using D0's abstract cardinal lemma', so the cutoff-cardinal target is stated here and consumed there."
+  },
+  {
+   "layer": "PerfectoidSpaces:P6",
+   "other": "DiamondsAndVStacks:D1",
+   "source": "audit-unreviewed",
+   "note": "Owns the affinoid pro-étale calculus and the ECD 7.9–7.11 pro-category equivalence that this layer's countable iteration consumes; the two split ECD §7 between them."
+  },
+  {
+   "layer": "PerfectoidSpaces:P6",
+   "other": "DiamondsAndVStacks:D6",
+   "source": "audit-unreviewed",
+   "note": "The v-descent/diamond-atlas theory that consumes P6's pro-étale calculus lives in the DiamondsAndVStacks D1–D3/D6 layers."
+  },
+  {
+   "layer": "PerfectoidSpaces:P7",
+   "other": "ClassicalAdicEtaleCohomology:H0",
+   "source": "audit-unreviewed",
+   "note": "H0 also refers to tilde-limits when transporting étale sheaves along them."
+  },
+  {
+   "layer": "PerfectoidSpaces:P7",
+   "other": "PerfectoidShimuraVarieties:S0",
+   "source": "audit-unreviewed",
+   "note": "S0 depends on P7 for the inverse systems and limits of the Shimura tower."
+  },
+  {
+   "layer": "PerfectoidSpaces:P7",
+   "other": "PerfectoidShimuraVarieties:S1",
+   "source": "audit-unreviewed",
+   "note": "S1's anticanonical tower is exactly the Frobenius-approximating integral tower this layer axiomatizes."
+  },
+  {
+   "layer": "PerfectoidSpaces:P8",
+   "other": "PerfectoidShimuraVarieties:S2",
+   "source": "audit-unreviewed",
+   "note": "S2 uses these quotient and closed-locus results for the Hodge-type embedding."
+  },
+  {
+   "layer": "PerfectoidSpaces:P8",
+   "other": "PerfectoidShimuraVarieties:S4",
+   "source": "audit-unreviewed",
+   "note": "S4 implements the same Hansen–Johansson §5 finite-group-quotient argument at infinite level for pre-abelian data."
+  },
+  {
+   "layer": "PerfectoidSpaces:P9",
+   "other": "AdicSpacesPartII:R3",
+   "source": "audit-unreviewed",
+   "note": "P9 descends finite locally free modules along torsors and constructs completed external tensor products, overlapping R3's locally free sheaves and base change."
+  },
+  {
+   "layer": "PerfectoidSpaces:P9",
+   "other": "AdicSpacesPartII:R5",
+   "source": "audit-unreviewed",
+   "note": "P9 constructs the completed external tensor product for affinoid smooth rigid weight spaces, proves the sheaf condition and descends finite locally free modules — the same product-with-weight-space statement, and it names R5's sousperfectoid stage as its input."
+  },
+  {
+   "layer": "VStackSheavesAndLisseCategories:VS0",
+   "other": "DiamondEtaleCohomology:C3",
+   "source": "audit-unreviewed",
+   "note": "Extends the allowed operations to Artin v-stacks and proves 'the comparison with existing small-v-stack ECD categories' — the same four operations with a larger class of objects."
+  },
+  {
+   "layer": "VStackSheavesAndLisseCategories:VS0",
+   "other": "DiamondSixOperations:S2",
+   "source": "audit-unreviewed",
+   "note": "Constructs partial compact-support functors for Artin v-stacks 'whose structural map is not in the original representable ECD class', extending this layer's Rf! and warning that π-sharp is not an unqualified ECD Rf!."
+  },
+  {
+   "layer": "VStackSheavesAndLisseCategories:VS0",
+   "other": "DiamondSixOperations:S3",
+   "source": "audit-unreviewed",
+   "note": "Extends 'pullback, exceptional pullback and their normalization' to Artin v-stacks, so the exceptional inverse image recurs there with wider eligibility hypotheses."
+  },
+  {
+   "layer": "VStackSheavesAndLisseCategories:VS0",
+   "other": "DiamondSixOperations:S4",
+   "source": "audit-unreviewed",
+   "note": "Defines Artin v-stacks by 'the cohomologically smooth atlas condition of FS IV.1', so the ℓ-cohomological smoothness predicate defined here is a hypothesis there."
+  },
+  {
+   "layer": "VStackSheavesAndLisseCategories:VS0",
+   "other": "DiamondsAndVStacks:D4",
+   "source": "audit-unreviewed",
+   "note": "Defines Artin v-stacks by representable diagonals and a cohomologically smooth atlas and proves 'atlas independence and stability under fibre products' — the same atlas-independence and fibre-product statements one level up, plus 'the comparison with existing small-v-stack ECD categories'."
+  },
+  {
+   "layer": "VStackSheavesAndLisseCategories:VS2",
+   "other": "DiamondEtaleCohomology:C2",
+   "source": "audit-unreviewed",
+   "note": "Builds D_solid(X,Λ) 'over the appropriate cutoffs on a small v-stack' with the same warning that the unrestricted large category need not be presentable at one universe — the cutoff/adjoint construction is duplicated in the solid setting."
+  },
+  {
+   "layer": "VStackSheavesAndLisseCategories:VS3",
+   "other": "DiamondEtaleCohomology:C7",
+   "source": "audit-unreviewed",
+   "note": "Develops lisse categories and coefficients, i.e. the local-system half of this constructibility package, on Artin v-stacks."
+  },
+  {
+   "layer": "VStackSheavesAndLisseCategories:VS4",
+   "other": "DiamondEtaleCohomology:C9",
+   "source": "audit-unreviewed",
+   "note": "Proves compact generation for sheaves on Bun_G strata — the same compact-generation question in the Artin v-stack setting."
+  },
+  {
+   "layer": "VStackSheavesAndLisseCategories:VS5",
+   "other": "DiamondSixOperations:S6",
+   "source": "audit-unreviewed",
+   "note": "Develops duality and admissible objects for Artin v-stacks; the biduality/dualizability question recurs there in the lisse/solid setting."
+  }
+ ]
+}

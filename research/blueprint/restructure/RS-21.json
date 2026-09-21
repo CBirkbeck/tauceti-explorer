@@ -1,0 +1,165 @@
+{
+ "id": "RS-21",
+ "name": "Smooth local representations and GL₂ automorphic representations",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "GL2AutomorphicRepresentationsAndTransfer",
+   "title": "GL₂ Automorphic Representations And Transfer",
+   "document": "content/campaign/GL2AutomorphicRepresentationsAndTransfer/README.md"
+  },
+  {
+   "id": "SmoothRepresentationsOfLocalGroups",
+   "title": "Smooth representations of local groups",
+   "document": "content/campaign/SmoothRepresentationsOfLocalGroups/README.md"
+  }
+ ],
+ "anchors": [
+  {
+   "id": "tauceti:TauCetiRoadmap/ModularForms",
+   "title": "Modular forms — Hecke theory, newforms, and L-functions",
+   "document": "content/tau-ceti/ModularForms/README.md"
+  }
+ ],
+ "evidence": [
+  {
+   "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+   "other": "SmoothRepresentationsOfLocalGroups:SR.0",
+   "source": "audit-unreviewed",
+   "note": "R16.1 specialises this smooth-representation category, its Haar measures and its finite-level function spaces to GL₂ and explicitly names SR.0 as the sole owner of the generic definitions."
+  },
+  {
+   "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+   "other": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+   "source": "audit-unreviewed",
+   "note": "R16.1 specialises this smooth-representation category, its Haar measures and its finite-level function spaces to GL₂ and explicitly names SR.0 as the sole owner of the generic definitions."
+  },
+  {
+   "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+   "other": "SmoothRepresentationsOfLocalGroups:SR.1",
+   "source": "audit-unreviewed",
+   "note": "R16.1 says the generic convolution algebra has SR.1 as its sole owner and only specialises it to GL₂."
+  },
+  {
+   "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+   "other": "SmoothRepresentationsOfLocalGroups:SR.2",
+   "source": "audit-unreviewed",
+   "note": "R16.2 imports induction, admissibility, contragredients, Satake, derivatives and Whittaker functors from SR.2–SR.5 and specialises them to GL₂."
+  },
+  {
+   "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+   "other": "SmoothRepresentationsOfLocalGroups:SR.3",
+   "source": "audit",
+   "note": "Proves admissibility, finite length of induction, smooth contragredient duality and the matrix-coefficient criteria for supercuspidality: the generic statements R16.2 specializes to GL₂."
+  },
+  {
+   "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+   "other": "SmoothRepresentationsOfLocalGroups:SR.3",
+   "source": "audit-unreviewed",
+   "note": "R16.2 specialises admissibility, contragredients and the principal-series/supercuspidal classification to GL₂."
+  },
+  {
+   "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+   "other": "SmoothRepresentationsOfLocalGroups:SR.5",
+   "source": "audit-unreviewed",
+   "note": "R16.2 imports derivatives and Whittaker functors from SR.5 and specialises them to GL₂, where it also proves the conductor/newvector theorem."
+  },
+  {
+   "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+   "source": "audit",
+   "note": "Proves the local GL2 conductor/newvector theorem with the principal-series/special/supercuspidal classification and twist calculations: the local form of this layer's conductor and bad-prime eigenvalue classification."
+  },
+  {
+   "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+   "source": "audit",
+   "note": "Strong multiplicity one and multiplicity one for newforms, whose fixed-level form Tau Ceti has already proved: the classical GL₂/ℚ version of R16.4's multiplicity statements."
+  },
+  {
+   "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+   "source": "audit",
+   "note": "Proves that coefficient fields of newforms are number fields via modular symbols and the integral Hecke algebra, R16.4's rationality target over ℚ."
+  },
+  {
+   "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+   "source": "audit",
+   "note": "Hecke's completed L-function and functional equation for newforms of level N with the Atkin–Lehner sign, the existing classical L-function R16.5 compares with. Its continuation is already in Mathlib and Tau Ceti."
+  },
+  {
+   "layer": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+   "source": "audit",
+   "note": "The classical newforms, primitive forms and conductor that R16.6 identifies with automorphic representations. Most of this layer is built in Tau Ceti."
+  },
+  {
+   "layer": "GL2AutomorphicRepresentationsAndTransfer:R17.2",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one",
+   "source": "audit",
+   "note": "The Eichler–Selberg trace formula for Hecke operators, the classical GL₂ trace identity, planned by an elementary route. It overlaps R17.2's GL₂ specialization of the trace formula."
+  },
+  {
+   "layer": "SmoothRepresentationsOfLocalGroups:SR.0",
+   "other": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+   "source": "audit-unreviewed",
+   "note": "R16.1 specialises this smooth-representation category, its Haar measures and its finite-level function spaces to GL₂ and explicitly names SR.0 as the sole owner of the generic definitions."
+  },
+  {
+   "layer": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+   "other": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+   "source": "audit-unreviewed",
+   "note": "R16.1 specialises this smooth-representation category, its Haar measures and its finite-level function spaces to GL₂ and explicitly names SR.0 as the sole owner of the generic definitions."
+  },
+  {
+   "layer": "SmoothRepresentationsOfLocalGroups:SR.1",
+   "other": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+   "source": "audit-unreviewed",
+   "note": "R16.1 says the generic convolution algebra has SR.1 as its sole owner and only specialises it to GL₂."
+  },
+  {
+   "layer": "SmoothRepresentationsOfLocalGroups:SR.1",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+   "source": "audit",
+   "note": "Constructs Hecke algebras of locally profinite groups over rings, their bi-invariant corners and integral double-coset operators: the p-adic double-coset ring of the hand-off in (a')."
+  },
+  {
+   "layer": "SmoothRepresentationsOfLocalGroups:SR.1",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+   "source": "audit-unreviewed",
+   "note": "That layer owns the classical double-coset Hecke algebra for GL₂ Hecke pairs, which is the construction already in the libraries and the one SR.1 says it will follow rather than duplicate."
+  },
+  {
+   "layer": "SmoothRepresentationsOfLocalGroups:SR.2",
+   "other": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+   "source": "audit-unreviewed",
+   "note": "R16.2 imports induction, admissibility, contragredients, Satake, derivatives and Whittaker functors from SR.2–SR.5 and specialises them to GL₂."
+  },
+  {
+   "layer": "SmoothRepresentationsOfLocalGroups:SR.3",
+   "other": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+   "source": "audit",
+   "note": "Proves admissibility, finite length of induction, smooth contragredient duality and the matrix-coefficient criteria for supercuspidality: the generic statements R16.2 specializes to GL₂."
+  },
+  {
+   "layer": "SmoothRepresentationsOfLocalGroups:SR.3",
+   "other": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+   "source": "audit-unreviewed",
+   "note": "R16.2 specialises admissibility, contragredients and the principal-series/supercuspidal classification to GL₂."
+  },
+  {
+   "layer": "SmoothRepresentationsOfLocalGroups:SR.4",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+   "source": "audit",
+   "note": "Spherical Hecke algebras and the Satake isomorphism for local groups: the p-adic end of the hand-off in (a')."
+  },
+  {
+   "layer": "SmoothRepresentationsOfLocalGroups:SR.5",
+   "other": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+   "source": "audit-unreviewed",
+   "note": "R16.2 imports derivatives and Whittaker functors from SR.5 and specialises them to GL₂, where it also proves the conductor/newvector theorem."
+  }
+ ]
+}

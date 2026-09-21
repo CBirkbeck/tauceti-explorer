@@ -18,7 +18,7 @@ import re
 import subprocess
 import sys
 
-ALLOWED = re.compile(r"^research/(blueprint/(packets|readmes|suggested|reviews|links|handoff|roadmaps|plans|classify)/[^/]+|expansion/naming/NAME-\d+\.result\.json)$")
+ALLOWED = re.compile(r"^research/(blueprint/(packets|readmes|suggested|restructure|reviews|links|handoff|roadmaps|plans|classify)/[^/]+|expansion/naming/NAME-\d+\.result\.json)$")
 PRIVATE = re.compile(r"/Users/|/private/|/home/[a-z]+/|mcu22seu")
 REPO = "CBirkbeck/tauceti-explorer"
 

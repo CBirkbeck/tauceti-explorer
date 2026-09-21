@@ -1,0 +1,52 @@
+{
+ "id": "RS-28",
+ "name": "Higher local fields, building on Class field theory",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "title": "Higher local fields and higher class field theory",
+   "document": "content/campaign/HigherLocalFieldsAndHigherClassFieldTheory/README.md"
+  }
+ ],
+ "anchors": [
+  {
+   "id": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+   "title": "Class field theory",
+   "document": "content/tau-ceti/ClassFieldTheory/README.md"
+  }
+ ],
+ "evidence": [
+  {
+   "layer": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+   "other": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+   "source": "audit",
+   "note": "Its local invariant and local Tate duality are the n = 1 case this layer must recover."
+  },
+  {
+   "layer": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+   "other": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+   "source": "audit",
+   "note": "Local reciprocity with the arithmetic Frobenius normalization is this layer's n = 1 case."
+  },
+  {
+   "layer": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+   "other": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
+   "source": "audit",
+   "note": "Local existence and the local class-field correspondence are this layer's n = 1 existence theorem."
+  },
+  {
+   "layer": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+   "other": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
+   "source": "link-rescope",
+   "note": "HL.3 takes n = 1 from CFT (Layer 7 artinMap, Layer 8 localClassFieldCorrespondence and its prime-to-p version) through a comparison theorem rather than a second construction. HL.3 is the declared owner of the p-primary equal-characteristic local existence and injectivity that CFT excludes, stated at n = 1 as an extension of CFT's correspondence."
+  },
+  {
+   "layer": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
+   "other": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+   "source": "audit",
+   "note": "Global Artin reciprocity for number fields is the dimension-one case that this layer must reduce to."
+  }
+ ]
+}

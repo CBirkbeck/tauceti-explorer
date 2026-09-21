@@ -1,0 +1,52 @@
+{
+ "id": "RS-32",
+ "name": "Toroidal compactifications, building on Analytic toric geometry",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "ShimuraCompactifications",
+   "title": "Toroidal compactifications and boundary geometry",
+   "document": "content/campaign/ShimuraCompactifications/README.md"
+  }
+ ],
+ "anchors": [
+  {
+   "id": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+   "title": "Analytic toric geometry",
+   "document": "content/tau-ceti/AnalyticToricGeometry/README.md"
+  }
+ ],
+ "evidence": [
+  {
+   "layer": "ShimuraCompactifications:C0",
+   "other": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+   "source": "audit",
+   "note": "Also works with rational polyhedral cones closed under faces with pairwise face intersections, refinements (subdivisions) and affine toric charts / torus embeddings, extended to arithmetic-admissible fans."
+  },
+  {
+   "layer": "ShimuraCompactifications:C0",
+   "other": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+   "source": "audit",
+   "note": "Also invokes the support criterion for properness of maps of torus embeddings under its fan hypotheses."
+  },
+  {
+   "layer": "ShimuraCompactifications:C2",
+   "other": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-3-finite-fan-analytic-gluing",
+   "source": "audit",
+   "note": "Also builds the local partial compactifications from relative torus embeddings and glues them, proving their transition and separation properties in the complex setting — the same analytic gluing of torus-embedding charts, and the companion of the boundary statement already shared with layer 4."
+  },
+  {
+   "layer": "ShimuraCompactifications:C2",
+   "other": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-4-torus-actions-strata-and-the-boundary",
+   "source": "audit",
+   "note": "Also proves the normal-crossings description of the boundary of glued torus embeddings for a smooth fan (in toroidal compactifications)."
+  },
+  {
+   "layer": "ShimuraCompactifications:C3",
+   "other": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+   "source": "audit",
+   "note": "Shows a star subdivision induces a proper toric map, the finite-fan case of refinement maps."
+  }
+ ]
+}

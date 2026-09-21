@@ -28,6 +28,7 @@ BP = REPO / "research" / "blueprint"
 GITHUB = "https://github.com/CBirkbeck/tauceti-explorer"
 BLOB = GITHUB + "/blob/main/"
 KIND_TITLE = {"blueprint": "Blueprint", "design": "New roadmap", "link": "Links", "review": "Review", "assembly": "Assembly",
+              "restructure": "Restructure",
               "plan": "Plan", "classify": "Classification", "naming": "Planet names", "status": "Status mapping"}
 
 
@@ -103,6 +104,9 @@ def body(job, jobs, roadmaps, stages):
                 lines.append(f"Reviewed decomposition already integrated: [{decomposition.name}]({BLOB}data/decompositions/{decomposition.name})")
         else:
             lines.append(f"Roadmap: `{rid}` (new; defined by this job)")
+    if job.get("anchors"):
+        lines += ["", "Existing Tau Ceti roadmaps to build on (never changed): " +
+                  "; ".join(f"**{roadmaps[a]['title']}** (`{a}`)" for a in job["anchors"] if a in roadmaps) + "."]
     if job.get("scope"):
         lines += ["", "Stages in scope:"]
         lines += [f"- `{sid}` — {stages[sid]['title']}" for sid in job["scope"] if sid in stages]
@@ -116,8 +120,16 @@ def body(job, jobs, roadmaps, stages):
     if job.get("suppliers"):
         lines += ["", "Suppliers: " + ", ".join(f"`{d}`" for d in job["suppliers"][:12]) +
                   ". Reuse their packets' node ids where the packets exist; for anything still missing from them, add a `requests` entry. Do not wait for them."]
+    if job["kind"] == "restructure":
+        lines += ["", "### What this issue delivers",
+                  "- **One owner for every piece of mathematics:** where these roadmaps, or the Tau Ceti roadmaps above, plan the same thing, one layer owns it and the others import it. Tau Ceti roadmaps never change.",
+                  "- **Roadmaps that build on each other:** each proposed roadmap is kept (with narrowed layers where needed), becomes `<base roadmap>, Part II: <what it adds>`, merges into another, or retires because everything it plans is owned elsewhere.",
+                  "- **Nothing lost:** every target of a changed layer is kept, moved or supplied by a named layer, and every consumer still finds its prerequisites.",
+                  "- **The proposal and its reasoning**, in the format of PROTOCOL.md section 15. The family file lists the evidence: leads, not verdicts.",
+                  "", "The blueprints of these roadmaps wait for this restructuring and its review."]
     if job["kind"] in ("blueprint", "design"):
         lines += ["", "### What this issue delivers",
+                  "- **Built on existing roadmaps, never duplicating them:** import what another roadmap plans, and extend it as a Part II where you need more (PROTOCOL.md section 15).",
                   "- **The plan, gap-free from the pinned libraries:** a blueprint packet with one node per declaration. Read the roadmap's reviewed library audit (`data/library-coverage.json`) first, and plan only what Mathlib and Tau Ceti do not already contain.",
                   "- **API and unit tests for every definition:** an `api` outline, and at least three unit tests that a plausible wrong definition would fail (a small computed value, the degenerate case, agreement with the nearest Mathlib or Tau Ceti notion, a non-example). See PROTOCOL.md sections 4 and 12.",
                   "- **The roadmap document** in the upstream style and density, with each definition's API and unit tests.",
@@ -133,6 +145,7 @@ def body(job, jobs, roadmaps, stages):
     prompt_path = REPO / job.get("prompt", "")
     public = publicize(prompt_path.read_text()) if job.get("prompt") and prompt_path.exists() else None
     lines += ["", "### How to work on this",
+              f"- Start here: [WORKERS.md]({BLOB}research/blueprint/WORKERS.md) (choosing, claiming and submitting a job).",
               f"- Rules: [PROTOCOL.md]({BLOB}research/blueprint/PROTOCOL.md) and [UPSTREAM_GUIDE.md]({BLOB}research/blueprint/UPSTREAM_GUIDE.md).",
               f"- From a browser: [BROWSER_AGENTS.md]({BLOB}research/blueprint/BROWSER_AGENTS.md) (resources, method, submission).",
               "- Comment `/claim` before starting; submit a pull request or attach the files to a comment on this issue.",
@@ -175,8 +188,12 @@ def title(job, roadmaps):
         if jobs_file.exists():
             area = next((j.get("galaxy", "") for j in json.loads(jobs_file.read_text())["jobs"] if j["id"] == jid), "")
         return f"[Planet names] {area or jid}"
+    if job["kind"] == "restructure":
+        return f"[Restructure] {job.get('name') or jid}"
     if job["kind"] == "review":
         target = (job.get("after") or [""])[0]
+        if target.startswith("RS-"):
+            return f"[Review] Restructure: {job.get('name') or target}"
         if target.startswith("LINK-"):
             return f"[Review] Links: {name or rid}"
         if target.startswith("ASM-"):
@@ -205,6 +222,15 @@ def merged_labels(current, job, roadmaps, by_id):
     """The issue's labels with only its state label brought up to date."""
     state = next(label for label in labels_for(job, roadmaps, by_id) if label.startswith("state:"))
     return [label for label in current if not label.startswith("state:")] + [state]
+
+
+def refresh_payload(job, current, text, roadmaps, by_id):
+    """The one request that brings an open issue up to date: a superseded job's
+    issue closes as not planned and says why; any other gets a fresh body and state."""
+    if job.get("state") == "superseded":
+        return {"state": "closed", "state_reason": "not_planned",
+                "body": f"**Superseded.** {job.get('note') or 'This job is no longer planned.'}\n\n{text}"}
+    return {"body": text, "labels": merged_labels(current, job, roadmaps, by_id)}
 
 
 def main():
@@ -283,7 +309,7 @@ def main():
             text = body(job, jobs, roadmaps, stages)
             if re.search(r"/Users/|/private/|/home/|mcu22seu", text):
                 print("skipped (private path)", job["id"]); continue
-            payload = json.dumps({"body": text, "labels": merged_labels(open_issues[number], job, roadmaps, by_id)})
+            payload = json.dumps(refresh_payload(job, open_issues[number], text, roadmaps, by_id))
             result = subprocess.run(["gh", "api", "-X", "PATCH", f"repos/{repo}/issues/{number}", "--input", "-", "--silent"],
                                     input=payload, capture_output=True, text=True, cwd=REPO)
             print("refreshed" if result.returncode == 0 else "failed", job["id"], number, result.stderr.strip()[:120], flush=True)

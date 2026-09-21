@@ -1,0 +1,171 @@
+{
+ "id": "RS-20",
+ "name": "Fargues–Fontaine curves",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "FarguesFontaineDiamonds",
+   "title": "The existing Fargues–Fontaine curve as a diamond",
+   "document": "content/campaign/FarguesFontaineDiamonds/README.md"
+  },
+  {
+   "id": "RelativeFarguesFontaine",
+   "title": "Relative Fargues–Fontaine curves and period geometry",
+   "document": "content/campaign/RelativeFarguesFontaine/README.md"
+  }
+ ],
+ "anchors": [
+  {
+   "id": "tauceti:TauCetiRoadmap/AdicSpaces",
+   "title": "Foundations of adic spaces",
+   "document": "content/tau-ceti/AdicSpaces/README.md"
+  }
+ ],
+ "evidence": [
+  {
+   "layer": "FarguesFontaineDiamonds:F0",
+   "other": "RelativeFarguesFontaine:RF0",
+   "source": "audit-unreviewed",
+   "note": "F0 explicitly imports A_inf = W(O_F) and its (p,[varpi])-adic topology from AdicSpaces Layer 6 rather than rebuilding it; RF0 is the ramified generalisation of exactly that object."
+  },
+  {
+   "layer": "FarguesFontaineDiamonds:F0",
+   "other": "RelativeFarguesFontaine:RF0:integral-Y",
+   "source": "audit-unreviewed",
+   "note": "Builds the same integral period space in the relative setting, `𝒴_S = Spa(W_{O_E}(R⁺)) \\ V([ϖ])` with the (π,[ϖ])-adic topology, specialising to F0's fixed-field case when S = Spa(F,𝒪_F) and E = ℚ_p."
+  },
+  {
+   "layer": "FarguesFontaineDiamonds:F0",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+   "source": "audit-unreviewed",
+   "note": "§6.1–6.2 of AdicSpaces Layer 6 construct exactly the same objects — A_inf = W(𝒪_F) with pair of definition (A_inf,(p,[ϖ])), 𝒴 = D(p)∩D([ϖ]), the Frobenius windows U_n/V_n and the quotient 𝒳 = 𝒴/φ^ℤ — and F0 explicitly says it consumes them; F0 adds only the interface lemmas needed by D6."
+  },
+  {
+   "layer": "FarguesFontaineDiamonds:F1",
+   "other": "RelativeFarguesFontaine:RF0:integral-Y",
+   "source": "audit-unreviewed",
+   "note": "States the same untilt product formula (FS II.1.2, `𝒴_S^♢ ≅ S × Spd(O_E)`) in the relative form; F1 is its E = ℚ_p, S = Spa(F,𝒪_F) specialisation."
+  },
+  {
+   "layer": "FarguesFontaineDiamonds:F1",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+   "source": "audit-unreviewed",
+   "note": "F1's untilt product formula uses the universal property of Witt vectors of the perfect ring 𝒪_F and Fontaine's θ, i.e. the same Witt-vector package this layer's 6.1 asks to be packaged."
+  },
+  {
+   "layer": "FarguesFontaineDiamonds:F2",
+   "other": "RelativeFarguesFontaine:RF1",
+   "source": "audit-unreviewed",
+   "note": "Establishes the q-Frobenius action, wandering annuli and the adic quotient X_S = Y_S/φ^ℤ with descent in the relative setting, and explicitly says its ℚ_p fixed-field specialisation is to be compared with FarguesFontaineDiamonds F1–F3."
+  },
+  {
+   "layer": "FarguesFontaineDiamonds:F2",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+   "source": "audit-unreviewed",
+   "note": "§6.2 already owns the Frobenius radius law κ(φ(v)) = p·κ(v), freeness of the ℤ-action, the wandering windows and the quotient space 𝒳; F2 reuses those and adds only the diamond-level statements."
+  },
+  {
+   "layer": "FarguesFontaineDiamonds:F2",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+   "source": "link-rescope",
+   "note": "F2 cites Layer 6 §6.4 (items 1–5), through F0, for the local isomorphism of q and the orbit decomposition, and Layer 6 §6.2 for the Frobenius scaling of κ. F2 keeps only the diamond-level results: the equivariance α_F ∘ φ_Y^♢ = (φ_S × id) ∘ α_F; effectiveness of the étale relation ∐ Y_F^♢ ≅ Y_F^♢ ×_{X_F^♢} Y_F^♢; q^♢ as a quotient-sheaf cover; and β_F with its independence of ϖ and of the windows."
+  },
+  {
+   "layer": "FarguesFontaineDiamonds:F3",
+   "other": "RelativeFarguesFontaine:RF1",
+   "source": "audit-unreviewed",
+   "note": "Includes the diamond formulas for the relative curve and their comparison with FarguesFontaineDiamonds F1–F3."
+  },
+  {
+   "layer": "FarguesFontaineDiamonds:F4",
+   "other": "RelativeFarguesFontaine:RF2:integral-divisors",
+   "source": "audit-unreviewed",
+   "note": "Owns Div^d and the degree-d Cartier divisors on 𝒴_S, of which F4's single marked untilt is the degree-one fixed-field case."
+  },
+  {
+   "layer": "FarguesFontaineDiamonds:F4",
+   "other": "RelativeFarguesFontaine:RF2:untilts",
+   "source": "audit-unreviewed",
+   "note": "States the identical content — marked untilts over E, the primitive kernel of θ, its Cartier divisor on Y_S and X_S, injectivity and closed image of multiplication by a local generator, and Div¹ — in the relative setting."
+  },
+  {
+   "layer": "FarguesFontaineDiamonds:F4",
+   "other": "RelativeFarguesFontaine:RF3",
+   "source": "audit-unreviewed",
+   "note": "Partial overlap only: F4 builds the degree-one divisor whose sections give O(1) in the fixed-field case."
+  },
+  {
+   "layer": "RelativeFarguesFontaine:RF0",
+   "other": "FarguesFontaineDiamonds:F0",
+   "source": "audit-unreviewed",
+   "note": "F0 explicitly imports A_inf = W(O_F) and its (p,[varpi])-adic topology from AdicSpaces Layer 6 rather than rebuilding it; RF0 is the ramified generalisation of exactly that object."
+  },
+  {
+   "layer": "RelativeFarguesFontaine:RF0",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+   "source": "audit-unreviewed",
+   "note": "Layer 6.1 of the AdicSpaces roadmap packages W(O_F), Frobenius and Teichmuller lifts with the (p,[varpi])-adic topology; RF0 is the same package for a general coefficient field E."
+  },
+  {
+   "layer": "RelativeFarguesFontaine:RF0:annuli",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+   "source": "audit-unreviewed",
+   "note": "Layer 6.3 constructs Kedlaya's interval rings B^I, their unit balls and strong noetherianness for E = Q_p; RF0:annuli is the same construction relative and for general E."
+  },
+  {
+   "layer": "RelativeFarguesFontaine:RF0:integral-Y",
+   "other": "FarguesFontaineDiamonds:F0",
+   "source": "audit-unreviewed",
+   "note": "Builds the same integral period space in the relative setting, `𝒴_S = Spa(W_{O_E}(R⁺)) \\ V([ϖ])` with the (π,[ϖ])-adic topology, specialising to F0's fixed-field case when S = Spa(F,𝒪_F) and E = ℚ_p."
+  },
+  {
+   "layer": "RelativeFarguesFontaine:RF0:integral-Y",
+   "other": "FarguesFontaineDiamonds:F1",
+   "source": "audit-unreviewed",
+   "note": "States the same untilt product formula (FS II.1.2, `𝒴_S^♢ ≅ S × Spd(O_E)`) in the relative form; F1 is its E = ℚ_p, S = Spa(F,𝒪_F) specialisation."
+  },
+  {
+   "layer": "RelativeFarguesFontaine:RF0:integral-Y",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+   "source": "audit-unreviewed",
+   "note": "Layer 6.1 defines exactly 𝒴 = Spa(A_inf,A_inf) minus the zero loci, with the (p,[varpi])-adic topology and rational windows, for E = Q_p and a fixed perfectoid field F."
+  },
+  {
+   "layer": "RelativeFarguesFontaine:RF1",
+   "other": "FarguesFontaineDiamonds:F2",
+   "source": "audit-unreviewed",
+   "note": "Establishes the q-Frobenius action, wandering annuli and the adic quotient X_S = Y_S/φ^ℤ with descent in the relative setting, and explicitly says its ℚ_p fixed-field specialisation is to be compared with FarguesFontaineDiamonds F1–F3."
+  },
+  {
+   "layer": "RelativeFarguesFontaine:RF1",
+   "other": "FarguesFontaineDiamonds:F3",
+   "source": "audit-unreviewed",
+   "note": "Includes the diamond formulas for the relative curve and their comparison with FarguesFontaineDiamonds F1–F3."
+  },
+  {
+   "layer": "RelativeFarguesFontaine:RF1",
+   "other": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+   "source": "audit-unreviewed",
+   "note": "Layer 6.2 and 6.4 construct the wandering windows, the free phi^Z action and the quotient 𝒳 = 𝒴/phi^Z with its quotient sheaf, for E = Q_p."
+  },
+  {
+   "layer": "RelativeFarguesFontaine:RF2:integral-divisors",
+   "other": "FarguesFontaineDiamonds:F4",
+   "source": "audit-unreviewed",
+   "note": "Owns Div^d and the degree-d Cartier divisors on 𝒴_S, of which F4's single marked untilt is the degree-one fixed-field case."
+  },
+  {
+   "layer": "RelativeFarguesFontaine:RF2:untilts",
+   "other": "FarguesFontaineDiamonds:F4",
+   "source": "audit-unreviewed",
+   "note": "States the identical content — marked untilts over E, the primitive kernel of θ, its Cartier divisor on Y_S and X_S, injectivity and closed image of multiplication by a local generator, and Div¹ — in the relative setting."
+  },
+  {
+   "layer": "RelativeFarguesFontaine:RF3",
+   "other": "FarguesFontaineDiamonds:F4",
+   "source": "audit-unreviewed",
+   "note": "Partial overlap only: F4 builds the degree-one divisor whose sections give O(1) in the fixed-field case."
+  }
+ ]
+}

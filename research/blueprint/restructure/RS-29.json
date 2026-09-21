@@ -1,0 +1,112 @@
+{
+ "id": "RS-29",
+ "name": "Inverse Galois theory, building on Belyi maps",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups",
+   "title": "Inverse Galois theory and arithmetic fundamental groups",
+   "document": "content/campaign/InverseGaloisAndArithmeticFundamentalGroups/README.md"
+  }
+ ],
+ "anchors": [
+  {
+   "id": "tauceti:TauCetiRoadmap/BelyiMaps",
+   "title": "Belyi maps, dessins d'enfants, and three-point covers",
+   "document": "content/tau-ceti/BelyiMaps/README.md"
+  }
+ ],
+ "evidence": [
+  {
+   "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+   "other": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+   "source": "audit",
+   "note": "That layer builds the fundamental group of the thrice-punctured line over ℚ̄ as a profinite Galois group, the same arithmetic fundamental group IG.0 constructs categorically for finite étale covers."
+  },
+  {
+   "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+   "other": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+   "source": "audit",
+   "note": "Layer 12 proves the exact sequence 1 → π₁ᵍᵉᵒ → Gal(Ω/ℚ(t)) → Gal(ℚ̄/ℚ) → 1 for the thrice-punctured line and constructs the inertia subgroups of π₁ᵍᵉᵒ with their tame character, IG.1's exact-sequence, inertia and tame-quotient targets in that case."
+  },
+  {
+   "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+   "other": "tauceti:TauCetiRoadmap/BelyiMaps#layer-0-permutation-triples",
+   "source": "audit",
+   "note": "Layer 0 defines permutation triples with product one, their relabeling classes, connectedness, automorphism groups, Euler characteristic and genus, the combinatorial part of IG.3's three-point target that Tau Ceti has built from it."
+  },
+  {
+   "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+   "other": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+   "source": "audit",
+   "note": "That layer proves Belyi’s theorem, which IG.3 says it reuses rather than duplicates."
+  },
+  {
+   "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+   "other": "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
+   "source": "audit",
+   "note": "That layer separates fields of moduli from fields of definition for Belyi pairs, IG.3’s field-of-moduli and descent target."
+  },
+  {
+   "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+   "other": "tauceti:TauCetiRoadmap/BelyiMaps#layer-2-dessins-as-finite-bipartite-ribbon-graphs",
+   "source": "audit",
+   "note": "Layer 2 constructs bipartite ribbon graphs, the maps between dessins and triples and the bijection of their isomorphism classes, IG.3's dessins and its acceptance comparison of a dessin with its permutation triple."
+  },
+  {
+   "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+   "other": "tauceti:TauCetiRoadmap/BelyiMaps#layer-3-finite-enumeration-and-character-theoretic-counts",
+   "source": "audit",
+   "note": "That layer counts triples by character theory, the class-structure-constant computation of IG.3’s rigidity criterion."
+  },
+  {
+   "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+   "other": "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group",
+   "source": "audit",
+   "note": "Layer 5 proves π₁ of the thrice-punctured sphere is free on the two peripheral loops, the standard generators through which IG.3 builds covers from triples with product one."
+  },
+  {
+   "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+   "other": "tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples",
+   "source": "audit",
+   "note": "That layer classifies finite covers of the thrice-punctured sphere by permutation triples, IG.3’s tuples-to-covers construction for three points."
+  },
+  {
+   "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+   "other": "tauceti:TauCetiRoadmap/BelyiMaps#layer-7-compactification-and-topological-branched-covers",
+   "source": "audit",
+   "note": "Layer 7 compactifies finite covers of the punctured sphere into topological branched covers, the compactification step of IG.3's branched covers from tuples."
+  },
+  {
+   "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+   "other": "tauceti:TauCetiRoadmap/BelyiMaps#layer-8-riemann-surfaces-and-analytic-riemann-existence",
+   "source": "audit",
+   "note": "That layer proves analytic Riemann existence, which IG.3 uses to construct branched covers from tuples."
+  },
+  {
+   "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+   "other": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+   "source": "audit",
+   "note": "Layer 9 defines algebraic Belyi pairs, algebraizes analytic ones and fixes the analytic/algebraic comparison contract, IG.3's Belyi maps and analytic/algebraic comparison."
+  },
+  {
+   "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+   "other": "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
+   "source": "audit",
+   "note": "Layer 11 defines the conjugation action of Gal(ℚ̄/ℚ) on algebraic Belyi pairs, its open stabilizers, fields of moduli and fields of definition, IG.6's arithmetic Galois action on Belyi pairs with the field-of-moduli/definition distinction."
+  },
+  {
+   "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+   "other": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+   "source": "audit",
+   "note": "That layer proves the branch-cycle theorem with the cyclotomic character, IG.6’s peripheral-inertia comparison."
+  },
+  {
+   "layer": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+   "other": "tauceti:TauCetiRoadmap/BelyiMaps#layer-13-the-pro-ℓ-peripheral-theorem-and-faithfulness",
+   "source": "audit",
+   "note": "That layer proves faithfulness of the Galois action on dessins through the pro-ℓ peripheral theorem, which IG.6 consumes."
+  }
+ ]
+}

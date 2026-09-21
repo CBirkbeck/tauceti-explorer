@@ -1,0 +1,170 @@
+{
+ "id": "RS-26",
+ "name": "(φ,Γ)-modules, p-adic regulators and p-adic local Langlands",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "PadicHodgeRegulators",
+   "title": "P-adic regulators and the local K₃ calculation",
+   "document": "content/campaign/PadicHodgeRegulators/README.md"
+  },
+  {
+   "id": "PadicLocalLanglandsForGL2Qp",
+   "title": "P-adic local Langlands for GL₂(Q_p)",
+   "document": "content/campaign/PadicLocalLanglandsForGL2Qp/README.md"
+  },
+  {
+   "id": "PhiGammaModulesAndIwasawaCohomology",
+   "title": "(φ,Γ)-modules, Herr complexes and local Iwasawa cohomology",
+   "document": "content/campaign/PhiGammaModulesAndIwasawaCohomology/README.md"
+  }
+ ],
+ "anchors": [],
+ "evidence": [
+  {
+   "layer": "PadicHodgeRegulators:L2",
+   "other": "PadicLocalLanglandsForGL2Qp:R30.1",
+   "source": "audit-unreviewed",
+   "note": "L2 '(phi,Gamma)-modules and Iwasawa cohomology' is another consumer of the same PG.0–PG.3 package."
+  },
+  {
+   "layer": "PadicHodgeRegulators:L2",
+   "other": "PadicLocalLanglandsForGL2Qp:R30.3",
+   "source": "audit-unreviewed",
+   "note": "Shares the (φ,Γ)-module side of the construction, though it applies it to Iwasawa cohomology rather than to GL₂ representations."
+  },
+  {
+   "layer": "PadicHodgeRegulators:L2",
+   "other": "PhiGammaModulesAndIwasawaCohomology:PG.0",
+   "source": "audit-unreviewed",
+   "note": "L2 ('(phi,Gamma)-modules and Iwasawa cohomology') restates the coefficient-ring and φ-module package on the regulator side."
+  },
+  {
+   "layer": "PadicHodgeRegulators:L2",
+   "other": "PhiGammaModulesAndIwasawaCohomology:PG.1",
+   "source": "audit-unreviewed",
+   "note": "L2 states the same Fontaine equivalence as the input to its Iwasawa-cohomology construction."
+  },
+  {
+   "layer": "PadicHodgeRegulators:L2",
+   "other": "PhiGammaModulesAndIwasawaCohomology:PG.3",
+   "source": "audit-unreviewed",
+   "note": "L2 constructs Herr-style complexes for (φ,Γ)-modules on the regulator side."
+  },
+  {
+   "layer": "PadicHodgeRegulators:L2",
+   "other": "PhiGammaModulesAndIwasawaCohomology:PG.5",
+   "source": "audit-unreviewed",
+   "note": "L2 ('(phi,Gamma)-modules and Iwasawa cohomology') states the same H¹_Iw ≅ D(T)^{ψ=1} identification for the regulator."
+  },
+  {
+   "layer": "PadicHodgeRegulators:L4",
+   "other": "PhiGammaModulesAndIwasawaCohomology:PG.6",
+   "source": "audit-unreviewed",
+   "note": "L4 consumes the Wach basis and its normalization for the signed Coleman maps."
+  },
+  {
+   "layer": "PadicHodgeRegulators:L4",
+   "other": "PhiGammaModulesAndIwasawaCohomology:PG.7",
+   "source": "audit-unreviewed",
+   "note": "L4's exact de Rham regulator extension consumes the same relative finiteness and base-change theorems."
+  },
+  {
+   "layer": "PadicLocalLanglandsForGL2Qp:R30.1",
+   "other": "PadicHodgeRegulators:L2",
+   "source": "audit-unreviewed",
+   "note": "L2 '(phi,Gamma)-modules and Iwasawa cohomology' is another consumer of the same PG.0–PG.3 package."
+  },
+  {
+   "layer": "PadicLocalLanglandsForGL2Qp:R30.1",
+   "other": "PhiGammaModulesAndIwasawaCohomology:PG.0",
+   "source": "audit-unreviewed",
+   "note": "PG.0 is the declared sole owner of the cyclotomic coefficient rings and the commuting φ, Γ actions; R30.1 imports them and constructs no second carrier."
+  },
+  {
+   "layer": "PadicLocalLanglandsForGL2Qp:R30.1",
+   "other": "PhiGammaModulesAndIwasawaCohomology:PG.1",
+   "source": "audit-unreviewed",
+   "note": "R30.1 builds (φ,Γ)-modules over the Robba ring and their relation to Galois representations, overlapping the essential-surjectivity half."
+  },
+  {
+   "layer": "PadicLocalLanglandsForGL2Qp:R30.1",
+   "other": "PhiGammaModulesAndIwasawaCohomology:PG.2",
+   "source": "audit-unreviewed",
+   "note": "PG.2 owns Cherbonnier–Colmez overconvergence and the Robba realization that R30.1 imports."
+  },
+  {
+   "layer": "PadicLocalLanglandsForGL2Qp:R30.1",
+   "other": "PhiGammaModulesAndIwasawaCohomology:PG.7",
+   "source": "audit-unreviewed",
+   "note": "R30.1's Robba (φ,Γ)-module category overlaps the absolute case of this relative category."
+  },
+  {
+   "layer": "PadicLocalLanglandsForGL2Qp:R30.3",
+   "other": "PadicHodgeRegulators:L2",
+   "source": "audit-unreviewed",
+   "note": "Shares the (φ,Γ)-module side of the construction, though it applies it to Iwasawa cohomology rather than to GL₂ representations."
+  },
+  {
+   "layer": "PhiGammaModulesAndIwasawaCohomology:PG.0",
+   "other": "PadicHodgeRegulators:L2",
+   "source": "audit-unreviewed",
+   "note": "L2 ('(phi,Gamma)-modules and Iwasawa cohomology') restates the coefficient-ring and φ-module package on the regulator side."
+  },
+  {
+   "layer": "PhiGammaModulesAndIwasawaCohomology:PG.0",
+   "other": "PadicLocalLanglandsForGL2Qp:R30.1",
+   "source": "audit-unreviewed",
+   "note": "PG.0 is the declared sole owner of the cyclotomic coefficient rings and the commuting φ, Γ actions; R30.1 imports them and constructs no second carrier."
+  },
+  {
+   "layer": "PhiGammaModulesAndIwasawaCohomology:PG.1",
+   "other": "PadicHodgeRegulators:L2",
+   "source": "audit-unreviewed",
+   "note": "L2 states the same Fontaine equivalence as the input to its Iwasawa-cohomology construction."
+  },
+  {
+   "layer": "PhiGammaModulesAndIwasawaCohomology:PG.1",
+   "other": "PadicLocalLanglandsForGL2Qp:R30.1",
+   "source": "audit-unreviewed",
+   "note": "R30.1 builds (φ,Γ)-modules over the Robba ring and their relation to Galois representations, overlapping the essential-surjectivity half."
+  },
+  {
+   "layer": "PhiGammaModulesAndIwasawaCohomology:PG.2",
+   "other": "PadicLocalLanglandsForGL2Qp:R30.1",
+   "source": "audit-unreviewed",
+   "note": "PG.2 owns Cherbonnier–Colmez overconvergence and the Robba realization that R30.1 imports."
+  },
+  {
+   "layer": "PhiGammaModulesAndIwasawaCohomology:PG.3",
+   "other": "PadicHodgeRegulators:L2",
+   "source": "audit-unreviewed",
+   "note": "L2 constructs Herr-style complexes for (φ,Γ)-modules on the regulator side."
+  },
+  {
+   "layer": "PhiGammaModulesAndIwasawaCohomology:PG.5",
+   "other": "PadicHodgeRegulators:L2",
+   "source": "audit-unreviewed",
+   "note": "L2 ('(phi,Gamma)-modules and Iwasawa cohomology') states the same H¹_Iw ≅ D(T)^{ψ=1} identification for the regulator."
+  },
+  {
+   "layer": "PhiGammaModulesAndIwasawaCohomology:PG.6",
+   "other": "PadicHodgeRegulators:L4",
+   "source": "audit-unreviewed",
+   "note": "L4 consumes the Wach basis and its normalization for the signed Coleman maps."
+  },
+  {
+   "layer": "PhiGammaModulesAndIwasawaCohomology:PG.7",
+   "other": "PadicHodgeRegulators:L4",
+   "source": "audit-unreviewed",
+   "note": "L4's exact de Rham regulator extension consumes the same relative finiteness and base-change theorems."
+  },
+  {
+   "layer": "PhiGammaModulesAndIwasawaCohomology:PG.7",
+   "other": "PadicLocalLanglandsForGL2Qp:R30.1",
+   "source": "audit-unreviewed",
+   "note": "R30.1's Robba (φ,Γ)-module category overlaps the absolute case of this relative category."
+  }
+ ]
+}

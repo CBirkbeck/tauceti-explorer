@@ -1,0 +1,223 @@
+{
+ "id": "RS-16",
+ "name": "Iwasawa algebras, p-adic measures and the main conjecture",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "ColemanPowerSeries",
+   "title": "Coleman power series, local units, and cyclotomic-unit quotients",
+   "document": "content/campaign/ColemanPowerSeries/README.md"
+  },
+  {
+   "id": "IntegralIwasawaTheory",
+   "title": "Arithmetic Iwasawa theory and the main conjecture",
+   "document": "content/campaign/IntegralIwasawaTheory/README.md"
+  },
+  {
+   "id": "LocallyAnalyticDistributions",
+   "title": "Locally analytic distributions, growth, and character spaces",
+   "document": "content/campaign/LocallyAnalyticDistributions/README.md"
+  },
+  {
+   "id": "PadicMeasuresIwasawaAlgebras",
+   "title": "P-adic measures, completed group algebras, and characteristic ideals",
+   "document": "content/campaign/PadicMeasuresIwasawaAlgebras/README.md"
+  }
+ ],
+ "anchors": [],
+ "evidence": [
+  {
+   "layer": "ColemanPowerSeries:L0",
+   "other": "PadicMeasuresIwasawaAlgebras:L1",
+   "source": "audit",
+   "note": "Owns completed group rings and their universal property for continuous actions, which this layer re-asks for when extending the G-action to Z_p[[G]]."
+  },
+  {
+   "layer": "ColemanPowerSeries:L1",
+   "other": "PadicMeasuresIwasawaAlgebras:L2",
+   "source": "audit",
+   "note": "L2 defines φ(T)=(1+T)^p−1 and ψ with ψφ=1 on O[[T]] ≅ measures, overlapping the ψ identification here."
+  },
+  {
+   "layer": "ColemanPowerSeries:L1",
+   "other": "PadicMeasuresIwasawaAlgebras:L4",
+   "source": "audit",
+   "note": "L4 owns Weierstrass division and preparation for O[[T]], which Mathlib already proves over complete local rings."
+  },
+  {
+   "layer": "ColemanPowerSeries:L2",
+   "other": "LocallyAnalyticDistributions:L1",
+   "source": "audit",
+   "note": "Also states restriction, φ, ψ, differentiation and division by x on distributions supported on units, extending the same operators."
+  },
+  {
+   "layer": "ColemanPowerSeries:L2",
+   "other": "PadicMeasuresIwasawaAlgebras:L2",
+   "source": "audit",
+   "note": "L2 builds ∂=(1+T)d/dT, φ, ψ, restriction to units as 1−φψ and inversion of multiplication by x on units, the operators in this layer's Col_0 pipeline."
+  },
+  {
+   "layer": "ColemanPowerSeries:L4",
+   "other": "IntegralIwasawaTheory:L0",
+   "source": "audit",
+   "note": "L0 also defines cyclotomic units as a subgroup of actual units, relates the real and full-field groups and torsion, and gives the explicit prime-power-conductor generators this layer asks for."
+  },
+  {
+   "layer": "IntegralIwasawaTheory:I.1",
+   "other": "PadicMeasuresIwasawaAlgebras:L1",
+   "source": "audit",
+   "note": "Completed group rings R[[G]] of profinite groups and convolution."
+  },
+  {
+   "layer": "IntegralIwasawaTheory:I.1",
+   "other": "PadicMeasuresIwasawaAlgebras:L3",
+   "source": "audit",
+   "note": "Also constructs ℤ_p[[G∞]] with its total quotient ring for abelian extensions of a totally real field."
+  },
+  {
+   "layer": "IntegralIwasawaTheory:I.1",
+   "other": "PadicMeasuresIwasawaAlgebras:L4",
+   "source": "audit",
+   "note": "Characteristic ideals, μ/λ, change of topological generator and character idempotents when p divides |Δ|; I.1 restates these as imports."
+  },
+  {
+   "layer": "IntegralIwasawaTheory:I.1",
+   "other": "PadicMeasuresIwasawaAlgebras:L5",
+   "source": "audit",
+   "note": "Determinant lines and invertible modules for non-regular coefficient rings."
+  },
+  {
+   "layer": "IntegralIwasawaTheory:I.4",
+   "other": "PadicMeasuresIwasawaAlgebras:L5",
+   "source": "audit",
+   "note": "Specialisation exact sequences with Tor terms, determinant lines and finite-error control."
+  },
+  {
+   "layer": "IntegralIwasawaTheory:L0",
+   "other": "ColemanPowerSeries:L4",
+   "source": "audit",
+   "note": "L0 also defines cyclotomic units as a subgroup of actual units, relates the real and full-field groups and torsion, and gives the explicit prime-power-conductor generators this layer asks for."
+  },
+  {
+   "layer": "IntegralIwasawaTheory:L2",
+   "other": "PadicMeasuresIwasawaAlgebras:L4",
+   "source": "audit",
+   "note": "The elementary-module theorem and μ/λ invariants with the class-number-growth normalisation."
+  },
+  {
+   "layer": "IntegralIwasawaTheory:L2",
+   "other": "PadicMeasuresIwasawaAlgebras:L5",
+   "source": "audit",
+   "note": "Topological Nakayama, finite generation from finite residual quotients, and finite-error control for coinvariants."
+  },
+  {
+   "layer": "LocallyAnalyticDistributions:L0",
+   "other": "PadicMeasuresIwasawaAlgebras:L0",
+   "source": "audit",
+   "note": "Bounded measures as continuous duals, density of locally constant functions, and the operator-norm and weak topologies on duals; this overlaps the dual and measure part of L0."
+  },
+  {
+   "layer": "LocallyAnalyticDistributions:L1",
+   "other": "ColemanPowerSeries:L2",
+   "source": "audit",
+   "note": "Also states restriction, φ, ψ, differentiation and division by x on distributions supported on units, extending the same operators."
+  },
+  {
+   "layer": "LocallyAnalyticDistributions:L1",
+   "other": "PadicMeasuresIwasawaAlgebras:L2",
+   "source": "audit",
+   "note": "The same operator toolbox for bounded measures: ∂, translations, φ, ψ, restriction to units and inversion of multiplication by x on units. L1 extends it to the unbounded setting."
+  },
+  {
+   "layer": "LocallyAnalyticDistributions:L3",
+   "other": "PadicMeasuresIwasawaAlgebras:L0a",
+   "source": "audit",
+   "note": "Constructs the rigid space of continuous characters of a compact abelian p-adic analytic group on affinoids, with universal character, polydisc charts, affinoid base change and the separate p=2 chart. These are the same targets."
+  },
+  {
+   "layer": "PadicMeasuresIwasawaAlgebras:L0",
+   "other": "LocallyAnalyticDistributions:L0",
+   "source": "audit",
+   "note": "Bounded measures as continuous duals, density of locally constant functions, and the operator-norm and weak topologies on duals; this overlaps the dual and measure part of L0."
+  },
+  {
+   "layer": "PadicMeasuresIwasawaAlgebras:L0a",
+   "other": "LocallyAnalyticDistributions:L3",
+   "source": "audit",
+   "note": "Constructs the rigid space of continuous characters of a compact abelian p-adic analytic group on affinoids, with universal character, polydisc charts, affinoid base change and the separate p=2 chart. These are the same targets."
+  },
+  {
+   "layer": "PadicMeasuresIwasawaAlgebras:L1",
+   "other": "ColemanPowerSeries:L0",
+   "source": "audit",
+   "note": "Owns completed group rings and their universal property for continuous actions, which this layer re-asks for when extending the G-action to Z_p[[G]]."
+  },
+  {
+   "layer": "PadicMeasuresIwasawaAlgebras:L1",
+   "other": "IntegralIwasawaTheory:I.1",
+   "source": "audit",
+   "note": "Completed group rings R[[G]] of profinite groups and convolution."
+  },
+  {
+   "layer": "PadicMeasuresIwasawaAlgebras:L2",
+   "other": "ColemanPowerSeries:L1",
+   "source": "audit",
+   "note": "L2 defines φ(T)=(1+T)^p−1 and ψ with ψφ=1 on O[[T]] ≅ measures, overlapping the ψ identification here."
+  },
+  {
+   "layer": "PadicMeasuresIwasawaAlgebras:L2",
+   "other": "ColemanPowerSeries:L2",
+   "source": "audit",
+   "note": "L2 builds ∂=(1+T)d/dT, φ, ψ, restriction to units as 1−φψ and inversion of multiplication by x on units, the operators in this layer's Col_0 pipeline."
+  },
+  {
+   "layer": "PadicMeasuresIwasawaAlgebras:L2",
+   "other": "LocallyAnalyticDistributions:L1",
+   "source": "audit",
+   "note": "The same operator toolbox for bounded measures: ∂, translations, φ, ψ, restriction to units and inversion of multiplication by x on units. L1 extends it to the unbounded setting."
+  },
+  {
+   "layer": "PadicMeasuresIwasawaAlgebras:L3",
+   "other": "IntegralIwasawaTheory:I.1",
+   "source": "audit",
+   "note": "Also constructs ℤ_p[[G∞]] with its total quotient ring for abelian extensions of a totally real field."
+  },
+  {
+   "layer": "PadicMeasuresIwasawaAlgebras:L4",
+   "other": "ColemanPowerSeries:L1",
+   "source": "audit",
+   "note": "L4 owns Weierstrass division and preparation for O[[T]], which Mathlib already proves over complete local rings."
+  },
+  {
+   "layer": "PadicMeasuresIwasawaAlgebras:L4",
+   "other": "IntegralIwasawaTheory:I.1",
+   "source": "audit",
+   "note": "Characteristic ideals, μ/λ, change of topological generator and character idempotents when p divides |Δ|; I.1 restates these as imports."
+  },
+  {
+   "layer": "PadicMeasuresIwasawaAlgebras:L4",
+   "other": "IntegralIwasawaTheory:L2",
+   "source": "audit",
+   "note": "The elementary-module theorem and μ/λ invariants with the class-number-growth normalisation."
+  },
+  {
+   "layer": "PadicMeasuresIwasawaAlgebras:L5",
+   "other": "IntegralIwasawaTheory:I.1",
+   "source": "audit",
+   "note": "Determinant lines and invertible modules for non-regular coefficient rings."
+  },
+  {
+   "layer": "PadicMeasuresIwasawaAlgebras:L5",
+   "other": "IntegralIwasawaTheory:I.4",
+   "source": "audit",
+   "note": "Specialisation exact sequences with Tor terms, determinant lines and finite-error control."
+  },
+  {
+   "layer": "PadicMeasuresIwasawaAlgebras:L5",
+   "other": "IntegralIwasawaTheory:L2",
+   "source": "audit",
+   "note": "Topological Nakayama, finite generation from finite residual quotients, and finite-error control for coinvariants."
+  }
+ ]
+}

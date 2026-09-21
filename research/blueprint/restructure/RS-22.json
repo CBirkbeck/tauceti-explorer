@@ -1,0 +1,69 @@
+{
+ "id": "RS-22",
+ "name": "Shtukas and Langlands over function fields",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "GlobalShtukasAndFunctionFieldLanglands",
+   "title": "Global shtukas and Langlands over function fields",
+   "document": "content/campaign/GlobalShtukasAndFunctionFieldLanglands/README.md"
+  },
+  {
+   "id": "HeckeStacksAndLocalShtukas",
+   "title": "Hecke correspondences and local shtuka cohomology",
+   "document": "content/campaign/HeckeStacksAndLocalShtukas/README.md"
+  }
+ ],
+ "anchors": [],
+ "evidence": [
+  {
+   "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.1",
+   "other": "HeckeStacksAndLocalShtukas:HS0",
+   "source": "audit",
+   "note": "GS.1 constructs bounded global Hecke stacks over powers of a curve with the same source/target/leg structure, in equal characteristic."
+  },
+  {
+   "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.2",
+   "other": "HeckeStacksAndLocalShtukas:HS0",
+   "source": "audit",
+   "note": "GS.2 builds shtuka stacks, modifications and truncations, the function-field counterpart of the correspondence built here."
+  },
+  {
+   "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.2",
+   "other": "HeckeStacksAndLocalShtukas:HS2",
+   "source": "audit",
+   "note": "Owns local shtuka moduli and bounds; GS.2's bounds and local models are the global counterpart."
+  },
+  {
+   "layer": "GlobalShtukasAndFunctionFieldLanglands:GS.4",
+   "other": "HeckeStacksAndLocalShtukas:HS1",
+   "source": "audit",
+   "note": "GS.4 constructs the continuous action of a product of global Galois groups through Drinfeld's lemma, with its compatibility with Hecke operators. That is HS1's continuous W_E^I action (T3) in the global function-field setting."
+  },
+  {
+   "layer": "HeckeStacksAndLocalShtukas:HS0",
+   "other": "GlobalShtukasAndFunctionFieldLanglands:GS.1",
+   "source": "audit",
+   "note": "GS.1 constructs bounded global Hecke stacks over powers of a curve with the same source/target/leg structure, in equal characteristic."
+  },
+  {
+   "layer": "HeckeStacksAndLocalShtukas:HS0",
+   "other": "GlobalShtukasAndFunctionFieldLanglands:GS.2",
+   "source": "audit",
+   "note": "GS.2 builds shtuka stacks, modifications and truncations, the function-field counterpart of the correspondence built here."
+  },
+  {
+   "layer": "HeckeStacksAndLocalShtukas:HS1",
+   "other": "GlobalShtukasAndFunctionFieldLanglands:GS.4",
+   "source": "audit",
+   "note": "GS.4 constructs the continuous action of a product of global Galois groups through Drinfeld's lemma, with its compatibility with Hecke operators. That is HS1's continuous W_E^I action (T3) in the global function-field setting."
+  },
+  {
+   "layer": "HeckeStacksAndLocalShtukas:HS2",
+   "other": "GlobalShtukasAndFunctionFieldLanglands:GS.2",
+   "source": "audit",
+   "note": "Owns local shtuka moduli and bounds; GS.2's bounds and local models are the global counterpart."
+  }
+ ]
+}

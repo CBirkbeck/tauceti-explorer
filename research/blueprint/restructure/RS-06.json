@@ -1,0 +1,698 @@
+{
+ "id": "RS-06",
+ "name": "Beyond Katz–Mazur: modular curves, Serre modularity and Faltings finiteness",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "AlgebraicModularFormsAndSerreWeights",
+   "title": "Algebraic modular forms, reduction and Serre weights",
+   "document": "content/campaign/AlgebraicModularFormsAndSerreWeights/README.md"
+  },
+  {
+   "id": "ArakelovGeometryAndAbelianHeights",
+   "title": "Arakelov geometry and heights of abelian varieties",
+   "document": "content/campaign/ArakelovGeometryAndAbelianHeights/README.md"
+  },
+  {
+   "id": "ClassicalSerreModularity",
+   "title": "Classical Serre Modularity",
+   "document": "content/campaign/ClassicalSerreModularity/README.md"
+  },
+  {
+   "id": "EllipticCurveModularity",
+   "title": "Modularity and modular parametrisations of elliptic curves over Q",
+   "document": "content/campaign/EllipticCurveModularity/README.md"
+  },
+  {
+   "id": "FaltingsFinitenessAndIsogenyTheorems",
+   "title": "Faltings finiteness, semisimplicity and isogeny theorems",
+   "document": "content/campaign/FaltingsFinitenessAndIsogenyTheorems/README.md"
+  },
+  {
+   "id": "ModularCurvesPartII",
+   "title": "Modular Curves PartII",
+   "document": "content/campaign/ModularCurvesPartII/README.md"
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation",
+   "title": "Weight and level optimisation of residual modular representations",
+   "document": "content/campaign/SerreWeightAndLevelOptimisation/README.md"
+  },
+  {
+   "id": "SmallRamificationAndAbelianVarietyBaseCases",
+   "title": "Small ramification and the base cases for Serre modularity",
+   "document": "content/campaign/SmallRamificationAndAbelianVarietyBaseCases/README.md"
+  }
+ ],
+ "anchors": [
+  {
+   "id": "tauceti:TauCetiRoadmap/ModularCurves",
+   "title": "Modular curves, following Katz–Mazur",
+   "document": "content/tau-ceti/ModularCurves/README.md"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/ModularForms",
+   "title": "Modular forms — Hecke theory, newforms, and L-functions",
+   "document": "content/tau-ceti/ModularForms/README.md"
+  }
+ ],
+ "evidence": [
+  {
+   "layer": "AlgebraicModularFormsAndSerreWeights:R15.1",
+   "other": "ArakelovGeometryAndAbelianHeights:R35.2",
+   "source": "audit",
+   "note": "Constructs the determinant of invariant differentials (the Hodge bundle) of an abelian scheme, the general case of the same bundle."
+  },
+  {
+   "layer": "AlgebraicModularFormsAndSerreWeights:R15.1",
+   "other": "ModularCurvesPartII:R12.5",
+   "source": "audit",
+   "note": "Constructs the Hodge bundle and proves agreement of geometric and analytic forms over ℂ, overlapping the Hodge-bundle/automorphy-factor identification."
+  },
+  {
+   "layer": "AlgebraicModularFormsAndSerreWeights:R15.2",
+   "other": "ModularCurvesPartII:R13.3",
+   "source": "audit",
+   "note": "Proves the formal comparison at the Tate curve 'used in the q-expansion principle', i.e. the geometric input to R15.2's first target."
+  },
+  {
+   "layer": "AlgebraicModularFormsAndSerreWeights:R15.2",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+   "source": "audit",
+   "note": "Owns the integral Hecke algebra, coefficient fields and the integral q-expansions-at-all-cusps lattice argument, which is exactly R15.2's integral Hecke theory."
+  },
+  {
+   "layer": "AlgebraicModularFormsAndSerreWeights:R15.3",
+   "other": "ModularCurvesPartII:R13.5",
+   "source": "audit",
+   "note": "Constructs the Igusa-curve interpretation of mod-p modular forms, the same Igusa curves that appear here as components of the bad fibres."
+  },
+  {
+   "layer": "AlgebraicModularFormsAndSerreWeights:R15.3",
+   "other": "SerreWeightAndLevelOptimisation:R20.3",
+   "source": "audit",
+   "note": "Proves the Edixhoven/Serre weight theorem 'with its characteristic-p operations', so it restates the theta/filtration package of R15.3."
+  },
+  {
+   "layer": "AlgebraicModularFormsAndSerreWeights:R15.4",
+   "other": "ClassicalSerreModularity:R26.1",
+   "source": "audit",
+   "note": "States the level-one theorem 'with its classical Serre weight' for every residual characteristic, so it restates the recipe."
+  },
+  {
+   "layer": "AlgebraicModularFormsAndSerreWeights:R15.4",
+   "other": "SerreWeightAndLevelOptimisation:R20.3",
+   "source": "audit",
+   "note": "Proves the Edixhoven/Serre weight theorem including the reducible and irreducible local cases, i.e. the same case table used as an optimisation theorem."
+  },
+  {
+   "layer": "AlgebraicModularFormsAndSerreWeights:R15.4",
+   "other": "SerreWeightAndLevelOptimisation:R20.3",
+   "source": "audit-unreviewed",
+   "note": "Serre's local weight recipe: owns the recipe R20.3 proves the theorem for."
+  },
+  {
+   "layer": "AlgebraicModularFormsAndSerreWeights:R15.5",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+   "source": "audit",
+   "note": "Its sublayer 8W routes through Deligne–Serre 1974 Prop 2.7, the same lifting argument."
+  },
+  {
+   "layer": "AlgebraicModularFormsAndSerreWeights:R15.6",
+   "other": "ClassicalSerreModularity:R26.1",
+   "source": "audit",
+   "note": "Defines residual modularity and states the classical weight-and-level Serre target used by this statement."
+  },
+  {
+   "layer": "AlgebraicModularFormsAndSerreWeights:R15.6",
+   "other": "ClassicalSerreModularity:R27.6",
+   "source": "audit",
+   "note": "States exactly this package — a normalised characteristic-zero newform of level N(rho-bar) and weight k(rho-bar), a coefficient prime and an isomorphism with the residual representation, plus determinant compatibility and coefficient-field invariance."
+  },
+  {
+   "layer": "AlgebraicModularFormsAndSerreWeights:R15.6",
+   "other": "SerreWeightAndLevelOptimisation:R20.5",
+   "source": "audit",
+   "note": "Owns the actual optimisation of weight and level, for which R15.6 supplies the statement vocabulary; the two overlap in the definition of the classical target."
+  },
+  {
+   "layer": "ArakelovGeometryAndAbelianHeights:R35.2",
+   "other": "AlgebraicModularFormsAndSerreWeights:R15.1",
+   "source": "audit",
+   "note": "Constructs the determinant of invariant differentials (the Hodge bundle) of an abelian scheme, the general case of the same bundle."
+  },
+  {
+   "layer": "ArakelovGeometryAndAbelianHeights:R35.2",
+   "other": "ModularCurvesPartII:R12.5",
+   "source": "audit",
+   "note": "R12.5 owns the Hodge bundle and Hecke normalization of differentials on modular curves, the relative-dimension-one case of this construction."
+  },
+  {
+   "layer": "ArakelovGeometryAndAbelianHeights:R35.3",
+   "other": "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+   "source": "audit",
+   "note": "R35.3 defines the stable Faltings height and its behaviour under extension, the height R28.2 estimates."
+  },
+  {
+   "layer": "ArakelovGeometryAndAbelianHeights:R35.4",
+   "other": "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+   "source": "audit",
+   "note": "R28.2 states it will 'Prove the Faltings isogeny-height estimates and the key boundedness result in the isogeny class, using the integral differential/p-divisible-group calculations supplied by R35/R07' — the same estimates, with R35.4 supplying the local calculation and R28.2 the global conclusion."
+  },
+  {
+   "layer": "ArakelovGeometryAndAbelianHeights:R35.5",
+   "other": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+   "source": "audit",
+   "note": "R35.5 proves the moduli (theta) height comparison with the Faltings height that R28.1’s finiteness on moduli uses."
+  },
+  {
+   "layer": "ArakelovGeometryAndAbelianHeights:R35.6",
+   "other": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+   "source": "audit",
+   "note": "R28.1 consumes R35.6 and states the finiteness conclusion, including Zarhin's trick and the Jordan–Zassenhaus input; the polarization-removal argument appears on both sides of the boundary."
+  },
+  {
+   "layer": "ClassicalSerreModularity:R26.1",
+   "other": "AlgebraicModularFormsAndSerreWeights:R15.4",
+   "source": "audit",
+   "note": "States the level-one theorem 'with its classical Serre weight' for every residual characteristic, so it restates the recipe."
+  },
+  {
+   "layer": "ClassicalSerreModularity:R26.1",
+   "other": "AlgebraicModularFormsAndSerreWeights:R15.6",
+   "source": "audit",
+   "note": "Defines residual modularity and states the classical weight-and-level Serre target used by this statement."
+  },
+  {
+   "layer": "ClassicalSerreModularity:R26.1",
+   "other": "SerreWeightAndLevelOptimisation:R20.6",
+   "source": "audit-unreviewed",
+   "note": "Statement and exact source decomposition: the companion export/statement-table layer for the Serre conjecture proper."
+  },
+  {
+   "layer": "ClassicalSerreModularity:R26.5",
+   "other": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+   "source": "audit",
+   "note": "R26.5 applies the R25 exclusions to each remaining base case after verifying dimension, field of definition and reduction set."
+  },
+  {
+   "layer": "ClassicalSerreModularity:R26.5",
+   "other": "SmallRamificationAndAbelianVarietyBaseCases:R25.6",
+   "source": "audit",
+   "note": "R26.5 must also list the finite set of exceptional characteristics and weights with their terminal theorems."
+  },
+  {
+   "layer": "ClassicalSerreModularity:R26.6",
+   "other": "SerreWeightAndLevelOptimisation:R20.3",
+   "source": "audit-unreviewed",
+   "note": "Level-one theorem and KW's initial case: consumes the same weight optimisation at p."
+  },
+  {
+   "layer": "ClassicalSerreModularity:R27.4",
+   "other": "SerreWeightAndLevelOptimisation:R20.5",
+   "source": "audit-unreviewed",
+   "note": "Removing the good-dihedral condition: handles neighbouring dyadic exceptional cases of the same induction."
+  },
+  {
+   "layer": "ClassicalSerreModularity:R27.6",
+   "other": "AlgebraicModularFormsAndSerreWeights:R15.6",
+   "source": "audit",
+   "note": "States exactly this package — a normalised characteristic-zero newform of level N(rho-bar) and weight k(rho-bar), a coefficient prime and an isomorphism with the residual representation, plus determinant compatibility and coefficient-field invariance."
+  },
+  {
+   "layer": "ClassicalSerreModularity:R27.6",
+   "other": "EllipticCurveModularity:R29.2",
+   "source": "audit-unreviewed",
+   "note": "Owns the theorem being applied and says so: 'Export the finite-flat weight-two bounded-level consequence used by R29'."
+  },
+  {
+   "layer": "ClassicalSerreModularity:R27.6",
+   "other": "SerreWeightAndLevelOptimisation:R20.6",
+   "source": "audit",
+   "note": "Proves the bounded-level weight-two trivial-character consequence used for elliptic curves and the case table for the full classical conclusion."
+  },
+  {
+   "layer": "ClassicalSerreModularity:R33.4",
+   "other": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+   "source": "audit",
+   "note": "Owns Schoof's semistable small-prime theorem (no positive-dimensional semistable abelian variety over Q with good reduction outside one prime in {2,3,5,7,13}), the prime-5 nonexistence theorem this layer applies."
+  },
+  {
+   "layer": "ClassicalSerreModularity:R33.4",
+   "other": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+   "source": "audit",
+   "note": "R33.4 constructs the semistable GL₂-type abelian variety in Snowden's form for the weight-6 terminal case, and does the characteristic-three ordinary calculation for weights 2 and 4."
+  },
+  {
+   "layer": "ClassicalSerreModularity:R33.6",
+   "other": "EllipticCurveModularity:R29.6",
+   "source": "audit-unreviewed",
+   "note": "States that its alternative route 'deduce[s] the same R29 elliptic-curve theorem through a theorem parameter or a separate corollary' — the same endpoint reached by a second argument."
+  },
+  {
+   "layer": "ClassicalSerreModularity:R33.6",
+   "other": "SerreWeightAndLevelOptimisation:R20.6",
+   "source": "audit",
+   "note": "Provides the case table deriving the full classical strong conclusion and proves the bounded-level weight-two consequence for elliptic curves, the same refinement and corollary."
+  },
+  {
+   "layer": "EllipticCurveModularity:R29.1",
+   "other": "FaltingsFinitenessAndIsogenyTheorems:R28.3",
+   "source": "audit-unreviewed",
+   "note": "Owns 'finiteness of the relevant isomorphism classes within an isogeny class', the Faltings input R29.1 restates."
+  },
+  {
+   "layer": "EllipticCurveModularity:R29.1",
+   "other": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+   "source": "audit-unreviewed",
+   "note": "Owns the Tate isogeny theorem and Hom_F(A,B) tensor Q_l = Hom_{G_F}(V_l A, V_l B), the rational Hom comparison R29.1 uses to bound Hom ranks."
+  },
+  {
+   "layer": "EllipticCurveModularity:R29.1",
+   "other": "FaltingsFinitenessAndIsogenyTheorems:R28.6",
+   "source": "audit",
+   "note": "R29.1 proves End_ℚ(E) = ℤ, rank one of Hom_ℚ(E,E′) and finiteness of prime isogeny degrees from Faltings, the same consequences R28.6 exports."
+  },
+  {
+   "layer": "EllipticCurveModularity:R29.1",
+   "other": "FaltingsFinitenessAndIsogenyTheorems:R28.6",
+   "source": "audit-unreviewed",
+   "note": "Explicitly states the same targets: 'Prove the finite-generation and rank-one Hom consequence when End_Q(E)=Z. R29 uses this to show only finitely many rational prime-degree isogenies' — the Hom rank-one and finite-prime-degree conclusions of R29.1 are its exports."
+  },
+  {
+   "layer": "EllipticCurveModularity:R29.2",
+   "other": "ClassicalSerreModularity:R27.6",
+   "source": "audit-unreviewed",
+   "note": "Owns the theorem being applied and says so: 'Export the finite-flat weight-two bounded-level consequence used by R29'."
+  },
+  {
+   "layer": "EllipticCurveModularity:R29.2",
+   "other": "SerreWeightAndLevelOptimisation:R20.1",
+   "source": "audit-unreviewed",
+   "note": "Owns the level-changing algebra that produces the bound on the prime-to-p conductor."
+  },
+  {
+   "layer": "EllipticCurveModularity:R29.2",
+   "other": "SerreWeightAndLevelOptimisation:R20.4",
+   "source": "audit-unreviewed",
+   "note": "Residual Serre witnesses at bounded level: the consumer of R20.4's character specialisation."
+  },
+  {
+   "layer": "EllipticCurveModularity:R29.2",
+   "other": "SerreWeightAndLevelOptimisation:R20.6",
+   "source": "audit-unreviewed",
+   "note": "Consumes exactly the bounded-level weight-two trivial-character export this layer packages."
+  },
+  {
+   "layer": "EllipticCurveModularity:R29.3",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+   "source": "audit",
+   "note": "Re-uses newform finiteness, Galois conjugation and strong multiplicity one to pin a rational weight-two newform; a consumer that restates the fixed-level statements."
+  },
+  {
+   "layer": "EllipticCurveModularity:R29.3",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+   "source": "audit",
+   "note": "Proves rationality of the coefficient field of the weight-two newform attached to E via Galois conjugation and strong multiplicity one, a special case of the conjugate-newform construction."
+  },
+  {
+   "layer": "EllipticCurveModularity:R29.5",
+   "other": "ModularCurvesPartII:R14.5",
+   "source": "audit-unreviewed",
+   "note": "Owns exactly the quotient construction R29.5 applies: 'construct its Hecke ideal and the quotient A_f of J_1(N), or J_0(N) for trivial character, as an abelian variety over Q ... Prove the quotient map and Abel-Jacobi composite are nonzero where required'."
+  },
+  {
+   "layer": "EllipticCurveModularity:R29.5",
+   "other": "ModularCurvesPartII:R14.6",
+   "source": "audit-unreviewed",
+   "note": "Supplies 'the rational cusp and normalised Abel-Jacobi map used by R29', the normalisation R29.5 composes with."
+  },
+  {
+   "layer": "EllipticCurveModularity:R29.6",
+   "other": "ClassicalSerreModularity:R33.6",
+   "source": "audit-unreviewed",
+   "note": "States that its alternative route 'deduce[s] the same R29 elliptic-curve theorem through a theorem parameter or a separate corollary' — the same endpoint reached by a second argument."
+  },
+  {
+   "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+   "other": "ArakelovGeometryAndAbelianHeights:R35.5",
+   "source": "audit",
+   "note": "R35.5 proves the moduli (theta) height comparison with the Faltings height that R28.1’s finiteness on moduli uses."
+  },
+  {
+   "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.1",
+   "other": "ArakelovGeometryAndAbelianHeights:R35.6",
+   "source": "audit",
+   "note": "R28.1 consumes R35.6 and states the finiteness conclusion, including Zarhin's trick and the Jordan–Zassenhaus input; the polarization-removal argument appears on both sides of the boundary."
+  },
+  {
+   "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+   "other": "ArakelovGeometryAndAbelianHeights:R35.3",
+   "source": "audit",
+   "note": "R35.3 defines the stable Faltings height and its behaviour under extension, the height R28.2 estimates."
+  },
+  {
+   "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.2",
+   "other": "ArakelovGeometryAndAbelianHeights:R35.4",
+   "source": "audit",
+   "note": "R28.2 states it will 'Prove the Faltings isogeny-height estimates and the key boundedness result in the isogeny class, using the integral differential/p-divisible-group calculations supplied by R35/R07' — the same estimates, with R35.4 supplying the local calculation and R28.2 the global conclusion."
+  },
+  {
+   "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.3",
+   "other": "EllipticCurveModularity:R29.1",
+   "source": "audit-unreviewed",
+   "note": "Owns 'finiteness of the relevant isomorphism classes within an isogeny class', the Faltings input R29.1 restates."
+  },
+  {
+   "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+   "other": "EllipticCurveModularity:R29.1",
+   "source": "audit-unreviewed",
+   "note": "Owns the Tate isogeny theorem and Hom_F(A,B) tensor Q_l = Hom_{G_F}(V_l A, V_l B), the rational Hom comparison R29.1 uses to bound Hom ranks."
+  },
+  {
+   "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.5",
+   "other": "SmallRamificationAndAbelianVarietyBaseCases:R25.3",
+   "source": "audit",
+   "note": "R25.3 proves that no positive-dimensional abelian variety over ℚ has good reduction everywhere, the empty-S case over ℚ of R28.5's good-reduction finiteness in its sharp form (as R25.4 does for one bad prime)."
+  },
+  {
+   "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.5",
+   "other": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+   "source": "audit",
+   "note": "R25.4 proves nonexistence of semistable abelian varieties over ℚ with good reduction outside one small prime, a sharp special case of the same good-reduction finiteness."
+  },
+  {
+   "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.6",
+   "other": "EllipticCurveModularity:R29.1",
+   "source": "audit",
+   "note": "R29.1 proves End_ℚ(E) = ℤ, rank one of Hom_ℚ(E,E′) and finiteness of prime isogeny degrees from Faltings, the same consequences R28.6 exports."
+  },
+  {
+   "layer": "FaltingsFinitenessAndIsogenyTheorems:R28.6",
+   "other": "EllipticCurveModularity:R29.1",
+   "source": "audit-unreviewed",
+   "note": "Explicitly states the same targets: 'Prove the finite-generation and rank-one Hom consequence when End_Q(E)=Z. R29 uses this to show only finitely many rational prime-degree isogenies' — the Hom rank-one and finite-prime-degree conclusions of R29.1 are its exports."
+  },
+  {
+   "layer": "ModularCurvesPartII:R12.2",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+   "source": "audit",
+   "note": "Classifies full, Γ₁ and Γ₀ level structures under uniformisation and identifies the ordered-basis determinant with the chosen root of unity: the characteristic-zero counterpart of 5B's det_N and its fixed-pairing fibres."
+  },
+  {
+   "layer": "ModularCurvesPartII:R12.3",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+   "source": "audit",
+   "note": "Computes the cusps of X_H via the Tate parameter (KM 8.11) for prime N ≥ 5 diamond quotients, the class R12.3 reuses."
+  },
+  {
+   "layer": "ModularCurvesPartII:R12.4",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#5c-the-twisted-curve-yρ",
+   "source": "audit",
+   "note": "PR81 §5C owns the connected ⇒ irreducible leaf for smooth curves over an algebraically closed field and records statements (i)–(iii) of this layer, in substance, as its external connectedness contract."
+  },
+  {
+   "layer": "ModularCurvesPartII:R12.4",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#layer-5-affine-fine-modular-curves-after-inverting-n",
+   "source": "audit",
+   "note": "Owns the geometric connectedness of the fixed-pairing and twisted curves that Layer 5 leaves as an explicit hypothesis."
+  },
+  {
+   "layer": "ModularCurvesPartII:R12.5",
+   "other": "AlgebraicModularFormsAndSerreWeights:R15.1",
+   "source": "audit",
+   "note": "Constructs the Hodge bundle and proves agreement of geometric and analytic forms over ℂ, overlapping the Hodge-bundle/automorphy-factor identification."
+  },
+  {
+   "layer": "ModularCurvesPartII:R12.5",
+   "other": "ArakelovGeometryAndAbelianHeights:R35.2",
+   "source": "audit",
+   "note": "R12.5 owns the Hodge bundle and Hecke normalization of differentials on modular curves, the relative-dimension-one case of this construction."
+  },
+  {
+   "layer": "ModularCurvesPartII:R12.5",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology",
+   "source": "audit",
+   "note": "States S₂(Γ) ≅ H⁰(X(Γ), Ω¹) on the compact analytic curve, the identification of weight-two cusp forms with holomorphic differentials."
+  },
+  {
+   "layer": "ModularCurvesPartII:R12.5",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas",
+   "source": "audit",
+   "note": "Compares the Hodge bundle with the automorphy factor on the upper half-plane."
+  },
+  {
+   "layer": "ModularCurvesPartII:R13.1",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#1a-projective-weierstrass-models",
+   "source": "audit",
+   "note": "Its proper flat families with smooth elliptic or polygonal fibres restrict on the smooth locus to 1A's EllipticCurveGeom S, and it names that compatibility as a milestone."
+  },
+  {
+   "layer": "ModularCurvesPartII:R13.1",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#layer-1-elliptic-curves-over-a-base-scheme",
+   "source": "audit",
+   "note": "Constructs generalised elliptic curves and is required to prove compatibility with this roadmap's elliptic-scheme object on the smooth locus, so it shares Layer 1's carrier from the degenerate side."
+  },
+  {
+   "layer": "ModularCurvesPartII:R13.2",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#8d-the-cyclicity-locus-and-γ₀n",
+   "source": "audit",
+   "note": "Constructs the correct Γ₀(n) moduli problem at general level for generalised elliptic curves (Česnavičius) and identifies its open part with this layer's affine [Γ₀(N)]: an extension that shares the target."
+  },
+  {
+   "layer": "ModularCurvesPartII:R13.2",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#layer-8-km-chapter-6-cyclicity-and-γ₀n",
+   "source": "audit",
+   "note": "Owns the Γ₀(n) problem at general level for generalised elliptic curves, whose open part is 8D's [Γ₀(N)]."
+  },
+  {
+   "layer": "ModularCurvesPartII:R13.3",
+   "other": "AlgebraicModularFormsAndSerreWeights:R15.2",
+   "source": "audit",
+   "note": "Proves the formal comparison at the Tate curve 'used in the q-expansion principle', i.e. the geometric input to R15.2's first target."
+  },
+  {
+   "layer": "ModularCurvesPartII:R13.3",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+   "source": "audit",
+   "note": "Builds Tate curves and formal neighbourhoods of cusps, cusp widths, and ramification and stabilisers in characteristics 2 and 3, keeping the finite-flat cusp fibre, its reduction and its Cartier structure as separate assertions: item 2's formal-cusp package and item 3's table, in the generalised-elliptic setting."
+  },
+  {
+   "layer": "ModularCurvesPartII:R13.3",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+   "source": "link-rescope",
+   "note": "R13.3 imports Layer 10's formal-cusp package on that class (N ≥ 5 prime, H ≤ (ℤ/Nℤ)ˣ/{±1}, over ℤ[1/N]), as R12.3 already does for the compactification. It adds only the boundary data of generalised elliptic curves, composite and small levels, and primes dividing the level. Prove that the formal parameters agree where both are defined; do not recompute Layer 10's cusp widths or its table of stabil"
+  },
+  {
+   "layer": "ModularCurvesPartII:R13.4a",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients",
+   "source": "audit",
+   "note": "Constructs coarse compactified curves from stack presentations with finite-inertia quotients and base-change statements, and identifies their affine opens with this roadmap's coarse curves."
+  },
+  {
+   "layer": "ModularCurvesPartII:R13.4a",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
+   "source": "audit",
+   "note": "Constructs integral coarse curves at all levels and identifies their affine opens with this roadmap's coarse curves, including Y₀(N)."
+  },
+  {
+   "layer": "ModularCurvesPartII:R13.4a",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+   "source": "audit",
+   "note": "Constructs X_H by normalising ℙ¹_j in Y_H for prime N ≥ 5 diamond quotients, the special case with which R13.4a must agree."
+  },
+  {
+   "layer": "ModularCurvesPartII:R13.4a",
+   "other": "tauceti:TauCetiRoadmap/ModularCurves#layer-9-γ_h-quotients-quotient-regularity-and-coarse-moduli",
+   "source": "audit",
+   "note": "Owns the integral coarse curves whose affine opens are 9E's coarse curves."
+  },
+  {
+   "layer": "ModularCurvesPartII:R13.5",
+   "other": "AlgebraicModularFormsAndSerreWeights:R15.3",
+   "source": "audit",
+   "note": "Constructs the Igusa-curve interpretation of mod-p modular forms, the same Igusa curves that appear here as components of the bad fibres."
+  },
+  {
+   "layer": "ModularCurvesPartII:R13.5",
+   "other": "SerreWeightAndLevelOptimisation:R20.2",
+   "source": "audit-unreviewed",
+   "note": "Bad fibres and regular/semistable models: owns the geometric input R20.2 is required to use."
+  },
+  {
+   "layer": "ModularCurvesPartII:R14.1",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+   "source": "audit",
+   "note": "Owns the analytic Hecke operators and double-coset formulas that the q-expansion comparison targets."
+  },
+  {
+   "layer": "ModularCurvesPartII:R14.2",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+   "source": "audit",
+   "note": "Constructs the integral Hecke algebra via its action on the finite ℤ-module of modular symbols, the same finiteness target by a Betti route."
+  },
+  {
+   "layer": "ModularCurvesPartII:R14.3",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+   "source": "audit",
+   "note": "Builds the modular-symbol lattice and period map, the Betti-side integral structure."
+  },
+  {
+   "layer": "ModularCurvesPartII:R14.4",
+   "other": "SerreWeightAndLevelOptimisation:R20.1",
+   "source": "audit-unreviewed",
+   "note": "Ihara and level-change statements: the same degeneracy-map level-change algebra, on the cohomology of modular curves."
+  },
+  {
+   "layer": "ModularCurvesPartII:R14.5",
+   "other": "EllipticCurveModularity:R29.5",
+   "source": "audit-unreviewed",
+   "note": "Owns exactly the quotient construction R29.5 applies: 'construct its Hecke ideal and the quotient A_f of J_1(N), or J_0(N) for trivial character, as an abelian variety over Q ... Prove the quotient map and Abel-Jacobi composite are nonzero where required'."
+  },
+  {
+   "layer": "ModularCurvesPartII:R14.6",
+   "other": "EllipticCurveModularity:R29.5",
+   "source": "audit-unreviewed",
+   "note": "Supplies 'the rational cusp and normalised Abel-Jacobi map used by R29', the normalisation R29.5 composes with."
+  },
+  {
+   "layer": "SerreWeightAndLevelOptimisation:R20.1",
+   "other": "EllipticCurveModularity:R29.2",
+   "source": "audit-unreviewed",
+   "note": "Owns the level-changing algebra that produces the bound on the prime-to-p conductor."
+  },
+  {
+   "layer": "SerreWeightAndLevelOptimisation:R20.1",
+   "other": "ModularCurvesPartII:R14.4",
+   "source": "audit-unreviewed",
+   "note": "Ihara and level-change statements: the same degeneracy-map level-change algebra, on the cohomology of modular curves."
+  },
+  {
+   "layer": "SerreWeightAndLevelOptimisation:R20.1",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms",
+   "source": "audit-unreviewed",
+   "note": "This Tau Ceti library roadmap layer owns the Petersson product and the oldform/newform subspaces; it is already built, and it supplies the characteristic-zero half of R20.1's old/new sequences."
+  },
+  {
+   "layer": "SerreWeightAndLevelOptimisation:R20.1",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+   "source": "audit-unreviewed",
+   "note": "Owns eigenforms, newforms and the conductor — the eigensystem bookkeeping R20.1 restates in integral form; also already built in Tau Ceti."
+  },
+  {
+   "layer": "SerreWeightAndLevelOptimisation:R20.2",
+   "other": "ModularCurvesPartII:R13.5",
+   "source": "audit-unreviewed",
+   "note": "Bad fibres and regular/semistable models: owns the geometric input R20.2 is required to use."
+  },
+  {
+   "layer": "SerreWeightAndLevelOptimisation:R20.3",
+   "other": "AlgebraicModularFormsAndSerreWeights:R15.3",
+   "source": "audit",
+   "note": "Proves the Edixhoven/Serre weight theorem 'with its characteristic-p operations', so it restates the theta/filtration package of R15.3."
+  },
+  {
+   "layer": "SerreWeightAndLevelOptimisation:R20.3",
+   "other": "AlgebraicModularFormsAndSerreWeights:R15.4",
+   "source": "audit",
+   "note": "Proves the Edixhoven/Serre weight theorem including the reducible and irreducible local cases, i.e. the same case table used as an optimisation theorem."
+  },
+  {
+   "layer": "SerreWeightAndLevelOptimisation:R20.3",
+   "other": "AlgebraicModularFormsAndSerreWeights:R15.4",
+   "source": "audit-unreviewed",
+   "note": "Serre's local weight recipe: owns the recipe R20.3 proves the theorem for."
+  },
+  {
+   "layer": "SerreWeightAndLevelOptimisation:R20.3",
+   "other": "ClassicalSerreModularity:R26.6",
+   "source": "audit-unreviewed",
+   "note": "Level-one theorem and KW's initial case: consumes the same weight optimisation at p."
+  },
+  {
+   "layer": "SerreWeightAndLevelOptimisation:R20.4",
+   "other": "EllipticCurveModularity:R29.2",
+   "source": "audit-unreviewed",
+   "note": "Residual Serre witnesses at bounded level: the consumer of R20.4's character specialisation."
+  },
+  {
+   "layer": "SerreWeightAndLevelOptimisation:R20.4",
+   "other": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+   "source": "audit-unreviewed",
+   "note": "Owns the nebentypus/diamond-operator theory R20.4 needs to control; already built in Tau Ceti over ℂ."
+  },
+  {
+   "layer": "SerreWeightAndLevelOptimisation:R20.5",
+   "other": "AlgebraicModularFormsAndSerreWeights:R15.6",
+   "source": "audit",
+   "note": "Owns the actual optimisation of weight and level, for which R15.6 supplies the statement vocabulary; the two overlap in the definition of the classical target."
+  },
+  {
+   "layer": "SerreWeightAndLevelOptimisation:R20.5",
+   "other": "ClassicalSerreModularity:R27.4",
+   "source": "audit-unreviewed",
+   "note": "Removing the good-dihedral condition: handles neighbouring dyadic exceptional cases of the same induction."
+  },
+  {
+   "layer": "SerreWeightAndLevelOptimisation:R20.6",
+   "other": "ClassicalSerreModularity:R26.1",
+   "source": "audit-unreviewed",
+   "note": "Statement and exact source decomposition: the companion export/statement-table layer for the Serre conjecture proper."
+  },
+  {
+   "layer": "SerreWeightAndLevelOptimisation:R20.6",
+   "other": "ClassicalSerreModularity:R27.6",
+   "source": "audit",
+   "note": "Proves the bounded-level weight-two trivial-character consequence used for elliptic curves and the case table for the full classical conclusion."
+  },
+  {
+   "layer": "SerreWeightAndLevelOptimisation:R20.6",
+   "other": "ClassicalSerreModularity:R33.6",
+   "source": "audit",
+   "note": "Provides the case table deriving the full classical strong conclusion and proves the bounded-level weight-two consequence for elliptic curves, the same refinement and corollary."
+  },
+  {
+   "layer": "SerreWeightAndLevelOptimisation:R20.6",
+   "other": "EllipticCurveModularity:R29.2",
+   "source": "audit-unreviewed",
+   "note": "Consumes exactly the bounded-level weight-two trivial-character export this layer packages."
+  },
+  {
+   "layer": "SmallRamificationAndAbelianVarietyBaseCases:R25.3",
+   "other": "FaltingsFinitenessAndIsogenyTheorems:R28.5",
+   "source": "audit",
+   "note": "R25.3 proves that no positive-dimensional abelian variety over ℚ has good reduction everywhere, the empty-S case over ℚ of R28.5's good-reduction finiteness in its sharp form (as R25.4 does for one bad prime)."
+  },
+  {
+   "layer": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+   "other": "ClassicalSerreModularity:R33.4",
+   "source": "audit",
+   "note": "Owns Schoof's semistable small-prime theorem (no positive-dimensional semistable abelian variety over Q with good reduction outside one prime in {2,3,5,7,13}), the prime-5 nonexistence theorem this layer applies."
+  },
+  {
+   "layer": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+   "other": "FaltingsFinitenessAndIsogenyTheorems:R28.5",
+   "source": "audit",
+   "note": "R25.4 proves nonexistence of semistable abelian varieties over ℚ with good reduction outside one small prime, a sharp special case of the same good-reduction finiteness."
+  },
+  {
+   "layer": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+   "other": "ClassicalSerreModularity:R26.5",
+   "source": "audit",
+   "note": "R26.5 applies the R25 exclusions to each remaining base case after verifying dimension, field of definition and reduction set."
+  },
+  {
+   "layer": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+   "other": "ClassicalSerreModularity:R33.4",
+   "source": "audit",
+   "note": "R33.4 constructs the semistable GL₂-type abelian variety in Snowden's form for the weight-6 terminal case, and does the characteristic-three ordinary calculation for weights 2 and 4."
+  },
+  {
+   "layer": "SmallRamificationAndAbelianVarietyBaseCases:R25.6",
+   "other": "ClassicalSerreModularity:R26.5",
+   "source": "audit",
+   "note": "R26.5 must also list the finite set of exceptional characteristics and weights with their terminal theorems."
+  }
+ ]
+}

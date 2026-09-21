@@ -1,0 +1,211 @@
+{
+ "id": "RS-07",
+ "name": "Analytic number theory and arithmetic statistics",
+ "purpose": "A family of proposed roadmaps that overlap one another or existing Tau Ceti roadmaps. Restructure it so that every piece of mathematics has exactly one owner and the roadmaps build on each other (research/blueprint/PROTOCOL.md section 15).",
+ "method": "Members are the proposed roadmaps joined by strong overlaps (at least half of one roadmap's layers, and at least three layers); anchors are the Tau Ceti roadmaps a member overlaps in at least three layers (or two and 40% of its layers). Evidence: duplicate records of the reviewed and unreviewed library audits, and 'rescope' overlaps of the link maps. Leads, not verdicts.",
+ "members": [
+  {
+   "id": "AnalyticNumberTheory",
+   "title": "Analytic number theory, zeta functions and prime distribution",
+   "document": "content/campaign/AnalyticNumberTheory/README.md"
+  },
+  {
+   "id": "ArithmeticStatistics",
+   "title": "Arithmetic statistics, counting fields and Selmer distributions",
+   "document": "content/campaign/ArithmeticStatistics/README.md"
+  },
+  {
+   "id": "SieveMethodsAndPrimePatterns",
+   "title": "Sieve methods, prime gaps and prime patterns",
+   "document": "content/campaign/SieveMethodsAndPrimePatterns/README.md"
+  }
+ ],
+ "anchors": [
+  {
+   "id": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+   "title": "Arithmetic Dirichlet series and Tauberian methods",
+   "document": "content/tau-ceti/ArithmeticDirichletSeries/README.md"
+  },
+  {
+   "id": "tauceti:TauCetiRoadmap/EllipticCurves",
+   "title": "Elliptic curves",
+   "document": "content/tau-ceti/EllipticCurves/README.md"
+  }
+ ],
+ "evidence": [
+  {
+   "layer": "AnalyticNumberTheory:AN.0",
+   "other": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-0-arithmetic-functions-on-nonzero-ideals",
+   "source": "audit",
+   "note": "Layers 0-3 of ArithmeticDirichletSeries state the same arithmetic-function, convolution, logarithmic-derivative and Euler-product targets, for ideals of a number field rather than for ℕ; that roadmap is the built owner."
+  },
+  {
+   "layer": "AnalyticNumberTheory:AN.0",
+   "other": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries",
+   "source": "audit",
+   "note": "AN.0 asks in one line for 'arithmetic functions, absolute convergence, ... partial summation' over ℚ; this layer is the number-field-ideal refinement of the same carrier, and AN.0 is a specification with no Lean content."
+  },
+  {
+   "layer": "AnalyticNumberTheory:AN.0",
+   "other": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+   "source": "audit",
+   "note": "AN.0's 'Euler products ... with convergence proofs' is the same target over ℚ, at specification level only."
+  },
+  {
+   "layer": "AnalyticNumberTheory:AN.0",
+   "other": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+   "source": "audit",
+   "note": "Layer 6 is exactly this stage's Abel and Perron summation, including the truncated and limiting half-weight forms; it is the owner of the Perron material cited above."
+  },
+  {
+   "layer": "AnalyticNumberTheory:AN.1",
+   "other": "SieveMethodsAndPrimePatterns:SV.2",
+   "source": "audit",
+   "note": "AN.1 works with primitive and imprimitive characters and their conductors, which Mathlib already has."
+  },
+  {
+   "layer": "AnalyticNumberTheory:AN.2",
+   "other": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+   "source": "audit",
+   "note": "Layer 10 owns the generic prime-number-theorem transfer (boundary package ⇒ ψ ~ x ⇒ π ~ x/log x); that is the same theorem AN.2 asks for, stated once for a general Dirichlet series."
+  },
+  {
+   "layer": "AnalyticNumberTheory:AN.2",
+   "other": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara",
+   "source": "audit",
+   "note": "Layer 9 of ArithmeticDirichletSeries owns the Wiener--Ikehara theorem itself; the partial development cited above lives in that roadmap's files and is the same target."
+  },
+  {
+   "layer": "AnalyticNumberTheory:AN.3",
+   "other": "SieveMethodsAndPrimePatterns:SV.3",
+   "source": "audit",
+   "note": "SV.3 derives Bombieri–Vinogradov from the large-sieve/zero-density route. That is the arithmetic-progression application of zero-density estimates that this stage also lists, so the two stages need one owner for the zero-density input."
+  },
+  {
+   "layer": "AnalyticNumberTheory:AN.3",
+   "other": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+   "source": "audit",
+   "note": "Layer 6 says `ZerosOfLFunctions` consumes its Perron theorem for explicit formulas; the contour machinery cited above is owned there, and AN.3's explicit formula would be its consumer."
+  },
+  {
+   "layer": "AnalyticNumberTheory:AN.4",
+   "other": "ArithmeticStatistics:ST.3",
+   "source": "audit",
+   "note": "AN.4 connects ideal counting to the analytic class number formula, the class-number input that field and class-group counts consume."
+  },
+  {
+   "layer": "AnalyticNumberTheory:AN.4",
+   "other": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+   "source": "audit",
+   "note": "AN.4 owns the Dedekind and Hecke analytic interfaces (number-field ideal counting, completed L-functions, the link to Chebotarev), which is where the continuation of `ζ_K` and its nonvanishing on `Re s = 1` behind 10.4's `primeIdealVonMangoldtBoundary` belong; the producer the roadmap names, `LFunctions`, is not an atlas roadmap. Specification level only."
+  },
+  {
+   "layer": "AnalyticNumberTheory:AN.4",
+   "other": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+   "source": "audit",
+   "note": "Layer 7 owns Dirichlet density for ideal sets, the same target as this stage's density interface."
+  },
+  {
+   "layer": "AnalyticNumberTheory:AN.5",
+   "other": "ArithmeticStatistics:ST.5",
+   "source": "audit",
+   "note": "AN.5 also formulates random-matrix predictions as conjectural models and moments in separately sourced ranges."
+  },
+  {
+   "layer": "AnalyticNumberTheory:AN.6",
+   "other": "SieveMethodsAndPrimePatterns:SV.2",
+   "source": "audit",
+   "note": "SV.2 (large sieve and bilinear sums) is one of the named consumers; the contract this stage would export is an input there, so the interface is stated on both sides."
+  },
+  {
+   "layer": "AnalyticNumberTheory:AN.6",
+   "other": "SieveMethodsAndPrimePatterns:SV.3",
+   "source": "audit",
+   "note": "AN.6 exports the zero-free and density contracts to sieves and registers conditional distribution hypotheses."
+  },
+  {
+   "layer": "AnalyticNumberTheory:AN.6",
+   "other": "SieveMethodsAndPrimePatterns:SV.4",
+   "source": "audit",
+   "note": "AN.6 keeps the prime tuples conjecture in its statement register."
+  },
+  {
+   "layer": "AnalyticNumberTheory:AN.8",
+   "other": "ArithmeticStatistics:ST.1",
+   "source": "audit",
+   "note": "AN.8 builds prehomogeneous vector spaces with their orbit decomposition and local densities, the same orbit spaces (binary cubic forms, pairs of ternary quadratic forms) viewed through zeta integrals."
+  },
+  {
+   "layer": "ArithmeticStatistics:ST.0",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+   "source": "audit",
+   "note": "Owns the height of an elliptic curve over ℚ: shortEquationHeight = max(4|a₄|³, 27a₆²) on the unique minimal-pair integral short model, naiveHeight E with invariance under ℚ-isomorphism, and finiteness of isomorphism classes of bounded height. Not yet built."
+  },
+  {
+   "layer": "ArithmeticStatistics:ST.1",
+   "other": "AnalyticNumberTheory:AN.8",
+   "source": "audit",
+   "note": "AN.8 builds prehomogeneous vector spaces with their orbit decomposition and local densities, the same orbit spaces (binary cubic forms, pairs of ternary quadratic forms) viewed through zeta integrals."
+  },
+  {
+   "layer": "ArithmeticStatistics:ST.1",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+   "source": "audit",
+   "note": "Its explicit 2-descent lane parametrizes E(K)/2E(K) and the 2-Selmer group by etale-algebra square classes, the alternative to the binary-quartic model asked for here."
+  },
+  {
+   "layer": "ArithmeticStatistics:ST.3",
+   "other": "AnalyticNumberTheory:AN.4",
+   "source": "audit",
+   "note": "AN.4 connects ideal counting to the analytic class number formula, the class-number input that field and class-group counts consume."
+  },
+  {
+   "layer": "ArithmeticStatistics:ST.4",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+   "source": "audit",
+   "note": "Owns the explicit 2-Selmer group, weak Mordell-Weil and the Selmer rank bound, which Tau Ceti has built."
+  },
+  {
+   "layer": "ArithmeticStatistics:ST.4",
+   "other": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+   "source": "audit",
+   "note": "Owns Sel_m, Sha and the exact sequence 0 -> E(K)/mE(K) -> Sel_m -> Sha[m] -> 0."
+  },
+  {
+   "layer": "ArithmeticStatistics:ST.5",
+   "other": "AnalyticNumberTheory:AN.5",
+   "source": "audit",
+   "note": "AN.5 also formulates random-matrix predictions as conjectural models and moments in separately sourced ranges."
+  },
+  {
+   "layer": "SieveMethodsAndPrimePatterns:SV.2",
+   "other": "AnalyticNumberTheory:AN.1",
+   "source": "audit",
+   "note": "AN.1 works with primitive and imprimitive characters and their conductors, which Mathlib already has."
+  },
+  {
+   "layer": "SieveMethodsAndPrimePatterns:SV.2",
+   "other": "AnalyticNumberTheory:AN.6",
+   "source": "audit",
+   "note": "SV.2 (large sieve and bilinear sums) is one of the named consumers; the contract this stage would export is an input there, so the interface is stated on both sides."
+  },
+  {
+   "layer": "SieveMethodsAndPrimePatterns:SV.3",
+   "other": "AnalyticNumberTheory:AN.3",
+   "source": "audit",
+   "note": "SV.3 derives Bombieri–Vinogradov from the large-sieve/zero-density route. That is the arithmetic-progression application of zero-density estimates that this stage also lists, so the two stages need one owner for the zero-density input."
+  },
+  {
+   "layer": "SieveMethodsAndPrimePatterns:SV.3",
+   "other": "AnalyticNumberTheory:AN.6",
+   "source": "audit",
+   "note": "AN.6 exports the zero-free and density contracts to sieves and registers conditional distribution hypotheses."
+  },
+  {
+   "layer": "SieveMethodsAndPrimePatterns:SV.4",
+   "other": "AnalyticNumberTheory:AN.6",
+   "source": "audit",
+   "note": "AN.6 keeps the prime tuples conjecture in its statement register."
+  }
+ ]
+}
