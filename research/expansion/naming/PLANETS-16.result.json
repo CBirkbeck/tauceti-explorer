@@ -90,9 +90,10 @@
   },
   {
     "id": "WeilConjectures:WC.2::landmark:initially-this-is-an-identity-after-scalar-1n4caeh",
-    "decision": "name",
-    "label": "Zeta functional equation",
-    "kind": "theorem"
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate of the existing curated zeta functional-equation planet in this layer."
   },
   {
     "id": "WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity",
@@ -130,7 +131,7 @@
   {
     "id": "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
     "decision": "name",
-    "label": "Purity for proper smooth varieties",
+    "label": "Pure cohomology of proper smooth varieties",
     "kind": "theorem"
   },
   {
