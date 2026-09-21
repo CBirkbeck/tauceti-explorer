@@ -646,6 +646,120 @@
    "state": "pending"
   },
   {
+   "id": "DESIGN-PAN",
+   "kind": "design",
+   "priority": 1,
+   "order": 5,
+   "roadmapIds": [
+    "LocallyAnalyticCompletedCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/roadmaps/LocallyAnalyticCompletedCohomology.json",
+    "research/blueprint/packets/LocallyAnalyticCompletedCohomology.json",
+    "research/blueprint/readmes/LocallyAnalyticCompletedCohomology.md",
+    "research/blueprint/suggested/LocallyAnalyticCompletedCohomology.lean"
+   ],
+   "after": [],
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/DESIGN-PAN.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DESIGN-PAN",
+   "kind": "review",
+   "priority": 2,
+   "order": 1,
+   "roadmapIds": [
+    "LocallyAnalyticCompletedCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-PAN.md"
+   ],
+   "after": [
+    "DESIGN-PAN"
+   ],
+   "avoidAccountOf": "DESIGN-PAN",
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/REV-DESIGN-PAN.md",
+   "state": "pending"
+  },
+  {
+   "id": "DESIGN-SKINNER",
+   "kind": "design",
+   "priority": 1,
+   "order": 6,
+   "roadmapIds": [
+    "RankOneConverse"
+   ],
+   "outputs": [
+    "research/blueprint/roadmaps/RankOneConverse.json",
+    "research/blueprint/packets/RankOneConverse.json",
+    "research/blueprint/readmes/RankOneConverse.md",
+    "research/blueprint/suggested/RankOneConverse.lean"
+   ],
+   "after": [],
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/DESIGN-SKINNER.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DESIGN-SKINNER",
+   "kind": "review",
+   "priority": 2,
+   "order": 1,
+   "roadmapIds": [
+    "RankOneConverse"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-SKINNER.md"
+   ],
+   "after": [
+    "DESIGN-SKINNER"
+   ],
+   "avoidAccountOf": "DESIGN-SKINNER",
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/REV-DESIGN-SKINNER.md",
+   "state": "pending"
+  },
+  {
+   "id": "DESIGN-BETTS-STIX",
+   "kind": "design",
+   "priority": 1,
+   "order": 7,
+   "roadmapIds": [
+    "GaloisSectionsPadicPeriodMaps"
+   ],
+   "outputs": [
+    "research/blueprint/roadmaps/GaloisSectionsPadicPeriodMaps.json",
+    "research/blueprint/packets/GaloisSectionsPadicPeriodMaps.json",
+    "research/blueprint/readmes/GaloisSectionsPadicPeriodMaps.md",
+    "research/blueprint/suggested/GaloisSectionsPadicPeriodMaps.lean"
+   ],
+   "after": [],
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/DESIGN-BETTS-STIX.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DESIGN-BETTS-STIX",
+   "kind": "review",
+   "priority": 2,
+   "order": 1,
+   "roadmapIds": [
+    "GaloisSectionsPadicPeriodMaps"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-BETTS-STIX.md"
+   ],
+   "after": [
+    "DESIGN-BETTS-STIX"
+   ],
+   "avoidAccountOf": "DESIGN-BETTS-STIX",
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/REV-DESIGN-BETTS-STIX.md",
+   "state": "pending"
+  },
+  {
    "id": "LINK-tauceti_TauCetiRoadmap_ModularCurves",
    "kind": "link",
    "priority": 1,
@@ -2951,8 +3065,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-01.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #802",
-   "finishedAt": "2026-09-21T14:16:05Z"
+   "finishedAt": "2026-09-21T14:16:05Z",
+   "note": "deliverables arrived from an external worker on issue #802"
   },
   {
    "id": "REV-RS-01",
@@ -3000,8 +3114,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-02.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #804",
-   "finishedAt": "2026-09-21T14:29:47Z"
+   "finishedAt": "2026-09-21T14:29:47Z",
+   "note": "deliverables arrived from an external worker on issue #804"
   },
   {
    "id": "REV-RS-02",
@@ -3049,8 +3163,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-03.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #806",
-   "finishedAt": "2026-09-21T14:48:44Z"
+   "finishedAt": "2026-09-21T14:48:44Z",
+   "note": "deliverables arrived from an external worker on issue #806"
   },
   {
    "id": "REV-RS-03",
@@ -3107,8 +3221,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-04.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #808",
-   "finishedAt": "2026-09-21T14:40:54Z"
+   "finishedAt": "2026-09-21T14:40:54Z",
+   "note": "deliverables arrived from an external worker on issue #808"
   },
   {
    "id": "REV-RS-04",
@@ -3165,8 +3279,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-05.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #810",
-   "finishedAt": "2026-09-21T14:06:05Z"
+   "finishedAt": "2026-09-21T14:06:05Z",
+   "note": "deliverables arrived from an external worker on issue #810"
   },
   {
    "id": "REV-RS-05",
@@ -3222,8 +3336,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-06.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #812",
-   "finishedAt": "2026-09-21T14:23:53Z"
+   "finishedAt": "2026-09-21T14:23:53Z",
+   "note": "deliverables arrived from an external worker on issue #812"
   },
   {
    "id": "REV-RS-06",
@@ -3273,8 +3387,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-07.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #814",
-   "finishedAt": "2026-09-21T14:11:40Z"
+   "finishedAt": "2026-09-21T14:11:40Z",
+   "note": "deliverables arrived from an external worker on issue #814"
   },
   {
    "id": "REV-RS-07",
@@ -3329,8 +3443,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-08.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #816",
-   "finishedAt": "2026-09-21T14:56:21Z"
+   "finishedAt": "2026-09-21T14:56:21Z",
+   "note": "deliverables arrived from an external worker on issue #816"
   },
   {
    "id": "REV-RS-08",
@@ -3381,8 +3495,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-09.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #818",
-   "finishedAt": "2026-09-21T13:58:35Z"
+   "finishedAt": "2026-09-21T13:58:35Z",
+   "note": "deliverables arrived from an external worker on issue #818"
   },
   {
    "id": "REV-RS-09",
@@ -3426,8 +3540,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-10.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #820",
-   "finishedAt": "2026-09-21T13:03:47Z"
+   "finishedAt": "2026-09-21T13:03:47Z",
+   "note": "deliverables arrived from an external worker on issue #820"
   },
   {
    "id": "REV-RS-10",
@@ -3470,8 +3584,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-11.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #822",
-   "finishedAt": "2026-09-21T13:51:06Z"
+   "finishedAt": "2026-09-21T13:51:06Z",
+   "note": "deliverables arrived from an external worker on issue #822"
   },
   {
    "id": "REV-RS-11",
@@ -3512,8 +3626,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-12.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #824",
-   "finishedAt": "2026-09-21T13:52:10Z"
+   "finishedAt": "2026-09-21T13:52:10Z",
+   "note": "deliverables arrived from an external worker on issue #824"
   },
   {
    "id": "REV-RS-12",
@@ -3554,8 +3668,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-13.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #826",
-   "finishedAt": "2026-09-21T13:38:12Z"
+   "finishedAt": "2026-09-21T13:38:12Z",
+   "note": "deliverables arrived from an external worker on issue #826"
   },
   {
    "id": "REV-RS-13",
@@ -3595,8 +3709,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-14.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #828",
-   "finishedAt": "2026-09-21T13:14:57Z"
+   "finishedAt": "2026-09-21T13:14:57Z",
+   "note": "deliverables arrived from an external worker on issue #828"
   },
   {
    "id": "REV-RS-14",
@@ -3636,8 +3750,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-15.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #830",
-   "finishedAt": "2026-09-21T13:37:31Z"
+   "finishedAt": "2026-09-21T13:37:31Z",
+   "note": "deliverables arrived from an external worker on issue #830"
   },
   {
    "id": "REV-RS-15",
@@ -3679,8 +3793,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-16.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #832",
-   "finishedAt": "2026-09-21T13:15:31Z"
+   "finishedAt": "2026-09-21T13:15:31Z",
+   "note": "deliverables arrived from an external worker on issue #832"
   },
   {
    "id": "REV-RS-16",
@@ -3724,8 +3838,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-17.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #834",
-   "finishedAt": "2026-09-21T13:37:33Z"
+   "finishedAt": "2026-09-21T13:37:33Z",
+   "note": "deliverables arrived from an external worker on issue #834"
   },
   {
    "id": "REV-RS-17",
@@ -3768,8 +3882,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-18.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #836",
-   "finishedAt": "2026-09-21T13:03:50Z"
+   "finishedAt": "2026-09-21T13:03:50Z",
+   "note": "deliverables arrived from an external worker on issue #836"
   },
   {
    "id": "REV-RS-18",
@@ -3810,8 +3924,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-19.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #838",
-   "finishedAt": "2026-09-21T13:26:13Z"
+   "finishedAt": "2026-09-21T13:26:13Z",
+   "note": "deliverables arrived from an external worker on issue #838"
   },
   {
    "id": "REV-RS-19",
@@ -3853,8 +3967,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-20.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #840",
-   "finishedAt": "2026-09-21T13:27:55Z"
+   "finishedAt": "2026-09-21T13:27:55Z",
+   "note": "deliverables arrived from an external worker on issue #840"
   },
   {
    "id": "REV-RS-20",
@@ -3896,8 +4010,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-21.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #842",
-   "finishedAt": "2026-09-21T13:36:43Z"
+   "finishedAt": "2026-09-21T13:36:43Z",
+   "note": "deliverables arrived from an external worker on issue #842"
   },
   {
    "id": "REV-RS-21",
@@ -3938,8 +4052,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #844",
-   "finishedAt": "2026-09-21T13:03:53Z"
+   "finishedAt": "2026-09-21T13:03:53Z",
+   "note": "deliverables arrived from an external worker on issue #844"
   },
   {
    "id": "REV-RS-22",
@@ -3979,8 +4093,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #846",
-   "finishedAt": "2026-09-21T13:23:54Z"
+   "finishedAt": "2026-09-21T13:23:54Z",
+   "note": "deliverables arrived from an external worker on issue #846"
   },
   {
    "id": "REV-RS-23",
@@ -4020,8 +4134,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-24.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #848",
-   "finishedAt": "2026-09-21T13:03:57Z"
+   "finishedAt": "2026-09-21T13:03:57Z",
+   "note": "deliverables arrived from an external worker on issue #848"
   },
   {
    "id": "REV-RS-24",
@@ -4064,8 +4178,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-25.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #850",
-   "finishedAt": "2026-09-21T13:25:31Z"
+   "finishedAt": "2026-09-21T13:25:31Z",
+   "note": "deliverables arrived from an external worker on issue #850"
   },
   {
    "id": "REV-RS-25",
@@ -4106,8 +4220,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-26.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #852",
-   "finishedAt": "2026-09-21T13:04:00Z"
+   "finishedAt": "2026-09-21T13:04:00Z",
+   "note": "deliverables arrived from an external worker on issue #852"
   },
   {
    "id": "REV-RS-26",
@@ -4191,8 +4305,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-28.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #856",
-   "finishedAt": "2026-09-21T13:04:04Z"
+   "finishedAt": "2026-09-21T13:04:04Z",
+   "note": "deliverables arrived from an external worker on issue #856"
   },
   {
    "id": "REV-RS-28",
@@ -4233,8 +4347,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-29.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #858",
-   "finishedAt": "2026-09-21T13:04:07Z"
+   "finishedAt": "2026-09-21T13:04:07Z",
+   "note": "deliverables arrived from an external worker on issue #858"
   },
   {
    "id": "REV-RS-29",
@@ -4275,8 +4389,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-30.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #860",
-   "finishedAt": "2026-09-21T13:04:10Z"
+   "finishedAt": "2026-09-21T13:04:10Z",
+   "note": "deliverables arrived from an external worker on issue #860"
   },
   {
    "id": "REV-RS-30",
@@ -4316,8 +4430,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-31.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #862",
-   "finishedAt": "2026-09-21T13:04:14Z"
+   "finishedAt": "2026-09-21T13:04:14Z",
+   "note": "deliverables arrived from an external worker on issue #862"
   },
   {
    "id": "REV-RS-31",
@@ -4358,8 +4472,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-32.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #864",
-   "finishedAt": "2026-09-21T13:04:18Z"
+   "finishedAt": "2026-09-21T13:04:18Z",
+   "note": "deliverables arrived from an external worker on issue #864"
   },
   {
    "id": "REV-RS-32",
@@ -4399,8 +4513,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/RS-33.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #866",
-   "finishedAt": "2026-09-21T13:04:21Z"
+   "finishedAt": "2026-09-21T13:04:21Z",
+   "note": "deliverables arrived from an external worker on issue #866"
   },
   {
    "id": "REV-RS-33",
@@ -15093,8 +15207,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-01.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #881",
-   "finishedAt": "2026-09-21T15:17:02Z"
+   "finishedAt": "2026-09-21T15:17:02Z",
+   "note": "deliverables arrived from an external worker on issue #881"
   },
   {
    "id": "PLANETS-02",
@@ -15120,8 +15234,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-02.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #882",
-   "finishedAt": "2026-09-21T15:04:29Z"
+   "finishedAt": "2026-09-21T15:04:29Z",
+   "note": "deliverables arrived from an external worker on issue #882"
   },
   {
    "id": "PLANETS-03",
@@ -15145,8 +15259,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-03.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #883",
-   "finishedAt": "2026-09-21T14:17:31Z"
+   "finishedAt": "2026-09-21T14:17:31Z",
+   "note": "deliverables arrived from an external worker on issue #883"
   },
   {
    "id": "PLANETS-04",
@@ -15191,8 +15305,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-05.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #885",
-   "finishedAt": "2026-09-21T14:50:18Z"
+   "finishedAt": "2026-09-21T14:50:18Z",
+   "note": "deliverables arrived from an external worker on issue #885"
   },
   {
    "id": "PLANETS-06",
@@ -15219,8 +15333,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-06.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #886",
-   "finishedAt": "2026-09-21T14:38:09Z"
+   "finishedAt": "2026-09-21T14:38:09Z",
+   "note": "deliverables arrived from an external worker on issue #886"
   },
   {
    "id": "PLANETS-07",
@@ -15248,8 +15362,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-07.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #887",
-   "finishedAt": "2026-09-21T14:48:45Z"
+   "finishedAt": "2026-09-21T14:48:45Z",
+   "note": "deliverables arrived from an external worker on issue #887"
   },
   {
    "id": "PLANETS-08",
@@ -15317,8 +15431,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-09.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #889",
-   "finishedAt": "2026-09-21T15:07:22Z"
+   "finishedAt": "2026-09-21T15:07:22Z",
+   "note": "deliverables arrived from an external worker on issue #889"
   },
   {
    "id": "PLANETS-10",
@@ -15383,8 +15497,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-11.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #891",
-   "finishedAt": "2026-09-21T15:05:58Z"
+   "finishedAt": "2026-09-21T15:05:58Z",
+   "note": "deliverables arrived from an external worker on issue #891"
   },
   {
    "id": "PLANETS-12",
@@ -15417,8 +15531,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-12.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #892",
-   "finishedAt": "2026-09-21T14:26:58Z"
+   "finishedAt": "2026-09-21T14:26:58Z",
+   "note": "deliverables arrived from an external worker on issue #892"
   },
   {
    "id": "PLANETS-13",
@@ -15453,8 +15567,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-13.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #893",
-   "finishedAt": "2026-09-21T14:48:49Z"
+   "finishedAt": "2026-09-21T14:48:49Z",
+   "note": "deliverables arrived from an external worker on issue #893"
   },
   {
    "id": "PLANETS-14",
@@ -15485,8 +15599,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-14.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #894",
-   "finishedAt": "2026-09-21T14:38:12Z"
+   "finishedAt": "2026-09-21T14:38:12Z",
+   "note": "deliverables arrived from an external worker on issue #894"
   },
   {
    "id": "PLANETS-15",
@@ -15520,8 +15634,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-15.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #895",
-   "finishedAt": "2026-09-21T15:05:10Z"
+   "finishedAt": "2026-09-21T15:05:10Z",
+   "note": "deliverables arrived from an external worker on issue #895"
   },
   {
    "id": "PLANETS-16",
@@ -15539,8 +15653,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-16.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #896",
-   "finishedAt": "2026-09-21T14:13:05Z"
+   "finishedAt": "2026-09-21T14:13:05Z",
+   "note": "deliverables arrived from an external worker on issue #896"
   },
   {
    "id": "NAME-01",
