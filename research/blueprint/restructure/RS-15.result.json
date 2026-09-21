@@ -29,7 +29,7 @@
     },
     "VectorBundlesAndIsocrystals:VB0": {
       "action": "keep",
-      "reason": "Own finite-dimensional linear isocrystals over the admitted general coefficient fields, exact tensor/descent theory, full Dieudonne-Manin, rational blocks and endomorphism division-algebra/Brauer comparisons. Reuse the pinned p-typical Mathlib carriers and rank-one existence theorem at their actual generality. Retain normalization tests; the actual bundle-functor comparison is performed only after the VB1 functor exists, not assumed in constructing the linear category."
+      "reason": "Own finite-dimensional linear isocrystals over the admitted general coefficient fields, exact tensor/descent theory, full Dieudonne-Manin, rational blocks and endomorphism division-algebra/Brauer comparisons. Reuse the pinned p-typical Mathlib carriers and rank-one existence theorem at their actual generality. Retain normalization tests; the actual bundle-functor comparison is performed only after the VB1 functor exists, not assumed in constructing the linear category. When reconciling the inherited isocrystal-category-and-standard-block node, the coefficient field is L = W_{O_E}(algebraic closure of F_q)[1/pi], not the ring of integers before pi is inverted. In equal characteristic it is k((pi)), not k[[pi]]. Use the roadmap convention phi^r = pi^s sigma^r for isocrystal slope s/r and identify its associated stable bundle with O(-s/r), of rank r and degree -s. Thus the inherited pi^{-d} block has isocrystal slope -d/h and bundle slope d/h. Keep that sign translation explicit; do not conflate multiplicity of a simple block with its rank. The existing Mathlib Isocrystal class does not itself impose finite dimensionality, and the cited isocrystal_classification theorem supplies rank-one existence, not full higher-rank classification."
     },
     "VectorBundlesAndIsocrystals:VB1": {
       "action": "keep",
@@ -45,7 +45,7 @@
     },
     "VectorBundlesAndIsocrystals:VB3:general-BC": {
       "action": "narrow",
-      "keeps": "Keep the source-qualified family resolutions and cohomology needed for FS II.3.5, the general section-space dimension and positive-slope cohomological smoothness, zero-slope locally profinite/local-system behavior, and the existing pure-sign absolute spatiality and bounded-slope perfectoid-ball statements. In particular retain the two-term construction BC([E_1 -> E_0]), local spatiality and partial properness with E_1 everywhere negative, its projectivized properness, and cohomological smoothness when E_0 is additionally everywhere positive. Retain all comparison maps, scalar actions, exact-sequence/quotient arguments and source-specific cover hypotheses; do not reduce this theorem to the ordinary-bundle case. Import the ordinary-bundle projectivized properness from VB3:projectivized-properness and the properness-to-nowhere-zero-section/HN application from VB4 rather than reconstructing either. All later applications of those imports remain.",
+      "keeps": "Keep the source-qualified family resolutions and cohomology needed for FS II.3.5, the general section-space dimension and positive-slope cohomological smoothness, zero-slope locally profinite/local-system behavior, and the existing pure-sign absolute spatiality and bounded-slope perfectoid-ball statements. In particular retain the two-term construction BC([E_1 -> E_0]), local spatiality and partial properness with E_1 everywhere negative, its projectivized properness, and cohomological smoothness when E_0 is additionally everywhere positive. Retain all comparison maps, scalar actions, exact-sequence/quotient arguments and source-specific cover hypotheses; do not reduce this theorem to the ordinary-bundle case. Import the ordinary-bundle projectivized properness from VB3:projectivized-properness and the properness-to-nowhere-zero-section/HN application from VB4 rather than reconstructing either. All later applications of those imports remain. Pin the two-term complex with E_1 in cohomological degree -1 and E_0 in degree 0; BC is degree-zero hypercohomology, not the cokernel of global sections alone. Its tests include [0 -> O(1)], [O(-1) -> 0] and the zero complex, respectively recovering the positive section space, negative-bundle H^1 space and the zero vector sheaf (whose projectivization is empty). In the positive-slope-resolution node, correct the inherited FS II.3.1 wording to semistable of slope 1/r, not degree 1/r: for nonzero input of rank n and degree d, m = dr - n and the extension middle term has rank n + m = dr and degree d. The rank-zero case is kept separate. For n = d = 1 and r = 2 the middle term has rank 2 and degree 1, testing the distinction without assuming its construction.",
       "suppliedBy": [
         "VectorBundlesAndIsocrystals:VB3:projectivized-properness",
         "VectorBundlesAndIsocrystals:VB4"
@@ -54,7 +54,7 @@
     },
     "VectorBundlesAndIsocrystals:VB4": {
       "action": "keep",
-      "reason": "Own relative HN semicontinuity, constant-polygon filtrations and pro-etale local splitting, the slope-zero local-system equivalence, and the proper-projectivized-section argument producing nowhere-zero sections after a v-cover. This is the unique owner of that application formerly repeated in general-BC. Retain VB1, VB2:classification and VB3:projectivized-properness as inputs; DELETE general-BC as a prerequisite and export VB4 to general-BC instead, atomically as specified in that layer. Do not turn pro-etale local triviality into global triviality."
+      "reason": "Own relative HN semicontinuity, constant-polygon filtrations and pro-etale local splitting, the slope-zero local-system equivalence, and the proper-projectivized-section argument producing nowhere-zero sections after a v-cover. This is the unique owner of that application formerly repeated in general-BC. Retain VB1, VB2:classification and VB3:projectivized-properness as inputs; DELETE general-BC as a prerequisite and export VB4 to general-BC instead, atomically as specified in that layer. Do not turn pro-etale local triviality into global triviality. Correct the inherited slope-zero-local-systems acceptance test on each constant-rank locus: if all geometric slopes are zero, its HN polygon is horizontal with that fixed width, so there is no nonconstant polygon of that rank to exhibit. Use nontrivial local-system monodromy to distinguish local from global triviality, and O(1) direct sum O(-1) as a degree-zero but not slope-zero negative example. On arbitrary S retain H^0(X_S,O) = underline(E)(S) and RΓ(X_S,O) = RΓ_proet(S,underline(E)); do not replace the section space of the locally profinite scalar sheaf by one copy of E. On a disjoint union of two geometric points the former is E times E. Variable rank on disconnected components is handled componentwise rather than excluded."
     }
   },
   "links": [
@@ -149,5 +149,17 @@
         "VectorBundlesAndIsocrystals:VB3:general-BC"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-15",
+    "date": "2026-09-21",
+    "notes": "Independent review by ChatGPT Pro, session cg-6b83f1, not original author astra-20260921-f6b2d8. Read both member documents, all 17 stage descriptions, all 20 family evidence rows, the inherited 23-node target inventory, supplier/consumer contracts and the reviewed coverage entries; freshly checked the cited Mathlib isocrystal source and the relevant FS proof order. The ownership proposal is accepted with the four clarifications below and its existing atomic deletion/replacement requirement. This does not accept the inherited decomposition as closed or certify its proofs. Full native-atlas and pending-link union tests pass only after the stated old edge is removed. RF3 global-Proj, full Dieudonne-Manin/Brauer and remaining source-proof obligations are not discharged by this review. No Lean run or implementation claim.",
+    "corrections": [
+      "Made the required coefficient-field localization and isocrystal-to-bundle sign translation explicit in VB0, with the exact limited Mathlib carrier/rank-one baseline.",
+      "Corrected the positive-slope-resolution contract from degree 1/r to slope 1/r, retaining n+m=dr and degree d and adding the rank-two/degree-one regression case. This distinguishes a source typo from a new normalization.",
+      "Pinned the two-term Banach-Colmez cohomological degrees and hypercohomology interpretation; retained positive, negative-H1 and zero tests without dropping the stronger theorem.",
+      "Replaced the impossible fixed-rank slope-zero/nonconstant-polygon test and corrected the scalar-sheaf section interpretation on disconnected bases. Retained monodromy, variable-rank and nonzero-HN controls."
+    ]
+  }
 }
