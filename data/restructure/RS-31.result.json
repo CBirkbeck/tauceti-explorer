@@ -1,0 +1,311 @@
+{
+  "family": "RS-31",
+  "roadmaps": {
+    "ReductiveGroupsPartII": {
+      "action": "extend",
+      "extends": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "title": "Reductive algebraic groups, Part II: local structure and arithmetic models",
+      "reason": "Use the exact anchor title and put the anchor first among prerequisites. Retain the seven RG2 stages; valued roots, buildings, connected parahoric models, local decompositions, affine Weil restriction and the functorial integral dual interface extend the existing algebraic theory."
+    }
+  },
+  "layers": {
+    "ReductiveGroupsPartII:RG2.0": {
+      "action": "keep",
+      "reason": "Retain all point-topology constructions, chart-independence, functoriality, separated finite-type local compactness/Hausdorffness, group continuity, integral compactness and congruence-neighbourhood results. Use the upstream functor-of-points/group-scheme dictionary and specialize the pinned GeneralLinear points equivalence for the GL_n acceptance test; the new topology/comparison is not supplied by that algebraic equivalence."
+    },
+    "ReductiveGroupsPartII:RG2.0a": {
+      "action": "keep",
+      "reason": "Retain affine finite-type Weil restriction along finite locally free maps, representing algebra, finite-presentation theorem under its stated hypothesis, adjunction/evaluation, products/composition/base change and coherence, finite-separable splitting/descent, Deligne torus with norm/weight maps, and every listed example. Import the existing group-scheme and torus carriers. Neither abstract tori nor module restriction of scalars constructs this representing scheme. Do not generalize to arbitrary nonaffine schemes or inseparable reductivity."
+    },
+    "ReductiveGroupsPartII:RG2.1": {
+      "action": "narrow",
+      "keeps": "Import the algebraic relative roots and relative Weyl group of a maximal E-split torus, and the absolute root datum/Galois-action and parabolic structure from anchor Layer 7. Retain the local-field realization and comparison of the root groups, their valuation filtrations at their actual valuation sets, the nonsplit and multipliable-root cases, valued commutator estimates, torus conjugation and unramified-extension compatibility. Construct the affine root functions and apartment from this valued datum, with transport under choices. Do not reconstruct the underlying unvalued relative-root theory.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+      ],
+      "reason": "Anchor Layer 7 explicitly owns relative root systems for nonsplit groups as well as split/absolute data. RG2.1 owns the valued enhancement and affine apartment; the word relative alone does not distinguish its scope."
+    },
+    "ReductiveGroupsPartII:RG2.2": {
+      "action": "keep",
+      "reason": "Retain apartment gluing, transition maps, building axioms, G(E)-action, pair-of-points apartment existence, reduced/enlarged comparison and parametrization independence, facets/closure/fixers, compactness modulo center and the bounded-subgroup fixed-point theorem with hypotheses. Retain the GL_n norm/lattice-chain model and SL_2 tree. An algebraic root datum or BN-pair does not supply these geometric constructions."
+    },
+    "ReductiveGroupsPartII:RG2.3": {
+      "action": "keep",
+      "reason": "Retain construction of the connected smooth affine Bruhat–Tits O_E-model, root charts, generic fiber and integral-point characterization, its special-fiber reductive quotient and reduction/pro-unipotent data, pro-p congruence groups and compact openness, nested-facet maps and unramified base change. Keep the map to the fixer model and component comparison, and the distinction from hyperspecial models. Use anchor group-scheme, quotient, unipotent-radical and reductivity notions: a supplied predicate is not a construction or proof of reductivity of this particular quotient."
+    },
+    "ReductiveGroupsPartII:RG2.4": {
+      "action": "narrow",
+      "keeps": "Retain nonarchimedean Iwasawa decomposition with an appropriate special maximal compact, Cartan and Iwahori–Bruhat decompositions in their precise field/group ranges, local Tits-system construction where applicable, and all relative-cocharacter, affine/extended-Weyl, dominance, stabilizer and component identifications. Import abstract algebraic Bruhat/BN-pair theory from Layer 7 and the existing pinned abstract Tits-system covering theorem, proving its hypotheses for the local subgroup to which it is applied. Handle any larger ambient group/component cosets explicitly; do not assume an ordinary affine BN-pair covers every G(E). Keep compact-open double-coset index formulas and finiteness of the single-coset decomposition of each compact double coset, with rank-one and nonsplit examples. This is not a claim that the entire Cartan double-coset set is finite.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+      ],
+      "reason": "The anchor owns abstract Bruhat and BN-pair theory, but does not construct the local valued subgroups or prove Iwasawa/Cartan decompositions for nonarchimedean points. The local identifications and hypotheses remain new work."
+    },
+    "ReductiveGroupsPartII:RG2.5": {
+      "action": "narrow",
+      "keeps": "Use anchor Layer 7 to extract the absolute based root datum and its Galois action from the E-form. Dualize using the existing root-pairing flip and apply anchor Layer 9’s explicit pinned Chevalley–Demazure construction to obtain the integral dual, rather than rebuilding a general pinned split group. Retain the identification of its datum with the dual one, the continuous finite-image pinning action, the semidirect L-group with projection/action law, change-of-pinning equivalences, Levi inclusions and compatibility with products, central isogenies and RG2.0a Weil restriction. Retain split-torus and GL_n tests. Parameter spaces remain LanglandsParameterStacks; coefficient square roots and geometric/pinned Satake-action comparisons remain in their consuming Satake stages.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
+      ],
+      "reason": "The generic pinned split group construction and uniqueness are anchor Layer 9 work. The dualization application, induced action and functorial L-group interface are RG2.5 work, required independently of Tannakian Satake reconstruction."
+    },
+    "ShimuraData:D1": {
+      "action": "narrow",
+      "keeps": "Import RG2.0a's actual Deligne torus S = Res_(C/R) G_m, its diagonal and norm maps, complex splitting with conjugation, and character/cocharacter conventions. Retain the equivalence between finite-dimensional algebraic real representations of S and finite direct sums of pure real Hodge structures, the rational-weight criterion, tensor/dual/Tate-twist compatibilities and comparison with the existing opposed-filtration construction. Retain all four tests: the trivial representation, Q(1), elliptic-curve homology and the adjoint GL_2 representation. Compare the imported diagonal with the chosen 1979 Hodge-sign dictionary: the central restriction of h is the inverse of its weight cocharacter, and h(i) = C^(-1). A general representation is not required to have a single weight. Retain D0 and the existing Hodge-structure supplier; do not reconstruct the torus or change the Hodge library's conventions.",
+      "suppliedBy": [
+        "ReductiveGroupsPartII:RG2.0a"
+      ],
+      "reason": "The literal Deligne-torus construction in D1 repeats RG2.0a, an overlap already noted by the unreviewed AUDIT-41 lead and independently confirmed in both documents. RG2.0a owns the algebraic construction; D1 owns the representation/Hodge equivalence and its sign comparisons."
+    }
+  },
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+      "target": "ReductiveGroupsPartII:RG2.0",
+      "reason": "Use the canonical local-field valuation, normalized absolute value and finite-extension structures; local valued-group geometry is built on this substrate."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+      "target": "ReductiveGroupsPartII:RG2.1",
+      "reason": "Use the canonical local-field valuation, normalized absolute value and finite-extension structures; local valued-group geometry is built on this substrate."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+      "target": "ReductiveGroupsPartII:RG2.1",
+      "reason": "Use the existing unramified-extension and base-change interface in the valued-root/parahoric compatibility theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+      "target": "ReductiveGroupsPartII:RG2.3",
+      "reason": "Use the existing unramified-extension and base-change interface in the valued-root/parahoric compatibility theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary",
+      "target": "ReductiveGroupsPartII:RG2.0",
+      "reason": "Retain all point-topology constructions, chart-independence, functoriality, separated finite-type local compactness/Hausdorffness, group continuity, integral compactness and congruence-neighbourhood results. Use the upstream functor-of-points/group-scheme dictionary and specialize the pinned GeneralLinear points equivalence for the GL_n acceptance test; the new topology/comparison is not supplied by that algebraic equivalence."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary",
+      "target": "ReductiveGroupsPartII:RG2.0a",
+      "reason": "Retain affine finite-type Weil restriction along finite locally free maps, representing algebra, finite-presentation theorem under its stated hypothesis, adjunction/evaluation, products/composition/base change and coherence, finite-separable splitting/descent, Deligne torus with norm/weight maps, and every listed example. Import the existing group-scheme and torus carriers. Neither abstract tori nor module restriction of scalars constructs this representing scheme. Do not generalize to arbitrary nonaffine schemes or inseparable reductivity."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary",
+      "target": "ReductiveGroupsPartII:RG2.3",
+      "reason": "Retain construction of the connected smooth affine Bruhat–Tits O_E-model, root charts, generic fiber and integral-point characterization, its special-fiber reductive quotient and reduction/pro-unipotent data, pro-p congruence groups and compact openness, nested-facet maps and unramified base change. Keep the map to the fixer model and component comparison, and the distinction from hyperspecial models. Use anchor group-scheme, quotient, unipotent-radical and reductivity notions: a supplied predicate is not a construction or proof of reductivity of this particular quotient."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+      "target": "ReductiveGroupsPartII:RG2.3",
+      "reason": "Retain construction of the connected smooth affine Bruhat–Tits O_E-model, root charts, generic fiber and integral-point characterization, its special-fiber reductive quotient and reduction/pro-unipotent data, pro-p congruence groups and compact openness, nested-facet maps and unramified base change. Keep the map to the fixer model and component comparison, and the distinction from hyperspecial models. Use anchor group-scheme, quotient, unipotent-radical and reductivity notions: a supplied predicate is not a construction or proof of reductivity of this particular quotient."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+      "target": "ReductiveGroupsPartII:RG2.0a",
+      "reason": "Retain affine finite-type Weil restriction along finite locally free maps, representing algebra, finite-presentation theorem under its stated hypothesis, adjunction/evaluation, products/composition/base change and coherence, finite-separable splitting/descent, Deligne torus with norm/weight maps, and every listed example. Import the existing group-scheme and torus carriers. Neither abstract tori nor module restriction of scalars constructs this representing scheme. Do not generalize to arbitrary nonaffine schemes or inseparable reductivity."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-5-solvable-and-unipotent-groups-the-unipotent-radical",
+      "target": "ReductiveGroupsPartII:RG2.3",
+      "reason": "Retain construction of the connected smooth affine Bruhat–Tits O_E-model, root charts, generic fiber and integral-point characterization, its special-fiber reductive quotient and reduction/pro-unipotent data, pro-p congruence groups and compact openness, nested-facet maps and unramified base change. Keep the map to the fixer model and component comparison, and the distinction from hyperspecial models. Use anchor group-scheme, quotient, unipotent-radical and reductivity notions: a supplied predicate is not a construction or proof of reductivity of this particular quotient."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+      "target": "ReductiveGroupsPartII:RG2.3",
+      "reason": "Retain construction of the connected smooth affine Bruhat–Tits O_E-model, root charts, generic fiber and integral-point characterization, its special-fiber reductive quotient and reduction/pro-unipotent data, pro-p congruence groups and compact openness, nested-facet maps and unramified base change. Keep the map to the fixer model and component comparison, and the distinction from hyperspecial models. Use anchor group-scheme, quotient, unipotent-radical and reductivity notions: a supplied predicate is not a construction or proof of reductivity of this particular quotient."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "target": "BunGAndNewtonStrata:BG0",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "target": "BunGAndNewtonStrata:BG1",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.1 for this consumer; retain the original ReductiveGroupsPartII:RG2.1 edge for the valued/local or dual-action construction and comparison. Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "target": "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "target": "FunctionFieldArithmetic:FA.6",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.4 for this consumer; retain the original ReductiveGroupsPartII:RG2.4 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "target": "GeometricSatakeAndFusion:GS0:loop-geometry",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "target": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.4 for this consumer; retain the original ReductiveGroupsPartII:RG2.4 edge for the valued/local or dual-action construction and comparison. Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "target": "LanglandsParameterStacks:LP0",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "target": "LanglandsParameterStacks:LP3",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "target": "ReductiveGroupsPartII:RG2.1",
+      "reason": "Anchor Layer 7 explicitly owns relative root systems for nonsplit groups as well as split/absolute data. RG2.1 owns the valued enhancement and affine apartment; the word relative alone does not distinguish its scope."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "target": "ReductiveGroupsPartII:RG2.2",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.1 for this consumer; retain the original ReductiveGroupsPartII:RG2.1 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "target": "ReductiveGroupsPartII:RG2.4",
+      "reason": "The anchor owns abstract Bruhat and BN-pair theory, but does not construct the local valued subgroups or prove Iwasawa/Cartan decompositions for nonarchimedean points. The local identifications and hypotheses remain new work."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "target": "ReductiveGroupsPartII:RG2.5",
+      "reason": "The generic pinned split group construction and uniqueness are anchor Layer 9 work. The dualization application, induced action and functorial L-group interface are RG2.5 work, required independently of Tannakian Satake reconstruction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.4",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.4 for this consumer; retain the original ReductiveGroupsPartII:RG2.4 edge for the valued/local or dual-action construction and comparison. Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+      "target": "BunGAndNewtonStrata:BG0",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+      "target": "BunGAndNewtonStrata:BG1",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+      "target": "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+      "target": "GeometricSatakeAndFusion:GS0:loop-geometry",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+      "target": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+      "target": "LanglandsParameterStacks:LP0",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+      "target": "LanglandsParameterStacks:LP3",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+      "target": "ReductiveGroupsPartII:RG2.5",
+      "reason": "The generic pinned split group construction and uniqueness are anchor Layer 9 work. The dualization application, induced action and functorial L-group interface are RG2.5 work, required independently of Tannakian Satake reconstruction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.4",
+      "reason": "Preserve the imported algebraic part of ReductiveGroupsPartII:RG2.5 for this consumer; retain the original ReductiveGroupsPartII:RG2.5 edge for the valued/local or dual-action construction and comparison."
+    },
+    {
+      "source": "ReductiveGroupsPartII:RG2.0a",
+      "target": "ShimuraData:D1",
+      "reason": "Import the constructed Deligne torus, diagonal/norm maps, complex splitting/conjugation and character data for the Hodge-representation equivalence; D1 compares the Hodge-sign convention instead of constructing a second torus."
+    },
+    {
+      "source": "ReductiveGroupsPartII:RG2.0a",
+      "target": "ShimuraData:D2",
+      "reason": "Preserve D1's imported algebraic Deligne-torus interface for h and its adjoint Hodge decomposition in the Hermitian-domain construction. Keep D1 to supply its representation/Hodge equivalence and sign dictionary; Weil restriction alone is not that equivalence."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Underlying algebraic relative root system and relative Weyl group",
+      "owner": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "formerly": [
+        "ReductiveGroupsPartII:RG2.1"
+      ]
+    },
+    {
+      "target": "Abstract Bruhat decomposition and BN-pair/Tits-system theory",
+      "owner": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "formerly": [
+        "ReductiveGroupsPartII:RG2.4"
+      ]
+    },
+    {
+      "target": "Absolute based root datum with Galois action used in dualization",
+      "owner": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "formerly": [
+        "ReductiveGroupsPartII:RG2.5"
+      ]
+    },
+    {
+      "target": "Explicit pinned split integral group construction and pinned uniqueness for a root datum",
+      "owner": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+      "formerly": [
+        "ReductiveGroupsPartII:RG2.5"
+      ]
+    },
+    {
+      "target": "Group-scheme/functor-of-points dictionary used before local topologization",
+      "owner": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary",
+      "formerly": [
+        "ReductiveGroupsPartII:RG2.0"
+      ]
+    },
+    {
+      "target": "Reductivity over a field (smooth, connected, with trivial geometric unipotent radical), used on a special-fiber quotient",
+      "owner": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+      "formerly": [
+        "ReductiveGroupsPartII:RG2.3"
+      ]
+    },
+    {
+      "target": "Deligne torus as Res_(C/R) G_m, diagonal and norm maps, complex splitting/conjugation and character/cocharacter data",
+      "owner": "ReductiveGroupsPartII:RG2.0a",
+      "formerly": [
+        "ShimuraData:D1"
+      ]
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-31",
+    "date": "2026-09-21",
+    "notes": "Independently checked the full member and anchor documents, the unreviewed audit leads, original external consumers, retained targets, exact pinned declarations, and section-15 structure. Corrected the missed Deligne-torus duplication with ShimuraData D1 and preserved its Hodge work and D2 handoff. Clarified the reductivity ownership label. Acceptance concerns structural ownership, not source-proof closure or the pre-existing unassigned associated-bundle request.",
+    "corrections": [
+      "Narrowed ShimuraData:D1 to import the Deligne torus and its algebraic maps from RG2.0a, preserving every Hodge equivalence, comparison, sign convention and acceptance test.",
+      "Added one Deligne-torus ownership row and two supplier links, to D1 and its existing direct consumer D2; all original RG2 consumer edges remain.",
+      "Reworded the Layer 6 ownership label to specify smooth connected reductivity with trivial geometric unipotent radical, avoiding ambiguity with the distinct term geometric reductivity."
+    ]
+  }
+}
