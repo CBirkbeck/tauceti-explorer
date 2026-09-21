@@ -1,0 +1,313 @@
+{
+  "family": "RS-19",
+  "roadmaps": {
+    "EndoscopicTransferAndUnitaryTraceComparison": {
+      "action": "keep",
+      "reason": "Keep the endoscopic and unitary applications as a distinct roadmap. The generic scheme re-export bundles have no independent construction and are replaced by direct imports. Stable conjugacy, transfer, Hitchin geometry/support, the fundamental lemma, stable/twisted unitary comparison, Igusa stabilization, classical local correspondence and two-tower realization remain here. This is not simply Part II of EDC: it also has independent harmonic-analysis and representation-theoretic inputs."
+    },
+    "EtaleDualityAndPerverseSheaves": {
+      "action": "keep",
+      "reason": "Keep every exceptional-pullback, duality, purity, cycle-class, weak-Lefschetz, perversity, comparison, decomposition and correspondence target, with the existing finite-coefficient foundation owners imported unchanged. It is the reusable scheme supplier, not a unitary/endoscopic application. Its partial integrated decomposition and all implementation-status evidence remain unchanged."
+    }
+  },
+  "layers": {
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2": {
+      "action": "drop",
+      "suppliedBy": [
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.1",
+        "EtaleDualityAndPerverseSheaves:EDC.2",
+        "EtaleDualityAndPerverseSheaves:EDC.3",
+        "EtaleDualityAndPerverseSheaves:EDC.4",
+        "EtaleDualityAndPerverseSheaves:EDC.5",
+        "EtaleDualityAndPerverseSheaves:EDC.6",
+        "EtaleDualityAndPerverseSheaves:EDC.7",
+        "LefschetzPencilsAndVanishingCycles:LPV.6",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2b"
+      ],
+      "reason": "Remove only the aggregate planning vertex: its full content is the general scheme import bundle plus the Hitchin application ET.2b. It has no recorded consumer. Preserve its historical identifier/anchor as a redirect to these suppliers; do not erase mathematical targets or provenance."
+    },
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2a": {
+      "action": "drop",
+      "suppliedBy": [
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.1",
+        "EtaleDualityAndPerverseSheaves:EDC.2",
+        "EtaleDualityAndPerverseSheaves:EDC.3",
+        "EtaleDualityAndPerverseSheaves:EDC.4",
+        "EtaleDualityAndPerverseSheaves:EDC.5",
+        "EtaleDualityAndPerverseSheaves:EDC.6",
+        "EtaleDualityAndPerverseSheaves:EDC.7",
+        "LefschetzPencilsAndVanishingCycles:LPV.6"
+      ],
+      "reason": "This is explicitly the aggregate of two re-exports, not an independent geometric construction. The complete early and late obligations stay at EDC.0-7 and LPV.6. Its only recorded consumer, ET.2, is also an aggregate removed by this proposal. Keep a historical supplier redirect."
+    },
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity": {
+      "action": "drop",
+      "suppliedBy": [
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.1",
+        "EtaleDualityAndPerverseSheaves:EDC.2",
+        "EtaleDualityAndPerverseSheaves:EDC.3",
+        "EtaleDualityAndPerverseSheaves:EDC.4",
+        "EtaleDualityAndPerverseSheaves:EDC.5",
+        "EtaleDualityAndPerverseSheaves:EDC.6",
+        "LefschetzPencilsAndVanishingCycles:LPV.6"
+      ],
+      "reason": "Replace the import-only prefix by the actual EDC.0-6 and LPV.6 suppliers. Splice its recorded incoming EDC.5, EDC.6 and LPV.6 edges directly into its surviving consumer ET.5. The removed aggregate ET.2a needs no new edge. Retain the textual ET.2a:basic alias as a redirect, not a new stage. No EDC.7 or Hitchin hypothesis is added to this early interface."
+    },
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:pure-decomposition": {
+      "action": "drop",
+      "suppliedBy": [
+        "EtaleDualityAndPerverseSheaves:EDC.7"
+      ],
+      "reason": "Pure IC, geometric semisimplicity, noncanonical geometric decomposition and projective relative hard Lefschetz are constructed once at EDC.7. Its surviving consumer ET.2b imports that owner directly and remains responsible for verifying the hypotheses in each Hitchin use. Retain the textual ET.2a:decomposition alias as a redirect, not a new stage. No rational result is generalized to integral/mod-ell coefficients."
+    },
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0": {
+      "action": "keep",
+      "reason": "Stable conjugacy, group-specific Tate-Nakayama/Kottwitz theory and endoscopic data are not duplicated by EDC."
+    },
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1": {
+      "action": "keep",
+      "reason": "Keep the transfer factors, orbital-integral analysis, germs/Fourier identities, real transfer and normalized pseudocoefficients; EDC does not supply them."
+    },
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2b": {
+      "action": "keep",
+      "reason": "Keep all Chevalley/Kostant/regular-centralizer, G-bundle/Higgs/Hitchin/Picard, equal-characteristic affine Springer, product-formula, delta-regularity, support and kappa-comparison constructions. EDC.7 supplies the general pure-perverse theorem, not these geometric support estimates. Proper/projective, purity, coefficient and locus checks remain application obligations here."
+    },
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.3": {
+      "action": "keep",
+      "reason": "Keep ordinary/nonstandard fundamental lemmas, the separately bounded change-of-characteristic argument, local smooth transfer and the stated cyclic-base-change inputs."
+    },
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4": {
+      "action": "keep",
+      "reason": "Keep the additional stabilization and twisted unitary formula, test-function conditions, bad-place levels and vanishing of discarded parabolic terms; the invariant formula remains an AS.6 input."
+    },
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.5": {
+      "action": "keep",
+      "reason": "Keep acceptable Igusa correspondences, the contracting-boundary Lefschetz-Verdier/Fujiwara theorem with isolation/properness/large-Frobenius-power checks, effective Kottwitz triples, multiplicities, local/global stabilization and the shift/density argument. Import general cohomological correspondences and trace classes from EDC.8; neither that interface nor ordinary point counting proves this application. Preserve only IG.0-1 as the Igusa-geometry inputs, not IG.4-7."
+    },
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6": {
+      "action": "keep",
+      "reason": "Keep the full characteristic-zero Weil-Deligne correspondence, monodromy/segment reconstruction, geometric local proof and signed inner-form comparison. Preserve the early raw-cohomology input and the downstream comparison separation."
+    },
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6a": {
+      "action": "keep",
+      "reason": "Keep the mixed-characteristic two-tower constructions and supercuspidal cohomological realization, including exact degree, action, duality and twist normalizations. Preserve the Harris-Taylor source-access boundary and the separate equal-characteristic owner."
+    },
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.7": {
+      "action": "keep",
+      "reason": "Keep the aggregate of the two distinct comparison exports; neither branch is an EDC duplicate."
+    },
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.7a": {
+      "action": "keep",
+      "reason": "Keep the pure automorphic unitary-to-GL_m, residual-spectrum/Speh and cyclic base-change character identities without an Igusa-concentration dependency."
+    },
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.7b": {
+      "action": "keep",
+      "reason": "Keep the rational alternating Igusa representation, factorization and Hecke-character separation with virtual multiplicities, importing ET.5/6/7a and exporting to IG.5."
+    },
+    "EtaleDualityAndPerverseSheaves:EDC.0": {
+      "action": "keep",
+      "reason": "Keep scheme support and enhancement compatibility on the imported coefficient categories; do not take ownership of the upstream finite-level category, Rf! or generic EDS constructions."
+    },
+    "EtaleDualityAndPerverseSheaves:EDC.1": {
+      "action": "keep",
+      "reason": "Keep this collection of the adjoint and biduality interfaces, with its non-numerical internal order unchanged."
+    },
+    "EtaleDualityAndPerverseSheaves:EDC.1:adjoint": {
+      "action": "keep",
+      "reason": "Keep the actual right adjoint to enhanced Rf!, the dualizing-object definition, local-cohomology identification and coherent adjunction/exchange maps, without assuming smooth purity or biduality."
+    },
+    "EtaleDualityAndPerverseSheaves:EDC.1:biduality": {
+      "action": "keep",
+      "reason": "Keep constructible restrictions, devissage, biduality, exchange and relative/geometric duality after the independently constructed smooth trace/purity; preserve coefficient and derived-dual restrictions."
+    },
+    "EtaleDualityAndPerverseSheaves:EDC.2": {
+      "action": "keep",
+      "reason": "Keep the collection of smooth trace/purity and pairing interfaces, without making all of EDC.1 precede all of EDC.2."
+    },
+    "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity": {
+      "action": "keep",
+      "reason": "Keep finite-flat/curve traces, effacement and the smooth relative trace/purity construction from EDC.1:adjoint, with the same degree, shifts, twists and coefficient hypotheses."
+    },
+    "EtaleDualityAndPerverseSheaves:EDC.2:pairings": {
+      "action": "keep",
+      "reason": "Keep normalized perfect/derived Poincare pairings and Frobenius/Galois compatibilities after trace-purity and constructible biduality."
+    },
+    "EtaleDualityAndPerverseSheaves:EDC.3": {
+      "action": "keep",
+      "reason": "Keep smooth-pair purity, supported fundamental classes, Gysin and cycle/Chern classes and their compatibilities, with the perfect-field and singular-cycle construction restrictions."
+    },
+    "EtaleDualityAndPerverseSheaves:EDC.4": {
+      "action": "keep",
+      "reason": "Keep weak Lefschetz, projective-bundle and smooth-center blowup maps with twists, plus primitive subspaces without an unproved hard-Lefschetz splitting."
+    },
+    "EtaleDualityAndPerverseSheaves:EDC.5": {
+      "action": "keep",
+      "reason": "Keep early middle perversity, truncations, recollement, IC, exactness bounds and the separate integral p/p+ torsion-pair construction; no weight or decomposition theorem is assumed."
+    },
+    "EtaleDualityAndPerverseSheaves:EDC.6": {
+      "action": "keep",
+      "reason": "Keep the integral/classical/pro-etale/Betti and eligible scheme/adic/diamond operation comparisons. Preserve the existing comparison suppliers, source hypotheses, partial decomposition and unresolved integration links."
+    },
+    "EtaleDualityAndPerverseSheaves:EDC.7": {
+      "action": "keep",
+      "reason": "Keep pure IC and weight/Ext formalism, geometric rational semisimplicity/decomposition, projective relative hard Lefschetz with an ample class and the source-qualified characteristic-zero specialization; DWP.7-9 remain earlier inputs."
+    },
+    "EtaleDualityAndPerverseSheaves:EDC.8": {
+      "action": "keep",
+      "reason": "Keep general correspondences, their composition and trace classes with proper-pushforward/restriction compatibility, and the determinant/reciprocity interface to WC.2. Ordinary Frobenius point counting remains upstream; the contracting-boundary Igusa theorem remains ET.5."
+    }
+  },
+  "links": [
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.5",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "reason": "Preserve the early perverse/recollement/IC interface formerly imported through ET.2a:duality-perversity; use the EDC constructions rather than a second copy. This is the recorded two-edge path spliced directly, not a later decomposition input."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.6",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "reason": "Preserve coefficient realization and the eligible scheme/adic comparison of the same duality operations formerly imported through ET.2a:duality-perversity, with its boundedness and geometric hypotheses unchanged."
+    },
+    {
+      "source": "LefschetzPencilsAndVanishingCycles:LPV.6",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "reason": "Preserve the scheme nearby-cycle/perverse and finite-level/filtered-colimit comparison interface already included in the recorded ET.2a:duality-perversity import. This conservative splice does not assert that all LPV.6 statements are independently used by every ET.5 proof, or introduce weights."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.7",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b",
+      "reason": "Supply pure IC, geometric rational decomposition/semisimplicity and projective relative hard Lefschetz directly to the Hitchin-support construction. The old path was EDC.7 -> ET.2a:pure-decomposition -> ET.2b. ET.2b must verify the actual locus, coefficients, purity, properness and any projectivity/ample-class hypotheses."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Scheme cohomology-with-support and compatibility of the imported finite-level coefficient/Rf! objects with the enhancement (not a new coefficient category or new upstream Rf!).",
+      "owner": "EtaleDualityAndPerverseSheaves:EDC.0",
+      "formerly": [
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2"
+      ]
+    },
+    {
+      "target": "Scheme exceptional pullback as the actual right adjoint, dualizing-object definition and coherent adjunction/exchange maps.",
+      "owner": "EtaleDualityAndPerverseSheaves:EDC.1:adjoint",
+      "formerly": [
+        "EtaleDualityAndPerverseSheaves:EDC.1:adjoint",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2"
+      ]
+    },
+    {
+      "target": "Finite-flat and curve trace inputs and the normalized smooth relative trace/purity theorem.",
+      "owner": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+      "formerly": [
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2"
+      ]
+    },
+    {
+      "target": "Constructible Verdier biduality and relative/geometric duality with the stated coefficient restrictions.",
+      "owner": "EtaleDualityAndPerverseSheaves:EDC.1:biduality",
+      "formerly": [
+        "EtaleDualityAndPerverseSheaves:EDC.1:biduality",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2"
+      ]
+    },
+    {
+      "target": "Normalized smooth Poincare pairings and their derived integral and Frobenius/Galois forms.",
+      "owner": "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
+      "formerly": [
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2"
+      ]
+    },
+    {
+      "target": "Supported smooth-pair/Gysin and etale cycle-class constructions in the EDC.0-5 import bundle.",
+      "owner": "EtaleDualityAndPerverseSheaves:EDC.3",
+      "formerly": [
+        "EtaleDualityAndPerverseSheaves:EDC.3",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2"
+      ]
+    },
+    {
+      "target": "Weak Lefschetz and the cohomological projective-bundle/blowup formulas in the EDC.0-5 import bundle.",
+      "owner": "EtaleDualityAndPerverseSheaves:EDC.4",
+      "formerly": [
+        "EtaleDualityAndPerverseSheaves:EDC.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2"
+      ]
+    },
+    {
+      "target": "The generic scheme perverse t-structure, recollement, intermediate extension/IC and exactness bounds.",
+      "owner": "EtaleDualityAndPerverseSheaves:EDC.5",
+      "formerly": [
+        "EtaleDualityAndPerverseSheaves:EDC.5",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2"
+      ]
+    },
+    {
+      "target": "Transport of the scheme duality/perverse operations through the specified integral and analytic/diamond comparisons (not the independently owned comparison functors).",
+      "owner": "EtaleDualityAndPerverseSheaves:EDC.6",
+      "formerly": [
+        "EtaleDualityAndPerverseSheaves:EDC.6",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2"
+      ]
+    },
+    {
+      "target": "Scheme nearby-cycle perverse exactness and the specified IG.4 finite-level/filtered-colimit support extension.",
+      "owner": "LefschetzPencilsAndVanishingCycles:LPV.6",
+      "formerly": [
+        "LefschetzPencilsAndVanishingCycles:LPV.6",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2"
+      ]
+    },
+    {
+      "target": "Generic pure-IC, geometric rational decomposition/semisimplicity and projective relative hard Lefschetz; not the Hitchin-specific support theorem.",
+      "owner": "EtaleDualityAndPerverseSheaves:EDC.7",
+      "formerly": [
+        "EtaleDualityAndPerverseSheaves:EDC.7",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a:pure-decomposition",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2a",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2"
+      ]
+    },
+    {
+      "target": "General cohomological correspondences, composition/trace classes and their functoriality, imported by the stronger contracting-boundary Igusa application.",
+      "owner": "EtaleDualityAndPerverseSheaves:EDC.8",
+      "formerly": [
+        "EtaleDualityAndPerverseSheaves:EDC.8",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ]
+    },
+    {
+      "target": "Hitchin/affine-Springer/Picard geometry, product formula, delta-regularity and the source-qualified anisotropic/endoscopic support comparison.",
+      "owner": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b",
+      "formerly": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2b",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2"
+      ]
+    }
+  ]
+}
