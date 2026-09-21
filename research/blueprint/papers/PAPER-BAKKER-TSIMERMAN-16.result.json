@@ -1,0 +1,1542 @@
+{
+  "paper": "PAPER-BAKKER-TSIMERMAN-16",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "p-torsion monodromy representations of elliptic curves over geometric function fields",
+    "authors": "Benjamin Bakker and Jacob Tsimerman",
+    "venue": "Annals of Mathematics 184 (2016), no. 3, 709–744",
+    "doi": "10.4007/annals.2016.184.3.2",
+    "arxiv": "1403.7168",
+    "url": "https://annals.math.princeton.edu/2016/184-3/p02",
+    "version": "Published 36-page PDF, read in full, together with the complete undated five-page author erratum. No silent substitution of the arXiv version.",
+    "readSections": [
+      "Abstract and §1",
+      "§2.1–2.5",
+      "§3.1–3.4, Figure 1",
+      "§4.1–4.4, Figure 2",
+      "§5.1–5.2",
+      "§6.1–6.2",
+      "§7 and references",
+      "Erratum §§1–5 and references"
+    ],
+    "accessed": "2026-09-21",
+    "artifacts": [
+      {
+        "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf",
+        "sha256": "814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
+        "read": "all 36 pages; both figures inspected visually"
+      },
+      {
+        "url": "https://benjamin-bakker.github.io/P.torsion.erratum.pdf",
+        "sha256": "db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1",
+        "read": "all five pages, including references; printed ratio on p.3 visually checked; no publication date inferred"
+      },
+      {
+        "url": "https://arxiv.org/pdf/alg-geom/9609012",
+        "sha256": "5ff2134fbfb6bd702fa7051637027405c8e0d77a595830a63e8ad36f50791779",
+        "read": "entire five-page Abramovich preprint; arXiv v1 strip dated 1996, internal regenerated heading says Preliminary version October 23, 2018"
+      },
+      {
+        "url": "https://www.math.tau.ac.il/~rudnick/papers/lrsGAFA.pdf",
+        "sha256": "1ed6b366ee4b0275ae87225e06fcff99bec31bcf76f7b1b54a9cace377859fac",
+        "read": "LRS printed pp.387–390 only; remaining proof not claimed read"
+      }
+    ]
+  },
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "atlasSnapshot": "3a9e9d7877bad538bc4e0ed202e88b8bc0fef8f0",
+    "mainChecked": "2048fe0190965aa95663c9cbac2a16efb6054d64",
+    "note": "Eight cited Lean source files matched raw pinned GitHub bytes by SHA-256. Mathematical atlas/roadmap/audit data unchanged in checked-main comparison; newly promoted restructurings were screened, notably RS-29 for IG.0, and the refreshed EllipticCurves link was read. Paper completion is extraction/routing completion, not proof closure or implementation."
+  },
+  "summary": "Geometric Frey–Mazur in algebraically closed characteristic zero with a threshold depending only on base gonality. The stronger theorem excludes non-Hecke bounded-gonality curves on the diagonal modular quotient Z(p). Its proof constructs a rational curve in a symmetric power, lifts it to a product of modular curves, bounds four ramification strata by hyperbolic volume, and contradicts two Riemann–Hurwitz bounds. The author erratum is essential: repulsion is Heegner-only; anti-Heegner incidence uses conjugate-diagonal volume; singular-bicusp incidence needs the repaired extra p-saving. Existing libraries supply local hyperbolic geometry, finite stabilizers and function-field Riemann–Roch, not the analytic current/volume estimates or the modular application. Existing planned modular, curve, Galois-category and surface carriers are imported. Five routes cover every missing item exactly once.",
+  "items": [
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/01",
+      "kind": "definition",
+      "name": "Nonisotrivial elliptic families",
+      "statement": "An elliptic curve E/U is a smooth proper genus-one group scheme with zero section; it is nonisotrivial when it does not become constant after any finite cover of the base (over characteristic zero this is detected by nonconstant j). The base U is a smooth connected quasiprojective curve over an algebraically closed field of characteristic zero.",
+      "locator": "§1, pp.709–710; Theorem 1",
+      "status": "missing",
+      "note": "Import the existing elliptic-family object and its j-map from upstream ModularCurves; only the nonisotrivial predicate/criterion and its use here are new.",
+      "planning": {
+        "api": [
+          "nonisotrivial_iff_j_nonconstant",
+          "finiteCover_invariant"
+        ],
+        "tests": [
+          "constant family excluded",
+          "nonconstant j included",
+          "finite-cover invariance"
+        ],
+        "execution": "Design obligations only; not Lean declarations or tests claimed executed."
+      }
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/02",
+      "kind": "construction",
+      "name": "Torsion local system and monodromy",
+      "statement": "For such E/U and a prime p, E[p] is a rank-two F_p local system; at u its transport gives ρ_E[p]:π₁(U,u)→GL₂(F_p), up to change of basis. Over C use the topological fundamental group; over general algebraically closed k use the étale fundamental group and the finite étale torsion group scheme. Isomorphism means of the actual F_p representations, not just semisimplifications or projectivizations.",
+      "locator": "§1, pp.709–710",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/03",
+      "kind": "theorem",
+      "name": "Geometric Frey–Mazur for families",
+      "statement": "Let k be algebraically closed of characteristic zero. For every N>0 there is M_N>0 such that, for every prime p>M_N and every smooth quasiprojective connected k-curve U with gonality n<N, two nonisotrivial elliptic curves over U having isomorphic p-torsion local systems are isogenous over U.",
+      "locator": "Theorem 1, p.710",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/04",
+      "kind": "theorem",
+      "name": "Geometric Frey–Mazur over function fields",
+      "statement": "With k,N,M_N as in Theorem 1, for every smooth projective connected k-curve B of gonality n<N and prime p>M_N, nonisotrivial elliptic curves over k(B) with isomorphic p-torsion Galois representations are isogenous over k(B).",
+      "locator": "Theorem 2, p.710",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/05",
+      "kind": "theorem",
+      "name": "Gonality rigidity on the diagonal quotient",
+      "statement": "For every N>0 there exists M_N>0 such that, for prime p>M_N, every smooth connected curve B of gonality n<N and every nonconstant map B→Z(p) has image a Hecke curve (equivalently the map factors through one). Gonality of an open or singular image curve means that of its smooth projective model. The characteristic-zero algebraically closed version follows from the complex geometric argument.",
+      "locator": "Theorems 3 and 29, pp.710,740–742",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/06",
+      "kind": "definition",
+      "name": "Gonality and its base convention",
+      "statement": "For a smooth projective geometrically connected curve B/k, gon_k(B) is the minimum positive degree of a nonconstant finite k-morphism B→P¹_k. For the paper's quasiprojective curves use the smooth projective completion; for an integral image curve use its normalization/completion.",
+      "locator": "§1 p.710; §7 p.740; Abramovich §1.1",
+      "status": "missing",
+      "note": "The completion/normalization objects are imported, not reconstructed; this is the new invariant and comparison API.",
+      "planning": {
+        "api": [
+          "gonality",
+          "gonality_le_of_finiteMap",
+          "gonality_normalization"
+        ],
+        "tests": [
+          "P¹ has value one",
+          "genus-one value two",
+          "open completion convention"
+        ],
+        "execution": "Design obligations only; not Lean declarations or tests claimed executed."
+      }
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/07",
+      "kind": "theorem",
+      "name": "Upper-half-plane hyperbolic distance",
+      "statement": "For z,w in the upper half-plane, d(z,w)=2 arsinh(|z−w|/(2 sqrt(Im(z)Im(w)))). This is the curvature −1 normalization used in the paper.",
+      "locator": "§1.3 p.712",
+      "status": "library",
+      "note": "Mathlib/Analysis/Complex/UpperHalfPlane/Metric.lean:42–69 read; also cosh_dist, sinh_half_dist. A tensor/volume comparison is separate.",
+      "library": [
+        "mathlib:UpperHalfPlane.dist_eq"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/08",
+      "kind": "definition",
+      "name": "Invariant hyperbolic measure",
+      "statement": "The upper-half-plane area measure is dx dy/(Im z)²; it is invariant under the Möbius action. This is the measure to reuse before proving its descent and metric-volume comparison.",
+      "locator": "§1.3 pp.712–713",
+      "status": "library",
+      "note": "Mathlib/Analysis/Complex/UpperHalfPlane/Measure.lean:45–105 read, including SMulInvariantMeasure instance.",
+      "library": [
+        "mathlib:UpperHalfPlane.volume_def",
+        "mathlib:UpperHalfPlane.volume_eq_lintegral"
+      ],
+      "planning": {
+        "api": [
+          "reuse UpperHalfPlane.volume",
+          "Möbius invariance"
+        ],
+        "tests": [
+          "horizontal translation",
+          "positive dilation",
+          "Cayley coordinate change"
+        ],
+        "execution": "Design obligations only; not Lean declarations or tests claimed executed."
+      }
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/09",
+      "kind": "definition",
+      "name": "Disc distance with the factor-of-two bridge",
+      "statement": "The paper's d_D(z,w)=2 artanh |(z−w)/(1−conj(w)z)|. Tau Ceti's hyperbolicDist and PoincareDisc.dist are artanh of that expression, so d_D=2 d_TauCeti and d_D(0,z)=2 artanh |z|.",
+      "locator": "§1.3 pp.712–713",
+      "status": "library",
+      "note": "Poincare/MetricSpace.lean:61–109 and Hyperbolic/ClosedForm.lean:43–56,133–160 read. This is reuse up to explicit scaling, not an assertion that the installed metric already has curvature −1; curvature/area transport remains item 11.",
+      "library": [
+        "tauceti:TauCeti.PoincareDisc",
+        "tauceti:TauCeti.PoincareDisc.dist_eq",
+        "tauceti:TauCeti.PoincareDisc.dist_toPoincare_zero_right",
+        "tauceti:TauCeti.tanh_hyperbolicDist"
+      ],
+      "planning": {
+        "api": [
+          "paperDist_eq_two_mul_tauDist",
+          "distance_zero_formula"
+        ],
+        "tests": [
+          "distance to zero",
+          "symmetry",
+          "factor-two scaling"
+        ],
+        "execution": "Design obligations only; not Lean declarations or tests claimed executed."
+      }
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/10",
+      "kind": "theorem",
+      "name": "Schwarz–Pick contraction",
+      "statement": "For a holomorphic self-map f of the unit disc and z,w in the disc, |(f(z)−f(w))/(1−conj(f(w))f(z))|≤|(z−w)/(1−conj(w)z)|. Thus the corresponding hyperbolic distance is nonincreasing, also after the paper's common factor-two scaling.",
+      "locator": "§3, proof of Proposition 7, p.721",
+      "status": "library",
+      "note": "SchwarzPick/Basic.lean:126–151 read; quotient-metric comparison is not covered by this local theorem.",
+      "library": [
+        "tauceti:TauCeti.pseudoHyperbolicExpr_map_le"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/11",
+      "kind": "construction",
+      "name": "Uniformized metrics, products and areas",
+      "statement": "For a hyperbolic Riemann surface X, descend the curvature −1 metric from D along a holomorphic universal covering. On X^n use d(x,y)=max_i d_X(x_i,y_i) for neighborhoods, but use ω_(X^n)=Σ_i pr_i*ω_X for complex-curve volumes. Prove a(r)=area B_D(0,r)=4π sinh²(r/2). The max distance is not the length distance of the sum Riemannian tensor.",
+      "locator": "§1.3 pp.712–713",
+      "status": "missing",
+      "note": "Generic analytic quotient charts come from FuchsianOrbifolds; the descended metric/area and scale comparison are additional."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/12",
+      "kind": "theorem",
+      "name": "Canonical degree equals normalized area",
+      "statement": "For compact hyperbolic X, c₁(K_X)=[ω_X]/(2π). For a compact complex curve cycle C in X^n, Deg(C):=K_(X^n)·C equals vol(C)/(2π); degree and volume include cycle multiplicities and degrees of parameterizations.",
+      "locator": "§1.3 equation (1), p.713; §6 p.736",
+      "status": "missing",
+      "note": "Algebraic intersection is SF.5; this analytic Chern/curvature comparison is not its already planned algebraic Chern class."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/13",
+      "kind": "definition",
+      "name": "Injectivity radius and asymptotic conventions",
+      "statement": "For a compact hyperbolic surface X, ρ_X is half its shortest noncontractible closed-geodesic length. Estimates O(p^a), o(Deg C), and p^O(δ) are as p tends through primes; for each sufficiently small fixed δ>0 choose a sufficiently large threshold p₀(δ), with constants uniform in the curves/points in the stated range. The cusped Y(p) quantity in Lemma 5 is half the shortest hyperbolic closed geodesic, not the infimum of pointwise injectivity radii near a cusp.",
+      "locator": "§1.3 p.712; §3 pp.717–718",
+      "status": "missing",
+      "note": "Near a cusp the pointwise injectivity radius tends to zero. Keep systolic terminology for Y(p).",
+      "planning": {
+        "api": [
+          "compactInjectivityRadius",
+          "systole_eq_two_mul_radius",
+          "uniformThreshold"
+        ],
+        "tests": [
+          "compact quotient",
+          "cusped radius infimum zero",
+          "δ fixed before p threshold"
+        ],
+        "execution": "Design obligations only; not Lean declarations or tests claimed executed."
+      }
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/14",
+      "kind": "theorem",
+      "name": "Finite cyclic Fuchsian stabilizers",
+      "statement": "For a subgroup Γ≤PSL₂(R), a finite stabilizer Γ_z is cyclic. Its derivative character Γ_z→C* is injective, preserves element orders, and a generator has derivative a primitive root of unity of order |Γ_z|.",
+      "locator": "§2.1 p.714; §7 p.741 local stabilizers",
+      "status": "library",
+      "note": "UpperHalfPlane/Stabilizer.lean:128–178 and Fuchsian/Stabilizer.lean read. This is not yet the stabilizer computation on Z(p).",
+      "library": [
+        "tauceti:Subgroup.isCyclic_stabilizer",
+        "tauceti:Subgroup.stabilizerDeriv_injective",
+        "tauceti:Subgroup.orderOf_stabilizerDeriv",
+        "tauceti:Subgroup.exists_isPrimitiveRoot_stabilizerDeriv"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/15",
+      "kind": "construction",
+      "name": "Projectively framed prime-level curve",
+      "statement": "For prime p>3 over C, Y(p) is the coarse moduli curve of (E,[φ]) with φ:F_p²≅E[p] modulo simultaneous nonzero scalar; X(p) is its smooth compactification. Its two components are indexed by F_p*/(F_p*)² via the Weil pairing; a chosen component is Γ(p)\\H. PGL₂(F_p) acts by [φ]↦[φ∘g̃⁻¹], and PSL₂(F_p) stabilizes each component.",
+      "locator": "§2.1 pp.713–714",
+      "status": "missing",
+      "note": "R12.2/R12.4 supply ordinary/full-level comparisons but not this projective-scalar quotient convention verbatim; source-route it there, importing upstream 5B and 9D."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/16",
+      "kind": "theorem",
+      "name": "Branch data over the j-line",
+      "statement": "For p>3, X(p)/PGL₂(F_p)=X(1). The quotient ramifies in exactly three orbits: cusps, points over j=1728, and points over j=0, with ramification orders p,2,3 respectively.",
+      "locator": "§2.1 p.714",
+      "status": "missing",
+      "note": "This projectively framed cover specializes the existing R12.2/R12.3 comparison/ramification work; not the prime diamond-quotient two-cusp formula."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/17",
+      "kind": "construction",
+      "name": "Complex conjugation of level curves",
+      "statement": "Negation of the complex structure gives an antiholomorphic involution on Y(1), Y(p), X(p), compatible with the moduli description and level-change maps.",
+      "locator": "§2.1 p.714",
+      "status": "planned",
+      "note": "R12.6 explicitly plans complex-conjugation compatibility; AUDIT-10 not built.",
+      "planned": [
+        "ModularCurvesPartII:R12.6"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/18",
+      "kind": "definition",
+      "name": "Néron n-gon",
+      "statement": "Over C, C_n is the connected degree-n étale cover of the nodal cubic, obtained by gluing (a,∞) to (a+1,0) in (Z/nZ)×P¹. Its smooth locus is equipped with a group structure extending its action to C_n and is noncanonically G_m×Z/nZ.",
+      "locator": "§2.2 Definition, p.714",
+      "status": "planned",
+      "note": "R13.1 explicitly constructs n-gons and their smooth group action; AUDIT-10 absent.",
+      "planned": [
+        "ModularCurvesPartII:R13.1"
+      ],
+      "planning": {
+        "api": [
+          "polygonSmoothLocus",
+          "polygonAction",
+          "polygonBaseChange"
+        ],
+        "tests": [
+          "one-gon",
+          "p-gon component count",
+          "action extends over nodes"
+        ],
+        "execution": "Design obligations only; not Lean declarations or tests claimed executed."
+      }
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/19",
+      "kind": "theorem",
+      "name": "Automorphisms of the polygon",
+      "statement": "After a splitting C_n^sm≅G_m×Z/nZ, automorphisms preserving the generalized elliptic structure form μ_n⋊{±1}; (t,a)↦(ζ^a t,a) supplies μ_n and inversion supplies ±1.",
+      "locator": "§2.2 pp.714–715, Remark 4",
+      "status": "missing",
+      "note": "Detailed boundary automorphism/self-duality calculation belongs to the existing generalized-elliptic R13.1/R13.2 scope."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/20",
+      "kind": "construction",
+      "name": "Full projective level at the boundary",
+      "statement": "For fixed p>3, allow elliptic curves or p-gons, with a projective isomorphism F_p²≅E^sm[p]. Relate their coarse compactified moduli to X(p), and to the rigidified base orbifold with cone orders 2,3,p. Construct through honest full-level moduli and the scalar quotient; do not assert a universal elliptic family on a moduli functor still having the automorphism [−1].",
+      "locator": "§2.2 p.715",
+      "status": "missing",
+      "note": "The paper calls this fine and reports cusp stabilizer p. Read those statements at the effective/rigidified level: the unrigidified polygon stack has μ_p⋊{±1}. Source convention audit is mandatory."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/21",
+      "kind": "definition",
+      "name": "Diagonal quotient surface",
+      "statement": "For p>3 define Z(p)=PGL₂(F_p)\\(X(p)×X(p)) for the diagonal projective-framing action; its coarse points are triples (E₁,E₂,[ψ]) with projective p-torsion isomorphism. The map sends (E₁,[φ₁]),(E₂,[φ₂]) to [φ₂φ₁⁻¹]. Distinguish the two-component convention from a fixed-pairing PSL₂ presentation and supply the component comparison.",
+      "locator": "§2.3 Definition, p.715; erratum §1",
+      "status": "missing",
+      "note": "General finite quotients are imported from upstream 0C and algebraic moduli, not redefined.",
+      "planning": {
+        "api": [
+          "diagonalQuotient",
+          "coarseClassifyingMap",
+          "componentEquivalence"
+        ],
+        "tests": [
+          "diagonal triples",
+          "scalar framing change",
+          "PGL/PSL component comparison"
+        ],
+        "execution": "Design obligations only; not Lean declarations or tests claimed executed."
+      }
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/22",
+      "kind": "definition",
+      "name": "Heegner CM points",
+      "statement": "A pair (x,y) in Y(p)² with a common nonidentity projective stabilizer is in CM+ when compatible automorphism lifts h_x,h_y (same characteristic polynomial) act with the same eigenvalue on T₀E_x,T₀E_y. Both lie above the same elliptic j-value. This is a tangent-eigenvalue condition, not merely a shared CM order.",
+      "locator": "§2.4 pp.715–716",
+      "status": "missing",
+      "note": "",
+      "planning": {
+        "api": [
+          "isHeegner",
+          "tangentEigenvalue",
+          "action_preserves"
+        ],
+        "tests": [
+          "j=1728",
+          "j=0",
+          "same CM order insufficient"
+        ],
+        "execution": "Design obligations only; not Lean declarations or tests claimed executed."
+      }
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/23",
+      "kind": "definition",
+      "name": "Anti-Heegner CM points",
+      "statement": "In the same setup CM− is the opposite tangent-eigenvalue case; the eigenvalues are complex conjugates. CM=CM+∪CM−. PGL₂ preserves both strata, while conjugating the second factor interchanges them. Their quotient descriptions are respectively (E,E,ψ|E[p]) and (E,E,τ∘ψ|E[p]), with p∤deg ψ and τ complex conjugation.",
+      "locator": "§2.4 p.716",
+      "status": "missing",
+      "note": "",
+      "planning": {
+        "api": [
+          "isAntiHeegner",
+          "conjugation_swaps",
+          "cm_partition"
+        ],
+        "tests": [
+          "opposite eigenvalues",
+          "double conjugation",
+          "no unconditional repulsion"
+        ],
+        "execution": "Design obligations only; not Lean declarations or tests claimed executed."
+      }
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/24",
+      "kind": "definition",
+      "name": "Singular bicusps",
+      "statement": "SBC is the set of pairs of cusps whose stabilizers have a common nonidentity element in PGL₂(F_p). A pair of arbitrary cusps need not be singular.",
+      "locator": "§2.4 pp.715–716",
+      "status": "missing",
+      "note": "",
+      "planning": {
+        "api": [
+          "isSingularBicusp",
+          "commonStabilizer_iff"
+        ],
+        "tests": [
+          "equal cusp pair",
+          "conjugate stabilizers",
+          "arbitrary cusp pair need not qualify"
+        ],
+        "execution": "Design obligations only; not Lean declarations or tests claimed executed."
+      }
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/25",
+      "kind": "construction",
+      "name": "Cyclic Hecke correspondences",
+      "statement": "For positive m coprime to p, T_m^cyc is the closure in X(p)² of pairs related by a cyclic degree-m isogeny carrying one projective p-framing to the other. It is diagonally PGL₂-invariant. Its two projection degrees are ψ(m)=m∏_{ℓ|m}(1+1/ℓ); a full index-m subgroup correspondence has degree σ₁(m).",
+      "locator": "§2.5 pp.716–717",
+      "status": "missing",
+      "note": "Source discrepancy: the printed definition says cyclic but the next page writes σ₁(m). For m=4 the counts are 6 and 7. Keep separate carriers (full correspondence sums primitive ones over square divisors); all estimates here need only degree O(m²) and small-degree isogeny loci."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/26",
+      "kind": "construction",
+      "name": "Hecke action on polygon level data",
+      "statement": "For (m,p)=1, use C_pm→C_p, (x,a)↦(x^m,a mod p), its isomorphism on p-torsion, quotients by cyclic order-m subgroups meeting the identity component trivially, and ξ_d:(x,a)↦(x^d,a). The displayed union over m|n of [ξ_(n/m)∘ψ_G∘φ_m[p]⁻¹∘f] specifies the full subgroup correspondence at a framed p-gon. Reconcile the primitive/cyclic summands before restricting this formula to T_n^cyc.",
+      "locator": "§2.5 pp.716–717",
+      "status": "missing",
+      "note": "Component groups in the printed maps are abbreviated inconsistently as Z/nZ; write source Z/pmZ and target Z/pZ explicitly. This is a boundary specialization of R13.3/R14.1."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/27",
+      "kind": "construction",
+      "name": "Hecke push–pull on surface curves",
+      "statement": "For the normalization of a chosen Hecke correspondence with projections α,β to X(p), put μ=id×α and ν=id×β. Define T_m* C=μ_*ν* C as a curve cycle. Preserve multiplicities; the diagonal intersection identity used is (T_m* C·Δ)=(C·T_m) with matching orientation/convention.",
+      "locator": "§2.5 p.717; §6 pp.736–737",
+      "status": "planned",
+      "note": "These stages own geometric correspondences, proper pushforward/pullback and projection formula. No library Hecke operator on forms supplies this cycle map.",
+      "planned": [
+        "ModularCurvesPartII:R14.1",
+        "SchemeAndStackFoundations:SF.5"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/28",
+      "kind": "theorem",
+      "name": "Hecke scaling of canonical degree",
+      "statement": "For the above correspondence on X(p)², Deg(T_m* C)=deg(T_m)Deg(C), with the same degree on both projections and cycles weighted by map degree. In estimates use deg(T_m)=O(m²) consistently with item 25.",
+      "locator": "§6 p.736",
+      "status": "missing",
+      "note": "Application-specific degree calculation must be proved via projection formula, not confused with metric preservation at compactified cusps."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/29",
+      "kind": "construction",
+      "name": "Compact triangle uniformization of X(p)",
+      "statement": "For p>5, the effective orbifold X(1)_p has signature (0;2,3,p) and uniformizing triangle group Γ(2,3,p). The homomorphism γ_p:PSL₂(Z)→Γ(2,3,p) kills the p-th power of a cusp generator; Ξ(p)=γ_p(Γ(p)) uniformizes X(p)^1, with Γ(2,3,p)/Ξ(p)≅PSL₂(F_p). Thus h_X(p) is different from the cusped h_Y(p).",
+      "locator": "§3 pp.717–719",
+      "status": "missing",
+      "note": "Import generic triangle/polygon construction from Fuchsian Layer 2 and modular compactification comparison from R12.3."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/30",
+      "kind": "theorem",
+      "name": "Cusped systole asymptotic",
+      "statement": "For the Y(p) metric, half the length of its shortest hyperbolic closed geodesic is 2 log p+O(1). If γ∈Γ(p), tr γ≡2 mod p²; among hyperbolic elements |tr γ|≥p²−2, attained by [[1−p²,p],[−p,1]], giving length 4 log p+O(1).",
+      "locator": "Lemma 5 and proof, p.718",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/31",
+      "kind": "construction",
+      "name": "Uniformizing triangle coordinates",
+      "statement": "Choose triangle vertices i, i y_p, and e^(iθ_p) for cone orders 2,p,3. Then y_p=p/π+O(p⁻¹), θ_p=π/3+O(p⁻¹); its reflected tessellation gives the compact metric fundamental domains and the cusp lift at i y_p.",
+      "locator": "§3.2 pp.718–719",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/32",
+      "kind": "theorem",
+      "name": "Separated cusp balls",
+      "statement": "In the compact uniformized X(p) metric, a ball centered at a cusp of radius log p−O(1) meets only triangles adjoining that cusp, and distinct cusps are at distance at least 2 log p−O(1).",
+      "locator": "Lemma 6, p.720",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/33",
+      "kind": "theorem",
+      "name": "Comparison of compact and cusped metrics",
+      "statement": "On Y(p), let d_cusp(x) be its distance in h_X(p) to the nearest cusp. Then tanh²(d_cusp(x)/2) h_Y(p)(x)≤h_X(p)(x)≤h_Y(p)(x).",
+      "locator": "Proposition 7, pp.720–721",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/34",
+      "kind": "theorem",
+      "name": "Compact injectivity radius",
+      "statement": "For the compact curve X(p) (componentwise), ρ_X(p)=2 log p+O(1).",
+      "locator": "Corollary 8, pp.720–721",
+      "status": "missing",
+      "note": "Use half the systole; the factor-two normalization is fixed by items 07–13. Prove the source's estimates rather than importing a cusp's zero pointwise injectivity radius."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/35",
+      "kind": "construction",
+      "name": "Cusp discs and radius comparison",
+      "statement": "At a cusp of width p use q=e^(2πiz/p). For y>1/p the cusp horoball Im z>y maps to an embedded disc D_y of Euclidean radius e^(−2πy/p). It lies in B(c,2 artanh e^(−2πy/p)); B(c,log p+O(1))⊂D₁, and for log p+O(1)<R<2 log p−O(1), B(c,R)⊂D_(O(p e^(−R))).",
+      "locator": "§3.3 p.721",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/36",
+      "kind": "theorem",
+      "name": "Hecke pullback of a cusp ball",
+      "statement": "If R>log p+O(1), (m,p)=1, and R+log m<2 log p−O(1), then T_m*B(c,R) is contained in the union of B(c_i,R+log m+O(1)) over the cusps c_i in the inverse Hecke image of c.",
+      "locator": "Lemma 9, p.721",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/37",
+      "kind": "definition",
+      "name": "Integral matrix height",
+      "statement": "For a 2×2 real or integral matrix M=(m_ij), h(M)=max_ij |m_ij|. Integral representatives of small projective transformations, rather than merely arbitrary finite-field representatives, control degrees of the eventual Hecke curves.",
+      "locator": "§3.4 p.722",
+      "status": "missing",
+      "note": "",
+      "planning": {
+        "api": [
+          "matrixHeight",
+          "height_mul_le",
+          "kernelMinorHeight"
+        ],
+        "tests": [
+          "identity height one",
+          "product factor two",
+          "primitive content removed"
+        ],
+        "execution": "Design obligations only; not Lean declarations or tests claimed executed."
+      }
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/38",
+      "kind": "theorem",
+      "name": "Short displacement at elliptic lifts",
+      "statement": "For sufficiently small fixed 0<δ<1/2 and large p, if d(ι,γι)<δρ_X(p), with ι a lift of the order-two elliptic point, then γ=γ_p(M) for M∈SL₂(Z) with h(M)=O(p^(4δ)). The analogous statement holds at a lift of the order-three elliptic point.",
+      "locator": "Lemma 10, p.722",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/39",
+      "kind": "theorem",
+      "name": "Short cusp displacement representatives",
+      "statement": "Let c₀ be the cusp of X(p)^1 lifted by i y_p, and H=<σ_p> its stabilizer in Γ(2,3,p). For sufficiently small fixed δ>0 and large p, any lift z of a cusp c∈X(p)^1 with d(i y_p,z)≤(1+δ)ρ_X(p) has z=σγ_p(M)i y_p for some σ∈H and M∈SL₂(Z) with h(M)=O(p^(4δ)).",
+      "locator": "Lemma 11(a), pp.722–723",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/40",
+      "kind": "theorem",
+      "name": "Cusp double-coset height control",
+      "statement": "With c₀,H as in item 39, if γ∈PSL₂(F_p) satisfies d_X(p)(c₀,γc₀)≤(1+δ)ρ_X(p), then γ has a representative in Hγ_p(M)H modulo Ξ(p), with M∈SL₂(Z) of height O(p^(4δ)), for sufficiently small fixed δ>0 and large p.",
+      "locator": "Lemma 11(b), pp.722–723",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/41",
+      "kind": "theorem",
+      "name": "Unique nearby cusp lift",
+      "statement": "For sufficiently small δ>0 and large p, for a lift z₀ of a cusp c₀ and any cusp c of X(p), at most one lift z of c satisfies d(z₀,z)≤(1+δ)ρ_X(p).",
+      "locator": "Proposition 12(a), pp.723–724",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/42",
+      "kind": "theorem",
+      "name": "Intersection of cusp balls",
+      "statement": "For sufficiently small δ>0 and large p and distinct cusps c₀,c, the intersection B(c₀,(1/2+δ)ρ_X(p))∩B(c,(1/2+δ)ρ_X(p)) is contained in a ball of radius δρ_X(p)+O(1).",
+      "locator": "Proposition 12(b), pp.723–724",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/43",
+      "kind": "theorem",
+      "name": "Counting nearby cusps",
+      "statement": "For sufficiently small δ>0 and large p, any x∈X(p) is within (1/2+δ)ρ_X(p) of at most O(p^(24δ)) cusps.",
+      "locator": "Proposition 12(c), pp.724–725",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/44",
+      "kind": "theorem",
+      "name": "Hyperbolic lens bound",
+      "statement": "If d_H(z,z′)=2D and R>0, B(z,D+R)∩B(z′,D+R) lies in the midpoint ball of radius M(R)=2 artanh sqrt(tanh(R/2)). In particular M(R)=R+O(1) as R→∞, uniformly in D.",
+      "locator": "Lemma 13, p.724",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/45",
+      "kind": "theorem",
+      "name": "Corrected Heegner repulsion",
+      "statement": "For sufficiently small δ>0 and large p, distinct ξ,ξ′∈CM+ over the same point of X(1)×X(1), with B(ξ,δρ_X(p))∩B(ξ′,δρ_X(p)) nonempty, lie on one Hecke divisor T_m with m=p^O(δ).",
+      "locator": "Erratum Proposition 2.1, p.2, replacing Proposition 14 pp.725–727",
+      "status": "missing",
+      "note": "Do not include CM−: original Proposition 14 in that case and Remark 16 are false."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/46",
+      "kind": "theorem",
+      "name": "Centralizer rigidity at Heegner points",
+      "statement": "In the proof of item 45, with t a lift of the order-two or order-three elliptic stabilizer and small-height M_x,M_y from the distinct nearby Heegner points, the simultaneous linear conditions [t,g]=0 and [t,M_y⁻¹gM_x]=0 on g∈M₂(F_p) have solution dimension at most one for large p. The existing nonzero solution therefore has a small integral representative.",
+      "locator": "Lemma 15, pp.726–727; erratum §2",
+      "status": "missing",
+      "note": "Keep h₀=1 as prescribed by the erratum. The order-three calculation uses the Eisenstein quadratic relation, not t²=−1."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/47",
+      "kind": "construction",
+      "name": "Conjugate Hecke loci",
+      "statement": "Conjugating the second factor of T_m gives a real analytic locus T̄_m; the metric-preserving involution sends CM+ to CM− and transports the corrected repulsion to T̄_m. T̄_m is not a complex divisor in the original product, so algebraic intersections C·T̄_m are not defined.",
+      "locator": "Erratum §§1,4.1, pp.1,3",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/48",
+      "kind": "theorem",
+      "name": "Repulsion of singular bicusps",
+      "statement": "For sufficiently small δ>0 and large p, if ξ∈X(p)² is within (1/2+δ)ρ_X(p) of at least three distinct singular bicusps, all singular bicusps in that neighborhood lie on a single T_m with m=p^O(δ).",
+      "locator": "Proposition 17, pp.727–728",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/49",
+      "kind": "construction",
+      "name": "Big diagonals and small Hecke curves",
+      "statement": "For g∈G(p)=PGL₂(F_p), define Δ_g={(gx,gy,x,y)}⊂X(p)^4 and τ_(g,m)={(gx,gy,x,y):(x,y)∈T_m}. Its radius-R max-metric tube is given by d(x₁,gx₂)<2R and d(y₁,gy₂)<2R.",
+      "locator": "§4.4 p.728",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/50",
+      "kind": "theorem",
+      "name": "Diagonal-overlap dichotomy",
+      "statement": "For sufficiently small δ>0 and large p, a point ξ lying in more than a sufficiently large constant times log p distinct B(Δ_g,δρ_X(p)) lies either within (1/2+O(δ))ρ_X(p) of a point both of whose projections are singular bicusps, or within O(δ)ρ_X(p) of some τ_(g,m) with m=p^O(δ).",
+      "locator": "Proposition 18, pp.728–731",
+      "status": "missing",
+      "note": "The source uses ω(log p); the proof excludes a uniform O(log p) bound outside these exceptional regions."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/51",
+      "kind": "theorem",
+      "name": "Quantitative overlap near bicusps",
+      "statement": "In the bicusp case of item 50, the number of overlapping diagonal tubes is O(p δρ_X(p)/sqrt(a(2d))), where d is the smaller distance of either projected point to a singular bicusp and a(r)=4πsinh²(r/2). Use the trivial |G(p)| bound when d=0. Away from d=0 in the proof's range this is O(p^(1+δ)e^(−d)).",
+      "locator": "Proposition 18(a) and proof, pp.729–730",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/52",
+      "kind": "construction",
+      "name": "Small-height matrix reconstruction",
+      "statement": "Recover a projective 2×2 matrix from three distinct point images in P¹(F_p), or from intertwining at most three matrices whose common centralizer is scalar. If the defining integer linear equations have coefficients p^O(δ) and rank three mod p, the nonzero kernel vector can be chosen by minors with entries p^O(δ). Separate positivity of determinant and primitive content before interpreting it as a cyclic isogeny.",
+      "locator": "Proofs of Propositions 17–18, pp.728,730–731",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/53",
+      "kind": "theorem",
+      "name": "Quadratic-torus height count",
+      "statement": "For the rational quadratic torus occurring in Proposition 18, its integral determinant-one elements of height at most p^O(δ) form O(log p) possibilities, except the finite compact-unit case which is O(1). Treat split/real quadratic, imaginary quadratic and the separate nonsemisimple algebra F_p[ε]/ε² cases explicitly before applying the diagonal-overlap dichotomy.",
+      "locator": "Proof of Proposition 18, pp.730–731",
+      "status": "missing",
+      "note": "Source proof says generated by one semisimple element; torsion factors and uniformity in the torus require explicit bounds, not an unchecked generic cyclicity assertion."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/54",
+      "kind": "definition",
+      "name": "Analytic curve cycles and local multiplicity",
+      "statement": "Work with positive one-dimensional analytic cycles, use their normalizations to integrate the pullback of Σpr_i*ω_X, and define mult_x(C) as the sum of local branch multiplicities with cycle weights. For a discrete set S use mult_S(C)=Σ_(x∈S)mult_x(C); for a curve not contained in a big diagonal use the sum over its finitely many intersection points, not a codimension-two divisor intersection.",
+      "locator": "§§5–6 pp.732–736",
+      "status": "missing",
+      "note": "",
+      "planning": {
+        "api": [
+          "curveCycleVolume",
+          "localMultiplicity",
+          "pushforwardMultiplicity",
+          "pointSum"
+        ],
+        "tests": [
+          "multiple branch",
+          "degree-d parameterization",
+          "constant coordinate at cusp"
+        ],
+        "execution": "Design obligations only; not Lean declarations or tests claimed executed."
+      }
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/55",
+      "kind": "construction",
+      "name": "Currents and singular Stokes input",
+      "statement": "Construct positive (1,1)-currents, plurisubharmonic potentials with logarithmic singularities, integration on normalized curve branches, and Stokes with regular-level approximation for the tube sublevel sets used below. Fix one d^c convention and prove its Poincaré–Lelong multiplicity formula before comparing the paper's ddc and the erratum's i∂∂bar constants.",
+      "locator": "Proofs of Lemmas 20–22 and Proposition 23, pp.732–735; erratum Proposition 3.1",
+      "status": "missing",
+      "note": "These are missing analytic inputs, not already supplied by algebraic Kähler differentials, Chern classes or the function-field residue theorem."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/56",
+      "kind": "theorem",
+      "name": "Hwang–To point-volume bound",
+      "statement": "For a compact hyperbolic complex curve X, an effective complex curve cycle C⊂X×X, ξ∈X×X and 0<r<ρ_X, vol(C∩B(ξ,r))≥a(r)mult_ξ(C), using the max-product ball and sum volume form.",
+      "locator": "Theorem 19(a), p.732, citing HT02 Theorem 2",
+      "status": "missing",
+      "note": "The local/complete hyperbolic generalization stated by the source can follow after the compact case required here. Original HT02 proof not acquired."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/57",
+      "kind": "theorem",
+      "name": "Hwang–To diagonal-volume bound",
+      "statement": "For compact hyperbolic X, an effective curve C⊂X² with no diagonal component and 0<r<ρ_X/2, vol(C∩B(Δ,r))≥2a(r)(C·Δ), where B(Δ,r)={d_X(x,y)<2r}.",
+      "locator": "Theorem 19(b), pp.732–733, citing HT12 Theorem 1",
+      "status": "missing",
+      "note": "The proper-intersection hypothesis is implicit in the source's notation and must be explicit. Original HT12 proof not acquired; the alternate proof here is read."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/58",
+      "kind": "definition",
+      "name": "Invariant diagonal distance potentials",
+      "statement": "On D² put μ(z,w)=tanh²(d_D(z,w)/4), χ(z,w)=tanh²(d_D(z,w)/2)=|(w−z)/(1−z conj(w))|²; then χ=4μ/(1+μ)². Both are invariant under the diagonal Möbius action and descend to the embedded diagonal tubes under the radius restrictions.",
+      "locator": "§5.1 pp.732–733",
+      "status": "missing",
+      "note": "",
+      "planning": {
+        "api": [
+          "diagonalMu",
+          "diagonalChi",
+          "chi_eq_four_mu"
+        ],
+        "tests": [
+          "diagonal value zero",
+          "graph −z",
+          "Möbius invariance"
+        ],
+        "execution": "Design obligations only; not Lean declarations or tests claimed executed."
+      }
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/59",
+      "kind": "theorem",
+      "name": "Plurisubharmonicity of log μ",
+      "statement": "The extended-real function log μ on D², taking value −∞ along the diagonal, is plurisubharmonic.",
+      "locator": "Lemma 20, pp.732–733",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/60",
+      "kind": "theorem",
+      "name": "Diagonal potential dominated by area",
+      "statement": "For F=−8πlog(1−μ), use the paper's ddc normalization to prove F is plurisubharmonic and ddcF≤ω_(D²). Thus I(r):=∫_(C∩B(Δ,r))ddcF≤vol(C∩B(Δ,r)).",
+      "locator": "§5.1 p.733",
+      "status": "missing",
+      "note": "Check normalization by restricting to the anti-diagonal disc; do not combine formula constants from differently normalized d^c definitions."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/61",
+      "kind": "theorem",
+      "name": "Monotonicity of the diagonal potential integral",
+      "statement": "For C with no diagonal component and 0<r<ρ_X/2, I(r)/a(r) is nondecreasing.",
+      "locator": "Lemma 21 and equation (7), p.733",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/62",
+      "kind": "theorem",
+      "name": "Codimension-two diagonal bound",
+      "statement": "Let Δ₂={(x,y,x,y)}⊂X⁴. For a compact hyperbolic X, a curve C not contained in Δ₂ and 0<r<ρ_X/2, vol(C∩B(Δ₂,r))≥2a(r)Σ_(ξ∈C∩Δ₂)mult_ξ(C).",
+      "locator": "Lemma 22, pp.734–735",
+      "status": "missing",
+      "note": "The sum is ordinary curve point multiplicity; this statement is not an intersection divisor with a codimension-two subvariety."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/63",
+      "kind": "theorem",
+      "name": "Relative diagonal volume",
+      "statement": "For compact curvature−1 hyperbolic X and a complex curve C⊂X² with no diagonal component, r↦vol(C∩B(Δ,r))/cosh r is nondecreasing on 0<r<ρ_X/2.",
+      "locator": "Proposition 23, p.735",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/64",
+      "kind": "theorem",
+      "name": "Metric rescaling of relative volume",
+      "statement": "If the constant sectional curvature is −1/λ² with λ>0, replace cosh r in item 63 by cosh(r/λ), and rescale radii, injectivity radius and area consistently.",
+      "locator": "Remark 24, p.735",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/65",
+      "kind": "definition",
+      "name": "Conjugate diagonal and potential",
+      "statement": "For compact hyperbolic X let X̄ have the conjugate complex structure and let Δ̄⊂X×X̄ be the real analytic conjugate diagonal. In disc coordinates its distance potential is ψ(z,w)=tanh²(d_D(z,conj(w))/2)=|(conj(w)−z)/(1−zw)|². It descends under the conjugate-diagonal action on tubes r<ρ_X/2.",
+      "locator": "Erratum §3 p.2",
+      "status": "missing",
+      "note": "",
+      "planning": {
+        "api": [
+          "conjugateDiagonal",
+          "conjugateTube",
+          "conjugatePsi"
+        ],
+        "tests": [
+          "real fixed locus",
+          "coordinate conjugation",
+          "not a complex divisor"
+        ],
+        "execution": "Design obligations only; not Lean declarations or tests claimed executed."
+      }
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/66",
+      "kind": "theorem",
+      "name": "Conjugate-diagonal positive potential",
+      "statement": "Put f(s)=−log(1−s), g(t)=2asin sqrt(1−exp(−t)). In the erratum's i∂∂bar convention, i∂∂bar(f∘ψ)=ω_(D²)/2 and i∂∂bar(g∘f∘ψ)≥0, with the singular locus handled in the current sense.",
+      "locator": "Erratum Proposition 3.1 proof, pp.2–3",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/67",
+      "kind": "theorem",
+      "name": "Relative conjugate-diagonal volume",
+      "statement": "For compact hyperbolic complex X with constant holomorphic sectional curvature and a complex curve C⊂X×X̄, r↦vol(C∩B(Δ̄,r))/sqrt(a(2r)) is nondecreasing for 0<r<ρ_X/2. In curvature−1 normalization the denominator is a constant times sinh r.",
+      "locator": "Erratum Proposition 3.1, pp.2–3",
+      "status": "missing",
+      "note": "There is no C·Δ̄ algebraic intersection. For 0<ε<R<ρ/2 the consequence is vol(small)≤sinh(ε)/sinh(R)·vol(large), not the reversed factor printed on erratum p.3."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/68",
+      "kind": "theorem",
+      "name": "Volume-to-degree decay",
+      "statement": "For fixed t>0 and large p, vol(C)/a(tρ_X(p))=O(p^(−2t)Deg(C)), uniformly for effective curve cycles in products of X(p).",
+      "locator": "§6 p.736",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/69",
+      "kind": "theorem",
+      "name": "Heegner multiplicity decay",
+      "statement": "For sufficiently small δ>0, large p and a curve C⊂X(p)² having no Hecke component, mult_CM+(C)=O(p^(−δ)Deg(C)). Partition into points off and on ⋃_(m<d)T_m; for d=p^δ₁ and δ₂ a sufficiently small multiple of δ₁ the proof gives (p^(−2δ₂)+d³p⁻¹)Deg(C).",
+      "locator": "Proposition 25 proof, pp.736–737, restricted by erratum §4.1",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/70",
+      "kind": "theorem",
+      "name": "Anti-Heegner multiplicity decay",
+      "statement": "For sufficiently small δ>0, large p and a non-Hecke curve C⊂X(p)², mult_CM−(C)=O(p^(−δ)Deg(C)). Use conjugate Hecke loci to partition the points, fixed disjoint ε-balls on CM−∩Δ̄, and item 67; the same (p^(−2δ₂)+d³p⁻¹)Deg(C) bound follows.",
+      "locator": "Erratum Proposition 4.1, p.3",
+      "status": "missing",
+      "note": "This is not a consequence of unconditional anti-Heegner repulsion or intersection with T̄_m."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/71",
+      "kind": "theorem",
+      "name": "Total CM multiplicity decay",
+      "statement": "For sufficiently small δ>0, large p and a non-Hecke curve C⊂X(p)², mult_CM(C)=O(p^(−δ)Deg(C)), by adding the distinct CM+ and CM− estimates.",
+      "locator": "Proposition 25, pp.736–737; erratum §4.1",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/72",
+      "kind": "theorem",
+      "name": "Corrected singular-bicusp decay",
+      "statement": "For sufficiently small δ>0, large p and a non-Hecke curve C⊂X(p)², p mult_SBC(C)=O(p^(−δ)Deg(C)).",
+      "locator": "Proposition 26, p.737, with proof replaced by erratum Proposition 4.2 p.4",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/73",
+      "kind": "theorem",
+      "name": "Bicusp error exponents",
+      "statement": "For d=p^δ₁, split SBC into T=SBC∩⋃_(m<d)T_m and S=SBC−T. Choose δ₂ a small multiple of δ₁ and δ₃>0 sufficiently small independently of δ₁,δ₂. The corrected argument gives mult_S(C)≪p^(−1−2δ₂)Deg(C) and mult_T(C)≪p^(−1−2δ₃+3δ₁)Deg(C). Choose 3δ₁<2δ₃ before p→∞.",
+      "locator": "Erratum Proposition 4.2 proof, p.4",
+      "status": "missing",
+      "note": "The second estimate uses the thin diagonal-tube volume from Proposition 23 in addition to Proposition 12; the original p^(−1+3δ₁) does not suffice."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/74",
+      "kind": "theorem",
+      "name": "Total big-diagonal multiplicity",
+      "statement": "For sufficiently small δ>0, large p and a curve C⊂X(p)^4 contained in no Δ_g, Σ_g mult_Δg(C)=O(p^(−δ)Deg(C)), with multiplicity the point-sum defined in item 54.",
+      "locator": "Proposition 27, pp.737–740",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/75",
+      "kind": "theorem",
+      "name": "Compact versus cusped curve volume",
+      "statement": "For a curve cycle C⊂X(p)² and open U, define vol′ by summing the pulled-back finite cusped area measures along each nonconstant coordinate map on the normalization, extended across the removed points; a constant coordinate contributes zero even at a cusp. Then 0≤vol′(C∩U)−vol(C∩U)=O(p⁻¹vol(C)), uniformly in U. The proof uses χ(Y(p))=χ(X(p))−#cusps, #cusps≈p² and −χ(X(p))≈p³.",
+      "locator": "Lemma 28, p.738",
+      "status": "missing",
+      "note": "Do not define vol′ by restricting C to Y(p)²: that discards a curve with one constant cusp coordinate."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/76",
+      "kind": "construction",
+      "name": "Hecke tube comparison and cusp exceptions",
+      "statement": "On Y(p), prime-to-p Hecke branches are local isometries for h_Y(p); they need not preserve h_X(p). Compare Hecke tubes away from cusp neighborhoods using Proposition 7, transport their cycles, and bound the exceptional cusp contribution by a weighted sum p^(1+δ)e^(−ℓ)vol(C∩B(ξ,ℓ)). Use Lemma 9, Proposition 12(c), Lemma 28 and Proposition 23 in the order of the proof to obtain a power-saving in Deg(C).",
+      "locator": "Proof of Proposition 27, pp.738–740",
+      "status": "missing",
+      "note": "Retain the proof's independent small exponents; O(δ) constants cannot be silently chosen equal."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/77",
+      "kind": "theorem",
+      "name": "Function-field Riemann–Roch",
+      "statement": "For an algebraic function field F/k with k integrally closed in F, the divisor W of a nonzero Weil differential satisfies ℓ(D)−ℓ(W−D)=deg D+1−g for every divisor D.",
+      "locator": "§7 p.740, Riemann–Roch input",
+      "status": "library",
+      "note": "CanonicalDivisor.lean:360–426 read. This is the existing function-field theorem, not yet its analytic/scheme comparison.",
+      "library": [
+        "tauceti:TauCeti.isRiemannRochDivisor_weilDifferentialDivisor",
+        "tauceti:TauCeti.exists_isRiemannRochDivisor"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/78",
+      "kind": "theorem",
+      "name": "Canonical divisor degree",
+      "statement": "Under the same exact-constant-field hypotheses, deg(W)=2g−2 for a nonzero Weil differential divisor; equivalently the canonical divisor class has degree 2g−2.",
+      "locator": "§7 pp.740–742, genus/degree input",
+      "status": "library",
+      "note": "CanonicalDivisor.lean:399–419 read; analytic degree identification is separately item 12.",
+      "library": [
+        "tauceti:TauCeti.degree_weilDifferentialDivisor",
+        "tauceti:TauCeti.degreeClass_canonicalClass"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/79",
+      "kind": "construction",
+      "name": "Curve/function-field/analytic dictionary",
+      "statement": "For smooth proper curves, compare rational functions, divisor degrees, canonical classes and Riemann–Roch spaces with the function-field objects; over C compare finite morphisms and their degrees with compact Riemann-surface maps. Import normalizations and proper algebraization when moving between curve cycles and algebraic images.",
+      "locator": "§7 pp.740–742, implicit comparison inputs",
+      "status": "planned",
+      "note": "AC Layer12 and ComplexComparison C4 own these comparisons; they are not automatically supplied by function-field Riemann–Roch.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "ComplexComparisonPartII:C4"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/80",
+      "kind": "theorem",
+      "name": "Riemann–Hurwitz",
+      "statement": "For a nonconstant finite holomorphic map f:C→D of smooth compact connected complex curves, 2g(C)−2=deg(f)(2g(D)−2)+Σ_Q(e_Q(f)−1). For maps to P¹ the first term is −2deg(f), not zero.",
+      "locator": "§7 pp.741–742",
+      "status": "planned",
+      "note": "Fuchsian Layer5 is the analytic owner; AlgebraicCurves Layer7 supplies its algebraic/function-field counterpart.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/81",
+      "kind": "theorem",
+      "name": "Riemann–Roch gonality bound",
+      "statement": "For a smooth projective curve B over an algebraically closed field, gon(B)≤g(B)+1 by Riemann–Roch applied to (g+1)P.",
+      "locator": "§7 p.740",
+      "status": "missing",
+      "note": "The examples test the new gonality API; the source uses 'hyperelliptic' to include genus one, unlike the common genus≥2 convention."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/82",
+      "kind": "theorem",
+      "name": "Brill–Noether gonality bound",
+      "statement": "For a smooth projective complex curve B of genus g, gon(B)≤floor((g+3)/2), and a general curve of genus g achieves this bound.",
+      "locator": "§7 equation (9), p.740",
+      "status": "missing",
+      "note": "Auxiliary contextual theorem explicitly used to discuss genus bounds, not needed for the contradiction. The paper's 'strict' means sharp here. Requires the existence theorem from Brill–Noether theory, not just a parameter count."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/83",
+      "kind": "construction",
+      "name": "Symmetric powers as finite quotients",
+      "statement": "For a projective complex scheme Z and integer n≥1, construct SymⁿZ=Zⁿ/S_n with its finite-quotient universal property, compatible cycle map and base change in characteristic zero.",
+      "locator": "§7 p.741",
+      "status": "planned",
+      "note": "SF.1 supplies general algebraic-space/finite quotients; establish projectivity in this application. Do not replace the surface symmetric power with the Jacobian roadmap's curve symmetric power.",
+      "planned": [
+        "SchemeAndStackFoundations:SF.1"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/84",
+      "kind": "construction",
+      "name": "A gonality pencil gives a rational curve",
+      "statement": "For a degree-n finite map B→P¹ and a birational-to-image map B→Z(p) from a smooth projective curve, its fibres, pushed forward as cycles, define φ:P¹→SymⁿZ(p). Prove φ is birational to its image in this setting, including the branch fibres with multiplicities.",
+      "locator": "Proof of Theorem 29, p.741",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/85",
+      "kind": "construction",
+      "name": "Normalized pullback and quotient group",
+      "statement": "Normalize an irreducible component of P¹×_(SymⁿZ(p))(X(p)²)ⁿ to obtain ψ:C→(X(p)²)ⁿ and finite α:C→P¹. The total group is G(p)ⁿ⋊S_n; for the component stabilizer H, H\\C≅P¹. Retain the distinct projective components in this construction.",
+      "locator": "Proof of Theorem 29, p.741",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/86",
+      "kind": "construction",
+      "name": "Projected cycles retain degrees",
+      "statement": "For π_i:(X(p)²)ⁿ→X(p)² and π_ij to two factors, use C_i=(π_i∘ψ)_*[C], C_ij=(π_ij∘ψ)_*[C]. Their multiplicities include the degree over the image, and Deg(C)=Σ_i Deg(C_i). Under the non-Hecke birational-image assumption each C_i has no Hecke component and each C_ij (i≠j) is contained in no Δ_g.",
+      "locator": "Proof of Theorem 29, pp.741–742",
+      "status": "missing",
+      "note": "Prove the last noncontainment from the distinct generic points of a gonality fibre; handle constant coordinate projections when choosing a nonconstant one for Hurwitz."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/87",
+      "kind": "theorem",
+      "name": "Ramification support on four strata",
+      "statement": "In item 85, a ramification point of α lies above π_i⁻¹(CM+), π_i⁻¹(CM−), π_i⁻¹(SBC), or Δ_g^ij={x_i=gx_j,y_i=gy_j} for i≠j. This list is exhaustive for the wreath-product quotient action.",
+      "locator": "Proof of Theorem 29, p.741",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/88",
+      "kind": "theorem",
+      "name": "Stabilizer and ramification-index bounds",
+      "statement": "For fixed n, the cyclic local stabilizer on the normalized curve in item 85 has order O_n(p). Off the preimages of SBC it has order at most 6n!. Consequently the ramification index has the same respective bounds.",
+      "locator": "Proof of Theorem 29, p.741",
+      "status": "missing",
+      "note": "Abstract finite cyclicity is library item 14; the orders require the specific product/wreath action, not the order of the entire group."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/89",
+      "kind": "theorem",
+      "name": "Ramification is negligible",
+      "statement": "In the non-Hecke setup, Ram(α)≪_n pΣ_i mult_SBC(C_i)+Σ_i mult_CM(C_i)+Σ_(i≠j,g)mult_Δg(C_ij)=o(Deg(C)) as p→∞. Fibre cardinalities are bounded by the multiplicities of the pushforward cycles.",
+      "locator": "Proof of Theorem 29, pp.741–742",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/90",
+      "kind": "theorem",
+      "name": "Contradictory Hurwitz bounds",
+      "statement": "For α:C→P¹, 2g(C)−2=−2deg(α)+Ram(α)≤o(Deg(C)). If d is the largest degree of a nonconstant projection C→X(p), then Deg(C)≤2nd(2g(X(p))−2), while Hurwitz for that projection gives 2g(C)−2≥d(2g(X(p))−2)≥Deg(C)/(2n). These inequalities contradict one another for large p, uniformly over the finitely many integers n<N.",
+      "locator": "Proof of Theorem 29, p.742",
+      "status": "missing",
+      "note": "The printed equality 2g(C)−2=o(Deg C) drops −2deg α; use the displayed upper inequality. The source's looser 4πn coefficient is harmless after the correct normalization."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/91",
+      "kind": "construction",
+      "name": "From local systems to a modular surface map",
+      "statement": "Given nonisotrivial E,E′ over a smooth complex base U and an actual isomorphism E[p]≅E′[p], construct the coarse classifying map U→Z(p), extend it over the smooth projective base model, and prove a Hecke image yields an isogeny after a finite cover. Distinguish this geometric conclusion from descent of an isogeny to the original base.",
+      "locator": "§1 Theorems 1–3, pp.709–711; §2.3 p.715",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/92",
+      "kind": "theorem",
+      "name": "Descent from projective congruence to an actual isogeny",
+      "statement": "For the nonisotrivial families of item 91 and sufficiently large p with full SL₂(F_p) torsion image, descend a geometric isogeny to U using the actual linear torsion isomorphism. Control the possible quadratic character on the rank-one geometric Hom group, show a nontrivial twist cannot preserve this representation, and extend the generic-fibre isogeny across U.",
+      "locator": "Reduction of Theorems 1–2 to Theorem 3, p.710",
+      "status": "missing",
+      "note": "Explicit proof obligation hidden by coarse/projective moduli shorthand. Geometric End is Z for nonconstant j in characteristic zero. A projective p-torsion isomorphism alone cannot rule out a quadratic twist."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/93",
+      "kind": "construction",
+      "name": "Algebraically closed characteristic-zero reduction",
+      "statement": "Spread the curves, families, torsion isomorphism and gonality pencil to a finitely generated characteristic-zero subfield, embed it in C, apply the complex theorem, and descend the resulting isogeny existence back to the given algebraically closed field. Prove gonality/base-change invariance and the Hom-scheme or finite-type existence step; identify the family and function-field formulations after removing bad fibres.",
+      "locator": "Theorems 1–3, p.710; proof carried out over C in §§2–7",
+      "status": "missing",
+      "note": "No extension to positive characteristic is asserted; the threshold depends only on the gonality bound."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/94",
+      "kind": "theorem",
+      "name": "Abramovich linear modular gonality",
+      "statement": "For a congruence subgroup Γ≤PSL₂(Z), the compactified modular curve over C satisfies gon_C(X_Γ)≥(7/800)[PSL₂(Z):Γ].",
+      "locator": "Abramovich, Theorem 0.1, arXiv:alg-geom/9609012; invoked at BT p.710",
+      "status": "missing",
+      "note": "The full five-page preprint was read. The bound concerns arbitrary congruence subgroups, not only X(p)."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/95",
+      "kind": "theorem",
+      "name": "Congruence spectral gap input",
+      "statement": "For a congruence subgroup Γ, the truncated first Laplace eigenvalue λ′₁=min(λ₁,1/4) of Γ\\H satisfies λ′₁≥21/100. Together with area=(π/3)[PSL₂(Z):Γ] this is the spectral input in Abramovich's constant 7/800.",
+      "locator": "Abramovich §§1.3–1.7; Luo–Rudnick–Sarnak Theorem 1.1, printed p.387",
+      "status": "missing",
+      "note": "LRS pp.387–390 including Theorems 1.1–1.2 and the symmetric-square reduction read; the full original proof remains prerequisite work. AutomorphicSpectralTheory supplies the spectral setup, not this numerical bound."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/96",
+      "kind": "theorem",
+      "name": "Li–Yau conformal-area gonality estimate",
+      "statement": "For the finite-area hyperbolic metric on the compactified complex modular curve, using the finite-area singularities as in Abramovich, λ′₁ Area(X)≤2 A_c(X)≤8π gon_C(X), where A_c is conformal area. The extension from the compact smooth metric case must justify test functions at cusps.",
+      "locator": "Abramovich §§1.2–1.7; Li–Yau cited there",
+      "status": "missing",
+      "note": "This is a reusable analytic gonality estimate, not the arithmetic modular application or its congruence spectral gap."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/97",
+      "kind": "theorem",
+      "name": "Full torsion monodromy for bounded gonality",
+      "statement": "For every N, for sufficiently large prime p, a nonisotrivial elliptic family over a complex base of gonality <N has p-torsion image SL₂(F_p). The determinant is one by the constant Weil pairing; if the image were proper, the base would map to the associated proper-subgroup modular quotient, whose gonality tends to infinity by item 94 and the growing minimum subgroup index.",
+      "locator": "§1 p.710 and footnote 3",
+      "status": "missing",
+      "note": "A lower bound only for X(p) does not prove this. Supply the finite-group index lemma, distinguish SL₂ from PSL₂ and exclude the central-extension exception. No semisimplification is used."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/98",
+      "kind": "theorem",
+      "name": "Bounded-genus rigidity",
+      "statement": "For every N>0 there exists a threshold M′_N such that, for prime p>M′_N, every integral curve on Z(p) whose smooth projective model has genus g<N is a Hecke curve.",
+      "locator": "Corollary 30, p.742",
+      "status": "missing",
+      "note": "Use gon≤g+1 and enlarge the gonality threshold (the paper reuses the name M_N); genus means geometric genus."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/99",
+      "kind": "theorem",
+      "name": "Rational and elliptic curves are Hecke",
+      "statement": "For all sufficiently large primes p, every rational or elliptic curve on Z(p) is a Hecke curve.",
+      "locator": "Corollary 31, p.742",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/100",
+      "kind": "construction",
+      "name": "Cyclic quotient singularities of Z(p)",
+      "statement": "The singular points of Z(p) have local type 1/n(1,a): C²/μ_n with ζ·(z,w)=(ζz,ζ^a w), 0<a<n and gcd(a,n)=1; n=2 or 3 at CM points and n=p at singular bicusps.",
+      "locator": "§7 following Corollary 31, p.742",
+      "status": "missing",
+      "note": "SF.4 owns the named resolution setting; keep the local stabilizer computation in the modular application and reuse general surface resolution. Acquire KS98/Hermann for the omitted construction."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/101",
+      "kind": "theorem",
+      "name": "Contraction to a minimal surface",
+      "statement": "For a smooth projective surface over C, a smooth rational curve of self-intersection −1 contracts to a smooth point; iterating such contractions terminates in a minimal model. Track total transforms and the exceptional curves of the fixed resolution of Z(p).",
+      "locator": "§7 Corollary 32 and proof, p.742, implicit surface input",
+      "status": "missing",
+      "note": "SF.4 already owns birational geometry; this is a concrete missing specialization, not authorization to create a separate general surface theory."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/102",
+      "kind": "theorem",
+      "name": "Known-curve minimal model",
+      "statement": "For all sufficiently large p, the minimal model of Z(p) is obtained from its minimal resolution by blowing down only strict transforms of Hecke curves and curves exceptional for that resolution.",
+      "locator": "Corollary 32, p.742",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/103",
+      "kind": "construction",
+      "name": "Finite étale monodromy equivalence",
+      "statement": "For a connected scheme with geometric base point, construct its étale fundamental group from the geometric fibre functor, and the equivalence between finite étale covers and finite continuous π₁-sets, transporting group objects and p-torsion pairings; over C compare with finite topological covers.",
+      "locator": "§1 p.710, local-system interpretation",
+      "status": "planned",
+      "note": "IG.0 owns the finite-étale instance; IG.3 explicitly uses Riemann existence for branched covers, with the proper algebraization supplied by C4. The abstract Galois-category theorem is already Mathlib, not to be replanned.",
+      "planned": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/104",
+      "kind": "theorem",
+      "name": "Polygon torsion and pairing",
+      "statement": "The n-torsion of C_n^sm≅G_m×Z/nZ is μ_n×Z/nZ with its perfect alternating pairing; over a nonclosed field retain Cartier duality and do not identify μ_n with constant Z/nZ without choices.",
+      "locator": "§2.2 pp.714–715, Remark 4",
+      "status": "missing",
+      "note": "Detailed boundary automorphism/self-duality calculation belongs to the existing generalized-elliptic R13.1/R13.2 scope."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/105",
+      "kind": "theorem",
+      "name": "Branch locus of the diagonal quotient",
+      "statement": "The ramification set of X(p)²→Z(p) is exactly CM+∪CM−∪SBC; there are no additional mixed elliptic/cusp strata.",
+      "locator": "§2.4 pp.715–716",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/106",
+      "kind": "theorem",
+      "name": "Lelong limit on the diagonal",
+      "statement": "For C with no diagonal component, lim_(r↓0) I(r)/a(r)≥2(C·Δ), by Stokes and the logarithmic local multiplicity formula.",
+      "locator": "Lemma 21 and equation (7), p.733",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/107",
+      "kind": "theorem",
+      "name": "Gonality examples",
+      "statement": "For a smooth projective curve B over an algebraically closed field, gon(B)=1 iff B≅P¹; genus-one and genus-two curves have gonality two.",
+      "locator": "§7 p.740",
+      "status": "missing",
+      "note": "The examples test the new gonality API; the source uses 'hyperelliptic' to include genus one, unlike the common genus≥2 convention."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/108",
+      "kind": "construction",
+      "name": "Resolution of cyclic quotient surface singularities",
+      "statement": "The minimal resolution of a complex surface singularity of type 1/n(1,a), with gcd(a,n)=1 and 0<a<n, replaces it by a chain of smooth rational curves with intersection matrix determined by the negative continued fraction n/a.",
+      "locator": "§7 following Corollary 31, p.742",
+      "status": "missing",
+      "note": "SF.4 owns the named resolution setting; keep the local stabilizer computation in the modular application and reuse general surface resolution. Acquire KS98/Hermann for the omitted construction."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/109",
+      "kind": "theorem",
+      "name": "Gauss–Bonnet for finite-area quotients",
+      "statement": "For a torsion-free cofinite Fuchsian group Γ with compactification genus g and s cusps, the curvature−1 area is 2π(2g−2+s); with cone orders m_j subtract Σ_j(1/m_j) from the orbifold Euler characteristic. In particular area(Γ\\H)=(π/3)[PSL₂(Z):Γ] for congruence Γ, with the orbifold convention where torsion remains.",
+      "locator": "§3 p.718; Lemma 28 p.738; Abramovich §1.7",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups"
+      ],
+      "note": "Reuse the upstream polygon/Gauss–Bonnet stage, not a new proof in the proposed Part II."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/110",
+      "kind": "theorem",
+      "name": "Hyperbolic triangle groups",
+      "statement": "For integer p>6, the reflected hyperbolic triangle with angles π/2,π/3,π/p gives the orientation-preserving cofinite group of signature (0;2,3,p), with a quotient orbifold whose underlying Riemann surface is P¹. This is the generic polygon construction specialized in item 29.",
+      "locator": "§3.2 pp.718–719",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups"
+      ],
+      "note": "Reuse the upstream polygon/Gauss–Bonnet stage, not a new proof in the proposed Part II."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/111",
+      "kind": "theorem",
+      "name": "Gonality under algebraically closed extension",
+      "statement": "For algebraically closed fields k⊂K and a smooth projective geometrically connected k-curve B, gon_k(B)=gon_K(B_K).",
+      "locator": "Abramovich §1.1; characteristic-zero comparison in BT Theorems 1–3",
+      "status": "missing",
+      "note": "Prove descent/existence for the bounded-degree map parameter space; do not assume every map over K is defined over k."
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/112",
+      "kind": "definition",
+      "name": "Conformal area",
+      "statement": "For a compact Riemann surface M and a branched conformal map φ:M→Sⁿ, V_c(n,φ)=sup_(g∈Conf(Sⁿ))Area(g∘φ); put V_c(n,M)=inf_φ V_c(n,φ), and use its stable n-limit for conformal area. Prove the degree comparison V_c(n,M)≤d V_c(n,N) for a degree-d conformal map M→N, and V_c(n,S²)=4π for n≥2.",
+      "locator": "Li–Yau §1 equations (1.2)–(1.4), Facts 1–2, pp.271–272; Abramovich §1.2",
+      "status": "missing",
+      "note": "Li–Yau these definitions and §2 Theorem 1 were inspected in the public PDF via browser; local download failed DNS. Complete Li–Yau proof not read.",
+      "planning": {
+        "api": [
+          "conformalArea",
+          "degree_comparison",
+          "sphere_area"
+        ],
+        "tests": [
+          "sphere 4π",
+          "degree-d sphere cover",
+          "metric conformal change"
+        ],
+        "execution": "Design obligations only; not Lean declarations or tests claimed executed."
+      }
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Hwang–To, Volumes of complex analytic subvarieties of Hermitian symmetric spaces, Amer. J. Math. 124 (2002), 1221–1246",
+      "link": "https://doi.org/10.1353/ajm.2002.0038",
+      "why": "Point-volume/multiplicity theorem (BT Theorem 19(a) restates its Theorem 2). No suitable complete primary PDF acquired; the precise required statement is read in BT. Read the original proof before closing the analytic route."
+    },
+    {
+      "citation": "Hwang–To, Injectivity radius and gonality of a compact Riemann surface, Amer. J. Math. 134 (2012), 259–283",
+      "link": "https://doi.org/10.1353/ajm.2012.0007",
+      "why": "Diagonal-volume theorem and local Lelong computation (BT Theorem 19(b), Lemmas 20–22). BT's alternate proof is fully read; original HT12 proof not acquired. Supplies the exact current/psh prerequisites to decompose."
+    },
+    {
+      "citation": "Abramovich, A linear lower bound on the gonality of modular curves, IMRN (1996), 1005–1011",
+      "link": "https://arxiv.org/abs/alg-geom/9609012",
+      "why": "Entire public five-page preprint read: Theorem 0.1, algebraically closed base-change invariance, conformal-area argument with cusps and the numerical 7/800 lower bound. No existing gonality stage found; spectral input is separately routed."
+    },
+    {
+      "citation": "Luo–Rudnick–Sarnak, On Selberg's eigenvalue conjecture, GAFA 5 (1995), 387–401",
+      "link": "https://www.math.tau.ac.il/~rudnick/papers/lrsGAFA.pdf",
+      "why": "Downloaded primary author PDF; pp.387–390 including Theorems 1.1–1.2 and the GL₃ symmetric-square reduction read. Full proof remains to read. The needed 21/100 gap is absent from AS.0–AS.4; its proof needs twisted Rankin–Selberg nonvanishing and Gelbart–Jacquet beyond the currently named GL₂ R17 transfers."
+    },
+    {
+      "citation": "Li–Yau, A new conformal invariant and its applications to the Willmore conjecture and the first eigenvalue of compact surfaces, Invent. Math. 69 (1982), 269–291",
+      "link": "https://math.jhu.edu/~js/Math748/li-yau.conformal.pdf",
+      "why": "Browser-inspected §1 definitions/Facts 1–2 and §2 Theorem 1 with its inequality proof, pp.271–275; not the entire paper. Local download failed DNS. Abramovich supplies the singular cusp-metric adaptation. Shared conformal area and eigenvalue inequality need full proof decomposition, not general Willmore theory."
+    },
+    {
+      "citation": "Kani–Schanz, Modular diagonal quotient surfaces, Math. Z. 227 (1998), 337–366",
+      "link": "https://doi.org/10.1007/PL00004379",
+      "why": "Z(p) component/coarse-moduli conventions, quotient singularities and the surface classification question resolved by Corollaries 31–32. Identified from BT references; complete source not acquired. General coarse quotients remain existing owners."
+    },
+    {
+      "citation": "Carlton, Moduli for pairs of elliptic curves with isomorphic N-torsion, Manuscripta Math. 105 (2001), 201–234",
+      "link": "https://doi.org/10.1007/s002290170003",
+      "why": "The projective versus actual torsion-isomorphism moduli comparison needs careful descent and stabilizer accounting. BT supplies the working construction; original omitted details and source convention comparison remain to inspect."
+    },
+    {
+      "citation": "Hermann, Modulflächen quadratischer Diskriminante, Manuscripta Math. 72 (1991), 95–110",
+      "link": "https://doi.org/10.1007/BF02568268",
+      "why": "The cyclic-quotient surface resolution/minimal-model background for Corollary 32; not read in full. This source must supplement the surface-resolution/contraction proof owned by SF.4."
+    },
+    {
+      "citation": "Kleiman–Laksov, On the existence of special divisors, Amer. J. Math. 94 (1972), 431–436, and the generic Brill–Noether theorem",
+      "link": "https://arxiv.org/abs/alg-geom/9609012",
+      "why": "Abramovich's bibliography identifies the existence input; BT §7 states the gonality bound and generic sharpness. Complete source not acquired; select and read a precise proof for both assertions. This auxiliary theorem is not needed for BT's main contradiction, which only needs gon≤g+1."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "ModularCurvesPartII",
+      "stages": [
+        "ModularCurvesPartII:R12.2",
+        "ModularCurvesPartII:R12.3",
+        "ModularCurvesPartII:R12.4",
+        "ModularCurvesPartII:R13.1",
+        "ModularCurvesPartII:R13.2",
+        "ModularCurvesPartII:R13.3",
+        "ModularCurvesPartII:R13.4a",
+        "ModularCurvesPartII:R14.1"
+      ],
+      "items": [
+        "PAPER-BAKKER-TSIMERMAN-16/15",
+        "PAPER-BAKKER-TSIMERMAN-16/16",
+        "PAPER-BAKKER-TSIMERMAN-16/19",
+        "PAPER-BAKKER-TSIMERMAN-16/20",
+        "PAPER-BAKKER-TSIMERMAN-16/25",
+        "PAPER-BAKKER-TSIMERMAN-16/26",
+        "PAPER-BAKKER-TSIMERMAN-16/28",
+        "PAPER-BAKKER-TSIMERMAN-16/104"
+      ],
+      "reason": "The projective-scalar framing quotient, effective (2,3,p) orbifold, polygon automorphisms/torsion, boundary Hecke formula and cycle-degree scaling are explicit applications inside the existing analytic comparison, generalized-elliptic compactification and geometric-correspondence layers. Import upstream ModularCurves 0C/0D/2B/2E/5B/9D and EllipticCurves Layers 1–2. Do not re-plan either upstream carrier. Compare honest full-level, scalar quotient and rigidification; separate cyclic ψ(m) from full-subgroup σ₁(m), testing m=4. Preserve R13.4a→R12.3→R12.6→R13.4b and do not use process R13.4 as a mathematical supplier."
+    },
+    {
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+      "roadmap": "HyperbolicCurveVolumesAndGonality",
+      "title": "Fuchsian groups and orbifold Riemann surfaces, Part II: volumes and gonality of hyperbolic curves",
+      "area": "analysis",
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves",
+        "ComplexComparisonPartII",
+        "SchemeAndStackFoundations"
+      ],
+      "items": [
+        "PAPER-BAKKER-TSIMERMAN-16/06",
+        "PAPER-BAKKER-TSIMERMAN-16/11",
+        "PAPER-BAKKER-TSIMERMAN-16/12",
+        "PAPER-BAKKER-TSIMERMAN-16/13",
+        "PAPER-BAKKER-TSIMERMAN-16/44",
+        "PAPER-BAKKER-TSIMERMAN-16/54",
+        "PAPER-BAKKER-TSIMERMAN-16/55",
+        "PAPER-BAKKER-TSIMERMAN-16/56",
+        "PAPER-BAKKER-TSIMERMAN-16/57",
+        "PAPER-BAKKER-TSIMERMAN-16/58",
+        "PAPER-BAKKER-TSIMERMAN-16/59",
+        "PAPER-BAKKER-TSIMERMAN-16/60",
+        "PAPER-BAKKER-TSIMERMAN-16/61",
+        "PAPER-BAKKER-TSIMERMAN-16/62",
+        "PAPER-BAKKER-TSIMERMAN-16/63",
+        "PAPER-BAKKER-TSIMERMAN-16/64",
+        "PAPER-BAKKER-TSIMERMAN-16/65",
+        "PAPER-BAKKER-TSIMERMAN-16/66",
+        "PAPER-BAKKER-TSIMERMAN-16/67",
+        "PAPER-BAKKER-TSIMERMAN-16/81",
+        "PAPER-BAKKER-TSIMERMAN-16/82",
+        "PAPER-BAKKER-TSIMERMAN-16/96",
+        "PAPER-BAKKER-TSIMERMAN-16/106",
+        "PAPER-BAKKER-TSIMERMAN-16/107",
+        "PAPER-BAKKER-TSIMERMAN-16/111",
+        "PAPER-BAKKER-TSIMERMAN-16/112"
+      ],
+      "reason": "The parent owns effective quotient charts, polygons/Gauss–Bonnet, compactification and Riemann–Hurwitz, but not positive analytic curve currents, point/tube multiplicity estimates, conjugate-diagonal volume growth or gonality. These are reusable statements for hyperbolic curves, so they must not be private lemmas in a modular-surface application. Gonality includes algebraic/analytic/base-extension bridges and is not inferred from a similarly spelled orthogonality search hit.",
+      "brief": "First prerequisite: Fuchsian groups and orbifold Riemann surfaces (tauceti:TauCetiRoadmap/FuchsianOrbifolds), especially Layers 0–5. Begin beyond its quotient, polygon, cusp and degree constructions, and reuse Mathlib UpperHalfPlane.dist/volume and Tau Ceti's PoincareDisc and Schwarz–Pick. Prove the explicit factor-two conversion from Tau Ceti disc distance to curvature −1; distinguish max-product neighborhoods from the sum volume form. Import Algebraic curves (tauceti:TauCetiRoadmap/AlgebraicCurves) Layers 4–5/7/12, including already proved function-field Riemann–Roch and canonical degree, ComplexComparisonPartII C0–C4 for analytification/algebraization, and Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations) SF.5 for algebraic intersections. None of these supplies analytic positive currents by name.\n\nConstruct complex curve cycles, normalization integration, local multiplicity, positive (1,1)-currents, psh potentials, singular Stokes, Poincaré–Lelong and the canonical-area identity. Use a single documented d^c normalization and prove every constant comparison. For compact hyperbolic X and 0<r<ρ_X prove Hwang–To vol(C∩B(ξ,r))≥a(r)mult_ξ(C). For 0<r<ρ_X/2 and no diagonal component prove vol(C∩B(Δ,r))≥2a(r)(C·Δ), the X⁴ diagonal point-sum variant, and monotonicity of vol(C∩B(Δ,r))/cosh r. Construct the conjugate diagonal in X×Xbar and prove monotonicity of vol(C∩B(Δbar,r))/sqrt(a(2r)); never call this real analytic locus a complex divisor. Include μ,χ,ψ, the positive potentials, Lelong limits and rescaling to curvature −1/λ². Establish the lens estimate. Define gonality on smooth projective models, its algebraically closed base-change invariance, gon≤g+1 and the separate Brill–Noether bound floor((g+3)/2), with sharpness generic over C. Add conformal area and the Li–Yau λ′₁Area≤2A_c≤8πgon estimate, including Abramovich's cusp treatment; import, do not privately prove, the congruence spectral gap from the separate AutomorphicSpectralTheory extension.\n\nFor each definition provide extensionality, change-of-chart, functoriality, scaling and cycle-multiplicity laws, and at least three tests. Required tests: point-volume equality for fibres, diagonal-volume equality in the graph-of-minus-identity model, r<R in the relative bound (small/large sinh ratio), degree-d parameterization, a constant cusp coordinate, the conjugate diagonal non-example for algebraic intersections, and gonality 1/2 for P¹/genus-one curves. Supply a suggested Lean file in the future design/blueprint, not abstract records postulating the desired estimates. Read HT02/HT12, Li–Yau and a precise current-theory source to decompose every proof input. The current extraction reads BT's full alternative proof and the erratum, not those entire prerequisite books/papers."
+    },
+    {
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/ModularCurves",
+      "roadmap": "GeometricFreyMazur",
+      "title": "Modular curves, following Katz–Mazur, Part II: geometric Frey–Mazur and bounded-gonality rigidity",
+      "area": "arithmeticgeometry",
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/ModularCurves",
+        "ModularCurvesPartII",
+        "HyperbolicCurveVolumesAndGonality",
+        "CongruenceSpectralGap",
+        "InverseGaloisAndArithmeticFundamentalGroups",
+        "SchemeAndStackFoundations"
+      ],
+      "items": [
+        "PAPER-BAKKER-TSIMERMAN-16/01",
+        "PAPER-BAKKER-TSIMERMAN-16/02",
+        "PAPER-BAKKER-TSIMERMAN-16/03",
+        "PAPER-BAKKER-TSIMERMAN-16/04",
+        "PAPER-BAKKER-TSIMERMAN-16/05",
+        "PAPER-BAKKER-TSIMERMAN-16/21",
+        "PAPER-BAKKER-TSIMERMAN-16/22",
+        "PAPER-BAKKER-TSIMERMAN-16/23",
+        "PAPER-BAKKER-TSIMERMAN-16/24",
+        "PAPER-BAKKER-TSIMERMAN-16/29",
+        "PAPER-BAKKER-TSIMERMAN-16/30",
+        "PAPER-BAKKER-TSIMERMAN-16/31",
+        "PAPER-BAKKER-TSIMERMAN-16/32",
+        "PAPER-BAKKER-TSIMERMAN-16/33",
+        "PAPER-BAKKER-TSIMERMAN-16/34",
+        "PAPER-BAKKER-TSIMERMAN-16/35",
+        "PAPER-BAKKER-TSIMERMAN-16/36",
+        "PAPER-BAKKER-TSIMERMAN-16/37",
+        "PAPER-BAKKER-TSIMERMAN-16/38",
+        "PAPER-BAKKER-TSIMERMAN-16/39",
+        "PAPER-BAKKER-TSIMERMAN-16/40",
+        "PAPER-BAKKER-TSIMERMAN-16/41",
+        "PAPER-BAKKER-TSIMERMAN-16/42",
+        "PAPER-BAKKER-TSIMERMAN-16/43",
+        "PAPER-BAKKER-TSIMERMAN-16/45",
+        "PAPER-BAKKER-TSIMERMAN-16/46",
+        "PAPER-BAKKER-TSIMERMAN-16/47",
+        "PAPER-BAKKER-TSIMERMAN-16/48",
+        "PAPER-BAKKER-TSIMERMAN-16/49",
+        "PAPER-BAKKER-TSIMERMAN-16/50",
+        "PAPER-BAKKER-TSIMERMAN-16/51",
+        "PAPER-BAKKER-TSIMERMAN-16/52",
+        "PAPER-BAKKER-TSIMERMAN-16/53",
+        "PAPER-BAKKER-TSIMERMAN-16/68",
+        "PAPER-BAKKER-TSIMERMAN-16/69",
+        "PAPER-BAKKER-TSIMERMAN-16/70",
+        "PAPER-BAKKER-TSIMERMAN-16/71",
+        "PAPER-BAKKER-TSIMERMAN-16/72",
+        "PAPER-BAKKER-TSIMERMAN-16/73",
+        "PAPER-BAKKER-TSIMERMAN-16/74",
+        "PAPER-BAKKER-TSIMERMAN-16/75",
+        "PAPER-BAKKER-TSIMERMAN-16/76",
+        "PAPER-BAKKER-TSIMERMAN-16/84",
+        "PAPER-BAKKER-TSIMERMAN-16/85",
+        "PAPER-BAKKER-TSIMERMAN-16/86",
+        "PAPER-BAKKER-TSIMERMAN-16/87",
+        "PAPER-BAKKER-TSIMERMAN-16/88",
+        "PAPER-BAKKER-TSIMERMAN-16/89",
+        "PAPER-BAKKER-TSIMERMAN-16/90",
+        "PAPER-BAKKER-TSIMERMAN-16/91",
+        "PAPER-BAKKER-TSIMERMAN-16/92",
+        "PAPER-BAKKER-TSIMERMAN-16/93",
+        "PAPER-BAKKER-TSIMERMAN-16/94",
+        "PAPER-BAKKER-TSIMERMAN-16/97",
+        "PAPER-BAKKER-TSIMERMAN-16/98",
+        "PAPER-BAKKER-TSIMERMAN-16/99",
+        "PAPER-BAKKER-TSIMERMAN-16/100",
+        "PAPER-BAKKER-TSIMERMAN-16/102",
+        "PAPER-BAKKER-TSIMERMAN-16/105"
+      ],
+      "reason": "This is a further sibling extension of upstream ModularCurves, explicitly importing the existing ModularCurvesPartII analytic/generalized-elliptic/Hecke layers. Neither existing direction includes Z(p)'s quantitative hyperbolic repulsion or the bounded-gonality Frey–Mazur theorem. Generic geometry, Galois categories, spectral analysis and surface resolution remain with their owners.",
+      "brief": "First prerequisite: Modular curves, following Katz–Mazur (tauceti:TauCetiRoadmap/ModularCurves). Also import the already existing ModularCurvesPartII R12, R13 and R14; do not replace that Part II or re-plan its comparison, compactification and correspondence objects. Use Fuchsian groups and orbifold Riemann surfaces (tauceti:TauCetiRoadmap/FuchsianOrbifolds) and its proposed HyperbolicCurveVolumesAndGonality extension for analytic volume/multiplicity theory, the proposed CongruenceSpectralGap extension of AutomorphicSpectralTheory for the numerical gap, and Algebraic curves (tauceti:TauCetiRoadmap/AlgebraicCurves) for curve degree/Hurwitz and the field/scheme dictionary. Use InverseGaloisAndArithmeticFundamentalGroups IG.0/IG.3 (following accepted RS-29) for the finite-étale instance and Riemann existence, upstream ModularCurves 0D for its field case, ComplexComparisonPartII for algebraization, and SchemeAndStackFoundations SF.4/SF.5 for resolution and intersections.\n\nThe final theorem is: for every N>0 there is M_N such that for any algebraically closed characteristic-zero field k, any prime p>M_N, and any smooth quasiprojective k-curve U with gon(U)<N, nonisotrivial elliptic curves over U with isomorphic actual F_p torsion local systems are isogenous over U. Prove the function-field restatement and the stronger geometric statement that any nonconstant map from a smooth curve of gonality <N to Z(p) factors through a Hecke curve. Prove bounded-genus, rational/elliptic-curve and known-curve minimal-model corollaries with thresholds enlarged as necessary. No assertion about p>17 over Q, positive characteristic, or semisimplified/projective representations replaces this result.\n\nConstruct the two-component projectively framed X(p), its PGL₂ quotient Z(p), comparison with fixed-pairing PSL₂ conventions, CM+, CM−, singular bicusps, big diagonals and small Hecke curves. Derive compact triangle uniformization, cusped systole and compact injectivity radius 2log p+O(1), coordinate estimates, cusp balls, height bounds and the three parts of Proposition 12 separately. Prove Heegner-only repulsion (erratum Proposition 2.1), the centralizer and small-height reconstruction lemmas, bicusp repulsion and diagonal-overlap dichotomy. The antiholomorphic conjugate Hecke locus is not a divisor. Prove the four multiplicity estimates using erratum Propositions 4.1/4.2, choosing independent small exponents before p grows; in particular retain the stronger p·mult_SBC=o(Deg), not the erroneous weaker bound. Treat cusped-volume measures projectionwise, including constant cusp coordinates.\n\nBuild the gonality-pencil map to SymⁿZ(p), normalize a pullback component, and track its wreath-product stabilizer and pushforward cycle degrees. Prove the exhaustive ramification-support and local-index bounds, then Ram(α)=o(Deg C). Use 2g(C)−2=−2deg α+Ram(α)≤o(Deg C), and the independent lower bound Deg C/(2n); do not copy the source's dropped negative term as an equality. Derive Abramovich's 7/800 index lower bound by composing imported Li–Yau, area and spectral-gap results. Prove growing minimum proper-subgroup index, full SL₂(F_p) image, the actual-isomorphism/possible-quadratic-twist descent bridge, extension over U, and spreading out from C to arbitrary algebraically closed characteristic-zero k. These bridges are proof obligations, not assumptions inside an 'elliptic family' structure.\n\nEvery carrier needs basis/scalar independence, component and conjugation compatibility, base change and at least three examples/non-examples. Tests include p>5 versus p≤5 nonhyperbolic cases, m=4 cyclic degree 6 versus full degree 7, CM+ versus CM−, two bicusps versus the three-bicusp threshold, n=1 versus n=2 symmetric powers, the −2deg α term, and a nontrivial quadratic twist showing projective torsion is insufficient. Read the published paper together with its entire erratum. The design must expand all missing proof inputs, not merely make Prop25/26/27 hypothesis fields; its suggested Lean file exposes the genuine constructions."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.4"
+      ],
+      "items": [
+        "PAPER-BAKKER-TSIMERMAN-16/101",
+        "PAPER-BAKKER-TSIMERMAN-16/108"
+      ],
+      "reason": "The minimal-model corollary needs the explicit characteristic-zero cyclic-quotient resolution and contraction of −1 curves. SF.4 already owns birational geometry and resolution in a named proved setting; AUDIT-01 finds no surface resolution. Add this concrete source/application contract there, importing SF.5 intersections and the existing normalization carrier. BT states rather than proves the continued-fraction construction: read Kani–Schanz/Hermann and the classical resolution/contraction proof before claiming closure. Tests include 1/2(1,1), 1/3(1,2), negative continued-fraction sign convention, and excluding a −2 curve from smooth-point contraction."
+    },
+    {
+      "route": "part-ii",
+      "parent": "AutomorphicSpectralTheory",
+      "roadmap": "CongruenceSpectralGap",
+      "title": "Automorphic spectral theory and trace distributions, Part II: the congruence spectral gap",
+      "area": "analysis",
+      "prerequisites": [
+        "AutomorphicSpectralTheory",
+        "AutomorphicFormsOnReductiveGroups",
+        "GL2AutomorphicRepresentationsAndTransfer"
+      ],
+      "items": [
+        "PAPER-BAKKER-TSIMERMAN-16/95"
+      ],
+      "reason": "AS.0–AS.4 construct the spectral objects and decomposition, not the explicit 21/100 numerical bound. This genuinely reusable spectral theorem belongs beyond that owner, rather than becoming a private modular-gonality axiom. The target is proved, unlike the stronger Selberg 1/4 conjecture.",
+      "brief": "First prerequisite: Automorphic spectral theory and trace distributions (AutomorphicSpectralTheory), especially AS.0–AS.4. Construct the congruence-quotient Laplacian from those analytic objects and prove that for every congruence subgroup Γ of PSL₂(Z), λ′₁=min(λ₁,1/4)≥21/100. Account for continuous spectrum, normalization of the curvature−1 metric, and the convention when no small discrete eigenvalue exists. Do not assert Selberg's conjectural 1/4 bound. The target is Luo–Rudnick–Sarnak Theorem 1.1, not a consequence of spectral decomposition alone.\n\nRead the full original LRS paper: its pp.387–390 identify the GL₃ symmetric-square reduction of an exceptional GL₂ eigenvalue and the general archimedean parameter bound, followed by twisted Rankin–Selberg nonvanishing. Import forms and representations from AutomorphicFormsOnReductiveGroups, analytic continuation/spectrum from the parent, and GL₂ specialization from GL2AutomorphicRepresentationsAndTransfer. The atlas's R17 stages cover Jacquet–Langlands and solvable transfer, not the required Gelbart–Jacquet symmetric-square lift for Maass forms: make this a named prerequisite proof gap to be routed as an extension of the transfer owner, never pretend R17 supplies it or substitute a theorem for holomorphic forms. Locate a unique owner for any missing higher-rank Rankin–Selberg ingredient after reading its complete proof; do not hide it in a parameter-bound field or assume unrestricted functoriality. This extraction has not read that complete proof and records it as a prerequisite.\n\nExport one normalization-stable spectral-gap theorem for HyperbolicCurveVolumesAndGonality and GeometricFreyMazur; those consumers compose it with their independent conformal-area and area/index estimates to get 7/800. Required tests: compare the 3/16 and 21/100 bounds numerically, verify (21/100)(π/3)/(8π)=7/800, retain the 1/4 continuous threshold, and reject application to an arbitrary noncongruence subgroup. Provide definition-level API and at least three unit tests plus a suggested Lean file in the eventual blueprint, importing the existing L² theory rather than rebuilding it."
+    }
+  ]
+}
