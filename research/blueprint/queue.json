@@ -3404,7 +3404,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-10.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #820",
+   "finishedAt": "2026-09-21T13:03:47Z"
   },
   {
    "id": "REV-RS-10",
@@ -3524,7 +3526,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-13.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #826"
   },
   {
    "id": "REV-RS-13",
@@ -3563,7 +3566,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-14.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #828"
   },
   {
    "id": "REV-RS-14",
@@ -3643,7 +3647,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #832"
   },
   {
    "id": "REV-RS-16",
@@ -3728,7 +3733,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-18.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #836",
+   "finishedAt": "2026-09-21T13:03:50Z"
   },
   {
    "id": "REV-RS-18",
@@ -3768,7 +3775,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #838"
   },
   {
    "id": "REV-RS-19",
@@ -3809,7 +3817,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #840"
   },
   {
    "id": "REV-RS-20",
@@ -3889,7 +3898,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-22.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #844",
+   "finishedAt": "2026-09-21T13:03:53Z"
   },
   {
    "id": "REV-RS-22",
@@ -3928,7 +3939,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #846"
   },
   {
    "id": "REV-RS-23",
@@ -3967,7 +3979,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-24.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #848",
+   "finishedAt": "2026-09-21T13:03:57Z"
   },
   {
    "id": "REV-RS-24",
@@ -4009,7 +4023,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #850"
   },
   {
    "id": "REV-RS-25",
@@ -4049,7 +4064,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-26.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #852",
+   "finishedAt": "2026-09-21T13:04:00Z"
   },
   {
    "id": "REV-RS-26",
@@ -4091,7 +4108,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-27.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #854"
   },
   {
    "id": "REV-RS-27",
@@ -4130,7 +4148,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-28.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #856",
+   "finishedAt": "2026-09-21T13:04:04Z"
   },
   {
    "id": "REV-RS-28",
@@ -4169,7 +4189,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-29.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #858",
+   "finishedAt": "2026-09-21T13:04:07Z"
   },
   {
    "id": "REV-RS-29",
@@ -4208,7 +4230,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-30.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #860",
+   "finishedAt": "2026-09-21T13:04:10Z"
   },
   {
    "id": "REV-RS-30",
@@ -4247,7 +4271,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-31.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #862",
+   "finishedAt": "2026-09-21T13:04:14Z"
   },
   {
    "id": "REV-RS-31",
@@ -4286,7 +4312,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-32.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #864",
+   "finishedAt": "2026-09-21T13:04:18Z"
   },
   {
    "id": "REV-RS-32",
@@ -4325,7 +4353,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-33.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #866",
+   "finishedAt": "2026-09-21T13:04:21Z"
   },
   {
    "id": "REV-RS-33",
