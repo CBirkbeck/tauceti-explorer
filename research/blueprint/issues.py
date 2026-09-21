@@ -132,7 +132,7 @@ def body(job, jobs, roadmaps, stages):
                   "- **Every definition and key theorem of the paper**, with its exact statement and where it is in the paper, and for each: Mathlib or Tau Ceti has it (cite the declaration), a layer of the atlas plans it (name the layer), or it is missing.",
                   "- **A route for everything missing:** a source of an existing roadmap's layers, a Part II of an existing roadmap, or a new roadmap, each Part II or new roadmap with the brief its design job will follow (PROTOCOL.md section 16). Build on what exists; never duplicate (section 15).",
                   "- **A report** explaining the routes to a human reader, and the prerequisite papers the atlas does not cover yet.",
-                  "", "After an independent review, the accepted routes become blueprint sources and design jobs automatically."]
+                  "", "After an independent review, the accepted routes become blueprint sources and design jobs when the queue is next generated."]
     if job["kind"] in ("blueprint", "design"):
         lines += ["", "### What this issue delivers",
                   "- **Built on existing roadmaps, never duplicating them:** import what another roadmap plans, and extend it as a Part II where you need more (PROTOCOL.md section 15).",
