@@ -2734,7 +2734,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #134"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
@@ -4409,7 +4410,8 @@
    ],
    "avoidAccountOf": "RS-30",
    "prompt": "research/blueprint/prompts/REV-RS-30.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #859"
   },
   {
    "id": "RS-31",
