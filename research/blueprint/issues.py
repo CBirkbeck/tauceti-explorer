@@ -28,7 +28,7 @@ BP = REPO / "research" / "blueprint"
 GITHUB = "https://github.com/CBirkbeck/tauceti-explorer"
 BLOB = GITHUB + "/blob/main/"
 KIND_TITLE = {"blueprint": "Blueprint", "design": "New roadmap", "link": "Links", "review": "Review", "assembly": "Assembly",
-              "restructure": "Restructure",
+              "restructure": "Restructure", "paper": "Paper",
               "plan": "Plan", "classify": "Classification", "naming": "Planet names", "status": "Status mapping"}
 
 
@@ -127,6 +127,12 @@ def body(job, jobs, roadmaps, stages):
                   "- **Nothing lost:** every target of a changed layer is kept, moved or supplied by a named layer, and every consumer still finds its prerequisites.",
                   "- **The proposal and its reasoning**, in the format of PROTOCOL.md section 15. The family file lists the evidence: leads, not verdicts.",
                   "", "The blueprints of these roadmaps wait for this restructuring and its review."]
+    if job["kind"] == "paper":
+        lines += ["", "### What this issue delivers",
+                  "- **Every definition and key theorem of the paper**, with its exact statement and where it is in the paper, and for each: Mathlib or Tau Ceti has it (cite the declaration), a layer of the atlas plans it (name the layer), or it is missing.",
+                  "- **A route for everything missing:** a source of an existing roadmap's layers, a Part II of an existing roadmap, or a new roadmap, each Part II or new roadmap with the brief its design job will follow (PROTOCOL.md section 16). Build on what exists; never duplicate (section 15).",
+                  "- **A report** explaining the routes to a human reader, and the prerequisite papers the atlas does not cover yet.",
+                  "", "After an independent review, the accepted routes become blueprint sources and design jobs automatically."]
     if job["kind"] in ("blueprint", "design"):
         lines += ["", "### What this issue delivers",
                   "- **Built on existing roadmaps, never duplicating them:** import what another roadmap plans, and extend it as a Part II where you need more (PROTOCOL.md section 15).",
@@ -202,10 +208,18 @@ def title(job, roadmaps):
         return f"[Planet names] {area or jid}"
     if job["kind"] == "restructure":
         return f"[Restructure] {job.get('name') or jid}"
+    if job["kind"] == "paper":
+        return f"[Paper] {job.get('name') or jid}"[:240]
+    if job["kind"] == "design" and job.get("name"):
+        return f"[New roadmap] {job['name']}"[:240]
     if job["kind"] == "review":
         target = (job.get("after") or [""])[0]
         if target.startswith("RS-"):
             return f"[Review] Restructure: {job.get('name') or target}"
+        if target.startswith("PAPER-"):
+            return f"[Review] Paper: {job.get('name') or target}"[:240]
+        if target.startswith("DESIGN-") and job.get("name"):
+            return f"[Review] New roadmap: {job['name']}"[:240]
         if target.startswith("LINK-"):
             return f"[Review] Links: {name or rid}"
         if target.startswith("ASM-"):
@@ -368,7 +382,7 @@ def deliverables_complete(job, root=REPO):
             covered = {entry.get("roadmapId") for entry in result}
             return (set(job.get("roadmapIds") or []) <= covered
                     and not any(entry.get("assessmentStatus") == "partial" for entry in result))
-        if job["kind"] == "link":
+        if job["kind"] in ("link", "paper"):
             return json.loads(paths[0].read_text()).get("status") == "complete"
         if job["kind"] == "audit":
             listed = {layer["id"] for roadmap in json.loads((bp / "audit" / f"{job['id']}.json").read_text())["roadmaps"] for layer in roadmap["layers"]}

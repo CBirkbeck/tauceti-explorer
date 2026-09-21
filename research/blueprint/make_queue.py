@@ -88,6 +88,40 @@ Step 2. Write the blueprint packet {OUTPUT} covering every stage of the new road
 If either file already exists from an earlier attempt, continue from it.
 """ + COMMON_INPUTS + "\n\n" + METHOD
 
+PAPER_TEMPLATE = HEADER + """
+JOB: extract a paper and route its mathematics (PROTOCOL.md section 16).
+Paper: {CITATION}
+Link: {LINK}
+Maintainer's note: {NOTE}
+
+Write research/blueprint/papers/{PAPER}.result.json in the format of PROTOCOL.md section 16, and the report research/blueprint/papers/{PAPER}.md.
+1. Read the paper completely. Fetch the public version into your scratch directory with its provenance (URL, SHA-256, date), and read what it relies on wherever you need to know exactly what an input says.
+2. List every definition, construction and key theorem the paper uses or proves on the way to its main results, and each main result, as an item with its exact statement and its locator. Split multi-part results. Coverage is complete (PROTOCOL.md section 0).
+3. For each item, search the pinned libraries ({BASELINE}/declarations.tsv, then open the Lean file and read the statement) and the atlas: data/atlas.json (layers and their descriptions), the new roadmaps in research/blueprint/roadmaps/, the packets in research/blueprint/packets/, and the reviewed library audit data/library-coverage.json. Mark it `library`, `planned` or `missing`, and cite what you found.
+4. Route every missing item exactly once: `source` of existing layers of a proposed roadmap, `part-ii` of an existing roadmap (a Tau Ceti roadmap is extended this way, never re-planned), or `new`. Build on what exists (PROTOCOL.md section 15). For each part-ii or new route, write the brief its design job will follow.
+5. List the prerequisite papers the atlas does not yet cover.
+6. Run `python3 scripts/check_paper.py research/blueprint/papers/{PAPER}.result.json` until it reports no errors. Set "status": "complete" only when the whole paper is extracted and every missing item is routed. Otherwise leave "partial" and write a handoff note, research/blueprint/handoff/{PAPER}.md.
+
+Worked examples of routing, by the maintainer (research/blueprint/papers/papers.json, "guides"):
+{GUIDES}
+Edit only research/blueprint/papers/{PAPER}.result.json, research/blueprint/papers/{PAPER}.md, the handoff note and your scratch directory.
+""" + COMMON_INPUTS
+
+PAPER_REVIEW_TEMPLATE = """You are an independent reviewer for the Tau Ceti Atlas blueprint programme. You did not write the files you review. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it). Save as you go.
+
+READ FIRST (binding): research/blueprint/PROTOCOL.md, sections 0, 15 and 16.
+
+REVIEW: the paper extraction research/blueprint/papers/{PAPER}.result.json and its report research/blueprint/papers/{PAPER}.md. Paper: {CITATION} ({LINK}).
+Library baseline: {BASELINE} (BASELINE.json, TauCeti/, mathlib/Mathlib/, declarations.tsv). Public sources may be fetched into your scratch directory with provenance, never into the repository.
+
+1. Items. Check statements and locators against the paper, and that no definition or key theorem on the way to the main results is missing.
+2. Statuses. Open every cited declaration at the pinned commit and check that it provides the item. Read every cited layer's description and check that it plans the item. Search the libraries and the atlas yourself for every missing item.
+3. Routes. Every missing item is routed once. A source route names the layers the item belongs in. A Part II or a new roadmap is justified only when nothing in the atlas owns the mathematics, and its brief states the final theorems exactly and names what to import. Tau Ceti roadmaps are never re-planned.
+4. Correct the extraction in place where the fix is clear, and record every change.
+5. Run `python3 scripts/check_paper.py` on the extraction and fix every error.
+Write research/blueprint/papers/{PAPER}.review.json, {{"paper", "verdict": "accept | revise", "routes": [{{"route": <n>, "verdict": "accept | reject", "reason"}}], "notes"}}, and research/blueprint/reviews/REV-{PAPER}.md. Accept a route only if you would build on it: accepted routes become design jobs and blueprint sources.
+"""
+
 REVIEW_TEMPLATE = """You are an independent reviewer for the Tau Ceti Atlas blueprint programme. You did not write the files you review. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it). Save as you go.
 
 READ FIRST (binding): research/blueprint/PROTOCOL.md and research/expansion/PROTOCOL.md.
@@ -268,6 +302,20 @@ ADDED_SOURCES = {
     "AnabelianGeometryAndNonabelianChabauty": [BDMTV + ". Its theory (local heights at p and the height equations for non-hyperelliptic curves) belongs to NC.5."],
     "EffectiveDiophantineMethods": [BDMTV + ". Its algorithm and the computation for X_s(13) belong to ED.6, which consumes NC.5 of AnabelianGeometryAndNonabelianChabauty."],
 }
+
+
+def accepted_routes(pid):
+    """The routes of a paper extraction that its review accepted (PROTOCOL.md section 16)."""
+    folder = BP / "papers"
+    try:
+        result = json.loads((folder / f"{pid}.result.json").read_text())
+        review = json.loads((folder / f"{pid}.review.json").read_text())
+    except (OSError, ValueError):
+        return []
+    if review.get("verdict") != "accept":
+        return []
+    accepted = {entry.get("route") for entry in review.get("routes", []) if entry.get("verdict") == "accept"}
+    return [route for number, route in enumerate(result.get("routes", []), 1) if number in accepted]
 
 
 def added_sources(rid):
@@ -593,26 +641,51 @@ def main():
         text = CLASSIFY_TEMPLATE.format(**fill, JOB=job_id, OUTPUT=output, CLUSTERS=", ".join(CLASSIFY_CLUSTERS))
         add({"id": job_id, "kind": "classify", "priority": 0, "order": 10 + n // size, "roadmapIds": [c["roadmapId"] for c in chunk],
              "outputs": [output], "after": []}, text)
-    # Priority 1: the two new roadmaps and the Zagier suppliers.
-    for job_id, rid, group, brief in (("DESIGN-LV", "MordellLawrenceVenkatesh", "diophantine", LV_BRIEF),
-                                      ("DESIGN-ZAGIER", "ZagierConjecturePolylogarithms", "motivic", ZAGIER_BRIEF),
-                                      ("DESIGN-BCGP18", "AbelianSurfacesPotentialModularity", "modular", BCGP18_BRIEF),
-                                      ("DESIGN-BCGP25", "AbelianSurfacesModularity", "modular", BCGP25_BRIEF),
-                                      ("DESIGN-PAN", "LocallyAnalyticCompletedCohomology", "langlands", PAN_BRIEF),
-                                      ("DESIGN-SKINNER", "RankOneConverse", "iwasawa", SKINNER_BRIEF),
-                                      ("DESIGN-BETTS-STIX", "GaloisSectionsPadicPeriodMaps", "arithmeticgeometry", BETTS_STIX_BRIEF)):
+    # Priority 1: papers (PROTOCOL.md section 16). Each paper in papers.json gets an
+    # extraction and a review; the accepted routes of reviewed extractions become
+    # blueprint sources and design jobs.
+    registry = json.loads((BP / "papers" / "papers.json").read_text()) if (BP / "papers" / "papers.json").exists() else {}
+    guides = "\n".join(f"- {g['citation']}: " + "; ".join(r["summary"] for r in g["routes"]) + "." for g in registry.get("guides", []))
+    paper_designs = []
+    for number, paper in enumerate(registry.get("papers", []), 1):
+        pid, link = paper["id"], paper.get("link", "")
+        result, report = f"research/blueprint/papers/{pid}.result.json", f"research/blueprint/papers/{pid}.md"
+        fields = dict(PAPER=pid, CITATION=paper["citation"], LINK=link, NOTE=paper.get("note") or "none", GUIDES=guides, FILE=pid)
+        add({"id": pid, "kind": "paper", "priority": 1, "order": 100 + number, "name": paper.get("short") or paper["citation"],
+             "roadmapIds": [], "outputs": [result, report], "after": []}, PAPER_TEMPLATE.format(**fill, JOB=pid, **fields))
+        add({"id": "REV-" + pid, "kind": "review", "priority": 1, "order": 100 + number, "name": paper.get("short") or paper["citation"],
+             "roadmapIds": [], "outputs": [f"research/blueprint/papers/{pid}.review.json", f"research/blueprint/reviews/REV-{pid}.md"],
+             "after": [pid], "avoidAccountOf": pid}, PAPER_REVIEW_TEMPLATE.format(**fill, JOB="REV-" + pid, **fields))
+        for route in accepted_routes(pid):
+            origin = f" (from the extraction of {paper['citation']}, {pid}: research/blueprint/papers/{pid}.result.json, items {', '.join(route['items'])})"
+            if route["route"] == "source":
+                ADDED_SOURCES.setdefault(route["roadmap"], []).append(
+                    f"{paper['citation']} ({link}), for {', '.join(route['stages'])}: {route['reason']}{origin}")
+            else:
+                extends = (f" The roadmap is \"{route['title']}\": it extends {route['parent']} and starts where that roadmap stops (PROTOCOL.md section 15)."
+                           if route["route"] == "part-ii" else f" The roadmap is \"{route['title']}\".")
+                paper_designs.append(("DESIGN-" + route["roadmap"], route["roadmap"], route["area"], route["brief"] + extends + origin, route["title"]))
+    # Priority 1: the new roadmaps and the Zagier suppliers.
+    designs = [("DESIGN-LV", "MordellLawrenceVenkatesh", "diophantine", LV_BRIEF, None),
+               ("DESIGN-ZAGIER", "ZagierConjecturePolylogarithms", "motivic", ZAGIER_BRIEF, None),
+               ("DESIGN-BCGP18", "AbelianSurfacesPotentialModularity", "modular", BCGP18_BRIEF, None),
+               ("DESIGN-BCGP25", "AbelianSurfacesModularity", "modular", BCGP25_BRIEF, None),
+               ("DESIGN-PAN", "LocallyAnalyticCompletedCohomology", "langlands", PAN_BRIEF, None),
+               ("DESIGN-SKINNER", "RankOneConverse", "iwasawa", SKINNER_BRIEF, None),
+               ("DESIGN-BETTS-STIX", "GaloisSectionsPadicPeriodMaps", "arithmeticgeometry", BETTS_STIX_BRIEF, None)]
+    designs += [d for d in paper_designs if d[0] not in {x[0] for x in designs}]
+    for position, (job_id, rid, group, brief, name) in enumerate(designs, 1):
         output = f"research/blueprint/packets/{rid}.json"
         suggested = f"research/blueprint/suggested/{rid}.lean"
         text = DESIGN_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, GROUP=group, BRIEF=brief, OUTPUT=output,
                                       README=f"research/blueprint/readmes/{rid}.md", SUGGESTED=suggested,
                                       FILE=rid, EDITABLE=f"research/blueprint/roadmaps/{rid}.json and {output}")
-        add({"id": job_id, "kind": "design", "priority": 1, "order": {"DESIGN-LV": 1, "DESIGN-ZAGIER": 2, "DESIGN-BCGP18": 3, "DESIGN-BCGP25": 4,
-                                                                      "DESIGN-PAN": 5, "DESIGN-SKINNER": 6, "DESIGN-BETTS-STIX": 7}[job_id],
-             "roadmapIds": [rid], "outputs": [f"research/blueprint/roadmaps/{rid}.json", output, f"research/blueprint/readmes/{rid}.md", suggested],
+        add({"id": job_id, "kind": "design", "priority": 1, "order": position, "roadmapIds": [rid], **({"name": name} if name else {}),
+             "outputs": [f"research/blueprint/roadmaps/{rid}.json", output, f"research/blueprint/readmes/{rid}.md", suggested],
              "after": ["DESIGN-BCGP18"] if job_id == "DESIGN-BCGP25" else [], "timeout": 8 * 3600}, text)
         review_id = "REV-" + job_id
         rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_id, TARGETS=f"the new roadmap definition research/blueprint/roadmaps/{rid}.json, its blueprint packet {output} and its suggested Lean file {suggested}")
-        add({"id": review_id, "kind": "review", "priority": 2, "order": 1, "roadmapIds": [rid],
+        add({"id": review_id, "kind": "review", "priority": 2, "order": 1, "roadmapIds": [rid], **({"name": name} if name else {}),
              "outputs": [f"research/blueprint/reviews/{review_id}.md"], "after": [job_id], "avoidAccountOf": job_id,
              "timeout": 8 * 3600}, rtext)
     upstream = [rid for rid in roadmaps if rid.startswith("tauceti:")]

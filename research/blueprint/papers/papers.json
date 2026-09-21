@@ -1,0 +1,29 @@
+{
+ "purpose": "Papers for the atlas's roadmaps (PROTOCOL.md section 16). `papers` are to be extracted, one paper job each; `guides` were routed by the maintainer and are worked examples of routing.",
+ "papers": [],
+ "guides": [
+  {"id": "PAPER-LV20", "citation": "Lawrence and Venkatesh, \"Diophantine problems and p-adic period mappings\", Inventiones mathematicae 221 (2020)",
+   "routes": [{"route": "new", "roadmap": "MordellLawrenceVenkatesh", "job": "DESIGN-LV",
+               "summary": "a new roadmap, The Mordell conjecture after Lawrence and Venkatesh (DESIGN-LV): nothing in the atlas followed this proof"}]},
+  {"id": "PAPER-BCGP18", "citation": "Boxer, Calegari, Gee and Pilloni, \"Abelian surfaces over totally real fields are potentially modular\" (arXiv:1812.09269)",
+   "routes": [{"route": "new", "roadmap": "AbelianSurfacesPotentialModularity", "job": "DESIGN-BCGP18",
+               "summary": "a new roadmap (DESIGN-BCGP18) importing Siegel and PEL moduli, toroidal compactifications, Galois deformation rings, patching, potential modularity and Hida and Coleman families from their roadmaps; higher Coleman theory, if missing, proposed as its own roadmap"}]},
+  {"id": "PAPER-BCGP25", "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
+   "routes": [{"route": "new", "roadmap": "AbelianSurfacesModularity", "job": "DESIGN-BCGP25",
+               "summary": "a new roadmap (DESIGN-BCGP25) that builds on the roadmap for their 2018 paper and on the atlas's roadmaps for the ten-author infrastructure (arXiv:1812.09999)"}]},
+  {"id": "PAPER-PAN26", "citation": "Lue Pan, \"On locally analytic vectors of the completed cohomology of modular curves II\", Annals of Mathematics 203 (2026)",
+   "routes": [{"route": "part-ii", "parent": "CompletedCohomologyAndLocalGlobalCompatibility", "roadmap": "LocallyAnalyticCompletedCohomology", "job": "DESIGN-PAN",
+               "summary": "a Part II of Completed cohomology and p-adic local–global compatibility over Q (DESIGN-PAN): Pan's geometric route is new layers in that roadmap's direction; Pan's first paper, which the second continues, is covered first as its foundation"}]},
+  {"id": "PAPER-SKINNER20", "citation": "Christopher Skinner, \"A converse to a theorem of Gross, Zagier, and Kolyvagin\", Annals of Mathematics 191 (2020)",
+   "routes": [{"route": "part-ii", "parent": "RankZeroOneBSD", "roadmap": "RankOneConverse", "job": "DESIGN-SKINNER",
+               "summary": "a Part II of Rank-zero and rank-one BSD (DESIGN-SKINNER): that roadmap proves the Gross–Zagier–Kolyvagin direction (BSD.3) but has no layer for the converse; Heegner points, Gross–Zagier and the main conjectures are imported"}]},
+  {"id": "PAPER-BDMTV19", "citation": "Balakrishnan, Dogra, Müller, Tuitman and Vonk, \"Explicit Chabauty–Kim for the split Cartan modular curve of level 13\", Annals of Mathematics 189 (2019)",
+   "routes": [{"route": "source", "roadmap": "AnabelianGeometryAndNonabelianChabauty", "stages": ["AnabelianGeometryAndNonabelianChabauty:NC.5"],
+               "summary": "a source of existing layers, no new roadmap: its theory belongs to NC.5 (quadratic Chabauty and height equations)"},
+              {"route": "source", "roadmap": "EffectiveDiophantineMethods", "stages": ["EffectiveDiophantineMethods:ED.6"],
+               "summary": "and its algorithm and the X_s(13) computation to ED.6 (explicit higher methods)"}]},
+  {"id": "PAPER-BETTSSTIX25", "citation": "Betts and Stix, \"Galois sections and p-adic period mappings\", Annals of Mathematics 201 (2025)",
+   "routes": [{"route": "part-ii", "parent": "AnabelianGeometryAndNonabelianChabauty", "roadmap": "GaloisSectionsPadicPeriodMaps", "job": "DESIGN-BETTS-STIX",
+               "summary": "a Part II of Anabelian geometry and nonabelian Chabauty (DESIGN-BETTS-STIX) that imports the p-adic period maps of the Lawrence–Venkatesh roadmap rather than planning them again"}]}
+ ]
+}
