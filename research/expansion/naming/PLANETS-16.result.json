@@ -1,0 +1,143 @@
+[
+  {
+    "id": "WeightsInEtaleCohomology:R34.1/pure-numbers-punctually-pure-and-mixed-sheaves",
+    "decision": "name",
+    "label": "Punctually pure and mixed sheaves",
+    "kind": "definition"
+  },
+  {
+    "id": "WeightsInEtaleCohomology:R34.1::landmark:dwp-0-s-weil-numbers-chosen-embedding-vers-fddnx",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Dependency instruction importing weight conventions from DWP.0, not a separate mathematical planet."
+  },
+  {
+    "id": "WeightsInEtaleCohomology:R34.2::landmark:dwp-1-s-curve-abelian-weil-bound-using-the-q3pxei",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Supplier bookkeeping for the curve and abelian-variety bound; the underlying statement remains in the layer."
+  },
+  {
+    "id": "WeightsInEtaleCohomology:R34.5/direct-image-with-compact-support-preserves-upper-weight-bounds",
+    "decision": "name",
+    "label": "Weil II weight bounds",
+    "kind": "theorem"
+  },
+  {
+    "id": "WeightsInEtaleCohomology:R34.5/integral-sheaves-and-lower-weight-bounds",
+    "decision": "name",
+    "label": "Weight bounds for integral sheaves",
+    "kind": "theorem"
+  },
+  {
+    "id": "WeightsInEtaleCohomology:R34.5/structure-of-mixed-sheaves-and-geometric-semisimplicity",
+    "decision": "name",
+    "label": "Geometric semisimplicity of pure lisse sheaves",
+    "kind": "theorem"
+  },
+  {
+    "id": "WeightsInEtaleCohomology:R34.5/weights-of-cohomology-over-finite-fields",
+    "decision": "name",
+    "label": "Cohomology weights over finite fields",
+    "kind": "theorem"
+  },
+  {
+    "id": "WeightsInEtaleCohomology:R34.5::landmark:dwp-2-4-s-actual-weil-i-majoration-pencil--1b8rsll",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Cross-roadmap import inventory, overlapping the named weight results rather than identifying another planet."
+  },
+  {
+    "id": "WeilConjectures:WC.0::landmark:specify-x-spec-k-geometric-base-change-the-ri9uom",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Instruction to specify the geometric inputs and conventions; the label also repeats the input layer title."
+  },
+  {
+    "id": "WeilConjectures:WC.1/cohomological-formula-from-the-trace-formula",
+    "decision": "name",
+    "label": "Grothendieck's cohomological zeta formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "WeilConjectures:WC.1/rationality-over-q-via-hankel-determinants",
+    "decision": "name",
+    "label": "Rationality of zeta functions over Q",
+    "kind": "theorem"
+  },
+  {
+    "id": "WeilConjectures:WC.1/zeta-function-euler-product-and-point-counts",
+    "decision": "name",
+    "label": "Zeta function Euler product",
+    "kind": "definition"
+  },
+  {
+    "id": "WeilConjectures:WC.1::landmark:rationality-over-q-from-the-actual-integra-199rint",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate of the more precise rationality-over-Q source-decomposition node retained in this layer."
+  },
+  {
+    "id": "WeilConjectures:WC.2/lefschetz-trace-formula-proper-smooth-via-duality",
+    "decision": "name",
+    "label": "Proper smooth Lefschetz trace formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "WeilConjectures:WC.2::landmark:initially-this-is-an-identity-after-scalar-1n4caeh",
+    "decision": "name",
+    "label": "Zeta functional equation",
+    "kind": "theorem"
+  },
+  {
+    "id": "WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity",
+    "decision": "name",
+    "label": "Integral ℓ-independent Frobenius polynomials",
+    "kind": "theorem"
+  },
+  {
+    "id": "WeilConjectures:WC.3::landmark:make-the-algebraic-number-embeddings-expli-kvklxg",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Warning about embeddings, multiplicities and scope, not an independent definition or named theorem."
+  },
+  {
+    "id": "WeilConjectures:WC.5::landmark:elliptic-hasse-bound-as-a-compatibility-th-frhf6e",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "The elliptic case is a comparison check against the independent route, not the main arbitrary-genus point-count result."
+  },
+  {
+    "id": "WeilConjectures:WC.5:power-sum-converse::landmark:this-extracted-substage-owns-the-all-posit-18l6u8u",
+    "decision": "name",
+    "label": "Power-sum converse",
+    "kind": "theorem"
+  },
+  {
+    "id": "WeilConjectures:WC.5:surface-alternative::landmark:schemeandstackfoundations-sf-5-surface-rie-nut2vk",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Lists the imported intersection-theory suppliers, not the independent curve-bound construction itself."
+  },
+  {
+    "id": "WeilConjectures:WC.6/purity-for-proper-smooth-varieties",
+    "decision": "name",
+    "label": "Purity for proper smooth varieties",
+    "kind": "theorem"
+  },
+  {
+    "id": "WeilConjectures:WC.6::landmark:dwp-7-to-extend-pure-cohomology-and-the-as-647jn9",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Import instruction duplicating the proper-smooth purity node retained in this layer."
+  }
+]
