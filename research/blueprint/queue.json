@@ -966,7 +966,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BERGSTROM-FABER-PAYNE-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1079"
   },
   {
    "id": "REV-PAPER-BERGSTROM-FABER-PAYNE-24",
@@ -1995,8 +1996,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-TSIMERMAN-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1141"
+   "state": "pending",
+   "note": "released on GitHub issue #1141"
   },
   {
    "id": "REV-PAPER-TSIMERMAN-18",
