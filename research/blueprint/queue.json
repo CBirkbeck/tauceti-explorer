@@ -601,8 +601,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CIUBOTARU-HARRIS-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1057"
+   "state": "pending",
+   "note": "released on GitHub issue #1057"
   },
   {
    "id": "REV-PAPER-CIUBOTARU-HARRIS-26",
@@ -1663,7 +1663,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MASSER-ZANNIER-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1121"
   },
   {
    "id": "REV-PAPER-MASSER-ZANNIER-20",
