@@ -1,0 +1,1830 @@
+[
+  {
+    "id": "PadicLocalLanglandsForGL2Qp:R30.1::landmark:analytic-robba-foundations-from-padichodge-1b2amn6",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported suppliers and normalization instructions, not a new central object in this layer."
+  },
+  {
+    "id": "PadicLocalLanglandsForGL2Qp:R30.2::landmark:smooth-mod-p-admissible-unitary-banach-and-mxy0zp",
+    "decision": "keep",
+    "label": "Local representation categories",
+    "kind": "construction"
+  },
+  {
+    "id": "PadicLocalLanglandsForGL2Qp:R30.3::landmark:functor-from-two-dimensional-modules-to-re-1ugf4ui",
+    "decision": "name",
+    "label": "Colmez's functor",
+    "kind": "construction"
+  },
+  {
+    "id": "PadicLocalLanglandsForGL2Qp:R30.4::landmark:locally-algebraic-vectors-attached-to-de-r-ybkyqv",
+    "decision": "name",
+    "label": "Locally algebraic vectors",
+    "kind": "construction"
+  },
+  {
+    "id": "PadicLocalLanglandsForGL2Qp:R30.5::landmark:projective-envelopes-and-prove-their-endom-i4jsqx",
+    "decision": "name",
+    "label": "Projective envelopes",
+    "kind": "construction"
+  },
+  {
+    "id": "PadicLocalLanglandsForGL2Qp:R30.6::landmark:extract-and-prove-the-precise-paskunas-hu--1m2i0lp",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Source-selection and hypothesis-table instructions; no single theorem is identified at this granularity."
+  },
+  {
+    "id": "PadicLocalLanglandsForGL2Qp:R30.6::landmark:this-table-records-the-verified-case-divis-17jnfzq",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Warning about preserving source hypotheses and application bookkeeping."
+  },
+  {
+    "id": "PadicMeasuresIwasawaAlgebras:L0::landmark:density-of-locally-constant-functions-usin-y7221o",
+    "decision": "name",
+    "label": "Density of locally constant functions",
+    "kind": "theorem"
+  },
+  {
+    "id": "PadicMeasuresIwasawaAlgebras:L0::landmark:equip-the-dual-with-the-operator-norm-and--1iaq1qa",
+    "decision": "name",
+    "label": "Operator-norm and weak topologies",
+    "kind": "definition"
+  },
+  {
+    "id": "PadicMeasuresIwasawaAlgebras:L0::landmark:existing-finite-extension-and-valuation-ri-1yyak5b",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Instructions to reuse coefficient carriers and develop several auxiliary comparisons."
+  },
+  {
+    "id": "PadicMeasuresIwasawaAlgebras:L0::landmark:for-banach-spaces-whose-nonzero-norm-value-127v5h6",
+    "decision": "name",
+    "label": "Orthonormal-basis theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "PadicMeasuresIwasawaAlgebras:L0a::landmark:analytic-universal-character-action-on-the-gdnlfe",
+    "decision": "name",
+    "label": "Universal-character action",
+    "kind": "construction"
+  },
+  {
+    "id": "PadicMeasuresIwasawaAlgebras:L1::landmark:convolution-by-iterated-integration-and-pr-hhtrcr",
+    "decision": "name",
+    "label": "Convolution of integral measures",
+    "kind": "construction"
+  },
+  {
+    "id": "PadicMeasuresIwasawaAlgebras:L2::landmark:inverse-by-summing-mahler-coefficients-aga-17r7l38",
+    "decision": "name",
+    "label": "Mahler–Amice inverse",
+    "kind": "construction"
+  },
+  {
+    "id": "PadicMeasuresIwasawaAlgebras:L3::landmark:for-commutative-o-g-use-localization-at-it-1l0ygzf",
+    "decision": "name",
+    "label": "Pseudo-measures",
+    "kind": "definition"
+  },
+  {
+    "id": "PadicMeasuresIwasawaAlgebras:L3::landmark:for-procyclic-g-prove-the-principal-augmen-1t5pxlp",
+    "decision": "name",
+    "label": "Principal augmentation-ideal theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "PadicMeasuresIwasawaAlgebras:L4::landmark:characteristic-ideals-intrinsically-from-l-1wxqyu7",
+    "decision": "name",
+    "label": "Characteristic ideals",
+    "kind": "definition"
+  },
+  {
+    "id": "PadicMeasuresIwasawaAlgebras:L4::landmark:for-delta-finite-abelian-of-order-prime-to-1jfhsjm",
+    "decision": "name",
+    "label": "Integral character idempotents",
+    "kind": "construction"
+  },
+  {
+    "id": "PadicMeasuresIwasawaAlgebras:L4::landmark:weierstrass-division-and-preparation-for-o-g66yeq",
+    "decision": "name",
+    "label": "Weierstrass division and preparation",
+    "kind": "theorem"
+  },
+  {
+    "id": "PadicMeasuresIwasawaAlgebras:L5::landmark:determinant-lines-of-bounded-complexes-of--1rbse8d",
+    "decision": "name",
+    "label": "Determinant lines",
+    "kind": "construction"
+  },
+  {
+    "id": "PadicMeasuresIwasawaAlgebras:L5::landmark:exactness-for-the-compact-inverse-systems--1lqbbzv",
+    "decision": "name",
+    "label": "Exactness of compact inverse systems",
+    "kind": "theorem"
+  },
+  {
+    "id": "PadicMeasuresIwasawaAlgebras:L5::landmark:rjw-proposition-3-16-theorems-3-21-3-25-an-1ij55ya",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance checklist and source locators, not a separate central construction."
+  },
+  {
+    "id": "PadicMeasuresIwasawaAlgebras:L6::landmark:for-lattices-and-torsionfree-modules-over--19m8rtg",
+    "decision": "name",
+    "label": "Gorenstein quotient duality",
+    "kind": "theorem"
+  },
+  {
+    "id": "PadicMeasuresIwasawaAlgebras:L6::landmark:ring-level-algebra-required-by-burns-sakam-ajivtg",
+    "decision": "name",
+    "label": "Gorenstein coefficient orders",
+    "kind": "definition"
+  },
+  {
+    "id": "PerfectoidQuotients:Q0:animated-application/perfect-prism-is-initial-over-its-perfectoid-ring",
+    "decision": "name",
+    "label": "Maps out of perfect prisms",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidQuotients:Q0:animated-application::landmark:pr-0-s-constructed-rings-free-algebras-dis-zeijj3",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Instructions to import prism algebra from its owner."
+  },
+  {
+    "id": "PerfectoidQuotients:Q0:animated-application::landmark:simplicial-commutative-algebra-from-enhanc-11kco4k",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Cross-roadmap imports and comparison requirements."
+  },
+  {
+    "id": "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings",
+    "decision": "name",
+    "label": "Quasiregular semiperfectoid rings",
+    "kind": "definition"
+  },
+  {
+    "id": "PerfectoidQuotients:Q0:integral-algebra::landmark:integral-perfectoid-rings-in-the-scope-of--1eakq1e",
+    "decision": "name",
+    "label": "Integral perfectoid rings",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidQuotients:Q1::landmark:pr-1-s-bs22-theorem-6-3-hodge-tate-compari-1to0dli",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Explicit reexport of another layer's Hodge–Tate theorem, not a second construction."
+  },
+  {
+    "id": "PerfectoidQuotients:Q2/derived-prismatic-cohomology-and-hodge-tate-filtration",
+    "decision": "name",
+    "label": "Derived prismatic cohomology",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidQuotients:Q2/discrete-derived-prismatic-cohomology-gives-a-weakly-initial-prism",
+    "decision": "name",
+    "label": "Discrete prismatic cohomology and δ-structure",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidQuotients:Q2/initial-prism-of-a-semiperfectoid-ring",
+    "decision": "name",
+    "label": "Initial prism of a semiperfectoid ring",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidQuotients:Q2/lci-quotient-prism-is-initial",
+    "decision": "name",
+    "label": "Prismatic envelope of a regular quotient",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidQuotients:Q2/qrsp-derived-prismatic-cohomology-is-the-initial-prism",
+    "decision": "name",
+    "label": "Quasiregular semiperfectoid initial prism",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidQuotients:Q2/universal-perfectoidization",
+    "decision": "name",
+    "label": "Universal perfectoidization",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidQuotients:Q2::landmark:pr-2-s-independent-extension-of-the-smooth-9gq51k",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Import of the derived-prismatic construction already represented by a source-node planet."
+  },
+  {
+    "id": "PerfectoidQuotients:Q2::landmark:pr-2-s-proved-discreteness-structure-and-i-la7jd2",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Import list duplicating the retained initial-prism and discreteness source-node planets."
+  },
+  {
+    "id": "PerfectoidQuotients:Q2::landmark:universal-prisms-for-semiperfectoid-rings--1pwdfyb",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Roadmap instruction duplicating the retained universal-prism and perfectoidization constructions."
+  },
+  {
+    "id": "PerfectoidQuotients:Q3/andre-flatness-lemma",
+    "decision": "name",
+    "label": "André's flatness lemma",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidQuotients:Q3/lifting-quasisyntomic-covers-to-prisms",
+    "decision": "name",
+    "label": "Flat prisms over quasisyntomic algebras",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidQuotients:Q3::landmark:dd-0-5-s-quasisyntomic-and-quasiregular-se-yphkku",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Supplier references and proof instructions duplicate the retained flat-prism theorem."
+  },
+  {
+    "id": "PerfectoidQuotients:Q3::landmark:theorem-7-14-1jakjrt",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Locator-only extraction of André's flatness lemma already retained in this layer."
+  },
+  {
+    "id": "PerfectoidQuotients:Q4/surjectivity-of-perfectoidization",
+    "decision": "name",
+    "label": "Surjectivity of perfectoidization",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
+    "decision": "name",
+    "label": "Strongly Zariski closed perfectoid quotients",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidQuotients:Q4::landmark:apply-remark-7-5-to-a-perfectoid-tate-ring-rsyp0x",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Proof-construction instructions for the closed-quotient theorem already retained."
+  },
+  {
+    "id": "PerfectoidQuotients:Q4::landmark:bs22-theorem-7-4-1opotul",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Source locator and proof steps for the retained surjectivity theorem."
+  },
+  {
+    "id": "PerfectoidShimuraVarieties:S0::landmark:effective-deck-groups-and-distinguish-the--4fcri6",
+    "decision": "name",
+    "label": "Effective deck groups",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidShimuraVarieties:S0::landmark:p-level-inverse-systems-prove-cofinality-o-bacph4",
+    "decision": "name",
+    "label": "p-level inverse systems",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidShimuraVarieties:S0.general::landmark:general-data-infinite-level-diamond-as-the-9dnynn",
+    "decision": "name",
+    "label": "General-data infinite-level diamond",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidShimuraVarieties:S1::landmark:anticanonical-tower-through-the-canonical--nl2y6a",
+    "decision": "name",
+    "label": "Anticanonical tower",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidShimuraVarieties:S1::landmark:construction-to-the-minimal-compactificati-p7v3k5",
+    "decision": "name",
+    "label": "Minimal compactification of the Siegel tower",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidShimuraVarieties:S2::landmark:choose-a-symplectic-embedding-compare-fini-1l8dvxr",
+    "decision": "name",
+    "label": "Hodge-type perfectoid local models",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidShimuraVarieties:S3::landmark:elliptic-map-with-the-quotient-line-constr-1r8c8zo",
+    "decision": "name",
+    "label": "Tautological-bundle pullback",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidShimuraVarieties:S3::landmark:hodge-tate-period-map-on-the-open-perfecto-1a7sgq8",
+    "decision": "name",
+    "label": "Hodge–Tate period map",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidShimuraVarieties:S4::landmark:complete-descent-argument-of-hansen-johans-1s7vgpp",
+    "decision": "name",
+    "label": "Pre-abelian tower representability",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidShimuraVarieties:S4::landmark:hansen-johansson-s-revised-theorem-supplie-l64ret",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Warning distinguishing representability from the additional period-map theorem."
+  },
+  {
+    "id": "PerfectoidShimuraVarieties:S5::landmark:comparison-with-the-tower-obtained-directl-ycysij",
+    "decision": "name",
+    "label": "Completed cusp charts",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidShimuraVarieties:S5::landmark:for-hilbert-varieties-compare-the-geometri-1ur6hht",
+    "decision": "name",
+    "label": "Profinite polarization torsor",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidShimuraVarieties:S6::landmark:generic-mp2z96",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Scope distinction between three results, not a separate construction."
+  },
+  {
+    "id": "PerfectoidSpaces:P0/almost-finite-projective-and-finite-etale-algebras",
+    "decision": "name",
+    "label": "Almost finite étale algebras",
+    "kind": "definition"
+  },
+  {
+    "id": "PerfectoidSpaces:P0/almost-modules-over-perfectoid-base",
+    "decision": "name",
+    "label": "Almost modules",
+    "kind": "definition"
+  },
+  {
+    "id": "PerfectoidSpaces:P0/finite-etale-lifting-along-complete-flat-almost-algebras",
+    "decision": "name",
+    "label": "Finite étale almost algebras modulo ϖ",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidSpaces:P0::landmark:descent-for-almost-modules-and-almost-alge-gnl23y",
+    "decision": "name",
+    "label": "Faithfully flat descent for almost modules",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidSpaces:P0::landmark:in-p1-p2-instantiate-this-construction-usi-3gfupy",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Instructions for instantiating the almost-base hypotheses in later layers."
+  },
+  {
+    "id": "PerfectoidSpaces:P0::landmark:start-with-an-abstract-ring-v-and-an-expli-1eojf16",
+    "decision": "name",
+    "label": "Almostification and its adjoints",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidSpaces:P1/almost-integral-dictionary",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Intermediate almost-algebra equivalence in the proof of the retained tilting theorem."
+  },
+  {
+    "id": "PerfectoidSpaces:P1/continuous-valuations-under-tilting",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Auxiliary valuation comparison represented by the central tilting constructions."
+  },
+  {
+    "id": "PerfectoidSpaces:P1/cotangent-complex-vanishing-mod-varpi",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Intermediate cotangent-complex vanishing lemma rather than a central planet of this layer."
+  },
+  {
+    "id": "PerfectoidSpaces:P1/deformation-lifting-of-perfectoid-mod-varpi-algebras",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Auxiliary deformation equivalence in the tilting proof; keep the central tilting theorem."
+  },
+  {
+    "id": "PerfectoidSpaces:P1/fontaine-theta-and-primitive-kernel",
+    "decision": "name",
+    "label": "Fontaine's θ",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidSpaces:P1/perfectoid-field-definition",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Already represented by the existing curated Perfectoid fields and Tate rings planet; retain the full source node in the layer text."
+  },
+  {
+    "id": "PerfectoidSpaces:P1/perfectoid-tate-rings-and-algebras",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Already represented by the existing curated Perfectoid fields and Tate rings planet; avoid a second display entry for the same definition."
+  },
+  {
+    "id": "PerfectoidSpaces:P1/tilt-of-perfectoid-field",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Field-specialized tilt is included in the retained general perfectoid Tate-ring tilt."
+  },
+  {
+    "id": "PerfectoidSpaces:P1/tilt-of-perfectoid-tate-ring",
+    "decision": "name",
+    "label": "Tilt of a perfectoid Tate ring",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidSpaces:P1/tilting-equivalence-and-explicit-tilt",
+    "decision": "name",
+    "label": "Tilting equivalence",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidSpaces:P1/untilts-classified-by-primitive-ideals",
+    "decision": "name",
+    "label": "Marked untilts and primitive ideals",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidSpaces:P1::landmark:ecd-definition-3-1-verbatim-in-mathematica-1o7ypkg",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Definition locator and instructions duplicate the retained perfectoid Tate-ring definition."
+  },
+  {
+    "id": "PerfectoidSpaces:P1::landmark:existing-witt-vector-and-fontaine-map-defi-134jknu",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Library-reuse and comparison-map instructions."
+  },
+  {
+    "id": "PerfectoidSpaces:P1::landmark:multiplicative-inverse-limit-defining-r-th-1yroq9m",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Construction instructions duplicate the retained Tate-ring tilt."
+  },
+  {
+    "id": "PerfectoidSpaces:P2/approximation-lemma",
+    "decision": "name",
+    "label": "Perfectoid approximation lemma",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidSpaces:P2/completed-direct-limits-of-p-finite-affinoids",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Finite-stage approximation lemma used in the proof, not a central layer landmark."
+  },
+  {
+    "id": "PerfectoidSpaces:P2/fibre-products-of-perfectoid-spaces",
+    "decision": "name",
+    "label": "Fibre products of perfectoid spaces",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidSpaces:P2/p-finite-acyclicity-from-tate",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Characteristic-p special case used to prove the retained general sheaf theorem."
+  },
+  {
+    "id": "PerfectoidSpaces:P2/perfectoid-spaces-and-glued-tilting",
+    "decision": "name",
+    "label": "Perfectoid spaces and glued tilts",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidSpaces:P2/rational-localization-of-perfectoid-affinoids",
+    "decision": "name",
+    "label": "Perfectoid rational localizations",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity",
+    "decision": "name",
+    "label": "Perfectoid sheaf theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidSpaces:P2/tilting-homeomorphism-and-rational-subsets",
+    "decision": "name",
+    "label": "Tilting homeomorphism",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidSpaces:P2::landmark:perfectoid-spaces-as-the-full-subcategory--10x0tkv",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Duplicate extraction of the retained perfectoid-space and glued-tilt construction."
+  },
+  {
+    "id": "PerfectoidSpaces:P2::landmark:tilting-homeomorphism-of-valuation-spectra-nf37d8",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Proof instructions duplicate the retained homeomorphism, localization and sheaf planets."
+  },
+  {
+    "id": "PerfectoidSpaces:P2::landmark:using-a0-construct-fibre-products-of-perfe-19grpv7",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Cross-reference and construction instructions duplicate the retained fibre-product planet."
+  },
+  {
+    "id": "PerfectoidSpaces:P3/almost-purity-theorem",
+    "decision": "name",
+    "label": "Almost purity",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidSpaces:P3/etale-site-tilting-and-etale-almost-acyclicity",
+    "decision": "name",
+    "label": "Tilting of étale sites",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidSpaces:P3/finite-etale-covers-in-characteristic-p",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Characteristic-p proof case of the retained general almost-purity theorem."
+  },
+  {
+    "id": "PerfectoidSpaces:P3/finite-extensions-of-perfectoid-fields",
+    "decision": "name",
+    "label": "Finite extensions of perfectoid fields",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidSpaces:P3/henselian-finite-etale-approximation",
+    "decision": "name",
+    "label": "Finite-stage descent of finite étale covers",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidSpaces:P3/strongly-etale-morphisms-and-base-change",
+    "decision": "name",
+    "label": "Strongly finite étale morphisms",
+    "kind": "definition"
+  },
+  {
+    "id": "PerfectoidSpaces:P3/strongly-finite-etale-maps-are-affinoid-over-affinoids",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Auxiliary local-structure lemmas for the retained almost-purity and étale-site theorems."
+  },
+  {
+    "id": "PerfectoidSpaces:P3/tilting-finite-etale-algebras-fully-faithful",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Intermediate fully faithful functor in the proof of the retained étale tilting equivalence."
+  },
+  {
+    "id": "PerfectoidSpaces:P3::landmark:ecd-theorem-6-1-with-its-three-distinct-co-16wu45t",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Locator and proof instructions duplicate the retained almost-purity theorem."
+  },
+  {
+    "id": "PerfectoidSpaces:P3::landmark:perfectoid-finite-etale-category-with-the--1tuz631",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Comparison and gluing instructions duplicate the retained étale-site tilting theorem."
+  },
+  {
+    "id": "PerfectoidSpaces:P4::landmark:injection-and-isomorphism-criteria-of-ecd--1u2ve00",
+    "decision": "name",
+    "label": "Perfectoid isomorphism criteria",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidSpaces:P5/cofiltered-limits-of-affinoid-perfectoid-spaces",
+    "decision": "name",
+    "label": "Cofiltered limits of affinoid perfectoid spaces",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidSpaces:P5/finite-stage-descent-of-qcqs-etale-objects",
+    "decision": "name",
+    "label": "Finite-stage descent of qcqs étale objects",
+    "kind": "theorem"
+  },
+  {
+    "id": "PerfectoidSpaces:P5::landmark:cofiltered-limits-of-affinoid-perfectoid-p-1npvi7l",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Construction instructions duplicate the retained cofiltered-limit source node."
+  },
+  {
+    "id": "PerfectoidSpaces:P5::landmark:finite-etale-finite-stage-approximation-us-13wcpva",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Approximation proof input is subordinate to the retained finite-stage descent theorem."
+  },
+  {
+    "id": "PerfectoidSpaces:P6::landmark:a3-to-prove-the-additional-affinoid-assert-1qsn73u",
+    "decision": "name",
+    "label": "Affinoid pro-étale maps",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidSpaces:P6::landmark:instantiate-the-small-perfectoid-space-def-sg368d",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Size-bound instantiation and closure bookkeeping rather than a central geometric planet."
+  },
+  {
+    "id": "PerfectoidSpaces:P7/tilde-limits-and-etale-topos-comparison",
+    "decision": "name",
+    "label": "Tilde-limits of noetherian adic spaces",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidSpaces:P7::landmark:restriction-to-compatible-rational-opens-c-1cbm3n9",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Functoriality, gluing and acceptance instructions for the retained limit construction."
+  },
+  {
+    "id": "PerfectoidSpaces:P8::landmark:for-hodge-type-closed-embeddings-combine-t-17wfl42",
+    "decision": "name",
+    "label": "Hodge-type closed perfectoidization",
+    "kind": "construction"
+  },
+  {
+    "id": "PerfectoidSpaces:P9::landmark:for-affinoid-smooth-rigid-coefficient-weig-qdsduf",
+    "decision": "name",
+    "label": "Completed external tensor product",
+    "kind": "construction"
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.0::landmark:betti-de-rham-realization-comparison-matri-dl1695",
+    "decision": "name",
+    "label": "Betti/de Rham comparison matrices",
+    "kind": "construction"
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.0::landmark:known-conjectural-boundary-oltdif",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Warning about the known-versus-conjectural boundary."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.0::landmark:tate-object-period-and-an-elliptic-curve-c-cdajra",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Explicit acceptance computations and a normalization warning."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.1::landmark:completed-motivic-l-functions-from-local-w-1onlur0",
+    "decision": "name",
+    "label": "Completed motivic L-functions",
+    "kind": "definition"
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.1::landmark:known-conjectural-boundary-oltdif",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Conjectural-scope and nonvanishing warning."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.2::landmark:algebra-of-formal-periods-from-algebraic-i-pm1v4n",
+    "decision": "name",
+    "label": "Algebra of formal periods",
+    "kind": "construction"
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.2::landmark:known-conjectural-boundary-oltdif",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Warning separating the numerical period conjecture from formal identities."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.2::landmark:represent-2-i-and-basic-algebraic-periods--1ro32ij",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance examples testing the formal-period construction."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.3::landmark:assemble-rational-motivic-cohomology-real--1bbphtw",
+    "decision": "name",
+    "label": "Regulator determinant lines",
+    "kind": "construction"
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.3::landmark:known-conjectural-boundary-oltdif",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Scope warning about conjectural general leading terms."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.4::landmark:archimedean-corrections-xmukzn",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "An unspecified correction term, not an independently identified central construction."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.4::landmark:finite-singular-conditions-1abj3ok",
+    "decision": "name",
+    "label": "Local finite/singular conditions",
+    "kind": "definition"
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.4::landmark:integral-determinant-lines-of-perfect-glob-e5phe4",
+    "decision": "name",
+    "label": "Integral determinant lines",
+    "kind": "construction"
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.4::landmark:known-conjectural-boundary-oltdif",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Perfectness and coefficient-compatibility warning."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.5::landmark:duality-normalization-qxg34k",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Normalization requirement, not a standalone object or named result."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.5::landmark:formulate-zeta-element-and-equivariant-tam-1sx8lsr",
+    "decision": "name",
+    "label": "Equivariant Tamagawa-number conjectures",
+    "kind": null
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.5::landmark:functional-equation-1puk4q9",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Bare functional-equation fragment without an independently identified theorem."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.5::landmark:known-conjectural-boundary-oltdif",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Warning that general ETNC statements remain conjectural."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.6::landmark:adapters-identifying-motivic-fundamental-l-1d9t4b6",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Cross-roadmap assembly adapters, not a new definition of the imported arithmetic invariants."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.6::landmark:known-conjectural-boundary-oltdif",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Warning against extending rank-zero/one results to general conjectures."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.6::landmark:local-tamagawa-numbers-1tw0jjr",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Imported arithmetic invariant listed as an assembly term, not constructed in this layer."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.6::landmark:sha-in-precisely-established-cases-1w5ps6p",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Scoped Sha mention and proof boundary, not a standalone finiteness theorem."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.7::landmark:exact-algebraic-factors-and-certified-inte-3o09ft",
+    "decision": "name",
+    "label": "Certified period enclosures",
+    "kind": "construction"
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.7::landmark:known-conjectural-boundary-oltdif",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Warning that numerical recognition is not an algebraicity proof."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.8::landmark:construct-relative-de-rham-cohomology-b6o3bb",
+    "decision": "name",
+    "label": "Relative de Rham cohomology",
+    "kind": "construction"
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.8::landmark:gauss-manin-connection-17zxi7u",
+    "decision": "keep",
+    "label": "Gauss–Manin connection",
+    "kind": "construction"
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.8::landmark:known-conjectural-boundary-oltdif",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Warning separating arithmetic mirror conjectures and distinct comparison theorems."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.9::landmark:convergent-multiple-zeta-sums-with-a-decla-1kkfgpj",
+    "decision": "name",
+    "label": "Convergent multiple zeta sums",
+    "kind": "construction"
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.9::landmark:known-conjectural-boundary-oltdif",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Known-versus-conjectural dimension and independence boundary."
+  },
+  {
+    "id": "PeriodsAndSpecialValues:PS.9::landmark:low-weight-shuffle-stuffle-identities-and--1yi1isb",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Low-weight acceptance tests, not a new central theorem."
+  },
+  {
+    "id": "PhiGammaModulesAndIwasawaCohomology:PG.0::landmark:analytic-robba-annulus-carriers-and-ration-1wzwbmj",
+    "decision": "name",
+    "label": "Cyclotomic coefficient rings",
+    "kind": "construction"
+  },
+  {
+    "id": "PhiGammaModulesAndIwasawaCohomology:PG.0::landmark:include-field-of-norms-galois-equivalence--g68rh4",
+    "decision": "name",
+    "label": "Field-of-norms Galois equivalence",
+    "kind": "theorem"
+  },
+  {
+    "id": "PhiGammaModulesAndIwasawaCohomology:PG.2::landmark:cherbonnier-colmez-overconvergence-theorem-zaj62a",
+    "decision": "name",
+    "label": "Cherbonnier–Colmez overconvergence theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "PhiGammaModulesAndIwasawaCohomology:PG.3::landmark:cup-products-tate-duality-1vyaqgf",
+    "decision": "name",
+    "label": "Tate duality for Herr cochains",
+    "kind": "theorem"
+  },
+  {
+    "id": "PhiGammaModulesAndIwasawaCohomology:PG.3::landmark:for-odd-p-and-the-finite-prime-to-p-torsio-fbotx8",
+    "decision": "name",
+    "label": "Herr complex",
+    "kind": "construction"
+  },
+  {
+    "id": "PhiGammaModulesAndIwasawaCohomology:PG.4::landmark:as-the-normalized-left-inverse-of-through--1ezx3nj",
+    "decision": "name",
+    "label": "Normalized ψ operator",
+    "kind": "construction"
+  },
+  {
+    "id": "PhiGammaModulesAndIwasawaCohomology:PG.4::landmark:rank-one-cyclotomic-formulas-and-compare-w-16g3new",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Rank-one comparison computation and carrier warning, not the central ψ construction."
+  },
+  {
+    "id": "PhiGammaModulesAndIwasawaCohomology:PG.5::landmark:naturality-in-t-finite-extension-of-k-core-dokwr4",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Naturality and coefficient-change requirements for an existing complex."
+  },
+  {
+    "id": "PhiGammaModulesAndIwasawaCohomology:PG.6::landmark:bases-only-after-proving-freeness-1iyn01n",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Warning to prove freeness before choosing bases; not the Wach-module construction itself."
+  },
+  {
+    "id": "PhiGammaModulesAndIwasawaCohomology:PG.7::landmark:keep-this-later-relative-theorem-separate--frw388",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Cross-roadmap separation and consumer bookkeeping."
+  },
+  {
+    "id": "Polylogarithms:P.1::landmark:for-weight-two-define-the-bloch-wigner-dil-47f0kb",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "The layer already has a curated Bloch–Wigner dilogarithm planet."
+  },
+  {
+    "id": "Polylogarithms:P.1::landmark:li-n-z-by-its-convergent-power-series-on-t-1orj5jp",
+    "decision": "name",
+    "label": "Single-valued real polylogarithms",
+    "kind": "definition"
+  },
+  {
+    "id": "Polylogarithms:P.2::landmark:certified-numerical-evaluation-by-explicit-cp8aru",
+    "decision": "name",
+    "label": "Certified regulator evaluation",
+    "kind": "construction"
+  },
+  {
+    "id": "Polylogarithms:P.2::landmark:comparison-includes-its-sign-and-scalar-mu1gqb",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Sign, scalar and torsion warning rather than a separate result."
+  },
+  {
+    "id": "Polylogarithms:P.2::landmark:descend-the-bloch-wigner-function-through--1w9xd4g",
+    "decision": "name",
+    "label": "Bloch–Wigner regulator",
+    "kind": "construction"
+  },
+  {
+    "id": "Polylogarithms:P.3::landmark:resulting-weight-three-special-value-theor-1lkut5v",
+    "decision": "name",
+    "label": "Weight-three special-value theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "Polylogarithms:P.3::landmark:weight-three-polylogarithmic-groups-and-re-1xanc80",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "The layer already has a curated Weight-three polylogarithmic complex planet for this construction."
+  },
+  {
+    "id": "Polylogarithms:P.4::landmark:rational-polylogarithmic-complexes-in-the--1bg8xj7",
+    "decision": "name",
+    "label": "Rational polylogarithmic complexes",
+    "kind": "definition"
+  },
+  {
+    "id": "Polylogarithms:P.5::landmark:for-weight-two-derive-the-logarithmic-diff-1vuu67x",
+    "decision": "name",
+    "label": "Weight-two logarithmic differential",
+    "kind": "construction"
+  },
+  {
+    "id": "Polylogarithms:P.5::landmark:low-weight-polylogarithmic-complexes-of-a--g861xh",
+    "decision": "name",
+    "label": "Polylogarithmic complexes of a smooth curve",
+    "kind": "construction"
+  },
+  {
+    "id": "Polylogarithms:P.6::landmark:using-n-s-units-and-d-s-p-adic-logarithm-s-1q160vt",
+    "decision": "name",
+    "label": "Leopoldt's conjecture",
+    "kind": null
+  },
+  {
+    "id": "Polylogarithms:P.6::landmark:weight-two-five-term-relation-at-algebraic-p1eqzs",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance tests and a warning against numerical certificates."
+  },
+  {
+    "id": "PotentialAutomorphyInfrastructure:PA.0::landmark:algebraic-coefficient-local-systems-finite-ei7x2z",
+    "decision": "name",
+    "label": "Integral Hecke cohomology comparisons",
+    "kind": "theorem"
+  },
+  {
+    "id": "PotentialAutomorphyInfrastructure:PA.1::landmark:integral-algebraic-coefficient-modules-ove-1g5y2gp",
+    "decision": "name",
+    "label": "Integral algebraic coefficient modules",
+    "kind": "construction"
+  },
+  {
+    "id": "PotentialAutomorphyInfrastructure:PA.5::landmark:comparison-lemmas-for-restriction-to-field-q4evkf",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "List of compatibility checks for imported compatible-system operations."
+  },
+  {
+    "id": "PotentialAutomorphyInfrastructure:PA.5::landmark:potentialmodularityandcompatiblesystems-r2-1kx63q6",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Explicit supplier and ownership boundary, not a new construction."
+  },
+  {
+    "id": "PotentialModularityAndCompatibleSystems:R23.1::landmark:rational-point-existence-theorem-for-the-s-1dlfxzk",
+    "decision": "name",
+    "label": "Moret–Bailly rational-point theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "PotentialModularityAndCompatibleSystems:R23.2::landmark:simultaneous-torsion-polarisation-problem--t8e7bv",
+    "decision": "name",
+    "label": "Simultaneous torsion/polarisation problem",
+    "kind": "construction"
+  },
+  {
+    "id": "PotentialModularityAndCompatibleSystems:R23.3::landmark:residual-theorem-in-kw-ii-theorem-6-1-s-st-5m581q",
+    "decision": "name",
+    "label": "Potential residual modularity theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "PotentialModularityAndCompatibleSystems:R23.4::landmark:start-with-a-characteristic-zero-lift-that-6myybg",
+    "decision": "name",
+    "label": "Potential modularity of given lifts",
+    "kind": "theorem"
+  },
+  {
+    "id": "PotentialModularityAndCompatibleSystems:R23.5::landmark:strengthen-the-construction-to-the-precise-1g08klm",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Application-specific strengthening and compatibility instructions, with no separately identified landmark."
+  },
+  {
+    "id": "PotentialModularityAndCompatibleSystems:R23.6::landmark:separate-residual-and-characteristic-zero--r2j3kk",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Export table distinguishing two previously constructed theorems."
+  },
+  {
+    "id": "PotentialModularityAndCompatibleSystems:R24.1::landmark:global-deformation-ring-finiteness-stateme-12zw159",
+    "decision": "name",
+    "label": "Global deformation-ring finiteness",
+    "kind": "theorem"
+  },
+  {
+    "id": "PotentialModularityAndCompatibleSystems:R24.2::landmark:combine-finiteness-with-the-global-present-1q900cs",
+    "decision": "name",
+    "label": "Characteristic-zero points",
+    "kind": "theorem"
+  },
+  {
+    "id": "PotentialModularityAndCompatibleSystems:R24.3::landmark:four-lift-constructions-in-kw-i-theorem-5--11x6oky",
+    "decision": "name",
+    "label": "Prescribed global lift constructions",
+    "kind": "construction"
+  },
+  {
+    "id": "PotentialModularityAndCompatibleSystems:R24.3::landmark:pin-the-earlier-input-to-kw-annals-169-200-1uzq4sc",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Source-location and prerequisite bookkeeping; the exact lift construction is retained separately."
+  },
+  {
+    "id": "PotentialModularityAndCompatibleSystems:R24.4::landmark:complete-the-derivation-of-kw-i-theorem-4--1lmo935",
+    "decision": "name",
+    "label": "KW modularity-lifting theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "PotentialModularityAndCompatibleSystems:R24.5::landmark:potential-modularity-solvable-base-change--17o3oii",
+    "decision": "name",
+    "label": "Two-dimensional compatible systems",
+    "kind": "construction"
+  },
+  {
+    "id": "PotentialModularityAndCompatibleSystems:R24.5:operations::landmark:general-systems-before-existence-theorems-17mr7ol",
+    "decision": "name",
+    "label": "Compatible-system operations",
+    "kind": "construction"
+  },
+  {
+    "id": "PotentialModularityAndCompatibleSystems:R24.6::landmark:reduction-and-specialisation-lemmas-used-t-1ervftd",
+    "decision": "name",
+    "label": "Reduction and specialisation lemmas",
+    "kind": "theorem"
+  },
+  {
+    "id": "PrismaticCohomology:PR.0/bounded-prism-complete-flatness",
+    "decision": "keep",
+    "label": "Complete flatness over bounded prisms",
+    "kind": "theorem"
+  },
+  {
+    "id": "PrismaticCohomology:PR.0/delta-frobenius-dictionary",
+    "decision": "name",
+    "label": "δ-rings",
+    "kind": "definition"
+  },
+  {
+    "id": "PrismaticCohomology:PR.0/distinguished-factor-rigidity",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Auxiliary factor lemma for distinguished elements, not one of the layer's central planets."
+  },
+  {
+    "id": "PrismaticCohomology:PR.0/local-distinguished-prism-generators",
+    "decision": "keep",
+    "label": "Local distinguished generators",
+    "kind": "theorem"
+  },
+  {
+    "id": "PrismaticCohomology:PR.0/perfect-prisms-perfectoid-rings",
+    "decision": "keep",
+    "label": "Perfect prisms and perfectoid rings",
+    "kind": "theorem"
+  },
+  {
+    "id": "PrismaticCohomology:PR.0/regular-prismatic-envelopes",
+    "decision": "keep",
+    "label": "Prismatic envelopes of regular ideals",
+    "kind": "construction"
+  },
+  {
+    "id": "PrismaticCohomology:PR.0/rigidity-prism-ideal",
+    "decision": "keep",
+    "label": "Rigidity of the prism ideal",
+    "kind": "theorem"
+  },
+  {
+    "id": "PrismaticCohomology:PR.0::landmark:p-derivations-delta-rings-free-delta-algeb-xgenrx",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Construction instructions duplicate the retained δ-ring and Frobenius-lift definition."
+  },
+  {
+    "id": "PrismaticCohomology:PR.0::landmark:prismatic-envelopes-by-delta-adjunction-an-113gck3",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Construction instructions duplicate the retained prismatic-envelope planet."
+  },
+  {
+    "id": "PrismaticCohomology:PR.0::landmark:w-k-p-a-inf-ker-theta-the-breuil-kisin-pri-1p8ykfg",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance examples and a negative test, not a central construction."
+  },
+  {
+    "id": "PrismaticCohomology:PR.1/prismatic-structure-sheaf",
+    "decision": "keep",
+    "label": "The prismatic structure sheaf",
+    "kind": "construction"
+  },
+  {
+    "id": "PrismaticCohomology:PR.1::landmark:completed-base-change-along-bounded-prism--qrmjbc",
+    "decision": "name",
+    "label": "Completed prismatic base change",
+    "kind": "theorem"
+  },
+  {
+    "id": "PrismaticCohomology:PR.1::landmark:crystalline-comparison-for-i-p-using-cr-2--ubidp4",
+    "decision": "name",
+    "label": "Hodge–Tate comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "PrismaticCohomology:PR.1::landmark:for-bounded-a-i-and-p-completely-smooth-r--1iu9bao",
+    "decision": "name",
+    "label": "Relative prismatic site",
+    "kind": "construction"
+  },
+  {
+    "id": "PrismaticCohomology:PR.2::landmark:dd-5-s-elementary-quasisyntomic-cover-desc-1itx3j9",
+    "decision": "name",
+    "label": "Derived complete-flat descent",
+    "kind": "theorem"
+  },
+  {
+    "id": "PrismaticCohomology:PR.2::landmark:discrete-delta-prism-calculation-for-quasi-1puw9bs",
+    "decision": "name",
+    "label": "Quasiregular semiperfectoid prism comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "PrismaticCohomology:PR.2::landmark:smooth-algebra-functor-by-the-coherent-lef-c1505z",
+    "decision": "name",
+    "label": "Derived prismatic left Kan extension",
+    "kind": "construction"
+  },
+  {
+    "id": "PrismaticCohomology:PR.3::landmark:associated-graded-description-comparison-w-1eg3god",
+    "decision": "name",
+    "label": "Frobenius factorization",
+    "kind": "theorem"
+  },
+  {
+    "id": "PrismaticCohomology:PR.3::landmark:refinedtracemethods-proves-that-bms2-s-tc--kdul1n",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Ownership and comparison boundary with RefinedTraceMethods."
+  },
+  {
+    "id": "PrismaticCohomology:PR.4::landmark:for-general-bases-use-the-specified-perfec-1g7ab0d",
+    "decision": "name",
+    "label": "Syntomic Tate-twist fibers",
+    "kind": "construction"
+  },
+  {
+    "id": "PrismaticCohomology:PR.5::landmark:absolute-nygaard-filtration-frobenius-bk-t-y0c7j3",
+    "decision": "name",
+    "label": "Absolute Nygaard filtration",
+    "kind": "construction"
+  },
+  {
+    "id": "PrismaticCohomology:PR.5::landmark:absolute-prismatic-site-of-a-p-adic-formal-1sftvpj",
+    "decision": "name",
+    "label": "Cartier–Witt stack",
+    "kind": "construction"
+  },
+  {
+    "id": "PrismaticCohomology:PR.6::landmark:explicit-all-coordinates-comparison-with-a-1s4h79q",
+    "decision": "name",
+    "label": "AΩ comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "PrismaticCohomology:PR.6::landmark:habiro-hq-1-2-owns-global-arithmetic-q-de--1xsm05s",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Cross-roadmap ownership and reexport bookkeeping."
+  },
+  {
+    "id": "PrismaticCohomology:PR.6::landmark:q-pd-pairs-q-crystalline-envelopes-and-the-12socse",
+    "decision": "name",
+    "label": "q-crystalline site",
+    "kind": "construction"
+  },
+  {
+    "id": "PrismaticCohomology:PR.7::landmark:equivalence-specifically-for-spf-o-k-where-22vyfj",
+    "decision": "name",
+    "label": "Prismatic F-crystal equivalence over Spf(O_K)",
+    "kind": "theorem"
+  },
+  {
+    "id": "PrismaticCohomology:PR.7::landmark:evaluation-on-the-breuil-kisin-prism-with--1yagji9",
+    "decision": "name",
+    "label": "Evaluation on the Breuil–Kisin prism",
+    "kind": "construction"
+  },
+  {
+    "id": "PrismaticCohomology:PR.8::landmark:cr-5-s-integral-log-structures-and-dd-6-s--2p1yp9",
+    "decision": "name",
+    "label": "Log prismatic site",
+    "kind": "construction"
+  },
+  {
+    "id": "PrismaticCohomology:PR.8::landmark:geometric-comparison-family-has-a-bounded--15951i9",
+    "decision": "name",
+    "label": "Log Hodge–Tate comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "PrismaticCohomology:PR.8::landmark:log-nygaard-and-the-bkf-coefficient-realiz-1bwrylw",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Scoped realization comparisons and semistable acceptance applications rather than a separate identified landmark."
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.0::landmark:additive-multiplicative-random-variables-zn6jyy",
+    "decision": "name",
+    "label": "Arithmetic additive/multiplicative variables",
+    "kind": "definition"
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.0::landmark:characteristic-functions-connect-counting--1bc7utd",
+    "decision": "name",
+    "label": "Characteristic functions",
+    "kind": "definition"
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.0::landmark:moments-rc3a22",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Bare auxiliary moment term without a distinct central result."
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.0::landmark:uniform-integers-up-to-x-1yvz4n0",
+    "decision": "name",
+    "label": "Uniform random integers up to x",
+    "kind": "definition"
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.1::landmark:centering-and-variance-are-derived-and-the-88g0hz",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance requirements for centering, variance and error control."
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.1::landmark:turan-kubilius-jmhpi4",
+    "decision": "name",
+    "label": "Turan–Kubilius theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.2::landmark:applications-to-fractional-parts-4qbk9g",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Unspecified application to fractional parts, not a standalone central result."
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.2::landmark:digit-expansions-12x4gvs",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Unnamed digit-expansion application rather than a key definition or theorem."
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.2::landmark:discrepancy-inequalities-121tsk7",
+    "decision": "name",
+    "label": "Uniform-distribution discrepancy inequalities",
+    "kind": "theorem"
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.2::landmark:weyl-criterion-ythzej",
+    "decision": "keep",
+    "label": "Weyl criterion",
+    "kind": "theorem"
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.3::landmark:borel-cantelli-arguments-15dsxfc",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "General proof method, not a separately identified metric-approximation theorem."
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.3::landmark:including-monotonicity-or-coprimality-weig-bsy7mh",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Scope caveat requiring monotonicity or coprimality weights."
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.3::landmark:limsup-sets-12emafw",
+    "decision": "keep",
+    "label": "limsup sets",
+    "kind": "construction"
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.3::landmark:separate-convergence-from-divergence-halve-wsoac2",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance and hypothesis-preservation instructions."
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.4::landmark:ergodicity-mixing-cifo8j",
+    "decision": "name",
+    "label": "Ergodicity of the Gauss map",
+    "kind": "theorem"
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.4::landmark:gauss-map-vikjt0",
+    "decision": "keep",
+    "label": "Gauss map",
+    "kind": "definition"
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.4::landmark:invariant-measure-c3nt7r",
+    "decision": "name",
+    "label": "Invariant measure of the Gauss map",
+    "kind": "construction"
+  },
+  {
+    "id": "ProbabilisticAndMetricNumberTheory:PM.4::landmark:metric-continued-fraction-statistics-exten-ahj6th",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Unspecified statistics and a cross-roadmap extension instruction."
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.0::landmark:congruences-in-formal-power-series-rings-x68htt",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Unspecified congruence family; the partition and q-binomial constructions are the central landmarks."
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.0::landmark:generating-products-1g05cl3",
+    "decision": "name",
+    "label": "Partition generating products",
+    "kind": "construction"
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.0::landmark:partition-functions-1o5wolk",
+    "decision": "name",
+    "label": "Formal partition functions",
+    "kind": "definition"
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.0::landmark:q-binomial-identities-1yhkzlo",
+    "decision": "keep",
+    "label": "q-binomial identities",
+    "kind": "theorem"
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.1::landmark:branch-choices-and-half-integral-multiplie-1mez6ak",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance checks for branch and multiplier conventions."
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.1::landmark:theta-eta-functions-and-jacobi-forms-with--exl2ih",
+    "decision": "name",
+    "label": "Jacobi forms with multiplier systems",
+    "kind": "definition"
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.2::landmark:exact-formula-proves-integrality-equality--1gqzeih",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance distinction between exact formulas and truncated approximations."
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.2::landmark:hardy-ramanujan-rademacher-routes-includin-1vl8tzv",
+    "decision": "name",
+    "label": "Rademacher partition formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.3::landmark:growth-conditions-13i3si4",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Auxiliary growth hypotheses, not a separately identified central object."
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.3::landmark:holomorphic-nonholomorphic-fourier-parts-brov3v",
+    "decision": "name",
+    "label": "Fourier parts of harmonic Maass forms",
+    "kind": "construction"
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.3::landmark:weight-laplacian-dgh4yw",
+    "decision": "name",
+    "label": "Harmonic Maass weight Laplacian",
+    "kind": "definition"
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.3::landmark:xi-operator-construct-poincare-series-gxq4am",
+    "decision": "name",
+    "label": "xi operator",
+    "kind": "definition"
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.4::landmark:correction-terms-1tiy62u",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Unspecified correction terms belong to the retained completion construction."
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.4::landmark:selected-complete-zwegers-construction-ind-pczqmn",
+    "decision": "name",
+    "label": "Zwegers mock modular completion",
+    "kind": "construction"
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.4::landmark:shadows-1k8k4eu",
+    "decision": "name",
+    "label": "Mock modular shadows",
+    "kind": "definition"
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.4::landmark:transformation-laws-mchskh",
+    "decision": "name",
+    "label": "Mock modular transformation laws",
+    "kind": "theorem"
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.5::landmark:arithmeticquantumtopology-through-exact-ra-1fsth60",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Cross-reference to a supplier roadmap and comparison requirement."
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.5::landmark:linking-habiro-1o5tswc",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Bare cross-roadmap linking instruction."
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.5::landmark:partition-congruences-jywpzp",
+    "decision": "name",
+    "label": "Arithmetic partition congruences",
+    "kind": "theorem"
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.5::landmark:traces-special-values-and-quantum-modular--a7y1dc",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Unspecified special values and examples, without an identifiable central theorem."
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.6::landmark:genus-zero-statements-for-a-precise-proven-ecce1d",
+    "decision": "name",
+    "label": "Moonshine genus-zero theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.6::landmark:graded-traces-ij49ry",
+    "decision": "name",
+    "label": "Moonshine graded traces",
+    "kind": "construction"
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.6::landmark:modular-transformation-laws-1k6tac3",
+    "decision": "name",
+    "label": "Moonshine modular transformation laws",
+    "kind": "theorem"
+  },
+  {
+    "id": "QSeriesPartitionsAndMockModularForms:QM.6::landmark:selected-vertex-operator-algebraic-represe-4fypzo",
+    "decision": "name",
+    "label": "Moonshine module",
+    "kind": "construction"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.1::landmark:existing-mordell-weil-lattice-modulo-torsi-5j4mc0",
+    "decision": "name",
+    "label": "Quadratic rank identity",
+    "kind": "theorem"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.1::landmark:relate-component-groups-minimal-differenti-mnjzy2",
+    "decision": "name",
+    "label": "Descent of Sha finiteness",
+    "kind": "theorem"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.2::landmark:metaplectic-weil-jacobi-and-genus-two-half-189zvgs",
+    "decision": "name",
+    "label": "Friedberg–Hoffstein unfolding",
+    "kind": "construction"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.2::landmark:quadratic-twist-nonvanishing-theorem-neede-1t25gga",
+    "decision": "name",
+    "label": "Quadratic-twist nonvanishing theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.3::landmark:given-analytic-rank-one-over-use-bsd-2-to--1txt1or",
+    "decision": "name",
+    "label": "Rank and Sha finiteness in analytic rank one",
+    "kind": "theorem"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.4::landmark:give-a-second-explicitly-scoped-route-via--6rcdvo",
+    "decision": "name",
+    "label": "Kato rational Selmer bound",
+    "kind": "theorem"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.4::landmark:given-l-e-1-0-choose-a-negative-quadratic--1thxm5u",
+    "decision": "name",
+    "label": "Rank and Sha finiteness in analytic rank zero",
+    "kind": "theorem"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.5::landmark:rational-bsd-defect-as-the-analytic-leadin-x695g8",
+    "decision": "name",
+    "label": "Rational BSD defect",
+    "kind": "definition"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.5::landmark:rationality-and-positivity-of-l-e-1-e-reg--ij5o89",
+    "decision": "name",
+    "label": "Heegner index formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.6::landmark:analytic-rank-one-e-semistable-p-5-of-good-kiadyx",
+    "decision": "name",
+    "label": "Jetchev–Skinner–Wan formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.6::landmark:analytic-rank-zero-p-odd-of-good-ordinary--gr5tnw",
+    "decision": "name",
+    "label": "Skinner–Urban/Skinner rank-zero formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.6::landmark:following-distinct-prime-part-theorems-aga-17catal",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Instruction to retain source hypotheses, not an additional theorem."
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.6::landmark:versioned-supersingular-proof-route-1ikv4kv",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Bibliographic version and withdrawal record, not a mathematical planet."
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.6a::landmark:corrected-multiplicative-proof-consumes-ge-j738qi",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Cross-roadmap supplier and source-locator list."
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.6a::landmark:genuinely-additional-main-conjecture-arith-q76gsk",
+    "decision": "name",
+    "label": "Castella's corrected anticyclotomic theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.6a::landmark:main-conjecture-comparison-and-cyclotomic--zqxgrx",
+    "decision": "name",
+    "label": "Cyclotomic main-conjecture descent",
+    "kind": "theorem"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.6a::landmark:versioned-supersingular-proof-route-1ikv4kv",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Bibliographic version record; the construction and descent targets are named separately."
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.7::landmark:additional-cgs-keller-yin-eisenstein-main--1z0y7fr",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Extraction of the BSD.7a substage duplicated at its parent; retain its own substage planet."
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.7::landmark:broader-keller-yin-theorem-c-4-2-1-branch--5va4md",
+    "decision": "name",
+    "label": "Keller–Yin Eisenstein-prime formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.7::landmark:castella-grossi-skinner-theorem-d-branch-p-1beh2os",
+    "decision": "name",
+    "label": "Castella–Grossi–Skinner formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.7a::landmark:additional-cgs-keller-yin-eisenstein-main--1z0y7fr",
+    "decision": "name",
+    "label": "Eisenstein main-conjecture comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.8::landmark:interfaces-for-certified-finite-descent-sh-16enok2",
+    "decision": "name",
+    "label": "Finite-support BSD certificate",
+    "kind": "construction"
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.9::landmark:for-examples-needing-analytic-certificatio-9r5w2r",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Analytic certification for acceptance examples, not a separate endpoint theorem."
+  },
+  {
+    "id": "RankZeroOneBSD:BSD.9::landmark:give-separate-public-signatures-for-analyt-1f0s8ky",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Public-signature and acceptance-test instructions."
+  },
+  {
+    "id": "ReductiveGroupsPartII:RG2.0::landmark:topology-on-x-e-for-finite-type-e-schemes--14ypm0y",
+    "decision": "name",
+    "label": "Topology on rational points",
+    "kind": "construction"
+  },
+  {
+    "id": "ReductiveGroupsPartII:RG2.0a::landmark:adjunction-evaluation-map-products-composi-1dr9xys",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Auxiliary functoriality and coherence requirements for the retained Weil restriction."
+  },
+  {
+    "id": "ReductiveGroupsPartII:RG2.0a::landmark:res-of-affine-space-gl-1-for-a-quadratic-e-gr0136",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Acceptance examples and construction-order instructions."
+  },
+  {
+    "id": "ReductiveGroupsPartII:RG2.0a::landmark:restriction-of-scalars-for-affine-finite-t-py20on",
+    "decision": "name",
+    "label": "Weil restriction of affine schemes",
+    "kind": "construction"
+  },
+  {
+    "id": "ReductiveGroupsPartII:RG2.1::landmark:relative-roots-from-a-maximal-e-split-toru-1yrqefr",
+    "decision": "name",
+    "label": "Valued relative root data",
+    "kind": "construction"
+  },
+  {
+    "id": "ReductiveGroupsPartII:RG2.2::landmark:glue-apartments-by-the-bruhat-tits-equival-2pwmnw",
+    "decision": "name",
+    "label": "Bruhat–Tits buildings",
+    "kind": "construction"
+  },
+  {
+    "id": "ReductiveGroupsPartII:RG2.3::landmark:for-a-facet-construct-the-smooth-affine-o--1k69n7i",
+    "decision": "name",
+    "label": "Parahoric group schemes",
+    "kind": "construction"
+  },
+  {
+    "id": "ReductiveGroupsPartII:RG2.4::landmark:iwasawa-decomposition-using-an-appropriate-rhpk27",
+    "decision": "name",
+    "label": "Iwasawa decomposition",
+    "kind": "theorem"
+  },
+  {
+    "id": "ReductiveGroupsPartII:RG2.5::landmark:pinned-split-dual-group-over-from-the-dual-w550d8",
+    "decision": "name",
+    "label": "Pinned integral dual group",
+    "kind": "construction"
+  }
+]
