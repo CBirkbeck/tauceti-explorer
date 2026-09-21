@@ -1,0 +1,94 @@
+{
+ "promoted": {
+  "research/blueprint/restructure/RS-07.result.json": {
+   "promotedAt": "2026-09-21T17:38:22Z",
+   "review": "c3785694851ac3a4",
+   "reviewDate": "2026-09-21",
+   "reviewer": "independent-review-REV-RS-07",
+   "sha256": "399d14480473484546da80c3c0a658499f14fbb5bf138225dc8251ce991bafd7",
+   "to": [
+    "data/restructure/RS-07.result.json",
+    "data/restructure/RS-07.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-15.result.json": {
+   "promotedAt": "2026-09-21T17:38:22Z",
+   "review": "ba07a4c2193be33f",
+   "reviewDate": "2026-09-21",
+   "reviewer": "independent-review-REV-RS-15",
+   "sha256": "7ead28fbb6636ace04c2cad7b3295c91206492024fe5585e41ca1cafdf61a582",
+   "to": [
+    "data/restructure/RS-15.result.json",
+    "data/restructure/RS-15.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-26.result.json": {
+   "promotedAt": "2026-09-21T17:38:22Z",
+   "review": "46aec8421627157a",
+   "reviewDate": "2026-09-21",
+   "reviewer": "independent-review-REV-RS-26",
+   "sha256": "f6457cd48d5da633d20adae154ed31253b278466b926f0f51653eb6ccec8f804",
+   "to": [
+    "data/restructure/RS-26.result.json",
+    "data/restructure/RS-26.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-28.result.json": {
+   "promotedAt": "2026-09-21T17:38:22Z",
+   "review": "3ad9a87d930780ff",
+   "reviewDate": "2026-09-21",
+   "reviewer": "independent-review-REV-RS-28",
+   "sha256": "1e2359dee52ea9b261cb2858823092487cafe9d3218f6412678b61813a950e9d",
+   "to": [
+    "data/restructure/RS-28.result.json",
+    "data/restructure/RS-28.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-29.result.json": {
+   "promotedAt": "2026-09-21T17:38:22Z",
+   "review": "1796e5404b226314",
+   "reviewDate": "2026-09-21",
+   "reviewer": "independent-review-REV-RS-29",
+   "sha256": "9dd3dce0039f6f3893b9231716b0d3aa9ce260a06943bf19f20bd14614d927b0",
+   "to": [
+    "data/restructure/RS-29.result.json",
+    "data/restructure/RS-29.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-30.result.json": {
+   "promotedAt": "2026-09-21T17:38:22Z",
+   "review": "a5a51521e78de4d6",
+   "reviewDate": "2026-09-21",
+   "reviewer": "independent-review-REV-RS-30",
+   "sha256": "026421935f1e809352117ac46cdb3d9497bf50f1eef99d503aff15219b932a99",
+   "to": [
+    "data/restructure/RS-30.result.json",
+    "data/restructure/RS-30.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-31.result.json": {
+   "promotedAt": "2026-09-21T17:38:22Z",
+   "review": "612f67e3c059c0fa",
+   "reviewDate": "2026-09-21",
+   "reviewer": "independent-review-REV-RS-31",
+   "sha256": "94a04e4db8b11620051fa80855225a351c66aa090d7beffaec986fc281dc3f7e",
+   "to": [
+    "data/restructure/RS-31.result.json",
+    "data/restructure/RS-31.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-32.result.json": {
+   "promotedAt": "2026-09-21T17:38:22Z",
+   "review": "d492ed35e362dd94",
+   "reviewDate": "2026-09-21",
+   "reviewer": "independent-review-REV-RS-32",
+   "sha256": "90d2bcaed8bf32f0d9086254a357431995371cd6352ea2aefeea869a8cc93f5d",
+   "to": [
+    "data/restructure/RS-32.result.json",
+    "data/restructure/RS-32.md"
+   ]
+  }
+ },
+ "purpose": "Work promoted into the atlas by scripts/promote.py: each source file, the data files it became, and the review that accepted it; and work refused, with the reason. A file goes live again only after a new accepted review.",
+ "refused": {}
+}

@@ -1,0 +1,422 @@
+{
+  "family": "RS-29",
+  "roadmaps": {
+    "InverseGaloisAndArithmeticFundamentalGroups": {
+      "action": "extend",
+      "extends": "tauceti:TauCetiRoadmap/BelyiMaps",
+      "title": "Belyi maps, dessins d'enfants, and three-point covers, Part II: inverse Galois theory and arithmetic fundamental groups",
+      "reason": "Start from Belyi's existing combinatorial, analytic, algebraic and arithmetic contracts. Retain the general scheme-theoretic fundamental group and its comparison with Belyi's field-theoretic carrier, arithmetic specialization, rational rigidity, solvable realizations and Hurwitz spaces. The introduction must list BelyiMaps first among prerequisites, respect its named staged successors, and distinguish source specifications from declarations available at the programme pin."
+    }
+  },
+  "layers": {
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.0": {
+      "action": "narrow",
+      "keeps": "The finite-étale Galois-category instance for the connected schemes in the selected SGA range, its geometric fibre functor, and the induced scheme-theoretic fundamental group using Mathlib's existing automorphism-group topology and classification equivalence. Establish the finite-étale connected-component interpretation and ordinary geometric-basepoint comparison, including the existence and choice dependence of fibre-functor isomorphisms. Recover π₁(Spec K) from ModularCurves 0D's field-case equivalence, and prove the characteristic-zero algebraically closed G_m computation with its Tate-twist/choice convention. Compare the three-punctured-line scheme carrier with Belyi 12.5–12.6's field-theoretic group by an equivalence compatible with geometric fibre functors. Arithmetic path-torsor objects and tangential points remain NC.0's extension of these interfaces.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+        "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions",
+        "UPSTREAM:Mathlib-Galois-category-classification"
+      ],
+      "reason": "The abstract Galois-category classification and profinite Aut(F) are already in pinned Mathlib. Belyi explicitly excludes the scheme-theoretic carrier and its comparison, so its special case does not discharge the general scheme target. ModularCurves already owns the finite-étale field equivalence; the Spec K acceptance theorem is an application of it. The explicit Mathlib supplier includes PreGaloisCategory.functorToContAction and its IsEquivalence instance under GaloisCategory C and FiberFunctor F, plus the existing compact Hausdorff totally disconnected topology on Aut F. Proving the scheme instance and geometric fibre-functor hypotheses remains IG.0."
+    },
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.1": {
+      "action": "narrow",
+      "keeps": "The geometric/arithmetic exact sequence for geometrically connected schemes under the selected SGA hypotheses; scheme-theoretic decomposition/inertia embeddings and their conjugacy dependence; tame quotient and wild-inertia behaviour in that scheme setting; and specialization maps for smooth proper families with the precise characteristic and prime-to-p restrictions. Prove compatibility with Belyi's existing three-punctured-line exact sequence and peripheral inertia through IG.0's comparison. Import finite function-field ramification from AlgebraicCurves and the local-field statements only under their finite-residue-field hypotheses. Retain the finite-field Frobenius and punctured-curve acceptance instances and explicit tracking of the wild-inertia kernel before passing to a tame quotient, including nontrivial wild examples. Do not assert universal nonvanishing: wild inertia is trivial for tame finite extensions, and finite first ramification groups at characteristic-zero residue fields are trivial. Characteristic zero of the fraction field alone does not imply this, as mixed-characteristic local fields show.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group"
+      ],
+      "reason": "Belyi 12.8–12.9 owns the three-point field-theoretic sequence and inertia; AlgebraicCurves 8 and LocalFieldsRamification own their distinct arithmetic ramification settings. None supplies the full general scheme sequence or the smooth-proper specialization theorem. In particular, finite-residue-field tame theory cannot be silently applied at a geometric characteristic-zero puncture."
+    },
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.2": {
+      "action": "keep",
+      "reason": "Hilbert irreducibility over number fields, full-group specialization away from the branch locus, simultaneous avoidance and linearly disjoint specializations, with infinitely many distinct worked extensions and their certificates, are beyond Belyi's programme and remain here."
+    },
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.3": {
+      "action": "narrow",
+      "keeps": "Branched-cover realization from generating product-one tuples for general finite branch sets, its comparison with the imported three-point construction, braid/Hurwitz actions on the relevant Nielsen classes, and general cover descent beyond the Belyi-pair case. Prove a source-qualified rational rigidity criterion, distinguishing generation, inner versus absolute equivalence, centralizers and rationality of conjugacy classes; import the product-one and generating-triple counts for the three-point case. Keep a worked rigid arithmetic realization and an actual example where the field of moduli is not a field of definition. Keep the dessin/triple and branch-cycle/ramification acceptance checks as applications of Belyi's comparison, including a passport that does not determine the pair. Import the Belyi carriers, theorem, analytic/algebraic comparison, field-of-definition certificates and positive descent results without reproving them.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-0-permutation-triples",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-1-passports-blocks-and-finite-label-semantics",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-2-dessins-as-finite-bipartite-ribbon-graphs",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-3-finite-enumeration-and-character-theoretic-counts",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-7-compactification-and-topological-branched-covers",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-8-riemann-surfaces-and-analytic-riemann-existence",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem"
+      ],
+      "reason": "IG.3 already says it consumes the three-point programme; explicit supplier edges make that handoff enforceable. Belyi excludes arbitrary branch sets and Hurwitz spaces. Its 11.6 records the negative moduli/definition phenomenon only as a warning and constructs no counterexample, so IG.3 must keep the requested constructed example. A product-one count or a one-element passport is not by itself rational rigidity."
+    },
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.4": {
+      "action": "narrow",
+      "keeps": "Arithmetic finite embedding problems on the profinite supplier's existing carrier and weak-solution notion; the properness condition as surjectivity of that same continuous lift; local constraints and compatibility with restriction to local Galois groups. Retain the selected proof of Shafarevich's solvable realization theorem, including the abelian-kernel steps, auxiliary ramification and successive proper solutions; cyclic and dihedral realizations and the test that a weak nonsurjective solution is insufficient.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations"
+      ],
+      "reason": "ProfiniteProPGroups 5.1 owns the generic finite embedding problem and weak solution, but explicitly does not assert proper solutions. The arithmetic proper-solution theorem and its local hypotheses remain IG.4, not a renamed generic lifting theorem."
+    },
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5": {
+      "action": "keep",
+      "reason": "Hurwitz moduli, braid/Nielsen-class components, descent and regular-extension interfaces remain. Preserve tame positive-characteristic covers with p prime to the group order, the characteristic-zero/tame-reduction example, and the wild patching/Abhyankar realization proof subtasks. Reuse IG.3 and the existing algebraic-moduli input. Belyi explicitly excludes Hurwitz spaces and arbitrary branch sets; LPV.5 is a specialized monodromy application, not an established supplier of all this material."
+    },
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.6": {
+      "action": "narrow",
+      "keeps": "Export actual polynomials, extensions, cover maps and Galois-group isomorphisms with the specialization hypotheses supplied by IG.2–IG.5. Import the explicit symmetric-group family from PolynomialGaloisGroups rather than reproducing it. Transport Belyi's arithmetic action, field-of-moduli/definition distinction, cyclotomic branch-cycle convention and source-scoped faithfulness along the earlier comparison maps; do not rebuild those actions or prove a stronger faithfulness theorem. Export the IG fundamental-group interfaces to NC.0 and reference NC.0's arithmetic path-torsor construction when packaging the final interface, without constructing a second torsor. Preserve the theorem-indexed solved-family list, and mark the unrestricted inverse Galois problem over Q and generic-polynomial universality as frontier statements, never proved inputs.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-13-the-pro-ℓ-peripheral-theorem-and-faithfulness",
+        "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-9-sₙ-as-a-galois-group-over-ℚ",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "reason": "This is an application and interface layer. Belyi owns its actions and faithfulness, PolynomialGaloisGroups owns its explicit S_n realization route, and NC.0 owns arithmetic path torsors. The supplier direction for those torsors is NC.0 → IG.6; NC.0 consumes IG.0/IG.1, not IG.6, so no cycle is introduced."
+    }
+  },
+  "links": [
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+      "reason": "Supply Belyi 12.5–12.6's field-theoretic three-point group and its fibre-functor comparison as the fixed target of the new scheme/field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+      "reason": "Supply finite étale K-schemes ≃ finite continuous G_K-sets for the Spec K acceptance computation; do not construct the field equivalence twice."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions",
+      "target": "ArithmeticDynamics:DY.5",
+      "reason": "Supply the field-case finite Galois-set interpretation of finite preimage levels formerly reached only through IG.0; the continuous arboreal action and its image theorems remain DY.5."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+      "reason": "Supply the special three-point arithmetic sequence and inertia for compatibility of the general scheme construction, with the cyclotomic orientation fixed by Belyi."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+      "reason": "Supply decomposition/inertia and lower ramification at function-field places, including residue inseparability qualifications, for the scheme/function-field comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+      "reason": "Supply unramified residue correspondence and its Frobenius-compatible inverse limit where the local-field hypotheses hold; IG.1 still proves the scheme finite-field instance."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+      "reason": "Supply local-field tame/wild ramification and filtration, retaining finite residue fields and comparison hypotheses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+      "reason": "Supply the local-field absolute-Galois tame quotient and twisted tame character; general scheme inertia and arbitrary residue fields are not discharged by this import."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-0-permutation-triples",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+      "reason": "Import the permutation-triple carrier, product convention, relabeling and monodromy/automorphism invariants for the three-point specialization."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-1-passports-blocks-and-finite-label-semantics",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+      "reason": "Import ordered passports, normalizer-versus-inner orbit distinctions and their membership predicates for the passport non-example and rigidity comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-2-dessins-as-finite-bipartite-ribbon-graphs",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+      "reason": "Import dessins as bipartite ribbon graphs and the dessin/triple comparison, including the branch-point action in the three-point specialization."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-3-finite-enumeration-and-character-theoretic-counts",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+      "reason": "Import the Frobenius product-one formula and generating-triple counts; the rational rigidity theorem is a separate IG.3 output."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+      "reason": "Import the three-punctured-sphere peripheral generators and their ordered product relation for the three-point realization."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+      "reason": "Import the three-point finite-cover/triple classification and its rigidification levels."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-7-compactification-and-topological-branched-covers",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+      "reason": "Import three-point compactification and the cycle-length/ramification dictionary as the specialization of the general construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-8-riemann-surfaces-and-analytic-riemann-existence",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+      "reason": "Import analytic Riemann existence for three-point covers; it does not supply arbitrary finite branch sets."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+      "reason": "Import the algebraic Belyi carrier and its analytic/algebraic comparison, retaining characteristic zero and residue-degree data."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+      "reason": "Import Belyi's theorem; existence of a three-point map is not a realization of an arbitrary prescribed group over Q."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+      "reason": "Import field-of-moduli and field-of-definition notions, effective Belyi descent and the trivial-automorphism positive theorem. The constructed obstruction example stays in IG.3."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+      "reason": "Import the three-point cyclotomic branch-cycle/Nielsen-class constraint for rational rigidity, with conjugacy classes rather than a simultaneous tuple of powers."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.4",
+      "reason": "Supply the generic finite embedding problem and weak-solution API; add properness and arithmetic local conditions on that carrier."
+    },
+    {
+      "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+      "reason": "Export the actual full-group specialization and avoidance hypotheses with each specialized polynomial or extension."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+      "reason": "Supply the arithmetic conjugation action on Belyi-pair classes and the moduli/definition distinction for the final interface."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+      "reason": "Supply peripheral inertia and the non-inverted cyclotomic branch-cycle convention for transport to the scheme-theoretic interface."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-13-the-pro-ℓ-peripheral-theorem-and-faithfulness",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+      "reason": "Supply the stated faithfulness on dessins, including the genus-zero scope, without inferring unproved anabelian reconstruction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-9-sₙ-as-a-galois-group-over-ℚ",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+      "reason": "Supply the explicit S_n-polynomial realization family for the solved-family catalogue."
+    },
+    {
+      "source": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "reason": "Supply ordinary geometric-basepoint comparison and the finite-étale fibre functor explicitly; NC.0 owns the arithmetic/tangential torsor extension."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "reason": "Supply the three-point group and outer-action comparison for NC.0's rational-point versus tangential-point acceptance test; NC.0 still constructs its sections and torsors."
+    },
+    {
+      "source": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+      "reason": "Supply the arithmetic path torsor already constructed by the anabelian continuation, for reference in the final interface; do not make NC.0 depend on IG.6."
+    },
+    {
+      "source": "UPSTREAM:Mathlib-Galois-category-classification",
+      "target": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+      "reason": "Import pinned Mathlib’s abstract Galois-category classification and profinite Aut(F) topology; IG.0 proves the finite-étale scheme instance and fibre-functor hypotheses before applying them."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Finite-étale field-case equivalence with finite continuous absolute-Galois sets",
+      "owner": "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0"
+      ]
+    },
+    {
+      "target": "Field-theoretic geometric fundamental group of the three-punctured line and its topological profinite comparison",
+      "owner": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0"
+      ]
+    },
+    {
+      "target": "Field-theoretic three-point arithmetic exact sequence and peripheral inertia",
+      "owner": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
+      ]
+    },
+    {
+      "target": "Finite function-field decomposition/inertia groups and lower ramification theory",
+      "owner": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
+      ]
+    },
+    {
+      "target": "Local-field unramified correspondence and Frobenius inverse-limit computation",
+      "owner": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
+      ]
+    },
+    {
+      "target": "Local-field tame/wild ramification and ramification filtration",
+      "owner": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
+      ]
+    },
+    {
+      "target": "Absolute-Galois tame quotient of a nonarchimedean local field with finite residue field",
+      "owner": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
+      ]
+    },
+    {
+      "target": "Permutation triples, product convention, relabeling and their invariants",
+      "owner": "tauceti:TauCetiRoadmap/BelyiMaps#layer-0-permutation-triples",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3"
+      ]
+    },
+    {
+      "target": "Ordered passports and normalizer-orbit interpretation",
+      "owner": "tauceti:TauCetiRoadmap/BelyiMaps#layer-1-passports-blocks-and-finite-label-semantics",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3"
+      ]
+    },
+    {
+      "target": "Dessins and the dessin/permutation-triple comparison",
+      "owner": "tauceti:TauCetiRoadmap/BelyiMaps#layer-2-dessins-as-finite-bipartite-ribbon-graphs",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3"
+      ]
+    },
+    {
+      "target": "Product-one character formula and generating-triple counts",
+      "owner": "tauceti:TauCetiRoadmap/BelyiMaps#layer-3-finite-enumeration-and-character-theoretic-counts",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3"
+      ]
+    },
+    {
+      "target": "Three-punctured-sphere fundamental group with peripheral generators",
+      "owner": "tauceti:TauCetiRoadmap/BelyiMaps#layer-5-the-thrice-punctured-sphere-and-its-fundamental-group",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3"
+      ]
+    },
+    {
+      "target": "Three-point finite-cover/triple classification",
+      "owner": "tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3"
+      ]
+    },
+    {
+      "target": "Three-point compactification and ramification dictionary",
+      "owner": "tauceti:TauCetiRoadmap/BelyiMaps#layer-7-compactification-and-topological-branched-covers",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3"
+      ]
+    },
+    {
+      "target": "Analytic Riemann existence for three-point covers",
+      "owner": "tauceti:TauCetiRoadmap/BelyiMaps#layer-8-riemann-surfaces-and-analytic-riemann-existence",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3"
+      ]
+    },
+    {
+      "target": "Algebraic Belyi pairs and their analytic/algebraic comparison",
+      "owner": "tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3"
+      ]
+    },
+    {
+      "target": "Belyi's theorem",
+      "owner": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3"
+      ]
+    },
+    {
+      "target": "Belyi field-of-moduli/definition notions, certificates and positive effective descent",
+      "owner": "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3"
+      ]
+    },
+    {
+      "target": "Arithmetic conjugation action on algebraic Belyi-pair classes",
+      "owner": "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.6"
+      ]
+    },
+    {
+      "target": "Three-point cyclotomic branch-cycle theorem and finite Nielsen-class constraint",
+      "owner": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.6"
+      ]
+    },
+    {
+      "target": "Source-scoped faithfulness of the Galois action on dessins",
+      "owner": "tauceti:TauCetiRoadmap/BelyiMaps#layer-13-the-pro-ℓ-peripheral-theorem-and-faithfulness",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.6"
+      ]
+    },
+    {
+      "target": "Generic finite embedding problem and continuous weak solution",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.4"
+      ]
+    },
+    {
+      "target": "Explicit S_n-polynomial realizations over Q",
+      "owner": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-9-sₙ-as-a-galois-group-over-ℚ",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.6"
+      ]
+    },
+    {
+      "target": "Arithmetic path torsors and tangential-basepoint theory",
+      "owner": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.6"
+      ]
+    },
+    {
+      "target": "Abstract Galois-category classification by finite continuous Aut(F)-sets and the profinite automorphism-group topology",
+      "owner": "UPSTREAM:Mathlib-Galois-category-classification",
+      "formerly": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0"
+      ]
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-29",
+    "date": "2026-09-21",
+    "notes": "Independent review by Codex — codex-c83e7a of Codex — codex-a71f92’s proposal. Read the member and Belyi anchor documents and all layer descriptions, reviewed library audits, family leads and relevant outside contracts. Accept the ownership boundary with the two corrections below; mathematical proofs and blueprint source closure remain future work. See REV-RS-29.md for evidence, preservation and integration checks.",
+    "corrections": [
+      "Added a unique UPSTREAM:Mathlib-Galois-category-classification ownership entry, IG.0 suppliedBy entry and prerequisite link for the already-built abstract classification and Aut(F) topology, with the actual GaloisCategory/FiberFunctor hypotheses.",
+      "Replaced IG.1’s unconditional wild-inertia nonvanishing with preservation of its kernel and nontrivial examples, retaining the tame and characteristic-zero-residue exceptions and distinguishing residue characteristic from fraction-field characteristic."
+    ]
+  }
+}

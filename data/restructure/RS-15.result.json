@@ -1,0 +1,165 @@
+{
+  "family": "RS-15",
+  "roadmaps": {
+    "BunGAndNewtonStrata": {
+      "action": "keep",
+      "reason": "Keep the reductive-group construction and moduli-stack application, importing the independently owned linear isocrystal, vector-bundle, HN and Banach-Colmez theorems. Neither roadmap subsumes the other: tensor torsors, Kottwitz invariants, uniformization, automorphism groups and stack charts are not the linear theory in a new notation. Preserve all seven stage IDs and all nonsplit, ramified and equal-characteristic cases."
+    },
+    "VectorBundlesAndIsocrystals": {
+      "action": "keep",
+      "reason": "Keep the independent linear foundation and all ten stage IDs, including the separate positive/basic and projectivized-properness branches. Narrow only VB3:general-BC by importing ordinary-bundle projectivized properness and the nowhere-zero-section/HN application from their existing owners. Retain the genuinely stronger two-term Banach-Colmez theorem and its proof after families; apply the atomic prerequisite correction specified below and in the report."
+    }
+  },
+  "layers": {
+    "BunGAndNewtonStrata:BG0": {
+      "action": "keep",
+      "reason": "Own tensor-functor/analytic torsor comparison, extension of structure group, G-isocrystals, sigma-conjugacy and the algebraic sigma-centralizer with its descended inner-Levi structure. Import VB0 and VB1 for the linear category and actual bundle functor. Do not reconstruct Dieudonne-Manin or move geometric G-bundle classification here from BG2:uniformization. The RF4:G-torsors patching return must not become an input of BG0."
+    },
+    "BunGAndNewtonStrata:BG1": {
+      "action": "keep",
+      "reason": "Own pi_1(G), kappa, dominant Newton invariants, their functoriality and classification/order statements. The GL_n specialization compares with VB0 rather than rebuilding slopes. Retain the distinction between nu and the bundle HN point w_0(-nu), c_1=-kappa, and the source-qualified order topology; no unproved closure equality is added."
+    },
+    "BunGAndNewtonStrata:BG2:uniformization": {
+      "action": "keep",
+      "reason": "Own the actual groupoid-valued v-stack, descent, Isom diagonal, modification uniformization with v-surjectivity, geometric classification and kappa/nu variation for general G. Import VB1 through BG0 and the existing direct VB2:classification and VB4 links. A linear geometric classification is not a G-torsor classification, an equivalence on all morphisms, or a relative stack atlas."
+    },
+    "BunGAndNewtonStrata:BG3": {
+      "action": "keep",
+      "reason": "Own basic/nonbasic strata, the full automorphism v-group, its connected positive filtration, the quotient by the sigma-centralizer and the dimension pairing. Import general-BC for the graded additive geometry, not as a proof of the group filtration. Preserve the nonbasic connected kernel and the distinct VS4 coefficient-category comparison. Direct properness and VB4 inputs retain the portions no longer reconstructed in general-BC."
+    },
+    "VectorBundlesAndIsocrystals:VB0": {
+      "action": "keep",
+      "reason": "Own finite-dimensional linear isocrystals over the admitted general coefficient fields, exact tensor/descent theory, full Dieudonne-Manin, rational blocks and endomorphism division-algebra/Brauer comparisons. Reuse the pinned p-typical Mathlib carriers and rank-one existence theorem at their actual generality. Retain normalization tests; the actual bundle-functor comparison is performed only after the VB1 functor exists, not assumed in constructing the linear category. When reconciling the inherited isocrystal-category-and-standard-block node, the coefficient field is L = W_{O_E}(algebraic closure of F_q)[1/pi], not the ring of integers before pi is inverted. In equal characteristic it is k((pi)), not k[[pi]]. Use the roadmap convention phi^r = pi^s sigma^r for isocrystal slope s/r and identify its associated stable bundle with O(-s/r), of rank r and degree -s. Thus the inherited pi^{-d} block has isocrystal slope -d/h and bundle slope d/h. Keep that sign translation explicit; do not conflate multiplicity of a simple block with its rank. The existing Mathlib Isocrystal class does not itself impose finite dimensionality, and the cited isocrystal_classification theorem supplies rank-one existence, not full higher-rank classification."
+    },
+    "VectorBundlesAndIsocrystals:VB1": {
+      "action": "keep",
+      "reason": "Own actual vector bundles, annular/Frobenius descent, the isocrystal-to-bundle functor, degree/slope and scoped cohomology. BG0 consumes this theorem; BG2 is its reductive moduli application, not a second linear descent construction. Preserve the early-carrier versus later-cohomology distinction at node granularity."
+    },
+    "VectorBundlesAndIsocrystals:VB2:classification": {
+      "action": "keep",
+      "reason": "Own geometric vector-bundle classification, ranks/degrees and Hom/Ext consequences. Preserve the independent positive/basic calculation feeding its proof and the distinction between a bijection on isomorphism classes and full faithfulness. Its reductive moduli consumer is BG2:uniformization, not BG0."
+    },
+    "VectorBundlesAndIsocrystals:VB3:projectivized-properness": {
+      "action": "keep",
+      "reason": "The sole owner of the ordinary vector-bundle section sheaf scalar quotient and FS II.2.16 projectivized properness. It remains independent of geometric classification and VB4. Import this theorem in general-BC instead of reproving it there; the stronger two-term-complex properness II.3.5(ii) remains in general-BC. Its application producing nowhere-zero sections belongs to VB4."
+    },
+    "VectorBundlesAndIsocrystals:VB3:general-BC": {
+      "action": "narrow",
+      "keeps": "Keep the source-qualified family resolutions and cohomology needed for FS II.3.5, the general section-space dimension and positive-slope cohomological smoothness, zero-slope locally profinite/local-system behavior, and the existing pure-sign absolute spatiality and bounded-slope perfectoid-ball statements. In particular retain the two-term construction BC([E_1 -> E_0]), local spatiality and partial properness with E_1 everywhere negative, its projectivized properness, and cohomological smoothness when E_0 is additionally everywhere positive. Retain all comparison maps, scalar actions, exact-sequence/quotient arguments and source-specific cover hypotheses; do not reduce this theorem to the ordinary-bundle case. Import the ordinary-bundle projectivized properness from VB3:projectivized-properness and the properness-to-nowhere-zero-section/HN application from VB4 rather than reconstructing either. All later applications of those imports remain. Pin the two-term complex with E_1 in cohomological degree -1 and E_0 in degree 0; BC is degree-zero hypercohomology, not the cokernel of global sections alone. Its tests include [0 -> O(1)], [O(-1) -> 0] and the zero complex, respectively recovering the positive section space, negative-bundle H^1 space and the zero vector sheaf (whose projectivization is empty). In the positive-slope-resolution node, correct the inherited FS II.3.1 wording to semistable of slope 1/r, not degree 1/r: for nonzero input of rank n and degree d, m = dr - n and the extension middle term has rank n + m = dr and degree d. The rank-zero case is kept separate. For n = d = 1 and r = 2 the middle term has rank 2 and degree 1, testing the distinction without assuming its construction.",
+      "suppliedBy": [
+        "VectorBundlesAndIsocrystals:VB3:projectivized-properness",
+        "VectorBundlesAndIsocrystals:VB4"
+      ],
+      "reason": "Remove only two repeated proof packages, not any stronger Banach-Colmez result. Atomic integration condition: DELETE the existing VectorBundlesAndIsocrystals:VB3:general-BC -> VectorBundlesAndIsocrystals:VB4 prerequisite from both requires and edge records, retain VB3:projectivized-properness -> VB4, then ADD VB4 -> VB3:general-BC and the other listed links. FS II.2.19 uses II.2.16; II.3.1-5 subsequently use II.2.19. Adding the reverse edge without removing the obsolete edge creates a cycle. Section 15 has no deletion field, so this explicit replacement is part of the proposal, not an optional prose suggestion."
+    },
+    "VectorBundlesAndIsocrystals:VB4": {
+      "action": "keep",
+      "reason": "Own relative HN semicontinuity, constant-polygon filtrations and pro-etale local splitting, the slope-zero local-system equivalence, and the proper-projectivized-section argument producing nowhere-zero sections after a v-cover. This is the unique owner of that application formerly repeated in general-BC. Retain VB1, VB2:classification and VB3:projectivized-properness as inputs; DELETE general-BC as a prerequisite and export VB4 to general-BC instead, atomically as specified in that layer. Do not turn pro-etale local triviality into global triviality. Correct the inherited slope-zero-local-systems acceptance test on each constant-rank locus: if all geometric slopes are zero, its HN polygon is horizontal with that fixed width, so there is no nonconstant polygon of that rank to exhibit. Use nontrivial local-system monodromy to distinguish local from global triviality, and O(1) direct sum O(-1) as a degree-zero but not slope-zero negative example. On arbitrary S retain H^0(X_S,O) = underline(E)(S) and RΓ(X_S,O) = RΓ_proet(S,underline(E)); do not replace the section space of the locally profinite scalar sheaf by one copy of E. On a disjoint union of two geometric points the former is E times E. Variable rank on disconnected components is handled componentwise rather than excluded."
+    }
+  },
+  "links": [
+    {
+      "source": "VectorBundlesAndIsocrystals:VB3:projectivized-properness",
+      "target": "VectorBundlesAndIsocrystals:VB3:general-BC",
+      "reason": "Import the early ordinary-bundle quotient and properness proof; retain the separate stronger two-term theorem in the consumer."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB4",
+      "target": "VectorBundlesAndIsocrystals:VB3:general-BC",
+      "reason": "ADD ONLY AFTER deleting general-BC -> VB4: the family resolutions and cohomology in FS II.3.1-5 use the relative HN/local-system results of II.2.19-20. This is an atomic replacement, not an additional edge in the unmodified graph."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB3:projectivized-properness",
+      "target": "BunGAndNewtonStrata:BG3",
+      "reason": "Direct replacement for the ordinary properness package formerly reachable through general-BC; this does not replace BG3's group-filtration or quotient proof."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB3:projectivized-properness",
+      "target": "VStackSheavesAndLisseCategories:VS1",
+      "reason": "Direct replacement for ordinary projectivized properness formerly bundled into general-BC. The Jacobian/tangent theorem stays in VS1."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB3:projectivized-properness",
+      "target": "VectorBundlesAndIsocrystals:VB3",
+      "reason": "Retain the aggregate parent's existing direct link to the sole owner of ordinary projectivized properness."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB3:projectivized-properness",
+      "target": "VectorBundlesAndIsocrystals:VB4",
+      "reason": "Retain the actual early properness input of II.2.19, replacing the obsolete general-BC supplier for this purpose."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB4",
+      "target": "BunGAndNewtonStrata:BG3",
+      "reason": "Direct replacement for the relative-HN/nowhere-zero-section application formerly reachable through general-BC. The reductive automorphism filtration is still a new BG3 proof."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB4",
+      "target": "VStackSheavesAndLisseCategories:VS1",
+      "reason": "Retain the existing relative-HN input; it now explicitly also supplies the transferred nowhere-zero-section application."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB4",
+      "target": "VectorBundlesAndIsocrystals:VB3",
+      "reason": "The aggregate Banach-Colmez stage imports the relocated nowhere-zero-section application directly, not as a duplicate theorem in general-BC."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB0",
+      "target": "BunGAndNewtonStrata:BG0",
+      "reason": "Retain the linear-to-reductive handoff: G-isocrystals use the independently constructed exact tensor category and its slope normalization."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB1",
+      "target": "BunGAndNewtonStrata:BG0",
+      "reason": "Retain actual vector-bundle descent and the isocrystal functor as inputs of the tensor-functor/analytic torsor comparison."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB0",
+      "target": "BunGAndNewtonStrata:BG1",
+      "reason": "Retain the GL_n normalization comparison for Newton/Kottwitz invariants; general reductive invariants and torsion in pi_1 remain in BG1."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB2:classification",
+      "target": "BunGAndNewtonStrata:BG2:uniformization",
+      "reason": "Retain geometric vector-bundle classification as the linear input to geometric G-bundle classification; no equivalence on all morphisms is inferred."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB4",
+      "target": "BunGAndNewtonStrata:BG2:uniformization",
+      "reason": "Retain relative HN/local-system inputs to faithful-representation semicontinuity and the genuine relative torsor argument."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB3:general-BC",
+      "target": "BunGAndNewtonStrata:BG3",
+      "reason": "Retain positive Banach-Colmez geometry for the graded pieces of the connected automorphism kernel; the kernel and group quotient are not themselves supplied by this edge."
+    }
+  ],
+  "owners": [
+    {
+      "target": "The ordinary vector-bundle projectivized section-space construction with scalar E-times action and the FS II.2.16 properness proof, independent of geometric classification. This excludes the genuinely stronger two-term Banach-Colmez properness theorem II.3.5(ii).",
+      "owner": "VectorBundlesAndIsocrystals:VB3:projectivized-properness",
+      "formerly": [
+        "VectorBundlesAndIsocrystals:VB3:general-BC"
+      ]
+    },
+    {
+      "target": "Application of the proper projectivized section space to produce nowhere-zero sections after a v-cover in the relative Harder-Narasimhan argument of FS II.2.19, retaining geometric surjectivity, the scalar torsor and the source-qualified locus.",
+      "owner": "VectorBundlesAndIsocrystals:VB4",
+      "formerly": [
+        "VectorBundlesAndIsocrystals:VB3:general-BC"
+      ]
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-15",
+    "date": "2026-09-21",
+    "notes": "Independent review by ChatGPT Pro, session cg-6b83f1, not original author astra-20260921-f6b2d8. Read both member documents, all 17 stage descriptions, all 20 family evidence rows, the inherited 23-node target inventory, supplier/consumer contracts and the reviewed coverage entries; freshly checked the cited Mathlib isocrystal source and the relevant FS proof order. The ownership proposal is accepted with the four clarifications below and its existing atomic deletion/replacement requirement. This does not accept the inherited decomposition as closed or certify its proofs. Full native-atlas and pending-link union tests pass only after the stated old edge is removed. RF3 global-Proj, full Dieudonne-Manin/Brauer and remaining source-proof obligations are not discharged by this review. No Lean run or implementation claim.",
+    "corrections": [
+      "Made the required coefficient-field localization and isocrystal-to-bundle sign translation explicit in VB0, with the exact limited Mathlib carrier/rank-one baseline.",
+      "Corrected the positive-slope-resolution contract from degree 1/r to slope 1/r, retaining n+m=dr and degree d and adding the rank-two/degree-one regression case. This distinguishes a source typo from a new normalization.",
+      "Pinned the two-term Banach-Colmez cohomological degrees and hypercohomology interpretation; retained positive, negative-H1 and zero tests without dropping the stronger theorem.",
+      "Replaced the impossible fixed-rank slope-zero/nonconstant-polygon test and corrected the scalar-sheaf section interpretation on disconnected bases. Retained monodromy, variable-rank and nonzero-HN controls."
+    ]
+  }
+}
