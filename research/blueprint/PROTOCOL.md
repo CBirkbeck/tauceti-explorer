@@ -513,3 +513,74 @@ The proposal follows these rules:
 An independent reviewer checks the proposal against the roadmap documents. The
 orchestrator applies an accepted proposal to the atlas, and the blueprint jobs
 of the family's roadmaps start after that.
+
+## 16. Papers: extraction and routing
+
+The maintainer adds papers in batches to `research/blueprint/papers/papers.json`.
+A paper job (`kind:paper`, one per paper) reads the paper completely and decides
+where its mathematics belongs in the atlas. It writes
+`research/blueprint/papers/PAPER-<id>.result.json` in the format below and
+`research/blueprint/papers/PAPER-<id>.md`, a report for a human reader.
+
+```json
+{
+ "paper": "PAPER-<id>",
+ "protocol": "paper-v1",
+ "status": "partial | complete",
+ "source": {"title": "...", "authors": "...", "venue": "...", "doi": "...", "arxiv": "...", "url": "...",
+            "readSections": ["..."]},
+ "summary": "What the paper proves, and what it needs that the atlas lacks.",
+ "items": [{"id": "PAPER-<id>/<n>", "kind": "definition | construction | theorem", "name": "...",
+            "statement": "the exact statement, with every hypothesis", "locator": "Section 2.3, Definition 2.4",
+            "status": "library | planned | missing",
+            "library": ["mathlib:<declaration>", "tauceti:<declaration>"], "planned": ["<stage id>"], "note": "..."}],
+ "prerequisites": [{"citation": "...", "link": "doi or arXiv id or url", "why": "..."}],
+ "routes": [
+  {"route": "source", "roadmap": "<proposed roadmap id>", "stages": ["<its stage ids>"], "items": ["PAPER-<id>/<n>"], "reason": "..."},
+  {"route": "part-ii", "parent": "<existing roadmap id>", "roadmap": "<new id>", "title": "<parent title>, Part II: <what it adds>",
+   "area": "<galaxy id>", "items": ["..."], "brief": "...", "reason": "..."},
+  {"route": "new", "roadmap": "<new id>", "title": "...", "area": "<galaxy id>", "items": ["..."], "brief": "...", "reason": "..."}]
+}
+```
+
+The extraction follows these rules:
+
+- Every definition, construction and key theorem the paper uses or proves on
+  the way to its main results is an item, and so is each main result. Coverage
+  is complete (section 0). Split multi-part results.
+- An item is `library` when Mathlib or Tau Ceti has it at the pinned commits
+  (cite the declarations, read at the pinned commit), `planned` when a layer of
+  the atlas plans it (name the layer: `data/atlas.json`, or a new roadmap in
+  `research/blueprint/roadmaps/`), and `missing` otherwise. Read the reviewed
+  library audit and the layer descriptions before deciding.
+- Every missing item is routed exactly once:
+  - `source`: it belongs inside existing layers of a proposed roadmap. The paper
+    becomes a source of that roadmap's blueprint for the named layers. A source
+    route may also name planned items the paper is a good source for.
+  - `part-ii`: it needs new layers in the direction of an existing roadmap.
+    Propose "<that roadmap's title>, Part II: <what it adds>" (section 15).
+  - `new`: nothing in the atlas goes in its direction. Propose a new roadmap.
+- Tau Ceti roadmaps are never re-planned: what extends one is a Part II.
+- A brief is the design job's instructions. It states the final theorems exactly
+  as the paper does, says what the new roadmap must cover, and names the
+  roadmaps it imports from, by title and id. The worked examples in
+  `papers.json` (`guides`) show the level of detail.
+- `prerequisites` lists the papers this one builds on that the atlas does not
+  yet cover; the maintainer adds them to a later batch.
+- The report explains each route to a human reader: what the paper proves, what
+  the atlas already has, and why each route goes where it goes.
+
+An independent reviewer checks the items against the paper, the statuses
+against the libraries and the atlas, and every route, corrects the extraction
+in place where the fix is clear, and writes
+`research/blueprint/papers/PAPER-<id>.review.json`:
+
+```json
+{"paper": "PAPER-<id>", "verdict": "accept | revise",
+ "routes": [{"route": 1, "verdict": "accept | reject", "reason": "..."}], "notes": "..."}
+```
+
+Accepted routes are applied when the queue is next generated. A `source` route
+adds the paper to the named roadmap's blueprint instructions; a `part-ii` or
+`new` route becomes a design job, `DESIGN-<roadmap id>`, whose instructions are
+its brief, with its own review.

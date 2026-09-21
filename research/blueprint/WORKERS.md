@@ -50,6 +50,14 @@ it. The maintainer's examples show the granularity expected:
 These lists are examples, not the whole job: a worker finds everything the
 papers use.
 
+New papers arrive in batches (`research/blueprint/papers/papers.json`), one
+`kind:paper` job each. The papers routed so far are listed there as worked
+examples: a paper whose results fall inside existing layers becomes a source of
+those layers (Balakrishnan–Dogra–Müller–Tuitman–Vonk for quadratic Chabauty);
+one that needs new layers in an existing roadmap's direction becomes a Part II
+of that roadmap (Pan, Skinner, Betts–Stix); one with no existing direction
+becomes a new roadmap (Lawrence–Venkatesh, Boxer–Calegari–Gee–Pilloni).
+
 Check the pinned libraries before planning anything. A name search on 21
 September 2026 found the following; confirm each at the pinned commits before
 relying on it.
@@ -81,10 +89,16 @@ roadmap that owns it (PROTOCOL.md section 15).
       shows key definitions and named theorems ("Potential automorphy
       theorem"), not source locators or sentence fragments. These jobs are
       quick, and they improve the map at once.
-   3. `kind:review`, when its input exists: an independent check of another
+   3. `kind:paper`: read one paper the maintainer has added and route its
+      mathematics: every definition and key theorem it uses or proves, whether
+      the libraries have it or a layer of the atlas plans it, and, for what is
+      missing, a source of existing layers, a Part II of an existing roadmap
+      or a new roadmap, with the brief its design job will follow
+      (PROTOCOL.md section 16).
+   4. `kind:review`, when its input exists: an independent check of another
       worker's job. Never review your own work.
-   4. `kind:blueprint`: plan one proposed roadmap, or one part of a large one.
-   5. `kind:link` and `kind:design`.
+   5. `kind:blueprint`: plan one proposed roadmap, or one part of a large one.
+   6. `kind:link` and `kind:design`.
 3. Read the whole issue: its "What this issue delivers" section, and the full
    instructions inside it.
 
