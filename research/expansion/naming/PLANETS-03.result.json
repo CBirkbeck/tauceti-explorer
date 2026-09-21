@@ -1,0 +1,1057 @@
+[
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula::landmark:agreement-with-heightonespectrum-valuation-17xl9ru",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Minor agreement lemma for an existing valuation carrier."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula::landmark:finiteness-of-the-set-on-which-x-v-1-for-x-1ne7ru0",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Finite-support property supporting the product formula, not a central standalone planet."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula::landmark:normalized-local-absolute-value-on-each-si-72p1fg",
+    "decision": "name",
+    "label": "Normalized local absolute value",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula::landmark:real-and-squared-complex-formulas-at-infin-nr0j9o",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Component formulas for the absolute-value definition already retained."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences::landmark:artin-whaples-weak-approximation-in-the-na-em4cox",
+    "decision": "name",
+    "label": "Artin–Whaples weak approximation",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences::landmark:total-sign-homomorphism-to-the-product-of--4gb4nd",
+    "decision": "name",
+    "label": "Total sign homomorphism",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic::landmark:algebraicinfinitytype-k-is-the-integer-exp-9fvz2x",
+    "decision": "name",
+    "label": "Algebraic infinity type",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic::landmark:classify-continuous-characters-of-x-as-x-s-dxxfs2",
+    "decision": "name",
+    "label": "Archimedean character classification",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic::landmark:continuousinfinitytype-k-records-s-w-w-at--1ulrs9j",
+    "decision": "name",
+    "label": "Continuous infinity type",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups::landmark:extension-and-contraction-between-invertib-rueh5c",
+    "decision": "name",
+    "label": "Invertible ideal extension and contraction",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups::landmark:multiplier-ring-predicate-numberfieldorder-6w874b",
+    "decision": "name",
+    "label": "Proper fractional ideals",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups::landmark:numberfieldorder-k-as-a-subalgebra-finite--1d3fntq",
+    "decision": "name",
+    "label": "Number field orders",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers::landmark:idealclass-m-as-a-monoid-homomorphism-out--1pjccs0",
+    "decision": "name",
+    "label": "Ray class homomorphism",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers::landmark:idealsprimeto-m-as-the-reducible-abbreviat-r338qw",
+    "decision": "name",
+    "label": "Ideals prime to a modulus",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers::landmark:modulus-k-its-finite-support-and-exponent--c7oury",
+    "decision": "name",
+    "label": "Modulus",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers::landmark:named-subgroups-primetosubgroup-and-unitsc-13abxng",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Auxiliary subgroup and carrier bookkeeping for the ray-class construction."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting::landmark:3a-lattice-point-counting-with-a-power-sav-1ai3jkg",
+    "decision": "name",
+    "label": "Lattice-point counting with power-saving error",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting::landmark:3b-the-congruence-sublattice-1ydgem4",
+    "decision": "name",
+    "label": "Congruence sublattice",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting::landmark:3c-the-unit-action-and-a-fundamental-domai-1f4zpnf",
+    "decision": "name",
+    "label": "Ray fundamental domain",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting::landmark:3d-assembly-uniformly-in-the-class-i9agfd",
+    "decision": "name",
+    "label": "Uniform ray-class ideal counting",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles::landmark:give-the-finite-idele-description-of-class-54lk77",
+    "decision": "name",
+    "label": "Finite-idele class-group equivalence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles::landmark:placewise-ytr12k",
+    "decision": "name",
+    "label": "FiniteAdeleRing",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles::landmark:full-idele-class-group-is-not-compact-its--1dxqjvm",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Noncompactness warning, not a new central construction."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles::landmark:idelegroup-k-as-the-units-of-the-full-adel-10k8zy1",
+    "decision": "name",
+    "label": "Idele class group",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles::landmark:separately-named-theorem-46ibq",
+    "decision": "name",
+    "label": "Additive strong approximation",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-7-congruence-subgroups-and-the-ray-class-dictionary::landmark:openness-antitonicity-k3pxdf",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Openness and order properties supporting the congruence-subgroup construction."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-7-congruence-subgroups-and-the-ray-class-dictionary::landmark:with-surjectivity-and-kernel-raysubgroup-m-1gf3m0w",
+    "decision": "name",
+    "label": "rayClassQuotient",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles::landmark:adelebasechangeequiv-k-k-l-a-k-l-a-continu-1shylsb",
+    "decision": "name",
+    "label": "Adelic base-change equivalence",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles::landmark:l-k-is-finite-so-no-completed-tensor-produ-cyeh7j",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Topology and finite-extension scope caution for the base-change theorem."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters::landmark:and-rayclasscharacter-m-rayclassgroup-m-x-1pfubwq",
+    "decision": "name",
+    "label": "Ray class characters",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters::landmark:canonical-carrier-8vip7p",
+    "decision": "name",
+    "label": "Hecke characters",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters::landmark:heckecharacter-nn1kkq",
+    "decision": "name",
+    "label": "Unitary part of a Hecke character",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-0-places-completions-and-scalar-extension::landmark:compatibility-with-prod-negation-and-scala-3urnpo",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Routine compatibility properties of scalar extension."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-0-places-completions-and-scalar-extension::landmark:scalar-extension-of-an-isometry-and-of-a-r-1g2mj9i",
+    "decision": "name",
+    "label": "Scalar extension of isometries",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-1-archimedean-forms-and-signatures::landmark:basic-1npfg7x",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "A list of routine signature API properties."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants::landmark:finite-place-hasse-sign-s-v-1-120qusv",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "One field of the global invariant carrier retained separately."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants::landmark:globalforminvariants-k-l973co",
+    "decision": "name",
+    "label": "Global form invariants",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants::landmark:positive-rank-n-11pwu0y",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "A rank field in the invariant carrier, not a standalone construction."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas::landmark:4-2-the-global-square-theorem-2jes62",
+    "decision": "name",
+    "label": "Global square theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas::landmark:archimedean-symbol-ep2poe",
+    "decision": "name",
+    "label": "Archimedean Hilbert symbol",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas::landmark:localized-product-formula-11qq2zj",
+    "decision": "name",
+    "label": "Localized Hilbert product formula",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas::landmark:sign-prescription-15kudhw",
+    "decision": "keep",
+    "label": "Sign prescription",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy::landmark:binary-1wkihp8",
+    "decision": "name",
+    "label": "Binary local–global isotropy",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy::landmark:quaternary-rzxyzd",
+    "decision": "name",
+    "label": "Quaternary descent",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy::landmark:regularity-1ehdki1",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Explanation of why a theorem needs regularity."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy::landmark:ternary-7nm30g",
+    "decision": "name",
+    "label": "Ternary local–global isotropy",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry::landmark:apply-layer-5-to-a-q-1tggrq9",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Proof instruction and zero-scalar caveat."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry::landmark:for-regular-forms-q-and-r-prove-cb4r8n",
+    "decision": "name",
+    "label": "Representation of regular forms",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry::landmark:for-regular-q-and-nonzero-a-k-prove-973unh",
+    "decision": "name",
+    "label": "Scalar representation",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry::landmark:induct-on-rank-q-v0fuu8",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Induction instructions within the representation proof."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants::landmark:before-constructing-positive-rank-invarian-1jcicm6",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Rank-zero boundary case before the positive-rank existence theorem."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants::landmark:from-an-admissible-i-globalforminvariants--tg08is",
+    "decision": "name",
+    "label": "Local realization of admissible invariants",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants::landmark:o-meara-72-1-in-number-field-form-19huajo",
+    "decision": "name",
+    "label": "Global existence with prescribed local behavior",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences::landmark:8-1-complete-invariant-theorem-1w5cead",
+    "decision": "name",
+    "label": "Complete invariant theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences::landmark:global-plain-discriminant-15o4h3j",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "One invariant in the classification theorem, already part of its carrier."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences::landmark:positive-index-at-each-real-place-vsz2ob",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "One coordinate of the invariant system, not a separate central result."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-9-worked-examples-and-regression-tests::landmark:for-q-1-1-3-over-prove-1t3dcj",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Worked quadratic-form regression example."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-9-worked-examples-and-regression-tests::landmark:q-is-anisotropic-over-3-reduce-modulo-3-an-18abjtk",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Local anisotropy calculation within a regression example."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-9-worked-examples-and-regression-tests::landmark:q-is-isotropic-over-jzvb1t",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Real isotropy calculation within a regression example."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors::landmark:calculus-and-duality-1p2jo22",
+    "decision": "name",
+    "label": "Opposite exact structure",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors::landmark:conflation-exact-functors-wc24l8",
+    "decision": "keep",
+    "label": "Conflation-exact functors",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors::landmark:exact-structures-m3zbfa",
+    "decision": "keep",
+    "label": "Exact structures",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors::landmark:kernel-cokernel-pairs-1xibhsp",
+    "decision": "keep",
+    "label": "Kernel-cokernel pairs",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-1-the-small-presentation-and-universal-additive-invariants::landmark:choice-independence-agdi88",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Choice-independence verification for the common presentation."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-1-the-small-presentation-and-universal-additive-invariants::landmark:products-and-biadditivity-1gt9du2",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Product and biadditivity properties supporting the universal construction."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-1-the-small-presentation-and-universal-additive-invariants::landmark:relations-as-generated-subgroups-1vv665d",
+    "decision": "name",
+    "label": "Universal additive invariant",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-1-the-small-presentation-and-universal-additive-invariants::landmark:small-generators-mwbjf2",
+    "decision": "name",
+    "label": "Free abelian group on a skeleton",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups::landmark:abelian-k0-rse4hc",
+    "decision": "keep",
+    "label": "Abelian K₀",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups::landmark:exact-k0-1bqqq2n",
+    "decision": "keep",
+    "label": "Exact K₀",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups::landmark:split-k0-13ay02",
+    "decision": "keep",
+    "label": "Split K₀",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups::landmark:triangulated-k0-gju7se",
+    "decision": "keep",
+    "label": "Triangulated K₀",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem::landmark:euler-class-of-a-resolution-1k981re",
+    "decision": "keep",
+    "label": "Euler class of a resolution",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem::landmark:objects-with-finite-resolutions-j6falf",
+    "decision": "name",
+    "label": "Finite resolutions",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem::landmark:resolution-theorem-1fihq4r",
+    "decision": "keep",
+    "label": "Resolution theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-3-finite-resolutions-and-the-resolution-theorem::landmark:resolving-subcategories-1iwdj1a",
+    "decision": "keep",
+    "label": "Resolving subcategories",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map::landmark:cartan-map-and-matrix-1tull9o",
+    "decision": "keep",
+    "label": "Cartan map and matrix",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map::landmark:finite-projective-resolutions-10bkyo4",
+    "decision": "name",
+    "label": "Finite-resolution Cartan isomorphism",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map::landmark:projective-simple-pairing-j9wi1n",
+    "decision": "name",
+    "label": "Projective–simple multiplicity pairing",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map::landmark:two-groups-myvvb7",
+    "decision": "name",
+    "label": "K₀ of projectives and G₀ of modules",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent::landmark:bounded-complexes-and-euler-poincare-mr6l5b",
+    "decision": "name",
+    "label": "Euler–Poincaré theorem",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent::landmark:ext-euler-value-1h5gamp",
+    "decision": "name",
+    "label": "Ext-Euler pairing",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent::landmark:ext-finite-pairs-gtt06p",
+    "decision": "name",
+    "label": "Euler-admissible pairs",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent::landmark:finite-graded-families-2gua1",
+    "decision": "name",
+    "label": "Finite-support Euler characteristic",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-6-laurent-coefficients-q-euler-forms-and-specialization::landmark:finite-laurent-support-1jyw6y0",
+    "decision": "name",
+    "label": "Graded dimension",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-6-laurent-coefficients-q-euler-forms-and-specialization::landmark:matrices-and-duality-1543nmi",
+    "decision": "name",
+    "label": "Graded Cartan and Gram matrices",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-6-laurent-coefficients-q-euler-forms-and-specialization::landmark:q-euler-form-1so4hku",
+    "decision": "keep",
+    "label": "q-Euler form",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-6-laurent-coefficients-q-euler-forms-and-specialization::landmark:shift-module-structure-1cfna7r",
+    "decision": "name",
+    "label": "Graded K₀ shift-module structure",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-7-left-and-right-numerical-grothendieck-groups::landmark:euler-specialization-9tuu97",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Application and left/right identification caveat for the numerical quotient construction."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-7-left-and-right-numerical-grothendieck-groups::landmark:functoriality-17tmtd2",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Functoriality conditions for the already retained numerical quotients."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-7-left-and-right-numerical-grothendieck-groups::landmark:numerical-quotients-kho4g3",
+    "decision": "name",
+    "label": "Left and right numerical quotients",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-7-left-and-right-numerical-grothendieck-groups::landmark:radicals-1bax7nu",
+    "decision": "name",
+    "label": "Left and right radicals",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f0-the-nonlinear-analysis-substrate::landmark:finite-dimensional-sard-q85y9o",
+    "decision": "keep",
+    "label": "Finite-dimensional Sard",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f1-the-cauchyriemann-elliptic-package-shared-with-the-pde-roadmap::landmark:2-dimensional-first-order-elliptic-system--od0aa3",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Cross-roadmap scope and supplier instruction."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f2-j-holomorphic-curves::landmark:mcduff-salamon-j-holomorphic-curves-and-sy-1o8ib3f",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Bibliographic source and proof-route bookkeeping."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f3-lagrangian-floer-homology-exact-case::landmark:floer-s-theorem-in-its-cleanest-nontrivial-u4bpue",
+    "decision": "name",
+    "label": "Floer's theorem for exact Lagrangians",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f4-heegaard-floer-homology-holomorphically::landmark:ozsvath-szabo-arxiv-math-0101206-2-4-over--3nk8f0",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Source citation and dependency bookkeeping."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f5-beyond-far-horizon-named-so-nobody-mistakes-the-scope::landmark:lipshitz-s-cylindrical-reformulation-arxiv-1l2r12d",
+    "decision": "name",
+    "label": "Lipshitz's cylindrical reformulation",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-m-morse-homology-stage-0::landmark:full-floer-proof-architecture-at-ode-cost--5ld9v0",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Programme and workflow description without a separate mathematical object."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-3::landmark:linear-cauchy-riemann-operators-on-the-dis-1ijtwxz",
+    "decision": "name",
+    "label": "Riemann–Roch with boundary",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-1::landmark:definitions-land-immediately-tee764",
+    "decision": "name",
+    "label": "Almost complex structures",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-2::landmark:local-theory-493dbl",
+    "decision": "name",
+    "label": "Unique continuation",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-3::landmark:compactness-2zcial",
+    "decision": "name",
+    "label": "Gromov compactness for strips and disks",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-4::landmark:transversality-16na4z6",
+    "decision": "name",
+    "label": "Sard–Smale transversality",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f2-5::landmark:gluing-1mndsnj",
+    "decision": "name",
+    "label": "Gluing of broken configurations",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-3::landmark:nearly-symmetric-j-1dx7gf8",
+    "decision": "keep",
+    "label": "Nearly-symmetric J",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f4-4::landmark:hf-over-2-15bzfn",
+    "decision": "keep",
+    "label": "HF̂ over 𝔽₂",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-m-1::landmark:dynamical-route-tnv2wa",
+    "decision": "name",
+    "label": "Morse–Smale transversality",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-m-2::landmark:functional-analytic-route-1l0kxfp",
+    "decision": "name",
+    "label": "Trajectory spaces as Fredholm zero sets",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l0--pure-hodge-structures-the-hodge-decomposition::landmark:pure-hodge-structures-the-hodge-decomposit-1tjl0h8",
+    "decision": "name",
+    "label": "Hodge decomposition",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory::landmark:polarization-hodge-riemann-semisimplicity--x2fwg6",
+    "decision": "name",
+    "label": "Semisimplicity of polarizable ℚ-HS",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne::landmark:mixed-hodge-structures-strictness-deligne-5ex025",
+    "decision": "name",
+    "label": "Deligne splitting",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l3--period-domain-points-the-symmetry-group::landmark:period-domain-points-the-symmetry-group-1uknjol",
+    "decision": "name",
+    "label": "Period-domain points",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-0-the-reconciled-riemannian-distance::landmark:canonical-convention-yz553c",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Convention for reusing the library's Riemannian distance carrier, rather than a separate mathematical landmark."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-0-the-reconciled-riemannian-distance::landmark:corner-smoothing-and-the-piecewise-c1-comp-19327n2",
+    "decision": "keep",
+    "label": "Corner smoothing and the piecewise-C¹ comparison",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-0-the-reconciled-riemannian-distance::landmark:existing-c1-length-algebra-consume-crmcwl",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Instruction to consume existing length lemmas, not a new central object or result."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-0-the-reconciled-riemannian-distance::landmark:regular-reparametrization-and-limits-fmprw1",
+    "decision": "name",
+    "label": "Constant-speed reparametrization",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-1-the-geodesic-equation-the-flow-and-the-exponential-map::landmark:covariant-derivative-along-a-curve-yf89wo",
+    "decision": "keep",
+    "label": "Covariant derivative along a curve",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-1-the-geodesic-equation-the-flow-and-the-exponential-map::landmark:isgeodesiccurveon-s-1v02ip8",
+    "decision": "name",
+    "label": "Geodesic curve predicate",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-1-the-geodesic-equation-the-flow-and-the-exponential-map::landmark:levi-civita-connection-16pbf1c",
+    "decision": "name",
+    "label": "Levi–Civita connection",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-1-the-geodesic-equation-the-flow-and-the-exponential-map::landmark:regularity-of-the-levi-civita-connection-ofd71q",
+    "decision": "name",
+    "label": "Regularity of the Levi–Civita connection",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-2-normal-neighbourhoods-the-gauss-lemma-and-minimizing-geodesics::landmark:ball-internal-radial-minimization-1pvbasd",
+    "decision": "keep",
+    "label": "Ball-internal radial minimization",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-2-normal-neighbourhoods-the-gauss-lemma-and-minimizing-geodesics::landmark:escape-estimate-and-local-distance-identit-w8k3n1",
+    "decision": "name",
+    "label": "Local distance identity",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-2-normal-neighbourhoods-the-gauss-lemma-and-minimizing-geodesics::landmark:gauss-lemma-c2cdoq",
+    "decision": "keep",
+    "label": "Gauss lemma",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-2-normal-neighbourhoods-the-gauss-lemma-and-minimizing-geodesics::landmark:normal-neighbourhoods-and-the-local-logari-1oeywmm",
+    "decision": "keep",
+    "label": "Normal neighbourhoods and the local logarithm",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-3-the-hopfrinow-equivalence::landmark:a-p-1vjlxiu",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Short implication reusing the preceding pointwise equivalence; the other entries identify the substantive Hopf–Rinow steps."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-3-the-hopfrinow-equivalence::landmark:a-p-and-f-p-b-1d2i26q",
+    "decision": "name",
+    "label": "Compactness of closed balls",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-3-the-hopfrinow-equivalence::landmark:a-p-f-p-35p9na",
+    "decision": "name",
+    "label": "Distance-minimizing geodesics",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-3-the-hopfrinow-equivalence::landmark:d-including-convergence-in-tm-n69g7a",
+    "decision": "name",
+    "label": "Geodesic completeness from metric completeness",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-4-corollaries-and-downstream-theory::landmark:compact-geodesically-complete-1ks2awo",
+    "decision": "name",
+    "label": "Geodesic completeness under compactness",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-4-corollaries-and-downstream-theory::landmark:metric-geodesic-space-nyi3pz",
+    "decision": "keep",
+    "label": "Metric geodesic-space",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-4-corollaries-and-downstream-theory::landmark:metric-length-space-qc1818",
+    "decision": "keep",
+    "label": "Metric length-space",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/HopfRinow#layer-4-corollaries-and-downstream-theory::landmark:transport-across-smooth-riemannian-isometr-11g4qph",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Transport instruction for the established results across smooth Riemannian isometries, not a separate central construction."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree::landmark:degree-118dsp5",
+    "decision": "name",
+    "label": "Degree of a line bundle",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree::landmark:divisors-on-a-curve-19lxf6n",
+    "decision": "keep",
+    "label": "Divisors on a curve",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree::landmark:invertible-sheaves-erpdyo",
+    "decision": "keep",
+    "label": "Invertible sheaves",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality::landmark:coherent-sheaves-1e9z3ta",
+    "decision": "keep",
+    "label": "Coherent sheaves",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality::landmark:genus-boeuyx",
+    "decision": "keep",
+    "label": "Genus",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change::landmark:proper-flat-finitely-presented-pushforward-1nxebfe",
+    "decision": "name",
+    "label": "Cohomology and base change",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change::landmark:relative-effective-cartier-divisors-s998id",
+    "decision": "keep",
+    "label": "Relative effective Cartier divisors",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme::landmark:functor-16p1cbk",
+    "decision": "name",
+    "label": "Relative Picard functor",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme::landmark:pic0-uqt7xl",
+    "decision": "keep",
+    "label": "Pic⁰",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme::landmark:properness-projectivity-1vz1g87",
+    "decision": "name",
+    "label": "Projectivity of Pic⁰",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme::landmark:representability-the-crux-1pizwpa",
+    "decision": "name",
+    "label": "Picard scheme representability",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties::landmark:abelian-variety-1teem21",
+    "decision": "keep",
+    "label": "Abelian variety",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties::landmark:characteristic-p-1l7n3e4",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Caution about inseparability and non-étale multiplication in positive characteristic."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties::landmark:tangent-space-10sep28",
+    "decision": "name",
+    "label": "Tangent space of Pic⁰",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties::landmark:theorem-of-the-cube-square-x6gfoe",
+    "decision": "name",
+    "label": "Theorem of the cube",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property::landmark:abel-jacobi-morphism-aj-x-jac-x-x0-0-the-d-1c4n4wu",
+    "decision": "keep",
+    "label": "Abel–Jacobi morphism",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property::landmark:base-change-compatibility-1b9z37r",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Routine base-change compatibility of the Abel–Jacobi construction, subsidiary to its universal property."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property::landmark:universal-property-precise-13i5huz",
+    "decision": "name",
+    "label": "Albanese universal property",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions::landmark:finite-extensions-i-construction-of-the-va-cw6p0o",
+    "decision": "name",
+    "label": "Valuative structure on finite extensions",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions::landmark:finite-extensions-ii-uniqueness-twhnnk",
+    "decision": "name",
+    "label": "Valuation uniqueness for finite extensions",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions::landmark:normalized-valuation-1kl1pbr",
+    "decision": "name",
+    "label": "Normalized valuation on K",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions::landmark:p-is-a-local-field-1clafo6",
+    "decision": "name",
+    "label": "Local-field structure on ℚp",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group::landmark:graded-pieces-ng8qcb",
+    "decision": "name",
+    "label": "Graded pieces of the unit filtration",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group::landmark:structure-of-kx-1hk0b6n",
+    "decision": "keep",
+    "label": "Structure of Kˣ",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group::landmark:teichmuller-21kus8",
+    "decision": "name",
+    "label": "Teichmüller section",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group::landmark:unit-filtration-as-an-object-1fkxyfv",
+    "decision": "name",
+    "label": "Unit filtration",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius::landmark:arithmetic-predicate-1pwu71s",
+    "decision": "name",
+    "label": "Unramified extension of local fields",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius::landmark:existence-and-uniqueness-stated-precisely-3cyhdr",
+    "decision": "name",
+    "label": "Classification of unramified extensions",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius::landmark:maximal-unramified-extension-l69btj",
+    "decision": "name",
+    "label": "Maximal unramified extension of K",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius::landmark:residue-correspondence-14iv3cc",
+    "decision": "keep",
+    "label": "Residue correspondence",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration::landmark:local-monogenicity-li9je9",
+    "decision": "keep",
+    "label": "Local monogenicity",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration::landmark:lower-numbering-filtration-4sdmsy",
+    "decision": "name",
+    "label": "Lower ramification filtration",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration::landmark:tame-and-wild-ks9tmz",
+    "decision": "name",
+    "label": "Tame and wild ramification",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration::landmark:totally-ramified-is-equivalent-to-eisenste-pr543z",
+    "decision": "name",
+    "label": "Eisenstein criterion for total ramification",
+    "kind": "theorem"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group::landmark:ambient-model-fixed-once-zldml1",
+    "decision": "drop",
+    "label": null,
+    "kind": null,
+    "reason": "Instruction fixing the existing absolute Galois group model and its transport convention, not a separate planet."
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group::landmark:inertia-6hn69",
+    "decision": "keep",
+    "label": "Inertia",
+    "kind": "definition"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group::landmark:tame-character-and-the-twist-xxoo92",
+    "decision": "name",
+    "label": "Tame character",
+    "kind": "construction"
+  },
+  {
+    "id": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group::landmark:wild-inertia-dc51zj",
+    "decision": "keep",
+    "label": "Wild inertia",
+    "kind": "definition"
+  }
+]
