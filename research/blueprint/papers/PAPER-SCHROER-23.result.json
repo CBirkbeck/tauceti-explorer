@@ -1,0 +1,2361 @@
+{
+  "paper": "PAPER-SCHROER-23",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "items": [
+    {
+      "id": "PAPER-SCHROER-23/1",
+      "kind": "definition",
+      "name": "Numerical Picard local system",
+      "statement": "For a proper scheme X over a field k, Pic^τ_{X/k} is the open subgroup of geometrically numerically trivial line bundles and Num_{X/k}=Pic_{X/k}/Pic^τ_{X/k}; it is an étale local system with geometric fiber a finite-rank free abelian group.",
+      "locator": "§1, pp4–5",
+      "status": "missing",
+      "api": [
+        "quotient map and kernel",
+        "geometric base change",
+        "Galois representation and constantness"
+      ],
+      "tests": [
+        {
+          "name": "NumericalPicardlocalsystemTest1",
+          "kind": "computation",
+          "statement": "Num(P¹_k)=Z via degree."
+        },
+        {
+          "name": "NumericalPicardlocalsystemTest2",
+          "kind": "compatibility",
+          "statement": "Numerically trivial bundles map to zero, including torsion bundles."
+        },
+        {
+          "name": "NumericalPicardlocalsystemTest3",
+          "kind": "non-example",
+          "statement": "For P¹_C viewed over R, geometric Num is Z² with nontrivial conjugation; it is not constant."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/2",
+      "kind": "theorem",
+      "name": "Positive-power descent criterion",
+      "statement": "For proper X/k, Num_{X/k} is constant iff some positive integer d has this property: for every line bundle L on X_kalg there exists a numerically trivial line bundle N on X_kalg such that L^⊗d⊗N descends to X.",
+      "locator": "Lemma1.1, p5",
+      "status": "missing",
+      "note": "Use d≥1; printed d≥0 admits the vacuous value zero. Arbitrary proper X, not only geometrically connected X."
+    },
+    {
+      "id": "PAPER-SCHROER-23/3",
+      "kind": "definition",
+      "name": "Component dual graph",
+      "statement": "For a noetherian scheme X, Γ(X) has its irreducible components as vertices, with an edge between distinct components iff their intersection is nonempty.",
+      "locator": "§1, p6",
+      "status": "missing",
+      "api": [
+        "base-change map on components",
+        "adjacency under field extension",
+        "graph-isomorphism criterion"
+      ],
+      "tests": [
+        {
+          "name": "ComponentdualgraphTest1",
+          "kind": "computation",
+          "statement": "An integral curve has one vertex."
+        },
+        {
+          "name": "ComponentdualgraphTest2",
+          "kind": "compatibility",
+          "statement": "Two components meeting at two points still give one adjacency edge in this convention."
+        },
+        {
+          "name": "ComponentdualgraphTest3",
+          "kind": "non-example",
+          "statement": "A disconnected union of two curves has no edge."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/4",
+      "kind": "theorem",
+      "name": "Curve criterion for numerical constancy",
+      "statement": "For a proper one-dimensional k-scheme X and geometric point Spec Ω→Spec k, Num_{X/k} is constant iff Γ(X_Ω)→Γ(X) is an isomorphism.",
+      "locator": "Proposition1.2, p6",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/5",
+      "kind": "definition",
+      "name": "Contraction",
+      "statement": "A contraction of proper schemes is a proper morphism f:X→Y for which O_Y→f_*O_X is an isomorphism.",
+      "locator": "§1, p6",
+      "status": "missing",
+      "api": [
+        "composition",
+        "Stein factorization interface",
+        "base-change and descended morphism comparisons"
+      ],
+      "tests": [
+        {
+          "name": "ContractionTest1",
+          "kind": "computation",
+          "statement": "The identity is a contraction."
+        },
+        {
+          "name": "ContractionTest2",
+          "kind": "compatibility",
+          "statement": "A connected-fiber morphism with Stein factor O_Y is a contraction."
+        },
+        {
+          "name": "ContractionTest3",
+          "kind": "non-example",
+          "statement": "A disconnected finite étale cover of degree two is not a contraction."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/6",
+      "kind": "theorem",
+      "name": "Descent of geometric contractions",
+      "statement": "Let X/k be proper with constant Num_{X/k}. Every contraction X_{kalg}→Y with projective target descends to a contraction X→Y₀ over k.",
+      "locator": "Theorem1.3, pp6–8",
+      "status": "missing",
+      "note": "The target's projectivity is a hypothesis; descent includes its identification after base change."
+    },
+    {
+      "id": "PAPER-SCHROER-23/7",
+      "kind": "theorem",
+      "name": "Purely inseparable contraction descent",
+      "statement": "For a purely inseparable field extension k⊂k′, every contraction of X_{k′}, with X proper over k, descends to k; this branch does not require constant Num or projectivity of the target.",
+      "locator": "Theorem1.3 proof, pp7–8",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/8",
+      "kind": "theorem",
+      "name": "Torsion in the Picard descent obstruction",
+      "statement": "For proper h:X→Spec k, H²(Spec k,h_*G_m) is torsion.",
+      "locator": "Lemma1.4, p8",
+      "status": "missing",
+      "note": "Proof reduces via the finite Artin affinization algebra, its nilpotent filtration, and field Brauer groups."
+    },
+    {
+      "id": "PAPER-SCHROER-23/9",
+      "kind": "definition",
+      "name": "Intersection-labelled component graph",
+      "statement": "For a proper curve on a smooth proper surface S/k with H⁰(S,O)=k, attach to each pair of distinct components their surface intersection number as an edge label.",
+      "locator": "§2, p8",
+      "status": "missing",
+      "api": [
+        "intersection multiplicities",
+        "base extension scaling",
+        "exceptional and fiber intersection matrices"
+      ],
+      "tests": [
+        {
+          "name": "IntersectionlabelledcomponentgraphTest1",
+          "kind": "computation",
+          "statement": "Transverse rational components meeting once have label1."
+        },
+        {
+          "name": "IntersectionlabelledcomponentgraphTest2",
+          "kind": "compatibility",
+          "statement": "Two components meeting transversely twice have label2."
+        },
+        {
+          "name": "IntersectionlabelledcomponentgraphTest3",
+          "kind": "non-example",
+          "statement": "The unlabelled graph alone cannot distinguish labels1 and2."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/10",
+      "kind": "theorem",
+      "name": "Fiber graph descent",
+      "statement": "Let f:S→Z be a contraction of a smooth proper k-surface with H⁰(O_S)=k. Let ā:Spec Ω→Z have image a, with Ω algebraically closed, and suppose S_ā is one-dimensional. If Num_{S/k} is constant, Γ(S_ā)→Γ(S_a) is an isomorphism.",
+      "locator": "Theorem2.1, pp8–10",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/11",
+      "kind": "theorem",
+      "name": "Descent of fiber intersection labels",
+      "statement": "Under the hypotheses of Theorem2.1, if (S_a)_red is geometrically reduced, that graph isomorphism also preserves edge labels.",
+      "locator": "Theorem2.1, pp8–10",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/12",
+      "kind": "theorem",
+      "name": "Residue field of a reducible geometric fiber",
+      "statement": "Under Theorem2.1, if S_ā is reducible, the field extension k⊂κ(a) is purely inseparable.",
+      "locator": "Theorem2.1, pp8–10",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/13",
+      "kind": "definition",
+      "name": "Curves of fiber and canonical type",
+      "statement": "On a smooth proper surface, a connected effective divisor C=Σm_iC_i is of fiber type if C·C_i=0 for every i; it is indecomposable if gcd_i m_i=1, and of canonical type if also K·C_i=0.",
+      "locator": "§3, pp10–11",
+      "status": "missing",
+      "api": [
+        "multiplicity and underlying indecomposable divisor",
+        "fiber-type intersection kernel",
+        "canonical-type classification"
+      ],
+      "tests": [
+        {
+          "name": "CurvesoffiberandcanonicaltypeTest1",
+          "kind": "computation",
+          "statement": "A smooth genus-one fiber has multiplicity1."
+        },
+        {
+          "name": "CurvesoffiberandcanonicaltypeTest2",
+          "kind": "compatibility",
+          "statement": "Twice an indecomposable fiber has multiplicity2 and the same underlying divisor."
+        },
+        {
+          "name": "CurvesoffiberandcanonicaltypeTest3",
+          "kind": "non-example",
+          "statement": "A negative-definite exceptional divisor is not of fiber type."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/14",
+      "kind": "theorem",
+      "name": "Rationality of singular-fiber components over finite fields",
+      "statement": "Let f:S→B be a genus-one fibration on a smooth proper F_q-surface with H⁰(O_S)=F_q and constant Num. Assume the underlying geometric fiber at a is singular. Then geometric reducibility implies a is rational, and a is rational iff all components of S_a are birational over F_q to P¹.",
+      "locator": "Proposition3.1, pp10–11",
+      "status": "missing",
+      "note": "Added singularity restriction: the displayed equivalence in the preprint is false for a smooth elliptic fiber. The graph-descent assertion itself has no such restriction."
+    },
+    {
+      "id": "PAPER-SCHROER-23/15",
+      "kind": "theorem",
+      "name": "Split semistable fiber count",
+      "statement": "For a genus-one fibration on a smooth proper F_q-surface with constant Num, a fiber over a rational point whose reduced curve is singular, has r components and type split I_r has r q rational points. Multiplicities do not change this count.",
+      "locator": "Proposition3.2, p11",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/16",
+      "kind": "theorem",
+      "name": "Nonsplit nodal fiber count",
+      "statement": "For a genus-one fibration on a smooth proper F_q-surface with constant Num, a fiber over a rational point whose reduced curve is singular, has r components and type nonsplit I₁ has q+2 rational points. Multiplicities do not change this count.",
+      "locator": "Proposition3.2, p11",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/17",
+      "kind": "theorem",
+      "name": "Nonsplit two-component fiber count",
+      "statement": "For a genus-one fibration on a smooth proper F_q-surface with constant Num, a fiber over a rational point whose reduced curve is singular, has r components and type nonsplit I₂ has 2q+2 rational points. Multiplicities do not change this count.",
+      "locator": "Proposition3.2, p11",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/18",
+      "kind": "theorem",
+      "name": "Additive fiber count",
+      "statement": "For a genus-one fibration on a smooth proper F_q-surface with constant Num, a fiber over a rational point whose reduced curve is singular, has r components and type unstable has r q+1 rational points. Multiplicities do not change this count.",
+      "locator": "Proposition3.2, p11",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/19",
+      "kind": "theorem",
+      "name": "No I₀* fiber over F₂ with constant numerical Picard",
+      "statement": "Such a fibration over F₂ has no I₀* fiber: its central rational component would contain four distinct rational intersection points, whereas P¹(F₂) has three points.",
+      "locator": "Proposition3.2, p11",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/20",
+      "kind": "theorem",
+      "name": "Elliptic curve E1 over F₂",
+      "statement": "The smooth projective Weierstrass curve y²+y=x³+x²+1 over F₂ has cyclic rational-point group of order 1, j=0, and is supersingular.",
+      "locator": "Proposition3.3, p11",
+      "status": "missing",
+      "acceptance": [
+        "Explicitly enumerate the F₂ affine points and include the point at infinity."
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/21",
+      "kind": "theorem",
+      "name": "Elliptic curve E2 over F₂",
+      "statement": "The smooth projective Weierstrass curve y²+xy=x³+x²+x over F₂ has cyclic rational-point group of order 2, j=1, and is ordinary.",
+      "locator": "Proposition3.3, p11",
+      "status": "missing",
+      "acceptance": [
+        "Explicitly enumerate the F₂ affine points and include the point at infinity."
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/22",
+      "kind": "theorem",
+      "name": "Elliptic curve E3 over F₂",
+      "statement": "The smooth projective Weierstrass curve y²+y=x³ over F₂ has cyclic rational-point group of order 3, j=0, and is supersingular.",
+      "locator": "Proposition3.3, p11",
+      "status": "missing",
+      "acceptance": [
+        "Explicitly enumerate the F₂ affine points and include the point at infinity."
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/23",
+      "kind": "theorem",
+      "name": "Elliptic curve E4 over F₂",
+      "statement": "The smooth projective Weierstrass curve y²+xy=x³+x over F₂ has cyclic rational-point group of order 4, j=1, and is ordinary.",
+      "locator": "Proposition3.3, p11",
+      "status": "missing",
+      "acceptance": [
+        "Explicitly enumerate the F₂ affine points and include the point at infinity."
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/24",
+      "kind": "theorem",
+      "name": "Elliptic curve E5 over F₂",
+      "statement": "The smooth projective Weierstrass curve y²+y=x³+x² over F₂ has cyclic rational-point group of order 5, j=0, and is supersingular.",
+      "locator": "Proposition3.3, p11",
+      "status": "missing",
+      "acceptance": [
+        "Explicitly enumerate the F₂ affine points and include the point at infinity."
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/25",
+      "kind": "theorem",
+      "name": "Five elliptic isomorphism classes over F₂",
+      "statement": "Every elliptic curve over F₂ is isomorphic over F₂ to exactly one of E₁,…,E₅ of Proposition3.3; its number of F₂-points determines the class.",
+      "locator": "Proposition3.3, p11",
+      "status": "missing",
+      "note": "Finite Weierstrass-coordinate enumeration independently checked; this does not classify genus-one fibrations."
+    },
+    {
+      "id": "PAPER-SCHROER-23/26",
+      "kind": "definition",
+      "name": "Enriques surface",
+      "statement": "Over an algebraically closed field k, an Enriques surface is a smooth proper k-surface Y with H⁰(O_Y)=k, numerically trivial canonical class, and ℓ-adic b₂=10 (ℓ≠char k). Over other fields use this geometric condition.",
+      "locator": "§4, p12",
+      "status": "missing",
+      "api": [
+        "geometric base change",
+        "canonical class and Picard invariants",
+        "surface and fibration interfaces"
+      ],
+      "tests": [
+        {
+          "name": "EnriquessurfaceTest1",
+          "kind": "computation",
+          "statement": "A characteristic-two classical Enriques surface has nontrivial canonical bundle of order2."
+        },
+        {
+          "name": "EnriquessurfaceTest2",
+          "kind": "compatibility",
+          "statement": "The numerical condition is weaker than requiring the canonical bundle to be trivial."
+        },
+        {
+          "name": "EnriquessurfaceTest3",
+          "kind": "non-example",
+          "statement": "A K3 surface, with b₂=22, is not Enriques."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/27",
+      "kind": "theorem",
+      "name": "Numerically trivial Picard group of an Enriques surface",
+      "statement": "For an Enriques surface over an algebraically closed field, Pic^τ is finite of length2 and its k-points are generated by ω_Y.",
+      "locator": "§4, p12",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/28",
+      "kind": "theorem",
+      "name": "Enriques numerical and cohomological invariants",
+      "statement": "For such Y, Num(Y) is free of rank10, b₁=b₃=0, b₂=ρ=10, and h¹(O_Y)=h²(O_Y)≤1.",
+      "locator": "§4, p12",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/29",
+      "kind": "theorem",
+      "name": "Enriques numerical lattice",
+      "statement": "The intersection form on Num(Y) is even unimodular of signature(1,9), and Num(Y)≅U⊕E₈(-1), where U has Gram matrix [[0,1],[1,0]].",
+      "locator": "§4, p12",
+      "status": "missing",
+      "note": "The geometric identification is missing; the abstract E₈ and integral-lattice APIs are already built and imported."
+    },
+    {
+      "id": "PAPER-SCHROER-23/30",
+      "kind": "theorem",
+      "name": "Existence of genus-one fibrations",
+      "statement": "Every Enriques surface over an algebraically closed field admits a genus-one fibration to P¹.",
+      "locator": "Proposition4.1, p12",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/31",
+      "kind": "theorem",
+      "name": "Double fibers",
+      "statement": "Every genus-one fibration on such an Enriques surface has a multiple fiber, and every multiple fiber has multiplicity2.",
+      "locator": "Proposition4.1, p12",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/32",
+      "kind": "theorem",
+      "name": "Integral two-sections",
+      "statement": "Every genus-one fibration on such a surface has an integral two-section, which can be chosen as either a (-2)-curve or a half-fiber of another genus-one fibration.",
+      "locator": "Proposition4.1, p12",
+      "status": "missing",
+      "note": "Never replace an integral two-section by a (-2)-curve without proof."
+    },
+    {
+      "id": "PAPER-SCHROER-23/33",
+      "kind": "definition",
+      "name": "Half-fiber",
+      "statement": "A half-fiber F of a genus-one fibration on an Enriques surface is the effective divisor with 2F equal to a fiber over a rational base point.",
+      "locator": "§4, p12",
+      "status": "missing",
+      "api": [
+        "fiber class equals twice half-fiber class",
+        "primitive isotropic numerical class",
+        "uniqueness from its effective line bundle"
+      ],
+      "tests": [
+        {
+          "name": "HalffiberTest1",
+          "kind": "computation",
+          "statement": "F²=0."
+        },
+        {
+          "name": "HalffiberTest2",
+          "kind": "compatibility",
+          "statement": "A two-section C has C·F=1."
+        },
+        {
+          "name": "HalffiberTest3",
+          "kind": "non-example",
+          "statement": "The reduced support of a reducible double fiber need not equal its half-fiber divisor."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/34",
+      "kind": "theorem",
+      "name": "Classical Enriques criteria",
+      "statement": "For an Enriques surface over an algebraically closed field, these are equivalent: ω_Y has order2; H¹(O_Y)=0; some genus-one fibration has no wild fibers; some genus-one fibration has two multiple fibers.",
+      "locator": "Proposition4.2, p12",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/35",
+      "kind": "theorem",
+      "name": "Tame double fibers and canonical bundle",
+      "statement": "Under those equivalent conditions every genus-one fibration has exactly two tame double fibers 2F₁,2F₂, with ω_Y≅O_Y(F₁−F₂); the conditions always hold if char k≠2.",
+      "locator": "Proposition4.2, p12",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/36",
+      "kind": "theorem",
+      "name": "Characteristic-two tame half-fiber types",
+      "statement": "If char k=2 and a genus-one fibration on an Enriques surface has two distinct double fibers 2F₁,2F₂, each F_i is ordinary elliptic or unstable; neither is supersingular elliptic or semistable.",
+      "locator": "Lemma4.3, pp12–13",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/37",
+      "kind": "definition",
+      "name": "ordinary Enriques surface",
+      "statement": "In characteristic2 an Enriques surface is ordinary iff Pic^τ=μ₂; its Cartier-dual canonical-cover group is Z/2, its étale fundamental group is Z/2, and its canonical bundle is trivial.",
+      "locator": "§4, p13",
+      "status": "missing",
+      "api": [
+        "type under algebraically closed field extension",
+        "Picard/dual group comparison",
+        "canonical-cover behavior"
+      ],
+      "tests": [
+        {
+          "name": "ordinaryEnriquessurfaceTest1",
+          "kind": "computation",
+          "statement": "The Picard group scheme for this type is μ₂."
+        },
+        {
+          "name": "ordinaryEnriquessurfaceTest2",
+          "kind": "compatibility",
+          "statement": "The cover group is the Cartier dual Z/2, not Pic^τ itself."
+        },
+        {
+          "name": "ordinaryEnriquessurfaceTest3",
+          "kind": "non-example",
+          "statement": "The type is disjoint from the other two characteristic-two types."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/38",
+      "kind": "definition",
+      "name": "classical Enriques surface",
+      "statement": "In characteristic2 an Enriques surface is classical iff Pic^τ=Z/2; its Cartier-dual canonical-cover group is μ₂, its étale fundamental group is trivial, and its canonical bundle is order2.",
+      "locator": "§4, p13",
+      "status": "missing",
+      "api": [
+        "type under algebraically closed field extension",
+        "Picard/dual group comparison",
+        "canonical-cover behavior"
+      ],
+      "tests": [
+        {
+          "name": "classicalEnriquessurfaceTest1",
+          "kind": "computation",
+          "statement": "The Picard group scheme for this type is Z/2."
+        },
+        {
+          "name": "classicalEnriquessurfaceTest2",
+          "kind": "compatibility",
+          "statement": "The cover group is the Cartier dual μ₂, not Pic^τ itself."
+        },
+        {
+          "name": "classicalEnriquessurfaceTest3",
+          "kind": "non-example",
+          "statement": "The type is disjoint from the other two characteristic-two types."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/39",
+      "kind": "definition",
+      "name": "supersingular Enriques surface",
+      "statement": "In characteristic2 an Enriques surface is supersingular iff Pic^τ=α₂; its Cartier-dual canonical-cover group is α₂, its étale fundamental group is trivial, and its canonical bundle is trivial.",
+      "locator": "§4, p13",
+      "status": "missing",
+      "api": [
+        "type under algebraically closed field extension",
+        "Picard/dual group comparison",
+        "canonical-cover behavior"
+      ],
+      "tests": [
+        {
+          "name": "supersingularEnriquessurfaceTest1",
+          "kind": "computation",
+          "statement": "The Picard group scheme for this type is α₂."
+        },
+        {
+          "name": "supersingularEnriquessurfaceTest2",
+          "kind": "compatibility",
+          "statement": "The cover group is the Cartier dual α₂, not Pic^τ itself."
+        },
+        {
+          "name": "supersingularEnriquessurfaceTest3",
+          "kind": "non-example",
+          "statement": "The type is disjoint from the other two characteristic-two types."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/40",
+      "kind": "definition",
+      "name": "K3-like canonical covering",
+      "statement": "For a simply connected Enriques surface in characteristic2 (classical or supersingular), the inclusion Pic^τ→Pic determines a nontrivial torsor X→Y for its local Cartier dual; this universal homeomorphism is called its K3-like covering.",
+      "locator": "§4, p13",
+      "status": "missing",
+      "api": [
+        "torsor and dual Picard class",
+        "normalization",
+        "dualizing sheaf and cohomology"
+      ],
+      "tests": [
+        {
+          "name": "KlikecanonicalcoveringTest1",
+          "kind": "computation",
+          "statement": "The cover has degree2."
+        },
+        {
+          "name": "KlikecanonicalcoveringTest2",
+          "kind": "compatibility",
+          "statement": "Its total space is integral and Cohen–Macaulay with ω_X trivial."
+        },
+        {
+          "name": "KlikecanonicalcoveringTest3",
+          "kind": "non-example",
+          "statement": "The total space is singular, so K3-like does not mean a smooth K3 surface."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/41",
+      "kind": "theorem",
+      "name": "Cohomology of the K3-like cover",
+      "statement": "For the preceding canonical cover, h⁰(O_X)=h²(O_X)=1 and h¹(O_X)=0, and its singular locus is nonempty.",
+      "locator": "§4, p13",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/42",
+      "kind": "definition",
+      "name": "Conductrix and exceptionality",
+      "statement": "For a simply connected characteristic-two Enriques surface, let X′ be the normalization of its K3-like cover. The map X′→Y is finite flat purely inseparable of degree2. The ramification divisor R′ for X′→X is pulled back from an effective Cartier divisor C on Y, the conductrix; 2C is the biconductrix. Y is exceptional iff h¹(O_{2C})≠0.",
+      "locator": "§4, p13",
+      "status": "missing",
+      "api": [
+        "ramification pullback",
+        "ω_X′=O_X′(-R′)",
+        "exceptionality and base change"
+      ],
+      "tests": [
+        {
+          "name": "ConductrixandexceptionalityTest1",
+          "kind": "computation",
+          "statement": "If C=0 then h¹(O_{2C})=0."
+        },
+        {
+          "name": "ConductrixandexceptionalityTest2",
+          "kind": "compatibility",
+          "statement": "The biconductrix is twice C as a divisor."
+        },
+        {
+          "name": "ConductrixandexceptionalityTest3",
+          "kind": "non-example",
+          "statement": "Simply connected alone does not imply exceptional."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/43",
+      "kind": "theorem",
+      "name": "Nonexceptional quasielliptic restriction",
+      "statement": "On a nonexceptional Enriques surface over an algebraically closed field of characteristic2, no quasielliptic fibration has a simple III* or II* fiber.",
+      "locator": "Proposition4.4(i), p13",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/44",
+      "kind": "theorem",
+      "name": "Nonexceptional multiple exceptional-type restriction",
+      "statement": "On such a surface, no genus-one fibration with a multiple IV*, III*, or II* fiber admits a (-2)-curve two-section.",
+      "locator": "Proposition4.4(ii), p13",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/45",
+      "kind": "theorem",
+      "name": "Partner genus-one fibration",
+      "statement": "For every genus-one fibration on a nonexceptional Enriques surface over an algebraically closed field of characteristic2, another genus-one fibration has fiber-class intersection4 with it.",
+      "locator": "Proposition4.4(iii), p13",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/46",
+      "kind": "definition",
+      "name": "Family of Enriques surfaces",
+      "statement": "Over a ring R, an Enriques family is a flat proper finitely presented algebraic space Y→Spec R whose geometric fibers are Enriques surfaces. Isomorphisms and base change give the fppf stack M_Enr over affine Z-schemes.",
+      "locator": "§5, p14",
+      "status": "missing",
+      "api": [
+        "base change and descent",
+        "relative Picard object",
+        "geometric-fiber criterion"
+      ],
+      "tests": [
+        {
+          "name": "FamilyofEnriquessurfacesTest1",
+          "kind": "computation",
+          "statement": "A family pulls back to every R-algebra."
+        },
+        {
+          "name": "FamilyofEnriquessurfacesTest2",
+          "kind": "compatibility",
+          "statement": "Over an algebraically closed field this recovers the surface definition."
+        },
+        {
+          "name": "FamilyofEnriquessurfacesTest3",
+          "kind": "non-example",
+          "statement": "Restricting the definition to schemes would lose the stated algebraic-space scope."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/47",
+      "kind": "theorem",
+      "name": "No Enriques surface over the integers",
+      "statement": "There is no Enriques family over Z; equivalently M_Enr(Z) is empty.",
+      "locator": "Theorem5.1, p14; proof §15, pp49–50",
+      "status": "missing",
+      "note": "Final target, not a formalized theorem. Proof closure remains partial at the canonical-cover comparison and prerequisite proofs."
+    },
+    {
+      "id": "PAPER-SCHROER-23/48",
+      "kind": "theorem",
+      "name": "Exceptional fibers do not lift modulo four",
+      "statement": "There is no Enriques family over Z/4Z whose geometric special fiber is exceptional.",
+      "locator": "Theorem5.2, p14; Schröer2021 Theorem7.2",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/49",
+      "kind": "theorem",
+      "name": "Relative Picard representability",
+      "statement": "For an Enriques family over any ring R, its fppf relative Picard algebraic space is a scheme.",
+      "locator": "Proposition5.3, p14",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/50",
+      "kind": "theorem",
+      "name": "Relative numerical invariants",
+      "statement": "For such a family, Pic^τ is an open subgroup locally free of rank2 and Num is an étale local system of free abelian groups of rank10.",
+      "locator": "Proposition5.3, p14",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/51",
+      "kind": "definition",
+      "name": "Rank-two Oort–Tate group",
+      "statement": "For an invertible R-module L and a∈L,b∈L^(-1) with a⊗b=2, define G(A)={f∈L⊗A:f²=a f}, with operation f⋆g=f+g−bfg.",
+      "locator": "§5, p14; Oort–Tate1970 Introduction, pp1–2",
+      "status": "missing",
+      "api": [
+        "functor of points",
+        "change of trivialization",
+        "Hopf algebra and Cartier dual"
+      ],
+      "tests": [
+        {
+          "name": "RanktwoOortTategroupTest1",
+          "kind": "computation",
+          "statement": "(L,a,b)=(R,1,2) gives the constant group Z/2."
+        },
+        {
+          "name": "RanktwoOortTategroupTest2",
+          "kind": "compatibility",
+          "statement": "(R,2,1) gives μ₂ via u=1−f."
+        },
+        {
+          "name": "RanktwoOortTategroupTest3",
+          "kind": "non-example",
+          "statement": "The plus sign fails over Z at a=1,b=2,f=g=1:4 is not idempotent."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/52",
+      "kind": "theorem",
+      "name": "Classification of finite flat groups of rank two",
+      "statement": "Every finite locally free group scheme of rank2 over a ring R is isomorphic to the group associated with an invertible module and a⊗b=2 as above.",
+      "locator": "§5, p14; Oort–Tate Theorem2",
+      "status": "missing",
+      "note": "Introduction and exact rank-two contract read; full classification proof not yet extracted."
+    },
+    {
+      "id": "PAPER-SCHROER-23/53",
+      "kind": "theorem",
+      "name": "Rank-two Cartier duality",
+      "statement": "The Cartier dual of the group associated with (L,a,b) is associated with (L^(-1),b,a).",
+      "locator": "§5, p14; Oort–Tate1970",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/54",
+      "kind": "theorem",
+      "name": "Rank-two groups over Z",
+      "statement": "Over Z every finite flat rank-two group is isomorphic to Z/2 or μ₂.",
+      "locator": "§5, pp14–16",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/55",
+      "kind": "definition",
+      "name": "Family of canonical coverings",
+      "statement": "For an Enriques family f:Y→S, set P=Pic^τ_{Y/S}, G=P^D. The inclusion P→Pic gives [X]∈H⁰(S,R¹f_*G_Y); a canonical covering family is a G_Y-torsor whose cohomology class maps to [X].",
+      "locator": "§5, pp14–15",
+      "status": "missing",
+      "api": [
+        "five-term obstruction sequence",
+        "pullback and twist",
+        "isomorphism classification"
+      ],
+      "tests": [
+        {
+          "name": "FamilyofcanonicalcoveringsTest1",
+          "kind": "computation",
+          "statement": "A section of f kills the obstruction."
+        },
+        {
+          "name": "FamilyofcanonicalcoveringsTest2",
+          "kind": "compatibility",
+          "statement": "Two covers differ by a pulled-back G-torsor from S."
+        },
+        {
+          "name": "FamilyofcanonicalcoveringsTest3",
+          "kind": "non-example",
+          "statement": "Existence of a local cover alone does not identify it with a chosen global cover."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/56",
+      "kind": "theorem",
+      "name": "Canonical-cover obstruction",
+      "statement": "For an Enriques family the exact sequence 0→H¹(S,G)→H¹(Y,G_Y)→H⁰(S,R¹f_*G_Y)→H²(S,G)→H²(Y,G_Y) makes the image of [X] the obstruction to a canonical cover.",
+      "locator": "§5 equation(2), pp14–15",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/57",
+      "kind": "theorem",
+      "name": "Injective pullback criterion for a canonical cover",
+      "statement": "For an Enriques family over S=Spec R with P=Pic^τ and G=P^D, a canonical-cover family exists if H²(S,G)→H²(Y,G_Y) is injective.",
+      "locator": "Proposition5.4, p15",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/58",
+      "kind": "theorem",
+      "name": "Section criterion for a canonical cover",
+      "statement": "For an Enriques family over S=Spec R with P=Pic^τ and G=P^D, a canonical-cover family exists if f admits a section.",
+      "locator": "Proposition5.4, p15",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/59",
+      "kind": "theorem",
+      "name": "Étale Picard torsion criterion for a canonical cover",
+      "statement": "For an Enriques family over S=Spec R with P=Pic^τ and G=P^D, a canonical-cover family exists if P→S is étale and Pic(S)=0.",
+      "locator": "Proposition5.4, p15",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/60",
+      "kind": "theorem",
+      "name": "Twisting of canonical coverings",
+      "statement": "When a canonical-cover family exists, its isomorphism classes form a torsor under H¹(S,G), acting by pullback and twisting.",
+      "locator": "Proposition5.4, p15",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/61",
+      "kind": "definition",
+      "name": "Constant and split Picard schemes",
+      "statement": "For an Enriques family, constant Num means Num≅Z¹⁰_S; constant Picard means Pic≅(Z/2×Z¹⁰)_S. Split Picard means the extension 0→Pic^τ→Pic→Num→0 splits.",
+      "locator": "§5, p15",
+      "status": "missing",
+      "api": [
+        "implications between the three predicates",
+        "base change",
+        "splitting by lifts of a numerical basis"
+      ],
+      "tests": [
+        {
+          "name": "ConstantandsplitPicardschemesTest1",
+          "kind": "computation",
+          "statement": "Constant full Picard implies constant Num."
+        },
+        {
+          "name": "ConstantandsplitPicardschemesTest2",
+          "kind": "compatibility",
+          "statement": "An extension by Z/2 splits if every basis element lifts to a section."
+        },
+        {
+          "name": "ConstantandsplitPicardschemesTest3",
+          "kind": "non-example",
+          "statement": "Constant Num alone does not force Pic^τ to be the constant Z/2 group."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/62",
+      "kind": "theorem",
+      "name": "Constant Picard scheme over Z",
+      "statement": "Every Enriques family over Z has constant full Picard scheme.",
+      "locator": "Proposition5.5, pp15–16",
+      "status": "missing",
+      "note": "The source's comparison of the two canonical K3 covers is retained as an unverified obligation; see separate gap item."
+    },
+    {
+      "id": "PAPER-SCHROER-23/63",
+      "kind": "theorem",
+      "name": "Canonical-cover compatibility at two",
+      "statement": "In the Pic^τ=μ₂ branch of Proposition5.5, justify that a canonical K3 cover over Z[1/2] may be chosen whose generic fiber acquires the canonical smooth cover of Y over W(F₂bar), while retaining good reduction at every odd prime.",
+      "locator": "Proposition5.5 proof, p16",
+      "status": "missing",
+      "note": "Unverified comparison/twisting obligation, not a proved counterexample and not an assertion that arbitrary local and global torsors coincide. Deliberately unrouted pending proof."
+    },
+    {
+      "id": "PAPER-SCHROER-23/64",
+      "kind": "theorem",
+      "name": "Canonical covers with constant Picard",
+      "statement": "Let f:Y→Spec R be an Enriques family with constant full Picard scheme and Pic(R)=Br(R)=0; for any R→k, write Y_k and Y_kbar for its fibers. Canonical-cover families exist, and their isomorphism classes form a torsor under R×/(R×)².",
+      "locator": "Theorem5.6, pp16–18",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/65",
+      "kind": "theorem",
+      "name": "Canonical bundle order",
+      "statement": "Let f:Y→Spec R be an Enriques family with constant full Picard scheme and Pic(R)=Br(R)=0; for any R→k, write Y_k and Y_kbar for its fibers. ω_{Y_k} has order2 in Pic(Y_k).",
+      "locator": "Theorem5.6, pp16–18",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/66",
+      "kind": "theorem",
+      "name": "Descent of numerical classes",
+      "statement": "Let f:Y→Spec R be an Enriques family with constant full Picard scheme and Pic(R)=Br(R)=0; for any R→k, write Y_k and Y_kbar for its fibers. Each geometric numerical class comes from a line bundle on Y_k, uniquely up to tensoring by ω_{Y_k}.",
+      "locator": "Theorem5.6, pp16–18",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/67",
+      "kind": "theorem",
+      "name": "Descent of (-2)-curves",
+      "statement": "Let f:Y→Spec R be an Enriques family with constant full Picard scheme and Pic(R)=Br(R)=0; for any R→k, write Y_k and Y_kbar for its fibers. Every (-2)-curve on Y_kbar descends to a (-2)-curve on Y_k isomorphic to P¹_k.",
+      "locator": "Theorem5.6, pp16–18",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/68",
+      "kind": "theorem",
+      "name": "Descent of genus-one fibrations",
+      "statement": "Let f:Y→Spec R be an Enriques family with constant full Picard scheme and Pic(R)=Br(R)=0; for any R→k, write Y_k and Y_kbar for its fibers. Every genus-one fibration Y_kbar→P¹_kbar descends to Y_k→P¹_k.",
+      "locator": "Theorem5.6, pp16–18",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/69",
+      "kind": "theorem",
+      "name": "Rational tame double fibers",
+      "statement": "Let f:Y→Spec R be an Enriques family with constant full Picard scheme and Pic(R)=Br(R)=0; for any R→k, write Y_k and Y_kbar for its fibers. Every descended genus-one fibration has exactly two multiple fibers, both tame, over k-rational base points.",
+      "locator": "Theorem5.6, pp16–18",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/70",
+      "kind": "theorem",
+      "name": "Existence over the residue field",
+      "statement": "Let f:Y→Spec R be an Enriques family with constant full Picard scheme and Pic(R)=Br(R)=0; for any R→k, write Y_k and Y_kbar for its fibers. Y_k has at least one genus-one fibration to P¹_k.",
+      "locator": "Theorem5.6, pp16–18",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/71",
+      "kind": "construction",
+      "name": "Rational Jacobian Weierstrass model",
+      "statement": "Let J/k be a smooth geometrically rational surface with a relatively minimal Jacobian genus-one fibration φ:J→P¹ and zero-section E. Contract all vertical curves disjoint from E to the normal Weierstrass model Z; over k[t] its equation is y²+a₁xy+a₃y=x³+a₂x²+a₄x+a₆, with deg a_i≤i; over k[t⁻¹] use a′_i=a_i/t^i.",
+      "locator": "Proposition6.1, pp18–19",
+      "status": "missing",
+      "api": [
+        "contraction and generic-fiber identification",
+        "weighted change of coordinates",
+        "minimality and discriminant"
+      ],
+      "tests": [
+        {
+          "name": "RationalJacobianWeierstrassmodelTest1",
+          "kind": "computation",
+          "statement": "The coefficient a₆ transforms by t⁻⁶."
+        },
+        {
+          "name": "RationalJacobianWeierstrassmodelTest2",
+          "kind": "compatibility",
+          "statement": "A reducible fiber can be contracted on Z even though J is smooth."
+        },
+        {
+          "name": "RationalJacobianWeierstrassmodelTest3",
+          "kind": "non-example",
+          "statement": "O_J(3E) is not relatively very ample on a vertical component disjoint from E; the embedding concerns Z."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/72",
+      "kind": "theorem",
+      "name": "Canonical sheaf and zero-section on a rational Jacobian",
+      "statement": "Let J/k be a smooth geometrically rational surface with a relatively minimal Jacobian genus-one fibration φ:J→P¹ and zero-section E. ω_J=φ*O(-1), E²=−1, and ω_{J/P¹}=φ*O(1).",
+      "locator": "Proposition6.1 proof, p18",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/73",
+      "kind": "theorem",
+      "name": "Weierstrass pushforward splitting",
+      "statement": "Let J/k be a smooth geometrically rational surface with a relatively minimal Jacobian genus-one fibration φ:J→P¹ and zero-section E. φ_*O_J(3E)≅O⊕O(-2)⊕O(-3); the relative Proj construction gives the cubic equation of the Weierstrass model.",
+      "locator": "Proposition6.1 proof, pp18–19",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/74",
+      "kind": "theorem",
+      "name": "Nonconstant rational-surface coefficients",
+      "statement": "Let J/k be a smooth geometrically rational surface with a relatively minimal Jacobian genus-one fibration φ:J→P¹ and zero-section E. In such a degree-bounded Weierstrass equation some a_i is nonconstant and some a_i is not divisible by t^i; these conditions survive degree-preserving admissible coordinate changes.",
+      "locator": "After Proposition6.1, p19",
+      "status": "missing",
+      "note": "Source statement retained; minimality/rationality hypotheses are essential."
+    },
+    {
+      "id": "PAPER-SCHROER-23/75",
+      "kind": "construction",
+      "name": "Jacobian of an Enriques genus-one fibration",
+      "statement": "For an Enriques surface Y/k and genus-one fibration with generic fiber Y_η over K=k(t), use Pic⁰_{Y_η/K} in the elliptic case, and its unique regular compactification in the quasielliptic case; its relatively minimal regular surface model J→P¹ is the Jacobian fibration with zero-section.",
+      "locator": "§6, p19",
+      "status": "missing",
+      "api": [
+        "generic Picard identification",
+        "regular compactification for quasielliptic curves",
+        "base-change comparison"
+      ],
+      "tests": [
+        {
+          "name": "JacobianofanEnriquesgenusonefibrationTest1",
+          "kind": "computation",
+          "statement": "The elliptic generic Jacobian is an elliptic curve."
+        },
+        {
+          "name": "JacobianofanEnriquesgenusonefibrationTest2",
+          "kind": "compatibility",
+          "statement": "The quasielliptic Pic⁰ is a form of G_a and needs compactification."
+        },
+        {
+          "name": "JacobianofanEnriquesgenusonefibrationTest3",
+          "kind": "non-example",
+          "statement": "One must not treat a quasielliptic generic fiber as a smooth elliptic curve."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/76",
+      "kind": "theorem",
+      "name": "Rationality of the Enriques Jacobian",
+      "statement": "The regular Jacobian surface of a genus-one fibration on an Enriques surface over any field is geometrically rational.",
+      "locator": "Proposition6.2, p19",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/77",
+      "kind": "theorem",
+      "name": "Algebraic-cycle zeta formula",
+      "statement": "Let X/F_q be smooth proper with H⁰(O_X)=F_q, and ℓ≠char F_q. If H^{2j+1}(Xbar,Q_ℓ)=0 for every j≥0 and the BASE-FIELD cycle map CH^j(X)⊗Q_ℓ→H^{2j}(Xbar,Q_ℓ(j)) is surjective for every j≥0, then Z(X,T)=∏_j(1−q^jT)^(−b_{2j}).",
+      "locator": "Proposition7.1, pp20–21",
+      "status": "missing",
+      "note": "Cycles on Xbar alone do not imply trivial Frobenius on the twisted group."
+    },
+    {
+      "id": "PAPER-SCHROER-23/78",
+      "kind": "theorem",
+      "name": "Algebraic-cycle point-count formula",
+      "statement": "Let X/F_q be smooth proper with H⁰(O_X)=F_q, and ℓ≠char F_q. Under the preceding odd-vanishing and base-defined-cycle-surjectivity hypotheses, #X(F_{q^r})=Σ_j b_{2j}q^{jr} for every r≥1.",
+      "locator": "Proposition7.1 and finite-base-extension, pp20–21",
+      "status": "missing",
+      "note": "The r=1 formula is displayed; r≥1 follows by retaining the same Frobenius eigenvalues."
+    },
+    {
+      "id": "PAPER-SCHROER-23/79",
+      "kind": "theorem",
+      "name": "Surface count from constant Num",
+      "statement": "Let X/F_q be smooth proper with H⁰(O_X)=F_q, and ℓ≠char F_q. If X is a surface with b₁=0, b₂=ρ and constant Num_{X/F_q}, then #X(F_q)=1+b₂q+q².",
+      "locator": "Corollary7.2, p21",
+      "status": "missing",
+      "note": "Correct the printed F_p to F_q; b₃=0 follows by duality."
+    },
+    {
+      "id": "PAPER-SCHROER-23/80",
+      "kind": "theorem",
+      "name": "Twenty-five points over F₂",
+      "statement": "An Enriques surface, or a smooth geometrically rational relatively minimal genus-one surface, over F₂ with constant Num has exactly25 F₂-points.",
+      "locator": "Corollary7.3, p21",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/81",
+      "kind": "theorem",
+      "name": "Isogeny for multiple fibers",
+      "statement": "Let R be an excellent DVR with fraction field F and residue field k, let E/R be an elliptic scheme, and let X/R be the relatively minimal regular model of a torsor under E_F whose reduced special fiber is an elliptic curve. The elliptic curves E_k and (X_k)_red are isogenous over k.",
+      "locator": "Proposition8.1, pp21–22",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/82",
+      "kind": "theorem",
+      "name": "Multiple-fiber extension counts",
+      "statement": "Let R be an excellent DVR with fraction field F and residue field k, let E/R be an elliptic scheme, and let X/R be the relatively minimal regular model of a torsor under E_F whose reduced special fiber is an elliptic curve. If k=F_q, then #E_k(F_{q^r})=#X_k(F_{q^r}) for every r≥1.",
+      "locator": "Corollary8.2, p23",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/83",
+      "kind": "theorem",
+      "name": "Multiple-fiber isomorphism over F₂",
+      "statement": "Let R be an excellent DVR with fraction field F and residue field k, let E/R be an elliptic scheme, and let X/R be the relatively minimal regular model of a torsor under E_F whose reduced special fiber is an elliptic curve. If k=F₂, then E_k≅(X_k)_red over F₂.",
+      "locator": "Corollary8.3, p23",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/84",
+      "kind": "theorem",
+      "name": "Genus under domination of an elliptic curve",
+      "statement": "For any field k, an integral proper k-curve C with a dominant morphism to an elliptic curve E/k satisfies h¹(O_C)≥1.",
+      "locator": "Lemma8.4, pp23–24",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/85",
+      "kind": "theorem",
+      "name": "Regularity in the genus-one equality case",
+      "statement": "In the preceding situation, h¹(O_C)=1 implies that C is regular.",
+      "locator": "Lemma8.4, pp23–24",
+      "status": "missing",
+      "note": "Do not strengthen regular to smooth over an imperfect field without proof."
+    },
+    {
+      "id": "PAPER-SCHROER-23/86",
+      "kind": "construction",
+      "name": "Quotient models of multiple fibers",
+      "statement": "Let R contain a residue-field representative k, let A/k be an abelian variety, G⊂A(k) a finite subgroup, and F′/Frac R a G-Galois extension whose integral closure R′ has the same residue field k. The free diagonal action gives X=(A×Spec R′)/G, with generic fiber a form of A and reduced special fiber A/G.",
+      "locator": "§8, p23",
+      "status": "missing",
+      "api": [
+        "free quotient",
+        "generic torsor class",
+        "special-fiber isogeny"
+      ],
+      "tests": [
+        {
+          "name": "QuotientmodelsofmultiplefibersTest1",
+          "kind": "computation",
+          "statement": "For G=0 the model is A_R."
+        },
+        {
+          "name": "QuotientmodelsofmultiplefibersTest2",
+          "kind": "compatibility",
+          "statement": "The reduced special fiber is the quotient by translations."
+        },
+        {
+          "name": "QuotientmodelsofmultiplefibersTest3",
+          "kind": "non-example",
+          "statement": "The multiple fiber must not be identified with its reduction as a scheme."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/87",
+      "kind": "theorem",
+      "name": "Constant Picard of the Jacobian",
+      "statement": "Let Y/F₂ be an Enriques surface with constant full Picard scheme, ϕ:Y→P¹ an elliptic fibration, and φ:J→P¹ its relatively minimal Jacobian. J has constant Picard scheme.",
+      "locator": "Theorem9.1, p24",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/88",
+      "kind": "theorem",
+      "name": "Matching geometric Kodaira types",
+      "statement": "Let Y/F₂ be an Enriques surface with constant full Picard scheme, ϕ:Y→P¹ an elliptic fibration, and φ:J→P¹ its relatively minimal Jacobian. At every geometric point over a closed point a∈P¹, the underlying indecomposable fibers of Y and J have the same Kodaira symbol.",
+      "locator": "Proposition9.2, p24",
+      "status": "missing",
+      "note": "Use Liu–Lorenzini–Raynaud6.6 after passage to algebraically closed residue field, keeping multiplicity separate."
+    },
+    {
+      "id": "PAPER-SCHROER-23/89",
+      "kind": "theorem",
+      "name": "Simple-fiber identification",
+      "statement": "Let Y/F₂ be an Enriques surface with constant full Picard scheme, ϕ:Y→P¹ an elliptic fibration, and φ:J→P¹ its relatively minimal Jacobian. If Y_a is simple, J_a≅Y_a over κ(a).",
+      "locator": "Proposition9.2, p24",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/90",
+      "kind": "theorem",
+      "name": "Nonrational fibers",
+      "statement": "Let Y/F₂ be an Enriques surface with constant full Picard scheme, ϕ:Y→P¹ an elliptic fibration, and φ:J→P¹ its relatively minimal Jacobian. Every geometric fiber of J over a non-F₂-rational closed point of P¹ is irreducible.",
+      "locator": "Proposition9.3, p25",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/91",
+      "kind": "theorem",
+      "name": "Excluded I₀*",
+      "statement": "Let Y/F₂ be an Enriques surface with constant full Picard scheme, ϕ:Y→P¹ an elliptic fibration, and φ:J→P¹ its relatively minimal Jacobian. No geometric fiber of J is of type I₀*.",
+      "locator": "Proposition9.3, p25",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/92",
+      "kind": "theorem",
+      "name": "Semistable graph descent",
+      "statement": "Let Y/F₂ be an Enriques surface with constant full Picard scheme, ϕ:Y→P¹ an elliptic fibration, and φ:J→P¹ its relatively minimal Jacobian. For every semistable geometric fiber, Γ(J_ā)→Γ(J_a) is an isomorphism.",
+      "locator": "Proposition9.3, p25",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/93",
+      "kind": "theorem",
+      "name": "At most one semistable or supersingular rational fiber",
+      "statement": "Let Y/F₂ be an Enriques surface with constant full Picard scheme, ϕ:Y→P¹ an elliptic fibration, and φ:J→P¹ its relatively minimal Jacobian. At most one a∈P¹(F₂) has J_a semistable or smooth supersingular.",
+      "locator": "Proposition9.3, p25",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/94",
+      "kind": "theorem",
+      "name": "Descent of all Mordell–Weil sections",
+      "statement": "Let Y/F₂ be an Enriques surface with constant full Picard scheme, ϕ:Y→P¹ an elliptic fibration, and φ:J→P¹ its relatively minimal Jacobian. MW(J/P¹)=MW(Jbar/P¹bar).",
+      "locator": "Proposition9.3, p25",
+      "status": "missing",
+      "note": "The printed Br(F₂(t))=0 is false. Proposed repair uses Tsen over F₂bar(t) and the Galois-equivariant quotient of geometric Picard; see report."
+    },
+    {
+      "id": "PAPER-SCHROER-23/95",
+      "kind": "construction",
+      "name": "Fiber-count input for Picard descent",
+      "statement": "For a rational Jacobian elliptic surface over F₂ and a rational base point a, let r_a be its geometric component count. Put n_a=i for smooth E_i, 2r_a for split semistable, 2r_a+2 for nonsplit semistable, and 2r_a+1 for unstable fiber. This is a formal input until splitting is proved.",
+      "locator": "§9, p26",
+      "status": "missing",
+      "api": [
+        "geometric component count",
+        "finite-field point-count comparison",
+        "sum over three rational base points"
+      ],
+      "tests": [
+        {
+          "name": "FibercountinputforPicarddescentTest1",
+          "kind": "computation",
+          "statement": "For a split I₄ fiber n_a=8."
+        },
+        {
+          "name": "FibercountinputforPicarddescentTest2",
+          "kind": "compatibility",
+          "statement": "For a nonsplit I₂ fiber n_a=6."
+        },
+        {
+          "name": "FibercountinputforPicarddescentTest3",
+          "kind": "non-example",
+          "statement": "Before graph descent, n_a is not automatically the actual point count of J_a."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/96",
+      "kind": "theorem",
+      "name": "Picard constancy criterion for rational elliptic surfaces",
+      "statement": "Let J/F₂ be a smooth geometrically rational relatively minimal Jacobian elliptic surface over P¹. Assume every nonrational geometric fiber is irreducible, no fiber is I₀*, every semistable fiber has split component graph, at most one rational fiber is semistable or supersingular, and every geometric Mordell–Weil section descends to F₂. If Σ_{a∈P¹(F₂)}n_a=25 with n_a defined above, then Pic_{J/F₂} is constant.",
+      "locator": "Theorem9.4, p26",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/97",
+      "kind": "theorem",
+      "name": "Additive graph rigidity",
+      "statement": "Let J/F₂ be a smooth geometrically rational relatively minimal Jacobian elliptic surface over P¹. Assume every nonrational geometric fiber is irreducible, no fiber is I₀*, every semistable fiber has split component graph, at most one rational fiber is semistable or supersingular, and every geometric Mordell–Weil section descends to F₂. If additionally Σn_a=25, then for every rational a with singular J_a the map Γ(J_ā)→Γ(J_a) is an isomorphism.",
+      "locator": "Proposition9.5, pp26–28",
+      "status": "missing",
+      "note": "The claim in the proof that orthogonal projection preserves the pairing is not used. Report supplies a dual-lattice argument requiring review."
+    },
+    {
+      "id": "PAPER-SCHROER-23/98",
+      "kind": "theorem",
+      "name": "Even unimodular complement for a rational Jacobian",
+      "statement": "Let J/k be a smooth geometrically rational surface with a relatively minimal Jacobian genus-one fibration φ:J→P¹ and zero-section E. Over an algebraic closure, the orthogonal complement W of the fiber F and zero-section O in Num(Jbar) is even unimodular of rank8; it is generated by vertical components disjoint from O and (P−O)−(1+P·O)F for sections P.",
+      "locator": "Proposition9.5 proof, p27",
+      "status": "missing",
+      "note": "The span of F,O has Gram matrix [[0,1],[1,-1]]; the geometric statement is not supplied by abstract lattice APIs."
+    },
+    {
+      "id": "PAPER-SCHROER-23/99",
+      "kind": "theorem",
+      "name": "Geometric torsor Kodaira comparison",
+      "statement": "Let R be a DVR with algebraically closed residue field, C/K a smooth geometrically connected genus-one curve of period m, E/K its Jacobian, and X,E_min their proper regular minimal models. If E_min has Kodaira type T, then X has type mT.",
+      "locator": "Liu–Lorenzini–Raynaud2004 Theorem6.6, pp495–497; used §9",
+      "status": "missing",
+      "note": "Statement and proof read. Do not apply without algebraically closed residue field: their Remark6.8 warns it fails more generally. The2018 corrigendum corrects §4 Brauer formulas, not the statement of6.6."
+    },
+    {
+      "id": "PAPER-SCHROER-23/100",
+      "kind": "theorem",
+      "name": "Existence of a large rational fiber",
+      "statement": "Let J/F₂ be a smooth geometrically rational relatively minimal Jacobian elliptic surface over P¹ with constant Picard scheme and at most one rational base point whose fiber is semistable or smooth supersingular. Some rational fiber has at least six irreducible components.",
+      "locator": "Proposition10.1, p28",
+      "status": "missing",
+      "acceptance": [
+        "Assuming every component count≤5 gives at most10+7+7=24 points, contrary to25."
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/101",
+      "kind": "theorem",
+      "name": "Existence of a reducible additive fiber",
+      "statement": "Let J/F₂ be a smooth geometrically rational relatively minimal Jacobian elliptic surface over P¹ with constant Picard scheme and at most one rational base point whose fiber is semistable or smooth supersingular. There is a reducible unstable fiber over a rational base point.",
+      "locator": "Proposition10.2, pp28–29",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/102",
+      "kind": "theorem",
+      "name": "Unique additive fiber for nonzero functional j",
+      "statement": "Let J/F₂ be a smooth geometrically rational relatively minimal Jacobian elliptic surface over P¹ with constant Picard scheme and at most one rational base point whose fiber is semistable or smooth supersingular. If j∈F₂(t) is nonzero, exactly one fiber is unstable.",
+      "locator": "Proposition10.3, p29",
+      "status": "missing",
+      "note": "The intermediate c₄ criterion needs Δ=0; a smooth supersingular fiber is not additive."
+    },
+    {
+      "id": "PAPER-SCHROER-23/103",
+      "kind": "theorem",
+      "name": "Small additive fiber configuration",
+      "statement": "Let J/F₂ be a smooth geometrically rational relatively minimal Jacobian elliptic surface over P¹ with constant Picard scheme and at most one rational base point whose fiber is semistable or smooth supersingular. If j≠0 and the unique unstable fiber has at most five components, the rational-fiber configuration, up to a base automorphism, is III+E₄+I₈.",
+      "locator": "Proposition10.3, p29",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/104",
+      "kind": "theorem",
+      "name": "Rational elliptic model 1",
+      "statement": "Over F₂, the relatively minimal resolution of the Weierstrass model y²+txy+t²y=x³+tx²+t⁴x+t⁵(1+t) has functional j=t⁴, discriminant t⁸ on the t-chart, and fibers at 0,1,∞ of types I₁*+E₄+I₄.",
+      "locator": "Theorem10.4, p29",
+      "status": "missing",
+      "note": "The exact regression checks the equation's invariants and smooth fiber at1, not the minimal resolution or its Kodaira type."
+    },
+    {
+      "id": "PAPER-SCHROER-23/105",
+      "kind": "theorem",
+      "name": "Rational elliptic model 2",
+      "statement": "Over F₂, the relatively minimal resolution of the Weierstrass model y²+txy=x³+t³x+t⁵(1+t) has functional j=t²/(t²+t+1), discriminant t¹⁰(t²+t+1) on the t-chart, and fibers at 0,1,∞ of types III*+E₄+E₄.",
+      "locator": "Theorem10.4, p29",
+      "status": "missing",
+      "note": "The exact regression checks the equation's invariants and smooth fiber at1, not the minimal resolution or its Kodaira type."
+    },
+    {
+      "id": "PAPER-SCHROER-23/106",
+      "kind": "theorem",
+      "name": "Rational elliptic model 3",
+      "statement": "Over F₂, the relatively minimal resolution of the Weierstrass model y²+txy=x³+t³x has functional j=t², discriminant t¹⁰ on the t-chart, and fibers at 0,1,∞ of types III*+E₄+I₂.",
+      "locator": "Theorem10.4, p29",
+      "status": "missing",
+      "note": "The exact regression checks the equation's invariants and smooth fiber at1, not the minimal resolution or its Kodaira type."
+    },
+    {
+      "id": "PAPER-SCHROER-23/107",
+      "kind": "theorem",
+      "name": "Rational elliptic model 4",
+      "statement": "Over F₂, the relatively minimal resolution of the Weierstrass model y²+txy=x³+t²x²+t³x has functional j=t², discriminant t¹⁰ on the t-chart, and fibers at 0,1,∞ of types III*+E₂+nonsplit I₂.",
+      "locator": "Theorem10.4, p29",
+      "status": "missing",
+      "note": "The exact regression checks the equation's invariants and smooth fiber at1, not the minimal resolution or its Kodaira type."
+    },
+    {
+      "id": "PAPER-SCHROER-23/108",
+      "kind": "theorem",
+      "name": "Rational elliptic model 5",
+      "statement": "Over F₂, the relatively minimal resolution of the Weierstrass model y²+txy=x³+t⁵ has functional j=t, discriminant t¹¹ on the t-chart, and fibers at 0,1,∞ of types II*+E₄+I₁.",
+      "locator": "Theorem10.4, p29",
+      "status": "missing",
+      "note": "The exact regression checks the equation's invariants and smooth fiber at1, not the minimal resolution or its Kodaira type."
+    },
+    {
+      "id": "PAPER-SCHROER-23/109",
+      "kind": "theorem",
+      "name": "Rational elliptic model 6",
+      "statement": "Over F₂, the relatively minimal resolution of the Weierstrass model y²+txy=x³+t²x²+t⁵ has functional j=t, discriminant t¹¹ on the t-chart, and fibers at 0,1,∞ of types II*+E₂+nonsplit I₁.",
+      "locator": "Theorem10.4, p29",
+      "status": "missing",
+      "note": "The exact regression checks the equation's invariants and smooth fiber at1, not the minimal resolution or its Kodaira type."
+    },
+    {
+      "id": "PAPER-SCHROER-23/110",
+      "kind": "theorem",
+      "name": "Rational elliptic model 7",
+      "statement": "Over F₂, the relatively minimal resolution of the Weierstrass model y²+txy=x³+tx²+t⁴x has functional j=1, discriminant t¹² on the t-chart, and fibers at 0,1,∞ of types I₄*+E₂+E₄.",
+      "locator": "Theorem10.4, p29",
+      "status": "missing",
+      "note": "The exact regression checks the equation's invariants and smooth fiber at1, not the minimal resolution or its Kodaira type."
+    },
+    {
+      "id": "PAPER-SCHROER-23/111",
+      "kind": "theorem",
+      "name": "Rational elliptic model 8",
+      "statement": "Over F₂, the relatively minimal resolution of the Weierstrass model y²+txy+ty=x³+tx²+tx has functional j=t⁸, discriminant t⁴ on the t-chart, and fibers at 0,1,∞ of types III+E₄+I₈.",
+      "locator": "Theorem10.4, p29",
+      "status": "missing",
+      "note": "The exact regression checks the equation's invariants and smooth fiber at1, not the minimal resolution or its Kodaira type."
+    },
+    {
+      "id": "PAPER-SCHROER-23/112",
+      "kind": "theorem",
+      "name": "Rational elliptic model 9",
+      "statement": "Over F₂, the relatively minimal resolution of the Weierstrass model y²+t²y=x³+tx² has functional j=0, discriminant t⁸ on the t-chart, and fibers at 0,1,∞ of types I₁*+E₅+IV.",
+      "locator": "Theorem10.5, p31",
+      "status": "missing",
+      "note": "The exact regression checks the equation's invariants and smooth fiber at1, not the minimal resolution or its Kodaira type."
+    },
+    {
+      "id": "PAPER-SCHROER-23/113",
+      "kind": "theorem",
+      "name": "Rational elliptic model 10",
+      "statement": "Over F₂, the relatively minimal resolution of the Weierstrass model y²+t²y=x³+t³x has functional j=0, discriminant t⁸ on the t-chart, and fibers at 0,1,∞ of types IV*+E₅+III.",
+      "locator": "Theorem10.5, p31",
+      "status": "missing",
+      "note": "The exact regression checks the equation's invariants and smooth fiber at1, not the minimal resolution or its Kodaira type."
+    },
+    {
+      "id": "PAPER-SCHROER-23/114",
+      "kind": "theorem",
+      "name": "Rational elliptic model 11",
+      "statement": "Over F₂, the relatively minimal resolution of the Weierstrass model y²+t²y=x³ has functional j=0, discriminant t⁸ on the t-chart, and fibers at 0,1,∞ of types IV*+E₃+IV.",
+      "locator": "Theorem10.5, p31",
+      "status": "missing",
+      "note": "The exact regression checks the equation's invariants and smooth fiber at1, not the minimal resolution or its Kodaira type."
+    },
+    {
+      "id": "PAPER-SCHROER-23/115",
+      "kind": "theorem",
+      "name": "Classification with nonzero functional j",
+      "statement": "Let J/F₂ be a smooth geometrically rational relatively minimal Jacobian elliptic surface over P¹ with constant Picard scheme and at most one rational base point whose fiber is semistable or smooth supersingular. If j≠0, exactly one of the eight models in Theorem10.4 represents the fibration up to admissible Weierstrass coordinate changes and automorphisms of P¹.",
+      "locator": "Theorem10.4, pp29–31",
+      "status": "missing",
+      "note": "Full Lang2000 classification proof not acquired; finite invariant checks do not establish exhaustiveness."
+    },
+    {
+      "id": "PAPER-SCHROER-23/116",
+      "kind": "theorem",
+      "name": "Nonrational fibers of the eight nonzero-j models",
+      "statement": "For the eight models of Theorem10.4, all fibers at nonrational base points are smooth except in the j=t²/(t²+t+1) model, which has an I₁ fiber at the unique degree-two point t²+t+1=0.",
+      "locator": "Theorem10.4, p29",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/117",
+      "kind": "theorem",
+      "name": "Classification with zero functional j",
+      "statement": "Let J/F₂ be a smooth geometrically rational relatively minimal Jacobian elliptic surface over P¹ with constant Picard scheme and at most one rational base point whose fiber is semistable or smooth supersingular. If j=0, exactly one of the three models in Theorem10.5 represents the fibration up to admissible coordinate changes and base automorphisms.",
+      "locator": "Theorem10.5, pp31–32",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/118",
+      "kind": "theorem",
+      "name": "Nonrational fibers of zero-j models",
+      "statement": "All fibers at nonrational base points in the three models of Theorem10.5 are smooth.",
+      "locator": "Theorem10.5, p31",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/119",
+      "kind": "theorem",
+      "name": "Elliptic configurations on constant-Picard Enriques surfaces",
+      "statement": "Let Y/F₂ be an Enriques surface with constant full Picard scheme. For an elliptic fibration, up to base automorphism the rational-fiber types are exactly among II*+E₄+I₁; II*+E₂+nonsplit I₁; III*+E₄+I₂; III*+E₂+nonsplit I₂; III*+E₄+E₄; IV*+E₃+IV; IV*+E₅+III; I₄*+E₄+E₂; I₁*+E₅+IV; I₁*+E₄+I₄; III+E₄+I₈.",
+      "locator": "Proposition11.1, table(12), p33",
+      "status": "missing",
+      "note": "Necessary possibilities, not assertions that all are realized by Enriques surfaces; the paper ultimately excludes the nonexceptional surfaces."
+    },
+    {
+      "id": "PAPER-SCHROER-23/120",
+      "kind": "theorem",
+      "name": "Quasielliptic configurations",
+      "statement": "Let Y/F₂ be an Enriques surface with constant full Picard scheme. For a quasielliptic fibration, the three rational fibers have types among II*+II+II; III*+III+II; I₄*+II+II; I₂*+III+III, up to base automorphism.",
+      "locator": "Proposition11.1, p33",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/121",
+      "kind": "theorem",
+      "name": "Quasielliptic component sum",
+      "statement": "Let Y/F₂ be an Enriques surface with constant full Picard scheme. For a quasielliptic fibration, r₀+r₁+r_∞=11. Its possible fiber symbols are II,III,I₂*,III*,II*,I₄*, with respective component counts1,2,7,8,9,9.",
+      "locator": "Proposition11.1 proof, p33",
+      "status": "missing",
+      "note": "The generic degree-zero Picard group is killed by2; imports the quasielliptic classification, not yet fully source-extracted."
+    },
+    {
+      "id": "PAPER-SCHROER-23/122",
+      "kind": "theorem",
+      "name": "Forced multiple fibers",
+      "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. Every IV, IV*, II*, or I₁* fiber of a genus-one fibration is multiple.",
+      "locator": "Proposition11.1(i), p33",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/123",
+      "kind": "theorem",
+      "name": "Simple III* preliminary restriction",
+      "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. If a genus-one fibration has a simple III* fiber, it is elliptic and its rational-fiber configuration is III*+E₄+E₄.",
+      "locator": "Proposition11.1(ii), p33",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/124",
+      "kind": "theorem",
+      "name": "Excluded rational two-section for exceptional-type half-fibers",
+      "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. For a multiple fiber of type IV*, III*, or II*, there is no (-2)-curve R with R·F_ind=1.",
+      "locator": "Proposition11.1(iii), p33",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/125",
+      "kind": "theorem",
+      "name": "Elimination of I₈",
+      "statement": "Let Y/F₂ be an Enriques surface with constant full Picard scheme. No genus-one fibration has an I₈ fiber.",
+      "locator": "Proposition11.2, pp34–35",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/126",
+      "kind": "theorem",
+      "name": "Elimination of II*",
+      "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. No genus-one fibration has a fiber of type II*.",
+      "locator": "Proposition11.3, pp35–37",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/127",
+      "kind": "theorem",
+      "name": "Elimination of IV*",
+      "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. No genus-one fibration has a fiber of type IV*.",
+      "locator": "Proposition11.3, pp35–37",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/128",
+      "kind": "theorem",
+      "name": "Elimination of IV",
+      "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. No genus-one fibration has a fiber of type IV.",
+      "locator": "Proposition11.3, pp35–37",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/129",
+      "kind": "theorem",
+      "name": "No multiple I₄*",
+      "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. No genus-one fibration has a multiple I₄* fiber.",
+      "locator": "Proposition11.3, pp35–37",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/130",
+      "kind": "theorem",
+      "name": "Eight residual configurations",
+      "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. Any genus-one fibration has, up to base automorphism, one of these rational-fiber configurations: elliptic I₄*+E₄+E₂, III*+E₄+I₂, III*+E₂+nonsplit I₂, III*+E₄+E₄, I₁*+E₄+I₄; quasielliptic I₄*+II+II, III*+III+II, I₂*+III+III.",
+      "locator": "Proposition11.4, p38",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/131",
+      "kind": "theorem",
+      "name": "Multiplicity restrictions in the residual table",
+      "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. For any genus-one fibration, every I₁* fiber is multiple; fibers of type I₄*, I_n, and nonsplit I₂ are simple.",
+      "locator": "Proposition11.4, p38",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/132",
+      "kind": "theorem",
+      "name": "Partner fibration over F₂",
+      "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. For every genus-one fibration ϕ there is ψ:Y→P¹ over F₂ with intersection ϕ⁻¹(∞)·ψ⁻¹(∞)=4.",
+      "locator": "Proposition11.4, p38",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/133",
+      "kind": "theorem",
+      "name": "Elimination of I₄*",
+      "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. No genus-one fibration has a fiber of type I₄*.",
+      "locator": "Proposition12.1, pp38–43",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/134",
+      "kind": "theorem",
+      "name": "Six I₄* half-fiber incidence cases",
+      "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. If a simple I₄* fiber has components C₀,C₁ meeting C₂, chain C₂—C₃—C₄—C₅—C₆, and C₇,C₈ meeting C₆, then a half-fiber F of a partner fibration with F·(I₄* fiber)=2 has, up to graph symmetry, one of: F·C₂=1; F·C₃=1; F·C₄=1; F·C₀=F·C₁=1; F·C₀=F·C₈=1; F·C₀=2; unspecified intersections are0.",
+      "locator": "Proposition12.1 proof, pp38–40",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/135",
+      "kind": "theorem",
+      "name": "First forbidden ten-curve configuration",
+      "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. There is no simple-normal-crossing configuration of ten (-2)-curves C₀,…,C₈,R with affine D₈ graph C₀,C₁—C₂—C₃—C₄—C₅—C₆—C₇,C₈ and with R meeting only C₄ once.",
+      "locator": "Proposition12.2, pp40–42",
+      "status": "missing",
+      "note": "The comma notation denotes forks at C₂ and C₆, not edges C₀—C₁ or C₇—C₈."
+    },
+    {
+      "id": "PAPER-SCHROER-23/136",
+      "kind": "theorem",
+      "name": "First ten-curve lattice discriminant",
+      "statement": "In the hypothetical configuration of Proposition12.2, S=⟨C₁,…,C₈,R,F⟩, with F a half-fiber of the I₄* fibration, has determinant−4 and index2 in Num(Y); S*/S≅(Z/2)². The vector class represented by C₁* has norm−1 mod2Z, and the two spinor classes C₇*,C₈* have norm−2 mod2Z.",
+      "locator": "§12 matrix(14), pp41–42",
+      "status": "missing",
+      "note": "Full-norm mod2Z is the paper convention. Built Tau Ceti uses half-norm modZ; translate, do not redefine the discriminant API."
+    },
+    {
+      "id": "PAPER-SCHROER-23/137",
+      "kind": "theorem",
+      "name": "Two-section of square zero or minus two",
+      "statement": "In the lattice argument of Proposition12.2, the nontrivial generic Picard quotient supplies an integral two-section R̃ with R̃²∈{0,−2}; the proof must apply the Enriques Reducibility Theorem, not assume R̃ is a rational curve.",
+      "locator": "Proposition12.2 proof, pp41–42",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/138",
+      "kind": "theorem",
+      "name": "Square-zero two-section calculation",
+      "statement": "In the square-zero branch of Proposition12.2, after choosing the spinor lift, the two-section class is C₈*+nR*+F* with n≥0, and its square is2n; hence n=0.",
+      "locator": "Proposition12.2 proof, p42",
+      "status": "missing",
+      "acceptance": [
+        "Compute with the inverse of matrix(14); preserve the zero-square branch."
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/139",
+      "kind": "theorem",
+      "name": "Second forbidden ten-curve configuration",
+      "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. There is no configuration of ten (-2)-curves C₀,…,C₈,R whose C_i have affine D₈ incidence as above and with R·C₀=2, R·C₂=1, R·C_i=0 for other i. Require simple normal crossings away from the pair R,C₀.",
+      "locator": "Proposition12.3, pp42–43",
+      "status": "missing",
+      "note": "Do not impose simple normal crossings on the pair R,C₀: the intersection number is2."
+    },
+    {
+      "id": "PAPER-SCHROER-23/140",
+      "kind": "theorem",
+      "name": "Second ten-curve lattice discriminant",
+      "statement": "For Proposition12.3, the lattice S=⟨C₁,…,C₈,F′,F⟩ has Gram matrix D₈(-1)⊕U, determinant−4 and index2 in Num(Y); its discriminant has two nonzero isotropic spinor classes and a vector class of odd full norm.",
+      "locator": "§12 matrix(16), p43",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/141",
+      "kind": "theorem",
+      "name": "Generic degree-zero Picard quotient",
+      "statement": "In Proposition12.3, the quotient by vertical classes and the chosen degree-two class identifies the generic degree-zero Picard group, not the full Picard group of the generic genus-one curve.",
+      "locator": "Proposition12.3 proof, p43",
+      "status": "missing",
+      "note": "The source displays Pic(Y_K); degree classes in2Z are removed, so Pic⁰(Y_K) is the appropriate target."
+    },
+    {
+      "id": "PAPER-SCHROER-23/142",
+      "kind": "theorem",
+      "name": "Elimination of multiple III*",
+      "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. No genus-one fibration has a multiple III* fiber.",
+      "locator": "Proposition13.1, pp44–45",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/143",
+      "kind": "theorem",
+      "name": "Elimination of simple III*",
+      "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. No genus-one fibration has a simple III* fiber.",
+      "locator": "Proposition13.2, pp45–47",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/144",
+      "kind": "theorem",
+      "name": "Four simple III* half-fiber cases",
+      "statement": "Let Y/F₂ be a nonexceptional Enriques surface with constant full Picard scheme. For the simple III* component numbering of §13, a half-fiber F of a partner fibration has, up to symmetry, incidences F·C₂=1; or F·C₀=F·C₇=1; or F·C₁=1; or F·C₀=2, with all other intersections0.",
+      "locator": "Proposition13.2 proof, pp45–47",
+      "status": "missing",
+      "note": "The later auxiliary fibration in the final case has fiber intersection8; it is not the initial intersection4 partner."
+    },
+    {
+      "id": "PAPER-SCHROER-23/145",
+      "kind": "theorem",
+      "name": "Final two-configuration impossibility",
+      "statement": "Over any algebraically closed field, no classical Enriques surface has the configuration of reducible fibers of every genus-one fibration restricted to one of: I₁*+I₄ with the I₁* fiber multiple, or I₂*+III+III with two multiple fibers.",
+      "locator": "Proposition14.1, pp47–49",
+      "status": "missing",
+      "note": "This last combinatorial theorem is not restricted to F₂. It first excludes I₁*, then multiple I₂*, then forces an excluded I₄ configuration."
+    },
+    {
+      "id": "PAPER-SCHROER-23/146",
+      "kind": "theorem",
+      "name": "No nonexceptional constant-Picard Enriques surface over F₂",
+      "statement": "There is no Enriques surface over F₂ which is both nonexceptional and has constant full Picard scheme.",
+      "locator": "Theorem15.1, pp49–50",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/147",
+      "kind": "theorem",
+      "name": "Low-degree off-diagonal Hodge vanishing",
+      "statement": "If X/Q is proper smooth and, for every prime p, X acquires a smooth proper model over W(F_pbar), then H^j(X,Ω_X^i)=0 whenever i≠j and i+j≤3.",
+      "locator": "§5, p16; Fontaine1993 Theorem1 and following remark(a)",
+      "status": "missing",
+      "note": "The unramified Witt-ring version is essential; a theorem only for globally smooth proper Z-models is too weak for the stated application. Fontaine's theorem statement and remark were read visually, not its full proof."
+    },
+    {
+      "id": "PAPER-SCHROER-23/148",
+      "kind": "theorem",
+      "name": "No everywhere-unramified-good K3 surface",
+      "statement": "No K3 surface X/Q has good reduction over W(F_pbar) for every prime p: the preceding theorem would give h^{2,0}=0, but a K3 surface has h^{2,0}=1.",
+      "locator": "§5, p16",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/149",
+      "kind": "theorem",
+      "name": "Characteristic-two Enriques lifting criterion",
+      "statement": "For an Enriques surface Y over an algebraically closed field k of characteristic2, Y is exceptional or supersingular iff it has no flat proper lift to W₂(k).",
+      "locator": "Schröer2021 Theorem7.2, author pp23–24; main paper Theorem5.2",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-SCHROER-23/150",
+      "kind": "theorem",
+      "name": "Miniversal Enriques deformation ring",
+      "statement": "For such Y, its miniversal complete local deformation ring A is regular and W(k)-flat with dimension11 or12. Dimension12, absolute ramification index at least2, exceptionality-or-supersingularity, and nonexistence of a W₂ lift are equivalent.",
+      "locator": "Schröer2021 Theorem7.2, author pp23–24",
+      "status": "missing",
+      "note": "Proof reads §6 criterion and prior deformation theorem; full prerequisite closure still outstanding."
+    },
+    {
+      "id": "PAPER-SCHROER-23/151",
+      "kind": "theorem",
+      "name": "Dual lattice is the span of the dual basis",
+      "statement": "For a nondegenerate integral lattice L and finite Z-basis b, its dual carrier is the Z-span of the bilinear-dual basis of the corresponding Q-basis.",
+      "locator": "§§9,12; IntegralLattice/Dual/Basic.lean, lines83–93",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.dualCarrier_eq_span_dualBasis"
+      ],
+      "note": "Actual statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; only the abstract lattice contract is built, not its geometric realization."
+    },
+    {
+      "id": "PAPER-SCHROER-23/152",
+      "kind": "theorem",
+      "name": "Perfect lattice dual pairing",
+      "statement": "For a nondegenerate integral lattice L, pairing gives a Z-linear equivalence L*≃Hom_Z(L,Z).",
+      "locator": "§§9,12; Dual/Basic.lean, lines122–137",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.dualPairingEquiv"
+      ],
+      "note": "Actual statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; only the abstract lattice contract is built, not its geometric realization."
+    },
+    {
+      "id": "PAPER-SCHROER-23/153",
+      "kind": "theorem",
+      "name": "Discriminant group representative equality",
+      "statement": "For an integral lattice L and x,y∈L*, [x]=[y] in L*/L iff x−y∈L; in particular [x]=0 iff x∈L.",
+      "locator": "§12; Discriminant/Group.lean, lines112–125",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.discriminantGroup_mk_eq_iff",
+        "tauceti:TauCeti.IntegralLattice.discriminantGroup_mk_eq_zero_iff"
+      ],
+      "note": "Actual statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; only the abstract lattice contract is built, not its geometric realization."
+    },
+    {
+      "id": "PAPER-SCHROER-23/154",
+      "kind": "theorem",
+      "name": "Finiteness of the discriminant group",
+      "statement": "The quotient L*/L of an integral lattice is finite iff its rational form is nondegenerate.",
+      "locator": "§12; Discriminant/Group.lean, lines128–145",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.finite_discriminantGroup_iff_nondegenerate"
+      ],
+      "note": "Actual statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; only the abstract lattice contract is built, not its geometric realization."
+    },
+    {
+      "id": "PAPER-SCHROER-23/155",
+      "kind": "theorem",
+      "name": "Half-norm discriminant quadratic map",
+      "statement": "For an even integral lattice L, the discriminant quadratic map on [x] equals B(x,x)/2 mod Z. Its value vanishes iff B(x,x) is twice an integer.",
+      "locator": "§12; Discriminant/Quadratic.lean, lines122–152",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.discriminantQuadraticMap_mk",
+        "tauceti:TauCeti.IntegralLattice.discriminantQuadraticMap_mk_eq_zero_iff"
+      ],
+      "note": "Actual statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; only the abstract lattice contract is built, not its geometric realization."
+    },
+    {
+      "id": "PAPER-SCHROER-23/156",
+      "kind": "theorem",
+      "name": "Polarization of the discriminant quadratic map",
+      "statement": "For an even integral lattice, q(x+y)−q(x)−q(y) is the discriminant bilinear pairing of x,y.",
+      "locator": "§12; Discriminant/Quadratic.lean, lines154–176",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.polar_discriminantQuadraticMap"
+      ],
+      "note": "Actual statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; only the abstract lattice contract is built, not its geometric realization."
+    },
+    {
+      "id": "PAPER-SCHROER-23/157",
+      "kind": "theorem",
+      "name": "Even overlattice correspondence",
+      "statement": "For an even integral lattice L, even intermediate carriers L⊂M⊂L* are order-isomorphic to quadratic-isotropic subgroups of its discriminant quadratic module.",
+      "locator": "§12; Overlattice/Isotropic.lean, lines339–365",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.evenIntermediateCarrierOrderIsoIsotropicSubgroup"
+      ],
+      "note": "Actual statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; only the abstract lattice contract is built, not its geometric realization."
+    },
+    {
+      "id": "PAPER-SCHROER-23/158",
+      "kind": "theorem",
+      "name": "Overlattice index equals subgroup order",
+      "statement": "For an integral lattice L and intermediate carrier M, [M:L] equals the cardinality of its associated subgroup in L*/L.",
+      "locator": "§12; Overlattice/Index.lean, lines196–216",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.IntermediateCarrier.index_eq_natCard_discriminantSubgroup"
+      ],
+      "note": "Actual statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; only the abstract lattice contract is built, not its geometric realization."
+    },
+    {
+      "id": "PAPER-SCHROER-23/159",
+      "kind": "theorem",
+      "name": "Signed determinant and index square",
+      "statement": "For an integral intermediate carrier M which is a full lattice, det(M)[M:L]²=det(L).",
+      "locator": "§12; Overlattice/Index.lean, lines251–267",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.IntermediateCarrier.IsIntegral.determinant_mul_index_sq"
+      ],
+      "note": "Actual statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; only the abstract lattice contract is built, not its geometric realization."
+    },
+    {
+      "id": "PAPER-SCHROER-23/160",
+      "kind": "theorem",
+      "name": "Discriminant and index square",
+      "statement": "For an integral full intermediate lattice M, disc(M)[M:L]²=disc(L), using nonnegative discriminants.",
+      "locator": "§12; Overlattice/Index.lean, lines262–281",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.IntermediateCarrier.IsIntegral.discriminant_mul_index_sq"
+      ],
+      "note": "Actual statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; only the abstract lattice contract is built, not its geometric realization."
+    },
+    {
+      "id": "PAPER-SCHROER-23/161",
+      "kind": "theorem",
+      "name": "Even D_n discriminant quadratic module",
+      "statement": "For a positive even n, the positive-definite checkerboard D_n lattice has discriminant module (Z/2)² with vector half-norm1/2, spinor and cospinor half-norm n/8, and vector-spinor pairing1/2 mod Z.",
+      "locator": "§§9,12; RootLattice/TypeD/Basic.lean, lines1040–1105",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.checkerboardDiscriminantQuadraticIsometry"
+      ],
+      "note": "Actual statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; only the abstract lattice contract is built, not its geometric realization."
+    },
+    {
+      "id": "PAPER-SCHROER-23/162",
+      "kind": "theorem",
+      "name": "E₈ is even unimodular",
+      "statement": "The standard positive E₈ root lattice is even and unimodular, with determinant1.",
+      "locator": "§§4,9,12; RootLattice/TypeE.lean, lines689–742",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.isEven_typeE₈RootLattice",
+        "tauceti:TauCeti.IntegralLattice.determinant_typeE₈RootLattice",
+        "tauceti:TauCeti.IntegralLattice.isUnimodular_typeE₈RootLattice"
+      ],
+      "note": "Actual statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; only the abstract lattice contract is built, not its geometric realization."
+    },
+    {
+      "id": "PAPER-SCHROER-23/163",
+      "kind": "theorem",
+      "name": "E₈ as the D₈-plus lattice",
+      "statement": "The standard E₈ root lattice is isometric to the even index-two spinor extension D₈⁺.",
+      "locator": "§12; RootLattice/D8Plus/Isometry.lean, lines292–306",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.typeE₈IsometryD8Plus"
+      ],
+      "note": "Actual statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; only the abstract lattice contract is built, not its geometric realization."
+    },
+    {
+      "id": "PAPER-SCHROER-23/164",
+      "kind": "theorem",
+      "name": "Surface Riemann–Roch",
+      "statement": "For a smooth projective surface S over a field and divisor D, χ(O_S(D))=χ(O_S)+(D·(D−K_S))/2.",
+      "locator": "§§4,12; used to produce effective two-section classes",
+      "status": "planned",
+      "planned": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "note": "Reviewed SF.5 audit and full source contract read; the surface theorem is planned, not inferred from existing abstract quadratic forms."
+    },
+    {
+      "id": "PAPER-SCHROER-23/165",
+      "kind": "theorem",
+      "name": "Adjunction on a smooth surface",
+      "statement": "For an integral Cartier curve C on a smooth projective surface over an algebraically closed field, 2p_a(C)−2=C·(C+K_S).",
+      "locator": "§§4,6,12; use over an algebraically closed field for the displayed numerical formula",
+      "status": "planned",
+      "planned": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "note": "Reviewed SF.5 audit and full source contract read; the surface theorem is planned, not inferred from existing abstract quadratic forms."
+    },
+    {
+      "id": "PAPER-SCHROER-23/166",
+      "kind": "theorem",
+      "name": "Hodge index for a surface",
+      "statement": "For a smooth projective surface over an algebraically closed field and ample divisor H, the intersection form is negative definite on the H-orthogonal subspace of NS(S)⊗R.",
+      "locator": "§§2,4,9; negativity and numerical lattice signature",
+      "status": "planned",
+      "planned": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "note": "Reviewed SF.5 audit and full source contract read; the surface theorem is planned, not inferred from existing abstract quadratic forms."
+    },
+    {
+      "id": "PAPER-SCHROER-23/167",
+      "kind": "definition",
+      "name": "Multiplicity and indecomposable fiber",
+      "statement": "For a connected fiber-type effective divisor C=Σm_iC_i, its multiplicity is gcd_i m_i; C is simple if this is1, multiple otherwise, and C_ind=Σ(m_i/m)C_i. Its reduction is ΣC_i, a different operation.",
+      "locator": "§3, p9",
+      "status": "missing",
+      "api": [
+        "gcd multiplicity",
+        "C=m C_ind",
+        "geometric fiber and underlying reduction"
+      ],
+      "tests": [
+        {
+          "name": "MultiplicityandindecomposablefiberTest1",
+          "kind": "computation",
+          "statement": "An I₄* fiber can be simple although some component coefficients are2."
+        },
+        {
+          "name": "MultiplicityandindecomposablefiberTest2",
+          "kind": "compatibility",
+          "statement": "Multiplying a fiber divisor by2 doubles its multiplicity."
+        },
+        {
+          "name": "MultiplicityandindecomposablefiberTest3",
+          "kind": "non-example",
+          "statement": "A simple nonreduced fiber need not equal its reduction."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/168",
+      "kind": "definition",
+      "name": "Semistable and unstable Kodaira symbols",
+      "statement": "For a relatively minimal genus-one fibration, classify the underlying indecomposable geometric fiber: I_m with m≥1 is semistable/multiplicative; I_n* (n≥0),II,III,IV,IV*,III*,II* are unstable/additive; I₀ means a smooth elliptic underlying fiber.",
+      "locator": "§3, pp9–10",
+      "status": "missing",
+      "api": [
+        "root graphs and component coefficients",
+        "multiplicity separated from symbol",
+        "split forms over finite fields"
+      ],
+      "tests": [
+        {
+          "name": "SemistableandunstableKodairasymbolsTest1",
+          "kind": "computation",
+          "statement": "I₁ is semistable although its curve is irreducible."
+        },
+        {
+          "name": "SemistableandunstableKodairasymbolsTest2",
+          "kind": "compatibility",
+          "statement": "A smooth supersingular I₀ fiber is not additive."
+        },
+        {
+          "name": "SemistableandunstableKodairasymbolsTest3",
+          "kind": "non-example",
+          "statement": "I₀* and I₀ have different component counts and reduction type."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/169",
+      "kind": "definition",
+      "name": "Degenerate genus-one fiber",
+      "statement": "A geometric fiber is degenerate when its underlying indecomposable curve is singular for an elliptic fibration, reducible for a quasielliptic fibration, or the fiber is multiple.",
+      "locator": "§3, p10",
+      "status": "missing",
+      "api": [
+        "elliptic and quasielliptic cases",
+        "multiple-fiber inclusion",
+        "regular versus geometric smoothness"
+      ],
+      "tests": [
+        {
+          "name": "DegenerategenusonefiberTest1",
+          "kind": "computation",
+          "statement": "A multiple smooth elliptic fiber is degenerate."
+        },
+        {
+          "name": "DegenerategenusonefiberTest2",
+          "kind": "compatibility",
+          "statement": "A simple irreducible cuspidal fiber is the general quasielliptic fiber and is not degenerate in this convention."
+        },
+        {
+          "name": "DegenerategenusonefiberTest3",
+          "kind": "non-example",
+          "statement": "Testing only geometric singularity misclassifies general quasielliptic fibers."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/170",
+      "kind": "definition",
+      "name": "Nonsplit nodal conductor gluing",
+      "statement": "Over a perfect field k, a rational nodal curve with nonsplit node is obtained by pinching Spec E⊂P¹_k, for a separable quadratic extension E/k, to Spec k; this is the symbol nonsplit I₁.",
+      "locator": "§3, p10",
+      "status": "missing",
+      "api": [
+        "conductor pushout square",
+        "normalization",
+        "rational-point count"
+      ],
+      "tests": [
+        {
+          "name": "NonsplitnodalconductorgluingTest1",
+          "kind": "computation",
+          "statement": "Over F_q the count is q+2."
+        },
+        {
+          "name": "NonsplitnodalconductorgluingTest2",
+          "kind": "compatibility",
+          "statement": "Split I₁ instead identifies two rational points and has q points."
+        },
+        {
+          "name": "NonsplitnodalconductorgluingTest3",
+          "kind": "non-example",
+          "statement": "A nonsplit node is not a cusp: its conductor algebra is a field, not k[ε]/ε²."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/171",
+      "kind": "definition",
+      "name": "Nonsplit two-component conductor gluing",
+      "statement": "Over a perfect field k, nonsplit I₂ is the curve with normalization P¹⊔P¹ obtained from the conductor square Spec(E×E)→P¹⊔P¹ and Spec E→C, where E/k is separable quadratic.",
+      "locator": "§3, pp10–11",
+      "status": "missing",
+      "api": [
+        "normalization and component graph",
+        "degree-two intersection locus",
+        "point-count formula"
+      ],
+      "tests": [
+        {
+          "name": "NonsplittwocomponentconductorgluingTest1",
+          "kind": "computation",
+          "statement": "Over F_q it has2q+2 points."
+        },
+        {
+          "name": "NonsplittwocomponentconductorgluingTest2",
+          "kind": "compatibility",
+          "statement": "Its two components are defined over k although their intersection points need not be."
+        },
+        {
+          "name": "NonsplittwocomponentconductorgluingTest3",
+          "kind": "non-example",
+          "statement": "A split component graph does not force the two nodes to be k-rational."
+        }
+      ]
+    }
+  ],
+  "source": {
+    "title": "There is no Enriques surface over the integers",
+    "authors": "Stefan Schröer",
+    "venue": "Annals of Mathematics197 (2023), no.1,1–63",
+    "doi": "10.4007/annals.2023.197.1.1",
+    "arxiv": "2004.07025v3",
+    "url": "https://annals.math.princeton.edu/2023/197-1/p01",
+    "versionRead": "Author's third revised version,19 July2022,52 pages; compared with arXiv v3,9 August2022. The body after the first page has identical extracted text; first-page differences are watermark/indentation. Publisher revision date agrees. The63-page typeset publication was not obtained, so corrections below apply to the public preprint, not automatically the published version.",
+    "retrieved": "2026-09-21",
+    "primaryPdf": "https://www.math.uni-duesseldorf.de/~schroeer/publications_pdf/EnriquesOverIntegers_Juli2022.pdf",
+    "sha256": "828efee55d68b29b5c1617872cc97955bb22374500de721cddd24a7b3c1ed191",
+    "comparisonPdf": "https://arxiv.org/pdf/2004.07025v3",
+    "comparisonSha256": "ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61",
+    "readSections": [
+      "Introduction",
+      "§§1–15, complete main text",
+      "References",
+      "Visual checks of author pages14,29,33,41,43",
+      "Schröer2021: Theorem2.5; Corollaries5.4–5.5, Theorem6.1 and proof; §7 through Theorem7.2 proof",
+      "Oort–Tate1970: introduction/rank-two construction, pp1–2",
+      "Fontaine1993: scanned author introduction, Theorem1 and remark(a), PDF pages2–4",
+      "Liu–Lorenzini–Raynaud2004: Corollary6.5, Theorem6.6 and proof, Remark6.8, pp495–497",
+      "Liu–Lorenzini–Raynaud2018 corrigendum: introduction and corrected statements, pp593–595"
+    ],
+    "pins": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+    }
+  },
+  "summary": "Partial source-qualified extraction:171 items (13 library,3 planned,155 missing), with154 missing items assigned exactly once to six routes and one explicit unresolved canonical-cover comparison. The paper excludes Enriques families over Z via constant Picard descent, an exceptional-fiber lifting obstruction, classification of rational Jacobian fibrations over F₂, and lattice/curve-configuration exclusions. Existing integral-lattice APIs are imported, not replanned. The entire public main paper was read, but prerequisite proof closure, several diagrams/case interiors, and the cover compatibility step remain unfinished; no complete extraction or formalization claim.",
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "AlgebraicModuliForArithmeticGeometry",
+      "roadmap": "NumericalPicardAndContractionDescent",
+      "title": "Algebraic moduli and representability for arithmetic geometry, Part II: numerical Picard groups and contraction descent",
+      "area": "algebraicgeometry",
+      "items": [
+        "PAPER-SCHROER-23/1",
+        "PAPER-SCHROER-23/2",
+        "PAPER-SCHROER-23/3",
+        "PAPER-SCHROER-23/4",
+        "PAPER-SCHROER-23/5",
+        "PAPER-SCHROER-23/6",
+        "PAPER-SCHROER-23/7",
+        "PAPER-SCHROER-23/8",
+        "PAPER-SCHROER-23/9",
+        "PAPER-SCHROER-23/10",
+        "PAPER-SCHROER-23/11",
+        "PAPER-SCHROER-23/12"
+      ],
+      "reason": "A0-extension supplies relative Pic⁰ representability for arithmetic applications, not the numerical Picard local system of arbitrary proper schemes or descent of contractions. This extends that direction without rebuilding Picard representability.",
+      "brief": "Start from Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry), especially A0-extension, and Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations:SF.1,SF.2,SF.5). Construct Pic^τ and Num for arbitrary proper schemes over a field, including nonreduced and disconnected schemes; expose geometric base change, Galois action, numerical equivalence, torsion obstructions and norm maps. Prove the positive-power descent criterion with a numerically trivial twist, then Theorem1.3: constant Num descends geometric contractions with projective target; treat purely inseparable descent separately without the constantness assumption. Prove Theorem2.1 for contractions of smooth proper surfaces: component-graph descent, the geometrically-reduced edge-label assertion, and pure inseparability of residue fields of reducible fibers. Import surface intersections, not their reconstruction. Give each definition an API and at least three tests; include P¹_C/R with permuted numerical components, d=0 as a forbidden criterion, and projectivity versus arbitrary proper targets. The Enriques roadmap consumes these general theorems; it must not own a duplicate Picard theory."
+    },
+    {
+      "route": "part-ii",
+      "parent": "NeronModelsAndSemistableAbelianVarieties",
+      "roadmap": "GenusOneFibrationsAndRationalEllipticSurfaces",
+      "title": "Néron models and semistable abelian varieties, Part II: genus-one fibrations and rational elliptic surfaces",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-SCHROER-23/13",
+        "PAPER-SCHROER-23/14",
+        "PAPER-SCHROER-23/15",
+        "PAPER-SCHROER-23/16",
+        "PAPER-SCHROER-23/17",
+        "PAPER-SCHROER-23/18",
+        "PAPER-SCHROER-23/19",
+        "PAPER-SCHROER-23/20",
+        "PAPER-SCHROER-23/21",
+        "PAPER-SCHROER-23/22",
+        "PAPER-SCHROER-23/23",
+        "PAPER-SCHROER-23/24",
+        "PAPER-SCHROER-23/25",
+        "PAPER-SCHROER-23/71",
+        "PAPER-SCHROER-23/72",
+        "PAPER-SCHROER-23/73",
+        "PAPER-SCHROER-23/74",
+        "PAPER-SCHROER-23/81",
+        "PAPER-SCHROER-23/82",
+        "PAPER-SCHROER-23/83",
+        "PAPER-SCHROER-23/84",
+        "PAPER-SCHROER-23/85",
+        "PAPER-SCHROER-23/86",
+        "PAPER-SCHROER-23/95",
+        "PAPER-SCHROER-23/96",
+        "PAPER-SCHROER-23/97",
+        "PAPER-SCHROER-23/98",
+        "PAPER-SCHROER-23/99",
+        "PAPER-SCHROER-23/100",
+        "PAPER-SCHROER-23/101",
+        "PAPER-SCHROER-23/102",
+        "PAPER-SCHROER-23/103",
+        "PAPER-SCHROER-23/104",
+        "PAPER-SCHROER-23/105",
+        "PAPER-SCHROER-23/106",
+        "PAPER-SCHROER-23/107",
+        "PAPER-SCHROER-23/108",
+        "PAPER-SCHROER-23/109",
+        "PAPER-SCHROER-23/110",
+        "PAPER-SCHROER-23/111",
+        "PAPER-SCHROER-23/112",
+        "PAPER-SCHROER-23/113",
+        "PAPER-SCHROER-23/114",
+        "PAPER-SCHROER-23/115",
+        "PAPER-SCHROER-23/116",
+        "PAPER-SCHROER-23/117",
+        "PAPER-SCHROER-23/118",
+        "PAPER-SCHROER-23/167",
+        "PAPER-SCHROER-23/168",
+        "PAPER-SCHROER-23/169",
+        "PAPER-SCHROER-23/170",
+        "PAPER-SCHROER-23/171"
+      ],
+      "reason": "R11.2/R11.4 provide Néron special fibers and degeneration interfaces; they do not classify regular genus-one torsor surfaces, rational elliptic surfaces or their F₂ configurations. EllipticCurves Layer4 supplies the planned Tate algorithm and must remain its owner.",
+      "brief": "Build on Néron models and semistable abelian varieties (NeronModelsAndSemistableAbelianVarieties:R11.2,R11.4), Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves, Layer4), and Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations:SF.3–SF.5). Cover regular minimal genus-one models, elliptic versus quasielliptic generic fibers, fiber multiplicities versus reduced and indecomposable divisors, geometric Kodaira types and finite-field nonsplit I₁/I₂ forms. Import the Tate algorithm, not a second algorithm. Prove the excellent-DVR isogeny theorem8.1, extension-count corollary and special F₂ isomorphism; use Liu–Lorenzini–Raynaud6.6 only with algebraically closed residue field. Construct the degree-bounded two-chart Weierstrass model of a smooth rational Jacobian. End with Theorem9.4's precisely conditioned Picard-constancy criterion and Theorems10.4/10.5: eight nonzero-j and three zero-j models under constant Picard and at most one rational semistable/supersingular fiber. Acquire Lang2000 and verify its classification, including coordinate equivalence and Kodaira resolutions, before asserting completeness. Import Tau Ceti's IntegralLattices implementation for discriminants; separately prove its geometric lattice realization. Test the five F₂ curves, all11 equation invariants, the degree-two I₁ exception, and the distinction between split component graph and split nodes."
+    },
+    {
+      "route": "part-ii",
+      "parent": "SmallRamificationAndAbelianVarietyBaseCases",
+      "roadmap": "EverywhereGoodReductionAndLowDegreeHodgeNumbers",
+      "title": "Small ramification and the base cases for Serre modularity, Part II: low-degree Hodge obstructions",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-SCHROER-23/147",
+        "PAPER-SCHROER-23/148"
+      ],
+      "reason": "R25.3 is explicitly the everywhere-good-reduction obstruction for abelian varieties. A K3 application needs Fontaine1993's higher-cohomology Hodge-vanishing theorem, not an enlargement by analogy.",
+      "brief": "Begin beyond Small ramification and the base cases for Serre modularity (SmallRamificationAndAbelianVarietyBaseCases:R25.1–R25.3), importing its discriminant and ramification methods. Import Finite flat group schemes and integral p-adic Hodge theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1,R07.3,R07.6) and the atlas's p-adic comparison owners rather than recreating their group schemes or comparison functors. Acquire and decompose Fontaine1993 completely. The precise endpoint is: for proper smooth X/Q with good reduction over W(F_pbar) at every prime p, H^j(X,Ω_X^i)=0 for i≠j and i+j≤3. Retain the first remark after Theorem1, which permits these local unramified models; a global Z-model hypothesis would not suffice for Schröer's proof as written. Derive the K3 obstruction from h^{2,0}=1. Keep construction of canonical Enriques covers and their twisting/comparison in the Enriques consumer, not here. Test the strict degree bound, a smooth projective-space example, and the difference between potentially good reduction after ramification and good reduction over the specified Witt ring. State all torsion-crystalline and small-ramification ranges, especially at2; do not apply e<p−1 dyadically."
+    },
+    {
+      "route": "source",
+      "roadmap": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "stages": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
+      ],
+      "items": [
+        "PAPER-SCHROER-23/51",
+        "PAPER-SCHROER-23/52",
+        "PAPER-SCHROER-23/53",
+        "PAPER-SCHROER-23/54"
+      ],
+      "reason": "The rank-two Oort–Tate construction and classification are a concrete additional source for the existing finite-flat classification/fiber/duality stage. Reuse the pinned affine finite-locally-free and Cartier-duality infrastructure; add only the missing rank-two classification and compatibility. The correct coordinate law has a minus sign. No reviewed R07.1 row was present in the inspected audit, so absence of a row is not evidence that all finite-flat theory is absent."
+    },
+    {
+      "route": "source",
+      "roadmap": "WeilConjectures",
+      "stages": [
+        "WeilConjectures:WC.7"
+      ],
+      "items": [
+        "PAPER-SCHROER-23/77",
+        "PAPER-SCHROER-23/78",
+        "PAPER-SCHROER-23/79",
+        "PAPER-SCHROER-23/80"
+      ],
+      "reason": "These are geometric worked realizations of the existing zeta/trace machinery: base-defined algebraic cycles yield scalar Frobenius, hence polynomial counts and the25-point surface instance. Import WC.1–WC.3, cycle classes and smooth-proper hypotheses. Do not create another cohomology, zeta-function or Weil-conjecture roadmap."
+    },
+    {
+      "route": "new",
+      "roadmap": "EnriquesSurfacesAndIntegralNonexistence",
+      "title": "Enriques surfaces and nonexistence over the integers",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-SCHROER-23/26",
+        "PAPER-SCHROER-23/27",
+        "PAPER-SCHROER-23/28",
+        "PAPER-SCHROER-23/29",
+        "PAPER-SCHROER-23/30",
+        "PAPER-SCHROER-23/31",
+        "PAPER-SCHROER-23/32",
+        "PAPER-SCHROER-23/33",
+        "PAPER-SCHROER-23/34",
+        "PAPER-SCHROER-23/35",
+        "PAPER-SCHROER-23/36",
+        "PAPER-SCHROER-23/37",
+        "PAPER-SCHROER-23/38",
+        "PAPER-SCHROER-23/39",
+        "PAPER-SCHROER-23/40",
+        "PAPER-SCHROER-23/41",
+        "PAPER-SCHROER-23/42",
+        "PAPER-SCHROER-23/43",
+        "PAPER-SCHROER-23/44",
+        "PAPER-SCHROER-23/45",
+        "PAPER-SCHROER-23/46",
+        "PAPER-SCHROER-23/47",
+        "PAPER-SCHROER-23/48",
+        "PAPER-SCHROER-23/49",
+        "PAPER-SCHROER-23/50",
+        "PAPER-SCHROER-23/55",
+        "PAPER-SCHROER-23/56",
+        "PAPER-SCHROER-23/57",
+        "PAPER-SCHROER-23/58",
+        "PAPER-SCHROER-23/59",
+        "PAPER-SCHROER-23/60",
+        "PAPER-SCHROER-23/61",
+        "PAPER-SCHROER-23/62",
+        "PAPER-SCHROER-23/64",
+        "PAPER-SCHROER-23/65",
+        "PAPER-SCHROER-23/66",
+        "PAPER-SCHROER-23/67",
+        "PAPER-SCHROER-23/68",
+        "PAPER-SCHROER-23/69",
+        "PAPER-SCHROER-23/70",
+        "PAPER-SCHROER-23/75",
+        "PAPER-SCHROER-23/76",
+        "PAPER-SCHROER-23/87",
+        "PAPER-SCHROER-23/88",
+        "PAPER-SCHROER-23/89",
+        "PAPER-SCHROER-23/90",
+        "PAPER-SCHROER-23/91",
+        "PAPER-SCHROER-23/92",
+        "PAPER-SCHROER-23/93",
+        "PAPER-SCHROER-23/94",
+        "PAPER-SCHROER-23/119",
+        "PAPER-SCHROER-23/120",
+        "PAPER-SCHROER-23/121",
+        "PAPER-SCHROER-23/122",
+        "PAPER-SCHROER-23/123",
+        "PAPER-SCHROER-23/124",
+        "PAPER-SCHROER-23/125",
+        "PAPER-SCHROER-23/126",
+        "PAPER-SCHROER-23/127",
+        "PAPER-SCHROER-23/128",
+        "PAPER-SCHROER-23/129",
+        "PAPER-SCHROER-23/130",
+        "PAPER-SCHROER-23/131",
+        "PAPER-SCHROER-23/132",
+        "PAPER-SCHROER-23/133",
+        "PAPER-SCHROER-23/134",
+        "PAPER-SCHROER-23/135",
+        "PAPER-SCHROER-23/136",
+        "PAPER-SCHROER-23/137",
+        "PAPER-SCHROER-23/138",
+        "PAPER-SCHROER-23/139",
+        "PAPER-SCHROER-23/140",
+        "PAPER-SCHROER-23/141",
+        "PAPER-SCHROER-23/142",
+        "PAPER-SCHROER-23/143",
+        "PAPER-SCHROER-23/144",
+        "PAPER-SCHROER-23/145",
+        "PAPER-SCHROER-23/146",
+        "PAPER-SCHROER-23/149",
+        "PAPER-SCHROER-23/150"
+      ],
+      "reason": "Catalogue-wide searches found no Enriques-surface or characteristic-two Enriques nonexistence direction. General Picard theory, finite-flat groups, point counting, genus-one surfaces, low-degree Hodge obstruction, and abstract lattices have separate suppliers.",
+      "brief": "Construct Enriques surfaces and flat proper finitely presented algebraic-space families, not only scheme families. Final endpoints are Schröer5.1, no Enriques family over Z, and15.1, no nonexceptional Enriques surface over F₂ with constant FULL Picard scheme. Import NumericalPicardAndContractionDescent for general descent; GenusOneFibrationsAndRationalEllipticSurfaces for Jacobians, Kodaira types and the11-model classification; EverywhereGoodReductionAndLowDegreeHodgeNumbers for Fontaine's K3 obstruction; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1 for Oort–Tate; WeilConjectures:WC.7 for point counts; SchemeAndStackFoundations:SF.4–SF.5 for deformation and intersection foundations; and the BUILT tauceti:Completed/IntegralLattices for discriminant forms and overlattices. Cover the three characteristic-two types, canonical torsors and twists, conductrix/exceptionality, the no-W₂-lift input, and constant-Picard descent of line bundles, rational (-2)-curves and genus-one fibrations. Prove the geometric Num≅U⊕E₈(-1) comparison rather than rebuilding E₈. Resolve the currently unrouted canonical-cover compatibility obligation before accepting Proposition5.5 or assembling5.1. Descend Mordell–Weil sections using Tsen only over algebraically closed constants. Preserve the integral two-section branch of square0 as well as−2; use the current v3 proof and its lattice matrices, not the superseded two-section argument. Prove all15→8→0 configuration reductions, both ten-curve exclusions, simple and multiple III* separately, and Proposition14.1 over arbitrary algebraically closed fields. Acquire Ekedahl–Shepherd-Barron, Cossec–Dolgachev and Lang's reducibility theorem before dependency closure. Every definition gets consumer-driven API, tests and a suggested Lean signature; formalization is a future design/implementation task."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "W. Lang, Configurations of singular fibres on rational elliptic surfaces in characteristic two, Comm. Algebra28(2000),5813–5836.",
+      "link": "https://doi.org/10.1080/00927870008827190",
+      "why": "Theorems10.4/10.5 use classification cases13A,14 and others. Metadata checked; full primary proof/tables not acquired. This is a critical completeness gap, not replaced by invariant computations."
+    },
+    {
+      "citation": "T. Ekedahl and N. Shepherd-Barron, On exceptional Enriques surfaces, arXiv math/0405510.",
+      "link": "https://arxiv.org/abs/math/0405510",
+      "why": "TheoremA supplies the nonexceptional fiber restrictions and conductrix/vector-field inputs to the lifting obstruction. Main paper statements read; prerequisite proof not yet read."
+    },
+    {
+      "citation": "F. Cossec and I. Dolgachev, Enriques surfaces I,1989.",
+      "link": "https://doi.org/10.1007/978-1-4612-3696-2",
+      "why": "Genus-one fibrations and partner fibrations, rational Jacobians and quasielliptic classification; exact statements through main paper only. Obtain this edition and check Theorems3.4.1,5.7.2,5.7.4–5.7.6."
+    },
+    {
+      "citation": "W. Lang, On Enriques surfaces in characteristic p. I, Math. Ann.265(1983),45–65.",
+      "link": "https://annals.math.princeton.edu/2023/197-1/p01",
+      "why": "Reference39 and the Enriques Reducibility Theorem used in §12; primary source not yet acquired. Link is the citing paper's stable landing page, not a claim that the prerequisite was downloaded."
+    },
+    {
+      "citation": "S. Schröer, The Deligne–Illusie Theorem and exceptional Enriques surfaces, Eur. J. Math.7(2021),489–525.",
+      "link": "https://www.math.uni-duesseldorf.de/~schroeer/publications_pdf/DeligneIllusie_2021.pdf",
+      "why": "Read Theorems2.5,6.1,7.2 and indicated proofs. Still extract the gerbe/Yoneda obstruction, Frobenius splitting, formal deformation and cited exceptional-surface inputs recursively. SHA256806acbf84c48c72ca5a62550cae5033928d44f669dfa870d905c0c7e3edd627a."
+    },
+    {
+      "citation": "J.-M. Fontaine, Schémas propres et lisses sur Z,1993.",
+      "link": "https://www.imo.universite-paris-saclay.fr/~fontaine/Zschemas.pdf",
+      "why": "Theorem1 and remark(a) read visually; the torsion-crystalline ramification proof and discriminant closure remain. SHA2563a0d2b7a95db090438b43a86040d92b748e351a6461257dd083151864f33dc67."
+    },
+    {
+      "citation": "J. Tate and F. Oort, Group schemes of prime order, Ann. Sci. ENS3(1970),1–21.",
+      "link": "https://www.numdam.org/item/ASENS_1970_4_3_1_1_0.pdf",
+      "why": "Rank-two introductory construction confirms the minus sign and triples. Full classification proof must still be extracted in R07.1. SHA256064cec666ea2082bc23ec5748b7b6db2fe01feb7f83f8afd04736e78bc44fa5a."
+    },
+    {
+      "citation": "Q. Liu, D. Lorenzini and M. Raynaud, Néron models, Lie algebras, and reduction of curves of genus one, Invent. Math.157(2004),455–518.",
+      "link": "https://www.math.u-bordeaux.fr/~qliu/articles/LLR.pdf",
+      "why": "Corollary6.5 and Theorem6.6 including proof/Remark6.8 read. Its component-group, Lie algebra and discriminant comparison suppliers need recursive extraction. SHA2568cdd88f941467206ecc2e37049ba832460d5b2cd7102f50d93124d02fc5bff8a."
+    },
+    {
+      "citation": "Liu–Lorenzini–Raynaud, Corrigendum…, Invent. Math.214(2018),593–604.",
+      "link": "https://www.math.u-bordeaux.fr/~qliu/articles/CorrigendumToNeronModelsLieAlg.pdf",
+      "why": "Introduction and corrected statements read: Pic⁰(C) need not equal Jac(C)(K) over finite-field function fields, and §4 formulas acquire a correction factor. No correction to Theorem6.6 is stated there. SHA256d2afb75093c7b97fcc146f326e572ad1c195811182b3eb371e0cccc45106273f."
+    }
+  ],
+  "coverageGaps": [
+    "One deliberately unrouted item: canonical-cover compatibility in Proposition5.5. The global-to-local twist comparison has not been proved or disproved.",
+    "Recursive prerequisite closure remains incomplete: Lang2000 classification, Enriques Reducibility Theorem, Ekedahl–Shepherd-Barron TheoremA, full Fontaine1993 proof, full Oort–Tate classification and Deligne–Illusie obstruction construction.",
+    "Named main-paper results are represented, but not every unnamed construction/proof dependency is yet an atomic item. In particular spell out genus-one/quasielliptic model construction, tame/wild criterion, Minkowski π₁(Spec Z), Brauer(Z)=0 and the source-qualified cohomology comparison APIs.",
+    "All main text was read; selected diagrams/matrices were visually checked. Independently validate every remaining graph and the detailed contradiction branches in §§11–14.",
+    "Obtain the published63-page version before attributing any preprint precision issue to the published article."
+  ]
+}
