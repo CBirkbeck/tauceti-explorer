@@ -1,120 +1,663 @@
 {
   "family": "RS-20",
   "roadmaps": {
-    "FarguesFontaineDiamonds": {"action": "extend", "extends": "tauceti:TauCetiRoadmap/AdicSpaces", "title": "Foundations of adic spaces, Part II: the Fargues-Fontaine curve as a diamond", "reason": "Start from unchanged AdicSpaces Layer 6, which owns the fixed E = Q_p adic curve over a characteristic-p perfectoid field. Add its marked-untilt functor of points, Frobenius-equivariant diamond quotient, site comparison, analytic untilt divisor and separately gated coefficient comparison. This early fixed-field branch is not reconstructed from relative bundle theory."},
-    "RelativeFarguesFontaine": {"action": "extend", "extends": "tauceti:TauCetiRoadmap/AdicSpaces", "title": "Foundations of adic spaces, Part II: relative Fargues-Fontaine curves and period geometry", "reason": "Extend the unchanged fixed-field adic construction to arbitrary perfectoid bases and all the stated local coefficient fields, importing the fixed-field diamond comparisons from FarguesFontaineDiamonds F0-F4, not its late F5. The genuinely new integral special fibre, relative annuli, degree-d divisors, line bundles and linear/G-torsor patching cannot be retired or merged into the fixed-field diamondification."}
+    "FarguesFontaineDiamonds": {
+      "action": "extend",
+      "extends": "tauceti:TauCetiRoadmap/AdicSpaces",
+      "title": "Foundations of adic spaces, Part II: the Fargues-Fontaine curve as a diamond",
+      "reason": "Start from unchanged AdicSpaces Layer 6, which owns the fixed E = Q_p adic curve over a characteristic-p perfectoid field. Add its marked-untilt functor of points, Frobenius-equivariant diamond quotient, site comparison, analytic untilt divisor and separately gated coefficient comparison. This early fixed-field branch is not reconstructed from relative bundle theory."
+    },
+    "RelativeFarguesFontaine": {
+      "action": "extend",
+      "extends": "tauceti:TauCetiRoadmap/AdicSpaces",
+      "title": "Foundations of adic spaces, Part II: relative Fargues-Fontaine curves and period geometry",
+      "reason": "Extend the unchanged fixed-field adic construction to arbitrary perfectoid bases and all the stated local coefficient fields, importing the fixed-field diamond comparisons from FarguesFontaineDiamonds F0-F4, not its late F5. The genuinely new integral special fibre, relative annuli, degree-d divisors, line bundles and linear/G-torsor patching cannot be retired or merged into the fixed-field diamondification."
+    }
   },
   "layers": {
-    "FarguesFontaineDiamonds:F0": {"action": "narrow", "keeps": "The analytic/Z_p/Q_p and plus-ring interfaces needed to apply D6 to the existing fixed-field Y and X, and explicit transport under the permitted field, pseudouniformizer and chart choices. Import, rather than rebuild, W(F^+), its (p,[varpi])-adic topology and complete Huber pair, Y = D(p) intersect D([varpi]), its rational annuli and the adic Frobenius quotient. Retain the non-algebraically-closed field examples and the test excluding the union of the two opens.", "suppliedBy": ["tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve"], "reason": "The anchor already plans this complete fixed-field adic construction; it does not plan diamondification. Preserve its actual topology and plus rings, not just its set of points."},
-    "FarguesFontaineDiamonds:F1": {"action": "keep", "reason": "Keep the independent fixed-field comparison Y^diamond = S x Spd(Q_p) on all perfectoid test objects: actual marked untilts, the bounded continuous Witt/theta map, plus rings, naturality and gluing. This is not the integral product retaining V(p), and it does not assume the completed relative construction."},
-    "FarguesFontaineDiamonds:F2": {"action": "narrow", "keeps": "The equivariance identity for the chosen Frobenius generator under F1, the diamond orbit relation coproduct_Z Y^diamond = Y^diamond x_(X^diamond) Y^diamond, the v-cover and effective quotient identification over Spd(Q_p), and the exact locality and choice-independence statements. Import the fixed adic windows, kappa scaling, properly discontinuous action and adic quotient/sheaf construction from the anchor. Do not claim that diamondification preserves arbitrary colimits or that X has a structural map to S.", "suppliedBy": ["tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve"], "reason": "The adic quotient is the immutable anchor theorem. The effective diamond relation and its marked generator are new comparison results, not duplicate quotient construction."},
-    "FarguesFontaineDiamonds:F3": {"action": "narrow", "keeps": "Instantiate D6 on these actual Y and X, identify the resulting affinoid/etale sites and the Frobenius descent cocycle, and prove compatibility with the quotient and all allowed changes of charts. Import the general diamondification/site theorem. This uncoefficiented comparison completes the early geometric branch; ordinary invariants are not identified with derived invariants.", "suppliedBy": ["DiamondsAndVStacks:D6"], "reason": "D6 owns the general analytic-adic/diamond etale-site equivalence; F3 owns its Frobenius-compatible Fargues-Fontaine instance."},
-    "FarguesFontaineDiamonds:F4": {"action": "narrow", "keeps": "For the fixed E = Q_p curve, construct the analytic closed Cartier divisor from a marked untilt and descend it through the Frobenius quotient. Prove the actual annulus norm estimate, injectivity, closed image and complete-quotient/exact-sheaf statement, with its root-extension, tilt, Shilov-boundary and split topological-module descent steps. Import P1 only for the p-typical marked-untilt/primitive-ideal carrier and algebraic correspondence. Keep the distinction between a marked untilt, its Frobenius orbit, a divisor of a fixed curve and the Div^1 moduli sheaf. Export only the fixed-field analytic estimate as a seed for the relative proof, not a theorem for arbitrary bases or ramified E.", "suppliedBy": ["PerfectoidSpaces:P1"], "reason": "The primitive-ideal correspondence is not a second perfectoid carrier. The analytic closed-image theorem is substantial additional work and remains here. The independently reviewed limited F4-to-relative handoff is preserved."},
-    "FarguesFontaineDiamonds:F5": {"action": "keep", "reason": "Keep the late coefficient comparison after DiamondEtaleCohomology C2 and AdicCoefficientsAndComparisons L0, with the specified ordinary/left-completed categories and finite-coefficient/derived-completion order. Retain RΓ, tensor and pullback comparisons. It is not an input to RF0-RF4 and does not supply unrestricted lower-shriek operations, properness or cohomological smoothness."},
-    "RelativeFarguesFontaine:RF0": {"action": "narrow", "keeps": "The ramified Witt/strict-lift construction for every stated E with residue F_q and every perfect coefficient algebra, including flatness, pi-adic completeness, Teichmuller lifts, q-Frobenius, functoriality, the equal-characteristic R[[pi]] model and all topology/uniformizer comparisons. Import the anchor fixed E = Q_p, perfectoid-field specialization and prove compatibility on actual rings. Keep the raw ramified-witt-universal-property proof prefix before the integral-Y/annuli children; RF0 as an aggregate is complete only after those children. Mathlib WittVector.lift is an inverse-limit map and does not discharge this strict-lift theorem.", "suppliedBy": ["tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve"], "reason": "General coefficients and non-field bases remain genuinely new. The fixed-field case is a compatibility test against an existing owner, not permission to reconstruct it or assume ramified/equal-characteristic strict-lift theory."},
-    "RelativeFarguesFontaine:RF0:integral-Y": {"action": "keep", "reason": "Keep the full relative integral construction curly-Y = Spa(W_OE(R^+)) minus V([varpi]) with its (pi,[varpi])-adic topology, rational charts, completed coordinate and plus rings, root-extension perfectoid/tilt comparison, split topological-module descent, gluing and integral product curly-Y^diamond = S x Spd(O_E). V(pi) is retained. The fixed-field generic restriction compares to F0/F1; those suppliers do not construct the special fibre. The raw RF0 strict-lift prefix is used before RF0 aggregate completion."},
-    "RelativeFarguesFontaine:RF0:annuli": {"action": "narrow", "keeps": "The generic restriction Y = curly-Y minus V(pi), relative radius windows and their completed coordinate/plus rings, restriction maps, base change, choice independence, relative sheafiness and the stated Stein/exhaustion and higher-acyclicity proof obligations. Import the anchor fixed-field annuli and their strong-noetherian theorem only for that specialization; compare the actual relative rings with them. The general non-noetherian relative proof still uses the stated stable-uniform/sousperfectoid and split-extension arguments, not a strong-noetherian claim for every base.", "suppliedBy": ["tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve"], "reason": "The fixed-field annulus construction is duplicated only in the specialization. Relative topology, sheafiness, coordinate comparisons and their hypotheses must not disappear."},
-    "RelativeFarguesFontaine:RF1": {"action": "narrow", "keeps": "Gluing of the relative generic Y and X, the chosen q-Frobenius action, its actual rational windows and quotient structure sheaves, base change for arbitrary perfectoid T to S, and the relative diamond presentation with its valuation, topology, plus-ring and cocycle compatibilities. Import F2/F3 for the fixed Q_p-field quotient and site comparison, and D6 for the generic site theorem, then prove the actual specialization identifications. Do not replace the relative proof by that special case, invent an ordinary structural map X to S, or identify different Frobenius actions without a comparison.", "suppliedBy": ["FarguesFontaineDiamonds:F2", "FarguesFontaineDiamonds:F3", "DiamondsAndVStacks:D6"], "reason": "The fixed-field diamond comparison and general site theorem each have an existing owner. The parameterized curve, sheaves and base-change theorem remain here."},
-    "RelativeFarguesFontaine:RF2": {"action": "keep", "reason": "Keep this aggregate completion of integral-divisors and untilts, with both inputs and every original consumer. Do not treat the aggregate as an early constructor needed to establish its own children."},
-    "RelativeFarguesFontaine:RF2:integral-divisors": {"action": "keep", "reason": "Keep the full all-degree integral-divisor theory, including its necessary early relative degree-one closed-Cartier lemma, ordered primitive equations, descent of the unordered invertible ideal, the degree criterion, collisions, affineness locally on S where required, v-descent of vector bundles on divisors and thickenings, and ideal-adic completed/punctured rings with inverse-limit and generator-independence comparisons. The all-E/all-base version of the II.1.4 norm/closed-image argument is owned here before ordered products; the fixed Q_p-field analytic seed is imported from F4, and the relative/ramified descent remains to be proved. Reconcile the existing refined closed-cartier-divisor-norm-estimate node to this early ownership without deleting its proof or tests. The integral characteristic-p specialization is not renamed a characteristic-zero B_dR ring."},
-    "RelativeFarguesFontaine:RF2:untilts": {"action": "narrow", "keeps": "Marked generic E-untilts, their theta/primitive presentation with the exact ramified or equal-characteristic hypotheses, their degree-one divisors on Y and X and their Frobenius-orbit/naturality comparisons. Import P1 for the p-typical perfectoid correspondence; prove the additional E-linear comparison rather than assume it. Import the integral-divisors owner for the preceding all-base analytic closed-Cartier lemma and all-degree ideal completion/localization, then prove the generic d = 1 B_dR^+/B_dR, residue, filtration and graded-line comparisons, including the geometric DVR specialization. Retain divisor addition, disjointness/collision compatibility and source-qualified Div^1 properness/smoothness obligations. Over Perf_Fq the moduli formula is Spd(E)/phi^Z; Spd(breve E)/phi^Z is its separately proved Perf_k presentation for k = algebraic closure of F_q, not an unqualified replacement. Do not erase the characteristic-p integral untilt accepted by the supplier.", "suppliedBy": ["PerfectoidSpaces:P1", "RelativeFarguesFontaine:RF2:integral-divisors"], "reason": "The integral degree-one closed-image argument must precede the integral degree-d construction; it cannot depend back on this whole generic-untilt stage. Completion is constructed once for the invertible divisor ideal, while its generic de Rham interpretation and base-field conversion are new comparisons here."},
-    "RelativeFarguesFontaine:RF3": {"action": "keep", "reason": "Keep O(1), O(n), their pi-normalized Frobenius descent, tensor/dual/divisor-section maps, the isocrystal sign dictionary, the graded section algebra and formal map to Proj. Import the actual fixed and relative divisor data. Positive generation, ampleness and GAGA stay in VectorBundlesAndIsocrystals VB2:ampleness; no classification or Bun_G theorem is required to define these objects."},
-    "RelativeFarguesFontaine:RF4": {"action": "keep", "reason": "Keep this aggregate of linear vector-bundle patching and its G-torsor extension, not an additional patching construction. Preserve every child acceptance test and the distinction between early linear applications and later torsor/moduli applications."},
-    "RelativeFarguesFontaine:RF4:vector-bundles": {"action": "keep", "reason": "Keep the linear Beauville-Laszlo theorem on actual open, completed and punctured relative period rings, with finite locally free modules, exactness, tensor/dual, coefficient and divisor-change compatibility, disjoint and colliding legs and the source hypotheses of effectivity. Formal completion is not asserted fpqc without proof. This remains the linear supplier to AInfCohomology AI.2; the G-valued/Grassmannian portions of a later mixed application in the refined packet are not premises of this linear theorem."},
-    "RelativeFarguesFontaine:RF4:G-torsors": {"action": "narrow", "keeps": "Apply BG0's already proved equivalence among the precise etale/sheaf/exact-tensor descriptions of G-torsors to the actual relative open, completed and punctured rings. Prove the Tannakian transfer of RF4:vector-bundles gluing, effectivity, independence of a faithful representation, change of structure group, base change and divisor compatibility. Retain the concrete relative v-descent and local-triviality theorem with its source hypotheses. Do not reconstruct the general three-description equivalence or use BG2 uniformization to prove it. Actual loop/Grassmannian quotient and bounded-moduli constructions remain later GS0:loop-geometry applications of this theorem, not prerequisites of its proof.", "suppliedBy": ["BunGAndNewtonStrata:BG0"], "reason": "BG0 owns generic torsor recognition before RF4. This stage owns the concrete G-valued extension of linear patching. Keeping these directions separate avoids the BG0-RF4 and RF4-Grassmannian cycles."}
+    "FarguesFontaineDiamonds:F0": {
+      "action": "narrow",
+      "keeps": "The analytic/Z_p/Q_p and plus-ring interfaces needed to apply D6 to the existing fixed-field Y and X, and explicit transport under the permitted field, pseudouniformizer and chart choices. Import, rather than rebuild, W(F^+), its (p,[varpi])-adic topology and complete Huber pair, Y = D(p) intersect D([varpi]), its rational annuli and the adic Frobenius quotient. Retain the non-algebraically-closed field examples and the test excluding the union of the two opens.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve"
+      ],
+      "reason": "The anchor already plans this complete fixed-field adic construction; it does not plan diamondification. Preserve its actual topology and plus rings, not just its set of points."
+    },
+    "FarguesFontaineDiamonds:F1": {
+      "action": "keep",
+      "reason": "Keep the independent fixed-field comparison Y^diamond = S x Spd(Q_p) on all perfectoid test objects: actual marked untilts, the bounded continuous Witt/theta map, plus rings, naturality and gluing. This is not the integral product retaining V(p), and it does not assume the completed relative construction."
+    },
+    "FarguesFontaineDiamonds:F2": {
+      "action": "narrow",
+      "keeps": "The equivariance identity for the chosen Frobenius generator under F1, the diamond orbit relation coproduct_Z Y^diamond = Y^diamond x_(X^diamond) Y^diamond, the v-cover and effective quotient identification over Spd(Q_p), and the exact locality and choice-independence statements. Import the fixed adic windows, kappa scaling, properly discontinuous action and adic quotient/sheaf construction from the anchor. Do not claim that diamondification preserves arbitrary colimits or that X has a structural map to S.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve"
+      ],
+      "reason": "The adic quotient is the immutable anchor theorem. The effective diamond relation and its marked generator are new comparison results, not duplicate quotient construction."
+    },
+    "FarguesFontaineDiamonds:F3": {
+      "action": "narrow",
+      "keeps": "Instantiate D6 on these actual Y and X, identify the resulting affinoid/etale sites and the Frobenius descent cocycle, and prove compatibility with the quotient and all allowed changes of charts. Import the general diamondification/site theorem. This uncoefficiented comparison completes the early geometric branch; ordinary invariants are not identified with derived invariants.",
+      "suppliedBy": [
+        "DiamondsAndVStacks:D6"
+      ],
+      "reason": "D6 owns the general analytic-adic/diamond etale-site equivalence; F3 owns its Frobenius-compatible Fargues-Fontaine instance."
+    },
+    "FarguesFontaineDiamonds:F4": {
+      "action": "narrow",
+      "keeps": "For the fixed E = Q_p curve, construct the analytic closed Cartier divisor from a marked untilt and descend it through the Frobenius quotient. Prove the actual annulus norm estimate, injectivity, closed image and complete-quotient/exact-sheaf statement, with its root-extension, tilt, Shilov-boundary and split topological-module descent steps. Import P1 only for the p-typical marked-untilt/primitive-ideal carrier and algebraic correspondence. Keep the distinction between a marked untilt, its Frobenius orbit, a divisor of a fixed curve and the Div^1 moduli sheaf. Export only the fixed-field analytic estimate as a seed for the relative proof, not a theorem for arbitrary bases or ramified E.",
+      "suppliedBy": [
+        "PerfectoidSpaces:P1"
+      ],
+      "reason": "The primitive-ideal correspondence is not a second perfectoid carrier. The analytic closed-image theorem is substantial additional work and remains here. The independently reviewed limited F4-to-relative handoff is preserved."
+    },
+    "FarguesFontaineDiamonds:F5": {
+      "action": "keep",
+      "reason": "Keep the late coefficient comparison after DiamondEtaleCohomology C2 and AdicCoefficientsAndComparisons L0, with the specified ordinary/left-completed categories and finite-coefficient/derived-completion order. Retain RΓ, tensor and pullback comparisons. It is not an input to RF0-RF4 and does not supply unrestricted lower-shriek operations, properness or cohomological smoothness."
+    },
+    "RelativeFarguesFontaine:RF0": {
+      "action": "narrow",
+      "keeps": "The ramified Witt/strict-lift construction for every stated E with residue F_q and every perfect coefficient algebra, including flatness, pi-adic completeness, Teichmuller lifts, q-Frobenius, functoriality, the equal-characteristic R[[pi]] model and all topology/uniformizer comparisons. Import the anchor fixed E = Q_p, perfectoid-field specialization and prove compatibility on actual rings. Keep the raw ramified-witt-universal-property proof prefix before the integral-Y/annuli children; RF0 as an aggregate is complete only after those children. Mathlib WittVector.lift is an inverse-limit map and does not discharge this strict-lift theorem.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve"
+      ],
+      "reason": "General coefficients and non-field bases remain genuinely new. The fixed-field case is a compatibility test against an existing owner, not permission to reconstruct it or assume ramified/equal-characteristic strict-lift theory."
+    },
+    "RelativeFarguesFontaine:RF0:integral-Y": {
+      "action": "keep",
+      "reason": "Keep the full relative integral construction curly-Y = Spa(W_OE(R^+)) minus V([varpi]) with its (pi,[varpi])-adic topology, rational charts, completed coordinate and plus rings, root-extension perfectoid/tilt comparison, split topological-module descent, gluing and integral product curly-Y^diamond = S x Spd(O_E). V(pi) is retained. The fixed-field generic restriction compares to F0/F1; those suppliers do not construct the special fibre. The raw RF0 strict-lift prefix is used before RF0 aggregate completion. At declaration level the coefficient input is the existing node RelativeFarguesFontaine:RF0/ramified-witt-universal-property, not the completed RF0 stage; do not insert an RF0 aggregate-to-child prerequisite. In the n = 1 root-extension chart of FS II.1.1 the tilt coordinate satisfies t_1^sharp = pi/[varpi], not [varpi]/pi. The chart keeps pi = 0 and inverts [varpi], so this coordinate is defined on the special fibre. Correct the reciprocal in the inherited chart-cover-perfectoidness-and-sheafiness proof step when reconciling that node; its identity and other targets are retained."
+    },
+    "RelativeFarguesFontaine:RF0:annuli": {
+      "action": "narrow",
+      "keeps": "The generic restriction Y = curly-Y minus V(pi), relative radius windows and their completed coordinate/plus rings, restriction maps, base change, choice independence, relative sheafiness and the stated Stein/exhaustion and higher-acyclicity proof obligations. Import the anchor fixed-field annuli and their strong-noetherian theorem only for that specialization; compare the actual relative rings with them. The general non-noetherian relative proof still uses the stated stable-uniform/sousperfectoid and split-extension arguments, not a strong-noetherian claim for every base.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve"
+      ],
+      "reason": "The fixed-field annulus construction is duplicated only in the specialization. Relative topology, sheafiness, coordinate comparisons and their hypotheses must not disappear."
+    },
+    "RelativeFarguesFontaine:RF1": {
+      "action": "narrow",
+      "keeps": "Gluing of the relative generic Y and X, the chosen q-Frobenius action, its actual rational windows and quotient structure sheaves, base change for arbitrary perfectoid T to S, and the relative diamond presentation with its valuation, topology, plus-ring and cocycle compatibilities. Import F2/F3 for the fixed Q_p-field quotient and site comparison, and D6 for the generic site theorem, then prove the actual specialization identifications. Do not replace the relative proof by that special case, invent an ordinary structural map X to S, or identify different Frobenius actions without a comparison.",
+      "suppliedBy": [
+        "FarguesFontaineDiamonds:F2",
+        "FarguesFontaineDiamonds:F3",
+        "DiamondsAndVStacks:D6"
+      ],
+      "reason": "The fixed-field diamond comparison and general site theorem each have an existing owner. The parameterized curve, sheaves and base-change theorem remain here."
+    },
+    "RelativeFarguesFontaine:RF2": {
+      "action": "keep",
+      "reason": "Keep this aggregate completion of integral-divisors and untilts, with both inputs and every original consumer. Do not treat the aggregate as an early constructor needed to establish its own children."
+    },
+    "RelativeFarguesFontaine:RF2:integral-divisors": {
+      "action": "keep",
+      "reason": "Keep the full all-degree integral-divisor theory, including its necessary early relative degree-one closed-Cartier lemma, ordered primitive equations, descent of the unordered invertible ideal, the degree criterion, collisions, affineness locally on S where required, v-descent of vector bundles on divisors and thickenings, and ideal-adic completed/punctured rings with inverse-limit and generator-independence comparisons. The all-E/all-base version of the II.1.4 norm/closed-image argument is owned here before ordered products; the fixed Q_p-field analytic seed is imported from F4, and the relative/ramified descent remains to be proved. Reconcile the existing refined closed-cartier-divisor-norm-estimate node to this early ownership without deleting its proof or tests. The integral characteristic-p specialization is not renamed a characteristic-zero B_dR ring. The X_S branch requires RF1: its Cartier-divisor realization and local affineness pass through the actual relative Frobenius quotient (FS VI.1.2), not only through the fixed-field F2 specialization. Separate the collision test from the ordered-leg descent test: a specified double divisor 2D already has the ordered presentation (D,D), with equation xi^2 and multiplicity two. A splitting obstruction must instead be witnessed by suitable unsplit unordered leg data. Do not require a nontrivial splitting cover for every specified doubled leg; retain the general v-sheafification and descent obligations."
+    },
+    "RelativeFarguesFontaine:RF2:untilts": {
+      "action": "narrow",
+      "keeps": "Marked generic E-untilts, their theta/primitive presentation with the exact ramified or equal-characteristic hypotheses, their degree-one divisors on Y and X and their Frobenius-orbit/naturality comparisons. Import P1 for the p-typical perfectoid correspondence; prove the additional E-linear comparison rather than assume it. Import the integral-divisors owner for the preceding all-base analytic closed-Cartier lemma and all-degree ideal completion/localization, then prove the generic d = 1 B_dR^+/B_dR, residue, filtration and graded-line comparisons, including the geometric DVR specialization. Retain divisor addition, disjointness/collision compatibility and source-qualified Div^1 properness/smoothness obligations. Over Perf_Fq the moduli formula is Spd(E)/phi^Z; Spd(breve E)/phi^Z is its separately proved Perf_k presentation for k = algebraic closure of F_q, not an unqualified replacement. Do not erase the characteristic-p integral untilt accepted by the supplier. In the matching mixed-characteristic p-typical specialization, reuse or construct canonical comparison isomorphisms to the already defined Mathlib BDeRhamPlus and BDeRham carriers (Mathlib/RingTheory/Perfectoid/BDeRham.lean at 082e2d3). The latter is a localization at images of generators of the theta kernel; its existence as a definition does not prove principality, the theta extension, the DVR property or the required relative topological comparisons. Preserve those theorem obligations. These absolute carriers are zero when p = 0 in the input and do not replace the integral characteristic-p period rings.",
+      "suppliedBy": [
+        "PerfectoidSpaces:P1",
+        "RelativeFarguesFontaine:RF2:integral-divisors"
+      ],
+      "reason": "The integral degree-one closed-image argument must precede the integral degree-d construction; it cannot depend back on this whole generic-untilt stage. Completion is constructed once for the invertible divisor ideal, while its generic de Rham interpretation and base-field conversion are new comparisons here."
+    },
+    "RelativeFarguesFontaine:RF3": {
+      "action": "narrow",
+      "keeps": "The direct rank-one Frobenius descent defining O(n) for integral n, its pi normalization, tensor, dual, divisor-section and transition-function API, and the eigenvalue normalization H^0(O(n)) = H^0(Y,O)^{phi = pi^n}. Keep the graded section algebra P, Proj(P), and the analytic-to-schematic map as a mathematical target. The unconditional chart construction first gives a map only on U = union of the nonvanishing loci of all positive-degree global sections. A map on all X_S requires a separately proved U = X_S covering lemma. Do not claim that quasicompactness alone proves this covering, or that O_Proj(P)(1) is automatically invertible with the asserted pullback for an arbitrary graded P. The location and proof of the covering/twist hypotheses remain the blocking RF3/VB2:ampleness boundary identified by REV-RS-20; none of these targets is deleted. Use VB1 as the sole owner of the arbitrary-rank exact tensor isocrystal-to-bundle functor and its general/rational-slope comparisons. The early rank-one descent here must not import the completed VB1 stage.",
+      "suppliedBy": [
+        "VectorBundlesAndIsocrystals:VB1"
+      ],
+      "reason": "The inherited isocrystal-line-bundles-and-sign node also constructs the full exact tensor functor, duplicating the explicit VB1 target. Separate its rank-one prefix (retained here) from the arbitrary-rank construction (VB1), and prove their agreement there. Preserve all existing IDs as references until the orchestrator transports the split proof payloads. The inherited graded-algebra-and-algebraic-curve-map node extracts a global morphism and tautological-line statements without the requisite covering/generation input. FS II.2.7 is stated under generation and vanishing hypotheses; its local formula alone is not a no-hypothesis global construction. Adding VB2:ampleness back as a whole-stage prerequisite would create a cycle. This review does not approve that unresolved boundary."
+    },
+    "RelativeFarguesFontaine:RF4": {
+      "action": "keep",
+      "reason": "Keep this aggregate of linear vector-bundle patching and its G-torsor extension, not an additional patching construction. Preserve every child acceptance test and the distinction between early linear applications and later torsor/moduli applications."
+    },
+    "RelativeFarguesFontaine:RF4:vector-bundles": {
+      "action": "keep",
+      "reason": "Keep the linear Beauville-Laszlo theorem on actual open, completed and punctured relative period rings, with finite locally free modules, exactness, tensor/dual, coefficient and divisor-change compatibility, disjoint and colliding legs and the source hypotheses of effectivity. Formal completion is not asserted fpqc without proof. This remains the linear supplier to AInfCohomology AI.2; the G-valued/Grassmannian portions of a later mixed application in the refined packet are not premises of this linear theorem."
+    },
+    "RelativeFarguesFontaine:RF4:G-torsors": {
+      "action": "narrow",
+      "keeps": "Apply BG0's already proved equivalence among the precise etale/sheaf/exact-tensor descriptions of G-torsors to the actual relative open, completed and punctured rings. Prove the Tannakian transfer of RF4:vector-bundles gluing, effectivity, independence of a faithful representation, change of structure group, base change and divisor compatibility. Retain the concrete relative v-descent and local-triviality theorem with its source hypotheses. Do not reconstruct the general three-description equivalence or use BG2 uniformization to prove it. Actual loop/Grassmannian quotient and bounded-moduli constructions remain later GS0:loop-geometry applications of this theorem, not prerequisites of its proof.",
+      "suppliedBy": [
+        "BunGAndNewtonStrata:BG0"
+      ],
+      "reason": "BG0 owns generic torsor recognition before RF4. This stage owns the concrete G-valued extension of linear patching. Keeping these directions separate avoids the BG0-RF4 and RF4-Grassmannian cycles."
+    }
   },
   "links": [
-    {"source": "RelativeFarguesFontaine:RF4:vector-bundles", "target": "AInfCohomology:AI.2", "reason": "Linear Beauville-Laszlo gluing for the stated Breuil-Kisin-Fargues lattice comparison; no G-torsor theorem is required by this export."},
-    {"source": "RelativeFarguesFontaine:RF0", "target": "BunGAndNewtonStrata:BG0", "reason": "Retain the actual period, quotient, divisor or line-bundle input to the early three-description G-torsor comparison; no RF4 prerequisite is introduced."},
-    {"source": "RelativeFarguesFontaine:RF1", "target": "BunGAndNewtonStrata:BG0", "reason": "Retain the actual period, quotient, divisor or line-bundle input to the early three-description G-torsor comparison; no RF4 prerequisite is introduced."},
-    {"source": "RelativeFarguesFontaine:RF2", "target": "BunGAndNewtonStrata:BG0", "reason": "Retain the actual period, quotient, divisor or line-bundle input to the early three-description G-torsor comparison; no RF4 prerequisite is introduced."},
-    {"source": "RelativeFarguesFontaine:RF3", "target": "BunGAndNewtonStrata:BG0", "reason": "Retain the actual period, quotient, divisor or line-bundle input to the early three-description G-torsor comparison; no RF4 prerequisite is introduced."},
-    {"source": "RelativeFarguesFontaine:RF4:G-torsors", "target": "BunGAndNewtonStrata:BG2:uniformization", "reason": "Concrete G-torsor patching for the later uniformization cover, not a prerequisite of BG0."},
-    {"source": "RelativeFarguesFontaine:RF0:integral-Y", "target": "GeometricSatakeAndFusion:GS0:loop-geometry", "reason": "Retain the integral period-space, divisor/completion, generic-untilt or torsor-patching input to actual loop and bounded-modification geometry, with collisions and the special fibre retained."},
-    {"source": "RelativeFarguesFontaine:RF2:integral-divisors", "target": "GeometricSatakeAndFusion:GS0:loop-geometry", "reason": "Retain the integral period-space, divisor/completion, generic-untilt or torsor-patching input to actual loop and bounded-modification geometry, with collisions and the special fibre retained. Preserve access to the imported subproblem after narrowing RelativeFarguesFontaine:RF2:untilts; the existing RelativeFarguesFontaine:RF2:untilts to consumer link and its specialized output are also retained."},
-    {"source": "RelativeFarguesFontaine:RF2:untilts", "target": "GeometricSatakeAndFusion:GS0:loop-geometry", "reason": "Retain the integral period-space, divisor/completion, generic-untilt or torsor-patching input to actual loop and bounded-modification geometry, with collisions and the special fibre retained."},
-    {"source": "RelativeFarguesFontaine:RF4:G-torsors", "target": "GeometricSatakeAndFusion:GS0:loop-geometry", "reason": "Retain the integral period-space, divisor/completion, generic-untilt or torsor-patching input to actual loop and bounded-modification geometry, with collisions and the special fibre retained."},
-    {"source": "RelativeFarguesFontaine:RF2:integral-divisors", "target": "HeckeStacksAndLocalShtukas:HS0", "reason": "Retain divisor/completion and G-torsor gluing for the actual many-leg Hecke correspondence; properness and bounded Grassmannian geometry remain separate GS inputs. Preserve access to the imported subproblem after narrowing RelativeFarguesFontaine:RF2:untilts; the existing RelativeFarguesFontaine:RF2:untilts to consumer link and its specialized output are also retained."},
-    {"source": "RelativeFarguesFontaine:RF2:untilts", "target": "HeckeStacksAndLocalShtukas:HS0", "reason": "Retain divisor/completion and G-torsor gluing for the actual many-leg Hecke correspondence; properness and bounded Grassmannian geometry remain separate GS inputs."},
-    {"source": "RelativeFarguesFontaine:RF4:G-torsors", "target": "HeckeStacksAndLocalShtukas:HS0", "reason": "Retain divisor/completion and G-torsor gluing for the actual many-leg Hecke correspondence; properness and bounded Grassmannian geometry remain separate GS inputs."},
-    {"source": "RelativeFarguesFontaine:RF4:G-torsors", "target": "HeckeStacksAndLocalShtukas:HS2", "reason": "Retain the modification/patching input to local shtuka moduli and their bounds, without asserting a new local Shimura theorem."},
-    {"source": "RelativeFarguesFontaine:RF2", "target": "VStackSheavesAndLisseCategories:VS1", "reason": "Retain divisor and line-bundle data for the later section-space/Drinfeld comparison; no VS1 result is an early period-space premise."},
-    {"source": "RelativeFarguesFontaine:RF3", "target": "VStackSheavesAndLisseCategories:VS1", "reason": "Retain divisor and line-bundle data for the later section-space/Drinfeld comparison; no VS1 result is an early period-space premise."},
-    {"source": "RelativeFarguesFontaine:RF0:integral-Y", "target": "VectorBundlesAndIsocrystals:VB0", "reason": "Retain the general coefficient/period-space realization used by the isocrystal supplier."},
-    {"source": "RelativeFarguesFontaine:RF1", "target": "VectorBundlesAndIsocrystals:VB1", "reason": "Retain the actual relative curve, generic divisor or line bundle used to construct isocrystal bundles and their degree/cohomology comparisons."},
-    {"source": "RelativeFarguesFontaine:RF2:untilts", "target": "VectorBundlesAndIsocrystals:VB1", "reason": "Retain the actual relative curve, generic divisor or line bundle used to construct isocrystal bundles and their degree/cohomology comparisons."},
-    {"source": "RelativeFarguesFontaine:RF3", "target": "VectorBundlesAndIsocrystals:VB1", "reason": "Retain the actual relative curve, generic divisor or line bundle used to construct isocrystal bundles and their degree/cohomology comparisons."},
-    {"source": "RelativeFarguesFontaine:RF3", "target": "VectorBundlesAndIsocrystals:VB2:ampleness", "reason": "Retain O(1), graded sections and the formal Proj map; positive generation, ampleness and GAGA are proved by this later consumer."},
-    {"source": "FarguesFontaineDiamonds:F0", "target": "RelativeFarguesFontaine:RF0:integral-Y", "reason": "Retain the existing fixed-field input and compare the generic specialization on actual rings; it is not a construction of the retained special fibre."},
-    {"source": "FarguesFontaineDiamonds:F1", "target": "RelativeFarguesFontaine:RF0:annuli", "reason": "Retain the generic fixed-field product comparison, with its topology and plus-ring map."},
-    {"source": "FarguesFontaineDiamonds:F2", "target": "RelativeFarguesFontaine:RF1", "reason": "Retain the fixed-field effective-quotient specialization. Canonical import for the narrowed RelativeFarguesFontaine:RF1 scope; all remaining instance and compatibility proofs are retained there."},
-    {"source": "FarguesFontaineDiamonds:F3", "target": "RelativeFarguesFontaine:RF1", "reason": "Retain the fixed-field site/cocycle specialization. Canonical import for the narrowed RelativeFarguesFontaine:RF1 scope; all remaining instance and compatibility proofs are retained there."},
-    {"source": "FarguesFontaineDiamonds:F4", "target": "RelativeFarguesFontaine:RF3", "reason": "Retain the actual fixed-field Cartier divisor and its line-bundle comparison; this is not an ampleness or GAGA theorem."},
-    {"source": "FarguesFontaineDiamonds:F1", "target": "RelativeFarguesFontaine:RF0:integral-Y", "reason": "After generic restriction, compare the integral product with the independently proved fixed-field F1 product; do not infer the integral space from its generic fibre."},
-    {"source": "FarguesFontaineDiamonds:F4", "target": "RelativeFarguesFontaine:RF2:integral-divisors", "reason": "Import only the fixed-Q_p-field analytic seed. The early all-E/all-base integral closed-Cartier proof and its descent are retained in this target before degree-d products."},
-    {"source": "FarguesFontaineDiamonds:F4", "target": "RelativeFarguesFontaine:RF2:untilts", "reason": "The independently reviewed limited F4 handoff: compare the generic restriction of the integral theorem with the fixed-field norm/closed-image result; no automatic relative or ramified extension."},
-    {"source": "RelativeFarguesFontaine:RF2:integral-divisors", "target": "RelativeFarguesFontaine:RF2:untilts", "reason": "Use the preceding integral degree-one theorem and ideal completion before the generic-untilt/de Rham comparisons; no reverse prerequisite. Canonical import for the narrowed RelativeFarguesFontaine:RF2:untilts scope; all remaining instance and compatibility proofs are retained there."},
-    {"source": "RelativeFarguesFontaine:RF0", "target": "GeometricSatakeAndFusion:GS0:Witt-geometry", "reason": "Expose the README's strict-lift/ramified-Witt import. At proof-node level this consumes the early raw RF0 universal-property prefix, not late bundle geometry."},
-    {"source": "RelativeFarguesFontaine:RF2:integral-divisors", "target": "GeometricSatakeAndFusion:GS3:fusion", "reason": "Expose the many-leg integral divisor, addition/disjointness and collision data used by fusion; no Satake theorem is a prerequisite for constructing those divisors."},
-    {"source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve", "target": "FarguesFontaineDiamonds:F0", "reason": "Canonical F0 import; all remaining instance and compatibility proofs stay in the target."},
-    {"source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve", "target": "FarguesFontaineDiamonds:F1", "reason": "Import the canonical F0 component directly; retain the specialized producer export as well."},
-    {"source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve", "target": "RelativeFarguesFontaine:RF0:integral-Y", "reason": "Import the canonical F0 component directly; retain the specialized producer export as well."},
-    {"source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve", "target": "FarguesFontaineDiamonds:F2", "reason": "Canonical F2 import; all remaining instance and compatibility proofs stay in the target."},
-    {"source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve", "target": "FarguesFontaineDiamonds:F3", "reason": "Import the canonical F2 component directly; retain the specialized producer export as well."},
-    {"source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve", "target": "FarguesFontaineDiamonds:F4", "reason": "Import the canonical F2 component directly; retain the specialized producer export as well."},
-    {"source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve", "target": "RelativeFarguesFontaine:RF1", "reason": "Import the canonical F2 component directly; retain the specialized producer export as well."},
-    {"source": "DiamondsAndVStacks:D6", "target": "FarguesFontaineDiamonds:F3", "reason": "Canonical F3 import; all remaining instance and compatibility proofs stay in the target."},
-    {"source": "DiamondsAndVStacks:D6", "target": "FarguesFontaineDiamonds:F5", "reason": "Import the canonical F3 component directly; retain the specialized producer export as well."},
-    {"source": "DiamondsAndVStacks:D6", "target": "RelativeFarguesFontaine:RF1", "reason": "Import the canonical F3 component directly; retain the specialized producer export as well."},
-    {"source": "PerfectoidSpaces:P1", "target": "FarguesFontaineDiamonds:F4", "reason": "Canonical F4 import; all remaining instance and compatibility proofs stay in the target."},
-    {"source": "PerfectoidSpaces:P1", "target": "RelativeFarguesFontaine:RF3", "reason": "Import the canonical F4 component directly; retain the specialized producer export as well."},
-    {"source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve", "target": "RelativeFarguesFontaine:RF0", "reason": "Canonical RF0 import; all remaining instance and compatibility proofs stay in the target."},
-    {"source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve", "target": "BunGAndNewtonStrata:BG0", "reason": "Import the canonical RF0 component directly; retain the specialized producer export as well."},
-    {"source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve", "target": "RelativeFarguesFontaine:RF0:annuli", "reason": "Canonical RF0:annuli import; all remaining instance and compatibility proofs stay in the target."},
-    {"source": "FarguesFontaineDiamonds:F2", "target": "RelativeFarguesFontaine:RF2:untilts", "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."},
-    {"source": "FarguesFontaineDiamonds:F2", "target": "RelativeFarguesFontaine:RF3", "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."},
-    {"source": "FarguesFontaineDiamonds:F2", "target": "BunGAndNewtonStrata:BG0", "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."},
-    {"source": "FarguesFontaineDiamonds:F2", "target": "VectorBundlesAndIsocrystals:VB1", "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."},
-    {"source": "FarguesFontaineDiamonds:F3", "target": "RelativeFarguesFontaine:RF2:untilts", "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."},
-    {"source": "FarguesFontaineDiamonds:F3", "target": "RelativeFarguesFontaine:RF3", "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."},
-    {"source": "FarguesFontaineDiamonds:F3", "target": "BunGAndNewtonStrata:BG0", "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."},
-    {"source": "FarguesFontaineDiamonds:F3", "target": "VectorBundlesAndIsocrystals:VB1", "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."},
-    {"source": "DiamondsAndVStacks:D6", "target": "RelativeFarguesFontaine:RF2:untilts", "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."},
-    {"source": "DiamondsAndVStacks:D6", "target": "RelativeFarguesFontaine:RF3", "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."},
-    {"source": "DiamondsAndVStacks:D6", "target": "BunGAndNewtonStrata:BG0", "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."},
-    {"source": "DiamondsAndVStacks:D6", "target": "VectorBundlesAndIsocrystals:VB1", "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."},
-    {"source": "PerfectoidSpaces:P1", "target": "RelativeFarguesFontaine:RF2:untilts", "reason": "Canonical RF2:untilts import; all remaining instance and compatibility proofs stay in the target."},
-    {"source": "PerfectoidSpaces:P1", "target": "RelativeFarguesFontaine:RF2", "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."},
-    {"source": "PerfectoidSpaces:P1", "target": "RelativeFarguesFontaine:RF4:vector-bundles", "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."},
-    {"source": "PerfectoidSpaces:P1", "target": "GeometricSatakeAndFusion:GS0:loop-geometry", "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."},
-    {"source": "PerfectoidSpaces:P1", "target": "HeckeStacksAndLocalShtukas:HS0", "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."},
-    {"source": "PerfectoidSpaces:P1", "target": "VectorBundlesAndIsocrystals:VB1", "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."},
-    {"source": "RelativeFarguesFontaine:RF2:integral-divisors", "target": "RelativeFarguesFontaine:RF2", "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."},
-    {"source": "RelativeFarguesFontaine:RF2:integral-divisors", "target": "RelativeFarguesFontaine:RF3", "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."},
-    {"source": "RelativeFarguesFontaine:RF2:integral-divisors", "target": "RelativeFarguesFontaine:RF4:vector-bundles", "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."},
-    {"source": "RelativeFarguesFontaine:RF2:integral-divisors", "target": "VectorBundlesAndIsocrystals:VB1", "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."},
-    {"source": "BunGAndNewtonStrata:BG0", "target": "RelativeFarguesFontaine:RF4:G-torsors", "reason": "Canonical RF4:G-torsors import; all remaining instance and compatibility proofs stay in the target."},
-    {"source": "BunGAndNewtonStrata:BG0", "target": "RelativeFarguesFontaine:RF4", "reason": "Import the canonical RF4:G-torsors component directly; retain the specialized producer export as well."},
-    {"source": "BunGAndNewtonStrata:BG0", "target": "BunGAndNewtonStrata:BG2:uniformization", "reason": "Import the canonical RF4:G-torsors component directly; retain the specialized producer export as well."},
-    {"source": "BunGAndNewtonStrata:BG0", "target": "GeometricSatakeAndFusion:GS0:loop-geometry", "reason": "Import the canonical RF4:G-torsors component directly; retain the specialized producer export as well."},
-    {"source": "BunGAndNewtonStrata:BG0", "target": "HeckeStacksAndLocalShtukas:HS0", "reason": "Import the canonical RF4:G-torsors component directly; retain the specialized producer export as well."},
-    {"source": "BunGAndNewtonStrata:BG0", "target": "HeckeStacksAndLocalShtukas:HS2", "reason": "Import the canonical RF4:G-torsors component directly; retain the specialized producer export as well."}
+    {
+      "source": "RelativeFarguesFontaine:RF4:vector-bundles",
+      "target": "AInfCohomology:AI.2",
+      "reason": "Linear Beauville-Laszlo gluing for the stated Breuil-Kisin-Fargues lattice comparison; no G-torsor theorem is required by this export."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF0",
+      "target": "BunGAndNewtonStrata:BG0",
+      "reason": "Retain the actual period, quotient, divisor or line-bundle input to the early three-description G-torsor comparison; no RF4 prerequisite is introduced."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF1",
+      "target": "BunGAndNewtonStrata:BG0",
+      "reason": "Retain the actual period, quotient, divisor or line-bundle input to the early three-description G-torsor comparison; no RF4 prerequisite is introduced."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF2",
+      "target": "BunGAndNewtonStrata:BG0",
+      "reason": "Retain the actual period, quotient, divisor or line-bundle input to the early three-description G-torsor comparison; no RF4 prerequisite is introduced."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF3",
+      "target": "BunGAndNewtonStrata:BG0",
+      "reason": "Retain the actual period, quotient, divisor or line-bundle input to the early three-description G-torsor comparison; no RF4 prerequisite is introduced."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF4:G-torsors",
+      "target": "BunGAndNewtonStrata:BG2:uniformization",
+      "reason": "Concrete G-torsor patching for the later uniformization cover, not a prerequisite of BG0."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF0:integral-Y",
+      "target": "GeometricSatakeAndFusion:GS0:loop-geometry",
+      "reason": "Retain the integral period-space, divisor/completion, generic-untilt or torsor-patching input to actual loop and bounded-modification geometry, with collisions and the special fibre retained."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF2:integral-divisors",
+      "target": "GeometricSatakeAndFusion:GS0:loop-geometry",
+      "reason": "Retain the integral period-space, divisor/completion, generic-untilt or torsor-patching input to actual loop and bounded-modification geometry, with collisions and the special fibre retained. Preserve access to the imported subproblem after narrowing RelativeFarguesFontaine:RF2:untilts; the existing RelativeFarguesFontaine:RF2:untilts to consumer link and its specialized output are also retained."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF2:untilts",
+      "target": "GeometricSatakeAndFusion:GS0:loop-geometry",
+      "reason": "Retain the integral period-space, divisor/completion, generic-untilt or torsor-patching input to actual loop and bounded-modification geometry, with collisions and the special fibre retained."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF4:G-torsors",
+      "target": "GeometricSatakeAndFusion:GS0:loop-geometry",
+      "reason": "Retain the integral period-space, divisor/completion, generic-untilt or torsor-patching input to actual loop and bounded-modification geometry, with collisions and the special fibre retained."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF2:integral-divisors",
+      "target": "HeckeStacksAndLocalShtukas:HS0",
+      "reason": "Retain divisor/completion and G-torsor gluing for the actual many-leg Hecke correspondence; properness and bounded Grassmannian geometry remain separate GS inputs. Preserve access to the imported subproblem after narrowing RelativeFarguesFontaine:RF2:untilts; the existing RelativeFarguesFontaine:RF2:untilts to consumer link and its specialized output are also retained."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF2:untilts",
+      "target": "HeckeStacksAndLocalShtukas:HS0",
+      "reason": "Retain divisor/completion and G-torsor gluing for the actual many-leg Hecke correspondence; properness and bounded Grassmannian geometry remain separate GS inputs."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF4:G-torsors",
+      "target": "HeckeStacksAndLocalShtukas:HS0",
+      "reason": "Retain divisor/completion and G-torsor gluing for the actual many-leg Hecke correspondence; properness and bounded Grassmannian geometry remain separate GS inputs."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF4:G-torsors",
+      "target": "HeckeStacksAndLocalShtukas:HS2",
+      "reason": "Retain the modification/patching input to local shtuka moduli and their bounds, without asserting a new local Shimura theorem."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF2",
+      "target": "VStackSheavesAndLisseCategories:VS1",
+      "reason": "Retain divisor and line-bundle data for the later section-space/Drinfeld comparison; no VS1 result is an early period-space premise."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF3",
+      "target": "VStackSheavesAndLisseCategories:VS1",
+      "reason": "Retain divisor and line-bundle data for the later section-space/Drinfeld comparison; no VS1 result is an early period-space premise."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF0:integral-Y",
+      "target": "VectorBundlesAndIsocrystals:VB0",
+      "reason": "Retain the general coefficient/period-space realization used by the isocrystal supplier."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF1",
+      "target": "VectorBundlesAndIsocrystals:VB1",
+      "reason": "Retain the actual relative curve, generic divisor or line bundle used to construct isocrystal bundles and their degree/cohomology comparisons."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF2:untilts",
+      "target": "VectorBundlesAndIsocrystals:VB1",
+      "reason": "Retain the actual relative curve, generic divisor or line bundle used to construct isocrystal bundles and their degree/cohomology comparisons."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF3",
+      "target": "VectorBundlesAndIsocrystals:VB1",
+      "reason": "Retain the actual relative curve, generic divisor or line bundle used to construct isocrystal bundles and their degree/cohomology comparisons."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF3",
+      "target": "VectorBundlesAndIsocrystals:VB2:ampleness",
+      "reason": "Retain O(1), graded sections and the formal Proj map; positive generation, ampleness and GAGA are proved by this later consumer."
+    },
+    {
+      "source": "FarguesFontaineDiamonds:F0",
+      "target": "RelativeFarguesFontaine:RF0:integral-Y",
+      "reason": "Retain the existing fixed-field input and compare the generic specialization on actual rings; it is not a construction of the retained special fibre."
+    },
+    {
+      "source": "FarguesFontaineDiamonds:F1",
+      "target": "RelativeFarguesFontaine:RF0:annuli",
+      "reason": "Retain the generic fixed-field product comparison, with its topology and plus-ring map."
+    },
+    {
+      "source": "FarguesFontaineDiamonds:F2",
+      "target": "RelativeFarguesFontaine:RF1",
+      "reason": "Retain the fixed-field effective-quotient specialization. Canonical import for the narrowed RelativeFarguesFontaine:RF1 scope; all remaining instance and compatibility proofs are retained there."
+    },
+    {
+      "source": "FarguesFontaineDiamonds:F3",
+      "target": "RelativeFarguesFontaine:RF1",
+      "reason": "Retain the fixed-field site/cocycle specialization. Canonical import for the narrowed RelativeFarguesFontaine:RF1 scope; all remaining instance and compatibility proofs are retained there."
+    },
+    {
+      "source": "FarguesFontaineDiamonds:F4",
+      "target": "RelativeFarguesFontaine:RF3",
+      "reason": "Retain the actual fixed-field Cartier divisor and its line-bundle comparison; this is not an ampleness or GAGA theorem."
+    },
+    {
+      "source": "FarguesFontaineDiamonds:F1",
+      "target": "RelativeFarguesFontaine:RF0:integral-Y",
+      "reason": "After generic restriction, compare the integral product with the independently proved fixed-field F1 product; do not infer the integral space from its generic fibre."
+    },
+    {
+      "source": "FarguesFontaineDiamonds:F4",
+      "target": "RelativeFarguesFontaine:RF2:integral-divisors",
+      "reason": "Import only the fixed-Q_p-field analytic seed. The early all-E/all-base integral closed-Cartier proof and its descent are retained in this target before degree-d products."
+    },
+    {
+      "source": "FarguesFontaineDiamonds:F4",
+      "target": "RelativeFarguesFontaine:RF2:untilts",
+      "reason": "The independently reviewed limited F4 handoff: compare the generic restriction of the integral theorem with the fixed-field norm/closed-image result; no automatic relative or ramified extension."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF2:integral-divisors",
+      "target": "RelativeFarguesFontaine:RF2:untilts",
+      "reason": "Use the preceding integral degree-one theorem and ideal completion before the generic-untilt/de Rham comparisons; no reverse prerequisite. Canonical import for the narrowed RelativeFarguesFontaine:RF2:untilts scope; all remaining instance and compatibility proofs are retained there."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF0",
+      "target": "GeometricSatakeAndFusion:GS0:Witt-geometry",
+      "reason": "Expose the README's strict-lift/ramified-Witt import. At proof-node level this consumes the early raw RF0 universal-property prefix, not late bundle geometry."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF2:integral-divisors",
+      "target": "GeometricSatakeAndFusion:GS3:fusion",
+      "reason": "Expose the many-leg integral divisor, addition/disjointness and collision data used by fusion; no Satake theorem is a prerequisite for constructing those divisors."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "FarguesFontaineDiamonds:F0",
+      "reason": "Canonical F0 import; all remaining instance and compatibility proofs stay in the target."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "FarguesFontaineDiamonds:F1",
+      "reason": "Import the canonical F0 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "RelativeFarguesFontaine:RF0:integral-Y",
+      "reason": "Import the canonical F0 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "FarguesFontaineDiamonds:F2",
+      "reason": "Canonical F2 import; all remaining instance and compatibility proofs stay in the target."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "FarguesFontaineDiamonds:F3",
+      "reason": "Import the canonical F2 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "FarguesFontaineDiamonds:F4",
+      "reason": "Import the canonical F2 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "RelativeFarguesFontaine:RF1",
+      "reason": "Import the canonical F2 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "DiamondsAndVStacks:D6",
+      "target": "FarguesFontaineDiamonds:F3",
+      "reason": "Canonical F3 import; all remaining instance and compatibility proofs stay in the target."
+    },
+    {
+      "source": "DiamondsAndVStacks:D6",
+      "target": "FarguesFontaineDiamonds:F5",
+      "reason": "Import the canonical F3 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "DiamondsAndVStacks:D6",
+      "target": "RelativeFarguesFontaine:RF1",
+      "reason": "Import the canonical F3 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "PerfectoidSpaces:P1",
+      "target": "FarguesFontaineDiamonds:F4",
+      "reason": "Canonical F4 import; all remaining instance and compatibility proofs stay in the target."
+    },
+    {
+      "source": "PerfectoidSpaces:P1",
+      "target": "RelativeFarguesFontaine:RF3",
+      "reason": "Import the canonical F4 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "RelativeFarguesFontaine:RF0",
+      "reason": "Canonical RF0 import; all remaining instance and compatibility proofs stay in the target."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "BunGAndNewtonStrata:BG0",
+      "reason": "Import the canonical RF0 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "target": "RelativeFarguesFontaine:RF0:annuli",
+      "reason": "Canonical RF0:annuli import; all remaining instance and compatibility proofs stay in the target."
+    },
+    {
+      "source": "FarguesFontaineDiamonds:F2",
+      "target": "RelativeFarguesFontaine:RF2:untilts",
+      "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "FarguesFontaineDiamonds:F2",
+      "target": "RelativeFarguesFontaine:RF3",
+      "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "FarguesFontaineDiamonds:F2",
+      "target": "BunGAndNewtonStrata:BG0",
+      "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "FarguesFontaineDiamonds:F2",
+      "target": "VectorBundlesAndIsocrystals:VB1",
+      "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "FarguesFontaineDiamonds:F3",
+      "target": "RelativeFarguesFontaine:RF2:untilts",
+      "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "FarguesFontaineDiamonds:F3",
+      "target": "RelativeFarguesFontaine:RF3",
+      "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "FarguesFontaineDiamonds:F3",
+      "target": "BunGAndNewtonStrata:BG0",
+      "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "FarguesFontaineDiamonds:F3",
+      "target": "VectorBundlesAndIsocrystals:VB1",
+      "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "DiamondsAndVStacks:D6",
+      "target": "RelativeFarguesFontaine:RF2:untilts",
+      "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "DiamondsAndVStacks:D6",
+      "target": "RelativeFarguesFontaine:RF3",
+      "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "DiamondsAndVStacks:D6",
+      "target": "BunGAndNewtonStrata:BG0",
+      "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "DiamondsAndVStacks:D6",
+      "target": "VectorBundlesAndIsocrystals:VB1",
+      "reason": "Import the canonical RF1 component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "PerfectoidSpaces:P1",
+      "target": "RelativeFarguesFontaine:RF2:untilts",
+      "reason": "Canonical RF2:untilts import; all remaining instance and compatibility proofs stay in the target."
+    },
+    {
+      "source": "PerfectoidSpaces:P1",
+      "target": "RelativeFarguesFontaine:RF2",
+      "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "PerfectoidSpaces:P1",
+      "target": "RelativeFarguesFontaine:RF4:vector-bundles",
+      "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "PerfectoidSpaces:P1",
+      "target": "GeometricSatakeAndFusion:GS0:loop-geometry",
+      "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "PerfectoidSpaces:P1",
+      "target": "HeckeStacksAndLocalShtukas:HS0",
+      "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "PerfectoidSpaces:P1",
+      "target": "VectorBundlesAndIsocrystals:VB1",
+      "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF2:integral-divisors",
+      "target": "RelativeFarguesFontaine:RF2",
+      "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF2:integral-divisors",
+      "target": "RelativeFarguesFontaine:RF3",
+      "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF2:integral-divisors",
+      "target": "RelativeFarguesFontaine:RF4:vector-bundles",
+      "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF2:integral-divisors",
+      "target": "VectorBundlesAndIsocrystals:VB1",
+      "reason": "Import the canonical RF2:untilts component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "BunGAndNewtonStrata:BG0",
+      "target": "RelativeFarguesFontaine:RF4:G-torsors",
+      "reason": "Canonical RF4:G-torsors import; all remaining instance and compatibility proofs stay in the target."
+    },
+    {
+      "source": "BunGAndNewtonStrata:BG0",
+      "target": "RelativeFarguesFontaine:RF4",
+      "reason": "Import the canonical RF4:G-torsors component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "BunGAndNewtonStrata:BG0",
+      "target": "BunGAndNewtonStrata:BG2:uniformization",
+      "reason": "Import the canonical RF4:G-torsors component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "BunGAndNewtonStrata:BG0",
+      "target": "GeometricSatakeAndFusion:GS0:loop-geometry",
+      "reason": "Import the canonical RF4:G-torsors component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "BunGAndNewtonStrata:BG0",
+      "target": "HeckeStacksAndLocalShtukas:HS0",
+      "reason": "Import the canonical RF4:G-torsors component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "BunGAndNewtonStrata:BG0",
+      "target": "HeckeStacksAndLocalShtukas:HS2",
+      "reason": "Import the canonical RF4:G-torsors component directly; retain the specialized producer export as well."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF1",
+      "target": "RelativeFarguesFontaine:RF2:integral-divisors",
+      "reason": "The X_S part of FS VI.1.2 and VI.1.4 uses the actual relative Frobenius quotient, its Cartier-divisor descent and locally-on-S affineness. The fixed-field F2 quotient does not supply it."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB1",
+      "target": "BunGAndNewtonStrata:BG0",
+      "reason": "Retain the existing arbitrary-rank bundle/isocrystal tensor input from its single VB1 owner after separating it from RF3 rank-one descent."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB1",
+      "target": "VStackSheavesAndLisseCategories:VS1",
+      "reason": "Retain the existing general bundle/cohomology and isocrystal-functor input. RF3 supplies only its earlier rank-one and graded-algebra objects."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB1",
+      "target": "VectorBundlesAndIsocrystals:VB2:ampleness",
+      "reason": "Retain the existing arbitrary-rank vector-bundle/isocrystal functor and cohomology input before the generation and GAGA theorems; no reverse input into RF3 rank-one descent."
+    }
   ],
   "owners": [
-    {"target": "Fixed E = Q_p field-case Witt Huber pair with its (p,[varpi])-adic topology, the generic intersection Y and its plus rings", "owner": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve", "formerly": ["FarguesFontaineDiamonds:F0", "RelativeFarguesFontaine:RF0"]},
-    {"target": "Fixed-field complete annulus algebras and their strong-noetherian/sheafiness theorem", "owner": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve", "formerly": ["FarguesFontaineDiamonds:F0", "RelativeFarguesFontaine:RF0:annuli"]},
-    {"target": "Fixed-field adic Frobenius windows, kappa scaling, quotient space and descended adic structure sheaves", "owner": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve", "formerly": ["FarguesFontaineDiamonds:F2", "RelativeFarguesFontaine:RF1"]},
-    {"target": "General analytic adic diamondification and the corresponding etale-site theorem", "owner": "DiamondsAndVStacks:D6", "formerly": ["FarguesFontaineDiamonds:F3", "RelativeFarguesFontaine:RF1"]},
-    {"target": "P-typical marked-untilt and primitive degree-one Witt-ideal correspondence", "owner": "PerfectoidSpaces:P1", "formerly": ["FarguesFontaineDiamonds:F4", "RelativeFarguesFontaine:RF2:untilts"]},
-    {"target": "All-E ramified/equal-characteristic strict-lift coefficient algebra and its raw functorial topological universal property", "owner": "RelativeFarguesFontaine:RF0", "formerly": ["RelativeFarguesFontaine:RF0:integral-Y"]},
-    {"target": "Independent fixed-field generic product Y^diamond = S x Spd(Q_p), with bounded theta and plus-ring maps", "owner": "FarguesFontaineDiamonds:F1", "formerly": ["RelativeFarguesFontaine:RF0:integral-Y", "RelativeFarguesFontaine:RF0:annuli"]},
-    {"target": "Fixed-field Frobenius-equivariant effective diamond quotient and its marked generator", "owner": "FarguesFontaineDiamonds:F2", "formerly": ["RelativeFarguesFontaine:RF1"]},
-    {"target": "Fixed-field instantiation of the site equivalence with the actual Frobenius descent cocycle", "owner": "FarguesFontaineDiamonds:F3", "formerly": ["RelativeFarguesFontaine:RF1"]},
-    {"target": "Relative integral period space retaining V(pi), its sheafiness and product over Spd(O_E)", "owner": "RelativeFarguesFontaine:RF0:integral-Y", "formerly": ["RelativeFarguesFontaine:RF0:annuli"]},
-    {"target": "Fixed-Q_p-field Shilov/norm estimate and analytic closed-image theorem for an untilt divisor", "owner": "FarguesFontaineDiamonds:F4", "formerly": ["RelativeFarguesFontaine:RF2:integral-divisors", "RelativeFarguesFontaine:RF2:untilts"]},
-    {"target": "All-E, arbitrary-base integral degree-one analytic closed-Cartier argument, including the extra relative/ramified norm descent", "owner": "RelativeFarguesFontaine:RF2:integral-divisors", "formerly": ["RelativeFarguesFontaine:RF2:untilts"]},
-    {"target": "All-degree integral divisors, unordered invertible ideals, collisions and ideal-adic completed/punctured period rings", "owner": "RelativeFarguesFontaine:RF2:integral-divisors", "formerly": ["RelativeFarguesFontaine:RF2:untilts"]},
-    {"target": "Generic degree-one de Rham interpretation, filtration/graded lines and the Perf_Fq versus Perf_k Div^1 comparison", "owner": "RelativeFarguesFontaine:RF2:untilts", "formerly": ["RelativeFarguesFontaine:RF2:integral-divisors"]},
-    {"target": "Generic equivalence of the precise etale, sheaf and exact-tensor descriptions of G-torsors", "owner": "BunGAndNewtonStrata:BG0", "formerly": ["RelativeFarguesFontaine:RF4:G-torsors"]}
-  ]
+    {
+      "target": "Fixed E = Q_p field-case Witt Huber pair with its (p,[varpi])-adic topology, the generic intersection Y and its plus rings",
+      "owner": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "formerly": [
+        "FarguesFontaineDiamonds:F0",
+        "RelativeFarguesFontaine:RF0"
+      ]
+    },
+    {
+      "target": "Fixed-field complete annulus algebras and their strong-noetherian/sheafiness theorem",
+      "owner": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "formerly": [
+        "FarguesFontaineDiamonds:F0",
+        "RelativeFarguesFontaine:RF0:annuli"
+      ]
+    },
+    {
+      "target": "Fixed-field adic Frobenius windows, kappa scaling, quotient space and descended adic structure sheaves",
+      "owner": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "formerly": [
+        "FarguesFontaineDiamonds:F2",
+        "RelativeFarguesFontaine:RF1"
+      ]
+    },
+    {
+      "target": "General analytic adic diamondification and the corresponding etale-site theorem",
+      "owner": "DiamondsAndVStacks:D6",
+      "formerly": [
+        "FarguesFontaineDiamonds:F3",
+        "RelativeFarguesFontaine:RF1"
+      ]
+    },
+    {
+      "target": "P-typical marked-untilt and primitive degree-one Witt-ideal correspondence",
+      "owner": "PerfectoidSpaces:P1",
+      "formerly": [
+        "FarguesFontaineDiamonds:F4",
+        "RelativeFarguesFontaine:RF2:untilts"
+      ]
+    },
+    {
+      "target": "All-E ramified/equal-characteristic strict-lift coefficient algebra and its raw functorial topological universal property",
+      "owner": "RelativeFarguesFontaine:RF0",
+      "formerly": [
+        "RelativeFarguesFontaine:RF0:integral-Y"
+      ]
+    },
+    {
+      "target": "Independent fixed-field generic product Y^diamond = S x Spd(Q_p), with bounded theta and plus-ring maps",
+      "owner": "FarguesFontaineDiamonds:F1",
+      "formerly": [
+        "RelativeFarguesFontaine:RF0:integral-Y",
+        "RelativeFarguesFontaine:RF0:annuli"
+      ]
+    },
+    {
+      "target": "Fixed-field Frobenius-equivariant effective diamond quotient and its marked generator",
+      "owner": "FarguesFontaineDiamonds:F2",
+      "formerly": [
+        "RelativeFarguesFontaine:RF1"
+      ]
+    },
+    {
+      "target": "Fixed-field instantiation of the site equivalence with the actual Frobenius descent cocycle",
+      "owner": "FarguesFontaineDiamonds:F3",
+      "formerly": [
+        "RelativeFarguesFontaine:RF1"
+      ]
+    },
+    {
+      "target": "Relative integral period space retaining V(pi), its sheafiness and product over Spd(O_E)",
+      "owner": "RelativeFarguesFontaine:RF0:integral-Y",
+      "formerly": [
+        "RelativeFarguesFontaine:RF0:annuli"
+      ]
+    },
+    {
+      "target": "Fixed-Q_p-field Shilov/norm estimate and analytic closed-image theorem for an untilt divisor",
+      "owner": "FarguesFontaineDiamonds:F4",
+      "formerly": [
+        "RelativeFarguesFontaine:RF2:integral-divisors",
+        "RelativeFarguesFontaine:RF2:untilts"
+      ]
+    },
+    {
+      "target": "All-E, arbitrary-base integral degree-one analytic closed-Cartier argument, including the extra relative/ramified norm descent",
+      "owner": "RelativeFarguesFontaine:RF2:integral-divisors",
+      "formerly": [
+        "RelativeFarguesFontaine:RF2:untilts"
+      ]
+    },
+    {
+      "target": "All-degree integral divisors, unordered invertible ideals, collisions and ideal-adic completed/punctured period rings",
+      "owner": "RelativeFarguesFontaine:RF2:integral-divisors",
+      "formerly": [
+        "RelativeFarguesFontaine:RF2:untilts"
+      ]
+    },
+    {
+      "target": "Generic degree-one de Rham interpretation, filtration/graded lines and the Perf_Fq versus Perf_k Div^1 comparison",
+      "owner": "RelativeFarguesFontaine:RF2:untilts",
+      "formerly": [
+        "RelativeFarguesFontaine:RF2:integral-divisors"
+      ]
+    },
+    {
+      "target": "Generic equivalence of the precise etale, sheaf and exact-tensor descriptions of G-torsors",
+      "owner": "BunGAndNewtonStrata:BG0",
+      "formerly": [
+        "RelativeFarguesFontaine:RF4:G-torsors"
+      ]
+    },
+    {
+      "target": "Arbitrary-rank exact tensor isocrystal-to-bundle functor, rational-slope bundles and comparison with the existing rank-one O(n) descent",
+      "owner": "VectorBundlesAndIsocrystals:VB1",
+      "formerly": [
+        "RelativeFarguesFontaine:RF3"
+      ]
+    }
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-RS-20",
+    "date": "2026-09-21",
+    "notes": "Independent review by ChatGPT Pro, session cg-6b83f1, not the RS-20 author (gpt-20260921-c74f2a). Both member documents, anchor, all 17 stages, 24 inherited nodes, family leads, suppliers and external consumers were examined. Clear corrections are applied below and documented in REV-RS-20.md. One blocking ownership/proof boundary remains: RF3 requires a global-section covering and tautological-twist input for its global Proj morphism while the relevant general generation theorem is in downstream VB2:ampleness. Choose and implement an acyclic precise supplier or split before applying this proposal. Schema and whole-atlas stage-DAG checks do not establish that input. This is a completed review with a negative verdict, not a completed blueprint or proof.",
+    "corrections": [
+      "Added RF1 -> RF2:integral-divisors for the relative X_S quotient used in the all-degree Cartier and descent arguments.",
+      "Corrected the inherited n=1 chart-coordinate contract to t_1^sharp = pi/[varpi] and retained the integral special-fibre test.",
+      "Recorded required reuse/comparison with the existing pinned Mathlib BDeRhamPlus and BDeRham definitions; the original report incorrectly treats BDeRham as unconstructed and names a nonexistent FontaineThetaKer declaration in that file.",
+      "Separated the specified doubled-leg multiplicity test from genuinely unsplit ordered-leg descent; preserved v-sheafification rather than demanding a splitting obstruction from an already split pair.",
+      "Made the raw RF0 coefficient-node reference explicit so that no completed aggregate-to-child dependency is introduced.",
+      "Assigned the full arbitrary-rank isocrystal-to-bundle exact tensor functor to VB1, retaining direct rank-one O(n) descent in RF3 and forwarding its general consumers through their existing VB1 inputs.",
+      "Replaced the unsupported no-hypothesis global Proj-map claim with its exact covering and twist obligations while retaining the full target; left the unresolved acyclic owner split visible as the reason for needs_changes."
+    ]
+  }
 }
