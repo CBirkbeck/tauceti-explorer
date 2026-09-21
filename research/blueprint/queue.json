@@ -3448,7 +3448,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-11.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #822"
   },
   {
    "id": "REV-RS-11",
@@ -4029,8 +4030,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/RS-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #850"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #850",
+   "finishedAt": "2026-09-21T13:25:31Z"
   },
   {
    "id": "REV-RS-25",
