@@ -1,0 +1,1291 @@
+{
+  "family": "RS-21",
+  "roadmaps": {
+    "GL2AutomorphicRepresentationsAndTransfer": {
+      "action": "extend",
+      "extends": "tauceti:TauCetiRoadmap/ModularForms",
+      "title": "Modular forms — Hecke theory, newforms, and L-functions, Part II: GL₂ automorphic representations and transfer",
+      "reason": "Put ModularForms first among whole-roadmap prerequisites. Start with its existing classical forms, Hecke algebra, primitive forms, multiplicity and L-functions; add the number-field automorphic realization, explicit local formulas and global transfer. Preserve every R16/R17 stage ID and all other prerequisites."
+    },
+    "SmoothRepresentationsOfLocalGroups": {
+      "action": "keep",
+      "reason": "General locally profinite groups, arbitrary smooth coefficient modules and later integral families are independent foundations. Import the profinite carrier and the ModularForms Hecke special cases; do not turn all smooth representation theory into a classical modular-form extension."
+    }
+  },
+  "layers": {
+    "SmoothRepresentationsOfLocalGroups:SR.0": {
+      "action": "narrow",
+      "keeps": "Compatibility export of SR.0:abelian-category only. The unqualified SR.0 name keeps the early smooth abelian carrier and its basic API; SR.0:derived-extension remains a separate explicit import.",
+      "suppliedBy": [
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category"
+      ],
+      "reason": "The three extracted SR.0 descriptions share one source paragraph; they are aliases and a late extension, not three independent category constructions."
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category": {
+      "action": "narrow",
+      "keeps": "Construct the abelian category of algebraic smooth A[G]-modules over a commutative coefficient ring A: subobjects, quotients, sums, filtered colimits, kernels/cokernels, smooth vectors and the right adjoint to inclusion. Extend the compact-open invariant-exhaustion API beyond the profinite case, reuse invariant submodules, and define admissibility by finite generation of compact-open invariants. Apply the ordinary categorical-center construction to this carrier, with evaluation/naturality and coefficient-change maps when justified. Compare to the existing smooth-discrete carrier and joint-continuity theorem using discrete coefficient/module topologies; no reconstruction of that theorem.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality"
+      ],
+      "reason": "The pinned smooth-discrete dictionary already works for topological groups, and the profinite exhaustion is already supplied. SR.3 supplies the later complex Bernstein block description of this ordinary center, not its first definition."
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension": {
+      "action": "narrow",
+      "keeps": "Construct the enhanced derived smooth category on the existing abelian carrier, establishing the needed Grothendieck/exactness hypotheses, enhancement comparison and derived functor interfaces. No second smooth abelian category or general stable enhancement construction.",
+      "suppliedBy": [
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+        "EnhancedDerivedSheaves:E1"
+      ],
+      "reason": "The smooth application is distinct from the generic enhancement and from the early abelian export."
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.1": {
+      "action": "narrow",
+      "keeps": "Compactly supported locally constant functions, A-valued finite-volume convolution, associativity/support/opposite/subdivision comparison with the existing double-coset product. Construct normalized idempotents only with invertible volumes; prove locally unital Hecke/nondegenerate-module equivalence only with a cofinal invertible-pro-order compact-open family. Identify bi-invariant corners. Retain finite-correspondence operators when averaging is unavailable, including characteristic p; no unconditional averaging or second abstract double-coset multiplication.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra"
+      ],
+      "reason": "ModularForms Layer 2 owns the existing integral double-coset construction and GL_n hand-off. SR.1 supplies the locally profinite convolution realization and its coefficient-sensitive equivalence."
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.2": {
+      "action": "keep",
+      "reason": "Retain smooth induction from closed subgroups, compact induction with support modulo the subgroup, correctly directed adjunctions, stages/Mackey, Jacquet coinvariants, chosen modulus square root, valid exactness/duality and the geometric lemma. Abstract algebraic induction does not supply these topological/support theorems."
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.2a": {
+      "action": "keep",
+      "reason": "Retain the independent early complex Bernstein proof of second adjointness with stabilization, canonical pairing, natural unit/counit and triangle identities. The late integral extension SR.6 may compare with this adjunction but cannot supply its early proof."
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.3": {
+      "action": "narrow",
+      "keeps": "All complex admissibility, finite length, smooth contragredient duality, matrix-coefficient supercuspidality/temperedness criteria and supercuspidal support. Construct the Bernstein block decomposition, identify the previously defined ordinary center with its block description and prove its action, inner-isomorphism/product compatibility, finite-type corners, finite inertial supports at fixed level and valid coefficient specializations. Classification is not an input to basic admissibility.",
+      "suppliedBy": [
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category"
+      ],
+      "reason": "Only the underlying ordinary center/carrier is imported; its complex representation-theoretic description and finiteness remain here."
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.3a": {
+      "action": "keep",
+      "reason": "Retain the early uniform complex bound B(G,U), quantitative commutative-subalgebra/Hecke arguments and Burnside route. No use of the later center-finiteness theorem as a prerequisite and no automatic integral or characteristic-p extension."
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.4": {
+      "action": "narrow",
+      "keeps": "General unramified G/hyperspecial K Satake transform and invariant-algebra isomorphism, relative Weyl and Frobenius actions, coefficient and q-half choices, separate unnormalized integral form, unramified semisimple parameter dictionary, explicit torus and GL_n comparison calculations and classical/geometric Satake comparison. Reuse the classical GL_n double-coset algebra, its central-coset localization and integral/p-local hand-off.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra"
+      ],
+      "reason": "The anchor supplies the special-case algebra, not the general Satake transform or its normalization dictionary."
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.5": {
+      "action": "keep",
+      "reason": "Retain Helm-scoped ell-not-p derivatives, Whittaker/top derivatives, base change/exactness, co-Whittaker finiteness/admissibility/fiberwise genericity, uniqueness/dominance, integral center action and compactly induced generic projectives/interpolation. Arithmetic realization and archimedean Whittaker theory are separate consumers."
+    },
+    "SmoothRepresentationsOfLocalGroups:SR.6": {
+      "action": "keep",
+      "reason": "Retain every late DHKM target and its original coefficient regime: center finiteness, integral second adjointness, integral finite-wild cocycles, Frobenius/coarse-quotient and reduced excursion finiteness, integral-center embedding and the actual excursion-action compatibilities. Import LP and ES as stated; do not make this an early FS prerequisite or transfer LP.3 good-prime restrictions onto these results."
+    },
+    "GL2AutomorphicRepresentationsAndTransfer:R16.1": {
+      "action": "narrow",
+      "keeps": "The explicit GL₂ specialization over every number field: chosen compact subgroups, Haar/quotient measures, central character and finite-level function-space identifications. Prove these agree with the generic group, smooth category, convolution, adelic/Schwartz-Bruhat and automorphic growth carriers.",
+      "suppliedBy": [
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+        "SmoothRepresentationsOfLocalGroups:SR.1",
+        "ReductiveGroupsPartII:RG2.4",
+        "AdelicAlgebraicGroups:AA.0",
+        "AdelicAlgebraicGroups:AA.2",
+        "AutomorphicFormsOnReductiveGroups:AF.0",
+        "AutomorphicFormsOnReductiveGroups:AF.2"
+      ],
+      "reason": "Reuse the existing generic carriers and prove the actual GL₂ identifications."
+    },
+    "GL2AutomorphicRepresentationsAndTransfer:R16.2": {
+      "action": "narrow",
+      "keeps": "Explicit GL₂ principal-series/special/supercuspidal formulas; local conductor/newvector theorem with congruence-invariant dimensions and normalized newvectors; character/twist calculations, wild and dyadic cases. Retain all comparison obligations to generic classification and local factors; do not reconstruct the imported functors or carriers. Classical primitive forms are compared in R16.6 and do not replace this local theorem.",
+      "suppliedBy": [
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "SmoothRepresentationsOfLocalGroups:SR.4",
+        "SmoothRepresentationsOfLocalGroups:SR.5",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.2",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ],
+      "reason": "Generic local functors and factors already have owners; the GL₂ newvector and explicit classification calculations are new."
+    },
+    "GL2AutomorphicRepresentationsAndTransfer:R16.3": {
+      "action": "narrow",
+      "keeps": "Explicit rank-two specialization of the canonical local correspondence, including arithmetic/unitary normalization, determinant, twists, Artin conductor, L/epsilon factors, nilpotent monodromy for the special representation and wild/dyadic comparisons. No second Weil-Deligne carrier or proof of general existence/bijectivity.",
+      "suppliedBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+        "ArithmeticGaloisRepresentations:R01.2",
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "reason": "ET.6 owns the general correspondence and R01 the arithmetic carrier/conductor; the rank-two coordinate formulas remain here."
+    },
+    "GL2AutomorphicRepresentationsAndTransfer:R16.4": {
+      "action": "narrow",
+      "keeps": "GL₂ global multiplicity one and strong multiplicity one over number fields with the equality-of-local-components place set explicit; concrete restricted-tensor factorization comparisons; field-of-definition/rational-structure statements for the actual cohomological representations used. Compare the Q holomorphic case with existing newform multiplicity and coefficient fields; do not reconstruct the generic spectral decomposition or rationality package.",
+      "suppliedBy": [
+        "AutomorphicSpectralTheory:AS.4",
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "AutomorphicFormsOnReductiveGroups:AF.4",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields"
+      ],
+      "reason": "Keep the number-field GL₂ theorem and concrete rational-model comparisons. Do not assign rationality backwards to the downstream Galois stage R19."
+    },
+    "GL2AutomorphicRepresentationsAndTransfer:R16.5": {
+      "action": "narrow",
+      "keeps": "GL₂ global Whittaker expansion and comparison to the supplied integral models; the full converse theorem used in R17, with twisting family, pole exclusions, strip/growth and archimedean hypotheses; comparison of rational/cohomological normalization with the classical newform L-function.",
+      "suppliedBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.2",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions"
+      ],
+      "reason": "General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported; the global expansion and converse theorem remain new."
+    },
+    "GL2AutomorphicRepresentationsAndTransfer:R16.6": {
+      "action": "narrow",
+      "keeps": "Compare primitive classical forms with holomorphic GL₂ representations, including minimal level/conductor, character, weight, normalized Hecke eigenvalues at good and bad primes, and local-newvector/global-multiplicity compatibility. Instantiate general algebraic weights for Hilbert cohomological representations; prove the epsilon times cyclotomic^(k-1) determinant normalization bridge and export these interfaces to geometry/Galois construction.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+        "AutomorphicFormsOnReductiveGroups:AF.4",
+        "AutomorphicFormsOnReductiveGroups:AF.5"
+      ],
+      "reason": "The anchor owns classical newforms, AF.4 general cohomological weights and AF.5 basic adelization. This stage owns the strengthened primitive/local/global normalization comparison."
+    },
+    "GL2AutomorphicRepresentationsAndTransfer:R17.1": {
+      "action": "narrow",
+      "keeps": "Explicit quaternionic rank-two local transfer: regular-elliptic character sign, twist/conductor and R16.3 normalization comparisons; split places, quaternionic characters/Steinberg twists, and required wild/dyadic examples. No principal-series transfer to the division algebra.",
+      "suppliedBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion",
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries"
+      ],
+      "reason": "Import general inner-form Jacquet-Langlands and quaternion/norm/splitting/classification foundations; retain the explicit rank-two transfer formulas."
+    },
+    "GL2AutomorphicRepresentationsAndTransfer:R17.2": {
+      "action": "keep",
+      "reason": "Retain actual GL₂/quaternion/cyclic matching functions, measures, signs, central characters, residual/continuous-term identifications and every cancellation. AS.6 and ET.1/3/4 supply the general engine. The anchor level-one Eichler-Selberg formula has a distinct elementary proof and is only a comparison input."
+    },
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3": {
+      "action": "narrow",
+      "keeps": "Global quaternionic transfer and converse with every archimedean/finite local hypothesis, split-place Hecke compatibility, uniqueness via strong multiplicity one, rational structures and definite/indefinite cases used by R18/R22. Apply the already-owned quaternion ramification parity theorem.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity"
+      ],
+      "reason": "ClassFieldTheory Layer 14 owns reciprocity/parity; this stage owns global automorphic transfer, not a second Hilbert product formula."
+    },
+    "GL2AutomorphicRepresentationsAndTransfer:R17.4": {
+      "action": "keep",
+      "reason": "Retain full GL₂ cyclic base change/descent, local compatibility, exact noncuspidality criterion, solvable iteration, tower/descent-character control and prescribed local splitting consequences. ET.7a imports this rank-two special case when constructing broader GL_m/unitary transfers; no Galois-only descent substitute."
+    },
+    "GL2AutomorphicRepresentationsAndTransfer:R17.5": {
+      "action": "narrow",
+      "keeps": "Monomial automorphic representations and soluble-image two-dimensional Artin modularity, with odd irreducible weight-one interpretation over Q and source-scoped number-field statements. Retain arithmetic projective-to-linear lifting, including the unassigned global obstruction-vanishing theorem, octahedral/Tunnell argument and use of the converse theorem. Import generic finite-group projective/factor-set/Schur-multiplier definitions and criteria; the GL₂(F₃) cyclotomic case is not the whole target.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier"
+      ],
+      "reason": "Finite-group projective representation foundations are upstream; their Galois realization and arithmetic lifting obstruction need an actual proof here, not an assumed finite-group splitting theorem."
+    },
+    "GL2AutomorphicRepresentationsAndTransfer:R17.6": {
+      "action": "keep",
+      "reason": "Retain characteristic-two residual soluble-projective-image cases, the Rohrlich-Tunnell lift with coefficient/ramification hypotheses, residual modularity witness and weight-at-least-two transition, and exact compatible-system/base-change/descent exports preserving residual irreducibility. Neither weight-one modularity nor a mod-3 example proves this stage."
+    }
+  },
+  "links": [
+    {
+      "source": "AdelicAlgebraicGroups:AA.0",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+      "reason": "Supply the imported portion: Reuse the existing generic carriers and prove the actual GL₂ identifications. Import the canonical owner of Generic adelic group/Haar/quotient carrier."
+    },
+    {
+      "source": "AdelicAlgebraicGroups:AA.0",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AdelicAlgebraicGroups:AA.0",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AdelicAlgebraicGroups:AA.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+      "reason": "Supply the imported portion: Reuse the existing generic carriers and prove the actual GL₂ identifications. Import the canonical owner of Schwartz-Bruhat carrier and Fourier transform."
+    },
+    {
+      "source": "AdelicAlgebraicGroups:AA.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AdelicAlgebraicGroups:AA.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+      "reason": "Supply the imported portion: ET.6 owns the general correspondence and R01 the arithmetic carrier/conductor; the rank-two coordinate formulas remain here. Import the canonical owner of Weil-Deligne carrier and arithmetic local parameter operations."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.3; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.1",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.3; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.2",
+      "target": "PadicLocalLanglandsForGL2Qp:R30.1",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.3; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.3",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+      "reason": "Supply the imported portion: ET.6 owns the general correspondence and R01 the arithmetic carrier/conductor; the rank-two coordinate formulas remain here."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.3",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.3; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.3",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.1",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.3; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.3",
+      "target": "PadicLocalLanglandsForGL2Qp:R30.1",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.3; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicFormsOnReductiveGroups:AF.0",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+      "reason": "Supply the imported portion: Reuse the existing generic carriers and prove the actual GL₂ identifications. Import the canonical owner of Automorphic growth carrier."
+    },
+    {
+      "source": "AutomorphicFormsOnReductiveGroups:AF.0",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicFormsOnReductiveGroups:AF.0",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicFormsOnReductiveGroups:AF.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+      "reason": "Supply the imported portion: Reuse the existing generic carriers and prove the actual GL₂ identifications. Import the canonical owner of Generic smooth automorphic representation and restricted tensor-product interface."
+    },
+    {
+      "source": "AutomorphicFormsOnReductiveGroups:AF.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicFormsOnReductiveGroups:AF.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Supply the imported portion: Keep the number-field GL₂ theorem and concrete rational-model comparisons. Do not assign rationality backwards to the downstream Galois stage R19. Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.1; use only the component of the supplier relevant to this consumer, retaining the original application edge. Import the canonical owner of Generic smooth automorphic representation and restricted tensor-product interface."
+    },
+    {
+      "source": "AutomorphicFormsOnReductiveGroups:AF.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.4; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicFormsOnReductiveGroups:AF.4",
+      "target": "AutomorphicGaloisRepresentations:R19.1",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.6; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicFormsOnReductiveGroups:AF.4",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Supply the imported portion: Keep the number-field GL₂ theorem and concrete rational-model comparisons. Do not assign rationality backwards to the downstream Galois stage R19. Import the canonical owner of General automorphic cohomological-weight/rationality package."
+    },
+    {
+      "source": "AutomorphicFormsOnReductiveGroups:AF.4",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.4; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicFormsOnReductiveGroups:AF.4",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+      "reason": "Supply the imported portion: The anchor owns classical newforms, AF.4 general cohomological weights and AF.5 basic adelization. This stage owns the strengthened primitive/local/global normalization comparison. Import the canonical owner of General automorphic cohomological-weight/rationality package."
+    },
+    {
+      "source": "AutomorphicFormsOnReductiveGroups:AF.5",
+      "target": "AutomorphicGaloisRepresentations:R19.1",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.6; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicFormsOnReductiveGroups:AF.5",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+      "reason": "Supply the imported portion: The anchor owns classical newforms, AF.4 general cohomological weights and AF.5 basic adelization. This stage owns the strengthened primitive/local/global normalization comparison. Import the canonical owner of Basic GL₂/Q classical-to-adelic realization."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
+      "reason": "Supply the imported portion: General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported; the global expansion and converse theorem remain new. Import the canonical owner of Fourier-Poisson analytic input for zeta integrals."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.5; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "reason": "Supply the imported portion: Generic local functors and factors already have owners; the GL₂ newvector and explicit classification calculations are new. Import the canonical owner of Tate local integrals and character factors."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
+      "reason": "Supply the imported portion: General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported; the global expansion and converse theorem remain new. Import the canonical owner of Tate local integrals and character factors."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.5; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "GrossZagierAndArithmeticHeights:GZ.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.3",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "reason": "Supply the imported portion: Generic local functors and factors already have owners; the GL₂ newvector and explicit classification calculations are new. Import the canonical owner of Godement-Jacquet standard zeta integrals and local/global factors."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
+      "reason": "Supply the imported portion: General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported; the global expansion and converse theorem remain new. Import the canonical owner of Godement-Jacquet standard zeta integrals and local/global factors."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.5; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+      "target": "GrossZagierAndArithmeticHeights:GZ.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.3",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "reason": "Supply the imported portion: Generic local functors and factors already have owners; the GL₂ newvector and explicit classification calculations are new. Import the canonical owner of Rankin-Selberg integral/factor theory, including its archimedean part."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
+      "reason": "Supply the imported portion: General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported; the global expansion and converse theorem remain new. Import the canonical owner of Rankin-Selberg integral/factor theory, including its archimedean part."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.5; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "target": "GrossZagierAndArithmeticHeights:GZ.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.3",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicSpectralTheory:AS.4",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Supply the imported portion: Keep the number-field GL₂ theorem and concrete rational-model comparisons. Do not assign rationality backwards to the downstream Galois stage R19. Import the canonical owner of Cuspidal spectral decomposition."
+    },
+    {
+      "source": "AutomorphicSpectralTheory:AS.4",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.4; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "AutomorphicSpectralTheory:AS.6",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.2",
+      "reason": "Import the general trace/transfer engine and prove only the explicit GL₂/quaternionic/cyclic specialization here. Import the canonical owner of Invariant trace formula engine."
+    },
+    {
+      "source": "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.2",
+      "reason": "Import the general trace/transfer engine and prove only the explicit GL₂/quaternionic/cyclic specialization here. Import the canonical owner of General transfer factors."
+    },
+    {
+      "source": "EndoscopicTransferAndUnitaryTraceComparison:ET.3",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.2",
+      "reason": "Import the general trace/transfer engine and prove only the explicit GL₂/quaternionic/cyclic specialization here. Import the canonical owner of Ordinary fundamental lemma and local transfer."
+    },
+    {
+      "source": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.2",
+      "reason": "Import the general trace/transfer engine and prove only the explicit GL₂/quaternionic/cyclic specialization here. Import the canonical owner of Simple cyclic/unitary trace comparison."
+    },
+    {
+      "source": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+      "reason": "Supply the imported portion: ET.6 owns the general correspondence and R01 the arithmetic carrier/conductor; the rank-two coordinate formulas remain here. Import the canonical owner of General characteristic-zero local Langlands and inner-form Jacquet-Langlands."
+    },
+    {
+      "source": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.3; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.1",
+      "reason": "Supply the imported portion: Import general inner-form Jacquet-Langlands and quaternion/norm/splitting/classification foundations; retain the explicit rank-two transfer formulas. Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.3; use only the component of the supplier relevant to this consumer, retaining the original application edge. Import the canonical owner of General characteristic-zero local Langlands and inner-form Jacquet-Langlands."
+    },
+    {
+      "source": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.2",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R17.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+      "target": "PadicLocalLanglandsForGL2Qp:R30.1",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.3; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "EnhancedDerivedSheaves:E1",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "reason": "Supply the imported portion: The smooth application is distinct from the generic enhancement and from the early abelian export. Import the canonical owner of Generic enhanced derived category construction."
+    },
+    {
+      "source": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+      "reason": "Import the canonical owner of Local GL₂ conductor/newvector dimensions and twist formulas."
+    },
+    {
+      "source": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "target": "GrossZagierAndArithmeticHeights:GZ.4",
+      "reason": "Import the canonical owner of Local GL₂ conductor/newvector dimensions and twist formulas."
+    },
+    {
+      "source": "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.3",
+      "reason": "Import global JL for the transfer-identification portion; finite-class-set construction itself remains earlier."
+    },
+    {
+      "source": "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "reason": "Import GL₂ cyclic base change as a known rank-two special case before proving compatible higher-rank extensions. Import the canonical owner of GL₂ cyclic and solvable automorphic base change/descent."
+    },
+    {
+      "source": "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+      "target": "ModularityAndLanglandsExtensions:ML.5",
+      "reason": "Register the existing GL₂ base-change theorem instead of proving it again. Import the canonical owner of GL₂ cyclic and solvable automorphic base change/descent."
+    },
+    {
+      "source": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "reason": "Import rank-two monomial automorphic induction as a special case of the broader transfer programme. Import the canonical owner of Rank-two monomial automorphic induction and soluble Artin modularity."
+    },
+    {
+      "source": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+      "target": "ModularityAndLanglandsExtensions:ML.1",
+      "reason": "Import the proved soluble Artin-to-weight-one modularity endpoint, with hypotheses. Import the canonical owner of Rank-two monomial automorphic induction and soluble Artin modularity."
+    },
+    {
+      "source": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+      "target": "ModularityAndLanglandsExtensions:ML.5",
+      "reason": "Register the rank-two automorphic-induction theorem instead of proving it again. Import the canonical owner of Rank-two monomial automorphic induction and soluble Artin modularity."
+    },
+    {
+      "source": "GL2AutomorphicRepresentationsAndTransfer:R17.6",
+      "target": "ClassicalSerreModularity:R33.5",
+      "reason": "Use the soluble characteristic-two residual witness inside the final induction. Import the canonical owner of Characteristic-two soluble residual modularity witness."
+    },
+    {
+      "source": "ReductiveGroupsPartII:RG2.4",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+      "reason": "Supply the imported portion: Reuse the existing generic carriers and prove the actual GL₂ identifications."
+    },
+    {
+      "source": "ReductiveGroupsPartII:RG2.4",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "ReductiveGroupsPartII:RG2.4",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "AutomorphicFormsOnReductiveGroups:AF.2",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.3; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "CompletedCohomologyPartII:CC.1",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.0; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.3; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "ExcursionOperatorsAndSpectralAction:ES0",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.0; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "ExcursionOperatorsAndSpectralAction:ES0:classical-center",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.3; use only the component of the supplier relevant to this consumer, retaining the original application edge. Ordinary center on the correct coefficient category; its definition needs no complex Bernstein decomposition."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "ExcursionOperatorsAndSpectralAction:ES5",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.0; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.0; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+      "reason": "Supply the imported portion: Reuse the existing generic carriers and prove the actual GL₂ identifications. Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.0; use only the component of the supplier relevant to this consumer, retaining the original application edge. Import the canonical owner of Early locally profinite smooth abelian carrier, invariant/admissibility API and ordinary center."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.3; use only the component of the supplier relevant to this consumer, retaining the original application edge. Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "HeckeStacksAndLocalShtukas:HS3",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.0; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "PadicLocalLanglandsForGL2Qp:R30.2",
+      "reason": "Characteristic-p smooth objects use the action carrier, not an averaging equivalence."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.0",
+      "reason": "Supply the imported portion: The three extracted SR.0 descriptions share one source paragraph; they are aliases and a late extension, not three independent category constructions. Import the canonical owner of Early locally profinite smooth abelian carrier, invariant/admissibility API and ordinary center."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "reason": "Supply the imported portion: The smooth application is distinct from the generic enhancement and from the early abelian export. Import the canonical owner of Early locally profinite smooth abelian carrier, invariant/admissibility API and ordinary center."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.3",
+      "reason": "Supply the imported portion: Only the underlying ordinary center/carrier is imported; its complex representation-theoretic description and finiteness remain here. Import the canonical owner of Early locally profinite smooth abelian carrier, invariant/admissibility API and ordinary center."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.5",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.3; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "target": "VStackSheavesAndLisseCategories:VS4",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.0; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "target": "ExcursionOperatorsAndSpectralAction:ES0",
+      "reason": "The derived smooth category in the spectral action is a separate enhancement import."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "target": "HeckeStacksAndLocalShtukas:HS3",
+      "reason": "The complex-valued Hecke/smooth-category comparison imports the derived extension explicitly."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "target": "VStackSheavesAndLisseCategories:VS4",
+      "reason": "VS4 uses the enhanced smooth category, separately from its abelian carrier."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.1",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+      "reason": "Supply the imported portion: Reuse the existing generic carriers and prove the actual GL₂ identifications. Import the canonical owner of Locally profinite convolution/corner and nondegenerate-module comparison."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.1",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.1",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "reason": "Supply the imported portion: Generic local functors and factors already have owners; the GL₂ newvector and explicit classification calculations are new. Import the canonical owner of Smooth induction, compact induction and Jacquet functors."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "target": "GrossZagierAndArithmeticHeights:GZ.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.3",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.2a",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.6",
+      "reason": "Compare normalized complex specialization with the existing early adjunction; the late proof never supplies an early prerequisite."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.3",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "reason": "Supply the imported portion: Generic local functors and factors already have owners; the GL₂ newvector and explicit classification calculations are new. Import the canonical owner of Admissibility, smooth duals, supercuspidal support and complex Bernstein block theory."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.3",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.3",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.3",
+      "target": "GrossZagierAndArithmeticHeights:GZ.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.3",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.3",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.4",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "reason": "Supply the imported portion: Generic local functors and factors already have owners; the GL₂ newvector and explicit classification calculations are new. Import the canonical owner of General unramified Satake transform and normalization dictionary."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.4",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.4",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.4",
+      "target": "GrossZagierAndArithmeticHeights:GZ.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.4",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.3",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.4",
+      "target": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+      "reason": "Import the canonical owner of General unramified Satake transform and normalization dictionary."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.5",
+      "target": "AutomorphicCongruences:L3",
+      "reason": "Local integral derivatives and co-Whittaker families; arithmetic realization remains the consumer. Import the canonical owner of Nonarchimedean derivatives, integral co-Whittaker families and their local center action."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.5",
+      "target": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "reason": "Import the canonical owner of Nonarchimedean derivatives, integral co-Whittaker families and their local center action."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.5",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "reason": "Supply the imported portion: Generic local functors and factors already have owners; the GL₂ newvector and explicit classification calculations are new. Import the canonical owner of Nonarchimedean derivatives, integral co-Whittaker families and their local center action."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.5",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.5",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.5",
+      "target": "GrossZagierAndArithmeticHeights:GZ.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "SmoothRepresentationsOfLocalGroups:SR.5",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.3",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.2; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
+      "target": "AutomorphicGaloisRepresentations:R19.2",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R17.3; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+      "reason": "Supply the imported portion: ClassFieldTheory Layer 14 owns reciprocity/parity; this stage owns global automorphic transfer, not a second Hilbert product formula. Import the canonical owner of Quaternion ramification parity from Hilbert reciprocity."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R17.3; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
+      "target": "GrossZagierAndArithmeticHeights:GZ.3",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R17.3; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.2",
+      "reason": "Compare the level-one classical trace specialization; its elementary proof remains the anchor."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+      "target": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.4; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+      "target": "AutomorphicLFunctionsAndLocalFactors:AL.4",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.4; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.4; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+      "target": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+      "target": "FunctionFieldArithmetic:FA.6",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.4; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+      "reason": "Import the canonical owner of Integral double-coset Hecke algebra and classical GL_n algebra hand-off."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.4; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+      "target": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.4; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+      "target": "HeckeStacksAndLocalShtukas:HS3",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+      "target": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.4; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.1",
+      "reason": "Supply the imported portion: ModularForms Layer 2 owns the existing integral double-coset construction and GL_n hand-off. SR.1 supplies the locally profinite convolution realization and its coefficient-sensitive equivalence. Import the canonical owner of Integral double-coset Hecke algebra and classical GL_n algebra hand-off."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.4",
+      "reason": "Supply the imported portion: The anchor supplies the special-case algebra, not the general Satake transform or its normalization dictionary. Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.1; use only the component of the supplier relevant to this consumer, retaining the original application edge. Import the canonical owner of Integral double-coset Hecke algebra and classical GL_n algebra hand-off."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+      "target": "VStackSheavesAndLisseCategories:VS4",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+      "target": "AutomorphicGaloisRepresentations:R19.1",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.6; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+      "reason": "Supply the imported portion: The anchor owns classical newforms, AF.4 general cohomological weights and AF.5 basic adelization. This stage owns the strengthened primitive/local/global normalization comparison. Import the canonical owner of Classical primitive/newform and conductor theory."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Supply the imported portion: Keep the number-field GL₂ theorem and concrete rational-model comparisons. Do not assign rationality backwards to the downstream Galois stage R19. Import the canonical owner of Classical strong multiplicity one."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.4; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
+      "reason": "Supply the imported portion: General Fourier/Poisson, zeta integrals, factors, continuation and functional equations and the classical L-function are imported; the global expansion and converse theorem remain new. Import the canonical owner of Classical newform L-function and its analytic theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.5; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+      "reason": "Supply the imported portion: Keep the number-field GL₂ theorem and concrete rational-model comparisons. Do not assign rationality backwards to the downstream Galois stage R19. Import the canonical owner of Classical coefficient fields from the integral Hecke algebra."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.5",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R16.4; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+      "reason": "Import the canonical owner of Smooth-discrete action dictionary, including open stabilizers versus joint continuity."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.0",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.0:abelian-category; use only the component of the supplier relevant to this consumer, retaining the original application edge. Import the canonical owner of Smooth-discrete action dictionary, including open stabilizers versus joint continuity."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "reason": "Supply the imported portion: The pinned smooth-discrete dictionary already works for topological groups, and the profinite exhaustion is already supplied. SR.3 supplies the later complex Bernstein block description of this ordinary center, not its first definition. Import the canonical owner of Smooth-discrete action dictionary, including open stabilizers versus joint continuity."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.0:abelian-category; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+      "target": "SmoothRepresentationsOfLocalGroups:SR.1",
+      "reason": "Direct component import formerly reached through SmoothRepresentationsOfLocalGroups:SR.0:abelian-category; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.1",
+      "reason": "Supply the imported portion: Import general inner-form Jacquet-Langlands and quaternion/norm/splitting/classification foundations; retain the explicit rank-two transfer formulas. Import the canonical owner of Nonarchimedean quaternion division-algebra classification."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.2",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R17.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.1",
+      "reason": "Supply the imported portion: Import general inner-form Jacquet-Langlands and quaternion/norm/splitting/classification foundations; retain the explicit rank-two transfer formulas. Import the canonical owner of Quaternion algebra/norm/splitting carrier."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.2",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R17.1; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+      "reason": "Supply the imported portion: Finite-group projective representation foundations are upstream; their Galois realization and arithmetic lifting obstruction need an actual proof here, not an assumed finite-group splitting theorem. Import the canonical owner of Finite-group projective representations, factor sets and Schur multiplier."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R17.6",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R17.5; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier",
+      "target": "HeegnerPointEulerSystems:HE.6",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R17.5; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier",
+      "target": "PotentialModularityAndCompatibleSystems:R23.3",
+      "reason": "Direct component import formerly reached through GL2AutomorphicRepresentationsAndTransfer:R17.5; use only the component of the supplier relevant to this consumer, retaining the original application edge."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Smooth-discrete action dictionary, including open stabilizers versus joint continuity",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+      "formerly": [
+        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.1"
+      ]
+    },
+    {
+      "target": "Early locally profinite smooth abelian carrier, invariant/admissibility API and ordinary center",
+      "owner": "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+      "formerly": [
+        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.1"
+      ]
+    },
+    {
+      "target": "Generic enhanced derived category construction",
+      "owner": "EnhancedDerivedSheaves:E1",
+      "formerly": [
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension"
+      ]
+    },
+    {
+      "target": "Integral double-coset Hecke algebra and classical GL_n algebra hand-off",
+      "owner": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+      "formerly": [
+        "SmoothRepresentationsOfLocalGroups:SR.1",
+        "SmoothRepresentationsOfLocalGroups:SR.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.1"
+      ]
+    },
+    {
+      "target": "Locally profinite convolution/corner and nondegenerate-module comparison",
+      "owner": "SmoothRepresentationsOfLocalGroups:SR.1",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.1"
+      ]
+    },
+    {
+      "target": "Smooth induction, compact induction and Jacquet functors",
+      "owner": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2"
+      ]
+    },
+    {
+      "target": "Admissibility, smooth duals, supercuspidal support and complex Bernstein block theory",
+      "owner": "SmoothRepresentationsOfLocalGroups:SR.3",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2"
+      ]
+    },
+    {
+      "target": "General unramified Satake transform and normalization dictionary",
+      "owner": "SmoothRepresentationsOfLocalGroups:SR.4",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "IntegralHeckeAndGaloisDeterminants:IHG.3"
+      ]
+    },
+    {
+      "target": "Nonarchimedean derivatives, integral co-Whittaker families and their local center action",
+      "owner": "SmoothRepresentationsOfLocalGroups:SR.5",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "AutomorphicCongruences:L3",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ]
+    },
+    {
+      "target": "Classical primitive/newform and conductor theory",
+      "owner": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.6"
+      ]
+    },
+    {
+      "target": "Local GL₂ conductor/newvector dimensions and twist formulas",
+      "owner": "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+        "GrossZagierAndArithmeticHeights:GZ.4"
+      ]
+    },
+    {
+      "target": "Classical strong multiplicity one",
+      "owner": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.4"
+      ]
+    },
+    {
+      "target": "Classical coefficient fields from the integral Hecke algebra",
+      "owner": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.4"
+      ]
+    },
+    {
+      "target": "Classical newform L-function and its analytic theorem",
+      "owner": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.5"
+      ]
+    },
+    {
+      "target": "Godement-Jacquet standard zeta integrals and local/global factors",
+      "owner": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.5"
+      ]
+    },
+    {
+      "target": "Rankin-Selberg integral/factor theory, including its archimedean part",
+      "owner": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.5"
+      ]
+    },
+    {
+      "target": "General automorphic cohomological-weight/rationality package",
+      "owner": "AutomorphicFormsOnReductiveGroups:AF.4",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.6"
+      ]
+    },
+    {
+      "target": "Basic GL₂/Q classical-to-adelic realization",
+      "owner": "AutomorphicFormsOnReductiveGroups:AF.5",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.6"
+      ]
+    },
+    {
+      "target": "General characteristic-zero local Langlands and inner-form Jacquet-Langlands",
+      "owner": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.1"
+      ]
+    },
+    {
+      "target": "Weil-Deligne carrier and arithmetic local parameter operations",
+      "owner": "ArithmeticGaloisRepresentations:R01.2",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3"
+      ]
+    },
+    {
+      "target": "Quaternion algebra/norm/splitting carrier",
+      "owner": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R17.1"
+      ]
+    },
+    {
+      "target": "Nonarchimedean quaternion division-algebra classification",
+      "owner": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R17.1"
+      ]
+    },
+    {
+      "target": "Quaternion ramification parity from Hilbert reciprocity",
+      "owner": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3"
+      ]
+    },
+    {
+      "target": "Finite-group projective representations, factor sets and Schur multiplier",
+      "owner": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5"
+      ]
+    },
+    {
+      "target": "GL₂ cyclic and solvable automorphic base change/descent",
+      "owner": "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+      "formerly": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+        "ModularityAndLanglandsExtensions:ML.5"
+      ]
+    },
+    {
+      "target": "Rank-two monomial automorphic induction and soluble Artin modularity",
+      "owner": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+      "formerly": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+        "ModularityAndLanglandsExtensions:ML.1",
+        "ModularityAndLanglandsExtensions:ML.5"
+      ]
+    },
+    {
+      "target": "Characteristic-two soluble residual modularity witness",
+      "owner": "GL2AutomorphicRepresentationsAndTransfer:R17.6",
+      "formerly": [
+        "ClassicalSerreModularity:R33.5"
+      ]
+    },
+    {
+      "target": "Generic adelic group/Haar/quotient carrier",
+      "owner": "AdelicAlgebraicGroups:AA.0",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.1"
+      ]
+    },
+    {
+      "target": "Schwartz-Bruhat carrier and Fourier transform",
+      "owner": "AdelicAlgebraicGroups:AA.2",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.1"
+      ]
+    },
+    {
+      "target": "Automorphic growth carrier",
+      "owner": "AutomorphicFormsOnReductiveGroups:AF.0",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.1"
+      ]
+    },
+    {
+      "target": "Generic smooth automorphic representation and restricted tensor-product interface",
+      "owner": "AutomorphicFormsOnReductiveGroups:AF.2",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.1",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.4"
+      ]
+    },
+    {
+      "target": "Cuspidal spectral decomposition",
+      "owner": "AutomorphicSpectralTheory:AS.4",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.4"
+      ]
+    },
+    {
+      "target": "Fourier-Poisson analytic input for zeta integrals",
+      "owner": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.5"
+      ]
+    },
+    {
+      "target": "Tate local integrals and character factors",
+      "owner": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.5"
+      ]
+    },
+    {
+      "target": "Invariant trace formula engine",
+      "owner": "AutomorphicSpectralTheory:AS.6",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R17.2"
+      ]
+    },
+    {
+      "target": "General transfer factors",
+      "owner": "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R17.2"
+      ]
+    },
+    {
+      "target": "Ordinary fundamental lemma and local transfer",
+      "owner": "EndoscopicTransferAndUnitaryTraceComparison:ET.3",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R17.2"
+      ]
+    },
+    {
+      "target": "Simple cyclic/unitary trace comparison",
+      "owner": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+      "formerly": [
+        "GL2AutomorphicRepresentationsAndTransfer:R17.2"
+      ]
+    }
+  ]
+}
