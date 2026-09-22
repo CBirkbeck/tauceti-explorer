@@ -6,7 +6,7 @@ Extraction by Claude Code, session `cc-39fac3`, 22 September 2026 (issue #1209).
 
 The machine-readable extraction is [PAPER-ABDURRAHMAN-VENKATESH-25.result.json](PAPER-ABDURRAHMAN-VENKATESH-25.result.json). It has:
 - 93 items: 1 library, 7 planned, 85 missing;
-- 5 routes: 3 source routes, 1 new roadmap and 1 Part II;
+- 6 routes: 4 source routes, 1 new roadmap and 1 Part II;
 - 13 prerequisite entries;
 - 25 recorded source issues.
 
@@ -58,7 +58,7 @@ The machine-readable extraction is [PAPER-ABDURRAHMAN-VENKATESH-25.result.json](
 
 **Not in the atlas.** Nothing plans:
 - Reidemeister torsion, algebraic Poincaré complexes or determinant functors with their signs;
-- oriented bordism, or Chebotarev density for schemes of finite type over Z;
+- oriented bordism;
 - L-functions and Deligne ε-factors with torsion coefficients, or central values modulo squares;
 - Hurwitz stacks of unramified covers of higher-genus curves, or the Livingston–Dunfield–Thurston classification;
 - the paper's moment-method slicing.
@@ -74,15 +74,16 @@ The machine-readable extraction is [PAPER-ABDURRAHMAN-VENKATESH-25.result.json](
 2. **Source → K3BlochGroups:V.1, V.4** (2 items).
    - Suslin's theorem: K_3(F) → H_3(SL(F)) is onto with kernel {−1}·K_2(F).
    - Hutchinson–Tao's surjection H_3(SL_2(F)) → K_3(F)^ind.
-3. **Source → FunctionFieldArithmetic:FA.5** (1 item). The L-function of a Galois representation with finite-field coefficients, with its cohomological formula mod ℓ. FA.5 plans exactly these Euler products and Artin factors.
-4. **New → SymplecticReidemeisterTorsionModSquares**, "Symplectic Reidemeister torsion mod squares and the étale Chern class" (42 items; area `topology`).
+3. **Source → AnalyticNumberTheory:AN.4** (1 item). Chebotarev density for normal integral rings of finite type over Z (Serre). PAPER-SCHMIDT-STIX-16 sends the same theorem here.
+4. **Source → FunctionFieldArithmetic:FA.5** (1 item). The L-function of a Galois representation with finite-field coefficients, with its cohomological formula mod ℓ. FA.5 plans exactly these Euler products and Artin factors.
+5. **New → SymplecticReidemeisterTorsionModSquares**, "Symplectic Reidemeister torsion mod squares and the étale Chern class" (41 items; area `topology`).
    - **Contents:** the topological half of the paper.
      - Appendices A and B: Poincaré complexes, determinant functors, Lagrangian volume classes, RT over fields and rings, bordism invariance, Zassenhaus's formula.
      - Appendix C: mapping tori and the Q(i) example.
-     - §2: Thom's comparison, 𝔑, Chebotarev for arithmetic schemes, the transfer lemma, Lemma 2.10.1, controlling fields, density one, and Theorem 2.1.
+     - §2: Thom's comparison, 𝔑, the transfer lemma, Lemma 2.10.1, controlling fields, density one, and Theorem 2.1.
      - The vanishing of c_31 on Sp_{2r}(R) and corollary (1.5).
    - **Why new:** nothing in the atlas goes in this direction. The nearest roadmaps supply only inputs, and the Tau Ceti topology roadmaps cannot be re-planned.
-5. **Part II → SymplecticLFunctionsModSquares**, "Global function fields, reciprocity and automorphic foundations, Part II: central values of symplectic L-functions mod squares" (38 items; parent FunctionFieldArithmetic, area `etale`).
+6. **Part II → SymplecticLFunctionsModSquares**, "Global function fields, reciprocity and automorphic foundations, Part II: central values of symplectic L-functions mod squares" (38 items; parent FunctionFieldArithmetic, area `etale`).
    - **Contents:** the arithmetic half of the paper.
      - §3: ε-factors with torsion coefficients, L^*, the square discriminant, trace maps, the main theorem, and compatible systems.
      - §§4–5: Step A, with Hurwitz stacks, Dunfield–Thurston, 𝔜 and 𝔜′, odd covers and raising the genus.
