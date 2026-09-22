@@ -2307,7 +2307,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ZHU-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1151"
   },
   {
    "id": "REV-PAPER-ZHU-17",
@@ -5892,8 +5893,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CANNING-LARSON-PAYNE-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1362"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1362",
+   "finishedAt": "2026-09-22T16:21:54Z"
   },
   {
    "id": "REV-PAPER-CANNING-LARSON-PAYNE-24",
@@ -6174,7 +6176,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CHANG-CHEN-MISHIBA-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1380"
   },
   {
    "id": "REV-PAPER-CHANG-CHEN-MISHIBA-23",
