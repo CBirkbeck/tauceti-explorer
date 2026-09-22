@@ -1302,8 +1302,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DITTMANN-POP-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1099"
+   "state": "external",
+   "note": "claimed on GitHub issue #1099"
   },
   {
    "id": "REV-PAPER-DITTMANN-POP-23",
@@ -1940,8 +1940,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MOK-PILA-TSIMERMAN-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1137"
+   "state": "pending",
+   "note": "released on GitHub issue #1137"
   },
   {
    "id": "REV-PAPER-MOK-PILA-TSIMERMAN-19",
@@ -2872,8 +2872,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GILLE-PARIMALA-26.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1197"
+   "state": "external",
+   "note": "claimed on GitHub issue #1197"
   },
   {
    "id": "REV-PAPER-GILLE-PARIMALA-26",
