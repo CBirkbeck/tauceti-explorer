@@ -1,0 +1,728 @@
+{
+  "paper": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Rank stability in quadratic extensions and Hilbert's tenth problem for the ring of integers of a number field",
+    "authors": "Levent Alpöge, Manjul Bhargava, Wei Ho and Ari Shnidman",
+    "venue": "Inventiones mathematicae 243 (2025), no. 3, 1129–1139 (received 31 January 2025, accepted 14 November 2025, published online 1 December 2025; the queue lists the paper as Alpöge–Bhargava–Shnidman (2026))",
+    "doi": "10.1007/s00222-025-01392-3",
+    "arxiv": "2501.18774v1",
+    "url": "https://doi.org/10.1007/s00222-025-01392-3",
+    "readSections": [
+      "The whole published version (11 pages: abstract, §§1–4, references), read 2026-09-22. PDF https://link.springer.com/content/pdf/10.1007/s00222-025-01392-3.pdf (CC BY 4.0), SHA-256 94190b392b135905918368a0f52bb0ec1491488f65d9228fdabcee0bf08281ec. Locators are its printed pages.",
+      "The whole of arXiv v1 (30 January 2025, 10 pages), read 2026-09-22 from its TeX source mainv2.tex. PDF https://arxiv.org/pdf/2501.18774v1, SHA-256 3d36dff3653d7484c240f36484ddaff8c90bd8bb94c510113723a2538b859d5a; source tarball SHA-256 ca6f068988c7df2e188007c3d1911f14a8894d593cc6605f1d6acc280b78f40f. v1 and the published version were compared line by line. The published version corrects the cover π in Proposition 2.7 and the Fermat curve in the introduction (E1, E2). It replaces the proof of Lemma 2.6 by a Northcott argument, strengthens Corollary 1.2 from 'diophantine model' to 'ℤ is Diophantine over 𝒪_K', and adds the Diophantine-set definition, Denef–Lipshitz's conjecture and the Eisenträger consequence to §1. The theorem numbering is the same in both.",
+      "Inputs read where the paper relies on them: Yu, J. Number Theory 160 (2016), arXiv:1511.07511v1 (Theorem 4 = Theorem 4.13, §§1–4); Mazur–Rubin–Shlapentokh, J. Number Theory 254 (2024), arXiv:2208.09963v3 (Definition 2.2, Proposition 2.3, Theorems 3.1 and 4.8, Lemmas 4.3–4.7); Kai, arXiv:2306.16983v5 (Theorem 13.1, statement only)."
+    ]
+  },
+  "summary": "Alpöge, Bhargava, Ho and Shnidman prove that for every quadratic extension of number fields K/F there is an abelian variety A/F with rank A(F) = rank A(K) > 0 (Theorem 1.1). With Shlapentokh's and Mazur–Rubin–Shlapentokh's reduction (MRS Theorems 3.1 and 4.8), this gives Corollary 1.2: ℤ is Diophantine over the ring of integers 𝒪_K of every number field K, so Hilbert's tenth problem has a negative answer over every 𝒪_K. The proof takes an odd prime ℓ ∤ Disc(K), adjoins ζ_ℓ (undone at the end by Weil restriction), and writes K = F(√q). It works with the Jacobians J_n of y² = x^ℓ + n, which have CM by ℤ[ζ_ℓ], and with their (1 − ζ)-Selmer groups. Primes inert or ramified in K are silent: they impose no local condition. So once Yu's Mazur–Rubin-type theorem gives a twist J_{q^ℓr²} with trivial Selmer group, every further twist by a silent Σ-unit t that is an ℓ-th power at the finitely many primes of S keeps the Selmer group trivial. The q-quadratic twist J_{r²t²} then acquires a non-torsion point from a twisted Fermat curve whenever t = a^{(ℓ−1)/2}b for a solution of the Σ-unit equation a + 2rb = 1. Infinitely many such solutions come from a three-primes theorem over number fields: Vinogradov's circle method as extended by Mitsui, or Kai's number-field Green–Tao–Ziegler. The atlas plans MRDP over ℤ (LD.4), the Jacobian, isogeny Selmer groups (RP.1), local duality, class field theory, Chebotarev, Weil restriction (A6) and S-unit finiteness (DT.2). It has nothing on Diophantine definitions over rings of integers, rank stability, the Selmer arithmetic of these CM Jacobians, or three-prime equations over number fields. These are routed to a new Part II of the Logic roadmap, and to sources of ES.3–ES.4, AN.4, AC.5 and A6. Six mistakes are recorded. Two misprints in arXiv v1 are corrected in print. Still in print: a false 2-adic step in the proof of Proposition 2.5 (repaired by replacing r by rδ^ℓ), two slips in the circle-method sketch, and a gap in the infinitude argument (proportional prime triples).",
+  "items": [
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/1",
+      "kind": "definition",
+      "name": "Diophantine subsets of a ring; O_F Diophantine in O_K",
+      "statement": "For a ring R, a subset E ⊆ R is Diophantine over R if there are f_1, …, f_m ∈ R[t, x_1, …, x_n] with E = {τ ∈ R : ∃ a ∈ R^n, f_i(τ, a) = 0 for all i}; a single polynomial suffices when R is a domain whose fraction field is not algebraically closed. For number fields F ⊆ K, 𝒪_F is Diophantine in 𝒪_K if 𝒪_F = {a ∈ 𝒪_K : ∃ x ∈ 𝒪_K^n, f(a, x) = 0} for some f ∈ 𝒪_K[t, x_1, …, x_n].",
+      "locator": "§1, p. 1130 (published version); the systems form is MRS, Definition 2.2",
+      "status": "missing",
+      "note": "Mathlib's `Dioph` (Mathlib/NumberTheory/Dioph.lean) defines Diophantine subsets of ℕ^α only, with integer polynomials. Neither library has Diophantine subsets of an arbitrary ring, nor the reduction from systems to one equation. The arXiv v1 introduction does not define the notion. It is added in the published version."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/2",
+      "kind": "theorem",
+      "name": "Hilbert's tenth problem over ℤ (Davis–Putnam–Robinson, Matiyasevich)",
+      "statement": "Every recursively enumerable subset of ℕ^k is Diophantine over ℤ. Consequently there is no algorithm that decides, for f ∈ ℤ[x_1, …, x_n], whether f has a zero in ℤ^n.",
+      "locator": "§1, p. 1129–1130, citing [2] and [13]",
+      "status": "planned",
+      "planned": [
+        "LogicAndDefinabilityInNumberTheory:LD.4"
+      ],
+      "note": "LD.4 plans the negative solution over ℤ through a complete MRDP source chain. Mathlib has the key exponential step: `Dioph.pow_dioph` (Mathlib/NumberTheory/Dioph.lean) shows that exponentiation is Diophantine, and the file's TODO records that the solution of Hilbert's tenth problem is unfinished."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/3",
+      "kind": "theorem",
+      "name": "Transfer of undecidability along Diophantine definitions",
+      "statement": "(a) If R ⊇ ℤ and ℤ is Diophantine over R, then there is no algorithm that decides whether a finite system of polynomial equations with coefficients in R has a solution in R. (b) Transitivity: if 𝒪_F is Diophantine in 𝒪_K and ℤ is Diophantine in 𝒪_F, then ℤ is Diophantine in 𝒪_K. More generally, a negative answer over 𝒪_F implies one over 𝒪_K when 𝒪_F is Diophantine in 𝒪_K.",
+      "locator": "§1, p. 1130; MRS Proposition 2.3(1) and Lemma 4.3",
+      "status": "missing",
+      "note": "This is the interpretation step that LD.4's acceptance criterion asks for: undecidability over ℤ is not copied to other rings without its own interpretation theorem. It is absent from both libraries."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/4",
+      "kind": "theorem",
+      "name": "Diophantine definitions from rank stability (Poonen, Cornelissen–Pheidas–Zahidi, Shlapentokh; Mazur–Rubin–Shlapentokh Theorem 3.1)",
+      "statement": "Let K/F be an extension of number fields and A/F an abelian variety with rank A(K) = rank A(F) ≥ 1. Then 𝒪_F has a Diophantine definition over 𝒪_K. The elliptic-curve case with rank E(F) = rank E(K) = 1 is due to Poonen and to Cornelissen–Pheidas–Zahidi, and the case rank E(F) = rank E(K) > 0 to Poonen and Shlapentokh.",
+      "locator": "§1, p. 1130, citing [23], [1], [27] and [16, Theorem 3.1]; MRS Theorem 3.1 (proved in MRS Proposition 14.3 and Lemma 13.8)",
+      "status": "missing",
+      "note": "This is an input the paper cites, not a result it proves. Its proof uses divisibility of denominators of multiples of a point on A, norm equations and Denef's non-zero lemma (MRS Lemma 4.6). None of this is planned: LD.4 covers MRDP over ℤ only."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/5",
+      "kind": "theorem",
+      "name": "ℤ is Diophantine over the ring of integers of a totally real field (Denef)",
+      "statement": "If M is a totally real number field, then ℤ is Diophantine over 𝒪_M. Denef–Lipshitz extend this to quadratic extensions of totally real fields.",
+      "locator": "§1, p. 1130, citing Denef [3, 4] and Denef–Lipshitz [5]; used in the proof of MRS Theorem 4.8",
+      "status": "missing",
+      "note": "This is an input of item 6, and the classical base case of the theory (Denef 1980, via Pell equations over totally real fields). It is absent from both libraries and from the atlas."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/6",
+      "kind": "theorem",
+      "name": "Quadratic rank stability everywhere implies ℤ Diophantine over every 𝒪_K (Shlapentokh; MRS Theorem 4.8)",
+      "statement": "Suppose that for every quadratic extension of number fields K/F, 𝒪_F has a Diophantine definition over 𝒪_K. Then ℤ has a Diophantine definition over the ring of integers of every number field. In particular, the conclusion holds if every quadratic K/F admits an abelian variety A/F with rank A(F) = rank A(K) > 0, by item 4. Proof: reduce to M/ℚ Galois. Each complex conjugation σ gives a quadratic extension M/M^σ, so 𝒪_{M^σ} is Diophantine in 𝒪_M. Intersect over σ to get 𝒪_{M^+} for the totally real field M^+ = ∩M^σ, then apply Denef (item 5) and transitivity (item 3).",
+      "locator": "§1, p. 1130, citing [16, Theorems 3.1 and 4.8]; MRS Theorem 4.8, p. 10–11",
+      "status": "missing",
+      "note": "This is the reduction the paper's Corollary 1.2 rests on. It is absent from both libraries and the atlas."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/7",
+      "kind": "theorem",
+      "name": "Theorem 1.1 (rank stability in quadratic extensions)",
+      "statement": "Let K/F be any quadratic extension of number fields. Then there exists an abelian variety A/F such that rank A(F) = rank A(K) > 0. More precisely: take an odd prime ℓ ∤ Disc(K), replace F and K by F(ζ_ℓ) and K(ζ_ℓ), and write K = F(√q). Then A can be taken to be the Weil restriction to F of the Jacobian J_{r²a^{ℓ−1}b²} of y² = x^ℓ + r²a^{ℓ−1}b², for the r of Lemma 2.3 and suitable Σ-units a, b with a + 2rb = 1.",
+      "locator": "Theorem 1.1, p. 1130; proof §4, pp. 1137–1138",
+      "status": "missing",
+      "note": "The paper's main theorem. §4 (item 43) proves it from items 11–13, 18, 23, 25, 27 and 31."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/8",
+      "kind": "theorem",
+      "name": "Corollary 1.2 (Hilbert's tenth problem over rings of integers)",
+      "statement": "Let K be any number field. Then ℤ is Diophantine over 𝒪_K, and so Hilbert's tenth problem has a negative answer over 𝒪_K: there is no algorithm that decides whether a polynomial equation in several variables over 𝒪_K has solutions in 𝒪_K.",
+      "locator": "Corollary 1.2, p. 1130 (published version). arXiv v1 states the weaker 'ℤ has a diophantine model over 𝒪_K'",
+      "status": "missing",
+      "note": "This follows from Theorem 1.1 and items 4, 6 and 3. The published statement (a Diophantine definition of ℤ) is what the MRS results give. The v1 wording ('diophantine model') is weaker, so it is not a mistake."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/9",
+      "kind": "theorem",
+      "name": "Hilbert's tenth problem over finitely generated infinite ℤ-algebras (Eisenträger)",
+      "statement": "Hilbert's tenth problem has a negative answer over every finitely generated infinite ℤ-algebra. This follows from Corollary 1.2 and Eisenträger's thesis, Chapter 7.",
+      "locator": "§1, p. 1130 (published version only), citing [6, Chap. 7]",
+      "status": "missing",
+      "note": "This consequence is only stated in the paper, not proved. Its proof is in Eisenträger's thesis, which is a prerequisite."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/10",
+      "kind": "theorem",
+      "name": "Mordell–Weil theorem and rank of an abelian variety over a number field",
+      "statement": "For an abelian variety A over a number field F, A(F) is a finitely generated abelian group. rank A(F) denotes its rank.",
+      "locator": "used throughout; §1, §4",
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.1"
+      ],
+      "note": "RP.1 plans weak Mordell–Weil and finite generation for abelian varieties. Tau Ceti proves Mordell–Weil for elliptic curves only, and its audit marks the abelian-variety case absent."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/11",
+      "kind": "theorem",
+      "name": "Linear disjointness of K and ℚ(ζ_ℓ) for ℓ ∤ Disc(K), and base change of K/F",
+      "statement": "If ℓ is an odd prime not dividing Disc(K), then K and ℚ(ζ_ℓ) are linearly disjoint over ℚ. Hence for F ⊆ K with [K : F] = 2, K(ζ_ℓ)/F(ζ_ℓ) is quadratic, and it is unramified at the primes above ℓ.",
+      "locator": "§4, p. 1137; §1, p. 1131",
+      "status": "library",
+      "library": [
+        "mathlib:NumberField.linearDisjoint_of_isGalois_isCoprime_discr",
+        "mathlib:IsCyclotomicExtension.Rat.discr_prime",
+        "tauceti:IsCyclotomicExtension.inf_eq_bot_of_unramified"
+      ],
+      "note": "Mathlib's `NumberField.linearDisjoint_of_isGalois_isCoprime_discr` gives linear disjointness when one field is Galois and the discriminants are coprime. `IsCyclotomicExtension.Rat.discr_prime` gives Disc(ℚ(ζ_ℓ)) = ±ℓ^{ℓ−2}. Tau Ceti's `IsCyclotomicExtension.inf_eq_bot_of_unramified` gives the intersection form directly: a field unramified at ℓ meets ℚ(ζ_ℓ) trivially. The degree count and unramifiedness of the base change are routine consequences."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/12",
+      "kind": "construction",
+      "name": "Weil restriction reduction",
+      "statement": "Let F' = F(ζ_ℓ) and K' = K(ζ_ℓ), with K and F(ζ_ℓ) linearly disjoint over F. If A/F' is an abelian variety with rank A(F') = rank A(K') > 0, then A' := Res_{F'/F} A is an abelian variety over F with A'(F) = A(F') and A'(K) = A(F' ⊗_F K) = A(K'). So rank A'(F) = rank A'(K) > 0.",
+      "locator": "§1, p. 1131; §4, p. 1137",
+      "status": "planned",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A6"
+      ],
+      "note": "A6 plans Weil restriction of abelian schemes along finite étale maps, and that it is again an abelian scheme. The point identity A'(T) = A(T ⊗_F F') is its functor-of-points definition."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/13",
+      "kind": "theorem",
+      "name": "Rank of an abelian variety over a quadratic extension",
+      "statement": "Let A/F be an abelian variety, K/F quadratic, and A^K the quadratic twist of A by the character of K/F. Then rank A(K) = rank A(F) + rank A^K(F). Equivalently, Res_{K/F}(A_K) is isogenous to A × A^K, and A(K) ⊗ ℚ splits into the ± eigenspaces of Gal(K/F), identified with A(F) ⊗ ℚ and A^K(F) ⊗ ℚ.",
+      "locator": "§1, p. 1131; §4, pp. 1137–1138",
+      "status": "missing",
+      "note": "This is used with A = J_{r²t²} and A^K = J_{q^ℓr²t²}. Only the elliptic case over ℚ is planned, at RankZeroOneBSD BSD.1 (Tau Ceti has the eigenspace identifications `quadraticTwistPointEquiv` but not the rank identity). Quadratic twists of abelian varieties are not planned anywhere."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/14",
+      "kind": "construction",
+      "name": "The curves C_n : y² = x^ℓ + n and their Jacobians with ℤ[ζ]-multiplication",
+      "statement": "Let ℓ be an odd prime, F a number field containing μ_ℓ, and ζ a generator of μ_ℓ. For n ∈ F^×, C_n is the smooth projective model of the affine hyperelliptic curve y² = x^ℓ + n. It has genus (ℓ − 1)/2 and a unique point ∞ at infinity. C_n ≅ C_{nλ^{2ℓ}} for λ ∈ F^×, via (x, y) ↦ (λ²x, λ^ℓy). The automorphism (x, y) ↦ (ζx, y) gives an action of μ_ℓ on C_n, and hence an embedding ℤ[ζ] ↪ End(J_n) for J_n := Jac(C_n).",
+      "locator": "§2, p. 1132",
+      "status": "missing",
+      "note": "The Jacobian of a pointed curve and its functoriality are planned by the Jacobian Challenge (Layers D–F), and hyperelliptic function fields by Algebraic Curves Layer 10. The family, its μ_ℓ-action and the resulting CM by ℤ[ζ] are not planned. Neither library has hyperelliptic or superelliptic curves (a name search finds none)."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/15",
+      "kind": "construction",
+      "name": "Quadratic twists and μ_ℓ-twists of C_n and J_n",
+      "statement": "For K = F(√q), the K-quadratic twist of C_n is qy² = x^ℓ + n, which is isomorphic to C_{q^ℓn}. Likewise J_n^K ≅ J_{q^ℓn}. For r ∈ F^×, C_{nr²} becomes isomorphic to C_n over F(r^{1/ℓ}), so the μ_ℓ-twists of C_n and J_n are C_{nr²} and J_{nr²}. For t ∈ F^× and N ≥ 1 there is an isomorphism of ℤ[ζ][G_F]-modules J_{nt²}[N] ≅ J_n[N] ⊗ χ_t^{−1}, where χ_t(σ) = σ(t^{2/ℓ})/t^{2/ℓ} ∈ μ_ℓ.",
+      "locator": "§2, p. 1132; proof of Lemma 2.6 (arXiv v1, p. 5; the published proof uses the same twisting)",
+      "status": "missing",
+      "note": "These are explicit Galois-descent isomorphisms. Twists of elliptic curves are Tau Ceti EllipticCurves Layer 5, but twists of higher-genus curves and their Jacobians are not planned. Tau Ceti has the Kummer map K^×/K^{×n} → H¹(G_K, μ_n) (`TauCeti.kummerClassMap`), which classifies the μ_ℓ-twists."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/16",
+      "kind": "theorem",
+      "name": "The kernel of φ = 1 − ζ",
+      "statement": "φ = 1 − ζ is an isogeny J_n → J_n of degree ℓ. J_n[φ](F̄) is a one-dimensional 𝔽_ℓ-vector space spanned by the nonzero class (0, √n) − ∞, which is fixed by ζ. G_F acts on it through the quadratic character of F(√n)/F. In particular J_n[φ] is isomorphic to its Cartier dual, since μ_ℓ ⊂ F.",
+      "locator": "§2.1, p. 1132",
+      "status": "missing",
+      "note": "Tau Ceti has isogenies of abelian varieties and their degree (`TauCeti.Isogeny.degree`), but no computation of φ-torsion for a CM Jacobian. Background: Poonen–Schaefer (1997)."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/17",
+      "kind": "definition",
+      "name": "The φ-Selmer group Sel_φ(J_n)",
+      "statement": "Set T = H¹(F, J_n[φ]) and T_𝔭 = H¹(F_𝔭, J_n[φ]). Let W_𝔭 ⊆ T_𝔭 be the image of the connecting map J_n(F_𝔭) → T_𝔭 of 0 → J_n[φ] → J_n → J_n → 0. Then Sel_φ(J_n) = ker(T → ∏_𝔭 T_𝔭/W_𝔭), the product over finite primes. Archimedean places are ignored because F ⊇ μ_ℓ is totally complex.",
+      "locator": "§2.1, p. 1132",
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.1",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+      ],
+      "note": "RP.1 plans Kummer maps and finite Selmer groups for isogenies of abelian varieties. Tau Ceti EllipticCurves Layer 7 plans Selmer structures and Selmer groups for a general discrete Galois module. The libraries have only the elliptic 2-descent Selmer group in square-class form."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/18",
+      "kind": "theorem",
+      "name": "Lemma 2.1 (Selmer bound for φ = 1 − ζ)",
+      "statement": "J_n(F)/φJ_n(F) ↪ Sel_φ(J_n), so rank_{ℤ[ζ]} J_n(F) ≤ dim_{𝔽_ℓ} Sel_φ(J_n). In particular, Sel_φ(J_n) = 0 implies rank J_n(F) = 0.",
+      "locator": "Lemma 2.1, p. 1132",
+      "status": "missing",
+      "note": "The Kummer injection is RP.1's. The ℤ[ζ]-rank inequality is not: J_n(F) is a finitely generated module over the Dedekind domain ℤ[ζ], and (1 − ζ) is a prime of residue field 𝔽_ℓ."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/19",
+      "kind": "theorem",
+      "name": "Local Tate duality and the local Euler characteristic formula for finite modules",
+      "statement": "For a finite G_{F_𝔭}-module M with 𝔭 ∤ #M: H²(F_𝔭, M) is dual to H⁰(F_𝔭, M^∨(1)), and #H¹(F_𝔭, M) = #H⁰(F_𝔭, M) · #H²(F_𝔭, M).",
+      "locator": "proof of Lemma 2.2, p. 1133, citing Tate [29]",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality"
+      ],
+      "note": "Tau Ceti ClassFieldTheory Layer 5 plans `tateDualityPairing_perfect_mixed`, finiteness `finite_H` and the cardinality Euler characteristic."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/20",
+      "kind": "theorem",
+      "name": "Lemma 2.2 (silent primes)",
+      "statement": "Call 𝔭 silent if T_𝔭 = 0. If 𝔭 ∤ ℓ is inert or ramified in F(√n)/F, then T_𝔭 = H¹(F_𝔭, J_n[φ]) = 0: local duality gives #H² = #H⁰, and the Euler characteristic gives #T_𝔭 = (#J_n[φ](F_𝔭))² = 1 because √n ∉ F_𝔭. Silent primes exist if and only if n is not a square in F.",
+      "locator": "Lemma 2.2 and the remark after it, p. 1133",
+      "status": "missing",
+      "note": "This applies item 19 to the module of item 16. The terminology is Mazur–Rubin's (Diophantine stability, 2018). The existence remark uses Chebotarev for F(√n)/F (item 37)."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/21",
+      "kind": "theorem",
+      "name": "Local conditions at good primes",
+      "statement": "If 𝔭 ∤ ℓ and A has good reduction at 𝔭, the Kummer image W_𝔭 of an isogeny of degree ℓ equals the unramified subgroup H¹_un(F_𝔭, A[φ]) = H¹(Gal(F_𝔭^un/F_𝔭), A[φ]).",
+      "locator": "proof of Lemma 2.4, p. 1134",
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.1",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+      ],
+      "note": "RP.1's finite Selmer groups for isogenies need exactly this. The unramified-versus-bad-prime comparison is also named in SelmerIwasawaCohomology L1, and the elliptic case in Tau Ceti EllipticCurves Layer 7."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/22",
+      "kind": "theorem",
+      "name": "Good reduction is preserved by twists unramified at 𝔭",
+      "statement": "If 𝔭 ∤ ℓ, J_{q^ℓr²} has good reduction at 𝔭, and t is a 𝔭-unit, then J_{q^ℓr²t²} also has good reduction at 𝔭, because the twisting cocycle χ_t is unramified at 𝔭. The proof is Néron–Ogg–Shafarevich.",
+      "locator": "proof of Lemma 2.4, p. 1134",
+      "status": "planned",
+      "planned": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.5"
+      ],
+      "note": "R11.5 plans the Néron–Ogg–Shafarevich criterion for abelian varieties."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/23",
+      "kind": "theorem",
+      "name": "Lemma 2.3 (Yu's theorem: a μ_ℓ-twist with trivial φ-Selmer group)",
+      "statement": "Let K = F(√q) be a quadratic extension, unramified at the primes above ℓ. There is r ∈ 𝒪_F with Sel_φ(J_{q^ℓr²}) = 0, and r may be taken outside every prime that ramifies in K. This is Yu, J. Number Theory 160 (2016), Theorem 4 (= Theorem 4.13): if K ∋ ζ_p, f ∈ K[x] is separable of degree n with p ∤ n an odd prime and Gal(f) ≅ S_n, then for every r ≥ 0 there are infinitely many p-twists C_{p,df} (d ∈ K^×/K^{×p}) of y^p = f(x) with dim_{𝔽_p} Sel_π(J(C_{p,df})/K) = r. It is applied with p = ℓ and f(y) = y² − q^ℓ, since C_{q^ℓr²} is x^ℓ = r²((y/r)² − q^ℓ), and Gal(f) ≅ S_2 exactly when q is not a square.",
+      "locator": "Lemma 2.3, p. 1133; Yu, Theorem 4 (p. 3) and Theorem 4.13 (arXiv:1511.07511)",
+      "status": "missing",
+      "note": "The argument is Mazur–Rubin twisting: a prime at which the local conditions of J and its twist differ changes the Selmer rank by one (Yu §§2–4). The second sentence ('clear from his proof') checks out against Yu's proof. The rank-lowering twist (Proposition 4.2) uses d ≡ 1 modulo a modulus θ containing every bad prime of J_{q^ℓ}, including every prime ramified in K. The rank-raising twist (Proposition 4.12) is trivial at a set Σ(ℓ) containing them. So every twist is by an element that is a unit at the ramified primes, and r can be chosen prime to them."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/24",
+      "kind": "definition",
+      "name": "The prime sets S′, S, S_inert, Σ and the Σ-units",
+      "statement": "S′ is the set of primes dividing ℓ! or the conductor of J_{q^ℓr²}. S ⊆ S′ is the set of 𝔭 ∈ S′ that lie above ℓ or split in K/F. S_inert is the infinite set of primes inert in K. Σ = S ∪ S_inert. 𝒪_{F,Σ}^× = {x ∈ F^× : x ∈ 𝒪_{F,𝔭}^× for every 𝔭 ∉ Σ}.",
+      "locator": "§2.3, p. 1133",
+      "status": "missing",
+      "note": "The group of units away from an arbitrary (even infinite) set of primes is Mathlib's `Set.unit` (Mathlib/RingTheory/DedekindDomain/SInteger.lean). The specific sets S′, S and Σ are the paper's."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/25",
+      "kind": "theorem",
+      "name": "Lemma 2.4 (silent twists preserve the Selmer group)",
+      "statement": "Let t ∈ 𝒪_{F,Σ}^× with t ∈ F_𝔭^{×ℓ} for all 𝔭 ∈ S. Then Sel_φ(J_{q^ℓr²t²}) = Sel_φ(J_{q^ℓr²}) = 0, as subgroups of the common ambient space T = H¹(F, J_{q^ℓ}[φ]). The proof compares local conditions. For 𝔭 ∈ S the two curves are isomorphic over F_𝔭. For 𝔭 inert or ramified in K, T_𝔭 = 0 by Lemma 2.2. Otherwise 𝔭 ∤ ℓ and both Jacobians have good reduction, so W_𝔭 = H¹_un for both.",
+      "locator": "Lemma 2.4, pp. 1133–1134",
+      "status": "missing",
+      "note": "Uses items 20–22. The identification J_{q^ℓr²t²}[φ] ≅ J_{q^ℓ}[φ] is defined only up to a scalar in 𝔽_ℓ^×, which does not change the subspaces W_𝔭."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/26",
+      "kind": "definition",
+      "name": "The classes t_{a,b} and the set X",
+      "statement": "For a, b ∈ F^×, t_{a,b} ∈ F^×/F^{×ℓ} is the class of a^{(ℓ−1)/2}b. X is the set of t_{a,b} with a, b ∈ 𝒪_{F,Σ}^×, (i) 1 = a + 2rb, and (ii) a^{(ℓ−1)/2}b ∈ F_𝔭^{×ℓ} for all 𝔭 ∈ S. Condition (i) serves Proposition 2.7 and (ii) serves Lemma 2.4.",
+      "locator": "§2.4, p. 1134",
+      "status": "missing",
+      "note": "The published version lists conditions (i) and (ii) explicitly. arXiv v1 has only the set-builder definition."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/27",
+      "kind": "theorem",
+      "name": "Proposition 2.5 (infinitely many admissible Σ-unit solutions)",
+      "statement": "X is infinite. Proof (§3): let 𝔪 be the conductor of K/F and ψ : Cl_F(𝔪) → ℤ/2 the character of K/F. Choose γ ∈ 𝒪_F with γ ∈ 𝔭 exactly for 𝔭 ∈ S, and apply Proposition 3.1 with β = 2rγ^{nℓ}, n large. If 𝔪 = 1, take I a prime ideal with [I] ∉ ker ψ, so that every I-prime is an S_inert-unit. If 𝔪 ≠ 1, take I = 𝒪_F and prescribe the p_i modulo 𝔪 so that they are inert in K. In both cases impose p_2 ≡ p_3 (mod 𝔭^n) for 𝔭 ∈ S, and set a = p_1/p_3 and b = γ^{nℓ}p_2/p_3. Then a^{(ℓ−1)/2}b = (1 − 2rb)^{(ℓ−1)/2}γ^{nℓ}p_2/p_3 is an ℓ-th power at every 𝔭 ∈ S. Infinitude: the ideals (p_1^{(ℓ−1)/2}p_2p_3^{(ℓ−1)/2}) have infinite support, by Siegel–Mahler, and their large primes occur with multiplicity < ℓ.",
+      "locator": "Proposition 2.5, p. 1134; proof in §3, pp. 1136–1137",
+      "status": "missing",
+      "note": "Uses items 34 and 36–42. Two steps of the proof need repair, recorded as sourceIssues E3 and E6 below. The 2-adic solvability claim in the case 𝔪 ≠ 1 is false as written, and is repaired by replacing r by rδ^ℓ. The infinitude step needs non-proportional triples."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/28",
+      "kind": "theorem",
+      "name": "Northcott finiteness for points of height zero and bounded degree on an abelian variety",
+      "statement": "For an abelian variety A over a number field F and D ≥ 1, the set of points of A(F̄) of degree ≤ D over F and canonical height 0 is finite. Such points are exactly the torsion points of degree ≤ D.",
+      "locator": "proof of Lemma 2.6, p. 1134 (published version)",
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.0"
+      ],
+      "note": "RP.0 plans the height machine with Northcott and Néron–Tate heights on abelian varieties. Tau Ceti has the canonical height of an elliptic curve only (`WeierstrassCurve.Affine.Point.canonicalHeight`). arXiv v1 argued instead through potentially good reduction of CM abelian varieties (Serre–Tate §5) and the Weil bound over a totally ramified extension."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/29",
+      "kind": "theorem",
+      "name": "Lemma 2.6 (only finitely many twists acquire extra torsion)",
+      "statement": "Let n ∈ F^×. There are only finitely many t ∈ F^×/F^{×ℓ} with J_{nt²}(F)_tors ≠ J_{nt²}[φ](F). Proof (published): a torsion point of J_{nt²}(F) is a point of J_n(F̄) of height 0 and degree ≤ ℓ, and there are finitely many by Northcott. Suppose s/t is not an ℓ-th power, and torsion points of J_{nt²}(F) and J_{ns²}(F) give the same P ∈ J_n(F̄). The two twisted Galois actions differ by a nontrivial power of ζ, so P is fixed by ζ and lies in J_n[1 − ζ].",
+      "locator": "Lemma 2.6, p. 1134. arXiv v1, p. 5, has a different proof: a uniform torsion bound from potentially good reduction of CM abelian varieties and Weil bounds, then the characters χ_t",
+      "status": "missing",
+      "note": "Uses items 15 and 28. The v1 proof also works: an abelian variety with potentially good reduction acquires good reduction over a totally ramified extension, since a Frobenius lift splits G_{F_𝔭} = I ⋊ Ẑ."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/30",
+      "kind": "construction",
+      "name": "The twisted Fermat curve and its cover of C_{r²a^{ℓ−1}b²}",
+      "statement": "Over ℚ̄, C_n is a μ_ℓ-quotient of the Fermat curve x^ℓ + y^ℓ = z^ℓ (McCallum). For a, b with a + 2rb = 1, let C̃ : ax^ℓ + 2rby^ℓ = z^ℓ. On z = 1 the map π(x, y) = (axy^{−2}, a^{(ℓ−1)/2}(y^{−ℓ} − rb)) sends C̃ to C_{r²a^{ℓ−1}b²}, and π(1, 1) = P = (a, a^{(ℓ−1)/2}(1 − rb)) ∈ C_{r²a^{ℓ−1}b²}(F).",
+      "locator": "before and in the proof of Proposition 2.7, pp. 1134–1135 (published); introduction, p. 1131",
+      "status": "missing",
+      "note": "Checked symbolically for ℓ = 3, 5, 7: on C̃, (axy^{−2})^ℓ + r²a^{ℓ−1}b² = a^{ℓ−1}(y^{−ℓ} − rb)². arXiv v1 prints axy^{−1}, which does not map C̃ to the curve (sourceIssue E1). The v1 introduction names the wrong Fermat curve (E2). The published version corrects both."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/31",
+      "kind": "theorem",
+      "name": "Proposition 2.7 (the quadratic twist has positive rank)",
+      "statement": "For all but finitely many t_{a,b} ∈ X, J_{r²a^{ℓ−1}b²} has positive rank over F. Proof: outside the finite set of Lemma 2.6, J(F)_tors = J[φ] = {k((0, r a^{(ℓ−1)/2}b) − ∞)}. P − ∞ is not in this set because x(P) = a ≠ 0.",
+      "locator": "Proposition 2.7 and proof, pp. 1134–1135",
+      "status": "missing",
+      "note": "The step 'since a ≠ 0, this is not a torsion point' is left implicit in the paper. On the hyperelliptic curve of genus g = (ℓ − 1)/2, every class of J has a unique reduced representative D − deg(D)∞ with deg D ≤ g, and k(0, ±s) with k ≤ g is reduced. So P − ∞ = kQ_0 forces P = (0, ±s). The brief asks for this to be written out."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/32",
+      "kind": "definition",
+      "name": "I-primes",
+      "statement": "For an ideal I ⊆ 𝒪_F, an element p ∈ I is an I-prime if Nm(p)/Nm(I) is a rational prime, so that (p) = I𝔮 with 𝔮 a prime of degree one.",
+      "locator": "proof of Proposition 2.5, p. 1136; statement of Proposition 3.1, p. 1135",
+      "status": "missing",
+      "note": "This definition belongs to Proposition 3.1 and is routed with it."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/33",
+      "kind": "theorem",
+      "name": "Mitsui's generalized prime number theorem (Siegel–Walfisz over number fields)",
+      "statement": "Prime elements, and prime ideals, of a number field F are equidistributed in ray classes, and in residue classes modulo C, uniformly for moduli up to a power of log of the height, with a Siegel–Walfisz error term. This is the major-arc input for Proposition 3.1.",
+      "locator": "proof of Proposition 3.1, p. 1136, citing Mitsui [18] (Jpn. J. Math. 26 (1956))",
+      "status": "missing",
+      "note": "Neither library has Hecke L-functions or a prime ideal theorem in progressions (the AN.4 audit lists Hecke characters as absent). Chebotarev, planned by Tau Ceti, gives densities without uniformity in the modulus."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/34",
+      "kind": "theorem",
+      "name": "Proposition 3.1 (three primes in a linear equation over a number field, with congruences)",
+      "statement": "Let F be a totally complex number field, I ⊆ 𝒪_F an ideal, C ∈ ℤ^+ prime to I, β ∈ 2𝒪_F nonzero, and u_1, u_2, u_3 ∈ (𝒪_F/(C))^× with u_1 + βu_2 ≡ u_3 (mod C). Then there are infinitely many triples (p_1, p_2, p_3), modulo 𝒪_F^×, with each p_i an I-prime, p_1 + βp_2 = p_3, and p_i ≡ u_i (mod C).",
+      "locator": "Proposition 3.1, p. 1135; proof sketch pp. 1135–1136",
+      "status": "missing",
+      "note": "Proof: Vinogradov's circle method as generalized to number fields by Mitsui (1960), with van der Corput for three-term linear equations. Major arcs use item 33, and minor arcs use Vaughan's identity and Cauchy–Schwarz. The singular series is positive by Hensel lifting; β ∈ 2𝒪_F removes the parity obstruction at 2-adic primes. The sketch has two slips in its formulas (sourceIssues E4, E5). The circle-method count gives more than the statement says: ≫ N^{2d}/(log N)^3 triples of height ≤ N, where d = [F : ℚ], hence infinitely many pairwise non-proportional triples. The infinitude step needs exactly that (E6). Alternatively, the proposition follows from Kai's theorem (item 35)."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/35",
+      "kind": "theorem",
+      "name": "Kai's theorem on linear patterns of prime elements in number fields",
+      "statement": "Kai (arXiv:2306.16983, Theorem 13.1) generalizes Green–Tao–Ziegler to number fields: for a finite-complexity system of affine-linear forms on a lattice W, with local conditions satisfied, there are infinitely many (indeed asymptotically many) points of W at which every form takes prime-element values. It is applied with W ⊂ I² cut out by the congruences mod C and ψ_1 = x, ψ_2 = y, ψ_3 = x + βy.",
+      "locator": "proof of Proposition 3.1, p. 1136, citing [10, Theorem 13.1]",
+      "status": "missing",
+      "note": "This is an alternative input to Proposition 3.1. The paper notes that the three-prime case is classical."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/36",
+      "kind": "theorem",
+      "name": "Class field theory for K/F: ray class character, splitting and conductor",
+      "statement": "A quadratic K/F of conductor 𝔪 corresponds to a surjection ψ : Cl_F(𝔪) → ℤ/2. The primes dividing 𝔪 are exactly those ramified in K. A prime 𝔭 ∤ Disc(K/F) splits in K if and only if [𝔭] ∈ ker ψ. Restricted to Gal(H_𝔪/H) ≅ (𝒪_F/𝔪)^×/π_𝔪(𝒪_F^×), ψ has an index-2 kernel G_0 when K ⊄ H. A principal prime (p) ∤ 𝔪 is inert in K if and only if p mod 𝔪 ∉ G_0, that is, ∏_{𝔭|𝔪} χ_𝔭(p) = −1.",
+      "locator": "proof of Proposition 2.5, pp. 1136–1137",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+      ],
+      "note": "Tau Ceti ClassFieldTheory Layers 12–13 plan the global correspondence and ray class fields. The ray class group and its map to the class group are built in Tau Ceti: `TauCeti.GlobalNumberFields.RayClassGroup`, `rayClassToClassGroup` and `card_ker_rayClassToClassGroup_mul_index`."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/37",
+      "kind": "theorem",
+      "name": "Chebotarev for the abelian extension HK/F",
+      "statement": "If K ⊄ H (the Hilbert class field), there are infinitely many principal primes of F that are inert in K. Every ideal class, in particular one outside ker ψ, contains infinitely many prime ideals.",
+      "locator": "proof of Proposition 2.5, pp. 1136–1137",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+      ],
+      "note": "Tau Ceti Chebotarev plans abelian and Dirichlet-density Chebotarev. Its audit records the construction as unfinished."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/38",
+      "kind": "theorem",
+      "name": "Siegel–Mahler finiteness for S-unit equations",
+      "statement": "For a finite set 𝒮 of primes of F and fixed c, the equation x + cy = 1 has only finitely many solutions in 𝒮-units x, y.",
+      "locator": "proof of Proposition 2.5, p. 1137",
+      "status": "planned",
+      "planned": [
+        "DiophantineApproximationAndTranscendence:DT.2"
+      ],
+      "note": "DT.2 plans S-unit equations (x + y = 1 in S-units). Its audit notes that only the S-unit group and its finite generation (`Set.unit_fg`, Tau Ceti) exist."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/39",
+      "kind": "theorem",
+      "name": "Units close to 1 are ℓ-th powers",
+      "statement": "For every prime 𝔭 of F, including 𝔭 | ℓ, there is k with 1 + 𝔭^k ⊆ F_𝔭^{×ℓ}. This is used to make 1 − 2rb, γ^{nℓ} and p_2/p_3 ℓ-th powers at 𝔭 ∈ S.",
+      "locator": "proof of Proposition 2.5, p. 1136",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group"
+      ],
+      "note": "Tau Ceti LocalFieldsRamification Layer 1 plans `isOpen_range_powMonoidHom` with U(K, i + v(n)) ⊆ (K^×)^n in mixed characteristic. The tame case 𝔭 ∤ ℓ is built: `TauCeti.HenselianRing.exists_pow_eq_and_sub_one_mem_of_sub_one_mem`."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/40",
+      "kind": "theorem",
+      "name": "Local solvability of the residue conditions modulo 𝔪",
+      "statement": "When 𝔪 ≠ 1, there are units t_1, t_2, t_3 modulo 𝔪 outside G_0, and units x, y, z modulo 𝔪, with t_1x² + βt_2y² ≡ t_3z² (mod 𝔪), where β = 2rγ^{nℓ}. Then u_i = t_ix², t_2y², t_3z² are admissible residues for Proposition 3.1 whose primes are inert in K. The paper argues that one may take t_1 = t_3, that there is then no obstruction at 2-adic 𝔭 | 𝔪, and that at odd 𝔭 | 𝔪 the equation is a smooth conic (r ∉ 𝔭, γ ∉ 𝔭). Corrected argument: replace r by rδ^ℓ, where δ ∈ 𝒪_F is divisible by 𝔭^{v_𝔭(𝔪)} for each 2-adic 𝔭 | 𝔪 and by no other prime. Then C_{q^ℓr²δ^{2ℓ}} ≅ C_{q^ℓr²}, so Lemma 2.3 still holds, and β ≡ 0 modulo the 2-adic part of 𝔪, so x = y = z = 1 works there with t_1 = t_3. At odd 𝔭 | 𝔪 the conic has a point with xyz ≠ 0 since #𝒪_F/𝔭 ≥ 2ℓ + 1 ≥ 7.",
+      "locator": "proof of Proposition 2.5, p. 1137",
+      "status": "missing",
+      "note": "The 2-adic claim as printed is false: see sourceIssue E3, with a counterexample verified by exhaustive search over (ℤ[ζ_3]/4)^×. The statement above is the corrected one."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/41",
+      "kind": "construction",
+      "name": "The Σ-unit solution (a, b) from a prime triple",
+      "statement": "Given I-primes with p_1 + 2rγ^{nℓ}p_2 = p_3 and p_2 ≡ p_3 (mod 𝔭^n) for 𝔭 ∈ S, set a = p_1/p_3 and b = γ^{nℓ}p_2/p_3. Then a, b ∈ 𝒪_{F,Σ}^×, a + 2rb = 1, and for n large a^{(ℓ−1)/2}b is an ℓ-th power at every 𝔭 ∈ S. The ideal (a^{(ℓ−1)/2}b) equals 𝔱_{p_1,p_2,p_3}(γ^n p_3^{−1})^ℓ with 𝔱 = (p_1^{(ℓ−1)/2}p_2p_3^{(ℓ−1)/2}).",
+      "locator": "(3.1) and the end of the proof of Proposition 2.5, pp. 1136–1137",
+      "status": "missing",
+      "note": "This is the bridge from Proposition 3.1 to the set X."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/42",
+      "kind": "construction",
+      "name": "An element γ with prime support exactly S",
+      "statement": "There is γ ∈ 𝒪_F whose prime divisors are exactly the primes of S: take γ = ∏_{𝔭∈S} γ_𝔭 with (γ_𝔭) = 𝔭^{h_F}, h_F the class number.",
+      "locator": "proof of Proposition 2.5, p. 1136",
+      "status": "library",
+      "library": [
+        "mathlib:NumberField.RingOfIntegers.instFintypeClassGroup",
+        "mathlib:NumberField.classNumber"
+      ],
+      "note": "Finiteness of the class group of a number field is Mathlib's (`NumberField.RingOfIntegers.instFintypeClassGroup`, `NumberField.classNumber`), and 𝔭^{h_F} is principal because the class of 𝔭 has order dividing h_F."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/43",
+      "kind": "theorem",
+      "name": "Assembly of the proof of Theorem 1.1",
+      "statement": "With ζ_ℓ ∈ F and K/F unramified above ℓ, fix r (Lemma 2.3) and (a, b) as in Proposition 2.7. Then rank J_{r²a^{ℓ−1}b²}(F) > 0, and by Lemmas 2.1 and 2.4, rank J_{q^ℓr²a^{ℓ−1}b²}(F) = 0. By item 13, rank J_{r²a^{ℓ−1}b²}(K) = rank J_{r²a^{ℓ−1}b²}(F) + rank J_{q^ℓr²a^{ℓ−1}b²}(F) = rank J_{r²a^{ℓ−1}b²}(F) > 0. Remove ζ_ℓ by Weil restriction (item 12).",
+      "locator": "§4, pp. 1137–1138",
+      "status": "missing",
+      "note": "This is the final step of Theorem 1.1."
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/44",
+      "kind": "theorem",
+      "name": "Siegel–Mahler support argument: infinitely many ℓ-th power classes",
+      "statement": "If a family of Σ-unit solutions (a, b) of a + 2rb = 1 has ideals (a^{(ℓ−1)/2}b) whose prime-to-𝒮 parts involve infinitely many primes with exponent ≢ 0 mod ℓ, then {a^{(ℓ−1)/2}b} meets infinitely many classes of F^×/F^{×ℓ}.",
+      "locator": "end of the proof of Proposition 2.5, p. 1137",
+      "status": "missing",
+      "note": "This is the final counting step of Proposition 2.5. As printed, it relies on the multiplicity claim that fails for proportional triples (E6)."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "M. Yu, Selmer ranks of twists of hyperelliptic curves and superelliptic curves, J. Number Theory 160 (2016), 148–185",
+      "link": "https://arxiv.org/abs/1511.07511",
+      "why": "Lemma 2.3: a μ_ℓ-twist with trivial (1 − ζ)-Selmer group (Theorem 4 = Theorem 4.13), by Mazur–Rubin twisting of superelliptic Jacobians."
+    },
+    {
+      "citation": "B. Mazur, K. Rubin, A. Shlapentokh, Existential definability and diophantine stability, J. Number Theory 254 (2024), 1–64",
+      "link": "https://arxiv.org/abs/2208.09963",
+      "why": "Theorems 3.1 and 4.8: rank stability gives Diophantine definitions of 𝒪_F over 𝒪_K, and quadratic rank stability everywhere gives ℤ Diophantine over every 𝒪_K. Corollary 1.2 rests on these."
+    },
+    {
+      "citation": "B. Mazur, K. Rubin, Ranks of twists of elliptic curves and Hilbert's tenth problem, Invent. Math. 181 (2010), 541–575",
+      "link": "https://doi.org/10.1007/s00222-010-0252-0",
+      "why": "The twisting method behind Yu's theorem, and (§8) Shlapentokh's earlier cyclic-prime-degree criterion."
+    },
+    {
+      "citation": "J. Denef, Diophantine sets over algebraic integer rings. II, Trans. Amer. Math. Soc. 257 (1980), 227–236",
+      "link": "https://doi.org/10.1090/S0002-9947-1980-0549163-X",
+      "why": "ℤ is Diophantine over the ring of integers of a totally real field; the base case in MRS Theorem 4.8."
+    },
+    {
+      "citation": "J. Denef, L. Lipshitz, Diophantine sets over some rings of algebraic integers, J. London Math. Soc. (2) 18 (1978), 385–391",
+      "link": "https://doi.org/10.1112/jlms/s2-18.3.385",
+      "why": "Quadratic extensions of totally real fields, and the conjecture that ℤ is Diophantine in every 𝒪_K."
+    },
+    {
+      "citation": "A. Shlapentokh, Elliptic curves retaining their rank in finite extensions and Hilbert's tenth problem for rings of algebraic numbers, Trans. Amer. Math. Soc. 360 (2008), 3541–3555",
+      "link": "https://doi.org/10.1090/S0002-9947-08-04302-X",
+      "why": "The elliptic-curve form of item 4 (rank E(F) = rank E(K) > 0 gives 𝒪_F Diophantine in 𝒪_K); MRS Theorem 3.1 generalizes it."
+    },
+    {
+      "citation": "B. Poonen, Using elliptic curves of rank one towards the undecidability of Hilbert's tenth problem over rings of algebraic integers, ANTS V, LNCS 2369 (2002), 33–42",
+      "link": "https://doi.org/10.1007/3-540-45455-1_4",
+      "why": "The first rank-stability criterion (rank one), with the denominator-divisibility method MRS generalizes."
+    },
+    {
+      "citation": "T. Mitsui, On the Goldbach problem in an algebraic number field. I, II, J. Math. Soc. Japan 12 (1960), 290–324, 325–372",
+      "link": "https://doi.org/10.2969/jmsj/01230290",
+      "why": "The number-field circle method for three primes behind Proposition 3.1."
+    },
+    {
+      "citation": "T. Mitsui, Generalized prime number theorem, Japan. J. Math. 26 (1956), 1–42",
+      "link": "https://doi.org/10.4099/jjm1924.26.0_1",
+      "why": "Siegel–Walfisz for prime elements of a number field (major arcs of Proposition 3.1)."
+    },
+    {
+      "citation": "W. Kai, Linear patterns of prime elements in number fields, arXiv:2306.16983 (2023+)",
+      "link": "https://arxiv.org/abs/2306.16983",
+      "why": "Theorem 13.1, the alternative input to Proposition 3.1 (Green–Tao–Ziegler over number fields)."
+    },
+    {
+      "citation": "B. Mazur, K. Rubin, Diophantine stability (with an appendix by M. Larsen), Amer. J. Math. 140 (2018), 571–616",
+      "link": "https://doi.org/10.1353/ajm.2018.0014",
+      "why": "Silent primes and the framework of diophantine stability used in §2."
+    },
+    {
+      "citation": "B. Poonen, E. F. Schaefer, Explicit descent for Jacobians of cyclic covers of the projective line, J. Reine Angew. Math. 488 (1997), 141–188",
+      "link": "https://doi.org/10.1515/crll.1997.488.141",
+      "why": "Background on (1 − ζ)-Selmer groups of Jacobians of cyclic covers, cited for §2.1."
+    },
+    {
+      "citation": "W. G. McCallum, On the Shafarevich–Tate group of the Jacobian of a quotient of the Fermat curve, Invent. Math. 93 (1988), 637–666",
+      "link": "https://doi.org/10.1007/BF01410203",
+      "why": "C_n as a μ_ℓ-quotient of the Fermat curve (before Proposition 2.7)."
+    },
+    {
+      "citation": "K. Eisenträger, Hilbert's tenth problem and arithmetic geometry, Ph.D. thesis, UC Berkeley (2003), Chapter 7",
+      "link": "PhD thesis, University of California, Berkeley, 2003; no working online copy was found (the author-page link listed at numbertheory.org/ntw/N5.html no longer resolves)",
+      "why": "The consequence for finitely generated infinite ℤ-algebras stated after Corollary 1.2."
+    },
+    {
+      "citation": "P. Koymans, C. Pagano, Hilbert's tenth problem via additive combinatorics, arXiv:2412.01768 (2024+)",
+      "link": "https://arxiv.org/abs/2412.01768",
+      "why": "An independent proof of Corollary 1.2 through 2-Selmer groups of elliptic curves with full 2-torsion; the Part II should record it as a second route to its endpoint."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "ExponentialSumsAndCircleMethod",
+      "stages": [
+        "ExponentialSumsAndCircleMethod:ES.3",
+        "ExponentialSumsAndCircleMethod:ES.4"
+      ],
+      "items": [
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/32",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/34"
+      ],
+      "reason": "ES.4 owns sums-of-primes theorems through a prime-weighted branch (Vaughan identity, Type I/II estimates, uniform major-arc estimates), and asks that each endpoint be a separate source theorem. ES.3 owns singular series and their positivity. Proposition 3.1 is exactly such an endpoint over a number field: three I-primes in the equation p_1 + βp_2 = p_3 with β ∈ 2𝒪_F and congruence conditions. It is Mitsui's generalization of Vinogradov and van der Corput, with a singular series made positive by the parity hypothesis on β. The layer's ℤ-case targets are absent from both libraries (audit), so the number-field version is new but squarely in its direction. The source's sketch has two formula slips (E4, E5) and needs the count to give non-proportional triples (E6)."
+    },
+    {
+      "route": "source",
+      "roadmap": "AnalyticNumberTheory",
+      "stages": [
+        "AnalyticNumberTheory:AN.4"
+      ],
+      "items": [
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/33"
+      ],
+      "reason": "AN.4, as narrowed by RS-07, keeps the prime-ideal applications of Dedekind and Hecke L-functions. Mitsui's generalized prime number theorem (equidistribution of prime elements in ray and residue classes, with Siegel–Walfisz uniformity) is such an application, and it is the major-arc input to Proposition 3.1. The AN.4 audit records Hecke characters and their L-functions as absent."
+    },
+    {
+      "route": "source",
+      "roadmap": "AdditiveCombinatorics",
+      "stages": [
+        "AdditiveCombinatorics:AC.5"
+      ],
+      "items": [
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/35"
+      ],
+      "reason": "AC.5 owns finite-complexity systems of linear equations in primes, with local factors and proportional degeneracies excluded. Kai's Theorem 13.1 is that theorem for prime elements of a number field, and the paper uses it as the alternative proof of Proposition 3.1. AC.5's audit finds no linear-equations-in-primes result in either library."
+    },
+    {
+      "route": "source",
+      "roadmap": "AbelianSchemesAndArithmeticModuli",
+      "stages": [
+        "AbelianSchemesAndArithmeticModuli:A6"
+      ],
+      "items": [
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/13"
+      ],
+      "reason": "A6 owns Weil restriction of abelian schemes along finite étale maps and the arithmetic of their Hom groups, including the induction formula for Tate modules. For quadratic K/F, Res_{K/F}(A_K) is isogenous to A × A^K, which gives rank A(K) = rank A(F) + rank A^K(F). This is the general abelian-variety statement the paper uses twice. The atlas plans only the elliptic case over ℚ (RankZeroOneBSD BSD.1), so the general statement belongs with A6's Weil restriction rather than in a consumer."
+    },
+    {
+      "route": "part-ii",
+      "parent": "LogicAndDefinabilityInNumberTheory",
+      "roadmap": "HilbertTenthProblemOverRingsOfIntegers",
+      "title": "Logic, definability, valued fields and motivic integration, Part II: Hilbert's tenth problem over rings of integers",
+      "area": "modeltheory",
+      "items": [
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/1",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/3",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/4",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/5",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/6",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/7",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/8",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/9",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/14",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/15",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/16",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/18",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/20",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/23",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/24",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/25",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/26",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/27",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/29",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/30",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/31",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/40",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/41",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/43",
+        "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/44"
+      ],
+      "brief": "Build the roadmap to the negative solution of Hilbert's tenth problem over the ring of integers of every number field. The final theorems, exactly as in Alpöge–Bhargava–Ho–Shnidman (Invent. Math. 243 (2025), 1129–1139):\n- Theorem 1.1: for every quadratic extension of number fields K/F there is an abelian variety A/F with rank A(F) = rank A(K) > 0.\n- Corollary 1.2: for every number field K, ℤ is Diophantine over 𝒪_K, so there is no algorithm that decides whether a polynomial equation over 𝒪_K has a solution in 𝒪_K.\n- The consequence after it: the same over every finitely generated infinite ℤ-algebra (Eisenträger's thesis, Chapter 7).\n\nIt starts where LD.4 of Logic, definability, valued fields and motivic integration (LogicAndDefinabilityInNumberTheory) stops: LD.4 owns the MRDP theorem over ℤ, and this Part II owns the transfer to rings of integers that LD.4's acceptance asks to be proved separately. Suggested layers:\n(H0) Diophantine subsets of an arbitrary ring, systems versus one equation, intersections, transitivity, and undecidability transfer (MRS Proposition 2.3, Lemmas 4.3–4.7, including Denef's lemma that 𝒪_K ∖ {0} is Diophantine).\n(H1) Denef 1980: ℤ is Diophantine over 𝒪_M for M totally real; Denef–Lipshitz for quadratic extensions of totally real fields.\n(H2) MRS Theorem 3.1: rank A(K) = rank A(F) ≥ 1 gives 𝒪_F Diophantine over 𝒪_K, with the elliptic cases of Poonen, Cornelissen–Pheidas–Zahidi and Shlapentokh as tests. MRS Theorem 4.8: quadratic rank stability everywhere gives ℤ Diophantine over every 𝒪_K.\n(H3) The curves C_n: y² = x^ℓ + n over F ∋ μ_ℓ. Build their Jacobians with ℤ[ζ]-multiplication, the quadratic and μ_ℓ-twists, φ = 1 − ζ with J_n[φ] ≅ the quadratic character of F(√n), the φ-Selmer group and Lemma 2.1, silent primes (Lemma 2.2), and Yu's theorem (J. Number Theory 160 (2016), Theorem 4) giving Sel_φ(J_{q^ℓr²}) = 0.\n(H4) Silent twists preserve the Selmer group (Lemma 2.4). Then the Σ-unit solutions (Proposition 2.5), torsion in twists (Lemma 2.6), the twisted Fermat cover π(x, y) = (axy^{−2}, a^{(ℓ−1)/2}(y^{−ℓ} − rb)) and positive rank (Proposition 2.7), and Theorem 1.1. Write out the non-torsion step: reduced divisors on the hyperelliptic curve show P − ∞ ∉ J[φ] when x(P) ≠ 0.\n(H5) Corollary 1.2 and the Eisenträger consequence.\n\nUse the corrected arguments of the extraction's sourceIssues. In the case 𝔪 ≠ 1 of Proposition 2.5, replace r by rδ^ℓ with δ supported on the 2-adic primes dividing the conductor 𝔪 of K/F (E3), and derive from Proposition 3.1 infinitely many non-proportional prime triples (E6).\n\nImport, never re-plan:\n- MRDP over ℤ: LogicAndDefinabilityInNumberTheory LD.0, LD.4.\n- The Jacobian of a pointed curve and Albanese functoriality: Jacobian Challenge (tauceti:TauCetiRoadmap/JacobianChallenge), Layers D–F.\n- Hyperelliptic function fields: Algebraic curves (tauceti:TauCetiRoadmap/AlgebraicCurves), Layer 10.\n- Mordell–Weil for abelian varieties, Kummer maps, isogeny Selmer groups and good-prime local conditions: Heights, rational points and obstructions (HeightsRationalPointsAndObstructions) RP.1; Northcott and Néron–Tate heights from RP.0.\n- Selmer structures on Galois modules: Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves), Layer 7.\n- Local Tate duality and the local Euler characteristic: Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory), Layer 5. Ray class characters and splitting: its Layers 12–13, with ray class groups from Global number fields (tauceti:TauCetiRoadmap/GlobalNumberFields).\n- Chebotarev (tauceti:TauCetiRoadmap/Chebotarev), Layer 10.\n- ℓ-th powers of units near 1: Local fields and ramification (tauceti:TauCetiRoadmap/LocalFieldsRamification), Layer 1.\n- Néron–Ogg–Shafarevich: Néron models and semistable abelian varieties (NeronModelsAndSemistableAbelianVarieties) R11.5.\n- Weil restriction, and the quadratic-twist rank identity rank A(K) = rank A(F) + rank A^K(F): Abelian schemes and arithmetic moduli (AbelianSchemesAndArithmeticModuli) A6 (this paper's source route).\n- S-unit finiteness: Diophantine approximation and transcendence (DiophantineApproximationAndTranscendence) DT.2.\n- The three-prime theorem over number fields (Proposition 3.1): Exponential sums, decoupling and the circle method (ExponentialSumsAndCircleMethod) ES.3–ES.4, with Mitsui's Siegel–Walfisz from Analytic number theory (AnalyticNumberTheory) AN.4, or Kai's theorem from Additive combinatorics (AdditiveCombinatorics) AC.5.\n\nRecord Koymans–Pagano (arXiv:2412.01768) as a second route to Corollary 1.2, to be planned when that paper is extracted.\n\nTests: ℓ = 3, where C_n is the CM elliptic curve y² = x³ + n and φ is a 3-isogeny, comparable with Tau Ceti's elliptic curves; the 2-adic example F = ℚ(ζ_3), K = F(i), 𝔪 = (4) of E3; and a negative test that arXiv v1's cover (axy^{−1}, …) does not map to the curve.",
+      "reason": "LD.4 plans the negative answer over ℤ and states that each other ring needs its own interpretation theorem. No layer of the atlas plans Diophantine definitions over rings of integers, the Denef and Mazur–Rubin–Shlapentokh transfer theorems, or rank stability in quadratic extensions. These are new layers in LD.4's direction, so they form a Part II of the Logic roadmap that starts at its MRDP endpoint. The arithmetic of the CM Jacobians of y² = x^ℓ + n is specific to this application: silent primes, Yu's twist, silent twists, the Σ-unit construction and the Fermat-cover points. It lives here, and every general input (Jacobians, isogeny Selmer groups, duality, class field theory, Chebotarev, Weil restriction, S-units, the three-prime theorem) is imported from its owner."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/E1",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 2.7, arXiv v1 p. 5",
+      "printed": "\"consider the cover π: C̃ → C_{r²a^{ℓ−1}b²} given on the affine patch where z = 1 by π(x, y) = (axy^{−1}, a^{(ℓ−1)/2}(y^{−ℓ} − rb))\"",
+      "correction": "π(x, y) = (axy^{−2}, a^{(ℓ−1)/2}(y^{−ℓ} − rb)).",
+      "reason": "On C̃: ax^ℓ + 2rby^ℓ = 1, with X = axy^{−1} and Y = a^{(ℓ−1)/2}(y^{−ℓ} − rb), one gets Y² − X^ℓ − r²a^{ℓ−1}b² = a^{ℓ−1}(y^{−ℓ} − 1)(y^{−ℓ} − 2rb) (symbolic check for ℓ = 3, 5, 7). This vanishes only where y^ℓ = 1 or 2rby^ℓ = 1, so the map does not land in the curve. With X = axy^{−2}, the difference is identically 0. The point P = π(1, 1) = (a, a^{(ℓ−1)/2}(1 − rb)), which is all the proof uses, is the same for both formulas and lies on the curve because a = 1 − 2rb.",
+      "affects": "nothing",
+      "known": "Corrected in the published version, Invent. Math. 243 (2025), p. 1135, which prints π(x, y) = (axy^{−2}, a^{(ℓ−1)/2}(y^{−ℓ} − rb)).",
+      "searched": [
+        "arXiv 2501.18774: only v1 exists (30 January 2025), read in full",
+        "the published version, Invent. Math. 243 (2025), 1129–1139 (open access, CC BY 4.0), read in full and compared with v1",
+        "Crossref metadata for 10.1007/s00222-025-01392-3: no update, erratum or correction relation (a filter for works updating this DOI returns none)",
+        "the authors' research pages (A. Shnidman, W. Ho): no revised version or correction listed"
+      ]
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/E2",
+      "kind": "misprint",
+      "locator": "§1 (introduction), arXiv v1 p. 2",
+      "printed": "\"Once we have such a solution, we obtain an F-rational point on the Fermat curve ax^ℓ + 2ry^ℓ = 1. The latter curve covers C_{r²t²}, where t = a^{(ℓ−1)/2}b.\"",
+      "correction": "The Fermat curve is ax^ℓ + 2rby^ℓ = 1. The solution a + 2rb = 1 is its point (1, 1), which maps to (a, t(1 − rb)b^{−1}) ∈ C_{r²t²}(F).",
+      "reason": "The curve of §2.4 (proof of Proposition 2.7) is C̃: ax^ℓ + 2rby^ℓ = z^ℓ, on which a + 2rb = 1 gives the point (1, 1). On ax^ℓ + 2ry^ℓ = 1, the point corresponding to the solution is (1, b^{1/ℓ}), which is F-rational only when b is an ℓ-th power.",
+      "affects": "nothing",
+      "known": "Corrected in the published version, Invent. Math. 243 (2025), p. 1131: \"Such a solution corresponds to the point (1, 1) on the Fermat curve ax^ℓ + 2rby^ℓ = 1 … sending (1, 1) to (a, t(1 − rb)b^{−1}) ∈ C_{r²t²}(F)\".",
+      "searched": [
+        "arXiv 2501.18774: only v1 exists (30 January 2025), read in full",
+        "the published version, Invent. Math. 243 (2025), 1129–1139 (open access, CC BY 4.0), read in full and compared with v1",
+        "Crossref metadata for 10.1007/s00222-025-01392-3: no update, erratum or correction relation (a filter for works updating this DOI returns none)",
+        "the authors' research pages (A. Shnidman, W. Ho): no revised version or correction listed"
+      ]
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/E3",
+      "kind": "error",
+      "locator": "Proof of Proposition 2.5, case 𝔪 ≠ 1, p. 1137 (published version); the same text in arXiv v1 p. 7",
+      "printed": "\"We need only check that the equation t_1x² + 2rγ^{nℓ}t_2y² = t_3z² has a solution modulo 𝔪 for some choice of units t_1, t_2, t_3 modulo 𝔪. Since we are free to assume t_1 = t_3, there is no local obstruction at 2-adic primes 𝔭 | 𝔪.\"",
+      "correction": "With t_1 = t_3 there can be an obstruction at a 2-adic 𝔭 | 𝔪, whenever v_𝔭(2rγ^{nℓ}) < v_𝔭(𝔪). The conclusion still holds. Repair: replace r by rδ^ℓ, where δ ∈ 𝒪_F is divisible by 𝔭^{v_𝔭(𝔪)} for each 2-adic 𝔭 | 𝔪 and by no other prime (it exists because the class group is finite). Then C_{q^ℓr²δ^{2ℓ}} ≅ C_{q^ℓr²} (§2: C_n ≅ C_{nλ^{2ℓ}}), so Lemma 2.3 and the sets S′, S, Σ are unchanged. The clause r ∉ 𝔭 still holds at the odd ramified primes, where the smooth-conic argument uses it. Now β = 2rδ^ℓγ^{nℓ} ≡ 0 modulo the 2-adic part of 𝔪, so x = y = z = 1 solves the congruence there with t_1 = t_3. Alternatively, keep r and choose t_1 ≠ t_3.",
+      "reason": "Take F_0 = ℚ, K_0 = ℚ(i) and ℓ = 3, which does not divide Disc = −4. §4 replaces these by F = ℚ(ζ_3) and K = F(i) = ℚ(ζ_12), and K/F is unramified above 3. The prime (2) is inert in F/ℚ, so F_(2) = ℚ_4 is unramified over ℚ_2 with residue field 𝔽_4. F_(2)(i)/F_(2) has conductor exponent 2, so 𝔪 = (4). Since (2) ramifies in K, (2) ∉ S and γ ∉ (2); and r ∉ (2) by Lemma 2.3. Hence v_2(β) = 1. Suppose t x² + βt_2y² ≡ t z² (mod 4) with x, y, z units. Then (z/x)² ≡ 1 + βt_2y²/(tx²) (mod 4), which is ≡ 1 mod 2 but ≢ 1 mod 4. But a unit w with w² ≡ 1 (mod 2) has w ≡ 1 (mod 2), since squaring is bijective on 𝔽_4, and then w² ≡ 1 (mod 4). This is a contradiction. An exhaustive search over the 12 units of ℤ[ζ_3]/4 confirms it. Inertness of a principal prime (p) in K is detected by χ(p) = (−1)^{(N(p)−1)/2}, where N is the norm to ℚ; this is the Hilbert symbol (p, −1) at (2), trivial on global units. For every unit value of β/2 there is no solution with t_1 = t_3 and χ(t_1) = χ(t_2) = −1. Yet admissible residues exist with t_1 ≠ t_3: for β ≡ 2, u_1 = u_2 = 1 + 2ζ_3 and u_3 = u_1 + βu_2 ≡ 3 + 2ζ_3 (mod 4), with norms 3, 3, 7 ≡ 3 (mod 4).",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 2501.18774: only v1 exists (30 January 2025), read in full",
+        "the published version, Invent. Math. 243 (2025), 1129–1139 (open access, CC BY 4.0), read in full and compared with v1",
+        "Crossref metadata for 10.1007/s00222-025-01392-3: no update, erratum or correction relation (a filter for works updating this DOI returns none)",
+        "the authors' research pages (A. Shnidman, W. Ho): no revised version or correction listed",
+        "the published version repeats the arXiv v1 wording of this step verbatim (p. 1137)"
+      ]
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/E4",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 3.1 (sketch), p. 1136 (published version); arXiv v1 p. 6",
+      "printed": "\"The finite part of the singular series is (ignoring small primes) ∏_𝔭 lim_{n→∞} Nm(𝔭)(Nm(𝔭) − 1)^{−3} #{(p_1, p_2) : p_1, p_2, p_1 + βp_2 ∈ (𝒪_F/𝔭^n)^×}\"",
+      "correction": "∏_𝔭 lim_{n→∞} Nm(𝔭)^{3−2n}(Nm(𝔭) − 1)^{−3} #{(p_1, p_2) ∈ (𝒪_F/𝔭^n)² : p_1, p_2, p_1 + βp_2 ∈ (𝒪_F/𝔭^n)^×}: the count needs the normalization Nm(𝔭^{n−1})^{−2}. For 𝔭 ∤ β the local factor is Nm𝔭(Nm𝔭 − 2)/(Nm𝔭 − 1)² = 1 − (Nm𝔭 − 1)^{−2}.",
+      "reason": "The condition is a condition modulo 𝔭, so the set counted has Nm(𝔭)^{2(n−1)} times as many elements as its reduction mod 𝔭. For 𝔭 ∤ β with q = Nm𝔭, the reduction has (q − 1)(q − 2) elements. The printed n-th term is therefore q^{2n−1}(q − 2)/(q − 1)², which tends to infinity for every 𝔭 with q ≥ 3, so the product as printed diverges. With the normalization the factors are 1 − (q − 1)^{−2} and the product converges.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2501.18774: only v1 exists (30 January 2025), read in full",
+        "the published version, Invent. Math. 243 (2025), 1129–1139 (open access, CC BY 4.0), read in full and compared with v1",
+        "Crossref metadata for 10.1007/s00222-025-01392-3: no update, erratum or correction relation (a filter for works updating this DOI returns none)",
+        "the authors' research pages (A. Shnidman, W. Ho): no revised version or correction listed",
+        "the published version prints the same formula (p. 1136)"
+      ]
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/E5",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 3.1 (sketch), p. 1135 (published version); arXiv v1 p. 6",
+      "printed": "\"1/(Nm_{F/ℚ} C)^3 Σ_{α_1, α_2, α_3 ∈ 𝒪_F/(C)} e(−tr_{F/ℚ}(α_1u_1 + α_2u_2 + α_3u_3)/C) ∫_{ξ ∈ (𝔡_{F/ℚ}I)^{−1} ⊗_ℤ ℝ/ℤ} dξ S_N(ξ + α_1/C) S_N(βξ + α_2/C) S_N(−ξ + α_3/C)\"",
+      "correction": "To impose p_i ≡ u_i (mod C) the α_i must run over 𝔡_{F/ℚ}^{−1}/C𝔡_{F/ℚ}^{−1} (with the same normalization). With α_i ∈ 𝒪_F/(C), as printed, the expression counts solutions with p_i ≡ u_i modulo C𝔡_{F/ℚ}^{−1} ∩ 𝒪_F.",
+      "reason": "For x ∈ 𝒪_F, Σ_{α ∈ 𝒪_F/C𝒪_F} e(tr(αx)/C) = Nm(C)·1[x ∈ C𝔡^{−1}], since α ↦ e(tr(αx/C)) is trivial on 𝒪_F exactly when x/C lies in the inverse different. C𝔡^{−1} ∩ 𝒪_F strictly contains C𝒪_F whenever C and 𝔡 share a prime. That happens in the application: C must be divisible by the primes of S above ℓ, and ℓ ramifies in F ⊇ ℚ(ζ_ℓ).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2501.18774: only v1 exists (30 January 2025), read in full",
+        "the published version, Invent. Math. 243 (2025), 1129–1139 (open access, CC BY 4.0), read in full and compared with v1",
+        "Crossref metadata for 10.1007/s00222-025-01392-3: no update, erratum or correction relation (a filter for works updating this DOI returns none)",
+        "the authors' research pages (A. Shnidman, W. Ho): no revised version or correction listed",
+        "the published version prints the same expression (p. 1135)"
+      ]
+    },
+    {
+      "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/E6",
+      "kind": "gap",
+      "locator": "End of the proof of Proposition 2.5, p. 1137 (published version), with the statement of Proposition 3.1, p. 1135; arXiv v1 pp. 5–7",
+      "printed": "\"For each of the infinitely many triples (p_1, p_2, p_3) produced by the above construction, the ideal 𝔱_{p_1,p_2,p_3} := (p_1^{(ℓ−1)/2} p_2 p_3^{(ℓ−1)/2}) is such that any large enough prime factor occurs with multiplicity strictly smaller than ℓ. Moreover the collection of such ideals has infinite support, else we would be producing infinitely many solutions to an 𝒮-unit equation for a finite set 𝒮 of primes, contradicting the theorem of Siegel and Mahler.\"",
+      "correction": "The argument needs infinitely many pairwise non-proportional triples. Proposition 3.1 should say so; its proof gives it, since the circle-method count (or Kai's asymptotic) of triples of height ≤ N is ≫ N^{2d}/(log N)^3 with d = [F : ℚ], against O(N^d) triples proportional to a fixed one. The multiplicity claim should be stated for non-proportional triples.",
+      "reason": "Suppose ε_1 + βε_2 = ε_3 has a solution in units ε_i ∈ 𝒪_F^×. Then for every I-prime π satisfying the congruences, (ε_1π, ε_2π, ε_3π) is a triple as in Proposition 3.1. For it 𝔱 = (π)^ℓ, up to a power of I, so its large prime factor has multiplicity exactly ℓ, contrary to the first sentence. It also yields the same (a, b) = (ε_1/ε_3, γ^{nℓ}ε_2/ε_3) for every π. Proposition 3.1 as stated ('infinitely many triples (p_1, p_2, p_3) (mod 𝒪_F^×)') does not exclude that all but finitely many of its triples are of this form. The paper does not check whether such unit solutions exist for the chosen β. So the step from Proposition 3.1 to the infinitude of X is incomplete as written, though it is repaired by the count in its proof.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 2501.18774: only v1 exists (30 January 2025), read in full",
+        "the published version, Invent. Math. 243 (2025), 1129–1139 (open access, CC BY 4.0), read in full and compared with v1",
+        "Crossref metadata for 10.1007/s00222-025-01392-3: no update, erratum or correction relation (a filter for works updating this DOI returns none)",
+        "the authors' research pages (A. Shnidman, W. Ho): no revised version or correction listed",
+        "the published version has the same argument (p. 1137)"
+      ]
+    }
+  ]
+}
