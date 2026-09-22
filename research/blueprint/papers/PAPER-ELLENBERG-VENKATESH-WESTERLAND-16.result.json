@@ -1,0 +1,2866 @@
+{
+  "paper": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "source": {
+    "title": "Homological stability for Hurwitz spaces and the Cohen-Lenstra conjecture over function fields",
+    "authors": "Jordan S. Ellenberg, Akshay Venkatesh and Craig Westerland",
+    "venue": "Annals of Mathematics 183 (2016), no. 3, 729–786",
+    "doi": "10.4007/annals.2016.183.3.1",
+    "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p01-p.pdf",
+    "version": "Published 58-page PDF, downloaded and read 2026-09-22",
+    "sha256": "6c10d770348c625ad9fe80d2c47093cde2a2ba05f39a28d547743f0f4993a7f6",
+    "readSections": [
+      "Complete published paper: introduction §§1.1–1.11, §§2–8, every displayed proof, Table 1 and references; extracted text lines 1–2734.",
+      "Rendered printed pp.733,739,763,772,774,777,779 checked against extraction; other displayed expressions checked in text."
+    ]
+  },
+  "summary": "Nonsplitting finite-group Hurwitz spaces admit linear-range homological stabilization by a central sum of gluing operators. Tame comparison gives exponential uniform Betti bounds, and symplectic monodromy plus trace/weight estimates gives Cohen–Lenstra surjection moments and large-q limits of degree-density liminf/sup. No fixed-q distribution limit or Frobenius-equivariant stabilization is proved. This checkpoint includes a replacement proof of the enlargement counting step, explicit source findings and finite regression witnesses, but retains recursive source and general noncommutative-Tor ownership gaps.",
+  "conventions": [
+    "Unless an item specifies otherwise, §§3–6 use finite G, one conjugacy class c generating G and satisfying nonsplitting, and a field k with |G| invertible. g^h=h^{-1}gh.",
+    "Graded modules are nonnegatively graded; degree is the supremum of nonzero degrees with explicit bottom for zero and infinity for unbounded modules. M[q]_n=M_(n−q), zero for n<q.",
+    "Arithmetic conclusions in this checkpoint require q odd, ell an odd prime, ell not dividing q(q−1), and A a finite abelian ell-group. Distinguish the statistical prime ell from the auxiliary etale coefficient prime L.",
+    "All library claims concern only the displayed generic carrier/theorem, not the EVW-specific adapter. All API names are planning names, not existing Lean declarations."
+  ],
+  "items": [
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1",
+      "kind": "construction",
+      "name": "Singular chain and homology functors",
+      "statement": "For a coefficient object in a preadditive category with coproducts, singular chains are obtained from the singular simplicial set; when homology exists, singular homology is a functor of spaces.",
+      "locator": "§§2,5; pinned Basic.lean:36,52",
+      "status": "library",
+      "routingGroup": "library",
+      "dependsOn": [],
+      "library": [
+        "mathlib:AlgebraicTopology.singularChainComplexFunctor",
+        "mathlib:AlgebraicTopology.singularHomologyFunctor"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/2",
+      "kind": "construction",
+      "name": "Artin braid group carrier",
+      "statement": "The n-strand braid group is the Artin group of the A_(n−1) Coxeter matrix, with n−1 generators, adjacent braid relations and distant commutation; its universal map is determined by images satisfying those relations.",
+      "locator": "§1.3, §2.1; pinned Braid.lean:97–205",
+      "status": "library",
+      "routingGroup": "library",
+      "dependsOn": [],
+      "library": [
+        "tauceti:TauCeti.BraidGroup",
+        "tauceti:TauCeti.BraidGroup.lift"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/3",
+      "kind": "construction",
+      "name": "Conjugation quandle",
+      "statement": "For a group G, the conjugation quandle operation is x ◃ y = xyx^{-1}. This is the positive Hurwitz-move operation, whereas EVW's exponent notation is g^h=h^{-1}gh.",
+      "locator": "§1.3.2; pinned Quandle.lean:370–425",
+      "status": "library",
+      "routingGroup": "library",
+      "dependsOn": [],
+      "library": [
+        "mathlib:Quandle.Conj",
+        "mathlib:Quandle.conj_act_eq_conj"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/4",
+      "kind": "construction",
+      "name": "Monoid algebra carrier",
+      "statement": "For a semiring k and monoid S, MonoidAlgebra k S consists of finitely supported k-coefficients with convolution. For commutative k and a k-algebra B, monoid maps S→B extend uniquely to algebra maps.",
+      "locator": "§3.3; pinned MonoidAlgebra/Defs.lean:75, Basic.lean:237",
+      "status": "library",
+      "routingGroup": "library",
+      "dependsOn": [],
+      "library": [
+        "mathlib:MonoidAlgebra",
+        "mathlib:MonoidAlgebra.lift"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/5",
+      "kind": "construction",
+      "name": "Spectral sequence carrier",
+      "statement": "In an abelian category C, a spectral sequence with chosen complex shapes consists of pages and specified identifications of each page's homology with the next page; this alone supplies no filtration, convergence or EVW differential.",
+      "locator": "§§4–5; pinned SpectralSequence/Basic.lean:35",
+      "status": "library",
+      "routingGroup": "library",
+      "dependsOn": [],
+      "library": [
+        "mathlib:CategoryTheory.SpectralSequence"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/6",
+      "kind": "construction",
+      "name": "Semidirect product carrier",
+      "statement": "Given groups N,H and an action H→Aut(N), SemidirectProduct N H has multiplication (n,h)(n',h')=(n·h(n'),hh'), canonical inclusions and quotient to H.",
+      "locator": "§8.6; pinned SemidirectProduct.lean:34–165",
+      "status": "library",
+      "routingGroup": "library",
+      "dependsOn": [],
+      "library": [
+        "mathlib:SemidirectProduct",
+        "mathlib:SemidirectProduct.inl",
+        "mathlib:SemidirectProduct.inr",
+        "mathlib:SemidirectProduct.rightHom"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/7",
+      "kind": "construction",
+      "name": "Symplectic matrix carrier",
+      "statement": "For a commutative ring R and finite index set I, symplecticGroup I R comprises matrices preserving the standard alternating matrix J by A J Aᵀ=J. No general GSp multiplier-orbit theorem is included in this claim.",
+      "locator": "§8.9; pinned SymplecticGroup.lean:101–117",
+      "status": "library",
+      "routingGroup": "library",
+      "dependsOn": [],
+      "library": [
+        "mathlib:Matrix.symplecticGroup",
+        "mathlib:SymplecticGroup.mem_iff"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/8",
+      "kind": "definition",
+      "name": "Ordered and unordered disc configurations",
+      "statement": "PConf_n(D) consists of ordered n-tuples of pairwise distinct interior points of the closed disc; Conf_n(D) is the quotient by S_n. Fix a boundary basepoint and a standard real ordered configuration.",
+      "locator": "§2.1",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [],
+      "api": [
+        "orderedConfig : n-tuples with pairwise-distinct proof; unorderedConfig := quotient by permutations",
+        "forgetOrder : orderedConfig→unorderedConfig with S_n-fibre and basepoint interface"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "n=0 gives a point",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "n=1 gives the disc interior",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "a repeated coordinate is rejected",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/9",
+      "kind": "theorem",
+      "name": "Configuration asphericity and braid identification",
+      "statement": "Conf_n(D) is a K(B_n,1); the fundamental group at the standard configuration identifies with mapping classes of the punctured disc fixing the boundary, with generators exchanging adjacent punctures.",
+      "locator": "§§1.3,2.1",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/2",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/8"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/10",
+      "kind": "theorem",
+      "name": "Free punctured-disc fundamental group",
+      "statement": "The fundamental group of the n-punctured disc based on the boundary is free on positively oriented peripheral loops; change of peripheral generators is effected by a boundary-fixing diffeomorphism.",
+      "locator": "§2.1",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/8"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/11",
+      "kind": "construction",
+      "name": "Hurwitz action on monodromy tuples",
+      "statement": "The braid generator sigma_i acts on G^n by replacing (g_i,g_(i+1)) with (g_i g_(i+1) g_i^{-1},g_i). This gives a B_n action preserving the product, generated subgroup and each conjugacy-class multiplicity.",
+      "locator": "§§1.3.2,2.1–2.2",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/2",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/3",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/10"
+      ],
+      "api": [
+        "hurwitzAction : B_n action on G^n with specified generator formula",
+        "action_preserves_product/generatedSubgroup/classMultiset"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "one positive move then its inverse is identity",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "S3 adjacent generators satisfy the braid relation",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "n=0 and n=1 actions are trivial",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/12",
+      "kind": "definition",
+      "name": "Four Hurwitz covering spaces",
+      "statement": "Using the universal cover of Conf_n and its deck action, define Hur_G,n from Hom(F_n,G), Hur^c from Hom with each peripheral image in c, CHur from Sur(F_n,G), and CHur^c from surjections with peripheral images in c. Fibres are respectively G^n,c^n,generating G-tuples,generating c-tuples.",
+      "locator": "Definition 2.2, p.739; corrected respectively order E2",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/9",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/10",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/11"
+      ],
+      "api": [
+        "hurwitzSpace(kind,n) : TopCat with projection to Conf_n and displayed fibre",
+        "fullMonodromyIncl and classLocusIncl commute with projection"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "n=0 permits only the trivial image subgroup",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "c not generating G gives empty CHur^c",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "Def2.2 fibre order distinguishes generating G from generating c",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/13",
+      "kind": "theorem",
+      "name": "Borel model and finite covering degree",
+      "statement": "For finite G, the four spaces are finite covers of Conf_n and have homotopy types E B_n ×_(B_n) S for their specified fibres S. In particular deg(Hur^c→Conf_n)=|c|^n.",
+      "locator": "Definition 2.2 and §2.3",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/12"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/14",
+      "kind": "construction",
+      "name": "Simultaneous conjugation and unmarked quotient",
+      "statement": "Termwise G-conjugation of monodromy commutes with the braid action and induces G-actions on all four Hurwitz spaces. Quotienting forgets the selected lift of the boundary basepoint.",
+      "locator": "§§2.2–2.3",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/11",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/12"
+      ],
+      "api": [
+        "conjugateCover : G-action commuting with projection and braid action",
+        "forgetMarking : Hur→Hur/G with stabilizer identified from global monodromy"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "a central g fixes every tuple",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "for surjective monodromy stabilizer is Z(G)",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "changing a marking conjugates every entry",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/15",
+      "kind": "definition",
+      "name": "Marked topological branched G-cover",
+      "statement": "A marked cover comprises a finite branched cover Y→D, a G-action identifying the unramified locus as a G-torsor, specified local ramification types, and a point over the boundary basepoint; isomorphisms respect every datum. Surjectivity of monodromy means Y is connected.",
+      "locator": "§2.3",
+      "status": "missing",
+      "routingGroup": "cover",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/12"
+      ],
+      "api": [
+        "MarkedCover stores cover map, torsor/G-action, branch data and marked lift",
+        "MarkedCoverIso preserves map, action and marked lift; monodromy is invariant under it"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "trivial G unbranched cover",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "connectedness iff monodromy surjects",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "moving the marked lift gives conjugation",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/16",
+      "kind": "theorem",
+      "name": "Topological monodromy classification",
+      "statement": "Monodromy gives the bijection between isomorphism classes of marked G-covers with a fixed branch divisor and homomorphisms F_n→G, with local classes and connectedness corresponding to the restricted fibres; forgetting the marking quotients by conjugation.",
+      "locator": "§2.3",
+      "status": "missing",
+      "routingGroup": "cover",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/10",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/14",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/15"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/17",
+      "kind": "definition",
+      "name": "Global, boundary and Nielsen monodromy",
+      "statement": "A marked c-tuple has global monodromy subgroup generated by its entries, boundary monodromy their ordered product, and Nielsen multiset of their conjugacy classes. These are constant on braid orbits; global subgroup is literal before G-conjugation and only a conjugacy class after it.",
+      "locator": "§2.3",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/11"
+      ],
+      "api": [
+        "globalMonodromy, boundaryMonodromy, nielsenMultiset on marked tuples",
+        "braidInvariant for all three; conjugation transport for unmarked covers"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "empty tuple has subgroup 1 and product 1",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "two inverse entries give boundary 1 but nontrivial global group",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "reordering via braids preserves ordered product",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/18",
+      "kind": "construction",
+      "name": "Gluing covers and homology multiplication",
+      "statement": "Gluing two marked disc covers along boundary intervals gives Hur_G,n×Hur_G,m→Hur_G,n+m, associative up to the indicated homotopy and G-equivariant. On fibres this concatenates tuples; on homology it gives graded multiplication and the H_0 module action.",
+      "locator": "§2.4",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/15",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/16",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1"
+      ],
+      "api": [
+        "glue : MarkedCover_n×MarkedCover_m→MarkedCover_(n+m) with boundary identifications",
+        "glue_assocHomotopy and glue_conjugation; induced homology multiplication"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "empty cover is unit",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "boundary product multiplies in the chosen order",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "threefold gluing agrees on H_0",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/19",
+      "kind": "theorem",
+      "name": "Finite-cell exponential bound",
+      "statement": "Conf_n has a CW model with at most 2^n cells. Its finite cover Hur^c has a model with at most (2|G|)^n cells, hence every Betti number over any field is at most (2|G|)^n.",
+      "locator": "§2.5, using Salvetti",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/13",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/111"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/20",
+      "kind": "definition",
+      "name": "Nonsplitting conjugacy class",
+      "statement": "A pair (G,c) is nonsplitting when c generates G and for every subgroup H≤G, c∩H is empty or one H-conjugacy class. A union of multiple classes is not silently included in Theorem 6.1.",
+      "locator": "Definition 3.1",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [],
+      "api": [
+        "Nonsplitting G c records generating and all-subgroup intersection conditions",
+        "restrictToGeneratedSubgroup : nonsplitting passes to Q with c∩Q generating Q"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "C2 singleton involution class succeeds",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "generalized dihedral odd A succeeds",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "S4 transpositions fail on a Klein subgroup containing two disjoint transpositions",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/21",
+      "kind": "theorem",
+      "name": "Odd-index involution example",
+      "statement": "If |G|=2s with s odd and c is the generating class of involutions, then every nonempty c∩H is one H-class, so (G,c) is nonsplitting.",
+      "locator": "Lemma 3.2",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/20"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/22",
+      "kind": "definition",
+      "name": "Braid-orbit monoid",
+      "statement": "S=disjoint union over n of c^n/B_n, with multiplication induced by concatenation and identity the empty tuple. Degree is word length; the generator corresponding to g∈c is r_g.",
+      "locator": "§3.3",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/11",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/18"
+      ],
+      "api": [
+        "BraidOrbitMonoid c := quotient of finite c-words by lengthwise braid orbits",
+        "concat_respects_orbits, length_add and empty_unit"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "empty word is identity",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "singletons index c",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "S3 (g,h) and (ghg^-1,g) represent the same product",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/23",
+      "kind": "theorem",
+      "name": "Presentation of the component ring",
+      "statement": "R=H_0(disjoint union Hur^c;k) is k[S], generated by r_g in degree one with relations r_g r_h=r_(ghg^{-1}) r_g. The boundary-product map gives a G-grading, independent of the length grading.",
+      "locator": "§3.3",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/4",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/13",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/22"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/24",
+      "kind": "theorem",
+      "name": "Eventual extraction of a specified class element",
+      "statement": "For fixed finite (G,c) with c generating, sufficiently long generating c-tuples can be moved by braids to (g,g_2,...,g_n) for any specified g∈c while the remaining entries still generate G. The threshold depends only on G,c.",
+      "locator": "Proposition 3.4",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/11",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/17"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/25",
+      "kind": "construction",
+      "name": "Central stabilization element",
+      "statement": "For positive integer D put U_D=sum_(g∈c) r_g^(D ord(g)); c being one class makes its length d constant. Boundary-trivial words commute with generators through the braid relations, so U_D is central and invariant under G-conjugation.",
+      "locator": "§3.3, Lemma 3.5",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/23"
+      ],
+      "api": [
+        "centralU D : homogeneous R element of degree D ord(g) for any g∈c",
+        "U_central and U_conjugationInvariant; multiplication maps retain source/target degree"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "singleton c yields one power",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "S3 transpositions give degree 2D",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "D=0 is excluded from stabilization choice",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/26",
+      "kind": "theorem",
+      "name": "Finite kernel and cokernel of stabilization on components",
+      "statement": "Under nonsplitting and |G| invertible in k, some D makes left multiplication by U_D on R an isomorphism in sufficiently high degrees; equivalently R[U_D] and R/U_D R have finite degree. Proof filters by exact generated subgroups and uses Proposition 3.4 and invertibility of |c∩H|.",
+      "locator": "Lemma 3.5",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/20",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/24",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/25"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/27",
+      "kind": "definition",
+      "name": "Nonnegative graded degree and shift",
+      "statement": "For a nonnegatively graded module M, deg(M) is the largest nonzero degree, infinity if unbounded and a chosen bottom for zero; M[q]_n=M_(n−q), with zero below q. Degree bounds must specify zero conventions instead of using truncated subtraction as an equality.",
+      "locator": "§1.11 and §4.1",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [],
+      "api": [
+        "gradedDegree : extended degree with explicit zero bottom",
+        "shift q : graded module with shift_component above and below q"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "zero module has bottom degree",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "k in degree 0 shifts to degree q",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "an unbounded direct sum has infinite degree",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/28",
+      "kind": "definition",
+      "name": "Augmentation Tor and central quotient",
+      "statement": "For the generally noncommutative connected graded k-algebra R, write R_+=sum_(n>0)R_n, k=R/R_+ as bimodule, H_i(M)=Tor_i^R(k,M) for a graded left module M, Rbar=R/UR, and M[U]=ker(U:M→M). Right/left module order matters.",
+      "locator": "§§4.2–4.3",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/23",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/25",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/27"
+      ],
+      "api": [
+        "augmentationBimodule, centralQuotient and centralKernel use actual left/right actions",
+        "gradedTor : right R-module×left R-module→graded k-vector spaces via resolved balanced tensor"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "Tor_0 equals the correctly ordered tensor product",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "a free left module has zero higher Tor",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "do not type M tensor_R R[U] for a merely left module M",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/29",
+      "kind": "definition",
+      "name": "Arc-model chain complex K(M)",
+      "statement": "For a graded left R-module M, K(M)_q=k[c^q] tensor_k M[q]. Its boundary sends (g_0,...,g_q) tensor m to sum_i (−1)^i(g_0,...,omit g_i,...,g_q) tensor r_(g_i^(g_(i+1)...g_q))m. It preserves internal degree.",
+      "locator": "§4.1, equation 4.1.1",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/23",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/27"
+      ],
+      "api": [
+        "KComplex M : internally graded ChainComplex with the displayed boundary",
+        "K_map for degree-preserving R-linear maps; boundary preserves internal degree"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "q=0 is M",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "q=1 boundary is r_g m",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "S3 words pass all tested d²=0 cases",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/30",
+      "kind": "theorem",
+      "name": "Chain identity and right action on K(R)",
+      "statement": "The braid relation gives d²=0 in K(M). K(R) is a complex of graded right R-modules by right multiplication in the final factor, commuting with the boundary.",
+      "locator": "§4.1 and proof of Lemma 4.11",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/29"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/31",
+      "kind": "definition",
+      "name": "Stability defects and constants",
+      "statement": "A(M)=max(deg M[U],deg M/UM), delta(M)=max(deg Tor_0^R(Rbar,M),deg Tor_1^R(Rbar,M)). Set A1=A(R), A2=A1+d, A0=5A1+A2. A1 is finite by Lemma 3.5; infinity is allowed for defects of M.",
+      "locator": "Equations 4.5.1–4.5.3",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/26",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/28"
+      ],
+      "api": [
+        "stabilityDefect M and quotientTorDefect M in extended degrees",
+        "constants A1,A2,A0 with equations A2=A1+d and A0=5A1+A2"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "R has finite defect after Lemma3.5",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "zero module uses bottom consistently",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "positive d is not dropped from A2",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/32",
+      "kind": "construction",
+      "name": "Change-of-rings spectral sequence",
+      "statement": "Extension of scalars from graded left R-modules to graded left Rbar-modules sends free modules to free modules. Its composite with k tensor_Rbar gives Tor_i^Rbar(k,Tor_j^R(Rbar,M)) ⇒ Tor_(i+j)^R(k,M), with internal grading and first-quadrant convergence.",
+      "locator": "Equation 4.3.1",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/5",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/28"
+      ],
+      "api": [
+        "changeOfRingsSS M has pages Tor^Rbar(Tor^R) and internal grading",
+        "edge maps and convergence filtration identify total Tor^R"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "free M collapses the positive derived extension terms",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "total degree 0 is k tensor_R M",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "homogeneous shifts commute with every page",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/33",
+      "kind": "theorem",
+      "name": "Tensor degree bound",
+      "statement": "For a graded right R-module N and graded left R-module M, deg(N tensor_R M)≤deg N+deg H_0(M); finite-degree proof filters N by its highest homogeneous layer, on which R_+ acts trivially.",
+      "locator": "Lemma 4.4",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/27",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/28"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/34",
+      "kind": "theorem",
+      "name": "Quotient-ring Tor degree bound",
+      "statement": "For a graded left Rbar-module Mbar and i≥0, deg Tor_i^Rbar(k,Mbar)≤i deg(Rbar)+deg(Mbar), via a free graded resolution of k with generators in bounded degrees.",
+      "locator": "Lemma 4.5",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/28",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/33"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/35",
+      "kind": "theorem",
+      "name": "Central-torsion defect bound",
+      "statement": "A(M)≤delta(M)+A1. The required exact sequence is R[U] tensor_R M→M[U]→Tor_1^R(Rbar,M), exact in the middle, whose maps have degrees 0,d respectively; do not reverse the tensor factors for a left module.",
+      "locator": "Lemma 4.6, corrected E3",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/31",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/33"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/36",
+      "kind": "theorem",
+      "name": "Higher quotient Tor bound",
+      "statement": "For i≥0, deg Tor_i^R(Rbar,M)≤delta(M)+A1 i. The proof resolves R[U] over Rbar and compares hyperhomology, retaining homogeneous map degrees.",
+      "locator": "Lemma 4.7",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/31",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/34",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/35"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/37",
+      "kind": "theorem",
+      "name": "Graded Nakayama degree bound",
+      "statement": "For a graded left Rbar-module Mbar, deg Mbar≤deg(k tensor_Rbar Mbar)+deg Rbar; a bounded-degree set of lifts of generators modulo the positive ideal generates.",
+      "locator": "Lemma 4.8",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/28",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/33"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/38",
+      "kind": "theorem",
+      "name": "Low Tor controls central defect",
+      "statement": "delta(M)≤max(deg H_0(M),deg H_1(M))+4A1, by comparison of the low terms of the change-of-rings spectral sequence and the previous degree estimates.",
+      "locator": "Lemma 4.9",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/32",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/34",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/36",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/37"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/39",
+      "kind": "theorem",
+      "name": "General right-module Tor degree bound",
+      "statement": "For graded right N, left M and i≥0, deg Tor_i^R(N,M)≤deg N+max(deg H_0(M),deg H_1(M))+A1 i+4A1.",
+      "locator": "Lemma 4.10",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/33",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/36",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/38"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/40",
+      "kind": "construction",
+      "name": "Generator null-homotopy on K(R)",
+      "statement": "On a basis element (g_1,...,g_q) tensor r_s, prefix g^(partial(s')^{-1}), where s' is the concatenated word (g_1,...,g_q,s) and partial is its boundary product. The resulting degree-one map S_g satisfies d S_g+S_g d=right multiplication by r_g.",
+      "locator": "Proof of Lemma 4.11",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/17",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/29",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/30"
+      ],
+      "api": [
+        "prefixHomotopy g : K(R)_q→K(R)_(q+1) with boundary-product conjugation",
+        "homotopy_identity : dS_g+S_gd=right_r_g"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "empty tuple gives the degree-zero identity",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "S3 noncommuting entries test inverse-conjugation convention",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "480 finite basis checks match right multiplication",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/41",
+      "kind": "theorem",
+      "name": "Positive-degree action annihilates K(R) homology",
+      "statement": "For every q≥0, the right action of R_+ on H_q(K(R)) vanishes, because each degree-one generator action is chain null-homotopic.",
+      "locator": "Lemma 4.11",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/40"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/42",
+      "kind": "theorem",
+      "name": "Component-complex degree bound",
+      "statement": "For every q≥0, deg H_q(K(R))≤A2+q, using U-annihilation and the finite-degree kernel/cokernel of multiplication by U on the complex.",
+      "locator": "Proposition 4.12",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/26",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/31",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/41"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/43",
+      "kind": "theorem",
+      "name": "Universal-coefficient bound for K(M)",
+      "statement": "For every q≥0, deg H_q(K(M))≤max(deg H_0(M),deg H_1(M))+A1 q+4A1+A2. Use the hyperhomology sequence Tor_i^R(H_j(K(R)),M)⇒H_(i+j)(K(M)).",
+      "locator": "Lemma 4.13",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/39",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/42"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/44",
+      "kind": "theorem",
+      "name": "Low K-homology controls augmentation Tor",
+      "statement": "H_0(M)=H_0(K(M)); deg H_1(M)≤deg H_1(K(M)). These comparisons follow from K(R)_0=R and the low-degree hyperhomology edge map.",
+      "locator": "Lemma 4.14",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/28",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/29",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/43"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/45",
+      "kind": "theorem",
+      "name": "Linear bound for K-homology",
+      "statement": "Write h_i=deg H_i(K(M)). For q>1, h_q≤max(h_0,h_1)+A0 q.",
+      "locator": "Theorem 4.2, first conclusion",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/31",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/43",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/44"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/46",
+      "kind": "theorem",
+      "name": "Stability from two low K-homology bounds",
+      "statement": "Multiplication by U gives an isomorphism M_i→M_(i+d) in every source degree i≥max(h_0,h_1)+A0. For M=R, both h_0 and h_1 are finite.",
+      "locator": "Theorem 4.2, remaining conclusions",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/26",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/35",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/38",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/44",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/45"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/47",
+      "kind": "definition",
+      "name": "Graded Hurwitz homology module",
+      "statement": "M_p=sum_(n≥0) H_p(Hur^c_G,n;k), graded by n, is a left R-module under gluing. M_0=R.",
+      "locator": "§5, equation 5.0.2",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/18",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/23"
+      ],
+      "api": [
+        "hurwitzHomologyModule p has n-component H_p(Hur_n;k)",
+        "R_action via cross product and gluing; degree zero identifies with R"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "p=0 recovers braid-orbit basis",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "empty-word unit acts identically",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "r_g raises branch grading by one",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/48",
+      "kind": "construction",
+      "name": "Truncated coset semisimplicial set",
+      "statement": "For 0≤q<n set L_q=<sigma_(q+2),...,sigma_(n−1)>≤B_n and A_q=B_n/L_q. Put A_q empty for q≥n. Faces bL_q↦b(sigma_(i+1)...sigma_q)L_(q−1), 0≤i≤q, are defined for q≥1.",
+      "locator": "§5.2, corrected upper range E4",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/2"
+      ],
+      "api": [
+        "cosetArc q := B_n/L_q for q<n, otherwise empty",
+        "face i q with q≥1, i≤q; representative independence and equivariance"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "n=1 has vertices and no edges",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "q=n is empty, not B_n",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "q=n−1 has trivial stabilizer",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/49",
+      "kind": "theorem",
+      "name": "Well-defined faces and semisimplicial identities",
+      "statement": "The face formula is independent of the coset representative, and partial_i partial_j=partial_(j−1) partial_i for i<j. The proof uses the braid relations and inclusion of the extra generator in L_(q−2).",
+      "locator": "Proposition 5.3",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/48"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/50",
+      "kind": "definition",
+      "name": "Geometric arc complex",
+      "statement": "Vertices are isotopy classes, relative endpoints, of arcs from the boundary basepoint to one puncture, disjoint from other punctures in their interior. A q-simplex is q+1 such arcs admitting representatives disjoint except at the basepoint, with tangent order fixing the semisimplicial ordering.",
+      "locator": "§5.5",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/8",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/10"
+      ],
+      "api": [
+        "Arc vertex is an endpoint-relative isotopy class with interior avoidance",
+        "ArcSimplex stores simultaneous disjoint representatives and tangent ordering"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "one puncture admits one standard arc class",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "q+1 distinct endpoints force q<n",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "arcs crossing only at the basepoint are admissible",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/51",
+      "kind": "theorem",
+      "name": "Arc-complex connectivity",
+      "statement": "The realization of the n-punctured-disc arc complex is (n−2)-connected; use the indicated Damiolini/Hatcher–Wahl/Wahl input, not an unproved assertion that it is contractible.",
+      "locator": "§5.5; Proposition 5.4 via 5.6",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/50"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/52",
+      "kind": "theorem",
+      "name": "Arc stabilizer and coset identification",
+      "statement": "B_n acts transitively on q-simplices, with stabilizer L_q for the standard arcs. The map B_n/L_q→geometric q-simplices is a B_n-equivariant semisimplicial isomorphism for q<n. Stabilizer proof needs simultaneous isotopy extension and the punctured-disc relative pi_2 calculation.",
+      "locator": "Proposition 5.6",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/9",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/48",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/49",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/50"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/53",
+      "kind": "construction",
+      "name": "Semisimplicial Borel homology sequence",
+      "statement": "For a B_n-space X, filter E B_n×_(B_n)(A×X) by simplex dimension. The page in degree q is H_p(E L_q×_(L_q)X), and augmentation to E B_n×_(B_n)X is a homology isomorphism in total degrees below n−2 by arc connectivity.",
+      "locator": "§§5.3–5.4",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/5",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/13",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/48",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/51",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/52"
+      ],
+      "api": [
+        "borelArcResolution X with skeletal filtration and augmentation",
+        "E1 identification and augmentation_range with explicit total-degree inequality"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "q=0 identifies the L0 Borel term",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "empty fibre gives zero chains",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "no claim of convergence at total degree n−2 without extra proof",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/54",
+      "kind": "theorem",
+      "name": "Hurwitz row identification",
+      "statement": "For X=c^n, E L_q×_(L_q)c^n identifies with c^(q+1)×Hur^c_G,n−q−1. Under the chosen trivialization, the face maps act by inverse words s_(q,i)^{-1}, yielding exactly the conjugated-entry differential of K(M_p).",
+      "locator": "§5.4, proof of Proposition 5.1",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/11",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/29",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/47",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/53"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/55",
+      "kind": "theorem",
+      "name": "Arc spectral sequence for Hurwitz homology",
+      "statement": "There is a homological sequence E^1_(q,p)=(K(M_p)_(q+1))_n, with d_1 equal to the K differential, converging to H_(p+q)(Hur^c_G,n;k) for p+q<n−2.",
+      "locator": "Proposition 5.1",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/53",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/54"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/56",
+      "kind": "theorem",
+      "name": "Inductive uniform degree estimate",
+      "statement": "For p,q≥0, deg H_q(K(M_p))≤A2+A0(3p+q). Induct on p using the vanishing of off-edge terms in the arc spectral sequence and the low-degree edge comparison, then apply Theorem 4.2.",
+      "locator": "Theorem 6.1 proof",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/42",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/45",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/46",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/55"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/57",
+      "kind": "theorem",
+      "name": "Linear-range homological stability",
+      "statement": "There are constants A,B, depending on finite G,c, such that U:H_p(Hur^c_G,n;k)→H_p(Hur^c_G,n+d;k) is an isomorphism for n>Ap+B, for every p≥0 and allowed coefficient field k.",
+      "locator": "Theorem 6.1, equation 6.1.1",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/46",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/56"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/58",
+      "kind": "theorem",
+      "name": "Full-monodromy stabilization",
+      "statement": "After enlarging A,B, the same U induces isomorphisms H_p(CHur^c_G,n;k)→H_p(CHur^c_G,n+d;k) for n>Ap+B. Decompose by exact generated subgroup Q and use induction; the diagonal action on the Q-summand is U_Q, not the printed extra scalar.",
+      "locator": "Theorem 6.1, equation 6.1.2; E5",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/17",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/25",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/57"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/59",
+      "kind": "theorem",
+      "name": "Finite-stabilizer quotient homology",
+      "statement": "For the Hurwitz G-action, the stabilizer on an exact-monodromy-H component is C_G(H), locally constant. If |G| is invertible in k, the Borel-to-orbit map induces a homology isomorphism and quotient homology is the G-coinvariant homology. On CHur the action is free when Z(G)=1.",
+      "locator": "Corollary 6.2 proof",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/14",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/17"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/60",
+      "kind": "theorem",
+      "name": "Unmarked Hurwitz homological stability",
+      "statement": "If Z(G)=1 and nonsplitting holds, U gives the same linear-range stabilization on Hur^c/G and CHur^c/G. Use G-equivariance and the exactness of finite-group coinvariants over k.",
+      "locator": "Corollary 6.2",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/25",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/57",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/58",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/59"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/61",
+      "kind": "definition",
+      "name": "Projective configuration scheme",
+      "statement": "Conf'_n is the open subscheme of P^n_Z parametrizing binary degree-n forms with nonzero discriminant, equivalently reduced degree-n divisors on P^1.",
+      "locator": "§7.1; Table 1",
+      "status": "missing",
+      "routingGroup": "cover",
+      "dependsOn": [],
+      "api": [
+        "projectiveConfig n := discriminant-nonzero open in binary-form P^n",
+        "branchDivisor map and baseChange iso; scaling forms does not change divisor"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "a repeated root is outside the open",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "a root at infinity is permitted",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "n distinct sections give a reduced divisor",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/62",
+      "kind": "definition",
+      "name": "Tame G-cover over an algebraic base",
+      "statement": "A tame G-cover is a finite map from a smooth proper geometrically connected curve to P^1, with faithful G-action identifying the quotient, tame ramification and specified nontrivial inertia conjugacy classes. Families carry their branch divisor and G-equivariant isomorphisms.",
+      "locator": "§7.1",
+      "status": "missing",
+      "routingGroup": "cover",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/61"
+      ],
+      "api": [
+        "TameGCover over S stores smooth proper curve, finite map, G-action and branch divisor",
+        "baseChange and equivariantIso preserve inertia class data"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "trivial ramification is not counted as a branch point",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "prime-to-residue inertia is tame",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "wild Artin–Schreier covers are excluded from tame moduli",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/63",
+      "kind": "theorem",
+      "name": "Arithmetic Hurwitz moduli scheme",
+      "statement": "Romagny–Wewers construct H_G,n→Conf'_n, finite etale over Z[1/|G|], whose algebraically closed points classify the tame connected G-covers. If Z(G)=1, field-valued points classify covers defined over that field, not merely Galois-fixed geometric isomorphism classes.",
+      "locator": "§7.1; RW06 Theorem 4.11, Corollary 4.12, Remark 4.15(ii)",
+      "status": "missing",
+      "routingGroup": "cover",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/62",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/120"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/64",
+      "kind": "construction",
+      "name": "Affine-branch Hurwitz scheme",
+      "statement": "Conf_n is the reduced degree-n divisor scheme on A^1. Define Hn_G,n as the disjoint union of the pullback of H_G,n (infinity unramified) and of H_G,n+1 (infinity ramified, with infinity fixed as the extra branch point). Both map finite etale to Conf_n over Z[1/|G|].",
+      "locator": "§7.3; Table 1",
+      "status": "missing",
+      "routingGroup": "cover",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/61",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/63"
+      ],
+      "api": [
+        "affineHurwitz is disjoint union of infinity-unramified and infinity-ramified pullbacks",
+        "branchMap finiteEtale and baseChange; infinity flag is explicit"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "an odd-degree hyperelliptic cover lies in the ramified-infinity piece",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "even-degree squarefree model has the other infinity behavior",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "the two pieces cannot be identified",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/65",
+      "kind": "construction",
+      "name": "Rational conjugacy-class locus",
+      "statement": "When c is a rational conjugacy class of G, take the open-and-closed locus Hn^c_G,n with finite local monodromies in c. Over C, its analytic space is CHur^c_G,n/G. Rationality is needed for the indicated arithmetic base, not merely a chosen complex conjugacy class.",
+      "locator": "§§7.2–7.4",
+      "status": "missing",
+      "routingGroup": "cover",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/14",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/16",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/64"
+      ],
+      "api": [
+        "classLocus c is an open-and-closed subspace with rational-class descent data",
+        "complexPointsComparison : classLocus(C)≃CHur^c/G"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "a nonrational c cannot use descent without extension",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "non-generating c gives empty connected locus",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "conjugate tuples give one unmarked complex point",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/66",
+      "kind": "construction",
+      "name": "Ordered configuration compactification",
+      "statement": "For n≥2, PConf_n over Z identifies with M_0,n+1×Aff, where Aff parametrizes a translation and a nonzero dilation. Compactify using Mbar_0,n+1×P^1×P^1; the complement is a relative simple-normal-crossing divisor. Handle n=1 separately by A^1⊂P^1.",
+      "locator": "§§7.5–7.6",
+      "status": "missing",
+      "routingGroup": "cover",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/64",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/67"
+      ],
+      "api": [
+        "normalizeFirstTwo : PConf_n≃M_0,n+1×Aff for n≥2",
+        "sncCompactification with smoothProper model and explicit boundary"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "n=2 reduces to Aff",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "the normalized first two points are 0 and 1",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "n=1 uses P1 separately, not unstable M_0,2",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/67",
+      "kind": "theorem",
+      "name": "Stable genus-zero moduli input",
+      "statement": "For n+1≥3, Mbar_0,n+1 is smooth proper over Z, and the boundary of M_0,n+1 is relative simple normal crossings. The EVW compactification also includes the affine-group boundary.",
+      "locator": "§7.6, citing Knudsen",
+      "status": "missing",
+      "routingGroup": "cover",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/68",
+      "kind": "theorem",
+      "name": "Tame cohomological specialization with finite symmetry",
+      "statement": "Let A be a henselian DVR with characteristic-zero fraction field, X/A smooth proper, D⊂X a reduced relative normal-crossing divisor, U=X−D, and pi:U'→U finite etale. If a finite group acts compatibly on U',U over A, then for every prime L invertible in A, H^i(U'_geometric_generic,Z/L) and H^i(U'_geometric_special,Z/L) are isomorphic as group modules. The proof applies proper base change to j_!pi_*Z/L and tame vanishing-cycle vanishing (tameness along D is automatic at its characteristic-zero generic points), then duality. This does not assert Frobenius equivariance.",
+      "locator": "Proposition 7.7",
+      "status": "missing",
+      "routingGroup": "cover",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/66",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/67"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/69",
+      "kind": "theorem",
+      "name": "Uniform etale Betti bound",
+      "statement": "For finite center-free nonsplitting (G,c) with c rational, there is C=C(G,c) such that dim H^i(Hn^c_G,n over Fbar_q,Q_L)≤C^(i+1), uniformly in i,n and q prime to |G|, with auxiliary prime L>max(|G|,q,n). Use mod-L comparison, exact S_n-invariants, topological stability to reduce to bounded branch number, and the cell bound; do not drop the published restriction on L without a separate independence theorem.",
+      "locator": "Proposition 7.8",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/19",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/60",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/65",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/68",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/112",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/124"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/70",
+      "kind": "theorem",
+      "name": "No equivariant stabilization supplied",
+      "statement": "The proof of Proposition 7.8 transfers dimensions, not an algebraic stabilization map commuting with Frobenius. The topological central operator U is a linear sum of gluing operations; no Frobenius-compatible U is a conclusion.",
+      "locator": "Remark 7.9",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/25",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/68",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/69"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/71",
+      "kind": "definition",
+      "name": "Cohen–Lenstra measure",
+      "statement": "For an odd prime ell, let L be the countable set of isomorphism classes of finite abelian ell-groups. Define c_ell=product_(i≥1)(1−ell^(−i)) and mu(A)=c_ell/|Aut(A)|. The normalization sum mu(A)=1 is a theorem, not part of the carrier.",
+      "locator": "§8.1",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [],
+      "api": [
+        "finiteAbelianEllGroupIsoClasses and automorphismCard",
+        "clWeight A=c_ell/automorphismCard A; clMeasure requires proved summability"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "trivial group has weight c_ell",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "C_ell has weight c_ell/(ell−1)",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "ell=2 is rejected in the contraction argument",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/72",
+      "kind": "theorem",
+      "name": "Haar-cokernel normalization and moments",
+      "statement": "The limiting cokernel distribution of a Haar-random square matrix over Z_ell is mu; for every finite abelian ell-group A, sum_X mu(X)|Sur(X,A)|=1. The mass formula and the moment identity are imported statistical inputs, requiring proof/source closure.",
+      "locator": "§8.1, citing Cohen–Lenstra and Friedman–Washington",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/71"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/73",
+      "kind": "definition",
+      "name": "Surjection moment of a measure",
+      "statement": "For a nonnegative measure nu on L and a finite abelian ell-group A, its A-moment is sum_X nu(X)|Sur(X,A)|, possibly infinite. The trivial-target moment is total mass; all uses of linear rearrangement require absolute convergence or positivity.",
+      "locator": "§8.1",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/71"
+      ],
+      "api": [
+        "surMoment nu A : nonnegative extended sum",
+        "trivialTargetMoment=totalMass; monotone finite truncations and transport by isomorphism"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "zero measure has zero moments",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "Dirac_X evaluates to |Sur(X,A)|",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "trivial target evaluates to one for probabilities",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/74",
+      "kind": "theorem",
+      "name": "Uniqueness from all surjection moments",
+      "statement": "For ell odd, a probability measure nu on L satisfying moment_A(nu)=1 for every A equals mu. The proof in Proposition 8.2 bounds the off-diagonal operator by beta=c_ell^(−1)−1<1 and uses bounded iteration.",
+      "locator": "Proposition 8.2",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/72",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/73",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/113"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/75",
+      "kind": "theorem",
+      "name": "Finite moment control of finitely many masses",
+      "statement": "Given epsilon>0 and finite subset F⊂L, there exist delta>0 and finite F'⊂L such that any probability nu with all A-moments in [1−delta,1+delta] for A∈F' satisfies |nu(A)−mu(A)|≤epsilon for A∈F.",
+      "locator": "Proposition 8.3",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/74",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/80"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/76",
+      "kind": "definition",
+      "name": "Enlargement and iterated enlargement",
+      "statement": "An enlargement of a finite abelian ell-group A is an isomorphism class A' admitting a surjection A'→A with kernel of order ell; an s-enlargement has kernel order ell^s. The map, when used, is separate data from the isomorphism class.",
+      "locator": "Lemma 8.4 proof",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [],
+      "api": [
+        "Enlargement A A' stores a surjection and kernel cardinality ell",
+        "composeEnlargements adds exponents; forgetMap keeps only isomorphism class"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "C_ell→1 is a one-step enlargement",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "C_ell²→C_ell is split",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "C_ell²cyclic→C_ell is nonsplit",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/77",
+      "kind": "theorem",
+      "name": "Exact surjection-count formula",
+      "statement": "Let x_i,a_i be conjugate-partition columns of X,A. If some x_i<a_i then |Sur(X,A)|=0. Otherwise |Sur(X,A)|=product_i ell^(x_i a_(i+1)) product_(j=a_(i+1))^(a_i−1)(ell^x_i−ell^j). This is derived here from homomorphism matrices and mod-ell rank, not quoted as an EVW formula.",
+      "locator": "Replacement for the failed lifting step of Lemma 8.4; report proof",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/76"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/78",
+      "kind": "theorem",
+      "name": "Aggregate enlargement inequality",
+      "statement": "If X surjects onto A and |X|>|A|, some enlargement A' satisfies |Sur(X,A')|≥(ell−1)|Sur(X,A)|. Choose the least j with x_j>a_j and increase a_j by one; the exact formula proves the inequality without requiring every individual X→A to lift through one fixed A'→A.",
+      "locator": "Equation 8.4.1; repaired proof, E6",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/76",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/77"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/79",
+      "kind": "theorem",
+      "name": "Partition tail domination",
+      "statement": "For ell>2 and fixed m, the partition number p(s+m) satisfies p(s+m)(ell−1)^(−s)→0. Choose r with (ell−1)^(−1)<r<1 and dominate p(t)r^t by the convergent Euler product product_(j≥1)(1−r^j)^(−1).",
+      "locator": "Lemma 8.4 last paragraph; elementary proof supplied in report",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/80",
+      "kind": "theorem",
+      "name": "Finite enlargement domination of tails",
+      "statement": "Given epsilon>0 and A, there are c(A) and a finite set M⊂L such that |X|>c(A) implies |Sur(X,A)|≤epsilon·sum_(A'∈M)|Sur(X,A')|/|M|. Iterate the aggregate inequality and use the partition bound.",
+      "locator": "Lemma 8.4, with repaired equation 8.4.1 proof",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/78",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/79"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/81",
+      "kind": "theorem",
+      "name": "Surjection moments imply distribution convergence",
+      "statement": "If probability measures nu_n have A-moments tending to 1 for every finite abelian ell-group A, then nu_n(A)→mu(A) for each A. The converse is not asserted without uniform integrability of each unbounded Sur observable.",
+      "locator": "§8.5, corrected E7",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/75"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/82",
+      "kind": "construction",
+      "name": "Generalized dihedral cover datum",
+      "statement": "For a nontrivial finite abelian odd-ell group A, take G=A⋊C2 with inversion action and c the involutions. Then Z(G)=1, c is rational, generating and nonsplitting, and X_n=Hn^c_G,n over F_q is defined when q is odd and ell∤q.",
+      "locator": "§8.6",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/6",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/21",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/65"
+      ],
+      "api": [
+        "dihedralDatum A := semidirect product by inversion with involution class",
+        "centerFree, rationalClass, generates and nonsplitting certificates for odd nontrivial A"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "A=C3 gives S3",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "A=1 fails center-free hypothesis and takes separate moment path",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "even-order A is outside the inversion argument",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/83",
+      "kind": "definition",
+      "name": "Imaginary quadratic function-field family",
+      "statement": "For q odd and odd n, S_n consists of quadratic extensions L/F_q(t) ramified at infinity with discriminant degree n+1. The integral closure O_L of F_q[t] is the affine curve ring; Cl(O_L) identifies with Pic^0(C_L)(F_q) because there is a unique rational point over infinity.",
+      "locator": "§8.7",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [],
+      "api": [
+        "imaginaryQuadraticFamily q n with odd q,n and ramified infinity",
+        "classGroupPicardIso requires unique rational infinity point"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "n=1 genus is zero",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "odd squarefree degree has one ramified infinity point",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "even q is outside this Kummer parametrization",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/84",
+      "kind": "construction",
+      "name": "Surjective class-group pair and its isomorphisms",
+      "statement": "For L∈S_n and finite abelian ell-group A, a pair (L,alpha) has alpha:Cl(O_L)→A surjective. Isomorphisms are field isomorphisms over F_q(t) respecting alpha. The hyperelliptic involution acts as inversion on Cl(O_L), so alpha and −alpha define the same pair class.",
+      "locator": "Proposition 8.7 and equation 8.7.4",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/83"
+      ],
+      "api": [
+        "SurjectiveClassPair L A with surjection from Cl(O_L)",
+        "pairIso and involution_action identify alpha with −alpha"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "A=C3 makes the sign action free on surjections",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "A=1 has fixed sign action and is separate",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "nonsurjective maps do not classify connected G-covers",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/85",
+      "kind": "theorem",
+      "name": "Function-field class-field correspondence",
+      "statement": "For a global function field, finite abelian extensions with specified local splitting and ramification correspond to quotients of the appropriate idele class group. The unramified pro-ell quotient has a constants/degree map; the degree-zero quotient gives the ell-primary Picard group.",
+      "locator": "Proposition 8.7 proof",
+      "status": "planned",
+      "routingGroup": "planned",
+      "dependsOn": [],
+      "planned": [
+        "FunctionFieldArithmetic:FA.4"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/86",
+      "kind": "theorem",
+      "name": "Involution quotient of unramified pro-ell group",
+      "statement": "Let J be the maximal unramified abelian pro-ell quotient of the quadratic curve's Galois group, with involution sigma. Its constants quotient is Z_ell, sigma is identity there and −1 on the ell-primary class group; since ell is odd, J/(1+sigma)J identifies with Cl(O_L)_ell.",
+      "locator": "Proposition 8.7 proof",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/83",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/85"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/87",
+      "kind": "theorem",
+      "name": "Hurwitz points classify class-group surjections modulo sign",
+      "statement": "For q odd, ell∤q, A nontrivial finite abelian ell-group and n odd, X_n(F_q) is in bijection with isomorphism classes of (L,alpha) in item 84. The inverse builds the generalized-dihedral extension from the class-field quotient, with the correct inertia and connectedness.",
+      "locator": "Proposition 8.7",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/63",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/82",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/84",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/86"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/88",
+      "kind": "theorem",
+      "name": "Factor-two point-count identity",
+      "statement": "Under item 87, sum_(L∈S_n)|Sur(Cl(O_L),A)|=2|X_n(F_q)|. Inversion acts freely on nontrivial surjections for odd ell; A=1 is handled separately and has moment exactly one.",
+      "locator": "Equation 8.7.4 and Theorem 8.8 proof",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/84",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/87"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/89",
+      "kind": "theorem",
+      "name": "Size of the odd-degree quadratic family",
+      "statement": "For q odd and odd n≥3, |S_n|=2(q^n−q^(n−1)), from monic squarefree polynomials and the two square classes of nonzero constants. For n=1, |S_1|=2q, not 2(q−1).",
+      "locator": "Equation 8.7.5, corrected E8",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/83"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/90",
+      "kind": "definition",
+      "name": "Empirical ell-primary class-group law",
+      "statement": "Define nu_n(A)=|{L∈S_n:Cl(O_L)_ell is isomorphic to A}|/|S_n|. This is a probability measure on L; using the whole class group instead of its ell-primary part does not define this measure.",
+      "locator": "After Theorem 8.8 statement, corrected E9",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/71",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/83"
+      ],
+      "api": [
+        "empiricalLaw q n counts ell-primary class-group isomorphism classes",
+        "mass_one and moment_count identity; finite family denominator must be nonzero"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "all ell-primary types sum to one",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "groups with prime-to-ell factors still contribute via their Sylow subgroup",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "A=1 counts ell-indivisibility, not whole class number one",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/91",
+      "kind": "theorem",
+      "name": "Compactly supported etale duality",
+      "statement": "For smooth separated finite-type X/F_q of pure dimension n and coefficient prime L∤q, H_c^j(Xbar,Q_L) pairs perfectly with H^(2n−j)(Xbar,Q_L(n)), compatibly with Frobenius. In particular their dimensions agree.",
+      "locator": "§1.7 and proof of Theorem 8.8",
+      "status": "planned",
+      "routingGroup": "planned",
+      "dependsOn": [],
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/92",
+      "kind": "theorem",
+      "name": "Upper weight bound",
+      "statement": "For separated finite-type X/F_q and L∤q, eigenvalues of geometric Frobenius on H_c^j(Xbar,Q_L) with constant coefficients have all complex absolute values at most q^(j/2). Purity is not claimed for arbitrary nonproper cohomology.",
+      "locator": "Equation 8.8.3 and its use",
+      "status": "planned",
+      "routingGroup": "planned",
+      "dependsOn": [],
+      "planned": [
+        "DeligneWeightsAndPurity:DWP.7"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/93",
+      "kind": "theorem",
+      "name": "Rational-point trace formula",
+      "statement": "For separated finite-type X/F_q and L∤q, |X(F_q)|=sum_j (−1)^j Tr(Frob_geom|H_c^j(Xbar,Q_L)). Import the existing trace-formula integration owner rather than inventing an etale-cohomology package here.",
+      "locator": "Equation 8.8.2",
+      "status": "planned",
+      "routingGroup": "planned",
+      "dependsOn": [],
+      "planned": [
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/94",
+      "kind": "theorem",
+      "name": "Top cohomology counts Frobenius-fixed components",
+      "statement": "For smooth pure n-dimensional X/F_q, H_c^(2n)(Xbar,Q_L) is the permutation representation of geometric connected components with twist (−n). Its normalized Frobenius trace is the number of fixed components, not the total number of components.",
+      "locator": "Theorem 8.8 proof, pp.778–779",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/91"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/95",
+      "kind": "theorem",
+      "name": "Uniform trace-error estimate",
+      "statement": "If exactly one geometric component is Frobenius-fixed and dim H^i≤C^(i+1), then for sqrt(q)>C, |q^(−n)|X(F_q)|−1|≤sum_(i≥1) C^(i+1)q^(−i/2)=C²/(sqrt(q)−C). Use the finite cohomological range before extending the positive bound to the infinite geometric series.",
+      "locator": "Theorem 8.8 proof",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/69",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/91",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/92",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/93",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/94"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/96",
+      "kind": "construction",
+      "name": "Hyperelliptic torsion local system",
+      "statement": "Over the squarefree odd-degree polynomial family, the smooth projective curve y²=f(x) has genus g=(n−1)/2 and Jacobian ell^k-torsion V of rank 2g over Z/ell^k. Its Weil pairing is perfect alternating with cyclotomic multiplier; geometric monodromy is symplectic and arithmetic Frobenius has multiplier q.",
+      "locator": "Theorem 8.8 proof, p.779",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/83"
+      ],
+      "api": [
+        "hyperellipticJacobianTorsion over the exact odd-degree family",
+        "weilPairing and monodromyMultiplier with coefficient prime distinct from characteristic"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "n=1 gives g=0 and zero torsion rank",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "n=3 gives rank 2",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "Frobenius multiplier is q, not 1 in general",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/97",
+      "kind": "theorem",
+      "name": "Geometric generic fibre of the unmarked Hurwitz cover",
+      "statement": "For ell^k A=0 over an algebraically closed characteristic-prime-to-2ell field, the fibre of X_n→Conf_n is Sur(V,A)/{±1}, equivariantly for arithmetic monodromy. The marked surjection set has twice the cardinality for nontrivial A.",
+      "locator": "Theorem 8.8 proof, p.779, corrected E10",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/84",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/87",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/96"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/98",
+      "kind": "theorem",
+      "name": "Integral hyperelliptic monodromy input",
+      "statement": "For g≥1 and algebraically closed base of characteristic prime to 2ell, the hyperelliptic moduli family's geometric ell-adic monodromy is Sp_(2g)(Z_ell), hence its mod-ell^k image is full. Achter–Pries proves mod-ell monodromy in Theorem 3.4 and the integral lift in Corollary 3.5; the adapter to the exact EVW affine branch family remains an explicit obligation.",
+      "locator": "Theorem 8.8 proof; Achter–Pries §§3.1–3.3",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/96",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/123"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/99",
+      "kind": "theorem",
+      "name": "Monodromy orbits and arithmetic components",
+      "statement": "Connected components of a finite etale cover over a geometrically connected base are geometric fundamental-group orbits on its generic fibre. A component is F_q-defined precisely when Frobenius preserves that orbit. Since −I∈Sp(V), passing Sur(V,A)→Sur(V,A)/± does not change the symplectic orbit set.",
+      "locator": "Theorem 8.8 proof, pp.779–780",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/97",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/98",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/116"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/100",
+      "kind": "definition",
+      "name": "Symplectic similitudes on an ell-adic lattice",
+      "statement": "For a finite free Z_ell-module V with perfect alternating pairing omega, GSp(V) consists of automorphisms h with omega(hx,hy)=mult(h)omega(x,y), where mult(h) is a unit. Its kernel is Sp(V); GSp_q is the multiplier-q coset.",
+      "locator": "§8.9",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/7"
+      ],
+      "api": [
+        "GSpLattice V and multiplier homomorphism to Z_ell units",
+        "symplecticKernel and multiplierCoset q; reduction mod ell^k is compatible"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "diag(I,qI) has multiplier q",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "−I is symplectic",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "q divisible by ell is not an allowed multiplier",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/101",
+      "kind": "theorem",
+      "name": "Primary decomposition for a multiplier-q automorphism",
+      "statement": "If ell∤q(q−1) and h∈GSp_q(V), factor its mod-ell characteristic polynomial into the parts at 1, q and the remaining coprime factor and lift the idempotents. This yields V=V_1⊕V_q⊕W, with h−1 invertible on V_q⊕W and h−q invertible on V_1⊕W.",
+      "locator": "Proposition 8.9 proof, equations 8.9.2–8.9.3",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/100"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/102",
+      "kind": "theorem",
+      "name": "Orthogonality and a killed Lagrangian",
+      "statement": "In item 101, V_1 and V_q are isotropic, V_1⊕V_q is orthogonal to nondegenerate W, and W has a decomposition into complementary isotropic summands. If f h=f, then ker f contains a Lagrangian, namely V_q⊕W_- after such a decomposition.",
+      "locator": "Proposition 8.9 proof",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/101"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/103",
+      "kind": "theorem",
+      "name": "Symplectic integral normal forms",
+      "statement": "A perfect alternating lattice over Z_ell has a symplectic basis; Sp acts transitively on Lagrangian direct summands, complementary Lagrangians have equal rank, and every automorphism of one Lagrangian extends via inverse transpose on its complement to a symplectic automorphism.",
+      "locator": "Proposition 8.9 proof, inputs (i)–(iv)",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/100"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/104",
+      "kind": "theorem",
+      "name": "Linear group acts transitively on lattice surjections",
+      "statement": "For finite abelian ell-group A generated by at most g elements, GL_g(Z_ell) acts transitively on surjections Z_ell^g→A. Lift a fixed minimal generating set, extend it modulo ell to a basis, and alter the remaining g−k basis vectors to lie in the kernel.",
+      "locator": "End of Proposition 8.9 proof; corrected E12",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/105",
+      "kind": "theorem",
+      "name": "Unique similitude-stable symplectic orbit",
+      "statement": "If ell∤q(q−1), Sp(V) acts transitively on the surjections f:V→A for which some h∈GSp_q(V) satisfies f h=f. Such f exist when g≥dim_Fell(A/ell A), by projection to a Lagrangian and a diagonal multiplier-q map.",
+      "locator": "Proposition 8.9",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/102",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/103",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/104"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/106",
+      "kind": "theorem",
+      "name": "One rational geometric Hurwitz component eventually",
+      "statement": "For n odd sufficiently large relative to A and ell∤q(q−1), exactly one geometric connected component of X_n is fixed by Frobenius. Combine full hyperelliptic monodromy, the corrected generic fibre and the unique stable orbit theorem.",
+      "locator": "Theorem 8.8 proof",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/99",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/105"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/107",
+      "kind": "theorem",
+      "name": "Uniform function-field surjection-moment estimate",
+      "statement": "For each finite abelian odd-ell group A there is B(A) such that, for q odd with ell∤q(q−1), sqrt(q)>B(A), and odd n>B(A), the average over S_n of |Sur(Cl(O_L),A)| differs from 1 by at most B(A)/sqrt(q). For A=1 the difference is zero.",
+      "locator": "Theorem 8.8, retaining standing abelian and characteristic hypotheses",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/88",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/89",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/95",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/106"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/108",
+      "kind": "definition",
+      "name": "Lower and upper degree densities",
+      "statement": "For fixed q and A, delta^−(q,A) and delta^+(q,A) are the liminf and limsup, as odd branch degree n tends to infinity, of nu_n(A). They need not coincide for fixed q.",
+      "locator": "Theorem 1.2; deduction after Theorem 8.8",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/90"
+      ],
+      "api": [
+        "lowerDensity and upperDensity of empirical masses along odd n",
+        "lower_le_upper and finiteMomentToBothLimits retain the order of limits"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "constant sequence gives equal densities",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "alternating two masses need not have one degree limit",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "q→infinity is not interchanged with n→infinity",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/109",
+      "kind": "theorem",
+      "name": "Large-q Cohen–Lenstra density theorem",
+      "statement": "For fixed finite abelian odd-ell group A, both delta^−(q,A) and delta^+(q,A) tend to mu(A) as q→∞ through odd prime powers satisfying ell∤q(q−1). Obtain a finite set of moments from Proposition 8.3 before choosing uniform thresholds in q and n.",
+      "locator": "Theorem 1.2 as supported by §8; domain qualification E11",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/75",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/90",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/107",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/108"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/110",
+      "kind": "theorem",
+      "name": "Positive proportions of divisible and indivisible class numbers",
+      "statement": "For fixed odd ell and sufficiently large allowed q, positive lower proportions of the imaginary quadratic family have class number divisible by ell and positive lower proportions have class number prime to ell. Use the positive CL masses and a nontrivial ell-group, rather than claiming a fixed-q exact distribution.",
+      "locator": "After Theorem 1.2",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/109"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/111",
+      "kind": "theorem",
+      "name": "Cellular comparison and finite cell homology bounds",
+      "statement": "For an actual finite CW model, cellular chains compare naturally with singular homology and the dimension of each homology group over a field is bounded by the number of cells in that degree. EVW's specific Salvetti model is additional input.",
+      "locator": "§2.5",
+      "status": "planned",
+      "routingGroup": "planned",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1"
+      ],
+      "planned": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/112",
+      "kind": "theorem",
+      "name": "Finite regular-cover homology descent",
+      "statement": "For a regular finite G-cover, the Cartan–Leray spectral sequence computes quotient homology from group homology with coefficients. If |G| is invertible in the coefficient field, it reduces to coinvariants; this is distinct from the nonfree locally constant stabilizer adapter of item 59.",
+      "locator": "§§6.2,7.8",
+      "status": "planned",
+      "routingGroup": "planned",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1"
+      ],
+      "planned": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/113",
+      "kind": "theorem",
+      "name": "Cohen–Lenstra contraction constant",
+      "statement": "For ell≥3, c_ell>1/2: finite products are strictly larger than 1−sum ell^(−i) with a fixed positive second-order margin persisting in the limit. Consequently beta=c_ell^(−1)−1<1, as required by the uniqueness iteration.",
+      "locator": "Proposition 8.2 proof; explicit auxiliary verification",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/71"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/114",
+      "kind": "theorem",
+      "name": "Failure of arbitrary pointwise lifting",
+      "statement": "For X=A'=C9×C3, A=C3² and pi(x,y)=(x mod 3,y), the surjection f(x,y)=(y,x mod 3) has no lift X→A' through pi. Thus the pointwise claim used in Lemma 8.4 is false even though the aggregate inequality holds.",
+      "locator": "Lemma 8.4, E6; exact witness in report",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/76"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/115",
+      "kind": "theorem",
+      "name": "Distribution convergence alone does not force moment convergence",
+      "statement": "With nu_n=(1−ell^(−n))mu+ell^(−n)delta_(C_(ell^n)), nu_n→mu in total variation, but its C_ell-surjection moment is 2−2ell^(−n), tending to 2. This is an abstract probability counterexample, not a counterexample about number-field class groups.",
+      "locator": "§8.5, E7; explicit witness in report",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/72",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/73"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/116",
+      "kind": "theorem",
+      "name": "Monodromy adapter to the EVW family",
+      "statement": "Required consumer lemma: identify the geometric monodromy of the exact Conf_n hyperelliptic Jacobian used in Theorem 8.8 with Sp_(2g)(Z_ell), tracking the distinguished ramified infinity, branch labels, affine-coordinate torsor and hyperelliptic involution. Achter–Pries proves the corresponding moduli statement; the fundamental-group surjectivity/gerbe comparison needed for this family has not been closed in this checkpoint.",
+      "locator": "Theorem 8.8 monodromy invocation",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/96",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/98"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/117",
+      "kind": "theorem",
+      "name": "Center-free descent for tame covers",
+      "statement": "For a tame G-cover over an algebraically closed field, its field of moduli admits a model when Z(G)=1; the G-equivariant model over that field is unique up to isomorphism. The central obstruction lives in H² of Z(G).",
+      "locator": "RW06 Proposition 4.4, used in EVW §7.1",
+      "status": "missing",
+      "routingGroup": "cover",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/62"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/118",
+      "kind": "theorem",
+      "name": "Tame deformation with moving branch points",
+      "statement": "Over an Artin local base with fixed residue cover, a tame cover has a unique deformation for a given compatible deformation of its branch divisor, in the setting and equivalence category of RW06 Proposition 4.5. This is the local etaleness input, not a general assertion for wild covers.",
+      "locator": "RW06 Proposition 4.5 and §4.3",
+      "status": "missing",
+      "routingGroup": "cover",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/62"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/119",
+      "kind": "construction",
+      "name": "Versal algebraization of a tame cover",
+      "statement": "Use the universal tame deformation over a Witt/power-series complete base, then algebraize and descend finite presentation to an etale neighbourhood of the configuration space, retaining the cover and its branch divisor.",
+      "locator": "RW06 §4.3, Proposition 4.10",
+      "status": "missing",
+      "routingGroup": "cover",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/118"
+      ],
+      "api": [
+        "versalTameCover with map to the branch configuration neighbourhood",
+        "algebraize and etaleChart comparison preserve residue cover and branch sections"
+      ],
+      "unitTests": [
+        {
+          "name": "case-1",
+          "expected": "fixed branch deformation gives the unique tame lift",
+          "status": "planned"
+        },
+        {
+          "name": "case-2",
+          "expected": "residue isomorphisms are respected",
+          "status": "planned"
+        },
+        {
+          "name": "case-3",
+          "expected": "wild deformation is not accepted by this construction",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/120",
+      "kind": "theorem",
+      "name": "Gluing the arithmetic Hurwitz scheme",
+      "statement": "Normalize generic fields of moduli, use the versal etale charts and glue their common open loci to obtain the finite-type Hurwitz scheme etale over configurations; good reduction over Z[1/|G|] yields finiteness. The good-reduction/valuative argument is cited in Remark 4.15(ii), not fully reproved here.",
+      "locator": "RW06 §4.4, Theorem 4.11 and Remark 4.15(ii)",
+      "status": "missing",
+      "routingGroup": "cover",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/117",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/119"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/121",
+      "kind": "theorem",
+      "name": "Hyperelliptic boundary degeneration input",
+      "statement": "For g≥3, labeled hyperelliptic moduli meets a boundary configuration with components of genera 1,g−2,1; the prime-to-characteristic torsion of Pic^0 splits accordingly. These two overlapping decompositions embed the relevant smaller symplectic monodromy groups.",
+      "locator": "Achter–Pries §§2.1–2.4, proof of Theorem 3.4",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/122",
+      "kind": "theorem",
+      "name": "Overlapping symplectic subgroups generate",
+      "statement": "In the setting of Achter–Pries Lemma 3.1, the two symplectic block subgroups obtained from the overlapping genus decompositions generate the full finite symplectic group. Together with the genus-one and genus-two base cases this gives full mod-ell hyperelliptic monodromy.",
+      "locator": "Achter–Pries §3.2, Lemma 3.1 and Theorem 3.4",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/121"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/123",
+      "kind": "theorem",
+      "name": "Integral lift of full mod-ell monodromy",
+      "statement": "For the closed subgroup of Sp_(2g)(Z_ell) arising from the hyperelliptic family, full reduction mod ell and the cited symplectic lifting lemma imply full integral monodromy for odd ell. The original group-theoretic lifting source remains a recursive reading obligation.",
+      "locator": "Achter–Pries Corollary 3.5",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/122"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/124",
+      "kind": "theorem",
+      "name": "Universal-coefficient dimension comparison",
+      "statement": "For the proper finiteness hypotheses on geometric etale cohomology used in Proposition 7.8, rational L-adic Betti dimension is at most the number of generators of integral cohomology, which is at most mod-L cohomology dimension by the universal-coefficient sequence. This is a rank inequality, not a mod-L/rational isomorphism.",
+      "locator": "End of Proposition 7.8 proof",
+      "status": "missing",
+      "routingGroup": "cover",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/68"
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/125",
+      "kind": "theorem",
+      "name": "Lift histogram for the enlargement counterexample",
+      "statement": "In item 114, among the 48 surjections X→C3², 36 have no homomorphic lift through pi and 12 have exactly 9 lifts; Aut(C9×C3) has order 108. Thus the aggregate count 108≥2·48 coexists with failure of pointwise lifting.",
+      "locator": "Finite verification supporting E6",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/77",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/114"
+      ]
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Romagny–Wewers, Hurwitz spaces (2006)",
+      "link": "https://perso.univ-rennes1.fr/matthieu.romagny/articles/hurwitz_spaces.pdf",
+      "why": "Arithmetic fine/coarse Hurwitz moduli, tame deformation and good reduction. Read §§4.1–4.5, extracted lines 474–1005, including proofs of 4.3–4.14 and Remark 4.15. Not the complete paper; referenced SGA and Dèbes–Douai descent remain open.",
+      "sha256": "caed858ea899e029b96e3b840e605ad6432cdd1100b93125ef39a0d8abde18a0",
+      "readDate": "2026-09-22"
+    },
+    {
+      "citation": "Achter–Pries, The integral monodromy of hyperelliptic and trielliptic curves (2007)",
+      "link": "https://www.math.colostate.edu/~pries/Preprints/00DecPreprints/07finaltrielliptic.pdf",
+      "why": "Read introduction, §§2.1–2.4 and §§3.1–3.3, including Theorem 3.4 and Corollary 3.5 proofs; not the trielliptic remainder. Full hyperelliptic moduli monodromy is supplied; family/gerbe adapter and original integral lifting input remain open.",
+      "sha256": "ef86bd41e5b4d61d199f363985732b4965b59ce8cb180040b86ab99118a6b080",
+      "readDate": "2026-09-22"
+    },
+    {
+      "citation": "Salvetti, Topology of the complement of real hyperplanes in C^N (1987)",
+      "link": "https://doi.org/10.1007/BF01391833",
+      "why": "EVW Proposition 2.5 finite CW bound. Primary proof not read; import actual cell model and count, not a fabricated cell-count carrier."
+    },
+    {
+      "citation": "Hatcher–Wahl, Stabilization for mapping class groups of 3-manifolds (2010), Proposition 7.2; Damiolini/Wahl arc-complex variants",
+      "link": "https://doi.org/10.1215/00127094-2010-055",
+      "why": "EVW §5.5 arc connectivity. Exact comparison among the cited arc models, endpoint conventions and connectivity range remains open; also isolate isotopy-extension and relative-pi2 suppliers."
+    },
+    {
+      "citation": "Knudsen, The projectivity of the moduli space of stable curves II (1983), Theorem 2.7",
+      "link": "https://doi.org/10.7146/math.scand.a-12001",
+      "why": "EVW Lemma 7.6 smooth proper genus-zero stable moduli and relative normal-crossing boundary. Original proof not read; do not duplicate existing curve/moduli owners."
+    },
+    {
+      "citation": "SGA 1, Exposes XII–XIII; SGA 7 II, Expose XIII 2.1.8.9 and 2.1.11",
+      "link": "https://doi.org/10.1007/BFb0060505",
+      "why": "EVW §7 comparison of covers and tame vanishing-cycle argument. Need check exact sheaf/tameness/base hypotheses in originals; existing etale and nearby-cycle owners supply the general machinery."
+    },
+    {
+      "citation": "Cohen–Lenstra, Heuristics on class groups of number fields (1984)",
+      "link": "https://doi.org/10.1007/BFb0099440",
+      "why": "CL mass normalization and all finite abelian surjection moments. Original full proof not read during this claim."
+    },
+    {
+      "citation": "Friedman–Washington, On the distribution of divisor class groups of curves over a finite field (1989)",
+      "link": "https://doi.org/10.1515/9783110852790.227",
+      "why": "Haar-cokernel distribution input in EVW §8.1; exact conditioning and limiting statement require primary reading."
+    },
+    {
+      "citation": "Rosen, S-units and S-class group in algebraic function fields (1973)",
+      "link": "https://doi.org/10.1016/0021-8693(73)90036-7",
+      "why": "Function-field CFT, constants and degree, and the Picard/class-group dictionary. FA.4 already owns the general proof; the selected-infinity and involution adapters must be checked."
+    },
+    {
+      "citation": "Deligne, Weil II; SGA 4/4½ duality and trace",
+      "link": "https://doi.org/10.1007/BF02684780",
+      "why": "Existing DWP, EDC and SF.2 supplier roadmaps are imported, not reproposed. Remaining source closure is exact specialization to these smooth nonproper Hurwitz schemes and chosen coefficient primes."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "InverseGaloisAndArithmeticFundamentalGroups",
+      "roadmap": "InverseGaloisPartIIHurwitzHomologicalStability",
+      "title": "Inverse Galois theory and arithmetic fundamental groups, Part II: homological stability of Hurwitz spaces",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/8",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/9",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/10",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/11",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/12",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/13",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/14",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/17",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/18",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/19",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/20",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/21",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/22",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/23",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/24",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/25",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/26",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/27",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/28",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/29",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/30",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/31",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/32",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/33",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/34",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/35",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/36",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/37",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/38",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/39",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/40",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/41",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/42",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/43",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/44",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/45",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/46",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/47",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/48",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/49",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/50",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/51",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/52",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/53",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/54",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/55",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/56",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/57",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/58",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/59",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/60",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/69",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/70"
+      ],
+      "reason": "IG.3 and IG.5 plan branch cycles, descent, Hurwitz moduli and specialization, but not the chain-level nonsplitting stability argument of EVW §§3–6. Extend that direction and import its existing foundations.",
+      "brief": "Build the nonsplitting Hurwitz-space stability theorem with its actual central operator U: for finite G, a single generating nonsplitting conjugacy class c, and field coefficients in which |G| is invertible, H_p stabilizes from n to n+deg U for n>Ap+B; include connected/full-monodromy covers and, when center-free, their unmarked quotients. Construct the braid-orbit ring, graded K-complex, all degree estimates, the truncated arc/coset resolution, its spectral sequence and the induction. Import Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups), algebraic topology of spaces and manifolds (tauceti:TauCetiRoadmap/AlgebraicTopology), existing braid and singular-chain carriers, and shared graded homological-algebra suppliers. Audit a reusable noncommutative right/left Tor interface before assigning ownership; do not reimplement commutative or abstract derived-functor machinery. Import arithmetic Hurwitz schemes and tame comparison from IG.5 and export only the uniform Betti estimate with its auxiliary-prime conditions. Do not promise Frobenius-equivariant stabilization or fixed-q CL convergence. Resolve source findings and recursive proof gaps in this partial extraction before blueprint completion."
+    },
+    {
+      "route": "source",
+      "roadmap": "InverseGaloisAndArithmeticFundamentalGroups",
+      "stages": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.5"
+      ],
+      "items": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/15",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/16",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/61",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/62",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/63",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/64",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/65",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/66",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/67",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/68",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/117",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/118",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/119",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/120",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/124"
+      ],
+      "reason": "The cover/moduli/comparison constructions specialize the existing branch-cycle and Hurwitz-space direction. Import Riemann existence, ordinary curve moduli and etale/nearby-cycle foundations from their established owners; keep only the marked/unmarked and tame-family adapters here."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.0",
+        "ArithmeticStatistics:ST.5"
+      ],
+      "items": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/71",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/72",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/73",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/74",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/75",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/76",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/77",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/78",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/79",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/80",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/81",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/82",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/83",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/84",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/86",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/87",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/88",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/89",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/90",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/94",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/95",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/96",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/97",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/98",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/99",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/100",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/101",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/102",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/103",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/104",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/105",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/106",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/107",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/108",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/109",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/110",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/113",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/114",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/115",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/116",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/121",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/122",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/123",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/125"
+      ],
+      "reason": "ST.0 owns probability/family normalization and ST.5 owns distributions and function-field higher moments. EVW supplies the CL finite-moment argument, generalized-dihedral counting dictionary, monodromy/component calculation and large-q density result. Import stability, CFT, Jacobians, trace and weights; do not claim these statistical results already exist in Lean."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E1",
+      "kind": "misprint",
+      "locator": "Published Annals 2016 version, after Conjecture 1.5, p.733",
+      "printed": "equal to 1",
+      "correction": "The reference to delta^± of Theorem 1.2 cannot be literal: these densities have CL masses. Identify the intended Malle/moment normalization before deriving any claim from this sentence.",
+      "reason": "Distinct class-group isomorphism events are disjoint and their probabilities cannot each tend to one. Theorem1.2 itself gives c_ell/|Aut A|.",
+      "affects": "nothing",
+      "known": "No existing correction located in the sources searched; novelty not established.",
+      "searched": [
+        "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
+        "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
+        "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E2",
+      "kind": "misprint",
+      "locator": "Published Annals 2016 version, Definition 2.2 final paragraph, p.739",
+      "printed": "respectively",
+      "correction": "The three fibres are c^n, generating tuples in G^n, and generating tuples in c^n, in that order.",
+      "reason": "Sur(pi,G) is not restricted to c while Sur^c(pi,G) is; the last two verbal descriptions are swapped.",
+      "affects": "nothing",
+      "known": "No existing correction located in the sources searched; novelty not established.",
+      "searched": [
+        "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
+        "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
+        "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E3",
+      "kind": "misprint",
+      "locator": "Published Annals 2016 version, Lemma 4.6 proof, p.750",
+      "printed": "M⊗_R R[U]",
+      "correction": "Use R[U] tensor_R M, with R[U] a right module and M a left module, as in the next displayed exact sequence 4.6.3.",
+      "reason": "R is noncommutative in general, and a merely left R-module M cannot be the first tensor factor over R with the asserted action.",
+      "affects": "nothing",
+      "known": "No existing correction located in the sources searched; novelty not established.",
+      "searched": [
+        "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
+        "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
+        "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E4",
+      "kind": "misprint",
+      "locator": "Published Annals 2016 version, §5.2, p.756",
+      "printed": "A_q=B_n/L_q",
+      "correction": "Restrict this formula to 0≤q<n and put A_q empty for q≥n; face maps in positive degree have the corresponding range.",
+      "reason": "For q≥n the displayed faces require nonexistent generators of B_n, while q+1 disjoint arcs need distinct puncture endpoints and cannot exist.",
+      "affects": "nothing",
+      "known": "No existing correction located in the sources searched; novelty not established.",
+      "searched": [
+        "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
+        "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
+        "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E5",
+      "kind": "error",
+      "locator": "Published Annals 2016 version, equation 6.1.6 and its reuse, p.763",
+      "printed": "U=(|c|/|c∩Q|)U_Q",
+      "correction": "With the displayed unnormalized definition U_Q=sum_(g∈c∩Q) r_g^(D ord g), the diagonal exact-monodromy-Q action is U_Q itself. Remove the extra scalar in both displays; the subgroup induction still works.",
+      "reason": "A term with g outside Q raises generated subgroup; each g inside Q contributes once. For G=S3, c the three transpositions and Q generated by one, the diagonal has coefficient1, not3. Checked finite witness; rendered formula inspected.",
+      "affects": "the proof",
+      "known": "No existing correction located in the sources searched; novelty not established.",
+      "searched": [
+        "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
+        "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
+        "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E6",
+      "kind": "error",
+      "locator": "Published Annals 2016 version, Lemma 8.4 proof after equation 8.4.1, p.772",
+      "printed": "principal homogeneous space",
+      "correction": "The lift set may be empty. Prove the aggregate enlargement inequality by the conjugate-partition surjection formula and least-column enlargement, as detailed in the report, instead of asserting all individual surjections lift.",
+      "reason": "Take X=A'=C9×C3, A=C3², pi(x,y)=(x mod3,y), f(x,y)=(y,x mod3). The order3 element (0,1) would need an order9 image to lift, impossible. Exact enumeration gives 36 unliftable surjections out of48. The aggregate inequality remains true.",
+      "affects": "the proof",
+      "known": "No existing correction located in the sources searched; novelty not established.",
+      "searched": [
+        "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
+        "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
+        "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E7",
+      "kind": "gap",
+      "locator": "Published Annals 2016 version, §8.5 before equation 8.5.1, p.774",
+      "printed": "equivalent",
+      "correction": "Proposition8.3 proves moment convergence implies convergence in distribution. The reverse needs uniform integrability or another family-specific tail estimate; do not infer it solely from distribution convergence.",
+      "reason": "nu_n=(1−ell^-n)mu+ell^-n delta_(C_(ell^n)) converges in total variation to mu but its C_ell moment tends to2, not1. This demonstrates the logical gap only, not failure of the number-field conjecture.",
+      "affects": "the proof",
+      "known": "No existing correction located in the sources searched; novelty not established.",
+      "searched": [
+        "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
+        "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
+        "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E8",
+      "kind": "misprint",
+      "locator": "Published Annals 2016 version, equation 8.7.5, p.777",
+      "printed": "|S_n|=2(q^n−q^(n−1))",
+      "correction": "Require odd n≥3 for this formula; n=1 gives |S_1|=2q.",
+      "reason": "There are q monic linear squarefree polynomials, not q−1. The eventual large-n theorem is unaffected.",
+      "affects": "nothing",
+      "known": "No existing correction located in the sources searched; novelty not established.",
+      "searched": [
+        "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
+        "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
+        "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E9",
+      "kind": "misprint",
+      "locator": "Published Annals 2016 version, Theorem 8.8, p.777",
+      "printed": "ℓ-group",
+      "correction": "Retain the standing hypothesis that A is abelian; A=1 is a separately trivial case.",
+      "reason": "Every quotient of an abelian class group is abelian. For nonabelian A the mean surjection count is zero, so the written unrestricted inequality cannot tend to one.",
+      "affects": "a stated result",
+      "known": "No existing correction located in the sources searched; novelty not established.",
+      "searched": [
+        "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
+        "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
+        "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E10",
+      "kind": "error",
+      "locator": "Published Annals 2016 version, generic-fibre identification in Theorem 8.8 proof, p.779",
+      "printed": "Sur(V,A)",
+      "correction": "The unmarked cover's fibre is Sur(V,A)/{±1}, consistently with Proposition8.7. The marked set can be used for component orbits only after proving that −I∈Sp(V) makes their Sp-orbit sets identical.",
+      "reason": "For V=F3²,A=F3 there are8 surjections but4 sign classes. Full-monodromy unmarked covers forget the hyperelliptic involution marking. The orbit-count conclusion survives the correction.",
+      "affects": "the proof",
+      "known": "No existing correction located in the sources searched; novelty not established.",
+      "searched": [
+        "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
+        "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
+        "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E11",
+      "kind": "gap",
+      "locator": "Published Annals 2016 version, Theorem 1.2, p.730; §§8.6–8.8",
+      "printed": "q≠1(modℓ)",
+      "correction": "The proof supplied in this extraction supports odd q with ell∤q(q−1). Either state those restrictions or supply the missing characteristic2 and characteristicell arguments before claiming the broader written domain.",
+      "reason": "The Kummer quadratic parametrization needs odd q; the Hurwitz/torsion comparison and Theorem8.8 exclude characteristicell. This is a supported-domain gap, not a proof that the broader assertion is false.",
+      "affects": "the proof",
+      "known": "No existing correction located in the sources searched; novelty not established.",
+      "searched": [
+        "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
+        "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
+        "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E12",
+      "kind": "misprint",
+      "locator": "Published Annals 2016 version, end of Proposition 8.9 proof, p.782",
+      "printed": "i>g",
+      "correction": "The basis vectors modified are indexed by k<i≤g, not i>g.",
+      "reason": "The basis y_1,...,y_g has no vectors with index greater than g; the intended kernel adjustment applies to the remaining g−k vectors.",
+      "affects": "nothing",
+      "known": "No existing correction located in the sources searched; novelty not established.",
+      "searched": [
+        "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
+        "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
+        "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E13",
+      "kind": "misprint",
+      "locator": "Published Annals 2016 version, §1.1 example, p.730",
+      "printed": "indivisible",
+      "correction": "The displayed 1−product_(i≥1)(1−3^-i)≈0.440 is the probability of divisibility by3. Indivisibility has probability c_3≈0.560.",
+      "reason": "The trivial3-primary group has CL mass c_3, so the complementary event is divisibility. The main theorem uses the correct normalization.",
+      "affects": "nothing",
+      "known": "No existing correction located in the sources searched; novelty not established.",
+      "searched": [
+        "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
+        "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
+        "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+      ]
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E14",
+      "kind": "misprint",
+      "locator": "Published Annals 2016 version, deduction of Theorem 1.2 after Theorem 8.8, p.777",
+      "printed": "Cl(O_L)≃A",
+      "correction": "Define nu_n(A) using Cl(O_L)_ell≃A, the ell-primary part, rather than the entire class group.",
+      "reason": "L is the set of finite abelian ell-group types. Whole class groups with another prime divisor otherwise contribute to no A, contradicting the asserted probability measure. Surjections to ell-groups factor through the ell-primary part, so the moment argument is unchanged.",
+      "affects": "nothing",
+      "known": "No existing correction located in the sources searched; novelty not established.",
+      "searched": [
+        "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
+        "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
+        "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version."
+      ]
+    }
+  ],
+  "audit": {
+    "baseline": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+    },
+    "atlasSnapshot": "49d2d238f02886ddd5eafc31b00c5649599724a6",
+    "reviewedCoverageBlob": "5e708cfc74a51b10e62149113872fe4e00eb5846",
+    "readOwners": [
+      "Full current ArithmeticStatistics and InverseGaloisAndArithmeticFundamentalGroups documents and their stage extracts; reviewed ST.5, IG.3 and IG.5 audits.",
+      "Full upstream AlgebraicTopology document and eight stage descriptions; existing cellular and finite-cover descent imports separated.",
+      "FA.4, EDC.2:pairings, DWP.7 and SF.2 supplier statements and audits read in this or the immediately preceding Wood claim; no competing generic CFT/duality/weights/trace implementation proposed."
+    ],
+    "searchScope": "Pinned source searches for Hurwitz, nonsplitting, Cohen–Lenstra, braid, spectral sequence, noncommutative Tor, semidirect product and symplectic multiplier; opened exact positive declarations. Current tree plus roadmap/packet/link/reserved-ID contents screened for overlap; no existing specialized Hurwitz homological-stability route found. Negative searches are not proofs of absence.",
+    "limitations": [
+      "Noncommutative balanced tensor/Tor implementation and general ownership not fully settled. CategoryTheory.Tor is an abstract monoidal-category derived functor, not a turnkey left/right module construction over EVW's noncommutative R.",
+      "TauCeti's rank-two symplectic multiplier/determinant result is not a general symplectic similitude lattice theorem.",
+      "The complete recursive prerequisite graph is not closed; status remains partial."
+    ]
+  },
+  "apiScope": "Every missing definition/construction has two consumer-derived API contracts and three acceptance tests. These are plans, not compiled declarations; executed finite witnesses are reported separately.",
+  "validation": {
+    "finiteRegression": {
+      "assertions": 1154,
+      "exactSurjectionCounts": 114,
+      "enlargementCases": 35,
+      "dSquaredCases": 484,
+      "nullHomotopyCases": 480,
+      "liftHistogram": {
+        "0": 36,
+        "9": 12
+      },
+      "sha256": "e082a2a04ccff85c0d8f1c5501d80b774fe22e9b5e2c108112835a925cd1eeb9",
+      "scope": "Exact finite Python witnesses, not proofs for all groups and not Lean, schemes or Frobenius verification."
+    },
+    "lean": "No Lean file authored or compiled; paper issue permits only result, report and handoff.",
+    "checker": "PASS: current check_paper.py (blob 41644c9677abd46f97d293a20e66c1e4c3e20a23) with source_issues.py (blob da67776033cefc24d185ffd47b2c74d3e9167099); 125 items, 112 missing each routed exactly once, 222 acyclic internal dependency edges, all 36 missing definitions/constructions with APIs and 108 planned tests, all route galaxy IDs checked."
+  },
+  "remainingWork": [
+    "Close Salvetti/arc connectivity/isotopy-extension originals and the exact model comparison; split any additional lemmas discovered by that reading.",
+    "Resolve the reusable noncommutative graded right/left Tor foundation and owning roadmap. Abstract spectral sequence and commutative tensor declarations are insufficient.",
+    "Read SGA1 XII/XIII and SGA7II XIII original statements for Proposition7.7, plus Knudsen, tame deformation/good reduction and descent suppliers behind RW06.",
+    "Close the exact EVW hyperelliptic-family monodromy adapter (item116), integral lifting source, Jacobian/Kummer and function-field class-field involution dictionary.",
+    "Close CL/Haar-cokernel normalization/moment inputs in the original sources and check all elementary probability estimates; the replacement8.4 argument is given here but not independently reviewed.",
+    "Independently verify every sourceIssue and compare additional author/arXiv versions before announcing novelty. Conjecture1.5 is context, not an established input.",
+    "Reconcile generic supplier ownership against all accepted restructures and fresh atlas state before promoting complete. This checkpoint routes all current missing items but does not claim exhaustive recursive proof closure."
+  ]
+}
