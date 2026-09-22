@@ -2747,8 +2747,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-TREUMANN-VENKATESH-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1176"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1176",
+   "finishedAt": "2026-09-22T18:47:46Z"
   },
   {
    "id": "REV-PAPER-TREUMANN-VENKATESH-16",
@@ -4786,7 +4787,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CALEGARI-GERAGHTY-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1298"
   },
   {
    "id": "REV-PAPER-CALEGARI-GERAGHTY-18",
@@ -5792,7 +5794,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FENG-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1354"
   },
   {
    "id": "REV-PAPER-FENG-24",
