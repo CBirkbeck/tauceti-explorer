@@ -1,0 +1,52 @@
+{
+  "paper": "PAPER-HARPAZ-WITTENBERG-23",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "(Was route 2.) SchemeAndStackFoundations SF.2 is the source for the generic Hochschild–Serre Brauer sequence of item 40, which is planned there, though SF.2 never names Hochschild–Serre and should receive a request. Items 152 and 155, which SF.2 does not plan, moved to the homogeneous-Massey Part II; the constant-unit input is the new item 157 there."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "(Was route 3.) SF.4 owns resolution in named settings; the route carries only the planned item 30 and is kept as a pointer."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "(Was route 4.) HeightsRationalPointsAndObstructions RP.2 plans the Brauer–Manin pairing (\"Construct restricted adelic point spaces, local invariant maps and the Brauer–Manin pairing …\"); items 29, 31, 38 and 61 are concrete uses."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "(Was route 5.) ArithmeticGaloisDuality R02.2 is the home of the finite-group transgression d₂^{1,1} (item 148) and, with a stretch, the Laurent-series Witt and residue sequences (149, 150), for which no better owner exists. Item 58 moved to its Tau Ceti owner, ProfiniteCohomology Layers 6 and 10."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "(Was route 6.) R02.4 plans the finite-module Poitou–Tate duality and exact sequence, which items 120 and 121 use; item 154 (H³(k,k̄^×)=0 for number fields) fits there."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "(Was route 7.) IG.4, as kept by RS-29 (\"local constraints and compatibility with restriction to local Galois groups\"), is a defensible home for the Sha¹(μ_m) computations and the Grunwald prescriptions (items 122–126, 130, 136)."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "(Was route 8.) A Part II of Tau Ceti ProfiniteCohomology is justified: nothing plans Massey products in continuous group cohomology, the unitriangular lifting correspondence or the refined local lifting theorems. The parent is written in the accepted form for Tau Ceti parents (as RS-30 does for EllipticCurves). Accepted after corrections in place: item 9 (the strictly associative cochain algebra) was added, item 17 left for its ProfiniteProPGroups owner, and the final arithmetic theorems (96, 118, 119) moved to the homogeneous-Massey Part II so that the two roadmaps no longer import each other; the brief now states this roadmap's own final theorems, adds the HL.2 and Kummer-theory imports and asks for one owner of the items shared with Merkurjev–Scavia's ProfiniteCohomology Part II. Area algebraicnt is valid; the parent's galaxy would be homological."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "(Was route 9.) A Part II of HeightsRationalPointsAndObstructions is justified: nothing plans homogeneous spaces with finite stabilizers, their unramified Brauer groups or the supersolvable Hasse principle. Accepted after corrections in place: it now ends at the arithmetic Massey theorems (Theorems 1.3/5.1 and 7.4), gains items 152, 155, 157 and 158 (Lucchini Arteche's Théorème 4.15), and imports Chebotarev, ModularCurves 0C–0D and ProfiniteProPGroups Layer 5. Its roadmap id is shared with PAPER-HARPAZ-WITTENBERG-20 route 13 by design, and the brief now says the design job must take both briefs; see the notes on the queue. Area algebraicnt is valid and matches HW20 route 13; the parent's galaxy would be arithmeticgeometry, and both routes should move together if that is preferred."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "(Was route 10.) ArithmeticGaloisDuality R02.1 plans topological coefficients and inverse limits; Hom_pt(C,A) as an inverse limit of discrete modules (items 139–143) fits."
+    }
+  ],
+  "notes": "Independent review by Claude Code (session cc-fb70e5) of the extraction by Codex (codex-c83e7a, continued by codex-a71f92); this session did no part of it. The author final version (SHA-256 d95100eb…546f, as recorded) was read, with every item checked against it and formula pages checked on page images; arXiv 1904.06512v2 has the same text. The extraction is faithful: no item is mathematically wrong. Corrections in place: 7 status changes (9 → missing; 17 → planned; 24, 58 re-owned by Tau Ceti layers; 23, 81 gain suppliers; 40 split), 2 items added (157 constant units; 158 Lucchini Arteche Théorème 4.15), 9 statements or notes tightened, 23 locators corrected, route 1 (SF.1) removed as empty, and the two Part IIs reordered so that they no longer import each other. Routes are renumbered after the removal; the reasons give the old numbers. Counts are now 10 library, 15 planned, 133 missing, with every missing item routed exactly once. The route to HeightsRationalPointsPartIIHomogeneousMassey shares its roadmap id with PAPER-HARPAZ-WITTENBERG-20 route 13 by design; make_queue.py would emit two design jobs with the same id, so the maintainer should merge the briefs. Mistakes found in the paper are listed in the report for the errata job ERRATA-PAPER-HARPAZ-WITTENBERG-23 (issue #1715)."
+}

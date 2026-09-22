@@ -12,7 +12,7 @@ Harpaz–Wittenberg, *The Massey vanishing conjecture for number fields*, Duke M
 
 The main theorem concerns **number fields**, every prime p, and every n≥3. Defined means at least one defining system exists; vanishing means **zero belongs to the set of values**. It does not force the entire set, or every chosen defining system, to be zero. The twisted theorem keeps one-dimensional F_p coefficient modules and the number-field hypothesis. The final counterexample has coefficients Z/8: it does not contradict either F_p theorem.
 
-Historical results mentioned only in the introduction, such as topological linking interpretations, all-fields triple vanishing and nonformality examples, are context rather than proof prerequisites of the extracted targets. Definitions and key proof inputs actually used in §§2–7, including both supplementary applications, are extracted. The unproved all-rank outer-exponent question of Remark 4.8 is not promoted to a theorem.
+Historical results mentioned only in the introduction, such as topological linking interpretations, all-fields triple vanishing and nonformality examples, are context rather than proof prerequisites of the extracted targets. Definitions and key proof inputs actually used in §§2–7, including both supplementary applications, are extracted. The unproved all-rank outer-exponent question of the unnumbered remark after Lemma 4.7 (p.14) is not promoted to a theorem.
 
 ## Proof structure
 
@@ -56,7 +56,7 @@ Each definition/construction carries an API outline and three discriminating tes
 
 **Real places.** Proposition 5.3 explicitly defines local field as nonarchimedean, while the main proof uses all places. For C the claim is immediate; for R and odd p the relevant maps C2→p-groups are trivial. For R,p=2, set t=σ−1 on finite F_2[C2]-modules. Since t²=0, H¹=ker(t)/im(t) has the perfect evaluation pairing with the dual quotient. The nonsplit splitting class therefore gives surjectivity onto H²(C2,F_2), and the same obstruction cancellation applies. The split-module retraction argument is unchanged. This fills the archimedean step in both main theorems.
 
-**Matrix conventions.** In Lemma 4.13’s a_2≠0 construction, p.17 needs e_03^(a_2), as its prescribed Q_03=a_2 already shows. In §6 the indices 0,…,4 form a 5×5 subgroup. In §7, U^m/U^(m+1) uses Hom(N_(i+m+1),N_i). The two summands defining twisted P intersect in the corner Z: use an internal sum, not an external direct sum double-counting Z. Formula (4.2) treats distance≥4 entries as zero in B. The local easy case lifts to **U**, not the printed “to Z.”
+**Matrix conventions.** In Lemma 4.13’s a_2≠0 construction, p.17 needs e_03^(a_2), as its prescribed Q_03=a_2 already shows. In §6 the indices 0,…,4 form a 5×5 subgroup. In §7, U^m/U^(m+1) uses Hom(N_(i+m+1),N_i). The two summands defining twisted P intersect in the corner Z: use an internal sum, not an external direct sum double-counting Z. Formula (4.2) is right to treat distance≥4 entries as zero in B: they lie in U³ = Ker(U¹→B). The local easy case lifts to **U**, not the printed “to Z.”
 
 **Explicit length-six example.** Take p=2,n=6 and σ=e_01+e_12+e_56. The vector e_25 is σ-fixed in B. If Q has a σ-fixed conjugacy class, some T with adjacent entries (1,1,0,0,0,1) commutes with Q. The (0,3), (1,4), (3,6) equations force Q_13=Q_24=Q_35=0; the (1,5) equation then forces Q_25=0. Thus the conjugacy-image span misses e_25. Exact enumeration gives fixed dimension six and image-span dimension five (`PAPER-HARPAZ-WITTENBERG-23/76`).
 
@@ -150,3 +150,23 @@ The original checkpoint reported exact checks of 8,400 conjugation-entry equalit
 Fresh exact Python checks cover all256 pairs in Q for action/cocycle/cup identities; all4,096 triples for the factor-set equation and reduction of β cup f to χ_x cup χ_y cup χ_z; all224 fixed-vector cases; 24,576 mixed-cochain differential checks; absence of any global coboundary for β; and the literal abelian outer-exponent calculation for cyclic groups of orders1 through64. The definitions above make the checks reproducible by five-bit F_2 arithmetic and Q coordinates (i mod2,j mod4,l mod2). The associativity assertion follows from the exhaustively checked factor-set equation, not a claim to have enumerated 512³ group triples.
 
 The paper checker, exact missing-route coverage, identifier/owner checks, all definition/construction API-and-test contracts and three-file submission scope were checked before submission. A complete paper extraction still leaves its routed blueprint and prerequisite-proof work to the design jobs and independent review. No Lean file is requested by this paper issue; none was compiled, and nothing is claimed formalized.
+
+## Corrections by the independent review
+
+The independent review (REV-PAPER-HARPAZ-WITTENBERG-23, `research/blueprint/reviews/REV-PAPER-HARPAZ-WITTENBERG-23.md`) accepted this extraction and all its routes, and corrected the JSON in place:
+
+- **Statuses.**
+  - Item 9 (the strictly associative cochain algebra) is now missing and in the ProfiniteCohomology Part II.
+  - Item 17 is planned by ProfiniteProPGroups Layer 5.
+  - Items 24 and 58 are re-owned by ModularCurves 0D and ProfiniteCohomology Layers 6, 10 and 9.
+  - Items 23 and 81 gain IG.4 and HL.2.
+  - Item 40 is split, with the new item 157 for constant geometric units.
+- **New items.** 157, and 158 (Lucchini Arteche's Théorème 4.15, used in the proof of Proposition 3.3).
+- **Precision.** Item 46 states the paper's existence claim, with the explicit witness kept in the note as a completion. Items 20, 27, 43, 45, 47, 102 and 118 are tightened. Twenty-three locators are corrected.
+- **Routes.**
+  - The SF.1 route is removed, and the routes are renumbered.
+  - The final arithmetic theorems (96, 118, 119) move to the homogeneous-Massey Part II, so the two Part IIs no longer import each other.
+  - Imports are added to both briefs.
+  - That Part II's roadmap id is shared with PAPER-HARPAZ-WITTENBERG-20 route 13, and its brief now says so.
+
+Where the text above counts items or routes, the corrected JSON is authoritative. It has 158 items (10 library, 15 planned, 133 missing) in nine routes.
