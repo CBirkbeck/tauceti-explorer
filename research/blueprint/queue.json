@@ -3910,8 +3910,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LI-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1245"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1245",
+   "finishedAt": "2026-09-22T19:44:18Z"
   },
   {
    "id": "REV-PAPER-LI-23",
@@ -4623,7 +4624,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BRUINIER-EHLEN-YANG-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1288"
   },
   {
    "id": "REV-PAPER-BRUINIER-EHLEN-YANG-21",
@@ -6491,8 +6493,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ATOBE-KONDO-YASUDA-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1395"
+   "state": "pending",
+   "note": "released on GitHub issue #1395"
   },
   {
    "id": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
