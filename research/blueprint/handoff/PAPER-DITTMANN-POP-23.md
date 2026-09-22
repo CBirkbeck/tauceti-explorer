@@ -34,9 +34,9 @@ Fresh additions were audited at main
 0281c2b28ca28203dba72b8fabd661918e1da5eb. The report distinguishes new reads
 from inherited source and library evidence.
 
-Fourteen structured source findings preserve E1–E4 from the separate errata
-file and add the omitted finite-place condition, false intermediate cd
-bound, inverse-language bridge, identity-index slip, smaller notation and
+Thirteen structured source findings preserve E1–E4 from the separate errata
+file and add the false intermediate cd bound, inverse-language bridge,
+identity-index slip, smaller notation and
 tensor slips, and three bibliography corrections. The separate errata job
 and its independent review were not edited.
 
@@ -64,7 +64,7 @@ and its independent review were not edited.
    duplicate L4's theorem in A0-extension.
 5. DP23-G6–G7: independently review full-rank geometric flags, torus
    specialization and the finite inverse-language bridge; acquire the
-   25-page publisher version and collate the fourteen source findings.
+   25-page publisher version and collate the thirteen source findings.
    Finish the inherited Part II signature audit before declaring complete.
 
 ## Preserve these boundaries
@@ -79,7 +79,9 @@ integrality quantifies over every prolongation; one chosen prolongation
 does not suffice. Exact contraction refers to valuation rings, not
 independently normalized numerical values. Associated primes require the
 noetherian radical-to-exact-annihilator conversion. In Proposition 3.8,
-Σ must contain the nonunit places. In Proposition 3.2, bound the nonreal
+Σ contains the nonunit places, precisely as its printed Σ-unit condition
+requires. A draft E5 misread the convention and was withdrawn; do not
+reinstate it as an error. In Proposition 3.2, bound the nonreal
 base change directly; a formally real E′ need not have finite cd_2.
 
 ## Validation
@@ -87,7 +89,7 @@ base change directly; a formally real E′ need not have finite cd_2.
 Paper checker and intake file check pass. Custom checks pass for the
 143-item and seven-route DAGs, preserved IDs and API/test names, use
 references, unique routing and current owner/stage/galaxy IDs. Fresh finite
-regressions passed 3,055 checks covering the corrected finite-place
+regressions passed 3,055 checks covering the finite-place
 condition, tensor signs, inseparable multiplicities and split valuations.
 The report records the finite ranges so these examples are reproducible.
 No Lean file was compiled; the 120 proposed test contracts remain
