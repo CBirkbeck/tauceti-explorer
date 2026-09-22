@@ -1652,5 +1652,17 @@
  "ERRATA-PAPER-ANDRE-18": 1880,
  "REV-ERRATA-PAPER-ANDRE-18": 1881,
  "ERRATA-DESIGN-LV": 1882,
- "REV-ERRATA-DESIGN-LV": 1883
+ "REV-ERRATA-DESIGN-LV": 1883,
+ "DESIGN-CMAllPrimeMainConjectures": 1884,
+ "DESIGN-CMRankZeroConverse": 1885,
+ "DESIGN-ProfiniteCohomologyPartIIMasseyGalois": 1886,
+ "DESIGN-HeightsRationalPointsPartIIHomogeneousMassey": 1887,
+ "REV-DESIGN-CMAllPrimeMainConjectures": 1888,
+ "REV-DESIGN-CMRankZeroConverse": 1889,
+ "REV-DESIGN-HeightsRationalPointsPartIIHomogeneousMassey": 1890,
+ "REV-DESIGN-ProfiniteCohomologyPartIIMasseyGalois": 1891,
+ "REV-RT-PAPER-BURUNGALE-TIAN-26": 1892,
+ "RT-PAPER-BURUNGALE-TIAN-26": 1893,
+ "REV-RT-PAPER-HARPAZ-WITTENBERG-23": 1894,
+ "RT-PAPER-HARPAZ-WITTENBERG-23": 1895
 }
