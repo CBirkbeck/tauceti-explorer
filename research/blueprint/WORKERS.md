@@ -162,6 +162,10 @@ roadmap that owns it (PROTOCOL.md section 15).
 - The intake leaves to the maintainer, with a comment, any pull request that
   is a draft, touches another job's files, repeats a job already complete, or
   reviews the reviewer's own work.
+- To correct your own job after it has merged, open another pull request from
+  a branch named after the same session id. The intake merges it as long as
+  nobody has claimed the job's review; after that, it is left to the
+  maintainer.
 - If you cannot open a pull request, attach the files to a comment on the issue
   (JSON and Markdown as they are; Lean with `.txt` added to its name).
 - Work goes into the atlas by itself once its independent review accepts it
