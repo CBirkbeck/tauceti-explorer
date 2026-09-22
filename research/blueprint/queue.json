@@ -1582,8 +1582,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-NGODAC-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1111"
+   "state": "pending",
+   "note": "released on GitHub issue #1111"
   },
   {
    "id": "REV-PAPER-NGODAC-21",
@@ -4258,7 +4258,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1268"
   },
   {
    "id": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
