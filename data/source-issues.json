@@ -14604,6 +14604,91 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-TREUMANN-VENKATESH-16/E1",
+   "kind": "misprint",
+   "locator": "arXiv:1407.2346v1 (9 July 2014), §12.2, the second unnumbered Proposition after Proposition 12.3, part (2)",
+   "printed": "$\\LL_G(U^2)$ is the Levi obtained by adjoining the roots to $\\TT$ the roots ±x_1, ±y_3, ±y_1, ±y_3",
+   "correction": "The four root pairs are ±x_1, ±x_3, ±y_1, ±y_3: the second entry should be ±x_3, not a second ±y_3.",
+   "reason": "As printed the list names only three distinct root pairs, which cannot give the derived group SL_2^4 asserted two lines later. Computing directly in the E_8 root system with the simple roots of (12.1) and the roots x_1, x_2, x_3, y_1, y_2, y_3 of (12.3): U is orthogonal, has order 4 and equals s_{x_1}s_{x_2+x_3}s_{-x_1-x_2}s_{y_1}s_{y_2+y_3}s_{-y_1-y_2} exactly, L_G(U) has 24 roots, and the centraliser of the identity component of T^{U^2}, that is the set of roots orthogonal to the fixed space of U^2, consists of exactly eight roots, namely ±x_1, ±x_3, ±y_1, ±y_3. These four are orthogonal and satisfy U^2 v = -v, so they span the (-1)-eigenspace of U^2 and give SL_2^4. The deleted proof in the source file makes the same statement: 'x_1, x_3, y_1, y_3 are orthogonal and generate the (-1)-eigenspace of U^2'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1407.2346, which has only v1 (9 July 2014) and no later version",
+    "the Annals of Mathematics page for volume 183 issue 1 article 4 (doi 10.4007/annals.2016.183.1.4), which lists no erratum or corrigendum",
+    "the Annals of Mathematics errata and corrigenda listing",
+    "the published text itself, which could not be read: no PDF text extractor is available in this environment (pdftotext, mutool, gs, qpdf, pypdf, PyPDF2, fitz, pdfminer and pdfplumber are all absent) and the Annals article page serves only a PDF, so the finding is recorded against the preprint and makes no claim about the printed version"
+   ],
+   "owner": "PAPER-TREUMANN-VENKATESH-16",
+   "file": "research/blueprint/papers/PAPER-TREUMANN-VENKATESH-16.result.json",
+   "citation": "Treumann–Venkatesh, \"Functoriality, Smith theory, and the Brauer homomorphism\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-TREUMANN-VENKATESH-16/E2",
+   "kind": "misprint",
+   "locator": "arXiv:1407.2346v1 (9 July 2014), Proposition 11.2, hypothesis (ii)",
+   "printed": "The image of $\\Gamma$ in $\\Out(\\HH)$ is of order $\\leq 2$; thus we may choose (Lemma \\ref{LpsiInner}) a $\\Gamma$-admissible Borel class.",
+   "correction": "The reference should be to Lemma 8.8(2), the lemma labelled 'pokemon', not to Proposition 10.3 (the label LpsiInner); and Proposition 10.3 is a Proposition, not a Lemma.",
+   "reason": "Proposition 10.3 does not produce a Γ-admissible Borel class: its hypothesis (i) is that one exists. The statement that a Γ-admissible Borel exists whenever the image of Γ in Out(H) is cyclic of prime order is Lemma 8.8(2), and that is the lemma the proof of Proposition 10.6 correctly cites for the same step ('so there is a Γ_F-admissible Borel class by Lemma 8.8(2)').",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1407.2346, which has only v1 and no later version",
+    "the Annals of Mathematics page for the article (doi 10.4007/annals.2016.183.1.4), which lists no erratum or corrigendum",
+    "the published text, which could not be read for lack of any PDF text extractor in this environment"
+   ],
+   "owner": "PAPER-TREUMANN-VENKATESH-16",
+   "file": "research/blueprint/papers/PAPER-TREUMANN-VENKATESH-16.result.json",
+   "citation": "Treumann–Venkatesh, \"Functoriality, Smith theory, and the Brauer homomorphism\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-TREUMANN-VENKATESH-16/E3",
+   "kind": "misprint",
+   "locator": "arXiv:1407.2346v1 (9 July 2014), §11.2, the first sentence of the proof of Proposition 11.2",
+   "printed": "By inspection all cases have properties (i), (ii); and for (iii) $\\Out(\\HH)$ itself has at most two elements, except in the first-listed case with $v = 4$.",
+   "correction": "The labels (ii) and (iii) are interchanged: it should read 'all cases have properties (i), (iii); and for (ii) Out(H) itself has at most two elements'.",
+   "reason": "Hypothesis (ii) of Proposition 11.2 is that the image of Γ in Out(H) has order at most 2, and hypothesis (iii) is that π_1 H is a 2-group. The sentence and the two sentences after it argue about Out(H) and about the image of Γ in Out(H), and conclude 'that Γ → Out(H) has image of size ≤ 2 follows from §11.1', so they establish (ii). The exception named, the first-listed pair so_{2n+1} ⊃ so_{2u+1} x so_{2v} with v = 4, is exactly the case where Out(so_{2v}) = Out(D_4) has six elements rather than two, again a statement about (ii); π_1 of the fixed groups in the list is a 2-group throughout, with nothing to check.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1407.2346, which has only v1 and no later version",
+    "the Annals of Mathematics page for the article (doi 10.4007/annals.2016.183.1.4), which lists no erratum or corrigendum",
+    "the published text, which could not be read for lack of any PDF text extractor in this environment"
+   ],
+   "owner": "PAPER-TREUMANN-VENKATESH-16",
+   "file": "research/blueprint/papers/PAPER-TREUMANN-VENKATESH-16.result.json",
+   "citation": "Treumann–Venkatesh, \"Functoriality, Smith theory, and the Brauer homomorphism\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-TREUMANN-VENKATESH-16/E4",
+   "kind": "misprint",
+   "locator": "arXiv:1407.2346v1 (9 July 2014), §7.8, the definition of the c-group and the displayed Bockstein sequence",
+   "printed": "$\\cG := \\frac{\\{(g, \\gamma, c) \\in \\hat{G}(k) \\times \\Gamma \\times k^* : c^2 = \\mathrm{cyclo}(\\gamma)\\}}{ (\\Sigma_G(-1), 1, -1)}$ ... by using $\\Sigma_G: \\{ \\pm 1\\} \\rightarrow \\hat{G}(k)$",
+   "correction": "Both occurrences of Σ_G should be Σ^*_G.",
+   "reason": "Σ_G is defined in §7.2 and §7.4 as the sum of the positive roots of G, a character of T_can used through δ = |Σ_G|_v; the object that must be evaluated at -1 to land in G-hat(k), and that must be used to build the extension from a class in H^2(Γ,±1), is the cocharacter Σ^*_G of T-hat, which is what the C-group is defined with three paragraphs earlier ('e := (Σ^*_G(-1), -1)').",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1407.2346, which has only v1 and no later version",
+    "the Annals of Mathematics page for the article (doi 10.4007/annals.2016.183.1.4), which lists no erratum or corrigendum",
+    "the published text, which could not be read for lack of any PDF text extractor in this environment"
+   ],
+   "owner": "PAPER-TREUMANN-VENKATESH-16",
+   "file": "research/blueprint/papers/PAPER-TREUMANN-VENKATESH-16.result.json",
+   "citation": "Treumann–Venkatesh, \"Functoriality, Smith theory, and the Brauer homomorphism\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-VANHOFTEN-24/E1",
    "kind": "misprint",
    "locator": "Published2024 §2.1 p6, definition of deperfection",
