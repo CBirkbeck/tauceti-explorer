@@ -1,0 +1,125 @@
+{
+  "paper": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+  "protocol": "errata-v1",
+  "sourceIssues": [
+    {
+      "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E1",
+      "kind": "misprint",
+      "locator": "(1.1.2.2), p.6, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated; the older author version newton2.pdf (18 August 2018) on M. Kisin's page has the same text",
+      "printed": "\"There exists c ∈ G(L) and an integer r ∈ Z_{>0} such that rν_b factors through a cocharacter G_{m,L} → G_L, that c(rν_b)c^{−1} is defined over the fixed field of σ^r on L, and that c b σ(b) σ²(b) ··· σ^r(b) σ^r(c)^{−1} = c(rν_b)(p)c^{−1}.\"",
+      "correction": "c b σ(b) ··· σ^{r−1}(b) σ^r(c)^{−1} = c(rν_b)(p)c^{−1}.",
+      "reason": "The r-th power of bσ is b σ(b) ··· σ^{r−1}(b) σ^r, with r factors. As printed there are r + 1: for G = G_m and b = p the left side is p^{r+1} but the right side is p^r. Kottwitz [Kot85, 4.3], which is cited, and the paper's own (1.1.4.1) on p.7, \"b σ(b) σ²(b) ··· σ^{r−1}(b) = (rν_b)(p)\", have r factors. Checked on the page image. Noted by the extraction (source discrepancy 1, item N09).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2021-0063, checked 22 September 2026: no erratum or other update is registered",
+        "arXiv: the paper is not on arXiv (title search, 22 September 2026)",
+        "S. W. Shin's errata page https://math.berkeley.edu/~swshin/errata.pdf, checked 22 September 2026: it lists errata for three other papers, none for this one",
+        "M. Kisin's copy https://people.math.harvard.edu/~kisin/dvifiles/newton2.pdf (34 pp., created 18 August 2018, SHA-256 f3f2b164…2f70): an earlier version, not a correction",
+        "web search for an erratum or correction, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E2",
+      "kind": "error",
+      "locator": "Corollary 1.1.15 and its proof, pp.11–12, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated; the older author version newton2.pdf (18 August 2018) on M. Kisin's page has the same text",
+      "printed": "\"Corollary 1.1.15. Let G be an arbitrary connected reductive group over Q_p with a Q_p-rational Levi subgroup M. Let μ: G_m → M be a minuscule cocharacter and [b_M] ∈ B(M)_b such that ([b_M], {μ}) is G-admissible. Then there exists w ∈ W(G, M) := N_G(M)/M such that ([b_M], {w·μ}) is M-admissible.\" Proof: \"(1.1.13) implies that there exists w* ∈ W(G*, M*) such that ([b_{M*}], {w*·μ*}) is M*-admissible.\"",
+      "correction": "Replace N_G(M)/M by the absolute Weyl group W(G, T) of a maximal torus T ⊂ M with μ ∈ X_*(T), as in Proposition 1.1.13. Equivalently: some G(Q̄_p)-conjugate μ′ of μ factoring through T makes ([b_M], {μ′}) M-admissible.",
+      "reason": "The printed statement fails already for split G. Take G = GL_3, M = GL_1 × GL_2 (blocks of sizes 1 and 2), μ = (0,1,0) and b_M = diag(p,1,1), which is basic in M. Then ([b_M], {μ}) is G-admissible: its Newton point (1,0,0) equals the dominant μ̄, and both have κ_G = 1. But κ_M(b_M) = (1,0), while κ_M(μ) = (0,1). Since the blocks have different sizes, N_G(M) = M, so W(G, M) is trivial and no w in it helps. The permutation of the first two coordinates, in W(G, T) = S_3, does. The proof transports to the quasi-split inner form and applies Proposition 1.1.13. That proposition gives w* in the absolute Weyl group W(G*, T*), not in N_{G*}(M*)/M*, so the proof establishes the corrected statement. The only use is in the proof of Corollary 1.1.17, p.13, for G not necessarily quasi-split. It cites \"Lemma 1.1.13\" (the quasi-split Proposition 1.1.13) in the form w ∈ W(G, T). The corrected Corollary 1.1.15 is exactly what that step needs, so the later results stand. Checked on the page images. Noted by the extraction (source discrepancy 2, items N29 and N32), which also verified the Weyl-group computation by machine.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2021-0063, checked 22 September 2026: no erratum or other update is registered",
+        "arXiv: the paper is not on arXiv (title search, 22 September 2026)",
+        "S. W. Shin's errata page https://math.berkeley.edu/~swshin/errata.pdf, checked 22 September 2026: it lists errata for three other papers, none for this one",
+        "M. Kisin's copy https://people.math.harvard.edu/~kisin/dvifiles/newton2.pdf (34 pp., created 18 August 2018, SHA-256 f3f2b164…2f70): an earlier version, not a correction",
+        "web search for an erratum or correction, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E3",
+      "kind": "misprint",
+      "locator": "Proposition 1.2.5, p.14, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated; the older author version newton2.pdf (18 August 2018) on M. Kisin's page has the same text",
+      "printed": "\"Proposition 1.2.5. Let [b] ∈ B(G_{Q_p}) be a class such that ([b], {μ_X^{−1}}_p) is admissible. Assume hypothesis (1.1.3.1) holds for [b]. Then there exist a maximal torus T ⊂ G and an element x ∈ X with h_x factoring through T_R (in which case μ_x^{−1} ∈ X_*(T)) such that [b_bas(μ_x)] ∈ B(T_{Q_p}) maps to [b] ∈ B(G_{Q_p}).\"",
+      "correction": "[b_bas(μ_x^{−1})] ∈ B(T_{Q_p}) maps to [b].",
+      "reason": "The hypothesis concerns {μ_X^{−1}}, and the parenthesis introduces μ_x^{−1} ∈ X_*(T). The proof ends with \"[b_bas(μ_T^{−1})] maps to [b]\" and uses [b_bas(μ_p^{−1})] throughout. The classes of μ_x and μ_x^{−1} differ, as κ_T already shows for T = G_m. Checked on the page image. Noted by the extraction (source discrepancy 3, item G08).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2021-0063, checked 22 September 2026: no erratum or other update is registered",
+        "arXiv: the paper is not on arXiv (title search, 22 September 2026)",
+        "S. W. Shin's errata page https://math.berkeley.edu/~swshin/errata.pdf, checked 22 September 2026: it lists errata for three other papers, none for this one",
+        "M. Kisin's copy https://people.math.harvard.edu/~kisin/dvifiles/newton2.pdf (34 pp., created 18 August 2018, SHA-256 f3f2b164…2f70): an earlier version, not a correction",
+        "web search for an erratum or correction, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E4",
+      "kind": "misprint",
+      "locator": "§2.2.6, definition of an accommodating embedding, p.26, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated",
+      "printed": "\"Finally we say ι is accommodating if there is a finite collection of accommodating embeddings of Shimura data, ι_j : (G_j, X_j) ↪ (G_{V_j}, H_{V_j}), j = 1, …, s, and an isomorphism of symplectic spaces ∏_j V_j ≃ V which induces a commutative diagram … such that the map on the left induces an isomorphism G^der ≃ ∏_j G_j^der.\"",
+      "correction": "\"… if there is a finite collection of strictly accommodating embeddings of Shimura data ι_j …\".",
+      "reason": "As printed the definition is circular: \"accommodating\" is defined in terms of accommodating embeddings. The paragraph before defines \"strictly accommodating\" embeddings, which are otherwise unused, and the definition follows Noot [Noo09, 2.3], where the factors are the strictly accommodating ones. Checked on the page image. Noted by the extraction (source discrepancy 8, item T19).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2021-0063, checked 22 September 2026: no erratum or other update is registered",
+        "arXiv: the paper is not on arXiv (title search, 22 September 2026)",
+        "S. W. Shin's errata page https://math.berkeley.edu/~swshin/errata.pdf, checked 22 September 2026: it lists errata for three other papers, none for this one",
+        "M. Kisin's copy https://people.math.harvard.edu/~kisin/dvifiles/newton2.pdf (34 pp., created 18 August 2018, SHA-256 f3f2b164…2f70): an earlier version, not a correction",
+        "web search for an erratum or correction, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E5",
+      "kind": "gap",
+      "locator": "Proof of Lemma 2.2.8, p.28, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated",
+      "printed": "\"Let G′ = G × T, equipped with the symplectic representation V′ = V ⊕ V. Let X′ = X × {h_T}. Then we have (G′, X′) ↪ (G_{V′}, H_{V′}). … Restricting the action of I_{s′_0} to A_T induces a map of Q-groups I_{s′_0} → T, and we consider the composite I_{s′_0} → T → G^ab. By Corollary 2.1.9, I_{s′_0} → I_{s_0} is surjective, so the map I_{s′_0} → G^ab factors through I_{s_0}, as this is true over Q_ℓ for any ℓ ≠ p.\"",
+      "correction": "Take G′ = G ×_{G^ab} T, the pairs (g, t) with the same image in G^ab. This lies in GSp(V ⊕ V, ψ ⊕ ψ), and X′ = X × {h_T} still maps into it because h^ab is constant on X. The kernel of G′ → G is T ∩ G^der, which dies in G^ab, so the composite I_{s′_0} → T → G^ab does factor through I_{s_0}. The rest of the proof then goes through.",
+      "reason": "Read literally, the construction fails at two points. First, G × T acting on V ⊕ V does not preserve ψ ⊕ ψ up to a scalar when the similitude factors of g and t differ, so it is not a subgroup of G_{V′}. Second, the claimed factorization fails. The CM automorphisms (1, t), t ∈ T, act trivially on A_{s_0} and by t on A_T, and they preserve the tensors cutting out G × T. So 1 × T lies in I_{s′_0}, and also in the kernel of I_{s′_0} → I_{s_0}. But under I_{s′_0} → T → G^ab it maps onto G^ab, as T is a maximal torus of G. So the map does not factor through I_{s_0} unless G^ab = 1. The same happens over Q_ℓ, so the justification \"as this is true over Q_ℓ\" fails too. Surjectivity of I_{s′_0} → I_{s_0} alone cannot give a factorization. What is needed is that the kernel maps trivially, and the fibre product above provides this. Lemma 2.2.8 is used in the proof of Proposition 2.2.2 (p.28). Noted by the extraction (source discrepancy 7, item T23) as a descent gate; the analysis and the fibre-product repair are given here.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2021-0063, checked 22 September 2026: no erratum or other update is registered",
+        "arXiv: the paper is not on arXiv (title search, 22 September 2026)",
+        "S. W. Shin's errata page https://math.berkeley.edu/~swshin/errata.pdf, checked 22 September 2026: it lists errata for three other papers, none for this one",
+        "M. Kisin's copy https://people.math.harvard.edu/~kisin/dvifiles/newton2.pdf (34 pp., created 18 August 2018, SHA-256 f3f2b164…2f70): an earlier version, not a correction",
+        "web search for an erratum or correction, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E6",
+      "kind": "error",
+      "locator": "Lemma 2.2.11, p.29, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated",
+      "printed": "\"Lemma 2.2.11. Let S be an irreducible scheme of finite type over a field k, and Γ ⊂ S(k) a Zariski dense subset. Let W ⊂ Aut_k S be a finite subgroup, and σ ∈ Aut_k S. Suppose that for every γ ∈ Γ, there exists w ∈ W such that w(γ) = σ(γ). Then σ = w for some w ∈ W.\"",
+      "correction": "Assume in addition that S is reduced and separated (for example a variety). Then two automorphisms that agree on a dense set of points agree, because their equalizer is a closed subscheme containing a dense set, and the proof applies.",
+      "reason": "The proof ends \"Γ_{w_0} is dense in S … and it follows that σ = w_0\". That step fails without reducedness or separatedness. For S = Spec k[ε]/ε² with char k ≠ 2, the automorphism ε ↦ 2ε fixes the unique point, which is dense; with W trivial it is a counterexample. For the affine line with doubled origin, the automorphism exchanging the two origins fixes the dense set of other k-points; again W is trivial. The lemma is applied on p.30 to a maximal torus T, which is reduced and separated, so nothing changes. Checked on the page image. Noted by the extraction (source discrepancy 4, item G16); the separatedness counterexample is added here.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2021-0063, checked 22 September 2026: no erratum or other update is registered",
+        "arXiv: the paper is not on arXiv (title search, 22 September 2026)",
+        "S. W. Shin's errata page https://math.berkeley.edu/~swshin/errata.pdf, checked 22 September 2026: it lists errata for three other papers, none for this one",
+        "M. Kisin's copy https://people.math.harvard.edu/~kisin/dvifiles/newton2.pdf (34 pp., created 18 August 2018, SHA-256 f3f2b164…2f70): an earlier version, not a correction",
+        "web search for an erratum or correction, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E7",
+      "kind": "misprint",
+      "locator": "Appendix A.2, p.37, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated; the older author version newton2.pdf (18 August 2018) on M. Kisin's page has the same text",
+      "printed": "\"Let S be a flat, normal, finite type W-scheme, D ⊂ S a relative Cartier divisor, and j : U = D − S ↪ S, the inclusion. We consider S as a log scheme equipped with the log structure j_*O_U\"",
+      "correction": "U = S − D, and S carries the divisorial log structure O_S ∩ j_*O_U^× → O_S.",
+      "reason": "D is a divisor in S, so the open complement is S − D; \"D − S\" is empty. The abelian scheme A is given over U and extends semi-abelianly over S, which also needs U = S − D. A log structure is a sheaf of monoids mapping to O_S. The sheaf of rings j_*O_U is not one; the intended one is the functions on S that are invertible on U. Checked on the page image. Noted by the extraction (source discrepancy 8, item A07).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2021-0063, checked 22 September 2026: no erratum or other update is registered",
+        "arXiv: the paper is not on arXiv (title search, 22 September 2026)",
+        "S. W. Shin's errata page https://math.berkeley.edu/~swshin/errata.pdf, checked 22 September 2026: it lists errata for three other papers, none for this one",
+        "M. Kisin's copy https://people.math.harvard.edu/~kisin/dvifiles/newton2.pdf (34 pp., created 18 August 2018, SHA-256 f3f2b164…2f70): an earlier version, not a correction",
+        "web search for an erratum or correction, 22 September 2026: none found"
+      ]
+    }
+  ]
+}
