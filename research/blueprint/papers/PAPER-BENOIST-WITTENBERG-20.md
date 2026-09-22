@@ -1,42 +1,146 @@
 # Benoist–Wittenberg I: extraction and routing checkpoint
 
-Issue #1296 · first checkpoint Codex · session codex-a71f92 · 22 September 2026
-Second checkpoint · Claude Code · session cc-7b31c4 · 22 September 2026
+Issue #1296 · third checkpoint · Codex, session codex-c83e7a · 2026-09-22.
+Builds on merged PRs #1675 (codex-a71f92) and #1975 (cc-7b31c4).
 
-Status: **partial**. The entire published paper was read, but its transitive proof-input inventory is not closed. This checkpoint contains 184 items: 7 pinned-library items, 9 existing-roadmap imports and 168 missing items. Seven routes take **all 168** missing items exactly once. Forty-six definitions/constructions have usage-derived APIs and at least three mathematical test contracts each. No Lean implementation or compilation is claimed.
+Status: **partial**. There are 189 items: 7 library, 9 planned and 173 missing,
+with every missing item routed once through the existing seven routes. All 48
+definitions/constructions have API outlines and at least three mathematical tests.
+The whole 77-page published paper has been read again in this checkpoint. The
+transitive proof inventory is still open; no formalization or Lean compilation is claimed.
 
-**What the second checkpoint adds.** The two source findings the first checkpoint had recorded only in prose and in a quarantined item are now recorded where PROTOCOL section 18 puts them, under `sourceIssues`, after independent verification against both the published PDF and the LaTeX source of arXiv:1801.00872v3; the quarantined item is gone and `main-even-genus` carries the corrected statement, as PROTOCOL section 16 requires. The three secondary remarks the first checkpoint listed as still to extract — Remark 1.9, Remark 3.13 and Remarks 3.21(ii) — are extracted and routed. Three mechanical audits of the LaTeX source were run, all clean. `GAP-DIMENSION` is resolved; two new gaps, `GAP-KARPENKO` and `GAP-MANGOLTE`, record the two quoted results the new items rest on.
+The principal new finding is an obstruction to the displayed surface construction in
+Example4.4. Its antiholomorphic action cannot preserve the required one-dimensional
+space of weight-four equations. The extraction now records that obstruction instead
+of asserting existence of the impossible complete intersection. A separate sign
+correction repairs Lemma2.14 without changing its conclusion. Both findings await
+independent review under PROTOCOL §18.
 
-## Source and extent
+## Source and read extent
 
-The primary text is the authors' publicly hosted [published 77-page article](https://www.math.ens.psl.eu/~benoist/articles/hodgereel1.pdf), *Inventiones mathematicae* 222 (2020), 1–77, [DOI](https://doi.org/10.1007/s00222-020-00965-8). Every section, proof and reference was read. The 67-page revised preprint linked from Wittenberg's homepage has different pagination; it was not substituted for the published version. The JSON records the primary SHA-256 and exact read extents and hashes of nine supplementary PDFs. Access date is 2026-09-22.
+The primary source is the [published 77-page article](https://www.math.ens.psl.eu/~benoist/articles/hodgereel1.pdf),
+Inventiones222(2020),1–77, DOI10.1007/s00222-020-00965-8. Its SHA-256 is
+`daeb43ec861bd6c30564543dac796c55c7f21aa943c442f826b32613e72a46a9`.
+This checkpoint read every page, proof and reference and visually checked pp.19,
+34,37,43,44,48,55,59. The apparent projection-arrow problem on p.34 is **not** an
+error: the printed arrow points in the intended direction.
 
-Supporting proof reads include Kollár's devissage and Euler-characteristic congruences; Benoist's sign-class/coniveau arguments; the entire cited Totaro valuation/specialization proof in both its author and published versions; Colliot-Thélène–Voisin's diagonal-support and unramified-defect arguments; selected Edmundo–Prelli duality proofs; CHK's full axiomatic §5.1 and homotopy-invariance §5.3; and CTSS Corollaire1's coefficient-limit argument. These are selected reads, not claims to have read those entire works. The limited previous-session Voisin read is explicitly identified as such.
+The [arXiv v3 source](https://arxiv.org/src/1801.00872v3), dated11March2020,
+has archive SHA-256 `25d11f433052792b396d274557d120f1fe0d1d3db4ba3d8f2d53168a64a01eb3`.
+The Example4.4 passage, `partie_1.tex` lines3973–4048, agrees with the published
+coordinate action, lift, eigencharacters and claimed stable family. Other supporting
+paper reads listed in the JSON retain their earlier-worker provenance; they were
+not all repeated here. Reid §2.1 and Godeaux §6 remain unread primary proofs.
 
-The main result connects two questions: which cohomology classes of a real locus come from algebraic curves, and whether a real-empty variety contains a geometrically irreducible curve of even geometric genus. It answers them conditionally through real integral Hodge theory, Picard torsion and equivariant duality, then identifies an unramified obstruction and controls torsion 1-cycles. It does not prove real integral HC for every rationally connected variety. Part II's quartic results are external inputs. See §§3–5 of the [primary paper](https://www.math.ens.psl.eu/~benoist/articles/hodgereel1.pdf).
+## Example4.4: the displayed construction is obstructed (E3)
 
-## Two source findings, now recorded under `sourceIssues`
+Write g=f². The printed action and chosen lift give weights
+`w=(1,7,2,6,3,5,0)` modulo8 on the coordinates. A quadratic monomial x_i x_j
+has weight w_i+w_j. The four equation spaces Λ_i have weight2i.
 
-Theorem3.16(ii), printed p.55, and introductory TheoremA(ii), allow dimension one in their even-genus equivalence. The proof invokes Proposition3.9, which requires dimension at least two in the real-point case. The following counterexample is a deduction made in this extraction, not a claimed published erratum.
+| Weight | Monomial basis |
+| --- | --- |
+| 0 | x0x1, x2x3, x4x5, x6² |
+| 2 | x0², x1x4, x2x6, x5² |
+| 4 | x0x4, x1x5, x2², x3² |
+| 6 | x0x5, x1², x3x6, x4² |
 
-Take the smooth elliptic curve E: y²=x³−x over ℝ, with its point at infinity. It has H²(E,O_E)=0. The 1-cycle Hodge property is codimension zero and holds. Its real point splits the Brauer descent obstruction, so Pic(E)→Pic(E_C)^G is an isomorphism, including on 2-primary torsion. Yet the only integral closed one-dimensional subvariety of E is E, whose geometric genus is one. Thus the printed right-hand side holds and the left-hand side fails.
+Define `T(Q)(x)=conjugate(Q(f(x)))`. This is a polynomial and T is
+conjugate-linear on coefficients. Direct substitution gives T²=g*. For the
+weight-four basis `(a,b,c,d)=(x0x4,x1x5,x2²,x3²)`,
 
-**Verified in the second checkpoint** (`sourceIssues` entry `E1`, kind `error`, affects a stated result). Every printed hypothesis was re-read on p. 4, p. 51 and p. 55 of the published PDF and in the LaTeX source, and the counterexample was checked in full: for E the real integral Hodge conjecture for 1-cycles is the codimension-zero case, which holds because X is geometrically irreducible, so `H⁰_G(X(ℂ),ℤ(0))=ℤ` is generated by the class of `[X]`; the right-hand side holds because Hochschild–Serre makes `Pic(X)→Pic(X_ℂ)^G` injective with cokernel inside `Br(ℝ)`, and the real point kills that obstruction; and the left-hand side fails because the only integral closed one-dimensional subscheme of a curve is the curve itself. The gap is visible in the proof, which combines Theorem 3.3, Theorem 3.6 and **Proposition 3.9** — and Proposition 3.9 assumes dimension at least two.
+`T(a)=−b, T(b)=a, T(c)=−d, T(d)=c`.
 
-Item `main-even-genus` carries the proof-supported version with the added hypothesis **dim X≥2 or X(R)=empty**. The real-empty curve case is covered by Geyer. The final Pic(X_C)[2]=0 corollary remains valid in dimension one, since it forces genus zero. The quarantined item `printed-even-genus` has been removed: PROTOCOL section 18 puts a mistake found in a source under `sourceIssues`, and section 16 requires items to use the corrected statements, so carrying the false signature as an unrouted item duplicated the record in the wrong place.
+Thus `T(Aa+Bb+Cc+Dd)=conjugate(B)a−conjugate(A)b+conjugate(D)c−conjugate(C)d`
+and T²=−id on Λ_2. There is no nonzero T-stable complex line: if TQ=uQ,
+then applying T again gives −Q=conjugate(u)uQ=|u|²Q, impossible for Q≠0.
+This is an argument for every complex scalar, not an inference from sampled values.
+The pinned scalar facts `Complex.normSq_eq_conj_mul_self` and
+`Complex.normSq_nonneg` were read at Mathlib082e2d3.
 
-The second finding is in the paragraph before Example 2.5: the “constant” ω^{2k} assertion needs **positive even k** (`sourceIssues` entry `E2`, kind `misprint`, affects nothing). For k=0, ω⁰ is the unit of the cohomology ring, not a torsion class, and lies in the subgroup cut out by the topological condition whether or not X has real points. Item `constant-omega` already states the corrected range; the finding itself is now recorded as well. No erratum exists for either finding: Benoist's publication page lists one only for a different paper of the two authors, and Part II does not revisit either statement.
+It remains to justify why preservation of Y would force preservation of an equation
+line; one must not simply assume that each equation is preserved individually.
+For a smooth scheme-theoretic complete intersection of four quadrics in P⁶, twist
+the ideal-sheaf Koszul resolution by2:
+
+`0 → O(−6) → O(−4)^4 → O(−2)^6 → O^4 → I_Y(2) → 0`.
+
+Regular sequences give exactness ([Stacks062F](https://stacks.math.columbia.edu/tag/062F)).
+The negative twists have no global sections and the required intermediate
+cohomology vanishes ([Stacks01XS, Lemma30.8.1](https://stacks.math.columbia.edu/tag/01XS)).
+Breaking the sequence into short exact sequences therefore gives
+`H⁰(I_Y(2))=span_C(Q0,Q1,Q2,Q3)`. Distinct weights imply that its intersection
+with Λ_2 is precisely the nonzero line C Q2. Smoothness ensures that this is the
+vanishing ideal of the reduced variety. If f(Y)=Y, substitution shows that T
+preserves that ideal. Since T also preserves Λ_2, it must preserve C Q2,
+contradicting the preceding calculation.
+
+Consequently no f-stable smooth complete intersection of the prescribed type
+exists. In particular the claimed dense stable family cannot meet the claimed
+nonempty open locus of smooth complete intersections. This obstruction uses the
+printed lift; it is not caused by dropping conjugation bars or changing a character.
+The ambient C16 action itself exists, and avoiding Fix(f⁸) would imply freeness.
+Those correct observations do not supply the impossible invariant surface.
+
+The stable ID `campedelli-descent` now states this obstruction, with dependencies
+on four new equation-space/operator/ideal items. `GAP-CAMPEDELLI` asks for a
+replacement construction of the intended real-empty Picard-torsion example.
+Neither nonexistence of all real Campedelli surfaces nor falsity of the main
+Hodge-theoretic results follows from this computation. Generic Koszul and coherent
+cohomology infrastructure remains shared; its exact supplying nodes are still
+`GAP-FOUNDATION-GRANULARITY`, not a new duplicate roadmap.
+
+## Lemma2.14: exceptional self-intersection sign (E4)
+
+With ξ=c1(O_E(1)), the normal bundle of the exceptional divisor is O_E(−1).
+The line-bundle normalization follows from
+[Stacks02OS](https://stacks.math.columbia.edu/tag/02OS). The self-intersection
+formula gives `i*i_*u=−ξ cup u`. Therefore, with the source's definitions,
+
+`i*(γ−π*α)=−Σ_j ξ^(k−j)τ*β_j=−δ`.
+
+The p.43 proof omits the minus sign when expressing δ as a restriction. Its
+normalization `τ_*ξ^(r−1)=1` fixes the positive hyperplane convention. The blowup
+of P² at a point, with β=1, checks the sign: the exceptional class restricts to
+degree−1. Negation preserves the admissible subgroup, so δ remains admissible.
+The upward induction in equation(2.5) then works unchanged. The theorem item now
+includes this exact proof step and a separate sign adapter; the sign question is
+removed from `GAP-REMARKS` while the general Gysin implementation remains open.
+
+## Other source findings
+
+E1 and E2 from the preceding checkpoint are retained: the even-genus equivalence
+requires dimX≥2 when X(R) is nonempty, and the constant ω^{2k} paragraph requires
+positive even k. The elliptic counterexample and k=0 argument remain in the JSON;
+their corrected items are unchanged.
+
+Five additional slips are recorded with precise locators and checks:
+
+| Finding | Printed location | Correction |
+| --- | --- | --- |
+| E5 | §1.2.6, p.19, final pushforward | Domain uses Y(R), as in diagram(1.35). |
+| E6 | Lemma3.4 proof, p.48, first sentence | The map with image M* is ψ′. |
+| E7 | §3.6.2, p.55, domain of φ | Use CH_1(X); Pic(X) fits only in dimension2. |
+| E8 | Proposition2.15 proof, p.44, final group | Use complex points P^k(C). |
+| E9 | §2.1, p.37, after(2.1) | Retain G on equivariant cohomology. |
+
+These are extracting-worker findings, not independent-review verdicts. A bounded
+search of the authors' publication pages, arXiv history and title/erratum/Campedelli
+queries found no matching correction on2026-09-22. The earlier statement that no
+erratum exists is withdrawn: absence from that search is not proof of absence.
+No message has been sent to the authors.
 
 ## Ownership decisions
+
 
 | Route | Existing owner or shared extension | Missing items |
 | --- | --- | ---: |
 | Source | SchemeAndStackFoundations:SF.2 | 21 |
 | Source | SchemeAndStackFoundations:SF.5 | 5 |
-| Source | MotivesAndAlgebraicCycles:MC.0 | 3 |
-| Source | MotivesAndAlgebraicCycles:MC.2 | 27 |
-| Source | MotivesAndAlgebraicCycles:MC.7 | 58 |
-| Part II | EquivariantTopologyRealVarieties | 48 |
+| Source | MotivesAndAlgebraicCycles:MC.0 | 4 |
+| Source | MotivesAndAlgebraicCycles:MC.2 | 28 |
+| Source | MotivesAndAlgebraicCycles:MC.7 | 63 |
+| Part II | EquivariantTopologyRealVarieties | 49 |
 | Part II | QuadraticFormsRealFunctionFields | 3 |
 
 The two Part II IDs are the **same proposals already recorded in PAPER-BENOIST-19**, not competing owners. Their matching parent IDs, titles and areas are retained. They have not been treated as accepted atlas layers merely because a paper checkpoint proposes them. Integration should coalesce their source briefs.
@@ -55,7 +159,7 @@ MC.0 owns correspondences and decomposition-of-diagonal actions. Universal zero-
 
 MC.7 already explicitly includes proof-scoped selected integral Hodge cases for divisors and curves. It therefore receives the real integral Hodge definitions, exact orthogonality, corrected even-genus criterion, examples, unramified obstruction and conditional torsion calculations. A separate new real-cycle roadmap would duplicate that existing direction. Broad predicates are kept separate from their proved special cases and from the paper's open questions.
 
-The correct integration order needs finer sublayers than the current broad stage labels. SF.2's early sites/comparison precede M.5; its norm-residue-dependent coniveau suffix follows it. MC.2's early cycle maps precede MC.7's divisor/zero-cycle cases, which supply later compatibility applications. Do not create a blanket SF.2↔M.5 or MC.2↔MC.7 stage cycle. The 182-item dependency graph is acyclic; the fine-grained atlas integration is an explicit open task.
+The correct integration order needs finer sublayers than the current broad stage labels. SF.2's early sites/comparison precede M.5; its norm-residue-dependent coniveau suffix follows it. MC.2's early cycle maps precede MC.7's divisor/zero-cycle cases, which supply later compatibility applications. Do not create a blanket SF.2↔M.5 or MC.2↔MC.7 stage cycle. The 189-item dependency graph is acyclic; the fine-grained atlas integration is an explicit open task.
 
 ### Shared equivariant topology
 
@@ -69,7 +173,11 @@ The brief preserves the exact endpoints: finite Borel approximation uses i<n; Pr
 
 The three real-function-field inputs reuse Benoist19's QuadraticFormsRealFunctionFields proposal: the no-real-curve two-square theorem, the level/sign-symbol comparison, and the anisotropic-quadric seven-square bound. They import upstream quadratic forms, M.5 norm-residue and the existing higher-Pfister direction. The scalar field is any real closed R, not only ℝ. The precise Witt/Pfister proofs remain open prerequisites.
 
+The new local equation computations stay in MC.7; the exceptional sign
+adapter stays in MC.2. No eighth route or generic Koszul owner is introduced.
+
 ## Conventions and regression boundaries
+
 
 The JSON uses concrete mathematical objects, not theorem-shaped opaque properties.
 
@@ -81,40 +189,32 @@ The JSON uses concrete mathematical objects, not theorem-shaped opaque propertie
 - Lemma5.6 is stated under the full §5.4 hypotheses, because its proof uses the vanishing supplied by real integral HC and universal support.
 - Proposition5.7's quartic torsion formula remains conditional over arbitrary R. Unconditional conclusions over ℝ need Part II. The full Chow group and Fermat calculation in Remark5.10 are assertions with additional unwritten calculations, not closed proofs.
 
-Example4.4's map is anti-linear: every coordinate is conjugated. This was checked in an image of printed p.59, because text extraction loses the bars. Its square has exponents (1,−1,2,−2,3,−3,0) modulo eight. The smooth invariant complete intersection and free-action calculation still need an explicit proof. See [Example4.4](https://www.math.ens.psl.eu/~benoist/articles/hodgereel1.pdf#page=59).
+## Library audit, gaps and validation
 
-For Examples4.7–4.8, Totaro's author Theorem2.1 is published Theorem3.1. The full published proof was read. The extra base-coordinate factor producing bidegree (4,4) leaves the generic fiber unchanged; vertical curves have degree zero and must not be treated as finite covers of the base conic. See [Totaro's published article](https://doi.org/10.1017/fms.2013.3).
+The checked pins remain Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and
+TauCetif790474821cf4256814db967cb154e7af3d0c369. Seven existing library items
+are retained with their prior exact-declaration reads. The new complex scalar
+facts were read in `Mathlib/Basic/Complex/Basic.lean` lines544–555, rather than
+the deprecated forwarding module under `Mathlib/Data/Complex`.
 
-## Library and catalogue audit
+This checkpoint refreshed 489 input files at `5d370bcf4f927e579d55ebd933bfac2933a8313d`,
+reread the SF.2/SF.5 reviewed audit and MC.2/MC.7 stage descriptions, and preserved
+the shared Part II identities. An absent reviewed MC audit does not establish
+absence of a library theorem. The specialized operator calculation is not an
+excuse to re-plan generic semilinear maps or complex-number arithmetic.
 
-Checked pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Exact declarations were read for all seven library items:
+The named open gaps still include semialgebraic/real-site foundations, Steenrod/Wu,
+CHK effacement, Gersten, real Abel–Jacobi, Witt/Pfister, Picard descent,
+decomposition-of-diagonal and the other surface/quartic calculations. Main-paper
+reading is complete; transitive proof closure is not. Example4.4 now requires a
+replacement instead of further attempts to prove the displayed false assertion.
 
-- `IsRealClosed`;
-- `DerivedCategory`, `HasDerivedCategory` and `DerivedCategory.Q`;
-- `CategoryTheory.Sheaf.H`, its degree-zero equivalence and maps;
-- `AlgebraicGeometry.AlgebraicCycle`, weighted map and identity law;
-- `Rep.FiniteCyclicGroup.groupCohomologyIso₀/Even/Odd`;
-- `groupCohomology.coindIso`;
-- `TauCeti.Hodge.HodgeStructureOn/HodgeStructure`.
-
-The library cycle carrier is not CH, the Hodge carrier is not geometric Hodge theory, and representation cohomology is not equivariant sheaf cohomology. Reviewed audits read include AUDIT-01 SF.2/4/5, AUDIT-02 Hodge L0, AUDIT-18 EDC.2/3 and AUDIT-30 M.5 variants. An absent MC/LD reviewed audit entry is not used as evidence of absence.
-
-Both pinned trees were screened for the specific missing theories; actual near matches were inspected. Current upstream-shape checks found the [Eilenberg–Steenrod axioms PR](https://github.com/leanprover-community/mathlib4/pull/38369) and [relative singular homology PR](https://github.com/leanprover-community/mathlib4/pull/37659), not Steenrod square operations. Their work remains in the ordinary-topology import direction.
-
-The catalogue snapshot was `1c16a3cd24b5b8e55dee3f5ef2fef8dd054bee96`, compared with main `c8906d208bbf254080dbfa3f1d018ae719174809`. That difference affects paper/handoff/queue files, not catalogue or reviewed audits. New Benoist19/BKT20 routes were checked separately. Full MC and nearby upstream Hodge/QuadraticFormInvariants documents supplied the granularity and ownership model. Roadmap JSON, packets, decompositions, reserved IDs and relevant K-theory/definability stage descriptions were checked.
-
-## Why this is not complete
-
-Twenty named gaps give exact consuming items and resumption instructions. The largest are semialgebraic foundations/duality, comparison and real-site exactness, Steenrod/Wu proofs, CHK's geometric presentation and effacement proof, Kerz Gersten, real Bloch Abel–Jacobi, Witt/Pfister, Picard descent, decomposition of the diagonal and surface/quartic calculations. CTSS's coefficient-limit statement has now been read, but its full construction and identification with λ have not. The van Hamel primary PDF could not be fetched; its repository metadata is linked in the prerequisite list.
-
-The three secondary remarks the first checkpoint left unextracted — the barred-γ integral multiplication formula of Remark 1.9, Karpenko's counterexample in Remark 3.13 and the K3 example in Remarks 3.21(ii) — are now extracted and routed, as `remark-barred-gamma`, `karpenko-quadric` and `k3-h1-nonalgebraic`. Broad imported foundation interfaces still need declaration-level suppliers.
-
-So the two literal criteria of PROTOCOL section 16 for `complete` — the whole paper extracted, every missing item routed — are now met, and `GAP-DIMENSION` is closed. The status stays **partial** for the reason the first checkpoint gave and this one has not changed: several items state results as this paper quotes them rather than as their primary sources prove them, and the gaps above say exactly which. Marking the job complete would send it to review with that inventory open. Main-paper reading is complete; transitive extraction and source-faithful proof closure are not.
-
-The handoff prioritizes these gaps. The seven source/Part II routes are proposals for review, not an assertion that all of their mathematical inputs have been proved or formalized.
-
-## Checks
-
-Passed `scripts/check_paper.py` at both checkpoints. The second checkpoint additionally ran three mechanical audits on the LaTeX source of arXiv:1801.00872v3, all clean: no duplicate `\label`, no undefined `\ref`, and no mismatch between the word before a cross-reference and the environment carrying that label. A separate read-only audit checked unique IDs, all internal references, acyclicity, exact single routing, planned-stage/source ownership, Part II parent validity, definition APIs/tests, gap consumers, ten PDF hashes, and absence of local paths in the deliverables. Small executable checks verified the parity cutoff for 1-cycle coniveau, quartic valuation residues, the anti-linear order-sixteen calculation, genus parity under odd/even covers, and the rank-thirty arithmetic.
-
-The 138 definition/construction test contracts are **not executed Lean tests**. This paper issue authorizes JSON, report and handoff only; no suggested Lean file was written or compiled.
+Checks: the paper checker, intake path/schema checker, exact single routing,
+unique IDs, dependency acyclicity, API/test contracts and gap references passed.
+An exact executable diagnostic passed2706 cases: polynomial conjugate-pullback
+squares through degree4 for all eighth-root phases, the quadratic character
+decomposition, an independent matrix-square check, cyclic orders and the
+exceptional integer sign. It uses no floating point. These checks verify algebraic
+identities; the geometric ideal argument and stable-line impossibility are the
+prose proofs above. All144 definition/construction test contracts remain unexecuted
+in Lean. This issue authorizes only JSON, report and handoff.
