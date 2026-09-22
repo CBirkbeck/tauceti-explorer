@@ -6549,8 +6549,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1406"
+   "state": "pending",
+   "note": "released on GitHub issue #1406"
   },
   {
    "id": "REV-PAPER-HE-18",
@@ -6796,8 +6796,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1420"
+   "state": "pending",
+   "note": "released on GitHub issue #1420"
   },
   {
    "id": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
@@ -7572,8 +7572,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANDRE-18.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1464"
+   "state": "external",
+   "note": "claimed on GitHub issue #1464"
   },
   {
    "id": "REV-PAPER-ANDRE-18",
