@@ -2240,7 +2240,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DASGUPTA-KAKDE-VENTULLO-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1147"
   },
   {
    "id": "REV-PAPER-DASGUPTA-KAKDE-VENTULLO-18",
@@ -3165,8 +3166,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1203"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1203",
+   "finishedAt": "2026-09-22T17:37:54Z"
   },
   {
    "id": "REV-PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
@@ -3201,8 +3203,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GLEASON-LIM-XU-26.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1205"
+   "state": "external",
+   "note": "claimed on GitHub issue #1205"
   },
   {
    "id": "REV-PAPER-GLEASON-LIM-XU-26",
