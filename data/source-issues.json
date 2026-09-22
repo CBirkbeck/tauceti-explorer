@@ -1534,6 +1534,69 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-BRESCIANI-24/E1",
+   "kind": "misprint",
+   "locator": "§2, two citations of [Bre21b, Proposition A.18], v3 p.5 (published pp.133 and 135), in arXiv 2108.13397v3 (15 September 2023, the final author version; PDF SHA-256 e23989fb…b722); published page numbers are those the extraction recorded from the open-access publisher PDF (SHA-256 77c20bc7…e148), which could not be re-fetched here",
+   "printed": "\"Furthermore, the étale fundamental gerbe behaves well with respect to base change in characteristic 0 [Bre21b, Proposition A.18].\" and \"If k′/k is a field extension and c : Spec k′ → C is a point, the induced morphism Π_{X_c/k′} → Π_{X/C} ×_C Spec k′ is an isomorphism: using the fact that the étale fundamental gerbe behaves well under base change [Bre21b, Proposition A.18] …\"",
+   "correction": "[Bre21b, Proposition A.23].",
+   "reason": "In the published [Bre21b] (Algebr. Geom. 8 (2021), 231–267, the version cited), Proposition A.18 (p.262) treats only algebraic separable extensions k′/k. Proposition A.23 (p.264) gives Π_{X_{k′}/k′} ≅ Π_{X/k} ×_k k′ for every field extension of a characteristic-0 field and geometrically connected concentrated X. The paper needs arbitrary extensions, above all k(t)/k and residue fields of points of C, so A.23 is the result meant; A.23's own proof starts from A.18. Both statements were read in the published [Bre21b] (SHA-256 768ca87a…2908). Noted by the extraction (item 26).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01220-6 checked for updates, 22 September 2026: none registered",
+    "arXiv 2108.13397: v1 (30 August 2021), v2 (12 February 2022), v3 (15 September 2023, the latest)",
+    "web search for an erratum or correction, 22 September 2026: none found; F. Pop, \"Generalizations and minimalistic refinements of the t-birational Section Conjecture\", arXiv 2604.26131, was searched for comments on this paper and makes none"
+   ],
+   "owner": "PAPER-BRESCIANI-24",
+   "file": "research/blueprint/errata/PAPER-BRESCIANI-24.json",
+   "citation": "Bresciani, \"On the birational section conjecture with strong birationality assumptions\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/E2",
+   "kind": "error",
+   "locator": "§4, the paragraph after Corollary 15 on parabolic curves, v3 p.11 (published p.141), in arXiv 2108.13397v3 (15 September 2023, the final author version; PDF SHA-256 e23989fb…b722); published page numbers are those the extraction recorded from the open-access publisher PDF (SHA-256 77c20bc7…e148), which could not be re-fetched here",
+   "printed": "\"We say that a curve X is parabolic if it has genus 0 and the degree of X̄ ∖ X is at most 2. If X is proper of genus 0, then there is a unique Galois section, and it is geometric if and only if X = P¹. If X is parabolic affine, every Galois section of X is cuspidal (the only non-trivial case is settled by [Sch15, Theorem A]). Because of this, we can always assume that X is non-parabolic.\"",
+   "correction": "The sentence is false as stated. What the later reductions need is a statement about the t-birationally liftable (or birationally liftable) sections of a parabolic affine X, which have to be treated directly, including the case where X̄ ∖ X is a single point of degree 2. The reductions to non-parabolic X rest on this: \"We may assume that X is non-parabolic\" in the proof of Lemma 16, and \"it is immediate to check that t-b.l. sections are quasi-t-b.l.\" after Definition 18, where the identity map is not available for parabolic X.",
+   "reason": "Counterexample. Let k = Q and X = P¹_Q ∖ V(T² − 2). Then X is affine, of genus 0, with boundary a single point of degree 2, so it is parabolic. The paper defines a Galois section to be cuspidal if it is associated with a k-rational point of X̄ ∖ X (§1). The boundary has no Q-rational point, so X has no cuspidal sections. But 0 ∈ X(Q), so X has a geometric section. Schmidt's theorem concerns the existence of rational points and splitting; it does not make a degree-2 boundary point rational. The paper's Theorems A–C are not claimed to fail here, only this justification of the reduction. Noted by the extraction (item 77, with the reduction gap in items 81, 96 and 112).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01220-6 checked for updates, 22 September 2026: none registered",
+    "arXiv 2108.13397: v1 (30 August 2021), v2 (12 February 2022), v3 (15 September 2023, the latest)",
+    "web search for an erratum or correction, 22 September 2026: none found; F. Pop, \"Generalizations and minimalistic refinements of the t-birational Section Conjecture\", arXiv 2604.26131, was searched for comments on this paper and makes none"
+   ],
+   "owner": "PAPER-BRESCIANI-24",
+   "file": "research/blueprint/errata/PAPER-BRESCIANI-24.json",
+   "citation": "Bresciani, \"On the birational section conjecture with strong birationality assumptions\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/E3",
+   "kind": "gap",
+   "locator": "Proof of Lemma 26, v3 p.17 (published p.148), in arXiv 2108.13397v3 (15 September 2023, the final author version; PDF SHA-256 e23989fb…b722); published page numbers are those the extraction recorded from the open-access publisher PDF (SHA-256 77c20bc7…e148), which could not be re-fetched here",
+   "printed": "\"For every open subset U ⊂ X, denote by ι_U(s) the image of s in S_{U/k}, by hypothesis it is cuspidal. By [Sti12, Theorem 17 (2)], there exists a unique rational point x ∈ X̄(k) associated with ι_X(s) … For every open subset U ⊂ X, denote by P_{U,x} ⊂ S_{U/k} the packet of cuspidal sections associated with x. … Since ι_U(s) ∈ P_{U,x} for every U ⊂ X and s is the limit of the sections ι_U(s), we get that s is cuspidal associated with x too.\"",
+   "correction": "By hypothesis each ι_U(s) is geometric or cuspidal, not necessarily cuspidal. Once the associated point x ∈ X̄(k) is found, restrict to the cofinal family of opens U with x ∉ U. For those, ι_U(s) is cuspidal at x, and S_{k(X)/k} = lim_U S_{U/k} may be computed along this family, so the conclusion follows.",
+   "reason": "The hypothesis of the lemma is that every birationally liftable section is geometric or cuspidal. If x ∈ X, then for opens U containing x the section ι_U(s) is the geometric section at x, which is not in the cuspidal packet P_{U,x}. So \"ι_U(s) ∈ P_{U,x} for every U ⊂ X\" fails for those U, although the limit argument goes through on the cofinal subfamily. Noted by the extraction (item 127).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01220-6 checked for updates, 22 September 2026: none registered",
+    "arXiv 2108.13397: v1 (30 August 2021), v2 (12 February 2022), v3 (15 September 2023, the latest)",
+    "web search for an erratum or correction, 22 September 2026: none found; F. Pop, \"Generalizations and minimalistic refinements of the t-birational Section Conjecture\", arXiv 2604.26131, was searched for comments on this paper and makes none"
+   ],
+   "owner": "PAPER-BRESCIANI-24",
+   "file": "research/blueprint/errata/PAPER-BRESCIANI-24.json",
+   "citation": "Bresciani, \"On the birational section conjecture with strong birationality assumptions\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E1",
    "kind": "error",
    "locator": "Lemma 5.2(ii), p.956, in the published version, Annals of Mathematics 194 (2021), 943–966 (Caltech repository copy of the publisher PDF, SHA-256 77ff3290…790e)",
@@ -3858,7 +3921,6 @@
   "PAPER-BENOIST-19",
   "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
   "PAPER-BHATT-ETAL-23",
-  "PAPER-BRESCIANI-24",
   "PAPER-CESNAVICIUS-22",
   "PAPER-CHARLES-16",
   "PAPER-CIUBOTARU-HARRIS-26",
