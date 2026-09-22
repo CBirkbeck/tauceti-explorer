@@ -1,0 +1,182 @@
+{
+  "paper": "PAPER-BAKKER-TSIMERMAN-16",
+  "protocol": "errata-v1",
+  "sourceIssues": [
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/E1",
+      "kind": "error",
+      "locator": "Proposition 14, pp.725–727, and Remark 16, p.727, in the published version, Annals of Mathematics 184 (2016), 709–744 (publisher PDF, SHA-256 814976ee…f40a); also footnote 4, p.712",
+      "printed": "Proposition 14: close CM points of the same type with the same projection to X(1)×X(1) lie on a low-degree Hecke curve, stated for Heegner and anti-Heegner CM points alike. Remark 16: \"Hecke curves do not pass through anti-Heegner CM points. Thus, …\" anti-Heegner CM points repel. Footnote 4: the 2-to-1 ambiguity of [BT13] \"can be rectified by using the stronger repulsion statement found in Proposition 14.\"",
+      "correction": "Proposition 14 holds for Heegner CM points (CM⁺) only, with Lemma 15 applied with h₀ = 1 (erratum Proposition 2.1). Close anti-Heegner CM points lie on low-degree conjugate Hecke curves instead. The first clause of Remark 16 (Hecke curves contain no anti-Heegner points) is true; its repulsion claim is false.",
+      "reason": "The real-analytic involution conjugating the second factor preserves the hyperbolic metric and swaps Heegner and anti-Heegner CM points, so anti-Heegner points cannot all repel. In general no h₀ ∈ SL₂(Z) reduces to the non-identity coset of the stabilizer H in its normalizer, which is where the proof fails (erratum §§1–2). The appeal in footnote 4 therefore rests on the withdrawn part; the main theorems hold by the corrected argument of the erratum.",
+      "affects": "a stated result",
+      "known": "Authors' erratum: B. Bakker and J. Tsimerman, Erratum to \"p-torsion monodromy representations of elliptic curves over geometric function fields\", https://benjamin-bakker.github.io/P.torsion.erratum.pdf, §§1–2 and Proposition 2.1",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
+        "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
+        "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
+        "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/E2",
+      "kind": "error",
+      "locator": "Proof of Proposition 25, p.736, in the published version, Annals of Mathematics 184 (2016), 709–744 (publisher PDF, SHA-256 814976ee…f40a)",
+      "printed": "The multiplicity bound mult_CM(C) = O(p^{−δ} Deg(C)) is proved by partitioning CM and applying \"Proposition 14\" to all CM points, anti-Heegner included.",
+      "correction": "Keep the statement; for anti-Heegner points use the relative volume estimate near the conjugate diagonal (erratum Proposition 3.1) and the resulting bound of erratum Proposition 4.1.",
+      "reason": "The step for anti-Heegner points uses the false part of Proposition 14 (E1). The erratum states that Proposition 25 \"is still correct, but the proof as written only\" covers Heegner points, and supplies §§3–4.1.",
+      "affects": "the proof",
+      "known": "Authors' erratum: B. Bakker and J. Tsimerman, Erratum to \"p-torsion monodromy representations of elliptic curves over geometric function fields\", https://benjamin-bakker.github.io/P.torsion.erratum.pdf, §3 (Proposition 3.1) and §4.1 (Proposition 4.1)",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
+        "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
+        "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
+        "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/E3",
+      "kind": "gap",
+      "locator": "Proof of Proposition 26 (singular bicusps), p.737, in the published version, Annals of Mathematics 184 (2016), 709–744 (publisher PDF, SHA-256 814976ee…f40a)",
+      "printed": "The proof concludes with mult_SBC(C) ≪ p^{−1+δ} Deg(C).",
+      "correction": "The argument needs mult_SBC(C) ≪ p^{−1−δ} Deg(C). Erratum Proposition 4.2 gives mult_S ≪ p^{−1−2δ₂} Deg C and mult_T ≪ p^{−1−2δ₃+3δ₁} Deg C with 3δ₁ < 2δ₃, by a finer analysis of singular bicusps on low-degree Hecke curves.",
+      "reason": "The proof of Theorem 29 uses p·|(π_i∘ψ)^{−1}(SBC)| = o(Deg C_i) (pp.741–742), which needs the exponent −1−δ; the exponent −1+δ gives only O(p^{δ} Deg C_i). The erratum: \"The statement of [3, Prop. 26] is correct, but the proof is incomplete.\"",
+      "affects": "the proof",
+      "known": "Authors' erratum: B. Bakker and J. Tsimerman, Erratum to \"p-torsion monodromy representations of elliptic curves over geometric function fields\", https://benjamin-bakker.github.io/P.torsion.erratum.pdf, §1 and §4.2 (Proposition 4.2)",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
+        "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
+        "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
+        "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/E4",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 4.1, p.3, in the authors' erratum (B. Bakker and J. Tsimerman, Erratum, 5 pp., https://benjamin-bakker.github.io/P.torsion.erratum.pdf, SHA-256 db8effa1…acc1)",
+      "printed": "\"mult_{CM−∩Δ̄}(T*_m C) ≪ … ≪ vol(T*_m C ∩ B(Δ̄, ε)) ≪ (sinh(ρ_{X(p)}/2)/sinh(ε)) vol(T*_m C)\"",
+      "correction": "The factor is sinh(ε)/sinh(ρ_{X(p)}/2): Proposition 3.1 gives vol(C ∩ B(Δ̄,ε)) ≤ (sinh ε/sinh R) vol(C ∩ B(Δ̄,R)) for 0 < ε < R < ρ/2, and letting R ↑ ρ_{X(p)}/2 gives the small factor.",
+      "reason": "Proposition 3.1 says (1/sinh r)·vol(C ∩ B(Δ̄,r)) increases with r, so the small ball has at most the proportion sinh ε/sinh R of the large one. The printed reciprocal is a large factor (ρ_{X(p)} ~ 2 log p) and would not give the p^{−1} saving the next line states, (p^{−2δ₂} + d₃p^{−1}) Deg(C).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
+        "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
+        "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
+        "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/E5",
+      "kind": "gap",
+      "locator": "Proof of Lemma 15, pp.726–727, in the published version, Annals of Mathematics 184 (2016), 709–744 (publisher PDF, SHA-256 814976ee…f40a)",
+      "printed": "\"Since M′² = −1, it follows that M′ is either equal to t̃ or −t̃\" … \"Thus g = a + b(0 1; −1 0), … and (x,y) lies on T_m where m = det g = a² + b².\"",
+      "correction": "Treat the order-three case separately: there t̃ satisfies t̃² − t̃ + 1 = 0 (H ∩ M₂(Z) ≅ Z[e^{2πi/3}]), so M′ satisfies the same Eisenstein relation and M′ ∈ {t̃, 1 − t̃}, and g = a + b·t₀ with m = det g = a² + ab + b². The rest of the argument is unchanged.",
+      "reason": "The proof itself notes that H ∩ M₂(Z) is Z[i] or Z[e^{2πi/3}], but the displayed relation M′² = −1 and the formula m = a² + b² hold only in the Z[i] case. The erratum does not revisit this. Found by the extraction (item 46).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
+        "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
+        "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
+        "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/E6",
+      "kind": "error",
+      "locator": "§2.5, Hecke operators, p.717, in the published version, Annals of Mathematics 184 (2016), 709–744 (publisher PDF, SHA-256 814976ee…f40a)",
+      "printed": "T_n is defined (p.716) as the closure of pairs related by a cyclic isogeny of degree n, and then: \"The two projection maps α, β : T_n → X(p) both have degree deg(T_n) = σ₁(n) = Σ_{d|n} d\".",
+      "correction": "For the cyclic correspondence deg(T_n) = ψ(n) = n∏_{ℓ|n}(1 + 1/ℓ); σ₁(n) is the degree of the full correspondence over all subgroups of order n.",
+      "reason": "For n = 4 there are six cyclic subgroups of order 4 but σ₁(4) = 7 (the extra subgroup is E[2]). The later estimates use only a polynomial bound such as deg(T_m) = O(m²), which both satisfy. Found by the extraction (item 25).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
+        "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
+        "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
+        "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/E7",
+      "kind": "misprint",
+      "locator": "§2.5, p.717, in the published version, Annals of Mathematics 184 (2016), 709–744 (publisher PDF, SHA-256 814976ee…f40a)",
+      "printed": "\"consider the map ξ_d : C_p → C_p that is x ↦ x^d on the smooth part of the identity component, so that ξ_d(x,a) = (x^d,a), (x,a) ∈ G_m × Z/nZ.\"",
+      "correction": "\"(x,a) ∈ G_m × Z/pZ\", since ξ_d is a self-map of the p-gon C_p.",
+      "reason": "The component group of the smooth part of C_p is Z/pZ; Z/nZ belongs to C_{pn} in the preceding map ϕ_n. Found by the extraction (item 26).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
+        "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
+        "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
+        "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/E8",
+      "kind": "misprint",
+      "locator": "§3.1, p.718, in the published version, Annals of Mathematics 184 (2016), 709–744 (publisher PDF, SHA-256 814976ee…f40a)",
+      "printed": "\"If we now allow X to have cusps, we define ρ_X to be the infimum of the lengths of closed geodesics with respect to h_X that are homotopically nontrivial in the smooth compactification X′.\"",
+      "correction": "\"… half the infimum of the lengths …\", matching the compact case defined just before (half the length of the shortest closed geodesic).",
+      "reason": "The compact definition two sentences earlier includes the factor ½, and Lemma 5 and Corollary 8 (ρ_{X(p)} ~ 2 log p) use the cusped radius with that factor. Found by the review REV-PAPER-BAKKER-TSIMERMAN-16.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
+        "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
+        "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
+        "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/E9",
+      "kind": "misprint",
+      "locator": "Proof in §4, p.731, in the published version, Annals of Mathematics 184 (2016), 709–744 (publisher PDF, SHA-256 814976ee…f40a)",
+      "printed": "\"Thus, since the metric h_{Y(p)} on Y(p) is strictly smaller than the metric h_{X(p)}, by the above and Proposition 7 we have d_{X(p)}(…) ≤ … ≤ O(δρ_{X(p)}) + d_{Y(p)}(…)\"",
+      "correction": "\"since the metric h_{X(p)} on Y(p) is smaller than h_{Y(p)}\", i.e. h_{X(p)}|_{Y(p)} ≤ h_{Y(p)} (Proposition 7), which is what the displayed inequality d_X ≤ d_Y uses.",
+      "reason": "Proposition 7 (p.720) gives h_{X(p)}|_{Y(p)} ≤ h_{Y(p)}; the sentence states the reverse, while the displayed chain uses the correct direction. Found by the extraction.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
+        "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
+        "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
+        "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/E10",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 23, p.735, in the published version, Annals of Mathematics 184 (2016), 709–744 (publisher PDF, SHA-256 814976ee…f40a)",
+      "printed": "\"dd^c(f∘χ) = −(1/2π) dd^c log(|1 − z w̄|² − |z − w|²) + dd^c log|z − w|² = −(1/2π) dd^c log[(1 − |z|²)(1 − |w|²)] + [Δ_D] = (1/4π) ω_{D×D} + [Δ_D].\"",
+      "correction": "The coefficient in the first two lines is −1: f∘χ = log|z − w|² − log(|1 − z w̄|² − |z − w|²), so dd^c(f∘χ) = −dd^c log[(1 − |z|²)(1 − |w|²)] + [Δ_D] = (1/4π) ω_{D×D} + [Δ_D].",
+      "reason": "With f(s) = log(s/(1 − s)) and χ = |z − w|²/|1 − z w̄|², f∘χ is the stated difference of logarithms with coefficient 1; the final line is consistent with the paper's d^c normalization only with coefficient −1 in front of the first term. Found by the review REV-PAPER-BAKKER-TSIMERMAN-16 (item 117).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
+        "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
+        "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
+        "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-TSIMERMAN-16/E11",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 29, p.742, in the published version, Annals of Mathematics 184 (2016), 709–744 (publisher PDF, SHA-256 814976ee…f40a)",
+      "printed": "\"Thus, Ram(α) = o(Deg C), and Riemann–Hurwitz applied to α yields 2g(C) − 2 = o(Deg C).\"",
+      "correction": "Riemann–Hurwitz for α : C → P¹ gives 2g(C) − 2 = −2 deg α + Ram(α) ≤ o(Deg C). The inequality is what the contradiction with 2g(C) − 2 ≫ Deg(C) needs.",
+      "reason": "The printed equality drops the term −2 deg α, which is not o(Deg C) in general. Found by the extraction (item 90).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
+        "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
+        "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
+        "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+      ]
+    }
+  ]
+}
