@@ -1,16 +1,20 @@
 # PAPER-CADORET-HUI-TAMAGAWA-17 — geometric monodromy
 
-Codex — codex-a71f92. Issue #1157. Status: **partial**, not formalised.
+Codex — codex-c83e7a, continuing codex-a71f92's [PR1937](https://github.com/CBirkbeck/tauceti-explorer/pull/1937). Refs #1157. Status: **partial**, not formalised.
 
-All 32 pages of the published paper, including references, were read. The inventory has **119 interfaces: 7 library, 8 planned, 104 missing**. Every missing interface is routed exactly once. There are four proposed Part II extensions and three source routes. The partial status records external-input and integral-carrier debts, not an unread remainder of the paper.
+The continuation preserves all119 existing interfaces and adds23 proof interfaces for the two external bottlenecks in Theorem7.3. The inventory now has **142 items:7 library,8 planned,127 missing**, with every missing item routed exactly once. All41 definitions/constructions have82 named API statements, explicit uses and123 proposed mathematical acceptance cases. These are planning interfaces, not executed Lean declarations.
 
-## Source and scope
+All32 pages of the official CHT paper were reread. Larsen2010 was read in full, and the relevant Cadoret–Tamagawa author-version tensor lemma was read directly. The linear-algebra part of the tensor-stabilizer reduction and the entire structure of Larsen's argument are now explicit. Their recursive geometric and group-theoretic inputs remain G1/G5; this checkpoint does not claim source closure merely because every item has a route.
 
-Primary text: Cadoret–Hui–Tamagawa, [Annals 186 (2017), 205–236](https://annals.math.princeton.edu/2017/186-1/p05), DOI 10.4007/annals.2017.186.1.5, [official journal PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p05-p.pdf). Read 22 September 2026; SHA256 `3aa67f6881cd54cdb5384eada8dc3ec9eff051d6ccb43de76d28100297b298d5`.
+## Source and version record
 
-The [author PDF](https://webusers.imj-prg.fr/~anna.cadoret/GSS.pdf), SHA256 `bd7bd8204d7d3a02df8ca15da194f122766aab61c88103948aa75ee55f67baaf`, was compared at selected errata passages only. [arXiv1702.07017](https://arxiv.org/abs/1702.07017) shows a single v1. The author list and journal page showed no linked corrigendum to these passages. Absence from this search is not a claim that no correction exists.
+CHT: [official Annals PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p05-p.pdf), DOI10.4007/annals.2017.186.1.5, published pp.205–236. SHA256 `3aa67f6881cd54cdb5384eada8dc3ec9eff051d6ccb43de76d28100297b298d5`. Acquired and all pages read2026-09-22.
 
-The original [Larsen 2010 paper](https://msp.org/ant/2010/4-8/ant-v4-n8-p02-s.pdf), SHA256 `a14bc3effc7007f972cb2b6f1cd2de14824ac7965b4b7b95088207ae9fa89284`, was read at Definition 5, Lemma 6, Theorem 7 and the initial proof through the connected-group reduction (pp.1034–1036). It confirms the precise Nori-dimension inequality and the equality-case index bound **under the unipotent-radical hypothesis**. This is not a claim to have read or closed all its proof.
+Larsen: [Exponential generation and largeness for compact p-adic Lie groups](https://msp.org/ant/2010/4-8/ant-v4-n8-p02-s.pdf), ANT4(2010),1029–1038. SHA256 `a14bc3effc7007f972cb2b6f1cd2de14824ac7965b4b7b95088207ae9fa89284`. The full mathematical article and references were read2026-09-22, including the Hilbert-family and finite-point-count portions absent from the prior reading. Reading it is distinct from closing its Nori, Borel, EGA, Serre and Kneser references.
+
+Cadoret–Tamagawa: [author manuscript TI.pdf](https://webusers.imj-prg.fr/~anna.cadoret/TI.pdf), *Genus of abstract modular curves with level-ℓ structures*. SHA256 `c11e6e28cbc3f1e7c1a0dc4f75bfcff54257a327f9bcfe4605e76970519cd704`. Read pp.10–12, especially **Lemma4.2.1.1 on p.11**. CHT cites this result as CT16 Lemma4.1. That is a version-specific locator, not a bibliographic error. This29-page author copy is not the published37-page2019 article, and the continuation does not claim to have read all of either version. The author publication list links this exact file.
+
+The earlier worker's selected comparison with [GSS.pdf](https://webusers.imj-prg.fr/~anna.cadoret/GSS.pdf), SHA256 `bd7bd8204d7d3a02df8ca15da194f122766aab61c88103948aa75ee55f67baaf`, is retained with that attribution; it was not repeated. E1–E4 are unchanged and unreviewed.
 
 ## Exact endpoint boundaries
 
@@ -27,14 +31,14 @@ Corollary 11.1 is conditional arithmetic mathematics over a finitely generated f
 | Route | Interfaces | New responsibility and imported boundary |
 |---|---:|---|
 | ArithmeticGaloisRepresentationsGeometricMonodromy, Part II of ArithmeticGaloisRepresentations | 39 | Fixed-cover reduction, uniform images, full invariant theorem, both geometric proofs, conditional arithmetic application; import representation carriers and ordinary cohomology. |
-| ReductiveGroupsMonodromyModels, Part II of upstream ReductiveGroups | 36 | Nori envelopes, tensor stabilizers, integral models, finite-factor comparisons and Lie-defect criterion; import RG2 buildings/parahorics and existing field-level groups. |
+| ReductiveGroupsMonodromyModels, Part II of upstream ReductiveGroups | 59 | Nori envelopes, tensor stabilizers, integral models, finite-factor comparisons and Lie-defect criterion; import RG2 buildings/parahorics and existing field-level groups. |
 | SchurWeylIntegralFunctors, Part II of upstream SchurWeyl | 6 | Integral/mod-ℓ functors and determinant splittings; preserve built rational symmetrizers and characteristic-zero Weyl modules. |
 | DeligneWeightsUniformIntegralMonodromy, Part II of DeligneWeightsAndPurity | 13 | Gabber–Suh uniform freeness, rational/mod-ℓ annihilators and the curve Inv proof; import rational weights, duality and alterations. |
 | ArithmeticGaloisDuality:R02.1–2, source | 7 | Compact H¹ exactness/rationalization, extension classes, prime-to-index descent; no private cohomology carrier. |
 | SchemeAndStackFoundations:SF.2, source | 3 | Lisse/fundamental-group comparison, arithmetic action and fibre-power Künneth on shared scheme-cohomology infrastructure. |
 | EtaleDualityAndPerverseSheaves:EDC.2, source | 1 planned | Finite étale compact-support trace normalization and regression E1. |
 
-The proposed IDs are new in this atlas snapshot; the JSON gives detailed design briefs, imports, suggested Lean files and tests. Generic compatible-system operations remain with their existing owners. Classical analytic/adic cohomology is not a replacement for scheme cohomology here. Upstream CFSGStatement L3 explicitly constructs finite Lie-type candidate carriers without proving finiteness or simplicity; it cannot silently discharge the Tits/Steinberg/Lang input of Lemma 8.1.
+The four proposed Part II IDs remain absent from the fresh atlas; the JSON gives detailed design briefs, imports, suggested Lean files and tests. Generic compatible-system operations remain with their existing owners. Classical analytic/adic cohomology is not a replacement for scheme cohomology here. Upstream CFSGStatement L3 explicitly constructs finite Lie-type candidate carriers without proving finiteness or simplicity; it cannot silently discharge the Tits/Steinberg/Lang input of Lemma 8.1.
 
 These roadmaps interact at **stage** level, not by a circular import of their final theorems. In particular, geometric characteristic-zero semisimplicity and uniform covers come first; the curve quotient theorem then precedes the determinant reduction and saturated-submodule theorem. Only afterwards do the two mod-ℓ semisimplicity proofs consume Theorem 1.3.
 
@@ -64,7 +68,7 @@ Reviewed audits read: AUDIT-01 SF.2; AUDIT-02 R02.1–2; AUDIT-18 DWP.0/7/8, EDC
 4. **Lie proof.** A nice torus must extend as a closed integral immersion. The defect uses invariants under the **identity component** of the special fibre. Δ on the dual Lie exterior powers detects the reductive centre and the unipotent radical through the exterior-adjoint Poincaré polynomial. Arithmetic-stable free tensor quotients Λ^n𝔤∨ use Theorem 1.3(1), not its submodule clause. The arithmetic compatible-Frobenius argument supplies the nice torus.
 5. **Cohomological proof.** A split determinant inclusion gives an equivariant retraction via wedge/Hom, without division by its dimension. Fibre powers reduce to splitting invariant vectors. The invariant lattice A∞ and free quotient B∞ reduce exactly. Their extension class is rationally zero; Inv for the **saturated arithmetic-stable** Hom lattice A∞⊗B∞∨ makes H¹ inject into rational cohomology. This uses Theorem 1.3(2), independently of the Lie-defect branch.
 
-Item-level dependency lists retain this order. No spectral-sequence convergence, cohomological finiteness or positive-characteristic complete reducibility is smuggled into a carrier definition.
+The extended item-level dependency graph retains this order (142 nodes,177 internal edges). No spectral-sequence convergence, cohomological finiteness or positive-characteristic complete reducibility is smuggled into a carrier definition.
 
 ### Total-cohomology dévissage supplied here
 
@@ -74,38 +78,145 @@ Choose a rational-point Frobenius after a finite constant-field extension. For e
 
 An arithmetic-stable submodule is F-stable, hence stable under all e_w(F); so is its quotient. The projectors therefore decompose it into degreewise submodules/quotients. Each factor is free or saturated when the original module is. This is uniform in the chosen subquotient because the excluded primes depend only on the finite list P_w. The resulting operators commute with π₀ because they are the canonical grading projections on H∞, **not** because Frobenius is central. This fills a planning step; it is not asserted as a source error.
 
-## Source findings
+## Tensor-stabilizer proof: what is now explicit
 
-All four are unreviewed and require the independent review required by the protocol. No author was contacted.
+Items120–127 separate the argument used by58. Let r be fixed. Write
+T^f(V)=⊕_(s,t)(V^⊗s⊗(V∨)^⊗t)^⊕f(s,t), where f has finite support.
 
-- **E1, p.218:** the direct-factor sentence drops compact support on the target. The preceding trace maps and the identity cover of A¹ identify the intended correction. The author copy has the same typo; the intended mathematics is unaffected.
-- **E2, p.229:** a Frobenius-indexing closed point is placed in π₁(X₀,x). It belongs to the closed points of X₀; its Frobenius is a conjugacy class in π₁. Same in the author copy.
-- **E3, pp.226–227:** parts 9.1.1–2 have no prime bound in their statement, while the displayed root-exponential proof uses ℓ≥r. This is a **proof-scope gap**, not a counterexample. Export the large-prime version used by the main application; verify the missing range separately before claiming the unrestricted theorem. The author copy has the same scope.
-- **E4, p.233:** [BT84] has the wrong page interval and a Numdam identifier for an unrelated Kac–Moody Bourbaki talk. The [original Bruhat–Tits record](https://www.numdam.org/item/PMIHES_1984__60__5_0/) gives IHÉS60 (1984),5–184, DOI10.1007/BF02700560. The author copy already has the correct interval.
+1. **A family is needed for uniformity.** The nilpotent matrix scheme is defined by N^r=0 over Z[1/(r−1)!]. CT16 uses a selected r²-tuple and two ordered passes of its exponentials, with2r² scalar parameters. Larsen's parameter construction instead stratifies tuples spanning a Lie algebra and uses2r² repetitions, with2r⁴ parameters. Both are bounded in r, but their formulas and hypotheses differ. Item121 records both without substituting one for the other silently.
+2. **Chevalley and spreading are the outstanding geometric input.** At generic points the group is a subspace stabilizer in a mixed tensor representation. Spread that property to open strata and repeat on the lower-dimensional complements; summing the finitely many multiplicity maps gives one f°_r. This is item122. Its exact closed-group-family hypotheses and equality after arbitrary coefficient-algebra extension remain G5. The author's proof briefly writes equality in GL_r(Fℓ); field points alone do not supply the subgroup-scheme equality used by CHT.
+3. **Setwise to pointwise is a real argument.** A subspace W of dimension δ is preserved exactly when its determinant line Λ^δW is preserved. This Plücker statement is made over every coefficient algebra in123. Every character of an exponentially generated group is trivial: restrict to G_a, where an invertible polynomial is constant and the identity forces that constant to be1, then use generation. Consequently U fixes this determinant line pointwise (124). The pointwise stabilizer is contained in the setwise one, which is U, giving equality.
+4. **Move the line into tensor space.** If δ! is invertible, antisymmetrization maps Λ^δE into E^⊗δ and its wedge composite is δ!. For D=dim T^(f°_r)(Fℓ^r), the single conservative bound ℓ>D handles every δ≤D. CT16 uses the normalized map; this bound is not a claim that the unnormalized exterior embedding must fail in smaller characteristic. Add the tensor powers for1≤δ≤D. The fixed line in one summand forces the pointwise stabilizer of all U-invariants to be U (125).
+5. **Remove multiplicities carefully.** Fixed vectors in a finite direct sum split by coordinates. Repeating an isomorphic summand adds no new equations, so the multiplicity construction embeds its conditions into CHT's rectangular tensor bound s,t≤d. After expanding the tensor powers one may take d≥D max_(s,t)∈supp(f°_r) max(s,t). The bound is on the expanded family, not merely the original support. Along an exponential root group the polynomial degree is at most(s+t)(r−1)≤2d(r−1) (126).
 
-The JSON retains short printed extracts, corrections, reasons, extent and correction-search records.
+Fix(W) in127 is explicitly a subgroup scheme: an A-point fixes the base-changed vectors for every F-algebra A. This prevents the false inference that finite-point equality is scheme equality. For example T^ℓ−T vanishes on all Fℓ points of G_a but is a nonzero polynomial, and evaluates to −ε at ε over Fℓ[ε]/(ε²). Once G_s is a closed subscheme of the integral Nori envelope with equal dimension, item142 supplies the final scheme equality: full support gives a nilpotent ideal, and the ambient coordinate ring is reduced.
 
-## Prerequisite closure and handoff
+The proof after the uniform Chevalley input is now supplied at declaration granularity. The primary Borel/EGA family step, the relevant NoriA hypotheses and the scheme-level spreading still need verification. They have not been replaced by a finite computational test.
 
-Already-owned foundations are imported, not requested again: Weil II rational weights/geometric semisimplicity, scheme cohomology/duality, de Jong alterations and the RG2 building/parahoric prefix. The exact unclosed inputs are listed in the JSON: Gabber/Suh; CT13 (now IMRN2019)/CT16/CT12; Nori; Larsen10; Jantzen/Larsen95b; Larsen–Pink92/95; the exterior-adjoint invariant calculation and its characteristic transfer; Milne–Ramachandran; and the precise Lang/Tits/Steinberg and Bruhat–Tits/Conrad applications.
+## Larsen's complete proof dependency chain
 
-- G1: Read and verify the full primary external inputs, not just CHT's use: Gabber/Suh, CT13/CT16 (now published), Nori Theorem B, Jantzen Proposition 3.2 and Larsen95b, Larsen–Pink92/95, Milne–Ramachandran. Larsen10 Definition5/Lemma6/Theorem7 statement and initial proof were checked directly; its remaining proof is not closed. Blocks: Complete source/prerequisite closure and precise uniform-prime dependencies.
-- G2: Turn item116's CRT weight-projector argument into a fully typed lattice/subquotient proof; combine the finitely many degrees and ranks, fibre powers, shifts and geometrically trivial determinant twists to obtain a single bound independent of the subquotient. Blocks: Implementation-ready total-H* quotient/submodule proof. The mathematical reduction is supplied here; this is extraction/typing debt, not a new source error.
-- G3: Establish canonical versus explicit continuous H¹ comparison for compact coefficients, continuous splittings, the exact reduction/rationalization sequences and affine-curve cd≤1 on the correct coefficient carrier. Blocks: Both weight and extension-class proof branches.
-- G4: Check Bruhat–Tits big-cell hypotheses over ramified splitting O_E, affine-model hypotheses in Lemma8.1, schematic closure under base change, special Lie base change and simply connected isogeny extension. Review E3 before any small-prime export. Blocks: Exact integral-model theorem generality.
-- G5: Verify CT16 Lemma4.1's uniform pointwise tensor stabilizer, including separate tensor bounds and scheme-level equality. Do not cite it as Nori TheoremB or infer it from finite point sets. Blocks: Theorem7.3 special-fibre equality.
-- G6: Read Larsen–Pink Γ-regular and common-Frobenius statements directly, prove the arithmetic torus lift and discriminant exclusion, and justify uniformity of the single chosen closed point across coefficients. Blocks: Nice-torus application in §9.2 and arithmetic §11.
-- G7: Resolve the precise rational-coefficient ℓ quantification and finite-extension stability in Corollary11.1/MR04 Lemma3.1, with both complementary Tate assumptions and integral cycle saturation. Blocks: Do not strengthen the conditional arithmetic corollary to a one-prime or unconditional assertion.
-- G8: Reconcile any overlapping future generic Lang/Tits/finite Lie-type simplicity or exterior-adjoint invariant owner at design time. CFSGStatement L3 is a carrier roadmap and explicitly does not prove simplicity. Library nonexistence claims are scoped to this pinned search, not all future work. Blocks: Final design ownership, not the proposed monodromy-specific interfaces.
-- G9: Expand suggested files/API/tests into reviewed blueprint packets and compile them against the pins. No Lean file was an issue deliverable; no Lean compilation or formal proof is claimed here. Blocks: Formalization handoff.
+Items128–141 expose the inputs behind113–114, with the **unipotent-radical hypothesis** retained for bounded index.
 
-A full main-paper inventory does not establish the primary-source closure of these external theorems. Keep status partial until those checks are completed and the conditional arithmetic quantifiers are fixed.
+-128 gives the characteristic-zero exponential-generation criterion: no nontrivial finite, toric or anisotropic quotient. Its proof uses unipotent filtrations and generation by proper parabolic radicals; the cited rational-point and structure theorems remain recursive leaves.
+-129 records NoriA's correspondence between nilpotently generated Lie algebras and exponential groups. NoriB's finite-points comparison56 is a different input.
+-130–131 give the finite Hilbert-polynomial and reduced-family step. The projective object includes the entire boundary P^(n²) minus GL_n. It is not just the projective closure of G. The printed family construction in Lemma4 requires the E5 correction discussed below.
+-132 defines Nori dimension via the residual envelope.133 defines F_mH for m≥1 and its embedding in M_n(F_p). It does not linearize the level-zero quotient.
+-134 proves the lifted-exponential congruence A^(p^k)≡1+p^kM modulo p^(k+1) when p≥2n. Lift the nilpotent logarithm using a lifted Jordan basis, write A=1+N+pB, and expand. In the exceptional m=p binomial term a word N^iBN^j has i+j=p−1; p≥2n forces one exponent≥n, so it vanishes. The other B terms vanish modulo p². Iterating the positive-level power congruence gives all k. The lift M need only reduce to x in the final congruence.
+-135 compares each graded congruence space between the Nori logarithm span and dim G. The upper bound is the **Serre p-adic analytic growth input**, not an immediate Zariski-density argument.136 uses equality of the graded spaces, successive corrections and closedness to obtain F_1Γ=F_1H and openness. A dense nonclosed subgroup would not justify the limit step.
+-137 separates the finite component-group argument: a finite central extension, Jordan's theorem and the pth cyclotomic degree. Its finite-extension hypothesis is essential; arbitrary infinite extensions do not preserve elements of order p.
+-138 passes to a **totally ramified** splitting extension so the residue field stays F_p. This is where local anisotropic-group classification and division-algebra splitting enter.139 uses the finite Hilbert list, properness, flat closure and constructible component counts to obtain a bound d_n independent of p and G.
+-140 states the connected finite-field point bounds(p−1)^d≤|K(F_p)|≤(p+1)^d, including the radical/quotient and component arguments needed for the actual possibly nonreduced special fibre. Those inputs remain Lang/structure/order-formula proof obligations.
+-141 combines the upper bound d_n(3/2)^(n²)p^d for H/F_1H and lower bound e_n⁻¹2^(−n²)p^d for Γ/F_1Γ, where e_n comes from Nori. Equal first kernels cancel, leaving[H:Γ]≤3^(n²)d_ne_n. Dimension equality alone would not give this index bound.
 
-## Verification
+The exact finite diagnostic includes n=2,p=3, A=((1,1),(3,1)). Modulo9, A³=((1,6),(0,1)), whereas1+3x=((1,3),(0,1)) for x=((0,1),(0,0)). Thus dropping the stated prime bound actually breaks this congruence. The example is outside Larsen's hypotheses and is not a source error.
 
-The final checks are recorded in the handoff: paper schema, exact-once missing-item routing, dependency acyclicity, sourceIssue schema, all paper-checker tests and the three-file intake check. No Lean file was required or compiled.
+## Source findings and independent review
 
-The following standard-library Python certificate was executed. It checks 166 root-system products and 4,714 equal-rank/different-dimension coefficient witnesses, 4,356 truncated exp/log group laws, 84 denominator-free determinant splittings (including characteristic dividing the dimension), and 162 weight-projector entries. These are finite regressions, **not proofs** of the geometric theorems, Nori uniformity, group invariant formula or all-prime bounds. The exponent table is input data here; the computation does not establish it.
+All five findings await independent review. E1–E4 are preserved byte-for-byte in JSON from the prior extraction; no review verdict was added.
+
+- **E1:** CHT p.218 loses the compact-support subscript in the finite-étale direct-factor sentence.
+- **E2:** CHT p.229 places a closed point in the fundamental group instead of the base's closed points.
+- **E3:** CHT Theorem9.1.1–2 states no prime bound, while its displayed root-exponential proof uses ℓ≥r. This is a proof-scope gap, not a counterexample to the theorem. The main large-prime application is unaffected by retaining that bound.
+- **E4:** CHT's BT84 bibliography gives an incorrect page interval/link; the earlier extraction supplies the original Bruhat–Tits record.
+- **E5, new external-source notation finding:** Larsen Lemma4 pp.1033–1034 defines W as the reduced closure of the boundary of the constructible image, then chooses U disjoint from W. Thus W_U is empty. The next page nevertheless defines the open-stratum part of Y′ to be W_U and describes the base map ψ on W_U although its domain is U. For X=Spec Q, Z=Y=Spec Q and ξ=id, embedded in P¹, the claimed construction gives an empty fibre instead of a point. The intended family is the closed image over U, with ψ restricting to U→X. Its reducedness and base-change proof still need checking. Rendered PDF pages were inspected; this is not a text-extraction artefact, nor a counterexample to Lemma4. The official MSP source/index and exact-title correction searches found no correction; that search does not prove novelty.
+
+## Remaining closure work
+
+- **G1:** Verify recursive originals for Gabber/Suh, CT13 and CT16 uniform-image assertions, CT12, Nori A/B, Jantzen/Larsen95b, Larsen–Pink92/95 and Milne–Ramachandran. Larsen2010 is now fully read: close its Nori correspondence, Serre analytic-growth, finite extension/Jordan component, Kneser ramified splitting, EGA reduced-family/Hilbert properness/component-constructibility and Lang/finite-field point-count inputs. Review and repair E5 before exporting Lemma4. Consuming items: 21, 24, 25, 26, 49, 56, 68, 89, 107, 113, 114, 128, 129, 130, 131, 135, 137, 138, 139, 140, 141.
+- **G2:** Turn item116's CRT weight-projector argument into a fully typed lattice/subquotient proof; combine the finitely many degrees and ranks, fibre powers, shifts and geometrically trivial determinant twists to obtain a single bound independent of the subquotient. Consuming items: 11, 12, 13, 116.
+- **G3:** Establish canonical versus explicit continuous H¹ comparison for compact coefficients, continuous splittings, the exact reduction/rationalization sequences and affine-curve cd≤1 on the correct coefficient carrier. Consuming items: 10, 27, 48, 100, 101, 102.
+- **G4:** Check Bruhat–Tits big-cell hypotheses over ramified splitting O_E, affine-model hypotheses in Lemma8.1, schematic closure under base change, special Lie base change and simply connected isogeny extension. Review E3 before any small-prime export. Consuming items: 72, 79, 80, 84, 85, 87, 94.
+- **G5:** The CT16 author-version lemma4.2.1.1 is read, and determinant-line fixing, antisymmetrization and conversion to separate tensor bounds are decomposed in120–127. Establish the exact finite-type exponential-family and Chevalley/spreading statement122 over all coefficient algebras. The selected two-pass product and Larsen’s 2r²-pass construction have different parameter counts; do not identify them or infer scheme equality from finite field points. Verify Borel/EGA originals and NoriA for the alternate Lie-tuple family. Consuming items: 58, 61, 121, 122, 129.
+- **G6:** Read Larsen–Pink Γ-regular and common-Frobenius statements directly, prove the arithmetic torus lift and discriminant exclusion, and justify uniformity of the single chosen closed point across coefficients. Consuming items: 92, 93, 109, 111.
+- **G7:** Resolve the precise rational-coefficient ℓ quantification and finite-extension stability in Corollary11.1/MR04 Lemma3.1, with both complementary Tate assumptions and integral cycle saturation. Consuming items: 105, 106, 107, 109.
+- **G8:** Reconcile any overlapping future generic Lang/Tits/finite Lie-type simplicity or exterior-adjoint invariant owner at design time. CFSGStatement L3 is a carrier roadmap and explicitly does not prove simplicity. Library nonexistence claims are scoped to this pinned search, not all future work. Consuming items: 78, 89, 124, 140.
+- **G9:** Future blueprint work expands the suggested files into signatures, API and tests and compiles at the pins. This is downstream formalization work, not an unfulfilled authorized paper deliverable; no Lean file was requested here. Consuming items: downstream blueprint files.
+
+G9 is a downstream formalization handoff, not an unmet requirement to edit an unauthorized Lean file. G1–G8 are why source/design closure remains partial. The next worker should verify122's family/spreading hypotheses and131's corrected reduced-image construction, then the primary Nori/Serre inputs for135. The remaining nice-torus and arithmetic Tate quantifiers remain separate tasks.
+
+## Validation and reproducibility
+
+The continuation checked the142-node graph with177 internal edges for resolved endpoints and acyclicity; all127 missing items have exactly one route. All41 definitions/constructions have explicit API statements, recorded uses and three mathematical test cases. All eight planned items cite actual atlas stages. The reviewed atlas/library/protocol/owner/paper snapshot contains484 files, recorded with Git blob and SHA256 hashes in JSON. Publication rechecks those inputs and all three original deliverable blobs against current main before creating the commit.
+
+The new standard-library diagnostic checks18,156 lifted-exponential congruences;6,052 graded-power congruences;408 tensor-degree expansions;2,544 rank-two setwise/pointwise stabilizer cases;five finite-point/scheme counterexamples;one small-prime failure; and one factorial-normalization boundary. The prior report's unchanged certificate was rerun:166 root-system products,4,714 coefficient witnesses,4,356 exp/log laws,84 determinant splittings and162 weight-projector entries. All passed. These finite checks do not prove Nori uniformity, Chevalley spreading, Hilbert-family existence or geometric semisimplicity.
+
+Paper schema and three-file intake checks are recorded in JSON. No Lean file was a deliverable and no Lean compilation is claimed.
+
+### New diagnostic (Python standard library)
+
+```python
+"""Exact finite regressions. These are not proofs of the uniform group theorems."""
+from itertools import product
+from math import factorial
+import json
+from pathlib import Path
+P=Path('.')
+def mul(a,b,q):
+ return tuple(sum(a[2*i+k]*b[2*k+j] for k in range(2))%q for i in range(2) for j in range(2))
+def power(a,n,q):
+ b=(1,0,0,1)
+ while n:
+  if n%2:b=mul(b,a,q)
+  a=mul(a,a,q);n//=2
+ return b
+I=(1,0,0,1)
+counts={'liftedExponentialCongruences':0,'gradedPowerCongruences':0,'tensorDegreeExpansions':0,'finitePointSchemeCounterexamples':0,'determinantLineStabilizers':0}
+for p in [5,7]:
+ for x in [(0,0,0,0),(0,1,0,0),(0,0,1,0)]:
+  for b in product(range(p),repeat=4):
+   a=tuple(I[j]+x[j]+p*b[j] for j in range(4))
+   for k in [1,2]:
+    q=p**(k+1)
+    assert power(a,p**k,q)==tuple((I[j]+p**k*x[j])%q for j in range(4))
+    counts['liftedExponentialCongruences']+=1
+ for c in product(range(p),repeat=4):
+  for m in [1,2]:
+   q=p**(m+2);a=tuple(I[j]+p**m*c[j] for j in range(4))
+   assert power(a,p,q)==tuple((I[j]+p**(m+1)*c[j])%q for j in range(4))
+   counts['gradedPowerCongruences']+=1
+# A real failure outside the stated p>=2n bound (n=2,p=3).
+assert power((1,1,3,1),3,9)!=(1,3,0,1)
+counts['smallPrimeCounterexample']=1
+# Expanding mixed tensor products adds covariant/contravariant degrees separately.
+for support in [((0,0),(1,0)),((1,0),(0,1)),((2,1),(0,2)),((2,2),(1,0))]:
+ for r in [1,2,3]:
+  D=sum(r**(s+t) for s,t in support)
+  d=D*max(max(z) for z in support)
+  for delta in range(1,min(D,5)+1):
+   for terms in product(support,repeat=delta):
+    s=sum(z[0] for z in terms);t=sum(z[1] for z in terms)
+    assert s<=d and t<=d
+    assert (s+t)*(r-1)<=2*d*(r-1)
+    counts['tensorDegreeExpansions']+=1
+assert max(sum(z) for z in [(2,2)])==4 # total-degree cutoff2 would lose this summand.
+# X^p-X vanishes at all F_p points but is a nonzero polynomial;
+# at epsilon over dual numbers it is -epsilon, so it does not vanish schematically.
+for p in [2,3,5,7,11]:
+ assert all((pow(a,p,p)-a)%p==0 for a in range(p))
+ coeff=[0]*(p+1);coeff[1]=-1;coeff[p]=1
+ assert any(a%p for a in coeff) and (-1)%p!=0
+ counts['finitePointSchemeCounterexamples']+=1
+# For W=<e1>, invertible 2x2 matrices stabilize W iff the lower-left entry is0.
+# The line and its determinant are the same here; pointwise fixing also requires a=1.
+for p in [3,5,7]:
+ seen_strict=False
+ for a,b,c,e in product(range(p),repeat=4):
+  if (a*e-b*c)%p==0:continue
+  setwise=c==0;pointwise=c==0 and a==1
+  assert not pointwise or setwise
+  if setwise and not pointwise:seen_strict=True
+  counts['determinantLineStabilizers']+=1
+ assert seen_strict
+# Normalized antisymmetrization requires factorial invertibility; no claim that
+# unnormalized exterior embedding itself must fail in small characteristic.
+assert factorial(3)%3==0 and factorial(3)%5!=0
+counts['factorialNormalizationBoundary']=1
+counts['scope']='Finite rank-two congruences, tensor bounds and explicit counterexamples only; no Chevalley spreading, Nori theorem, Hilbert family or geometric semisimplicity proved.'
+(P/'diagnostic-results.json').write_text(json.dumps(counts,indent=2)+'\n')
+print(json.dumps(counts,indent=2))
+```
+
+### Prior certificate, retained and rerun
 
 ```python
 """Exact finite checks for CHT17 extraction; not geometric proofs."""
