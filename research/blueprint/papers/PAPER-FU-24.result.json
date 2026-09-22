@@ -22,11 +22,19 @@
       "Kohlhaase author PDF section1.4, Frommer theorem and Corollary1.4.1 with proof; AW14 arXivv1 sections4.4–4.6,5.1 and5.4 with global coefficient/group hypotheses.",
       "AB07 arXivv1 and author PDF section5.4 lemma and corollary; ST03 arXiv section4 weighted-c0 definition, HYP,4.5,4.7,4.9 and4.11 proof passages."
     ],
-    "publisher": "https://annals.math.princeton.edu/2024/200-1/p03"
+    "publisher": "https://annals.math.princeton.edu/2024/200-1/p03",
+    "continuationRead": {
+      "agent": "Codex",
+      "session": "codex-c83e7a",
+      "accessed": "2026-09-22",
+      "url": "https://arxiv.org/pdf/2201.11190v2",
+      "sha256": "d71e9d3f8d3a1217743c3ba72c9a9630981f054ecefd943ff4edb4879b842614",
+      "scope": "Independently read all 25 pages, §§1–7, every proof and references. Published PDF still unavailable: conventional Annals PDF path 404; NSF public URL timed out. Publisher metadata and author research page confirm the article identity, not a full version collation."
+    }
   },
-  "summary": "A deepened 123-item extraction/routing checkpoint for Fu: integral central PBW bounds, analytic microlocalization and all-integral central injectivity, then rank-error and weight-aspect bounds via completed homology. All103 missing items have exactly one route; all42 definitions/constructions carry API and unit-test contracts. Exact source archives, reviewed-audit/current-stage reconciliation, the full paper checker and41,069 exact finite regressions are recorded. Published-version collation, original auxiliary proof tasks and D_r quotient-filtration separation remain open. No mathematical formalization or closed-blueprint readiness is claimed.",
+  "summary": "A deepened 123-item extraction/routing checkpoint for Fu: integral central PBW bounds, analytic microlocalization and all-integral central injectivity, then rank-error and weight-aspect bounds via completed homology. All103 missing items have exactly one route; all42 definitions/constructions carry API and unit-test contracts. Exact source archives, reviewed-audit/current-stage reconciliation, the full paper checker and41,069 exact finite regressions are recorded. Published-version collation, original auxiliary proof tasks and D_r quotient-filtration separation remain open. No mathematical formalization or closed-blueprint readiness is claimed. Continuation: correct the unramified microlocal target to its rational completion, separate finite coefficient extension, import restricted Gauss facilities, and prove a small-real-radius central-domain route with an attained quotient norm. Larger-radius separation remains open.",
   "agent": "Codex",
-  "session": "codex-a71f92",
+  "session": "codex-c83e7a",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -86,7 +94,13 @@
           "statement": "A level containing a nontrivial finite stabilizer is not automatically a manifold level; retain the orbifold model."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/split-auxiliary-prime",
+          "how": "Take the finite covers obtained by refining the compact open level at a completely split auxiliary prime."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/cohomological-coefficients",
@@ -132,7 +146,13 @@
           "statement": "An odd complex κ has no integral exponent κ/2−1 in this convention and is excluded."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/coefficient-realization-comparison",
+          "how": "Compare dimensions after realizing the same finite algebraic coefficient system over C and Q_p."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/weight-size",
@@ -175,7 +195,13 @@
           "statement": "For r2>0, min ranges over r1+r2 entries, not the field degree."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/global-local-weight-dictionary",
+          "how": "Convert products of local weight factors into the archimedean Delta(k) and the correct minimum."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/sharp-global-bound",
@@ -285,7 +311,13 @@
           "statement": "If gh≠hg in a finite quotient, the corresponding Dirac products are unequal."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/finite-group-ring-coefficients",
+          "how": "Commute finite integral coefficient extension with the completed group-ring inverse system."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/completed-homology",
@@ -333,7 +365,13 @@
           "statement": "A nonzero lim¹ example must retain its correction; equality with homology of a derived limit is not definitional."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/completed-descent-spectral-sequence",
+          "how": "Use the completed homology groups as the coefficient modules in the E2 page."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/local-algebraic-representation",
@@ -382,7 +420,13 @@
           "statement": "Compare monomial and divided-power conventions over Z; a rational basis change with factorial denominators is not an integral equivalence at every p."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/integral-image-lattice",
+          "how": "Take the image of the integral enveloping algebra in endomorphisms of the chosen symmetric-power tensor lattice."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/skew-rank",
@@ -429,7 +473,13 @@
           "statement": "A ring with zero divisors cannot be sent to a division ring by invoking this construction without additional hypotheses."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/free-approximation",
+          "how": "Choose a rank-many free submodule with torsion quotient via Ore localization."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/multiaffine-bound",
@@ -472,7 +522,13 @@
           "statement": "k1² has low total degree in three variables but is not multiaffine."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/global-local-weight-dictionary",
+          "how": "Bound each squarefree local monomial by the product of weights divided by one weight."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/rank-main-term",
@@ -557,7 +613,13 @@
           "statement": "Passing to the opposite ring reverses multiplication while retaining filtration degrees."
         }
       ],
-      "apiStatus": "Existing-input interface and unexecuted consumer tests; no duplicate implementation planned."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/regular-symbol-strictness",
+          "how": "Compare exact filtration degrees under multiplication by a regular leading symbol."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/associated-graded-symbol",
@@ -605,7 +667,13 @@
           "statement": "In K[X]/X² the nonzero degree-one symbol squares to zero; regular-symbol hypotheses cannot be dropped."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/graded-principal-quotient",
+          "how": "Identify the quotient graded object only after strictness of multiplication is proved."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/regular-symbol-strictness",
@@ -695,7 +763,13 @@
           "statement": "Word spanning and exhaustivity alone do not prove independence of ordered monomials."
         }
       ],
-      "apiStatus": "Existing-input interface and unexecuted consumer tests; no duplicate implementation planned."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/integral-sl2-pbw",
+          "how": "Supply the word filtration to the ordered integral monomial basis theorem."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/field-pbw",
@@ -717,7 +791,8 @@
       "status": "missing",
       "dependsOn": [
         "PAPER-FU-24/pbw-filtration",
-        "PAPER-FU-24/field-pbw"
+        "PAPER-FU-24/field-pbw",
+        "PAPER-FU-24/free-lie-pbw"
       ]
     },
     {
@@ -765,7 +840,13 @@
           "statement": "Using ef−fe=h gives C=h²/2−h+2ef, not h²/2+h+2ef."
         }
       ],
-      "apiStatus": "Existing-input interface and unexecuted consumer tests; no duplicate implementation planned."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/integral-central-generators",
+          "how": "Calibrate the normalization of the universal central generators against their module actions."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/casimir-highest-weight-scalar",
@@ -823,7 +904,13 @@
           "statement": "The displayed normalization is not an integral element over Z_2 merely by using the odd-prime formula."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/central-quotients",
+          "how": "Generate the actual central ideal by Delta_i-lambda_i."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/central-quotients",
@@ -869,7 +956,13 @@
           "statement": "A cyclic quotient U/Uδ for noncentral δ is a module quotient, not automatically an algebra quotient."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/central-pbw-normal-form",
+          "how": "Reduce powers of h_i using the prescribed Casimir scalar relation."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/completed-enveloping",
@@ -912,7 +1005,13 @@
           "statement": "Σϖ^n X^n belongs to the completion; ΣX^n does not."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/lazard-microlocal-identification",
+          "how": "Supply the rationalized p-adic enveloping completion identified with the microlocalization."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/completed-central-quotients",
@@ -960,7 +1059,13 @@
           "statement": "A nonclosed ideal in a topological ring cannot be replaced by its closure without stating which quotient is intended."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/uniform-nonvanishing-mod-p",
+          "how": "Test a generic element in every integral specialization modulo a common p-power."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/generic-element",
@@ -1003,7 +1108,13 @@
           "statement": "Δ_1−λ_1 is not generic because its specialization at λ_1 vanishes."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/uniform-nonvanishing-mod-p",
+          "how": "Use nonvanishing in each central fiber and compactness of the integral parameter locus."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/uniform-nonvanishing-mod-p",
@@ -1105,7 +1216,13 @@
           "statement": "Finite-dimensionality of the quotient uses finite generation of M; an infinite direct sum of W is a counterexample without it."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/isotypic-multiplicity-dimension",
+          "how": "Express Hom multiplicity as quotient dimension divided by dim W."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/isotypic-multiplicity-dimension",
@@ -1163,7 +1280,13 @@
           "statement": "At k=p over Z_p the reduction of the image preserves the span of X^p,Y^p in Sym^p(F_p²); hence the integral image is not the whole matrix algebra."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/bounded-degree-image",
+          "how": "Bound the integral image using the first weight-sized PBW filtered piece, rather than all integral matrices."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/bounded-degree-image",
@@ -1300,7 +1423,13 @@
           "statement": "Uniformity and exp/log radii at p=2 require separate hypotheses; the odd-prime construction is not reused verbatim."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/unramified-graded-iwasawa",
+          "how": "Relate the graded group to t(h/ph)[t] in the maximal-ideal graded ring."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/matrix-lie-comparison",
@@ -1357,7 +1486,13 @@
           "statement": "The identity has infinite valuation; no finite depth is assigned to it."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/microlocal-ore-set",
+          "how": "Specify the filtration whose homogeneous p-symbol defines the denominator set."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/iwasawa-series",
@@ -1415,7 +1550,13 @@
           "statement": "For a nontrivial finite extension F/Q_p, a Q_p-linear coordinate function need not be F-analytic; the two spaces are distinct."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/distribution-convolution",
+          "how": "Construct the continuous dual and convolution with its actual locally convex topology."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/distribution-convolution",
@@ -1462,7 +1603,13 @@
           "statement": "For G=1 the distribution algebra is K."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/distribution-radius-completion",
+          "how": "Complete the ordered distribution series in the radius norm."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/distribution-radius-completion",
@@ -1474,7 +1621,8 @@
       "note": "Source issue S2: equation (16) omits the vanishing condition required by the preceding norm-completion definition.",
       "dependsOn": [
         "PAPER-FU-24/distribution-convolution",
-        "PAPER-FU-24/iwasawa-series"
+        "PAPER-FU-24/iwasawa-series",
+        "PAPER-FU-24/restricted-series-baseline"
       ],
       "api": [
         {
@@ -1510,7 +1658,13 @@
           "statement": "The same bounded family belongs to every D_r' with r'<r, because its weighted coefficients then tend to zero."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/small-radius-log-exp",
+          "how": "Compare the weighted-c0 group-coordinate completion with logarithmic PBW coordinates."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/frechet-stein",
@@ -1580,19 +1734,26 @@
           "statement": "If p∈m², then p+(-p)=0 belongs to the a=1 component; this literal set cannot be used as regular denominators."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/microlocal-symbol-comparison",
+          "how": "Invert precisely the elements with homogeneous p-power leading symbol."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/lazard-microlocal-identification",
       "kind": "theorem",
       "name": "Lazard microlocalization is the completed enveloping algebra",
-      "statement": "For the unramified coefficient setting of the preceding item, identify Q_gr(p)(R[[G]]) with the p-adic completion of U((1/p)R tensor L_G), compatibly with logarithms, exponentials and filtrations. After p-inversion obtain the flat map A -> Uhat; prove the finite coefficient-extension variant separately.",
+      "statement": "For a complete DVR R with uniformizer p, odd p and uniform G, identify the microlocalization Q_gr(p)(R[[G]]) with Uhat(p^(-1)R L_G)[1/p] as complete filtered rings, compatibly with group exponentials. The microlocalization already inverts p; it is not merely the integral completion. The induced map K[[G]]->Uhat_K is flat. A ramified finite coefficient variant is constructed separately by finite-coefficient-microlocal-map.",
       "locator": "Fu v2, equation (18); AW13 Theorem 10.4",
       "status": "missing",
       "dependsOn": [
-        "PAPER-FU-24/microlocal-ore-set",
-        "PAPER-FU-24/completed-enveloping",
-        "PAPER-FU-24/lazard-lie-algebra"
+        "PAPER-FU-24/microlocal-symbol-comparison"
+      ],
+      "proofSteps": [
+        "Combine the strictly filtered symbol comparison with the Zariskian microlocal flatness theorem of AW13 §2.4. The latter cites Li–Van Oystaeyen; its original proof remains a prerequisite source task."
       ]
     },
     {
@@ -1639,7 +1800,13 @@
           "statement": "Do not infer injectivity for every M from flatness; denominators may annihilate a nonzero torsion module."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/isotypic-microlocal-comparison",
+          "how": "Apply flat extension to the annihilator short exact sequence and recover the algebraic isotypic quotient."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/lie-module-extension",
@@ -1661,6 +1828,11 @@
       "status": "missing",
       "dependsOn": [
         "PAPER-FU-24/lie-module-extension"
+      ],
+      "proofSteps": [
+        "In the Q_p congruence setting of AW13 §10.12, Corollary10.11 supplies n for which a finite-dimensional module is S_n-torsion-free. Proposition11.1 realizes it over U_n*(G/G^(p^n)).",
+        "Weyl complete reducibility gives a U_n-linear projection to the submodule. Average its conjugates over the finite quotient in characteristic zero to make it equivariant.",
+        "For a finite coefficient extension, perform the same finite-dimensional Lie and averaging argument after the coefficient comparisons; do not assert semisimplicity for arbitrary nonsemisimple Lie algebras."
       ]
     },
     {
@@ -1685,6 +1857,12 @@
       "dependsOn": [
         "PAPER-FU-24/lie-module-extension",
         "PAPER-FU-24/microlocal-ore-set"
+      ],
+      "proofSteps": [
+        "AW13 Proposition11.1 works for a finite-dimensional K[[G]]-module on which S_n acts injectively, under its standing congruence-group hypotheses. Finite dimension makes each denominator bijective.",
+        "For n=0, localize a finite integral lattice N; the good Zariskian filtration on N_S is separated. Its degree-zero lattice L lies in a finite-dimensional K-space. AW13 Proposition2.7 makes L finite over the complete DVR, so L is already complete.",
+        "Thus localization and its completion both recover M. For general n use restriction to G^(p^n) and the crossed-product tensor identity. Apply this specifically to W and its finite direct sums, whose denominators act invertibly through the completed enveloping algebra.",
+        "Extend finite coefficients using the explicit coefficient comparisons, rather than silently extending the maximal-ideal denominator formula."
       ]
     },
     {
@@ -1744,7 +1922,13 @@
           "statement": "For p=3, λ=1 would require (a+1)²=3, impossible over Q_3; integrality is not sufficient for induction over Q_p."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/central-scalar-descent",
+          "how": "Relate integral highest weights over a finite extension to the required Casimir eigenvalues."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/central-analytic-eigenspace",
@@ -1790,7 +1974,13 @@
           "statement": "Multiplication by a locally constant function preserves the infinitesimal character but need not preserve a torus transformation character."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/central-strong-dual",
+          "how": "Dualize the joint kernel of the central differential operators into the specified quotient."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/central-strong-dual",
@@ -1848,7 +2038,13 @@
           "statement": "Changing equivariance from χ to χ^(-1) changes the differentiated parameter; do not reuse its sign blindly."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/nonvanishing-eigenfunction",
+          "how": "Produce a locally analytic nowhere-zero section with the induced central character."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/nonvanishing-eigenfunction",
@@ -1894,7 +2090,13 @@
           "statement": "Multiplication by f0 transports density of locally constant functions in continuous functions to density of f0 C^sm."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/eigenfunction-density",
+          "how": "Multiply by locally constant functions to obtain a dense central-eigenfunction subspace."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/eigenfunction-density",
@@ -1954,8 +2156,14 @@
           "statement": "The corresponding central-quotient basis is not obtained just by quotienting coefficients without a separation proof."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations.",
-      "note": "For the normalized sl2 generators e_i,f_i,h_i, Frommer's basis theorem identifies this closure at r_n with B_(p^n). The generic weighted completion and its central division are owned by PadicEnvelopingAlgebras; this analytic comparison consumes them, so no dependency returns from the algebraic owner to its analytic consumer."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "note": "For the normalized sl2 generators e_i,f_i,h_i, Frommer's basis theorem identifies this closure at r_n with B_(p^n). The generic weighted completion and its central division are owned by PadicEnvelopingAlgebras; this analytic comparison consumes them, so no dependency returns from the algebraic owner to its analytic consumer.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/crossed-product-radius",
+          "how": "Use the enveloping closure as the coefficient algebra of the finite crossed product."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/crossed-product-radius",
@@ -2024,7 +2232,13 @@
           "statement": "Two successive refinements agree with direct refinement to depth n+2."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/radius-action-on-analytic-functions",
+          "how": "Bound the deep-group difference operators and extend the action to a cofinal radius algebra."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/radius-action-on-analytic-functions",
@@ -2069,13 +2283,21 @@
       "statement": "For the product of first congruence SL_2 groups and integral Casimir parameters, establish that D_{r_n}^lambda is a noetherian domain. In the valuation proof set lambda_0=-p^2 lambda and choose 1/p<r_prime<=r_n with r_prime<p^{-1/2}; construct and prove separation of the quotient filtration before applying the graded quadratic-cone argument.",
       "locator": "Fu v2, Theorem 5.7 and Remark 5.8",
       "status": "missing",
-      "note": "Source issue S5: the proof needs a separated quotient filtration for the weaker norm. Its separation/topological normal form is an explicit proof obligation, not a consequence of Lemma 2.2 alone. Source issue S7 gives a genuine zero-quotient example. The source's all-real-radius claim for integral parameters still needs a proof or explicit qualification; the cofinal rational-radius target alone does not discharge that statement.",
+      "note": "Source issue S5: the proof needs a separated quotient filtration for the weaker norm. Its separation/topological normal form is an explicit proof obligation, not a consequence of Lemma 2.2 alone. Source issue S7 gives a genuine zero-quotient example. The source's all-real-radius claim for integral parameters still needs a proof or explicit qualification; the cofinal rational-radius target alone does not discharge that statement. The continuation proves the small-real-radius case independently. For the remaining larger radii, the exact unresolved condition is I_R = D_R intersect I_r inside D_r for a suitable smaller radius. A concrete commutative counterexample shows density and a domain associated graded cannot supply this condition automatically.",
       "dependsOn": [
         "PAPER-FU-24/central-graded-cone",
         "PAPER-FU-24/first-congruence-integral-identification",
-        "PAPER-FU-24/crossed-product-radius"
+        "PAPER-FU-24/crossed-product-radius",
+        "PAPER-FU-24/small-radius-central-domain"
       ],
-      "sourceStatement": "Fu Theorem5.7 is printed for every 1/p<r<1 and any infinitesimal character in the preceding setup; its proof explicitly admits a zero associated-graded branch. In the usual convention a domain is nonzero. Preserve this source claim, but do not set the unrestricted assertion as an unconditional target."
+      "sourceStatement": "Fu Theorem5.7 is printed for every 1/p<r<1 and any infinitesimal character in the preceding setup; its proof explicitly admits a zero associated-graded branch. In the usual convention a domain is nonzero. Preserve this source claim, but do not set the unrestricted assertion as an unconditional target.",
+      "tests": [
+        {
+          "name": "radius-central-domain.weaker_filtration_can_hide_zero_divisors",
+          "kind": "counterexample",
+          "statement": "Let A=Q_p<T/R>, with real radii 0<r<|a|<=R and a!=0, and I=(T(T-a)). The actual quotient A/I is Q_p x Q_p by evaluations at 0,a, so [T] and [T-a] are nonzero zero divisors. Give A the weaker r-Gauss norm. In the induced quotient seminorm every multiple of [T] has norm zero: q_N=-(1/a)sum_(j=0)^N(T/a)^j satisfies T-T(T-a)q_N=T^(N+2)/a^(N+1), of norm r(r/|a|)^(N+1)->0. Evaluation at 0 shows the remaining seminorm is exactly |f(0)|. Thus the weakened associated graded is gr(Q_p), a nonzero domain, despite zero divisors in A/I. This diagnoses the missing separatedness inference; it does not disprove Fu5.7 at integral parameters."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/completed-pbw-radius-quotient",
@@ -2088,7 +2310,8 @@
       "dependsOn": [
         "PAPER-FU-24/central-pbw-normal-form",
         "PAPER-FU-24/radius-enveloping-closure",
-        "PAPER-FU-24/bounded-central-division"
+        "PAPER-FU-24/bounded-central-division",
+        "PAPER-FU-24/weighted-central-radius-injection"
       ],
       "proofSteps": [
         "Import the explicit bounded normal-form/division operators.",
@@ -2188,7 +2411,13 @@
           "statement": "An affinoid Verma module is not assumed irreducible; faithfulness over KG and simplicity are distinct assertions."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/affinoid-verma-faithfulness",
+          "how": "Use the completed highest-weight module as a faithful Iwasawa representation."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/affinoid-verma-annihilator",
@@ -2226,7 +2455,9 @@
         "PAPER-FU-24/integral-character-root-extension",
         "PAPER-FU-24/affinoid-verma-annihilator",
         "PAPER-FU-24/affinoid-verma-faithfulness",
-        "PAPER-FU-24/harish-chandra-character"
+        "PAPER-FU-24/harish-chandra-character",
+        "PAPER-FU-24/finite-group-ring-coefficients",
+        "PAPER-FU-24/finite-pbw-coefficients"
       ],
       "proofSteps": [
         "Adjoin roots of a_i²+2a_i−2λ_i in one finite extension K/Q_p. Since these polynomials are monic with integral coefficients, the roots belong to O_K.",
@@ -2302,7 +2533,13 @@
           "statement": "The degree-one quotient by constants has dimension four and realizes the standard matrix coefficients."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/algebraic-peter-weyl",
+          "how": "Decompose the degree-filtered polynomial matrix coefficients into W_k tensor W_k dual."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/algebraic-peter-weyl",
@@ -2408,7 +2645,13 @@
           "statement": "Over K[X,Y], the ideal (X,Y) has rank one but is not generated by one element."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/rank-upper-coinvariants",
+          "how": "Pass the free rank-a submodule and torsion quotient to algebraic coinvariants for the upper estimate."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/acyclic-regular-coefficients",
@@ -2495,7 +2738,13 @@
           "statement": "Over coefficients where the covering degree is not a unit, the same composite does not prove injectivity."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted unit-test contracts; not Lean declarations."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/global-local-weight-dictionary",
+          "how": "Identify each completion with Q_p and retain both factors contributed by a complex place."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/coefficient-realization-comparison",
@@ -2658,7 +2907,13 @@
           "statement": "In a noncommutative target, f(s)^(-1)f(a) must not be replaced by f(a)f(s)^(-1)."
         }
       ],
-      "apiStatus": "Existing-input interface and unexecuted consumer tests; no duplicate implementation planned."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/skew-rank",
+          "how": "Form the classical division ring only after the nonzero denominator Ore hypotheses are established."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/pbw-graded-object",
@@ -2706,7 +2961,13 @@
           "statement": "Replacing the kth monomial by 2^k times itself over Q preserves dimensions but violates the required generator comparison."
         }
       ],
-      "apiStatus": "Existing-input interface and unexecuted consumer tests; no duplicate implementation planned."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/associated-graded-symbol",
+          "how": "Reuse the existing natural-number graded specialization when building the real-indexed symbol comparison."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/rank-upper-coinvariants",
@@ -2801,7 +3062,13 @@
           "statement": "A vector with coordinate 1/2 is not in the Z-coordinate lattice."
         }
       ],
-      "apiStatus": "Existing-input interface and unexecuted consumer tests; no duplicate implementation planned."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/local-algebraic-representation",
+          "how": "Supply the rank n+1 coordinate lattice for comparison with symmetric powers."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/standard-enveloping-action",
@@ -2850,7 +3117,13 @@
           "statement": "The raising and lowering matrices have (n+1)st power zero."
         }
       ],
-      "apiStatus": "Existing-input interface and unexecuted consumer tests; no duplicate implementation planned."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/local-algebraic-representation",
+          "how": "Supply the explicit e,f,h operators before the group/Lie/symmetric-power comparison."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/standard-kostant-action",
@@ -2901,7 +3174,13 @@
           "statement": "The kth Cartan binomial acts at coordinate i by the integer choose(n−2i,k), including negative weights."
         }
       ],
-      "apiStatus": "Existing-input interface and unexecuted consumer tests; no duplicate implementation planned."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/local-algebraic-representation",
+          "how": "Check divided-power and Cartan-binomial preservation of the standard integral lattice."
+        }
+      ]
     },
     {
       "id": "PAPER-FU-24/explicit-multiaffine-majorant",
@@ -3004,7 +3283,294 @@
           "statement": "The sl2 relation ef−fe=h does not increase Gauss degree because ρ<=ρ² for ρ>=1."
         }
       ],
-      "apiStatus": "Proposed mathematical API and unexecuted tests; no Lean declaration or arbitrary-radius noetherianity is claimed."
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
+      "uses": [
+        {
+          "where": "PAPER-FU-24/weighted-central-closedness",
+          "how": "Complete the bounded PBW division operators and identify the closed normal-coefficient space."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/restricted-series-baseline",
+      "kind": "construction",
+      "name": "Existing restricted power-series subring",
+      "statement": "For a normed ultrametric ring R and real radius c, use the existing subring of R[[T]] defined by ||a_n|| c^n tending to zero. For c>0 this supplies the one-variable commutative coefficient model and its polynomial examples; no analytic-group distribution algebra or Banach completeness theorem is claimed.",
+      "locator": "Pinned Mathlib RingTheory/PowerSeries/Restricted.lean, IsRestricted, isRestricted_iff and IsRestricted.subring.",
+      "status": "library",
+      "library": [
+        "mathlib:PowerSeries.IsRestricted",
+        "mathlib:PowerSeries.isRestricted_iff",
+        "mathlib:PowerSeries.IsRestricted.subring",
+        "mathlib:PowerSeries.isRestricted_monomial",
+        "mathlib:PowerSeries.isRestricted.mul"
+      ],
+      "api": [
+        {
+          "name": "RestrictedSeries.coefficients",
+          "role": "characterisation",
+          "statement": "Membership is equivalent to the weighted coefficient sequence tending to zero."
+        },
+        {
+          "name": "RestrictedSeries.monomial",
+          "role": "constructor",
+          "statement": "Every monomial a T^n belongs to the restricted subring."
+        },
+        {
+          "name": "RestrictedSeries.mul_mem",
+          "role": "closure",
+          "statement": "The product of two restricted series is restricted when the coefficient norm is ultrametric."
+        }
+      ],
+      "tests": [
+        {
+          "name": "restricted-series-baseline.decay",
+          "kind": "example",
+          "statement": "At c=1 over Q_p, the coefficients p^n tend to zero, so their series is restricted."
+        },
+        {
+          "name": "restricted-series-baseline.bounded_not_restricted",
+          "kind": "counterexample",
+          "statement": "At c=1, the series with every coefficient 1 is bounded but not restricted."
+        },
+        {
+          "name": "restricted-series-baseline.radius_threshold",
+          "kind": "example",
+          "statement": "For coefficients p^n, radius c=p makes every weighted coefficient equal to 1 and fails restrictedness."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-FU-24/distribution-radius-completion",
+          "how": "Calibrate weighted-c0 versus bounded coefficients in the one-variable commutative case; this does not replace the noncommutative convolution construction."
+        }
+      ],
+      "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names."
+    },
+    {
+      "id": "PAPER-FU-24/restricted-gauss-maximum",
+      "kind": "theorem",
+      "name": "Existing last maximal weighted coefficient",
+      "statement": "For a nonzero power series over a normed ring, restricted at positive real radius c, some index n attains the Gauss norm and every later weighted coefficient is strictly smaller. No discreteness or completeness hypothesis is required.",
+      "locator": "Tau Ceti RingTheory/PowerSeries/GaussNorm.lean, exists_max_eq_gaussNorm_of_isRestricted.",
+      "status": "library",
+      "dependsOn": [
+        "PAPER-FU-24/restricted-series-baseline"
+      ],
+      "library": [
+        "tauceti:TauCeti.PowerSeries.exists_max_eq_gaussNorm_of_isRestricted"
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/restricted-gauss-multiplicativity",
+      "kind": "theorem",
+      "name": "Existing multiplicativity of the restricted Gauss norm",
+      "statement": "For restricted f,g at c>0 over a normed ring with ultrametric distance and multiplicative norm, ||fg||_c=||f||_c ||g||_c. This is the ordinary one-variable power-series theorem, not a theorem about arbitrary analytic distribution algebras.",
+      "locator": "Tau Ceti RingTheory/PowerSeries/GaussNorm.lean, gaussNorm_mul_of_isRestricted.",
+      "status": "library",
+      "dependsOn": [
+        "PAPER-FU-24/restricted-series-baseline"
+      ],
+      "library": [
+        "tauceti:TauCeti.PowerSeries.gaussNorm_mul_of_isRestricted"
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/free-lie-pbw",
+      "kind": "theorem",
+      "name": "PBW over a commutative ring with a free Lie basis",
+      "statement": "Let R be a commutative ring and L an R-Lie algebra with a chosen totally ordered R-basis. The increasing ordered products of powers of its basis vectors form an R-basis of U_R(L), and the associated graded map Sym_R(L)->gr U_R(L) is an isomorphism taking each basis generator to its degree-one symbol. No characteristic-zero or algebraic-closure hypothesis is imposed.",
+      "locator": "Reusable integral PBW input of Fu §3 and AW13 §10.3; the original general-ring PBW proof remains a source-decomposition task.",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-FU-24/pbw-filtration",
+        "PAPER-FU-24/pbw-graded-object"
+      ],
+      "proofSteps": [
+        "Use a general-ring PBW proof under the free-basis hypothesis, retaining the ordered-monomial generator equations.",
+        "Specialize to sl2 over Z_p or O_K and to the free k[t]-Lie algebra t(h/ph)[t] in AW13.",
+        "The field-only PBW roadmap theorem does not alone discharge this commutative-ring result."
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/unramified-graded-iwasawa",
+      "kind": "theorem",
+      "name": "The unramified maximal-ideal filtration",
+      "statement": "Let R be a complete DVR with uniformizer p, p odd, residue field k, G uniform of dimension d, b_i=g_i-1 for an ordered minimal generating set, and m=ker(R[[G]]->k). Then deg_m(sum a_alpha b^alpha)=min_alpha(v_p(a_alpha)+|alpha|), the filtration is complete, and gr_m R[[G]] is U_{k[t]}(gr G tensor_Fp k), with gr G tensor k identified with t(h/ph)[t] for h=p^(-1)R L_G. In particular this graded ring is a noetherian domain.",
+      "locator": "AW13 published §§10.1–10.3, pp.532–535; hypotheses preceding the theorem are essential.",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-FU-24/iwasawa-series",
+        "PAPER-FU-24/lazard-lie-algebra",
+        "PAPER-FU-24/free-lie-pbw"
+      ],
+      "proofSteps": [
+        "Use the ordered group coordinates and the m-adic degree formula, retaining p as uniformizer.",
+        "Identify gr G with gr L_G and tensor with k; apply the integral PBW theorem to the free k[t]-Lie algebra.",
+        "Read the precise Lazard and DDMS inputs cited by AW13 before declaring the foundational Lie/group correspondence closed."
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/microlocal-symbol-comparison",
+      "kind": "theorem",
+      "name": "Strict exponential comparison for microlocalization",
+      "statement": "Under unramified-graded-iwasawa, let A=Uhat(h)[1/p]. The map b_i -> exp(pu_i)-1 extends to a strictly filtered map R[[G]]->A, where u_i is the normalized Lie basis. It sends the symbol of p to an invertible Laurent variable s and the symbol of b_i to s u_i. Thus the induced map from Q_gr(p)(R[[G]]) has bijective associated graded map and is an isomorphism of complete filtered rings.",
+      "locator": "AW13 Theorem10.4 and full proof, pp.535–536.",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-FU-24/unramified-graded-iwasawa",
+        "PAPER-FU-24/microlocal-ore-set",
+        "PAPER-FU-24/completed-enveloping"
+      ],
+      "proofSteps": [
+        "Exponential convergence and Campbell–Hausdorff yield the group homomorphism G->A^×.",
+        "The congruence psi(b^alpha)=p^|alpha|u^alpha modulo p^(|alpha|+1) and PBW independence prove exact preservation of degree.",
+        "Extend from the dense group ring by completeness, then use the microlocal universal property.",
+        "The symbols s,s^(-1),u_i generate gr A; a successive correction argument in complete separated filtrations lifts graded surjectivity, while strictness gives injectivity."
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/finite-group-ring-coefficients",
+      "kind": "theorem",
+      "name": "Finite coefficient extension of completed group rings",
+      "statement": "For a profinite group G and a finite extension K/Q_p with integers O_K, the canonical O_K tensor_Zp Z_p[[G]] -> O_K[[G]] is an isomorphism of topological O_K-algebras. After inverting p, K tensor_Qp Q_p[[G]] -> K[[G]] is an isomorphism. Tensor products here are ordinary finite coefficient extension, with the transported finite-module topology; do not replace bounded-denominator K[[G]] by lim_U K[G/U].",
+      "locator": "Derived finite-free coefficient comparison for Fu §4; supplier PadicMeasuresIwasawaAlgebras:L1.",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-FU-24/iwasawa-algebra"
+      ],
+      "proofSteps": [
+        "Choose a finite Z_p-basis of O_K. Tensoring with this finite free module is a finite direct sum, so commutes with the inverse system of finite group rings and coefficient quotients.",
+        "The maps are canonical algebra maps; the basis is used only to prove bijectivity and continuity.",
+        "Invert p and identify K=O_K[1/p]. This argument permits ramification and does not reuse the invalid ramified maximal-ideal Ore set."
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/finite-pbw-coefficients",
+      "kind": "theorem",
+      "name": "Finite coefficient extension of PBW completions",
+      "statement": "For K/Q_p finite, g_0=sl2(Z_p)^m and real rho>=1, finite coefficient extension identifies K tensor_Qp B_rho(Q_p) with B_rho(K), where both completions use ordered PBW coefficients with ||c_alpha||rho^|alpha|->0. The map is a topological algebra isomorphism, generally not an isometry for an arbitrary integral basis. For lambda in Z_p^m it commutes with the central quotient by Delta_i-lambda_i.",
+      "locator": "Derived coefficient comparison for Fu §5 and the AW14 alternative proof.",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-FU-24/weighted-pbw-completion",
+        "PAPER-FU-24/central-quotients"
+      ],
+      "proofSteps": [
+        "Choose a Z_p-basis of O_K. Equivalence of the finite-dimensional coordinate norms gives uniform two-sided coefficient bounds.",
+        "Weighted-c0 decay is equivalent to decay in each of the finitely many Q_p coordinates; this proves bijectivity of the completed coefficient map.",
+        "Multiplication agrees on the dense polynomial algebra and hence everywhere.",
+        "Faithful flatness of K/Q_p preserves the finite central-ideal quotient. Parameters newly chosen in O_K are handled in B_rho(K), rather than described as scalar extension of a nonexistent Q_p parameter."
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/finite-coefficient-microlocal-map",
+      "kind": "theorem",
+      "name": "Ramified coefficient comparison through the base-field microlocal map",
+      "statement": "For odd p and G=ker(SL2(Z_p)->SL2(F_p))^m, extend the Q_p microlocal map to a finite K/Q_p using finite-group-ring-coefficients and finite-pbw-coefficients at rho=1. The resulting map K[[G]] -> Uhat(sl2(O_K)^m)[1/p] is flat and agrees with g -> exp(log g). This gives the coefficient extension required by Fu; it does not identify a ramified maximal-ideal set union_a(p^a+m^(a+1)) with an Ore denominator set.",
+      "locator": "Fu §4 (17)–(18), corrected coefficient interface using AW13 §10.1 and Theorem10.4.",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-FU-24/lazard-microlocal-identification",
+        "PAPER-FU-24/finite-group-ring-coefficients",
+        "PAPER-FU-24/finite-pbw-coefficients"
+      ],
+      "proofSteps": [
+        "Construct the unramified map over Q_p first.",
+        "Use the two finite coefficient identifications on its domain and codomain.",
+        "Flatness is stable under scalar extension; compatibility on G follows from the same convergent exponential series.",
+        "For ramification degree e>=2, p lies in m^2, so 0 lies in p+m^2. This directly disproves using the printed union as an Ore set excluding zero."
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/weighted-central-closedness",
+      "kind": "theorem",
+      "name": "Closed central ideals with an attained quotient norm",
+      "statement": "Fix odd p, integral lambda in Z_p^m and rho>=1. In B_rho, let I_lambda=sum_i B_rho(Delta_i-lambda_i). The successive bounded PBW remainder N fixes exactly the closed weighted-c0 span of ordered monomials with every h_i-degree at most one, has norm<=1, satisfies N^2=N, and has kernel exactly I_lambda. The quotient norm on B_rho/I_lambda is attained by N(f) and equals ||N(f)||_rho. Thus I_lambda is closed and the quotient is a nonzero Banach algebra.",
+      "locator": "Derived strengthening of Fu §3 Lemma3.3 and §5 topological PBW step; continuation of bounded-central-division.",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-FU-24/bounded-central-division",
+        "PAPER-FU-24/central-pbw-normal-form"
+      ],
+      "proofSteps": [
+        "On polynomials the algebraic PBW basis proves that the remainder kills each central generator ideal and fixes the normal monomials.",
+        "Continuity extends these identities; for a general coefficient multiplying a central generator, approximate it by polynomials.",
+        "Successive division gives f-Nf=sum_i(Delta_i-lambda_i)Q_i(f), with bounded Q_i. Thus kernel N equals the actual generated ideal.",
+        "For every i in I, ||Nf||=||N(f+i)||<=||f+i||. The representative Nf realizes equality and proves the quotient norm formula.",
+        "The normal coefficient space is closed and complete. Its constant coefficient proves 1 is nonzero."
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/weighted-central-radius-injection",
+      "kind": "theorem",
+      "name": "Injective radius change after central reduction",
+      "statement": "For odd p, integral lambda and 1<=sigma<=rho, the coefficient-preserving map B_rho/I_lambda -> B_sigma/I_lambda is injective. It takes the normal PBW coefficient family at rho to the same family at sigma. It need not preserve norms when sigma<rho.",
+      "locator": "Derived radius comparison completing Fu §5 final PBW paragraph.",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-FU-24/weighted-central-closedness"
+      ],
+      "proofSteps": [
+        "Remainder maps are defined by the same polynomial formulas at both weights and commute with the continuous radius-change map by density.",
+        "If the image of a normal representative is zero in the target quotient, every normal coefficient vanishes by the target basis.",
+        "The same coefficients describe the source representative, so it is zero. No assertion about D_r central quotients at large radii enters this proof."
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/weighted-central-domain",
+      "kind": "theorem",
+      "name": "Domain property for weighted central enveloping quotients",
+      "statement": "For odd p, lambda in Z_p^m and every real rho>=1, B_rho/I_lambda is a nonzero domain. This statement does not assert noetherianity at every real weight.",
+      "locator": "Derived from Fu Lemma3.3 at weight one and the coefficient-preserving radius injection.",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-FU-24/weighted-central-radius-injection",
+        "PAPER-FU-24/completed-central-domain"
+      ],
+      "proofSteps": [
+        "Identify the rho=1 quotient with the completed integral central enveloping algebra followed by inversion of p.",
+        "Fu Lemma3.3 proves it is a domain by its separated integral reduction and the geometric quadratic-cone domain in residue characteristic different from two.",
+        "Inject B_rho/I_lambda into this nonzero domain and use preservation of 1."
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/small-radius-log-exp",
+      "kind": "theorem",
+      "name": "Small real radii: logarithmic and PBW coordinates coincide",
+      "statement": "Let p be odd, G=ker(SL2(Z_p)->SL2(F_p))^m, and p^(-1)<=r<p^(-1/(p-1)) be any real radius. Put rho=pr. The enveloping map e_i,f_i,h_i -> p^(-1)log(1+b_i) extends, in a consistent ordered basis, to an isometric Banach algebra isomorphism B_rho -> D_r(G,Q_p). Its inverse on group coordinates is b_i -> exp(p x_i)-1. No rationality assumption on log_p(r) is required in this small-radius statement.",
+      "locator": "Derived completion of Fu (27),(30); uses convergent logarithm/exponential and the first-congruence Lie comparison.",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-FU-24/weighted-pbw-completion",
+        "PAPER-FU-24/distribution-radius-completion",
+        "PAPER-FU-24/first-congruence-integral-identification"
+      ],
+      "proofSteps": [
+        "For n>=2, v_p(n)<= (n-1)/(p-1) and v_p(n!)<= (n-1)/(p-1). Since r<p^(-1/(p-1)), the nonlinear terms of log(1+T) and exp(T)-1 have norm strictly below r, and the series converge in radius r.",
+        "The coefficient transformations in each ordered variable are inverse by the formal log/exp identities and convergence. They preserve the Gauss norm: the linear term is T and the nonlinear substitution is uniformly strictly contracting relative to it.",
+        "Apply these coordinate transformations to ordered multivariable monomials and extend to weighted-c0 families. The enveloping map is an algebra map because the logarithmic Lie brackets are the prescribed sl2 brackets.",
+        "Each b_i is the convergent exponential of its logarithm, so the map is surjective onto the complete ordered-series space. The coordinate inverse proves injectivity and isometry.",
+        "At the endpoint r=p^(-1/(p-1)), the strict contraction and exponential convergence arguments fail; exclude it."
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/small-radius-central-domain",
+      "kind": "theorem",
+      "name": "Central distribution quotients at all small real radii",
+      "statement": "Under small-radius-log-exp and for integral lambda in Z_p^m, the actual ideal sum_i D_r(Delta_i-lambda_i) is closed and the quotient is a nonzero domain with the attained normal-form quotient norm. This holds for every real p^(-1)<=r<p^(-1/(p-1)). It does not establish Fu5.7 for larger radii or prove injectivity from a larger central distribution quotient.",
+      "locator": "Derived small-radius case of Fu Theorem5.7 with explicit separatedness.",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-FU-24/small-radius-log-exp",
+        "PAPER-FU-24/weighted-central-closedness",
+        "PAPER-FU-24/weighted-central-domain"
+      ],
+      "proofSteps": [
+        "Transport the weighted central projection and quotient norm along the isometric log/exp identification.",
+        "Use weighted-central-domain for absence of zero divisors.",
+        "For a larger radius R, an independent ideal-contraction or quotient-injectivity theorem is still needed before transferring this result to D_R. Density of D_R in D_r alone is insufficient."
+      ]
     }
   ],
   "prerequisites": [
@@ -3109,9 +3675,14 @@
         "PAPER-FU-24/local-algebraic-representation",
         "PAPER-FU-24/explicit-multiaffine-majorant",
         "PAPER-FU-24/bounded-central-division",
-        "PAPER-FU-24/weighted-pbw-completion"
+        "PAPER-FU-24/weighted-pbw-completion",
+        "PAPER-FU-24/free-lie-pbw",
+        "PAPER-FU-24/finite-pbw-coefficients",
+        "PAPER-FU-24/weighted-central-closedness",
+        "PAPER-FU-24/weighted-central-radius-injection",
+        "PAPER-FU-24/weighted-central-domain"
       ],
-      "brief": "Build the integral and p-adically completed enveloping-algebra theory used by Fu, starting with finite free split sl_2 lattices at odd p and extending only in the stated Ardakov-Wadsley source generality. Import the field PBW, highest-weight, central-character and Casimir theory from LieHighestWeight (tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight), including the existing Tau Ceti filtration and Casimir declarations; import Mathlib filtered-ring and Ore-localization carriers. Construct integral central reductions, their explicit PBW normal forms, saturated-ideal completion, image lattices in Sym^k, and the separated graded-domain arguments. Prove Fu Lemmas 2.2-2.3, 3.1-3.3 and Proposition 3.4 in declaration-sized parts. The growth endpoint is: a cyclic completed-enveloping module with a generic annihilator has Hom multiplicity in W_k bounded by a multiaffine polynomial of degree at most m-1, uniformly for k in N^m. Include the infinite low-coordinate strips, a nongeneric equal-Casimir counterexample, and the distinction between the integral image lattice and all integral matrices. Construct the affinoid Verma module and central-annihilator theorem in AW14 4.6 with its integral-weight, n>=0 and very-good-prime hypotheses. Distribution algebras and Iwasawa faithfulness belong to NoncommutativeAnalyticDistributions, not this algebraic core. Every definition gets a usable API and at least three tests; no extra characteristic-two theorem is inferred by notation. Reuse the pinned standard integral lattice, enveloping action and Kostant action. Add weighted PBW completions B_rho and bounded central division on the algebraic side; the analytic owner proves their identification with U_r, so this algebraic core has no reverse dependency on analytic distributions. The explicit multiaffine majorant is 2 sum_i alpha_i product_{j!=i}(k_j+1).",
+      "brief": "Build the integral and p-adically completed enveloping-algebra theory used by Fu, starting with finite free split sl_2 lattices at odd p and extending only in the stated Ardakov-Wadsley source generality. Import the field PBW, highest-weight, central-character and Casimir theory from LieHighestWeight (tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight), including the existing Tau Ceti filtration and Casimir declarations; import Mathlib filtered-ring and Ore-localization carriers. Construct integral central reductions, their explicit PBW normal forms, saturated-ideal completion, image lattices in Sym^k, and the separated graded-domain arguments. Prove Fu Lemmas 2.2-2.3, 3.1-3.3 and Proposition 3.4 in declaration-sized parts. The growth endpoint is: a cyclic completed-enveloping module with a generic annihilator has Hom multiplicity in W_k bounded by a multiaffine polynomial of degree at most m-1, uniformly for k in N^m. Include the infinite low-coordinate strips, a nongeneric equal-Casimir counterexample, and the distinction between the integral image lattice and all integral matrices. Construct the affinoid Verma module and central-annihilator theorem in AW14 4.6 with its integral-weight, n>=0 and very-good-prime hypotheses. Distribution algebras and Iwasawa faithfulness belong to NoncommutativeAnalyticDistributions, not this algebraic core. Every definition gets a usable API and at least three tests; no extra characteristic-two theorem is inferred by notation. Reuse the pinned standard integral lattice, enveloping action and Kostant action. Add weighted PBW completions B_rho and bounded central division on the algebraic side; the analytic owner proves their identification with U_r, so this algebraic core has no reverse dependency on analytic distributions. The explicit multiaffine majorant is 2 sum_i alpha_i product_{j!=i}(k_j+1). Prove bounded central projection, exact ideal kernel, attained quotient norm, and injective coefficient-preserving change of all real weights rho>=1. Import the unweighted central domain to deduce weighted domains without an unsupported all-real noetherianity claim. Supply finite PBW coefficient extension as a topological isomorphism, not an arbitrary-basis isometry.",
       "reason": "The existing highest-weight roadmap owns the ordinary field theory, not these integral completions and uniform central-parameter bounds. This is a Part II, not a re-plan of the upstream roadmap."
     },
     {
@@ -3164,9 +3735,14 @@
         "PAPER-FU-24/algebraic-peter-weyl",
         "PAPER-FU-24/central-distribution-action",
         "PAPER-FU-24/crossed-product-ext-comparison",
-        "PAPER-FU-24/large-central-character-zero-quotient"
+        "PAPER-FU-24/large-central-character-zero-quotient",
+        "PAPER-FU-24/unramified-graded-iwasawa",
+        "PAPER-FU-24/microlocal-symbol-comparison",
+        "PAPER-FU-24/finite-coefficient-microlocal-map",
+        "PAPER-FU-24/small-radius-log-exp",
+        "PAPER-FU-24/small-radius-central-domain"
       ],
-      "brief": "Extend LocallyAnalyticDistributions (LocallyAnalyticDistributions), importing its actual analytic Banach spaces, LF topology and strong duals. Import bounded measures and the completed group ring from p-adic measures, completed group algebras, and characteristic ideals (PadicMeasuresIwasawaAlgebras L0-L1), profinite foundations from ProfiniteProPGroups, and noetherian/grade inputs from NoncommutativeAndEquivariantIwasawa NE.0. Construct odd-prime uniform-group coordinates, Lazard Lie lattices, noncommutative convolution, weighted-c0 radius completions, Frechet-Stein and faithful-flatness theorems of Schneider-Teitelbaum. Construct the source-qualified Ore microlocalization and Lazard comparison with PadicEnvelopingAlgebras. Prove finite-dimensional/isotypic quotient recovery, the finite crossed-product radius description, central strong duality and cofinal-limit comparison, and the separated topological PBW theorem needed in Fu section 5. The endpoint is injectivity Q_p[[G]] -> Uhat_lambda for the product of m first-congruence SL_2(Z_p) groups and every lambda in Z_p^m. Keep the direct analytically induced-character proof and the all-integral AW14 Verma route distinct; the latter requires finite coefficient extension and faithful descent. Do not identify bounded coefficients with a norm completion, or use the unramified Ore set over a ramified DVR. Include Banach-Iwasawa duality and algebraic matrix-coefficient comparisons without duplicating field highest-weight theory. Require naturality, handedness, norm and quotient APIs and tests on the trivial representation, a ramified coefficient ring, and an integral parameter not induced over Q_p. This does not build Colmez or the geometric locally analytic-vectors theorem. Import the weighted PBW completion and bounded-division theorem, then identify U_(r_n) with B_(p^n). Prove the finite crossed-product Ext comparison before grade invariance. Record that large nonintegral central parameters can give the zero ring, and do not export Fu5.7 as a nonzero-domain theorem without a parameter qualification.",
+      "brief": "Extend LocallyAnalyticDistributions (LocallyAnalyticDistributions), importing its actual analytic Banach spaces, LF topology and strong duals. Import bounded measures and the completed group ring from p-adic measures, completed group algebras, and characteristic ideals (PadicMeasuresIwasawaAlgebras L0-L1), profinite foundations from ProfiniteProPGroups, and noetherian/grade inputs from NoncommutativeAndEquivariantIwasawa NE.0. Construct odd-prime uniform-group coordinates, Lazard Lie lattices, noncommutative convolution, weighted-c0 radius completions, Frechet-Stein and faithful-flatness theorems of Schneider-Teitelbaum. Construct the source-qualified Ore microlocalization and Lazard comparison with PadicEnvelopingAlgebras. Prove finite-dimensional/isotypic quotient recovery, the finite crossed-product radius description, central strong duality and cofinal-limit comparison, and the separated topological PBW theorem needed in Fu section 5. The endpoint is injectivity Q_p[[G]] -> Uhat_lambda for the product of m first-congruence SL_2(Z_p) groups and every lambda in Z_p^m. Keep the direct analytically induced-character proof and the all-integral AW14 Verma route distinct; the latter requires finite coefficient extension and faithful descent. Do not identify bounded coefficients with a norm completion, or use the unramified Ore set over a ramified DVR. Include Banach-Iwasawa duality and algebraic matrix-coefficient comparisons without duplicating field highest-weight theory. Require naturality, handedness, norm and quotient APIs and tests on the trivial representation, a ramified coefficient ring, and an integral parameter not induced over Q_p. This does not build Colmez or the geometric locally analytic-vectors theorem. Import the weighted PBW completion and bounded-division theorem, then identify U_(r_n) with B_(p^n). Prove the finite crossed-product Ext comparison before grade invariance. Record that large nonintegral central parameters can give the zero ring, and do not export Fu5.7 as a nonzero-domain theorem without a parameter qualification. Use the exact unramified AW13 coefficient hypotheses, then consume the finite completed-group-ring comparison from PadicMeasuresIwasawaAlgebras:L1 and finite PBW extension from PadicEnvelopingAlgebras. Prove the small-real-radius log/exp isometry and central domain for p^(-1)<=r<p^(-1/(p-1)). Keep the larger-radius ideal-contraction theorem as an explicit unresolved gate; neither density nor a nonzero domain associated graded implies separatedness of the actual quotient.",
       "reason": "The existing locally analytic roadmap has function spaces and abelian transforms but no general noncommutative radius/crossed-product/microlocal theory. The same new foundation is reusable beyond Fu and must not be hidden in a Bianchi-only proof."
     },
     {
@@ -3233,6 +3809,17 @@
         "PAPER-FU-24/iwasawa-finite-global-dimension"
       ],
       "reason": "Make the finite-global-dimension/Auslander-regular theorem required by Fu an explicit source addition within the existing Lazard-Venjakob homological layer, retaining absence of p-torsion. The canonical Ore set of NE.1 is not the microlocal set or all-nonzero localization."
+    },
+    {
+      "route": "source",
+      "roadmap": "PadicMeasuresIwasawaAlgebras",
+      "stages": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "items": [
+        "PAPER-FU-24/finite-group-ring-coefficients"
+      ],
+      "reason": "Finite coefficient extension for the existing completed group ring belongs to its original owner. Fu consumes this interface to extend the unramified microlocal construction to ramified finite coefficients."
     }
   ],
   "sourceIssues": [
@@ -3275,7 +3862,7 @@
       "id": "S4",
       "locator": "Fu v2 equation (17); AW13 sections 10.3-10.4",
       "finding": "With the maximal ideal and ramified coefficient DVR, the displayed union p^a+m^(a+1) may contain zero because p belongs to m^2. AW13 uses the unramified setting where p is a uniformizer.",
-      "resolution": "Prove the microlocal construction over Z_p or the admitted unramified coefficient ring, then prove the necessary finite coefficient-extension comparison. Do not reuse the displayed multiplicative set unchanged over every R.",
+      "resolution": "Prove the microlocal construction over Z_p or the admitted unramified coefficient ring, then prove the necessary finite coefficient-extension comparison. Do not reuse the displayed multiplicative set unchanged over every R. This continuation reads AW13 §10.1 and the full Theorem10.4 proof, corrects the target to the rational completion, and supplies separate finite completed-group-ring/PBW scalar-extension interfaces plus their flat composite.",
       "classification": "coefficient-hypothesis correction",
       "items": [
         "PAPER-FU-24/microlocal-ore-set",
@@ -3286,13 +3873,18 @@
       "id": "S5",
       "locator": "Fu v2 Theorem 5.7 and last paragraph of Theorem 5.1 proof",
       "finding": "The domain argument uses a weaker quotient filtration and the later proof leaves a topological PBW normal form to the reader. Quotient separation and coefficient decay are load-bearing, not automatic from an abstract graded-ring calculation.",
-      "resolution": "Construct the quotient topology, prove separatedness and the weighted normal form, then use the domain graded ring and the map into the completed central enveloping algebra. No certification of this proof interior is claimed here. An explicit integral PBW division with bounded remainder/quotient operators now supplies a route for the U_r central normal form. Separation of the weaker filtration on D_r central quotients and the all-real-radius assertion remain unresolved.",
+      "resolution": "Construct the quotient topology, prove separatedness and the weighted normal form, then use the domain graded ring and the map into the completed central enveloping algebra. No certification of this proof interior is claimed here. An explicit integral PBW division with bounded remainder/quotient operators now supplies a route for the U_r central normal form. Separation of the weaker filtration on D_r central quotients and the all-real-radius assertion remain unresolved. The continuation proves an attained normal-form quotient norm for B_rho and an isometric log/exp comparison for all real p^(-1)<=r<p^(-1/(p-1)), establishing the integral-parameter domain theorem on that interval. The larger-radius ideal-contraction condition is still open. The attached Q_p<T/R>/(T(T-a)) test proves that the omitted separation hypothesis is essential to this type of graded argument.",
       "classification": "explicit proof-decomposition obligation",
       "items": [
         "PAPER-FU-24/radius-central-domain",
         "PAPER-FU-24/completed-pbw-radius-quotient",
         "PAPER-FU-24/weighted-pbw-completion",
-        "PAPER-FU-24/bounded-central-division"
+        "PAPER-FU-24/bounded-central-division",
+        "PAPER-FU-24/weighted-central-closedness",
+        "PAPER-FU-24/weighted-central-radius-injection",
+        "PAPER-FU-24/weighted-central-domain",
+        "PAPER-FU-24/small-radius-log-exp",
+        "PAPER-FU-24/small-radius-central-domain"
       ]
     },
     {
@@ -3332,17 +3924,18 @@
     ]
   },
   "inspection": {
-    "audit": "The relevant complete rows of reviewed audits AUDIT-13/14/25/26 were read: ALS.0–6 and finite-level duality, CC.0–6, LA L0–L4, NE.0–1, and PadicMeasures L0–L1. A live API comparison of all 50 relevant owner/audit rows against the local atlas snapshot found no changes on 2026-09-21. Remaining catalogue/source proof checks are not certified by a keyword search.",
-    "newRoadmapDirectory": "At the snapshot, the directory contains AnalyticHabiroStack, AnalyticStacks, MordellLawrenceVenkatesh, QWittVectors, RingStacksAndTransmutation, SolidAnalyticRings; none supplies the proposed local theory.",
+    "agent": "Codex",
+    "session": "codex-c83e7a",
+    "mainRead": "All 25 arXiv v2 pages independently read, including every proof and reference.",
+    "library": "Nine inherited library facilities reopened at the pins, with actual statements and assumptions. Three new restricted-series/Gauss facilities read completely. Broad searches for microlocalization, Lazard and Frechet–Stein machinery found no implementation; reviewed LA.0/NE.0/PadicMeasures.L1 audit rows confirm the missing owner-specific layer interfaces.",
+    "ownership": "Refreshed all seven owner records and documents, six proposed-roadmap files, the packet, decompositions, reserved IDs and coverage. Read full relevant Lie layers0/3/5/7, CC.2–7, ALS.0/1/4/5, LA.0, PadicMeasures.L1 and NE.0 descriptions. Earlier broader audit/source reads remain in inspectionHistory.",
     "leanCompiled": false,
     "fullAtlasDagChecked": false,
-    "fullPaperChecker": "PASS: actual scripts/check_paper.py with full atlas loader on the final123-item result.",
-    "catalogue": "Live main at 5de4697bb48359dc1143d6f87bf9fbf6a6a767e4: all 7 relevant roadmaps and60 stages match the local atlas snapshot. No proposed-route ID collision. Full reserved-ID map read: only K3/Bloch/polylogarithm/Borel reservations. The tree contains one blueprint packet (MordellLawrenceVenkatesh) and six new-roadmap definitions, none a local-theory supplier. Relevant accepted CC and LA decomposition statements/review limits inspected; CC file matches live main.",
     "testContracts": {
-      "definitionsAndConstructions": 42,
-      "apiItems": 126,
-      "unitTests": 126,
-      "note": "Mathematical planning contracts, not executed Lean unit tests. Additional theorem tests are separate."
+      "definitionsAndConstructions": 43,
+      "apiItems": 129,
+      "unitTests": 129,
+      "note": "Planning contracts, not executed Lean tests."
     }
   },
   "sourceArchives": [
@@ -3415,21 +4008,223 @@
       "sha256": "bd83d8189ea02a7ed91c6e8b53f16b4a9eb1734f558d6dd2dd930c38e2e471e3",
       "accessed": "2026-09-21",
       "read": "§1 support/boundary discussion,Theorem4.17,concluding proof paragraph,Cor4.20"
+    },
+    {
+      "id": "aw13-codex-c83e7a",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v178-n2-p03-p.pdf",
+      "sha256": "3972d19c1bfb4cf3abe7192809ef8144d3d1d00b3fd0dcf0d167a5e57a1df3d7",
+      "accessed": "2026-09-22",
+      "read": "Published pp.462–468 §§2.3–2.7/3.1–3.3; pp.532–543 §§10.1–10.11; pp.545–550 §§11.1–11.3. Proofs and cited dependencies checked in these passages; not the whole 105-page paper."
+    },
+    {
+      "id": "kohlhaase-codex-c83e7a",
+      "url": "https://www.esaga.uni-due.de/f/jan.kohlhaase/Kohlhaase_Invariant_Distributions.pdf",
+      "sha256": "61681026a5ddbbad31361aa470dd2911cae708aaa2ee03400f39aa3a6f4400b2",
+      "accessed": "2026-09-22",
+      "read": "Author pp.15–16 §1.4 Frommer statement and full Cor1.4.1 proof; reference16 on p.35. Original Frommer proof still unavailable."
+    },
+    {
+      "id": "st03-codex-c83e7a",
+      "url": "https://arxiv.org/pdf/math/0206056v1",
+      "sha256": "e8a60a25f246692b048789235fb8efaf6d44ae65fdbb7cc738c8caeae67efcd5",
+      "accessed": "2026-09-22",
+      "read": "ArXivv1 pp.16–22: ordered-series coordinates; weighted-c0 and larger bounded spaces; Proposition4.2, Lemmas4.3/4.4, HYP, Theorem4.5, Remark4.6 and Proposition4.7. Exact real-radius versus rational-radius hypotheses checked."
     }
   ],
   "validation": {
-    "paperChecker": "passed",
-    "itemCount": 123,
-    "dependencyEdges": 173,
-    "itemDag": "acyclic",
-    "routeDag": "acyclic",
-    "missingItems": 103,
-    "exactOnceRouting": true,
-    "definitionsAndConstructions": 42,
-    "apiEntries": 126,
-    "unitTestContracts": 126,
-    "exactFiniteAssertions": 41069,
-    "leanCompiled": false,
-    "limits": "Finite formula checks and source-informed plans; no full-atlas DAG, infinite-dimensional proof, or independent review certificate."
-  }
+    "status": "PASS: actual paper checker, three-file intake, fresh-main ownership/concurrency, hashes, selected DAGs and both embedded exact-diagnostic programs.",
+    "inheritedExactAssertions": 41069,
+    "newExactAssertions": 19439,
+    "selectedItemEdges": 204,
+    "itemAndRouteDAG": "acyclic; selected graph only",
+    "missingRouting": "114 missing items each routed once",
+    "noLean": "No Lean file required, written or compiled."
+  },
+  "continuation": {
+    "previousPR": 1659,
+    "preservedIDs": 123,
+    "items": 137,
+    "counts": {
+      "planned": 11,
+      "missing": 114,
+      "library": 12
+    },
+    "definitionsAndConstructions": 43,
+    "apiContracts": 129,
+    "unitTestContracts": 129,
+    "inputs": {
+      "commit": "5a2df16e0b15e326e1adf3e6999e2fd3e32b73bd",
+      "files": [
+        {
+          "path": "data/galaxies.json",
+          "sha": "89f0352d24d02608d86d3de3df5514237525b085",
+          "sha256": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599"
+        },
+        {
+          "path": "research/blueprint/reserved-ids.json",
+          "sha": "f2a86b67bbdefd74db66350b301213dcdd5e38c7",
+          "sha256": "22f0dad16ad219df1f0066cf2fc0873406a67e56dd5a8ec5ceda786f1c868dd8"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/PadicMeasuresIwasawaAlgebras.json",
+          "sha": "52c0fa8938bf2f305b4d9032398e3af17af96e6a",
+          "sha256": "349366fa832de9ea9ba4661e6febe4b4d92fddcc3e0aef4bfe5ede9fbfec111f"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/CompletedCohomologyPartII.json",
+          "sha": "1244a8d8d042077bbe9d3f2e0b00f94fdcd420d2",
+          "sha256": "5c027b0f894c54010cb22130a58d1c0eade88b9aa400e0236d4ab52d926c7ca6"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/ArithmeticLocallySymmetricSpaces.json",
+          "sha": "2cfaf9080dcb4e35969cbcff8f7e57efa9ea6e9c",
+          "sha256": "f821066e01b7163fd5612d74f58dfb042a8236dda91d2fd8c7163ef22c13e54d"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/LocallyAnalyticDistributions.json",
+          "sha": "b924cbb0d5cfdb836ce4ea52b4bf7f6bd51487f5",
+          "sha256": "d197dd76777d7ddf6d22a751ddb791928ad0d7ddae63080cfaf79378dfec88b5"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_LieHighestWeight.json",
+          "sha": "9577089c08471ba23d2c5af7ff88a7932c4885be",
+          "sha256": "a32fd7d01c467156e7ebe606405030acf4f0082fb91b77194304a5722bfe16a8"
+        },
+        {
+          "path": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+          "sha": "3e9fc70217ab990b7b90545864c9d01f3030d452",
+          "sha256": "fa17428278b416a12293056c898ae18c4daae8df74fe2fc3cc138b7b4d029d01"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/NoncommutativeAndEquivariantIwasawa.json",
+          "sha": "6ad2c2274ac39a5289637573db24c82064e8f7b8",
+          "sha256": "a75c1992bbbef26d0000e842db383b957ad5b7c120e662630f0543e43370ba8d"
+        },
+        {
+          "path": "research/blueprint/roadmaps/SolidAnalyticRings.json",
+          "sha": "bd5008d8760f0657c4aac7c1be956f5076d44f8d",
+          "sha256": "9de5144b60ea47695a1cd8c470e429c95edc80676028170daddef3124da90907"
+        },
+        {
+          "path": "research/blueprint/roadmaps/MordellLawrenceVenkatesh.json",
+          "sha": "b18c75cd5ea017e32be3733f9d060d97dd151979",
+          "sha256": "9e3a4bb41dcec200da9d585ebb7ae48ad86f2586bd49db05dd78d7f1f991ccf4"
+        },
+        {
+          "path": "research/blueprint/roadmaps/AnalyticHabiroStack.json",
+          "sha": "6d34100064c7480cfc26770bd73b39c91359ee10",
+          "sha256": "b6ebaa83923f6ffbbbc5b73495c5527847f1d5fdbba72f3fe305d26ede7aba94"
+        },
+        {
+          "path": "research/blueprint/roadmaps/AnalyticStacks.json",
+          "sha": "7eab859457d749fd5107b4baa74afb2ff20e9b9e",
+          "sha256": "8bf2ae0bc22842249e90d3012a02d4a3c8f0e21d00a79d66cbba449b28f70fc8"
+        },
+        {
+          "path": "research/blueprint/roadmaps/QWittVectors.json",
+          "sha": "ec2e7e68136b0ef578bdceaee40328682c5d2ec7",
+          "sha256": "020face16ac29a185f65ba97df49e789f0ce2bb2f08987138e463da590bdcfeb"
+        },
+        {
+          "path": "research/blueprint/roadmaps/RingStacksAndTransmutation.json",
+          "sha": "601a0f69d0858c3ae12a8ea0247dad21f442a1f5",
+          "sha256": "dee6c46a99899e6099477de16d6425177379bef1755eb58323d3f1655280f31c"
+        },
+        {
+          "path": "data/decompositions/CompletedCohomologyPartII.json",
+          "sha": "0565e89bedad2bc1a456c6d3e1a11306edd76da3",
+          "sha256": "68ab502973106d49a140412dd61a0fc4f473013ce85a827a7256c33c066e646a"
+        },
+        {
+          "path": "data/library-coverage.json",
+          "sha": "5e708cfc74a51b10e62149113872fe4e00eb5846",
+          "sha256": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a"
+        },
+        {
+          "path": "data/decompositions/LocallyAnalyticDistributions.json",
+          "sha": "fc650b18f0eca461de6174b845b40783012ce41f",
+          "sha256": "b1dca72f4b2941dd184d9fe2b9172003edd98509931a18df1219f567298f1b5c"
+        },
+        {
+          "path": "content/campaign/LocallyAnalyticDistributions/README.md",
+          "sha": "968797e647477458a96567fb7636fc630f56889a",
+          "sha256": "923ac71784d323223fc1a526bd0bea409d3cc5e9cbef79b30ebfc5926ecac8e3"
+        },
+        {
+          "path": "content/campaign/CompletedCohomologyPartII/README.md",
+          "sha": "9bb897f81cda9352c40a26fd3b43c093a4ddc822",
+          "sha256": "833b542ad278a00eb8086bc8dba7f9a5e86d1249843a4954d85766f4f6b71427"
+        },
+        {
+          "path": "content/campaign/ArithmeticLocallySymmetricSpaces/README.md",
+          "sha": "61bb05cc2d7d4d59b39c135f6aaa28b62ae360ee",
+          "sha256": "e08c8acacd68d8f7793a6f65e9f8925901ec1214927a6d675304607f601999ac"
+        },
+        {
+          "path": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+          "sha": "40e02ab571f96d9fc1bcdcde950dbcf1c778ecfd",
+          "sha256": "bae7b8e787f0aa2e6f952bceca0dc43be2e7fdc6c6ca5cee5b954476ea69434d"
+        },
+        {
+          "path": "content/campaign/PadicMeasuresIwasawaAlgebras/README.md",
+          "sha": "fe43346362f6826aee3a7d72e5c9e32aac50a405",
+          "sha256": "7b7e14bfcf70d562d40f3516cdee4680dd3fb69255ecc5570f1ad2b4215db984"
+        },
+        {
+          "path": "content/campaign/NoncommutativeAndEquivariantIwasawa/README.md",
+          "sha": "855ed22d740cf2543bdded7201be4d1fa114e068",
+          "sha256": "f4331c1566ba81895cad913d801919e48c87bba54d58d77c320bb6920988b8f4"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json",
+          "sha256": "6b599471ae62d75d076dbad7464cd539b7e7355196af9149141865fb80afed74"
+        },
+        {
+          "path": "content/tau-ceti/ProfiniteProPGroups/README.md",
+          "sha256": "8917e380c8f99602af5f80be9fde0cb7d66cd32a4c97c758d7a48763ebf4baa0"
+        }
+      ]
+    },
+    "readLimit": "Prior worker source reads remain attributed to codex-a71f92. This continuation does not claim a fresh full read of all ten older auxiliary PDFs or closed proof leaves throughout the inherited inventory.",
+    "unresolved": [
+      "Published-version collation and original Frommer/DDMS proof acquisition.",
+      "For integral central parameters, larger-radius D_R ideal contraction/separation; the small-radius result does not imply it.",
+      "Original Zariskian Ore/completion and Lie-theoretic source interiors, plus previously recorded supplier gaps.",
+      "Independent review of derived analytic proofs; no formalization is claimed."
+    ]
+  },
+  "inspectionHistory": [
+    {
+      "session": "codex-a71f92",
+      "inspection": {
+        "audit": "The relevant complete rows of reviewed audits AUDIT-13/14/25/26 were read: ALS.0–6 and finite-level duality, CC.0–6, LA L0–L4, NE.0–1, and PadicMeasures L0–L1. A live API comparison of all 50 relevant owner/audit rows against the local atlas snapshot found no changes on 2026-09-21. Remaining catalogue/source proof checks are not certified by a keyword search.",
+        "newRoadmapDirectory": "At the snapshot, the directory contains AnalyticHabiroStack, AnalyticStacks, MordellLawrenceVenkatesh, QWittVectors, RingStacksAndTransmutation, SolidAnalyticRings; none supplies the proposed local theory.",
+        "leanCompiled": false,
+        "fullAtlasDagChecked": false,
+        "fullPaperChecker": "PASS: actual scripts/check_paper.py with full atlas loader on the final123-item result.",
+        "catalogue": "Live main at 5de4697bb48359dc1143d6f87bf9fbf6a6a767e4: all 7 relevant roadmaps and60 stages match the local atlas snapshot. No proposed-route ID collision. Full reserved-ID map read: only K3/Bloch/polylogarithm/Borel reservations. The tree contains one blueprint packet (MordellLawrenceVenkatesh) and six new-roadmap definitions, none a local-theory supplier. Relevant accepted CC and LA decomposition statements/review limits inspected; CC file matches live main.",
+        "testContracts": {
+          "definitionsAndConstructions": 42,
+          "apiItems": 126,
+          "unitTests": 126,
+          "note": "Mathematical planning contracts, not executed Lean unit tests. Additional theorem tests are separate."
+        }
+      },
+      "validation": {
+        "paperChecker": "passed",
+        "itemCount": 123,
+        "dependencyEdges": 173,
+        "itemDag": "acyclic",
+        "routeDag": "acyclic",
+        "missingItems": 103,
+        "exactOnceRouting": true,
+        "definitionsAndConstructions": 42,
+        "apiEntries": 126,
+        "unitTestContracts": 126,
+        "exactFiniteAssertions": 41069,
+        "leanCompiled": false,
+        "limits": "Finite formula checks and source-informed plans; no full-atlas DAG, infinite-dimensional proof, or independent review certificate."
+      }
+    }
+  ]
 }
