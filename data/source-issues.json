@@ -1957,6 +1957,195 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E1",
+   "kind": "gap",
+   "locator": "Proposition 21, Proposition 30 and Theorem 3, pp.3, 21, 32–33 (arXiv v3)",
+   "printed": "\"Proposition 21. For all unexceptional z ∈ M − K there is a positive constant c⋆ such that as a → ∞, M(z, a) = e^{βa}(c⋆(z) + o(1))\" … \"Proposition 30. For fixed λ and z⁽⁰⁾ there is a constant c⋆(λz⁽⁰⁾) such that a_L(λz⁽⁰⁾) = … = c⋆(λz⁽⁰⁾) + o(1)\" … \"Putting Proposition 30 and Lemma 29 together proves Proposition 21\"",
+   "correction": "Add an argument for c⋆ > 0. Fix a small ε₀ > 0 and a point z of the orbit with α(z) > max(C₁, 2C₂^{1/2}ε₀^{−1/2}). Iterating Lemma 26 with ε₀ as in the proof of (3.25) gives log log(λz)_n ≥ log(γ(λ).f(z))_n − 2ε₀ for all λ ∈ Λ′. So M(z, a) ≥ N(f(z), a − 2ε₀) ≥ ½ min_∆ h · e^{β(a−2ε₀)} for large a, since h > 0 is continuous on the compact ∆ (Theorems 13 and 37). Hence c⋆(z) > 0, and then c > 0 in Theorem 3.",
+   "reason": "Proposition 30 only proves that a_L converges and that its limits are bounded. Neither Lemma 29 nor Proposition 30 bounds c⋆ below. Baragar's estimate (log R)^{β+o(1)} does not exclude c = 0 either, since it allows, say, (log R)^β/log log R. Theorem 3 asserts c > 0, and the constant is Σ over base points of (log z_n⁽⁰⁾)^β c_∞(z⁽⁰⁾), so positivity needs this missing step. The step is routine with the paper's own lemmas.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+    "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+    "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+   ],
+   "owner": "PAPER-GAMBURD-MAGEE-RONAN-19",
+   "file": "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.result.json",
+   "citation": "Gamburd–Magee–Ronan, \"An asymptotic formula for integer points on Markoff-Hurwitz varieties\", Annals of Mathematics 190 (2019), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E2",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 3 given Proposition 21, (3.5) and the following display, pp.21–22 (arXiv v3)",
+   "printed": "\"M₀(z⁽⁰⁾, a) = Σ_{A₀=1}^∞ M(λ^{A₀}_{n−1}z⁽⁰⁾, a − log log(λ^{A₀}_{n−1}z⁽⁰⁾)_n + log log z_n⁽⁰⁾)\" … \"log z_n⁽⁰⁾e^{βa} Σ … c⋆(λ^{A₀}_{n−1}z⁽⁰⁾)/(log(λ^{A₀}_{n−1}z⁽⁰⁾)_n)^β\" … \"≤ Σ_{A₀} c⋆(λ^{A₀}_{n−1}z⁽⁰⁾)/(A₀ log 2)^β\" … \"log z_n⁽⁰⁾c_∞(z⁽⁰⁾)e^{βa}(1 + o(1))\"",
+   "correction": "The sum starts at A₀ = 0, as in (3.2), since Λ ∪ {e} = ⊔_{A₀≥0}(Λ′ ∪ {e})λ^{A₀}_{n−1}. The prefactor is (log z_n⁽⁰⁾)^β in both displays. The comparison sum is Σ_{A₀≥0} c⋆/(log z_n⁽⁰⁾ + A₀ log 2)^β.",
+   "reason": "Proposition 21 applied at level a − log log Z + log log z_n gives e^{βa}(log z_n/log Z)^β c⋆, so the factor is (log z_n)^β. The A₀ = 0 term is M(z⁽⁰⁾, a), of the same order e^{βa}. Lemma 22 gives log(λ^{A₀}z)_n ≥ A₀ log 2 + log z_n, and the printed (A₀ log 2)^β is infinite at A₀ = 0. The constant c is not made explicit, so nothing else changes.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+    "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+    "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+   ],
+   "owner": "PAPER-GAMBURD-MAGEE-RONAN-19",
+   "file": "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.result.json",
+   "citation": "Gamburd–Magee–Ronan, \"An asymptotic formula for integer points on Markoff-Hurwitz varieties\", Annals of Mathematics 190 (2019), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E3",
+   "kind": "error",
+   "locator": "Proposition 16(3), p.13, and its proof, p.15 (arXiv v3)",
+   "printed": "\"3. If x_j is not the largest coordinate of x then it becomes the largest after the move m_j, that is, (m_j(x))_j > (m_j(x))_i for all i ≠ j. (This property holds for all x ∈ V(ℤ₊).)\"",
+   "correction": "Delete the parenthesis: part (3) holds for x ∈ V(ℤ₊) − K₀. The proof itself adds the finitely many solutions with a = 1, x₁ = … = x_{n−2} = 1 to the compact set.",
+   "reason": "For n = 3, a = 1, k = 4, x = (1, 1, 2) ∈ V(ℤ₊) (1 + 1 + 4 = 1·1·2 + 4) is unexceptional: the a = 1 family needs x_{n−2} = x₁ = 2. m₂(x) = (1, 1·2 − 1, 2) = x, so x₂ does not become the largest. The proof's own last paragraph treats exactly this case by enlarging K₀, and the proposition's other uses are outside K₀.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+    "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+    "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+   ],
+   "owner": "PAPER-GAMBURD-MAGEE-RONAN-19",
+   "file": "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.result.json",
+   "citation": "Gamburd–Magee–Ronan, \"An asymptotic formula for integer points on Markoff-Hurwitz varieties\", Annals of Mathematics 190 (2019), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E4",
+   "kind": "misprint",
+   "locator": "§2.3, p.17; proof of Lemma 20, p.18; §3.1, p.20 (arXiv v3)",
+   "printed": "\"a sequence is admissible if and only if j₁ is not the largest coordinate and j_l ≠ j_{l−1} for any l ≤ 2\" … \"the admissible sequences (j) of length 1 and {λ_j : 1 ≤ j ≤ n − 2}\" … \"we replace the generators {λ_j : 1 ≤ j ≤ n} of Λ\"",
+   "correction": "\"for any l ≥ 2\"; \"{λ_j : 1 ≤ j ≤ n − 1}\"; \"{λ_j : 1 ≤ j ≤ n − 1}\".",
+   "reason": "Consecutive moves at the same coordinate backtrack, so the condition is needed for every l ≥ 2. There are n − 1 admissible first moves and n − 1 generators λ_j (2.6), since the move at the largest coordinate is never used.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+    "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+    "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+   ],
+   "owner": "PAPER-GAMBURD-MAGEE-RONAN-19",
+   "file": "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.result.json",
+   "citation": "Gamburd–Magee–Ronan, \"An asymptotic formula for integer points on Markoff-Hurwitz varieties\", Annals of Mathematics 190 (2019), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E5",
+   "kind": "misprint",
+   "locator": "Proof of the Claim in Lemma 23, p.25 (arXiv v3)",
+   "printed": "\"Σ_{A₁=1}^{⌊2(n−1)e^x⌋} (2(n−1))^{L−1}(c₀ + x − log(1 + A₁/(2(n−1))))^{L−1}e^x/(1 + A₁/(2(n−1))) ≤ (2(n−1))^L(c₀ + x)e^x Σ_{A₁=1}^{⌊2(n−1)e^x⌋} 1/(2(n−1) + A₁)\"",
+   "correction": "The sums run over A₁ ≥ 0, and the right side is (2(n−1))^L(c₀ + x)^{L−1}e^x Σ_{A₁=0}^{⌊2(n−1)e^x⌋} 1/(2(n−1) + A₁). With the final sum ≤ c₀ + x this gives the Claim's (2(n−1)(c₀ + x))^Le^x.",
+   "reason": "A₁ = 0 is allowed in the set (3.13). The exponent L − 1 on (c₀ + x) carries through from the inductive hypothesis; without it the induction would give (c₀ + x)², not (c₀ + x)^L.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+    "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+    "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+   ],
+   "owner": "PAPER-GAMBURD-MAGEE-RONAN-19",
+   "file": "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.result.json",
+   "citation": "Gamburd–Magee–Ronan, \"An asymptotic formula for integer points on Markoff-Hurwitz varieties\", Annals of Mathematics 190 (2019), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E6",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 25, p.27 (arXiv v3)",
+   "printed": "\"where A(z) = ∏_{i=1}^{n−1}z_i, C(z) = Σ_{i=1}^{n−1}z_i² and k′ ≥ 0 is the constant from (2.4).\"",
+   "correction": "k′ = ka^{2/(n−2)} has the sign of k, which may be negative. The first inequality uses only (2.14), and the second estimate becomes (C(z) − k′)/A(z)² ≤ (n − 1)α(z)^{−2} + |k′|A(z)^{−2} = O_n(α(z)^{−2}) (enlarging C₁ as needed). The conclusion is unchanged.",
+   "reason": "The paper allows every k ∈ ℤ (Theorem 3); k < 0 gives k′ < 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+    "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+    "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+   ],
+   "owner": "PAPER-GAMBURD-MAGEE-RONAN-19",
+   "file": "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.result.json",
+   "citation": "Gamburd–Magee–Ronan, \"An asymptotic formula for integer points on Markoff-Hurwitz varieties\", Annals of Mathematics 190 (2019), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E7",
+   "kind": "error",
+   "locator": "Proof of Lemma 27, pp.28–29 (arXiv v3)",
+   "printed": "\"For any nonidentity map λ′ ∈ Λ, (λ′z⁽⁰⁾)_{n−2} ≥ (z⁽⁰⁾)_{n−1} > 2, using (2.13).\"",
+   "correction": "This holds for the λ′ that occur, namely λ′ = λ″λ with λ″ ∈ S^{(L)}, L ≥ 1. There the last letter of λ″ applied, before the final power of λ_{n−1}, is some λ_j with j ≤ n − 2, which puts the previous (n − 1)-th entry in position n − 2. It does not hold for every nonidentity λ′.",
+   "reason": "λ_{n−1} changes only the last two coordinates, so (λ^A_{n−1}z)_{n−2} = z_{n−2}, which is smaller than z_{n−1} whenever z_{n−2} < z_{n−1}. The lemma is applied only to the λ′ of (3.14), so nothing breaks.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+    "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+    "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+   ],
+   "owner": "PAPER-GAMBURD-MAGEE-RONAN-19",
+   "file": "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.result.json",
+   "citation": "Gamburd–Magee–Ronan, \"An asymptotic formula for integer points on Markoff-Hurwitz varieties\", Annals of Mathematics 190 (2019), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E8",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 41, §4.5, p.42 (arXiv v3)",
+   "printed": "\"≤ (n − 2)‖f‖_∞ Σ_{A∈ℕ} 1/(1 + ½(A + 1))^s ≤ 2(n − 2)‖f‖_∞ Σ_{A∈ℕ} 1/(3 + A)^s\" … \"λ_s ≤ 2(n − 2)Σ_{A∈ℕ} 1/(3 + A)^s\" … \"(γ′.w)_n/w_n = 1 + (A + 1)(1 − w_j) ≥ c. This is true with c = 3/2\"",
+   "correction": "The factor is 2^s: (1 + (A + 1)/2)^{−s} = 2^s(3 + A)^{−s}, so λ_s ≤ 2^s(n − 2)Σ_{A≥0}(3 + A)^{−s}. This still tends to 0 as s → ∞, being (n − 2)Σ_{A≥0}(2/(3 + A))^s. In the Claim, the ratio bound 3/2 gives log((γ.w)_n/w_n) ≥ N log(3/2), so c = log(3/2).",
+   "reason": "The printed inequality fails for s ≥ 2: the A = 0 terms are (3/2)^{−s} and 2·3^{−s}. The conclusion λ_s → 0 and the monotonicity argument are unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+    "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+    "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+   ],
+   "owner": "PAPER-GAMBURD-MAGEE-RONAN-19",
+   "file": "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.result.json",
+   "citation": "Gamburd–Magee–Ronan, \"An asymptotic formula for integer points on Markoff-Hurwitz varieties\", Annals of Mathematics 190 (2019), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E9",
+   "kind": "misprint",
+   "locator": "§5.3, proofs of (5.1), (5.9) and (5.10), pp.46–47, 53 (arXiv v3)",
+   "printed": "\"C_i ≤ C_k, k ≠ i ⇔ 1 + 2β(w) − 2w_i < 4 − 2w_i ⇔ β(w) < 2/3\" … \"Hence, C_j ≤ C_k for each k ≠ j.\" … \"we have ‖d(γ_{n−1} ∘ γ_{n−1} ∘ γ_{n−2})‖₁ = 4/5\"",
+   "correction": "\"⇔ β(w) ≤ 3/2\" (since C_i ≤ C_k iff 1 + 2β − 2w_i ≤ 2(2 − w_i) = 4 − 2w_i); \"C_{n−2} ≤ C_k for each k ≤ n − 3\"; \"≤ 4/5\".",
+   "reason": "Both β ≤ 2/3 and β ≤ 3/2 hold on ∆₀ (β ≤ 1/2), so the bound in (5.1) is unaffected. In (5.9) the columns compared are k ≤ n − 3 and n − 2. The bounds (5.1)–(5.10) and Lemma 46 were checked numerically.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+    "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+    "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+   ],
+   "owner": "PAPER-GAMBURD-MAGEE-RONAN-19",
+   "file": "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.result.json",
+   "citation": "Gamburd–Magee–Ronan, \"An asymptotic formula for integer points on Markoff-Hurwitz varieties\", Annals of Mathematics 190 (2019), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-GAO-GE-KUHNE-26/E1",
    "kind": "misprint",
    "locator": "Theorem 1.3, p.192 of the published version",
