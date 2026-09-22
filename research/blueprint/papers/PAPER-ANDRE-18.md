@@ -222,3 +222,243 @@ the reviewed library audit, source completeness, or mathematical review.
 Every currently extracted provisional missing item has exactly one route.
 No Lean file was required or compiled. The remaining tasks and resume
 locators are in the companion handoff.
+
+---
+
+## Second checkpoint: spectral-radius imports and the topology hypothesis
+
+**22 September 2026. ChatGPT Pro, session `cgp-0922-b7d49a`; continuation of
+#1639 for issue #1464. Status remains partial.** This section supersedes the
+historical item counts and library-reading boundary above, not the earlier
+ramification analysis. The JSON now has **85 items: 8 library, 35 planned,
+42 missing**. All 72 inherited item objects and both inherited routes are
+unchanged. The four new valid comparison lemmas and one diagnostic are
+explicitly unrouted while the generic-supplier audit is unfinished.
+
+### A. What is already implemented
+
+At Mathlib commit `082e2d37e8b0463410cdb532e111cd43d5a66174`, the file
+`Mathlib/Analysis/Normed/Unbundled/SmoothingSeminorm.lean`, blob
+`dac8aa822d6a8c72df11777ae9c25ebd02c0cbfa`, supplies the following exact
+root-namespace declarations. Their signatures and surrounding hypotheses
+were read; this is not a fresh review of every private proof in that file.
+
+| Input or conclusion | Existing declaration | Important hypothesis |
+|---|---|---|
+| Positive-index infimum defining the radius | `smoothingFun` | `CommRing R`, `RingSeminorm R` |
+| Limit of the nth-root sequence | `tendsto_smoothingFun_of_map_one_le_one` | `μ 1 ≤ 1` |
+| Radius bounded by the original seminorm | `smoothingFun_le_self` | No additional normalization hypothesis |
+| Bundled smoothed ring seminorm | `smoothingSeminorm` | `μ 1 ≤ 1`, `IsNonarchimedean μ` |
+| Ultrametric inequality | `isNonarchimedean_smoothingFun` | The same two hypotheses |
+| Power multiplicativity | `isPowMul_smoothingFun` | The actual signature requires `μ 1 ≤ 1`, not an additional ultrametric hypothesis |
+| Fixed value for an already power-multiplicative element | `smoothingFun_of_powMul` | The power identity for every positive exponent |
+| Preservation of multiplication by a multiplicative element | `smoothingFun_of_map_mul_eq_mul` | `μ(x*y)=μ(x)*μ(y)` for every `y` |
+
+The companion normalization result for the last row is
+`smoothingFun_apply_of_map_mul_eq_mul`. The generic declarations supply the
+scalar-multiplication calculation after one has packaged the given
+K-algebra norm as a ring seminorm; they do not themselves provide every
+Banach-algebra category, scalar wrapper or completion interface.
+
+For a ring seminorm `μ`, write
+
+```text
+ρ_μ(x) = inf_{n >= 1} μ(x^n)^(1/n).
+```
+
+Do not put exponent zero into this infimum. The library's separate
+natural-number sequence may have a harmless initial term at zero because
+it is only used for a limit at infinity. Do not replace a seminorm by a
+norm without proving its kernel is zero: for a nonzero element `e` with
+`e^2=0`, its spectral radius is zero.
+
+The opening of the pinned `SpectralNorm.lean` was also read. That file
+constructs a norm from the minimal polynomial in an **algebraic extension
+of fields**. Its algebraic-extension uniqueness is not a theorem about two
+arbitrary norms on an infinite-dimensional Banach algebra. The two APIs
+must not be identified solely because both use the word “spectral”.
+
+### B. Four comparison lemmas with complete elementary proofs
+
+These are the four new valid `missing` items. “Missing” here records an
+unmatched packaged declaration and unresolved final generic ownership; it
+does not say that any of the general ingredients should be redeveloped.
+
+**B1. Bounded maps contract spectral radii.** Let `f:R→S` be a ring
+homomorphism, let `μ,ν` be ring seminorms on commutative rings with their
+values at 1 at most 1, and suppose `ν(f(x))≤C μ(x)` for all `x`, with
+`C>0`. For each positive integer `n`,
+
+```text
+ν(f(x)^n)^(1/n) <= C^(1/n) μ(x^n)^(1/n).
+```
+
+This uses `f(x^n)=f(x)^n`; all quantities under real roots are
+nonnegative. The imported convergence theorem and `C^(1/n)→1` give
+`ρ_ν(f(x))≤ρ_μ(x)`. The argument also works when either radius is zero.
+It uses neither completeness nor injectivity of `f`.
+
+**B2. Equivalent seminorms give equal radii.** If `ν≤Cμ` and `μ≤Dν`,
+with `C,D>0`, apply B1 to the identity in both directions and use
+antisymmetry. This proves equality even when the original seminorms are
+not separated. If both are power-multiplicative, the imported fixed-point
+lemma identifies each radius with its original seminorm.
+
+**B3. A specified topology gives uniqueness of a spectral norm.** Let `K`
+be a complete nontrivially valued nonarchimedean field. Suppose two
+K-algebra norms `μ,ν` on `A` give the same topology. The continuity-to-bound
+step is worth making explicit. Choose `π∈K` with `q=|π|∈(0,1)`. Continuity
+of the identity from `μ` to `ν` provides `δ>0` such that
+
+```text
+μ(z)<δ  implies  ν(z)<1.
+```
+
+For `x≠0`, choose an integer `k` with
+`q^k μ(x)<δ≤q^(k-1) μ(x)`. Scalar homogeneity gives
+
+```text
+ν(x) < q^(-k) <= μ(x)/(q δ).
+```
+
+The zero case is immediate. Reversing the topologies gives the other
+bound. Apply B2 and the fixed-point lemma for power-multiplicative norms.
+Thus compatible spectral norms are equal. **Completeness of A was never
+needed.** Completeness of K is retained to match the paper's standing
+setting, although this particular rescaling argument needs only a
+nontrivially valued field.
+
+**B4. One continuous identity suffices if both norms are complete.**
+Suppose instead that both norms make A complete and the identity is
+continuous in one direction. This is a continuous bijective K-linear map
+between complete Hausdorff normed vector spaces. The open-mapping theorem
+makes its inverse continuous. B3 then gives equality. Completeness is
+used on these two actual normed spaces, not on an unverified maximum-norm
+space introduced during the argument.
+
+### C. Source issue E1: the stronger abstract-algebra claim
+
+The JSON quotes the short disputed sentence and supplies the required
+structured `sourceIssues` record. The source is the second paragraph of
+§2.2.4 on published p.13. The same claim and maximum-norm step are present
+in [arXiv v1](https://arxiv.org/pdf/1609.00320v1), §2.2.4, p.12. The valid
+fixed-topology conclusion immediately before it must be kept separate.
+
+Here is a counterexample to uniqueness without a fixed topology.
+
+Let `C=C_p` and let `F=Q_p-bar` be its usual dense subfield. We use that
+`F` is not complete, that `C` is complete, and that `C` is algebraically
+closed. A primary reference is Brian Conrad's
+[*Math 248A. Completion of algebraic closure*](https://virtualmath1.stanford.edu/~conrad/248APage/handouts/algclosurecomp.pdf),
+§1 and Theorem 1.1. Its three pages were read and its first page visually
+checked. The algebraic-closedness theorem is proved there. Noncompleteness
+of `F` is recalled with a reference to BGR 3.4.3/1; this session did **not**
+read the original proof of that input.
+
+Choose `t∈C\F`. Since `F` is algebraically closed, `t` is transcendental
+over `F`. Extend `{t}` to a transcendence basis `S` of `C/F`. The map on
+`F(S)` fixing `F` and `S\{t}` and sending `t` to `pt` is an automorphism,
+with inverse sending `t` to `p^(-1)t`. As `C` is an algebraic closure of
+`F(S)`, extension of embeddings to algebraic closures gives an
+automorphism `σ` of `C` extending this map. Surjectivity follows because
+its image is algebraically closed, contains `F(S)`, and `C` is algebraic
+over `F(S)`. This is an algebraic construction using a transcendence
+basis; it makes no continuity assertion.
+
+Put
+
+```text
+ρ_1(x)=|x|_p,            ρ_2(x)=|σ(x)|_p.
+```
+
+Both are multiplicative nonarchimedean Q_p-algebra norms. Since σ fixes
+Q_p, each has the prescribed scalar homogeneity. The second norm is
+complete because σ is a bijective isometry from `(C,ρ_2)` to `(C,ρ_1)`.
+Nevertheless,
+
+```text
+ρ_2(t)=|p|_p ρ_1(t) != ρ_1(t).
+```
+
+Hence the same abstract Q_p-algebra admits two distinct complete spectral
+norms. In particular, the algebraic automorphism σ is not a bounded
+homomorphism for the original norm. This does not contradict B1 or B3,
+whose continuity/boundedness assumptions are essential.
+
+The example also locates the exact failure in the printed proof. Choose
+`a_n∈F` with `a_n→t` for `ρ_1`, and set `ν=max(ρ_1,ρ_2)`. Because σ fixes
+F, the two norms agree on every difference `a_n-a_m`. Therefore `(a_n)`
+is Cauchy for ν. Its individual limits are
+
+```text
+ρ_1-limit: t,            ρ_2-limit: σ^(-1)(t)=p^(-1)t.
+```
+
+They are distinct. A ν-limit would have to equal both, since each `ρ_i`
+is bounded above by ν and both norms are separated. Thus ν is **not
+complete**, even though each `ρ_i` is complete. The maximum is still a
+spectral algebra norm: taking a positive power commutes with the maximum.
+It is completeness, not the algebra-norm or spectral property, that fails.
+
+The correction is B3, or B4 with its additional one-sided continuity
+hypothesis. The claim in the source is not rescued by the norm-extension
+theorem for algebraic field extensions, because `C/F` here is not
+algebraic.
+
+**Review and reach.** This is a worker's finding with a proof, not an
+independently confirmed erratum. No published correction was located in
+the recorded version, web and repository searches; no exhaustive
+historical-novelty claim is made. E1 concerns an auxiliary assertion and
+its proof step. It does **not** show that the main perfectoid Abhyankar
+theorem is false. A complete audit of later uses of this assertion remains
+an explicit task; general categorical claims are not certified merely
+by correcting this one paragraph.
+
+### D. Ownership and remaining scope
+
+The current PerfectoidSpaces and AdicSpacesPartII documents were read in
+full, and the foundations-of-adic-spaces document through its complete
+Layer 0 was read. Layer 0 supplies boundedness, power-bounded elements,
+completion, restricted series and open mapping; its §0.6 has the required
+completeness and Hausdorff hypotheses. AdicSpacesPartII R0 addresses
+completed tensors and fiber products under its Huber hypotheses. These
+are not permission to duplicate generic normed algebra in the proposed
+ramification Part II, or to claim that arbitrary Banach uniformization
+and all inverse limits are already covered by R0.
+
+The repository checker also correctly prohibits a `source` route that
+re-plans an upstream Tau Ceti roadmap. Accordingly the four comparison
+lemmas are left as an explicit partial routing gap, rather than inventing
+a tiny new roadmap or silently editing the upstream Layer 0. The eight
+library imports need no new route. The invalid literal assertion is an
+unrouted diagnostic, not a theorem to formalize. All 37 inherited missing
+items keep their existing provisional Part II route.
+
+The remaining §2 algebraic-closure dictionary, Banach tensor and
+uniformization/limit constructions, most §3, examples and §5.4 still need
+full extraction. The original reviewed-library audit, prerequisite
+coverage and finer splitting of the §1 packages are not completed by this
+norm calculation.
+
+### E. Verification boundary of this continuation
+
+The original JSON and report were copied and matched to Git blobs
+`856b5edca7c6bb961e7743c35950a654b2b96355` and
+`cd58baba6415cbbc2b4e3dcbcce738c258ed2ff1` respectively. Local checks verify
+preservation of all inherited item objects, routes, candidates and pins,
+85 distinct IDs, status counts, eight populated library citations, five
+explicit unrouted gaps and the structured E1 schema. Finite exact tests
+exercise product norms, the square-zero degeneration and scalar
+rescaling. They do not compute the noncontinuous automorphism σ or prove
+its existence by experimentation.
+
+The full-catalogue paper validator and intake checker were not run
+locally: a clone/full catalogue could not be acquired in this environment.
+Their authoritative outcome is the existing Swarm submission check on
+the new PR. No checker or workflow is changed. No Lean artifact was
+requested or compiled, and no independent review is claimed.
+
+Main-paper PDF screenshots continued to fail, including the published
+p.13 attempt. No main-paper bytes or SHA-256 were obtained. The successful
+Conrad screenshot is not a substitute for that missing main-source visual
+check. The previous provenance gap therefore remains open.
