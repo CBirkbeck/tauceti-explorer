@@ -1,0 +1,1340 @@
+{
+ "paper": "PAPER-GAN-ICHINO-18",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "The Shimura–Waldspurger correspondence for Mp_2n",
+  "authors": "Wee Teck Gan and Atsushi Ichino",
+  "venue": "Annals of Mathematics 188 (2018), no. 3, 965–1016",
+  "doi": "10.4007/annals.2018.188.3.5",
+  "arxiv": "1705.10106",
+  "url": "https://annals.math.princeton.edu/2018/188-3/p05",
+  "readSections": [
+   "The whole paper (§§1–6, Appendix A and the references) in arXiv v3 (3 August 2018, 38 pp.; https://arxiv.org/pdf/1705.10106v3; SHA-256 5d1408c5f8bc15a5ceec04a465ceb80cb7265da218138d5a746418ee8b4b291d; accessed 2026-09-22)",
+   "The published version (Ann. of Math. 188 (2018) 965–1016; http://annals.math.princeton.edu/wp-content/uploads/annals-v188-n3-p05-s.pdf; SHA-256 be54266f6155d2a0724f1c675bebbbcf2d44950dce4c0bd03a337d14f87d68c0; accessed 2026-09-22). Compared word by word with v3, and every passage that differs was read: the differences are editorial, apart from reference [44] (sourceIssues E4). Locators give published pages first.",
+   "arXiv v1 (29 May 2017, 52 pp.; SHA-256 55e6c4eda2ba74c5812f0de5480fcb915a5698b3d21474f5a0b6ca2c256d7b01): statements compared, for the history of the paper",
+   "Ishimoto, arXiv:2301.12143v2 (IMRN 2024): introduction and main theorem, for the status of the paper's hypothesis"
+  ]
+ },
+ "summary": "Gan and Ichino describe the automorphic discrete spectrum of the metaplectic group Mp_2n over a number field, generalizing Waldspurger's Shimura correspondence for Mp_2. Theorem 1.1 (unconditional): L²_disc(Mp_2n) decomposes into near equivalence classes L²_{φ,ψ}(Mp_2n) indexed by Arthur's elliptic A-parameters φ, which are also those of SO_2n+1. Theorem 1.4: for generic φ, L²_{φ,ψ}(Mp_2n) ≅ ⊕_η m_η π_η, with m_η = 1 exactly when Δ*η = ε_φ, the product of the root numbers ε(1/2, φ_i); here π_η is built from the local Langlands correspondence for Mp_2n defined through the local Shimura correspondence (theta lifts to SO(V⁺) ⊔ SO(V⁻)). Hence the generic part is multiplicity-free (Corollary 1.6). Theorem 1.4 assumes Arthur's multiplicity formula for non-split SO_2n+1, which Ishimoto proved for generic parameters in 2024. The method avoids the vanishing of central L-values by working in the stable range: J.-S. Li's lift to SO_2r+1 with r > 2n + 1 carries L²_disc(Mp_2n) into Arthur's classification (Theorem 2.1, Proposition 3.1). For generic φ every such form is cuspidal (Proposition 4.1), which gives multiplicity preservation (Corollary 4.2). The local structure is then identified with the local Shimura correspondence (Propositions 5.4 and 6.1), by irreducibility of induced representations and a global argument through globalizations with L(1/2, Φ) ≠ 0 (Appendix A). The atlas plans the metaplectic covers, the Weil representation, local theta modules and theta kernels (MetaplecticAutomorphicForms MP.1–MP.5), and Arthur's classification (ML.4). It has nothing for the theta correspondence as a correspondence: Howe duality and conservation, the local Shimura correspondence, J.-S. Li's stable-range theory, the Rallis inner product formula, or the discrete spectrum of Mp_2n. Of 89 items, one is in the libraries (the spinor norm, in Tau Ceti), 18 are planned and 70 are missing. The missing items go to a Part II of MetaplecticAutomorphicForms (57), with sources for MP.3 (5), ML.4 (4), ML.5 (2), AF.1 (1) and AL.3 (1). Four source issues: three proof steps asserted without proof (E1–E3), and a wrong reference [44] in the published version (E4).",
+ "items": [
+  {
+   "id": "PAPER-GAN-ICHINO-18/metaplectic-group",
+   "kind": "definition",
+   "name": "The local metaplectic group Mp_2n and its genuine representations",
+   "statement": "Let F be a local field of characteristic zero and n ≥ 0 (Sp_0 = {1}). Mp_2n is the two-fold topological central extension 1 → {±1} → Mp_2n → Sp_2n(F) → 1 which is the unique (up to unique isomorphism) nonsplit two-fold topological central extension of Sp_2n(F) when n > 0 and F ≠ C, and the trivial extension Sp_2n(F) × {±1} when n = 0 or F = C. It is realized on the set Sp_2n(F) × {±1} with multiplication given by Ranga Rao's 2-cocycle. A representation of Mp_2n is genuine if −1 ∈ {±1} acts by −1; Irr Mp_2n is the set of equivalence classes of irreducible genuine smooth representations.",
+   "locator": "§2.1 and Notation, p. 973 (arXiv v3 p. 7)",
+   "status": "planned",
+   "planned": [
+    "MetaplecticAutomorphicForms:MP.1"
+   ],
+   "library": [
+    "mathlib:Matrix.symplecticGroup"
+   ],
+   "note": "MP.1 constructs the double cover from the normalized Weil-index cocycle (Ranga Rao's cocycle, Pacific J. Math. 157 (1993), is an explicit normalization of it) and exports genuine representations. The uniqueness assertion is Moore's theorem; the paper states it without proof and does not use it. Mathlib has the symplectic matrix group (Matrix.symplecticGroup, read at 082e2d3); neither library has the cover (library audit: MP.1 not built)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/metaplectic-group-adelic",
+   "kind": "definition",
+   "name": "The adelic metaplectic group and its genuine automorphic forms",
+   "statement": "For a number field F with adèle ring A, Mp_2n(A) is the two-fold cover 1 → {±1} → Mp_2n(A) → Sp_2n(A) → 1, which splits canonically over Sp_2n(F); Sp_2n(F) is regarded as a subgroup of Mp_2n(A) through this splitting. L²(Mp_2n) is the subspace of L²(Sp_2n(F)\\Mp_2n(A)) on which {±1} acts by the nontrivial character. A(Mp_2n) is the space of genuine automorphic forms on Mp_2n(A), and A²(Mp_2n) and A_cusp(Mp_2n) are its subspaces of square-integrable automorphic forms and of cusp forms.",
+   "locator": "§1.1, §2.1 and Notation, pp. 966–973 (arXiv v3 pp. 2–7)",
+   "status": "planned",
+   "planned": [
+    "MetaplecticAutomorphicForms:MP.4",
+    "MetaplecticAutomorphicForms:MP.5"
+   ],
+   "note": "MP.4 constructs the restricted product of the local covers, the canonical splitting over the rational points and the adelic Weil representation. MP.5 constructs genuine cusp and Eisenstein spaces on the cover, constant terms and Fourier–Whittaker expansions."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/quadratic-spaces",
+   "kind": "definition",
+   "name": "Odd-dimensional quadratic spaces, SO(V) and the Hasse–Witt invariant",
+   "statement": "A quadratic space V over F is a finite-dimensional F-vector space with a nondegenerate quadratic form q. Here dim V = 2r + 1 and the discriminant of q is trivial. V is split if it is isometric to H^r ⊕ F, where H is the hyperbolic plane and F carries q(x) = x²; SO(V) is then written SO_2r+1 and is split. O(V) is the orthogonal group and SO(V) = O(V)⁰ its special orthogonal group, and O(V) = SO(V) × {±1} (2.1). For F local, ε(V) ∈ {±1} is the normalized Hasse–Witt invariant (Scharlau, pp. 80–81), with ε(V) = 1 if V is split. For F nonarchimedean and n ≥ 1 there are exactly two (2n + 1)-dimensional quadratic spaces with trivial discriminant up to isometry, V⁺ and V⁻, with SO(V⁺) split.",
+   "locator": "§1.2 and §2.1, (2.1), pp. 968–974 (arXiv v3 pp. 3–8)",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6d-the-classification-and-its-corollaries",
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-1-archimedean-forms-and-signatures"
+   ],
+   "library": [
+    "tauceti:TauCeti.QuadraticMap.orthogonalGroup",
+    "tauceti:TauCeti.QuadraticMap.specialOrthogonalGroup",
+    "tauceti:TauCeti.hyperbolicPlane",
+    "tauceti:TauCeti.RegularFormClass.signedDiscr"
+   ],
+   "note": "Tau Ceti has, at f790474: the orthogonal and special orthogonal groups of a quadratic map (orthogonalGroup, and specialOrthogonalGroup = orthogonalGroup ⊓ ker det); the hyperbolic plane ⟨1, −1⟩ over a ring with 2 invertible; and the signed discriminant of an isometry class of regular forms. The Hasse invariant and the classification over nonarchimedean local fields by (dimension, discriminant, Hasse invariant), with realization, are planned in Quadratic forms and cohomological invariants 6C–6D; real forms by signature in Global quadratic forms over number fields, Layer 1. The library audit (GN.2) records the Hasse–Witt invariant and the nonarchimedean classification as absent. 'Exactly two' is that classification in odd dimension."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/quadratic-spaces-global",
+   "kind": "theorem",
+   "name": "Global quadratic spaces with prescribed localizations",
+   "statement": "Let F be a number field and, for each place v, let V_v be a (2n + 1)-dimensional quadratic space over F_v with trivial discriminant, split for almost all v. There is a quadratic space V over F with trivial discriminant and V ⊗ F_v ≅ V_v for all v if and only if ∏_v ε(V_v) = 1, and V is then unique up to isometry. In particular ∏_v ε(V_v) = 1 for every quadratic space V over F.",
+   "locator": "Proofs of Lemmas 6.10–6.12, pp. 997–1000 (arXiv v3 pp. 26–28)",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants",
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences"
+   ],
+   "note": "Used without statement: for the existence and uniqueness of V in Lemmas 6.10 and 6.12 and for the product formula that gives the contradiction in Lemma 6.11. Existence with prescribed local behaviour (O'Meara 72:1) is Global quadratic forms Layer 7.2; uniqueness is the classification of Layer 8.1."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/spinor-norm",
+   "kind": "definition",
+   "name": "The spinor norm",
+   "statement": "ν : SO_2r+1 → F^×/(F^×)² is the spinor norm.",
+   "locator": "§2.3, (2.2), p. 975 (arXiv v3 p. 9)",
+   "status": "library",
+   "library": [
+    "tauceti:CliffordAlgebra.spinorNorm"
+   ],
+   "note": "Tau Ceti (f790474): CliffordAlgebra.spinorNorm (Q : QuadraticForm K V) (hQ : Q.Nondegenerate) : specialOrthogonalGroup Q →* Multiplicative (SquareClassGroup K), for a field K with 2 invertible and V finite-dimensional; it restricts orthogonalSpinorNorm, the Clifford norm modulo squares."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/llc-gln-padic",
+   "kind": "theorem",
+   "name": "The local Langlands correspondence for GL_n over p-adic fields",
+   "statement": "For F nonarchimedean of characteristic zero, with L_F its Weil–Deligne group, there is a bijection Irr GL_n(F) ↔ {n-dimensional representations of L_F} (Harris–Taylor, Henniart, Scholze). If τ ↔ φ, then τ is essentially square-integrable if and only if φ is irreducible, and τ is tempered if and only if φ is tempered (the image of the Weil group is relatively compact).",
+   "locator": "§1.1 and §5.1, pp. 967–985 (arXiv v3 pp. 2–16)",
+   "status": "planned",
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6"
+   ],
+   "note": "ET.6 constructs the characteristic-zero correspondence with full Weil–Deligne parameters, following Scholze, with the segment and Langlands-quotient theory."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/llc-gln-arch",
+   "kind": "theorem",
+   "name": "The local Langlands correspondence for GL_n(R) and GL_n(C)",
+   "statement": "For F = R or C, with L_F the Weil group of F, Langlands' classification gives a bijection Irr GL_n(F) ↔ {n-dimensional semisimple representations of L_F}, under which τ is essentially square-integrable if and only if φ is irreducible and tempered if and only if φ is tempered. Every irreducible representation of L_C = C^× is 1-dimensional, and every irreducible symplectic representation of L_R is 2-dimensional.",
+   "locator": "§1.1, §5.1 and §6.2, pp. 967–993 (arXiv v3 pp. 2–23)",
+   "status": "missing",
+   "note": "Langlands, 'On the classification of irreducible representations of real algebraic groups' (Math. Surveys Monogr. 31). Routed to AF.1 as in PAPER-CHENEVIER-TAIBI-20 (item archimedean-llc-gln): no layer plans the archimedean correspondence."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/selfdual-types",
+   "kind": "theorem",
+   "name": "Symplectic and orthogonal self-dual cuspidal representations",
+   "statement": "Let φ_i be an irreducible self-dual cuspidal automorphic representation of GL_{n_i}(A). The Rankin–Selberg L-function L(s, φ_i × φ_i^∨) = L(s, φ_i × φ_i) = L(s, φ_i, ∧²) L(s, φ_i, Sym²) has a simple pole at s = 1 (Jacquet–Shalika, Amer. J. Math. 103, Prop. 3.6), and neither factor vanishes at s = 1 (Shahidi, Amer. J. Math. 103, Th. 5.1). Hence exactly one of L(s, φ_i, ∧²) and L(s, φ_i, Sym²) has a pole at s = 1: φ_i is symplectic in the first case and orthogonal in the second. If φ_i is symplectic then n_i is even (Jacquet–Shalika, 'Exterior square L-functions', §9).",
+   "locator": "§1.1 and proof of Lemma 4.3, pp. 967–982 (arXiv v3 pp. 2–14)",
+   "status": "planned",
+   "planned": [
+    "ModularityAndLanglandsExtensions:ML.4"
+   ],
+   "note": "Planned in ML.4 as in PAPER-CHENEVIER-TAIBI-20 (item arthur-selfdual-types): Arthur's classification rests on this dichotomy. The analytic theory of the exterior and symmetric square L-functions (Bump–Friedberg, Jacquet–Shalika, Shahidi, Bump–Ginzburg) is cited; AL.3 plans the Rankin–Selberg pole. Partial L-functions are meant throughout."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/strong-multiplicity-one",
+   "kind": "theorem",
+   "name": "Strong multiplicity one for isobaric representations",
+   "statement": "Two isobaric sums of cuspidal automorphic representations of general linear groups whose local components are isomorphic at almost all places are equal: their cuspidal constituents agree, with multiplicities (Jacquet–Shalika, Amer. J. Math. 103 (1981), Th. 4.4).",
+   "locator": "Proofs of Propositions 3.1 and 4.1, pp. 978–980 (arXiv v3 pp. 11–12)",
+   "status": "missing",
+   "note": "Used to show the A-parameter of Proposition 3.1 is unique, and to compare the two weak lifts (4.1) and (4.2) in Proposition 4.1. AL.3 plans Rankin–Selberg theory with its poles; this consequence is not planned anywhere (R16.4 plans only the GL_2 case)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/partial-l-function",
+   "kind": "definition",
+   "name": "The partial standard L-function of a genuine representation relative to ψ",
+   "statement": "Let π = ⊗_v π_v be an irreducible genuine representation of Mp_2n(A), unramified outside a finite set S of places containing the archimedean and dyadic places and those where ψ_v is not of order zero. L^S_ψ(s, π) = ∏_{v∉S} L(s, ϕ_v), where ϕ_v : L_{F_v} → Sp_2n(C) is the L-parameter of π_v relative to ψ_v (Remark 5.3) composed with the standard representation of Sp_2n(C). For π occurring in L²_disc(Mp_2n), L^S_ψ(s, π) is holomorphic for Re s > n + 1 (Yamana, Invent. Math. 196, Th. 9.1).",
+   "locator": "Proof of Proposition 3.1, (3.3); proof of Lemma 6.8, pp. 977–997 (arXiv v3 pp. 10–25)",
+   "status": "planned",
+   "planned": [
+    "AutomorphicLFunctionsAndLocalFactors:AL.4"
+   ],
+   "note": "AL.4 builds partial Euler products from Satake classes, with convergence where an eigenvalue bound is supplied. The ψ-relative parameter is item rmk-5-3."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/weil-representation",
+   "kind": "construction",
+   "name": "The Weil representation of Mp_2n × O(V)",
+   "statement": "For F local and ψ a nontrivial additive character of F, (Mp_2n, O(V)) is a reductive dual pair and ω_ψ is the Weil representation of Mp_2n × O(V) with respect to ψ. For F a number field and ψ a nontrivial character of F\\A, ω_ψ is the Weil representation of Mp_2n(A) × O(V)(A), and for f ∈ ω_ψ the theta function θ(f)(g, h) is a slowly increasing function on Sp_2n(F)\\Mp_2n(A) × O(V)(F)\\O(V)(A).",
+   "locator": "§2.2, pp. 974–975 (arXiv v3 p. 8)",
+   "status": "planned",
+   "planned": [
+    "MetaplecticAutomorphicForms:MP.2",
+    "MetaplecticAutomorphicForms:MP.3",
+    "MetaplecticAutomorphicForms:MP.4",
+    "MetaplecticAutomorphicForms:MP.5"
+   ],
+   "note": "MP.2 gives the explicit formulas, MP.3 the dual-pair embeddings and splittings (odd-dimensional V gives a genuine action of Mp_2n), MP.4 the adelic Weil representation and MP.5 theta series and their growth."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/big-theta",
+   "kind": "construction",
+   "name": "Big and small theta lifts",
+   "statement": "For π ∈ Irr Mp_2n, the maximal π-isotypic quotient of ω_ψ has the form π ⊠ Θ_ψ(π) for a smooth representation Θ_ψ(π) of O(V); θ_ψ(π) is its unique irreducible quotient when Θ_ψ(π) ≠ 0 (Howe duality), regarded as a representation of SO(V) by restriction, which stays irreducible by (2.1). Θ_ψ(σ̃) and θ_ψ(σ̃) are defined in the same way for σ̃ ∈ Irr O(V).",
+   "locator": "§2.2, p. 974 (arXiv v3 p. 8)",
+   "status": "planned",
+   "planned": [
+    "MetaplecticAutomorphicForms:MP.3"
+   ],
+   "note": "MP.3 defines big theta modules by coinvariants and small theta quotients 'when justified'. The justification is Howe duality (item howe-duality)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/howe-duality",
+   "kind": "theorem",
+   "name": "Howe duality",
+   "statement": "Let F be a local field of characteristic zero. For π ∈ Irr Mp_2n with Θ_ψ(π) ≠ 0, Θ_ψ(π) has a unique irreducible quotient θ_ψ(π), and θ_ψ(π) ≅ θ_ψ(π′) ≠ 0 implies π ≅ π′; likewise for O(V) (Howe, J. Amer. Math. Soc. 2 (1989), archimedean; Waldspurger, p ≠ 2; Gan–Takeda, J. Amer. Math. Soc. 29 (2016), in general).",
+   "locator": "§2.2, p. 974 (arXiv v3 p. 8)",
+   "status": "missing",
+   "note": "Used to define θ_ψ and for the injectivity in Remark 3.2, Proposition 4.4 and Lemma 6.9. MP.3 says a full Howe-duality theorem in all residual characteristics is 'a separately source-qualified extension'; Gan–Takeda is that source."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/conservation-relation",
+   "kind": "theorem",
+   "name": "The conservation relation and θ_ψ(σ) for SO(V)",
+   "statement": "Let dim V = 2r + 1 with r ≥ n, and σ ∈ Irr SO(V). There is at most one extension σ̃ of σ to O(V) = SO(V) × {±1} with θ_ψ(σ̃) ≠ 0 on Mp_2n (Sun–Zhu, J. Amer. Math. Soc. 28 (2015)). If it exists one puts θ_ψ(σ) = θ_ψ(σ̃); otherwise θ_ψ(σ) = 0.",
+   "locator": "§2.2, p. 974 (arXiv v3 p. 8)",
+   "status": "missing",
+   "note": "This is how theta lifts from SO(V), rather than O(V), to Mp_2n are defined throughout the paper."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/unramified-theta",
+   "kind": "theorem",
+   "name": "The theta correspondence for unramified representations",
+   "statement": "Let F be nonarchimedean of odd residual characteristic and ψ of order zero, and let V be split of dimension 2r + 1 with r ≥ n. If π ∈ Irr Mp_2n is unramified with L-parameter ϕ relative to ψ, then θ_ψ(π) is unramified with L-parameter ϕ ⊕ ⊕_{j=1}^{2r−2n} |·|^{r−n+1/2−j} (3.2); for r = n it is ϕ.",
+   "locator": "Proof of Proposition 3.1, (3.2); proof of Corollary 4.2; Remark 5.3, pp. 977–989 (arXiv v3 pp. 10–20)",
+   "status": "missing",
+   "note": "Cited throughout as 'the local theta correspondence for unramified representations', with no reference. Routed to MP.3 as in PAPER-CHENEVIER-TAIBI-20 (item rallis-unramified)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/induction-principle",
+   "kind": "theorem",
+   "name": "Kudla's induction principle",
+   "statement": "If π_0 ∈ Irr Mp_2n0 and σ_0 ∈ Irr SO(V_0) correspond under the theta correspondence for (Mp_2n0, SO(V_0)), then for V = H^k ⊕ V_0, a parabolic P ⊂ Sp_2n with Levi GL_k × Sp_2n0, a parabolic Q ⊂ SO(V) with Levi GL_k × SO(V_0), and τ ∈ Irr GL_k, there is a nonzero Mp_2n × SO(V)-equivariant map ω_ψ → Ind_P̃^{Mp_2n}(τ̃_ψ ⊗ π_0) ⊗ Ind_Q^{SO(V)}(τ ⊗ σ_0) (Kudla, Invent. Math. 83 (1986); Adams–Barbasch, J. Funct. Anal. 132, Cor. 3.21, and Compos. Math. 113, Th. 8.4). The paper applies it to (Mp_2n, SO_2r+1) in the stable range with σ_0 a member σ_{η′_0} of an A-packet.",
+   "locator": "Proof of Lemma 6.3, p. 992 (arXiv v3 p. 21)",
+   "status": "missing",
+   "note": "The paper says the principle 'easily extends to the case at hand' and gives no argument (sourceIssues E2)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/mvw-involution",
+   "kind": "theorem",
+   "name": "The MVW involution and contragredients",
+   "statement": "For irreducible genuine π of Mp_2n, the contragredient π^∨ is isomorphic to the image of π under the involution of Mœglin–Vignéras–Waldspurger (LNM 1291; Sun, Pacific J. Math. 249 (2011)). Taking contragredients and applying this involution turns a surjection Ind_P̃^{Mp_2n}((τ^∨ ⊗ χ_ψ) ⊗ π_0) ↠ π′ into an injection π′ ↪ Ind_P̃^{Mp_2n}(τ̃_ψ ⊗ π_0).",
+   "locator": "Proof of Lemma 5.2, p. 989 (arXiv v3 p. 19)",
+   "status": "missing",
+   "note": "Only the consequence displayed is used, in the included proof of the nonarchimedean case of Lemma 5.2."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/kudla-filtration",
+   "kind": "theorem",
+   "name": "Kudla's filtration of the Jacquet modules of ω_ψ",
+   "statement": "For a maximal parabolic subgroup of O(V) (or of Mp_2n) with Levi factor GL_k × O(V_0), the Jacquet module of ω_ψ has Kudla's filtration, whose successive quotients are induced from Weil representations of smaller dual pairs (Gan–Savin, Compos. Math. 148, Prop. 7.3).",
+   "locator": "Proof of Lemma 5.2, p. 988 (arXiv v3 p. 19)",
+   "status": "planned",
+   "planned": [
+    "MetaplecticAutomorphicForms:MP.3"
+   ],
+   "note": "MP.3 plans 'Jacquet filtrations'. The surjection the paper derives from the filtration and Gan–Savin's Lemma 7.4 is part of item lemma-5-2 (sourceIssues E1)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/local-shimura",
+   "kind": "theorem",
+   "name": "The local Shimura correspondence",
+   "statement": "Let F be a local field of characteristic zero and ψ a nontrivial additive character of F. The theta lift relative to ψ gives a bijection θ_ψ : Irr Mp_2n ↔ ⊔_V Irr SO(V), the union over isometry classes of (2n + 1)-dimensional quadratic spaces V over F with trivial discriminant (for F nonarchimedean, Irr SO(V⁺) ⊔ Irr SO(V⁻)): Gan–Savin for F nonarchimedean, Adams–Barbasch for F archimedean. θ_ψ preserves square-integrability and temperedness; it is compatible with the theory of R-groups (modulo square-integrable representations) and with the Langlands classification (modulo tempered representations); it preserves genericity of tempered representations; and it preserves L- and ε-factors, Plancherel measures and formal degrees (Gan–Ichino, Invent. Math. 195). For tempered σ_0, Θ_ψ(σ_0) = θ_ψ(σ_0).",
+   "locator": "§1.2 and §5.3, pp. 968–989 (arXiv v3 pp. 3–19)",
+   "status": "missing",
+   "note": "The last sentence is used in the proof of Lemma 5.2 ('Θ_ψ(σ_0) = θ_ψ(σ_0) = π_0 by [24]')."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/llc-so-split",
+   "kind": "theorem",
+   "name": "The local Langlands correspondence for split SO_2n+1",
+   "statement": "For F local of characteristic zero (Arthur), Irr SO_2n+1(F) = ⊔_φ Π_φ(SO_2n+1), the union over equivalence classes of L-parameters φ : L_F → Sp_2n(C), with Π_φ(SO_2n+1) in bijection with the characters η of S_φ with η(z_φ) = 1 (F nonarchimedean or C). σ ∈ Π_φ is square-integrable if and only if φ is good and multiplicity-free, and tempered if and only if φ is tempered. For φ = ϕ ⊕ ϕ^∨ ⊕ φ_0 as in (5.2), σ_η is an irreducible subquotient of Ind_Q^{SO_2n+1}(τ ⊗ σ_{η_0}), and for tempered φ the packet consists of the irreducible summands of these induced representations.",
+   "locator": "§1.2 and §5.2, pp. 969–987 (arXiv v3 pp. 4–18)",
+   "status": "planned",
+   "planned": [
+    "ModularityAndLanglandsExtensions:ML.4"
+   ],
+   "note": "Arthur's book; for real groups the correspondence is Langlands–Shelstad. The Vogan-packet version over all V is item llc-so-inner."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/llc-so-inner",
+   "kind": "theorem",
+   "name": "The local Langlands correspondence for SO(V) over all V (Vogan packets)",
+   "statement": "Let F be local of characteristic zero. There are a partition Irr SO(V) = ⊔_φ Π_φ(SO(V)) and bijections ⊔_V Π_φ(SO(V)) ↔ Ŝ_φ (5.3), the first union over equivalence classes of 2n-dimensional symplectic representations φ of L_F, the second over isometry classes of (2n + 1)-dimensional quadratic spaces V over F with trivial discriminant (Arthur for SO(V⁺); Mœglin–Renard for SO(V⁻); Langlands and Shelstad for F = R). σ_η ∈ Π_φ(SO(V)) is square-integrable if and only if φ is good and multiplicity-free, and tempered if and only if φ is tempered. Ŝ_{φ,V} ⊂ {η ∈ Ŝ_φ | η(z_φ) = ε(V)}, with equality when F is nonarchimedean or F = C. Π_φ(SO(V)) = ∅ unless the F-rank of SO(V) is at least k, where φ = ϕ ⊕ ϕ^∨ ⊕ φ_0 as in (5.2); then V = H^k ⊕ V_0 and σ_η is an irreducible subquotient of Ind_Q^{SO(V)}(τ ⊗ σ_{η_0}).",
+   "locator": "§1.2 and §5.2, (5.3), pp. 969–987 (arXiv v3 pp. 4–18)",
+   "status": "missing",
+   "note": "ML.4 names Arthur, Mok and Kaletha–Minguez–Shin–White but not the odd orthogonal inner forms. Mœglin–Renard (arXiv:1803.07662; LNM 2221) give the full tempered classification for non-quasi-split groups in the p-adic case. Ishimoto (IMRN 2024, Th. 3.14) proves the local classification with the local intertwining relation and the endoscopic character relations for generic parameters. Routed to ML.4 as PAPER-CHENEVIER-TAIBI-20 routed Mœglin–Renard."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/local-parameters",
+   "kind": "definition",
+   "name": "Symplectic, good, tempered and almost tempered parameters; S_φ and z_φ",
+   "statement": "Let F be local and φ a 2n-dimensional symplectic representation of L_F, φ = ⊕_i m_i φ_i (5.1) with φ_i pairwise distinct irreducible. φ is good if every φ_i is symplectic; tempered if every φ_i is tempered; almost tempered if φ_i|·|^{−s_i} is tempered for some s_i ∈ R with |s_i| < 1/2, for all i. An irreducible symplectic φ is tempered, so a good φ is tempered, and every localization of a global generic elliptic A-parameter for Mp_2n is almost tempered. φ = ϕ ⊕ ϕ^∨ ⊕ φ_0 (5.2), where ϕ is k-dimensional with no symplectic irreducible summand, φ_0 = ⊕_{i∈I_0} m_i φ_i (I_0 = {i | φ_i symplectic}) is 2n_0-dimensional and good, and k + n_0 = n. The component group S_φ of the centralizer of the image of φ in Sp_2n(C) is ⊕_{i∈I_0} (Z/2Z)a_i, z_φ (the image of −1) is (m_i a_i), and S_{φ_0} = S_φ.",
+   "locator": "§5.1, (5.1)–(5.2), pp. 985–986 (arXiv v3 pp. 16–17)",
+   "status": "missing",
+   "note": "'Almost tempered' for localizations of global generic parameters uses the bound |s_i| < 1/2 on the exponents of local components of unitary cuspidal representations of GL_{n_i} (Jacquet–Shalika), which the paper uses without citation."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/llc-mp",
+   "kind": "theorem",
+   "name": "The local Langlands correspondence for Mp_2n relative to ψ",
+   "statement": "Composing θ_ψ with the local Langlands correspondence for the groups SO(V) gives a partition Irr Mp_2n = ⊔_φ Π_{φ,ψ}(Mp_2n) over equivalence classes of 2n-dimensional symplectic representations φ of L_F, and bijections Π_{φ,ψ}(Mp_2n) ↔ Ŝ_φ, π_η ↔ η ((1.2), (5.4)), which depend on ψ as described in Gan–Savin, Th. 12.1. π ∈ Π_{φ,ψ} is square-integrable if and only if φ is good and multiplicity-free, and tempered if and only if φ is tempered. For φ = ϕ ⊕ ϕ^∨ ⊕ φ_0, P ⊂ Sp_2n with Levi GL_k × Sp_2n0 and τ ↔ ϕ, π_η is an irreducible subquotient of Ind_P̃^{Mp_2n}(τ̃_ψ ⊗ π_{η_0}); for tempered φ, Π_{φ,ψ}(Mp_2n) consists of the irreducible summands of Ind_P̃^{Mp_2n}(τ̃_ψ ⊗ π_0), π_0 ∈ Π_{φ_0,ψ}(Mp_2n0).",
+   "locator": "§1.2 and §5.3, (1.2), (5.4), pp. 969–988 (arXiv v3 pp. 4–19)",
+   "status": "missing",
+   "note": "§1.5: the packets are defined through θ_ψ, so the endoscopic character relations are not known a priori. They were proved by Adams and Renard for F = R, and by Luo (J. reine angew. Math. 768 (2020)) for F nonarchimedean, using W.-W. Li's stable trace formula for Mp_2n and this paper's main result."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/metaplectic-induction",
+   "kind": "construction",
+   "name": "Parabolic induction on Mp_2n and the character χ_ψ",
+   "statement": "For a parabolic subgroup P = MN of Sp_2n with M ≅ ∏_i GL_{k_i} × Sp_2n0, P̃ and M̃ are the preimages of P and M in Mp_2n (locally or adelically). For τ ∈ Irr GL_k, τ̃_ψ = τ ⊗ χ_ψ is its twist by the genuine quartic character χ_ψ of the two-fold cover of GL_k (Gan–Ichino, Invent. Math. 195, §2.6), and genuine irreducible representations of M̃ have the form (⊗_i τ̃_{i,ψ}) ⊗ π_0. Globally χ_ψ is the genuine quartic automorphic character of the cover of GL_{k_i}(A).",
+   "locator": "Proof of Proposition 4.1 and §5.3, pp. 979–988 (arXiv v3 pp. 12–19)",
+   "status": "missing",
+   "note": "MP.3 plans the splitting characters of dual pairs but not parabolic subgroups of the cover or χ_ψ. SR.2 plans induction and Jacquet functors for linear groups; the paper also uses the analogous adelic induction Ind_{P̃(A)}^{Mp_2n(A)}."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/lemma-5-1",
+   "kind": "theorem",
+   "name": "Lemma 5.1 (irreducibility for SO(V))",
+   "statement": "Let φ = ϕ ⊕ ϕ^∨ ⊕ φ_0 be almost tempered, V = H^k ⊕ V_0, Q ⊂ SO(V) a parabolic subgroup with Levi GL_k × SO(V_0) and τ ∈ Irr GL_k associated to ϕ. Then Ind_Q^{SO(V)}(τ ⊗ σ_0) is irreducible for every σ_0 ∈ Π_{φ_0}(SO(V_0)).",
+   "locator": "§5.2, Lemma 5.1, p. 987 (arXiv v3 p. 18)",
+   "status": "missing",
+   "note": "Proof: for tempered φ, the bijectivity of (5.3) and S_{φ_0} = S_φ. Otherwise, by induction in stages, the case 0 < |s_i| < 1/2 with σ_0 tempered: Speh–Vogan for F archimedean; for F nonarchimedean, Mœglin–Waldspurger (Astérisque 347, §2.14) together with the conjecture of Gross–Prasad and Rallis, proved in Gan–Ichino, Invent. Math. 206, App. B."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/lemma-5-2",
+   "kind": "theorem",
+   "name": "Lemma 5.2 (irreducibility for Mp_2n)",
+   "statement": "If φ is almost tempered, then Ind_P̃^{Mp_2n}(τ̃_ψ ⊗ π_0) is irreducible for every π_0 ∈ Π_{φ_0,ψ}(Mp_2n0).",
+   "locator": "§5.3, Lemma 5.2, pp. 988–989 (arXiv v3 p. 19)",
+   "status": "missing",
+   "note": "For tempered φ this follows from the bijectivity of (5.4). Otherwise, by induction in stages, τ has exponents 0 < |s_i| < 1/2 and π_0 is tempered. F = C: Speh–Vogan. F = R: Gan–Ichino, Tunisian J. Math. 1 (2019). F nonarchimedean: Atobe, Math. Ann. 371, Th. 3.13. The paper also includes a proof for F nonarchimedean: σ = Ind_Q^{SO(V)}(τ ⊗ θ_ψ(π_0)) is irreducible by Lemma 5.1 and equals θ_ψ(π′) for the Langlands quotient π′; Kudla's filtration and Gan–Savin's Lemma 7.4 give a surjection Ind_P̃((τ^∨ ⊗ χ_ψ) ⊗ π_0) ↠ π′; the MVW involution gives π′ ↪ Ind_P̃(τ̃_ψ ⊗ π_0); and π′ occurs in the standard module only once (Ban–Jantzen). That proof applies Gan–Savin's Lemma 7.4 for s > −1/2 without argument (sourceIssues E1)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/langlands-quotient-covers",
+   "kind": "theorem",
+   "name": "The Langlands quotient theorem for finite central covers",
+   "statement": "For a standard module of Mp_2n over a nonarchimedean field, its unique irreducible (Langlands) quotient occurs in it with multiplicity one (Ban–Jantzen, Glas. Mat. 48 (2013), Remark 4.5).",
+   "locator": "Proof of Lemma 5.2, p. 989 (arXiv v3 p. 19)",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/rmk-5-3",
+   "kind": "theorem",
+   "name": "Remark 5.3 (unramified genuine representations)",
+   "statement": "Let F be nonarchimedean of odd residual characteristic, ψ of order zero, and K = Sp_2n(O) ⊂ Mp_2n via the standard splitting. An irreducible genuine π with a nonzero K-fixed vector is the unique unramified subquotient of Ind_B̃^{Mp_2n}(χ_ψ|·|^{s_1} ⊗ ⋯ ⊗ χ_ψ|·|^{s_n}) (5.5) for some s_1, …, s_n ∈ C, and its L-parameter relative to ψ is ⊕_{i=1}^n (|·|^{s_i} ⊕ |·|^{−s_i}). (5.5) is irreducible if |Re s_i| < 1/2 for all i, and it is unitary if, for each i, either s_i ∈ √−1 R or s_i ∈ R with |s_i| < 1/2 (Lapid–Muić–Tadić, IMRN 2004, Lemma 3.3).",
+   "locator": "§5.3, Remark 5.3, (5.5), p. 989 (arXiv v3 pp. 19–20)",
+   "status": "missing",
+   "note": "Irreducibility is shown in the proof of Lemma 5.2. The proof of Corollary 4.2 also uses that the unramified representations π_{φ_v} are unitary, citing Tadić's classification of the unitary dual of GL_n and this remark."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/arthur-local-packets",
+   "kind": "theorem",
+   "name": "Arthur's local A-packets of SO_2r+1",
+   "statement": "To a local A-parameter φ′ : L_F × SL_2(C) → Sp_2r(C), with S_φ′ the component group of its centralizer, z_φ′ the image of −1 and S̄_φ′ = S_φ′/⟨z_φ′⟩, Arthur attaches Π_φ′(SO_2r+1) = {σ_η′ | η′ ∈ (S̄_φ′)^}, σ_η′ a possibly zero, possibly reducible semisimple representation of finite length; if φ′ is generic it is the L-packet of φ′. The associated L-parameter is ϕ_φ′(w) = φ′(w, diag(|w|^{1/2}, |w|^{−1/2})) (5.6). For φ′ = ϕ ⊕ ϕ^∨ ⊕ φ′_0, σ_η′ is the semisimplification of Ind_Q′^{SO_2r+1}(τ ⊗ σ_{η′_0}). By Arthur, Prop. 7.4.1, the member of the L-packet Π_{ϕ_φ′} attached to the trivial character of S_{ϕ_φ′} is a summand of the member of Π_φ′ attached to the trivial character of S̄_φ′.",
+   "locator": "§4.3, §5.4 and proofs of Lemmas 6.4, 6.8, 6.11, pp. 981–998 (arXiv v3 pp. 13–27)",
+   "status": "planned",
+   "planned": [
+    "ModularityAndLanglandsExtensions:ML.4"
+   ],
+   "note": "Arthur gives no explicit description of σ_η′ for non-generic φ′; the paper uses Mœglin's explicit construction for the properties it needs (items lemma-5-5 and prop-5-4)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/lemma-5-5",
+   "kind": "theorem",
+   "name": "Lemma 5.5 (irreducibility for A-packets of SO_2r+1)",
+   "statement": "Let φ′ = φ ⊕ S_{2r−2n} with φ a 2n-dimensional almost tempered symplectic representation of L_F, 2n < r − 1, φ = ϕ ⊕ ϕ^∨ ⊕ φ_0 and φ′_0 = φ_0 ⊕ S_{2r−2n}. Then Ind_Q′^{SO_2r+1}(τ ⊗ σ′_0) is irreducible for every irreducible subrepresentation σ′_0 of every representation in the A-packet Π_{φ′_0}(SO_2r−2k+1), where Q′ ⊂ SO_2r+1 is a parabolic subgroup with Levi GL_k × SO_2r−2k+1 and τ ∈ Irr GL_k is associated to ϕ.",
+   "locator": "§5.4, Lemma 5.5, p. 990 (arXiv v3 p. 20)",
+   "status": "missing",
+   "note": "Proved in greater generality by Mœglin ('Multiplicité 1 dans les paquets d'Arthur aux places p-adiques', §3.2; Adv. Math. 228 (2011), Prop. 5.1) for F nonarchimedean, and by Mœglin–Renard (Contemp. Math. 691, §6) for F = C. For F = R it is proved in Gan–Ichino, Tunisian J. Math. 1 (2019), by the Kazhdan–Lusztig algorithm, using that σ′_0 has half-integral infinitesimal character (Bergeron–Clozel, Invent. Math. 192, Lemme 3.4)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/prop-5-4",
+   "kind": "theorem",
+   "name": "Proposition 5.4",
+   "statement": "Let φ be a 2n-dimensional almost tempered symplectic representation of L_F and φ′ = φ ⊕ S_{2r−2n} with 2n < r − 1. Then σ_η′ is nonzero and irreducible for every η′ ∈ (S̄_φ′)^, and Π_φ′(SO_2r+1) is multiplicity-free, that is, the σ_η′ are pairwise distinct.",
+   "locator": "§5.4, Proposition 5.4, p. 990 (arXiv v3 p. 20)",
+   "status": "missing",
+   "note": "Largely due to Mœglin (F nonarchimedean), Mœglin and Mœglin–Renard (F = C), and Arancibia–Mœglin–Renard and Mœglin–Renard (F = R, φ good); Xu (Canad. J. Math. 69) expounds Mœglin's results. The paper proves it in §6 by theta lifts, together with Proposition 6.1. For F = R its proof uses the multiplicity formula (6.1) for non-split SO(V), which the paper assumes and Ishimoto later proved (item amf-nonsplit)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/a-parameters",
+   "kind": "definition",
+   "name": "Elliptic A-parameters for Mp_2n and their localizations",
+   "statement": "An elliptic A-parameter for Mp_2n is a formal unordered finite sum φ = ⊕_i φ_i ⊠ S_{d_i} (1.1), where φ_i is an irreducible self-dual cuspidal automorphic representation of GL_{n_i}(A) and S_{d_i} the d_i-dimensional irreducible representation of SL_2(C), such that Σ_i n_i d_i = 2n; φ_i is symplectic if d_i is odd and orthogonal if d_i is even; and (φ_i, d_i) = (φ_j, d_j) implies i = j. φ is generic if every d_i = 1. Its localization φ_v = ⊕_i φ_{i,v} ⊠ S_{d_i}, with φ_{i,v} regarded as a representation of L_{F_v} (the Weil group if v is archimedean, the Weil–Deligne group otherwise), is a local A-parameter L_{F_v} × SL_2(C) → Sp_2n(C) with L-parameter ϕ_{φ_v}(w) = φ_v(w, diag(|w|^{1/2}, |w|^{−1/2})).",
+   "locator": "§1.1, (1.1), pp. 966–968 (arXiv v3 pp. 2–3)",
+   "status": "planned",
+   "planned": [
+    "ModularityAndLanglandsExtensions:ML.4"
+   ],
+   "note": "These are exactly Arthur's elliptic A-parameters for SO_2n+1 ('elliptic A-parameters for SO(V) (or equivalently those for Mp_2r)', §3.1); PAPER-JIANG-ZHANG-20 marks Arthur's global parameters as planned in ML.4. What is new for Mp_2n is the ψ-relative localization of representations (items llc-mp, rmk-5-3)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/arthur-global-so",
+   "kind": "theorem",
+   "name": "Arthur's decomposition and multiplicity formula for split SO_2r+1",
+   "statement": "Let F be a number field. (a) L²_disc(SO_2r+1) = ⊕_φ′ L²_φ′(SO_2r+1), the sum over elliptic A-parameters φ′ for SO_2r+1, where L²_φ′(SO_2r+1) is a full near equivalence class of irreducible representations σ in L²_disc(SO_2r+1) such that the L-parameter of σ_v is ϕ_{φ′_v} for almost all v. (b) Write φ′ = ⊕_i φ_i ⊠ S_{d_i}, S_φ′ = ⊕_i (Z/2Z)a′_i and S̄_φ′ = S_φ′/Δ(Z/2Z), with the canonical maps S̄_φ′ → S̄_{φ′_v}, the compact group S̄_{φ′,A} = ∏_v S̄_{φ′_v} and the diagonal map Δ, and let ε_φ′ be Arthur's quadratic character of S̄_φ′ (Arthur, (1.5.6)). For η′ = ⊗_v η′_v put σ_η′ = ⊗_v σ_{η′_v}. Then L²_φ′(SO_2r+1) ≅ ⊕_{η′ ∈ (S̄_{φ′,A})^} m_η′ σ_η′ with m_η′ = 1 if Δ*η′ = ε_φ′ and 0 otherwise (4.5) (Arthur, Th. 1.5.2).",
+   "locator": "§3.1 and §4.3, (4.5), pp. 976–982 (arXiv v3 pp. 10–14)",
+   "status": "planned",
+   "planned": [
+    "ModularityAndLanglandsExtensions:ML.4"
+   ],
+   "note": "Arthur's classification rests on Ngô's fundamental lemma and the stabilization of the twisted trace formula (Mœglin–Waldspurger); ML.4 owns these source dependencies. §3.1 notes that (a) is expected for non-split SO(V) too."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/amf-nonsplit",
+   "kind": "theorem",
+   "name": "Arthur's multiplicity formula for non-split SO(V), generic parameters",
+   "statement": "Let F be a number field and V a (2n + 1)-dimensional quadratic space over F with trivial discriminant. L²_disc(SO(V)) decomposes into near equivalence classes L²_Φ(SO(V)) indexed by elliptic A-parameters Φ, as for split groups (§3.1). Let Φ be a generic elliptic A-parameter for SO(V), with global component group S_Φ, canonical maps S_Φ → S_{Φ_v} and diagonal map Δ : S_Φ → S_{Φ,A}. For η = ⊗_v η_v ∈ Ŝ_{Φ,A} with η_v ∈ Ŝ_{Φ_v,V_v} for all v, let Σ_η = ⊗_v Σ_{η_v}, Σ_{η_v} the representation of SO(V)(F_v) attached to η_v by the local Langlands correspondence (5.3). Then L²_Φ(SO(V)) ≅ ⊕_η m_η Σ_η (6.1), the sum over continuous characters η of S_{Φ,A} with η_v ∈ Ŝ_{Φ_v,V_v} for all v, where m_η = 1 if Δ*η = 1 and 0 otherwise. In particular L²_Φ(SO(V)) is multiplicity-free and m_disc(Σ_η) = m_η.",
+   "locator": "§6.2, (6.1); §1.3 and §3.1, pp. 970–993 (arXiv v3 pp. 5–23)",
+   "status": "missing",
+   "note": "The paper assumes (6.1) when SO(V) is not split ('which has not been established if SO(V) is nonsplit but will be assumed in this paper'); Theorem 1.4 is stated under this hypothesis. Ishimoto, 'The endoscopic classification of representations of non-quasi-split odd special orthogonal groups', IMRN 2024 (arXiv:2301.12143), proves it for generic parameters (Th. 3.14 with Th. 3.13), and says that the result of Gan–Ichino on the generic part 'will be unconditional'. ML.4 is told to 'preserve any source-specific conditional hypotheses until the exact missing result and applicable replacement are verified', which is this case."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/global-component-group",
+   "kind": "definition",
+   "name": "The global component group S_φ, the representations π_η and ε_φ",
+   "statement": "Let φ = ⊕_i φ_i be a generic elliptic A-parameter for Mp_2n (pairwise distinct irreducible symplectic cuspidal φ_i of GL_{n_i}(A)). S_φ = ⊕_i (Z/2Z)a_i is the free Z/2Z-module with basis {a_i}, a_i ↔ φ_i. For each place v there is a canonical map S_φ → S_{φ_v}; S_{φ,A} = ∏_v S_{φ_v} is a compact group with diagonal map Δ : S_φ → S_{φ,A}, and Ŝ_{φ,A} = ⊕_v Ŝ_{φ_v} is its group of continuous characters. For η = ⊗_v η_v ∈ Ŝ_{φ,A} (η_v trivial and π_{η_v} unramified for almost all v), π_η = ⊗_v π_{η_v} with π_{η_v} ∈ Π_{φ_v,ψ_v}(Mp_2n) attached to η_v. ε_φ is the quadratic character of S_φ with ε_φ(a_i) = ε(1/2, φ_i) ∈ {±1}, the root number of φ_i.",
+   "locator": "§1.3, pp. 969–970 (arXiv v3 pp. 4–5)",
+   "status": "missing",
+   "note": "The paper also remarks that π_η is expected to be tempered, by the Ramanujan conjecture for general linear groups."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/rank",
+   "kind": "definition",
+   "name": "Rank of unitary representations; low rank",
+   "statement": "The rank of a unitary representation, defined by Howe for symplectic groups and extended by J.-S. Li to classical groups: following Li (Compositio Math. 71, §4), an irreducible unitary representation of SO_2r+1 is of low rank if its rank, which is necessarily even, is less than r − 1.",
+   "locator": "§2.3, p. 975 (arXiv v3 p. 8)",
+   "status": "missing",
+   "note": "Howe, 'On a notion of rank for unitary representations of the classical groups' (1982); Li, 'On the classification of irreducible low rank unitary representations of classical groups', Compositio Math. 71 (1989)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/stable-range-local",
+   "kind": "theorem",
+   "name": "Local theta lifts in the stable range (J.-S. Li)",
+   "statement": "Assume 2n < r − 1, so that (Mp_2n, SO_2r+1) is in the stable range (Li, Invent. Math. 97, Def. 5.1), and let F be local. For every π ∈ Irr Mp_2n the theta lift θ_ψ(π) to SO_2r+1 is nonzero, and if π is unitary so is θ_ψ(π) (Li, Invent. Math. 97). The map (π, χ) ↦ θ_ψ(π) ⊗ (χ ∘ ν) is a bijection (2.2) from {irreducible genuine unitary representations of Mp_2n} × {quadratic characters of F^×} onto {irreducible unitary representations of SO_2r+1 of rank 2n} (Li, Compositio Math. 71).",
+   "locator": "§2.3, (2.2), p. 975 (arXiv v3 pp. 8–9)",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/rank-global",
+   "kind": "theorem",
+   "name": "Global rank and theta lifts (Howe; J.-S. Li)",
+   "statement": "Let F be a number field, 2n < r − 1, and σ = ⊗_v σ_v an irreducible unitary representation of SO_2r+1(A) occurring as a subrepresentation of A(SO_2r+1). The following are equivalent (Howe, LNM 880; Li, Amer. J. Math. 119, Lemma 3.2): σ is of rank 2n; σ_v is of rank 2n for all v; σ_v is of rank 2n for some v. In that case, for each v there are a unique irreducible genuine unitary π_v of Mp_2n(F_v) and a unique quadratic character χ_v of F_v^× with σ_v ≅ θ_{ψ_v}(π_v) ⊗ (χ_v ∘ ν); χ_v is unramified for almost all v and χ = ⊗_v χ_v is automorphic (Li, Amer. J. Math. 119, Prop. 5.7). Hence π_v is unramified for almost all v, and σ ≅ θ^abs_ψ(π) ⊗ (χ ∘ ν) for the abstract representation π = ⊗_v π_v of Mp_2n(A).",
+   "locator": "§2.3, pp. 975–976 (arXiv v3 p. 9)",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/li-inequalities",
+   "kind": "theorem",
+   "name": "Theorem 2.1 (J.-S. Li)",
+   "statement": "Let F be a number field and assume 2n < r − 1. For an irreducible genuine unitary representation π of Mp_2n(A) with abstract theta lift θ^abs_ψ(π) to SO_2r+1(A): m_disc(π) ≤ m_disc(θ^abs_ψ(π)) ≤ m(θ^abs_ψ(π)) ≤ m(π).",
+   "locator": "§2.4, Theorem 2.1, p. 976 (arXiv v3 p. 9)",
+   "status": "missing",
+   "note": "J.-S. Li, 'Automorphic forms with degenerate Fourier coefficients', Amer. J. Math. 119 (1997). The paper's key tool: it lifts square-integrable, not necessarily cuspidal, representations of Mp_2n(A) to SO_2r+1(A), and back via Fourier–Jacobi coefficients."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/abstract-theta",
+   "kind": "definition",
+   "name": "The abstract theta lift",
+   "statement": "Let F be a number field and π = ⊗_v π_v an abstract irreducible genuine representation of Mp_2n(A) such that the local theta lift θ_{ψ_v}(π_v) to SO(V)(F_v) is nonzero for all v. Then θ_{ψ_v}(π_v) is irreducible for all v and unramified for almost all v, and θ^abs_ψ(π) = ⊗_v θ_{ψ_v}(π_v) is an abstract irreducible representation of SO(V)(A). The abstract lifts θ^abs_ψ(σ) from SO(V)(A) to Mp_2n(A), and ϑ^abs_ψ between Mp_2n(A) and SO_2r+1(A), are defined in the same way.",
+   "locator": "§2.2, p. 975 (arXiv v3 p. 8)",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/automorphic-theta",
+   "kind": "construction",
+   "name": "The global theta lift of a cuspidal representation",
+   "statement": "For an irreducible genuine cuspidal automorphic representation π of Mp_2n(A), Θ^aut_ψ(π) is the subspace of A(SO(V)) spanned by the automorphic forms θ(f, ϕ)(h) = ∫_{Sp_2n(F)\\Mp_2n(A)} θ(f)(g, h) ϕ(g) dg for f ∈ ω_ψ and ϕ ∈ π; the global theta lift from SO(V)(A) to Mp_2n(A) of a cuspidal representation, and Θ^aut_{V,Ψ}(V) for a realization V of π, are defined in the same way.",
+   "locator": "§2.2, p. 975 (arXiv v3 p. 8)",
+   "status": "planned",
+   "planned": [
+    "MetaplecticAutomorphicForms:MP.5"
+   ],
+   "note": "MP.5: 'Prove convergence of the theta lift where used.' Cusp forms decay rapidly, so these integrals converge."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/kudla-rallis-irreducibility",
+   "kind": "theorem",
+   "name": "Irreducibility of square-integrable global theta lifts",
+   "statement": "If Θ^aut_ψ(π) is nonzero and contained in A²(SO(V)), then Θ^aut_ψ(π) is irreducible and Θ^aut_ψ(π) ≅ θ^abs_ψ(π) (Kudla–Rallis, Ann. of Math. 140 (1994), Cor. 7.1.3).",
+   "locator": "§2.2, p. 975 (arXiv v3 p. 8)",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/tower-property",
+   "kind": "theorem",
+   "name": "The tower property and cuspidality of global theta lifts",
+   "statement": "Let Φ be a generic elliptic A-parameter for Mp_2n and V ⊂ A_cusp(Mp_2n) a realization of an irreducible summand Π of L²_{Φ,Ψ}(Mp_2n). For every (2n + 1)-dimensional quadratic space V over F with trivial discriminant, the global theta lift Θ^aut_{V,Ψ}(V) to SO(V)(A) is cuspidal (possibly zero). The same holds for global theta lifts from SO(V)(A) to Mp_2n(A) of cuspidal representations in L²_Φ(SO(V)).",
+   "locator": "Proofs of Lemmas 6.8 and 6.10, pp. 996–998 (arXiv v3 pp. 25–26)",
+   "status": "missing",
+   "note": "The paper deduces this 'from the tower property and the local theta correspondence for unramified representations' (Rallis): the earlier lifts in the Witt tower vanish because Φ is generic."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/rallis-inner-product",
+   "kind": "theorem",
+   "name": "The Rallis inner product formula and its consequences",
+   "statement": "(a) Let Π be an irreducible genuine cuspidal representation of Mp_2n(A) whose global theta lifts to the groups SO(V)(A), dim V = 2n + 1 with trivial discriminant, are cuspidal. If L^S_Ψ(1/2, Π) ≠ 0, the Rallis inner product formula (Kudla–Rallis; Gan–Qiu–Takeda, Invent. Math. 198; Yamana, Invent. Math. 196) and the local Shimura correspondence give a unique V such that Θ^aut_{V,Ψ}(V) ≠ 0 for every realization V of Π. (b) Conversely, if the global theta lift of Π to the split SO_2n+1(A) is nonzero and cuspidal, then L_ψ(1/2, Π) ≠ 0. (c) For cuspidal Σ in L²_Φ(SO(V)) with L(1/2, Φ) ≠ 0, the global theta lift Θ^aut_Ψ(Σ) to Mp_2n(A) is nonzero. (d) If Π is cuspidal, its global theta lift to SO_2r+1(A) in the stable range is nonzero and square-integrable.",
+   "locator": "§1.4; proofs of Lemmas 6.8 and 6.10 and of Proposition A.1, pp. 971–1002 (arXiv v3 pp. 5–29)",
+   "status": "missing",
+   "note": "(a) is in the proof of Lemma 6.8, (b) in the proof of Proposition A.1, (c) in the proof of Lemma 6.10, and (d) in §1.4, where it motivates J.-S. Li's method; (d) is not used in the proofs. The paper does not state the formula itself."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/multiplicity-preservation",
+   "kind": "theorem",
+   "name": "Multiplicity preservation (Gan)",
+   "statement": "In the situation of the proof of Lemma 6.8 (Π cuspidal, V the unique space with nonzero global theta lifts, all of them cuspidal), the abstract theta lift Σ = θ^abs_{V,Ψ}(Π) satisfies m_disc(Σ) ≥ m_cusp(Σ) = m_cusp(Π) (Gan, 'The Saito–Kurokawa space of PGSp_4 and its transfer to inner forms', Progr. Math. 258, Prop. 2.6).",
+   "locator": "Proof of Lemma 6.8, p. 997 (arXiv v3 p. 25)",
+   "status": "missing",
+   "note": "Stated as used; the hypotheses of Gan's Proposition 2.6 were not read."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/furusawa",
+   "kind": "theorem",
+   "name": "Nonvanishing and genericity of the lift of generic cusp forms (Furusawa)",
+   "statement": "If Π is an irreducible genuine globally ψ-generic cuspidal automorphic representation of Mp_2n(A) whose global theta lift Σ = Θ^aut_ψ(Π) to the split SO_2n+1(A) is cuspidal, then Σ is nonzero and globally generic (Furusawa, J. reine angew. Math. 466 (1995)).",
+   "locator": "Proof of Proposition A.1, p. 1002 (arXiv v3 p. 29)",
+   "status": "missing",
+   "note": "Stated as used ('By [15], Σ is nonzero and globally generic'). Hence Σ is irreducible."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/jiang-soudry-supercuspidal",
+   "kind": "theorem",
+   "name": "Supercuspidality of the local theta lift of a descent",
+   "statement": "For π_{v_0} the descent to Mp_2n(F_{v_0}) of an irreducible supercuspidal τ_{v_0} of GL_2n(F_{v_0}) with L(s, τ_{v_0}, ∧²) having a pole at s = 0, θ_{ψ_{v_0}}(π_{v_0}) is supercuspidal (Jiang–Soudry, Ann. of Math. 157, Th. 2.2).",
+   "locator": "Proof of Proposition A.1, p. 1002 (arXiv v3 p. 29)",
+   "status": "missing",
+   "note": "Stated as used, so that the global theta lift in Proposition A.1 is cuspidal."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/discrete-spectrum",
+   "kind": "definition",
+   "name": "The genuine discrete spectrum and multiplicities",
+   "statement": "L²_disc(Mp_2n) is the discrete spectrum of the unitary representation L²(Mp_2n) of Mp_2n(A). For an irreducible genuine representation π of Mp_2n(A): m(π) = dim Hom_{Mp_2n(A)}(π, A(Mp_2n)), m_disc(π) = dim Hom(π, A²(Mp_2n)) and m_cusp(π) = dim Hom(π, A_cusp(Mp_2n)), so m_cusp(π) ≤ m_disc(π) ≤ m(π); likewise m(σ), m_disc(σ), m_cusp(σ) for representations σ of SO(V)(A).",
+   "locator": "§1.1, §2.4 and §4.1, pp. 966–979 (arXiv v3 pp. 2–11)",
+   "status": "missing",
+   "note": "AS.4 plans the discrete spectrum for linear groups; MP.8 warns that linear-group spectral results are not automatic for covers."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/near-equivalence",
+   "kind": "definition",
+   "name": "Near equivalence",
+   "statement": "Two irreducible representations π = ⊗_v π_v and π′ = ⊗_v π′_v of Mp_2n(A) are nearly equivalent if π_v ≅ π′_v for almost all places v. A near equivalence class in L²_disc(Mp_2n) gives L-parameters ϕ_v : L_{F_v} → Sp_2n(C) for almost all v, such that for every irreducible summand π of the class the L-parameter of π_v relative to ψ_v is ϕ_v for almost all v.",
+   "locator": "§1.1 and §3.2, pp. 966–977 (arXiv v3 pp. 2–10)",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/prop-3-1",
+   "kind": "theorem",
+   "name": "Proposition 3.1 (the A-parameter of a near equivalence class)",
+   "statement": "Let C be a near equivalence class contained in L²_disc(Mp_2n), with L-parameters ϕ_v. There is a unique elliptic A-parameter φ for Mp_2n with ϕ_{φ_v} = ϕ_v for almost all v.",
+   "locator": "§3.2, Proposition 3.1, pp. 977–978 (arXiv v3 pp. 10–11)",
+   "status": "missing",
+   "note": "Proof: fix r > 2n + 1 and π in C. Theorem 2.1 puts θ^abs_ψ(π) in L²_disc(SO_2r+1), which Arthur attaches to an elliptic A-parameter φ′. By (3.1) and (3.3), L^S(s, θ^abs_ψ(π)) = L^S_ψ(s, π) ∏_{j=1}^{2r−2n} ζ^S(s + r − n + 1/2 − j) is holomorphic for Re s > r − n + 1/2 with a pole there, which forces φ′ = φ ⊕ S_{2r−2n}. Uniqueness is strong multiplicity one."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/thm-1-1",
+   "kind": "theorem",
+   "name": "Theorem 1.1 (decomposition into near equivalence classes)",
+   "statement": "Let F be a number field and fix a nontrivial additive character ψ of F\\A. Then L²_disc(Mp_2n) = ⊕_φ L²_{φ,ψ}(Mp_2n), where the sum runs over elliptic A-parameters φ for Mp_2n and L²_{φ,ψ}(Mp_2n) is a full near equivalence class of irreducible representations π in L²_disc(Mp_2n) such that the L-parameter of π_v (relative to ψ_v) is ϕ_{φ_v} for almost all places v of F.",
+   "locator": "§1.1, Theorem 1.1; proved in §3.2, pp. 967–978 (arXiv v3 pp. 3–11)",
+   "status": "missing",
+   "note": "Unconditional. L²_{φ,ψ}(Mp_2n) may be zero for some φ."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/rmk-1-2",
+   "kind": "theorem",
+   "name": "Remark 1.2 (no embedded eigenvalues)",
+   "statement": "Mp_2n has no embedded eigenvalues: every family of eigenvalues of the unramified Hecke algebras on the automorphic discrete spectrum of Mp_2n is distinct from those on the automorphic continuous spectrum of Mp_2n.",
+   "locator": "§1.1, Remark 1.2, p. 968 (arXiv v3 p. 3)",
+   "status": "missing",
+   "note": "The paper says it 'immediately follows from Theorem 1.1'; this is the analogue of Arthur's result for classical groups (Clay Math. Proc. 13), which Arthur needed as an input, whereas here it is deduced from the classification."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/rmk-1-3",
+   "kind": "theorem",
+   "name": "Remark 1.3 (dependence on ψ)",
+   "statement": "Let ψ_a(x) = ψ(ax) with a ∈ F^×. For φ = ⊕_i φ_i ⊠ S_{d_i} put φ_a = ⊕_i (φ_i ⊗ (χ_a ∘ det)) ⊠ S_{d_i}, where χ_a is the quadratic character of A^× attached to F(√a)/F. For every irreducible summand π of L²_{φ,ψ_a}(Mp_2n) the L-parameter of π_v relative to ψ_v is ϕ_{φ_{a,v}} for almost all v; hence L²_{φ,ψ_a}(Mp_2n) = L²_{φ_a,ψ}(Mp_2n).",
+   "locator": "§1.1, Remark 1.3, p. 968 (arXiv v3 p. 3)",
+   "status": "missing",
+   "note": "Stated without proof; it follows from the dependence of the unramified correspondence on ψ."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/rmk-3-2",
+   "kind": "theorem",
+   "name": "Remark 3.2 (embedding into L²_φ′(SO_2r+1))",
+   "statement": "Suppose L²_{φ,ψ}(Mp_2n) ≅ ⊕_π m_π π, the sum over irreducible genuine representations π of Mp_2n(A) with m_π the multiplicity of π in L²_{φ,ψ}(Mp_2n). If r > 2n + 1 and φ′ = φ ⊕ S_{2r−2n}, then ⊕_π m_π θ^abs_ψ(π) embeds in L²_φ′(SO_2r+1).",
+   "locator": "§3.2, Remark 3.2, p. 978 (arXiv v3 p. 11)",
+   "status": "missing",
+   "note": "From Theorem 2.1 and Howe duality. Corollary 4.2 shows the embedding is an isomorphism when φ is generic."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/rmk-3-3",
+   "kind": "theorem",
+   "name": "Remark 3.3 (multiplicity one over totally imaginary fields)",
+   "statement": "By Arthur's multiplicity formula (Th. 1.5.2), once local A-packets are known to be multiplicity-free, m_disc(σ) ≤ 1 for every irreducible representation σ of SO_2r+1(A). Local A-packets are multiplicity-free for F nonarchimedean (Mœglin) and F = C (Mœglin; Mœglin–Renard). Hence, by Theorem 2.1, L²_disc(Mp_2n) is multiplicity-free when F is totally imaginary.",
+   "locator": "§3.2, Remark 3.3, p. 978 (arXiv v3 p. 11)",
+   "status": "missing",
+   "note": "The real case was not fully known (Arancibia–Mœglin–Renard, Mœglin–Renard). This gives multiplicity one for the whole discrete spectrum over totally imaginary fields, including the non-generic part."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/cuspidal-support",
+   "kind": "theorem",
+   "name": "Non-cuspidal automorphic representations embed in induced representations",
+   "statement": "Let V ⊂ A(Mp_2n) realize an irreducible genuine π with V ⊄ A_cusp(Mp_2n), and let P = MN be a proper parabolic subgroup of Sp_2n, minimal such that the image V_P of V under the constant term map A(Mp_2n) → A_P(Mp_2n) is nonzero. Then V_P consists of cusp forms and π is a subrepresentation of Ind_{P̃(A)}^{Mp_2n(A)}(ρ) for an irreducible cuspidal automorphic representation ρ of M̃(A). Here A_P(Mp_2n) is the space of genuine automorphic forms on N(A)M(F)\\Mp_2n(A).",
+   "locator": "Proof of Proposition 4.1, pp. 979–980 (arXiv v3 p. 12)",
+   "status": "missing",
+   "note": "The paper cites '[44, p. 205]' for linear groups; the published reference list gives the wrong paper for [44] (sourceIssues E4). The argument is Langlands' in 'On the notion of an automorphic representation', for reductive groups; the paper applies it to the cover without comment. AF.3 plans constant terms and cusp forms for linear groups and MP.5 constant terms on the cover."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/prop-4-1",
+   "kind": "theorem",
+   "name": "Proposition 4.1 (the key equality)",
+   "statement": "Let φ be a generic elliptic A-parameter for Mp_2n and π an irreducible genuine representation of Mp_2n(A) such that the L-parameter of π_v (relative to ψ_v) is φ_v for almost all v. Then m_cusp(π) = m_disc(π) = m(π).",
+   "locator": "§4.1, Proposition 4.1, pp. 979–980 (arXiv v3 pp. 11–12)",
+   "status": "missing",
+   "note": "Proof: if a realization were not cuspidal, π ↪ Ind(ρ) with ρ ≅ (⊗_i τ̃_{i,ψ}) ⊗ π_0; by Proposition 3.1, π_0 has a weak lift τ_0, so π has the weak lift ⊞_i (τ_i ⊞ τ_i^∨) ⊞ τ_0 (4.1) as well as ⊞_i φ_i (4.2). Strong multiplicity one then gives a contradiction: each τ_i is non-self-dual or occurs at least twice, while the φ_i are self-dual and occur once."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/cor-4-2",
+   "kind": "theorem",
+   "name": "Corollary 4.2 (multiplicity preservation)",
+   "statement": "Let φ be a generic elliptic A-parameter for Mp_2n with L²_{φ,ψ}(Mp_2n) ≅ ⊕_π m_π π. If r > 2n + 1 and φ′ = φ ⊕ S_{2r−2n}, then L²_φ′(SO_2r+1) ≅ ⊕_π m_π θ^abs_ψ(π).",
+   "locator": "§4.2, Corollary 4.2, pp. 980–981 (arXiv v3 pp. 12–13)",
+   "status": "missing",
+   "note": "Proof: m_disc(π) = m_disc(θ^abs_ψ(π)) (4.3), by Theorem 2.1 and Proposition 4.1. Every σ in L²_φ′(SO_2r+1) is locally θ_ψ(π_{φ_v}) for almost all v (4.4), so it has rank 2n and σ ≅ θ^abs_ψ(π) ⊗ (χ ∘ ν). Comparing with the bijection (2.2) shows χ_v is trivial for almost all v, so χ = 1."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/lemma-4-3",
+   "kind": "theorem",
+   "name": "Lemma 4.3 (the sign character)",
+   "statement": "Let φ = ⊕_i φ_i be a generic elliptic A-parameter for Mp_2n, φ′ = φ ⊕ S_{2r−2n} with r > 2n + 1, S_φ′ = S_φ ⊕ (Z/2Z)a′_0, and ι : S_φ ↪ S_φ′ ↠ S̄_φ′ the natural isomorphism; put ε_φ = ι*ε_φ′. Then ε_φ(a_i) = ε(1/2, φ_i). Moreover, if L(1/2, φ) ≠ 0 then ε_φ is trivial.",
+   "locator": "§4.4, Lemma 4.3, pp. 982–983 (arXiv v3 pp. 14–15)",
+   "status": "missing",
+   "note": "Proof: in the decomposition Ad ∘ φ̃′ = (Ad ∘ φ̃) ⊕ (φ̃ ⊠ S_{2r−2n}) ⊕ S_3 ⊕ S_7 ⊕ ⋯ ⊕ S_{4r−4n−1}, only φ̃ ⊠ S_{2r−2n} = ⊕_i κ_i κ′_0 ⊠ Std_i ⊠ S_{2r−2n} contributes to Arthur's ε_φ′. If L(1/2, φ) = ∏_i L(1/2, φ_i) ≠ 0 then every ε(1/2, φ_i) = 1. The decomposition of Sym² S_{2r−2n} was checked."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/pi-tilde",
+   "kind": "construction",
+   "name": "The representations π̃_η transported from SO_2r+1",
+   "statement": "Let φ be a generic elliptic A-parameter for Mp_2n, φ′ = φ ⊕ S_{2r−2n} with r > 2n + 1, and ι_v : S_{φ_v} ↪ S_{φ′_v} ↠ S̄_{φ′_v} the natural isomorphism. For η′_v ∈ (S̄_{φ′_v})^ write σ_{η′_v} = ⊕_i m_{η′_v,i} σ_{η′_v,i} with pairwise distinct irreducible σ_{η′_v,i}, put η_v = ι*_v η′_v and π̃_{η_v} = ⊕_i m_{η′_v,i} θ_{ψ_v}(σ_{η′_v,i}), the theta lifts to Mp_2n(F_v). For η = ⊗_v η_v ∈ Ŝ_{φ,A}, π̃_η = ⊗_v π̃_{η_v} is a semisimple genuine representation of Mp_2n(A).",
+   "locator": "§4.4, p. 984 (arXiv v3 p. 15)",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/prop-4-4",
+   "kind": "theorem",
+   "name": "Proposition 4.4 (the multiplicity formula with transported packets)",
+   "statement": "Let φ be a generic elliptic A-parameter for Mp_2n. Then L²_{φ,ψ}(Mp_2n) ≅ ⊕_{η ∈ Ŝ_{φ,A}} m_η π̃_η, with m_η = 1 if Δ*η = ε_φ and 0 otherwise.",
+   "locator": "§4.4, Proposition 4.4, p. 984 (arXiv v3 p. 15)",
+   "status": "missing",
+   "note": "From Corollary 4.2, Howe duality and (4.5). Remark 4.5: π̃_η is not known a priori to be independent of r; this follows once π̃_η is described by the local Shimura correspondence (Proposition 6.1), a local statement the paper proves by a global argument."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/thm-1-4",
+   "kind": "theorem",
+   "name": "Theorem 1.4 (the multiplicity formula for Mp_2n)",
+   "statement": "Let F be a number field and φ a generic elliptic A-parameter for Mp_2n. Then L²_{φ,ψ}(Mp_2n) ≅ ⊕_{η ∈ Ŝ_{φ,A}} m_η π_η, where m_η = 1 if Δ*η = ε_φ and m_η = 0 otherwise. The paper proves this under the hypothesis that Arthur's result extends to non-split odd special orthogonal groups, in the form of the multiplicity formula (6.1); Ishimoto (IMRN 2024) has since proved (6.1) for generic parameters.",
+   "locator": "§1.3, Theorem 1.4; proved in §4.4 and §6, pp. 970–1001 (arXiv v3 pp. 5–29)",
+   "status": "missing",
+   "note": "Remark 1.5: the description is formally that of SO_2n+1, except that Δ*η = ε_φ replaces Δ*η = 1. For n = 1 the argument reproves the Shimura–Waldspurger correspondence for Mp_2 without Waldspurger's nonvanishing theorem for twisted central L-values."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/cor-1-6",
+   "kind": "theorem",
+   "name": "Corollary 1.6 (multiplicity one for the generic part)",
+   "statement": "The generic part of L²_disc(Mp_2n), defined as ⊕_φ L²_{φ,ψ}(Mp_2n) over generic elliptic A-parameters φ, is multiplicity-free.",
+   "locator": "§1.3, Corollary 1.6, p. 970 (arXiv v3 p. 5)",
+   "status": "missing",
+   "note": "An immediate consequence of Theorems 1.1 and 1.4, so subject to the same hypothesis as Theorem 1.4 (removed by Ishimoto). It generalizes Waldspurger's result for Mp_2 (J. Math. Pures Appl. 59 (1980), p. 131)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/prop-6-1",
+   "kind": "theorem",
+   "name": "Proposition 6.1 (comparison of local theta lifts)",
+   "statement": "Let F be a local field of characteristic zero, ψ a nontrivial additive character, φ a 2n-dimensional almost tempered symplectic representation of L_F, φ′ = φ ⊕ S_{2r−2n} with r > 2n + 1 and ι : S_φ ↪ S_φ′ ↠ S̄_φ′ the natural isomorphism. For every η′ ∈ (S̄_φ′)^, ϑ_ψ(σ_η′) = π_η with η = ι*η′, where ϑ_ψ is the theta lift from SO_2r+1 to Mp_2n (the stable-range pair) and π_η ∈ Π_{φ,ψ}(Mp_2n) is defined through the local Shimura correspondence.",
+   "locator": "§6, Proposition 6.1, p. 991 (arXiv v3 p. 21)",
+   "status": "missing",
+   "note": "With Proposition 5.4 this is what the global argument needs: π̃_η = π_η in Proposition 4.4. The proof is by induction on n (Lemmas 6.2–6.4) and a global argument for good parameters (Lemmas 6.8–6.12), which uses (6.1) for possibly non-split SO(V)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/lemma-6-2",
+   "kind": "theorem",
+   "name": "Lemma 6.2 (n = 0)",
+   "statement": "Propositions 5.4 and 6.1 hold for n = 0: φ′ = S_2r, Π_φ′(SO_2r+1) = {σ_1} with σ_1 trivial, and ϑ_ψ(σ_1) is the genuine 1-dimensional representation of Mp_0 = {±1}, which is also the theta lift of the trivial representation of SO_1 = {1}.",
+   "locator": "§6.1, Lemma 6.2, p. 991 (arXiv v3 p. 21)",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/lemma-6-3",
+   "kind": "theorem",
+   "name": "Lemma 6.3 (reduction to good parameters)",
+   "statement": "If Propositions 5.4 and 6.1 hold for all 2n_0-dimensional good symplectic representations of L_F for all n_0 < n, then they hold for all 2n-dimensional almost tempered non-good symplectic representations of L_F.",
+   "locator": "§6.1, Lemma 6.3, pp. 991–992 (arXiv v3 pp. 21–22)",
+   "status": "missing",
+   "note": "Proof: σ_η′ is the semisimplification of Ind_Q′(τ ⊗ σ_{η′_0}), irreducible by Lemma 5.5; the induction principle gives a nonzero map ω_ψ → Ind_P̃(τ̃_ψ ⊗ π_{η_0}) ⊗ Ind_Q′(τ ⊗ σ_{η′_0}), and Lemma 5.2 makes the first factor irreducible. Multiplicity-freeness transfers from Π_{φ,ψ}(Mp_2n). After this lemma the proof is complete for F = C, where no parameter is good."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/lemma-6-4",
+   "kind": "theorem",
+   "name": "Lemma 6.4 (the trivial character)",
+   "statement": "Let F be nonarchimedean or F = C and φ almost tempered. Let ϕ_φ′ be the L-parameter attached to φ′ by (5.6) and σ′ the member of the L-packet Π_{ϕ_φ′}(SO_2r+1) attached to the trivial character of S_{ϕ_φ′}. Then ϑ_ψ(σ′) = π_1, the member of Π_{φ,ψ}(Mp_2n) attached to the trivial character of S_φ.",
+   "locator": "§6.1, Lemma 6.4, p. 992 (arXiv v3 p. 22)",
+   "status": "missing",
+   "note": "For non-good φ: Arthur's Prop. 7.4.1 and Propositions 5.4 and 6.1 (known by Lemma 6.3). For good φ (so F nonarchimedean): σ′ is the Langlands quotient of Ind_Q′(|·|^{r−n−1/2} ⊗ |·|^{r−n−3/2} ⊗ ⋯ ⊗ |·|^{1/2} ⊗ σ), Q′ with Levi (GL_1)^{r−n} × SO_2n+1, σ ∈ Π_φ(SO_2n+1) attached to the trivial character; θ_ψ(σ) = π_1 on Mp_2n, and Gan–Takeda, Contemp. Math. 664, Prop. 3.2, gives ϑ_ψ(σ′) = π_1 (item gan-takeda-standard-module)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/gan-takeda-standard-module",
+   "kind": "theorem",
+   "name": "Theta lifts of Langlands quotients (Gan–Takeda)",
+   "statement": "Let F be nonarchimedean, σ an irreducible tempered representation of SO_2n+1 with θ_ψ(σ) = π on Mp_2n, and σ′ the unique irreducible quotient of Ind_Q′^{SO_2r+1}(|·|^{r−n−1/2} ⊗ ⋯ ⊗ |·|^{1/2} ⊗ σ), Q′ with Levi (GL_1)^{r−n} × SO_2n+1. Then the theta lift of σ′ to Mp_2n is π (Gan–Takeda, 'On the Howe duality conjecture in classical theta correspondence', Contemp. Math. 664, Prop. 3.2).",
+   "locator": "Proof of Lemma 6.4, p. 992 (arXiv v3 p. 22)",
+   "status": "missing",
+   "note": "Stated as used."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/lemma-6-8",
+   "kind": "theorem",
+   "name": "Lemma 6.8 (multiplicity one in the A-packet)",
+   "statement": "Let F be nonarchimedean or F = R, φ a 2n-dimensional good symplectic representation of L_F and φ′ = φ ⊕ S_{2r−2n} with r > 2n + 1. For an irreducible representation σ′ of SO_2r+1 and η′ ∈ (S̄_φ′)^ put m(σ′, η′) = dim Hom_{SO_2r+1}(σ′, σ_η′). Then m(σ′, η′) ≤ 1, with equality for at most one η′; that is, Π_φ′(SO_2r+1) is multiplicity-free.",
+   "locator": "§6.3, Lemma 6.8, pp. 995–997 (arXiv v3 pp. 24–26)",
+   "status": "missing",
+   "note": "Known from Mœglin for F nonarchimedean, but not fully for F = R. Proof: globalize with Corollary 6.7(i) at two places v_0, v_1; Arthur's formula (4.5) gives m_disc(Σ′) ≥ Σ_η′ m(σ′, η′)² > 0; lift to Mp_2n (Proposition 4.1, Corollary 4.2) and on to the unique SO(V) (Rallis inner product formula, multiplicity preservation); (6.1) gives m_disc(Σ) = 1. So 1 ≥ Σ_η′ m(σ′, η′)². V may be non-split, so the proof uses the hypothesis (6.1)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/lemma-6-9",
+   "kind": "theorem",
+   "name": "Lemma 6.9 (injectivity)",
+   "statement": "Let JH(Π_φ′(SO_2r+1)) be the set of equivalence classes of irreducible σ′ with m(σ′, η′) > 0 for some η′. The theta lift induces an injection ϑ_ψ : JH(Π_φ′(SO_2r+1)) ↪ Π_{φ,ψ}(Mp_2n).",
+   "locator": "§6.3, Lemma 6.9, p. 997 (arXiv v3 p. 26)",
+   "status": "missing",
+   "note": "The hypotheses are those of §6.3 (φ good, F nonarchimedean or R)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/lemma-6-10",
+   "kind": "theorem",
+   "name": "Lemma 6.10 (bijectivity)",
+   "statement": "The theta lift induces a bijection ϑ_ψ : JH(Π_φ′(SO_2r+1)) ↔ Π_{φ,ψ}(Mp_2n).",
+   "locator": "§6.3, Lemma 6.10, pp. 997–998 (arXiv v3 pp. 26–27)",
+   "status": "missing",
+   "note": "Surjectivity: for η′, globalize Σ_η on SO(V) at v_0, v_1 (the global V exists by the product formula), lift Σ to Mp_2n (nonzero and cuspidal because L(1/2, Φ) ≠ 0) and then to SO_2r+1 by Corollary 4.2. Uses (6.1)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/lemma-6-11",
+   "kind": "theorem",
+   "name": "Lemma 6.11 (irreducible good parameters)",
+   "statement": "If φ is irreducible (and good), Propositions 5.4 and 6.1 hold for φ.",
+   "locator": "§6.3, Lemma 6.11, pp. 998–999 (arXiv v3 pp. 27–28)",
+   "status": "missing",
+   "note": "Proof: #JH(Π_φ′(SO_2r+1)) = 2. If σ′_1 (the trivial character) were reducible, a global representation with components σ′ and σ′′ at v_0 and v_1 would force ε(V_{v_0})ε(V_{v_1}) = −1 while ε(V_v) = 1 elsewhere (Lemma 6.4), contradicting ∏_v ε(V_v) = 1. The same argument over Q (Proposition 6.6) settles the real case, where n = 1."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/lemma-6-12",
+   "kind": "theorem",
+   "name": "Lemma 6.12 (reducible good parameters)",
+   "statement": "If φ is reducible (and good), Propositions 5.4 and 6.1 hold for φ.",
+   "locator": "§6.3, Lemma 6.12, p. 1000 (arXiv v3 p. 28)",
+   "status": "missing",
+   "note": "Proof: globalize with Corollary 6.7(ii) so that Φ_v is non-good for v ≠ v_0; choose ⊗_v ξ_v with ξ_{v_0} = η and (⊗_v ξ_v) ∘ Δ = 1 (6.2)–(6.3); (6.1) makes Σ = ⊗_v Σ_{ξ_v} automorphic; lifting twice and comparing (6.4), (6.5) gives ξ′_{v_0} = η′ (6.6)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/prop-6-5",
+   "kind": "theorem",
+   "name": "Proposition 6.5 (globalizing symplectic parameters)",
+   "statement": "Let F be a number field, S a nonempty finite set of nonarchimedean places and v_0 ∉ S a nonarchimedean place. For each v ∈ S let φ_v be a 2n-dimensional irreducible symplectic representation of L_{F_v}. Then there is an irreducible symplectic cuspidal automorphic representation Φ of GL_2n(A) such that Φ_v = φ_v for all v ∈ S; Φ_v is a sum of 1-dimensional representations for all nonarchimedean v ∉ S ∪ {v_0}; and L(1/2, Φ) ≠ 0 (Φ_v regarded as a representation of L_{F_v} through the local Langlands correspondence).",
+   "locator": "§6.2, Proposition 6.5; proved in Appendix A.1, pp. 993–1005 (arXiv v3 pp. 23–32)",
+   "status": "missing",
+   "note": "A refinement of the globalizations of Sakellaridis–Venkatesh (Astérisque 396, Th. 16.3.2) and Ichino–Lapid–Mao (Duke Math. J. 166, Cor. A.8). It follows from Proposition A.1, taking τ_{v_0} supercuspidal with symplectic parameter."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/prop-6-6",
+   "kind": "theorem",
+   "name": "Proposition 6.6 (globalizing 2-dimensional parameters)",
+   "statement": "Let F be totally real, S a finite set of places containing all archimedean places and v_0 ∉ S a nonarchimedean place. For each v ∈ S let φ_v be a 2-dimensional irreducible symplectic representation of L_{F_v}. Then there is an irreducible symplectic cuspidal automorphic representation Φ of GL_2(A) such that Φ_v = φ_v for all v ∈ S; Φ_v is a sum of 1-dimensional representations for all v ∉ S ∪ {v_0}; and L(1/2, Φ) ≠ 0.",
+   "locator": "§6.2, Proposition 6.6; proved in Appendix A.2, pp. 994–1008 (arXiv v3 pp. 23–35)",
+   "status": "missing",
+   "note": "Every irreducible symplectic representation of L_R is 2-dimensional. It follows from Proposition A.3."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/cor-6-7",
+   "kind": "theorem",
+   "name": "Corollary 6.7 (global parameters for the local argument)",
+   "statement": "Let F be a nonarchimedean local field of characteristic zero or F = R, and φ a 2n-dimensional good symplectic representation of L_F. (i) Let F be a totally imaginary number field (resp. a real quadratic field) if F is nonarchimedean (resp. F = R), with two distinct places v_0, v_1 such that F_{v_0} = F_{v_1} = F. There is a generic elliptic A-parameter Φ for Mp_2n with Φ_{v_0} = Φ_{v_1} = φ, such that the natural maps S_Φ → S_{Φ_{v_0}} and S_Φ → S_{Φ_{v_1}} agree, and L(1/2, Φ) ≠ 0. (ii) Assume φ is reducible, and let F be a totally imaginary number field (resp. F = Q) if F is nonarchimedean (resp. F = R), with a place v_0 such that F_{v_0} = F. There is a generic elliptic A-parameter Φ for Mp_2n with Φ_{v_0} = φ, Φ_v non-good for all v ≠ v_0, S_Φ → S_{Φ_{v_0}} surjective, S_Φ → ∏_{v≠v_0} S_{Φ_v} injective, and L(1/2, Φ) ≠ 0.",
+   "locator": "§6.2, Corollary 6.7, pp. 994–995 (arXiv v3 pp. 23–24)",
+   "status": "missing",
+   "note": "Proof: globalize each irreducible summand φ_i separately with Propositions 6.5 and 6.6, using auxiliary places S_i = {v_i, v′_i} where Φ_{i,v_i} is irreducible; this uses the existence of 2n_i-dimensional irreducible symplectic representations of L_{F_v} at every nonarchimedean v (item symplectic-supercuspidal-existence)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/symplectic-supercuspidal-existence",
+   "kind": "theorem",
+   "name": "Existence of irreducible symplectic parameters",
+   "statement": "For every nonarchimedean local field F_v of characteristic zero and every m ≥ 1 there is a 2m-dimensional irreducible symplectic representation of L_{F_v} (see Savin, J. Algebra 319 (2008), §2).",
+   "locator": "Proof of Corollary 6.7, p. 995 (arXiv v3 p. 24)",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/prop-a-1",
+   "kind": "theorem",
+   "name": "Proposition A.1 (globalizing square-integrable representations of GL_2n)",
+   "statement": "Let F be a number field, S a nonempty finite set of nonarchimedean places and v_0 ∉ S nonarchimedean. For each v ∈ S ∪ {v_0} let τ_v be an irreducible square-integrable representation of GL_2n(F_v) such that L(s, τ_v, ∧²) has a pole at s = 0, with τ_{v_0} supercuspidal. Then there is an irreducible cuspidal automorphic representation T of GL_2n(A) such that T_v = τ_v for all v ∈ S ∪ {v_0}; T_v is a principal series representation for all v ∉ S_∞ ∪ S ∪ {v_0}; L(s, T, ∧²) has a pole at s = 1; and L(1/2, T) ≠ 0.",
+   "locator": "Appendix A.1, Proposition A.1 and its proof, pp. 1001–1003 (arXiv v3 pp. 29–30)",
+   "status": "missing",
+   "note": "Proof: descend τ_v to ψ_v-generic square-integrable π_v of Mp_2n(F_v); globalize with Proposition A.2; lift Π to the split SO_2n+1(A) (cuspidal because θ(π_{v_0}) is supercuspidal; nonzero and generic by Furusawa); the Rallis inner product formula gives L_ψ(1/2, Π) ≠ 0; take T the functorial lift of Σ to GL_2n(A); Ichino–Lapid–Mao, Prop. 4.3, gives T_v = τ_v."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/prop-a-2",
+   "kind": "theorem",
+   "name": "Proposition A.2 (globalizing generic square-integrable representations of Mp_2n)",
+   "statement": "Let F be a number field, S a nonempty finite set of nonarchimedean places and v_0 ∉ S nonarchimedean. For each v ∈ S ∪ {v_0} let π_v be an irreducible genuine ψ_v-generic square-integrable representation of Mp_2n(F_v), with π_{v_0} supercuspidal and, if n = 1, not the odd Weil representation relative to ψ_{v_0}. Then there is an irreducible genuine globally ψ-generic cuspidal automorphic representation Π of Mp_2n(A) such that Π_v = π_v for all v ∈ S ∪ {v_0}, and Π_v is a principal series representation for all v ∉ S_∞ ∪ S ∪ {v_0}.",
+   "locator": "Appendix A.1, Proposition A.2 and its proof, pp. 1001–1005 (arXiv v3 pp. 29–32)",
+   "status": "missing",
+   "note": "Proof, following Sakellaridis–Venkatesh §16.4: Poincaré series P_f on Mp_2n(A) built from a matrix coefficient of π_{v_0}, wave packets of principal-series Bernstein components at an auxiliary set S_0, and K_v-invariant functions elsewhere, lie in the ψ-generic cuspidal spectrum and realize ⟨R_y f_S, f_S⟩, so π_S is weakly contained in ⊕_i Π_i; exponent bounds and isolation in the Fell topology then force π_S = Π_{i,S}. The isolation step invokes an unproved Mp_2n analogue of Ichino–Lapid–Mao's Lemma A.2 (sourceIssues E3)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/whittaker-mp",
+   "kind": "theorem",
+   "name": "Generic characters and uniqueness of Whittaker models for Mp_2n",
+   "statement": "Let N be the standard maximal unipotent subgroup of Sp_2n, embedded in Mp_2n(A) by the canonical splitting. A nontrivial character ψ of F\\A gives a generic character of N(F)\\N(A), again written ψ (Gan–Gross–Prasad, Astérisque 346, §12). The Whittaker–Fourier coefficient of an automorphic form ϕ on Mp_2n(A) is W_ϕ(g) = ∫_{N(F)\\N(A)} ϕ(xg) ψ(x) dx. By uniqueness of Whittaker models, the ψ-generic cuspidal spectrum L²_{cusp,ψ-gen}(Mp_2n), the orthogonal complement in L²_cusp of the genuine cusp forms with W_ϕ = 0, is multiplicity-free.",
+   "locator": "Appendix A.1, proof of Proposition A.2, pp. 1001–1003 (arXiv v3 pp. 29–30)",
+   "status": "missing",
+   "note": "MP.5 plans Fourier–Whittaker expansions on the cover; uniqueness of local Whittaker models for Mp_2n is not planned."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/ilm-globalization-inputs",
+   "kind": "theorem",
+   "name": "Exponent bounds and isolation for generic representations of Mp_2n",
+   "statement": "(a) If Π is an irreducible genuine ψ-generic cuspidal representation of Mp_2n(A) whose global theta lift to SO_2n+1(A) is cuspidal, then its component Π_S at a finite set S lies in Irr_{unit,ψ_S-gen,≤c} G_S, the irreducible genuine ψ_S-generic unitary representations of G_S = Mp_2n(F_S) with exponents bounded by c, for some 0 ≤ c < 1/2 (Ichino–Lapid–Mao, Prop. A.7; see p. 1328 there). (b) A square-integrable π_S is isolated in Irr_{unit,ψ_S-gen,≤c} G_S with respect to the Fell topology: the analogue for Mp_2n of Ichino–Lapid–Mao, Lemma A.2.",
+   "locator": "Appendix A.1, proof of Proposition A.2, p. 1005 (arXiv v3 p. 32)",
+   "status": "missing",
+   "note": "(b) is asserted for Mp_2n without proof (sourceIssues E3)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/prop-a-3",
+   "kind": "theorem",
+   "name": "Proposition A.3 (globalizing discrete series of GL_2 with L(1/2) ≠ 0)",
+   "statement": "Let F be totally real, S a finite set of places containing the archimedean places and v_0 ∉ S nonarchimedean. For each v ∈ S let τ_v be an irreducible square-integrable representation of GL_2(F_v) with trivial central character. Then there is an irreducible cuspidal automorphic representation T of GL_2(A) with trivial central character such that T_v = τ_v for all v ∈ S; T_v is a principal series representation for all v ∉ S ∪ {v_0}; and L(1/2, T) ≠ 0.",
+   "locator": "Appendix A.2, Proposition A.3 and its proof, pp. 1005–1006 (arXiv v3 pp. 32–33)",
+   "status": "missing",
+   "note": "Could be deduced from Waldspurger's nonvanishing theorem (Forum Math. 3, Th. 4) or Friedberg–Hoffstein; the paper instead uses torus periods, so that its main result is independent of that theorem. Proof: with S = S_∞ ∪ S_1 ∪ S_2 (S_2 the supercuspidal places), take D ramified exactly at S_0 = S_∞ ∪ S_1 (∪ {v_0} for parity), π_v the Jacquet–Langlands transfers and E/F totally imaginary quadratic with prescribed local behaviour, embedded in D; apply Proposition A.4 and Waldspurger's period theorem to get L(1/2, T) L(1/2, T × χ_E) ≠ 0."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/prop-a-4",
+   "kind": "theorem",
+   "name": "Proposition A.4 (globalizing distinguished representations)",
+   "statement": "With G = D^×/F^× and H = E^×/F^× as in Appendix A.2, there is an irreducible automorphic representation Π of G(A) such that Π_v = π_v for all v ∈ S; Π_v is a principal series representation for all v ∉ S ∪ {v_0}; Π is not 1-dimensional; and Π is globally H-distinguished: ∫_{H(F)\\H(A)} ϕ(h) dh ≠ 0 for some ϕ ∈ Π.",
+   "locator": "Appendix A.2, Proposition A.4 and its proof, pp. 1006–1008 (arXiv v3 pp. 33–35)",
+   "status": "missing",
+   "note": "Follows Prasad–Schulze-Pillot, J. reine angew. Math. 616, Th. 4.1, with a relative Poincaré series P_f on H(F)\\G(A). The paper uses their Lemma 4.4 at v ∈ S_∞, 'which continues to hold for v ∈ S_∞'; there G_v is compact, so an H_v-fixed vector gives the required matrix coefficient directly. 'Principal series' at v ∉ S ∪ {v_0}: Π_v is unramified, and generic because the Jacquet–Langlands transfer of Π is cuspidal."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/psp-lemma",
+   "kind": "theorem",
+   "name": "Matrix coefficients with nonzero relative projection (Prasad–Schulze-Pillot)",
+   "statement": "If π_v is an irreducible H_v-distinguished representation of G_v, there is a matrix coefficient f̃_v of π_v with (P_v f̃_v)(1) = ∫_{H_v} f̃_v(h) dh ≠ 0 (Prasad–Schulze-Pillot, Lemma 4.4); in the Mp_2n setting of Proposition A.2 the same lemma is used to normalize ⟨f_v, f_v⟩ = 1.",
+   "locator": "Appendix A.1 and A.2, proofs of Propositions A.2 and A.4, pp. 1004–1007 (arXiv v3 pp. 31–34)",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/toric-distinction",
+   "kind": "theorem",
+   "name": "Local toric distinction (A.1)",
+   "statement": "In the setting of Appendix A.2 (D ramified exactly at S_0, E/F with the prescribed local behaviour, π_v the Jacquet–Langlands transfer of τ_v), for every v ∈ S the representation π_v of G_v = D_v^×/F_v^× is H_v-distinguished: Hom_{H_v}(π_v, C) ≠ 0 (A.1).",
+   "locator": "Appendix A.2, (A.1), p. 1006 (arXiv v3 p. 33)",
+   "status": "planned",
+   "planned": [
+    "GrossZagierAndArithmeticHeights:GZ.4"
+   ],
+   "note": "Asserted without argument; it is the Saito–Tunnell criterion, planned in GZ.4. The cases were checked: at real places an odd-dimensional representation of H^×/R^× ≅ SO(3) has a vector of weight 0 for SO(2) ≅ C^×/R^×; at v ∈ S_1, χ_v ∘ ν_v is trivial on E_v^× because χ_v is trivial or χ_{E_v} by the choice of E_v; at v ∈ S_2, E_v is split and every infinite-dimensional irreducible representation of PGL_2(F_v) is distinguished by the split torus."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/waldspurger-toric-periods",
+   "kind": "theorem",
+   "name": "Waldspurger's theorem on toric periods",
+   "statement": "Let Π be an irreducible automorphic representation of G(A) = (D^×/F^×)(A), not 1-dimensional, that is globally H-distinguished for H = E^×/F^×, and T its Jacquet–Langlands transfer to GL_2(A). Then L(1/2, T) · L(1/2, T × χ_E) ≠ 0, where χ_E is the quadratic character of A^× attached to E/F (Waldspurger, Compos. Math. 54 (1985), Th. 2; Jacquet, Ann. Sci. ÉNS 19 (1986)).",
+   "locator": "Appendix A.2, p. 1007 (arXiv v3 p. 33)",
+   "status": "planned",
+   "planned": [
+    "GrossZagierAndArithmeticHeights:GZ.5"
+   ],
+   "note": "GZ.5 plans the Waldspurger period formula and the nonvanishing of toric periods 'exactly under the matching local distinction conditions and nonzero central L-value'."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/jacquet-langlands",
+   "kind": "theorem",
+   "name": "The Jacquet–Langlands correspondence",
+   "statement": "Local: for D_v a quaternion division algebra, irreducible square-integrable representations τ_v of GL_2(F_v) with trivial central character correspond to irreducible representations π_v of D_v^×/F_v^×: π_v is odd-dimensional if v is real, π_v = χ_v ∘ ν_v (χ_v quadratic, ν_v the reduced norm) if τ_v is a twist of the Steinberg representation, and π_v = τ_v where D is split. Global: for Π an irreducible automorphic representation of (D^×/F^×)(A) that is not 1-dimensional, its transfer T to GL_2(A) is cuspidal with trivial central character and T_v = Π_v wherever D_v is split.",
+   "locator": "Appendix A.2, pp. 1006–1007 (arXiv v3 p. 33)",
+   "status": "planned",
+   "planned": [
+    "GL2AutomorphicRepresentationsAndTransfer:R17.1",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3"
+   ],
+   "note": "R17.1 plans the explicit quaternionic local transfer; R17.3 the global transfer and its converse."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/ckpss-lift",
+   "kind": "theorem",
+   "name": "Functorial lift from SO_2n+1 to GL_2n of generic cusp forms",
+   "statement": "An irreducible globally generic cuspidal automorphic representation Σ of the split SO_2n+1(A) has a functorial lift T to GL_2n(A) with L(s, T, ∧²) having a pole at s = 1, L(1/2, T) = L(1/2, Σ), and T_v the local lift of Σ_v at every v (a principal series representation where Σ_v is one).",
+   "locator": "Proof of Proposition A.1, p. 1002 (arXiv v3 p. 30)",
+   "status": "missing",
+   "note": "The paper says 'We now take T to be the functorial lift of Σ to GL_2n(A)' without a reference; the standard sources are Cogdell–Kim–Piatetski-Shapiro–Shahidi (Publ. Math. IHÉS 99 (2004)) and Arthur's classification. Routed to ML.5 as in PAPER-BOXER-CALEGARI-GEE-25 (item ckpss-descent)."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/local-descent",
+   "kind": "theorem",
+   "name": "The local descent to Mp_2n",
+   "statement": "Let τ_v be an irreducible square-integrable representation of GL_2n(F_v) such that L(s, τ_v, ∧²) has a pole at s = 0. Its descent π_v to Mp_2n(F_v) relative to ψ_v (Ginzburg–Rallis–Soudry, J. Amer. Math. Soc. 12 (1999) and J. Inst. Math. Jussieu 1 (2002); Ichino–Lapid–Mao, Th. 3.1) is an irreducible genuine ψ_v-generic square-integrable representation, supercuspidal when τ_v is. If Π is a globally generic cuspidal representation of Mp_2n(A) with Π_v = π_v the descent of τ_v, and T is the functorial lift to GL_2n(A) of its theta lift Σ to SO_2n+1(A), then T_v = τ_v (Ichino–Lapid–Mao, Prop. 4.3).",
+   "locator": "Proof of Proposition A.1, p. 1002 (arXiv v3 pp. 29–30)",
+   "status": "missing",
+   "note": "Stated as used; the cited statements were not read. Supercuspidality of π_{v_0} is needed to apply Proposition A.2."
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "W. T. Gan and G. Savin, Representations of metaplectic groups I: epsilon dichotomy and local Langlands correspondence, Compos. Math. 148 (2012), 1655–1694",
+   "link": "https://doi.org/10.1112/S0010437X12000486",
+   "why": "The local Shimura correspondence for p-adic fields and the local Langlands correspondence for Mp_2n (items local-shimura, llc-mp); Proposition 7.3 and Lemma 7.4 are used in Lemma 5.2."
+  },
+  {
+   "citation": "J. Adams and D. Barbasch, Reductive dual pair correspondence for complex groups, J. Funct. Anal. 132 (1995), 1–42",
+   "link": "https://doi.org/10.1006/jfan.1995.1099",
+   "why": "The complex case of the local Shimura correspondence and of the induction principle."
+  },
+  {
+   "citation": "J. Adams and D. Barbasch, Genuine representations of the metaplectic group, Compos. Math. 113 (1998), 23–66",
+   "link": "https://doi.org/10.1023/A:1000450504919",
+   "why": "The real case of the local Shimura correspondence and of the induction principle."
+  },
+  {
+   "citation": "W. T. Gan and S. Takeda, A proof of the Howe duality conjecture, J. Amer. Math. Soc. 29 (2016), 473–493",
+   "link": "https://doi.org/10.1090/jams/839",
+   "why": "Howe duality in all residual characteristics (item howe-duality), the theorem MP.3 asks for."
+  },
+  {
+   "citation": "R. Howe, Transcending classical invariant theory, J. Amer. Math. Soc. 2 (1989), 535–552",
+   "link": "https://doi.org/10.1090/S0894-0347-1989-0985172-6",
+   "why": "Howe duality for archimedean fields."
+  },
+  {
+   "citation": "B. Sun and C.-B. Zhu, Conservation relations for local theta correspondence, J. Amer. Math. Soc. 28 (2015), 939–983",
+   "link": "https://doi.org/10.1090/S0894-0347-2014-00817-1",
+   "why": "At most one extension of σ to O(V) has a nonzero lift (item conservation-relation)."
+  },
+  {
+   "citation": "S. S. Kudla, On the local theta-correspondence, Invent. Math. 83 (1986), 229–255",
+   "link": "https://doi.org/10.1007/BF01388961",
+   "why": "The induction principle and the filtration of Jacquet modules of the Weil representation (items induction-principle, kudla-filtration)."
+  },
+  {
+   "citation": "C. Mœglin, M.-F. Vignéras and J.-L. Waldspurger, Correspondances de Howe sur un corps p-adique, Lecture Notes in Math. 1291 (1987)",
+   "link": "https://doi.org/10.1007/BFb0082712",
+   "why": "The MVW involution (item mvw-involution)."
+  },
+  {
+   "citation": "B. Sun, Dual pairs and contragredients of irreducible representations, Pacific J. Math. 249 (2011), 485–494",
+   "link": "https://doi.org/10.2140/pjm.2011.249.485",
+   "why": "The MVW involution computes contragredients."
+  },
+  {
+   "citation": "J.-S. Li, Singular unitary representations of classical groups, Invent. Math. 97 (1989), 237–255",
+   "link": "https://doi.org/10.1007/BF01389041",
+   "why": "The stable range, and unitarity of stable-range lifts (item stable-range-local)."
+  },
+  {
+   "citation": "J.-S. Li, On the classification of irreducible low rank unitary representations of classical groups, Compositio Math. 71 (1989), 29–48",
+   "link": "http://www.numdam.org/item/CM_1989__71_1_29_0/",
+   "why": "Rank for classical groups and the bijection (2.2) (items rank, stable-range-local)."
+  },
+  {
+   "citation": "J.-S. Li, Automorphic forms with degenerate Fourier coefficients, Amer. J. Math. 119 (1997), 523–578",
+   "link": "https://doi.org/10.1353/ajm.1997.0017",
+   "why": "Theorem 2.1 and the global rank statements (items li-inequalities, rank-global), the paper's main tool."
+  },
+  {
+   "citation": "S. S. Kudla and S. Rallis, A regularized Siegel–Weil formula: the first term identity, Ann. of Math. 140 (1994), 1–80",
+   "link": "https://doi.org/10.2307/2118540",
+   "why": "Irreducibility of square-integrable global theta lifts (Cor. 7.1.3) and the Rallis inner product formula."
+  },
+  {
+   "citation": "W. T. Gan, Y. Qiu and S. Takeda, The regularized Siegel–Weil formula (the second term identity) and the Rallis inner product formula, Invent. Math. 198 (2014), 739–831",
+   "link": "https://doi.org/10.1007/s00222-014-0509-0",
+   "why": "The Rallis inner product formula used in Lemmas 6.8 and 6.10 and Proposition A.1."
+  },
+  {
+   "citation": "S. Yamana, L-functions and theta correspondence for classical groups, Invent. Math. 196 (2014), 651–732",
+   "link": "https://doi.org/10.1007/s00222-013-0476-x",
+   "why": "The Rallis inner product formula, and holomorphy of L^S_ψ(s, π) for Re s > n + 1 (Th. 9.1)."
+  },
+  {
+   "citation": "W. T. Gan, The Saito–Kurokawa space of PGSp_4 and its transfer to inner forms, in Eisenstein Series and Applications, Progr. Math. 258 (2008), 87–123",
+   "link": "https://doi.org/10.1007/978-0-8176-4639-4_3",
+   "why": "Multiplicity preservation (Prop. 2.6), used in Lemma 6.8."
+  },
+  {
+   "citation": "W. T. Gan and S. Takeda, On the Howe duality conjecture in classical theta correspondence, Contemp. Math. 664 (2016), 105–117",
+   "link": "https://doi.org/10.1090/conm/664/13063",
+   "why": "Theta lifts of Langlands quotients (Prop. 3.2), used in Lemma 6.4."
+  },
+  {
+   "citation": "H. Atobe, The local theta correspondence and the local Gan–Gross–Prasad conjecture for the symplectic-metaplectic case, Math. Ann. 371 (2018), 225–295",
+   "link": "https://doi.org/10.1007/s00208-017-1620-5",
+   "why": "The nonarchimedean case of Lemma 5.2 (Th. 3.13)."
+  },
+  {
+   "citation": "W. T. Gan and A. Ichino, On the irreducibility of some induced representations of real reductive Lie groups, Tunisian J. Math. 1 (2019), 73–107",
+   "link": "https://doi.org/10.2140/tunis.2019.1.73",
+   "why": "The real cases of Lemmas 5.2 and 5.5."
+  },
+  {
+   "citation": "W. T. Gan and A. Ichino, Formal degrees and local theta correspondence, Invent. Math. 195 (2014), 509–672",
+   "link": "https://doi.org/10.1007/s00222-013-0460-5",
+   "why": "The character χ_ψ (§2.6), and preservation of formal degrees under θ_ψ."
+  },
+  {
+   "citation": "W. T. Gan and A. Ichino, The Gross–Prasad conjecture and local theta correspondence, Invent. Math. 206 (2016), 705–799",
+   "link": "https://doi.org/10.1007/s00222-016-0662-8",
+   "why": "Appendix B proves the conjecture of Gross–Prasad and Rallis used in Lemma 5.1."
+  },
+  {
+   "citation": "H. Ishimoto, The endoscopic classification of representations of non-quasi-split odd special orthogonal groups, Int. Math. Res. Not. IMRN 2024, no. 14, 10939–11012",
+   "link": "https://doi.org/10.1093/imrn/rnae113",
+   "why": "Proves the multiplicity formula (6.1) for generic parameters, which makes Theorem 1.4 unconditional (item amf-nonsplit; arXiv:2301.12143)."
+  },
+  {
+   "citation": "C. Mœglin and D. Renard, Sur les paquets d'Arthur des groupes classiques et unitaires non quasi-déployés, in Relative Aspects in Representation Theory, Langlands Functoriality and Automorphic Forms, Lecture Notes in Math. 2221 (2018), 341–361",
+   "link": "https://doi.org/10.1007/978-3-319-95231-4_8",
+   "why": "The local Langlands correspondence for SO(V⁻) (item llc-so-inner; arXiv:1803.07662)."
+  },
+  {
+   "citation": "C. Mœglin, Sur certains paquets d'Arthur et involution d'Aubert–Schneider–Stuhler généralisée, Represent. Theory 10 (2006), 86–129",
+   "link": "https://doi.org/10.1090/S1088-4165-06-00270-6",
+   "why": "Mœglin's construction of p-adic A-packets, behind Proposition 5.4 and Remark 3.3."
+  },
+  {
+   "citation": "C. Mœglin, Paquets d'Arthur discrets pour un groupe classique p-adique, Contemp. Math. 489 (2009), 179–257",
+   "link": "https://doi.org/10.1090/conm/489/09549",
+   "why": "Mœglin's construction of p-adic A-packets. Her 'Multiplicité 1 dans les paquets d'Arthur aux places p-adiques' (Clay Math. Proc. 13 (2011); no DOI found) gives the multiplicity one of Remark 3.3 and Lemma 6.8, and §3.2 of Lemma 5.5."
+  },
+  {
+   "citation": "C. Mœglin, Image des opérateurs d'entrelacements normalisés et pôles des séries d'Eisenstein, Adv. Math. 228 (2011), 1068–1134",
+   "link": "https://doi.org/10.1016/j.aim.2011.06.003",
+   "why": "Lemma 5.5 for p-adic fields (Prop. 5.1)."
+  },
+  {
+   "citation": "C. Mœglin and D. Renard, Paquets d'Arthur des groupes classiques complexes, Contemp. Math. 691 (2017), 203–256",
+   "link": "https://doi.org/10.1090/conm/691/13899",
+   "why": "Lemma 5.5 and multiplicity one for complex groups."
+  },
+  {
+   "citation": "C. Mœglin and J.-L. Waldspurger, La conjecture locale de Gross–Prasad pour les groupes spéciaux orthogonaux: le cas général, Astérisque 347 (2012), 167–216",
+   "link": "arXiv:1001.0826",
+   "why": "§2.14, used in Lemma 5.1."
+  },
+  {
+   "citation": "A. Ichino, E. Lapid and Z. Mao, On the formal degrees of square-integrable representations of odd special orthogonal and metaplectic groups, Duke Math. J. 166 (2017), 1301–1348",
+   "link": "https://doi.org/10.1215/00127094-0000001X",
+   "why": "The local descent (Th. 3.1), Prop. 4.3, Prop. A.7, Lemma A.2 and Cor. A.8, the model for Proposition A.2."
+  },
+  {
+   "citation": "Y. Sakellaridis and A. Venkatesh, Periods and harmonic analysis on spherical varieties, Astérisque 396 (2017)",
+   "link": "arXiv:1203.0039",
+   "why": "The globalization by Poincaré series (Th. 16.3.2, §16.4) that Proposition A.2 refines."
+  },
+  {
+   "citation": "D. Prasad and R. Schulze-Pillot, Generalised form of a conjecture of Jacquet and a local consequence, J. reine angew. Math. 616 (2008), 219–236",
+   "link": "https://doi.org/10.1515/CRELLE.2008.023",
+   "why": "The globalization of distinguished representations (Th. 4.1, Lemma 4.4) behind Proposition A.4."
+  },
+  {
+   "citation": "M. Furusawa, On the theta lift from SO_2n+1 to S̃p_n, J. reine angew. Math. 466 (1995), 87–110",
+   "link": "https://doi.org/10.1515/crll.1995.466.87",
+   "why": "Nonvanishing and genericity of the lift in Proposition A.1 (item furusawa)."
+  },
+  {
+   "citation": "D. Jiang and D. Soudry, The local converse theorem for SO(2n + 1) and applications, Ann. of Math. 157 (2003), 743–806",
+   "link": "https://doi.org/10.4007/annals.2003.157.743",
+   "why": "Supercuspidality of θ_ψ(π_{v_0}) (Th. 2.2) in Proposition A.1."
+  },
+  {
+   "citation": "D. Ginzburg, S. Rallis and D. Soudry, On a correspondence between cuspidal representations of GL_2n and Mp_2n, J. Amer. Math. Soc. 12 (1999), 849–907",
+   "link": "https://doi.org/10.1090/S0894-0347-99-00300-8",
+   "why": "The descent to Mp_2n (item local-descent)."
+  },
+  {
+   "citation": "D. Ginzburg, S. Rallis and D. Soudry, Endoscopic representations of Mp_2n, J. Inst. Math. Jussieu 1 (2002), 77–123",
+   "link": "https://doi.org/10.1017/S1474748002000026",
+   "why": "The descent to Mp_2n (item local-descent)."
+  },
+  {
+   "citation": "J. W. Cogdell, H. H. Kim, I. I. Piatetski-Shapiro and F. Shahidi, Functoriality for the classical groups, Publ. Math. IHÉS 99 (2004), 163–233",
+   "link": "https://doi.org/10.1007/s10240-004-0020-z",
+   "why": "The lift from SO_2n+1 to GL_2n used, without a reference, in Proposition A.1 (item ckpss-lift)."
+  },
+  {
+   "citation": "D. Ban and C. Jantzen, The Langlands quotient theorem for finite central extensions of p-adic groups, Glas. Mat. 48(68) (2013), 313–334",
+   "link": "https://doi.org/10.3336/gm.48.2.07",
+   "why": "Multiplicity one of Langlands quotients for the cover (item langlands-quotient-covers)."
+  },
+  {
+   "citation": "E. Lapid, G. Muić and M. Tadić, On the generic unitary dual of quasisplit classical groups, Int. Math. Res. Not. 2004, no. 26, 1335–1354",
+   "link": "https://doi.org/10.1155/S1073792804132832",
+   "why": "Unitarity of the principal series in Remark 5.3 (Lemma 3.3)."
+  },
+  {
+   "citation": "B. Speh and D. A. Vogan, Jr., Reducibility of generalized principal series representations, Acta Math. 145 (1980), 227–299",
+   "link": "https://doi.org/10.1007/BF02414191",
+   "why": "The archimedean cases of Lemmas 5.1 and 5.2."
+  },
+  {
+   "citation": "N. Bergeron and L. Clozel, Quelques conséquences des travaux d'Arthur pour le spectre et la topologie des variétés hyperboliques, Invent. Math. 192 (2013), 505–532",
+   "link": "https://doi.org/10.1007/s00222-012-0415-2",
+   "why": "Half-integral infinitesimal character (Lemme 3.4) in the real case of Lemma 5.5."
+  },
+  {
+   "citation": "G. Savin, Lifting of generic depth zero representations of classical groups, J. Algebra 319 (2008), 3244–3258",
+   "link": "https://doi.org/10.1016/j.jalgebra.2007.10.018",
+   "why": "Existence of irreducible symplectic parameters of every even dimension (§2), used in Corollary 6.7."
+  },
+  {
+   "citation": "H. Jacquet and J. A. Shalika, On Euler products and the classification of automorphic forms II, Amer. J. Math. 103 (1981), 777–815",
+   "link": "https://doi.org/10.2307/2374050",
+   "why": "Strong multiplicity one for isobaric representations (Th. 4.4) and the Rankin–Selberg pole (Prop. 3.6)."
+  },
+  {
+   "citation": "F. Shahidi, On certain L-functions, Amer. J. Math. 103 (1981), 297–355",
+   "link": "https://doi.org/10.2307/2374219",
+   "why": "Nonvanishing on Re s = 1 (Th. 5.1), used for the symplectic–orthogonal dichotomy."
+  },
+  {
+   "citation": "R. Ranga Rao, On some explicit formulas in the theory of Weil representation, Pacific J. Math. 157 (1993), 335–371",
+   "link": "https://doi.org/10.2140/pjm.1993.157.335",
+   "why": "The 2-cocycle realizing Mp_2n (item metaplectic-group)."
+  },
+  {
+   "citation": "C. Luo, Endoscopic character identities for metaplectic groups, J. reine angew. Math. 768 (2020), 1–37",
+   "link": "https://doi.org/10.1515/crelle-2019-0042",
+   "why": "Endoscopic character relations for the p-adic packets Π_{φ,ψ}(Mp_2n), proved using this paper (§1.5)."
+  },
+  {
+   "citation": "J. Adams, Lifting of characters on orthogonal and metaplectic groups, Duke Math. J. 92 (1998), 129–178",
+   "link": "https://doi.org/10.1215/S0012-7094-98-09203-1",
+   "why": "Endoscopic character relations for Mp_2n(R) (§1.5)."
+  },
+  {
+   "citation": "D. Renard, Endoscopy for Mp(2n, R), Amer. J. Math. 121 (1999), 1215–1243",
+   "link": "https://doi.org/10.1353/ajm.1999.0045",
+   "why": "Endoscopic character relations for Mp_2n(R) (§1.5)."
+  },
+  {
+   "citation": "J.-L. Waldspurger, Correspondances de Shimura et quaternions, Forum Math. 3 (1991), 219–307",
+   "link": "https://doi.org/10.1515/form.1991.3.219",
+   "why": "The Shimura–Waldspurger correspondence for Mp_2, the case n = 1 that the paper generalizes and reproves; Th. 4 is the nonvanishing theorem it avoids."
+  }
+ ],
+ "routes": [
+  {
+   "route": "part-ii",
+   "parent": "MetaplecticAutomorphicForms",
+   "roadmap": "MetaplecticAutomorphicFormsPartIIShimuraWaldspurger",
+   "title": "Metaplectic groups, Weil representations and automorphic theta kernels, Part II: theta correspondences and the Shimura–Waldspurger correspondence for Mp_2n",
+   "area": "automorphic",
+   "items": [
+    "PAPER-GAN-ICHINO-18/local-shimura",
+    "PAPER-GAN-ICHINO-18/local-parameters",
+    "PAPER-GAN-ICHINO-18/llc-mp",
+    "PAPER-GAN-ICHINO-18/metaplectic-induction",
+    "PAPER-GAN-ICHINO-18/lemma-5-2",
+    "PAPER-GAN-ICHINO-18/langlands-quotient-covers",
+    "PAPER-GAN-ICHINO-18/rmk-5-3",
+    "PAPER-GAN-ICHINO-18/prop-5-4",
+    "PAPER-GAN-ICHINO-18/global-component-group",
+    "PAPER-GAN-ICHINO-18/rank",
+    "PAPER-GAN-ICHINO-18/stable-range-local",
+    "PAPER-GAN-ICHINO-18/rank-global",
+    "PAPER-GAN-ICHINO-18/li-inequalities",
+    "PAPER-GAN-ICHINO-18/abstract-theta",
+    "PAPER-GAN-ICHINO-18/kudla-rallis-irreducibility",
+    "PAPER-GAN-ICHINO-18/tower-property",
+    "PAPER-GAN-ICHINO-18/rallis-inner-product",
+    "PAPER-GAN-ICHINO-18/multiplicity-preservation",
+    "PAPER-GAN-ICHINO-18/furusawa",
+    "PAPER-GAN-ICHINO-18/jiang-soudry-supercuspidal",
+    "PAPER-GAN-ICHINO-18/discrete-spectrum",
+    "PAPER-GAN-ICHINO-18/near-equivalence",
+    "PAPER-GAN-ICHINO-18/prop-3-1",
+    "PAPER-GAN-ICHINO-18/thm-1-1",
+    "PAPER-GAN-ICHINO-18/rmk-1-2",
+    "PAPER-GAN-ICHINO-18/rmk-1-3",
+    "PAPER-GAN-ICHINO-18/rmk-3-2",
+    "PAPER-GAN-ICHINO-18/rmk-3-3",
+    "PAPER-GAN-ICHINO-18/cuspidal-support",
+    "PAPER-GAN-ICHINO-18/prop-4-1",
+    "PAPER-GAN-ICHINO-18/cor-4-2",
+    "PAPER-GAN-ICHINO-18/lemma-4-3",
+    "PAPER-GAN-ICHINO-18/pi-tilde",
+    "PAPER-GAN-ICHINO-18/prop-4-4",
+    "PAPER-GAN-ICHINO-18/thm-1-4",
+    "PAPER-GAN-ICHINO-18/cor-1-6",
+    "PAPER-GAN-ICHINO-18/prop-6-1",
+    "PAPER-GAN-ICHINO-18/lemma-6-2",
+    "PAPER-GAN-ICHINO-18/lemma-6-3",
+    "PAPER-GAN-ICHINO-18/lemma-6-4",
+    "PAPER-GAN-ICHINO-18/gan-takeda-standard-module",
+    "PAPER-GAN-ICHINO-18/lemma-6-8",
+    "PAPER-GAN-ICHINO-18/lemma-6-9",
+    "PAPER-GAN-ICHINO-18/lemma-6-10",
+    "PAPER-GAN-ICHINO-18/lemma-6-11",
+    "PAPER-GAN-ICHINO-18/lemma-6-12",
+    "PAPER-GAN-ICHINO-18/prop-6-5",
+    "PAPER-GAN-ICHINO-18/prop-6-6",
+    "PAPER-GAN-ICHINO-18/cor-6-7",
+    "PAPER-GAN-ICHINO-18/symplectic-supercuspidal-existence",
+    "PAPER-GAN-ICHINO-18/prop-a-1",
+    "PAPER-GAN-ICHINO-18/prop-a-2",
+    "PAPER-GAN-ICHINO-18/whittaker-mp",
+    "PAPER-GAN-ICHINO-18/ilm-globalization-inputs",
+    "PAPER-GAN-ICHINO-18/prop-a-3",
+    "PAPER-GAN-ICHINO-18/prop-a-4",
+    "PAPER-GAN-ICHINO-18/psp-lemma"
+   ],
+   "brief": "A Part II of Metaplectic groups, Weil representations and automorphic theta kernels (MetaplecticAutomorphicForms): the local and global theta correspondence for the dual pairs (Mp_2n, O(V)) with V odd-dimensional, and its application to the automorphic discrete spectrum of Mp_2n, following Gan–Ichino, Ann. of Math. 188 (2018). Final theorems, as the paper states them. Theorem 1.1: for a number field F and a nontrivial additive character ψ of F\\A, L²_disc(Mp_2n) = ⊕_φ L²_{φ,ψ}(Mp_2n), the sum over elliptic A-parameters φ for Mp_2n, where L²_{φ,ψ}(Mp_2n) is a full near equivalence class of irreducible representations π in L²_disc(Mp_2n) such that the L-parameter of π_v (relative to ψ_v) is ϕ_{φ_v} for almost all places v. Theorem 1.4: for a generic elliptic A-parameter φ, L²_{φ,ψ}(Mp_2n) ≅ ⊕_{η ∈ Ŝ_{φ,A}} m_η π_η, with m_η = 1 if Δ*η = ε_φ and m_η = 0 otherwise, where ε_φ(a_i) = ε(1/2, φ_i). The paper assumes Arthur's multiplicity formula (6.1) for non-split SO_2n+1; Ishimoto (IMRN 2024) has proved it for generic parameters, and this extraction routes it to ML.4. State Theorem 1.4 with that input explicit. Corollary 1.6: the generic part ⊕_φ L²_{φ,ψ}(Mp_2n), over generic φ, is multiplicity-free. Proposition 6.1 (local): for F local of characteristic zero, φ almost tempered and φ′ = φ ⊕ S_{2r−2n} with r > 2n + 1, ϑ_ψ(σ_η′) = π_η with η = ι*η′. Proposition 5.4: the members σ_η′ of Π_φ′(SO_2r+1) are nonzero, irreducible and pairwise distinct. Cover, in this order: (1) local genuine representation theory of Mp_2n: parabolic induction through the preimages of parabolic subgroups, the character χ_ψ, Langlands quotients for the cover (Ban–Jantzen), unramified representations and their ψ-relative parameters (Remark 5.3), and local Whittaker models; (2) the local Shimura correspondence (Gan–Savin for p-adic fields, Adams–Barbasch for archimedean ones) and the local Langlands correspondence for Mp_2n relative to ψ, with good and almost tempered parameters and Lemma 5.2; (3) J.-S. Li's theory: rank, stable-range lifts and the bijection (2.2), global rank, and Theorem 2.1; (4) global theta lifts: abstract and automorphic lifts, Kudla–Rallis irreducibility, the tower property, the Rallis inner product formula (Kudla–Rallis, Gan–Qiu–Takeda, Yamana), multiplicity preservation (Gan) and Furusawa's nonvanishing theorem; (5) the genuine discrete spectrum and near equivalence classes: Proposition 3.1, Theorem 1.1, and Remarks 1.2, 1.3, 3.2 and 3.3; (6) generic parameters: component groups, Proposition 4.1, Corollary 4.2, Lemma 4.3 and Proposition 4.4; (7) the comparison of local theta lifts: Propositions 5.4 and 6.1 by induction (Lemmas 6.2–6.4) and a global argument (Lemmas 6.8–6.12); (8) globalizations: Propositions 6.5 and 6.6, Corollary 6.7 and Propositions A.1–A.4, following Sakellaridis–Venkatesh and Prasad–Schulze-Pillot; (9) Theorem 1.4 and Corollary 1.6. Layers 1–4 are general theta-correspondence theory; design them so that other users of theta lifts can import them without the rest. Record three proof obligations the paper leaves open (sourceIssues E1–E3): Gan–Savin's Lemma 7.4 for s > −1/2; the induction principle for (Mp_2n, SO_2r+1) and A-packet members; and the Mp_2n analogue of Ichino–Lapid–Mao's Lemma A.2. Import from: Metaplectic groups, Weil representations and automorphic theta kernels (MetaplecticAutomorphicForms) MP.0–MP.6, for the covers, the Weil representations, local theta modules and theta kernels on the cover. This extraction routes Howe duality, the conservation relation, the induction principle, the MVW involution and the unramified correspondence to MP.3. Modularity, automorphy and Langlands endpoint extensions (ModularityAndLanglandsExtensions) ML.4, for Arthur's classification of SO_2r+1, local A-packets, the local Langlands correspondence for the groups SO(V), Ishimoto's multiplicity formula for non-split SO(V), and Lemmas 5.1 and 5.5; and ML.5, for the lift from SO_2n+1 to GL_2n and the local descent. Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors) AL.3–AL.4. Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison) ET.6. Automorphic forms on reductive groups (AutomorphicFormsOnReductiveGroups) AF.1–AF.3. Automorphic spectral theory and trace distributions (AutomorphicSpectralTheory) AS.4, whose adaptation to the cover must be proved. Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) SR.2–SR.3. GL₂ Automorphic Representations And Transfer (GL2AutomorphicRepresentationsAndTransfer) R17.1 and R17.3. Gross–Zagier formulas and arithmetic heights (GrossZagierAndArithmeticHeights) GZ.4–GZ.5, for toric distinction and Waldspurger's period theorem. Quadratic forms and cohomological invariants (tauceti:TauCetiRoadmap/QuadraticFormInvariants) 6C–6D. Global quadratic forms over number fields (tauceti:TauCetiRoadmap/GlobalQuadraticForms) Layers 1, 7 and 8.",
+   "reason": "MetaplecticAutomorphicForms constructs the covers, the Weil representation, the local theta modules (MP.3) and theta kernels and genuine automorphic forms (MP.4–MP.5). It has no layer for the theta correspondence as a correspondence (the local Shimura correspondence, J.-S. Li's stable-range lifts, the Rallis inner product formula) or for the discrete spectrum of Mp_2n. The paper's theory is new layers in that roadmap's direction, and nothing else in the atlas plans it. The Arthur-type classification is imported from ML.4, not planned again."
+  },
+  {
+   "route": "source",
+   "roadmap": "MetaplecticAutomorphicForms",
+   "stages": [
+    "MetaplecticAutomorphicForms:MP.3"
+   ],
+   "items": [
+    "PAPER-GAN-ICHINO-18/howe-duality",
+    "PAPER-GAN-ICHINO-18/conservation-relation",
+    "PAPER-GAN-ICHINO-18/unramified-theta",
+    "PAPER-GAN-ICHINO-18/induction-principle",
+    "PAPER-GAN-ICHINO-18/mvw-involution"
+   ],
+   "reason": "Howe duality, the conservation relation, Kudla's induction principle, the MVW involution and the unramified theta correspondence are local facts about the dual pair (Mp_2n, O(V)), which MP.3 owns. MP.3 asks for Howe duality to be 'pinned to an actual theorem'; Gan–Takeda (2016) is that theorem. PAPER-CHENEVIER-TAIBI-20 routed the unramified correspondence to MP.3 already."
+  },
+  {
+   "route": "source",
+   "roadmap": "ModularityAndLanglandsExtensions",
+   "stages": [
+    "ModularityAndLanglandsExtensions:ML.4"
+   ],
+   "items": [
+    "PAPER-GAN-ICHINO-18/llc-so-inner",
+    "PAPER-GAN-ICHINO-18/lemma-5-1",
+    "PAPER-GAN-ICHINO-18/lemma-5-5",
+    "PAPER-GAN-ICHINO-18/amf-nonsplit"
+   ],
+   "reason": "ML.4 owns the classification inputs for classical groups (packets, multiplicities, local–global compatibilities) and keeps conditional hypotheses visible 'until the exact missing result and applicable replacement are verified'. The paper's hypothesis (6.1), with Ishimoto's proof, is such a case. The Vogan-packet correspondence for the odd orthogonal inner forms, and the irreducibility Lemmas 5.1 and 5.5, are properties of those packets. PAPER-CHENEVIER-TAIBI-20 routed Mœglin–Renard's packet results to ML.4 in the same way."
+  },
+  {
+   "route": "source",
+   "roadmap": "ModularityAndLanglandsExtensions",
+   "stages": [
+    "ModularityAndLanglandsExtensions:ML.5"
+   ],
+   "items": [
+    "PAPER-GAN-ICHINO-18/ckpss-lift",
+    "PAPER-GAN-ICHINO-18/local-descent"
+   ],
+   "reason": "The functorial lift of generic cusp forms from SO_2n+1 to GL_2n and the Ginzburg–Rallis–Soudry descent are known transfers with exact hypotheses, which ML.5 registers. PAPER-BOXER-CALEGARI-GEE-25 and PAPER-JIANG-ZHANG-20 routed the same lift and the global descent to ML.5."
+  },
+  {
+   "route": "source",
+   "roadmap": "AutomorphicFormsOnReductiveGroups",
+   "stages": [
+    "AutomorphicFormsOnReductiveGroups:AF.1"
+   ],
+   "items": [
+    "PAPER-GAN-ICHINO-18/llc-gln-arch"
+   ],
+   "reason": "The archimedean local Langlands correspondence for GL_n is Langlands' classification of representations of real reductive groups, which fits AF.1's real representation theory. This follows PAPER-CHENEVIER-TAIBI-20's route; ET.6 covers only p-adic fields."
+  },
+  {
+   "route": "source",
+   "roadmap": "AutomorphicLFunctionsAndLocalFactors",
+   "stages": [
+    "AutomorphicLFunctionsAndLocalFactors:AL.3"
+   ],
+   "items": [
+    "PAPER-GAN-ICHINO-18/strong-multiplicity-one"
+   ],
+   "reason": "Strong multiplicity one for isobaric representations follows from the Rankin–Selberg theory AL.3 plans (Jacquet–Shalika 1981). It is a general GL_n statement, used here only as an input."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-GAN-ICHINO-18/E1",
+   "kind": "gap",
+   "locator": "Proof of Lemma 5.2, pp. 988–989 in the published version (arXiv v3 p. 19); the text is the same in both",
+   "printed": "“On the other hand, as in the proof of [24, Th. 8.1], it follows from Kudla’s filtration (see, e.g., [24, Prop. 7.3]) and [24, Lemma 7.4], which continues to hold for s > −1/2, that there exists a surjection Ind_P̃^{Mp_2n}((τ^∨ ⊗ χ_ψ) ⊗ Θ_ψ(σ_0)) ↠ Θ_ψ(σ).”",
+   "correction": "Needed: a proof that Gan–Savin’s Lemma 7.4 (Compos. Math. 148 (2012)) holds for s > −1/2, or another proof of the surjection. The statement of Lemma 5.2 for p-adic F does not depend on this proof: the paper attributes that case to Atobe (Math. Ann. 371 (2018), Th. 3.13) and includes its own proof only ‘for the convenience of the reader’.",
+   "reason": "The words ‘which continues to hold for s > −1/2’ extend a cited lemma, and no argument is given for the extension. Gan–Savin’s paper was not read, so it was not checked how far this goes beyond what they prove.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1705.10106: v1 (29 May 2017) and v3 (3 August 2018), both read; v3 compared word by word with the published text",
+    "The published version, Ann. of Math. 188 (2018), 965–1016, from the Annals site, and its article page (no erratum or correction listed)",
+    "Crossref search for errata or corrigenda to the paper (none found)",
+    "Later work: Ishimoto, IMRN 2024 (arXiv:2301.12143v2), introduction and main theorem"
+   ]
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/E2",
+   "kind": "gap",
+   "locator": "Proof of Lemma 6.3, p. 992 in the published version (arXiv v3 p. 21)",
+   "printed": "“Hence it follows from the induction principle [42], [2, Cor. 3.21], [3, Th. 8.4], which easily extends to the case at hand, that there exists a nonzero equivariant map ω_ψ → Ind_P̃^{Mp_2n}(τ̃_ψ ⊗ π_{η_0}) ⊗ Ind_{Q′}^{SO_2r+1}(τ ⊗ σ_{η′_0}).”",
+   "correction": "Needed: the induction principle for the pair (Mp_2n, SO_2r+1) in the stable range, where σ_{η′_0} is an irreducible, possibly non-tempered, member of an A-packet of SO_2r−2k+1, over every local field of characteristic zero, with a proof. The cited results are Kudla’s for p-adic dual pairs and Adams–Barbasch’s for complex dual pairs and for the real metaplectic group.",
+   "reason": "The extension to the case at hand is asserted, not proved. Lemma 6.3 carries Propositions 5.4 and 6.1 from good parameters to non-good ones, and Lemma 6.4 uses the non-good case, so the gap lies inside the proof of Theorem 1.4.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1705.10106: v1 (29 May 2017) and v3 (3 August 2018), both read; v3 compared word by word with the published text",
+    "The published version, Ann. of Math. 188 (2018), 965–1016, from the Annals site, and its article page (no erratum or correction listed)",
+    "Crossref search for errata or corrigenda to the paper (none found)",
+    "Later work: Ishimoto, IMRN 2024 (arXiv:2301.12143v2), introduction and main theorem"
+   ]
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/E3",
+   "kind": "gap",
+   "locator": "Proof of Proposition A.2, p. 1005 in the published version (arXiv v3 p. 32)",
+   "printed": "“On the other hand, it follows from the analog of [36, Lemma A.2] for Mp_2n that π_S is isolated in Irr_{unit,ψ_S-gen,≤c} G_S with respect to the Fell topology.”",
+   "correction": "Needed: the Mp_2n(F_S) analogue of Ichino–Lapid–Mao’s Lemma A.2 (Duke Math. J. 166 (2017)), with a proof: a square-integrable ψ_S-generic π_S is isolated, in the Fell topology, among the irreducible genuine ψ_S-generic unitary representations whose exponents are bounded by c < 1/2.",
+   "reason": "The analogue for the metaplectic group is invoked without an argument. Ichino–Lapid–Mao’s lemma was not read. Without this step, the weak containment does not identify π_S with some Π_{i,S}. Proposition A.2 feeds, through Propositions A.1 and 6.5 and Corollary 6.7, into Lemmas 6.8–6.12, the good-parameter case of Proposition 6.1 and so Theorem 1.4.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1705.10106: v1 (29 May 2017) and v3 (3 August 2018), both read; v3 compared word by word with the published text",
+    "The published version, Ann. of Math. 188 (2018), 965–1016, from the Annals site, and its article page (no erratum or correction listed)",
+    "Crossref search for errata or corrigenda to the paper (none found)",
+    "Later work: Ishimoto, IMRN 2024 (arXiv:2301.12143v2), introduction and main theorem"
+   ]
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/E4",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 4.1, p. 979, and reference [44], p. 1012, in the published version; arXiv v3 (p. 12 and reference [44]) is correct",
+   "printed": "“Then, as explained in [44, p. 205], π is a subrepresentation of Ind_{P̃(A)}^{Mp_2n(A)}(ρ)”, with “[44] R. P. Langlands, Automorphic representations, Shimura varieties, and motives. Ein Märchen, in Automorphic Forms, Representations and L-Functions, Part 2 (Proc. Sympos. Pure Math., Oregon State Univ., Corvallis, Ore., 1977), Proc. Sympos. Pure Math. XXXIII, Amer. Math. Soc., Providence, RI, 1979, pp. 205–246. MR 0546619. Zbl 0447.12009.”",
+   "correction": "[44] should be R. P. Langlands, On the notion of an automorphic representation. A supplement to the preceding paper, in Automorphic Forms, Representations and L-Functions, Part 1, Proc. Sympos. Pure Math. XXXIII, Amer. Math. Soc., 1979, pp. 203–207 (https://doi.org/10.1090/pspum/033.1/9811), as in arXiv v3.",
+   "reason": "arXiv v3, dated 3 August 2018 like the final revision, lists ‘On the notion of an automorphic representation’ as [44]. The published list has no entry for that note. Its [44] is the Märchen, with the Märchen’s MR and Zbl numbers, so the entry was replaced when those numbers were added in copyediting. Every other entry matches v3 after renumbering, and the renumbered citations in the text are consistent. The cited page 205 lies in the note’s range (pp. 203–207); the Märchen begins on p. 205 and is about Shimura varieties and motives. Crossref records confirm both page ranges. The note itself could not be fetched, so its p. 205 was not read.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1705.10106: v1 (29 May 2017) and v3 (3 August 2018), both read; v3 compared word by word with the published text",
+    "The published version, Ann. of Math. 188 (2018), 965–1016, from the Annals site, and its article page (no erratum or correction listed)",
+    "Crossref search for errata or corrigenda to the paper (none found)",
+    "Later work: Ishimoto, IMRN 2024 (arXiv:2301.12143v2), introduction and main theorem",
+    "Crossref records 10.1090/pspum/033.1/9811 and 10.1090/pspum/033.2/546619",
+    "The reference lists of arXiv v3 and the published version, matched entry by entry"
+   ]
+  }
+ ]
+}
