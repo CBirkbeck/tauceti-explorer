@@ -2,7 +2,7 @@
 
 Chao Li and Yifeng Liu, *Chow groups and L-derivatives of automorphic motives for unitary groups, II*, [Forum Math. Pi 10 (2022), e5](https://doi.org/10.1017/fmp.2022.2); arXiv [2101.09485](https://arxiv.org/abs/2101.09485).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1384). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-LI-LIU-22.result.json](PAPER-LI-LIU-22.result.json): 84 items (3 planned, 81 missing), 6 routes, 18 prerequisite entries and 3 recorded source issues.
+Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1384). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-LI-LIU-22.result.json](PAPER-LI-LIU-22.result.json): 84 items (3 planned, 81 missing), 6 routes, 18 prerequisite entries and 4 recorded source issues.
 
 **Source.** The published open-access PDF from Cambridge Core (71 pages), SHA-256 `0661582ac905525b5d3c73f9b4de798b5eb43fafb4b5f51c3879071d859b1fc0`, read in full on 2026-09-22.
 
@@ -95,9 +95,9 @@ Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1384).
    - Mantovan's smoothness of closed strata;
    - Proposition 4.25 and Theorem 4.21, localized vanishing of middle cohomology.
 
-## Source issues (`sourceIssues` E1–E3)
+## Source issues (`sourceIssues` E1–E4)
 
-All three are misprints; each affects nothing. Each was confirmed in the PDF text layer.
+E1–E3 are misprints; each affects nothing. Each was confirmed in the PDF text layer. E4 is a gap inherited from Li–Liu 2021, added after that paper's extraction.
 
 - **E1.** In the proof of Proposition 2.44, (2.17) and the next display print (b₂ − l)q^j. There is no l; it should be (b₂ − j)q^j, as in Lemma 2.43, whose overlattice count 1 + q + ⋯ + q^j + (b₂ − j)q^j was rederived.
 - **E2.**
@@ -106,6 +106,10 @@ All three are misprints; each affects nothing. Each was confirmed in the PDF tex
 - **E3.**
   - Lemma 2.15's summation range is typeset "L′ ⊆ L′vee". The PDF span is the italic letters 𝑣𝑒𝑒 in font NewTXMI5, so \vee came out as text. It should read L′ ⊆ L′^∨.
   - The proof of Lemma 4.24 introduces "σ(i)" for the sequence indexed by h; it should be σ(h).
+- **E4** (gap, affects a stated result).
+  - **The problem.** Proposition 4.27(2) is "proved in the same way as [LL21, Proposition 9.1]". That proposition uses Li–Zhang Theorem 10.5.1, which Li–Zhang state is conditional on their Conjecture 10.4.1 (PAPER-LI-LIU-21/E3).
+  - **Reach.** Theorems 1.4 and 1.5 and Corollary 1.7 carry this unstated hypothesis whenever S_π ≠ ∅; the case S_π = ∅ of Remark 4.32 does not use Proposition 4.27(2).
+  - **Repair.** Li–Rapoport–Zhang, arXiv:2404.02214, Theorem 14.6.2, prove the conjectured structure. That should close the gap; whether it covers every part used was not checked line by line.
 
 **Also checked and correct:**
 - The finite-field isometry count (2.2) behind Lemma 2.15, and the lattice-count formulas (2.3)–(2.4).
