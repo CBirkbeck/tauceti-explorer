@@ -3643,7 +3643,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FENG-YUN-ZHANG-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1230"
   },
   {
    "id": "REV-PAPER-FENG-YUN-ZHANG-24",
@@ -4956,8 +4957,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FARB-KISIN-WOLFSON-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1308"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1308",
+   "finishedAt": "2026-09-22T18:27:13Z"
   },
   {
    "id": "REV-PAPER-FARB-KISIN-WOLFSON-24",
