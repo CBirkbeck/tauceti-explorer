@@ -3,7 +3,7 @@
   "protocol": "paper-v1",
   "status": "partial",
   "agent": "Codex",
-  "session": "codex-c83e7a",
+  "session": "codex-a71f92",
   "source": {
     "title": "Geometric invariants for real quadratic fields",
     "authors": "W. Duke, Ö. Imamoḡlu, Á. Tóth",
@@ -28,7 +28,7 @@
     "sha256": "a67de7157f76ee700bc2e6a0034a920adc390022d4ff528aa80084f829f35f61",
     "accessed": "2026-09-22"
   },
-  "summary": "Arithmetic Nielsen-core surfaces of area π times a minus continued-fraction period equidistribute by genus on the modular orbifold. The three-sign Hecke and half-weight trace identities connect surface integrals, geodesics and CM points. This 158-item checkpoint records pinned imports, owner-specific missing contracts, normalization corrections, a phase-uniqueness counterexample and eight explicit recursive source/proof gates; it does not certify complete closure.",
+  "summary": "Arithmetic Nielsen-core surfaces of area π times a minus continued-fraction period equidistribute by genus on the modular orbifold. The three-sign Hecke and half-weight trace identities connect surface integrals, geodesics and CM points. This 169-item checkpoint records pinned imports, owner-specific missing contracts, normalization corrections, a phase-uniqueness counterexample and eight explicit recursive source/proof gates; it does not certify complete closure. Continuation supplies the all-complex-parameter Appendix A proof and pins existing hypergeometric/gamma/integration suppliers; S1–S7 and residual S8 contracts remain open.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -250,12 +250,104 @@
         "line": 135,
         "statementRead": "@[simp]\ntheorem pslMk_smul (g : SL(2, R)) (τ : ℍ) : (↑g : PSL(2, R)) • τ = g • τ",
         "sha256": "b9fa23982eded4e488e96af51177af7860975827a9b9546e031d0d80d10d8c49"
+      },
+      {
+        "declaration": "mathlib:Complex.regularizedHGFunCoeff",
+        "module": "Mathlib/Analysis/SpecialFunctions/RegularizedHypergeometric.lean",
+        "line": 67,
+        "statementRead": "def regularizedHGFunCoeff (a b : Multiset ℂ) (n : ℕ) : ℂ := (a.map (ascPochhammer ℂ n).eval).prod / (n! * (b.map (Gamma <| · + n)).prod)",
+        "sha256": "128f946176d1ac01c5f10032511e6d59ac46046d3e070a6161ed74f23ec24414"
+      },
+      {
+        "declaration": "mathlib:Complex.regularizedHGFunSeries",
+        "module": "Mathlib/Analysis/SpecialFunctions/RegularizedHypergeometric.lean",
+        "line": 150,
+        "statementRead": "def regularizedHGFunSeries (a b : Multiset ℂ) : FormalMultilinearSeries ℂ ℂ ℂ := .ofScalars ℂ (regularizedHGFunCoeff a b)",
+        "sha256": "128f946176d1ac01c5f10032511e6d59ac46046d3e070a6161ed74f23ec24414"
+      },
+      {
+        "declaration": "mathlib:Complex.regularizedHGFun",
+        "module": "Mathlib/Analysis/SpecialFunctions/RegularizedHypergeometric.lean",
+        "line": 166,
+        "statementRead": "def regularizedHGFun (a b : Multiset ℂ) (z : ℂ) : ℂ := (regularizedHGFunSeries a b).sum z",
+        "sha256": "128f946176d1ac01c5f10032511e6d59ac46046d3e070a6161ed74f23ec24414"
+      },
+      {
+        "declaration": "mathlib:Complex.radius_regularizedHGFunSeries_eq_top",
+        "module": "Mathlib/Analysis/SpecialFunctions/RegularizedHypergeometric.lean",
+        "line": 218,
+        "statementRead": "theorem radius_regularizedHGFunSeries_eq_top (h : a.card ≤ b.card) : (regularizedHGFunSeries a b).radius = ⊤",
+        "sha256": "128f946176d1ac01c5f10032511e6d59ac46046d3e070a6161ed74f23ec24414"
+      },
+      {
+        "declaration": "mathlib:FormalMultilinearSeries.hasFPowerSeriesOnBall",
+        "module": "Mathlib/Analysis/Analytic/Basic.lean",
+        "line": 1074,
+        "statementRead": "protected theorem FormalMultilinearSeries.hasFPowerSeriesOnBall [CompleteSpace F] (p : FormalMultilinearSeries 𝕜 E F) (h : 0 < p.radius) : HasFPowerSeriesOnBall p.sum p 0 p.radius",
+        "sha256": "5bd829b44524785c84db262cade6c3cc4ab28f6966329429bcbf4dc35ba1e62c"
+      },
+      {
+        "declaration": "mathlib:Complex.betaIntegral_convergent",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
+        "line": 78,
+        "statementRead": "For hu : 0 < re u and hv : 0 < re v, IntervalIntegrable (fun x : ℝ => (x:ℂ)^(u−1)*(1−(x:ℂ))^(v−1)) volume 0 1.",
+        "sha256": "a7ac57c81c4e23a96885104166140fe33905bc46ff564203d9376b96bc494c99"
+      },
+      {
+        "declaration": "mathlib:Complex.betaIntegral_eq_Gamma_mul_div",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
+        "line": 537,
+        "statementRead": "For hu : 0 < u.re and hv : 0 < v.re, betaIntegral u v = Gamma u * Gamma v / Gamma(u+v).",
+        "sha256": "a7ac57c81c4e23a96885104166140fe33905bc46ff564203d9376b96bc494c99"
+      },
+      {
+        "declaration": "mathlib:Complex.Gamma_mul_Gamma_one_sub",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
+        "line": 398,
+        "statementRead": "Gamma z * Gamma (1-z) = π / sin(π*z), for every z : ℂ (using totalized division at integers).",
+        "sha256": "a7ac57c81c4e23a96885104166140fe33905bc46ff564203d9376b96bc494c99"
+      },
+      {
+        "declaration": "mathlib:Complex.differentiable_one_div_Gamma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
+        "line": 522,
+        "statementRead": "Differentiable ℂ (fun s : ℂ => (Gamma s)⁻¹).",
+        "sha256": "a7ac57c81c4e23a96885104166140fe33905bc46ff564203d9376b96bc494c99"
+      },
+      {
+        "declaration": "mathlib:Complex.Gamma_mul_Gamma_add_half",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
+        "line": 559,
+        "statementRead": "Gamma s * Gamma(s+1/2) = Gamma(2*s) * (2:ℂ)^(1−2*s) * ↑(√π).",
+        "sha256": "a7ac57c81c4e23a96885104166140fe33905bc46ff564203d9376b96bc494c99"
+      },
+      {
+        "declaration": "mathlib:Complex.Gamma_add_nat_div_Gamma_eq",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
+        "line": 460,
+        "statementRead": "For hz : ∀ k : ℕ, z ≠ -k, Gamma(z+n) / Gamma z = (ascPochhammer ℂ n).eval z.",
+        "sha256": "a7ac57c81c4e23a96885104166140fe33905bc46ff564203d9376b96bc494c99"
+      },
+      {
+        "declaration": "mathlib:Complex.Gamma_ne_zero_of_re_pos",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
+        "line": 454,
+        "statementRead": "For hs : 0 < s.re, Gamma s ≠ 0.",
+        "sha256": "a7ac57c81c4e23a96885104166140fe33905bc46ff564203d9376b96bc494c99"
+      },
+      {
+        "declaration": "mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le",
+        "module": "Mathlib/Analysis/Calculus/ParametricIntegral.lean",
+        "line": 288,
+        "statementRead": "For 𝕜 RCLike, a common neighborhood s∈𝓝x₀, eventual AEStronglyMeasurable(F x), Integrable(F x₀), AEStronglyMeasurable(F′ x₀), a.e. uniform ||F′ x a||≤bound a on s, Integrable bound, and a.e. HasDerivAt(F · a)(F′ x a)x for x∈s, obtains Integrable(F′ x₀) and HasDerivAt (fun n => ∫a,F n a∂μ) (∫a,F′ x₀ a∂μ) x₀.",
+        "sha256": "495f1a89774b147de1528e0213f519817d50fc3602724c9cbea633e9617c3375"
       }
     ],
     "qualifications": [
       "The statements were read at the pinned commits; no Lean compilation is claimed. The planning APIs on library carriers include downstream adapters that are not asserted to be existing declarations.",
       "Full-order Pell units, exact modular area, multiplier nonvanishing, quadratic completion normalization and the narrow regulator comparison remain separate missing adapters.",
-      "The integrated Hecke Euler-product comparison supplies item 134; items 66 and 156 import the spectral layers, and 31 imports the upstream polygon theorem."
+      "The integrated Hecke Euler-product comparison supplies item 134; items 66 and 156 import the spectral layers, and 31 imports the upstream polygon theorem.",
+      "Regularized ₀F₁/₁F₁ convergence, beta/gamma identities and dominated complex differentiation are already built (159–161). Named Bessel/Whittaker adapters and the specific cycle integral remain missing (162–167). The audit's QM.2 entry already notes the ₀F₁ connection."
     ]
   },
   "items": [
@@ -2653,7 +2745,7 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/66"
       ],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Gate S4 closed by151 (norm identity and polynomial bound supplied).",
+      "note": "Missing at the inspected pins; scoped to the assigned owner. The norm-comparison subgate has a written proof in151; this does not close the other S4 spectral suppliers.",
       "sourceGates": []
     },
     {
@@ -4249,9 +4341,11 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/162"
+      ],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S8.",
+      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S8. Continuation:162 constructs the series from pinned regularized hypergeometric functions; the full named API, and W for112, remain missing.",
       "uses": [
         {
           "where": "PAPER-DUKE-IMAMOGLU-TOTH-16/118",
@@ -4307,10 +4401,11 @@
       "library": [],
       "planned": [],
       "prerequisites": [
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/111"
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/111",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/162"
       ],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S8.",
+      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S8. Continuation:162 constructs the series from pinned regularized hypergeometric functions; the full named API, and W for112, remain missing.",
       "uses": [
         {
           "where": "PAPER-DUKE-IMAMOGLU-TOTH-16/110",
@@ -4385,10 +4480,11 @@
       "library": [],
       "planned": [],
       "prerequisites": [
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/112"
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/112",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/163"
       ],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S8.",
+      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S8. The M differential equation and local endpoint bounds are proved in163. W and large-argument asymptotics are still open.",
       "sourceGates": [
         "S8"
       ]
@@ -4402,12 +4498,14 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "prerequisites": [],
-      "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S8.",
-      "sourceGates": [
-        "S8"
-      ]
+      "prerequisites": [
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/167"
+      ],
+      "proofSteps": [
+        "Apply the complete contour and parameter-continuation argument of167. It gives exactly the stated formula for all Re(ν)>0 and β∈ℂ, including zeros of either reciprocal gamma factor."
+      ],
+      "note": "Written proof now supplied through167; no unread Gradshteyn–Ryzhik or Nielsen proof is required for this node. Formalization remains missing.",
+      "sourceGates": []
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/116",
@@ -4437,12 +4535,15 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "prerequisites": [],
-      "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S8.",
-      "sourceGates": [
-        "S8"
-      ]
+      "prerequisites": [
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/166"
+      ],
+      "proofSteps": [
+        "The coefficient calculation in166 is local as well: substitute a convergent analytic H=Σc_nt^n into f=t^sH and compare coefficients.",
+        "For the actual integral,164 makes H entire and166 gives a global result, including s=1/2 and c₀=0."
+      ],
+      "note": "Local Frobenius recurrence proved;166 supplies the entire version used for118. No ordinary Taylor expansion of t^s is assumed.",
+      "sourceGates": []
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/118",
@@ -4454,17 +4555,21 @@
       "library": [],
       "planned": [],
       "prerequisites": [
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/111",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/112",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/114",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/162",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/164",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/165",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/166",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/115",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/117"
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/160"
       ],
-      "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S8.",
-      "sourceGates": [
-        "S8"
-      ]
+      "proofSteps": [
+        "Items162–165 prove absolute convergence, the entire desingularization and the differential equation for both signs, with all endpoint terms controlled.",
+        "By115, H_ε(0)=2πe^(εiπμ/2)Γ(s)/[Γ((s+1+μ)/2)Γ((s+1−μ)/2)]. Item166 determines every coefficient without dividing by this value.",
+        "By162, t^(1/2)J_{s−1/2}(t)=2^(1/2−s)t^s Σ_{k≥0}(−1)^k t^(2k)/[4^k k!Γ(s+1/2+k)]. Multiply by the stated G factor and use Γ(2s)=2^(2s−1)Γ(s)Γ(s+1/2)/√π from160; its leading coefficient becomes H_ε(0).",
+        "The coefficient recurrence is identical, and both desingularized functions are entire. Hence they coincide for every t>0. At μ giving a zero reciprocal gamma factor, H_ε(0)=0 and166 forces the integral to vanish; no exceptional-parameter division occurs."
+      ],
+      "note": "Complete written Appendix A integral proof supplied in this continuation through the explicit supplier chain; missing at pinned libraries. This does not close the remaining W/infinity-asymptotic and differentiated-seed parts of S8.",
+      "sourceGates": []
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/119",
@@ -5230,7 +5335,8 @@
       "planned": [],
       "prerequisites": [
         "PAPER-DUKE-IMAMOGLU-TOTH-16/61",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/64"
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/64",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/169"
       ],
       "proofSteps": [
         "Unfold against E(z,s)=Σ_{Γ∞\\Γ}Im(γz)^s of (5.2) for Re s>1: ∫_F|φ|²E(z,s)dμ=∫_0^∞∫_0^1|φ|²y^{s−2}dxdy=8(2π)^{−s}Σ_{n≥1}a(n)²n^{−s}·∫_0^∞K_{ir}(u)²u^{s−1}du, using a(−n)=a(n) and real a(n).",
@@ -5239,11 +5345,11 @@
         "Res_{s=1}E(z,s)=3/π=1/vol(F) for dμ=y^{−2}dxdy; since φ is cuspidal, Res_{s=1}∫_F|φ|²E dμ=(3/π)⟨φ,φ⟩. Comparing residues: (3/π)⟨φ,φ⟩=8(2π)^{−1}·(6L(1,sym²φ)/π²)·π²/(4cosh πr)=(6/π)L(1,sym²φ)/cosh(πr).",
         "For x≥0, √2cosh²(x/4)/√(cosh x)≤√2 (maximum at x=0, limit 1/2 as x→∞), so ||φ||₂cosh²(πr/4)=√(2L(1,sym²φ))·cosh²(πr/4)/√(cosh πr)≤√2·L(1,sym²φ)^{1/2}.",
         "Bessel bound. For u>0 and r≥1, K_{ir}(u)=½∫_{−∞}^{∞}e^{−u cosh t+irt}dt (DLMF 10.32.9). Shifting the contour to Im t=θ∈(0,π/2), where |e^{−u cosh(t+iθ)}|=e^{−u cosh(Re t)cos θ} decays, gives |K_{ir}(u)|≤e^{−rθ}K₀(u cos θ). Take θ=π/2−1/r, so cos θ=sin(1/r)≥2/(πr): |K_{ir}(u)|≤e^{1−πr/2}K₀(2u/(πr)). Checked numerically for r∈[1,40], u∈[0.01,80], with ratio at most 0.70.",
-        "Hecke bound, uniform in φ. T_p has operator norm at most p^{1/2}+p^{−1/2} on L²(Γ\\H), so |a(p)|≤p^{1/2}+p^{−1/2}. The recursion a(p^{k+1})=a(p)a(p^k)−a(p^{k−1}) gives |a(p^k)|≤(k+1)(p^{1/2}+p^{−1/2})^k, hence |a(n)|≤d(n)n^{1/2}∏_{p^k‖n}(1+1/p)^k≪_ε n^{1/2+ε}.",
+        "Uniform Hecke bound: the normalized self-adjoint T_p has real a(p) with |a(p)|≤√p+1/√p. By169 its recurrence gives |a(p^k)|≤(k+1)p^(k/2). Multiplicativity yields |a(n)|≤d(n)√n≪_ε n^(1/2+ε). This replaces the earlier invalid absorption of ∏(1+1/p)^k.",
         "Norm bound. F⊂{|x|≤1/2, y≥√3/2}, and Parseval in x gives ∫_{−1/2}^{1/2}|φ|²dx=8yΣ_{n≥1}a(n)²K_{ir}(2πny)². So ⟨φ,φ⟩≤8Σ_n a(n)²∫_{√3/2}^∞K_{ir}(2πny)²dy/y≤8e²e^{−πr}Σ_n a(n)²J(2√3n/r), with J(c)=∫_c^∞K₀(v)²dv/v. Here J(c)≪(1+log(1/c))³ for c≤1 and J(c)≪e^{−2c} for c≥1.",
         "Summing with the Hecke bound, Σ_{n≤r}n^{1+2ε}(1+log(r/n))³+Σ_{n>r}n^{1+2ε}e^{−4√3n/r}≪_ε r^{2+3ε}. Hence ⟨φ,φ⟩≪_ε r^{2+ε}e^{−πr}, and by the identity L(1,sym²φ)=⟨φ,φ⟩cosh(πr)/2≪_ε r^{2+ε}. With the previous step, ||φ||₂cosh²(πr/4)≪_ε r^{1+ε}. No GL₃ theory is needed."
       ],
-      "note": "Exact constant and polynomial bound both supplied by the continuation of Claude Code (cc-fb70e5), from the paper's own normalizations (5.2), (5.7), (5.8) and dμ=y^{−2}dxdy (p.961). Checks: the Mellin integral agrees with π²/(4cosh πr) to 40 digits at r=0.5, 2, 5; the paper's example on p.966 gives L(1,sym²φ)≈1.1477; the contour-shift Bessel bound was checked numerically. Elementary inputs: DLMF 10.32.9 and the K₀ asymptotics, Hecke operator norms, and the Rankin–Selberg Dirichlet series (classical). Gate S4 is closed. Missing at the inspected pins, as a library item.",
+      "note": "Exact constant and polynomial bound both supplied by the continuation of Claude Code (cc-fb70e5), from the paper's own normalizations (5.2), (5.7), (5.8) and dμ=y^{−2}dxdy (p.961). Checks: the Mellin integral agrees with π²/(4cosh πr) to 40 digits at r=0.5, 2, 5; the paper's example on p.966 gives L(1,sym²φ)≈1.1477; the contour-shift Bessel bound was checked numerically. Elementary inputs: DLMF 10.32.9 and the K₀ asymptotics, Hecke operator norms, and the Rankin–Selberg Dirichlet series (classical). Only the norm-comparison subgate of S4 is closed at written-proof level; the noncompact spectral/resolvent and no-exceptional-spectrum suppliers remain open. Missing at the inspected pins, as a library item. Codex codex-a71f92 repaired the local Hecke bound using169.",
       "sourceGates": []
     },
     {
@@ -5262,7 +5368,7 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/151"
       ],
       "proofSteps": [],
-      "note": "Missing at the inspected pins. The exponential factors of150 and151 cancel exactly: cosh²(πr/4)/√(cosh πr) is bounded. Gate S4 closed by151.",
+      "note": "Missing at the inspected pins. The exponential factors of150 and151 cancel exactly: cosh²(πr/4)/√(cosh πr) is bounded. The norm-comparison subgate has a written proof in151; this does not close the other S4 spectral suppliers.",
       "sourceGates": []
     },
     {
@@ -5283,7 +5389,7 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/152"
       ],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Gate S4 closed by151 (norm identity and polynomial bound supplied).",
+      "note": "Missing at the inspected pins; scoped to the assigned owner. The norm-comparison subgate has a written proof in151; this does not close the other S4 spectral suppliers.",
       "sourceGates": []
     },
     {
@@ -5379,6 +5485,284 @@
       "sourceGates": [
         "S3"
       ]
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/159",
+      "kind": "theorem",
+      "name": "Pinned regularized hypergeometric series and infinite radius",
+      "statement": "For finite multisets a,b of complex parameters with a.card≤b.card, Complex.regularizedHGFunSeries a b has radius ∞. Its nth coefficient is ∏_{u∈a}(u)_n/[n!∏_{v∈b}Γ(v+n)] and regularizedHGFun is its sum. This covers regularized ₀F₁ and ₁F₁, including terminating numerator parameters; no named Bessel or Whittaker theorem is claimed.",
+      "locator": "Pinned Mathlib RegularizedHypergeometric.lean 66–239; Analytic/Basic.lean 1074–1081",
+      "status": "library",
+      "library": [
+        "mathlib:Complex.regularizedHGFunCoeff",
+        "mathlib:Complex.regularizedHGFunSeries",
+        "mathlib:Complex.regularizedHGFun",
+        "mathlib:Complex.radius_regularizedHGFunSeries_eq_top",
+        "mathlib:FormalMultilinearSeries.hasFPowerSeriesOnBall"
+      ],
+      "planned": [],
+      "prerequisites": [],
+      "proofSteps": [],
+      "note": "All 358 lines of RegularizedHypergeometric.lean read; selected full declarations of Analytic/Basic read. The two singleton/empty specializations are adapters in 162, not existing named special functions.",
+      "sourceGates": []
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/160",
+      "kind": "theorem",
+      "name": "Pinned beta, reciprocal gamma and duplication suppliers",
+      "statement": "For Re(u),Re(v)>0, B(u,v)=Γ(u)Γ(v)/Γ(u+v). Mathlib proves Γ(z)Γ(1−z)=π/sin(πz), the everywhere differentiability of 1/Γ(z), Γ(s)Γ(s+1/2)=Γ(2s)2^(1−2s)√π, and Γ(z+n)/Γ(z)=(z)_n when z is not a nonpositive integer. Use reflection away from its integer zeros before analytic continuation; do not cancel totalized gamma values at poles.",
+      "locator": "Pinned Mathlib Analysis/SpecialFunctions/Gamma/Beta.lean 78,398,454,460,522,536,559",
+      "status": "library",
+      "library": [
+        "mathlib:Complex.betaIntegral_convergent",
+        "mathlib:Complex.betaIntegral_eq_Gamma_mul_div",
+        "mathlib:Complex.Gamma_mul_Gamma_one_sub",
+        "mathlib:Complex.differentiable_one_div_Gamma",
+        "mathlib:Complex.Gamma_mul_Gamma_add_half",
+        "mathlib:Complex.Gamma_add_nat_div_Gamma_eq",
+        "mathlib:Complex.Gamma_ne_zero_of_re_pos"
+      ],
+      "planned": [],
+      "prerequisites": [],
+      "proofSteps": [],
+      "note": "Full cited declarations read at the pin. Finite-valued Lean Gamma is zero at its poles; reciprocal gamma is the correct entire object.",
+      "sourceGates": []
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/161",
+      "kind": "theorem",
+      "name": "Pinned dominated differentiation under complex parameter integrals",
+      "statement": "For an RCLike parameter and a measure μ, a locally a.e. differentiable integrand F with a common parameter neighborhood, measurable F and F′, integrable F at the base point, and an integrable uniform bound on ||F′|| admits differentiation under the integral. The conclusion includes integrability of F′ at the base point and the derivative of the integral.",
+      "locator": "Pinned Mathlib Analysis/Calculus/ParametricIntegral.lean 288–316; RCLike variable declaration at 66",
+      "status": "library",
+      "library": [
+        "mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le"
+      ],
+      "planned": [],
+      "prerequisites": [],
+      "proofSteps": [],
+      "note": "The complete declaration and proof were read. Instantiate μ with Lebesgue measure restricted to (0,π), using the majorants in 164; the existing theorem does not itself provide these bounds.",
+      "sourceGates": []
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/162",
+      "kind": "theorem",
+      "name": "Whittaker M and Bessel series as pinned hypergeometric adapters",
+      "statement": "For Re(s)>0, μ∈ℂ, x>0, set S(x)=Γ(2s)regularizedHGFun {s−μ} {2s} x. Then S=Σ(s−μ)_n x^n/((2s)_n n!) is entire in x, S(0)=1, and M_{μ,s−1/2}(x)=e^(−x/2)x^sS(x). For arbitrary ν∈ℂ and x>0, J_ν(x)=(x/2)^ν regularizedHGFun ∅ {ν+1}(−x²/4), and I_ν has +x²/4. Positive-base powers use the real logarithm; reciprocal gamma handles negative integral ν.",
+      "locator": "Appendix A continuation, codex-a71f92, 2026-09-22",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/159",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/160"
+      ],
+      "proofSteps": [
+        "The multiset cardinalities are 1≤1 and 0≤1. Apply159 to obtain infinite convergence radius and a power series sum on every finite disk.",
+        "Re(2s)>0 excludes all nonpositive integers and Γ(2s)≠0. Item160 gives Γ(2s+n)/Γ(2s)=(2s)_n; multiply the regularized coefficients by Γ(2s). Numerator Pochhammer symbols are polynomials, so s−μ being a nonpositive integer causes termination, not an undefined gamma quotient.",
+        "For J and I the numerator multiset is empty, hence its product is1; substitute ∓x²/4 and multiply by (x/2)^ν to recover111 term by term.",
+        "These are thin adapters for111 and the M portion of112. They do not define W or prove its infinity asymptotic."
+      ],
+      "note": "Written mathematical proof supplied in this continuation; a missing formalization contract, not compiled Lean.",
+      "sourceGates": []
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/163",
+      "kind": "theorem",
+      "name": "Whittaker M ODE and uniform endpoint bounds",
+      "statement": "For Re(s)=σ>0 and μ∈ℂ, the M function of162 satisfies M″+(−1/4+μ/x+s(1−s)/x²)M=0 on x>0. Uniformly on compact t-intervals in (0,∞), at either endpoint θ=0,π, M(2t sinθ)=O(sin^σθ), ∂θM(2t sinθ)=O(sin^(σ−1)θ), and for every fixed j≥0, ∂_t^j M(2t sinθ)=O(sin^σθ).",
+      "locator": "Appendix A continuation, codex-a71f92, 2026-09-22",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/162"
+      ],
+      "proofSteps": [
+        "Writing S=Σa_n x^n, the coefficient recurrence (n+1)(n+2s)a_{n+1}=(n+s−μ)a_n follows without division by a_n, including terminating cases. Entire convergence permits termwise derivatives, giving xS″+(2s−x)S′−(s−μ)S=0.",
+        "Substitute M=x^s e^(−x/2)S and differentiate twice; the Kummer equation gives the displayed Whittaker equation.",
+        "Set q(x)=e^(−x/2)S(x). Each q^(j) is bounded on the compact disk containing x=2t sinθ for t in the chosen compact interval. The identities M=x^s q and M′=x^(s−1)(s q+xq′) give the first two bounds. For t derivatives, write M(2t sinθ)=(2 sinθ)^s t^s q(2t sinθ), retaining the sin^σ factor for each derivative."
+      ],
+      "note": "Written mathematical proof supplied in this continuation; a missing formalization contract, not compiled Lean.",
+      "sourceGates": []
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/164",
+      "kind": "construction",
+      "name": "Entire desingularized Whittaker cycle integral",
+      "statement": "Fix μ,s∈ℂ with Re(s)=σ>0 and ε∈{−1,1}. Define for every complex t the integral H_ε(t)=2^s∫_0^π sin^(s−1)θ exp(εi(t cosθ+μθ)−t sinθ) S(2t sinθ)dθ, where S is162. Then H_ε is entire. On each compact t-disk and for each j≥0 its differentiated integrand is bounded by C_j sin^(σ−1)θ. For t>0 the original Appendix integral is f_ε(t)=t^s H_ε(t).",
+      "locator": "Appendix A continuation, codex-a71f92, 2026-09-22",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/162",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/161"
+      ],
+      "proofSteps": [
+        "For θ∈(0,π), the integrand is entire in t. On a compact t-disk, S and each required derivative are bounded on a common compact x-disk. All exponential derivatives are bounded since |sinθ|,|cosθ|≤1; exp(εiμθ) has modulus at most exp(π|Im μ|).",
+        "The remaining factor has norm |2^s|sin^(σ−1)θ. It is integrable, since sinθ is comparable to θ near0 and to π−θ nearπ, and σ−1>−1. Measurability follows from continuity on the open interval; endpoints are a null set.",
+        "Apply161 at every complex t, and repeat for the derivatives. Hence H is complex differentiable everywhere and entire. This argument never defines t^s across a complex branch cut.",
+        "For t>0 use real logarithms to split (2t sinθ)^s into (2 sinθ)^s t^s. No claim that f itself is entire at t=0 is made."
+      ],
+      "note": "Written mathematical proof supplied in this continuation; a missing formalization contract, not compiled Lean.",
+      "sourceGates": [],
+      "uses": [
+        {
+          "where": "PAPER-DUKE-IMAMOGLU-TOTH-16/165",
+          "how": "Supplies two legitimate parameter derivatives of the original integral."
+        },
+        {
+          "where": "PAPER-DUKE-IMAMOGLU-TOTH-16/166",
+          "how": "Provides the entire Taylor series after removing t^s."
+        },
+        {
+          "where": "PAPER-DUKE-IMAMOGLU-TOTH-16/118",
+          "how": "Identifies the Appendix integral on every positive real argument."
+        }
+      ],
+      "api": [
+        {
+          "name": "WhittakerCycle.entireDesingularization",
+          "role": "constructor",
+          "statement": "Construct H on ℂ by the absolutely convergent integral in164."
+        },
+        {
+          "name": "WhittakerCycle.dominatedDerivatives",
+          "role": "relation",
+          "statement": "On every compact complex t-disk and for each j, the jth derivative integrand is bounded by C_j sin^(Re(s)−1)θ."
+        },
+        {
+          "name": "WhittakerCycle.positiveArgument",
+          "role": "compatibility",
+          "statement": "For t>0, t^s H_ε(t) equals the M-cycle integral in118, with real-log powers."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "WhittakerCycle.halfParameter",
+          "statement": "At s=1/2 the common majorant is sin^(−1/2)θ and remains integrable.",
+          "status": "proposed"
+        },
+        {
+          "name": "WhittakerCycle.terminatingNumerator",
+          "statement": "At s−μ=0 the hypergeometric S is1; no Γ(s−μ) quotient is introduced.",
+          "status": "proposed"
+        },
+        {
+          "name": "WhittakerCycle.complexDisk",
+          "statement": "H is defined at t=0 and negative/complex t although f=t^sH is asserted only on positive reals.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed mathematical integration contracts, not compiled Lean declarations or tests."
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/165",
+      "kind": "theorem",
+      "name": "Endpoint-justified integration by parts for both signs",
+      "statement": "Under164, f_ε(t)=t^sH_ε(t) satisfies f_ε″+(1−s(s−1)/t²)f_ε=0 for every t>0 and ε=±1. Boundary terms in the θ integration by parts vanish, including for complex μ,s and 0<Re(s)≤1.",
+      "locator": "Appendix A continuation, codex-a71f92, 2026-09-22",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/163",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/164"
+      ],
+      "proofSteps": [
+        "Differentiate under the integral using164. For h=e^(εit cosθ)M(2t sinθ), the equation in163 gives L_t h=(2sin²θ−2μsinθ/t)h+4εi cosθ sinθ e^(εit cosθ)M′(2t sinθ), where L_t=d²/dt²+1−s(s−1)/t².",
+        "After multiplying by e^(εiμθ)/sinθ, the derivative term is (2εi/t)∫e^(εi(t cosθ+μθ))∂θM(2t sinθ)dθ.",
+        "Integrate first on [δ,π−δ]. By163 the endpoint terms are O(δ^σ); ∂θM is O(sin^(σ−1)θ), which is integrable. Thus the cutoff identity passes to the limit.",
+        "The derivative of the exponential is εi(−t sinθ+μ) times itself. Integration by parts converts the derivative term to ∫(−2sinθ+2μ/t)e^(εi(t cosθ+μθ))M dθ, cancelling the other two terms exactly.",
+        "The calculation uses ε²=1 and proves both signs directly. It does not assume M is real when μ,s are complex."
+      ],
+      "note": "Written mathematical proof supplied in this continuation; a missing formalization contract, not compiled Lean.",
+      "sourceGates": []
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/166",
+      "kind": "theorem",
+      "name": "Global entire Frobenius uniqueness with zero leading coefficient allowed",
+      "statement": "Let Re(s)>0 and H be entire. If f(t)=t^sH(t) solves the equation in165 on t>0, then H(t)=c₀Σ_{k≥0}(−1)^k t^(2k)/(4^k k!(s+1/2)_k) on all ℂ. In particular H′(0)=0 and c₀=0 implies H=0. For s=1/2 the recursion denominators are n², so no logarithmic second solution is admitted by the entire-H hypothesis.",
+      "locator": "Appendix A continuation, codex-a71f92, 2026-09-22",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/159"
+      ],
+      "proofSteps": [
+        "Substitution on positive reals gives tH″+2sH′+tH=0. This is an entire function of t vanishing on an interval, so the identity theorem extends it to all ℂ.",
+        "Equating its Taylor coefficients gives 2s c₁=0 and n(n+2s−1)c_n+c_{n−2}=0 for n≥2. Re(n+2s−1)>0 for n≥1, so every denominator is nonzero.",
+        "Induction gives c_{2k+1}=0 and c_{2k}=c₀(−1)^k/[4^k k!(s+1/2)_k]. The series is entire by the ₀F₁ case of159 or by its coefficient ratio tending to0.",
+        "Since H is entire its Taylor series represents it globally. No continuation across a singular ODE point and no division by c₀ are needed."
+      ],
+      "note": "Written mathematical proof supplied in this continuation; a missing formalization contract, not compiled Lean.",
+      "sourceGates": []
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/167",
+      "kind": "theorem",
+      "name": "Beta contour proof of the corrected sine-power formula",
+      "statement": "For ν,β∈ℂ with Re(ν)>0, the formula in115 holds, with the two denominator gammas interpreted as entire reciprocals. Initially put γ=(β−ν+1)/2 and assume 0<Re(γ)<1; analytic continuation in β then removes that restriction.",
+      "locator": "Appendix A continuation, codex-a71f92, 2026-09-22",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/160",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/161"
+      ],
+      "proofSteps": [
+        "Set z=e^(2iθ), 0<θ<π. Along this circle choose arg z=2θ∈(0,2π) and arg(z−1)=θ+π/2∈(π/2,3π/2). The transformed integral is (2i)^(−ν)∮z^(γ−1)(z−1)^(ν−1)dz, with (2i)^(−ν)=2^(−ν)e^(−iπν/2).",
+        "Deform the positively oriented unit circle to a dogbone around [0,1], using these branches on the disk slit along [0,1]. Remove radius-δ neighborhoods of0 and1 before applying Cauchy's theorem. The small circular contributions are O(δ^Re(γ)) and O(δ^Re(ν)); both vanish. The upper segment is traversed from1 to0 and the lower from0 to1.",
+        "On the upper segment z^(γ−1) has its positive-real value; on the lower it gains e^(2πiγ). On both segments (z−1)^(ν−1)=e^(iπ(ν−1))(1−z)^(ν−1). Hence the contour equals (e^(2πiγ)−1)e^(iπ(ν−1))B(γ,ν).",
+        "Multiplying by (2i)^(−ν) simplifies this to 2^(1−ν)e^(iπβ/2)sin(πγ)B(γ,ν). Euler beta and reflection from160, valid in the chosen strip, yield π2^(1−ν)e^(iπβ/2)Γ(ν)/[Γ(1−γ)Γ(γ+ν)].",
+        "For fixed ν with Re(ν)>0, the original integral is entire in β: every parameter derivative contributes a bounded power of θ and on compact β-sets the common bound is C sin^(Re(ν)−1)θ. Apply161. The reciprocal-gamma expression is also entire in β by160. The identity theorem extends the strip equality to all β."
+      ],
+      "note": "Written mathematical proof supplied in this continuation; a missing formalization contract, not compiled Lean.",
+      "sourceGates": []
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/168",
+      "kind": "theorem",
+      "name": "Exact conjugation of the two U and W normalizations",
+      "statement": "On functions on H let C f(z)=Im(z)^(1/4)f(z), U₄f(z)=¼Σ_{ν mod4}f((z+ν)/4), W₄f(z)=(2z/i)^(−1/2)f(−1/(4z)) with the principal square root. Then CU₄C⁻¹=U and CW₄C⁻¹=W for the U,W displayed in DIT16 p976, and C(U₄∘W₄)C⁻¹=U∘W. This calculation alone does not identify U∘W with W∘U on the automorphic subspace.",
+      "locator": "DIT11 p959 (2.18) and operator definitions; DIT16 p976 definitions and footnote7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [],
+      "proofSteps": [
+        "Im((z+ν)/4)=y/4, so conjugation contributes4^(1/4)=√2 to U₄'s scalar1/4.",
+        "Im(−1/(4z))=y/(4|z|²). The absolute scalar from C and C⁻¹ is√(2|z|), cancelling that of (2z/i)^(−1/2). For arg z∈(0,π), arg(z/i)=arg z−π/2 is principal, leaving e^(iπ/4)(z/|z|)^(−1/2).",
+        "Conjugation preserves composition order. DIT11 explicitly prints U₄∘W₄; DIT16 prints WU. Resolving a possible action convention or proving equality on the appropriate automorphic space remains S5. No counterexample on arbitrary nonautomorphic functions is asserted to refute a projection theorem."
+      ],
+      "note": "Both scalar conjugations proved. The plus-projection operator-order gate remains open; this is not a newly confirmed source mistake.",
+      "sourceGates": [
+        "S5"
+      ]
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/169",
+      "kind": "theorem",
+      "name": "Uniform prime-power Hecke bound via Satake roots",
+      "statement": "For p≥2 and real a with |a|≤√p+1/√p, let A₀=1,A₁=a,A_{k+1}=aA_k−A_{k−1}. Then |A_k|≤(k+1)p^(k/2). Applied to normalized self-adjoint T_p eigenvalues and multiplicativity, |a(n)|≤d(n)√n≪_ε n^(1/2+ε).",
+      "locator": "Continuation repair of item151's local Hecke estimate, not a newly found error in DIT16",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/63"
+      ],
+      "proofSteps": [
+        "Let α,β be the roots of X²−aX+1. If |a|≤2 the conjugate roots have modulus1. If |a|>2 the roots are real of common sign, with larger modulus R≥1 and R+R⁻¹=|a|≤√p+1/√p. Strict monotonicity of x+x⁻¹ on[1,∞) gives R≤√p.",
+        "Thus both roots have modulus at most√p. The complete homogeneous sum Σ_{j=0}^k α^jβ^(k−j) satisfies the same recurrence and initial values, including repeated roots α=β=±1. It equals A_k and is bounded by(k+1)p^(k/2).",
+        "Multiplicativity gives the stated d(n)√n bound, then the standard divisor bound gives n^ε. This corrects the earlier proof sketch's unjustified absorption of ∏_{p^k∥n}(1+1/p)^k into n^ε."
+      ],
+      "note": "Preserves151's intended norm bound while replacing its faulty intermediate inequality. The self-adjoint normalized Hecke operator norm is an input from63, not proved by the scalar lemma.",
+      "sourceGates": []
     }
   ],
   "prerequisites": [
@@ -5471,7 +5855,6 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/60",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/66",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/67",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/68",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/88",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/89",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/90",
@@ -5480,14 +5863,11 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/93",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/94",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/138",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/151",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/152",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/153",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/156",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/157"
       ],
-      "resume": "Acquire Fay and the precise spectral Sobolev/resolvent statements. Supply no-exceptional level-one spectrum and the exact Rankin–Selberg norm identity proving ||φ|| cosh²(πr/4) has polynomial growth.",
-      "readStatus": "Fay landing-page HTML acquired, no paper text read. The norm constant and adjoint-L bound have not been sourced; item 151 is an explicit proof gate."
+      "resume": "Acquire Fay and precise noncompact Sobolev/resolvent statements; source the no-exceptional level-one spectrum. Do not repeat151's completed written norm argument, or interpret that local closure as closure of all S4.",
+      "readStatus": "Historical continuations supply item151's exact norm constant and polynomial bound. This continuation repairs its prime-power Hecke estimate via169. Fay paper text, noncompact resolvent/Sobolev suppliers and no-exceptional level-one spectrum remain unread/unclosed."
     },
     {
       "id": "S5",
@@ -5526,8 +5906,8 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/119",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/120"
       ],
-      "resume": "Reconcile WU in DIT16 with U₄∘W₄ in DIT11 after y^(1/4) conjugation; preserve the (3/2) correction to the earlier plus Poincaré normalization. Read Kohnen’s original finite-sum identity and Chiera’s theta norm.",
-      "readStatus": "DIT11 pp956–960 and 964–977 read, including unfolded integrals. Remaining pages and original Kohnen/Chiera proofs not read."
+      "resume": "Use168's exact conjugations: C(U₄∘W₄)C⁻¹=U∘W, not automatically W∘U. Check action/composition conventions or prove the necessary equality on the precise automorphic space; preserve the published3/2 correction. Original Kohnen/Chiera source proofs remain open.",
+      "readStatus": "DIT11 pp956–960 and 964–977 read, including unfolded integrals. Remaining pages and original Kohnen/Chiera proofs not read. Fresh continuation read the p959 definitions and pp958–960 in context;168 proves both conjugations. It does not reconcile the order."
     },
     {
       "id": "S6",
@@ -5576,13 +5956,10 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/112",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/113",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/114",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/115",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/116",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/117",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/118"
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/116"
       ],
-      "resume": "Supply branch conventions, compact differentiated majorants, endpoint integration by parts and the Frobenius uniqueness argument for Re(s)>0, including s=1/2. Finite coefficient checks cannot establish the full complex-parameter integral.",
-      "readStatus": "Appendix fully read, corrected recurrence derived and exact finite coefficients checked. The full analytic supplier decomposition remains open."
+      "resume": "Continue the residual S8 suppliers110–114 and116, especially the W definition, Whittaker–Bessel comparison and exceptional-parameter large-y bounds. Do not treat the completed local Appendix integral proof as formalized Lean or as completion of all S8.",
+      "readStatus": "All of Appendix A freshly reread and pp983–985 page images checked. Items162–167 and115/117/118 now supply the full written analytic proof of Lemma7, including sine-power beta contour, entire desingularization, majorants and IBP. DLMF formulas checked; underlying Nielsen1906 proof not read or required for the independent contour proof. W/infinity asymptotics, comparison113 and differentiated seed110 remain open."
     }
   ],
   "routes": [
@@ -5660,9 +6037,15 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/138",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/152",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/156",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/157"
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/157",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/162",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/163",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/164",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/165",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/166",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/167"
       ],
-      "reason": "The noncompact Laplacian, Eisenstein/Poincaré families, resolvent residues, Bessel suppliers and spectral expansion belong to the existing spectral layers. AS.0 supplies analytic operators and special-function interfaces, AS.1 initial convergence, AS.2 continuation, and AS.4 modular spectrum and summation. MP.7 imports these and supplies multiplier-specific adaptations."
+      "reason": "The noncompact Laplacian, Eisenstein/Poincaré families, resolvent residues, Bessel suppliers and spectral expansion belong to the existing spectral layers. AS.0 supplies analytic operators and special-function interfaces, AS.1 initial convergence, AS.2 continuation, and AS.4 modular spectrum and summation. MP.7 imports these and supplies multiplier-specific adaptations. Continuation suppliers162–167 import the already built regularized hypergeometric series, beta/gamma identities and dominated differentiation (159–161); only the specific adapters, endpoint estimates and cycle integral proof are routed, not generic convergence/integration machinery. QSeriesPartitionsAndMockModularForms:QM.2 may reuse the Bessel adapter rather than redeclare it."
     },
     {
       "route": "source",
@@ -5711,7 +6094,8 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/129",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/130",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/132",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/149"
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/149",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/168"
       ],
       "reason": "The existing half-integral-weight stage owns theta multipliers, plus-space projection, half-weight Fourier/Kloosterman coefficients, Shimura eigenlines and coefficient traces. MP.5 supplies theta kernels and their norms. Import generic resolvents/Bessel analysis from AS and central-value period identities from GZ.5. No genus-two MP.8 extension is needed."
     },
@@ -5725,7 +6109,8 @@
       "items": [
         "PAPER-DUKE-IMAMOGLU-TOTH-16/61",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/62",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/63"
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/63",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/169"
       ],
       "reason": "The proposed automorphic-space and cuspidality layers own the level-one Hecke–Maass carrier, its parity and normalized operators. Import spectral expansion from AS; keep holomorphic ModularForms upstream as an existing supplier only."
     },
@@ -5887,6 +6272,23 @@
       "date": "2026-09-22",
       "bytes": 568,
       "type": "HTML"
+    },
+    {
+      "id": "dlmf-appendix",
+      "date": "2026-09-22",
+      "urls": [
+        "https://dlmf.nist.gov/5.12#E6",
+        "https://dlmf.nist.gov/13.14#E2",
+        "https://dlmf.nist.gov/13.2#E2",
+        "https://dlmf.nist.gov/10.2#E2"
+      ],
+      "readScope": "DLMF5.12 page read; selected definitions/series13.14.2,13.2.2–4,10.2.2 read. These verify conventions, not original source proof closure. Nielsen1906§64 not read;167 supplies an independent beta-contour proof."
+    },
+    {
+      "id": "hn22-remark",
+      "url": "https://arxiv.org/html/2211.05890v2#S3",
+      "date": "2026-09-22",
+      "readScope": "Remark3.22 read for the previously recorded E5; no full-read or counterexample-family proof claim."
     }
   ],
   "inspection": {
@@ -6097,7 +6499,8 @@
       "fundamental discriminants and Pell units",
       "PSL actions, stabilizers, measure and modular fundamental domains",
       "theta and Dirichlet/Dedekind completed L-functions",
-      "Nielsen, minus continued fractions, Maass/Kohnen/Whittaker/Kloosterman and spectral resolvents"
+      "Nielsen, minus continued fractions, Maass/Kohnen/Whittaker/Kloosterman and spectral resolvents",
+      "Fresh: RegularizedHypergeometric.lean complete; Gamma/Beta actual reflection/duplication/reciprocal/Pochhammer/beta declarations; Analytic/Basic power-series sum; ParametricIntegral dominated RCLike derivative."
     ],
     "nearMisses": [
       "Pell.Solution₁ and its fundamental solution solve x²−dy²=1 over Z[√d]; a full-order adapter for t²−Du²=4 is still needed.",
@@ -6106,29 +6509,33 @@
       "The real-axis Dedekind residue limit is built; meromorphic continuation and the narrow regulator comparison are separate."
     ],
     "prePublicationCheck": {
-      "commit": "c8906d208bbf254080dbfa3f1d018ae719174809",
+      "commit": "153e5fbe48ffcf6c4f82ca14a6e2d291e9089e02",
       "changedInspectedInputs": [],
-      "claim": "Issue 1170 remained state:claimed for Codex — codex-c83e7a, confirmed against comment 5770059480."
-    }
+      "inspectedInputCount": 39,
+      "pinnedModuleHashesVerified": 23,
+      "claim": "Issue1170 remains state:claimed for Codex — codex-a71f92; bot comment5777049859 explicitly confirms claim comment5777047396.",
+      "authorizedOriginals": "All three deliverables matched the inherited snapshot on the fresh publication base before editing."
+    },
+    "continuationReadScope": "codex-a71f92: all42 publisher pages949–990 freshly read; DIT11 text covering full958–960 plus adjacent context reread; DLMF selected scopes and HN22v2 Remark3.22 above. Historical Duke88 and other source reads remain attributed to the earlier workers."
   },
   "coverage": {
-    "mainPaper": "All pages read and all displayed main results represented. The dependency inventory is a checkpoint: source gates S1–S8 require further splits and proof closure.",
+    "mainPaper": "All42 pages freshly read in this continuation; main statements and existing158-node inventory preserved, with11 added analytic/operator/Hecke suppliers. Recursive inventory closure remains partial at S1–S7 and residual S8.",
     "counts": {
-      "library": 16,
-      "missing": 138,
+      "library": 19,
+      "missing": 146,
       "planned": 4
     },
-    "definitionsAndConstructions": 51,
-    "apiStatements": 153,
-    "proposedUnitTests": 153
+    "definitionsAndConstructions": 52,
+    "apiStatements": 156,
+    "proposedUnitTests": 156
   },
   "validation": {
     "lean": "No Lean file is an authorized deliverable; no Lean compilation or formalization claimed.",
     "finiteChecks": "Exact algebraic and finite coefficient checks plus three numerical quadratures are reported separately in the report. They are diagnostics, not proofs of all-parameter analytic assertions.",
     "paperChecker": "passed",
     "intakeCheckFiles": "3 files, 0 problems",
-    "dependencyGraph": "158 nodes; all internal references exist; acyclic",
-    "missingRoutes": "138 missing items each routed exactly once",
+    "dependencyGraph": "169 nodes; acyclicity and all references checked in the continuation validation.",
+    "missingRoutes": "146 missing items each routed exactly once.",
     "apiRoles": "All roles belong to PROTOCOL section 4 list",
     "diagnosticCounts": {
       "cycle matrices": 242,
@@ -6156,15 +6563,38 @@
     "exactMathematicalAssertions": 1814,
     "numericalQuadratures": 3,
     "scope": "No shell git commands used; publication uses GitHub tree/commit/ref APIs.",
-    "s4NormIdentity": "Mellin integral ∫K_ir(u)²du/u·u^{s} at s=1 checked against π²/(4cosh πr) at r=0.5,2,5 (40-digit quadrature); paper example p.966 gives L(1,sym²φ)≈1.1477; √2cosh²(x/4)/√(cosh x)≤√2 checked on [0,200]. Contour-shift bound |K_ir(u)|≤e^{1−πr/2}K₀(2u/(πr)) checked for r∈[1,40], u∈[0.01,80] (max ratio 0.70)."
+    "s4NormIdentity": "Mellin integral ∫K_ir(u)²du/u·u^{s} at s=1 checked against π²/(4cosh πr) at r=0.5,2,5 (40-digit quadrature); paper example p.966 gives L(1,sym²φ)≈1.1477; √2cosh²(x/4)/√(cosh x)≤√2 checked on [0,200]. Contour-shift bound |K_ir(u)|≤e^{1−πr/2}K₀(2u/(πr)) checked for r∈[1,40], u∈[0.01,80] (max ratio 0.70).",
+    "continuation": {
+      "session": "codex-a71f92",
+      "exactAssertions": 1466,
+      "exactBreakdown": {
+        "nonzero Frobenius denominators": 632,
+        "even Frobenius coefficients": 328,
+        "odd Frobenius coefficients": 320,
+        "Satake homogeneous recurrence": 186
+      },
+      "numericalComparisons": 31,
+      "numericalBreakdown": {
+        "sine integral quadratures": 6,
+        "Whittaker cycle quadratures": 16,
+        "operator conjugation comparisons": 9
+      },
+      "workingPrecisionDigits": 75,
+      "maxNormalizedNumericalError": "5.1248381e-76",
+      "threshold": "1e-45",
+      "scope": "Exact rational and numerical diagnostics; the all-parameter proof is the written supplier chain162–167/118, not these finite checks. Historical1814 exact checks were not rerun. No Lean compilation.",
+      "paperChecker": "passed",
+      "intakeCheckFiles": "3 files,0 problems",
+      "structural": "169-node DAG; all158 original IDs/kinds/statuses/statements preserved;146 missing items each routed once;52 definitions/constructions with156 API statements and156 proposed tests;12 distinct sourceIssue IDs."
+    }
   },
   "continuation": {
     "priority": [
-      "S4 closed (cc-fb70e5): norm identity and elementary polynomial bound for L(1,sym²φ), item 151",
-      "S5/items82–83 operator composition comparison",
+      "Residual S4 noncompact resolvent/Sobolev and no-exceptional spectrum;151's written norm comparison is not all of S4",
+      "S5/items82–83 order comparison using168",
       "S2/items31–40 core and rigidity closure",
       "S6/items120–131 automorphy and multiplicity prerequisites",
-      "S1/S3/S7/S8 recursive supplier decomposition"
+      "S1/S3/S7 and residual S8:110–114,116"
     ],
     "preserveIds": true,
     "sessions": [
@@ -6179,7 +6609,210 @@
         "session": "cc-fb70e5",
         "date": "2026-09-22",
         "work": "Closed gate S4b with an elementary polynomial bound, L(1,sym²φ)≪r^{2+ε}, via a contour-shift K-Bessel estimate, the Hecke bound and Parseval. Removed the GL₃ convexity route and its two prerequisites. Items 151–153 and 68 are now ungated for S4."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-22",
+        "work": "Fresh full DIT16 read. Added169-node supplier chain with19 library imports; complete written sine-beta and Appendix integral proof; exact U/W conjugation without claiming operator-order resolution; repaired151's prime-power bound; recorded source issues with novelty searches. Partial: no Lean compilation, no general spectral/geometric gate closure."
       }
     ]
+  },
+  "sourceIssues": [
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E1",
+      "kind": "misprint",
+      "locator": "§5, \"Spectral expansion\", the display after (5.2), p.961, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there",
+      "printed": "\"Clearly E(z, s) is an eigenfunction of Δ = −y^{−2}(∂²_x + ∂²_y) with eigenvalue λ = s(1 − s).\"",
+      "correction": "Δ = −y²(∂²_x + ∂²_y).",
+      "reason": "The hyperbolic Laplacian is −y²(∂²_x + ∂²_y). Only with y² is it Γ-invariant and does Δ(y^s) = s(1 − s)y^s hold, which the stated eigenvalue of E(z, s) needs. The paper's own (7.10), p.972, and the Stokes computation after it use the correct operator. Checked on the page image. Noted by the extraction (Corrections, item 1).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
+        "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
+        "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+      ]
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E2",
+      "kind": "error",
+      "locator": "Theorem 4, p.965, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there",
+      "printed": "\"Then there exists a unique nonzero F(z) with weight 1/2 for Γ_0(4) with Fourier expansion F(z) = Σ b(n) W_{sgn(n)/4, ir/2}(4π|n|y) e(nx), such that for any pair of co-prime fundamental discriminants d′ and d, we have (5.16) 12√π |D|^{3/4} b(d′) \\overline{b(d)} = ⟨φ, φ⟩^{−1} Σ_A χ(A) {…}. Here ⟨F, F⟩ = … = 1 and the value of b(n) for a general discriminant n = dm² … is determined by means of the Shimura relation …\"",
+      "correction": "F is unique only up to a constant factor of absolute value 1. The line spanned by F is unique, and F itself becomes unique once one also requires, for example, b(d_0) > 0 for one fundamental discriminant d_0 with b(d_0) ≠ 0.",
+      "reason": "If F satisfies the conditions, so does uF for every complex u with |u| = 1. Indeed ⟨uF, uF⟩ = 1, the Shimura relation is linear in b, and b(d′)\\overline{b(d)} is unchanged since |u|² = 1. Taking u = −1 gives a second such F. The conjugate in (5.16) was checked on the page image. Existence and the identity (5.16) are unaffected. The proof, via Proposition 6 in §10, produces F as a member ψ of a chosen orthonormal basis B_r, which fixes it only up to such a unit. Noted by the extraction (Corrections, item 5).",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
+        "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
+        "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+      ]
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E3",
+      "kind": "misprint",
+      "locator": "§5, the numerical example after Theorem 4, p.966; also Proposition 6 and its proof, pp.981–982, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there",
+      "printed": "p.966: \"we take the first occurring even Hecke-Maass form with eigenvalue λ = 190.13154731 ··· = 1/2 + r², where r/2 = 6.889875675 ···\". Proposition 6, p.981: \"For any even Hecke-Maass cusp form φ for Γ with Laplace eigenvalue 1/2 + r²\". The same \"1/2 + r²\" appears again after (10.4) on p.981 and twice on p.982.",
+      "correction": "1/4 + r² in each place.",
+      "reason": "The paper writes every eigenvalue as λ = 1/4 + r² in (5.6), p.962, and Theorem 4 and Proposition 6 use the weight-1/2 Whittaker parameter ir/2 that belongs to 1/4 + r². The numbers confirm it. r = 2 × 6.889875675 = 13.77975135 gives 1/4 + r² = 190.131547…, the printed λ, whereas 1/2 + r² = 190.381547…. Noted by the extraction (Corrections, item 2).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
+        "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
+        "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+      ]
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E4",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 1, (6.2), p.968, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there",
+      "printed": "\"We have by Theorem 1 that (6.2) Σ_{A∈G_D} area(F_A) = Σ_{A∈G_D} ℓ_A.\"",
+      "correction": "Σ_{A∈G_D} area(F_A) = π Σ_{A∈G_D} ℓ_A.",
+      "reason": "Theorem 1, (3.3), p.957, states area(F_A) = πℓ_A. The paper uses that form again for area(F_J) − area(F_I) = 3πh(−p). Only a lower bound (6.1) is drawn from (6.2), and the factor π changes only its implied constant, so the proof stands. Noted by the extraction (Corrections, item 3).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
+        "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
+        "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+      ]
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E5",
+      "kind": "error",
+      "locator": "Remark after the proof of Proposition 1, p.968, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there",
+      "printed": "\"Remark. It is also possible to give an upper bound for ℓ_A. For example, Eichler [17] gave a general argument that yields for the modular group that ℓ_A < c log ε_D for an explicit c.\"",
+      "correction": "No bound ℓ_A ≪ log ε_D holds uniformly. ℓ_A can be about √D while log ε_D is about log D. Eichler's argument bounds the word length of the geometric code of the closed geodesic, which is a different quantity from ℓ_A.",
+      "reason": "Take a odd with a² + 4 squarefree, for example a = 13 or 101 (D = 173 or 10205 = 5·13·157). Then D = a² + 4 ≡ 5 (mod 8) is a fundamental discriminant, and a² + 4 is squarefree for a positive proportion of a. For the principal class, (a + √D)/2 has regular continued fraction [a; a, a, …]. A regular partial quotient a in an odd position becomes a run of a − 1 twos in the minus continued fraction, so the reduced period is ((a + 2, 2, …, 2)) with a − 1 twos, and ℓ_A = a. Meanwhile ε_D = ((a + √D)/2)² = (a² + 2 + a√D)/2, so log ε_D ≈ 2 log a, and ℓ_A / log ε_D → ∞. A direct computation for a = 5, 7, 13, 21, 51, 101, 201, 401 gives ℓ_A = a. In each case the product of the reduced w over the period equals ε_D, as in (6.3), which confirms that ℓ_A is the paper's quantity. The remark is not used elsewhere in the paper.",
+      "affects": "nothing",
+      "known": "Partly: P. Humphries and A. C. Nordentoft, \"Sparse equidistribution of geometric invariants of real quadratic fields\", arXiv 2211.05890v2 (28 August 2025), Remark 3.22, observe that Eichler's argument bounds the geometric code of the geodesic and not ℓ_A (the arithmetic code), so the remark is unsupported. They do not show that the bound fails. The counterexample family here is new.",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
+        "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
+        "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+      ]
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E6",
+      "kind": "gap",
+      "locator": "Proposition 2, (6.6), and its proof, pp.968–969, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there",
+      "printed": "\"Weyl(⟨φ, φ⟩^{−1}φ, χ) ≪_ε r^C |D|^{13/28+ε}, (6.6) where … φ is any even Hecke–Maass cusp form with Laplace eigenvalue 1/4 + r².\" Proof: \"Part (6.6) of Proposition 2 follows straight from Theorem 4 and Theorem 5 of [12].\"",
+      "correction": "State (6.6) for the unit vector u = φ/‖φ‖: Weyl(u, χ) ≪_ε r^C |D|^{13/28+ε}. It follows from Theorem 4 and [12, Theorem 5] together with the Rankin–Selberg size of ‖φ‖ for the normalization a(1) = 1. It is also what the proof of Theorem 2 uses, since c(φ)⟨φ, φ⟩^{−1}φ = ⟨f, u⟩u.",
+      "reason": "The forms φ are normalized by a(1) = 1 in (5.7), p.962, and the Shimura relation in Theorem 4 forces this too. [12, Theorem 5] (Duke 1988, p.85, read on the page image) bounds the coefficients of a spectral weight-1/2 form with eigenvalue 1/4 + t² by |λ|^A ch(πt/2)|n|^{−2/7+ε}. Here t = r/2, so Theorem 4 gives |Weyl(⟨φ, φ⟩^{−1}φ, χ)| ≪ r^C cosh²(πr/4)|D|^{3/4−2/7+ε}. That bound has an exponential factor, which (6.6) omits. The factor cannot simply be dropped. For a(1) = 1, Rankin–Selberg unfolding gives ⟨φ, φ⟩ ≍ L(1, sym²φ)/cosh(πr), so ⟨φ, φ⟩^{−1}φ is about e^{πr/2} times the unit vector u. As printed, (6.6) would therefore make the Weyl integrals of u exponentially small in r, which the cited results do not give. For u the two exponentials cancel: Weyl(u, χ) = ‖φ‖ Weyl(⟨φ, φ⟩^{−1}φ, χ) ≪ L(1, sym²φ)^{1/2} r^C |D|^{13/28+ε}, and L(1, sym²φ) ≪ r^ε. The coefficient bound \"c(φ) ≪ |r|^{−A}\" used for Theorem 2 on p.969 holds for u, so Theorem 2 stands. Noted by the extraction (\"The spectral norm gate\").",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
+        "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
+        "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+      ]
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E7",
+      "kind": "misprint",
+      "locator": "§7, the definition of Hecke's L-function, p.970, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there",
+      "printed": "\"Hecke's L-function for a character χ of Cl⁺(K) is given for Re(s) > 1 by L(s, χ) = Σ_a χ(a)N(a)^{−s} = ∏_p (1 − N(p)^{−s})^{−1}\"",
+      "correction": "L(s, χ) = Σ_a χ(a)N(a)^{−s} = ∏_p (1 − χ(p)N(p)^{−s})^{−1}.",
+      "reason": "As printed, the product is the Dedekind zeta function of K, not L(s, χ). Multiplicativity of χ puts χ(p) in each Euler factor. The paper's later factorization L(s, χ) = L(s, χ_{d′})L(s, χ_d) is the one belonging to the corrected product. Noted by the extraction (Corrections, item 4).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
+        "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
+        "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+      ]
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E8",
+      "kind": "misprint",
+      "locator": "Proposition 6, p.981, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there",
+      "printed": "\"… such that for d a fundamental discriminant and d′ any discriminant such that D = d′d is not a square, we have T(φ, χ) = 12π^{1/2} D^{3/4} b(d′) \\overline{b(d)}\"",
+      "correction": "T(φ, χ) = 12π^{1/2} |D|^{3/4} b(d′) \\overline{b(d)}, as in (5.16).",
+      "reason": "Proposition 6 allows D < 0: T(φ, χ) is defined for d′d < 0 and for d′, d < 0 just above it, and the proposition is what proves Theorem 4 in those cases. For D < 0, D^{3/4} is not a real number, and Theorem 4, (5.16), has |D|^{3/4}. The proof treats D = d′d > 1. Checked on the page image. Noted by the extraction (Corrections, item 6).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
+        "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
+        "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+      ]
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E9",
+      "kind": "misprint",
+      "locator": "Appendix A, proof of (A.1) (Lemma 7), the last display, p.984, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there",
+      "printed": "\"Using the integral formula (see [23, p. 511, 3.892(1)]), ∫_0^π e^{iβx} sin^{ν−1}x dx = π e^{iπβ/2} Γ(ν) / (Γ((ν+β+1)/2) Γ((ν−β+1)/2)),\"",
+      "correction": "∫_0^π e^{iβx} sin^{ν−1}x dx = π e^{iπβ/2} Γ(ν) / (2^{ν−1} Γ((ν+β+1)/2) Γ((ν−β+1)/2)) for Re ν > 0.",
+      "reason": "At ν = 3, β = 0 the left side is ∫_0^π sin²x dx = π/2, while the printed right side is πΓ(3)/Γ(2)² = 2π. The cited Gradshteyn–Ryzhik formula, π e^{iπβ/2} / (2^{ν−1} ν B((ν+β+1)/2, (ν−β+1)/2)), has the factor 2^{ν−1}. The next display (A.2) is correct. With ν = n + s, the factor 2^{n+s−1} cancels (2t)^{n+s} and leaves the printed 2π, so Lemma 7 is unaffected. Checked on the page image. Noted by the extraction (Corrections, item 7).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
+        "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
+        "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+      ]
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E10",
+      "kind": "misprint",
+      "locator": "Appendix A, the display before (A.3), p.985, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there",
+      "printed": "\"On the other hand, using the Taylor expansion t^{1/2} J_{s−1/2}(t) = Σ_{r≥0} (−1)^r (t/2)^{s+2r} / (r! Γ(s + 1/2 + r)).\"",
+      "correction": "t^{1/2} J_{s−1/2}(t) = √2 Σ_{r≥0} (−1)^r (t/2)^{s+2r} / (r! Γ(s + 1/2 + r)).",
+      "reason": "Put ν = s − 1/2 in J_ν(t) = Σ (−1)^r (t/2)^{ν+2r} / (r! Γ(ν + r + 1)). Then t^{1/2}(t/2)^{s−1/2+2r} = √2 (t/2)^{s+2r}. (A.3) is correct with the √2: G(s, μ) = e(μ/4)(2π)^{3/2} 2^{−s}Γ(2s)/(…), times √2 · 2^{−s−2r}, gives the printed π^{3/2} e(μ/4) 2^{2−2s} Γ(2s) 2^{−2r}/(…). The leading coefficients of (A.2) and (A.3) then agree by the duplication formula, so Lemma 7 stands. Checked on the page image. Noted by the extraction (Corrections, item 8).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
+        "W. Duke's publication page https://www.math.ucla.edu/~wdduke/, checked 22 September 2026: it links corrections for other papers but none for this one; the preprint there (geometric.pdf, 29 July 2016, SHA-256 f1f042ad…cfcf) has the same text",
+        "arXiv: no version of this paper is on arXiv (title and author search, 22 September 2026)",
+        "web search for an erratum or correction, 22 September 2026: none found; the later paper of Humphries–Nordentoft, arXiv 2211.05890v2 (28 August 2025), was read for comments on this paper"
+      ]
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E11",
+      "kind": "gap",
+      "locator": "DIT16 publisher Appendix A pp983–985, proof of(A.1); page images checked2026-09-22",
+      "printed": "“the Taylor series coefficients of both sides agree up to order 2”",
+      "correction": "Use f=t^sH with H analytic (indeed entire), justify the endpoint integration and differentiated integrals, then derive c₁=0 and c_n=−c_{n−2}/[n(n+2s−1)]. This determines the solution, including s=1/2 and c₀=0.",
+      "reason": "For nonintegral complex s the integral generally is not an ordinary Taylor series at0, and its ODE has a singular coefficient t⁻². A regular-point ODE uniqueness argument from two ordinary Taylor coefficients is therefore not the missing justification. Items162–167 and118 give the explicit entire-H argument, endpoint majorants and cutoff integration by parts. This is a proof-completion qualification, not a counterexample to Lemma7.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals article page https://annals.math.princeton.edu/2016/184-3/p08 read2026-09-22; no correction linked.",
+        "William Duke publication list https://www.math.ucla.edu/~wdduke/ read2026-09-22; this entry has no correction link. The linked author preprint https://www.math.ucla.edu/~wdduke/preprints/geometric.pdf still has the same Appendix formulas/Taylor wording in pp29–30.",
+        "arXiv title search https://arxiv.org/search/?query=Geometric+invariants+for+real+quadratic+fields&searchtype=title on2026-09-22 returned the later Humphries–Nordentoft paper, not a version history for DIT16.",
+        "Web queries for the exact title with erratum/correction/corrigendum on2026-09-22 found no correction of the Appendix analytic proof. This is a bounded novelty search, not proof of global novelty."
+      ]
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E12",
+      "kind": "misprint",
+      "locator": "Prerequisite DIT11, Cycle integrals of the j-function and mock modular forms, Annals173(2011), p959 (2.19); explicitly corrected by DIT16 p976 footnote7",
+      "printed": "P_d⁺(τ,s)=pr⁺(P_d(τ,s))",
+      "correction": "P_d⁺(τ,s)=(3/2)pr⁺(P_d(τ,s)).",
+      "reason": "DIT16 footnote7 explicitly supplies the3/2 factor. Consequently DIT16's projected seed has factor2/3 when compared with the earlier P_d⁺ normalization. This scalar correction does not by itself settle the U/W composition-order question.",
+      "affects": "nothing",
+      "known": "DIT16, Geometric invariants for real quadratic fields, published p976 footnote7, https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf",
+      "searched": [
+        "DIT11 publisher p959 (2.19) read directly2026-09-22.",
+        "DIT16 publisher p976 and footnote7 read during the full-paper read2026-09-22; this is the explicit published correction."
+      ]
+    }
+  ],
+  "sourceIssueProvenance": {
+    "mirroredFrom": "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json",
+    "preservedIds": "E1–E10 retained rather than renumbered; the separate errata file is outside this issue's write scope.",
+    "scope": "Historical search/read claims inside the mirrored records belong to that errata job, not to this continuation. No review verdict is added. Fresh checks here: publisher and author listing, title/correction searches, arXiv title search; publisher images pp961,965,983–985; author-preprint Appendix and Theorem4 passages; HN22v2 Remark3.22. E5's infinite squarefree family is inherited and not independently source-closed in this continuation."
   }
 }
