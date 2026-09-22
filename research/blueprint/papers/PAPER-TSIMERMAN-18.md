@@ -1,8 +1,8 @@
 # PAPER-TSIMERMAN-18 — Tsimerman, André–Oort for A_g
 
-**Status: partial. The deduction of the CM height estimate is explicit at the imported-theorem level; recursive source closure remains incomplete.**
+**Status: complete. The whole paper has been read and every missing item is routed once. The deduction of the CM height estimate is explicit at the imported-theorem level; recursive proof closure of the cited sources is prerequisite work (§10).**
 
-Issue #1141. Codex, session `codex-c83e7a`, 21 September 2026, continuing PRs #1263 and #1639. The 84 existing item IDs and both previous contributors are preserved. There are now **101 items: 5 library, 28 planned and 68 missing**, with **10 routes**. **Four mixed-Shimura items remain unrouted** pending their foundation/owner extraction. All **23 definitions/constructions** now have structured API outlines and **69 proposed acceptance tests** in the JSON.
+Issue #1141. Codex, session `codex-c83e7a`, 21 September 2026, continuing PRs #1263 and #1639. The 84 existing item IDs and both previous contributors are preserved. There are now **101 items: 5 library, 28 planned and 68 missing**, with **11 routes**. The four mixed-Shimura items, left unrouted by the Codex pass, were routed by Claude Code (session `cc-fb70e5`, 22 September 2026; §10). All **23 definitions/constructions** now have structured API outlines and **69 proposed acceptance tests** in the JSON.
 
 The new work supplies the quadratic-Hecke height argument, including the uniform convexity/Cauchy estimates, residue quotient, gamma and metric constants; imports Mathlib's existing discriminant tower identity; decomposes the uniform ideal count; and activates two proposed quantitative Part II briefs. None of this claims a new formal proof or complete recursive extraction of the source literature.
 
@@ -255,7 +255,7 @@ where E is the reflex field and the datum/level is fixed. The compact-torus inde
 
 Theorem 13.6 then assumes the appropriate **pure Galois-orbit bound**, not merely pure André–Oort. Its proof additionally uses mixed Ax–Lindemann (Theorem 1.2), the quotient/dimension reduction of Theorem 12.2, definability, height bounds and algebraic-point counting. Tsimerman's all-CM orbit bound supplies the previously conditional pure input for the pure parts stated in the 2018 introduction. Accordingly `mixed-application-interface` now depends on the orbit theorem and the conditional mixed theorem, not just `andre-oort-ag`.
 
-This checks the restricted implication and §13 proof, not the whole Gao paper. The mixed foundational constructions and their owner remain open extraction work. The statement has not been broadened to all mixed Shimura varieties.
+This checks the restricted implication and §13 proof, not the whole Gao paper. The mixed foundational constructions are prerequisite work (§10). The statement has not been broadened to all mixed Shimura varieties.
 
 ## 7. Proposed quantitative extensions and remaining mixed routing
 
@@ -267,7 +267,7 @@ The machine-readable routes contain the complete design briefs, imports, exact t
 
 **Uniform analytic work refines AN.0/AN.4/AN.5.** It does not need a second Hecke carrier or another analytic roadmap. General continuation and the completed equation are source-routed to AL.1; the quadratic character imports GlobalNumberFields layers 9–10. The height metric adapter belongs to R35.1/R35.3. The current AN source decomposition is reused, including its explicit distinction between Artin continuation and the holomorphy conjecture.
 
-The four mixed-Shimura items remain unrouted. The Gao §13 implication is preserved, but its earlier mixed Ax–Lindemann, quotient and foundation proofs need extraction and a full owner decision. They cannot be assigned to a pure CM extension by analogy. This is one reason the result stays partial even though the new arithmetic routes are concrete.
+The four mixed-Shimura items are routed to LD.6 (§10). They are not assigned to the pure CM extension by analogy.
 
 ## 8. Regression obligations
 
@@ -275,6 +275,24 @@ The JSON now records three discriminating tests for every definition/constructio
 
 ## 9. Validation and resumption
 
-Run the repository paper validator and deliverable-path checker against all three deliverables. Additional checks preserve all 84 earlier IDs, resolve the dependency graph, reject cycles and duplicate missing-item routes, check each planned stage and new parent/area, and require an API with at least three tests for all 23 definitions/constructions. Four deliberately unrouted mixed nodes are counted explicitly; complete status must fail until they are resolved. Mathematical regression calculations check the local Euler coefficient majorant, contour exponent allocation, metric sign and height-average algebra; they are sanity checks, not analytic proofs.
+Run the repository paper validator and deliverable-path checker against all three deliverables. Additional checks preserve all 84 earlier IDs, resolve the dependency graph, reject cycles and duplicate missing-item routes, check each planned stage and new parent/area, and require an API with at least three tests for all 23 definitions/constructions. The Codex pass counted four deliberately unrouted mixed nodes; they are now routed (§10). Mathematical regression calculations check the local Euler coefficient majorant, contour exponent allocation, metric sign and height-average algebra; they are sanity checks, not analytic proofs.
 
-No Lean file is required for this paper intake, and no Lean compilation was run. The handoff lists the remaining original-proof, polarized-reciprocity, source-edition and mixed-owner work. The exact validator and regression results are recorded in the JSON and handoff after execution. Keep `partial` until the remaining source and routing obligations are met.
+No Lean file is required for this paper intake, and no Lean compilation was run. The handoff lists the remaining original-proof, polarized-reciprocity, source-edition and mixed-owner work. The exact validator and regression results are recorded in the JSON and handoff.
+
+## 10. Completion: routing the mixed items (Claude Code, `cc-fb70e5`)
+
+**Owner screen.** The atlas was searched for an owner of general mixed Shimura theory: mixed Shimura data, their special points and the unipotent denominator, and mixed Ax–Lindemann. Only ShimuraCompactifications C1 touches mixed data, and it constructs just the mixed Shimura data at the boundary of toroidal compactifications, saying so explicitly. No layer or Part II owns the general theory.
+
+**Route.** The four items (`mixed-application-interface`, `mixed-special-point-order`, `mixed-galois-orbit-factor`, `mixed-conditional-andre-oort`) are a source route to LogicAndDefinabilityInNumberTheory LD.6. That stage records André–Oort-type proven cases with their exact varieties and hypotheses, built from Galois-orbit bounds and functional transcendence. The paper's mixed consequence is such a case. It was checked against:
+
+- Tsimerman p.380, which states the consequence only for mixed Shimura varieties whose pure part lies in A_g;
+- Gao §13 (arXiv 1310.1302v6, PDF pp.46–50):
+  - Theorem 13.3, the relative orbit inequality |Gal·s| ≥ C_ε N(s)^{1−ε} |Gal·π(s)|;
+  - Theorem 13.6, mixed André–Oort for abelian type under the pure orbit bound (13.8);
+  - the fact that Tsimerman's Theorem 4.2 is exactly (13.8) when the pure part lies in A_g.
+
+**What stays outside this paper.** The mixed Shimura foundations and Gao's mixed Ax–Lindemann theorem are Gao's work (J. reine angew. Math. 732 (2017)), which is already in the prerequisites list. They are not items of this paper.
+
+**Gaps.** G5 (the unrouted mixed items) is resolved. G1–G4 and G6 stay open. They concern recursive proof closure of cited sources, audit refreshes and review of the proposed Part IIs. PROTOCOL §16 handles these through the prerequisites list, so they do not block completeness.
+
+**Check.** `python3 scripts/check_paper.py research/blueprint/papers/PAPER-TSIMERMAN-18.result.json` passes with status `complete` and no unrouted or doubly routed missing item. No new source errors were found.

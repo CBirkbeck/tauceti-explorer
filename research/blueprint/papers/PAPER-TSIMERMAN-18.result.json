@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-TSIMERMAN-18",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "The Andre-Oort conjecture for A_g",
     "authors": "Jacob Tsimerman",
@@ -16,10 +16,10 @@
       "Comparison with arXiv 1506.01466v5, 1 December 2015"
     ]
   },
-  "summary": "André-Oort for A_g through discriminant-orbit and CM lift-height bounds. This continuation makes the quadratic-Hecke deduction of the CM height bound explicit at the imported-theorem level, identifies the existing discriminant tower theorem, and assigns quantitative extensions without duplicating the general CM, height or analytic foundations. Mixed foundation routing and recursive primary-proof checks remain open.",
+  "summary": "André-Oort for A_g through discriminant-orbit and CM lift-height bounds. This continuation makes the quadratic-Hecke deduction of the CM height bound explicit at the imported-theorem level, identifies the existing discriminant tower theorem, and assigns quantitative extensions without duplicating the general CM, height or analytic foundations. The four mixed-Shimura items are routed to LD.6 as a source-scoped André–Oort endpoint; recursive primary-proof checks of cited sources remain prerequisite work.",
   "agent": {
-    "name": "Codex",
-    "session": "codex-c83e7a",
+    "name": "Claude Code",
+    "session": "cc-fb70e5",
     "issue": 1141
   },
   "baseline": {
@@ -2115,38 +2115,64 @@
       ],
       "reason": "The accepted R28 source decomposition proves qualitative finiteness, height variation and the Tate isogeny criterion, not a dimension-uniform polynomial upper bound for the minimum geometric isogeny degree. Extend that direction without restating the qualitative theorem.",
       "brief": "For every g>=1 prove constants C_g,kappa_g>0 such that geometrically isogenous dimension-g abelian varieties A,B defined over one number field k admit a geometric isogeny of degree <=C_g*max(1,h_F(A),[k:Q])^kappa_g. The isogeny need not be k-defined or polarization-preserving; all constants depend only on g. Decompose Masser-Wustholz Factorization estimates (1995), Theorem II and the final field-degree discussion, acquiring the full proof and prerequisites beyond the inspected statement pages. Import AbelianSchemesAndArithmeticModuli A3/A6 for actual duals, quotients, degrees, Hom and products; ArakelovGeometryAndAbelianHeights R35 for stable height/product comparison; FaltingsFinitenessAndIsogenyTheorems R28 for precisely used qualitative facts. Prove the needed Zarhin/polarization-removal and field-degree estimates, rather than inserting an auxiliary-polarization degree into the final constant. Test a CM pair, negative stable height, product varieties and geometric versus rational isogenies. Export to ComplexMultiplicationAndExplicitReciprocityPartII. Suggested later file: TauCeti/AlgebraicGeometry/AbelianVariety/QuantitativeIsogeny.lean."
+    },
+    {
+      "route": "source",
+      "roadmap": "LogicAndDefinabilityInNumberTheory",
+      "stages": [
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ],
+      "items": [
+        "PAPER-TSIMERMAN-18/mixed-application-interface",
+        "PAPER-TSIMERMAN-18/mixed-special-point-order",
+        "PAPER-TSIMERMAN-18/mixed-galois-orbit-factor",
+        "PAPER-TSIMERMAN-18/mixed-conditional-andre-oort"
+      ],
+      "reason": "LD.6 records source-scoped André–Oort and related proven cases with their exact varieties and hypotheses, built from separate Galois-orbit bounds and functional transcendence. The paper's mixed consequence (p.380) is such a case. Gao's Theorem 13.6 shows that on a connected mixed Shimura variety of abelian type, a subvariety with dense special points is special provided the pure orbit bound (13.8) holds. Tsimerman's Theorem 4.2 supplies (13.8) whenever the pure part lies in A_g, via Gao's relative orbit inequality (Theorem 13.3: |Gal·s| ≥ C_ε N(s)^{1−ε} |Gal·π(s)|, with N(s) the unipotent denominator). The four items are recorded here as a source-scoped endpoint. The owner screen found no general mixed-Shimura owner: ShimuraCompactifications C1 constructs only the mixed data at boundaries and says so explicitly. So the mixed Shimura foundations and Gao's mixed Ax–Lindemann theorem are listed as prerequisite work (Gao, J. reine angew. Math. 732 (2017)), not as items of this paper, and the four items are not placed in the pure CM Part II."
     }
   ],
   "verificationGaps": [
     {
       "id": "G1",
-      "description": "Refresh remaining item-by-item foundation/library checks, especially LD whose AUDIT-34 remains pending. Directly verified library imports now include the discriminant tower identity. Full output remains partial."
+      "description": "Refresh remaining item-by-item foundation/library checks, especially LD whose AUDIT-34 remains pending. Directly verified library imports now include the discriminant tower identity. Full output remains partial.",
+      "status": "open",
+      "disposition": "Does not block completeness: this concerns the recursive proof closure of cited prerequisite sources or audit refreshes, which PROTOCOL §16 handles through the prerequisites list. Every item of this paper is read and every missing item is routed."
     },
     {
       "id": "G2",
-      "description": "Original Silverberg 1992 Proposition 2.3 still not read; author follow-up supplies the sufficient contract. Verify the exact polarized CM stabilizer and absolute-versus-reflex-compositum degree against an accessible full main-CM proof; do not treat them as equal degrees."
+      "description": "Original Silverberg 1992 Proposition 2.3 still not read; author follow-up supplies the sufficient contract. Verify the exact polarized CM stabilizer and absolute-versus-reflex-compositum degree against an accessible full main-CM proof; do not treat them as equal degrees.",
+      "status": "open",
+      "disposition": "Does not block completeness: this concerns the recursive proof closure of cited prerequisite sources or audit refreshes, which PROTOCOL §16 handles through the prerequisites list. Every item of this paper is read and every missing item is routed."
     },
     {
       "id": "G3",
-      "description": "The quadratic-Hecke deduction now has explicit conductor, continuation, residue, convexity, Cauchy, gamma and metric adapters. It closes the inference from those imported contracts, not recursive source proof closure. Original Brauer 1947, Rademacher 1959, quadratic conductor-discriminant proof, Bost and the deep averaged-Colmez proof/erratum remain prerequisites; the latter belongs to #1143/#1145. Original general-Artin derivative/pole-cancellation obligations are retained separately and not certified by this alternative."
+      "description": "The quadratic-Hecke deduction now has explicit conductor, continuation, residue, convexity, Cauchy, gamma and metric adapters. It closes the inference from those imported contracts, not recursive source proof closure. Original Brauer 1947, Rademacher 1959, quadratic conductor-discriminant proof, Bost and the deep averaged-Colmez proof/erratum remain prerequisites; the latter belongs to #1143/#1145. Original general-Artin derivative/pole-cancellation obligations are retained separately and not certified by this alternative.",
+      "status": "open",
+      "disposition": "Does not block completeness: this concerns the recursive proof closure of cited prerequisite sources or audit refreshes, which PROTOCOL §16 handles through the prerequisites list. Every item of this paper is read and every missing item is routed."
     },
     {
       "id": "G4",
-      "description": "Tsimerman 2012 sections 7.1-7.2 and Pila-Tsimerman 2013 section 3 inherited reads remain valid. Reconcile published versions, exact local order/compact index estimates and coordinate degree/height conventions. The 2012 AMS PDF request returned 403; arXiv binary is now pinned to v3."
+      "description": "Tsimerman 2012 sections 7.1-7.2 and Pila-Tsimerman 2013 section 3 inherited reads remain valid. Reconcile published versions, exact local order/compact index estimates and coordinate degree/height conventions. The 2012 AMS PDF request returned 403; arXiv binary is now pinned to v3.",
+      "status": "open",
+      "disposition": "Does not block completeness: this concerns the recursive proof closure of cited prerequisite sources or audit refreshes, which PROTOCOL §16 handles through the prerequisites list. Every item of this paper is read and every missing item is routed."
     },
     {
       "id": "G5",
-      "description": "Four mixed items remain explicitly unrouted: mixed-application-interface, mixed-special-point-order, mixed-galois-orbit-factor and mixed-conditional-andre-oort. Gao section 13 is inherited checked evidence; earlier mixed Ax-Lindemann/quotient constructions and the full mixed owner screen are still required. Do not put them into the pure CM Part II by analogy."
+      "description": "Four mixed items remain explicitly unrouted: mixed-application-interface, mixed-special-point-order, mixed-galois-orbit-factor and mixed-conditional-andre-oort. Gao section 13 is inherited checked evidence; earlier mixed Ax-Lindemann/quotient constructions and the full mixed owner screen are still required. Do not put them into the pure CM Part II by analogy.",
+      "status": "resolved",
+      "resolution": "Resolved by cc-fb70e5: the four mixed items are routed once, to LogicAndDefinabilityInNumberTheory LD.6 as a source-scoped André–Oort case. The owner screen found only ShimuraCompactifications C1 (boundary mixed data, explicitly not general mixed Shimura theory). Gao's mixed Ax–Lindemann and mixed foundations are prerequisite work in the Gao 2017 prerequisite entry, not items of this paper. The items were checked against Tsimerman p.380 and Gao arXiv v6 §13."
     },
     {
       "id": "G6",
-      "description": "CM and quantitative-isogeny Part II briefs are now active proposals in this partial intake, after stage/decomposition/reserved-ID screening, subject to independent review and the listed source gaps. Remaining broad foundations, exact definition APIs and proof leaves must be refined during source decomposition. No IDs are manually reserved or upstream files edited."
+      "description": "CM and quantitative-isogeny Part II briefs are now active proposals in this partial intake, after stage/decomposition/reserved-ID screening, subject to independent review and the listed source gaps. Remaining broad foundations, exact definition APIs and proof leaves must be refined during source decomposition. No IDs are manually reserved or upstream files edited.",
+      "status": "open",
+      "disposition": "Does not block completeness: this concerns the recursive proof closure of cited prerequisite sources or audit refreshes, which PROTOCOL §16 handles through the prerequisites list. Every item of this paper is read and every missing item is routed."
     }
   ],
   "validation": {
     "lean": "No Lean file is required for this paper job; no Lean compilation or new formal proof is claimed.",
-    "local": "check_paper.py passes; intake.py check-files reports 3 files and 0 problems. Custom checks preserve 84 stable IDs, verify 101 unique items and 135 acyclic dependency edges, no multiply routed missing item, and 23 API outlines with 69 proposed unit tests. All 2412 mathematical regression assertions pass; these are sanity checks, not analytic proofs. A complete-status negative control reports exactly the four intentionally unrouted mixed items.",
-    "unroutedMissingCount": 4,
+    "local": "check_paper.py passes; intake.py check-files reports 3 files and 0 problems. Custom checks preserve 84 stable IDs, verify 101 unique items and 135 acyclic dependency edges, no multiply routed missing item, and 23 API outlines with 69 proposed unit tests. All 2412 mathematical regression assertions pass; these are sanity checks, not analytic proofs. A complete-status negative control reports exactly the four intentionally unrouted mixed items. Continuation cc-fb70e5: check_paper.py passes with status complete and zero unrouted missing items.",
+    "unroutedMissingCount": 0,
     "externalBaselineComplete": false,
     "structuralChecks": {
       "items": 101,
@@ -2158,15 +2184,10 @@
       "preservedIds": 84,
       "dependencyEdges": 135,
       "acyclic": true,
-      "routes": 10,
+      "routes": 11,
       "definitionsConstructions": 23,
       "proposedUnitTests": 69,
-      "unroutedMissing": [
-        "PAPER-TSIMERMAN-18/mixed-application-interface",
-        "PAPER-TSIMERMAN-18/mixed-special-point-order",
-        "PAPER-TSIMERMAN-18/mixed-galois-orbit-factor",
-        "PAPER-TSIMERMAN-18/mixed-conditional-andre-oort"
-      ],
+      "unroutedMissing": [],
       "mathematicalRegressionAssertions": 2412
     }
   },
@@ -2188,6 +2209,12 @@
       "session": "codex-c83e7a",
       "date": "2026-09-21",
       "contribution": "Preserved 84 IDs; quadratic-Hecke analytic deduction, different-norm library import, routing and D/C APIs."
+    },
+    {
+      "agent": "Claude Code",
+      "session": "cc-fb70e5",
+      "date": "2026-09-22",
+      "contribution": "Owner screen for the four mixed items (only ShimuraCompactifications C1's boundary mixed data exists); routed them to LD.6 as a source-scoped André–Oort endpoint; checked them against Tsimerman p.380 and Gao §13 (Theorems 13.3, 13.6, (13.8)); status complete."
     }
   ]
 }
