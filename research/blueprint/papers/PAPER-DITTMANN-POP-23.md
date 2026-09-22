@@ -1,6 +1,7 @@
 # PAPER-DITTMANN-POP-23 — extraction and routing checkpoint
 
-Codex, session `codex-a71f92`; issue #1099; 21 September 2026.
+Codex, session `codex-c83e7a`; issue #1099; 22 September 2026.
+Continuation of codex-a71f92’s merged PR #1662; all previous item and API IDs retained.
 Status: **partial**. The whole main paper was read, but the original-source
 proof audits listed below are unfinished. This is not a claim of formalisation
 or a closed blueprint.
@@ -22,17 +23,17 @@ empty set, including for inadmissible parameter tuples. Neither uniformity in
 all dimensions nor a parameter-free definition of each individual valuation
 ring is claimed.
 
-The companion JSON has 116 items: 10 exact library inputs, 5 planned imports
-and 101 missing items. Each missing item has exactly one route. Forty
+The companion JSON has 129 items: 18 exact library inputs, 5 planned imports
+and 106 missing items. Each missing item has exactly one route. Forty
 definitions/constructions have 120 API contracts and 120 mathematical test
-contracts. The item dependency graph and the six-route import graph are
+contracts, now each with a concrete downstream use. The item dependency graph and the six-route import graph are
 acyclic. Proof outlines distinguish actual source arguments from outstanding
 proof leaves.
 
 ## What was read
 
 The main source is the [final author version, arXiv v2](https://arxiv.org/pdf/2012.01307v2),
-dated 27 April 2023, 19 PDF pages. All of §§1–5 and the references were read.
+dated 27 April 2023, 19 PDF pages. All of §§1–5 and the references were reread for this continuation.
 Its SHA-256 is
 `f9f26f7d8d6b5cb6bf86d04bf97f8f99069d8d676623cebe706e90ea8dcb2c1f`.
 The [publisher record](https://annals.math.princeton.edu/2023/198-3/p04)
@@ -41,8 +42,10 @@ The author-version date is after acceptance and arXiv labels it final.
 The guessed publisher PDF returned 404; a line-by-line comparison with the
 25-page typeset publication was **not** performed.
 
-Selected original inputs were acquired with URL, hash, access date and
-read/not-read boundaries in `sourceArchives`:
+The prior checkpoint acquired the following selected inputs, with URL, hash,
+access date and read/not-read boundaries in `sourceArchives`. The AKNS,
+Poonen, Jannsen, Kerz–Saito and EKM readings below are inherited evidence;
+this continuation does not claim to have reread them:
 
 - AKNS: interpretation/bi-interpretation, localization, Proposition 2.28 with
   its proof, Theorem 3.1 and the §3.2 proof. Earlier coding and §3.1 leaves
@@ -56,8 +59,16 @@ read/not-read boundaries in `sourceArchives`:
 - EKM: quadratic Pfister definitions, roundness and hyperbolicity,
   Fact 16.2 and the Arason–Pfister bound with its proof. The original
   Kato/Voevodsky and subform-theorem proofs are not thereby audited.
-- Kuhlmann–Novacoski: setting (1), Theorem 1.2 and adjacent Theorem 1.3;
-  the henselian-generator proof remains unread.
+- Kuhlmann–Novacoski: this continuation reacquired the identical 20-page
+  author PDF and read selected pp.1–3,5,7–13, including Definition 3.1,
+  Lemmas 2.5,3.2,3.3 and the **full proof of Theorem 1.2**. The cited
+  Raynaud/decomposition-theoretic foundations remain a source gap.
+- Stacks tags [032N](https://stacks.math.columbia.edu/tag/032N),
+  [030M](https://stacks.math.columbia.edu/tag/030M),
+  [032L](https://stacks.math.columbia.edu/tag/032L) and
+  [032O](https://stacks.math.columbia.edu/tag/032O): lemma statements and
+  supplied proofs read, with fresh HTML hashes in `sourceArchives`. Tag
+  030M omits proof details; the pinned Tau Ceti fixed-field proof was read.
 
 Jannsen already has PAPER-JANNSEN-16 in the live batch. The prerequisite list
 does not request a duplicate. Bibliography-only Rumely and Suwa links are
@@ -150,9 +161,37 @@ field, the place/ring dictionary, weak and strong approximation for function
 fields, and the exact prescribed-pole theorem used for singleton isolation.
 No general replacement of those theorems is proposed.
 
-Mathlib's finite-normalization theorem applies to a finite **separable**
-extension of the fraction field of a normal noetherian domain. It does not,
-by itself, discharge the inseparable polynomial normalization input.
+The reviewed A0-extension audit explicitly identifies Tau Ceti’s finite
+normalization theorem for purely inseparable extensions of multivariate
+polynomial fraction fields. The previous checkpoint omitted that import.
+The corrected plan now uses eight additional library items, each checked
+against the actual pinned signature:
+
+- Purely inseparable polynomial normalization, for an arbitrary coefficient
+  field and any finite variable set.
+- Finite normal envelopes, the purely inseparable fixed-field step, and the
+  finite-action Galois fixed-field theorem.
+- Integral-closure transfer down an integral base extension and descent of
+  finite normalization through an injective algebra map.
+- The universal valuative integrality criterion and the normal-domain
+  minimal-polynomial coefficient comparison.
+
+For P=k[T] in positive characteristic, enlarge E/Frac(P) to a finite normal
+N and set I=N^Aut(N/Frac(P)). The order is **purely inseparable below,
+separable above**. Normalize P in I using the pinned polynomial theorem;
+its finite normal closure C has fraction field I. Normalize C in N using
+Mathlib’s separable theorem, transfer back to P, and descend to E. The
+opposite tower order would leave a non-polynomial ring at the purely
+inseparable step and would not match the pinned theorem’s hypotheses.
+In characteristic zero, including A=O_κ, the separable theorem applies
+directly to the normal noetherian polynomial ring A[T].
+
+`finite-normalization-generic` remains a planned A0-extension assembly, not
+an exact built declaration. Its algebra and fraction-field tower adapters
+still need Lean verification. General excellence or Nagata-ring theory is
+not needed for this narrower consumer; general excellent-scheme finiteness
+remains a broader target of the existing owner. The Krull–Akizuki file
+proves Noetherianity and must not be mistaken for module finiteness.
 
 The reviewed audits checked include HL.0–HL.7, the relevant upstream
 quadratic-form layers, Adic coefficients L5, Algebraic curves Layer 12,
@@ -165,6 +204,36 @@ structurally with the local inputs and agreed. The current new-roadmap,
 packet, integrated L5 decomposition and reserved-ID screens found no
 competing owner for these extensions. Legacy references to retired
 FoundationsAndLibraryIntegration are not adopted as suppliers.
+
+## Henselian-generator proof now exposed
+
+The five new missing lemmas all remain in the existing LD.1 source route.
+For finite E/F inside a chosen henselization, use decomposition theory and
+immediacy to identify the finite primes above the base valuation, with
+residue degree one at the selected prime. Chinese remainders produces η
+with residue 1 there and residue 0 at every other prime. Every nonidentity
+embedding sends η to residue 0, whereas η itself has residue 1. This proves
+primitivity. The source’s nonfixing index range accidentally includes the
+identity; the extracted statement explicitly excludes it.
+
+The monic minimal polynomial reduces to X^(n−1)(X−1), whose derivative at 1
+is 1 in every characteristic. Thus η and h′(η) are units. In this specialized
+argument the approximate root can be **x=1**. The finitely many conditions
+v(a_i)≥0, v(h(1))>0 and v(h′(1))=0 are patch-clopen and give the neighborhood
+in Lemma 3.9 by Hensel’s lemma. Arbitrary rank valuations, n=1, and h(1)=0
+are included. No assertion that the whole extended valuation ring is a
+finitely generated base algebra is used: Kuhlmann–Novacoski explicitly
+warn that such an assertion can fail.
+
+The selected-family integrality adapter also has a more explicit proof
+outline. Prolong each selected base valuation to a normal envelope; all
+conjugates of x are nonnegative because **all** prolongations were
+quantified. Include inseparable multiplicities in the minimal polynomial,
+then intersect its coefficient bounds. A single chosen prolongation is
+insufficient: in Q(√6), x=(√6−1)/5 has valuation zero at one prime over 5 and
+valuation −1 at the other; its monic polynomial has coefficients 2/5 and
+−1/5. The pinned universal valuative criterion does not by itself remove
+this selected-family adapter or its valuation-extension source gap.
 
 ## Routing decisions
 
@@ -204,20 +273,25 @@ re-planned.
 ## Validation and remaining work
 
 `python3 scripts/check_paper.py research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json`
-passes. Additional scratch checks verify the 116-item DAG, unique API/test
-names, valid galaxy IDs and one route per missing item. Finite regressions
-check characteristic-two anisotropy/isotropy over F₂/F₄, total inverse
-uniqueness over five prime fields, the quadratic involution, strict odd
-valuation thresholds, two-ball stabilizer witnesses and the corrected
-principal-unit identity. All pass.
+and the intake deliverable-path check pass. Additional scratch checks verify
+all 129 item IDs, the acyclic dependency graph, preservation of prior IDs,
+120 unique API names and 120 unique test names, downstream use references,
+valid stage/parent/galaxy IDs, and exactly one route for each of the 106
+missing items. Existing source routes also retain two planned adapters.
 
-These are finite mathematical regressions and data checks, **not Lean
-elaboration or theorem proofs**. The 120 JSON test entries are unexecuted
-Lean planning contracts. A suggested Lean file is not a deliverable of this
-paper job and none was compiled.
+Fresh finite regressions check simple-root reduction including n=1 and
+characteristics dividing n, the two prolongations over 5 above, Frobenius
+monomial exponent division, total inverse uniqueness, and the corrected
+principal-unit sign. All pass. These are mathematical examples and data
+checks, **not Lean elaboration or theorem proofs**. The 120 JSON tests are
+still unexecuted Lean planning contracts. No Lean file is a deliverable of
+this paper job and none was compiled.
 
-The seven JSON gap records and handoff specify where to resume. In
-particular, the original wild Hasse/Gersten chain, low-dimensional and AKNS
-coding leaves, exact number-field approximation adapter and source-format
-collation are not complete. Review the flag and finite-language bridges
-independently before upgrading the checkpoint's status.
+The seven gap records remain explicit. The Kuhlmann–Novacoski proof is no
+longer unread, and the inseparable polynomial theorem is no longer a
+missing library input. Still open are its valuation/decomposition
+foundations, original wild Hasse/Gersten and resolution chains,
+low-dimensional/AKNS coding leaves, number-field strong approximation,
+Krull intersection and prolonged-valuation adapters, independent review of
+the full-rank flags and inverse-language bridge, and publisher-format
+collation. These substantive tasks prevent a complete status.
