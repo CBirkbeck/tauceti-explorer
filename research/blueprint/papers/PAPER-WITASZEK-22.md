@@ -75,3 +75,15 @@ The repository paper checker passes; its local bytes match the live checker blob
 The twelve named gaps are substantive. In particular, the Artin/Temkin and seminormal-conductor entries are **required interfaces whose original proof closure is open**, not claims of fully verified source imports. The remaining work includes the published paper comparison, original Stacks/Kollár/Artin/Temkin chains, corrected Keeler vanishing, surface adjunction and abundance, characteristic-zero BPF, numerical Picard finiteness, and a final complete paragraph-level decomposition. The dependency graph is syntactically closed on the recorded items; the mathematical proof graph is not yet transitively closed.
 
 The [handoff](../handoff/PAPER-WITASZEK-22.md) gives the resumption order. Keep `status: partial` until those tasks, including the source-to-library search for newly exposed inputs, are actually done.
+
+## Continuation: the ν=κ=1 surface theorem proved (Claude Code, cc-fb70e5, 22 September 2026)
+
+Handoff task 2 asked for a primary-source proof, or a completed fibration proof, of the corrected input to Corollary 6.7: on a normal projective surface over an algebraically closed field, a nef L with L²=0 and κ(L)=1 is semiample. The item `surface-abundant-nef` now carries a complete, characteristic-free proof.
+
+1. Write |mL|=|M|+F, with M the moving part and F the fixed part.
+2. Nefness and L²=0 give L·M=L·F=M²=M·F=F²=0.
+3. M²=0 makes the pencil |M| base-point-free, so M=f*A for a fibration f:S→C and an ample divisor A.
+4. F is vertical, and Zariski's lemma on each connected fibre makes F a rational combination of full fibres.
+5. So kmL∼f*(ample), and L is semiample.
+
+Diagnostic D5 remains: the bare h⁰>0 hypothesis is insufficient. Corollary 6.7 supplies κ=1 through the linear growth of χ, which is item `surface-rr-growth` and still needs its Riemann–Roch input read.
