@@ -1,6 +1,297 @@
 {
  "purpose": "Mistakes found in published sources by the atlas's workers (research/blueprint/PROTOCOL.md section 18).",
- "issues": [],
+ "issues": [
+  {
+   "id": "PAPER-HE-21/E1",
+   "kind": "gap",
+   "locator": "He21 published §6.3, p.14",
+   "printed": "By [He15, Theorem 2.27], X_(at^γ)(τdot)≠∅.",
+   "correction": "Supply a non-shrunken seed theorem, with the source/characteristic bridge; /118–122 give the restricted repair and remaining obligations.",
+   "reason": "The explicit adjoint A2 example in /92 and the report has shrunken input and non-shrunken constructed output. The cited theorem's extra premise is not available. This does not contradict nonemptiness or the main theorem.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-22: Cambridge article record/HTML and targeted title + erratum/corrigendum searches; no correction located.",
+    "2026-09-22: arXiv2001.03325 submission history lists only v1; published text controls these locators.",
+    "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists."
+   ],
+   "owner": "PAPER-HE-21",
+   "file": "research/blueprint/papers/PAPER-HE-21.result.json",
+   "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-21/E2",
+   "kind": "misprint",
+   "locator": "He21 published §6.2, p.13",
+   "printed": "(J, σ⁻¹(y), σ)",
+   "correction": "Use (J,x,σ) with the normal-form left factor, and x⁻¹wσ(x)=t^λσ(ησ(w)).",
+   "reason": "This matches GHN15 Lemma3.6.3 and retains the dominant translation λ in the Levi calculation. The printed conjugating element and later inverse conventions are inconsistent.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-22: Cambridge article record/HTML and targeted title + erratum/corrigendum searches; no correction located.",
+    "2026-09-22: arXiv2001.03325 submission history lists only v1; published text controls these locators.",
+    "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists."
+   ],
+   "owner": "PAPER-HE-21",
+   "file": "research/blueprint/papers/PAPER-HE-21.result.json",
+   "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-21/E3",
+   "kind": "misprint",
+   "locator": "He21 published Proposition5.1 and Corollary5.3 proofs, p.8",
+   "printed": "Σ_(α∈Δ) Nα",
+   "correction": "Use α∨ in coweight differences; retain the reduced-root/coroot pairing convention of §2.",
+   "reason": "The differences are in the coweight space and the defined integral dominance order is the coroot order. In non-simply-laced types roots and coroots cannot be silently identified.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-22: Cambridge article record/HTML and targeted title + erratum/corrigendum searches; no correction located.",
+    "2026-09-22: arXiv2001.03325 submission history lists only v1; published text controls these locators.",
+    "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists."
+   ],
+   "owner": "PAPER-HE-21",
+   "file": "research/blueprint/papers/PAPER-HE-21.result.json",
+   "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-21/E4",
+   "kind": "misprint",
+   "locator": "He21 published Proposition5.1 proof, p.8, sums over the full Δ",
+   "printed": "Σ_(α∈Δ) Z_{>0}α",
+   "correction": "Use nonnegative coroot coefficients in the full-Δ feasibility cones. Strictly positive coefficients on the separately selected supports J1,J2 are legitimate and need not be changed.",
+   "reason": "Taking λ=λ′=μ1′=μ2′=0 gives zero, which is not in the all-strict-positive cone in positive rank.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-22: Cambridge article record/HTML and targeted title + erratum/corrigendum searches; no correction located.",
+    "2026-09-22: arXiv2001.03325 submission history lists only v1; published text controls these locators.",
+    "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists."
+   ],
+   "owner": "PAPER-HE-21",
+   "file": "research/blueprint/papers/PAPER-HE-21.result.json",
+   "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-21/E5",
+   "kind": "gap",
+   "locator": "He21 published Proposition5.1 proof, final line, p.8",
+   "printed": "The statement is proved.",
+   "correction": "Add existence of a feasible coweight and a well-foundedness/finiteness argument yielding a minimal element; lower-directedness then proves leastness.",
+   "reason": "The written argument constructs a common lower bound for two feasible points. A nonempty lower-directed poset alone need not have a minimal element. Items /53–55 supply the finite-below-one-feasible-point argument.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-22: Cambridge article record/HTML and targeted title + erratum/corrigendum searches; no correction located.",
+    "2026-09-22: arXiv2001.03325 submission history lists only v1; published text controls these locators.",
+    "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists."
+   ],
+   "owner": "PAPER-HE-21",
+   "file": "research/blueprint/papers/PAPER-HE-21.result.json",
+   "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-21/E6",
+   "kind": "gap",
+   "locator": "He21 published §§5.2–5.4, pp.9–11",
+   "printed": "t^{ρ∨_J}",
+   "correction": "Specify the auxiliary/adjoint lattice and prove the carrier/κ/geometry comparison before using this translation for general G.",
+   "reason": "For SL2, ρ∨_{s}=α∨/2 does not belong to the original cocharacter lattice. He21 §1.5 gives a transfer strategy, but the needed precise bridge remains to be made explicit in /61,/127.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-22: Cambridge article record/HTML and targeted title + erratum/corrigendum searches; no correction located.",
+    "2026-09-22: arXiv2001.03325 submission history lists only v1; published text controls these locators.",
+    "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists."
+   ],
+   "owner": "PAPER-HE-21",
+   "file": "research/blueprint/papers/PAPER-HE-21.result.json",
+   "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-21/E7",
+   "kind": "gap",
+   "locator": "He21 published §5.4 argument (a), p.12",
+   "printed": "Hence ∪_Y Z_Y ⊊ Z.",
+   "correction": "Localize to a finite-type open in the target component and establish a finite-type convolution preimage, or supply equivalent finiteness hypotheses.",
+   "reason": "An arbitrary union of proper closed subsets can cover an irreducible scheme. The /123–126 local bounded-model route supplies the required setting once its producers are proved; this is not a counterexample to the dimension conclusion.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-22: Cambridge article record/HTML and targeted title + erratum/corrigendum searches; no correction located.",
+    "2026-09-22: arXiv2001.03325 submission history lists only v1; published text controls these locators.",
+    "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists."
+   ],
+   "owner": "PAPER-HE-21",
+   "file": "research/blueprint/papers/PAPER-HE-21.result.json",
+   "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-21/E8",
+   "kind": "misprint",
+   "locator": "He21 published §2.2, p.5, sentence citing BS17",
+   "printed": "equal characteristic",
+   "correction": "Use a source for ordinary equal-characteristic flag schemes and separately state the mixed-characteristic perfect-scheme construction supported by BS17.",
+   "reason": "The equal-characteristic existence statement is true; the cited Witt-vector construction addresses the mixed-characteristic carrier. This is a citation/carrier clarification, not a false equal-characteristic theorem.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-22: Cambridge article record/HTML and targeted title + erratum/corrigendum searches; no correction located.",
+    "2026-09-22: arXiv2001.03325 submission history lists only v1; published text controls these locators.",
+    "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists."
+   ],
+   "owner": "PAPER-HE-21",
+   "file": "research/blueprint/papers/PAPER-HE-21.result.json",
+   "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-21/E9",
+   "kind": "misprint",
+   "locator": "He14 published Proposition11.6 statement, p.399; also arXivv2",
+   "printed": "supp_δ(v)=J",
+   "correction": "Replace the undefined v by x.",
+   "reason": "The statement introduced wtilde=x t^μ y; x is the element in W_J used throughout the induction.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-22: Annals article record and targeted title + erratum/correction search; no official correction located.",
+    "2026-09-22: arXiv1201.4901 history and v2 proof compared with the published page399 image.",
+    "2026-09-22: HZZ arXiv2109.02594v1 Proposition3.4.2 and proof read for a later reformulation."
+   ],
+   "owner": "PAPER-HE-21",
+   "file": "research/blueprint/papers/PAPER-HE-21.result.json",
+   "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-21/E10",
+   "kind": "misprint",
+   "locator": "He14 published Proposition11.6 proof, p.399; page image checked; also arXivv2",
+   "printed": "i∈δ⁻¹(J1)",
+   "correction": "The left descent must be chosen in J\\δ⁻¹(J1).",
+   "reason": "x1 was chosen left-minimal for W_(δ⁻¹J1), so a simple generator in that set cannot be a left descent. The next minimum-coset step needs exclusion. HZZ's later proof explicitly makes the outside choice.",
+   "affects": "the proof",
+   "known": "Later reformulation: He–Zhou–Zhu, arXiv2109.02594v1, Proposition3.4.2 proof, pp.22–23 (not an official erratum)",
+   "searched": [
+    "2026-09-22: Annals article record and targeted title + erratum/correction search; no official correction located.",
+    "2026-09-22: arXiv1201.4901 history and v2 proof compared with the published page399 image.",
+    "2026-09-22: HZZ arXiv2109.02594v1 Proposition3.4.2 and proof read for a later reformulation."
+   ],
+   "owner": "PAPER-HE-21",
+   "file": "research/blueprint/papers/PAPER-HE-21.result.json",
+   "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-21/E11",
+   "kind": "misprint",
+   "locator": "He14 published Proposition11.6 proof, p.399, after x′=x1*δ(u)",
+   "printed": "supp(x′)=J",
+   "correction": "Retain supp_δ(x′)=J.",
+   "reason": "Only saturated support was established by the preceding equalities. For a nontrivial A2 node-swap automorphism, s1 has full saturated support but proper ordinary support. HZZ's later induction consistently keeps σ-support.",
+   "affects": "the proof",
+   "known": "Later reformulation: He–Zhou–Zhu, arXiv2109.02594v1, Proposition3.4.2 proof (not an official erratum)",
+   "searched": [
+    "2026-09-22: Annals article record and targeted title + erratum/correction search; no official correction located.",
+    "2026-09-22: arXiv1201.4901 history and v2 proof compared with the published page399 image.",
+    "2026-09-22: HZZ arXiv2109.02594v1 Proposition3.4.2 and proof read for a later reformulation."
+   ],
+   "owner": "PAPER-HE-21",
+   "file": "research/blueprint/papers/PAPER-HE-21.result.json",
+   "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-21/E12",
+   "kind": "misprint",
+   "locator": "HY12 arXiv1203.4680v1 §4.2, p.9",
+   "printed": "J=supp(w)",
+   "correction": "In the twisted setting J is the τ-saturated support of the finite Coxeter word in W_Jτ.",
+   "reason": "A twisted Coxeter word chooses one representative per orbit, so its ordinary support may omit other members of J. Published Journal of Algebra wording has not been compared; this finding is confined to arXivv1.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-22: arXiv1203.4680 version history (v1 only), full v1 text and Journal of Algebra article record.",
+    "2026-09-22: targeted title + erratum search; no correction located. The published PDF has not been checked."
+   ],
+   "owner": "PAPER-HE-21",
+   "file": "research/blueprint/papers/PAPER-HE-21.result.json",
+   "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-21/E13",
+   "kind": "error",
+   "locator": "GHN15 published Proposition2.2.1(1)–(2), §2.2",
+   "printed": "Flag→Flagad",
+   "correction": "Keep the componentwise isomorphism with its characteristic restriction. A global immersion additionally requires injectivity on component groups.",
+   "reason": "The original argument wrongly assumed that π0(Flag)→π0(Flagad) is injective. The authors' erratum removes that assumption from the componentwise statement and adds it to the immersion assertion.",
+   "affects": "a stated result",
+   "known": "GHN 2017 erratum Proposition0.0.1: https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf",
+   "searched": [
+    "Original GHN15 §2.2 and all three pages of the authors' erratum, reread 2026-09-22."
+   ],
+   "owner": "PAPER-HE-21",
+   "file": "research/blueprint/papers/PAPER-HE-21.result.json",
+   "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-21/E14",
+   "kind": "error",
+   "locator": "GHN15 published Proposition3.5.1 and Remark3.6.2",
+   "printed": "at most one σ-conjugacy class",
+   "correction": "Require [b] to be basic.",
+   "reason": "diag(t,1) and diag(1,t) are GL2-σ-conjugate but not σ-conjugate in its diagonal torus. The authors' erratum gives this counterexample and adds the basic hypothesis.",
+   "affects": "a stated result",
+   "known": "GHN 2017 erratum Proposition0.0.2: https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf",
+   "searched": [
+    "Original GHN15 Proposition3.5.1 and full authors' erratum, reread 2026-09-22.",
+    "He21 Theorem6.3 footnote already distinguishes the basic-only inputs."
+   ],
+   "owner": "PAPER-HE-21",
+   "file": "research/blueprint/papers/PAPER-HE-21.result.json",
+   "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  }
+ ],
  "unchecked": [
   "MordellLawrenceVenkatesh",
   "PAPER-ANDRE-18",
@@ -28,7 +319,6 @@
   "PAPER-HACON-WITASZEK-23",
   "PAPER-HARPAZ-WITTENBERG-20",
   "PAPER-HARPAZ-WITTENBERG-23",
-  "PAPER-HE-21",
   "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
   "PAPER-KISIN-PAPPAS-18",
   "PAPER-KISIN-PAPPAS-ZHOU-26",
