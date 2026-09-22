@@ -1,59 +1,65 @@
-# Handoff — PAPER-FRESAN-SABBAH-YU-22
+# Handoff: PAPER-FRESAN-SABBAH-YU-22
 
-Claude Code, session `cc-7b31c4`; issue #1316; 22 September 2026.
+Claude Code, session `cc-442dc5`, 22 September 2026 (issue #1316). This completes the checkpoint of session `cc-7b31c4`.
 
-Partial extraction: 65 items (1 library, 7 planned, 57 missing), every missing item routed exactly once,
-across two new roadmaps and two source routes. Four named gaps. Read the report first, then the JSON's
-`source.readSections` and `gaps`.
+## Done
 
-## What is done
+The extraction is complete (`status: complete`). `scripts/check_paper.py` reports ok, `intake.py check-files` reports no problems, and every missing item is routed exactly once.
 
-- The version question is settled. Read **arXiv:1810.06454v5**, which the authors label the final
-  published version; v1–v2 predate a substantial revision after referee reports in which the whole
-  construction moved into the setting of exponential mixed Hodge structures, so they must not be used.
-  Hashes and file names are in `source.readSections`.
-- The numbering is settled and verified. All environments share the equation counter, so statement and
-  equation numbers interleave; the reconstruction was pinned against the printed equation tags of the
-  compiled PDF and agrees with all 43 statement cross-references, with no type mismatch. 58 numbered
-  statements: 3, 9, 5, 10, 14 in the five sections and 17 in the appendix.
-- Read at proof level: §1 in full, §2.1 including the proofs of Proposition 2.4 and Lemma 2.5, and §3.1
-  including the proof of Theorem 3.2. Read at statement level: everything else.
-- The routing is decided and should not be redone: a new roadmap for the general machinery
-  (`MixedHodgeModulesAndIrregularHodgeTheory`) and a second for the application
-  (`KloostermanMomentsAndPotentialAutomorphy`), with source routes to
-  `ModularityAndLanglandsExtensions` ML.2 for Patrikis–Taylor and to
-  `PadicDifferentialEquationsAndRigidCohomology` RD.6/RD.7 for the rigid-cohomology comparison. The
-  atlas searches behind that decision are written out in the report.
+**Deliverables:**
 
-## Resume order
+- `research/blueprint/papers/PAPER-FRESAN-SABBAH-YU-22.result.json`: 92 items (2 library, 10 planned, 80 missing), six routes, 36 prerequisites, 7 source issues, and the four checkpoint gaps closed with resolutions.
+- The report, `research/blueprint/papers/PAPER-FRESAN-SABBAH-YU-22.md`, which lists every change made to the checkpoint.
 
-1. **G-PROOFS-4-5.** Read §4 and §5 line by line. §4 is the computational heart: the formal structure of
-   `Sym^k Kl₂` at infinity, the intermediate extensions and the exceptional case `4 | k`, the inverse
-   Fourier transform and its singularities at `τ = 2(2j−k)`, the dimension formula, the explicit bases
-   and the Hodge filtration in them. §5 needs the quadric appearing in Theorem 5.8 and the vanishing-cycle
-   description in Theorem 5.17 to be named as separate items, together with the local `L`- and
-   `ε`-factors of §5.6. Split the items where the proofs use inputs not yet named.
-2. **G-APPENDIX-PROOFS.** Read the appendix's proofs and the points of Saito's two papers they cite, and
-   then decide how much of the mixed-Hodge-module theory the new roadmap must build rather than import.
-   This is the decision that fixes the size of `MixedHodgeModulesAndIrregularHodgeTheory`.
-3. **G-SOURCE-ISSUES.** `sourceIssues` is an empty list recording that nothing was found in the parts
-   read at proof level. It must be revisited once 1 and 2 are done; do not leave it empty by default.
-4. **G-LIBRARY.** Confirm at the pinned commits that Mathlib and Tau Ceti contain nothing for D-modules,
-   perverse sheaves, Hodge modules or étale cohomology, rather than relying on the atlas search.
+**What was read.** arXiv v5 (the authors' final published version), at proof level throughout:
 
-## Safeguards
+- the checkpoint read §1, §2.1 and §3.1;
+- this session read §§2.2–2.3, 3.2, 4, 5 and A.1–A.7, and re-read §§2.1 and 3.1.
 
-- Do not fold the machinery into the application or the other way round: the point of the two-roadmap
-  split is that the appendix's theory is reusable, and the brief of each names what it imports from the
-  other.
-- `HodgeStructuresPartII` (PAPER-LANDESMAN-LITT-24) is a different extension of the Tau Ceti
-  Hodge-structures roadmap — variations, period maps, non-abelian Hodge theory — and must not be
-  conflated with mixed Hodge modules.
-- The remaining part of the Broadhurst–Roberts conjecture (`r_k = ⌊k/6⌋`, `ε_k = (−1)^{t_k}`) and the
-  Bessel-moment relation of the sequel are boundaries, not theorem targets.
-- Follow the live WORKERS claim protocol and re-read the issue before resuming; never reuse an old claim.
+The Duke text is by subscription and was not read. Locators give arXiv v5 page numbers, pinned from the compiled PDF.
 
-## Checks at submission
+**How the four gaps were closed:**
 
-`scripts/check_paper.py` passes and `intake.py check-files` reports no problems. No Lean file is a
-deliverable and no compilation is claimed. Only this job's result, report and handoff are changed.
+- **G-PROOFS-4-5.** Twenty-seven new items (66–92) name the inputs of §§2–5. Eleven existing items were restated exactly.
+- **G-APPENDIX-PROOFS.** The scope of Saito's theory that `MixedHodgeModulesAndIrregularHodgeTheory` must build is fixed in item 11 and in that route's brief.
+- **G-SOURCE-ISSUES.** Seven misprints, E1–E7, are recorded.
+- **G-LIBRARY.** Tau Ceti f790474 has mixed Hodge structures, so item 2 became `library`. Nothing else is in either library.
+
+## Judgement calls for the reviewer
+
+**Two new source routes:**
+
+- LefschetzPencilsAndVanishingCycles LPV.2 takes Illusie's non-ordinary quadratic singularity, item 78, which the paper needs at p = 2.
+- ArithmeticGaloisRepresentations R01.2 takes Lemma 5.40, item 89, split out of the checkpoint's item 59.
+- Each route also lists one planned item: 77 and 88.
+
+**General theorems kept with the application.** Items 87 (Serre's gamma factor), 91 (Serre's semisimplification theorem) and 92 (T. Saito's sign theorem) are routed to `KloostermanMomentsAndPotentialAutomorphy`, their only consumer here.
+
+**Weil's bound for Kloosterman sums (item 66)** is marked planned in FF.2.
+
+**Corrections to the checkpoint:**
+
+- Item 14's description of EMHS was false and was replaced.
+- Several locators cited nonexistent §§5.5–5.7; they now cite §§5.1.x and 5.3.x.
+- Item 43 cited (3.4) for 𝑴_k, which is (3.1).
+- Item 16 cited A.4, which should be A.3.
+- Item 47 wrote j_{0!} for j_{0!*}.
+
+## Leads not recorded as source issues
+
+**Typographic slips:**
+
+- parentheses in the proofs of Proposition 2.4 and Theorem A.24(1);
+- "≤ im(β)^{G,χ}" for "≤ dim im(β)^{G,χ}" in the proof of Theorem 5.17;
+- M₁^H for M^H in the proof of Corollary A.31.
+
+**Imprecise wording:**
+
+- Remark 5.28 calls the even-k Hodge polygons "strictly above" n(n−1), although Figure 1 shows that they touch it at the intermediate vertices.
+- §5.3.1 calls det(ρ) "the non-trivial character" of Q_p(√±k!!), which can be locally trivial.
+
+**Not verified:** the Picard–Lefschetz sign (−1)^{k/2} in the proof of Theorem 5.17 was not checked against the conventions of SGA 7; LPV.2 plans that sign table.
+
+## Not done
+
+Nothing remains in the extraction.
